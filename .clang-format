@@ -1,0 +1,7 @@
+BasedOnStyle: LLVM
+IndentWidth: 4 # This controls width *if* you're using spaces
+UseTab: Always # <- Use actual tab characters
+TabWidth: 4 # Optional: set how wide a tab is visually
+BreakBeforeBraces: Allman
+AllowShortIfStatementsOnASingleLine: false
+ColumnLimit: 0

@@ -1,0 +1,6 @@
+/*          Automatically generated             */
+// The configured options and settings for CompactStar
+#define CompactStar_VERSION_MAJOR ${CompactStar_VERSION_MAJOR}
+#define CompactStar_VERSION_MINOR ${CompactStar_VERSION_MINOR}
+#define CompactStar_VERSION_STR "${CompactStar_VERSION_MAJOR}.${CompactStar_VERSION_MINOR}"
+#define CompactStar_RELEASE_DATE "${CompactStar_RELEASE_DATE}"
