@@ -5,6 +5,13 @@
 		}
 	],
 	"settings": {
+		  // Use clangd or MSVC/Clang for C++ IntelliSense
+		  "C_Cpp.default.compilerPath": "/usr/bin/clang++",
+		  "C_Cpp.default.cppStandard": "c++17",
+		  
+			// Formatting style (optional)
+			"editor.formatOnSave": true,
+			"C_Cpp.clang_format_fallbackStyle": "Google",
 		"files.associations": {
 			"*.in": "cpp",
 			"ostream": "cpp",
