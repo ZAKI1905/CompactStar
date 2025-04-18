@@ -1,45 +1,44 @@
 // -*- lsst-c++ -*-
 /*
-* CompactStar
-* See License file at the top of the source tree.
-*
-* Copyright (c) 2023 Mohammadreza Zakeri
-*
-* Permission is hereby granted, free of charge, to any person obtaining a copy
-* of this software and associated documentation files (the "Software"), to deal
-* in the Software without restriction, including without limitation the rights
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the Software is
-* furnished to do so, subject to the following conditions:
-*
-* The above copyright notice and this permission notice shall be included in all
-* copies or substantial portions of the Software.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-* SOFTWARE.
-*/
+ * CompactStar
+ * See License file at the top of the source tree.
+ *
+ * Copyright (c) 2023 Mohammadreza Zakeri
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
 /**
  * @file NStar.hpp
+ * @brief Definition of neutron star profile and sequence handling.
  *
- * @brief Typical neutron star.
+ * This file declares the SeqPoint struct for storing star sequence points
+ * and the NStar class for managing TOV solutions, rotation, and profile export.
  *
  * @ingroup Core
- *
  * @author Mohammadreza Zakeri
- * Contact: M.Zakeri@uky.edu
- *
-*/
+ * @contact M.Zakeri@eku.edu
+ */
 // Last edit Nov 3, 2021
 #ifndef CompactStar_NStar_H
 #define CompactStar_NStar_H
 
-// #include <gsl/gsl_spline.h>
 
 #include <Zaki/String/Directory.hpp>
 #include <Zaki/Vector/DataSet.hpp>
@@ -51,7 +50,10 @@
 namespace CompactStar
 {
 
-// forward declaration 
+/**
+ * @struct TOVPoint
+ * @brief Forward declaration for Tolman-Oppenheimer-Volkoff solution point.
+ */
 struct TOVPoint ;     
 class RotationSolver ;
 class TOVSolver ;
@@ -60,15 +62,51 @@ class TOVSolver ;
 //==============================================================
 //             Usual Star Sequence Points Class
 //==============================================================
+/**
+ * @class SeqPoint
+ * @brief Holds a single data point in a star sequence.
+ *
+ * Stores energy density, mass, radius, central pressure, baryon number,
+ * and moment of inertia for a neutron star model.
+ */
 class SeqPoint
 {
   public:
-    double ec, m, r, pc, b, I ;
+    /** @brief Energy density (EC). */
+    double ec;
 
+    /** @brief Gravitational mass (M). */
+    double m;
+
+    /** @brief Radius (R). */
+    double r;
+
+    /** @brief Central pressure (PC). */
+    double pc;
+
+    /** @brief Baryon number integral (B). */
+    double b;
+
+    /** @brief Moment of inertia (I). */
+    double I;
+
+    /**
+     * @brief Default constructor, initializes all values to zero.
+     */
     SeqPoint() : ec(0), m(0), r(0), pc(0),
               b(0), I(0) 
       { } ;
 
+    /**
+     * @brief Parameterized constructor.
+     *
+     * @param in_ec  Energy density.
+     * @param in_m   Mass.
+     * @param in_r   Radius.
+     * @param in_pc  Central pressure.
+     * @param in_b   Baryon number.
+     * @param in_I   Moment of inertia.
+     */
     SeqPoint(const double& in_ec, const double& in_m,
             const double& in_r, const double& in_pc,
             const double& in_b, const double& in_I)
@@ -76,6 +114,14 @@ class SeqPoint
               b(in_b), I(in_I)
       { }
 
+    /**
+     * @brief Construct from a sequence row vector.
+     *
+     * Expects a vector of length 6: [ec, m, r, pc, b, I].
+     * Logs an error if size mismatch.
+     *
+     * @param in_seq_row  Input row vector.
+     */
     SeqPoint(const std::vector<double>& in_seq_row)
       {
         if ( in_seq_row.size() != 6 )
@@ -91,6 +137,11 @@ class SeqPoint
           }
       }
 
+    /**
+     * @brief Format the sequence point as a string.
+     *
+     * @return Tab-delimited string of values in scientific notation.
+     */
     std::string Str() const
     {
       std::stringstream ss;
@@ -102,6 +153,9 @@ class SeqPoint
       return ss.str() ;
     }
 
+    /**
+     * @brief Reset all sequence values to zero.
+     */
     void Reset()
     {
       ec  = 0;
@@ -112,15 +166,30 @@ class SeqPoint
       I   = 0;
     }
     //..................................................
-    // Operator overloading
-    // Addition (+)
+
+    /**
+     * @brief Addition operator.
+     *
+     * Adds corresponding fields of two SeqPoint objects.
+     *
+     * @param seq  Sequence point to add.
+     * @return     New SeqPoint representing the sum.
+     */
     SeqPoint operator+(const SeqPoint& seq) const
     {
       SeqPoint out_seq( ec+seq.ec, m+seq.m, r+seq.r, 
                         pc+seq.pc, b+seq.b, I+seq.I) ;
       return out_seq ;
     }
-    // Multiplication (*)
+    
+    /**
+     * @brief Scalar multiplication operator.
+     *
+     * Multiplies all fields by a scalar.
+     *
+     * @param num  Scalar multiplier.
+     * @return     New SeqPoint scaled by num.
+     */
     SeqPoint operator*(const double& num) const
     {
       SeqPoint out_seq( ec*num, m*num, r*num, 
@@ -131,6 +200,16 @@ class SeqPoint
 };
 
 //==============================================================
+//                        NStar Class
+//==============================================================
+
+/**
+ * @class NStar
+ * @brief Main neutron star class for handling TOV solutions and rotation.
+ *
+ * Inherits from Prog to provide utility functions, manages interpolation
+ * datasets, computes baryon number and moment of inertia, and exports profiles.
+ */
 class NStar : public Prog
 {
   friend class RotationSolver ;
@@ -139,191 +218,252 @@ class NStar : public Prog
   //--------------------------------------------------------------
   private:
 
+    /** @brief Dataset holding radius, mass, pressure, etc. */
     Zaki::Vector::DataSet ds ;
+
+    /** @brief Integrand dataset for baryon number calculation. */
     Zaki::Vector::DataSet B_integrand ;
 
-    int r_idx = 0 ;
-    int m_idx = 1 ;
-    int nu_der_idx = 2 ;
-    int pre_idx = 3 ;
-    int eps_idx = 4 ;
-    int rho_idx = 5 ;
-    int nu_idx = 6 ;
+    int r_idx      = 0; /**< Radius index in dataset. */
+    int m_idx      = 1; /**< Mass index.          */
+    int nu_der_idx = 2; /**< Derivative of metric function index. */
+    int pre_idx    = 3; /**< Pressure index.      */
+    int eps_idx    = 4; /**< Energy density index.*/
+    int rho_idx    = 5; /**< Baryon density index.*/
+    int nu_idx     = 6; /**< Metric function index.*/
 
-    std::vector<int> rho_i_idx ;
+    std::vector<int> rho_i_idx ; /**< Indices for individual species densities. */
 
-    // Sets the work directory for the member objects
+    /**
+     * @brief Set working directory for internal objects.
+     *
+     * @param in_dir  Input directory path.
+     * @return        Pointer to Prog base for chaining calls.
+     */
     CompactStar::Prog* SetMemWrkDir(const 
                   Zaki::String::Directory& in_dir)  ;
-
-    // Zaki::Vector::DataColumn radius ;
-    // Zaki::Vector::DataColumn mass ;
-    // Zaki::Vector::DataColumn rho ;
-    // Zaki::Vector::DataColumn eps ;
-    // Zaki::Vector::DataColumn press ;
-    // Zaki::Vector::DataColumn nu_der ;
-    // Zaki::Vector::DataColumn nu ;
-
-    // This workspace stores state variables for interpolation lookups.
-    // It caches the previous value of an index lookup. 
-    // When the subsequent interpolation point falls in the same 
-    // interval its index value can be returned immediately.
-    // gsl_interp_accel *accel = nullptr ;
-
-    // We use cubic spline
-    // Cubic spline with natural boundary conditions. 
-    // The resulting curve is piecewise cubic on each interval, 
-    // with matching first and second derivatives at the supplied data-points.
-    //  The second derivative is chosen to be zero at the first point and last point.
-    // gsl_spline *mass_r_spline = nullptr ;
-    // gsl_spline *rho_r_spline = nullptr ;
-    // gsl_spline *eps_r_spline = nullptr ;
-    // gsl_spline *press_r_spline = nullptr ;
-    // gsl_spline *nu_der_r_spline = nullptr ;
-    // gsl_spline *nu_r_spline = nullptr ;
-
-    // std::shared_ptr<NStar> GetSharedPtr() ;
-    // void SetSharedPtr(std::shared_ptr<NStar> ) ; 
 
     /// The SeqPoint that corresponds to this star
     /// This will be initialized after SurfaceIsReached 
     /// is called, or if the whole TOV is imported from a file
-    SeqPoint sequence ;
+    SeqPoint sequence ; /**< Cached sequence point after surface is reached. */
 
-    /// Rotation solver
-    RotationSolver rot_solver ;
+    RotationSolver rot_solver ; /**< Rotation solver instance. */
 
-    /// Moment of inertia
-    double MomI = 0 ;
+    double MomI = 0 ; /**< Cached moment of inertia. */
 
-    /// Precision for printing the profile
-    int profile_precision = 9 ;
+    int profile_precision = 9 ; /**< Digits of precision when printing profiles. */
 
   //--------------------------------------------------------------
   public:
     
-    /// Default Constructor 
+    /**
+     * @brief Default constructor.
+     */ 
     NStar();
 
-    /// Constructor from TOV Solutions
+    /**
+     * @brief Construct from TOV solution points.
+     *
+     * Initializes dataset from provided TOV results.
+     *
+     * @param in_tov_results  Vector of TOVPoint structures.
+     */
     NStar(const std::vector<TOVPoint>& in_tov_results) ;
 
-    /// Initializes the dataset
+    /**
+     * @brief Initialize internal datasets from a TOV solver.
+     *
+     * Must be called before appending points.
+     *
+     * @param in_tov_solver  Pointer to initialized TOVSolver.
+     */
     void Init(const TOVSolver* in_tov_solver) ;
 
-    /// Appends tov points to the NStar
+    /**
+     * @brief Append a single TOV solution point.
+     *
+     * @param in_tov_pts  TOVPoint to append.
+     */
     void Append(const TOVPoint& in_tov_pts) ;
 
     /// This has to be run so the class
     /// knows when to initialize all the splines
+    /**
+     * @brief Signal that surface has been reached, enabling spline init.
+     */
     void SurfaceIsReached() ;
 
-    // /// Reserving the needed space for all datacolumns
-    // void Reserve(const size_t& space_size) ;
-
-    /// Similar to the destructor
+    /**
+     * @brief Reset the NStar object to initial state.
+     */
     void Reset() ;
 
-    /// Constructor from file
-    // NStar(const Zaki::String::Directory& in_tov_file) ;
-
-    /// Destructor
+    /**
+     * @brief Destructor cleans up any allocated resources.
+     */
     ~NStar() ;
 
-    /// Copy Constructor 
+    // Deleted copy operations to enforce unique ownership
     NStar(const NStar &) = delete ;
 
     /// Assignment operator
     NStar& operator= (const NStar&) = delete;
 
-    // /// Mass as a function of radius
-    // double GetMass(const double& in_r) const ;
-
-    // /// Baryon number density as a function of radius
-    // double GetRho(const double& in_r) const ;
-
-    // /// Energy density as a function of radius
-    // double GetEps(const double& in_r) const ;
-    
-    // /// Pressure as a function of radius
-    // double GetPress(const double& in_r) const ;
-
-    // /// Metric function as a function of radius
-    // double GetNu(const double& in_r) const ;
-
-    // /// Derivative of the metric function as a function of radius
-    // double GetNuDerSpline(const double& in_r) ;
-
-    // /// Total baryon number inegrand
-    // double BaryonNumIntegrand(double in_r) ;
-
-    // /// Total baryon number as a function of radius
-    // double GetBaryonNum(const double& in_r) ;
-
-    // /// Total baryon number
-    // double GetBaryonNum() ;
-
-    // // /// Moment of inertia inegrand
-    // // double MomInertiaIntegrand(double in_r) ;
-
-    // /// Total moment of inertia
-    // double GetMomInertia() ;
-
     // ------------------------------
-    ///  Mass as a function of radius
+    //  Getters
+    // ------------------------------
+
+    /**
+     * @brief Get interpolated mass at a given radius.
+     *
+     * @param in_r  Radius value.
+     * @return      Mass at radius.
+     */
     double GetMass(const double& in_r) const ;
+
+    /**
+     * @brief Get the DataColumn of mass values.
+     *
+     * @return Pointer to mass DataColumn.
+     */
     Zaki::Vector::DataColumn* GetMass() ;
 
     ///  Baryon number density (fm^{-3}) as a function 
     /// of radius for a specific species labeled as (in_label)
+
+    /**
+     * @brief Get baryon density (fm^{-3}) DataColumn
+     *   as a function of radius for a labeled species.
+     *
+     * @param in_label  Species label string.
+     * @return          Pointer to density DataColumn.
+     */
     Zaki::Vector::DataColumn* GetRho_i(const 
                                     std::string& in_label) ;
 
-    /// Baryon number density as a function of radius
+    /**
+     * @brief Get interpolated total baryon density at radius.
+     *
+     * @param in_r  Radius value.
+     * @return      Baryon density.
+     */
     double GetRho(const double& in_r) const ;
+
+    /**
+     * @brief Get DataColumn of total baryon density.
+     *
+     * @return Pointer to density DataColumn.
+     */
     Zaki::Vector::DataColumn* GetRho() ;
     
-    /// Energy density as a function of radius
+    /**
+     * @brief Get interpolated energy density at radius.
+     *
+     * @param in_r  Radius value.
+     * @return      Energy density.
+     */
     double GetEps(const double& in_r) const ;
+
+    /**
+     * @brief Get DataColumn of energy density.
+     *
+     * @return Pointer to energy density DataColumn.
+     */
     Zaki::Vector::DataColumn* GetEps() ;
 
-    /// Pressure as a function of radius
+    /**
+     * @brief Get interpolated pressure at radius.
+     *
+     * @param in_r  Radius value.
+     * @return      Pressure.
+     */
     double GetPress(const double& in_r) const ;
+
+    /**
+     * @brief Get DataColumn of pressure values.
+     *
+     * @return Pointer to pressure DataColumn.
+     */
     Zaki::Vector::DataColumn* GetPress() ;
 
-    /// Returns 'sequence' 
+    /**
+     * @brief Retrieve the computed sequence point.
+     *
+     * @return SeqPoint instance.
+     */
     SeqPoint GetSequence() const ;
 
-    /// Evaluate the metric function
+    /**
+     * @brief Compute metric function spline values.
+     */
     void EvaluateNu() ;
 
-    /// Metric function as a function of radius
+    /**
+     * @brief Get interpolated metric function at radius.
+     *
+     * @param in_r  Radius value.
+     * @return      Metric function value.
+     */      
     double GetNu(const double& in_r) const ;
+
+    /**
+     * @brief Get DataColumn of metric function values.
+     *
+     * @return Pointer to metric DataColumn.
+     */
     Zaki::Vector::DataColumn* GetNu() ;
 
-    /// Returns the radius dataset
+    /**
+     * @brief Get DataColumn of radius values.
+     *
+     * @return Pointer to radius DataColumn.
+     */
     Zaki::Vector::DataColumn* GetRadius() ;
 
-    /// Baryon number inegrand
+    /**
+     * @brief Compute integrand for baryon number at radius.
+     *
+     * @param in_r  Radius value.
+     * @return      Integrand value.
+     */
     double BaryonNumIntegrand(double in_r) ;
 
-    ///  Baryon number as a function of radius
+    /**
+     * @brief Compute baryon number as a function of radius.
+     *
+     * @param in_r  Radius up to which to integrate.
+     * @return      Baryon number.
+     */
     double Find_BaryonNum(const double& in_r) ;
 
-    /// Baryon number
+    /**
+     * @brief Compute total baryon number.
+     *
+     * @return Baryon number.
+     */
     double Find_BaryonNum() ;
 
-    // /// Moment of inertia inegrand
-    // double MomInertiaIntegrand(double in_r) ;
-
-    /// Total moment of inertia
+    /**
+     * @brief Compute total moment of inertia.
+     *
+     * @return Moment of inertia.
+     */
     double Find_MomInertia() ;
 
-    /// Precision for printing the profile
-    /// by default it is set to '9' digits
+    /**
+     * @brief Set precision for exporting profile values.
+     *
+     * @param precision  Number of digits.
+     * @note Default is 9.
+     */
     void SetProfilePrecision(const int& profile_precision) ;
 
-    /// Exports the star profile
+    /**
+     * @brief Export the star profile to directory.
+     *
+     * @param in_dir  Output directory path.
+     */
     void Export(const Zaki::String::Directory& in_dir) ;
     //------------------------------------------
 };
