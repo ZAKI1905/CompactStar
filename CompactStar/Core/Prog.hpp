@@ -1,50 +1,46 @@
 // -*- lsst-c++ -*-
 /*
-* CompactStar
-* See License file at the top of the source tree.
-*
-* Copyright (c) 2023 Mohammadreza Zakeri
-*
-* Permission is hereby granted, free of charge, to any person obtaining a copy
-* of this software and associated documentation files (the "Software"), to deal
-* in the Software without restriction, including without limitation the rights
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the Software is
-* furnished to do so, subject to the following conditions:
-*
-* The above copyright notice and this permission notice shall be included in all
-* copies or substantial portions of the Software.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-* SOFTWARE.
-*/
+ * CompactStar
+ * See License file at the top of the source tree.
+ *
+ * Copyright (c) 2023 Mohammadreza Zakeri
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
 /**
  * @file Prog.hpp
+ * @brief Base program class providing common utilities and directory handling.
  *
- * @brief The program's base class.
+ * The Prog class offers a standard interface for application banner display,
+ * working directory management, naming, and optional object tracking.
  *
  * @ingroup Core
- *
  * @author Mohammadreza Zakeri
- * Contact: M.Zakeri@uky.edu
- *
-*/
+ * @contact M.Zakeri@eku.edu
+ */
 // Last edit Aug 31, 2021
 #ifndef CompactStar_Prog_H
 #define CompactStar_Prog_H
 
 #include "CompactStar/Core/CompactStarConfig.h"
-
 #include <Zaki/Util/Logger.hpp>
-// #include <Zaki/Util/Instrumentor.hpp>
-// #include <Zaki/Util/Simple_Timer.hpp>
-// #include <Zaki/String/Directory.hpp>
 
 #include "stdio.h"
 #include <atomic>
@@ -54,91 +50,175 @@
 namespace CompactStar
 {
 //==============================================================
+//                        Prog Class
+//==============================================================
+/**
+ * @class Prog
+ * @brief Base class for CompactStar applications.
+ *
+ * Provides banner display, working directory and name management,
+ * and optional instance tracking for derived classes.
+ */
 class Prog
 {
   //--------------------------------------------------------------
   protected:
 
-    /// Prints the banner of the program
+    /**
+     * @brief Display the program banner to stdout.
+     *
+     * Prints name and version information if available.
+     */
     void ShowBanner();
 
-    /// The number of derived object instances
+    /**
+     * @brief Count of Prog-derived object instances.
+     *
+     * Used for optional tracking when debug mode is enabled.
+     */
     static inline std::atomic<size_t> counter = 0;
 
-    /// The work directory
+    /**
+     * @brief Current working directory for program outputs.
+     */
     Zaki::String::Directory wrk_dir = "" ;
 
-    /// The label of the class
+    /**
+     * @brief Label or name identifier for the class instance.
+     */
     std::string name        = "" ;
 
-    // Flags
-
-    /// If the name is set
+    /**
+     * @brief Flag indicating if the name has been set.
+     *
+     */
     bool set_name_flag = false    ;
 
-    ///  If the work directory is set
+    /**
+     * @brief Flag indicating if the working directory has been set.
+     */
     bool set_wrk_dir_flag = false ;
     
-    /// Sets the work directory for the member objects
+    /**
+     * @brief Internal method to set member objects' working directory.
+     *
+     * @param dir  Directory to assign to member Prog objects.
+     * @return     Pointer to this Prog instance for chaining.
+     */
     virtual Prog* SetMemWrkDir(const Zaki::String::Directory&) ;
+    
   //--------------------------------------------------------------
   private:
 
 #if CompactStar_PROG_DEBUG_MODE
-    /// Track object creation and destruction
+    /**
+     * @brief Toggle for object creation/destruction tracking.
+     */
     bool track_objs_flag = true ;
 #endif
   //--------------------------------------------------------------
   public:
 
-    /// Default Constructor for faster object creation
-    ///  -> No name assignment or object tracking
+    /**
+     * @brief Default constructor without name or tracking.
+     *
+     * Fast instantiation: no name assignment or debug tracking.
+     */
     Prog() ;
     
-    /// Constructor via a name and no tracking options
-    /// -> Name is set but no object tracking
+    /**
+     * @brief Constructor with name only (no tracking).
+     *
+     * @param prog_name  Name label for this instance.
+     */
     Prog(const std::string&) ;
 
-    /// Constructor via a name and tracking options
-    /// This is slower and shouldn't be used for objects 
-    /// that are created thousands of time, i.e. particles, etc.
-    /// -> Name is set and object tracking is on
+    /**
+     * @brief Constructor with name and optional tracking.
+     *
+     * @param prog_name       Name label for this instance.
+     * @param enable_tracking If true, instance creation/destruction are tracked.
+     * @note Slower than default constructor.
+     * @note Use for debugging or when tracking is needed.
+     * @note Not recommended for high-frequency object creation.
+     */
     Prog(const std::string&, const bool&) ;
 
-    /// Destructor
+    /**
+     * @brief Destructor for cleanup and potential tracking.
+     */
     virtual ~Prog() ;
 
-    /// Overloading CLass specific new operator
+    /**
+     * @brief Override global new operator for custom allocations.
+     *
+     * @param sz  Size in bytes to allocate.
+     * @return    Pointer to allocated memory block.
+     */
     static void* operator new(size_t sz) ;
 
-    /// Overloading CLass specific delete operator
+    /**
+     * @brief Override global delete operator for custom deallocations.
+     *
+     * @param ptr  Memory block to free.
+     */
     static void operator delete(void* m);
 
     // Setters
 
-    /// Sets the work directory
+    /**
+     * @brief Set the working directory for program outputs.
+     *
+     * @param dir  Desired working directory path.
+     * @return     Pointer to this Prog instance for chaining.
+     */
     virtual Prog* SetWrkDir(const Zaki::String::Directory&) ;
 
-    /// Sets the name of the class
+    /**
+     * @brief Assign a name label to this instance.
+     *
+     * @param prog_name  Descriptive name for object.
+     */
     virtual void SetName(const std::string&) ;
 
-    // void SetObjTracking(const bool) ;
 
     // Getters
 
-    /// Returns the work directory
+    /**
+     * @brief Retrieve the current working directory.
+     *
+     * @return Working directory path.
+     */
     virtual Zaki::String::Directory GetWrkDir() const ;
 
-    /// Returns set_wrk_dir_flag
+    /**
+     * @brief Check if the working directory has been set.
+     *
+     * @return True if SetWrkDir was called.
+     */
     bool IsWrkDirSet() const ;
 
-    /// Returns the name of the class
+    /**
+     * @brief Get the name label of this instance.
+     *
+     * @return Name string.
+     */
     virtual std::string GetName() const ;
 
-    /// Print method for the derived classes
+    /**
+     * @brief Print object-specific information.
+     *
+     * Derived classes should override to display status.
+     */
     virtual void Print() const ;
 
-    /// String form of the pointer to the object
+    /**
+     * @brief Return string form of this object's pointer.
+     *
+     * Useful for logging and debugging.
+     *
+     * @return Hexadecimal pointer string.
+     */
     std::string PtrStr() const ;
 
 };

@@ -1,48 +1,54 @@
 // -*- lsst-c++ -*-
 /*
-* CompactStar
-* See License file at the top of the source tree.
-*
-* Copyright (c) 2023 Mohammadreza Zakeri
-*
-* Permission is hereby granted, free of charge, to any person obtaining a copy
-* of this software and associated documentation files (the "Software"), to deal
-* in the Software without restriction, including without limitation the rights
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the Software is
-* furnished to do so, subject to the following conditions:
-*
-* The above copyright notice and this permission notice shall be included in all
-* copies or substantial portions of the Software.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-* SOFTWARE.
-*/
+ * CompactStar
+ * See License file at the top of the source tree.
+ *
+ * Copyright (c) 2023 Mohammadreza Zakeri
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
 /**
  * @file Pulsar.hpp
+ * @brief Detailed pulsar model including rotational, structural, and thermal physics.
  *
- * @brief Typical pulsar.
+ * Manages spin evolution, baryon violation constraints, structural profiles from TOV solutions,
+ * and cooling via direct and modified Urca neutrino processes as well as photon surface emission.
+ * Provides utilities for profiling, plotting, and computing astrophysical observables.
+ *
+ * Physical context:
+ *  - Direct Urca (DUrca): rapid neutrino cooling when proton fraction exceeds threshold, enabling
+ *    beta decay and inverse beta processes without spectator nucleons; emissivity ∝ T^6.
+ *  - Modified Urca (MUrca): slower neutrino cooling involving an additional nucleon spectator,
+ *    requiring energy-momentum conservation with reduced phase space; emissivity ∝ T^8.
+ *  - Thermal blanket: the outer crust region where the heat blanket regulates surface temperature,
+ *    defined by a density ~1e10 g/cm^3.
  *
  * @ingroup Core
- *
  * @author Mohammadreza Zakeri
- * Contact: M.Zakeri@uky.edu
- *
-*/
+ * @contact M.Zakeri@eku.edu
+ */
 // Last edit Nov 9, 2021
 #ifndef CompactStar_Pulsar_H
 #define CompactStar_Pulsar_H
 
 #include <map>
-// #include <vector>
-// #include <gsl/gsl_spline.h>
-// #include <string>
 
 #include <Zaki/Math/Math_Core.hpp>
 #include <Zaki/Vector/DataSet.hpp>
@@ -50,39 +56,46 @@
 #include "CompactStar/Core/Prog.hpp"
 #include "CompactStar/Core/TOVSolver.hpp"
 
-//--------------------------------------------------------------
-// namespace Zaki::Math
-// {
-//   struct Quantity ;
-// }
-
-//--------------------------------------------------------------
-// namespace Zaki::Vector
-// {
-//   class DataSet ;
-// }
-
-//--------------------------------------------------------------
+//==============================================================
 namespace CompactStar
 {
 
 //==============================================================
 //                      Baryon_Lim Struct
 //==============================================================
+/**
+ * @struct Baryon_Lim
+ * @brief Tracks baryon number violation (BNV) constraints for a species.
+ *
+ * Models the fractional abundance and BNV rate of a baryon species within the star,
+ * including gravitational redshift of rates and experimental/theoretical limits.
+ *
+ * Physical definitions:
+ *  - fraction: number density fraction of species relative to total baryon density.
+ *  - b_dot: proper-time baryon number change rate including redshift factor e^{nu(r)},
+ *    accounting for slower clocks deeper in the gravitational well.
+ *  - limit: upper bound on BNV rate from particle physics experiments (e.g., di-nucleon decay).
+ */
 struct Baryon_Lim
 {
   // Baryon's name
-  std::string name ;
+  std::string name ; /**< Baryon species name (e.g., "Neutron", "Lambda"). */
 
   // Fraction inside the NS
-  double fraction ;
+  double fraction ;  /**< Fractional abundance in neutron star interior. */
 
   // Similar to fraction, but has the exp(nu) time-dilation factor
-  double b_dot  ;
+  double b_dot  ; /**< Redshifted baryon number violation rate [s^-1]. */
 
   // BNV Limit
-  double limit = 0 ;
+  double limit = 0 ; /**< Experimental/theoretical upper limit on BNV rate. */
   
+  /**
+   * @brief Construct a Baryon_Lim object.
+   * @param in_name     Name of baryon species.
+   * @param in_fraction Fractional abundance.
+   * @param in_b_dot    Proper-time BNV rate including redshift.
+   */
   Baryon_Lim( const std::string& in_name, 
               const double& in_fraction,
               const double& in_b_dot) 
@@ -94,6 +107,22 @@ struct Baryon_Lim
 //==============================================================
 //                        Pulsar Class
 //==============================================================
+
+/**
+ * @class Pulsar
+ * @brief Comprehensive pulsar representation with rotation, structure, composition, and thermal evolution.
+ *
+ * Extends Prog for logging and directory management. Handles:
+ *  - Spin and spin-down observables.
+ *  - Baryon number violation constraints via spin-down energy budget.
+ *  - Structural profiles from TOV solver: mass, radius, metric functions.
+ *  - Composition profiles: baryon species fractions and Fermi energies.
+ *  - Thermal physics: core, blanket, and surface temperatures, photon luminosity.
+ *  - Neutrino cooling: DUrca and MUrca processes with physical emissivity prefactors.
+ *  - Plotting utilities for composition, metric, and cooling diagnostics.
+ *
+ * See arXiv:2201.02637 for definitions of η_I and spin-down BNV limits.
+ */
 class Pulsar : public Prog
 {
 
@@ -101,75 +130,114 @@ class Pulsar : public Prog
   
   //--------------------------------------------------------------
   private:
+    // Spin and mass properties
 
     // Pulsar mass
-    Zaki::Math::Quantity mp ;
+    Zaki::Math::Quantity mp ; /**< Pulsar mass (M_sun). */
 
     // Observed pulsar spin period (ms)
-    Zaki::Math::Quantity spin_p ; 
+    Zaki::Math::Quantity spin_p ; /**< Spin period P (s). */
 
     // Observed pulsar spin period derivative
-    Zaki::Math::Quantity spin_p_dot ; 
+    Zaki::Math::Quantity spin_p_dot ;  /**< Spin period derivative \dot{P}. */
 
     // Distance between the Solar system Barycentre (SSB)
     //  and the position of the isolated pulsar or
     //  the binary barycentre in the case of a binary pulsar.
     // Unit: kpc
-    Zaki::Math::Quantity d = {0, 0} ;
+    Zaki::Math::Quantity d = {0, 0} ; /**< Distance from SSB (kpc). */
 
     // Proper motion of the pulsar
     // Unit: milli-arcsec per year
-    Zaki::Math::Quantity mu = {0, 0} ;
+    Zaki::Math::Quantity mu = {0, 0} ; /**< Proper motion (mas/yr). */
 
     // Limit on BNV form spin-down
-    double bnv_spin_down_limit ;
+    double bnv_spin_down_limit ;  /**< Upper bound on BNV rate from energy loss. */
 
-    /// The structure profile for this pulsar
-    /// Index guide:
-    /// [0] : Radius (km)
-    /// [1] : Mass (solar)
-    /// [4] : energy density 'epsilon' (1/km^2) 
-    /// [5] : Number density (fm^-3)
-    /// [6] : g_tt metric function exponent (nu)
+    /**
+     * @brief Structure profile of the pulsar.
+     * @details Contains radius, mass, energy density, baryon density,
+     *          and metric function values.
+     * @note The profile is indexed as follows:
+     *  [0] : Radius (km)
+     *  [1] : Mass (solar mass)
+     *  [4] : Energy density (1/km^2)
+     *  [5] : Baryon density (fm^-3)
+     *  [6] : Metric function g_tt exponent (nu)
+     */
     Zaki::Vector::DataSet profile ;
 
-    // The sequence profile that this pulsar belongs to
+    /**
+     * @brief The sequence profile that this pulsar belongs to.
+     * 
+     */
     Zaki::Vector::DataSet seq_profile ;
 
     // The point along the sequence that this pulsar belongs to
     SeqPoint seq_point ;
 
-    // eta is defined above Eq. 33 of our paper:
-    // https://arxiv.org/pdf/2201.02637.pdf
+    /**
+     * @brief The eta parameter for this pulsar.
+     * @details eta is defined above Eq. 33 of our paper:
+     *  https://arxiv.org/pdf/2201.02637.pdf
+     */
     double eta_I ;
 
+    /**
+     * @brief Baryon species mapping
+     * @details Maps baryon labels to their names.
+     * 
+     */
     std::map<std::string, std::string> baryons = {
       {"10", "Neutron"},
       {"100", "Lambda"}, {"110", "Sigma-"}, {"111", "Sigma0"},
       {"112", "Sigma+"}, {"120","Xi-"}, {"121", "Xi0"}
     } ;
 
+    /**
+     * @brief Check if a label corresponds to a baryon species.
+     * @param in_label Label string from profile.
+     * @return True if label is a baryon code.
+     */
     bool IsBaryon(const std::string& in_label) ;
 
     // ----------------------------------------------
     //         Temperature (private)
     // ----------------------------------------------
-    /// Pulsar's core temperature in kelvin
-    /// Not red-shifted: as measured in a local frame inside the star
+    /**
+     * @brief Core temperature of the pulsar in K.
+     * @details Not red-shifted: as measured in a local frame inside the star.
+     */
     double T_core = 0 ;
 
     /// Pulsar's blanket (outer crust) temperature in kelvin
     /// Not red-shifted: as measured in a local frame inside the star
+    /**
+     * @brief Temperature of the thermal blanket.
+     * @details Not red-shifted: as measured in a local frame inside the star.
+     * @note The blanket is the outer crust region where the heat blanket regulates surface temperature.
+     *       Defined by a density ~1e10 g/cm^3.
+     */
     double T_blanket = 0 ;
 
-    /// Pulsar's surface temperature in kelvin
-    /// Not red-shifted: as measured in a local frame inside the star
+    /**
+     * @brief Surface temperature of the pulsar.
+     * @details Not red-shifted: as measured in a local frame inside the star.
+     */
     double T_surf = 0 ;
 
-    /// @brief  The starting location of thermal blanket
-    ///         defined by eps ~ 10^{10} [ g / cm^3 ]
-    /// This value is set in 'FindProfile'.
+    /**
+     * @brief Radius of the thermal blanket region.
+     * @details Defined by energy density ~1e10 g/cm^3.
+     *         This value is set in 'FindProfile'.
+     */
     double r_blanket = 0 ;
+
+    /**
+     * @brief Index of the thermal blanket region.
+     * @details This index is used to access the thermal blanket region in the profile.
+     * 
+     */
     int r_blanket_idx = 0 ;
 
     /// The threshold radius for direct Urca: p_f(n) = p_F(p) + p_F(e)
@@ -192,13 +260,27 @@ class Pulsar : public Prog
 
   //--------------------------------------------------------------
   public:
-    
+    /**
+     * @brief Default constructor for a blank Pulsar.
+     */
     Pulsar() ;
 
+    /**
+     * @brief Parameterized constructor.
+     * @param name       Identifier label for logging.
+     * @param m          Mass quantity.
+     * @param spin_p     Spin period quantity.
+     * @param spin_pdot  Spin period derivative quantity.
+     */
     Pulsar( const std::string& name, 
             const Zaki::Math::Quantity& m,
             const Zaki::Math::Quantity& spin_p,
             const Zaki::Math::Quantity& spin_pdot)  ;
+
+
+    /**
+     * @brief Destructor cleans up internal resources.
+     */
     ~Pulsar() ;
 
     // /// Copy Constructor 
@@ -207,77 +289,174 @@ class Pulsar : public Prog
     // /// Assignment operator
     // Pulsar& operator= (const Pulsar&) = delete ;
 
-    /// Sets pulsar mass
+    /**
+     * @brief Set the pulsar mass.
+     * @param in_mass Mass quantity.
+     */
     void SetMass(const Zaki::Math::Quantity& in_mass) ;
     
-    /// Sets pulsar spin period in s
+    /**
+     * @brief Set the spin period P.
+     * @param in_spin_p Spin period quantity [s].
+     */
     void SetSpinP(const Zaki::Math::Quantity& in_spin_p) ;
     
-    /// Sets pulsar spin period derivative
+    /**
+     * @brief Set the spin period derivative \dot{P}.
+     * @param in_spin_p_dot Spin period derivative quantity.
+     */
     void SetSpinPDot(const Zaki::Math::Quantity& in_spin_p_dot) ;
 
-    /// Sets distance in kpc :
-    /// between the Solar system Barycentre (SSB)
-    ///  and the position of the isolated pulsar or
-    ///  the binary barycentre in the case of a binary pulsar
+    /**
+     * @brief Set distance from Solar System Barycentre in kpc. 
+     * @param in_d Distance quantity [kpc].
+     * @details Distance is between the Solar system Barycentre (SSB)
+     *          and the position of the isolated pulsar or
+     *          the binary barycentre in the case of a binary pulsar.
+     */
     void SetDistance(const Zaki::Math::Quantity& in_d) ;
 
-    /// Sets proper motion of the pulsar
-    /// Unit: milli-arcsec per year
+    /**
+     * @brief Set proper motion \mu of the pulsar.
+     * @param in_mu Proper motion quantity [mas/yr].
+     */
     void SetProperMotion(const Zaki::Math::Quantity& in_mu) ;
 
+    // --------------------------
+    // Profile loading
+    // --------------------------
+
+    /**
+     * @brief Compute structural profile via TOV solver.
+     * @param model_name Name of EOS/sequence model.
+     * @param in_dir     Directory for files (optional).
+     * @return Number of radial points in profile.
+     */
     int FindProfile(const std::string& model_name, 
                     const Zaki::String::Directory& in_dir="") ;
 
+    /**
+     * @brief Import a precomputed TOV profile from disk.
+     * @param model_name Name of EOS/sequence model.
+     * @param in_dir     Directory for input files.
+     */       
     void ImportProfile(const std::string& model_name, 
                        const Zaki::String::Directory& in_dir="") ;
 
-    /// Sets pulsar mass
+    // --------------------------
+    // Getters
+    // --------------------------
+
+    /**
+     * @brief Get pulsar mass.
+     * @return Mass quantity.
+     */
     Zaki::Math::Quantity GetMass() const ;
 
-    /// Returns the profile of this pulsar
+    /**
+     * @brief Access internal structural profile.
+     * @return Pointer to DataSet of radius, mass, etc.
+     */
     Zaki::Vector::DataSet* GetProfile() ;
 
-    /// Returns the metric exponent (nu) in g_tt = exp(2*nu)
+    /**
+     * @brief Retrieve metric exponent ν for g_tt = e^{2ν}.
+     * @return DataColumn of ν values vs radius.
+     */
     Zaki::Vector::DataColumn GetMetricNu() const ;
 
-    /// Returns the metric exponent (nu) in g_tt = exp(2*nu)
-    /// as a function of radius in km
+    /**
+     * @brief Get metric exponent ν at a specific radius.
+     * @param in_r Radius [km].
+     * @return ν value.
+     */
     double GetMetricNu(const double& in_r) const ;
 
     /// Returns the sequence point that this pulsar belongs to
     SeqPoint GetSeqPoint() const ;
 
-    /// Returns the sequence profile that this pulsar belongs to
+    /**
+     * @brief Get the sequence profile.
+     * @return Pointer to DataSet of sequence profile.
+     * @details Contains mass, radius, and other properties along the sequence.
+     */
     const Zaki::Vector::DataSet* GetSeqProfile() const ;
 
+    // --------------------------
+    // BNV analysis
+    // --------------------------
+
+    /**
+     * @brief Find baryon number violation limits.
+     * 
+     */
     void FindBNVGammaLimits() ;
+
+    /**
+     * @brief Get computed BNV spin-down limit.
+     * @return BNV rate limit [yr^-1].
+     */
     double GetBNVSpinDownLimit() ;
 
-    /// Returns pulsar spin-period in seconds
+    // --------------------------
+    // Spin observables
+    // --------------------------
+
+    /**
+     * @brief Get the spin period P.
+     * @return Spin period quantity [s].
+     */
     Zaki::Math::Quantity GetSpinP() const ;
 
-    /// Returns pulsar spin period derivative
+    /**
+     * @brief Get the spin period derivative \dot{P}.
+     * @return Spin period derivative quantity [s/s].
+     */
     Zaki::Math::Quantity GetSpinPDot() const ;
 
-    /// @brief Pulsar spin period derivative divided by period
-    /// @return (P_dot / P) [1/s]
+    /**
+     * @brief Get the spin period derivative divided by the period.
+     * @return Spin period derivative divided by period quantity [1/s].
+     * @details This is the fractional change in spin period per unit time.
+     */
     Zaki::Math::Quantity GetSpinPDot_over_P() const ;
+    
+    // --------------------------
+    // Distance & motion
+    // --------------------------
 
-    /// Returns distance in kpc :
-    /// between the Solar system Barycentre (SSB)
-    ///  and the position of the isolated pulsar or
-    ///  the binary barycentre in the case of a binary pulsar
+    /**
+     * @brief Get distance from Solar System Barycentre.
+     * @return Distance quantity [kpc].
+     * @details Distance is between the Solar system Barycentre (SSB)
+     *          and the position of the isolated pulsar or
+     *          the binary barycentre in the case of a binary pulsar.
+     */
     Zaki::Math::Quantity GetDistance() const ;
 
-    /// returns proper motion of the pulsar
-    /// Unit: milli-arcsec per year
+    /**
+     * @brief Get the proper motion of the pulsar.
+     * @return Proper motion quantity [mas/yr].
+     * @details Proper motion is the angular motion of the pulsar across the sky.
+     */
     Zaki::Math::Quantity GetProperMotion() const ;
 
-    /// Evaluates the baryon fractions
+    /**
+     * @brief Evaluate baryon number fractions and limits.
+     * @return Vector of baryon limits with species name, fraction, and BNV rate.
+     */
     std::vector<Baryon_Lim> EvalBaryonNumber() ;
 
-    /// Plots the pulsar's relative composition vs radius
+    // --------------------------
+    // Composition & plotting
+    // --------------------------
+
+    /**
+     * @brief Plot relative composition of baryon species vs radius.
+     * @param file Output filename for the plot.
+     * @param in_dir Directory for input files (optional).
+     * @details Only includes baryon species with significant contributions.
+     */
     void PlotRelativeComposition(const std::string& file, 
                        const Zaki::String::Directory& in_dir="") ;
 
@@ -458,6 +637,15 @@ class Pulsar : public Prog
 //--------------------------------------------------------------
 } // End of namespace CompactStar
 //--------------------------------------------------------------
+
+/**
+ * @brief Stream output for Baryon_Lim struct.
+ * @param os Output stream.
+ * @param bl Baryon_Lim object.
+ * @return Reference to output stream.
+ *
+ * Formats: name, fraction, b_dot, limit.
+ */
 std::ostream& operator << (std::ostream &, const CompactStar::Baryon_Lim&) ;
 //--------------------------------------------------------------
 
