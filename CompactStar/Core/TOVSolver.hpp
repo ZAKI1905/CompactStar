@@ -39,7 +39,6 @@
 #ifndef CompactStar_TOVSolver_H
 #define CompactStar_TOVSolver_H
 
-// #include <thread>
 #include <vector>
 #include <gsl/gsl_spline.h>
 
@@ -55,21 +54,41 @@ namespace CompactStar
 
 class Analysis ;
 //==============================================================
+//                      eps_pair Class
+//==============================================================
+/**
+ * @class eps_pair
+ * @brief Class representing a pair of energy density and pressure
+ * values for the dark and visible components of a mixed star.
+ * 
+ */
 class eps_pair : public Zaki::Math::Coord2D
 {
-  // double e_v, e_d ;
   public:
+  /// Constructor from two double values
+  /// @param in_e_v Energy density of the visible component (x-coordinate)
+  /// @param in_e_d Energy density of the dark component (y-coordinate)
+  /// @details The constructor initializes the x and y coordinates of the
+  /// eps_pair object with the provided energy density values.
   eps_pair(const double& in_e_v, const double& in_e_d)
         : Coord2D(in_e_v, in_e_d) {}
   
+  /// Constructor from a Coord2D object
+  /// @param in_c Coord2D object containing the energy density values
+  /// @details The constructor initializes the x and y coordinates of the
+  /// eps_pair object with the x and y coordinates of the provided Coord2D object.
   eps_pair(const Coord2D& in_c)
         : Coord2D(in_c.x, in_c.y) {}
 
+  /// @brief Getter for the visble energy density (x-coordinate)
+  /// @return The visible energy density value
   double e_v() const
   {
     return x ;
   }
 
+  /// @brief Getter for the dark energy density (y-coordinate)
+  /// @return The dark energy density value
   double e_d() const
   {
     return y ;
@@ -79,9 +98,15 @@ class eps_pair : public Zaki::Math::Coord2D
 
 
 //==============================================================
+//                      Contour Class
+//==============================================================
+/**
+ * @class Contour
+ * @brief Class representing a contour in the TOV solution space.
+ * 
+ */
 
 class Contour 
-// : public Zaki::Math::Curve2D<eps_pair>
 {
   public:
     Zaki::Math::Curve2D curve ;
@@ -89,38 +114,27 @@ class Contour
     double precision = 1e-8 ;
     size_t max_steps = 35 ;
   
+  /// @brief Default constructor
+  /// @details Initializes an empty contour object.
+  /// @note The curve is empty and the value is set to 0.
   Contour() {} 
+
+  /// @brief Constructor with label
+  /// @param in_label Label for the contour
+  /// @details Initializes a contour object with the specified label.
+  /// @note The curve is empty and the value is set to 0.
   Contour(const std::string& in_label) : curve(in_label) {} 
-  // Contour(const Zaki::Math::Curve2D<Zaki::Math::Coord2D>& in_curve) 
-  // {
-  //   for (size_t i = 0; i < in_curve.Size() ; i++)
-  //   {
-  //     pts.emplace_back(in_curve.pts[i].x, in_curve.pts[i].y) ;
-  //   }
-    
-  //   SetLabel(in_curve.label) ;
-  //   val = std::atof(in_curve.label.c_str()) ;
-  // } 
 
-  // Contour(const Zaki::Math::Curve2D<eps_pair>& in_curve) 
-  // {
-  //   for (size_t i = 0; i < in_curve.Size() ; i++)
-  //   {
-  //     pts.emplace_back(in_curve.pts[i].x, in_curve.pts[i].y) ;
-  //   }
-    
-  //   SetLabel(in_curve.label) ;
-  //   val = std::atof(in_curve.label.c_str()) ;
-  // } 
-  // std::vector<eps_pair> guide ;
-
-  // Contour(const Zaki::String::Directory& in_file) ;
-
+  /// @brief Getter for the size of the curve
+  /// @details Returns the number of points in the curve.
+  /// @return The size of the curve
   size_t Size() const 
   {
     return curve.Size() ;
   }
 
+  /// @brief Imports the contour from a file
+  /// @param in_file 
   void Import(const Zaki::String::Directory& in_file) 
   {
     curve.Import(in_file) ;
@@ -130,6 +144,15 @@ class Contour
 };
 
 //==============================================================
+//                      EOSTable Struct
+//==============================================================
+/**
+ * @struct EOSTable
+ * @brief Class representing a table of equation of state (EOS) data.
+ * 
+ * @details The EOSTable class stores the energy density, pressure, and baryon number density
+ * values for a given EOS. It also provides methods to set labels, add extra labels, and print the table.
+ */
 struct EOSTable
 {
   private:
@@ -145,11 +168,21 @@ struct EOSTable
     std::vector<std::vector<double> > rho_i ;
     std::vector<std::string> extra_labels   ;
 
+    /// @brief Getter for the size of the table
+    /// @details Returns the number of rows in the table.
+    /// @return The size of the table 
     size_t Size()
     {
       return eps.size() ;
     }
 
+    /// @brief Setter for the labels
+    /// @details Sets the labels for the energy density, pressure, and baryon number density.
+    /// @param in_eps_label Label for the energy density 
+    /// @param in_pre_label Label for the pressure 
+    /// @param in_rho_label Label for the baryon number density
+    /// @note The labels are stripped of leading and trailing spaces.
+    /// @note The labels are stored as strings. 
     void SetLabels( const std::string& in_eps_label, 
                     const std::string& in_pre_label,
                     const std::string& in_rho_label)
@@ -159,11 +192,15 @@ struct EOSTable
       rho_label = Zaki::String::Strip(in_rho_label, ' ') ;
     }
 
+    /// @brief Setter for the extra labels
+    /// @param in_label Label for the extra data 
     void AddExtraLabels(const std::string& in_label)
     {
       extra_labels.emplace_back(in_label) ;
     }
 
+    /// @brief Printer for the table
+    /// @details Prints the table to the standard output.
     void Print() const
     {
       std::cout << " *-------------------------------------------* " << "\n" ;
@@ -186,11 +223,6 @@ struct TOVPoint
 {
   double r, m, nu_der, nu, p, e, rho ;
   std::vector<double> rho_i ;
-
-  // TOVPoint(const double& in_r, const double& in_m,
-  //           const double& in_p, const double& in_e)
-  //           : r(in_r), m(in_m), p(in_p), e(in_e), rho(-1)
-  //         {}
 
   TOVPoint(const double& in_r, const double& in_m, 
             const double& in_nu_der, const double& in_nu,
@@ -242,17 +274,32 @@ struct TOV_Nu_Point
 //==============================================================
 //                        Sequence class
 //==============================================================
+/**
+ * @class Sequence
+ * @brief Class representing a sequence of TOV solution points.
+ * 
+ * @details The Sequence class stores a vector of SeqPoint objects,
+ * which represent individual TOV solution points. It provides methods
+ * to add points, export the sequence to a file, combine sequences,
+ * and clear the sequence.
+ */
+
 class Sequence : public Prog
 {
-private:
+  private:
+
+  /// @brief Vector of SeqPoint objects representing the TOV solution points
+  /// @details The vector stores the sequence of TOV solution points.
+  /// Each SeqPoint object contains the energy density, mass, radius,
+  /// central pressure, baryon number, and moment of inertia.
   std::vector<SeqPoint> seq ;
-  // std::mutex m_mutex ;
 
-public:
+  public:
+  /// @brief Default constructor
+  /// @details Initializes an empty sequence object.
   Sequence() ;
-  // Sequence(const std::string& in_name ) 
-  // : Prog(in_name) {}
 
+  /// @brief Destructor
   ~Sequence() 
   {
     // std::cout << "[ Thread = " << std::this_thread::get_id()
@@ -260,15 +307,19 @@ public:
     //           << name << "\n" ;
   }
 
+  /// @brief Adds a neutron star point to the sequence
+  /// @param in_star the neutron star point to be added
   void Add(const NStar& in_star) ;
 
-  // Exports the star sequence
+  /// @brief Exports the star sequence to a file
+  /// @param in_dir the directory to export the sequence to
   void Export(const Zaki::String::Directory& in_dir="") const ;
 
-  // Combines two sequences
+  /// @brief Combines two sequences 
+  /// @param other the other sequence to combine with
   void Combine(const Sequence& other) ;
 
-  // Clears the sequence
+  /// @brief Clears the sequence 
   void Clear() ;
 };
 
