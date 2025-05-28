@@ -61,8 +61,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-2UxNju"
-      binary: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-2UxNju"
+      source: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-VlC06N"
+      binary: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-VlC06N"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/opt/homebrew/Cellar/llvm/19.1.7_1/bin/clang-scan-deps"
       CMAKE_C_FLAGS: ""
@@ -75,13 +75,13 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-2UxNju'
+        Change Dir: '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-VlC06N'
         
-        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/local/bin/gmake -f Makefile cmTC_b4fbf/fast
-        /opt/local/bin/gmake  -f CMakeFiles/cmTC_b4fbf.dir/build.make CMakeFiles/cmTC_b4fbf.dir/build
-        gmake[1]: Entering directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-2UxNju'
-        Building C object CMakeFiles/cmTC_b4fbf.dir/CMakeCCompilerABI.c.o
-        /opt/homebrew/opt/llvm/bin/clang   -arch arm64   -v -Wl,-v -MD -MT CMakeFiles/cmTC_b4fbf.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_b4fbf.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_b4fbf.dir/CMakeCCompilerABI.c.o -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/local/bin/gmake -f Makefile cmTC_1aa12/fast
+        /opt/local/bin/gmake  -f CMakeFiles/cmTC_1aa12.dir/build.make CMakeFiles/cmTC_1aa12.dir/build
+        gmake[1]: Entering directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-VlC06N'
+        Building C object CMakeFiles/cmTC_1aa12.dir/CMakeCCompilerABI.c.o
+        /opt/homebrew/opt/llvm/bin/clang   -arch arm64   -v -Wl,-v -MD -MT CMakeFiles/cmTC_1aa12.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_1aa12.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_1aa12.dir/CMakeCCompilerABI.c.o -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
         Homebrew clang version 19.1.7
         Target: arm64-apple-darwin24.3.0
         Thread model: posix
@@ -91,7 +91,7 @@ events:
         User configuration file directory: /Users/keeper/.config/clang
         clang: warning: -Wl,-v: 'linker' input unused [-Wunused-command-line-argument]
          (in-process)
-         "/opt/homebrew/Cellar/llvm/19.1.7_1/bin/clang-19" -cc1 -triple arm64-apple-macosx15.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -ffp-contract=on -fno-rounding-math -funwind-tables=1 -target-sdk-version=15.2 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -target-cpu apple-m1 -target-feature +zcm -target-feature +zcz -target-feature +v8.4a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb "-fdebug-compilation-dir=/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-2UxNju" -target-linker-version 1115.7.3 -v "-fcoverage-compilation-dir=/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-2UxNju" -resource-dir /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19 -dependency-file CMakeFiles/cmTC_b4fbf.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_b4fbf.dir/CMakeCCompilerABI.c.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/local/include -internal-isystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include -ferror-limit 19 -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_b4fbf.dir/CMakeCCompilerABI.c.o -x c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
+         "/opt/homebrew/Cellar/llvm/19.1.7_1/bin/clang-19" -cc1 -triple arm64-apple-macosx15.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -ffp-contract=on -fno-rounding-math -funwind-tables=1 -target-sdk-version=15.4 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -target-cpu apple-m1 -target-feature +zcm -target-feature +zcz -target-feature +v8.4a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb "-fdebug-compilation-dir=/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-VlC06N" -target-linker-version 1115.7.3 -v "-fcoverage-compilation-dir=/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-VlC06N" -resource-dir /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19 -dependency-file CMakeFiles/cmTC_1aa12.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_1aa12.dir/CMakeCCompilerABI.c.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/local/include -internal-isystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include -ferror-limit 19 -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_1aa12.dir/CMakeCCompilerABI.c.o -x c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
         clang -cc1 version 19.1.7 based upon LLVM 19.1.7 default target arm64-apple-darwin24.3.0
         ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/local/include"
         ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/Library/Frameworks"
@@ -101,8 +101,8 @@ events:
          /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include
          /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/System/Library/Frameworks (framework directory)
         End of search list.
-        Linking C executable cmTC_b4fbf
-        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b4fbf.dir/link.txt --verbose=1
+        Linking C executable cmTC_1aa12
+        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1aa12.dir/link.txt --verbose=1
         Homebrew clang version 19.1.7
         Target: arm64-apple-darwin24.3.0
         Thread model: posix
@@ -110,7 +110,7 @@ events:
         Configuration file: /opt/homebrew/etc/clang/arm64-apple-darwin24.cfg
         System configuration file directory: /opt/homebrew/etc/clang
         User configuration file directory: /Users/keeper/.config/clang
-         "/opt/local/bin/ld" -demangle -lto_library /opt/homebrew/Cellar/llvm/19.1.7_1/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 15.0.0 15.2 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_b4fbf -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_b4fbf.dir/CMakeCCompilerABI.c.o -lSystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/lib/darwin/libclang_rt.osx.a
+         "/opt/local/bin/ld" -demangle -lto_library /opt/homebrew/Cellar/llvm/19.1.7_1/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 15.0.0 15.4 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_1aa12 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_1aa12.dir/CMakeCCompilerABI.c.o -lSystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/lib/darwin/libclang_rt.osx.a
         @(#)PROGRAM:ld  PROJECT:ld64-820.1
         BUILD 18:42:42 Sep 11 2022
         configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
@@ -118,8 +118,8 @@ events:
         	/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/lib
         Framework search paths:
         	/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/System/Library/Frameworks/
-        /opt/homebrew/opt/llvm/bin/clang  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_b4fbf.dir/CMakeCCompilerABI.c.o -o cmTC_b4fbf
-        gmake[1]: Leaving directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-2UxNju'
+        /opt/homebrew/opt/llvm/bin/clang  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_1aa12.dir/CMakeCCompilerABI.c.o -o cmTC_1aa12
+        gmake[1]: Leaving directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-VlC06N'
         
       exitCode: 0
   -
@@ -159,13 +159,13 @@ events:
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-2UxNju']
+        ignore line: [Change Dir: '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-VlC06N']
         ignore line: []
-        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/local/bin/gmake -f Makefile cmTC_b4fbf/fast]
-        ignore line: [/opt/local/bin/gmake  -f CMakeFiles/cmTC_b4fbf.dir/build.make CMakeFiles/cmTC_b4fbf.dir/build]
-        ignore line: [gmake[1]: Entering directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-2UxNju']
-        ignore line: [Building C object CMakeFiles/cmTC_b4fbf.dir/CMakeCCompilerABI.c.o]
-        ignore line: [/opt/homebrew/opt/llvm/bin/clang   -arch arm64   -v -Wl -v -MD -MT CMakeFiles/cmTC_b4fbf.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_b4fbf.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_b4fbf.dir/CMakeCCompilerABI.c.o -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/local/bin/gmake -f Makefile cmTC_1aa12/fast]
+        ignore line: [/opt/local/bin/gmake  -f CMakeFiles/cmTC_1aa12.dir/build.make CMakeFiles/cmTC_1aa12.dir/build]
+        ignore line: [gmake[1]: Entering directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-VlC06N']
+        ignore line: [Building C object CMakeFiles/cmTC_1aa12.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/opt/homebrew/opt/llvm/bin/clang   -arch arm64   -v -Wl -v -MD -MT CMakeFiles/cmTC_1aa12.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_1aa12.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_1aa12.dir/CMakeCCompilerABI.c.o -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c]
         ignore line: [Homebrew clang version 19.1.7]
         ignore line: [Target: arm64-apple-darwin24.3.0]
         ignore line: [Thread model: posix]
@@ -175,7 +175,7 @@ events:
         ignore line: [User configuration file directory: /Users/keeper/.config/clang]
         ignore line: [clang: warning: -Wl -v: 'linker' input unused [-Wunused-command-line-argument]]
         ignore line: [ (in-process)]
-        ignore line: [ "/opt/homebrew/Cellar/llvm/19.1.7_1/bin/clang-19" -cc1 -triple arm64-apple-macosx15.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -ffp-contract=on -fno-rounding-math -funwind-tables=1 -target-sdk-version=15.2 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -target-cpu apple-m1 -target-feature +zcm -target-feature +zcz -target-feature +v8.4a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb "-fdebug-compilation-dir=/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-2UxNju" -target-linker-version 1115.7.3 -v "-fcoverage-compilation-dir=/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-2UxNju" -resource-dir /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19 -dependency-file CMakeFiles/cmTC_b4fbf.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_b4fbf.dir/CMakeCCompilerABI.c.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/local/include -internal-isystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include -ferror-limit 19 -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_b4fbf.dir/CMakeCCompilerABI.c.o -x c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [ "/opt/homebrew/Cellar/llvm/19.1.7_1/bin/clang-19" -cc1 -triple arm64-apple-macosx15.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -ffp-contract=on -fno-rounding-math -funwind-tables=1 -target-sdk-version=15.4 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -target-cpu apple-m1 -target-feature +zcm -target-feature +zcz -target-feature +v8.4a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb "-fdebug-compilation-dir=/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-VlC06N" -target-linker-version 1115.7.3 -v "-fcoverage-compilation-dir=/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-VlC06N" -resource-dir /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19 -dependency-file CMakeFiles/cmTC_1aa12.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_1aa12.dir/CMakeCCompilerABI.c.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/local/include -internal-isystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include -ferror-limit 19 -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_1aa12.dir/CMakeCCompilerABI.c.o -x c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c]
         ignore line: [clang -cc1 version 19.1.7 based upon LLVM 19.1.7 default target arm64-apple-darwin24.3.0]
         ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/local/include"]
         ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/Library/Frameworks"]
@@ -185,8 +185,8 @@ events:
         ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include]
         ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/System/Library/Frameworks (framework directory)]
         ignore line: [End of search list.]
-        ignore line: [Linking C executable cmTC_b4fbf]
-        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b4fbf.dir/link.txt --verbose=1]
+        ignore line: [Linking C executable cmTC_1aa12]
+        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1aa12.dir/link.txt --verbose=1]
         ignore line: [Homebrew clang version 19.1.7]
         ignore line: [Target: arm64-apple-darwin24.3.0]
         ignore line: [Thread model: posix]
@@ -194,7 +194,7 @@ events:
         ignore line: [Configuration file: /opt/homebrew/etc/clang/arm64-apple-darwin24.cfg]
         ignore line: [System configuration file directory: /opt/homebrew/etc/clang]
         ignore line: [User configuration file directory: /Users/keeper/.config/clang]
-        link line: [ "/opt/local/bin/ld" -demangle -lto_library /opt/homebrew/Cellar/llvm/19.1.7_1/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 15.0.0 15.2 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_b4fbf -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_b4fbf.dir/CMakeCCompilerABI.c.o -lSystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/lib/darwin/libclang_rt.osx.a]
+        link line: [ "/opt/local/bin/ld" -demangle -lto_library /opt/homebrew/Cellar/llvm/19.1.7_1/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 15.0.0 15.4 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_1aa12 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_1aa12.dir/CMakeCCompilerABI.c.o -lSystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/lib/darwin/libclang_rt.osx.a]
           arg [/opt/local/bin/ld] ==> ignore
           arg [-demangle] ==> ignore
           arg [-lto_library] ==> ignore, skip following value
@@ -205,17 +205,17 @@ events:
           arg [-platform_version] ==> ignore
           arg [macos] ==> ignore
           arg [15.0.0] ==> ignore
-          arg [15.2] ==> ignore
+          arg [15.4] ==> ignore
           arg [-syslibroot] ==> ignore
           arg [/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk] ==> ignore
           arg [-mllvm] ==> ignore
           arg [-enable-linkonceodr-outlining] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_b4fbf] ==> ignore
+          arg [cmTC_1aa12] ==> ignore
           arg [-search_paths_first] ==> ignore
           arg [-headerpad_max_install_names] ==> ignore
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_b4fbf.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [CMakeFiles/cmTC_1aa12.dir/CMakeCCompilerABI.c.o] ==> ignore
           arg [-lSystem] ==> lib [System]
           arg [/opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/lib/darwin/libclang_rt.osx.a] ==> lib [/opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/lib/darwin/libclang_rt.osx.a]
         linker tool for 'C': /opt/local/bin/ld
@@ -254,8 +254,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-07FV2D"
-      binary: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-07FV2D"
+      source: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-8EpJv0"
+      binary: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-8EpJv0"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/opt/homebrew/Cellar/llvm/19.1.7_1/bin/clang-scan-deps"
       CMAKE_CXX_FLAGS: ""
@@ -269,13 +269,13 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-07FV2D'
+        Change Dir: '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-8EpJv0'
         
-        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/local/bin/gmake -f Makefile cmTC_e71da/fast
-        /opt/local/bin/gmake  -f CMakeFiles/cmTC_e71da.dir/build.make CMakeFiles/cmTC_e71da.dir/build
-        gmake[1]: Entering directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-07FV2D'
-        Building CXX object CMakeFiles/cmTC_e71da.dir/CMakeCXXCompilerABI.cpp.o
-        /opt/homebrew/opt/llvm/bin/clang++   -arch arm64   -v -Wl,-v -MD -MT CMakeFiles/cmTC_e71da.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_e71da.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_e71da.dir/CMakeCXXCompilerABI.cpp.o -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/local/bin/gmake -f Makefile cmTC_a73ee/fast
+        /opt/local/bin/gmake  -f CMakeFiles/cmTC_a73ee.dir/build.make CMakeFiles/cmTC_a73ee.dir/build
+        gmake[1]: Entering directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-8EpJv0'
+        Building CXX object CMakeFiles/cmTC_a73ee.dir/CMakeCXXCompilerABI.cpp.o
+        /opt/homebrew/opt/llvm/bin/clang++   -arch arm64   -v -Wl,-v -MD -MT CMakeFiles/cmTC_a73ee.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_a73ee.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_a73ee.dir/CMakeCXXCompilerABI.cpp.o -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp
         Homebrew clang version 19.1.7
         Target: arm64-apple-darwin24.3.0
         Thread model: posix
@@ -285,7 +285,7 @@ events:
         User configuration file directory: /Users/keeper/.config/clang
         clang++: warning: -Wl,-v: 'linker' input unused [-Wunused-command-line-argument]
          (in-process)
-         "/opt/homebrew/Cellar/llvm/19.1.7_1/bin/clang-19" -cc1 -triple arm64-apple-macosx15.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -ffp-contract=on -fno-rounding-math -funwind-tables=1 -target-sdk-version=15.2 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -target-cpu apple-m1 -target-feature +zcm -target-feature +zcz -target-feature +v8.4a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb "-fdebug-compilation-dir=/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-07FV2D" -target-linker-version 1115.7.3 -v "-fcoverage-compilation-dir=/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-07FV2D" -resource-dir /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19 -dependency-file CMakeFiles/cmTC_e71da.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_e71da.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -internal-isystem /opt/homebrew/Cellar/llvm/19.1.7_1/bin/../include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/local/include -internal-isystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include -fdeprecated-macro -ferror-limit 19 -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_e71da.dir/CMakeCXXCompilerABI.cpp.o -x c++ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+         "/opt/homebrew/Cellar/llvm/19.1.7_1/bin/clang-19" -cc1 -triple arm64-apple-macosx15.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -ffp-contract=on -fno-rounding-math -funwind-tables=1 -target-sdk-version=15.4 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -target-cpu apple-m1 -target-feature +zcm -target-feature +zcz -target-feature +v8.4a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb "-fdebug-compilation-dir=/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-8EpJv0" -target-linker-version 1115.7.3 -v "-fcoverage-compilation-dir=/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-8EpJv0" -resource-dir /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19 -dependency-file CMakeFiles/cmTC_a73ee.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_a73ee.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -internal-isystem /opt/homebrew/Cellar/llvm/19.1.7_1/bin/../include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/local/include -internal-isystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include -fdeprecated-macro -ferror-limit 19 -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_a73ee.dir/CMakeCXXCompilerABI.cpp.o -x c++ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp
         clang -cc1 version 19.1.7 based upon LLVM 19.1.7 default target arm64-apple-darwin24.3.0
         ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/local/include"
         ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/Library/Frameworks"
@@ -296,8 +296,8 @@ events:
          /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include
          /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/System/Library/Frameworks (framework directory)
         End of search list.
-        Linking CXX executable cmTC_e71da
-        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e71da.dir/link.txt --verbose=1
+        Linking CXX executable cmTC_a73ee
+        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a73ee.dir/link.txt --verbose=1
         Homebrew clang version 19.1.7
         Target: arm64-apple-darwin24.3.0
         Thread model: posix
@@ -305,7 +305,7 @@ events:
         Configuration file: /opt/homebrew/etc/clang/arm64-apple-darwin24.cfg
         System configuration file directory: /opt/homebrew/etc/clang
         User configuration file directory: /Users/keeper/.config/clang
-         "/opt/local/bin/ld" -demangle -lto_library /opt/homebrew/Cellar/llvm/19.1.7_1/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 15.0.0 15.2 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_e71da -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_e71da.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/lib/darwin/libclang_rt.osx.a
+         "/opt/local/bin/ld" -demangle -lto_library /opt/homebrew/Cellar/llvm/19.1.7_1/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 15.0.0 15.4 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_a73ee -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_a73ee.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/lib/darwin/libclang_rt.osx.a
         @(#)PROGRAM:ld  PROJECT:ld64-820.1
         BUILD 18:42:42 Sep 11 2022
         configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
@@ -313,8 +313,8 @@ events:
         	/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/lib
         Framework search paths:
         	/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/System/Library/Frameworks/
-        /opt/homebrew/opt/llvm/bin/clang++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_e71da.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_e71da
-        gmake[1]: Leaving directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-07FV2D'
+        /opt/homebrew/opt/llvm/bin/clang++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_a73ee.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_a73ee
+        gmake[1]: Leaving directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-8EpJv0'
         
       exitCode: 0
   -
@@ -356,13 +356,13 @@ events:
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-07FV2D']
+        ignore line: [Change Dir: '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-8EpJv0']
         ignore line: []
-        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/local/bin/gmake -f Makefile cmTC_e71da/fast]
-        ignore line: [/opt/local/bin/gmake  -f CMakeFiles/cmTC_e71da.dir/build.make CMakeFiles/cmTC_e71da.dir/build]
-        ignore line: [gmake[1]: Entering directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-07FV2D']
-        ignore line: [Building CXX object CMakeFiles/cmTC_e71da.dir/CMakeCXXCompilerABI.cpp.o]
-        ignore line: [/opt/homebrew/opt/llvm/bin/clang++   -arch arm64   -v -Wl -v -MD -MT CMakeFiles/cmTC_e71da.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_e71da.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_e71da.dir/CMakeCXXCompilerABI.cpp.o -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/local/bin/gmake -f Makefile cmTC_a73ee/fast]
+        ignore line: [/opt/local/bin/gmake  -f CMakeFiles/cmTC_a73ee.dir/build.make CMakeFiles/cmTC_a73ee.dir/build]
+        ignore line: [gmake[1]: Entering directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-8EpJv0']
+        ignore line: [Building CXX object CMakeFiles/cmTC_a73ee.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/opt/homebrew/opt/llvm/bin/clang++   -arch arm64   -v -Wl -v -MD -MT CMakeFiles/cmTC_a73ee.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_a73ee.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_a73ee.dir/CMakeCXXCompilerABI.cpp.o -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [Homebrew clang version 19.1.7]
         ignore line: [Target: arm64-apple-darwin24.3.0]
         ignore line: [Thread model: posix]
@@ -372,7 +372,7 @@ events:
         ignore line: [User configuration file directory: /Users/keeper/.config/clang]
         ignore line: [clang++: warning: -Wl -v: 'linker' input unused [-Wunused-command-line-argument]]
         ignore line: [ (in-process)]
-        ignore line: [ "/opt/homebrew/Cellar/llvm/19.1.7_1/bin/clang-19" -cc1 -triple arm64-apple-macosx15.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -ffp-contract=on -fno-rounding-math -funwind-tables=1 -target-sdk-version=15.2 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -target-cpu apple-m1 -target-feature +zcm -target-feature +zcz -target-feature +v8.4a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb "-fdebug-compilation-dir=/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-07FV2D" -target-linker-version 1115.7.3 -v "-fcoverage-compilation-dir=/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-07FV2D" -resource-dir /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19 -dependency-file CMakeFiles/cmTC_e71da.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_e71da.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -internal-isystem /opt/homebrew/Cellar/llvm/19.1.7_1/bin/../include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/local/include -internal-isystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include -fdeprecated-macro -ferror-limit 19 -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_e71da.dir/CMakeCXXCompilerABI.cpp.o -x c++ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [ "/opt/homebrew/Cellar/llvm/19.1.7_1/bin/clang-19" -cc1 -triple arm64-apple-macosx15.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -ffp-contract=on -fno-rounding-math -funwind-tables=1 -target-sdk-version=15.4 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -target-cpu apple-m1 -target-feature +zcm -target-feature +zcz -target-feature +v8.4a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb "-fdebug-compilation-dir=/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-8EpJv0" -target-linker-version 1115.7.3 -v "-fcoverage-compilation-dir=/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-8EpJv0" -resource-dir /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19 -dependency-file CMakeFiles/cmTC_a73ee.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_a73ee.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -internal-isystem /opt/homebrew/Cellar/llvm/19.1.7_1/bin/../include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/local/include -internal-isystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include -fdeprecated-macro -ferror-limit 19 -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_a73ee.dir/CMakeCXXCompilerABI.cpp.o -x c++ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [clang -cc1 version 19.1.7 based upon LLVM 19.1.7 default target arm64-apple-darwin24.3.0]
         ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/local/include"]
         ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/Library/Frameworks"]
@@ -383,8 +383,8 @@ events:
         ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include]
         ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/System/Library/Frameworks (framework directory)]
         ignore line: [End of search list.]
-        ignore line: [Linking CXX executable cmTC_e71da]
-        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e71da.dir/link.txt --verbose=1]
+        ignore line: [Linking CXX executable cmTC_a73ee]
+        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a73ee.dir/link.txt --verbose=1]
         ignore line: [Homebrew clang version 19.1.7]
         ignore line: [Target: arm64-apple-darwin24.3.0]
         ignore line: [Thread model: posix]
@@ -392,7 +392,7 @@ events:
         ignore line: [Configuration file: /opt/homebrew/etc/clang/arm64-apple-darwin24.cfg]
         ignore line: [System configuration file directory: /opt/homebrew/etc/clang]
         ignore line: [User configuration file directory: /Users/keeper/.config/clang]
-        link line: [ "/opt/local/bin/ld" -demangle -lto_library /opt/homebrew/Cellar/llvm/19.1.7_1/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 15.0.0 15.2 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_e71da -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_e71da.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/lib/darwin/libclang_rt.osx.a]
+        link line: [ "/opt/local/bin/ld" -demangle -lto_library /opt/homebrew/Cellar/llvm/19.1.7_1/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 15.0.0 15.4 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_a73ee -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_a73ee.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/lib/darwin/libclang_rt.osx.a]
           arg [/opt/local/bin/ld] ==> ignore
           arg [-demangle] ==> ignore
           arg [-lto_library] ==> ignore, skip following value
@@ -403,17 +403,17 @@ events:
           arg [-platform_version] ==> ignore
           arg [macos] ==> ignore
           arg [15.0.0] ==> ignore
-          arg [15.2] ==> ignore
+          arg [15.4] ==> ignore
           arg [-syslibroot] ==> ignore
           arg [/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk] ==> ignore
           arg [-mllvm] ==> ignore
           arg [-enable-linkonceodr-outlining] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_e71da] ==> ignore
+          arg [cmTC_a73ee] ==> ignore
           arg [-search_paths_first] ==> ignore
           arg [-headerpad_max_install_names] ==> ignore
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_e71da.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [CMakeFiles/cmTC_a73ee.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
           arg [-lc++] ==> lib [c++]
           arg [-lSystem] ==> lib [System]
           arg [/opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/lib/darwin/libclang_rt.osx.a] ==> lib [/opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/lib/darwin/libclang_rt.osx.a]
@@ -452,8 +452,8 @@ events:
       - "CMakeLists.txt:49 (find_package)"
     description: "Detecting C OpenMP compiler info"
     directories:
-      source: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-jPJUrc"
-      binary: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-jPJUrc"
+      source: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-CMLa0B"
+      binary: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-CMLa0B"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/opt/homebrew/Cellar/llvm/19.1.7_1/bin/clang-scan-deps"
       CMAKE_C_FLAGS: ""
@@ -466,15 +466,15 @@ events:
       variable: "OpenMP_COMPILE_RESULT_C_fopenmplibomp"
       cached: true
       stdout: |
-        Change Dir: '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-jPJUrc'
+        Change Dir: '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-CMLa0B'
         
-        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/local/bin/gmake -f Makefile cmTC_4982f/fast
-        /opt/local/bin/gmake  -f CMakeFiles/cmTC_4982f.dir/build.make CMakeFiles/cmTC_4982f.dir/build
-        gmake[1]: Entering directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-jPJUrc'
-        Building C object CMakeFiles/cmTC_4982f.dir/OpenMPTryFlag.c.o
-        /opt/homebrew/opt/llvm/bin/clang   -fopenmp=libomp -arch arm64 -MD -MT CMakeFiles/cmTC_4982f.dir/OpenMPTryFlag.c.o -MF CMakeFiles/cmTC_4982f.dir/OpenMPTryFlag.c.o.d -o CMakeFiles/cmTC_4982f.dir/OpenMPTryFlag.c.o -c "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-jPJUrc/OpenMPTryFlag.c"
-        Linking C executable cmTC_4982f
-        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4982f.dir/link.txt --verbose=1
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/local/bin/gmake -f Makefile cmTC_8b654/fast
+        /opt/local/bin/gmake  -f CMakeFiles/cmTC_8b654.dir/build.make CMakeFiles/cmTC_8b654.dir/build
+        gmake[1]: Entering directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-CMLa0B'
+        Building C object CMakeFiles/cmTC_8b654.dir/OpenMPTryFlag.c.o
+        /opt/homebrew/opt/llvm/bin/clang   -fopenmp=libomp -arch arm64 -MD -MT CMakeFiles/cmTC_8b654.dir/OpenMPTryFlag.c.o -MF CMakeFiles/cmTC_8b654.dir/OpenMPTryFlag.c.o.d -o CMakeFiles/cmTC_8b654.dir/OpenMPTryFlag.c.o -c "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-CMLa0B/OpenMPTryFlag.c"
+        Linking C executable cmTC_8b654
+        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8b654.dir/link.txt --verbose=1
         Homebrew clang version 19.1.7
         Target: arm64-apple-darwin24.3.0
         Thread model: posix
@@ -482,7 +482,7 @@ events:
         Configuration file: /opt/homebrew/etc/clang/arm64-apple-darwin24.cfg
         System configuration file directory: /opt/homebrew/etc/clang
         User configuration file directory: /Users/keeper/.config/clang
-         "/opt/local/bin/ld" -demangle -lto_library /opt/homebrew/Cellar/llvm/19.1.7_1/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 15.0.0 15.2 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_4982f -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_4982f.dir/OpenMPTryFlag.c.o -lomp -L/opt/homebrew/Cellar/llvm/19.1.7_1/lib -lSystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/lib/darwin/libclang_rt.osx.a
+         "/opt/local/bin/ld" -demangle -lto_library /opt/homebrew/Cellar/llvm/19.1.7_1/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 15.0.0 15.4 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_8b654 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_8b654.dir/OpenMPTryFlag.c.o -lomp -L/opt/homebrew/Cellar/llvm/19.1.7_1/lib -lSystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/lib/darwin/libclang_rt.osx.a
         @(#)PROGRAM:ld  PROJECT:ld64-820.1
         BUILD 18:42:42 Sep 11 2022
         configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
@@ -491,8 +491,8 @@ events:
         	/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/lib
         Framework search paths:
         	/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/System/Library/Frameworks/
-        /opt/homebrew/opt/llvm/bin/clang  -fopenmp=libomp -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v -Wl,-v CMakeFiles/cmTC_4982f.dir/OpenMPTryFlag.c.o -o cmTC_4982f
-        gmake[1]: Leaving directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-jPJUrc'
+        /opt/homebrew/opt/llvm/bin/clang  -fopenmp=libomp -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v -Wl,-v CMakeFiles/cmTC_8b654.dir/OpenMPTryFlag.c.o -o cmTC_8b654
+        gmake[1]: Leaving directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-CMLa0B'
         
       exitCode: 0
   -
@@ -504,15 +504,15 @@ events:
     message: |
       Parsed C OpenMP implicit link information from above output:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-jPJUrc']
+        ignore line: [Change Dir: '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-CMLa0B']
         ignore line: []
-        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/local/bin/gmake -f Makefile cmTC_4982f/fast]
-        ignore line: [/opt/local/bin/gmake  -f CMakeFiles/cmTC_4982f.dir/build.make CMakeFiles/cmTC_4982f.dir/build]
-        ignore line: [gmake[1]: Entering directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-jPJUrc']
-        ignore line: [Building C object CMakeFiles/cmTC_4982f.dir/OpenMPTryFlag.c.o]
-        ignore line: [/opt/homebrew/opt/llvm/bin/clang   -fopenmp=libomp -arch arm64 -MD -MT CMakeFiles/cmTC_4982f.dir/OpenMPTryFlag.c.o -MF CMakeFiles/cmTC_4982f.dir/OpenMPTryFlag.c.o.d -o CMakeFiles/cmTC_4982f.dir/OpenMPTryFlag.c.o -c "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-jPJUrc/OpenMPTryFlag.c"]
-        ignore line: [Linking C executable cmTC_4982f]
-        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4982f.dir/link.txt --verbose=1]
+        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/local/bin/gmake -f Makefile cmTC_8b654/fast]
+        ignore line: [/opt/local/bin/gmake  -f CMakeFiles/cmTC_8b654.dir/build.make CMakeFiles/cmTC_8b654.dir/build]
+        ignore line: [gmake[1]: Entering directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-CMLa0B']
+        ignore line: [Building C object CMakeFiles/cmTC_8b654.dir/OpenMPTryFlag.c.o]
+        ignore line: [/opt/homebrew/opt/llvm/bin/clang   -fopenmp=libomp -arch arm64 -MD -MT CMakeFiles/cmTC_8b654.dir/OpenMPTryFlag.c.o -MF CMakeFiles/cmTC_8b654.dir/OpenMPTryFlag.c.o.d -o CMakeFiles/cmTC_8b654.dir/OpenMPTryFlag.c.o -c "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-CMLa0B/OpenMPTryFlag.c"]
+        ignore line: [Linking C executable cmTC_8b654]
+        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8b654.dir/link.txt --verbose=1]
         ignore line: [Homebrew clang version 19.1.7]
         ignore line: [Target: arm64-apple-darwin24.3.0]
         ignore line: [Thread model: posix]
@@ -520,7 +520,7 @@ events:
         ignore line: [Configuration file: /opt/homebrew/etc/clang/arm64-apple-darwin24.cfg]
         ignore line: [System configuration file directory: /opt/homebrew/etc/clang]
         ignore line: [User configuration file directory: /Users/keeper/.config/clang]
-        link line: [ "/opt/local/bin/ld" -demangle -lto_library /opt/homebrew/Cellar/llvm/19.1.7_1/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 15.0.0 15.2 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_4982f -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_4982f.dir/OpenMPTryFlag.c.o -lomp -L/opt/homebrew/Cellar/llvm/19.1.7_1/lib -lSystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/lib/darwin/libclang_rt.osx.a]
+        link line: [ "/opt/local/bin/ld" -demangle -lto_library /opt/homebrew/Cellar/llvm/19.1.7_1/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 15.0.0 15.4 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_8b654 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_8b654.dir/OpenMPTryFlag.c.o -lomp -L/opt/homebrew/Cellar/llvm/19.1.7_1/lib -lSystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/lib/darwin/libclang_rt.osx.a]
           arg [/opt/local/bin/ld] ==> ignore
           arg [-demangle] ==> ignore
           arg [-lto_library] ==> ignore, skip following value
@@ -531,17 +531,17 @@ events:
           arg [-platform_version] ==> ignore
           arg [macos] ==> ignore
           arg [15.0.0] ==> ignore
-          arg [15.2] ==> ignore
+          arg [15.4] ==> ignore
           arg [-syslibroot] ==> ignore
           arg [/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk] ==> ignore
           arg [-mllvm] ==> ignore
           arg [-enable-linkonceodr-outlining] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_4982f] ==> ignore
+          arg [cmTC_8b654] ==> ignore
           arg [-search_paths_first] ==> ignore
           arg [-headerpad_max_install_names] ==> ignore
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_4982f.dir/OpenMPTryFlag.c.o] ==> ignore
+          arg [CMakeFiles/cmTC_8b654.dir/OpenMPTryFlag.c.o] ==> ignore
           arg [-lomp] ==> lib [omp]
           arg [-L/opt/homebrew/Cellar/llvm/19.1.7_1/lib] ==> dir [/opt/homebrew/Cellar/llvm/19.1.7_1/lib]
           arg [-lSystem] ==> lib [System]
@@ -568,8 +568,8 @@ events:
       - "CMakeLists.txt:49 (find_package)"
     description: "Detecting CXX OpenMP compiler info"
     directories:
-      source: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-Hz9HKj"
-      binary: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-Hz9HKj"
+      source: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-aGymsN"
+      binary: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-aGymsN"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/opt/homebrew/Cellar/llvm/19.1.7_1/bin/clang-scan-deps"
       CMAKE_CXX_FLAGS: ""
@@ -582,15 +582,15 @@ events:
       variable: "OpenMP_COMPILE_RESULT_CXX_fopenmplibomp"
       cached: true
       stdout: |
-        Change Dir: '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-Hz9HKj'
+        Change Dir: '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-aGymsN'
         
-        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/local/bin/gmake -f Makefile cmTC_b973e/fast
-        /opt/local/bin/gmake  -f CMakeFiles/cmTC_b973e.dir/build.make CMakeFiles/cmTC_b973e.dir/build
-        gmake[1]: Entering directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-Hz9HKj'
-        Building CXX object CMakeFiles/cmTC_b973e.dir/OpenMPTryFlag.cpp.o
-        /opt/homebrew/opt/llvm/bin/clang++   -fopenmp=libomp -std=gnu++17 -arch arm64 -MD -MT CMakeFiles/cmTC_b973e.dir/OpenMPTryFlag.cpp.o -MF CMakeFiles/cmTC_b973e.dir/OpenMPTryFlag.cpp.o.d -o CMakeFiles/cmTC_b973e.dir/OpenMPTryFlag.cpp.o -c "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-Hz9HKj/OpenMPTryFlag.cpp"
-        Linking CXX executable cmTC_b973e
-        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b973e.dir/link.txt --verbose=1
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/local/bin/gmake -f Makefile cmTC_0b843/fast
+        /opt/local/bin/gmake  -f CMakeFiles/cmTC_0b843.dir/build.make CMakeFiles/cmTC_0b843.dir/build
+        gmake[1]: Entering directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-aGymsN'
+        Building CXX object CMakeFiles/cmTC_0b843.dir/OpenMPTryFlag.cpp.o
+        /opt/homebrew/opt/llvm/bin/clang++   -fopenmp=libomp -std=gnu++17 -arch arm64 -MD -MT CMakeFiles/cmTC_0b843.dir/OpenMPTryFlag.cpp.o -MF CMakeFiles/cmTC_0b843.dir/OpenMPTryFlag.cpp.o.d -o CMakeFiles/cmTC_0b843.dir/OpenMPTryFlag.cpp.o -c "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-aGymsN/OpenMPTryFlag.cpp"
+        Linking CXX executable cmTC_0b843
+        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0b843.dir/link.txt --verbose=1
         Homebrew clang version 19.1.7
         Target: arm64-apple-darwin24.3.0
         Thread model: posix
@@ -598,7 +598,7 @@ events:
         Configuration file: /opt/homebrew/etc/clang/arm64-apple-darwin24.cfg
         System configuration file directory: /opt/homebrew/etc/clang
         User configuration file directory: /Users/keeper/.config/clang
-         "/opt/local/bin/ld" -demangle -lto_library /opt/homebrew/Cellar/llvm/19.1.7_1/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 15.0.0 15.2 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_b973e -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_b973e.dir/OpenMPTryFlag.cpp.o -lomp -L/opt/homebrew/Cellar/llvm/19.1.7_1/lib -lc++ -lSystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/lib/darwin/libclang_rt.osx.a
+         "/opt/local/bin/ld" -demangle -lto_library /opt/homebrew/Cellar/llvm/19.1.7_1/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 15.0.0 15.4 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_0b843 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_0b843.dir/OpenMPTryFlag.cpp.o -lomp -L/opt/homebrew/Cellar/llvm/19.1.7_1/lib -lc++ -lSystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/lib/darwin/libclang_rt.osx.a
         @(#)PROGRAM:ld  PROJECT:ld64-820.1
         BUILD 18:42:42 Sep 11 2022
         configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
@@ -607,8 +607,8 @@ events:
         	/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/lib
         Framework search paths:
         	/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/System/Library/Frameworks/
-        /opt/homebrew/opt/llvm/bin/clang++  -fopenmp=libomp -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v -Wl,-v CMakeFiles/cmTC_b973e.dir/OpenMPTryFlag.cpp.o -o cmTC_b973e
-        gmake[1]: Leaving directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-Hz9HKj'
+        /opt/homebrew/opt/llvm/bin/clang++  -fopenmp=libomp -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v -Wl,-v CMakeFiles/cmTC_0b843.dir/OpenMPTryFlag.cpp.o -o cmTC_0b843
+        gmake[1]: Leaving directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-aGymsN'
         
       exitCode: 0
   -
@@ -620,15 +620,15 @@ events:
     message: |
       Parsed CXX OpenMP implicit link information from above output:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-Hz9HKj']
+        ignore line: [Change Dir: '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-aGymsN']
         ignore line: []
-        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/local/bin/gmake -f Makefile cmTC_b973e/fast]
-        ignore line: [/opt/local/bin/gmake  -f CMakeFiles/cmTC_b973e.dir/build.make CMakeFiles/cmTC_b973e.dir/build]
-        ignore line: [gmake[1]: Entering directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-Hz9HKj']
-        ignore line: [Building CXX object CMakeFiles/cmTC_b973e.dir/OpenMPTryFlag.cpp.o]
-        ignore line: [/opt/homebrew/opt/llvm/bin/clang++   -fopenmp=libomp -std=gnu++17 -arch arm64 -MD -MT CMakeFiles/cmTC_b973e.dir/OpenMPTryFlag.cpp.o -MF CMakeFiles/cmTC_b973e.dir/OpenMPTryFlag.cpp.o.d -o CMakeFiles/cmTC_b973e.dir/OpenMPTryFlag.cpp.o -c "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-Hz9HKj/OpenMPTryFlag.cpp"]
-        ignore line: [Linking CXX executable cmTC_b973e]
-        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b973e.dir/link.txt --verbose=1]
+        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/local/bin/gmake -f Makefile cmTC_0b843/fast]
+        ignore line: [/opt/local/bin/gmake  -f CMakeFiles/cmTC_0b843.dir/build.make CMakeFiles/cmTC_0b843.dir/build]
+        ignore line: [gmake[1]: Entering directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-aGymsN']
+        ignore line: [Building CXX object CMakeFiles/cmTC_0b843.dir/OpenMPTryFlag.cpp.o]
+        ignore line: [/opt/homebrew/opt/llvm/bin/clang++   -fopenmp=libomp -std=gnu++17 -arch arm64 -MD -MT CMakeFiles/cmTC_0b843.dir/OpenMPTryFlag.cpp.o -MF CMakeFiles/cmTC_0b843.dir/OpenMPTryFlag.cpp.o.d -o CMakeFiles/cmTC_0b843.dir/OpenMPTryFlag.cpp.o -c "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-aGymsN/OpenMPTryFlag.cpp"]
+        ignore line: [Linking CXX executable cmTC_0b843]
+        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0b843.dir/link.txt --verbose=1]
         ignore line: [Homebrew clang version 19.1.7]
         ignore line: [Target: arm64-apple-darwin24.3.0]
         ignore line: [Thread model: posix]
@@ -636,7 +636,7 @@ events:
         ignore line: [Configuration file: /opt/homebrew/etc/clang/arm64-apple-darwin24.cfg]
         ignore line: [System configuration file directory: /opt/homebrew/etc/clang]
         ignore line: [User configuration file directory: /Users/keeper/.config/clang]
-        link line: [ "/opt/local/bin/ld" -demangle -lto_library /opt/homebrew/Cellar/llvm/19.1.7_1/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 15.0.0 15.2 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_b973e -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_b973e.dir/OpenMPTryFlag.cpp.o -lomp -L/opt/homebrew/Cellar/llvm/19.1.7_1/lib -lc++ -lSystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/lib/darwin/libclang_rt.osx.a]
+        link line: [ "/opt/local/bin/ld" -demangle -lto_library /opt/homebrew/Cellar/llvm/19.1.7_1/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 15.0.0 15.4 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_0b843 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_0b843.dir/OpenMPTryFlag.cpp.o -lomp -L/opt/homebrew/Cellar/llvm/19.1.7_1/lib -lc++ -lSystem /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/lib/darwin/libclang_rt.osx.a]
           arg [/opt/local/bin/ld] ==> ignore
           arg [-demangle] ==> ignore
           arg [-lto_library] ==> ignore, skip following value
@@ -647,17 +647,17 @@ events:
           arg [-platform_version] ==> ignore
           arg [macos] ==> ignore
           arg [15.0.0] ==> ignore
-          arg [15.2] ==> ignore
+          arg [15.4] ==> ignore
           arg [-syslibroot] ==> ignore
           arg [/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk] ==> ignore
           arg [-mllvm] ==> ignore
           arg [-enable-linkonceodr-outlining] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_b973e] ==> ignore
+          arg [cmTC_0b843] ==> ignore
           arg [-search_paths_first] ==> ignore
           arg [-headerpad_max_install_names] ==> ignore
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_b973e.dir/OpenMPTryFlag.cpp.o] ==> ignore
+          arg [CMakeFiles/cmTC_0b843.dir/OpenMPTryFlag.cpp.o] ==> ignore
           arg [-lomp] ==> lib [omp]
           arg [-L/opt/homebrew/Cellar/llvm/19.1.7_1/lib] ==> dir [/opt/homebrew/Cellar/llvm/19.1.7_1/lib]
           arg [-lc++] ==> lib [c++]
@@ -685,8 +685,8 @@ events:
       - "CMakeLists.txt:49 (find_package)"
     description: "Detecting C OpenMP version"
     directories:
-      source: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-mBGGri"
-      binary: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-mBGGri"
+      source: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-eE8VDP"
+      binary: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-eE8VDP"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/opt/homebrew/Cellar/llvm/19.1.7_1/bin/clang-scan-deps"
       CMAKE_C_FLAGS: ""
@@ -699,17 +699,17 @@ events:
       variable: "OpenMP_SPECTEST_C_"
       cached: true
       stdout: |
-        Change Dir: '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-mBGGri'
+        Change Dir: '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-eE8VDP'
         
-        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/local/bin/gmake -f Makefile cmTC_dd990/fast
-        /opt/local/bin/gmake  -f CMakeFiles/cmTC_dd990.dir/build.make CMakeFiles/cmTC_dd990.dir/build
-        gmake[1]: Entering directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-mBGGri'
-        Building C object CMakeFiles/cmTC_dd990.dir/OpenMPCheckVersion.c.o
-        /opt/homebrew/opt/llvm/bin/clang   -fopenmp=libomp -arch arm64 -MD -MT CMakeFiles/cmTC_dd990.dir/OpenMPCheckVersion.c.o -MF CMakeFiles/cmTC_dd990.dir/OpenMPCheckVersion.c.o.d -o CMakeFiles/cmTC_dd990.dir/OpenMPCheckVersion.c.o -c "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-mBGGri/OpenMPCheckVersion.c"
-        Linking C executable cmTC_dd990
-        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dd990.dir/link.txt --verbose=1
-        /opt/homebrew/opt/llvm/bin/clang  -fopenmp=libomp -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_dd990.dir/OpenMPCheckVersion.c.o -o cmTC_dd990
-        gmake[1]: Leaving directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-mBGGri'
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/local/bin/gmake -f Makefile cmTC_0d2b1/fast
+        /opt/local/bin/gmake  -f CMakeFiles/cmTC_0d2b1.dir/build.make CMakeFiles/cmTC_0d2b1.dir/build
+        gmake[1]: Entering directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-eE8VDP'
+        Building C object CMakeFiles/cmTC_0d2b1.dir/OpenMPCheckVersion.c.o
+        /opt/homebrew/opt/llvm/bin/clang   -fopenmp=libomp -arch arm64 -MD -MT CMakeFiles/cmTC_0d2b1.dir/OpenMPCheckVersion.c.o -MF CMakeFiles/cmTC_0d2b1.dir/OpenMPCheckVersion.c.o.d -o CMakeFiles/cmTC_0d2b1.dir/OpenMPCheckVersion.c.o -c "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-eE8VDP/OpenMPCheckVersion.c"
+        Linking C executable cmTC_0d2b1
+        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0d2b1.dir/link.txt --verbose=1
+        /opt/homebrew/opt/llvm/bin/clang  -fopenmp=libomp -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_0d2b1.dir/OpenMPCheckVersion.c.o -o cmTC_0d2b1
+        gmake[1]: Leaving directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-eE8VDP'
         
       exitCode: 0
   -
@@ -720,8 +720,8 @@ events:
       - "CMakeLists.txt:49 (find_package)"
     description: "Detecting CXX OpenMP version"
     directories:
-      source: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-Uxxz1V"
-      binary: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-Uxxz1V"
+      source: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-qgnGDj"
+      binary: "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-qgnGDj"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/opt/homebrew/Cellar/llvm/19.1.7_1/bin/clang-scan-deps"
       CMAKE_CXX_FLAGS: ""
@@ -734,17 +734,17 @@ events:
       variable: "OpenMP_SPECTEST_CXX_"
       cached: true
       stdout: |
-        Change Dir: '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-Uxxz1V'
+        Change Dir: '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-qgnGDj'
         
-        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/local/bin/gmake -f Makefile cmTC_53db2/fast
-        /opt/local/bin/gmake  -f CMakeFiles/cmTC_53db2.dir/build.make CMakeFiles/cmTC_53db2.dir/build
-        gmake[1]: Entering directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-Uxxz1V'
-        Building CXX object CMakeFiles/cmTC_53db2.dir/OpenMPCheckVersion.cpp.o
-        /opt/homebrew/opt/llvm/bin/clang++   -fopenmp=libomp -std=gnu++17 -arch arm64 -MD -MT CMakeFiles/cmTC_53db2.dir/OpenMPCheckVersion.cpp.o -MF CMakeFiles/cmTC_53db2.dir/OpenMPCheckVersion.cpp.o.d -o CMakeFiles/cmTC_53db2.dir/OpenMPCheckVersion.cpp.o -c "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-Uxxz1V/OpenMPCheckVersion.cpp"
-        Linking CXX executable cmTC_53db2
-        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_53db2.dir/link.txt --verbose=1
-        /opt/homebrew/opt/llvm/bin/clang++  -fopenmp=libomp -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_53db2.dir/OpenMPCheckVersion.cpp.o -o cmTC_53db2
-        gmake[1]: Leaving directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-Uxxz1V'
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/local/bin/gmake -f Makefile cmTC_17df9/fast
+        /opt/local/bin/gmake  -f CMakeFiles/cmTC_17df9.dir/build.make CMakeFiles/cmTC_17df9.dir/build
+        gmake[1]: Entering directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-qgnGDj'
+        Building CXX object CMakeFiles/cmTC_17df9.dir/OpenMPCheckVersion.cpp.o
+        /opt/homebrew/opt/llvm/bin/clang++   -fopenmp=libomp -std=gnu++17 -arch arm64 -MD -MT CMakeFiles/cmTC_17df9.dir/OpenMPCheckVersion.cpp.o -MF CMakeFiles/cmTC_17df9.dir/OpenMPCheckVersion.cpp.o.d -o CMakeFiles/cmTC_17df9.dir/OpenMPCheckVersion.cpp.o -c "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-qgnGDj/OpenMPCheckVersion.cpp"
+        Linking CXX executable cmTC_17df9
+        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_17df9.dir/link.txt --verbose=1
+        /opt/homebrew/opt/llvm/bin/clang++  -fopenmp=libomp -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_17df9.dir/OpenMPCheckVersion.cpp.o -o cmTC_17df9
+        gmake[1]: Leaving directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles/CMakeScratch/TryCompile-qgnGDj'
         
       exitCode: 0
 ...

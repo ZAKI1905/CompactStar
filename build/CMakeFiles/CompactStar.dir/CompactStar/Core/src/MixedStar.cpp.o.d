@@ -164,6 +164,7 @@ CMakeFiles/CompactStar.dir/CompactStar/Core/src/MixedStar.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/Availability.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/AvailabilityVersions.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/AvailabilityInternal.h \
@@ -683,6 +684,7 @@ CMakeFiles/CompactStar.dir/CompactStar/Core/src/MixedStar.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_mb_cur_max.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/xlocale/_ctype.h \

@@ -1303,5 +1303,89 @@ void CompactStar::CompOSE_EOS::PlotFermiE(
 }
 
 //--------------------------------------------------------------
+// Exports the Fermi energy of particles as a function of density
+// The input directory should by default an absolute path.
+void CompactStar::CompOSE_EOS::ExportFermiE(
+                const Zaki::String::Directory& in_dir,
+                const Dir_Type in_dir_type) const 
+{
+  // ------------------------------------
+  //        Finding Fermi Energy
+  // ------------------------------------
+  Zaki::Vector::DataColumn fermi_electron =  ( 
+    pow(Zaki::Physics::ELECTRON_M_FM, 2) 
+    + (3*M_PI*M_PI* eos["0"] * eos[(int)EOS_Idx::n]).pow(2./3.)).sqrt() / Zaki::Physics::MEV_2_INV_FM ;
+  
+  fermi_electron.label = "FE_e [MeV]" ;
+
+  Zaki::Vector::DataColumn fermi_muon =  ( 
+    pow(Zaki::Physics::MUON_M_FM, 2) 
+    + (3*M_PI*M_PI* eos["1"] * eos[(int)EOS_Idx::n]).pow(2./3.)).sqrt() / Zaki::Physics::MEV_2_INV_FM ;
+
+  fermi_muon.label = "FE_mu [MeV]" ;
+
+  Zaki::Vector::DataColumn fermi_neutron =  ( 
+    m_eff["10"].pow(2) 
+    + (3*M_PI*M_PI* eos["10"] * eos[(int)EOS_Idx::n]).pow(2./3.) / pow(Zaki::Physics::MEV_2_INV_FM, 2)
+    ).sqrt() + V_eff["10"]  ;
+  fermi_neutron.label = "FE_n [MeV]" ;
+
+  Zaki::Vector::DataColumn fermi_lambda =  ( 
+    m_eff["100"].pow(2) 
+    + (3*M_PI*M_PI* eos["100"] * eos[(int)EOS_Idx::n]).pow(2./3.) / pow(Zaki::Physics::MEV_2_INV_FM, 2)
+    ).sqrt() + V_eff["100"]  ;
+  fermi_lambda.label = "FE_Lam [MeV]" ;
+
+  Zaki::Vector::DataSet fermi_ds({eos[(int)EOS_Idx::n], 
+                                  fermi_electron, fermi_muon, 
+                                  fermi_neutron, fermi_lambda}) ;
+
+  Zaki::String::Directory file_dir = in_dir ;
+  if (in_dir_type == Dir_Type::relative)
+  {
+    file_dir = wrk_dir + "/" + in_dir ;
+  }
+
+  fermi_ds.Export(file_dir + "/" + name + "_E_Fermi.tsv", {},'\t') ;
+}
+
+//--------------------------------------------------------------
+/// Returns the Fermi energy of particles as a function of density 
+Zaki::Vector::DataSet CompactStar::CompOSE_EOS::GetFermiE() const 
+{
+  // ------------------------------------
+  //        Finding Fermi Energy
+  // ------------------------------------
+  Zaki::Vector::DataColumn fermi_electron =  ( 
+    pow(Zaki::Physics::ELECTRON_M_FM, 2) 
+    + (3*M_PI*M_PI* eos["0"] * eos[(int)EOS_Idx::n]).pow(2./3.)).sqrt() / Zaki::Physics::MEV_2_INV_FM ;
+  
+  fermi_electron.label = "FE_e [MeV]" ;
+
+  Zaki::Vector::DataColumn fermi_muon =  ( 
+    pow(Zaki::Physics::MUON_M_FM, 2) 
+    + (3*M_PI*M_PI* eos["1"] * eos[(int)EOS_Idx::n]).pow(2./3.)).sqrt() / Zaki::Physics::MEV_2_INV_FM ;
+
+  fermi_muon.label = "FE_mu [MeV]" ;
+
+  Zaki::Vector::DataColumn fermi_neutron =  ( 
+    m_eff["10"].pow(2) 
+    + (3*M_PI*M_PI* eos["10"] * eos[(int)EOS_Idx::n]).pow(2./3.) / pow(Zaki::Physics::MEV_2_INV_FM, 2)
+    ).sqrt() + V_eff["10"]  ;
+  fermi_neutron.label = "FE_n [MeV]" ;
+
+  Zaki::Vector::DataColumn fermi_lambda =  ( 
+    m_eff["100"].pow(2) 
+    + (3*M_PI*M_PI* eos["100"] * eos[(int)EOS_Idx::n]).pow(2./3.) / pow(Zaki::Physics::MEV_2_INV_FM, 2)
+    ).sqrt() + V_eff["100"]  ;
+  fermi_lambda.label = "FE_Lam [MeV]" ;
+
+  Zaki::Vector::DataSet fermi_ds({eos[(int)EOS_Idx::n], 
+                                  fermi_electron, fermi_muon, 
+                                  fermi_neutron, fermi_lambda}) ;
+
+  return fermi_ds ;
+}
+//--------------------------------------------------------------
 
 //==============================================================

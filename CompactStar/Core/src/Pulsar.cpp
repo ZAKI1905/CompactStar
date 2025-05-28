@@ -358,6 +358,36 @@ Zaki::Vector::DataSet* Pulsar::GetProfile()
 }
 
 // -------------------------------------------------------
+// Attaches an EOS to the pulsar
+void Pulsar::AttachEOS(CompOSE_EOS* in_eos) 
+{
+  if (in_eos == nullptr)
+  {
+    Z_LOG_ERROR("Pulsar::AttachEOS() : "
+                "The EOS pointer is null, "
+                "you should pass a valid EOS pointer!") ;
+    return ;
+  }
+
+  eos = in_eos ;
+}
+
+// -------------------------------------------------------
+// Returns the attached EOS pointer
+CompOSE_EOS* Pulsar::GetEOS() const
+{
+  if (!eos)
+  {
+    Z_LOG_ERROR("Pulsar::GetEOS() : "
+                "The EOS pointer is null, "
+                "you should attach an EOS first!") ;
+    return nullptr ;
+  }
+
+  return eos ;
+}
+
+// -------------------------------------------------------
 // Returns the metric exponent (nu) in g_tt = exp(2*nu)
 Zaki::Vector::DataColumn Pulsar::GetMetricNu() const
 {
@@ -563,19 +593,31 @@ void Pulsar::PlotAbsoluteComposition(const std::string& file,
 void Pulsar::PlotFermiE(const std::string& file, 
                           const Zaki::String::Directory& in_dir) const
 {
-  // ------------------------------------
-  //        Finding Fermi Energy
-  // ------------------------------------
-  Zaki::Vector::DataColumn fermi_electron =  ( 
-    pow(Zaki::Physics::ELECTRON_M_FM, 2) 
-    + (3*M_PI*M_PI* profile["0"] * profile[5]).pow(2./3.)).sqrt() / Zaki::Physics::MEV_2_INV_FM ;
+  if (!eos)
+  {
+    Z_LOG_ERROR("Pulsar::PlotFermiE() : "
+                "The EOS pointer is null, "
+                "you should attach an EOS first!") ;
+    return ;
+  }
 
-  Zaki::Vector::DataColumn fermi_muon =  ( 
-    pow(Zaki::Physics::MUON_M_FM, 2) 
-    + (3*M_PI*M_PI* profile["1"] * profile[5]).pow(2./3.)).sqrt() / Zaki::Physics::MEV_2_INV_FM ;
+  Zaki::Vector::DataSet fermi_E_density_ds = eos->GetFermiE() ;
+  size_t n_cols = fermi_E_density_ds.Dim().size() ;
+  size_t n_rows = profile[5].Size() ;
+  Zaki::Vector::DataSet fermi_E_radius_ds(n_cols, n_rows) ;
+  
+  fermi_E_radius_ds[0] = profile[0] ; // Radius column
 
-  Zaki::Vector::DataSet fermi_ds({profile[5], 
-                                  fermi_electron, fermi_muon}) ;
+  std::vector<int> fermi_E_density_idx ;
+
+  // Starts from i=1 to skip the density column
+  for (size_t i = 1; i < n_cols; i++)
+  {
+    fermi_E_density_idx.emplace_back( i ) ; 
+    fermi_E_density_ds.Interpolate(0, i) ;
+    fermi_E_radius_ds[i] = fermi_E_density_ds.Evaluate(i, profile[5]) ;
+    fermi_E_radius_ds[i].label = fermi_E_density_ds[i].label ;
+  }
 
   // ------------------------------------
   //              Plotting
@@ -588,7 +630,7 @@ void Pulsar::PlotFermiE(const std::string& file,
   plt_par.SetXAxis({0, 14}) ;
   plt_par.SetLegend({"upper right", 0.0, 1}) ;
 
-  fermi_ds.SetPlotPars(plt_par) ;
+  fermi_E_radius_ds.SetPlotPars(plt_par) ;
 
   // Zaki::String::Directory file_dir = in_dir ;
   // if (in_dir_type == Dir_Type::relative)
@@ -597,28 +639,10 @@ void Pulsar::PlotFermiE(const std::string& file,
   // }
 
   // std::cout << "\n\t" << file_dir + "/E_Fermi.pdf\n" ;
-  fermi_ds.SetWrkDir(wrk_dir) ;
-  fermi_ds.SemiLogXPlot(0, {{1, "$e^-$"}, {2, "$\\mu^-$"}}, 
-                           in_dir + file, name) ;
-
-
-  // // Electron particle code is '0'
-  // Zaki::Vector::DataSet fermi_ds({ profile[0], 
-  //  ( pow(Zaki::Physics::ELECTRON_M_FM, 2) 
-  //   + (3*M_PI*M_PI* profile["0"] * profile[5]).pow(2./3.)).sqrt() / Zaki::Physics::MEV_2_INV_FM 
-  //                               }) ;
-  // Zaki::Vector::DataSet::PlotParam plt_par ;
-  // plt_par.SetGrid() ;
-  // // plt_par.SetXAxis({0, profile[0][-1]*1.02}) ;
-  // plt_par.SetXAxis({0, 14}) ;
-  // // plt_par.SetYAxis({1e-3, 1}) ;
-  // plt_par.SetXAxisLabel("$R \\, ( \\, km \\, )$") ;
-  // plt_par.SetYAxisLabel("$E_F\\, ( \\, {\\rm MeV} \\, )$") ;
-  // // plt_par.SetLegend({"upper right", 1.03, 1.0}) ;
-  
-  // fermi_ds.SetPlotPars(plt_par) ;
-  // fermi_ds.SetWrkDir(wrk_dir) ;
-  // fermi_ds.Plot(0, 1, in_dir + file, name ) ;
+  fermi_E_radius_ds.SetWrkDir(wrk_dir) ;
+  fermi_E_radius_ds.Export( in_dir + file + ".tsv") ;
+  fermi_E_radius_ds.Plot(0, {{1, "$e^-$"}, {2, "$\\mu^-$"}}, 
+                           in_dir + file + ".pdf", name) ;
 }
 
 //--------------------------------------------------------------

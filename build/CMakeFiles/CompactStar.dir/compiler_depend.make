@@ -10,6 +10,7 @@ CMakeFiles/CompactStar.dir/CompactStar/BNV/src/BNV_Analysis.cpp.o: /Users/keeper
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -22,6 +23,7 @@ CMakeFiles/CompactStar.dir/CompactStar/BNV/src/BNV_Analysis.cpp.o: /Users/keeper
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -848,6 +850,7 @@ CMakeFiles/CompactStar.dir/CompactStar/BNV/src/BNV_B_Chi_Combo.cpp.o: /Users/kee
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -860,6 +863,7 @@ CMakeFiles/CompactStar.dir/CompactStar/BNV/src/BNV_B_Chi_Combo.cpp.o: /Users/kee
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -1700,6 +1704,7 @@ CMakeFiles/CompactStar.dir/CompactStar/BNV/src/BNV_B_Chi_Photon.cpp.o: /Users/ke
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -1712,6 +1717,7 @@ CMakeFiles/CompactStar.dir/CompactStar/BNV/src/BNV_B_Chi_Photon.cpp.o: /Users/ke
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -2553,6 +2559,7 @@ CMakeFiles/CompactStar.dir/CompactStar/BNV/src/BNV_B_Chi_Transition.cpp.o: /User
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -2565,6 +2572,7 @@ CMakeFiles/CompactStar.dir/CompactStar/BNV/src/BNV_B_Chi_Transition.cpp.o: /User
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -3405,6 +3413,7 @@ CMakeFiles/CompactStar.dir/CompactStar/BNV/src/BNV_B_Psi_Pion.cpp.o: /Users/keep
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -3417,6 +3426,7 @@ CMakeFiles/CompactStar.dir/CompactStar/BNV/src/BNV_B_Psi_Pion.cpp.o: /Users/keep
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -4257,6 +4267,7 @@ CMakeFiles/CompactStar.dir/CompactStar/BNV/src/BNV_Chi.cpp.o: /Users/keeper/Libr
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -4269,6 +4280,7 @@ CMakeFiles/CompactStar.dir/CompactStar/BNV/src/BNV_Chi.cpp.o: /Users/keeper/Libr
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -5108,6 +5120,7 @@ CMakeFiles/CompactStar.dir/CompactStar/BNV/src/BNV_Sequence.cpp.o: /Users/keeper
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -5120,6 +5133,7 @@ CMakeFiles/CompactStar.dir/CompactStar/BNV/src/BNV_Sequence.cpp.o: /Users/keeper
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -5947,6 +5961,7 @@ CMakeFiles/CompactStar.dir/CompactStar/BNV/src/Decay_Analysis.cpp.o: /Users/keep
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -5959,6 +5974,7 @@ CMakeFiles/CompactStar.dir/CompactStar/BNV/src/Decay_Analysis.cpp.o: /Users/keep
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -6124,6 +6140,7 @@ CMakeFiles/CompactStar.dir/CompactStar/BNV/src/Decay_Analysis.cpp.o: /Users/keep
   /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/CompactStar/Core/Pulsar.hpp \
   /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/CompactStar/Core/RotationSolver.hpp \
   /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/CompactStar/Core/TOVSolver.hpp \
+  /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/CompactStar/EOS/CompOSE_EOS.hpp \
   /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/dependencies/include/Zaki/File/VecSaver.hpp \
   /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/dependencies/include/Zaki/Math/Math_Core.hpp \
   /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/dependencies/include/Zaki/Physics/Constants.hpp \
@@ -6786,6 +6803,7 @@ CMakeFiles/CompactStar.dir/CompactStar/ChemicalHeating/src/SigmaOmegaRho_npemu.c
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -6798,6 +6816,7 @@ CMakeFiles/CompactStar.dir/CompactStar/ChemicalHeating/src/SigmaOmegaRho_npemu.c
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -7677,6 +7696,7 @@ CMakeFiles/CompactStar.dir/CompactStar/Core/src/Analysis.cpp.o: /Users/keeper/Li
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -7689,6 +7709,7 @@ CMakeFiles/CompactStar.dir/CompactStar/Core/src/Analysis.cpp.o: /Users/keeper/Li
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -8490,6 +8511,7 @@ CMakeFiles/CompactStar.dir/CompactStar/Core/src/MixedStar.cpp.o: /Users/keeper/L
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -8502,6 +8524,7 @@ CMakeFiles/CompactStar.dir/CompactStar/Core/src/MixedStar.cpp.o: /Users/keeper/L
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -9340,6 +9363,7 @@ CMakeFiles/CompactStar.dir/CompactStar/Core/src/NStar.cpp.o: /Users/keeper/Libra
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -9352,6 +9376,7 @@ CMakeFiles/CompactStar.dir/CompactStar/Core/src/NStar.cpp.o: /Users/keeper/Libra
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -10202,6 +10227,7 @@ CMakeFiles/CompactStar.dir/CompactStar/Core/src/Prog.cpp.o: /Users/keeper/Librar
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -10214,6 +10240,7 @@ CMakeFiles/CompactStar.dir/CompactStar/Core/src/Prog.cpp.o: /Users/keeper/Librar
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -11023,6 +11050,7 @@ CMakeFiles/CompactStar.dir/CompactStar/Core/src/Pulsar.cpp.o: /Users/keeper/Libr
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -11035,6 +11063,7 @@ CMakeFiles/CompactStar.dir/CompactStar/Core/src/Pulsar.cpp.o: /Users/keeper/Libr
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -11861,6 +11890,7 @@ CMakeFiles/CompactStar.dir/CompactStar/Core/src/RotationSolver.cpp.o: /Users/kee
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -11873,6 +11903,7 @@ CMakeFiles/CompactStar.dir/CompactStar/Core/src/RotationSolver.cpp.o: /Users/kee
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -12727,6 +12758,7 @@ CMakeFiles/CompactStar.dir/CompactStar/Core/src/TOVSolver.cpp.o: /Users/keeper/L
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -12739,6 +12771,7 @@ CMakeFiles/CompactStar.dir/CompactStar/Core/src/TOVSolver.cpp.o: /Users/keeper/L
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -13599,6 +13632,7 @@ CMakeFiles/CompactStar.dir/CompactStar/Core/src/TOVSolver_Thread.cpp.o: /Users/k
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -13611,6 +13645,7 @@ CMakeFiles/CompactStar.dir/CompactStar/Core/src/TOVSolver_Thread.cpp.o: /Users/k
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -14449,6 +14484,7 @@ CMakeFiles/CompactStar.dir/CompactStar/Core/src/TaskManager.cpp.o: /Users/keeper
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -14461,6 +14497,7 @@ CMakeFiles/CompactStar.dir/CompactStar/Core/src/TaskManager.cpp.o: /Users/keeper
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -15368,6 +15405,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Baryon.cpp.o: /Users/keeper/Libra
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -15380,6 +15418,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Baryon.cpp.o: /Users/keeper/Libra
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -16193,6 +16232,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Common.cpp.o: /Users/keeper/Libra
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -16205,6 +16245,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Common.cpp.o: /Users/keeper/Libra
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -17007,6 +17048,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/CompOSE_EOS.cpp.o: /Users/keeper/
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -17019,6 +17061,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/CompOSE_EOS.cpp.o: /Users/keeper/
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -17843,6 +17886,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/CoulombLattice.cpp.o: /Users/keep
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -17855,6 +17899,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/CoulombLattice.cpp.o: /Users/keep
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -18665,6 +18710,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Fermi_Gas.cpp.o: /Users/keeper/Li
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -18677,6 +18723,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Fermi_Gas.cpp.o: /Users/keeper/Li
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -19487,6 +19534,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Fermi_Gas_Many.cpp.o: /Users/keep
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -19499,6 +19547,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Fermi_Gas_Many.cpp.o: /Users/keep
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -20374,6 +20423,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Lepton.cpp.o: /Users/keeper/Libra
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -20386,6 +20436,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Lepton.cpp.o: /Users/keeper/Libra
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -21196,6 +21247,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Model.cpp.o: /Users/keeper/Librar
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -21208,6 +21260,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Model.cpp.o: /Users/keeper/Librar
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -22034,6 +22087,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Particle.cpp.o: /Users/keeper/Lib
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -22046,6 +22100,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Particle.cpp.o: /Users/keeper/Lib
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -22859,6 +22914,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Polytrope.cpp.o: /Users/keeper/Li
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -22871,6 +22927,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Polytrope.cpp.o: /Users/keeper/Li
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -23681,6 +23738,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/SigmaOmega.cpp.o: /Users/keeper/L
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -23693,6 +23751,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/SigmaOmega.cpp.o: /Users/keeper/L
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -24517,6 +24576,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/SigmaOmegaPar.cpp.o: /Users/keepe
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -24529,6 +24589,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/SigmaOmegaPar.cpp.o: /Users/keepe
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -25307,6 +25368,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/SigmaOmegaRho.cpp.o: /Users/keepe
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -25319,6 +25381,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/SigmaOmegaRho.cpp.o: /Users/keepe
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -26198,6 +26261,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp.o: /Users
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -26210,6 +26274,7 @@ CMakeFiles/CompactStar.dir/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp.o: /Users
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -27089,6 +27154,7 @@ CMakeFiles/CompactStar.dir/CompactStar/LightDM/src/LightDM_Scalar_Density.cpp.o:
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -27101,6 +27167,7 @@ CMakeFiles/CompactStar.dir/CompactStar/LightDM/src/LightDM_Scalar_Density.cpp.o:
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -27940,6 +28007,7 @@ CMakeFiles/CompactStar.dir/CompactStar/MixedStar/src/DarkCore_Analysis.cpp.o: /U
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
@@ -27952,6 +28020,7 @@ CMakeFiles/CompactStar.dir/CompactStar/MixedStar/src/DarkCore_Analysis.cpp.o: /U
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h \
@@ -28956,8 +29025,6 @@ CMakeFiles/CompactStar.dir/CompactStar/MixedStar/src/DarkCore_Analysis.cpp.o: /U
 
 /opt/local/include/gsl/gsl_complex.h:
 
-/opt/local/include/gsl/gsl_check_range.h:
-
 /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/CompactStar/Core/src/MixedStar.cpp:
 
 /opt/local/include/gsl/gsl_block_ulong.h:
@@ -29098,12 +29165,6 @@ CMakeFiles/CompactStar.dir/CompactStar/MixedStar/src/DarkCore_Analysis.cpp.o: /U
 
 /opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/string_view:
 
-/opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__algorithm/shuffle.h:
-
-/opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__algorithm/remove_copy_if.h:
-
-/opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/streambuf:
-
 /opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/stdio.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint64_t.h:
@@ -29139,6 +29200,8 @@ CMakeFiles/CompactStar.dir/CompactStar/MixedStar/src/DarkCore_Analysis.cpp.o: /U
 /opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/fstream:
 
 /opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/cwctype:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h:
 
 /opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/cwchar:
 
@@ -30162,6 +30225,16 @@ CMakeFiles/CompactStar.dir/CompactStar/MixedStar/src/DarkCore_Analysis.cpp.o: /U
 
 /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/dependencies/include/Zaki/String/Directory.hpp:
 
+/opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/streambuf:
+
+/opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__algorithm/shuffle.h:
+
+/opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__algorithm/remove_copy_if.h:
+
+/opt/local/include/gsl/gsl_check_range.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h:
+
 /opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__algorithm/ranges_fill_n.h:
 
 /opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__algorithm/ranges_copy_n.h:
@@ -30318,6 +30391,8 @@ CMakeFiles/CompactStar.dir/CompactStar/MixedStar/src/DarkCore_Analysis.cpp.o: /U
 
 /opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__algorithm/clamp.h:
 
+/opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__algorithm/binary_search.h:
+
 /opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__type_traits/add_const.h:
 
 /opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__memory/concepts.h:
@@ -30373,8 +30448,6 @@ CMakeFiles/CompactStar.dir/CompactStar/MixedStar/src/DarkCore_Analysis.cpp.o: /U
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_ucontext.h:
 
 /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/CompactStar/Core/CompactStarConfig.h:
-
-/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/CompactStar/Core/Analysis.hpp:
 
 /opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__charconv/tables.h:
 
@@ -30630,14 +30703,6 @@ CMakeFiles/CompactStar.dir/CompactStar/MixedStar/src/DarkCore_Analysis.cpp.o: /U
 
 /opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__exception/exception.h:
 
-/opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__format/format_error.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/Availability.h:
-
-/opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__type_traits/is_pointer.h:
-
-/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/CompactStar/Core/MixedStar.hpp:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_endian.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_blkcnt_t.h:
@@ -30692,12 +30757,6 @@ CMakeFiles/CompactStar.dir/CompactStar/MixedStar/src/DarkCore_Analysis.cpp.o: /U
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_pthread/_pthread_attr_t.h:
 
-/opt/local/include/gsl/gsl_vector_complex_long_double.h:
-
-/opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__algorithm/inplace_merge.h:
-
-/opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/string:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/__endian.h:
 
 /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/dependencies/include/Zaki/Math/GSLMultiFWrapper.hpp:
@@ -30720,6 +30779,12 @@ CMakeFiles/CompactStar.dir/CompactStar/MixedStar/src/DarkCore_Analysis.cpp.o: /U
 
 /opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__iterator/data.h:
 
+/opt/local/include/gsl/gsl_vector_complex_long_double.h:
+
+/opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/string:
+
+/opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__algorithm/inplace_merge.h:
+
 /opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__algorithm/reverse_copy.h:
 
 /opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__algorithm/fill.h:
@@ -30741,8 +30806,6 @@ CMakeFiles/CompactStar.dir/CompactStar/MixedStar/src/DarkCore_Analysis.cpp.o: /U
 /opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__filesystem/u8path.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_pthread/_pthread_cond_t.h:
-
-/opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__algorithm/binary_search.h:
 
 /opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__fwd/istream.h:
 
@@ -30784,6 +30847,14 @@ CMakeFiles/CompactStar.dir/CompactStar/MixedStar/src/DarkCore_Analysis.cpp.o: /U
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/mach/machine/_structs.h:
 
+/opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__type_traits/is_pointer.h:
+
+/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/CompactStar/Core/MixedStar.hpp:
+
+/opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__format/format_error.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/Availability.h:
+
 /opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__functional/boyer_moore_searcher.h:
 
 /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/CompactStar/EOS/src/Particle.cpp:
@@ -30812,11 +30883,11 @@ CMakeFiles/CompactStar.dir/CompactStar/MixedStar/src/DarkCore_Analysis.cpp.o: /U
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/arm/endian.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/libkern/_OSByteOrder.h:
-
 /opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__type_traits/is_specialization.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/machine/types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/libkern/_OSByteOrder.h:
 
 /opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__chrono/system_clock.h:
 
@@ -30846,6 +30917,8 @@ CMakeFiles/CompactStar.dir/CompactStar/MixedStar/src/DarkCore_Analysis.cpp.o: /U
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_symbol_aliasing.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/errno.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h:
 
 /opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/print:
@@ -30866,14 +30939,14 @@ CMakeFiles/CompactStar.dir/CompactStar/MixedStar/src/DarkCore_Analysis.cpp.o: /U
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__wctype.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/errno.h:
+/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/CompactStar/Core/Analysis.hpp:
 
 /opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__algorithm/replace_if.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_wctype_t.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_sigset_t.h:
-
 /opt/homebrew/Cellar/llvm/19.1.7_1/include/c++/v1/__filesystem/recursive_directory_iterator.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_sigset_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/AvailabilityInternal.h:

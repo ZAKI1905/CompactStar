@@ -354,6 +354,18 @@ PKG_CONFIG_ARGN:STRING=
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/opt/homebrew/bin/pkg-config
 
+//No help, variable specified on the command line.
+Python3_EXECUTABLE:UNINITIALIZED=../.venv/bin/python
+
+//No help, variable specified on the command line.
+Python3_FIND_STRATEGY:UNINITIALIZED=LOCATION
+
+//No help, variable specified on the command line.
+Python3_FIND_VIRTUALENV:UNINITIALIZED=ONLY
+
+//No help, variable specified on the command line.
+Python3_ROOT_DIR:UNINITIALIZED=../.venv
+
 
 ########################
 # INTERNAL cache entries
@@ -557,7 +569,7 @@ FIND_PACKAGE_MESSAGE_DETAILS_OpenMP_C:INTERNAL=[-fopenmp=libomp][/opt/homebrew/C
 //Details about finding OpenMP_CXX
 FIND_PACKAGE_MESSAGE_DETAILS_OpenMP_CXX:INTERNAL=[-fopenmp=libomp][/opt/homebrew/Cellar/llvm/19.1.7_1/lib/libomp.dylib][v5.1()]
 //Details about finding Python3
-FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[/opt/homebrew/Frameworks/Python.framework/Versions/3.13/bin/python3.13][/opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13][/opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/lib/libpython3.13.dylib][/opt/homebrew/lib/python3.13/site-packages/numpy/_core/include][found components: Interpreter Development NumPy Development.Module Development.Embed ][v3.13.2()]
+FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/.venv/bin/python3.12][/Library/Frameworks/Python.framework/Versions/3.12/include/python3.12][/Library/Frameworks/Python.framework/Versions/3.12/lib/libpython3.12.dylib][/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/.venv/lib/python3.12/site-packages/numpy/core/include][found components: Interpreter Development NumPy Development.Module Development.Embed ][v3.12.4()]
 //ADVANCED property for variable: GSL_CBLAS_LIBRARY
 GSL_CBLAS_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GSL_CBLAS_LIBRARY_DEBUG
@@ -623,23 +635,23 @@ PKG_CONFIG_ARGN-ADVANCED:INTERNAL=1
 PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
 //Compiler reason failure
 _Python3_Compiler_REASON_FAILURE:INTERNAL=
-_Python3_DEVELOPMENT_EMBED_SIGNATURE:INTERNAL=cb3fa249e86eedcf59e523c40fb802f3
-_Python3_DEVELOPMENT_MODULE_SIGNATURE:INTERNAL=d67631b7e73c716cc71bd4f49624e9d1
+_Python3_DEVELOPMENT_EMBED_SIGNATURE:INTERNAL=3940b272ff72e938828c42efab8d1203
+_Python3_DEVELOPMENT_MODULE_SIGNATURE:INTERNAL=2ef6f9fc897cb713d6f78264f6ef6da7
 //Development reason failure
 _Python3_Development_REASON_FAILURE:INTERNAL=
 //Path to a program.
-_Python3_EXECUTABLE:INTERNAL=/opt/homebrew/Frameworks/Python.framework/Versions/3.13/bin/python3.13
+_Python3_EXECUTABLE:INTERNAL=/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/.venv/bin/python3.12
 //Path to a file.
-_Python3_INCLUDE_DIR:INTERNAL=/opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13
+_Python3_INCLUDE_DIR:INTERNAL=/Library/Frameworks/Python.framework/Versions/3.12/include/python3.12
 //Python3 Properties
-_Python3_INTERPRETER_PROPERTIES:INTERNAL=Python;3;13;2;64;<none>;cpython-313-darwin;abi3;/opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/lib/python3.13;/opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/lib/python3.13;/opt/homebrew/lib/python3.13/site-packages;/opt/homebrew/lib/python3.13/site-packages
-_Python3_INTERPRETER_SIGNATURE:INTERNAL=7a1f714cc7198cb3c0d06752fabdd0bf
+_Python3_INTERPRETER_PROPERTIES:INTERNAL=Python;3;12;4;64;<none>;cpython-312-darwin;abi3;/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12;/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/.venv/lib/python3.12;/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/.venv/lib/python3.12/site-packages;/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/.venv/lib/python3.12/site-packages
+_Python3_INTERPRETER_SIGNATURE:INTERNAL=df293293fc0252ad36f3567ee782112a
 //Interpreter reason failure
 _Python3_Interpreter_REASON_FAILURE:INTERNAL=
 //Path to a library.
-_Python3_LIBRARY_RELEASE:INTERNAL=/opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/lib/libpython3.13.dylib
-_Python3_NUMPY_SIGNATURE:INTERNAL=9d191a2282e0be78ddaa59e6c2932443
+_Python3_LIBRARY_RELEASE:INTERNAL=/Library/Frameworks/Python.framework/Versions/3.12/lib/libpython3.12.dylib
+_Python3_NUMPY_SIGNATURE:INTERNAL=ccb60efcf7ea9e9e1a1c1752d362d506
 //Path to a file.
-_Python3_NumPy_INCLUDE_DIR:INTERNAL=/opt/homebrew/lib/python3.13/site-packages/numpy/_core/include
+_Python3_NumPy_INCLUDE_DIR:INTERNAL=/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/.venv/lib/python3.12/site-packages/numpy/core/include
 __pkg_config_checked_GSL:INTERNAL=1
 

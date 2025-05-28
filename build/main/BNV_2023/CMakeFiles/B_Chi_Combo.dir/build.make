@@ -100,7 +100,7 @@ main/BNV_2023/B_Chi_Combo: /Users/keeper/Library/CloudStorage/GoogleDrive-m.zake
 main/BNV_2023/B_Chi_Combo: /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a
 main/BNV_2023/B_Chi_Combo: /opt/local/lib/libgsl.dylib
 main/BNV_2023/B_Chi_Combo: /opt/local/lib/libgslcblas.dylib
-main/BNV_2023/B_Chi_Combo: /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/lib/libpython3.13.dylib
+main/BNV_2023/B_Chi_Combo: /Library/Frameworks/Python.framework/Versions/3.12/lib/libpython3.12.dylib
 main/BNV_2023/B_Chi_Combo: main/BNV_2023/CMakeFiles/B_Chi_Combo.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable B_Chi_Combo"
 	cd "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/main/BNV_2023" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/B_Chi_Combo.dir/link.txt --verbose=$(VERBOSE)

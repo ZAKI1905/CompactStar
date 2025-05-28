@@ -100,7 +100,7 @@ main/EOS/compose_eos: /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@ek
 main/EOS/compose_eos: /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a
 main/EOS/compose_eos: /opt/local/lib/libgsl.dylib
 main/EOS/compose_eos: /opt/local/lib/libgslcblas.dylib
-main/EOS/compose_eos: /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/lib/libpython3.13.dylib
+main/EOS/compose_eos: /Library/Frameworks/Python.framework/Versions/3.12/lib/libpython3.12.dylib
 main/EOS/compose_eos: main/EOS/CMakeFiles/compose_eos.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable compose_eos"
 	cd "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/main/EOS" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/compose_eos.dir/link.txt --verbose=$(VERBOSE)

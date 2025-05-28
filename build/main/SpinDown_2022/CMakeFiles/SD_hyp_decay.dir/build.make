@@ -100,7 +100,7 @@ main/SpinDown_2022/SD_hyp_decay: /Users/keeper/Library/CloudStorage/GoogleDrive-
 main/SpinDown_2022/SD_hyp_decay: /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a
 main/SpinDown_2022/SD_hyp_decay: /opt/local/lib/libgsl.dylib
 main/SpinDown_2022/SD_hyp_decay: /opt/local/lib/libgslcblas.dylib
-main/SpinDown_2022/SD_hyp_decay: /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/lib/libpython3.13.dylib
+main/SpinDown_2022/SD_hyp_decay: /Library/Frameworks/Python.framework/Versions/3.12/lib/libpython3.12.dylib
 main/SpinDown_2022/SD_hyp_decay: main/SpinDown_2022/CMakeFiles/SD_hyp_decay.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable SD_hyp_decay"
 	cd "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/main/SpinDown_2022" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SD_hyp_decay.dir/link.txt --verbose=$(VERBOSE)

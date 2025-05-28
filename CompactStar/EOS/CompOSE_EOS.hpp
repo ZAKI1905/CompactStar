@@ -254,6 +254,14 @@ class CompOSE_EOS : public Prog
     /// The input directory should by default an absolute path.
     void PlotFermiE(const Zaki::String::Directory& in_dir,
                     const Dir_Type in_dir_type = Dir_Type::absolute) const ;
+
+    /// Exports the Fermi energy of particles as a function of density
+    /// The input directory should by default an absolute path.
+    void ExportFermiE(const Zaki::String::Directory& in_dir,
+                    const Dir_Type in_dir_type = Dir_Type::absolute) const ;
+   
+    /// Returns the Fermi energy of particles as a function of density 
+    Zaki::Vector::DataSet GetFermiE() const ;
 };
 
 //==============================================================

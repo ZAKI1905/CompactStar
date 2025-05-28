@@ -97,6 +97,13 @@ void LightDM_Scalar_Density::ImportEOS(const Zaki::String::Directory& eos_dir)
   // Imports everything at once!
   eos.ImportEOS(model) ;
 
+  // If pulsar is set, attach the EOS to it
+  if (pulsar_is_set)
+  {
+    Z_LOG_INFO("Attaching the EoS to the pulsar...") ;
+    pulsar.AttachEOS(&eos) ;
+  }
+
   sig0_ds = eos.GetVeff() ;
   m_B_ds = eos.GetMeff() ;
 
@@ -189,7 +196,9 @@ void LightDM_Scalar_Density::Export_Scalar_Density_vs_Baryon_Density(const Baryo
 // Sets the pulsar
 void LightDM_Scalar_Density::SetPulsar(const CompactStar::Pulsar& in_pulsar) 
 {
+  Z_LOG_INFO("Setting the pulsar...") ;
   pulsar = in_pulsar ;
+  pulsar_is_set = true ;
 
   pulsar_mass = pulsar.GetMass().val ;
 }
@@ -293,7 +302,7 @@ void LightDM_Scalar_Density::FindPulsar(const bool& gen_plots)
     pulsar.PlotAbsoluteComposition(pulsar.GetName()  + "/" + pulsar.GetName() 
                                     + "_AbsComp_vs_R.pdf") ;
     pulsar.PlotFermiE(pulsar.GetName()  + "/" + pulsar.GetName() 
-                                    + "_EF_vs_R.pdf") ;
+                                    + "_EF_vs_R") ;
 
 
     // Plot_Meff_Radius() ;

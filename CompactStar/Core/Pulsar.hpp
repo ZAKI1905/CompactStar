@@ -55,6 +55,7 @@
 
 #include "CompactStar/Core/Prog.hpp"
 #include "CompactStar/Core/TOVSolver.hpp"
+#include "CompactStar/EOS/CompOSE_EOS.hpp"
 
 //==============================================================
 namespace CompactStar
@@ -175,6 +176,8 @@ class Pulsar : public Prog
 
     // The point along the sequence that this pulsar belongs to
     SeqPoint seq_point ;
+
+    CompOSE_EOS* eos = nullptr ; /**< Pointer to the EOS object. */
 
     /**
      * @brief The eta parameter for this pulsar.
@@ -343,6 +346,11 @@ class Pulsar : public Prog
     void ImportProfile(const std::string& model_name, 
                        const Zaki::String::Directory& in_dir="") ;
 
+    /**
+     * @brief Attach an EOS to the pulsar.
+     * @param eos        Pointer to CompOSE_EOS object. 
+     */
+    void AttachEOS(CompOSE_EOS* eos) ;
     // --------------------------
     // Getters
     // --------------------------
@@ -358,6 +366,13 @@ class Pulsar : public Prog
      * @return Pointer to DataSet of radius, mass, etc.
      */
     Zaki::Vector::DataSet* GetProfile() ;
+    
+    /**
+     * @brief Returns the EOS object associated with this pulsar.
+     * 
+     * @return CompOSE_EOS* 
+     */
+    CompOSE_EOS* GetEOS() const ; 
 
     /**
      * @brief Retrieve metric exponent ν for g_tt = e^{2ν}.

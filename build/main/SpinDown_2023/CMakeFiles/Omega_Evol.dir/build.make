@@ -100,7 +100,7 @@ main/SpinDown_2023/Omega_Evol: /Users/keeper/Library/CloudStorage/GoogleDrive-m.
 main/SpinDown_2023/Omega_Evol: /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a
 main/SpinDown_2023/Omega_Evol: /opt/local/lib/libgsl.dylib
 main/SpinDown_2023/Omega_Evol: /opt/local/lib/libgslcblas.dylib
-main/SpinDown_2023/Omega_Evol: /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/lib/libpython3.13.dylib
+main/SpinDown_2023/Omega_Evol: /Library/Frameworks/Python.framework/Versions/3.12/lib/libpython3.12.dylib
 main/SpinDown_2023/Omega_Evol: main/SpinDown_2023/CMakeFiles/Omega_Evol.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Omega_Evol"
 	cd "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/main/SpinDown_2023" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Omega_Evol.dir/link.txt --verbose=$(VERBOSE)

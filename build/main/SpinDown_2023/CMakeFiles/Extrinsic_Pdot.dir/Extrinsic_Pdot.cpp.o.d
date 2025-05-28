@@ -154,6 +154,7 @@ main/SpinDown_2023/CMakeFiles/Extrinsic_Pdot.dir/Extrinsic_Pdot.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/cdefs.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_symbol_aliasing.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_posix_availability.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/machine/_types.h \
@@ -706,6 +707,7 @@ main/SpinDown_2023/CMakeFiles/Extrinsic_Pdot.dir/Extrinsic_Pdot.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_mb_cur_max.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/xlocale/_ctype.h \
@@ -832,4 +834,5 @@ main/SpinDown_2023/CMakeFiles/Extrinsic_Pdot.dir/Extrinsic_Pdot.cpp.o: \
   /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/CompactStar/Core/MixedStar.hpp \
   /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/CompactStar/Core/NStar.hpp \
   /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/CompactStar/Core/RotationSolver.hpp \
+  /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/CompactStar/EOS/CompOSE_EOS.hpp \
   /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/dependencies/include/Zaki/Physics/Constants.hpp

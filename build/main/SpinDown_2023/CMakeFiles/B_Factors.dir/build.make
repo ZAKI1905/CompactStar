@@ -100,7 +100,7 @@ main/SpinDown_2023/B_Factors: /Users/keeper/Library/CloudStorage/GoogleDrive-m.z
 main/SpinDown_2023/B_Factors: /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a
 main/SpinDown_2023/B_Factors: /opt/local/lib/libgsl.dylib
 main/SpinDown_2023/B_Factors: /opt/local/lib/libgslcblas.dylib
-main/SpinDown_2023/B_Factors: /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/lib/libpython3.13.dylib
+main/SpinDown_2023/B_Factors: /Library/Frameworks/Python.framework/Versions/3.12/lib/libpython3.12.dylib
 main/SpinDown_2023/B_Factors: main/SpinDown_2023/CMakeFiles/B_Factors.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable B_Factors"
 	cd "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/main/SpinDown_2023" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/B_Factors.dir/link.txt --verbose=$(VERBOSE)

@@ -100,7 +100,7 @@ main/BNV_2022/bnv_hyp: /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@e
 main/BNV_2022/bnv_hyp: /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a
 main/BNV_2022/bnv_hyp: /opt/local/lib/libgsl.dylib
 main/BNV_2022/bnv_hyp: /opt/local/lib/libgslcblas.dylib
-main/BNV_2022/bnv_hyp: /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/lib/libpython3.13.dylib
+main/BNV_2022/bnv_hyp: /Library/Frameworks/Python.framework/Versions/3.12/lib/libpython3.12.dylib
 main/BNV_2022/bnv_hyp: main/BNV_2022/CMakeFiles/bnv_hyp.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable bnv_hyp"
 	cd "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/main/BNV_2022" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/bnv_hyp.dir/link.txt --verbose=$(VERBOSE)

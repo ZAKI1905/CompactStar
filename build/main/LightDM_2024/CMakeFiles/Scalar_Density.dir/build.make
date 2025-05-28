@@ -100,7 +100,7 @@ main/LightDM_2024/Scalar_Density: /Users/keeper/Library/CloudStorage/GoogleDrive
 main/LightDM_2024/Scalar_Density: /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a
 main/LightDM_2024/Scalar_Density: /opt/local/lib/libgsl.dylib
 main/LightDM_2024/Scalar_Density: /opt/local/lib/libgslcblas.dylib
-main/LightDM_2024/Scalar_Density: /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/lib/libpython3.13.dylib
+main/LightDM_2024/Scalar_Density: /Library/Frameworks/Python.framework/Versions/3.12/lib/libpython3.12.dylib
 main/LightDM_2024/Scalar_Density: main/LightDM_2024/CMakeFiles/Scalar_Density.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Scalar_Density"
 	cd "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/main/LightDM_2024" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Scalar_Density.dir/link.txt --verbose=$(VERBOSE)

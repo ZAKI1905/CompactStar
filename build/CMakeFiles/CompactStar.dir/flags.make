@@ -4,7 +4,7 @@
 # compile CXX with /opt/homebrew/opt/llvm/bin/clang++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I"/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar" -I"/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/dependencies/include" -I"/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/OpenMP::OpenMP_CXX" -isystem /opt/local/include -isystem /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13 -isystem /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include
+CXX_INCLUDES = -I"/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar" -I"/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/dependencies/include" -I"/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/OpenMP::OpenMP_CXX" -isystem /opt/local/include -isystem /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12 -isystem "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/.venv/lib/python3.12/site-packages/numpy/core/include"
 
 CXX_FLAGSarm64 =  -fopenmp=libomp -std=gnu++17 -arch arm64 -pthread
 

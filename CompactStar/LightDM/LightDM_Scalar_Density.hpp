@@ -55,6 +55,11 @@ namespace CompactStar
 //==============================================================
 class LightDM_Scalar_Density : public Prog
 {
+  private:
+
+    /// Flag to indicate if the pulsar is set.
+    bool pulsar_is_set = false ; 
+
   public:
   //--------------------------------------------------------------
    struct Baryon 

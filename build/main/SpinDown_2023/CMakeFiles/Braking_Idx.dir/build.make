@@ -100,7 +100,7 @@ main/SpinDown_2023/Braking_Idx: /Users/keeper/Library/CloudStorage/GoogleDrive-m
 main/SpinDown_2023/Braking_Idx: /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a
 main/SpinDown_2023/Braking_Idx: /opt/local/lib/libgsl.dylib
 main/SpinDown_2023/Braking_Idx: /opt/local/lib/libgslcblas.dylib
-main/SpinDown_2023/Braking_Idx: /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/lib/libpython3.13.dylib
+main/SpinDown_2023/Braking_Idx: /Library/Frameworks/Python.framework/Versions/3.12/lib/libpython3.12.dylib
 main/SpinDown_2023/Braking_Idx: main/SpinDown_2023/CMakeFiles/Braking_Idx.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Braking_Idx"
 	cd "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/main/SpinDown_2023" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Braking_Idx.dir/link.txt --verbose=$(VERBOSE)

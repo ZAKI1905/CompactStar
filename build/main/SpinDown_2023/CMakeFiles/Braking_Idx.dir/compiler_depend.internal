@@ -12,6 +12,7 @@ main/SpinDown_2023/CMakeFiles/Braking_Idx.dir/Braking_Idx.cpp.o
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_assert.h
+ /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctermid.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_ctype.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_inttypes.h
@@ -26,6 +27,7 @@ main/SpinDown_2023/CMakeFiles/Braking_Idx.dir/Braking_Idx.cpp.o
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_intmax_t.h
+ /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_nl_item.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint32_t.h
@@ -75,6 +77,8 @@ main/SpinDown_2023/CMakeFiles/Braking_Idx.dir/Braking_Idx.cpp.o
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/pthread/sched.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/runetype.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sched.h
+ /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/setjmp.h
+ /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/signal.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/stddef.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/stdint.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/stdio.h
@@ -146,6 +150,7 @@ main/SpinDown_2023/CMakeFiles/Braking_Idx.dir/Braking_Idx.cpp.o
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_time_t.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_timespec.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_timeval.h
+ /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_timeval64.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_u_char.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_u_int.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_u_int16_t.h
@@ -171,6 +176,7 @@ main/SpinDown_2023/CMakeFiles/Braking_Idx.dir/Braking_Idx.cpp.o
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/stat.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/stdio.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/syslimits.h
+ /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/time.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/types.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/unistd.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/wait.h
@@ -188,6 +194,127 @@ main/SpinDown_2023/CMakeFiles/Braking_Idx.dir/Braking_Idx.cpp.o
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/xlocale/_time.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/xlocale/_wchar.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/xlocale/_wctype.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/Python.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/abstract.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/bltinmodule.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/boolobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/bytearrayobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/bytesobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/ceval.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/codecs.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/compile.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/complexobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/abstract.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/bytearrayobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/bytesobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/cellobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/ceval.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/classobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/code.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/compile.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/complexobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/context.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/descrobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/dictobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/fileobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/fileutils.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/floatobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/funcobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/genobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/import.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/initconfig.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/listobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/longintrepr.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/longobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/memoryobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/methodobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/modsupport.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/object.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/objimpl.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/odictobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/picklebufobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/pyctype.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/pydebug.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/pyerrors.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/pyfpe.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/pyframe.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/pylifecycle.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/pymem.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/pystate.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/pythonrun.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/pythread.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/pytime.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/setobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/sysmodule.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/traceback.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/tupleobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/unicodeobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/warnings.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/weakrefobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/descrobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/dictobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/enumobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/exports.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/fileobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/fileutils.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/floatobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/genericaliasobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/import.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/intrcheck.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/iterobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/listobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/longobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/memoryobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/methodobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/modsupport.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/moduleobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/object.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/objimpl.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/osmodule.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/patchlevel.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/pybuffer.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/pycapsule.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/pyconfig.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/pyerrors.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/pyframe.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/pyhash.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/pylifecycle.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/pymacconfig.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/pymacro.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/pymath.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/pymem.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/pyport.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/pystate.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/pystats.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/pystrcmp.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/pystrtod.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/pythonrun.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/pythread.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/pytypedefs.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/rangeobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/setobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/sliceobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/structseq.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/sysmodule.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/traceback.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/tracemalloc.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/tupleobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/typeslots.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/unicodeobject.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/warnings.h
+ /Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/weakrefobject.h
+ /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/.venv/lib/python3.12/site-packages/numpy/core/include/numpy/__multiarray_api.h
+ /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/.venv/lib/python3.12/site-packages/numpy/core/include/numpy/_neighborhood_iterator_imp.h
+ /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/.venv/lib/python3.12/site-packages/numpy/core/include/numpy/_numpyconfig.h
+ /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/.venv/lib/python3.12/site-packages/numpy/core/include/numpy/arrayobject.h
+ /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/.venv/lib/python3.12/site-packages/numpy/core/include/numpy/ndarrayobject.h
+ /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/.venv/lib/python3.12/site-packages/numpy/core/include/numpy/ndarraytypes.h
+ /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/.venv/lib/python3.12/site-packages/numpy/core/include/numpy/npy_common.h
+ /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/.venv/lib/python3.12/site-packages/numpy/core/include/numpy/npy_cpu.h
+ /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/.venv/lib/python3.12/site-packages/numpy/core/include/numpy/npy_endian.h
+ /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/.venv/lib/python3.12/site-packages/numpy/core/include/numpy/npy_interrupt.h
+ /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/.venv/lib/python3.12/site-packages/numpy/core/include/numpy/numpyconfig.h
+ /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/.venv/lib/python3.12/site-packages/numpy/core/include/numpy/utils.h
  /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/CompactStar/BNV/BNV_Sequence.hpp
  /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/CompactStar/BNV/Decay_Analysis.hpp
  /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/CompactStar/Core/Analysis.hpp
@@ -199,6 +326,7 @@ main/SpinDown_2023/CMakeFiles/Braking_Idx.dir/Braking_Idx.cpp.o
  /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/CompactStar/Core/RotationSolver.hpp
  /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/CompactStar/Core/TOVSolver.hpp
  /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/CompactStar/EOS/Common.hpp
+ /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/CompactStar/EOS/CompOSE_EOS.hpp
  /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/dependencies/include/Zaki/File/VecSaver.hpp
  /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/dependencies/include/Zaki/Math/Math_Core.hpp
  /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/dependencies/include/Zaki/Physics/Constants.hpp
@@ -864,139 +992,6 @@ main/SpinDown_2023/CMakeFiles/Braking_Idx.dir/Braking_Idx.cpp.o
  /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/include/stdarg.h
  /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/include/stddef.h
  /opt/homebrew/Cellar/llvm/19.1.7_1/lib/clang/19/include/stdint.h
- /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include/numpy/__multiarray_api.h
- /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include/numpy/_neighborhood_iterator_imp.h
- /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include/numpy/_numpyconfig.h
- /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include/numpy/_public_dtype_api_table.h
- /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include/numpy/arrayobject.h
- /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include/numpy/dtype_api.h
- /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include/numpy/ndarrayobject.h
- /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include/numpy/ndarraytypes.h
- /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include/numpy/npy_2_compat.h
- /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include/numpy/npy_common.h
- /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include/numpy/npy_cpu.h
- /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include/numpy/npy_endian.h
- /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include/numpy/numpyconfig.h
- /opt/homebrew/lib/python3.13/site-packages/numpy/_core/include/numpy/utils.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/Python.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/abstract.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/bltinmodule.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/boolobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/bytearrayobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/bytesobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/ceval.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/codecs.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/compile.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/complexobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/abstract.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/bytearrayobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/bytesobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/cellobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/ceval.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/classobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/code.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/compile.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/complexobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/context.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/critical_section.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/descrobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/dictobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/fileobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/fileutils.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/floatobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/funcobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/genobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/import.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/initconfig.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/listobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/lock.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/longintrepr.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/longobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/memoryobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/methodobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/modsupport.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/monitoring.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/object.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/objimpl.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/odictobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/picklebufobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/pyatomic.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/pyatomic_gcc.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/pyctype.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/pydebug.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/pyerrors.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/pyfpe.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/pyframe.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/pyhash.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/pylifecycle.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/pymem.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/pystate.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/pythonrun.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/pythread.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/pytime.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/setobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/sysmodule.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/traceback.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/tracemalloc.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/tupleobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/unicodeobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/warnings.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/cpython/weakrefobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/critical_section.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/descrobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/dictobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/enumobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/exports.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/fileobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/fileutils.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/floatobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/genericaliasobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/import.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/intrcheck.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/iterobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/listobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/lock.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/longobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/memoryobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/methodobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/modsupport.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/moduleobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/monitoring.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/object.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/objimpl.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/osmodule.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/patchlevel.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/pyatomic.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/pybuffer.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/pycapsule.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/pyconfig.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/pyerrors.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/pyframe.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/pyhash.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/pylifecycle.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/pymacconfig.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/pymacro.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/pymath.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/pymem.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/pyport.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/pystate.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/pystats.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/pystrcmp.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/pystrtod.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/pythonrun.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/pythread.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/pytypedefs.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/rangeobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/setobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/sliceobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/structseq.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/sysmodule.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/traceback.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/tupleobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/typeslots.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/unicodeobject.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/warnings.h
- /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/include/python3.13/weakrefobject.h
  /opt/local/include/gsl/gsl_errno.h
  /opt/local/include/gsl/gsl_inline.h
  /opt/local/include/gsl/gsl_interp.h

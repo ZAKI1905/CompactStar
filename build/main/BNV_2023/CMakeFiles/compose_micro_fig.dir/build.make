@@ -100,7 +100,7 @@ main/BNV_2023/compose_micro_fig: /Users/keeper/Library/CloudStorage/GoogleDrive-
 main/BNV_2023/compose_micro_fig: /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a
 main/BNV_2023/compose_micro_fig: /opt/local/lib/libgsl.dylib
 main/BNV_2023/compose_micro_fig: /opt/local/lib/libgslcblas.dylib
-main/BNV_2023/compose_micro_fig: /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/lib/libpython3.13.dylib
+main/BNV_2023/compose_micro_fig: /Library/Frameworks/Python.framework/Versions/3.12/lib/libpython3.12.dylib
 main/BNV_2023/compose_micro_fig: main/BNV_2023/CMakeFiles/compose_micro_fig.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable compose_micro_fig"
 	cd "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/main/BNV_2023" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/compose_micro_fig.dir/link.txt --verbose=$(VERBOSE)

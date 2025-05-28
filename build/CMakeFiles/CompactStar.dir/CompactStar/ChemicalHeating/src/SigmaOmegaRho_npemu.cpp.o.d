@@ -11,6 +11,7 @@ CMakeFiles/CompactStar.dir/CompactStar/ChemicalHeating/src/SigmaOmegaRho_npemu.c
   /opt/homebrew/Cellar/llvm/19.1.7_1/bin/../include/c++/v1/__configuration/language.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/stdio.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_stdio.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_bounds.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/cdefs.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_symbol_aliasing.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_posix_availability.h \
@@ -364,6 +365,7 @@ CMakeFiles/CompactStar.dir/CompactStar/ChemicalHeating/src/SigmaOmegaRho_npemu.c
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_locale.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/__xlocale.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_mb_cur_max.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/xlocale/_stdio.h \

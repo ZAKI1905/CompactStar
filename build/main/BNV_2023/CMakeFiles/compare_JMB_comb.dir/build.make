@@ -100,7 +100,7 @@ main/BNV_2023/compare_JMB_comb: /Users/keeper/Library/CloudStorage/GoogleDrive-m
 main/BNV_2023/compare_JMB_comb: /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My\ Drive/Research/Tools/Coding/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a
 main/BNV_2023/compare_JMB_comb: /opt/local/lib/libgsl.dylib
 main/BNV_2023/compare_JMB_comb: /opt/local/lib/libgslcblas.dylib
-main/BNV_2023/compare_JMB_comb: /opt/homebrew/opt/python@3.13/Frameworks/Python.framework/Versions/3.13/lib/libpython3.13.dylib
+main/BNV_2023/compare_JMB_comb: /Library/Frameworks/Python.framework/Versions/3.12/lib/libpython3.12.dylib
 main/BNV_2023/compare_JMB_comb: main/BNV_2023/CMakeFiles/compare_JMB_comb.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable compare_JMB_comb"
 	cd "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/build/main/BNV_2023" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/compare_JMB_comb.dir/link.txt --verbose=$(VERBOSE)
