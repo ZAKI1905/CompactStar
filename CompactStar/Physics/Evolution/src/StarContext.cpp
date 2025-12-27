@@ -7,7 +7,7 @@
 #include "CompactStar/Physics/Evolution/StarContext.hpp"
 #include "CompactStar/Core/StarProfile.hpp"
 
-// #include <Zaki/Vector/DataSet.hpp>
+#include <Zaki/Vector/DataColumn.hpp>
 
 #include <cmath>
 #include <stdexcept>

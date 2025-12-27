@@ -90,7 +90,7 @@ void NStar::BuildFromTOV(const std::vector<TOVPoint> &in_tov,
 	// ============================================================
 	{
 		auto &radial = prof_.radial;
-		radial.data_set.clear();
+		radial.ClearRows();
 		radial.Reserve(8 + n_species, n_rows);
 		B_integrand.Reserve(2, n_rows);
 
@@ -125,21 +125,21 @@ void NStar::BuildFromTOV(const std::vector<TOVPoint> &in_tov,
 		// ----------------------------------
 
 		// label the ones we just reserved
-		radial[0].label = "r(km)";
+		radial[0].SetLabel("r(km)");
 		prof_.idx_r = 0;
-		radial[1].label = "m(km)";
+		radial[1].SetLabel("m(km)");
 		prof_.idx_m = 1;
-		radial[2].label = "nu_prime(km^-1)";
+		radial[2].SetLabel("nu_prime(km^-1)");
 		prof_.idx_nuprime = 2;
-		radial[3].label = "p(km^-2)";
+		radial[3].SetLabel("p(km^-2)");
 		prof_.idx_p = 3;
-		radial[4].label = "eps(km^-2)";
+		radial[4].SetLabel("eps(km^-2)");
 		prof_.idx_eps = 4;
-		radial[5].label = "nB(fm^-3)";
+		radial[5].SetLabel("nB(fm^-3)");
 		prof_.idx_nb = 5;
-		radial[6].label = "nu";
+		radial[6].SetLabel("nu");
 		prof_.idx_nu = 6;
-		radial[7].label = "lambda";
+		radial[7].SetLabel("lambda");
 		prof_.idx_lambda = 7;
 
 		// species (after the fixed ones)
@@ -157,7 +157,7 @@ void NStar::BuildFromTOV(const std::vector<TOVPoint> &in_tov,
 
 			// const int col_idx = static_cast<int>(radial.Dim().size()); // REMOVE THIS LINE
 			const int col_idx = 8 + static_cast<int>(j);
-			radial[col_idx].label = lbl;
+			radial[col_idx].SetLabel(lbl);
 			// radial.AddColumn(lbl); // REMOVE THIS LINE
 			prof_.AddSpecies(lbl, col_idx);
 		}
@@ -167,30 +167,30 @@ void NStar::BuildFromTOV(const std::vector<TOVPoint> &in_tov,
 		{
 			// r (km)
 			double r_km = tp.r;
-			radial[prof_.idx_r].vals.emplace_back(r_km);
+			radial[prof_.idx_r].PushBack(r_km);
 
 			double m_km = Zaki::Physics::SUN_M_KM * tp.m;
 			// m (km): tp.m is in solar masses
-			radial[prof_.idx_m].vals.emplace_back(m_km);
+			radial[prof_.idx_m].PushBack(m_km);
 
 			// nu' (1/cm -> 1/km)
-			radial[prof_.idx_nuprime].vals.emplace_back(tp.nu_der * 1e5);
+			radial[prof_.idx_nuprime].PushBack(tp.nu_der * 1e5);
 
 			// p (→ km^-2)
-			radial[prof_.idx_p].vals.emplace_back(
+			radial[prof_.idx_p].PushBack(
 				tp.p * Zaki::Physics::INV_FM4_2_INV_KM2 /
 				Zaki::Physics::INV_FM4_2_Dyn_CM2);
 
 			// eps (→ km^-2)
-			radial[prof_.idx_eps].vals.emplace_back(
+			radial[prof_.idx_eps].PushBack(
 				tp.e * Zaki::Physics::INV_FM4_2_INV_KM2 /
 				Zaki::Physics::INV_FM4_2_G_CM3);
 
 			// nB (fm^-3)
-			radial[prof_.idx_nb].vals.emplace_back(tp.rho);
+			radial[prof_.idx_nb].PushBack(tp.rho);
 
 			// nu (will be built later)
-			radial[prof_.idx_nu].vals.emplace_back(0.0);
+			radial[prof_.idx_nu].PushBack(0.0);
 
 			// ------------------------------------------------------------
 			// Compute and append λ to the profile
@@ -215,7 +215,7 @@ void NStar::BuildFromTOV(const std::vector<TOVPoint> &in_tov,
 			// or equivalently:
 			const double lambda_geom = -0.5 * std::log(denom);
 
-			radial[prof_.idx_lambda].vals.emplace_back(lambda_geom);
+			radial[prof_.idx_lambda].PushBack(lambda_geom);
 			// ------------------------------------------------------------
 
 			// ------------------------------
@@ -226,7 +226,7 @@ void NStar::BuildFromTOV(const std::vector<TOVPoint> &in_tov,
 				{
 					const double val = (j < tp.rho_i.size()) ? tp.rho_i[j] : 0.0;
 					const int col_idx = prof_.species_idx[j];
-					radial[col_idx].vals.emplace_back(val);
+					radial[col_idx].PushBack(val);
 				}
 			}
 			else
@@ -235,7 +235,7 @@ void NStar::BuildFromTOV(const std::vector<TOVPoint> &in_tov,
 				for (std::size_t j = 0; j < n_species; ++j)
 				{
 					const int col_idx = prof_.species_idx[j];
-					radial[col_idx].vals.emplace_back(0.0);
+					radial[col_idx].PushBack(0.0);
 				}
 			}
 		}
@@ -257,10 +257,10 @@ void NStar::BuildFromTOV(const std::vector<TOVPoint> &in_tov,
 		// build baryon number integrand from profile
 		{
 			B_integrand[0] = radial[prof_.idx_r];
-			B_integrand[0].label = "r(km)";
+			B_integrand[0].SetLabel("r(km)");
 
 			B_integrand[1] = radial[prof_.idx_r].pow(2);
-			B_integrand[1].label = "B_v";
+			B_integrand[1].SetLabel("B_v");
 			B_integrand[1] *= 4.0 * M_PI * radial[prof_.idx_nb];
 			B_integrand[1] /= (1.0 - 2.0 * radial[prof_.idx_m] / radial[prof_.idx_r]).sqrt();
 			B_integrand[1] *= FM3_TO_KM3;
@@ -377,19 +377,19 @@ void NStar::BuildFromTOV(const std::vector<TOVPoint> &in_tov,
 	// -------- fill rows --------
 	for (const auto &tp : in_tov)
 	{
-		col(Col::R).vals.emplace_back(tp.r);
-		col(Col::M).vals.emplace_back(Zaki::Physics::SUN_M_KM * tp.m);
-		col(Col::Rho).vals.emplace_back(tp.rho);
-		col(Col::Eps).vals.emplace_back(
+		col(Col::R).PushBack(tp.r);
+		col(Col::M).PushBack(Zaki::Physics::SUN_M_KM * tp.m);
+		col(Col::Rho).PushBack(tp.rho);
+		col(Col::Eps).PushBack(
 			tp.e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3);
-		col(Col::P).vals.emplace_back(
+		col(Col::P).PushBack(
 			tp.p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2);
-		col(Col::NuPrime).vals.emplace_back(tp.nu_der * 1e5);
+		col(Col::NuPrime).PushBack(tp.nu_der * 1e5);
 
 		for (size_t j = 0; j < n_species; ++j)
 		{
 			const double val = (j < tp.rho_i.size()) ? tp.rho_i[j] : 0.0;
-			ds[rho_i_idx[j]].vals.emplace_back(val);
+			ds[rho_i_idx[j]].PushBack(val);
 		}
 	}
 
@@ -461,22 +461,22 @@ void NStar::BuildFromTOV(const std::vector<TOVPoint> &in_tov,
 // 	// ...............................................
 // 	for (auto &&i : in_tov)
 // 	{
-// 		// ds[r_idx].vals.emplace_back(i.r);																		  // in km
-// 		// ds[m_idx].vals.emplace_back(Zaki::Physics::SUN_M_KM * i.m);												  // in km
-// 		// ds[rho_idx].vals.emplace_back(i.rho);																	  // in fm^{-3}
-// 		// ds[eps_idx].vals.emplace_back(i.e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3);	  // in km^{-2}
-// 		// ds[pre_idx].vals.emplace_back(i.p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2); // in km^{-2}
-// 		// ds[nu_der_idx].vals.emplace_back(i.nu_der * 1e+5);
-// 		col(Col::R).vals.emplace_back(i.r);																		  // in km
-// 		col(Col::M).vals.emplace_back(Zaki::Physics::SUN_M_KM * i.m);											  // in km
-// 		col(Col::Rho).vals.emplace_back(i.rho);																	  // in fm^{-3}
-// 		col(Col::Eps).vals.emplace_back(i.e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3); // in km^{-2}
-// 		col(Col::P).vals.emplace_back(i.p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2); // in km^{-2}
-// 		col(Col::NuPrime).vals.emplace_back(i.nu_der * 1e+5);													  // convert 1/cm to 1/km
+// 		// ds[r_idx].PushBack(i.r);																		  // in km
+// 		// ds[m_idx].PushBack(Zaki::Physics::SUN_M_KM * i.m);												  // in km
+// 		// ds[rho_idx].PushBack(i.rho);																	  // in fm^{-3}
+// 		// ds[eps_idx].PushBack(i.e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3);	  // in km^{-2}
+// 		// ds[pre_idx].PushBack(i.p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2); // in km^{-2}
+// 		// ds[nu_der_idx].PushBack(i.nu_der * 1e+5);
+// 		col(Col::R).PushBack(i.r);																		  // in km
+// 		col(Col::M).PushBack(Zaki::Physics::SUN_M_KM * i.m);											  // in km
+// 		col(Col::Rho).PushBack(i.rho);																	  // in fm^{-3}
+// 		col(Col::Eps).PushBack(i.e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3); // in km^{-2}
+// 		col(Col::P).PushBack(i.p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2); // in km^{-2}
+// 		col(Col::NuPrime).PushBack(i.nu_der * 1e+5);													  // convert 1/cm to 1/km
 
 // 		for (size_t j = 0; j < i.rho_i.size(); j++)
 // 		{
-// 			ds[rho_i_idx[j]].vals.emplace_back(i.rho_i[j]);
+// 			ds[rho_i_idx[j]].PushBack(i.rho_i[j]);
 // 		}
 // 	}
 // 	// ...............................................
@@ -542,25 +542,25 @@ void NStar::InitFromTOVSolver(const TOVSolver *in_tov_solver)
 	// ------------------------------------------------------------
 	{
 		auto &radial = prof_.radial;
-		radial.data_set.clear();
+		radial.ClearRows();
 		radial.Reserve(8 + n_species, n_rows_expect);
 
 		// label the ones we just reserved
-		radial[0].label = "r(km)";
+		radial[0].SetLabel("r(km)");
 		prof_.idx_r = 0;
-		radial[1].label = "m(km)";
+		radial[1].SetLabel("m(km)");
 		prof_.idx_m = 1;
-		radial[2].label = "nu_prime(km^-1)";
+		radial[2].SetLabel("nu_prime(km^-1)");
 		prof_.idx_nuprime = 2;
-		radial[3].label = "p(km^-2)";
+		radial[3].SetLabel("p(km^-2)");
 		prof_.idx_p = 3;
-		radial[4].label = "eps(km^-2)";
+		radial[4].SetLabel("eps(km^-2)");
 		prof_.idx_eps = 4;
-		radial[5].label = "nB(fm^-3)";
+		radial[5].SetLabel("nB(fm^-3)");
 		prof_.idx_nb = 5;
-		radial[6].label = "nu";
+		radial[6].SetLabel("nu");
 		prof_.idx_nu = 6;
-		radial[7].label = "lambda";
+		radial[7].SetLabel("lambda");
 		prof_.idx_lambda = 7;
 
 		// Species columns start right after the 8 fixed ones
@@ -576,7 +576,7 @@ void NStar::InitFromTOVSolver(const TOVSolver *in_tov_solver)
 					? in_tov_solver->eos_tab.extra_labels[j]
 					: ("rho_i_" + std::to_string(j));
 			const int col_idx = 8 + static_cast<int>(j);
-			radial[col_idx].label = lbl;
+			radial[col_idx].SetLabel(lbl);
 			prof_.AddSpecies(lbl, col_idx);
 		}
 		// fill profile’s sequence with zeros; it will be filled in FinalizeSurface()
@@ -759,9 +759,9 @@ void NStar::InitInterpolantsFromProfile_()
 void NStar::PrintProfileColumnSizes() const
 {
 	std::cout << "[NStar] profile column sizes:\n";
-	for (const auto &col : prof_.radial.data_set)
+	for (const auto &col : prof_.radial)
 	{
-		std::cout << "  - " << col.label << " : " << col.Size() << "\n";
+		std::cout << "  - " << col.Label() << " : " << col.Size() << "\n";
 	}
 	std::cout << "------------------------------\n";
 }
@@ -949,21 +949,21 @@ void NStar::Append(const TOVPoint &in_tov)
 	// ============================================================
 	// 1) ---- LEGACY DS PATH (keep as-is) -------------------------
 	// ============================================================
-	// col(Col::R).vals.emplace_back(in_tov.r); // in km
+	// col(Col::R).PushBack(in_tov.r); // in km
 
-	// col(Col::M).vals.emplace_back(
+	// col(Col::M).PushBack(
 	// 	Zaki::Physics::SUN_M_KM * in_tov.m); // solar-mass → km
 
-	// col(Col::Rho).vals.emplace_back(
+	// col(Col::Rho).PushBack(
 	// 	in_tov.rho); // in fm^{-3}
 
-	// col(Col::Eps).vals.emplace_back(
+	// col(Col::Eps).PushBack(
 	// 	in_tov.e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3); // to km^{-2}
 
-	// col(Col::P).vals.emplace_back(
+	// col(Col::P).PushBack(
 	// 	in_tov.p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2); // to km^{-2}
 
-	// col(Col::NuPrime).vals.emplace_back(in_tov.nu_der * 1e5); // 1/cm → 1/km
+	// col(Col::NuPrime).PushBack(in_tov.nu_der * 1e5); // 1/cm → 1/km
 
 	// // per-species for legacy ds
 	// if (in_tov.rho_i.size() != rho_i_idx.size())
@@ -974,7 +974,7 @@ void NStar::Append(const TOVPoint &in_tov)
 	// }
 	// for (std::size_t i = 0; i < in_tov.rho_i.size() && i < rho_i_idx.size(); ++i)
 	// {
-	// 	ds[rho_i_idx[i]].vals.emplace_back(in_tov.rho_i[i]); // fm^{-3}
+	// 	ds[rho_i_idx[i]].PushBack(in_tov.rho_i[i]); // fm^{-3}
 	// }
 
 	// ============================================================
@@ -985,17 +985,17 @@ void NStar::Append(const TOVPoint &in_tov)
 	auto &radial = prof_.radial;
 
 	// Now actually append the values (same unit conversions as legacy)
-	radial[prof_.idx_r].vals.emplace_back(in_tov.r);
-	radial[prof_.idx_m].vals.emplace_back(Zaki::Physics::SUN_M_KM * in_tov.m); // solar-mass → km
-	radial[prof_.idx_nuprime].vals.emplace_back(in_tov.nu_der * 1e5);		   // 1/cm→1/km
-	radial[prof_.idx_p].vals.emplace_back(
+	radial[prof_.idx_r].PushBack(in_tov.r);
+	radial[prof_.idx_m].PushBack(Zaki::Physics::SUN_M_KM * in_tov.m); // solar-mass → km
+	radial[prof_.idx_nuprime].PushBack(in_tov.nu_der * 1e5);		  // 1/cm→1/km
+	radial[prof_.idx_p].PushBack(
 		in_tov.p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2);
-	radial[prof_.idx_eps].vals.emplace_back(
+	radial[prof_.idx_eps].PushBack(
 		in_tov.e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3);
-	radial[prof_.idx_nb].vals.emplace_back(in_tov.rho);
+	radial[prof_.idx_nb].PushBack(in_tov.rho);
 
 	// we do not set nu here — EvaluateNu() will overwrite this column later
-	radial[prof_.idx_nu].vals.emplace_back(0.0);
+	radial[prof_.idx_nu].PushBack(0.0);
 
 	// std::cout << "radial[idx_r].Size() - radial[idx_m].Size() = "
 	// 		  << radial[prof_.idx_r].Size() - radial[prof_.idx_m].Size() << "\n";
@@ -1023,7 +1023,7 @@ void NStar::Append(const TOVPoint &in_tov)
 	// or equivalently:
 	const double lambda_geom = -0.5 * std::log(denom);
 
-	radial[prof_.idx_lambda].vals.emplace_back(lambda_geom);
+	radial[prof_.idx_lambda].PushBack(lambda_geom);
 	// ------------------------------------------------------------
 
 	// ------------------------------------------------------------
@@ -1051,7 +1051,7 @@ void NStar::Append(const TOVPoint &in_tov)
 	for (std::size_t k = 0; k < in_tov.rho_i.size(); ++k)
 	{
 		const int col_idx = prof_.species_idx[k];
-		radial[col_idx].vals.emplace_back(in_tov.rho_i[k]); // fm^{-3}
+		radial[col_idx].PushBack(in_tov.rho_i[k]); // fm^{-3}
 	}
 	// }
 
@@ -1070,12 +1070,12 @@ void NStar::Append(const TOVPoint &in_tov)
 
 void NStar::Append(const TOVPoint &in_tov)
 {
-	col(Col::R).vals.emplace_back(in_tov.r);                                                                       // in km
-	col(Col::M).vals.emplace_back(Zaki::Physics::SUN_M_KM * in_tov.m);                                             // in km
-	col(Col::Rho).vals.emplace_back(in_tov.rho);                                                                   // in fm^{-3}
-	col(Col::Eps).vals.emplace_back(in_tov.e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3); // in km^{-2}
-	col(Col::P).vals.emplace_back(in_tov.p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2); // in km^{-2}
-	col(Col::NuPrime).vals.emplace_back(in_tov.nu_der * 1e+5);                                                     // convert 1/cm to 1/km
+	col(Col::R).PushBack(in_tov.r);                                                                       // in km
+	col(Col::M).PushBack(Zaki::Physics::SUN_M_KM * in_tov.m);                                             // in km
+	col(Col::Rho).PushBack(in_tov.rho);                                                                   // in fm^{-3}
+	col(Col::Eps).PushBack(in_tov.e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3); // in km^{-2}
+	col(Col::P).PushBack(in_tov.p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2); // in km^{-2}
+	col(Col::NuPrime).PushBack(in_tov.nu_der * 1e+5);                                                     // convert 1/cm to 1/km
 
 	if (in_tov.rho_i.size() != rho_i_idx.size())
 	{
@@ -1087,7 +1087,7 @@ void NStar::Append(const TOVPoint &in_tov)
 	for (size_t i = 0; i < in_tov.rho_i.size(); i++)
 	{
 		// in fm^{-3}
-		ds[rho_i_idx[i]].vals.emplace_back(in_tov.rho_i[i]);
+		ds[rho_i_idx[i]].PushBack(in_tov.rho_i[i]);
 	}
 }
 

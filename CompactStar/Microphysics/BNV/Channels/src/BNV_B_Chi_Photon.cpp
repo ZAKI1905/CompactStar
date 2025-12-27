@@ -268,10 +268,10 @@ Zaki::Vector::DataSet MicroBNVCh::BNV_B_Chi_Photon::Escape_Rate_vs_R(const Baryo
 	{
 		rate_vs_r.SetWrkDir(wrk_dir_ + model + "/" + pulsar.GetName() + "/" + process.name);
 
-		rate_vs_r[0].label = "r [km]";
-		rate_vs_r[1].label = "Gamma_esc_" + B.short_name + " [s^-1/fm^3]";
-		rate_vs_r[2].label = "Gamma_tot_" + B.short_name + " [s^-1/fm^3]";
-		rate_vs_r[3].label = "Escape_Frac_" + B.short_name;
+		rate_vs_r[0].SetLabel("r [km]");
+		rate_vs_r[1].SetLabel("Gamma_esc_" + B.short_name + " [s^-1/fm^3]");
+		rate_vs_r[2].SetLabel("Gamma_tot_" + B.short_name + " [s^-1/fm^3]");
+		rate_vs_r[3].SetLabel("Escape_Frac_" + B.short_name);
 
 		char tmp_mchi[50];
 		snprintf(tmp_mchi, 50, "%.2e", m_chi);
@@ -383,10 +383,10 @@ Zaki::Vector::DataSet MicroBNVCh::BNV_B_Chi_Photon::Escape_Ratio_Total(const Bar
 	{
 		ds_escape_ratio_vs_mchi.SetWrkDir(wrk_dir_ + model + "/" + pulsar.GetName() + "/" + process.name);
 
-		ds_escape_ratio_vs_mchi[0].label = "m_chi [MeV]";
-		ds_escape_ratio_vs_mchi[1].label = "Escape_Rate_" + B.short_name;
-		ds_escape_ratio_vs_mchi[2].label = "Total_Rate_" + B.short_name;
-		ds_escape_ratio_vs_mchi[3].label = "Escape_Frac_" + B.short_name;
+		ds_escape_ratio_vs_mchi[0].SetLabel("m_chi [MeV]");
+		ds_escape_ratio_vs_mchi[1].SetLabel("Escape_Rate_" + B.short_name);
+		ds_escape_ratio_vs_mchi[2].SetLabel("Total_Rate_" + B.short_name);
+		ds_escape_ratio_vs_mchi[3].SetLabel("Escape_Frac_" + B.short_name);
 
 		char tmp_mchi_min[50];
 		snprintf(tmp_mchi_min, 50, "%.2e", m_chi_range.Min());
@@ -766,13 +766,13 @@ void MicroBNVCh::BNV_B_Chi_Photon::Thermal_Hole_E_Rate_vs_R(const std::vector<do
 	double rate_min = 1;
 	for (size_t i = 0; i < m_chi.size(); i++)
 	{
-		rate_vs_r.data_set.emplace_back(Thermal_Hole_E_Rate_vs_R(m_chi[i], B)[1]);
+		rate_vs_r.AddColumn(Thermal_Hole_E_Rate_vs_R(m_chi[i], B)[1]);
 
 		if (rate_max < rate_vs_r[i + 1].Max())
 			rate_max = rate_vs_r[i + 1].Max();
 
 		// Finding the non-zero minimum:
-		double tmp_min = rate_vs_r[i + 1].GetSubSet([](const double &v)
+		double tmp_min = rate_vs_r[i + 1].GetSubSet([](double v)
 													{ return v > 0; })
 							 .Min();
 		if (rate_min > tmp_min)
@@ -781,7 +781,7 @@ void MicroBNVCh::BNV_B_Chi_Photon::Thermal_Hole_E_Rate_vs_R(const std::vector<do
 		char tmp_ch[50];
 		snprintf(tmp_ch, 50, "%.0f", m_chi[i]);
 		labels.emplace_back(i + 1, tmp_ch);
-		rate_vs_r[i + 1].label = tmp_ch;
+		rate_vs_r[i + 1].SetLabel(tmp_ch);
 	}
 
 	Zaki::String::Directory out_dir = wrk_dir_ + model + "/" + pulsar.GetName() + "/" + process.name + "/Rate_vs_R/" + B.short_name;
@@ -1098,13 +1098,13 @@ void MicroBNVCh::BNV_B_Chi_Photon::Thermal_Photon_E_Rate_vs_R(const std::vector<
 	double rate_min = 1;
 	for (size_t i = 0; i < m_chi.size(); i++)
 	{
-		rate_vs_r.data_set.emplace_back(Thermal_Photon_E_Rate_vs_R(m_chi[i], B)[1]);
+		rate_vs_r.AddColumn(Thermal_Photon_E_Rate_vs_R(m_chi[i], B)[1]);
 
 		if (rate_max < rate_vs_r[i + 1].Max())
 			rate_max = rate_vs_r[i + 1].Max();
 
 		// Finding the non-zero minimum:
-		double tmp_min = rate_vs_r[i + 1].GetSubSet([](const double &v)
+		double tmp_min = rate_vs_r[i + 1].GetSubSet([](double v)
 													{ return v > 0; })
 							 .Min();
 		if (rate_min > tmp_min)
@@ -1113,7 +1113,7 @@ void MicroBNVCh::BNV_B_Chi_Photon::Thermal_Photon_E_Rate_vs_R(const std::vector<
 		char tmp_ch[50];
 		snprintf(tmp_ch, 50, "%.0f", m_chi[i]);
 		labels.emplace_back(i + 1, tmp_ch);
-		rate_vs_r[i + 1].label = tmp_ch;
+		rate_vs_r[i + 1].SetLabel(tmp_ch);
 	}
 
 	Zaki::String::Directory out_dir = wrk_dir_ + model + "/" + pulsar.GetName() + "/" + process.name + "/Rate_vs_R/" + B.short_name;
@@ -1278,9 +1278,9 @@ void MicroBNVCh::BNV_B_Chi_Photon::Plot_Thermal_Photon_E_Rate()
 					  "Thermal_Photon_Rate_" + f_name_suff, title_str);
 	// ...........................................
 
-	rate[0].label = "m_chi [MeV]";
-	rate[1].label = "Gamma_E_n [" + unit_str + "]";
-	rate[2].label = "Gamma_E_lam [" + unit_str + "]";
+	rate[0].SetLabel("m_chi [MeV]");
+	rate[1].SetLabel("Gamma_E_n [" + unit_str + "]");
+	rate[2].SetLabel("Gamma_E_lam [" + unit_str + "]");
 
 	char tmp_gamma[50];
 	snprintf(tmp_gamma, 50, "%.2e", gamma_bnv_bin_lim);
@@ -1335,9 +1335,9 @@ void MicroBNVCh::BNV_B_Chi_Photon::Plot_Limited_Thermal_E_Rate() const
 	default_rate.SemiLogYPlot(0, {{1, "$n$"}, {2, "$\\Lambda$"}},
 							  "Limited_Thermal_Rate_" + out_f_name_suff, title_str);
 	// ...........................................
-	default_rate[0].label = "m_chi [MeV]";
-	default_rate[1].label = "Gamma_E_n [MeV/s]";
-	default_rate[2].label = "Gamma_E_lam [MeV/s]";
+	default_rate[0].SetLabel("m_chi [MeV]");
+	default_rate[1].SetLabel("Gamma_E_n [MeV/s]");
+	default_rate[2].SetLabel("Gamma_E_lam [MeV/s]");
 
 	char tmp_gamma[50];
 	snprintf(tmp_gamma, 50, "%.2e", gamma_bnv_bin_lim);
@@ -1746,7 +1746,7 @@ void MicroBNVCh::BNV_B_Chi_Photon::Thermal_Total_E_Rate_vs_R(
 	for (size_t i = 0; i < m_chi.size(); i++)
 	{
 
-		rate_vs_r.data_set.emplace_back(
+		rate_vs_r.AddColumn(
 			Thermal_Hole_E_Rate_vs_R(m_chi[i], B)[1] +
 			Thermal_Photon_E_Rate_vs_R(m_chi[i], B)[1]);
 
@@ -1754,7 +1754,7 @@ void MicroBNVCh::BNV_B_Chi_Photon::Thermal_Total_E_Rate_vs_R(
 			rate_max = rate_vs_r[i + 1].Max();
 
 		// Finding the non-zero minimum:
-		double tmp_min = rate_vs_r[i + 1].GetSubSet([](const double &v)
+		double tmp_min = rate_vs_r[i + 1].GetSubSet([](double v)
 													{ return v > 0; })
 							 .Min();
 		if (rate_min > tmp_min)
@@ -1763,7 +1763,7 @@ void MicroBNVCh::BNV_B_Chi_Photon::Thermal_Total_E_Rate_vs_R(
 		char tmp_ch[50];
 		snprintf(tmp_ch, 50, "%.0f", m_chi[i]);
 		labels.emplace_back(i + 1, tmp_ch);
-		rate_vs_r[i + 1].label = tmp_ch;
+		rate_vs_r[i + 1].SetLabel(tmp_ch);
 	}
 
 	Zaki::String::Directory out_dir = wrk_dir_ + model + "/" + pulsar.GetName() + "/" + process.name + "/Rate_vs_R/" + B.short_name;
@@ -1926,9 +1926,9 @@ void MicroBNVCh::BNV_B_Chi_Photon::Plot_Thermal_Total_E_Rate()
 	rate.SemiLogYPlot(0, {{1, "$n$"}, {2, "$\\Lambda$"}},
 					  "Thermal_Total_Rate_" + f_name_suff, title_str);
 	// ...........................................
-	rate[0].label = "m_chi [MeV]";
-	rate[1].label = "Gamma_E_n [" + unit_str + "]";
-	rate[2].label = "Gamma_E_lam [" + unit_str + "]";
+	rate[0].SetLabel("m_chi [MeV]");
+	rate[1].SetLabel("Gamma_E_n [" + unit_str + "]");
+	rate[2].SetLabel("Gamma_E_lam [" + unit_str + "]");
 
 	char tmp_gamma[50];
 	snprintf(tmp_gamma, 50, "%.2e", gamma_bnv_bin_lim);

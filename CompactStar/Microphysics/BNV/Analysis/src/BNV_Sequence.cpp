@@ -414,16 +414,16 @@ void MicroBNVAna::BNV_Sequence::Find_b_factors()
 		// std::cout << "\n\t b_O = " << b_O << " +-  " << b_O_error ;
 		// std::cout << "\n    * ================================= * ";
 
-		b_o_ds[0].vals.emplace_back(seq[0][i]); // 0-eps
-		b_o_ds[1].vals.emplace_back(seq[1][i]); // 1-M
-		b_o_ds[2].vals.emplace_back(seq[2][i]); // 2-R
-		b_o_ds[3].vals.emplace_back(seq[4][i]); // 3-B
-		b_o_ds[4].vals.emplace_back(seq[5][i]); // 4-I
+		b_o_ds[0].PushBack(seq[0][i]); // 0-eps
+		b_o_ds[1].PushBack(seq[1][i]); // 1-M
+		b_o_ds[2].PushBack(seq[2][i]); // 2-R
+		b_o_ds[3].PushBack(seq[4][i]); // 3-B
+		b_o_ds[4].PushBack(seq[5][i]); // 4-I
 
-		b_o_ds[5].vals.emplace_back(b_R);	   // 5-b_R
-		b_o_ds[6].vals.emplace_back(b_I);	   // 6-b_I
-		b_o_ds[7].vals.emplace_back(b_beta_I); // 7-b(beta(I))
-		b_o_ds[8].vals.emplace_back(b_M);	   // 8-b_M
+		b_o_ds[5].PushBack(b_R);	  // 5-b_R
+		b_o_ds[6].PushBack(b_I);	  // 6-b_I
+		b_o_ds[7].PushBack(b_beta_I); // 7-b(beta(I))
+		b_o_ds[8].PushBack(b_M);	  // 8-b_M
 	}
 
 	Zaki::Vector::DataSet::PlotParam plt_par;
@@ -441,15 +441,15 @@ void MicroBNVAna::BNV_Sequence::Find_b_factors()
 	b_o_ds.Plot(1, {{5, "$b (R)$"}, {6, "$b (I)$"}, {7, "$b (\\beta(I))$"}},
 				"b_O_vs_eps_CDM.pdf", "");
 
-	b_o_ds[0].label = "ec(g/cm^3)";
-	b_o_ds[1].label = "M";
-	b_o_ds[2].label = "R(km)";
-	b_o_ds[3].label = "B";
-	b_o_ds[4].label = "I(km^3)";
-	b_o_ds[5].label = "b(R)";
-	b_o_ds[6].label = "b(I)";
-	b_o_ds[7].label = "b(beta(I))";
-	b_o_ds[8].label = "b(M)";
+	b_o_ds[0].SetLabel("ec(g/cm^3)");
+	b_o_ds[1].SetLabel("M");
+	b_o_ds[2].SetLabel("R(km)");
+	b_o_ds[3].SetLabel("B");
+	b_o_ds[4].SetLabel("I(km^3)");
+	b_o_ds[5].SetLabel("b(R)");
+	b_o_ds[6].SetLabel("b(I)");
+	b_o_ds[7].SetLabel("b(beta(I))");
+	b_o_ds[8].SetLabel("b(M)");
 
 	// b_o_ds.MakeSmooth(10) ;
 	b_o_ds.Export("B_Factors.tsv");
@@ -637,7 +637,7 @@ void MicroBNVAna::BNV_Sequence::Plot_Dimless_O() const
 	plt_par.SetXAxis({0.1, 2.1});
 	Scaled_O.SetPlotPars(plt_par);
 	Scaled_O[1] *= 1.4;
-	Scaled_O[1].label = "M";
+	Scaled_O[1].SetLabel("M");
 	Scaled_O.Plot(1, {{2, "$R\\, /\\, 12\\, km$"}, {3, "$B\\, /\\, 10^{57}$"}, {4, "$I \\,/\\, 70 \\, M_{s} \\, km^2$"}},
 				  "O_vs_M.pdf", "");
 }
@@ -1238,12 +1238,12 @@ void MicroBNVAna::BNV_Sequence::Solve(const double t_0, const double t_f)
 	Zaki::Vector::DataSet omega_ds(1 + 2 * init_omega_set.size(), time_res);
 	omega_ds.SetWrkDir(wrk_dir_);
 
-	omega_ds[0].label = "t (yr)";
+	omega_ds[0].SetLabel("t (yr)");
 
 	for (size_t i = 1; i < 2 * init_omega_set.size(); i += 2)
 	{
-		omega_ds[i].label = "N_" + init_omega_set[(i - 1) / 2].second;
-		omega_ds[i + 1].label = "A_" + init_omega_set[(i - 1) / 2].second;
+		omega_ds[i].SetLabel("N_" + init_omega_set[(i - 1) / 2].second);
+		omega_ds[i + 1].SetLabel("A_" + init_omega_set[(i - 1) / 2].second);
 	}
 
 	std::vector<std::pair<int, std::string>> omega_ds_plt_labels;
@@ -1253,7 +1253,7 @@ void MicroBNVAna::BNV_Sequence::Solve(const double t_0, const double t_f)
 	//---------------------------------------------------
 	Zaki::Vector::DataSet br_idx_ds(1 + 2 * init_omega_set.size(), time_res);
 	br_idx_ds.SetWrkDir(wrk_dir_);
-	br_idx_ds[0].label = "t (yr)";
+	br_idx_ds[0].SetLabel("t (yr)");
 
 	std::vector<
 		std::pair<int,
@@ -1266,8 +1266,8 @@ void MicroBNVAna::BNV_Sequence::Solve(const double t_0, const double t_f)
 	//---------------------------------------------------
 	Zaki::Vector::DataSet P_Pdot_ds(2 + 3 * init_omega_set.size(), time_res);
 	P_Pdot_ds.SetWrkDir(wrk_dir_);
-	P_Pdot_ds[0].label = "t (yr)";
-	P_Pdot_ds[1].label = "M";
+	P_Pdot_ds[0].SetLabel("t (yr)");
+	P_Pdot_ds[1].SetLabel("M");
 
 	std::vector<
 		std::pair<int,
@@ -1280,12 +1280,11 @@ void MicroBNVAna::BNV_Sequence::Solve(const double t_0, const double t_f)
 	//---------------------------------------------------
 	Zaki::Vector::DataSet M_Omega_ds(5 + init_omega_set.size(), time_res);
 	M_Omega_ds.SetWrkDir(wrk_dir_);
-	M_Omega_ds[0].label = "t (yr)";
-	M_Omega_ds[1].label = "M (M_sun)";
-	M_Omega_ds[2].label = "$\\Omega_e (1/s)$";
-	M_Omega_ds[3].label = "$\\Omega_{D-I} (1/s)$";
-	M_Omega_ds[4].label = "$\\Omega_{D-II} (1/s)$";
-
+	M_Omega_ds[0].SetLabel("t (yr)");
+	M_Omega_ds[1].SetLabel("M (M_sun)");
+	M_Omega_ds[2].SetLabel("$\\Omega_e (1/s)$");
+	M_Omega_ds[3].SetLabel("$\\Omega_{D-I} (1/s)$");
+	M_Omega_ds[4].SetLabel("$\\Omega_{D-II} (1/s)$");
 	std::vector<
 		std::pair<int,
 				  std::map<std::string, std::string>>>
@@ -1352,23 +1351,22 @@ void MicroBNVAna::BNV_Sequence::Solve(const double t_0, const double t_f)
 			// Recording the time has to be done only once!
 			if (i == 0)
 			{
-				omega_ds[0].vals.emplace_back(t_i / Zaki::Physics::YR_2_SEC);
-				br_idx_ds[0].vals.emplace_back(t_i / Zaki::Physics::YR_2_SEC);
-				P_Pdot_ds[0].vals.emplace_back(t_i / Zaki::Physics::YR_2_SEC);
-				P_Pdot_ds[1].vals.emplace_back(M(t_i));
-				M_Omega_ds[0].vals.emplace_back(t_i / Zaki::Physics::YR_2_SEC);
-				M_Omega_ds[1].vals.emplace_back(M(t_i));
+				omega_ds[0].PushBack(t_i / Zaki::Physics::YR_2_SEC);
+				br_idx_ds[0].PushBack(t_i / Zaki::Physics::YR_2_SEC);
+				P_Pdot_ds[0].PushBack(t_i / Zaki::Physics::YR_2_SEC);
+				P_Pdot_ds[1].PushBack(M(t_i));
+				M_Omega_ds[0].PushBack(t_i / Zaki::Physics::YR_2_SEC);
+				M_Omega_ds[1].PushBack(M(t_i));
 				// std::cout<< "\t t_i = '" << t_i << "', B = " << B(t_i) << ", " << " M(t_i) = '" << M(t_i) << "'.\n" ;
-				M_Omega_ds[2].vals.emplace_back(ExtremumOmega(t_i));
-				M_Omega_ds[3].vals.emplace_back(Omega_Death_Central(t_i));
-				M_Omega_ds[4].vals.emplace_back(Omega_Death_Twisted(t_i));
+				M_Omega_ds[2].PushBack(ExtremumOmega(t_i));
+				M_Omega_ds[3].PushBack(Omega_Death_Central(t_i));
+				M_Omega_ds[4].PushBack(Omega_Death_Twisted(t_i));
 
-				M_Omega_ds[0].label = "t[yr]";
-				M_Omega_ds[1].label = "M";
-				M_Omega_ds[2].label = "Omega_ext";
-				M_Omega_ds[3].label = "Omega_D_I";
-				M_Omega_ds[4].label = "Omega_D_II";
-
+				M_Omega_ds[0].SetLabel("t[yr]");
+				M_Omega_ds[1].SetLabel("M");
+				M_Omega_ds[2].SetLabel("Omega_ext");
+				M_Omega_ds[3].SetLabel("Omega_D_I");
+				M_Omega_ds[4].SetLabel("Omega_D_II");
 				for (size_t k = 0; k < time_stamps.size(); k++)
 				{
 					if (abs(log_t_i - log10(time_stamps[k])) < step / 2.)
@@ -1378,12 +1376,12 @@ void MicroBNVAna::BNV_Sequence::Solve(const double t_0, const double t_f)
 				}
 			}
 
-			omega_ds[1 + 2 * i].vals.emplace_back(omega[0] / init_omega_set[i].first);
+			omega_ds[1 + 2 * i].PushBack(omega[0] / init_omega_set[i].first);
 
 			// .....................
 			// Analytical Solution
 			// .....................
-			omega_ds[2 + 2 * i].vals.emplace_back(
+			omega_ds[2 + 2 * i].PushBack(
 				sqrt(1. /
 					 (2 * alpha * (t_i - t_0) + pow(init_omega_set[i].first, -2))) /
 				init_omega_set[i].first);
@@ -1392,34 +1390,34 @@ void MicroBNVAna::BNV_Sequence::Solve(const double t_0, const double t_f)
 			// .....................
 			//    Braking index
 			// .....................
-			// br_idx_ds[1 + 2 * i].vals.emplace_back(Omega_2ndDer(t_i, omega[0]) * omega[0]
+			// br_idx_ds[1 + 2 * i].PushBack(Omega_2ndDer(t_i, omega[0]) * omega[0]
 			//                                  / pow(Omega_1stDer(t_i, omega[0]),2)) ;
-			br_idx_ds[2 + 2 * i].vals.emplace_back(BrIdx(t_i, omega[0]));
-			// br_idx_ds[1 + 2 * i].vals.emplace_back(b_R(t_i)) ;
-			// br_idx_ds[1 + 2 * i].vals.emplace_back(ODE_Coeff(t_i)) ;
-			// br_idx_ds[2 + 2 * i].vals.emplace_back(b_beta_I(t_i)) ;
+			br_idx_ds[2 + 2 * i].PushBack(BrIdx(t_i, omega[0]));
+			// br_idx_ds[1 + 2 * i].PushBack(b_R(t_i)) ;
+			// br_idx_ds[1 + 2 * i].PushBack(ODE_Coeff(t_i)) ;
+			// br_idx_ds[2 + 2 * i].PushBack(b_beta_I(t_i)) ;
 
 			// .....................
 
 			// .....................
 			//    P, P_dot
 			// .....................
-			P_Pdot_ds[2 + 3 * i].vals.emplace_back(2 * M_PI / omega[0]);
-			P_Pdot_ds[3 + 3 * i].vals.emplace_back(-2 * M_PI * Omega_1stDer(t_i, omega[0]) / pow(omega[0], 2));
-			// P_Pdot_ds[3 + 3 * i].vals.emplace_back( - Pdot_sign * omega[0] / ( 2 * Zaki::Physics::YR_2_SEC
+			P_Pdot_ds[2 + 3 * i].PushBack(2 * M_PI / omega[0]);
+			P_Pdot_ds[3 + 3 * i].PushBack(-2 * M_PI * Omega_1stDer(t_i, omega[0]) / pow(omega[0], 2));
+			// P_Pdot_ds[3 + 3 * i].PushBack( - Pdot_sign * omega[0] / ( 2 * Zaki::Physics::YR_2_SEC
 			// * Omega_1stDer(t_i, omega[0]) )  ) ;
-			P_Pdot_ds[4 + 3 * i].vals.emplace_back(-omega[0] / (2 * Zaki::Physics::YR_2_SEC * Omega_1stDer(t_i, omega[0])));
-			P_Pdot_ds[2 + 3 * i].label = "P[" + init_omega_set[i].second + "]";
-			P_Pdot_ds[3 + 3 * i].label = "P_dot[" + init_omega_set[i].second + "]";
-			P_Pdot_ds[4 + 3 * i].label = "SD_Age[" + init_omega_set[i].second + "]";
+			P_Pdot_ds[4 + 3 * i].PushBack(-omega[0] / (2 * Zaki::Physics::YR_2_SEC * Omega_1stDer(t_i, omega[0])));
+			P_Pdot_ds[2 + 3 * i].SetLabel("P[" + init_omega_set[i].second + "]");
+			P_Pdot_ds[3 + 3 * i].SetLabel("P_dot[" + init_omega_set[i].second + "]");
+			P_Pdot_ds[4 + 3 * i].SetLabel("SD_Age[" + init_omega_set[i].second + "]");
 
 			// .....................
 
 			// .....................
 			//    M_Omega
 			// .....................
-			M_Omega_ds[5 + i].vals.emplace_back(omega[0]);
-			M_Omega_ds[5 + i].label = "Omega[" + init_omega_set[i].second + "]";
+			M_Omega_ds[5 + i].PushBack(omega[0]);
+			M_Omega_ds[5 + i].SetLabel("Omega[" + init_omega_set[i].second + "]");
 			// .....................
 
 			//----------------------------------------
@@ -1445,8 +1443,8 @@ void MicroBNVAna::BNV_Sequence::Solve(const double t_0, const double t_f)
 
 		gsl_odeiv2_driver_free(tmp_driver);
 
-		omega_ds_plt_labels.emplace_back(1 + 2 * i, omega_ds[1 + 2 * i].label);
-		omega_ds_plt_labels.emplace_back(2 + 2 * i, omega_ds[2 + 2 * i].label);
+		omega_ds_plt_labels.emplace_back(1 + 2 * i, omega_ds[1 + 2 * i].Label());
+		omega_ds_plt_labels.emplace_back(2 + 2 * i, omega_ds[2 + 2 * i].Label());
 
 		// br_idx_ds_plt_labels.emplace_back(2 + 2 * i,
 		//   (std::map<std::string, std::string>){

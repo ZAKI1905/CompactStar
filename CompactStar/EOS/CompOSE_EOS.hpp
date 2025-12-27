@@ -51,6 +51,7 @@
 
 #include <map>
 
+#include <Zaki/Vector/DataColumn.hpp>
 #include <Zaki/Vector/DataSet.hpp>
 
 #include "CompactStar/Core/Prog.hpp"

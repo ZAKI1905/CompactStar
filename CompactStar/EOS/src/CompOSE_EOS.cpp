@@ -48,9 +48,9 @@ CompactStar::CompOSE_EOS::CompOSE_EOS()
 {
 	eos.Reserve(3, 350);
 
-	eos[(int)EOS_Idx::e].label = "e(g/cm^3)";
-	eos[(int)EOS_Idx::p].label = "p(dyne/cm^2)";
-	eos[(int)EOS_Idx::n].label = "rho(1/fm^3)";
+	eos[(int)EOS_Idx::e].SetLabel("e(g/cm^3)");
+	eos[(int)EOS_Idx::p].SetLabel("p(dyne/cm^2)");
+	eos[(int)EOS_Idx::n].SetLabel("rho(1/fm^3)");
 }
 
 //--------------------------------------------------------------
@@ -98,7 +98,7 @@ void CompactStar::CompOSE_EOS::ImportGrid(
 
 	// .........................................................
 	// Clearing the data_set:
-	eos[(int)EOS_Idx::n].vals.clear();
+	eos[(int)EOS_Idx::n].Clear();
 	// .........................................................
 	//                  Reading the file
 	// .........................................................
@@ -162,13 +162,13 @@ void CompactStar::CompOSE_EOS::ImportGrid(
 			if (col_counter == 1)
 			{
 				double tmp_val = std::atof((*loop)[i].c_str());
-				eos[(int)EOS_Idx::n].vals.emplace_back(tmp_val);
+				eos[(int)EOS_Idx::n].PushBack(tmp_val);
 
 				// If there is a crust-core transition, find
 				//  at what index ?
 				if (tmp_val >= crust_core_x_den && has_crust && !crust_core_x_found)
 				{
-					crust_core_x_idx = eos[(int)EOS_Idx::n].vals.size() - 1;
+					crust_core_x_idx = eos[(int)EOS_Idx::n].Size() - 1;
 					// std::cout << "\n\t tmp_val = " << tmp_val << "\n" ;
 					// std::cout << "\n\t eos[(int)EOS_Idx::n].vals[xidx] = " << eos[(int)EOS_Idx::n].vals[crust_core_x_idx] << "\n" ;
 					// std::cout << "\n\t Index = " << crust_core_x_idx << "\n" ;
@@ -217,8 +217,8 @@ void CompactStar::CompOSE_EOS::ImportThermo(
 
 	// .........................................................
 	// Clearing the data_set:
-	eos[(int)EOS_Idx::e].vals.clear();
-	eos[(int)EOS_Idx::p].vals.clear();
+	eos[(int)EOS_Idx::e].Clear();
+	eos[(int)EOS_Idx::p].Clear();
 	// .........................................................
 	//                  Reading the file
 	// .........................................................
@@ -288,7 +288,7 @@ void CompactStar::CompOSE_EOS::ImportThermo(
 
 				// std::cout << "\t tmp_p= " << tmp_p << "\n" ;
 
-				eos[(int)EOS_Idx::p].vals.emplace_back(tmp_p);
+				eos[(int)EOS_Idx::p].PushBack(tmp_p);
 				break;
 			}
 			// Energy density column
@@ -309,7 +309,7 @@ void CompactStar::CompOSE_EOS::ImportThermo(
 				}
 				tmp_e *= Zaki::Physics::MEV_FM3_2_G_CM3;
 
-				eos[(int)EOS_Idx::e].vals.emplace_back(tmp_e);
+				eos[(int)EOS_Idx::e].PushBack(tmp_e);
 				break;
 			}
 			default:
@@ -366,7 +366,7 @@ void CompactStar::CompOSE_EOS::ImportCompo(
 	// Clearing the composition part of the data_set:
 	for (size_t i = therm_size; i < comp_size + therm_size; i++)
 	{
-		eos[i].vals.clear();
+		eos[i].Clear();
 	}
 
 	// .........................................................
@@ -441,7 +441,7 @@ void CompactStar::CompOSE_EOS::ImportCompo(
 				continue;
 			}
 
-			tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(eos[i].label.c_str())).name_);
+			tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(eos[i].Label().c_str())).name_);
 		}
 
 		// eos.ResetPlotPars() ;
@@ -492,17 +492,17 @@ void CompactStar::CompOSE_EOS::ImportMicro(
 	// Clearing the m_eff, V_eff, U datasets
 	for (size_t i = 0; i < m_eff.Dim().size(); i++)
 	{
-		m_eff[i].vals.clear();
+		m_eff[i].Clear();
 	}
 
 	for (size_t i = 0; i < V_eff.Dim().size(); i++)
 	{
-		V_eff[i].vals.clear();
+		V_eff[i].Clear();
 	}
 
 	for (size_t i = 0; i < U.Dim().size(); i++)
 	{
-		U[i].vals.clear();
+		U[i].Clear();
 	}
 
 	// .........................................................
@@ -523,9 +523,9 @@ void CompactStar::CompOSE_EOS::ImportMicro(
 		if (line_num == 0)
 		{
 			// Adding the first label (density)
-			std::vector<std::string> m_eff_labels = {eos[(int)EOS_Idx::n].label};
-			std::vector<std::string> V_eff_labels = {eos[(int)EOS_Idx::n].label};
-			std::vector<std::string> U_labels = {eos[(int)EOS_Idx::n].label};
+			std::vector<std::string> m_eff_labels = {eos[(int)EOS_Idx::n].Label()};
+			std::vector<std::string> V_eff_labels = {eos[(int)EOS_Idx::n].Label()};
+			std::vector<std::string> U_labels = {eos[(int)EOS_Idx::n].Label()};
 
 			size_t col_counter = 0;
 			for (size_t i = 0; i < (*loop).size(); i++)
@@ -587,19 +587,19 @@ void CompactStar::CompOSE_EOS::ImportMicro(
 			m_eff.Reserve(m_eff_col_set.size() + 1, eos[(int)EOS_Idx::n].Size());
 			for (size_t i = 0; i < m_eff_col_set.size() + 1; i++)
 			{
-				m_eff[i].label = m_eff_labels[i];
+				m_eff[i].SetLabel(m_eff_labels[i]);
 			}
 
 			V_eff.Reserve(V_eff_col_set.size() + 1, eos[(int)EOS_Idx::n].Size());
 			for (size_t i = 0; i < V_eff_col_set.size() + 1; i++)
 			{
-				V_eff[i].label = V_eff_labels[i];
+				V_eff[i].SetLabel(V_eff_labels[i]);
 			}
 
 			U.Reserve(U_col_set.size() + 1, eos[(int)EOS_Idx::n].Size());
 			for (size_t i = 0; i < U_col_set.size() + 1; i++)
 			{
-				U[i].label = U_labels[i];
+				U[i].SetLabel(U_labels[i]);
 			}
 		}
 
@@ -745,7 +745,7 @@ void CompactStar::CompOSE_EOS::ImportMicro(
 					continue;
 				}
 
-				tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(m_eff[i].label.c_str())).name_);
+				tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(m_eff[i].Label().c_str())).name_);
 			}
 
 			plt_par.SetYAxisLabel("$m_B^* \\,\\, ( {\\rm MeV} )$");
@@ -774,7 +774,7 @@ void CompactStar::CompOSE_EOS::ImportMicro(
 					continue;
 				}
 
-				tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(V_eff[i].label.c_str())).name_);
+				tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(V_eff[i].Label().c_str())).name_);
 			}
 
 			plt_par.SetYAxisLabel("$\\Sigma^0_B\\,\\, ( {\\rm MeV} )$");
@@ -803,7 +803,7 @@ void CompactStar::CompOSE_EOS::ImportMicro(
 					continue;
 				}
 
-				tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(U[i].label.c_str())).name_);
+				tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(U[i].Label().c_str())).name_);
 			}
 
 			plt_par.SetYAxisLabel("$U_B\\,\\, ( {\\rm MeV} )$");
@@ -837,24 +837,24 @@ void CompactStar::CompOSE_EOS::ExtendMeffToCrust(
 	// Clearing the m_eff
 	for (size_t i = 0; i < m_eff.Dim().size(); i++)
 	{
-		m_eff[i].vals.clear();
+		m_eff[i].Clear();
 	}
 
 	// std::cout << "\n m_eff_no_crust.Dim().size() = " << m_eff_no_crust.Dim().size() << "\n \n"  ;
 
 	m_eff.Reserve(m_eff_no_crust.Dim().size(), GetEOS(2).Size());
 
-	m_eff[0] = GetEOS(2).GetSubSet([](const double &v)
+	m_eff[0] = GetEOS(2).GetSubSet([](double v)
 								   { return v < 0.03; });
-	m_eff[0].label = "rho(1/fm^3)";
+	m_eff[0].SetLabel("rho(1/fm^3)");
 	for (size_t i = 1; i < m_eff_no_crust.Dim().size(); i++)
 	{
-		m_eff[i].label = m_eff_no_crust[i].label;
+		m_eff[i].SetLabel(m_eff_no_crust[i].Label());
 
-		// std::cout << "\n m_eff[i].label = " << m_eff[i].label << " "  ;
+		// std::cout << "\n m_eff[i].Label() = " << m_eff[i].Label() << " "  ;
 
 		double m_1 = m_eff_no_crust[i][0];
-		int particle_label = std::stoi(m_eff_no_crust[i].label.c_str());
+		int particle_label = std::stoi(m_eff_no_crust[i].Label().c_str());
 		double m_0 = Compose_Dict.at(particle_label).m;
 		std::string name_ = Compose_Dict.at(particle_label).name_;
 		double slope = (m_1 - m_0) / (n_1 - n_0);
@@ -868,7 +868,7 @@ void CompactStar::CompOSE_EOS::ExtendMeffToCrust(
 		for (size_t j = 0; j < m_eff[0].Size(); j++)
 		{
 			double m = slope * m_eff[0][j] + interc;
-			m_eff[i].vals.emplace_back(m);
+			m_eff[i].PushBack(m);
 		}
 	}
 
@@ -882,7 +882,7 @@ void CompactStar::CompOSE_EOS::ExtendMeffToCrust(
 	{
 		m_eff.Interpolate(0, i);
 		m_eff[i] = m_eff.Evaluate(i, GetEOS(2));
-		m_eff[i].label = m_eff_no_crust[i].label;
+		m_eff[i].SetLabel(m_eff_no_crust[i].Label());
 	}
 	m_eff[0] = GetEOS(2);
 	// -------------------------------------------------------------
@@ -909,7 +909,7 @@ void CompactStar::CompOSE_EOS::ExtendMeffToCrust(
 				continue;
 			}
 
-			tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(m_eff[i].label.c_str())).name_);
+			tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(m_eff[i].Label().c_str())).name_);
 		}
 
 		plt_par.SetYAxisLabel("$m_B^* \\,\\, ( {\\rm MeV} )$");
@@ -941,19 +941,18 @@ void CompactStar::CompOSE_EOS::ExtendVeffToCrust(
 	// Clearing the V_eff
 	for (size_t i = 0; i < V_eff.Dim().size(); i++)
 	{
-		V_eff[i].vals.clear();
+		V_eff[i].Clear();
 	}
 
 	V_eff.Reserve(V_eff_no_crust.Dim().size(), GetEOS(2).Size());
 
-	V_eff[0] = GetEOS(2).GetSubSet([](const double &v)
+	V_eff[0] = GetEOS(2).GetSubSet([](double v)
 								   { return v < 0.03; });
-	V_eff[0].label = "rho(1/fm^3)";
+	V_eff[0].SetLabel("rho(1/fm^3)");
 
 	for (size_t i = 1; i < V_eff_no_crust.Dim().size(); i++)
 	{
-		V_eff[i].label = V_eff_no_crust[i].label;
-
+		V_eff[i].SetLabel(V_eff_no_crust[i].Label());
 		double V_1 = V_eff_no_crust[i][0];
 		double V_0 = 0;
 
@@ -968,7 +967,7 @@ void CompactStar::CompOSE_EOS::ExtendVeffToCrust(
 		for (size_t j = 0; j < V_eff[0].Size(); j++)
 		{
 			double v = slope * V_eff[0][j] + interc;
-			V_eff[i].vals.emplace_back(v);
+			V_eff[i].PushBack(v);
 		}
 	}
 
@@ -982,7 +981,7 @@ void CompactStar::CompOSE_EOS::ExtendVeffToCrust(
 	{
 		V_eff.Interpolate(0, i);
 		V_eff[i] = V_eff.Evaluate(i, GetEOS(2));
-		V_eff[i].label = V_eff_no_crust[i].label;
+		V_eff[i].SetLabel(V_eff_no_crust[i].Label());
 	}
 	V_eff[0] = GetEOS(2);
 	// -------------------------------------------------------------
@@ -1009,7 +1008,7 @@ void CompactStar::CompOSE_EOS::ExtendVeffToCrust(
 				continue;
 			}
 
-			tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(V_eff[i].label.c_str())).name_);
+			tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(V_eff[i].Label().c_str())).name_);
 		}
 
 		plt_par.SetYAxisLabel("$\\Sigma^0_B\\,\\, ( {\\rm MeV} )$");
@@ -1041,19 +1040,18 @@ void CompactStar::CompOSE_EOS::ExtendUeffToCrust(
 	// Clearing the U_eff
 	for (size_t i = 0; i < U.Dim().size(); i++)
 	{
-		U[i].vals.clear();
+		U[i].Clear();
 	}
 
 	U.Reserve(U_eff_no_crust.Dim().size(), GetEOS(2).Size());
 
-	U[0] = GetEOS(2).GetSubSet([](const double &v)
+	U[0] = GetEOS(2).GetSubSet([](double v)
 							   { return v < 0.03; });
-	U[0].label = "rho(1/fm^3)";
+	U[0].SetLabel("rho(1/fm^3)");
 
 	for (size_t i = 1; i < U_eff_no_crust.Dim().size(); i++)
 	{
-		U[i].label = U_eff_no_crust[i].label;
-
+		U[i].SetLabel(U_eff_no_crust[i].Label());
 		double U_1 = U_eff_no_crust[i][0];
 		double U_0 = 0;
 
@@ -1068,7 +1066,7 @@ void CompactStar::CompOSE_EOS::ExtendUeffToCrust(
 		for (size_t j = 0; j < U[0].Size(); j++)
 		{
 			double v = slope * U[0][j] + interc;
-			U[i].vals.emplace_back(v);
+			U[i].PushBack(v);
 		}
 	}
 
@@ -1082,7 +1080,7 @@ void CompactStar::CompOSE_EOS::ExtendUeffToCrust(
 	{
 		U.Interpolate(0, i);
 		U[i] = U.Evaluate(i, GetEOS(2));
-		U[i].label = U_eff_no_crust[i].label;
+		U[i].SetLabel(U_eff_no_crust[i].Label());
 	}
 	U[0] = GetEOS(2);
 	// -------------------------------------------------------------
@@ -1112,7 +1110,7 @@ void CompactStar::CompOSE_EOS::ExtendUeffToCrust(
 				continue;
 			}
 
-			tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(U[i].label.c_str())).name_);
+			tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(U[i].Label().c_str())).name_);
 		}
 
 		plt_par.SetYAxisLabel("$U_B\\,\\, ( {\\rm MeV} )$");
@@ -1294,17 +1292,16 @@ void CompactStar::CompOSE_EOS::ExportFermiE(
 	// ------------------------------------
 	Zaki::Vector::DataColumn fermi_electron = (pow(Zaki::Physics::ELECTRON_M_FM, 2) + (3 * M_PI * M_PI * eos["0"] * eos[(int)EOS_Idx::n]).pow(2. / 3.)).sqrt() / Zaki::Physics::MEV_2_INV_FM;
 
-	fermi_electron.label = "FE_e [MeV]";
+	fermi_electron.SetLabel("FE_e [MeV]");
 
 	Zaki::Vector::DataColumn fermi_muon = (pow(Zaki::Physics::MUON_M_FM, 2) + (3 * M_PI * M_PI * eos["1"] * eos[(int)EOS_Idx::n]).pow(2. / 3.)).sqrt() / Zaki::Physics::MEV_2_INV_FM;
 
-	fermi_muon.label = "FE_mu [MeV]";
-
+	fermi_muon.SetLabel("FE_mu [MeV]");
 	Zaki::Vector::DataColumn fermi_neutron = (m_eff["10"].pow(2) + (3 * M_PI * M_PI * eos["10"] * eos[(int)EOS_Idx::n]).pow(2. / 3.) / pow(Zaki::Physics::MEV_2_INV_FM, 2)).sqrt() + V_eff["10"];
-	fermi_neutron.label = "FE_n [MeV]";
+	fermi_neutron.SetLabel("FE_n [MeV]");
 
 	Zaki::Vector::DataColumn fermi_lambda = (m_eff["100"].pow(2) + (3 * M_PI * M_PI * eos["100"] * eos[(int)EOS_Idx::n]).pow(2. / 3.) / pow(Zaki::Physics::MEV_2_INV_FM, 2)).sqrt() + V_eff["100"];
-	fermi_lambda.label = "FE_Lam [MeV]";
+	fermi_lambda.SetLabel("FE_Lam [MeV]");
 
 	Zaki::Vector::DataSet fermi_ds({eos[(int)EOS_Idx::n],
 									fermi_electron, fermi_muon,
@@ -1328,17 +1325,16 @@ Zaki::Vector::DataSet CompactStar::CompOSE_EOS::GetFermiE() const
 	// ------------------------------------
 	Zaki::Vector::DataColumn fermi_electron = (pow(Zaki::Physics::ELECTRON_M_FM, 2) + (3 * M_PI * M_PI * eos["0"] * eos[(int)EOS_Idx::n]).pow(2. / 3.)).sqrt() / Zaki::Physics::MEV_2_INV_FM;
 
-	fermi_electron.label = "FE_e [MeV]";
+	fermi_electron.SetLabel("FE_e [MeV]");
 
 	Zaki::Vector::DataColumn fermi_muon = (pow(Zaki::Physics::MUON_M_FM, 2) + (3 * M_PI * M_PI * eos["1"] * eos[(int)EOS_Idx::n]).pow(2. / 3.)).sqrt() / Zaki::Physics::MEV_2_INV_FM;
 
-	fermi_muon.label = "FE_mu [MeV]";
-
+	fermi_muon.SetLabel("FE_mu [MeV]");
 	Zaki::Vector::DataColumn fermi_neutron = (m_eff["10"].pow(2) + (3 * M_PI * M_PI * eos["10"] * eos[(int)EOS_Idx::n]).pow(2. / 3.) / pow(Zaki::Physics::MEV_2_INV_FM, 2)).sqrt() + V_eff["10"];
-	fermi_neutron.label = "FE_n [MeV]";
+	fermi_neutron.SetLabel("FE_n [MeV]");
 
 	Zaki::Vector::DataColumn fermi_lambda = (m_eff["100"].pow(2) + (3 * M_PI * M_PI * eos["100"] * eos[(int)EOS_Idx::n]).pow(2. / 3.) / pow(Zaki::Physics::MEV_2_INV_FM, 2)).sqrt() + V_eff["100"];
-	fermi_lambda.label = "FE_Lam [MeV]";
+	fermi_lambda.SetLabel("FE_Lam [MeV]");
 
 	Zaki::Vector::DataSet fermi_ds({eos[(int)EOS_Idx::n],
 									fermi_electron, fermi_muon,

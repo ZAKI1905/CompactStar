@@ -3,7 +3,7 @@
  * Zaki's Common Library
  * See License file at the top of the source tree.
  *
- * Copyright (c) 2023 Mohammadreza Zakeri
+ * Copyright (c) 2025 Mohammadreza Zakeri
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -54,6 +54,8 @@
 #include <Zaki/Math/Math_Core.hpp>
 #include <Zaki/String/Directory.hpp>
 
+#include "Zaki/Vector/DataColumn.hpp"
+
 //--------------------------------------------------------------
 namespace Zaki::Math
 {
@@ -81,308 +83,369 @@ namespace Zaki::Vector
 {
 
 // Vector forward declarations
-struct DataColumn;
+// struct DataColumn;
 class DataSet;
 
-//==============================================================
-//..................................................
-//                Addition (+)
-//..................................................
-/// Addition of a DataColumn to a DataColumn
-DataColumn operator+(const DataColumn &, const DataColumn &);
+// //==============================================================
+// //..................................................
+// //                Addition (+)
+// //..................................................
+// /// Addition of a DataColumn to a DataColumn
+// DataColumn operator+(const DataColumn &, const DataColumn &);
 
-/// Addition of a DataColumn to a double
-DataColumn operator+(const double &, const DataColumn &);
+// /// Addition of a DataColumn to a double
+// DataColumn operator+(const double &, const DataColumn &);
 
-/// Addition of a double to a DataColumn
-DataColumn operator+(const DataColumn &, const double &);
+// /// Addition of a double to a DataColumn
+// DataColumn operator+(const DataColumn &, const double &);
 
-/// Addition of a list of doubles to a DataColumn
-DataColumn operator+(const DataColumn &, const std::vector<double> &);
+// /// Addition of a list of doubles to a DataColumn
+// DataColumn operator+(const DataColumn &, const std::vector<double> &);
 
-/// Addition of a list of doubles to a DataColumn
-DataColumn operator+(const std::vector<double> &, const DataColumn &);
+// /// Addition of a list of doubles to a DataColumn
+// DataColumn operator+(const std::vector<double> &, const DataColumn &);
 
-//..................................................
-//                Subtraction (-)
-//..................................................
-/// Subtraction of a DataColumn from a DataColumn
-DataColumn operator-(const DataColumn &, const DataColumn &);
+// //..................................................
+// //                Subtraction (-)
+// //..................................................
+// /// Subtraction of a DataColumn from a DataColumn
+// DataColumn operator-(const DataColumn &, const DataColumn &);
 
-/// Subtraction of a DataColumn from a double
-DataColumn operator-(const double &, const DataColumn &);
+// /// Subtraction of a DataColumn from a double
+// DataColumn operator-(const double &, const DataColumn &);
 
-/// Subtraction of a double from a DataColumn
-DataColumn operator-(const DataColumn &, const double &);
+// /// Subtraction of a double from a DataColumn
+// DataColumn operator-(const DataColumn &, const double &);
 
-/// Subtraction of a list of doubles from a DataColumn
-DataColumn operator-(const DataColumn &, const std::vector<double> &);
+// /// Subtraction of a list of doubles from a DataColumn
+// DataColumn operator-(const DataColumn &, const std::vector<double> &);
 
-/// Subtraction of a list of doubles from a DataColumn
-DataColumn operator-(const std::vector<double> &, const DataColumn &);
+// /// Subtraction of a list of doubles from a DataColumn
+// DataColumn operator-(const std::vector<double> &, const DataColumn &);
 
-//..................................................
-//              Multiplication (*)
-//..................................................
-/// Multiplication of a DataColumn by a double
-DataColumn operator*(const DataColumn &, const double &);
+// //..................................................
+// //              Multiplication (*)
+// //..................................................
+// /// Multiplication of a DataColumn by a double
+// DataColumn operator*(const DataColumn &, const double &);
 
-/// Multiplication of a double by a DataColumn
-DataColumn operator*(const double &, const DataColumn &);
+// /// Multiplication of a double by a DataColumn
+// DataColumn operator*(const double &, const DataColumn &);
 
-/// Multiplication of a DataColumn by an int
-DataColumn operator*(const DataColumn &, const int &);
+// /// Multiplication of a DataColumn by an int
+// DataColumn operator*(const DataColumn &, const int &);
 
-/// Multiplication of an int by a DataColumn
-DataColumn operator*(const int &, const DataColumn &);
+// /// Multiplication of an int by a DataColumn
+// DataColumn operator*(const int &, const DataColumn &);
 
-/// Multiplication of a DataColumn by another DataColumn
-DataColumn operator*(const DataColumn &, const DataColumn &);
-//..................................................
-//                  Division (/)
-//..................................................
+// /// Multiplication of a DataColumn by another DataColumn
+// DataColumn operator*(const DataColumn &, const DataColumn &);
+// //..................................................
+// //                  Division (/)
+// //..................................................
 
-/// Division of a DataColumn by a double
-DataColumn operator/(const DataColumn &, const double &);
+// /// Division of a DataColumn by a double
+// DataColumn operator/(const DataColumn &, const double &);
 
-/// Division of a double by a DataColumn
-DataColumn operator/(const double &, const DataColumn &);
+// /// Division of a double by a DataColumn
+// DataColumn operator/(const double &, const DataColumn &);
 
-/// Division of a DataColumn by an int
-DataColumn operator/(const DataColumn &, const int &);
+// /// Division of a DataColumn by an int
+// DataColumn operator/(const DataColumn &, const int &);
 
-/// Division of an int by a DataColumn
-DataColumn operator/(const int &, const DataColumn &);
+// /// Division of an int by a DataColumn
+// DataColumn operator/(const int &, const DataColumn &);
 
-/// Division of a DataColumn by another DataColumn
-DataColumn operator/(const DataColumn &, const DataColumn &);
+// /// Division of a DataColumn by another DataColumn
+// DataColumn operator/(const DataColumn &, const DataColumn &);
 
-//..................................................
-//               Exponentiation (exp)
-//..................................................
-DataColumn exp(const DataColumn &);
-DataColumn log(const DataColumn &);
-DataColumn log10(const DataColumn &);
+// //..................................................
+// //               Exponentiation (exp)
+// //..................................................
+// DataColumn exp(const DataColumn &);
+// DataColumn log(const DataColumn &);
+// DataColumn log10(const DataColumn &);
 
-//==============================================================
+// //==============================================================
 
-//==============================================================
-//                        DataColumn Struct
-//==============================================================
-struct DataColumn
-{
-  private:
-	// in case of missing data (NaN) this will be used to fill
-	// the data:
-	// double add_def_val = 0 ;
-
-  public:
-	//..................................................
-	friend DataColumn operator+(const DataColumn &, const DataColumn &);
-	friend DataColumn operator+(const double &, const DataColumn &);
-	friend DataColumn operator+(const DataColumn &, const double &);
-	friend DataColumn operator+(const DataColumn &, const std::vector<double> &);
-	friend DataColumn operator+(const std::vector<double> &, const DataColumn &);
-	//..................................................
-	friend DataColumn operator-(const DataColumn &, const DataColumn &);
-	friend DataColumn operator-(const double &, const DataColumn &);
-	friend DataColumn operator-(const DataColumn &, const double &);
-	friend DataColumn operator-(const DataColumn &, const std::vector<double> &);
-	friend DataColumn operator-(const std::vector<double> &, const DataColumn &);
-	//..................................................
-	friend DataColumn operator*(const DataColumn &, const double &);
-	friend DataColumn operator*(const double &, const DataColumn &);
-	friend DataColumn operator*(const DataColumn &, const int &);
-	friend DataColumn operator*(const int &, const DataColumn &);
-	friend DataColumn operator*(const DataColumn &, const DataColumn &);
-	//..................................................
-	friend DataColumn operator/(const DataColumn &, const double &);
-	friend DataColumn operator/(const double &, const DataColumn &);
-	friend DataColumn operator/(const DataColumn &, const int &);
-	friend DataColumn operator/(const int &, const DataColumn &);
-	friend DataColumn operator/(const DataColumn &, const DataColumn &);
-	//..................................................
-	friend DataColumn exp(const DataColumn &);
-	DataColumn log(const DataColumn &);
-	DataColumn log10(const DataColumn &);
-	//..................................................
-	/// Default constructor
-	DataColumn();
-
-	/// Constructor from a known size for rows
-	DataColumn(const size_t &rows);
-
-	/// Constructor from a label and size and values
-	/// by default it fills the column with zeros
-	DataColumn(const std::string &label,
-			   const size_t &size,
-			   const double &val = 0);
-
-	/// Constructor from a vector and label:
-	DataColumn(const std::string &, const std::vector<double> &);
-
-	std::string label;
-	std::vector<double> vals;
-
-	/// Fills all of the elements of the data column with the input value.
-	void Fill(const double &in_val);
-
-	/// Fills specific elements of the data column with the input
-	/// value if the input condition function returns true.
-	void Fill(const double &in_val, bool (*fill_condition)(const double &));
-
-	/// @brief  Generates a smoother datacolumn by moving average
-	/// @param window window for moving average
-	/// @return Smoother datacolumn
-	DataColumn GetSmooth(const short int &window) const;
-
-	/// @brief  Makes the datacolumn smoother by moving average
-	/// @param window window for moving average
-	void MakeSmooth(const short int &window);
-
-	/// @brief  Makes the datacolumn smoother by removing bumps
-	void RemoveBumps();
-	//..................................................
-	// Operator overloading
-	//..................................................
-	// Addition (+)
-	// DataColumn operator+(const DataColumn& in_dc) const ;
-
-	/// Adds the two DataColumns and fills the non-existent
-	/// elements with '0'
-	/// Use when the sizes of DC's are not the same
-	static DataColumn Add(const DataColumn &dc_1,
-						  const DataColumn &dc_2,
-						  const double &fill = 0);
-
-	/// Addition to a list of numbers (+)
-	// DataColumn operator+(const std::vector<double>& in_vec) const ;
-	/// Addition to a single number (+)
-	// DataColumn operator+(const double& in_num) const ;
-	//..................................................
-	/// Addition assignment operator
-	DataColumn &operator+=(const DataColumn &in_dc);
-	DataColumn &operator+=(const double &in_num);
-
-	/// Subtraction assignment operator
-	DataColumn &operator-=(const DataColumn &in_dc);
-	DataColumn &operator-=(const double &in_num);
-
-	/// Multiplication assignment operator
-	DataColumn &operator*=(const DataColumn &in_dc);
-	DataColumn &operator*=(const double &in_num);
-
-	/// Division assignment operator
-	DataColumn &operator/=(const DataColumn &in_dc);
-	DataColumn &operator/=(const double &in_num);
-
-	//..................................................
-	// // Subtraction (-)
-	// DataColumn operator-(const DataColumn& in_dc) const ;
-	// // Subtraction of a single number (-)
-	// DataColumn operator-(const double& in_num) const ;
-	// // Subtraction of a list of numbers (-)
-	// DataColumn operator-(const std::vector<double>& in_vec) const ;
-	//..................................................
-	/// Unary minus (negation '-') operator
-	DataColumn operator-() const;
-	//..................................................
-
-	// Multiplication (*)
-	// // By a double
-	// DataColumn operator*(const double& in_num) const ;
-	// // By an int
-	// DataColumn operator*(const int& in_num) const ;
-	// // By another column
-	// DataColumn operator*(const DataColumn& in_dc) const ;
-	//..................................................
-	// Division (/)
-	// // by a number
-	// DataColumn operator/(const double& in_nm) const ;
-	// // By an int
-	// DataColumn operator/(const int& in_num) const ;
-	// // By another column
-	// DataColumn operator/(const DataColumn& in_dc) const ;
-	//..................................................
-	/// Power
-	DataColumn pow(const double &in_num) const;
-	// DataColumn pow^(const int& in_num) const ;
-	/// sqrt
-	DataColumn sqrt() const;
-	/// absolute value
-	DataColumn Abs() const;
-	// // Exponentiation
-	// DataColumn exp(const DataColumn&) const ;
-	//..................................................
-	/// Overloading []
-	double &operator[](const int);
-
-	/// Overloading [] ( const )
-	double operator[](const int) const;
-	//..................................................
-
-	DataSet CombineColumns(const DataColumn &) const;
-	DataSet CombineColumns(const std::vector<DataColumn> &) const;
-
-	/// Selecting a subset of DataColumn elements satisfying
-	///  the input condition 'cond'
-	DataColumn GetSubSet(bool (*cond)(const double &)) const;
-
-	/// Selecting a subset of DataColumn elements satisfying
-	///  the input condition 'cond'
-	DataColumn GetSubSet(bool (*cond)(const DataColumn &,
-									  const int &idx)) const;
-
-	/// Selecting a subset of DataColumn ranging from
-	///  idx_1 --> idx_2
-	DataColumn GetSubSet(const size_t idx_1, const size_t idx_2) const;
-
-	/// Trims the data column to its subset ranging from
-	///  idx_1 --> idx_2
-	void Trim(const size_t idx_1, const size_t idx_2);
-
-	/// Returns the index to :
-	///  If the data is:
-	///  Ascending: the first value that is equal or greater than
-	///  the input value.
-	///  Descending: the first value that is equal or less than
-	///  the input value.
-	///  The data column must be strictly increasing or decreasing.
-	int GetFirstIdx(const double &) const;
-
-	/// Returns the index to the element that is closest.
-	int GetClosestIdx(const double &) const;
-
-	/// Returns the size of 'vals'
-	size_t Size() const;
-
-	/// Reserves space for 'vals'
-	void Reserve(const size_t &);
-
-	/// Resizes the 'vals'
-	void Resize(const size_t &);
-
-	/// Returns the minimum element
-	double Min() const;
-
-	/// Returns the maximum element
-	double Max() const;
-
-	/// Returns the minimum element's index
-	int MinIdx() const;
-
-	/// Returns the maximum element's index
-	int MaxIdx() const;
-};
-
-//==============================================================
-//                        PlotData2D Struct
-//==============================================================
-// struct PlotData2D
+// //==============================================================
+// //                        DataColumn Struct
+// //==============================================================
+// struct DataColumn
 // {
+//   private:
+// 	// in case of missing data (NaN) this will be used to fill
+// 	// the data:
+// 	// double add_def_val = 0 ;
+
+// 	std::string label;
+// 	std::vector<double> vals;
+
 //   public:
-//     DataColumn x ;
-//     DataColumn y ;
+// 	//..................................................
+// 	friend DataColumn operator+(const DataColumn &, const DataColumn &);
+// 	friend DataColumn operator+(const double &, const DataColumn &);
+// 	friend DataColumn operator+(const DataColumn &, const double &);
+// 	friend DataColumn operator+(const DataColumn &, const std::vector<double> &);
+// 	friend DataColumn operator+(const std::vector<double> &, const DataColumn &);
+// 	//..................................................
+// 	friend DataColumn operator-(const DataColumn &, const DataColumn &);
+// 	friend DataColumn operator-(const double &, const DataColumn &);
+// 	friend DataColumn operator-(const DataColumn &, const double &);
+// 	friend DataColumn operator-(const DataColumn &, const std::vector<double> &);
+// 	friend DataColumn operator-(const std::vector<double> &, const DataColumn &);
+// 	//..................................................
+// 	friend DataColumn operator*(const DataColumn &, const double &);
+// 	friend DataColumn operator*(const double &, const DataColumn &);
+// 	friend DataColumn operator*(const DataColumn &, const int &);
+// 	friend DataColumn operator*(const int &, const DataColumn &);
+// 	friend DataColumn operator*(const DataColumn &, const DataColumn &);
+// 	//..................................................
+// 	friend DataColumn operator/(const DataColumn &, const double &);
+// 	friend DataColumn operator/(const double &, const DataColumn &);
+// 	friend DataColumn operator/(const DataColumn &, const int &);
+// 	friend DataColumn operator/(const int &, const DataColumn &);
+// 	friend DataColumn operator/(const DataColumn &, const DataColumn &);
+// 	//..................................................
+// 	friend DataColumn exp(const DataColumn &);
+// 	DataColumn log(const DataColumn &);
+// 	DataColumn log10(const DataColumn &);
+// 	//..................................................
+// 	/// Default constructor
+// 	DataColumn();
+
+// 	/// Constructor from a known size for rows
+// 	DataColumn(const size_t &rows);
+
+// 	/// Constructor from a label and size and values
+// 	/// by default it fills the column with zeros
+// 	DataColumn(const std::string &label,
+// 			   const size_t &size,
+// 			   const double &val = 0);
+
+// 	/// Constructor from a vector and label:
+// 	DataColumn(const std::string &, const std::vector<double> &);
+
+// 	/// Fills all of the elements of the data column with the input value.
+// 	void Fill(const double &in_val);
+
+// 	/// Fills specific elements of the data column with the input
+// 	/// value if the input condition function returns true.
+// 	void Fill(const double &in_val, bool (*fill_condition)(const double &));
+
+// 	/**
+// 	 * @brief Returns values vector
+// 	 *
+// 	 * @return const std::vector<double>&
+// 	 */
+// 	const std::vector<double> &Values() const noexcept { return vals; }
+
+// 	/**
+// 	 * @brief Returns pointer to the data
+// 	 *
+// 	 * @return const double*
+// 	 */
+// 	const double *Data() const noexcept { return vals.data(); }
+
+// 	/**
+// 	 * @brief Returns mutable values vector
+// 	 *
+// 	 * @return std::vector<double>&
+// 	 */
+// 	std::vector<double> &ValuesMutable() noexcept { return vals; }
+
+// 	/**
+// 	 * @brief Returns mutable pointer to the data
+// 	 *
+// 	 * @return double*
+// 	 */
+// 	double *DataMutable() noexcept { return vals.data(); }
+
+// 	/**
+// 	 * @brief Sets the label of the DataColumn
+// 	 *
+// 	 * @param in_label The new label for the DataColumn
+// 	 */
+// 	void SetLabel(const std::string &in_label) { label = in_label; }
+
+// 	/**
+// 	 * @brief  Returns the label of the DataColumn
+// 	 * @return const std::string&
+// 	 */
+// 	const std::string &Label() const noexcept { return label; }
+
+// 	/**
+// 	 * @brief  Returns the label of the DataColumn
+// 	 * @return std::string_view
+// 	 */
+// 	std::string_view LabelView() const noexcept { return label; }
+
+// 	/**
+// 	 * @brief  Returns iterator to beginning of the DataColumn
+// 	 */
+// 	auto begin() const noexcept { return vals.begin(); }
+
+// 	/**
+// 	 * @brief  Returns iterator to end of the DataColumn
+// 	 */
+// 	auto end() const noexcept { return vals.end(); }
+
+// 	/// @brief  Returns mutable iterator to beginning of the DataColumn
+// 	auto begin() noexcept { return vals.begin(); }
+
+// 	/// @brief  Returns mutable iterator to end of the DataColumn
+// 	auto end() noexcept { return vals.end(); }
+
+// 	/// @brief  Pushes back a value to the DataColumn
+// 	void PushBack(double v) { vals.emplace_back(v); } // non-throwing not guaranteed
+
+// 	/// @brief  Appends n values from ptr to the DataColumn
+// 	void Append(const double *ptr, std::size_t n)
+// 	{
+// 		vals.insert(vals.end(), ptr, ptr + n);
+// 	}
+
+// 	/// @brief  Generates a smoother datacolumn by moving average
+// 	/// @param window window for moving average
+// 	/// @return Smoother datacolumn
+// 	DataColumn GetSmooth(const short int &window) const;
+
+// 	/// @brief  Makes the datacolumn smoother by moving average
+// 	/// @param window window for moving average
+// 	void MakeSmooth(const short int &window);
+
+// 	/// @brief  Makes the datacolumn smoother by removing bumps
+// 	void RemoveBumps();
+// 	//..................................................
+// 	// Operator overloading
+// 	//..................................................
+// 	// Addition (+)
+// 	// DataColumn operator+(const DataColumn& in_dc) const ;
+
+// 	/// Adds the two DataColumns and fills the non-existent
+// 	/// elements with '0'
+// 	/// Use when the sizes of DC's are not the same
+// 	static DataColumn Add(const DataColumn &dc_1,
+// 						  const DataColumn &dc_2,
+// 						  const double &fill = 0);
+
+// 	/// Addition to a list of numbers (+)
+// 	// DataColumn operator+(const std::vector<double>& in_vec) const ;
+// 	/// Addition to a single number (+)
+// 	// DataColumn operator+(const double& in_num) const ;
+// 	//..................................................
+// 	/// Addition assignment operator
+// 	DataColumn &operator+=(const DataColumn &in_dc);
+// 	DataColumn &operator+=(const double &in_num);
+
+// 	/// Subtraction assignment operator
+// 	DataColumn &operator-=(const DataColumn &in_dc);
+// 	DataColumn &operator-=(const double &in_num);
+
+// 	/// Multiplication assignment operator
+// 	DataColumn &operator*=(const DataColumn &in_dc);
+// 	DataColumn &operator*=(const double &in_num);
+
+// 	/// Division assignment operator
+// 	DataColumn &operator/=(const DataColumn &in_dc);
+// 	DataColumn &operator/=(const double &in_num);
+
+// 	//..................................................
+// 	// // Subtraction (-)
+// 	// DataColumn operator-(const DataColumn& in_dc) const ;
+// 	// // Subtraction of a single number (-)
+// 	// DataColumn operator-(const double& in_num) const ;
+// 	// // Subtraction of a list of numbers (-)
+// 	// DataColumn operator-(const std::vector<double>& in_vec) const ;
+// 	//..................................................
+// 	/// Unary minus (negation '-') operator
+// 	DataColumn operator-() const;
+// 	//..................................................
+// 	/// Power
+// 	DataColumn pow(const double &in_num) const;
+// 	// DataColumn pow^(const int& in_num) const ;
+// 	/// sqrt
+// 	DataColumn sqrt() const;
+// 	/// absolute value
+// 	DataColumn Abs() const;
+// 	// // Exponentiation
+// 	// DataColumn exp(const DataColumn&) const ;
+// 	//..................................................
+// 	/// Overloading []
+// 	double &operator[](const int);
+
+// 	/// Overloading [] ( const )
+// 	double operator[](const int) const;
+// 	//..................................................
+
+// 	DataSet CombineColumns(const DataColumn &) const;
+// 	DataSet CombineColumns(const std::vector<DataColumn> &) const;
+
+// 	/// Selecting a subset of DataColumn elements satisfying
+// 	///  the input condition 'cond'
+// 	DataColumn GetSubSet(bool (*cond)(const double &)) const;
+
+// 	/// Selecting a subset of DataColumn elements satisfying
+// 	///  the input condition 'cond'
+// 	DataColumn GetSubSet(bool (*cond)(const DataColumn &,
+// 									  const int &idx)) const;
+
+// 	/// Selecting a subset of DataColumn ranging from
+// 	///  idx_1 --> idx_2
+// 	DataColumn GetSubSet(const size_t idx_1, const size_t idx_2) const;
+
+// 	/// Trims the data column to its subset ranging from
+// 	///  idx_1 --> idx_2
+// 	void Trim(const size_t idx_1, const size_t idx_2);
+
+// 	/// Returns the index to :
+// 	///  If the data is:
+// 	///  Ascending: the first value that is equal or greater than
+// 	///  the input value.
+// 	///  Descending: the first value that is equal or less than
+// 	///  the input value.
+// 	///  The data column must be strictly increasing or decreasing.
+// 	int GetFirstIdx(const double &) const;
+
+// 	/// Returns the index to the element that is closest.
+// 	int GetClosestIdx(const double &) const;
+
+// 	/// Returns the size of 'vals'
+// 	size_t Size() const;
+
+// 	/// Reserves space for 'vals'
+// 	void Reserve(const size_t &);
+
+// 	/// Resizes the 'vals'
+// 	void Resize(const size_t &);
+
+// 	/// Clears the 'vals'
+// 	void Clear() noexcept { vals.clear(); }
+
+// 	/// Releases the memory of 'vals'
+// 	void Release() noexcept
+// 	{
+// 		vals.clear();
+// 		vals.shrink_to_fit();
+// 	}
+
+// 	/// Checks if 'vals' is empty
+// 	bool Empty() const noexcept
+// 	{
+// 		return vals.empty();
+// 	}
+
+// 	/// Returns the minimum element
+// 	double Min() const;
+
+// 	/// Returns the maximum element
+// 	double Max() const;
+
+// 	/// Returns the minimum element's index
+// 	int MinIdx() const;
+
+// 	/// Returns the maximum element's index
+// 	int MaxIdx() const;
 // };
 
 //==============================================================
@@ -837,6 +900,12 @@ class DataSet
 	// Precision for printing (double) numbers
 	int precision = 8;
 
+	/**
+	 * @brief The main data storage for the DataSet.
+	 *
+	 */
+	std::vector<DataColumn> data_set;
+
   public:
 	/// @brief Sets the work directory
 	void SetWrkDir(const Zaki::String::Directory &);
@@ -844,8 +913,9 @@ class DataSet
 	/// @brief Returns the work directory
 	Zaki::String::Directory GetWrkDir() const;
 
-	std::vector<DataColumn> data_set;
-
+	// -----------------------------------------------
+	// Constructors & Destructors
+	// -----------------------------------------------
 	/// @brief Default constructor
 	DataSet();
 
@@ -872,15 +942,196 @@ class DataSet
 
 	/// @brief Copy Constructor
 	DataSet(const DataSet &);
+	// -----------------------------------------------
+
+	// -----------------------------
+	// Iteration support (range-for)
+	// -----------------------------
+
+	/**
+	 * @brief Iterator to the first column (const).
+	 * Enables `for (const auto& c : ds)` iteration.
+	 */
+	auto begin() const noexcept { return data_set.begin(); }
+
+	/**
+	 * @brief Iterator past the last column (const).
+	 */
+	auto end() const noexcept { return data_set.end(); }
+
+	/**
+	 * @brief Iterator to the first column (mutable).
+	 * Enables `for (auto& c : ds)` iteration.
+	 */
+	auto begin() noexcept { return data_set.begin(); }
+
+	/**
+	 * @brief Iterator past the last column (mutable).
+	 */
+	auto end() noexcept { return data_set.end(); }
+
+	/**
+	 * @brief Const iterator to the first column.
+	 */
+	auto cbegin() const noexcept { return data_set.cbegin(); }
+
+	/**
+	 * @brief Const iterator past the last column.
+	 */
+	auto cend() const noexcept { return data_set.cend(); }
+
+	// -----------------------------------------------
+	// Accessors
+	// -----------------------------------------------
+
+	/**
+	 * @brief Returns the number of columns in the DataSet.
+	 *
+	 * This counts the number of DataColumn objects currently stored,
+	 * independent of the number of rows in each column.
+	 *
+	 * @return Number of columns.
+	 */
+	std::size_t ColCount() const noexcept { return data_set.size(); }
+
+	/**
+	 * @brief Resolve a column index with support for negative ("Mathematica-style") indexing.
+	 *
+	 * Indexing rules:
+	 *  - `i >= 0`   → zero-based index from the front.
+	 *  - `i < 0`    → index from the back (`-1` = last column).
+	 *
+	 * Examples:
+	 *  - `i = 0`   → first column
+	 *  - `i = -1`  → last column
+	 *  - `i = -N`  → first column (where N = ColCount())
+	 *
+	 * @param i   Input index (may be negative).
+	 * @param out Resolved non-negative index if successful.
+	 *
+	 * @return `true` if index is valid and resolved; `false` otherwise.
+	 *
+	 * @note This function never throws and performs no logging.
+	 *       Callers decide how to handle out-of-range indices.
+	 */
+	bool ResolveIndex(int i, std::size_t &out) const noexcept;
+
+	/**
+	 * @brief Access a column by index (supports negative indexing).
+	 *
+	 * @param i Column index (negative values count from the end).
+	 *
+	 * @return Reference to the requested DataColumn.
+	 *
+	 * @warning If the index is out of range, an error is logged and
+	 *          column `0` is returned as a fallback.
+	 *
+	 * @see ResolveIndex()
+	 */
+	DataColumn &Col(int i);
+
+	/**
+	 * @brief Access a column by index (const, supports negative indexing).
+	 *
+	 * @param i Column index (negative values count from the end).
+	 *
+	 * @return Const reference to the requested DataColumn.
+	 *
+	 * @warning If the index is out of range, an error is logged and
+	 *          column `0` is returned as a fallback.
+	 *
+	 * @see ResolveIndex()
+	 */
+	const DataColumn &Col(int i) const;
+
+	/**
+	 * @brief Access a column by its label.
+	 *
+	 * Returns the first column whose label matches the input string.
+	 *
+	 * @param label Column label to search for.
+	 *
+	 * @return Reference to the matching DataColumn.
+	 *
+	 * @warning If no column with the given label exists, an error is logged
+	 *          and column `0` is returned as a fallback.
+	 */
+	DataColumn &Col(const std::string &label);
+
+	/**
+	 * @brief Access a column by its label (const).
+	 *
+	 * Returns the first column whose label matches the input string.
+	 *
+	 * @param label Column label to search for.
+	 *
+	 * @return Const reference to the matching DataColumn.
+	 *
+	 * @warning If no column with the given label exists, an error is logged
+	 *          and column `0` is returned as a fallback.
+	 */
+	const DataColumn &Col(const std::string &label) const;
+
+	/**
+	 * @brief Read-only access to the underlying column container.
+	 *
+	 * This accessor is intended for iteration and inspection only.
+	 * Direct modification of the container is not permitted.
+	 *
+	 * @return Const reference to the internal vector of DataColumn objects.
+	 */
+	const std::vector<DataColumn> &Columns() const noexcept { return data_set; }
+
+	// -----------------------------------------------
+	// Operator overloads (Mathematica-style access)
+	// -----------------------------------------------
+
+	/**
+	 * @brief Column access operator (supports negative indexing).
+	 *
+	 * Equivalent to `Col(i)`.
+	 */
+	DataColumn &operator[](int i) { return Col(i); }
+
+	/**
+	 * @brief Column access operator (const, supports negative indexing).
+	 *
+	 * Equivalent to `Col(i) const`.
+	 */
+	const DataColumn &operator[](int i) const { return Col(i); }
+
+	/**
+	 * @brief Column access operator by label.
+	 *
+	 * Equivalent to `Col(label)`.
+	 */
+	DataColumn &operator[](const std::string &label) { return Col(label); }
+
+	/**
+	 * @brief Column access operator by label (const).
+	 *
+	 * Equivalent to `Col(label) const`.
+	 */
+	const DataColumn &operator[](const std::string &label) const { return Col(label); }
+
+	/**
+	 * @brief Extract a subset of columns by index list.
+	 *
+	 * Each index supports negative ("Mathematica-style") indexing.
+	 * The returned columns are **copies** of the original DataColumn objects.
+	 *
+	 * @param idxs List of column indices to extract.
+	 *
+	 * @return Vector of selected DataColumn copies.
+	 *
+	 * @warning If any index is out of range, an error is logged and
+	 *          an empty vector is returned.
+	 */
+	std::vector<DataColumn> operator[](const std::vector<int> &idxs);
+	// -----------------------------------------------
 
 	/// @brief Number of rows (max column length).
-	std::size_t RowCount() const
-	{
-		std::size_t n = 0;
-		for (const auto &col : data_set)
-			n = std::max(n, col.Size());
-		return n;
-	}
+	std::size_t RowCount() const;
 
 	/// @brief True if there are no columns or no rows.
 	bool Empty() const
@@ -909,6 +1160,10 @@ class DataSet
 	/// and fills it up with the value
 	void AddColumn(const std::string &label, const double &val = 0);
 
+	/// @brief Adds a new DataColumn to the current dataset
+	/// @param dc DataColumn to be added
+	void AddColumn(DataColumn dc);
+
 	/// Appends a new row to the current dataset
 	///  must have the same size as the dataset's width
 	void AppendRow(const std::vector<double> &);
@@ -924,21 +1179,21 @@ class DataSet
 	//                Overloading []
 	// -----------------------------------------------
 	/// Overloading []
-	DataColumn &operator[](const int);
+	// DataColumn &operator[](const int);
 
 	/// Overloading []
-	DataColumn operator[](const int) const;
+	// DataColumn operator[](const int) const;
 
 	/// Overloading []: Calling by label
 	/// Returns the first column matching the input label
-	DataColumn &operator[](const std::string &in_label);
+	// DataColumn &operator[](const std::string &in_label);
 
 	/// Overloading [] ( const ): : Calling by label
 	/// Returns the first column matching the input label
-	DataColumn operator[](const std::string &in_label) const;
+	// DataColumn operator[](const std::string &in_label) const;
 
 	/// Overloading []
-	std::vector<DataColumn> operator[](const std::vector<int> &);
+	// std::vector<DataColumn> operator[](const std::vector<int> &);
 	// -----------------------------------------------
 
 	/// Trims the data set to its subset ranging from
@@ -958,9 +1213,54 @@ class DataSet
 	/// This is used when only the number of columns is known
 	void Resize(const size_t &columns);
 
-	/// It clears the rows in data_set columns,
-	///  but keeps the columns!
-	void ClearRows();
+	/**
+	 * @brief Clears all rows in the dataset and releases allocated memory.
+	 *
+	 * This method removes all row data from every DataColumn in the DataSet
+	 * and **explicitly releases their allocated capacity** back to the system.
+	 * Any cached interpolation state (e.g., GSL accelerators and splines)
+	 * is also destroyed.
+	 *
+	 * ### Semantics
+	 * - Logical size of all columns becomes zero.
+	 * - Underlying storage capacity is released (`shrink_to_fit` / swap idiom).
+	 * - Any cached interpolation structures become invalid.
+	 *
+	 * ### Performance notes
+	 * - This operation is **potentially expensive** due to memory deallocation
+	 *   and reallocation on subsequent reuse.
+	 * - Prefer `ClearRows()` when the DataSet will be rebuilt with a similar
+	 *   size or resolution (typical in evolution and integration loops).
+	 *
+	 * ### Intended use cases
+	 * - One-time or infrequent teardown of large datasets.
+	 * - Permanent change in resolution or grid structure.
+	 * - Memory reclamation before long idle periods or program shutdown.
+	 *
+	 * @warning All pointers, references, or views into column data become invalid.
+	 *
+	 * @see ClearRows()
+	 */
+	void ReleaseRows();
+
+	/**
+	 * @brief Clears the column data while preserving allocated capacity.
+	 *
+	 * This method removes all values from the column but retains the
+	 * underlying memory allocation for efficient reuse.
+	 *
+	 * ### Semantics
+	 * - Column size becomes zero.
+	 * - Capacity is preserved.
+	 *
+	 * ### Performance notes
+	 * - This is the **preferred method** for resetting columns that will be
+	 *   rebuilt repeatedly (e.g., during integrations or evolution steps).
+	 *
+	 * @see Release()
+	 */
+	// void Clear() noexcept;
+	void ClearRows() noexcept;
 
 	/// @brief Clears the header and footer texts
 	void ClearHeadFoot();

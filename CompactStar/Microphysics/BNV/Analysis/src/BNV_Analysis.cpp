@@ -233,15 +233,15 @@ void MicroBNVAna::BNV_Analysis::Evolve(const Zaki::String::Directory &in_dir)
 	Zaki::Vector::DataColumn M_n_set;
 
 	t_n_set.Reserve(B.Size());
-	t_n_set.label = "T [n]";
-	eps_n_set.label = "eps";
-	M_n_set.label = "M";
+	t_n_set.SetLabel("T [n]");
+	eps_n_set.SetLabel("eps");
+	M_n_set.SetLabel("M");
 
 	double t_n = 0;
 
-	t_n_set.vals.emplace_back(t_n);
-	eps_n_set.vals.emplace_back(bnv_data[-1][-1]);
-	M_n_set.vals.emplace_back(bnv_data[-2][-1]);
+	t_n_set.PushBack(t_n);
+	eps_n_set.PushBack(bnv_data[-1][-1]);
+	M_n_set.PushBack(bnv_data[-2][-1]);
 
 	for (size_t i = B.Size() - 1; i > 0; i--)
 	// for (size_t i = 1; i < 60; i++) // Tau_age if M = 1.99
@@ -255,9 +255,9 @@ void MicroBNVAna::BNV_Analysis::Evolve(const Zaki::String::Directory &in_dir)
 
 		t_n += delta_b / n_dot_av;
 
-		t_n_set.vals.emplace_back(t_n);
-		eps_n_set.vals.emplace_back(bnv_data[-1][i]);
-		M_n_set.vals.emplace_back(bnv_data[-2][i]);
+		t_n_set.PushBack(t_n);
+		eps_n_set.PushBack(bnv_data[-1][i]);
+		M_n_set.PushBack(bnv_data[-2][i]);
 		// std::cout << t_n << "\n" ;
 	}
 
@@ -281,15 +281,15 @@ void MicroBNVAna::BNV_Analysis::Evolve(const Zaki::String::Directory &in_dir)
 	Zaki::Vector::DataColumn eps_lam_set;
 	Zaki::Vector::DataColumn t_lam_set;
 
-	t_lam_set.label = "T [Lambda]";
-	eps_lam_set.label = "eps";
-	M_lam_set.label = "M";
+	t_lam_set.SetLabel("T [Lambda]");
+	eps_lam_set.SetLabel("eps");
+	M_lam_set.SetLabel("M");
 
 	double t_lam = 0;
 
-	t_lam_set.vals.emplace_back(t_lam);
-	eps_lam_set.vals.emplace_back(bnv_data[-1][-1]);
-	M_lam_set.vals.emplace_back(bnv_data[-2][-1]);
+	t_lam_set.PushBack(t_lam);
+	eps_lam_set.PushBack(bnv_data[-1][-1]);
+	M_lam_set.PushBack(bnv_data[-2][-1]);
 
 	for (size_t i = B.Size() - 1; i > 0; i--)
 	// for (size_t i = 1; i < 60; i++) // Tau_age if M = 1.99
@@ -300,16 +300,16 @@ void MicroBNVAna::BNV_Analysis::Evolve(const Zaki::String::Directory &in_dir)
 
 		if (!lam_dot_av)
 		{
-			t_lam_set.vals.emplace_back(t_lam * 100);
-			eps_lam_set.vals.emplace_back(bnv_data[-1][i + 1]);
-			M_lam_set.vals.emplace_back(bnv_data[-2][i + 1]);
+			t_lam_set.PushBack(t_lam * 100);
+			eps_lam_set.PushBack(bnv_data[-1][i + 1]);
+			M_lam_set.PushBack(bnv_data[-2][i + 1]);
 			break;
 		}
 		t_lam += delta_b / lam_dot_av;
 
-		t_lam_set.vals.emplace_back(t_lam);
-		eps_lam_set.vals.emplace_back(bnv_data[-1][i]);
-		M_lam_set.vals.emplace_back(bnv_data[-2][i]);
+		t_lam_set.PushBack(t_lam);
+		eps_lam_set.PushBack(bnv_data[-1][i]);
+		M_lam_set.PushBack(bnv_data[-2][i]);
 	}
 
 	Zaki::Vector::DataSet lam_out({t_lam_set, eps_lam_set, M_lam_set});
@@ -326,15 +326,15 @@ void MicroBNVAna::BNV_Analysis::Evolve(const Zaki::String::Directory &in_dir)
 	Zaki::Vector::DataColumn eps_sig_set;
 	Zaki::Vector::DataColumn t_sig_set;
 
-	t_sig_set.label = "T [Sigma-]";
-	eps_sig_set.label = "eps";
-	M_sig_set.label = "M";
+	t_sig_set.SetLabel("T [Sigma-]");
+	eps_sig_set.SetLabel("eps");
+	M_sig_set.SetLabel("M");
 
 	double t_sig = 0;
 
-	t_sig_set.vals.emplace_back(t_sig);
-	eps_sig_set.vals.emplace_back(bnv_data[-1][-1]);
-	M_sig_set.vals.emplace_back(bnv_data[-2][-1]);
+	t_sig_set.PushBack(t_sig);
+	eps_sig_set.PushBack(bnv_data[-1][-1]);
+	M_sig_set.PushBack(bnv_data[-2][-1]);
 
 	for (size_t i = B.Size() - 1; i > 0; i--)
 	// for (size_t i = 1; i < 60; i++) // Tau_age if M = 1.99
@@ -345,16 +345,16 @@ void MicroBNVAna::BNV_Analysis::Evolve(const Zaki::String::Directory &in_dir)
 
 		if (!sig_dot_av)
 		{
-			t_sig_set.vals.emplace_back(t_sig * 100);
-			eps_sig_set.vals.emplace_back(bnv_data[-1][i + 1]);
-			M_sig_set.vals.emplace_back(bnv_data[-2][i + 1]);
+			t_sig_set.PushBack(t_sig * 100);
+			eps_sig_set.PushBack(bnv_data[-1][i + 1]);
+			M_sig_set.PushBack(bnv_data[-2][i + 1]);
 			break;
 		}
 		t_sig += delta_b / sig_dot_av;
 
-		t_sig_set.vals.emplace_back(t_sig);
-		eps_sig_set.vals.emplace_back(bnv_data[-1][i]);
-		M_sig_set.vals.emplace_back(bnv_data[-2][i]);
+		t_sig_set.PushBack(t_sig);
+		eps_sig_set.PushBack(bnv_data[-1][i]);
+		M_sig_set.PushBack(bnv_data[-2][i]);
 	}
 
 	Zaki::Vector::DataSet sig_out({t_sig_set, eps_sig_set, M_sig_set});

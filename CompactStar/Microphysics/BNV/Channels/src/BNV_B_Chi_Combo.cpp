@@ -87,9 +87,9 @@ void MicroBNVCh::BNV_B_Chi_Combo::ImportEOS(const Zaki::String::Directory &eos_d
 	n_B = {eos.GetEOS(2),
 		   eos.GetEOS(2) * eos.GetEOS(neutron.label),
 		   eos.GetEOS(2) * eos.GetEOS(lambda.label)};
-	n_B[0].label = "n_tot";
-	n_B[1].label = "10";
-	n_B[2].label = "100";
+	n_B[0].SetLabel("n_tot");
+	n_B[1].SetLabel("10");
+	n_B[2].SetLabel("100");
 
 	for (auto &&i : chi_reactions)
 	{
@@ -154,7 +154,7 @@ Zaki::Vector::DataSet MicroBNVCh::BNV_B_Chi_Combo::Rate_vs_Density(
 	const bool &gen_plots)
 {
 	Zaki::Vector::DataSet rate;
-	rate.data_set.emplace_back(n_B["n_tot"]);
+	rate.AddColumn(n_B["n_tot"]);
 	rate.AddColumn("rate", 0);
 	for (auto &&i : chi_reactions)
 	{
@@ -177,7 +177,7 @@ Zaki::Vector::DataSet MicroBNVCh::BNV_B_Chi_Combo::Rate_vs_R(const double &m_chi
 															 const bool &gen_plots)
 {
 	Zaki::Vector::DataSet rate;
-	rate.data_set.emplace_back(*pulsar.GetProfile()->GetRadius());
+	rate.AddColumn(*pulsar.GetProfile()->GetRadius());
 	rate.AddColumn("rate", 0);
 	for (auto &&i : chi_reactions)
 	{

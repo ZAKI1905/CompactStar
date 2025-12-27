@@ -37,9 +37,13 @@
 #ifndef CompactStar_Physics_Evolution_StarContext_H
 #define CompactStar_Physics_Evolution_StarContext_H
 
-#include <Zaki/Vector/DataSet.hpp>
+// #include <Zaki/Vector/DataSet.hpp>
 #include <cstddef>
 
+namespace Zaki::Vector
+{
+class DataColumn; // dependencies/include/Zaki/Vector/DataColumn.hpp
+}
 namespace CompactStar::Core
 {
 class StarProfile; // Core/StarProfile.hpp

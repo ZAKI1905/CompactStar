@@ -52,7 +52,7 @@
 #ifndef CompactStar_Physics_Evolution_GeometryCache_H
 #define CompactStar_Physics_Evolution_GeometryCache_H
 
-#include <Zaki/Vector/DataSet.hpp>
+#include <Zaki/Vector/DataColumn.hpp>
 #include <cstddef>
 
 // namespace Zaki

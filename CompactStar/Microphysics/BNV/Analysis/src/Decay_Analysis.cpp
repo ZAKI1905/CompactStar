@@ -152,10 +152,10 @@ void MicroBNVAna::Decay_Analysis::ImportEffMass(const std::string &f_name,
 	m_eff_ds.SetWrkDir(wrk_dir_);
 	m_eff_ds.Import(in_dir + f_name);
 
-	m_eff_ds[0].label = "$n (fm^{-3})$";
-	m_eff_ds[1].label = "$m_n$";
-	m_eff_ds[2].label = "$m_{\\Lambda}$";
-	m_eff_ds[3].label = "$m_{\\Sigma^{-}}$";
+	m_eff_ds[0].SetLabel("$n (fm^{-3})$");
+	m_eff_ds[1].SetLabel("$m_n$");
+	m_eff_ds[2].SetLabel("$m_{\\Lambda}$");
+	m_eff_ds[3].SetLabel("$m_{\\Sigma^{-}}$");
 
 	m_eff_ds.Plot(0, {1, 2, 3}, "M_eff.pdf");
 
@@ -178,10 +178,10 @@ void MicroBNVAna::Decay_Analysis::ImportVSelfEnergy(const std::string &f_name,
 	V_self_E_ds.SetWrkDir(wrk_dir_);
 	V_self_E_ds.Import(in_dir + f_name);
 
-	V_self_E_ds[0].label = "$n (fm^{-3})$";
-	V_self_E_ds[1].label = "$V_n$";
-	V_self_E_ds[2].label = "$V_{\\Lambda}$";
-	V_self_E_ds[3].label = "$V_{\\Sigma^{-}}$";
+	V_self_E_ds[0].SetLabel("$n (fm^{-3})$");
+	V_self_E_ds[1].SetLabel("$V_n$");
+	V_self_E_ds[2].SetLabel("$V_{\\Lambda}$");
+	V_self_E_ds[3].SetLabel("$V_{\\Sigma^{-}}$");
 
 	V_self_E_ds.Plot(0, {1, 2, 3}, "V_Self_E.pdf");
 
@@ -432,16 +432,16 @@ void MicroBNVAna::Decay_Analysis::AttachPulsar(Core::Pulsar *puls)
 		 1.25, 1.27, 1.3, 1.32, 1.35, 1.37, 1.39, 1.4, 1.42, 1.44});
 
 	Zaki::Vector::DataColumn lam_vac_br_set;
-	lam_vac_br_set.label = "Br$\\left(\\Lambda \\to \\chi + \\gamma\\right)$";
+	lam_vac_br_set.SetLabel("Br$\\left(\\Lambda \\to \\chi + \\gamma\\right)$");
 
 	Zaki::Vector::DataColumn eps_lam_lim_set;
-	eps_lam_lim_set.label = "$\\varepsilon_{\\Lambda} (GeV)$";
+	eps_lam_lim_set.SetLabel("$\\varepsilon_{\\Lambda} (GeV)$");
 
 	Zaki::Vector::DataColumn neu_vac_br_set;
-	neu_vac_br_set.label = "Br$\\left(n \\to \\chi + \\gamma\\right)$";
+	neu_vac_br_set.SetLabel("Br$\\left(n \\to \\chi + \\gamma\\right)$");
 
 	Zaki::Vector::DataColumn eps_n_lim_set;
-	eps_n_lim_set.label = "$\\varepsilon_{n} (GeV)$";
+	eps_n_lim_set.SetLabel("$\\varepsilon_{n} (GeV)$");
 
 	for (size_t i_m = 0; i_m < m_chi_set.Size(); ++i_m)
 	{
@@ -449,10 +449,10 @@ void MicroBNVAna::Decay_Analysis::AttachPulsar(Core::Pulsar *puls)
 
 		// will hold local decay-rate densities
 		Zaki::Vector::DataColumn n_lam_dot_dc;
-		n_lam_dot_dc.label = "n_lam_dot";
+		n_lam_dot_dc.SetLabel("n_lam_dot");
 
 		Zaki::Vector::DataColumn n_neu_dot_dc;
-		n_neu_dot_dc.label = "n_neu_dot";
+		n_neu_dot_dc.SetLabel("n_neu_dot");
 
 		// loop over radius grid of the profile
 		for (size_t i = 0; i < n_B.Size(); ++i)
@@ -467,14 +467,14 @@ void MicroBNVAna::Decay_Analysis::AttachPulsar(Core::Pulsar *puls)
 			double tmp_V = V_self_E_ds.Evaluate(2, n_B[i]);
 			double tmp_den = n_lam_local;
 
-			n_lam_dot_dc.vals.emplace_back(
+			n_lam_dot_dc.PushBack(
 				n_dot(lambda, tmp_m_eff, tmp_V, tmp_den));
 
 			tmp_m_eff = m_eff_ds.Evaluate(1, n_B[i]); // 1 → neutron branch
 			tmp_V = V_self_E_ds.Evaluate(1, n_B[i]);
 			tmp_den = n_neu_local;
 
-			n_neu_dot_dc.vals.emplace_back(
+			n_neu_dot_dc.PushBack(
 				n_dot(neutron, tmp_m_eff, tmp_V, tmp_den));
 		}
 
@@ -537,11 +537,11 @@ void MicroBNVAna::Decay_Analysis::AttachPulsar(Core::Pulsar *puls)
 		std::cout << "\t Lambda Exotic Vacuum Br = "
 				  << lambda_bnv_vac_Br << " . \n";
 
-		neu_vac_br_set.vals.emplace_back(neutron_bnv_vac_Br);
-		lam_vac_br_set.vals.emplace_back(lambda_bnv_vac_Br);
+		neu_vac_br_set.PushBack(neutron_bnv_vac_Br);
+		lam_vac_br_set.PushBack(lambda_bnv_vac_Br);
 
-		eps_lam_lim_set.vals.emplace_back(eps_lam_limit_GeV);
-		eps_n_lim_set.vals.emplace_back(eps_neu_limit_GeV);
+		eps_lam_lim_set.PushBack(eps_lam_limit_GeV);
+		eps_n_lim_set.PushBack(eps_neu_limit_GeV);
 	}
 
 	// plotting section stays basically the same

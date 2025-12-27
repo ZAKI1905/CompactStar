@@ -47,25 +47,25 @@ void MixedStar::InitVisible(
 	ds_vis.Reserve(7 + in_tov_solver->eos_tab.rho_i.size(),
 				   in_tov_solver->radial_res);
 
-	ds_vis[m_idx].label = "m(km)";
-	ds_vis[r_idx].label = "r(km)";
-	ds_vis[rho_idx].label = "rho(fm^-3)";
-	ds_vis[eps_idx].label = "eps(km^-2)";
-	ds_vis[pre_idx].label = "p(km^-2)";
-	ds_vis[nu_der_idx].label = "nu'_v(km^-1)";
-	ds_vis[nu_idx].label = "nu_v";
+	ds_vis[m_idx].SetLabel("m(km)");
+	ds_vis[r_idx].SetLabel("r(km)");
+	ds_vis[rho_idx].SetLabel("rho(fm^-3)");
+	ds_vis[eps_idx].SetLabel("eps(km^-2)");
+	ds_vis[pre_idx].SetLabel("p(km^-2)");
+	ds_vis[nu_der_idx].SetLabel("nu'_v(km^-1)");
+	ds_vis[nu_idx].SetLabel("nu_v");
 
 	for (size_t i = 0; i < in_tov_solver->eos_tab.rho_i.size(); i++)
 	{
 		rho_i_v_idx.emplace_back(i + 7);
-		ds_vis[rho_i_v_idx[i]].label =
-			in_tov_solver->eos_tab.extra_labels[i];
+		ds_vis[rho_i_v_idx[i]].SetLabel(
+			in_tov_solver->eos_tab.extra_labels[i]);
 	}
 
 	B_vis_integrand.Reserve(2, in_tov_solver->radial_res);
 
-	B_vis_integrand[0].label = "r(km)";
-	B_vis_integrand[1].label = "B_v";
+	B_vis_integrand[0].SetLabel("r(km)");
+	B_vis_integrand[1].SetLabel("B_v");
 }
 
 //--------------------------------------------------------------
@@ -76,25 +76,25 @@ void MixedStar::InitDark(
 	ds_dar.Reserve(7 + in_tov_solver->eos_tab_dark.rho_i.size(),
 				   in_tov_solver->radial_res);
 
-	ds_dar[m_idx].label = "m_d(km)";
-	ds_dar[r_idx].label = "r_d(km)";
-	ds_dar[rho_idx].label = "rho_d(fm^-3)";
-	ds_dar[eps_idx].label = "eps_d(km^-2)";
-	ds_dar[pre_idx].label = "p_d(km^-2)";
-	ds_dar[nu_der_idx].label = "nu'_d(km^-1)";
-	ds_dar[nu_idx].label = "nu_d";
+	ds_dar[m_idx].SetLabel("m_d(km)");
+	ds_dar[r_idx].SetLabel("r_d(km)");
+	ds_dar[rho_idx].SetLabel("rho_d(fm^-3)");
+	ds_dar[eps_idx].SetLabel("eps_d(km^-2)");
+	ds_dar[pre_idx].SetLabel("p_d(km^-2)");
+	ds_dar[nu_der_idx].SetLabel("nu'_d(km^-1)");
+	ds_dar[nu_idx].SetLabel("nu_d");
 
 	for (size_t i = 0; i < in_tov_solver->eos_tab_dark.rho_i.size(); i++)
 	{
 		rho_i_d_idx.emplace_back(i + 7);
-		ds_dar[rho_i_d_idx[i]].label =
-			in_tov_solver->eos_tab_dark.extra_labels[i];
+		ds_dar[rho_i_d_idx[i]].SetLabel(
+			in_tov_solver->eos_tab_dark.extra_labels[i]);
 	}
 
 	B_dar_integrand.Reserve(2, in_tov_solver->radial_res);
 
-	B_dar_integrand[0].label = "r(km)";
-	B_dar_integrand[1].label = "B_d";
+	B_dar_integrand[0].SetLabel("r(km)");
+	B_dar_integrand[1].SetLabel("B_d");
 }
 //--------------------------------------------------------------
 // This has to be run so the class
@@ -246,30 +246,30 @@ void MixedStar::Append_Core(const TOVPoint &in_tov,
 							const TOVPoint &in_dark_tov)
 {
 	// std::cout << radius_d.Size()<< ", r = " << in_tov.r << "\n" ;
-	ds_vis[r_idx].vals.emplace_back(in_tov.r);																		   // in km
-	ds_vis[m_idx].vals.emplace_back(Zaki::Physics::SUN_M_KM * in_tov.m);											   // in km
-	ds_vis[rho_idx].vals.emplace_back(in_tov.rho);																	   // in fm^{-3}
-	ds_vis[eps_idx].vals.emplace_back(in_tov.e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3);   // in km^{-2}
-	ds_vis[pre_idx].vals.emplace_back(in_tov.p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2); // in km^{-2}
-	ds_vis[nu_der_idx].vals.emplace_back(in_tov.nu_der * 1e+5);														   // convert 1/cm to 1/km
+	ds_vis[r_idx].PushBack(in_tov.r);																		  // in km
+	ds_vis[m_idx].PushBack(Zaki::Physics::SUN_M_KM * in_tov.m);												  // in km
+	ds_vis[rho_idx].PushBack(in_tov.rho);																	  // in fm^{-3}
+	ds_vis[eps_idx].PushBack(in_tov.e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3);	  // in km^{-2}
+	ds_vis[pre_idx].PushBack(in_tov.p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2); // in km^{-2}
+	ds_vis[nu_der_idx].PushBack(in_tov.nu_der * 1e+5);														  // convert 1/cm to 1/km
 
 	for (size_t i = 0; i < in_tov.rho_i.size(); i++)
 	{
 		// in fm^{-3}
-		ds_vis[rho_i_v_idx[i]].vals.emplace_back(in_tov.rho_i[i]);
+		ds_vis[rho_i_v_idx[i]].PushBack(in_tov.rho_i[i]);
 	}
 
-	ds_dar[r_idx].vals.emplace_back(in_dark_tov.r);																			// in km
-	ds_dar[m_idx].vals.emplace_back(Zaki::Physics::SUN_M_KM * in_dark_tov.m);												// in km
-	ds_dar[rho_idx].vals.emplace_back(in_dark_tov.rho);																		// in fm^{-3}
-	ds_dar[eps_idx].vals.emplace_back(in_dark_tov.e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3);	// in km^{-2}
-	ds_dar[pre_idx].vals.emplace_back(in_dark_tov.p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2); // in km^{-2}
-	ds_dar[nu_der_idx].vals.emplace_back(in_dark_tov.nu_der * 1e+5);														// convert 1/cm to 1/km
+	ds_dar[r_idx].PushBack(in_dark_tov.r);																		   // in km
+	ds_dar[m_idx].PushBack(Zaki::Physics::SUN_M_KM * in_dark_tov.m);											   // in km
+	ds_dar[rho_idx].PushBack(in_dark_tov.rho);																	   // in fm^{-3}
+	ds_dar[eps_idx].PushBack(in_dark_tov.e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3);   // in km^{-2}
+	ds_dar[pre_idx].PushBack(in_dark_tov.p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2); // in km^{-2}
+	ds_dar[nu_der_idx].PushBack(in_dark_tov.nu_der * 1e+5);														   // convert 1/cm to 1/km
 
 	for (size_t j = 0; j < in_dark_tov.rho_i.size(); j++)
 	{
 		// in fm^{-3}
-		ds_dar[rho_i_d_idx[j]].vals.emplace_back(in_dark_tov.rho_i[j]);
+		ds_dar[rho_i_d_idx[j]].PushBack(in_dark_tov.rho_i[j]);
 	}
 }
 
@@ -284,17 +284,17 @@ void MixedStar::Append_Dark_Mantle(const TOVPoint &in_dark_tov)
 	// std::cout << "\n\tAppend_Dark_Mantle: "
 	//           << radius_d.Size()<< ", r = " << in_dark_tov.r << "\n" ;
 
-	ds_dar[r_idx].vals.emplace_back(in_dark_tov.r);																			// in km
-	ds_dar[m_idx].vals.emplace_back(Zaki::Physics::SUN_M_KM * in_dark_tov.m);												// in km
-	ds_dar[rho_idx].vals.emplace_back(in_dark_tov.rho);																		// in fm^{-3}
-	ds_dar[eps_idx].vals.emplace_back(in_dark_tov.e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3);	// in km^{-2}
-	ds_dar[pre_idx].vals.emplace_back(in_dark_tov.p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2); // in km^{-2}
-	ds_dar[nu_der_idx].vals.emplace_back(in_dark_tov.nu_der * 1e+5);														// convert 1/cm to 1/km
+	ds_dar[r_idx].PushBack(in_dark_tov.r);																		   // in km
+	ds_dar[m_idx].PushBack(Zaki::Physics::SUN_M_KM * in_dark_tov.m);											   // in km
+	ds_dar[rho_idx].PushBack(in_dark_tov.rho);																	   // in fm^{-3}
+	ds_dar[eps_idx].PushBack(in_dark_tov.e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3);   // in km^{-2}
+	ds_dar[pre_idx].PushBack(in_dark_tov.p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2); // in km^{-2}
+	ds_dar[nu_der_idx].PushBack(in_dark_tov.nu_der * 1e+5);														   // convert 1/cm to 1/km
 
 	for (size_t j = 0; j < in_dark_tov.rho_i.size(); j++)
 	{
 		// in fm^{-3}
-		ds_dar[rho_i_d_idx[j]].vals.emplace_back(in_dark_tov.rho_i[j]);
+		ds_dar[rho_i_d_idx[j]].PushBack(in_dark_tov.rho_i[j]);
 	}
 }
 //--------------------------------------------------------------
@@ -302,17 +302,17 @@ void MixedStar::Append_Dark_Mantle(const TOVPoint &in_dark_tov)
 // from the visible solutions
 void MixedStar::Append_Visible_Mantle(const TOVPoint &in_tov)
 {
-	ds_vis[r_idx].vals.emplace_back(in_tov.r);																		   // in km
-	ds_vis[m_idx].vals.emplace_back(Zaki::Physics::SUN_M_KM * in_tov.m);											   // in km
-	ds_vis[rho_idx].vals.emplace_back(in_tov.rho);																	   // in fm^{-3}
-	ds_vis[eps_idx].vals.emplace_back(in_tov.e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3);   // in km^{-2}
-	ds_vis[pre_idx].vals.emplace_back(in_tov.p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2); // in km^{-2}
-	ds_vis[nu_der_idx].vals.emplace_back(in_tov.nu_der * 1e+5);														   // convert 1/cm to 1/km
+	ds_vis[r_idx].PushBack(in_tov.r);																		  // in km
+	ds_vis[m_idx].PushBack(Zaki::Physics::SUN_M_KM * in_tov.m);												  // in km
+	ds_vis[rho_idx].PushBack(in_tov.rho);																	  // in fm^{-3}
+	ds_vis[eps_idx].PushBack(in_tov.e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3);	  // in km^{-2}
+	ds_vis[pre_idx].PushBack(in_tov.p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2); // in km^{-2}
+	ds_vis[nu_der_idx].PushBack(in_tov.nu_der * 1e+5);														  // convert 1/cm to 1/km
 
 	for (size_t i = 0; i < in_tov.rho_i.size(); i++)
 	{
 		// in fm^{-3}
-		ds_vis[rho_i_v_idx[i]].vals.emplace_back(in_tov.rho_i[i]);
+		ds_vis[rho_i_v_idx[i]].PushBack(in_tov.rho_i[i]);
 	}
 }
 //--------------------------------------------------------------
@@ -331,10 +331,10 @@ MixedStar::MixedStar(
 	sequence.v_idx = in_v_idx;
 	sequence.d_idx = in_d_idx;
 
-	B_vis_integrand[0].label = "r(km)";
-	B_vis_integrand[1].label = "B_v";
-	B_dar_integrand[0].label = "r(km)";
-	B_dar_integrand[1].label = "B_d";
+	B_vis_integrand[0].SetLabel("r(km)");
+	B_vis_integrand[1].SetLabel("B_v");
+	B_dar_integrand[0].SetLabel("r(km)");
+	B_dar_integrand[1].SetLabel("B_d");
 
 	// integ_wrk_space = gsl_integration_workspace_alloc(1500) ;
 
@@ -361,62 +361,62 @@ MixedStar::MixedStar(
 	core_region.SetRange(in_tov[0].r,
 						 mantle_region.Min());
 
-	ds_vis[m_idx].label = "m";
-	ds_vis[r_idx].label = "r";
-	ds_vis[rho_idx].label = "rho";
-	ds_vis[eps_idx].label = "eps";
-	ds_vis[pre_idx].label = "p";
-	ds_vis[nu_der_idx].label = "nu'_v";
-	ds_vis[nu_idx].label = "nu_v";
+	ds_vis[m_idx].SetLabel("m");
+	ds_vis[r_idx].SetLabel("r");
+	ds_vis[rho_idx].SetLabel("rho");
+	ds_vis[eps_idx].SetLabel("eps");
+	ds_vis[pre_idx].SetLabel("p");
+	ds_vis[nu_der_idx].SetLabel("nu'_v");
+	ds_vis[nu_idx].SetLabel("nu_v");
 
 	for (size_t j = 0; j < in_tov[0].rho_i.size(); j++)
 	{
 		rho_i_v_idx.emplace_back(6 + j);
-		ds_vis[rho_i_v_idx[j]].label = "X"; // !!!
+		ds_vis[rho_i_v_idx[j]].SetLabel("X"); // !!!
 	}
 
-	ds_dar[m_idx].label = "m_d";
-	ds_dar[r_idx].label = "r_d";
-	ds_dar[rho_idx].label = "rho_d";
-	ds_dar[eps_idx].label = "eps_d";
-	ds_dar[pre_idx].label = "p_d";
-	ds_dar[nu_der_idx].label = "nu'_d";
-	ds_dar[nu_idx].label = "nu_d";
+	ds_dar[m_idx].SetLabel("m_d");
+	ds_dar[r_idx].SetLabel("r_d");
+	ds_dar[rho_idx].SetLabel("rho_d");
+	ds_dar[eps_idx].SetLabel("eps_d");
+	ds_dar[pre_idx].SetLabel("p_d");
+	ds_dar[nu_der_idx].SetLabel("nu'_d");
+	ds_dar[nu_idx].SetLabel("nu_d");
 
 	for (size_t j = 0; j < in_dark_tov[0].rho_i.size(); j++)
 	{
 		rho_i_d_idx.emplace_back(6 + j);
-		ds_dar[rho_i_d_idx[j]].label = "Y"; // !!!
+		ds_dar[rho_i_d_idx[j]].SetLabel("Y"); // !!!
 	}
 
 	// ...............................................
 	for (auto &&i : in_tov)
 	{
-		ds_vis[r_idx].vals.emplace_back(i.r);																		  // in km
-		ds_vis[m_idx].vals.emplace_back(Zaki::Physics::SUN_M_KM * i.m);												  // in km
-		ds_vis[rho_idx].vals.emplace_back(i.rho);																	  // in fm^{-3}
-		ds_vis[eps_idx].vals.emplace_back(i.e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3);	  // in km^{-2}
-		ds_vis[pre_idx].vals.emplace_back(i.p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2); // in km^{-2}
-		ds_vis[nu_der_idx].vals.emplace_back(i.nu_der * 1e+5);														  // convert 1/cm to 1/km
+		ds_vis[r_idx].PushBack(i.r);																		 // in km
+		ds_vis[m_idx].PushBack(Zaki::Physics::SUN_M_KM * i.m);												 // in km
+		ds_vis[rho_idx].PushBack(i.rho);																	 // in fm^{-3}
+		ds_vis[eps_idx].PushBack(i.e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3);	 // in km^{-2}
+		ds_vis[pre_idx].PushBack(i.p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2); // in km^{-2}
+		ds_vis[nu_der_idx].PushBack(i.nu_der * 1e+5);														 // convert 1/cm to 1/km
 
 		for (size_t j = 0; j < i.rho_i.size(); j++)
 		{
-			ds_vis[rho_i_v_idx[j]].vals.emplace_back(i.rho_i[j]);
+			ds_vis[rho_i_v_idx[j]].PushBack(i.rho_i[j]);
 		}
 	}
 
 	for (auto &&i : in_dark_tov)
 	{
-		ds_dar[r_idx].vals.emplace_back(i.r);																		  // in km
-		ds_dar[m_idx].vals.emplace_back(Zaki::Physics::SUN_M_KM * i.m);												  // in km
-		ds_dar[rho_idx].vals.emplace_back(i.rho);																	  // in fm^{-3}
-		ds_dar[eps_idx].vals.emplace_back(i.e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3);	  // in km^{-2}
-		ds_dar[pre_idx].vals.emplace_back(i.p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2); // in km^{-2}
-		ds_dar[nu_der_idx].vals.emplace_back(i.nu_der * 1e+5);														  // convert 1/cm to 1/km
+		ds_dar[r_idx].PushBack(i.r);																		 // in km
+		ds_dar[m_idx].PushBack(Zaki::Physics::SUN_M_KM * i.m);												 // in km
+		ds_dar[rho_idx].PushBack(i.rho);																	 // in fm^{-3}
+		ds_dar[eps_idx].PushBack(i.e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3);	 // in km^{-2}
+		ds_dar[pre_idx].PushBack(i.p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2); // in km^{-2}
+		ds_dar[nu_der_idx].PushBack(i.nu_der * 1e+5);														 // convert 1/cm to 1/km
 
 		for (size_t j = 0; j < i.rho_i.size(); j++)
 		{
-			ds_dar[rho_i_d_idx[j]].vals.emplace_back(i.rho_i[j]);
+			ds_dar[rho_i_d_idx[j]].PushBack(i.rho_i[j]);
 		}
 	}
 
@@ -825,7 +825,7 @@ MixedStar::GetRho_i_Visible(const std::string &in_label)
 
 	for (auto &&c : rho_i_v_idx)
 	{
-		if (ds_vis[c].label == in_label)
+		if (ds_vis[c].Label() == in_label)
 		{
 			return &ds_vis[c];
 		}

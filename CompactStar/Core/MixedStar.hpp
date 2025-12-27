@@ -41,7 +41,8 @@
 #define CompactStar_Core_MixedStar_H
 
 #include <Zaki/String/Directory.hpp>
-#include <Zaki/Vector/DataSet.hpp>
+// #include <Zaki/Vector/DataSet.hpp>
+#include <Zaki/Vector/DataColumn.hpp>
 
 #include "CompactStar/Core/NStar.hpp"
 #include "CompactStar/Core/Prog.hpp"

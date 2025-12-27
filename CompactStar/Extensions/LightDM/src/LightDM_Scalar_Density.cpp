@@ -112,9 +112,9 @@ void LightDM_Scalar_Density::ImportEOS(const Zaki::String::Directory &eos_dir)
 	n_B = {eos.GetEOS(2),
 		   eos.GetEOS(2) * eos.GetEOS(neutron.label),
 		   eos.GetEOS(2) * eos.GetEOS(lambda.label)};
-	n_B[0].label = "n_tot";
-	n_B[1].label = "10";
-	n_B[2].label = "100";
+	n_B[0].SetLabel("n_tot");
+	n_B[1].SetLabel("10");
+	n_B[2].SetLabel("100");
 }
 
 //--------------------------------------------------------------
@@ -162,7 +162,7 @@ void LightDM_Scalar_Density::Export_Scalar_Density_vs_Baryon_Density(const Baryo
 {
 	Zaki::Vector::DataSet output(2, eos.GetEOS(2).Size());
 	output[0] = eos.GetEOS(2);
-	output[1].label = "VEV(scalar)";
+	output[1].SetLabel("VEV(scalar)");
 
 	Zaki::Vector::DataColumn B_dens_dc = eos.GetEOS(2) * eos.GetEOS(B.label);
 
@@ -185,7 +185,7 @@ void LightDM_Scalar_Density::Export_Scalar_Density_vs_Baryon_Density(const Baryo
 		gsl_integration_qag(&F, 0, k_F[i], 1e-10, 1e-10, 2000, 1, w, &result, &err);
 		gsl_integration_workspace_free(w);
 
-		output[1].vals.emplace_back(result);
+		output[1].PushBack(result);
 	}
 
 	output.SetWrkDir(wrk_dir_ + "/" + model);
@@ -337,13 +337,13 @@ void LightDM_Scalar_Density::FindPulsar(const bool &gen_plots)
 				   micro_n.Evaluate(4, n_r),
 				   micro_n.Evaluate(5, n_r),
 				   micro_n.Evaluate(6, n_r)};
-		micro_r[0].label = "R [km]";
-		micro_r[1].label = "n_" + neutron.label;
-		micro_r[2].label = "n_" + lambda.label;
-		micro_r[3].label = "m_" + neutron.label;
-		micro_r[4].label = "m_" + lambda.label;
-		micro_r[5].label = "sig_" + neutron.label;
-		micro_r[6].label = "sig_" + lambda.label;
+		micro_r[0].SetLabel("R [km]");
+		micro_r[1].SetLabel("n_" + neutron.label);
+		micro_r[2].SetLabel("n_" + lambda.label);
+		micro_r[3].SetLabel("m_" + neutron.label);
+		micro_r[4].SetLabel("m_" + lambda.label);
+		micro_r[5].SetLabel("sig_" + neutron.label);
+		micro_r[6].SetLabel("sig_" + lambda.label);
 	}
 	else
 	{
@@ -373,13 +373,13 @@ void LightDM_Scalar_Density::FindPulsar(const bool &gen_plots)
 		};
 		std::cout << "\n\n Inside else 2\n\n";
 
-		micro_r[0].label = "R [km]";
-		micro_r[1].label = "n_" + neutron.label;
-		// micro_r[2].label = "n_" + lambda.label ;
-		micro_r[2].label = "m_" + neutron.label;
-		// micro_r[4].label = "m_" + lambda.label ;
-		micro_r[3].label = "sig_" + neutron.label;
-		// micro_r[6].label = "sig_" + lambda.label ;
+		micro_r[0].SetLabel("R [km]");
+		micro_r[1].SetLabel("n_" + neutron.label);
+		// micro_r[2].SetLabel("n_" + lambda.label);
+		micro_r[2].SetLabel("m_" + neutron.label);
+		// micro_r[4].SetLabel("m_" + lambda.label);
+		micro_r[3].SetLabel("sig_" + neutron.label);
+		// micro_r[6].SetLabel("sig_" + lambda.label);
 		std::cout << "\n\n Inside else 3 \n\n";
 	}
 }
@@ -401,8 +401,8 @@ void LightDM_Scalar_Density::Export_Scalar_Density_vs_Radius(const Baryon &B)
 
 	Zaki::Vector::DataSet output(2, r.Size());
 	output[0] = r;
-	output[0].label = "R[km]"; // Changed on Jun 3, 2024!
-	output[1].label = "VEV(scalar)";
+	output[0].SetLabel("R[km]"); // Changed on Jun 3, 2024!
+	output[1].SetLabel("VEV(scalar)");
 
 	// double B_dens = B_dens_dc[idx] ;
 	Zaki::Vector::DataColumn k_F = (3 * M_PI * M_PI * B_dens_dc).pow(1.0 / 3.0);
@@ -423,7 +423,7 @@ void LightDM_Scalar_Density::Export_Scalar_Density_vs_Radius(const Baryon &B)
 		gsl_integration_qag(&F, 0, k_F[i], 1e-10, 1e-10, 2000, 1, w, &result, &err);
 		gsl_integration_workspace_free(w);
 
-		output[1].vals.emplace_back(result);
+		output[1].PushBack(result);
 	}
 
 	output.SetWrkDir(wrk_dir_ + "/" + model);
@@ -466,12 +466,11 @@ void LightDM_Scalar_Density::Export_Escape_Params(const Baryon &B)
 	ds[3] = m_B_r;		// Effective mass [MeV]
 	ds[4] = sig0_r;		// Self-energy [MeV]
 
-	ds[0].label = "R[km]";
-	ds[1].label = "Exp(-nu)";
-	ds[2].label = "P_F_" + B.short_name + "[MeV]";
-	ds[3].label = "m*_" + B.short_name + "[MeV]";
-	ds[4].label = "Sigma0_" + B.short_name + "[MeV]";
-
+	ds[0].SetLabel("R[km]");
+	ds[1].SetLabel("Exp(-nu)");
+	ds[2].SetLabel("P_F_" + B.short_name + "[MeV]");
+	ds[3].SetLabel("m*_" + B.short_name + "[MeV]");
+	ds[4].SetLabel("Sigma0_" + B.short_name + "[MeV]");
 	ds.Export(model + "/" + pulsar.GetName() + "/" + "Escape_Parameters.tsv");
 }
 

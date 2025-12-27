@@ -33,11 +33,11 @@
 #include <string>
 #include <utility>
 
+#include "CompactStar/Core/SeqPoint.hpp"
 #include <Zaki/Physics/Constants.hpp>
 #include <Zaki/String/Directory.hpp>
+#include <Zaki/Vector/DataColumn.hpp>
 #include <Zaki/Vector/DataSet.hpp>
-
-#include "CompactStar/Core/SeqPoint.hpp"
 
 namespace CompactStar
 {

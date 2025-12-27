@@ -78,7 +78,7 @@ Zaki::Vector::DataColumn MicroBNVCh::BNV_B_Chi_Transition::SigmaMinus(
 
 	out -= 2 * ((m_B_ds[B.label] * m_B_ds[B.label] + kF_2) * (kF_2 + in_m_chi * in_m_chi)).sqrt();
 	out = out.sqrt();
-	out.label = "$\\Sigma^-_0 (MeV)$";
+	out.SetLabel("$\\Sigma^-_0 (MeV)$");
 	return out;
 }
 
@@ -459,9 +459,9 @@ void MicroBNVCh::BNV_B_Chi_Transition::PlotTransBand(const Baryon &B)
 	Zaki::Vector::DataSet ds_trans_range;
 	ds_trans_range.SetWrkDir(wrk_dir_);
 	ds_trans_range.Reserve(3, m_chi_vals.res);
-	ds_trans_range[0].label = "$m_{\\chi}$";
-	ds_trans_range[1].label = "$n_{min} (fm^{-3})$";
-	ds_trans_range[2].label = "$n_{max} (fm^{-3})$";
+	ds_trans_range[0].SetLabel("$m_{\\chi}$");
+	ds_trans_range[1].SetLabel("$n_{min} (fm^{-3})$");
+	ds_trans_range[2].SetLabel("$n_{max} (fm^{-3})$");
 	// ds_trans_range[3].label = "$n_{min} (b) (fm^{-3})$" ;
 	// ds_trans_range[4].label = "$n_{max} (b) (fm^{-3})$" ;
 

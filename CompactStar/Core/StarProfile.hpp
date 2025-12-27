@@ -62,8 +62,8 @@
 #include <vector>
 
 #include "CompactStar/Core/SeqPoint.hpp"
+#include <Zaki/Vector/DataColumn.hpp>
 #include <Zaki/Vector/DataSet.hpp>
-
 namespace CompactStar::Core
 {
 

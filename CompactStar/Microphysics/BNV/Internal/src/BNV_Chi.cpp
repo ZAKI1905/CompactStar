@@ -174,9 +174,9 @@ void MicroBNVInt::BNV_Chi::ImportEOS(const Zaki::String::Directory &eos_dir,
 	n_B = {eos.GetEOS(2),
 		   eos.GetEOS(2) * eos.GetEOS(neutron.label),
 		   eos.GetEOS(2) * eos.GetEOS(lambda.label)};
-	n_B[0].label = "n_tot";
-	n_B[1].label = "10";
-	n_B[2].label = "100";
+	n_B[0].SetLabel("n_tot");
+	n_B[1].SetLabel("10");
+	n_B[2].SetLabel("100");
 }
 
 //--------------------------------------------------------------
@@ -493,7 +493,7 @@ void MicroBNVInt::BNV_Chi::Plot_Meff_Radius()
 	{
 		for (size_t r = 0; r < ds_meff_r[c].Size(); r++)
 		{
-			if (pulsar.GetProfile()->GetSpecies(ds_meff_n[c].label)[r] < 1e-8)
+			if (pulsar.GetProfile()->GetSpecies(ds_meff_n[c].Label())[r] < 1e-8)
 			{
 				ds_meff_r[c][r] = 0;
 			}
@@ -503,7 +503,7 @@ void MicroBNVInt::BNV_Chi::Plot_Meff_Radius()
 
 	ds_meff_r.SetWrkDir(pulsar.GetWrkDir() + "/" + pulsar.GetName());
 
-	auto non_zero_cond = [](const double &v)
+	auto non_zero_cond = [](double v)
 	{ return v > 0; };
 
 	// Finding the lowest and highest points on the curves
@@ -557,10 +557,10 @@ void MicroBNVInt::BNV_Chi::Plot_RestEnergy_Radius()
 
 	ds_E_n.Interpolate(0, {1, 2, 3, 4});
 
-	ds_E_n[1].label = neutron.label;
-	ds_E_n[2].label = proton.label;
-	ds_E_n[3].label = lambda.label;
-	ds_E_n[4].label = sigma_m.label;
+	ds_E_n[1].SetLabel(neutron.label);
+	ds_E_n[2].SetLabel(proton.label);
+	ds_E_n[3].SetLabel(lambda.label);
+	ds_E_n[4].SetLabel(sigma_m.label);
 	Zaki::Vector::DataColumn b_density = *pulsar.GetProfile()->GetBaryonDensity();
 	// ......................................
 	// Building the rest energy data-columns as a function of radius
@@ -587,10 +587,10 @@ void MicroBNVInt::BNV_Chi::Plot_RestEnergy_Radius()
 	std::cout << "\n\t E_rest[lambda, r=0] = " << ds_E_r[3][0] << "\n";
 	// ......................................
 	// Fixing the labels
-	ds_E_r[1].label = "$E_n^0$";
-	ds_E_r[2].label = "$E_{p}^0$";
-	ds_E_r[3].label = "$E_{\\Lambda}^0$";
-	ds_E_r[4].label = "$E_{\\Sigma^-}^0$";
+	ds_E_r[1].SetLabel("$E_n^0$");
+	ds_E_r[2].SetLabel("$E_{p}^0$");
+	ds_E_r[3].SetLabel("$E_{\\Lambda}^0$");
+	ds_E_r[4].SetLabel("$E_{\\Sigma^-}^0$");
 	// ......................................
 
 	// -------------------------------------------------------
@@ -603,7 +603,7 @@ void MicroBNVInt::BNV_Chi::Plot_RestEnergy_Radius()
 	{
 		for (size_t r = 0; r < ds_E_r[c].Size(); r++)
 		{
-			if (pulsar.GetProfile()->GetSpecies(ds_E_n[c].label)[r] < 1e-8)
+			if (pulsar.GetProfile()->GetSpecies(ds_E_n[c].Label())[r] < 1e-8)
 			{
 				ds_E_r[c][r] = 0;
 			}
@@ -619,7 +619,7 @@ void MicroBNVInt::BNV_Chi::Plot_RestEnergy_Radius()
 	// plt_par.SetXAxis({ds_E_r[0].Min(), ds_E_r[0].Max()}) ;
 	plt_par.SetXAxis({0, 14});
 
-	auto non_zero_cond = [](const double &v)
+	auto non_zero_cond = [](double v)
 	{ return v > 0; };
 
 	// Finding the lowest and highest points on the curves
@@ -692,11 +692,11 @@ void MicroBNVInt::BNV_Chi::Plot_EF_Radius()
 
 	// ds_E_n.Interpolate(0, {1,2,3,4}) ;
 
-	fermi_ds_n[1].label = "0";
-	fermi_ds_n[2].label = "1";
-	fermi_ds_n[3].label = neutron.label;
-	fermi_ds_n[4].label = lambda.label;
-	fermi_ds_n[5].label = proton.label;
+	fermi_ds_n[1].SetLabel("0");
+	fermi_ds_n[2].SetLabel("1");
+	fermi_ds_n[3].SetLabel(neutron.label);
+	fermi_ds_n[4].SetLabel(lambda.label);
+	fermi_ds_n[5].SetLabel(proton.label);
 	Zaki::Vector::DataColumn b_density = *pulsar.GetProfile()->GetBaryonDensity();
 	// ......................................
 	// Building the Fermi energy data-columns as a function of radius
@@ -727,11 +727,11 @@ void MicroBNVInt::BNV_Chi::Plot_EF_Radius()
 	std::cout << "\n\t EF[lambda, r=0] = " << ds_EF_r[4][0] << "\n";
 	// ......................................
 	// Fixing the labels
-	ds_EF_r[1].label = "$E_F(e^-)$";
-	ds_EF_r[2].label = "$E_F(\\mu)$";
-	ds_EF_r[3].label = "$E_F(n)$";
-	ds_EF_r[4].label = "$E_F(\\Lambda)$";
-	ds_EF_r[5].label = "$E_F(p^+)$";
+	ds_EF_r[1].SetLabel("$E_F(e^-)$");
+	ds_EF_r[2].SetLabel("$E_F(\\mu)$");
+	ds_EF_r[3].SetLabel("$E_F(n)$");
+	ds_EF_r[4].SetLabel("$E_F(\\Lambda)$");
+	ds_EF_r[5].SetLabel("$E_F(p^+)$");
 	// ......................................
 
 	// -------------------------------------------------------
@@ -744,7 +744,7 @@ void MicroBNVInt::BNV_Chi::Plot_EF_Radius()
 	{
 		for (size_t r = 0; r < ds_EF_r[c].Size(); r++)
 		{
-			if (pulsar.GetProfile()->GetSpecies(fermi_ds_n[c].label)[r] < 1e-10)
+			if (pulsar.GetProfile()->GetSpecies(fermi_ds_n[c].Label())[r] < 1e-10)
 			{
 				ds_EF_r[c][r] = 0;
 			}
@@ -760,7 +760,7 @@ void MicroBNVInt::BNV_Chi::Plot_EF_Radius()
 	// plt_par.SetXAxis({ds_E_r[0].Min(), ds_E_r[0].Max()}) ;
 	plt_par.SetXAxis({0, 14});
 
-	auto non_zero_cond = [](const double &v)
+	auto non_zero_cond = [](double v)
 	{ return v > 0; };
 
 	// Finding the lowest and highest points on the curves
@@ -819,7 +819,7 @@ void MicroBNVInt::BNV_Chi::Plot_Estar_Radius(const Baryon &B)
 
 	ds_Estar_max_n.Interpolate(0, {1});
 
-	ds_Estar_max_n[1].label = B.label;
+	ds_Estar_max_n[1].SetLabel(B.label);
 	Zaki::Vector::DataColumn b_density = *pulsar.GetProfile()->GetBaryonDensity();
 	// ......................................
 	// Building the maximum CM energy data-columns as a function of radius
@@ -833,7 +833,7 @@ void MicroBNVInt::BNV_Chi::Plot_Estar_Radius(const Baryon &B)
 
 	ds_Estar_min_n.Interpolate(0, {1});
 
-	ds_Estar_min_n[1].label = B.label;
+	ds_Estar_min_n[1].SetLabel(B.label);
 	// ......................................
 	// Building the E* data-columns as a function of radius
 	Zaki::Vector::DataColumn dc_B_Estar_min_r =
@@ -846,8 +846,8 @@ void MicroBNVInt::BNV_Chi::Plot_Estar_Radius(const Baryon &B)
 									  dc_B_Estar_min_r, dc_B_Estar_max_r});
 	// ......................................
 	// Fixing the labels
-	ds_E0_EF_r[1].label = "$E_{\\rm min}^{*}(" + B.TeX_name + ")$";
-	ds_E0_EF_r[2].label = "$E_{\\rm max}^{*}(" + B.TeX_name + ")$";
+	ds_E0_EF_r[1].SetLabel("$E_{\\rm min}^{*}(" + B.TeX_name + ")$");
+	ds_E0_EF_r[2].SetLabel("$E_{\\rm max}^{*}(" + B.TeX_name + ")$");
 	// ......................................
 
 	ds_E0_EF_r.SetWrkDir(pulsar.GetWrkDir() + "/" + pulsar.GetName());
@@ -904,7 +904,7 @@ void MicroBNVInt::BNV_Chi::Plot_CM_E_Radius(const Baryon &B)
 
 	ds_ECM_max_n.Interpolate(0, {1});
 
-	ds_ECM_max_n[1].label = B.label;
+	ds_ECM_max_n[1].SetLabel(B.label);
 	Zaki::Vector::DataColumn b_density = *pulsar.GetProfile()->GetBaryonDensity();
 	// ......................................
 	// Building the maximum CM energy data-columns as a function of radius
@@ -919,7 +919,7 @@ void MicroBNVInt::BNV_Chi::Plot_CM_E_Radius(const Baryon &B)
 
 	ds_ECM_min_n.Interpolate(0, {1});
 
-	ds_ECM_min_n[1].label = B.label;
+	ds_ECM_min_n[1].SetLabel(B.label);
 	// ......................................
 	// Building the rest energy data-columns as a function of radius
 	Zaki::Vector::DataColumn dc_B_ECM_min_r =
@@ -939,8 +939,8 @@ void MicroBNVInt::BNV_Chi::Plot_CM_E_Radius(const Baryon &B)
 									  dc_B_ECM_min_r, dc_B_ECM_max_r});
 	// ......................................
 	// Fixing the labels
-	ds_E0_EF_r[1].label = "$E_{\\rm cm}^{\\rm min}(" + B.TeX_name + ")$";
-	ds_E0_EF_r[2].label = "$E_{\\rm cm}^{\\rm max}(" + B.TeX_name + ")$";
+	ds_E0_EF_r[1].SetLabel("$E_{\\rm cm}^{\\rm min}(" + B.TeX_name + ")$");
+	ds_E0_EF_r[2].SetLabel("$E_{\\rm cm}^{\\rm max}(" + B.TeX_name + ")$");
 	// ......................................
 
 	ds_E0_EF_r.SetWrkDir(pulsar.GetWrkDir() + "/" + pulsar.GetName());
@@ -993,7 +993,7 @@ void MicroBNVInt::BNV_Chi::Plot_RestE_EF_Radius(const Baryon &B)
 
 	fermi_ds_n.Interpolate(0, {1});
 
-	fermi_ds_n[1].label = B.label;
+	fermi_ds_n[1].SetLabel(B.label);
 	Zaki::Vector::DataColumn b_density = *pulsar.GetProfile()->GetBaryonDensity();
 	// ......................................
 	// Building the Fermi energy data-columns as a function of radius
@@ -1008,7 +1008,7 @@ void MicroBNVInt::BNV_Chi::Plot_RestE_EF_Radius(const Baryon &B)
 
 	ds_E_n.Interpolate(0, {1});
 
-	ds_E_n[1].label = B.label;
+	ds_E_n[1].SetLabel(B.label);
 	// ......................................
 	// Building the rest energy data-columns as a function of radius
 	Zaki::Vector::DataColumn dc_B_E_r =
@@ -1021,8 +1021,8 @@ void MicroBNVInt::BNV_Chi::Plot_RestE_EF_Radius(const Baryon &B)
 									  dc_B_E_r, dc_B_EF_r});
 	// ......................................
 	// Fixing the labels
-	ds_E0_EF_r[1].label = "$E_0(" + B.TeX_name + ")$";
-	ds_E0_EF_r[2].label = "$E_F(" + B.TeX_name + ")$";
+	ds_E0_EF_r[1].SetLabel("$E_0(" + B.TeX_name + ")$");
+	ds_E0_EF_r[2].SetLabel("$E_F(" + B.TeX_name + ")$");
 	// ......................................
 
 	// -------------------------------------------------------
@@ -1209,8 +1209,8 @@ void MicroBNVInt::BNV_Chi::PlotVacuumBrLim(const Baryon &B)
 		dec_lim_ds.AppendRow({m_chi, Vacuum_Decay_Br(B, m_chi, eps_lim)});
 	}
 
-	dec_lim_ds[0].label = "$m_{\\chi}\\, [ MeV ]$";
-	dec_lim_ds[1].label = "Br$(" + B.TeX_name + " \\to \\chi \\gamma)$";
+	dec_lim_ds[0].SetLabel("$m_{\\chi}\\, [ MeV ]$");
+	dec_lim_ds[1].SetLabel("Br$(" + B.TeX_name + " \\to \\chi \\gamma)$");
 
 	dec_lim_ds.SetWrkDir(wrk_dir_ + model + "/" + pulsar.GetName() + "/" + process.name);
 
@@ -1318,9 +1318,9 @@ void MicroBNVInt::BNV_Chi::PlotRate_Eps(const Baryon &B)
 	rate.SemiLogYPlot(0, {{2, B.TeX_name}}, "Eps_" + f_name_suff, title_str);
 
 	// ...........................................
-	rate[0].label = "m_chi [MeV]";
-	rate[1].label = "Gamma_" + B.short_name + " [1/yr]";
-	rate[2].label = "eps_" + B.short_name + " [MeV]";
+	rate[0].SetLabel("m_chi [MeV]");
+	rate[1].SetLabel("Gamma_" + B.short_name + " [1/yr]");
+	rate[2].SetLabel("eps_" + B.short_name + " [MeV]");
 
 	char tmp_gamma[50];
 	snprintf(tmp_gamma, 50, "%.2e", gamma_bnv_bin_lim);
@@ -1402,12 +1402,11 @@ void MicroBNVInt::BNV_Chi::PlotRate_Eps()
 	rate.SemiLogYPlot(0, {{3, "$n$"}, {4, "$\\Lambda$"}},
 					  "Eps_" + f_name_suff, title_str);
 	// ...........................................
-	rate[0].label = "m_chi [MeV]";
-	rate[1].label = "Gamma_n [1/s]";
-	rate[2].label = "Gamma_lam [1/s]";
-	rate[3].label = "eps_n [MeV]";
-	rate[4].label = "eps_lam [MeV]";
-
+	rate[0].SetLabel("m_chi [MeV]");
+	rate[1].SetLabel("Gamma_n [1/s]");
+	rate[2].SetLabel("Gamma_lam [1/s]");
+	rate[3].SetLabel("eps_n [MeV]");
+	rate[4].SetLabel("eps_lam [MeV]");
 	char tmp_gamma[50];
 	snprintf(tmp_gamma, 50, "%.2e", gamma_bnv_bin_lim);
 
@@ -1525,13 +1524,13 @@ void MicroBNVInt::BNV_Chi::Rate_vs_R(const std::vector<double> &m_chi, const Bar
 	double rate_min = 1;
 	for (size_t i = 0; i < m_chi.size(); i++)
 	{
-		rate_vs_r.data_set.emplace_back(Rate_vs_R(m_chi[i], B)[1]);
+		rate_vs_r.AddColumn(Rate_vs_R(m_chi[i], B)[1]);
 
 		if (rate_max < rate_vs_r[i + 1].Max())
 			rate_max = rate_vs_r[i + 1].Max();
 
 		// Finding the non-zero minimum:
-		double tmp_min = rate_vs_r[i + 1].GetSubSet([](const double &v)
+		double tmp_min = rate_vs_r[i + 1].GetSubSet([](double v)
 													{ return v > 0; })
 							 .Min();
 		if (rate_min > tmp_min)
@@ -1540,7 +1539,7 @@ void MicroBNVInt::BNV_Chi::Rate_vs_R(const std::vector<double> &m_chi, const Bar
 		char tmp_ch[50];
 		snprintf(tmp_ch, 50, "%.0f", m_chi[i]);
 		labels.emplace_back(i + 1, tmp_ch);
-		rate_vs_r[i + 1].label = tmp_ch;
+		rate_vs_r[i + 1].SetLabel(tmp_ch);
 	}
 
 	Zaki::String::Directory out_dir = wrk_dir_ + model + "/" + pulsar.GetName() + "/" + process.name + "/Rate_vs_R/" + B.short_name;

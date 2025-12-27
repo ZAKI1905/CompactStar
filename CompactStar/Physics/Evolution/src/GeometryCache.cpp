@@ -112,13 +112,13 @@ GeometryCache::DeriveLambdaFromMR_(const Zaki::Vector::DataColumn &r,
 {
 	const std::size_t N = std::min(r.Size(), m.Size());
 	Zaki::Vector::DataColumn Lambda;
-	Lambda.label = "Lambda(derived)";
+	Lambda.SetLabel("Lambda(derived)");
 	Lambda.Reserve(N);
 
 	for (std::size_t i = 0; i < N; ++i)
 	{
-		const double r_km = r.vals[i];
-		const double m_km = m.vals[i];
+		const double r_km = r[i];
+		const double m_km = m[i];
 
 		double denom = 1.0;
 		if (r_km > 0.0)
@@ -129,7 +129,7 @@ GeometryCache::DeriveLambdaFromMR_(const Zaki::Vector::DataColumn &r,
 		}
 
 		// Lambda = -0.5 * ln(denom)
-		Lambda.vals.emplace_back(-0.5 * std::log(denom));
+		Lambda.PushBack(-0.5 * std::log(denom));
 	}
 
 	return Lambda;
@@ -172,10 +172,10 @@ void GeometryCache::Build_(const StarContext &ctx)
 	//	 (we cache values locally)
 	// -----------------------------
 	m_r = *r_col;
-	m_r.label = "r(km)";
+	m_r.SetLabel("r(km)");
 
 	m_mass = *m_col;
-	m_mass.label = "m(km)";
+	m_mass.SetLabel("m(km)");
 	// -----------------------------
 
 	// -----------------------------
@@ -185,7 +185,7 @@ void GeometryCache::Build_(const StarContext &ctx)
 	if (lam_col && lam_col->Size() == N)
 	{
 		Lambda = *lam_col;
-		Lambda.label = "Lambda";
+		Lambda.SetLabel("Lambda");
 	}
 	else
 	{
@@ -198,43 +198,43 @@ void GeometryCache::Build_(const StarContext &ctx)
 	// Area and metric exponentials (DataColumn algebra)
 	// -----------------------------
 	m_area = (4.0 * M_PI) * m_r.pow(2);
-	m_area.label = "4*pi*r^2";
+	m_area.SetLabel("4*pi*r^2");
 
 	m_expNu = exp(*nu_col);
-	m_expNu.label = "exp(nu)";
+	m_expNu.SetLabel("exp(nu)");
 
 	m_expMinusNu = 1.0 / m_expNu;
-	m_expMinusNu.label = "exp(-nu)";
+	m_expMinusNu.SetLabel("exp(-nu)");
 
 	m_exp2Nu = m_expNu * m_expNu;
-	m_exp2Nu.label = "exp(2*nu)";
+	m_exp2Nu.SetLabel("exp(2*nu)");
 
 	m_expLam = exp(Lambda);
-	m_expLam.label = "exp(Lambda)";
+	m_expLam.SetLabel("exp(Lambda)");
 
 	m_expMinusLam = 1.0 / m_expLam;
-	m_expMinusLam.label = "exp(-Lambda)";
+	m_expMinusLam.SetLabel("exp(-Lambda)");
 
 	// -----------------------------
 	// Mixed metric products (common in transport)
 	// -----------------------------
 	m_expNuMinusLam = m_expNu * m_expMinusLam;
-	m_expNuMinusLam.label = "exp(nu - Lambda)";
+	m_expNuMinusLam.SetLabel("exp(nu - Lambda)");
 
 	m_expMinusNuMinusLam = m_expMinusNu * m_expMinusLam;
-	m_expMinusNuMinusLam.label = "exp(-(nu + Lambda))";
+	m_expMinusNuMinusLam.SetLabel("exp(-(nu + Lambda))");
 
 	// -----------------------------
 	// Canonical weights
 	// -----------------------------
 	m_wV = m_area * m_expLam;
-	m_wV.label = "wV = 4*pi*r^2*exp(Lambda)";
+	m_wV.SetLabel("wV = 4*pi*r^2*exp(Lambda)");
 
 	m_wVExpNu = m_wV * m_expNu;
-	m_wVExpNu.label = "wV*exp(nu)";
+	m_wVExpNu.SetLabel("wV*exp(nu)");
 
 	m_wVExp2Nu = m_wV * m_exp2Nu;
-	m_wVExp2Nu.label = "wV*exp(2nu)";
+	m_wVExp2Nu.SetLabel("wV*exp(2nu)");
 }
 // -------------------------------------------------------
 } // namespace CompactStar::Physics::Evolution

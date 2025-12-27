@@ -11,7 +11,7 @@
 
 #include <Zaki/Physics/Constants.hpp>
 // #include <Zaki/String/String.hpp> // for Multiply(...) if we want logging
-#include <Zaki/Vector/DataSet.hpp>
+// #include <Zaki/Vector/DataSet.hpp>
 
 namespace CompactStar::Core
 {
@@ -23,9 +23,9 @@ namespace StarBuilder
  */
 static bool HasLabel(const Zaki::Vector::DataSet &ds, const std::string &label)
 {
-	for (const auto &col : ds.data_set)
+	for (const auto &col : ds)
 	{
-		if (col.label == label)
+		if (col.Label() == label)
 			return true;
 	}
 	return false;
@@ -219,7 +219,7 @@ int BuildFromSequence(const Zaki::String::Directory &wrk_dir,
 		}
 
 		// start output with the short profile's radius column
-		out.profile.data_set = {short_prof[0]};
+		out.profile = {short_prof[0]};
 
 		// now blend each column
 		for (std::size_t c = 1; c < short_prof.Dim().size(); ++c)
@@ -227,7 +227,7 @@ int BuildFromSequence(const Zaki::String::Directory &wrk_dir,
 			long_prof.Interpolate(0, static_cast<int>(c));
 
 			Zaki::Vector::DataColumn dc;
-			dc.label = short_prof[c].label;
+			dc.SetLabel(short_prof[c].Label());
 			dc.Reserve(short_prof[c].Size());
 
 			for (std::size_t i = 0; i < short_prof[0].Size(); ++i)
@@ -236,10 +236,10 @@ int BuildFromSequence(const Zaki::String::Directory &wrk_dir,
 				const double v_short = short_prof[c][i];
 				const double v_long = long_prof.Evaluate(static_cast<int>(c), r_km);
 
-				dc.vals.emplace_back(x_long * v_long + x_short * v_short);
+				dc.PushBack(x_long * v_long + x_short * v_short);
 			}
 
-			out.profile.data_set.emplace_back(std::move(dc));
+			out.profile.AddColumn(std::move(dc));
 		}
 	}
 

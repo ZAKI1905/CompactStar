@@ -42,37 +42,37 @@ DarkCore_Analysis::DarkCore_Analysis()
 	sigmam_out.Reserve(9, 10);
 
 	// neutron_out[0].label = "Channel" ;
-	neutron_out[0].label = "M(0)";
-	neutron_out[1].label = "t_0 [ch]";
-	neutron_out[2].label = "t_0";
-	neutron_out[3].label = "age [ch]";
-	neutron_out[4].label = "age";
-	neutron_out[5].label = "death [ch]";
-	neutron_out[6].label = "death";
-	neutron_out[7].label = "age/death [ch]";
-	neutron_out[8].label = "age/death";
+	neutron_out[0].SetLabel("M(0)");
+	neutron_out[1].SetLabel("t_0 [ch]");
+	neutron_out[2].SetLabel("t_0");
+	neutron_out[3].SetLabel("age [ch]");
+	neutron_out[4].SetLabel("age");
+	neutron_out[5].SetLabel("death [ch]");
+	neutron_out[6].SetLabel("death");
+	neutron_out[7].SetLabel("age/death [ch]");
+	neutron_out[8].SetLabel("age/death");
 
 	// lambda_out[0].label = "Channel" ;
-	lambda_out[0].label = "M(0)";
-	lambda_out[1].label = "t_0 [ch]";
-	lambda_out[2].label = "t_0";
-	lambda_out[3].label = "age [ch]";
-	lambda_out[4].label = "age";
-	lambda_out[5].label = "death [ch]";
-	lambda_out[6].label = "death";
-	lambda_out[7].label = "age/death [ch]";
-	lambda_out[8].label = "age/death";
+	lambda_out[0].SetLabel("M(0)");
+	lambda_out[1].SetLabel("t_0 [ch]");
+	lambda_out[2].SetLabel("t_0");
+	lambda_out[3].SetLabel("age [ch]");
+	lambda_out[4].SetLabel("age");
+	lambda_out[5].SetLabel("death [ch]");
+	lambda_out[6].SetLabel("death");
+	lambda_out[7].SetLabel("age/death [ch]");
+	lambda_out[8].SetLabel("age/death");
 
 	// sigmam_out[0].label = "Channel" ;
-	sigmam_out[0].label = "M(0)";
-	sigmam_out[1].label = "t_0 [ch]";
-	sigmam_out[2].label = "t_0";
-	sigmam_out[3].label = "age [ch]";
-	sigmam_out[4].label = "age";
-	sigmam_out[5].label = "death [ch]";
-	sigmam_out[6].label = "death";
-	sigmam_out[7].label = "age/death [ch]";
-	sigmam_out[8].label = "age/death";
+	sigmam_out[0].SetLabel("M(0)");
+	sigmam_out[1].SetLabel("t_0 [ch]");
+	sigmam_out[2].SetLabel("t_0");
+	sigmam_out[3].SetLabel("age [ch]");
+	sigmam_out[4].SetLabel("age");
+	sigmam_out[5].SetLabel("death [ch]");
+	sigmam_out[6].SetLabel("death");
+	sigmam_out[7].SetLabel("age/death [ch]");
+	sigmam_out[8].SetLabel("age/death");
 }
 //--------------------------------------------------------------
 // Destructor
@@ -376,8 +376,8 @@ void DarkCore_Analysis::ExportBNV(const Zaki::String::Directory &in_dir)
 	// Zaki::Vector::DataColumn Gamm_BNV =  1e-10*neutron_out[3]/1e7 ;
 
 	Zaki::Vector::DataSet n_gamma({neutron_out[0], 1e-10 * neutron_out[3] / 2.6e9, 1e-10 * neutron_out[5] / 1e10, neutron_out[-2]});
-	n_gamma[1].label = "Gamma_age";
-	n_gamma[2].label = "Gamma_death";
+	n_gamma[1].SetLabel("Gamma_age");
+	n_gamma[2].SetLabel("Gamma_death");
 	n_gamma.SetWrkDir(in_dir + "/BNV_tau");
 	n_gamma.Plot(0, 1, "BNV_neutron_gamma_age.pdf", "Age = 2.6 Gyr");
 	n_gamma.Plot(0, 2, "BNV_neutron_gamma_death.pdf", "Death = 10 Gyr");
@@ -396,8 +396,8 @@ void DarkCore_Analysis::ExportBNV(const Zaki::String::Directory &in_dir)
 	lambda_out.Plot(0, {3, 5}, "BNV_lambda_age_death.pdf", "Age & Death");
 
 	Zaki::Vector::DataSet lambda_gamma({lambda_out[0], 1e-10 * lambda_out[3] / 2.6e9, 1e-10 * lambda_out[5] / 1e10, lambda_out[-2]});
-	lambda_gamma[1].label = "Gamma_age";
-	lambda_gamma[2].label = "Gamma_death";
+	lambda_gamma[1].SetLabel("Gamma_age");
+	lambda_gamma[2].SetLabel("Gamma_death");
 	lambda_gamma.SetWrkDir(in_dir + "/BNV_tau");
 	lambda_gamma.Plot(0, 1, "BNV_lambda_gamma_age.pdf", "Age = 2.6 Gyr");
 	lambda_gamma.Plot(0, 2, "BNV_lambda_gamma_death.pdf", "Death = 10 Gyr");
@@ -416,8 +416,8 @@ void DarkCore_Analysis::ExportBNV(const Zaki::String::Directory &in_dir)
 	sigmam_out.Plot(0, {3, 5}, "BNV_sigmam_age_death.pdf", "Age & Death");
 
 	Zaki::Vector::DataSet sigmam_gamma({sigmam_out[0], 1e-10 * sigmam_out[3] / 2.6e9, 1e-10 * sigmam_out[5] / 1e10, sigmam_out[-2]});
-	sigmam_gamma[1].label = "Gamma_age";
-	sigmam_gamma[2].label = "Gamma_death";
+	sigmam_gamma[1].SetLabel("Gamma_age");
+	sigmam_gamma[2].SetLabel("Gamma_death");
 	sigmam_gamma.SetWrkDir(in_dir + "/BNV_tau");
 	sigmam_gamma.Plot(0, 1, "BNV_sigma-_gamma_age.pdf", "Age = 2.6 Gyr");
 	sigmam_gamma.Plot(0, 2, "BNV_sigma-_gamma_death.pdf", "Death = 10 Gyr");
