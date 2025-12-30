@@ -275,8 +275,8 @@ class NStar : public Prog
 	 */
 	[[nodiscard]] double RadiusSurface() const noexcept
 	{
-		if (!prof_.empty() && prof_.R > 0.0)
-			return prof_.R;
+		if (!prof_.empty() && prof_.RadiusSurface() > 0.0)
+			return prof_.RadiusSurface();
 		return GetSequence().r;
 	}
 
@@ -285,9 +285,9 @@ class NStar : public Prog
 	 */
 	[[nodiscard]] double MassSurface() const noexcept
 	{
-		if (!prof_.empty() && prof_.M > 0.0)
-			return prof_.M / Zaki::Physics::SUN_M_KM; // in M_Sun units
-		return GetSequence().m;						  // in M_Sun units
+		if (!prof_.empty() && prof_.MassSurface() > 0.0)
+			return prof_.MassSurface() / Zaki::Physics::SUN_M_KM; // in M_Sun units
+		return GetSequence().m;									  // in M_Sun units
 	}
 
 	/**

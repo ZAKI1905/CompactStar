@@ -74,7 +74,7 @@ class EnvelopePotekhin1997_Iron final : public IEnvelope
 	double Ts_from_Tb(double Tb, double g14, double xi) const override;
 
 	/// Optional human-readable identifier for logs/diagnostics.
-	const char *ModelName() { return "Potekhin1997_Iron"; }
+	const char *ModelName() override { return "Potekhin1997_Iron"; }
 };
 
 /**

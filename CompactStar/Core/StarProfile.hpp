@@ -55,15 +55,16 @@
 #ifndef CompactStar_Core_StarProfile_H
 #define CompactStar_Core_StarProfile_H
 
-#include <algorithm>
-#include <cstddef>
-#include <stdexcept>
-#include <string>
-#include <vector>
-
 #include "CompactStar/Core/SeqPoint.hpp"
 #include <Zaki/Vector/DataColumn.hpp>
 #include <Zaki/Vector/DataSet.hpp>
+#include <algorithm>
+#include <cstddef>
+#include <cstdint>
+
+#include <stdexcept>
+#include <string>
+#include <vector>
 namespace CompactStar::Core
 {
 
@@ -85,9 +86,136 @@ namespace CompactStar::Core
  */
 struct StarProfile
 {
+  public:
+	// ------------------------------------------------------------
+	// 0) Versioning / mutation tracking
+	// ------------------------------------------------------------
+	/**
+	 * @brief Monotonic version counter for this profile.
+	 *
+	 * Increments whenever the profile's structure, column mappings, species registry,
+	 * or any other data that cached derived quantities might depend on is modified.
+	 *
+	 * Consumers (e.g., StarContext caches) can store the last-seen version and
+	 * invalidate/rebuild derived caches when Version() changes.
+	 */
+	std::uint64_t Version() const noexcept { return m_version; }
+
+	/**
+	 * @brief Mark the profile as modified (versioning hook).
+	 *
+	 * This function is the single choke-point for cache invalidation.
+	 *
+	 * Behavior:
+	 *  - If no edit scope is active, it bumps Version() immediately.
+	 *  - If an edit scope is active, it only marks the scope "dirty";
+	 *    the version is bumped exactly once when the outermost scope ends.
+	 *
+	 * Use cases:
+	 *  - Call from all mutating accessors/mutators (recommended).
+	 *  - If external code mutates the profile in a way that bypasses StarProfile
+	 *    (should be rare), wrap the mutation inside an EditScope (preferred),
+	 *    or call Touch() once after the mutation (fallback).
+	 */
+	void Touch() noexcept { TouchImpl_(); }
+
+	// ------------------------------------------------------------
+	// 0.1) Batched editing (RAII transaction)
+	// ------------------------------------------------------------
+	/**
+	 * @class EditScope
+	 * @brief RAII scope that batches multiple StarProfile mutations into one version bump.
+	 *
+	 * Typical usage:
+	 * @code
+	 * {
+	 *     StarProfile::EditScope edit(prof); // begin edit transaction
+	 *     prof.RadialMutable().Import(path); // may call Touch() internally
+	 *     prof.SetSurfaceScalars(M, R, z);
+	 * } // end transaction -> Version() increments once if anything changed
+	 * @endcode
+	 *
+	 * Notes:
+	 *  - Scopes may be nested. Only the outermost scope commits.
+	 *  - If no mutation occurs, the version is not bumped.
+	 */
+	class EditScope
+	{
+	  public:
+		/// Begin an edit scope for @p prof. Supports nesting.
+		explicit EditScope(StarProfile &prof) noexcept : m_prof(prof)
+		{
+			++m_prof.m_editDepth;
+		}
+
+		/// End the scope. If this is the outermost scope and anything changed,
+		/// bump the version exactly once.
+		~EditScope() noexcept
+		{
+			// Defensive: should never underflow.
+			if (m_prof.m_editDepth == 0)
+				return;
+
+			--m_prof.m_editDepth;
+
+			// Commit only when leaving the outermost scope.
+			if (m_prof.m_editDepth == 0 && m_prof.m_editDirty)
+			{
+				++m_prof.m_version;
+				m_prof.m_editDirty = false;
+			}
+		}
+
+		EditScope(const EditScope &) = delete;
+		EditScope(EditScope &&) noexcept = default;
+
+		EditScope &operator=(const EditScope &) = delete;
+		EditScope &operator=(EditScope &&) = delete;
+
+	  private:
+		StarProfile &m_prof;
+	};
+
+	/**
+	 * @brief Convenience creator for an edit scope.
+	 *
+	 * Usage:
+	 * @code
+	 * auto edit = prof.Edit();
+	 * // ... mutate prof ...
+	 * @endcode
+	 */
+	EditScope Edit() noexcept { return EditScope(*this); }
+
   private:
+	/// Monotonic modification counter used for cache invalidation.
+	std::uint64_t m_version = 0;
+
+	/// Active edit-scope nesting depth (0 => no transaction active).
+	std::uint32_t m_editDepth = 0;
+
+	/// True if something changed during the current (outermost) edit scope.
+	bool m_editDirty = false;
+
 	/** @brief Precision used when exporting profile values. */
 	int profile_precision = 9;
+
+	/**
+	 * @brief Internal implementation for Touch().
+	 *
+	 * This keeps the public Touch() semantics stable while allowing
+	 * version batching inside EditScope.
+	 */
+	void TouchImpl_() noexcept
+	{
+		if (m_editDepth > 0)
+		{
+			// Defer version bump until end of outermost scope.
+			m_editDirty = true;
+			return;
+		}
+		++m_version;
+	}
 
   public:
 	// ------------------------------------------------------------
@@ -119,6 +247,7 @@ struct StarProfile
 		MetricLambda   ///< λ(r) such that g_rr = e^{2λ}
 	};
 
+  private:
 	// ------------------------------------------------------------
 	// 2) Raw radial data
 	// ------------------------------------------------------------
@@ -178,6 +307,78 @@ struct StarProfile
 	 * Must be the same length as `species_labels`.
 	 */
 	std::vector<int> species_idx;
+
+  public:
+	/// Read-only access to the radial dataset (does not change version).
+	const Zaki::Vector::DataSet &Radial() const noexcept { return radial; }
+
+	/**
+	 * @brief Mutable access to the radial dataset(bumps version).
+	 * @return Reference to radial profile data.
+	 * @note It will call Touch()
+	 */
+	Zaki::Vector::DataSet &RadialMutable()
+	{
+		Touch();
+		return radial;
+	}
+
+	/**
+	 * @brief Get the gravitational mass at the stellar surface.
+	 *
+	 * @return double Mass at surface (km).
+	 */
+	double MassSurface() const noexcept { return M; }
+
+	/**
+	 * @brief Get the circumferential radius at the stellar surface.
+	 *
+	 * @return double Radius at surface (km).
+	 */
+	double RadiusSurface() const noexcept { return R; }
+
+	/**
+	 * @brief Get the exponential of the metric function ν at the stellar surface.
+	 *
+	 * @return double e^{ν(R)} at surface (dimensionless).
+	 */
+	double ExpNuSurface() const noexcept { return z_surf; }
+
+	/**
+	 * @brief Get the sequence point metadata.
+	 *
+	 * @return const SeqPoint& Reference to the SeqPoint.
+	 */
+	const SeqPoint &Seq() const noexcept { return seq_point; }
+
+	/**
+	 * @brief Mutable access to the SeqPoint (bumps version).
+	 * @return Reference to the SeqPoint.
+	 * @note It will call Touch()
+	 */
+	SeqPoint &SeqMutable()
+	{
+		Touch();
+		return seq_point;
+	}
+
+	/**
+	 * @brief Set the surface properties (bumps version if changed).
+	 *
+	 * @param M_km Mass at surface (km).
+	 * @param R_km Radius at surface (km).
+	 * @param zsurf e^{ν(R)} at surface (dimensionless).
+	 */
+	void SetSurfaceScalars(double M_km, double R_km, double zsurf)
+	{
+		if (M != M_km || R != R_km || z_surf != zsurf)
+		{
+			M = M_km;
+			R = R_km;
+			z_surf = zsurf;
+			Touch();
+		}
+	}
 
 	// ------------------------------------------------------------
 	// 7) Basic queries
@@ -276,37 +477,84 @@ struct StarProfile
 
 	/**
 	 * @brief Override the integer index for a given Column.
+	 * @param col Column enum value.
+	 * @param idx New integer index.
+	 * @note This will call Touch() if the index actually changes.
 	 */
 	void SetColumnIndex(Column col, int idx)
 	{
+		bool changed = false;
 		switch (col)
 		{
 		case Column::Radius:
+			changed = (idx_r != idx);
 			idx_r = idx;
 			break;
 		case Column::Mass:
+			changed = (idx_m != idx);
 			idx_m = idx;
 			break;
 		case Column::MetricNuPrime:
+			changed = (idx_nuprime != idx);
 			idx_nuprime = idx;
 			break;
 		case Column::Pressure:
+			changed = (idx_p != idx);
 			idx_p = idx;
 			break;
 		case Column::EnergyDensity:
+			changed = (idx_eps != idx);
 			idx_eps = idx;
 			break;
 		case Column::BaryonDensity:
+			changed = (idx_nb != idx);
 			idx_nb = idx;
 			break;
 		case Column::MetricNu:
+			changed = (idx_nu != idx);
 			idx_nu = idx;
 			break;
 		case Column::MetricLambda:
+			changed = (idx_lambda != idx);
 			idx_lambda = idx;
 			break;
+		default:
+			break;
 		}
+
+		if (changed)
+			Touch();
 	}
+	// void SetColumnIndex(Column col, int idx)
+	// {
+	// 	switch (col)
+	// 	{
+	// 	case Column::Radius:
+	// 		idx_r = idx;
+	// 		break;
+	// 	case Column::Mass:
+	// 		idx_m = idx;
+	// 		break;
+	// 	case Column::MetricNuPrime:
+	// 		idx_nuprime = idx;
+	// 		break;
+	// 	case Column::Pressure:
+	// 		idx_p = idx;
+	// 		break;
+	// 	case Column::EnergyDensity:
+	// 		idx_eps = idx;
+	// 		break;
+	// 	case Column::BaryonDensity:
+	// 		idx_nb = idx;
+	// 		break;
+	// 	case Column::MetricNu:
+	// 		idx_nu = idx;
+	// 		break;
+	// 	case Column::MetricLambda:
+	// 		idx_lambda = idx;
+	// 		break;
+	// 	}
+	// }
 
 	// ------------------------------------------------------------
 	// 9) Enum-based data access
@@ -322,8 +570,16 @@ struct StarProfile
 
 	// keep a NON-const version only if we really need mutation;
 	// otherwise just delete it. Right now, keep it like this:
+	/**
+	 * @brief Mutable access to a column by Column enum (bumps version).
+	 *
+	 * @param col Column enum value.
+	 * @return Reference to the column.
+	 * @note It will call Touch()
+	 */
 	Zaki::Vector::DataColumn &Get(Column col)
 	{
+		Touch();
 		int idx = GetColumnIndex(col);
 		if (!IsValidColumnIndex(idx))
 			throw std::out_of_range("Column index out of range: " +
@@ -403,6 +659,8 @@ struct StarProfile
 		if (!IsValidColumnIndex(idx))
 			return nullptr;
 
+		Touch();
+
 		return &radial[static_cast<std::size_t>(idx)];
 	}
 
@@ -450,9 +708,10 @@ struct StarProfile
 		int li = SpeciesLocalIndex(label);
 		if (li < 0 || static_cast<std::size_t>(li) >= species_idx.size())
 			return nullptr;
+		// Touch(); // Will be called inside GetColumnPtr(int)
 
 		int col_idx = species_idx[static_cast<std::size_t>(li)];
-		return GetColumnPtr(col_idx);
+		return GetColumnPtr(col_idx); // Calls Touch() inside GetColumnPtr(int)
 	}
 	// ------------------------------------------------------------
 	// 11) Per-species helpers
@@ -460,9 +719,13 @@ struct StarProfile
 	/**
 	 * @brief Number of per-species density columns attached to this profile.
 	 */
+	// std::size_t SpeciesCount() const noexcept
+	// {
+	// 	return species_labels.size();
+	// }
 	std::size_t SpeciesCount() const noexcept
 	{
-		return species_labels.size();
+		return std::min(species_labels.size(), species_idx.size());
 	}
 
 	/**
@@ -486,6 +749,14 @@ struct StarProfile
 			if (species_labels[i] == label)
 				return static_cast<int>(i);
 		return -1;
+	}
+
+	// j-th species column index (in the radial DataSet), or -1 if out of range.
+	int SpeciesColumnIndex(std::size_t j) const noexcept
+	{
+		if (j >= species_idx.size())
+			return -1;
+		return species_idx[j];
 	}
 
 	/**
@@ -517,6 +788,7 @@ struct StarProfile
 	 */
 	Zaki::Vector::DataColumn &GetSpecies(const std::string &label)
 	{
+		Touch();
 		int li = SpeciesLocalIndex(label);
 		if (li < 0 || static_cast<std::size_t>(li) >= species_idx.size())
 			throw std::out_of_range("Unknown species label: " + label);
@@ -533,11 +805,13 @@ struct StarProfile
 	 *
 	 * @param label   species name
 	 * @param col_idx column index in `radial`
+	 * @note This will call Touch().
 	 */
 	void AddSpecies(const std::string &label, int col_idx)
 	{
 		species_labels.push_back(label);
 		species_idx.push_back(col_idx);
+		Touch();
 	}
 
 	/**
@@ -547,6 +821,7 @@ struct StarProfile
 	 *
 	 * @param label   species name
 	 * @param col_idx column index in `radial`
+	 * @note This will call Touch() if the index changes or if a new species is added.
 	 */
 	void SetSpeciesColumn(const std::string &label, int col_idx)
 	{
@@ -554,20 +829,35 @@ struct StarProfile
 		{
 			if (species_labels[i] == label)
 			{
-				species_idx[i] = col_idx;
+				if (species_idx[i] != col_idx)
+				{
+					species_idx[i] = col_idx;
+					Touch();
+				}
+				// species_idx[i] = col_idx;
 				return;
 			}
 		}
 		// fallback: if not found, register new
-		AddSpecies(label, col_idx);
+		AddSpecies(label, col_idx); // Calls Touch()
 	}
 
 	// ------------------------------------------------------------
 	// 12) Profile precision
 	// ------------------------------------------------------------
+	/**
+	 * @brief Set the Profile Precision object
+	 *
+	 * @param profile_precision Number of digits after decimal point
+	 * @note This will call Touch() if the precision changes.
+	 */
 	void SetProfilePrecision(const int &profile_precision)
 	{
-		this->profile_precision = profile_precision;
+		if (this->profile_precision != profile_precision)
+		{
+			this->profile_precision = profile_precision;
+			Touch();
+		}
 	}
 
 	// ------------------------------------------------------------
@@ -578,11 +868,13 @@ struct StarProfile
 	// ------------------------------------------------------------
 	// 14) Reset
 	// ------------------------------------------------------------
-	/// @brief Reset profile to an empty state. Invalidates all views.
+	/**
+	 * @brief Reset profile to an empty state. Invalidates all views.
+	 * @note This will call Touch().
+	 */
 	void Reset()
 	{
 		radial.ClearRows();
-		// radial.data_set.clear();
 		seq_point.clear();
 
 		M = 0.0;
@@ -590,6 +882,21 @@ struct StarProfile
 		z_surf = 0.0;
 		// species_labels.clear();
 		// species_idx.clear();
+
+		Touch();
+	}
+
+	// Clear + reserve in one place (single semantic mutation)
+	void ResetSpecies(std::size_t n_reserve = 0)
+	{
+		species_labels.clear();
+		species_idx.clear();
+		if (n_reserve > 0)
+		{
+			species_labels.reserve(n_reserve);
+			species_idx.reserve(n_reserve);
+		}
+		Touch();
 	}
 };
 

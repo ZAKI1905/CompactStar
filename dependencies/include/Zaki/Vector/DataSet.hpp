@@ -493,139 +493,189 @@ struct Row
 //==============================================================
 //                        SplineIdx Struct
 //==============================================================
+// struct SplineIdx
+// {
+// 	int idx = -1;
+// 	gsl_spline *spline = nullptr;
+
+// 	// const gsl_interp_type* dataset_gsl_interp_type = gsl_interp_steffen ;
+// 	const gsl_interp_type *dataset_gsl_interp_type = gsl_interp_linear;
+
+// 	SplineIdx() {};
+
+// 	SplineIdx(const int &in_idx, const double *x,
+// 			  const double *y, const size_t &in_size)
+// 		: idx(in_idx)
+// 	{
+// 		spline = gsl_spline_alloc(dataset_gsl_interp_type, in_size);
+// 		gsl_spline_init(spline, x, y, in_size);
+// 	}
+
+// 	~SplineIdx()
+// 	{
+// 		if (spline)
+// 		{
+// 			gsl_spline_free(spline);
+// 			spline = nullptr;
+// 		}
+// 	}
+
+// 	void Reset(const double *x, const double *y, const size_t &in_size)
+// 	{
+// 		if (spline)
+// 		{
+// 			gsl_spline_free(spline);
+// 		}
+
+// 		spline = gsl_spline_alloc(dataset_gsl_interp_type, in_size);
+// 		gsl_spline_init(spline, x, y, in_size);
+// 	}
+
+// 	// Equality operator
+// 	bool operator==(const int &in_idx) const
+// 	{
+// 		return in_idx == idx;
+// 	}
+
+// 	/// Copy Constructor
+// 	SplineIdx(const SplineIdx &) = delete;
+
+// 	/// Assignment operator
+// 	SplineIdx &operator=(const SplineIdx &) = delete;
+
+// 	/// Move constructor
+// 	SplineIdx(SplineIdx &&other)
+// 		: idx(other.idx),
+// 		  spline(other.spline)
+// 	{
+// 		// mov_con_count++ ;
+// 		other.spline = nullptr;
+// 	}
+
+// 	/// Move Assignment
+// 	SplineIdx &operator=(SplineIdx &&other)
+// 	{
+// 		// mov_ass_count++ ;
+// 		idx = other.idx;
+// 		spline = other.spline;
+// 		other.spline = nullptr;
+// 		return *this;
+// 	}
+// };
+
 struct SplineIdx
 {
-	int idx = -1;
 	gsl_spline *spline = nullptr;
+	std::size_t n = 0; // number of samples used to initialize
 
-	// static inline std::atomic<size_t> def_con_count = 0;
-	// static inline std::atomic<size_t> sec_con_count = 0;
-	// static inline std::atomic<size_t> mov_con_count = 0;
-	// static inline std::atomic<size_t> mov_ass_count = 0;
-	// static inline std::atomic<size_t> des_count = 0;
+	// Interpolation type
+	inline static const gsl_interp_type *kInterpType = gsl_interp_linear;
+	// or: inline static const gsl_interp_type* kInterpType = gsl_interp_steffen;
 
-	/// The number of times destructor is called
-	// size_t des_counter = 0 ;
-	// const gsl_interp_type* dataset_gsl_interp_type = gsl_interp_steffen ;
-	const gsl_interp_type *dataset_gsl_interp_type = gsl_interp_linear;
+	SplineIdx() = default;
 
-	SplineIdx() {
-		// def_con_count++ ;
-	};
-
-	SplineIdx(const int &in_idx, const double *x,
-			  const double *y, const size_t &in_size)
-		: idx(in_idx)
+	SplineIdx(const double *x, const double *y, std::size_t in_size)
 	{
-		spline = gsl_spline_alloc(dataset_gsl_interp_type, in_size);
-		gsl_spline_init(spline, x, y, in_size);
-		// sec_con_count++ ;
+		Reset(x, y, in_size);
 	}
 
-	~SplineIdx()
+	~SplineIdx() { Free(); }
+
+	SplineIdx(const SplineIdx &) = delete;
+	SplineIdx &operator=(const SplineIdx &) = delete;
+
+	SplineIdx(SplineIdx &&other) noexcept
+		: spline(other.spline), n(other.n)
 	{
-		// des_counter++ ;
-		// std::cout << "SplineIdx destructor called for index = "
-		//           << idx <<  " for the'"
-		//           << des_counter
-		//           << "' time!\n" ;
-		// des_count++ ;
+		other.spline = nullptr;
+		other.n = 0;
+	}
 
-		// if( 1 == def_con_count + sec_con_count - des_count )
-		// {
-		//   std::cout << "\n\n\n Default Constructors = " << def_con_count
-		//             << ", Second Constructor = "  << sec_con_count
-		//             << ", Move Constructor = " << mov_con_count
-		//             << ", Move Assignment = " << mov_ass_count
-		//             << ", Destructors = " << des_count << std::endl ;
-		// }
+	SplineIdx &operator=(SplineIdx &&other) noexcept
+	{
+		if (this == &other)
+			return *this;
+		Free(); // IMPORTANT: avoid leak
+		spline = other.spline;
+		n = other.n;
+		other.spline = nullptr;
+		other.n = 0;
+		return *this;
+	}
 
+	bool IsReady() const noexcept { return spline != nullptr; }
+
+	void Free() noexcept
+	{
 		if (spline)
 		{
 			gsl_spline_free(spline);
 			spline = nullptr;
+			n = 0;
 		}
 	}
 
-	void Reset(const double *x, const double *y, const size_t &in_size)
-	{
-		if (spline)
-		{
-			gsl_spline_free(spline);
-		}
-
-		spline = gsl_spline_alloc(dataset_gsl_interp_type, in_size);
-		gsl_spline_init(spline, x, y, in_size);
-	}
-
-	// Equality operator
-	bool operator==(const int &in_idx) const
-	{
-		return in_idx == idx;
-	}
-
-	/// Copy Constructor
-	SplineIdx(const SplineIdx &) = delete;
-
-	/// Assignment operator
-	SplineIdx &operator=(const SplineIdx &) = delete;
-
-	/// Move constructor
-	SplineIdx(SplineIdx &&other)
-		: idx(other.idx),
-		  spline(other.spline)
-	{
-		// mov_con_count++ ;
-		other.spline = nullptr;
-	}
-
-	/// Move Assignment
-	SplineIdx &operator=(SplineIdx &&other)
-	{
-		// mov_ass_count++ ;
-		idx = other.idx;
-		spline = other.spline;
-		other.spline = nullptr;
-		return *this;
-	}
+	void Reset(const double *x, const double *y, std::size_t in_size);
 };
 
 //==============================================================
 //                        SplineSet Struct
 //==============================================================
+// struct SplineSet
+// {
+// 	std::vector<SplineIdx> spline_set;
+
+// 	void AssignSpline(const int &in_idx, const double *x,
+// 					  const double *y, const size_t &in_size);
+
+// 	double Evaluate(const int &in_idx, const double &in_x,
+// 					gsl_interp_accel *in_accel) const;
+
+// 	double Derivative(const int &in_idx, const double &in_x,
+// 					  gsl_interp_accel *in_accel) const;
+
+// 	double Integrate(const int &in_idx, const Zaki::Math::Range<double> &in_range,
+// 					 gsl_interp_accel *in_accel) const;
+
+// 	/// Default constructor
+// 	SplineSet() {}
+
+// 	/// Copy Constructor
+// 	SplineSet(const SplineSet &) = delete;
+
+// 	// Assignment operator
+// 	SplineSet &operator=(const SplineSet &) = delete;
+
+// 	void Resize(const size_t &in_size)
+// 	{
+// 		spline_set.resize(in_size);
+// 	}
+// };
+
 struct SplineSet
 {
 	std::vector<SplineIdx> spline_set;
-	// std::map<int, SplineIdx>  spline_map ;
 
-	// void AddSpline( const int& in_idx, const double *x,
-	//                 const double *y, const size_t& in_size) ;
-
-	void AssignSpline(const int &in_idx, const double *x,
-					  const double *y, const size_t &in_size);
-
-	double Evaluate(const int &in_idx, const double &in_x,
-					gsl_interp_accel *in_accel) const;
-
-	double Derivative(const int &in_idx, const double &in_x,
-					  gsl_interp_accel *in_accel) const;
-
-	double Integrate(const int &in_idx, const Zaki::Math::Range<double> &in_range,
-					 gsl_interp_accel *in_accel) const;
-
-	/// Default constructor
-	SplineSet() {}
-
-	/// Copy Constructor
+	SplineSet() = default;
 	SplineSet(const SplineSet &) = delete;
-
-	// Assignment operator
 	SplineSet &operator=(const SplineSet &) = delete;
 
-	void Resize(const size_t &in_size)
+	void Resize(std::size_t in_size)
 	{
 		spline_set.resize(in_size);
 	}
+
+	std::size_t Size() const noexcept { return spline_set.size(); }
+
+	void AssignSpline(std::size_t idx, const double *x, const double *y, std::size_t n);
+
+	double Evaluate(std::size_t idx, double x, gsl_interp_accel *accel) const;
+
+	double Derivative(std::size_t idx, double x, gsl_interp_accel *accel) const;
+
+	double Integrate(std::size_t idx,
+					 const Zaki::Math::Range<double> &r,
+					 gsl_interp_accel *accel) const;
 };
 
 //==============================================================
@@ -877,8 +927,7 @@ class DataSet
 
 	gsl_interp_accel *accel = nullptr;
 
-	// Used for saving the dataset
-	// Zaki::File::VecSaver vec_saver ;
+	static DataColumn &NullColumn() noexcept;
 
 	/// @brief Header text
 	std::string header_text = "";
@@ -887,13 +936,6 @@ class DataSet
 	std::string footer_text = "";
 
 	SplineSet spline_set;
-
-	// gsl_integration_workspace *integ_workspace = nullptr ;
-	// Zaki::Math::GSLFuncWrapper<DataSet, double (DataSet::*)(const double& )>
-	//          *wrapper_GSL = nullptr ;
-	// gsl_function* func_GSL  = nullptr ;
-
-	// double integ_rel_err = 1e-6 ;
 
 	PlotParam plt_par;
 
@@ -1019,12 +1061,16 @@ class DataSet
 	/**
 	 * @brief Access a column by index (supports negative indexing).
 	 *
-	 * @param i Column index (negative values count from the end).
+	 * Negative indices count from the end, e.g. `-1` refers to the last column.
+	 *
+	 * @param i Column index (may be negative).
 	 *
 	 * @return Reference to the requested DataColumn.
 	 *
-	 * @warning If the index is out of range, an error is logged and
-	 *          column `0` is returned as a fallback.
+	 * @warning If the index is out of range:
+	 *          - In debug builds, this triggers a ZAKI_ASSERT (program abort).
+	 *          - In release builds, an error is logged and a safe null column
+	 *            is returned as a fallback.
 	 *
 	 * @see ResolveIndex()
 	 */
@@ -1033,12 +1079,16 @@ class DataSet
 	/**
 	 * @brief Access a column by index (const, supports negative indexing).
 	 *
-	 * @param i Column index (negative values count from the end).
+	 * Negative indices count from the end, e.g. `-1` refers to the last column.
+	 *
+	 * @param i Column index (may be negative).
 	 *
 	 * @return Const reference to the requested DataColumn.
 	 *
-	 * @warning If the index is out of range, an error is logged and
-	 *          column `0` is returned as a fallback.
+	 * @warning If the index is out of range:
+	 *          - In debug builds, this triggers a ZAKI_ASSERT (program abort).
+	 *          - In release builds, an error is logged and a safe null column
+	 *            is returned as a fallback.
 	 *
 	 * @see ResolveIndex()
 	 */
@@ -1053,8 +1103,10 @@ class DataSet
 	 *
 	 * @return Reference to the matching DataColumn.
 	 *
-	 * @warning If no column with the given label exists, an error is logged
-	 *          and column `0` is returned as a fallback.
+	 * @warning If no column with the given label exists:
+	 *          - In debug builds, this triggers a ZAKI_ASSERT (program abort).
+	 *          - In release builds, an error is logged and a safe null column
+	 *            is returned as a fallback.
 	 */
 	DataColumn &Col(const std::string &label);
 
@@ -1067,8 +1119,10 @@ class DataSet
 	 *
 	 * @return Const reference to the matching DataColumn.
 	 *
-	 * @warning If no column with the given label exists, an error is logged
-	 *          and column `0` is returned as a fallback.
+	 * @warning If no column with the given label exists:
+	 *          - In debug builds, this triggers a ZAKI_ASSERT (program abort).
+	 *          - In release builds, an error is logged and a safe null column
+	 *            is returned as a fallback.
 	 */
 	const DataColumn &Col(const std::string &label) const;
 
@@ -1168,9 +1222,87 @@ class DataSet
 	///  must have the same size as the dataset's width
 	void AppendRow(const std::vector<double> &);
 
-	/// @brief Gets the transpose of data (only selected columns in col_idx)
+	/**
+	 * @brief Return the dataset transposed into rows, with optional column selection.
+	 *
+	 * This method constructs a vector of @ref Row objects, where each Row corresponds
+	 * to one logical row of the dataset and contains values drawn from selected columns.
+	 *
+	 * Column selection is controlled by @p col_idx:
+	 *  - If @p col_idx is empty, **all columns** are used in their natural order.
+	 *  - If @p col_idx is non-empty, each entry is interpreted as a column index:
+	 *      - Non-negative indices select columns from the front.
+	 *      - Negative indices are resolved from the end (Mathematica-style indexing).
+	 *
+	 * Invalid indices are skipped with a warning. If no valid columns remain after
+	 * resolution, the function logs an error and returns an empty vector.
+	 *
+	 * ### Row count policy
+	 * The number of returned rows equals the **minimum length** among the selected
+	 * columns. This allows heterogeneous column sizes while guaranteeing that
+	 * every returned Row is internally consistent.
+	 *
+	 * ### Performance notes
+	 *  - Column indices are resolved once, up front.
+	 *  - Raw pointers to the selected DataColumn objects are cached to avoid repeated
+	 *    lookups.
+	 *  - No dynamic allocation occurs inside the inner row/column loop.
+	 *
+	 * ### Error handling
+	 *  - If the dataset has zero columns, an error is logged and `{}` is returned.
+	 *  - If all requested column indices are invalid, an error is logged and `{}` is returned.
+	 *  - If the minimum column size is zero, `{}` is returned silently.
+	 *
+	 * @param col_idx Optional list of column indices to extract. Supports negative indexing.
+	 *
+	 * @return Vector of Row objects representing the transposed data.
+	 *
+	 * @warning Returned rows are truncated to the shortest selected column.
+	 * @note This function does not modify the dataset.
+	 */
 	std::vector<Row> GetDataRows(
 		const std::vector<int> &col_idx = {}) const;
+
+	/**
+	 * @brief Return the dataset transposed into rows using pre-resolved column indices.
+	 *
+	 * This is a **lower-level, fast variant** of @ref GetDataRows that assumes all column
+	 * indices are already resolved, non-negative, and refer directly to valid columns
+	 * in the dataset.
+	 *
+	 * Unlike GetDataRows, this method:
+	 *  - Does **not** perform negative-index resolution.
+	 *  - Does **not** skip invalid indices.
+	 *  - Enforces a stricter contract: all indices must be valid.
+	 *
+	 * This design makes it suitable for performance-critical paths where column
+	 * resolution is done once (e.g., during setup), and row extraction is performed
+	 * repeatedly.
+	 *
+	 * ### Preconditions
+	 *  - `cols` must not be empty.
+	 *  - Every index in `cols` must satisfy `0 <= idx < ColCount()`.
+	 *
+	 * If any precondition is violated, an error is logged and `{}` is returned.
+	 *
+	 * ### Row count policy
+	 * The number of returned rows equals the **minimum length** among the selected
+	 * columns, identical to @ref GetDataRows.
+	 *
+	 * ### Performance notes
+	 *  - Column pointer lookup is performed once.
+	 *  - No index resolution or validation occurs inside inner loops.
+	 *  - Intended for internal use or advanced callers.
+	 *
+	 * @param cols Vector of resolved column indices (non-negative).
+	 *
+	 * @return Vector of Row objects representing the transposed data.
+	 *
+	 * @warning Passing invalid indices is a logic error.
+	 * @note This function does not modify the dataset.
+	 */
+	std::vector<Row> GetDataRowsResolved(
+		const std::vector<std::size_t> &cols) const;
 
 	/// @brief This is used for reserving memory
 	void SetDefaultDataSize(const size_t);
@@ -1196,9 +1328,29 @@ class DataSet
 	// std::vector<DataColumn> operator[](const std::vector<int> &);
 	// -----------------------------------------------
 
-	/// Trims the data set to its subset ranging from
-	///  idx_1 --> idx_2
-	void Trim(const size_t idx_1, const size_t idx_2);
+	/**
+	 * @brief Erase a contiguous index range from every column in the dataset (in-place).
+	 *
+	 * For each column, removes elements in the half-open range [idx_1, idx_2).
+	 * This operation is performed independently per column. For columns shorter than
+	 * the dataset RowCount(), only the column's own Size() is relevant to validity.
+	 *
+	 * @param idx_1 Start index of the range to erase (inclusive).
+	 * @param idx_2 End index of the range to erase (exclusive).
+	 *
+	 * @pre idx_1 <= idx_2
+	 * @pre For every column c: idx_2 <= c.Size()
+	 *      (If you maintain equal-length columns as an invariant, this reduces to
+	 *      idx_2 <= RowCount().)
+	 *
+	 * @note If idx_1 == idx_2, this is a no-op.
+	 * @warning Modifies the dataset in-place and invalidates iterators/references
+	 *          to erased elements, consistent with std::vector::erase on each column.
+	 *
+	 * @par Debug checks
+	 * In debug builds, the preconditions are enforced via ZAKI_ASSERT.
+	 */
+	void EraseRange(std::size_t idx_1, std::size_t idx_2);
 
 	/// Reserve uses the resize and reserve methods in std::vector
 	/// This is used when the exact number of columns,

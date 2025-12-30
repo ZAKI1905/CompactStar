@@ -184,8 +184,12 @@ void Pulsar::ImportProfile(const std::string &model_name,
 {
 	const Zaki::String::Directory full_path = (wrk_dir_ + in_dir) + model_name + ".tsv";
 
-	prof_.radial.Import(full_path);
+	auto edit = prof_.Edit(); // batches all touches below into one bump
+	prof_.RadialMutable().Import(full_path);
 	view_.p = &prof_;
+
+	// If we later set scalars here, it remains one bump:
+	// prof_.SetSurfaceScalars(M, R, z);
 
 	// optional: same comment as in FindProfile(...)
 	// const std::string seq_path = (wrk_dir_ + in_dir) + model_name + "_Sequence.tsv";

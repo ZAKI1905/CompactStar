@@ -37,7 +37,7 @@ MicroBNVAna::BNV_Sequence::BNV_Sequence(const Zaki::String::Directory &in_dir,
 	seq.MakeSmooth(35);
 
 	// Removing unstable NSs (i.e., after M_max)
-	seq.Trim(seq[1].MaxIdx(), seq[1].Size());
+	seq.EraseRange(seq[1].MaxIdx(), seq[1].Size());
 
 	// Interpolating mass, radius, baryon number, and MomI as a func of eps_c
 	seq.Interpolate(0, {1, 2, 4, 5});
@@ -263,7 +263,7 @@ void MicroBNVAna::BNV_Sequence::Import(const Zaki::String::Directory &in_dir,
 	seq.MakeSmooth(50);
 
 	// Removing unstable NSs (i.e., after M_max)
-	seq.Trim(seq[1].MaxIdx(), seq[1].Size());
+	seq.EraseRange(seq[1].MaxIdx(), seq[1].Size());
 
 	// Find_b_M(2.01) ;
 

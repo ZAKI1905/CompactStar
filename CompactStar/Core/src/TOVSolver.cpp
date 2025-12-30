@@ -1,5 +1,5 @@
 /*
-  Last edited on Dec 9, 2025
+  Last edited on Dec 29, 2025
 
   TOVSolver class
 */
@@ -34,6 +34,64 @@
 using namespace CompactStar::Core;
 
 //==============================================================
+//               Safe Spline Evaluation
+//==============================================================
+static double SafeSplineEval(gsl_spline *sp,
+							 gsl_interp_accel *acc,
+							 double x,
+							 const char *what,
+							 bool clamp = true)
+{
+	if (!sp || !sp->interp)
+	{
+		Z_LOG_ERROR(std::string("SafeSplineEval: null spline for ") + what);
+		return 0.0;
+	}
+
+	const double xmin = sp->interp->xmin;
+	const double xmax = sp->interp->xmax;
+
+	double x_use = x;
+
+	if (clamp)
+	{
+		if (x_use < xmin)
+			x_use = xmin;
+		if (x_use > xmax)
+			x_use = xmax;
+	}
+	else
+	{
+		if (x_use < xmin || x_use > xmax)
+		{
+			Z_LOG_ERROR(std::string("SafeSplineEval: x out of range for ") + what +
+						"  x=" + std::to_string(x_use) +
+						"  [" + std::to_string(xmin) + "," + std::to_string(xmax) + "]");
+			return 0.0;
+		}
+	}
+
+	double y = 0.0;
+	const int status = gsl_spline_eval_e(sp, x_use, acc, &y);
+
+	if (status != GSL_SUCCESS)
+	{
+		Z_LOG_ERROR(std::string("SafeSplineEval: gsl_spline_eval_e failed for ") + what +
+					" status=" + std::to_string(status));
+		return 0.0;
+	}
+
+	if (clamp && x != x_use)
+	{
+		Z_LOG_WARNING(std::string("SafeSplineEval: clamped x for ") + what +
+					  " from " + std::to_string(x) +
+					  " to " + std::to_string(x_use));
+	}
+
+	return y;
+}
+
+//==============================================================
 //                        Sequence class
 //==============================================================
 // Constructor
@@ -60,10 +118,10 @@ void Sequence::Export(const Zaki::String::Directory &in_dir)
 			 "I(km^3)");
 
 	vec_saver.SetHeader(seq_header);
-	std::cout << " ---> in_dir = " << in_dir << "\n";
-	std::cout
-		<< "[debug] Exporting sequence to "
-		<< (wrk_dir_ + in_dir).Str() << "\n";
+	// std::cout << " ---> in_dir = " << in_dir << "\n";
+	// std::cout
+	// 	<< "[debug] Exporting sequence to "
+	// 	<< (wrk_dir_ + in_dir).Str() << "\n";
 	vec_saver.Export1D(seq);
 }
 
@@ -157,6 +215,9 @@ void MixedSequence::Clear()
 // Constructor
 TOVSolver::TOVSolver() : Prog("TOVSolver")
 {
+	// prevent GSL from aborting the entire process on domain errors
+	gsl_set_error_handler_off();
+
 	mixed_r_accel = gsl_interp_accel_alloc();
 	visi_p_accel = gsl_interp_accel_alloc();
 	dark_p_accel = gsl_interp_accel_alloc();
@@ -383,6 +444,25 @@ void TOVSolver::Hidden_ImportEOS_Vis(const Zaki::String::Directory &eos_file, co
 		return;
 	}
 
+	// ---- Free any existing visible splines before re-import ----
+	if (visi_eps_p_spline)
+	{
+		gsl_spline_free(visi_eps_p_spline);
+		visi_eps_p_spline = nullptr;
+	}
+	if (visi_rho_p_spline)
+	{
+		gsl_spline_free(visi_rho_p_spline);
+		visi_rho_p_spline = nullptr;
+	}
+
+	for (auto &sp : visi_rho_i_p_spline)
+	{
+		if (sp)
+			gsl_spline_free(sp);
+	}
+	visi_rho_i_p_spline.clear();
+
 	// clear previous data if any
 	eos_tab.eps.clear();
 	eos_tab.pre.clear();
@@ -407,13 +487,23 @@ void TOVSolver::Hidden_ImportEOS_Vis(const Zaki::String::Directory &eos_file, co
 			}
 		}
 
+		// if ((*loop).size() < 3)
+		// {
+		// 	std::cout << "\n[EOS] (*loop)[0]: " << (*loop)[0] << "\n";
+		// 	std::cout << "[EOS] (*loop).size(): " << (*loop).size() << "\n";
+		// 	std::cout << "[EOS] Line number: " << line_num << "\n";
+		// 	Z_LOG_ERROR("EOS file is not complete!");
+		// 	break;
+		// }
 		if ((*loop).size() < 3)
 		{
-			std::cout << "\n[EOS] (*loop)[0]: " << (*loop)[0] << "\n";
-			std::cout << "[EOS] (*loop).size(): " << (*loop).size() << "\n";
-			std::cout << "[EOS] Line number: " << line_num << "\n";
+			std::cout << "[EOS] Line " << line_num << " has only "
+					  << (*loop).size() << " fields.\n";
+			if ((*loop).size() != 0)
+				std::cout << "  first token: '" << (*loop)[0] << "'\n";
 			Z_LOG_ERROR("EOS file is not complete!");
-			break;
+			continue;
+			;
 		}
 
 		if (line_num == 0)
@@ -491,9 +581,12 @@ void TOVSolver::Hidden_ImportEOS_Vis(const Zaki::String::Directory &eos_file, co
 	{
 		if (eos_tab.pre[i] >= eos_tab.pre[i + 1])
 		{
-			std::cout << "[EOS][WARN] P[" << i << "] = " << eos_tab.pre[i]
-					  << "  >=  P[" << i + 1 << "] = " << eos_tab.pre[i + 1]
-					  << "  (pressure must be strictly increasing for GSL)\n";
+			Z_LOG_ERROR("[EOS][WARN] P[" + std::to_string(i) + "] = " +
+						std::to_string(eos_tab.pre[i]) + "  >=  P[" +
+						std::to_string(i + 1) + "] = " +
+						std::to_string(eos_tab.pre[i + 1]) +
+						"  (pressure must be strictly increasing for GSL)\n");
+			return;
 		}
 	}
 
@@ -501,7 +594,7 @@ void TOVSolver::Hidden_ImportEOS_Vis(const Zaki::String::Directory &eos_file, co
 	visi_eps_p_spline = gsl_spline_alloc(TOV_gsl_interp_type, n);
 	visi_rho_p_spline = gsl_spline_alloc(TOV_gsl_interp_type, n);
 
-	std::cout << "[EOS] Initializing main splines with n = " << n << "\n";
+	Z_LOG_INFO("Initializing main splines for EOS with n = " + std::to_string(n));
 	gsl_spline_init(visi_eps_p_spline,
 					eos_tab.pre.data(),
 					eos_tab.eps.data(),
@@ -517,9 +610,10 @@ void TOVSolver::Hidden_ImportEOS_Vis(const Zaki::String::Directory &eos_file, co
 	{
 		if (eos_tab.rho_i[i].size() != n)
 		{
-			std::cout << "[EOS][WARN] extra column " << i
-					  << " has size " << eos_tab.rho_i[i].size()
-					  << " but expected " << n << " – skipping spline.\n";
+			Z_LOG_WARNING("Extra column " + std::to_string(i) +
+						  " has size " + std::to_string(eos_tab.rho_i[i].size()) +
+						  " but expected " + std::to_string(n) +
+						  " – skipping spline.");
 			visi_rho_i_p_spline.emplace_back(nullptr);
 			continue;
 		}
@@ -581,6 +675,31 @@ void TOVSolver::Hidden_ImportEOS_Dar(const Zaki::String::Directory &eos_file,
 		return;
 	}
 
+	// ---- Free any existing dark splines before re-import ----
+	if (dark_eps_p_spline)
+	{
+		gsl_spline_free(dark_eps_p_spline);
+		dark_eps_p_spline = nullptr;
+	}
+	if (dark_rho_p_spline)
+	{
+		gsl_spline_free(dark_rho_p_spline);
+		dark_rho_p_spline = nullptr;
+	}
+
+	for (auto &sp : dark_rho_i_p_spline)
+	{
+		if (sp)
+			gsl_spline_free(sp);
+	}
+	dark_rho_i_p_spline.clear();
+	// ----------------------------------------
+	eos_tab_dark.eps.clear();
+	eos_tab_dark.pre.clear();
+	eos_tab_dark.rho.clear();
+	eos_tab_dark.rho_i.clear();
+	eos_tab_dark.extra_labels.clear();
+	// ----------------------------------------
 	size_t line_num = 0;
 	// Reading the input file
 	;
@@ -591,21 +710,25 @@ void TOVSolver::Hidden_ImportEOS_Dar(const Zaki::String::Directory &eos_file,
 			std::cout << "\n (*loop)[0]: " << (*loop)[0] << "\n";
 			std::cout << "(*loop).size(): " << (*loop).size() << "\n";
 			Z_LOG_ERROR("EOS file is not complete!");
-			break;
+			continue;
 		}
 
 		// First line
 		if (line_num == 0)
 		{
-			eos_tab_dark.SetLabels((*loop)[0], (*loop)[1], (*loop)[2]);
+			// eos_tab_dark.SetLabels((*loop)[0], (*loop)[1], (*loop)[2]);
 
+			eos_tab_dark.SetLabels(
+				Zaki::String::Strip((*loop)[0], ' '),
+				Zaki::String::Strip((*loop)[1], ' '),
+				Zaki::String::Strip((*loop)[2], ' '));
 			// We want to do this once only
 			if ((*loop).size() > 3)
 			{
 				for (size_t i = 3; i < (*loop).size(); i++)
 				{
 					eos_tab_dark.rho_i.push_back({});
-					eos_tab_dark.AddExtraLabels((*loop)[i]);
+					eos_tab_dark.AddExtraLabels(Zaki::String::Strip((*loop)[i], ' '));
 				}
 			}
 		}
@@ -624,19 +747,57 @@ void TOVSolver::Hidden_ImportEOS_Dar(const Zaki::String::Directory &eos_file,
 
 	Z_LOG_INFO("Dark EOS data imported from: " + full_path.Str() + ".");
 
-	dark_eps_p_spline = gsl_spline_alloc(TOV_gsl_interp_type, eos_tab_dark.Size());
-	dark_rho_p_spline = gsl_spline_alloc(TOV_gsl_interp_type, eos_tab_dark.Size());
-
-	for (size_t i = 0; i < eos_tab_dark.rho_i.size(); i++)
+	const std::size_t n = eos_tab_dark.Size();
+	if (n < 2)
 	{
-		dark_rho_i_p_spline.emplace_back(gsl_spline_alloc(TOV_gsl_interp_type, eos_tab_dark.Size()));
-		gsl_spline_init(dark_rho_i_p_spline[i], &eos_tab_dark.pre[0], &eos_tab_dark.rho_i[i][0], eos_tab_dark.Size());
+		Z_LOG_ERROR("Dark EOS has too few data points (" + std::to_string(n) + ")");
+		return;
+	}
+
+	// ----------------------------------------
+	// Check monotonicity of pressure
+	for (size_t i = 0; i + 1 < eos_tab_dark.pre.size(); ++i)
+	{
+		if (eos_tab_dark.pre[i] >= eos_tab_dark.pre[i + 1])
+		{
+			Z_LOG_ERROR("P[" + std::to_string(i) +
+						"] = " + std::to_string(eos_tab_dark.pre[i]) +
+						" >= P[" + std::to_string(i + 1) + "] = " +
+						std::to_string(eos_tab_dark.pre[i + 1]) +
+						" (pressure must be strictly increasing for GSL)\n");
+			return;
+		}
+	}
+	// ----------------------------------------
+	dark_eps_p_spline = gsl_spline_alloc(TOV_gsl_interp_type, n);
+	dark_rho_p_spline = gsl_spline_alloc(TOV_gsl_interp_type, n);
+
+	// for (size_t i = 0; i < eos_tab_dark.rho_i.size(); i++)
+	// {
+	// 	dark_rho_i_p_spline.emplace_back(gsl_spline_alloc(TOV_gsl_interp_type, n));
+	// 	gsl_spline_init(dark_rho_i_p_spline[i], eos_tab_dark.pre.data(), eos_tab_dark.rho_i[i].data(), n);
+	// }
+	dark_rho_i_p_spline.clear();
+	for (size_t i = 0; i < eos_tab_dark.rho_i.size(); ++i)
+	{
+		if (eos_tab_dark.rho_i[i].size() != n)
+		{
+			Z_LOG_WARNING("[EOS_DARK][WARN] extra column " + std::to_string(i) +
+						  " has size " + std::to_string(eos_tab_dark.rho_i[i].size()) +
+						  " but expected " + std::to_string(n) + " – skipping spline.");
+			dark_rho_i_p_spline.emplace_back(nullptr);
+			continue;
+		}
+
+		gsl_spline *sp = gsl_spline_alloc(TOV_gsl_interp_type, n);
+		gsl_spline_init(sp, eos_tab_dark.pre.data(), eos_tab_dark.rho_i[i].data(), n);
+		dark_rho_i_p_spline.emplace_back(sp);
 	}
 
 	// This function initializes the interpolation object
 	// x has to be strictly increasing
-	gsl_spline_init(dark_eps_p_spline, &eos_tab_dark.pre[0], &eos_tab_dark.eps[0], eos_tab_dark.Size());
-	gsl_spline_init(dark_rho_p_spline, &eos_tab_dark.pre[0], &eos_tab_dark.rho[0], eos_tab_dark.Size());
+	gsl_spline_init(dark_eps_p_spline, eos_tab_dark.pre.data(), eos_tab_dark.eps.data(), n);
+	gsl_spline_init(dark_rho_p_spline, eos_tab_dark.pre.data(), eos_tab_dark.rho.data(), n);
 }
 
 //--------------------------------------------------------------
@@ -688,7 +849,7 @@ void TOVSolver::SetCentralEDensFloorFactor(double f)
 // r is in cm!
 double TOVSolver::GetNuDerSpline(const double &in_r)
 {
-	return gsl_spline_eval(nu_der_r_spline, in_r, mixed_r_accel);
+	return SafeSplineEval(nu_der_r_spline, mixed_r_accel, in_r, "nu'(r) spline");
 }
 
 //--------------------------------------------------------------
@@ -806,14 +967,14 @@ double TOVSolver::GetNuDerSpline(const double &in_r)
 // Input pressure, output energy density
 double TOVSolver::GetEDens(const double &in_pres)
 {
-	return gsl_spline_eval(visi_eps_p_spline, in_pres, visi_p_accel);
+	return SafeSplineEval(visi_eps_p_spline, visi_p_accel, in_pres, "visible eps(p) spline");
 }
 
 //--------------------------------------------------------------
 // Input pressure, output energy density (dark sector)
 double TOVSolver::GetEDens_Dark(const double &in_pres)
 {
-	return gsl_spline_eval(dark_eps_p_spline, in_pres, dark_p_accel);
+	return SafeSplineEval(dark_eps_p_spline, dark_p_accel, in_pres, "dark eps(p) spline");
 }
 
 //--------------------------------------------------------------
@@ -962,15 +1123,45 @@ double TOVSolver::p_of_e(const double &in_e)
 // Inverse function of "GetEDens_Dark"
 double TOVSolver::p_of_e_dark(const double &in_e)
 {
-	double p_min = eos_tab_dark.pre[0];
-	double p_max = eos_tab_dark.pre[eos_tab_dark.pre.size() - 1];
+	// EOS must be present
+	if (eos_tab_dark.eps.empty())
+	{
+		Z_LOG_ERROR("p_of_e_dark(...) called but EOS table is empty.");
+		return 0.0;
+	}
 
+	// double p_min = eos_tab_dark.pre[0];
+	// double p_max = eos_tab_dark.pre[eos_tab_dark.pre.size() - 1];
+
+	const double eos_e_min = eos_tab_dark.eps.front();
+	const double eos_e_max = eos_tab_dark.eps.back();
+	const double p_min = eos_tab_dark.pre.front();
+	const double p_max = eos_tab_dark.pre.back();
+
+	// ----------------------------------------------------------
+	// Outside EOS (below): just return lowest pressure
+	// ----------------------------------------------------------
+	if (in_e <= eos_e_min)
+	{
+		Z_LOG_WARNING("p_of_e_dark: requested e = " + std::to_string(in_e) +
+					  " is below EOS min = " + std::to_string(eos_e_min) +
+					  " -> clamping to p_min.");
+		return p_min;
+	}
+	// ----------------------------------------------------------
+	// Outside EOS (above): just return highest pressure
+	// ----------------------------------------------------------
+	if (in_e >= eos_e_max)
+	{
+		Z_LOG_WARNING("p_of_e_dark: requested e = " + std::to_string(in_e) +
+					  " is above EOS max = " + std::to_string(eos_e_max) +
+					  " -> clamping to p_max.");
+		return p_max;
+	}
+	// ----------------------------------------------------------
+	// Inside EOS range: do the Brent inversion
+	// ----------------------------------------------------------
 	cost_p_of_e_input_dark = in_e;
-
-	// std::cout << "p_min = " << p_min
-	//           << ", p_max = " << p_max ;
-
-	// std::cout << ", p_of_e(" <<in_e << ") = " ;
 
 	Zaki::Math::GSLFuncWrapper<TOVSolver, double (TOVSolver::*)(double)>
 		func(this, &TOVSolver::cost_p_of_e_dark);
@@ -980,8 +1171,11 @@ double TOVSolver::p_of_e_dark(const double &in_e)
 	const gsl_root_fsolver_type *T = gsl_root_fsolver_brent;
 	gsl_root_fsolver *s = gsl_root_fsolver_alloc(T);
 
-	gsl_set_error_handler_off();
-	gsl_root_fsolver_set(s, &F, p_min, p_max);
+	double a = p_min;
+	double b = p_max;
+
+	// gsl_set_error_handler_off(); // Redundant: added to the constructor
+	gsl_root_fsolver_set(s, &F, a, b);
 
 	int iter = 0, max_iter = 250;
 	int status;
@@ -991,22 +1185,16 @@ double TOVSolver::p_of_e_dark(const double &in_e)
 		iter++;
 		status = gsl_root_fsolver_iterate(s);
 		out_p = gsl_root_fsolver_root(s);
-		p_min = gsl_root_fsolver_x_lower(s);
-		p_max = gsl_root_fsolver_x_upper(s);
+		a = gsl_root_fsolver_x_lower(s);
+		b = gsl_root_fsolver_x_upper(s);
 		// status = gsl_root_test_interval (p_min, p_max,
 		//                                   0.0001, 0.0001);
 		// Edited on Apr 25
-		status = gsl_root_test_interval(p_min, p_max,
+		status = gsl_root_test_interval(a, b,
 										p_of_e_prec, p_of_e_prec);
 	} while (status == GSL_CONTINUE && iter < max_iter);
 
 	gsl_root_fsolver_free(s);
-
-	// std::cout << out_p << ", GetEDens("
-	//           << out_p << ") = "
-	//           << GetEDens_Dark(out_p) << ", iter = " << iter
-	//           << ", p_min = " << p_min
-	//           << ", p_max = " << p_max << "\n" ;
 
 	return out_p;
 }
@@ -1014,14 +1202,15 @@ double TOVSolver::p_of_e_dark(const double &in_e)
 //--------------------------------------------------------------
 double TOVSolver::PressureCutoff() const
 {
-	// return std::max(1.e-15 * GetInitPress(), eos_tab.pre[0]) ;
-	return eos_tab.pre[0];
+	return std::max(1.e-15 * GetInitPress(), eos_tab.pre[0]);
+	// return eos_tab.pre[0];
 }
 
 //--------------------------------------------------------------
 double TOVSolver::PressureCutoff_Dark() const
 {
-	return eos_tab_dark.pre[0];
+	return std::max(1.e-15 * GetInitPress_Dark(), eos_tab_dark.pre[0]);
+	// return eos_tab_dark.pre[0];
 }
 
 //--------------------------------------------------------------
@@ -1042,7 +1231,7 @@ int TOVSolver::ODE_Dark_Core(double r, const double y[], double f[], void *param
 	TOVSolver *tov_obj = (TOVSolver *)params;
 
 	// Visible surface reached
-	if (y[2] < tov_obj->PressureCutoff())
+	if (y[2] <= tov_obj->PressureCutoff())
 	{
 #if TOV_SOLVER_VERBOSE
 		printf("\u2554----------------- Visible Core Surface reached ----------------\u2557\n");
@@ -1063,7 +1252,7 @@ int TOVSolver::ODE_Dark_Core(double r, const double y[], double f[], void *param
 	}
 
 	// Dark core surface reached
-	if (y[3] < tov_obj->PressureCutoff_Dark())
+	if (y[3] <= tov_obj->PressureCutoff_Dark())
 	{
 #if TOV_SOLVER_VERBOSE
 		printf("\u2554----------------- Dark Core Surface reached ----------------\u2557\n");
@@ -1112,7 +1301,7 @@ int TOVSolver::ODE_Dark_Mantle(double r, const double y[], double f[], void *par
 	double m_c = tov_obj->m_core;
 
 	// Surface reached
-	if (tov_obj->dark_core && y[1] < tov_obj->PressureCutoff())
+	if (tov_obj->dark_core && y[1] <= tov_obj->PressureCutoff())
 	{
 #if TOV_SOLVER_VERBOSE
 		printf("\u2554----------------- Vis. Mantle Surface reached ----------------\u2557\n");
@@ -1129,7 +1318,7 @@ int TOVSolver::ODE_Dark_Mantle(double r, const double y[], double f[], void *par
 #endif
 		return GSL_EBADFUNC;
 	}
-	if (!(tov_obj->dark_core) && y[1] < tov_obj->PressureCutoff_Dark())
+	if (!(tov_obj->dark_core) && y[1] <= tov_obj->PressureCutoff_Dark())
 	{
 #if TOV_SOLVER_VERBOSE
 		printf("\u2554----------------- Dark Mantle Surface reached ----------------\u2557\n");
@@ -1246,14 +1435,14 @@ double TOVSolver::GetNuDer_Dark(const double r, const std::vector<double> &y)
 /// Returns the total baryon number density given pressure
 double TOVSolver::GetRho(const double &in_p)
 {
-	return gsl_spline_eval(visi_rho_p_spline, in_p, visi_p_accel);
+	return SafeSplineEval(visi_rho_p_spline, visi_p_accel, in_p, "visible rho(p) spline");
 }
 
 //--------------------------------------------------------------
 /// Returns the total baryon number density given pressure
 double TOVSolver::GetRho_Dark(const double &in_p)
 {
-	return gsl_spline_eval(dark_rho_p_spline, in_p, dark_p_accel);
+	return SafeSplineEval(dark_rho_p_spline, dark_p_accel, in_p, "dark rho(p) spline");
 }
 
 //--------------------------------------------------------------
@@ -1265,7 +1454,12 @@ std::vector<double> TOVSolver::GetRho_i(const double &in_p)
 
 	for (auto sp : visi_rho_i_p_spline)
 	{
-		out.push_back(gsl_spline_eval(sp, in_p, visi_p_accel));
+		if (!sp)
+		{
+			out.push_back(0.0);
+			continue;
+		} // or NaN if we prefer
+		out.push_back(SafeSplineEval(sp, visi_p_accel, in_p, "visible rho_i(p) spline"));
 	}
 
 	return out;
@@ -1280,7 +1474,12 @@ std::vector<double> TOVSolver::GetRho_i_Dark(const double &in_p)
 
 	for (auto sp : dark_rho_i_p_spline)
 	{
-		out.push_back(gsl_spline_eval(sp, in_p, dark_p_accel));
+		if (!sp)
+		{
+			out.push_back(0.0);
+			continue;
+		} // or NaN if we prefer
+		out.push_back(SafeSplineEval(sp, dark_p_accel, in_p, "dark rho_i(p) spline"));
 	}
 
 	return out;
@@ -1551,22 +1750,32 @@ void TOVSolver::RadiusLoop(double &in_r, double *in_y)
 	gsl_odeiv2_driver *tmp_driver = gsl_odeiv2_driver_alloc_y_new(&ode_sys, gsl_odeiv2_step_rk8pd,
 																  1.e-1, 1.e-10, 1.e-10);
 	//----------------------------------------
-
+	//          RADIAL GRID SETUP
+	//----------------------------------------
+	// Logarithmic grid
 	// double min_log_r = log10(r_min) ;
 	// double max_log_r = log10(r_max) ;
-
-	double min_log_r = r_min;
-	double max_log_r = r_max;
-
-	double step = (max_log_r - min_log_r) / radial_res;
+	// double step = (max_log_r - min_log_r) / radial_res;
+	//----------------------------------------
+	// Linear grid
+	double step = (r_max - r_min) / radial_res;
+	//----------------------------------------
 	double step_scale = 1; // Adaptive steps (Aug 6, 2020)
 
 	// results.reserve(1000) ; // (deleted on Apr 22, 2022)
 	// double error_estimate = 0 ; (added on Apr 23, 2023)
-	for (double log_r_i = min_log_r; log_r_i <= max_log_r; log_r_i += step * step_scale)
+	// ----------------------------------------
+	//          RADIUS LOOP
+	// ----------------------------------------
+	// Logarithmic steps
+	// for (double log_r_i = min_log_r; log_r_i <= max_log_r; log_r_i += step * step_scale)
+	// Linear steps
+	for (double r_i = r_min; r_i <= r_max; r_i += step * step_scale)
 	{
+		//  If using logarithmic grid
 		// double ri = pow(10, log_r_i) ;
-		double ri = log_r_i;
+		// If using linear grid
+		double ri = r_i;
 
 		double tmp_delta_p = in_y[1]; // Adaptive steps (Aug 6, 2020)
 
@@ -1658,6 +1867,10 @@ void TOVSolver::RadiusLoop(double &in_r, double *in_y)
 					   GetNuDer(in_r, {in_y[0], in_y[1]}), 0,
 					   in_y[1], GetEDens(in_y[1]),
 					   GetRho(in_y[1]), GetRho_i(in_y[1])});
+
+		// Hard stop once we are at/below cutoff
+		if (in_y[1] <= PressureCutoff())
+			break;
 	}
 	// std::cout << "\n\n err ( y[0] ) = " << error_estimate / GSL_CONST_CGSM_SOLAR_MASS ;
 	gsl_odeiv2_driver_free(tmp_driver);
@@ -2799,57 +3012,103 @@ void TOVSolver::RadiusLoopMixed(double &in_r, double *in_y,
 			// tmp_delta_p = (tmp_delta_p - in_y_mantle[1]) / in_y_mantle[1] ;
 		}
 
+		// 		if (status != GSL_SUCCESS)
+		// 		{
+		// #if TOV_SOLVER_VERBOSE
+		// 			printf("\t-------------------%s-------------------\n", "GSL");
+		// 			printf("\t GSL error, return value=%d\n", status);
+		// #endif
+		// 			if (CORE_REGION)
+		// 			{
+		// #if TOV_SOLVER_VERBOSE
+		// 				printf("\t Visible Pressure = %2.2e.\n", in_y[2]);
+		// 				printf("\t Dark Pressure    = %2.2e.\n", in_y[3]);
+		// #endif
+		// 				if (dark_core)
+		// 				{
+		// 					m_core = in_y[1];
+
+		// 					// Initial condition for ODE_Mantle
+		// 					in_y_mantle[0] = in_y[0];
+		// 					in_y_mantle[1] = in_y[2];
+		// 				}
+		// 				else
+		// 				{
+		// 					m_core = in_y[0];
+
+		// 					// Initial condition for ODE_Mantle
+		// 					in_y_mantle[0] = in_y[1];
+		// 					in_y_mantle[1] = in_y[3];
+		// #if TOV_SOLVER_VERBOSE
+		// 					std::cout << "\n\t m_core = " << in_y[0] / GSL_CONST_CGSM_SOLAR_MASS << "\n";
+		// 					std::cout << "\t in_y_mantle[0] = " << in_y_mantle[0] << "\n";
+		// 					std::cout << "\t in_y_mantle[1] = " << in_y_mantle[1] << "\n";
+		// #endif
+		// 				}
+
+		// 				CORE_REGION = false;
+		// 				gsl_odeiv2_driver_free(tmp_driver_core);
+		// 			}
+		// 			else // Mantle's surface reached!
+		// 			{
+		// #if TOV_SOLVER_VERBOSE
+		// 				printf("\t  Surface Pressure = %2.2e.\n", in_y_mantle[1]);
+		// 				printf("\t-------------------%s-------------------\n", "GSL");
+		// #endif
+		// 				break;
+		// 			}
+		// #if TOV_SOLVER_VERBOSE
+		// 			printf("\t-------------------%s-------------------\n", "GSL");
+		// #endif
+
+		// 			// Experimental : NOT SURE !!!!!!!!!!!!!!!!!!!
+		// 			continue; // Jump over the boundary to avoid duplicate values
+		// 		}
 		if (status != GSL_SUCCESS)
 		{
-#if TOV_SOLVER_VERBOSE
-			printf("\t-------------------%s-------------------\n", "GSL");
-			printf("\t GSL error, return value=%d\n", status);
-#endif
-			if (CORE_REGION)
+			// Expected "event" from our RHS: pressure crossed cutoff
+			if (status == GSL_EBADFUNC)
 			{
-#if TOV_SOLVER_VERBOSE
-				printf("\t Visible Pressure = %2.2e.\n", in_y[2]);
-				printf("\t Dark Pressure    = %2.2e.\n", in_y[3]);
-#endif
-				if (dark_core)
+				if (CORE_REGION)
 				{
-					m_core = in_y[1];
+					// ODE_Dark_Core sets tov_obj->dark_core to tell us which component ended first
+					if (dark_core)
+					{
+						// Dark pressure hit cutoff first => dark is the core, visible continues as mantle
+						m_core = in_y[1];
 
-					// Initial condition for ODE_Mantle
-					in_y_mantle[0] = in_y[0];
-					in_y_mantle[1] = in_y[2];
+						in_y_mantle[0] = in_y[0]; // visible mass at boundary radius
+						in_y_mantle[1] = in_y[2]; // visible pressure at boundary radius
+					}
+					else
+					{
+						// Visible pressure hit cutoff first => visible is the core, dark continues as mantle
+						m_core = in_y[0];
+
+						in_y_mantle[0] = in_y[1]; // dark mass at boundary radius
+						in_y_mantle[1] = in_y[3]; // dark pressure at boundary radius
+					}
+
+					CORE_REGION = false;
+					gsl_odeiv2_driver_free(tmp_driver_core);
+
+					// Important: We do NOT treat this like a generic failure; just move on in mantle mode
+					continue;
 				}
 				else
 				{
-					m_core = in_y[0];
-
-					// Initial condition for ODE_Mantle
-					in_y_mantle[0] = in_y[1];
-					in_y_mantle[1] = in_y[3];
-#if TOV_SOLVER_VERBOSE
-					std::cout << "\n\t m_core = " << in_y[0] / GSL_CONST_CGSM_SOLAR_MASS << "\n";
-					std::cout << "\t in_y_mantle[0] = " << in_y_mantle[0] << "\n";
-					std::cout << "\t in_y_mantle[1] = " << in_y_mantle[1] << "\n";
-#endif
+					// Mantle surface reached
+					break;
 				}
+			}
 
-				CORE_REGION = false;
-				gsl_odeiv2_driver_free(tmp_driver_core);
-			}
-			else // Mantle's surface reached!
-			{
-#if TOV_SOLVER_VERBOSE
-				printf("\t  Surface Pressure = %2.2e.\n", in_y_mantle[1]);
-				printf("\t-------------------%s-------------------\n", "GSL");
-#endif
-				break;
-			}
+			// Anything else is a real integration failure
 #if TOV_SOLVER_VERBOSE
 			printf("\t-------------------%s-------------------\n", "GSL");
+			printf("\t GSL error, return value=%d\n", status);
+			printf("\t-------------------%s-------------------\n", "GSL");
 #endif
-
-			// Experimental : NOT SURE !!!!!!!!!!!!!!!!!!!
-			continue; // Jump over the boundary to avoid duplicate values
+			break; // or return;
 		}
 
 		if (CORE_REGION)

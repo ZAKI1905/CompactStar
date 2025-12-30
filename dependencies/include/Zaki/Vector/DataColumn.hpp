@@ -578,13 +578,27 @@ struct DataColumn
 	DataColumn GetSubSet(const size_t idx_1, const size_t idx_2) const;
 
 	/**
-	 * @brief Trim the column in-place to the index range [idx_1, idx_2] (implementation-defined inclusivity).
-	 * @param idx_1 Start index.
-	 * @param idx_2 End index.
-	 * @warning Modifies the current DataColumn.
-	 * @note Exclusive of idx_2
+	 * @brief Erase a contiguous index range from the column (in-place).
+	 *
+	 * Removes elements in the half-open range [idx_1, idx_2), i.e. indices
+	 * idx_1, idx_1+1, ..., idx_2-1 are deleted and the remaining elements are
+	 * compacted to preserve order (std::vector erase semantics).
+	 *
+	 * @param idx_1 Start index of the range to erase (inclusive).
+	 * @param idx_2 End index of the range to erase (exclusive).
+	 *
+	 * @pre idx_1 <= idx_2
+	 * @pre idx_2 <= Size()
+	 *
+	 * @note If idx_1 == idx_2, this is a no-op.
+	 * @warning Modifies the current DataColumn and invalidates iterators/references
+	 *          to erased elements (and typically to elements after idx_1 as well),
+	 *          consistent with std::vector::erase.
+	 *
+	 * @par Debug checks
+	 * In debug builds, the preconditions are enforced via ZAKI_ASSERT.
 	 */
-	void Trim(const size_t idx_1, const size_t idx_2);
+	void EraseRange(std::size_t idx_1, std::size_t idx_2);
 
 	// ----------------------------
 	// Search helpers

@@ -424,10 +424,18 @@ my_gsl_error_handler(const char *reason,
 //==============================================================
 int main()
 {
-	using namespace CompactStar;
-
 	// Resolve path roots relative to this translation unit.
 	const Zaki::String::Directory this_file_dir(__FILE__);
+
+	// Canonical run paths under "<...>/results/<out_dir>/"
+	const Zaki::String::Directory base_results_dir = this_file_dir.ParentDir() + "/results";
+	const Zaki::String::Directory out_dir = "spin_therm_evol_2";
+
+	Zaki::Util::Instrumentor::BeginSession("spin-therm-evol-2-main", base_results_dir + out_dir + "/timing_profile.json");
+
+	PROFILE_FUNCTION();
+
+	using namespace CompactStar;
 
 	// -------------------------------------------------------
 	// 0) GSL + logging
@@ -436,10 +444,6 @@ int main()
 
 	Zaki::Util::LogManager::SetLogLevels(Zaki::Util::LogLevel::Info);
 	Zaki::Util::LogManager::SetBlackWhite(false);
-
-	// Canonical run paths under "<...>/results/<out_dir>/"
-	const Zaki::String::Directory base_results_dir = this_file_dir.ParentDir() + "/results";
-	const Zaki::String::Directory out_dir = "spin_therm_evol_2";
 
 	const Physics::Evolution::Run::RunPaths paths =
 		Physics::Evolution::Run::MakeRunPaths(base_results_dir, out_dir, "spin_therm_evol_2_main.log");
@@ -493,7 +497,7 @@ int main()
 	cfg.rtol = 1e-6;
 	cfg.atol = 1e-10;
 	cfg.max_steps = 1'000'000;
-	cfg.dt_save = 1.0e5;
+	cfg.dt_save = 1.0e6;
 
 	// -------------------------------------------------------
 	// 4) DriverContext wiring
@@ -635,7 +639,7 @@ int main()
 	Physics::Evolution::GSLIntegrator integrator(system, cfg, wiring.dim);
 
 	const double t0 = 0.0;
-	const double t1 = 1.0e10;
+	const double t1 = 1.0e9;
 
 	const bool ok = integrator.Integrate(t0, t1, y.data());
 	if (!ok)
@@ -654,6 +658,8 @@ int main()
 	std::cout << "  Omega = " << spin.Omega() << " rad/s\n";
 
 	std::cout << "[debug] done.\n";
+
+	Zaki::Util::Instrumentor::EndSession();
 	return 0;
 }
 //==============================================================

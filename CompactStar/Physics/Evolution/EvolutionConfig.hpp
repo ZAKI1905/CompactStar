@@ -91,7 +91,7 @@ struct Config
 	std::size_t max_steps = 1000000;		  /*!< Safety cap on total GSL steps.            */
 
 	// ---- Output ----------------------------------------------------------
-	double dt_save = 1.0e2; /*!< Spacing of requested saved samples (s). */
+	double dt_save = 1.0e5; /*!< Spacing of requested saved samples (s). */
 	bool save_intermediate = true;
 
 	// ---- Physics toggles -------------------------------------------------

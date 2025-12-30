@@ -127,6 +127,18 @@ double IntegrateTrapzIdx(const std::vector<double> &x, const std::vector<double>
 						 std::size_t i0, std::size_t i1) noexcept;
 
 /**
+ * @brief Fast trapezoidal integration over an index range [i0, i1] for DataColumn & vector.
+ *
+ * @param x   Sample locations (same length as y).
+ * @param y   Sample values.
+ * @param i0  Start index (inclusive).
+ * @param i1  End index (inclusive).
+ * @return Approximate integral using the trapezoidal rule.
+ */
+double IntegrateTrapzIdx(const DataColumn &x, const std::vector<double> &y,
+						 std::size_t i0, std::size_t i1) noexcept;
+
+/**
  * @brief Convenience trapezoidal integration over physical bounds (xmin, xmax) on DataColumns.
  *
  * Internally resolves indices using FindIndexRangeMonotonic(x, xmin, xmax),

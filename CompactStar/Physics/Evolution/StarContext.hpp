@@ -39,6 +39,8 @@
 
 // #include <Zaki/Vector/DataSet.hpp>
 #include <cstddef>
+#include <cstdint>
+#include <memory>
 
 namespace Zaki::Vector
 {
@@ -88,11 +90,27 @@ class StarContext
 	const Zaki::Vector::DataColumn *Lambda() const { return m_lam; } ///< lambda
 
 	// --------------------
-	// Thermodynamic background (optional)
+	// Thermodynamic background quantities
 	// --------------------
 	const Zaki::Vector::DataColumn *BaryonDensity() const { return m_nb; }	///< nB(fm^-3) or nullptr
 	const Zaki::Vector::DataColumn *Pressure() const { return m_pre; }		///< p (km^-2)
 	const Zaki::Vector::DataColumn *EnergyDensity() const { return m_eps; } ///< eps (km^-2)
+
+	// --------------------
+	// Derived cached columns
+	// --------------------
+	/**
+	 * @brief Mass density in g/cm^3 (cached derived column).
+	 *
+	 * This is computed from the profile's energy density (km^-2) using:
+	 *   rho = eps / c^2  (in geometrized units with G=c=1, eps has length^-2)
+	 * and converted to cgs: g/cm^3.
+	 *
+	 * Cache invalidation is based on StarProfile versioning.
+	 *
+	 * @return Pointer to cached column, or nullptr if energy density is unavailable.
+	 */
+	const Zaki::Vector::DataColumn *MassDensity_gcm3() const;
 
 	// --------------------
 	// Global scalars (derived from columns)
@@ -104,6 +122,13 @@ class StarContext
   private:
 	void BindColumnsOrThrow_(); // sets m_r/m_m/m_nu/m_lam/m_nb/m_pre/m_eps
 	void ValidateOrThrow_();	// checks consistent row counts for required cols
+
+	// Derived cache helpers
+	void RefreshDerivedCachesIfNeeded_() const;
+	void BuildMassDensityCache_() const;
+
+	// Convenience: current version from profile
+	std::uint64_t ProfileVersion_() const;
 
   private:
 	const CompactStar::Core::StarProfile *m_prof = nullptr;
@@ -117,6 +142,11 @@ class StarContext
 	const Zaki::Vector::DataColumn *m_nb = nullptr;	 ///< nB(fm^-3)
 	const Zaki::Vector::DataColumn *m_pre = nullptr; ///< p (km^-2)
 	const Zaki::Vector::DataColumn *m_eps = nullptr; ///< eps (km^-2)
+
+	// -------- derived caches (owned by StarContext) --------
+	mutable std::uint64_t m_cached_version = 0;
+
+	mutable std::unique_ptr<Zaki::Vector::DataColumn> m_rho_gcm3; // cached derived column
 };
 
 } // namespace CompactStar::Physics::Evolution

@@ -4,7 +4,7 @@
     "tag": "",
     "output_dir": "",
     "t0": 0,
-    "tf": 10000000000
+    "tf": 1000000000
   },
   "table": {
     "path": "/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results//spin_therm_evol_2/timeseries.csv",
