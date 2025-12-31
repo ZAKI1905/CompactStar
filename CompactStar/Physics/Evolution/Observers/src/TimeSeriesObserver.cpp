@@ -31,13 +31,17 @@
 
 #include "CompactStar/Physics/Evolution/Observers/TimeSeriesObserver.hpp"
 
+#include <Zaki/Util/Logger.hpp>
+#include <algorithm>
+#include <array>
+#include <charconv>
 #include <cmath>
+#include <cstring>
 #include <iomanip>
 #include <limits>
 #include <stdexcept>
+#include <type_traits>
 #include <unordered_set>
-
-#include <Zaki/Util/Logger.hpp>
 
 #include "CompactStar/Physics/Evolution/Diagnostics/DiagnosticPacket.hpp"
 #include "CompactStar/Physics/Evolution/Diagnostics/DiagnosticsCatalogJson.hpp"
@@ -97,6 +101,79 @@ bool IsEmptyPath(const Zaki::String::Directory &p)
 {
 	return p.Str().empty();
 }
+//------------------------------------------------------------------------------
+constexpr std::size_t kMinFlushBytes = 64 * 1024; // 64 KiB
+
+inline std::size_t ClampFlushBytes(std::size_t v)
+{
+	return (v < kMinFlushBytes) ? kMinFlushBytes : v;
+}
+
+//------------------------------------------------------------------------------
+// static inline void AppendUInt64(std::vector<char> &buf, std::size_t &used, std::uint64_t x,
+// 								std::function<void(const char *, std::size_t)> emit)
+// {
+// 	char tmp[32];
+// 	auto res = std::to_chars(tmp, tmp + sizeof(tmp), x);
+// 	if (res.ec == std::errc())
+// 		emit(tmp, static_cast<std::size_t>(res.ptr - tmp));
+// 	else
+// 		emit("0", 1);
+// }
+
+//------------------------------------------------------------------------------
+// static inline void AppendDouble(std::function<void(const char *, std::size_t)> emit,
+// 								double v, int /*precision*/)
+// {
+// 	if (!std::isfinite(v))
+// 	{
+// 		emit("nan", 3);
+// 		return;
+// 	}
+
+// 	// #if defined(__cpp_lib_to_chars) && (__cpp_lib_to_chars >= 201611L)
+// 	// Use shortest roundtrip string. For fixed precision,
+// 	// we'd need fmt or snprintf; for regression, shortest roundtrip is usually ideal.
+// 	char tmp[64];
+// 	auto res = std::to_chars(tmp, tmp + sizeof(tmp), v, std::chars_format::general);
+// 	if (res.ec == std::errc())
+// 	{
+// 		emit(tmp, static_cast<std::size_t>(res.ptr - tmp));
+// 		return;
+// 	}
+// 	// #endif
+
+// 	// Fallback: snprintf with %.17g (full double precision-ish)
+// 	// char tmp[64];
+// 	// int n = std::snprintf(tmp, sizeof(tmp), "%.17g", v);
+// 	// if (n > 0)
+// 	// 	emit(tmp, static_cast<std::size_t>(n));
+// 	// else
+// 	// 	emit("nan", 3);
+// }
+
+template <class Emit>
+static inline void AppendDouble(Emit &&emit, double v)
+{
+	if (!std::isfinite(v))
+	{
+		emit("nan", 3);
+		return;
+	}
+
+	// Use shortest round-trip representation for doubles.
+	char tmp[64];
+	auto res = std::to_chars(tmp, tmp + sizeof(tmp), v, std::chars_format::general);
+	if (res.ec == std::errc())
+	{
+		emit(tmp, static_cast<std::size_t>(res.ptr - tmp));
+		return;
+	}
+
+	// Extremely rare fallback (keep output parseable).
+	emit("nan", 3);
+}
+
 } // namespace
 
 //------------------------------------------------------------------------------
@@ -178,6 +255,56 @@ void TimeSeriesObserver::AdvanceTimeTrigger(double t)
 //------------------------------------------------------------------------------
 //  Output utilities
 //------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+// Append raw bytes to streambuf_
+//------------------------------------------------------------------------------
+inline void TimeSeriesObserver::AppendBytes_(const char *p, std::size_t n)
+{
+	if (n == 0)
+		return;
+
+	if (!opts_.buffered_io)
+	{
+		out_.write(p, static_cast<std::streamsize>(n));
+		return;
+	}
+
+	// Reserve growth policy: keep it amortized.
+	if (out_buf_.size() < out_buf_bytes + n)
+	{
+		// Grow to at least current+n, with slack.
+		out_buf_.resize(std::max(out_buf_bytes + n, out_buf_.size() * 2 + 1024));
+	}
+
+	std::memcpy(out_buf_.data() + out_buf_bytes, p, n);
+	out_buf_bytes += n;
+
+	const std::size_t flush_limit = ClampFlushBytes(opts_.flush_bytes);
+
+	if (out_buf_bytes >= flush_limit)
+		FlushBuffer_();
+}
+
+//------------------------------------------------------------------------------
+inline void TimeSeriesObserver::AppendChar_(char c)
+{
+	AppendBytes_(&c, 1);
+}
+
+//------------------------------------------------------------------------------
+inline void TimeSeriesObserver::AppendDelim_()
+{
+	const char *d = Delim();
+	AppendBytes_(d, std::strlen(d));
+}
+
+//------------------------------------------------------------------------------
+inline void TimeSeriesObserver::AppendNewline_()
+{
+	AppendChar_('\n');
+}
+
+//------------------------------------------------------------------------------
 const char *TimeSeriesObserver::Delim() const
 {
 	switch (opts_.format)
@@ -191,51 +318,119 @@ const char *TimeSeriesObserver::Delim() const
 }
 
 //------------------------------------------------------------------------------
+void TimeSeriesObserver::FlushBuffer_()
+{
+	if (!opts_.buffered_io)
+		return;
+
+	if (!out_ || out_buf_bytes == 0)
+		return;
+
+	out_.write(out_buf_.data(), static_cast<std::streamsize>(out_buf_bytes));
+	out_buf_bytes = 0;
+}
+
+//------------------------------------------------------------------------------
+// void TimeSeriesObserver::OpenOutput()
+// {
+// 	if (IsEmptyPath(opts_.output_path))
+// 	{
+// 		throw std::runtime_error("TimeSeriesObserver: Options.output_path is empty.");
+// 	}
+
+// 	const std::ios_base::openmode mode =
+// 		std::ios::out | (opts_.append ? std::ios::app : std::ios::trunc);
+
+// 	out_.open(opts_.output_path.Str(), mode);
+// 	if (!out_)
+// 	{
+// 		throw std::runtime_error(
+// 			"TimeSeriesObserver: failed to open output file: " + opts_.output_path.Str());
+// 	}
+
+// 	// Prefer deterministic formatting across platforms.
+// 	out_ << std::setprecision(opts_.float_precision);
+// }
+
 void TimeSeriesObserver::OpenOutput()
 {
 	if (IsEmptyPath(opts_.output_path))
-	{
 		throw std::runtime_error("TimeSeriesObserver: Options.output_path is empty.");
-	}
 
 	const std::ios_base::openmode mode =
 		std::ios::out | (opts_.append ? std::ios::app : std::ios::trunc);
 
 	out_.open(opts_.output_path.Str(), mode);
 	if (!out_)
-	{
-		throw std::runtime_error(
-			"TimeSeriesObserver: failed to open output file: " + opts_.output_path.Str());
-	}
+		throw std::runtime_error("TimeSeriesObserver: failed to open output file: " + opts_.output_path.Str());
 
-	// Prefer deterministic formatting across platforms.
-	out_ << std::setprecision(opts_.float_precision);
+	// Initialize IO buffer
+	out_buf_bytes = 0;
+
+	if (opts_.buffered_io)
+	{
+		// constexpr std::size_t kMinFlushBytes = 64 * 1024; // 64 KiB
+		// const std::size_t flush_limit =
+		// 	(opts_.flush_bytes < kMinFlushBytes) ? kMinFlushBytes : opts_.flush_bytes;
+
+		const std::size_t flush_limit = ClampFlushBytes(opts_.flush_bytes);
+		// Allocate a bit more than flush threshold to reduce resizes
+		out_buf_.assign(std::max<std::size_t>(flush_limit + 4096, 64 * 1024), '\0');
+	}
 }
 
 //------------------------------------------------------------------------------
+// void TimeSeriesObserver::WriteHeader()
+// {
+// 	if (!out_)
+// 		return;
+
+// 	// If user did not specify columns, default to something sensible:
+// 	// time, sample_index, Tinf_K, Omega_rad_s (if present).
+// 	// However, because you explicitly asked for “full implementation”, we keep
+// 	// behavior strict: if columns are empty, we still write a minimal header.
+// 	if (opts_.columns.empty())
+// 	{
+// 		out_ << "t" << Delim() << "sample_index" << "\n";
+// 		header_written_ = true;
+// 		return;
+// 	}
+
+// 	for (std::size_t i = 0; i < opts_.columns.size(); ++i)
+// 	{
+// 		out_ << opts_.columns[i].key;
+// 		if (i + 1 < opts_.columns.size())
+// 			out_ << Delim();
+// 	}
+// 	out_ << "\n";
+// 	header_written_ = true;
+// }
+
 void TimeSeriesObserver::WriteHeader()
 {
 	if (!out_)
 		return;
 
-	// If user did not specify columns, default to something sensible:
-	// time, sample_index, Tinf_K, Omega_rad_s (if present).
-	// However, because you explicitly asked for “full implementation”, we keep
-	// behavior strict: if columns are empty, we still write a minimal header.
+	auto emit = [this](const char *p, std::size_t n)
+	{ AppendBytes_(p, n); };
+
 	if (opts_.columns.empty())
 	{
-		out_ << "t" << Delim() << "sample_index" << "\n";
+		emit("t", 1);
+		AppendDelim_();
+		emit("sample_index", 12);
+		AppendNewline_();
 		header_written_ = true;
 		return;
 	}
 
 	for (std::size_t i = 0; i < opts_.columns.size(); ++i)
 	{
-		out_ << opts_.columns[i].key;
+		emit(opts_.columns[i].key.c_str(), opts_.columns[i].key.size());
 		if (i + 1 < opts_.columns.size())
-			out_ << Delim();
+			AppendDelim_();
 	}
-	out_ << "\n";
+	AppendNewline_();
 	header_written_ = true;
 }
 
@@ -350,6 +545,60 @@ void TimeSeriesObserver::WriteSidecarMetadata(const RunInfo &run) const
 }
 
 //------------------------------------------------------------------------------
+// void TimeSeriesObserver::WriteRow(const SampleInfo &s,
+// 								  const Evolution::StateVector &Y,
+// 								  const Evolution::DriverContext &ctx)
+// {
+// 	if (!out_)
+// 		return;
+
+// 	// If user did not configure columns, emit minimal “t, sample_index”.
+// 	if (opts_.columns.empty())
+// 	{
+// 		out_ << std::setprecision(opts_.float_precision)
+// 			 << s.t << Delim() << s.sample_index << "\n";
+// 		out_.flush();
+// 		AdvanceTimeTrigger(s.t);
+// 		return;
+// 	}
+
+// 	for (std::size_t i = 0; i < opts_.columns.size(); ++i)
+// 	{
+// 		const auto &col = opts_.columns[i];
+
+// 		double v = std::numeric_limits<double>::quiet_NaN();
+// 		switch (col.source)
+// 		{
+// 		case ColumnSource::BuiltinState:
+// 			v = ExtractBuiltin(col, s, Y, ctx);
+// 			break;
+// 		case ColumnSource::DriverScalar:
+// 			v = ExtractDriverScalar(col, s, Y, ctx);
+// 			break;
+// 		default:
+// 			v = std::numeric_limits<double>::quiet_NaN();
+// 			break;
+// 		}
+
+// 		// Print value
+// 		if (std::isfinite(v))
+// 		{
+// 			out_ << std::setprecision(opts_.float_precision) << v;
+// 		}
+// 		else
+// 		{
+// 			// Keep parseable: "nan" is accepted by many toolchains.
+// 			out_ << "nan";
+// 		}
+
+// 		if (i + 1 < opts_.columns.size())
+// 			out_ << Delim();
+// 	}
+// 	out_ << "\n";
+
+// 	out_.flush();
+// 	AdvanceTimeTrigger(s.t);
+// }
 void TimeSeriesObserver::WriteRow(const SampleInfo &s,
 								  const Evolution::StateVector &Y,
 								  const Evolution::DriverContext &ctx)
@@ -357,12 +606,25 @@ void TimeSeriesObserver::WriteRow(const SampleInfo &s,
 	if (!out_)
 		return;
 
-	// If user did not configure columns, emit minimal “t, sample_index”.
+	auto emit = [this](const char *p, std::size_t n)
+	{ this->AppendBytes_(p, n); };
+
+	// Minimal case: emit t and sample_index
 	if (opts_.columns.empty())
 	{
-		out_ << std::setprecision(opts_.float_precision)
-			 << s.t << Delim() << s.sample_index << "\n";
-		out_.flush();
+		AppendDouble(emit, s.t);
+		AppendDelim_();
+		// sample index
+		{
+			char tmp[32];
+			auto res = std::to_chars(tmp, tmp + sizeof(tmp), static_cast<std::uint64_t>(s.sample_index));
+			if (res.ec == std::errc())
+				emit(tmp, static_cast<std::size_t>(res.ptr - tmp));
+			else
+				emit("0", 1);
+		}
+		AppendNewline_();
+
 		AdvanceTimeTrigger(s.t);
 		return;
 	}
@@ -385,23 +647,15 @@ void TimeSeriesObserver::WriteRow(const SampleInfo &s,
 			break;
 		}
 
-		// Print value
-		if (std::isfinite(v))
-		{
-			out_ << std::setprecision(opts_.float_precision) << v;
-		}
-		else
-		{
-			// Keep parseable: "nan" is accepted by many toolchains.
-			out_ << "nan";
-		}
+		AppendDouble(emit, v);
 
 		if (i + 1 < opts_.columns.size())
-			out_ << Delim();
+			AppendDelim_();
 	}
-	out_ << "\n";
 
-	out_.flush();
+	AppendNewline_();
+
+	// No per-row flush. Only flush by threshold or at finish.
 	AdvanceTimeTrigger(s.t);
 }
 
@@ -448,7 +702,7 @@ double TimeSeriesObserver::ExtractDriverScalar(const Column &col,
 
 	Physics::Evolution::Diagnostics::DiagnosticPacket pkt(drv->DiagnosticsName());
 	pkt.SetTime(s.t);
-	pkt.SetStepIndex(static_cast<std::size_t>(s.sample_index));
+	pkt.SetStepIndex(static_cast<std::size_t>(s.step_index));
 
 	drv->DiagnoseSnapshot(s.t, Y, ctx, pkt);
 
@@ -543,142 +797,6 @@ std::string MakeUniqueDriverColumnKey(const std::string &producer,
 }
 
 //------------------------------------------------------------------------------
-// void TimeSeriesObserver::BuildColumnsFromCatalog()
-// {
-// 	if (!opts_.use_catalog)
-// 		return;
-
-// 	LoadCatalogIfNeeded();
-// 	if (!catalog_)
-// 	{
-// 		Z_LOG_WARNING("TimeSeriesObserver: use_catalog=true but no catalog available; leaving columns unchanged.");
-// 		return;
-// 	}
-
-// 	producer_catalog_cache_.clear();
-// 	for (const auto &kv : catalog_->Producers())
-// 		producer_catalog_cache_[kv.first] = &kv.second;
-
-// 	std::vector<Column> built;
-
-// 	// Builtins first (optional)
-// 	if (opts_.include_builtin_time)
-// 	{
-// 		Column c;
-// 		c.key = "t_s";
-// 		c.source = ColumnSource::BuiltinState;
-// 		c.unit = "s";
-// 		c.description = "Simulation time";
-// 		c.builtin = Column::Builtin::Time;
-// 		built.push_back(std::move(c));
-// 	}
-
-// 	if (opts_.include_builtin_sample_index)
-// 	{
-// 		Column c;
-// 		c.key = "sample_index";
-// 		c.source = ColumnSource::BuiltinState;
-// 		c.unit = "";
-// 		c.description = "Monotonic sample counter";
-// 		c.builtin = Column::Builtin::SampleIndex;
-// 		built.push_back(std::move(c));
-// 	}
-
-// 	// Helper: append scalars for a producer, optionally filtered by profile keys.
-// 	auto append_keys_for_producer = [&](const std::string &producer,
-// 										const std::vector<std::string> &keys)
-// 	{
-// 		auto it = producer_catalog_cache_.find(producer);
-// 		if (it == producer_catalog_cache_.end() || !it->second)
-// 			return;
-
-// 		const auto *pc = it->second;
-
-// 		// Build a set for membership test
-// 		std::unordered_map<std::string, const Diagnostics::ScalarDescriptor *> sd_map;
-// 		sd_map.reserve(pc->scalars.size());
-// 		for (const auto &sd : pc->scalars)
-// 			sd_map[sd.key] = &sd;
-
-// 		for (const auto &k : keys)
-// 		{
-// 			auto jt = sd_map.find(k);
-// 			if (jt == sd_map.end() || !jt->second)
-// 				continue;
-
-// 			const auto &sd = *jt->second;
-
-// 			Column c;
-// 			c.key = sd.key; // header label default = scalar key
-// 			c.source = ColumnSource::DriverScalar;
-// 			c.unit = sd.unit;
-// 			c.description = sd.description;
-// 			c.catalog_ref.producer = producer;
-// 			c.catalog_ref.key = sd.key;
-// 			built.push_back(std::move(c));
-// 		}
-// 	};
-
-// 	// Strategy:
-// 	// - If catalog_profiles provided: for each producer, if it has those profiles, append keys.
-// 	// - Otherwise: if producer has profile "timeseries_default", use that.
-// 	// - Otherwise: append nothing (conservative).
-// 	const auto &producers = catalog_->Producers();
-// 	for (const auto &kv : producers)
-// 	{
-// 		const std::string &producer = kv.first;
-// 		const auto &pc = kv.second;
-
-// 		auto use_profile = [&](const std::string &pname) -> bool
-// 		{
-// 			for (const auto &p : pc.profiles)
-// 			{
-// 				if (p.name == pname)
-// 				{
-// 					append_keys_for_producer(producer, p.keys);
-// 					return true;
-// 				}
-// 			}
-// 			return false;
-// 		};
-
-// 		bool used_any = false;
-
-// 		if (!opts_.catalog_profiles.empty())
-// 		{
-// 			for (const auto &pname : opts_.catalog_profiles)
-// 				used_any = use_profile(pname) || used_any;
-// 		}
-// 		else
-// 		{
-// 			used_any = use_profile("timeseries_default");
-// 		}
-
-// 		(void)used_any;
-// 	}
-
-// 	// Merge policy:
-// 	// If user already provided explicit columns, append built driver scalars to them,
-// 	// but keep explicit columns first (user intent).
-// 	if (!opts_.columns.empty())
-// 	{
-// 		// Avoid duplicates by header key (simple). You can refine later.
-// 		std::unordered_set<std::string> seen;
-// 		for (const auto &c : opts_.columns)
-// 			seen.insert(c.key);
-
-// 		for (auto &c : built)
-// 		{
-// 			if (seen.insert(c.key).second)
-// 				opts_.columns.push_back(std::move(c));
-// 		}
-// 	}
-// 	else
-// 	{
-// 		opts_.columns = std::move(built);
-// 	}
-// }
-//------------------------------------------------------------------------------
 void TimeSeriesObserver::BuildColumnsFromCatalog()
 {
 	if (!opts_.use_catalog)
@@ -687,7 +805,7 @@ void TimeSeriesObserver::BuildColumnsFromCatalog()
 	LoadCatalogIfNeeded();
 	if (!catalog_)
 	{
-		Z_LOG_WARNING("TimeSeriesObserver: use_catalog=true but no catalog available; leaving columns unchanged.");
+		Z_LOG_WARNING("use_catalog=true but no catalog available; leaving columns unchanged.");
 		return;
 	}
 
@@ -1008,7 +1126,7 @@ void TimeSeriesObserver::OnStart(const RunInfo &run,
 	else
 		header_written_ = true; // logically, we consider header “handled”.
 
-	Z_LOG_INFO("TimeSeriesObserver::OnStart(t0=" + std::to_string(run.t0) + ")");
+	Z_LOG_INFO("OnStart(t0=" + std::to_string(run.t0) + ")");
 
 	// Optional record at start (t=t0) using a synthetic SampleInfo.
 	// To avoid double-recording, OnSample() will skip sample_index==0 if record_at_start==true.
@@ -1052,20 +1170,20 @@ void TimeSeriesObserver::OnFinish(const FinishInfo &fin,
 								  const Evolution::StateVector & /*Yf*/,
 								  const Evolution::DriverContext & /*ctx*/)
 {
-	// Keep this intentionally lightweight: just close the stream.
 	if (out_.is_open())
 	{
+		FlushBuffer_(); // write any remaining buffered bytes
 		out_.flush();
 		out_.close();
 	}
 
 	if (fin.ok)
 	{
-		Z_LOG_INFO("TimeSeriesObserver::OnFinish(ok=true, t_final=" + std::to_string(fin.t_final) + ")");
+		Z_LOG_INFO("OnFinish(ok=true, t_final=" + std::to_string(fin.t_final) + ")");
 	}
 	else
 	{
-		Z_LOG_WARNING("TimeSeriesObserver::OnFinish(ok=false, t_final=" + std::to_string(fin.t_final) +
+		Z_LOG_WARNING("OnFinish(ok=false, t_final=" + std::to_string(fin.t_final) +
 					  ", message='" + fin.message + "')");
 	}
 }

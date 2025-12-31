@@ -88,7 +88,8 @@ struct Config
 	StepperType stepper = StepperType::MSBDF; /*!< Time stepper choice (GSL backend). */
 	double rtol = 1e-6;						  /*!< Relative tolerance for adaptive stepping.  */
 	double atol = 1e-10;					  /*!< Absolute tolerance for adaptive stepping.  */
-	std::size_t max_steps = 1000000;		  /*!< Safety cap on total GSL steps.            */
+	std::size_t max_samples = 1000000;		  /*!< Cap on total number of samples.            */
+	std::size_t max_internal_steps = 10000;	  /*!< Cap on internal steps per driver_apply.   */
 
 	// ---- Output ----------------------------------------------------------
 	double dt_save = 1.0e5; /*!< Spacing of requested saved samples (s). */

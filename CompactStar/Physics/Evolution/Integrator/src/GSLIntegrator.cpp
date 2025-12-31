@@ -158,7 +158,11 @@ bool GSLIntegrator::Integrate(double t0, double t1, double *y) const
 	{
 		const double span = t1 - t0;
 		const double dt_save = (m_cfg->dt_save > 0.0) ? m_cfg->dt_save : span;
-		h_init = 0.1 * dt_save; // start with 10% of dt_save
+
+		// h_init = 0.1 * dt_save; // start with 10% of dt_save
+		// More conservative: also limit to 1% of total span
+		h_init = std::min(0.1 * dt_save, 0.01 * span);
+
 		if (h_init <= 0.0)
 		{
 			h_init = span * 0.01;
@@ -194,7 +198,7 @@ bool GSLIntegrator::Integrate(double t0, double t1, double *y) const
 		<< StepperTypeName(m_cfg->stepper)
 		<< "' (rtol=" << m_cfg->rtol
 		<< ", atol=" << m_cfg->atol
-		<< ", max_steps=" << m_cfg->max_steps
+		<< ", max_samples=" << m_cfg->max_samples
 		<< ", dt_save=" << m_cfg->dt_save
 		<< ")";
 
@@ -213,18 +217,26 @@ bool GSLIntegrator::Integrate(double t0, double t1, double *y) const
 	//  Main integration loop
 	// ---------------------------------------------------------------------
 	double t = t0;
-	std::size_t steps_used = 0;
+	// std::size_t steps_used = 0;
+
+	// Treat max_steps as max output samples (since we sample once per dt_save).
+	std::size_t samples_written = 0;
+
+	// dt_save constant for this integration call
+	const double dt_save = (m_cfg->dt_save > 0.0) ? m_cfg->dt_save : (t1 - t0);
+
+	// Cap internal GSL substeps per driver_apply
+	if (m_cfg->max_internal_steps > 0)
+	{
+		gsl_odeiv2_driver_set_nmax(driver, m_cfg->max_internal_steps);
+	}
 
 	// We advance in chunks of dt_save, letting the GSL driver adapt internally.
 	while (t < t1)
 	{
-		const double dt_save = (m_cfg->dt_save > 0.0) ? m_cfg->dt_save : (t1 - t0);
 		const double t_target = std::min(t + dt_save, t1);
 
 		int status = gsl_odeiv2_driver_apply(driver, &t, t_target, y);
-
-		// Notify observers once per dt_save chunk (sample cadence)
-		m_sys->NotifySample(t, y, steps_used);
 
 		if (status != GSL_SUCCESS)
 		{
@@ -242,12 +254,15 @@ bool GSLIntegrator::Integrate(double t0, double t1, double *y) const
 			return false;
 		}
 
-		++steps_used;
-		if (steps_used > m_cfg->max_steps)
+		// Notify observers once per dt_save chunk (sample cadence)
+		m_sys->NotifySample(t, y, samples_written);
+
+		++samples_written;
+		if (samples_written > m_cfg->max_samples)
 		{
 			std::ostringstream oss;
 
-			oss << "GSLIntegrator: exceeded max_steps=" << m_cfg->max_steps
+			oss << "GSLIntegrator: exceeded max_samples=" << m_cfg->max_samples
 				<< " before reaching t1=" << t1
 				<< " (t=" << t << ")";
 			Z_LOG_ERROR(oss.str());

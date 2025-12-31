@@ -199,6 +199,7 @@ void EvolutionSystem::NotifySample(double t, const double *y, std::size_t sample
 	Observers::SampleInfo s;
 	s.t = t;
 	s.sample_index = sample_index;
+	s.step_index = sample_index; // current integrator emits one sample per chunk
 
 	for (const auto &obs : m_observers)
 	{

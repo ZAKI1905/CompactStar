@@ -431,7 +431,7 @@ int main()
 	const Zaki::String::Directory base_results_dir = this_file_dir.ParentDir() + "/results";
 	const Zaki::String::Directory out_dir = "spin_therm_evol_2";
 
-	Zaki::Util::Instrumentor::BeginSession("spin-therm-evol-2-main", base_results_dir + out_dir + "/timing_profile.json");
+	// Zaki::Util::Instrumentor::BeginSession("spin-therm-evol-2-main", base_results_dir + out_dir + "/timing_profile.json");
 
 	PROFILE_FUNCTION();
 
@@ -496,8 +496,9 @@ int main()
 	// (optional overrides)
 	cfg.rtol = 1e-6;
 	cfg.atol = 1e-10;
-	cfg.max_steps = 1'000'000;
-	cfg.dt_save = 1.0e6;
+	cfg.max_internal_steps = 1'000'000;
+	cfg.max_samples = 1'000'000;
+	cfg.dt_save = 1.0e2 * Zaki::Physics::YR_2_SEC; // save every 100 years
 
 	// -------------------------------------------------------
 	// 4) DriverContext wiring
@@ -514,7 +515,7 @@ int main()
 	// -------------------------------------------------------
 	Physics::State::ThermalState thermal;
 	thermal.Resize(1);
-	thermal.SetTinf(1.0e8); // K
+	thermal.SetTinf(1.0e7); // K
 
 	Physics::State::SpinState spin;
 	spin.Resize(1);
@@ -639,7 +640,7 @@ int main()
 	Physics::Evolution::GSLIntegrator integrator(system, cfg, wiring.dim);
 
 	const double t0 = 0.0;
-	const double t1 = 1.0e9;
+	const double t1 = 1.0e6 * Zaki::Physics::YR_2_SEC; // 10 Myr
 
 	const bool ok = integrator.Integrate(t0, t1, y.data());
 	if (!ok)
@@ -653,13 +654,13 @@ int main()
 	// -------------------------------------------------------
 	Physics::Evolution::UnpackStateVector(wiring.state_vec, wiring.layout, y.data());
 
-	std::cout << "Final conditions (t = " << t1 << " s):\n";
+	std::cout << "Final conditions (t = " << t1 / Zaki::Physics::YR_2_SEC << " yr):\n";
 	std::cout << "  Tinf  = " << thermal.Tinf() << " K\n";
 	std::cout << "  Omega = " << spin.Omega() << " rad/s\n";
 
 	std::cout << "[debug] done.\n";
 
-	Zaki::Util::Instrumentor::EndSession();
+	// Zaki::Util::Instrumentor::EndSession();
 	return 0;
 }
 //==============================================================

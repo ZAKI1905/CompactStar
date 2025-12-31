@@ -23,7 +23,6 @@ std::uint64_t StarContext::ProfileVersion_() const
 	if (!m_prof)
 		return 0;
 
-	// Adjust name to your actual API.
 	// Examples: m_prof->Version(), m_prof->GetVersion(), m_prof->version().
 	return static_cast<std::uint64_t>(m_prof->Version());
 }
@@ -142,24 +141,46 @@ const Zaki::Vector::DataColumn *StarContext::MassDensity_gcm3() const
 
 	return m_rho_gcm3.get();
 }
+
 //--------------------------------------------------------------
 void StarContext::RefreshDerivedCachesIfNeeded_() const
 {
+	// If the profile is not valid, do not attempt to build derived caches.
+	if (!IsValid())
+		return;
+
 	const auto v = ProfileVersion_();
 
 	// If profile changed since last snapshot, invalidate derived caches.
 	if (v != m_cached_version)
 	{
+		// Invalidate mass density cache
 		m_rho_gcm3.reset();
+
+		// Invalidate direct Urca caches
+		m_durca_mask.reset();
+		m_durca_last_allowed = -1;
+		m_durca_boundary_r_km = 0.0;
+
+		// Update cached version
 		m_cached_version = v;
 	}
 
 	// Build on demand
 	if (!m_rho_gcm3 && m_eps)
 		BuildMassDensityCache_();
-}
-//--------------------------------------------------------------
 
+	// Build direct-Urca mask only when needed, not every time.
+	// Guard on required inputs
+	if (!m_durca_mask)
+	{
+		if (m_nb && m_prof)
+			BuildDirectUrcaMaskCache_();
+	}
+}
+
+//--------------------------------------------------------------
+// Build mass density cache in g/cm^3 from energy density eps (km^-2)
 void StarContext::BuildMassDensityCache_() const
 {
 	// Defensive: ensure profile still valid
@@ -187,8 +208,146 @@ void StarContext::BuildMassDensityCache_() const
 	}
 
 	// Construct column
-	// Adjust to your DataColumn API: name/units/metadata.
 	m_rho_gcm3 = std::make_unique<Zaki::Vector::DataColumn>("rho(g/cm^3)", rho);
+}
+
+//--------------------------------------------------------------
+// Build direct Urca mask cache
+void StarContext::BuildDirectUrcaMaskCache_() const
+{
+	// Defensive: ensure profile still valid
+	if (!m_prof || !m_nb || !m_r)
+		return;
+
+	const std::size_t n = static_cast<std::size_t>(m_nb->Size());
+	if (n == 0)
+	{
+		m_durca_mask.reset();
+		m_durca_last_allowed = -1;
+		m_durca_boundary_r_km = 0.0;
+		return;
+	}
+
+	// Species fractions Yi = n_i / nB are stored as "species" columns.
+	// Per CompOSE convention:
+	//   10: neutron, 11: proton, 0: electron
+	const auto *Yn_col = m_prof->GetSpeciesPtr("10");
+	const auto *Yp_col = m_prof->GetSpeciesPtr("11");
+	const auto *Ye_col = m_prof->GetSpeciesPtr("0");
+
+	if (!Yn_col || !Yp_col || !Ye_col)
+	{
+		// If any required species fraction is missing, we cannot build the mask.
+		m_durca_mask.reset();
+		m_durca_last_allowed = -1;
+		m_durca_boundary_r_km = 0.0;
+		return;
+	}
+
+	// Sanity check on sizes
+	if (static_cast<std::size_t>(Yn_col->Size()) != n ||
+		static_cast<std::size_t>(Yp_col->Size()) != n ||
+		static_cast<std::size_t>(Ye_col->Size()) != n ||
+		static_cast<std::size_t>(m_r->Size()) != n)
+	{
+		m_durca_mask.reset();
+		m_durca_last_allowed = -1;
+		m_durca_boundary_r_km = 0.0;
+		return;
+	}
+
+	// Store as 0/1 bytes.
+	std::vector<uint8_t> mask(n, 0);
+
+	// kF = (3*pi^2*n)^(1/3).
+	const double three_pi2 = 3.0 * M_PI * M_PI;
+
+	// Compute mask and boundary in ONE reverse scan to avoid a second pass.
+	long last_allowed = -1;
+	double boundary_r_km = 0.0;
+
+	for (long il = static_cast<long>(n) - 1; il >= 0; --il)
+	{
+		const std::size_t i = static_cast<std::size_t>(il);
+
+		const double nB = (*m_nb)[i];
+		const double Yn = (*Yn_col)[i];
+		const double Yp = (*Yp_col)[i];
+		const double Ye = (*Ye_col)[i];
+
+		// If nB>0 and Y>=0 then nn/np/ne are automatically >=0.
+		if (!(nB > 0.0) || Yn < 0.0 || Yp < 0.0 || Ye < 0.0)
+		{
+			mask[i] = 0;
+			continue;
+		}
+
+		const double nn = Yn * nB;
+		const double np = Yp * nB;
+		const double ne = Ye * nB;
+
+		// If any is exactly 0, cbrt handles it fine and DU is not allowed anyway.
+		const double kFn = std::cbrt(three_pi2 * nn);
+		const double kFp = std::cbrt(three_pi2 * np);
+		const double kFe = std::cbrt(three_pi2 * ne);
+
+		const bool allowed = (kFn <= (kFp + kFe));
+		mask[i] = allowed ? 1 : 0;
+
+		// First allowed we encounter in reverse order is the outermost allowed point.
+		if (allowed && last_allowed < 0)
+		{
+			last_allowed = il;
+			boundary_r_km = (*m_r)[i];
+			// We do NOT break because we still need to fill mask for smaller i.
+		}
+	}
+
+	m_durca_mask = std::make_unique<std::vector<std::uint8_t>>(std::move(mask));
+	m_durca_last_allowed = last_allowed;
+	m_durca_boundary_r_km = boundary_r_km;
+}
+
+//--------------------------------------------------------------
+// Direct Urca kinematic allowance mask (cached).
+// mask[i] = 1 if direct Urca is kinematically allowed at radius index i,
+// else 0. Computed from Fermi-momentum triangle condition:
+//   kFn <= kFp + kFe  with kF = (3*pi^2*n)^(1/3).
+// Number densities must be provided in fm^-3 for n_n, n_p, n_e.
+// Cache invalidation is based on StarProfile versioning.
+const std::vector<std::uint8_t> *StarContext::DirectUrcaMask() const
+{
+	if (!IsValid())
+		return nullptr;
+
+	RefreshDerivedCachesIfNeeded_();
+
+	return m_durca_mask.get();
+}
+
+//--------------------------------------------------------------
+// Last index (largest r index) where direct Urca is allowed.
+// Returns -1 if mask unavailable or no region allows DU.
+long StarContext::DirectUrcaLastAllowedIndex() const
+{
+	if (!IsValid())
+		return -1;
+
+	RefreshDerivedCachesIfNeeded_();
+
+	return m_durca_last_allowed;
+}
+
+//--------------------------------------------------------------
+// Radius (km) at the last allowed index, or 0 if not available.
+double StarContext::DirectUrcaBoundaryRadius_km() const
+{
+	if (!IsValid())
+		return 0.0;
+
+	RefreshDerivedCachesIfNeeded_();
+
+	return m_durca_boundary_r_km;
 }
 
 //==============================================================

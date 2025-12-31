@@ -323,6 +323,18 @@ class TimeSeriesObserver final : public IObserver
 		 */
 		bool include_builtin_time = true;
 		bool include_builtin_sample_index = true;
+
+		/**
+		 * @brief If true, use buffered I/O for output stream.
+		 *
+		 */
+		bool buffered_io = true;
+
+		/**
+		 * @brief Buffer flush size in bytes when using buffered I/O.
+		 *
+		 */
+		std::size_t flush_bytes = 1 << 20;
 	};
 
 	/**
@@ -424,6 +436,18 @@ class TimeSeriesObserver final : public IObserver
 	//  Output utilities
 	// -----------------------
 
+	/// Append n bytes from p to the internal output buffer (for buffered I/O).
+	inline void AppendBytes_(const char *p, std::size_t n);
+
+	/// Append a single character to the internal output buffer (for buffered I/O).
+	inline void AppendChar_(char c);
+
+	/// Append the delimiter string to the internal output buffer (for buffered I/O).
+	inline void AppendDelim_();
+
+	/// Append a newline character to the internal output buffer (for buffered I/O).
+	inline void AppendNewline_();
+
 	/// Open output stream according to Options.
 	void OpenOutput();
 
@@ -466,7 +490,23 @@ class TimeSeriesObserver final : public IObserver
 	/// Load catalog from opts_.catalog_path if catalog_ is not provided.
 	void LoadCatalogIfNeeded();
 
+	/// Flush internal buffer to output stream if buffered_io is enabled.
+	void FlushBuffer_();
+
   private:
+	// Internal stream buffer for buffered I/O.
+	std::vector<char> out_buf_;
+
+	// If true, use internal buffering for output stream.
+	// bool buffered_io = true;
+
+	// Buffer size thresholds for flushing.
+	// std::size_t flush_bytes = 1 << 20; // 1 MiB flush threshold (reasonable default)
+
+	// Current size of data in out_buf_.
+	std::size_t out_buf_bytes = 0;
+
+	// Observer configuration options.
 	Options opts_;
 
 	// Non-owning pointers to drivers that support diagnostics snapshots.

@@ -102,7 +102,8 @@ int main()
 	cfg.stepper = CompactStar::Physics::Evolution::StepperType::RKF45;
 	cfg.rtol = 1e-6;
 	cfg.atol = 1e-10;
-	cfg.max_steps = 1000000;
+	cfg.max_internal_steps = 1000000;
+	cfg.max_samples = 1000000;
 	cfg.dt_save = 1.0e5; // not used directly by GSLIntegrator yet, but kept for consistency
 
 	CompactStar::Physics::Evolution::DriverContext ctx;

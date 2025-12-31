@@ -89,7 +89,8 @@ int main()
 	cfg.stepper = Physics::Evolution::StepperType::RKF45;
 	cfg.rtol = 1e-6;
 	cfg.atol = 1e-10;
-	cfg.max_steps = 1000000;
+	cfg.max_internal_steps = 1000000;
+	cfg.max_samples = 1000000;
 	cfg.dt_save = 1.0e5; // not used directly by GSLIntegrator yet, but kept for consistency
 
 	// --------------------------------------------------------------
@@ -100,8 +101,8 @@ int main()
 	// can leave them as nullptr. Later, when we wire in real microphysics
 	// and envelope models, we’ll fill these.
 	Physics::Evolution::DriverContext ctx;
-	ctx.star = &starCtx; // e.g. pointer to StarContext built from NStar + EOS
-	ctx.geo = &geo;		 // e.g. GeometryCache
+	ctx.star = &starCtx;	// e.g. pointer to StarContext built from NStar + EOS
+	ctx.geo = &geo;			// e.g. GeometryCache
 	ctx.envelope = nullptr; // e.g. Thermal::IEnvelope implementation
 	ctx.cfg = &cfg;
 

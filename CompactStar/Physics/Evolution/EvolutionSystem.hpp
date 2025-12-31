@@ -148,9 +148,9 @@ class EvolutionSystem
 	 * @brief Register an observer to receive evolution callbacks.
 	 *
 	 * Observers are notified by the integrator (not by operator()) at:
-	 *  - OnStart(t0, Y0, ctx)
-	 *  - Observe(t, Y, ctx) on accepted steps (or at least whenever the integrator chooses)
-	 *  - OnFinish(t, Y, ctx, ok)
+	 *  - OnStart(t0, Y0, ctx) once at the beginning
+	 *  - OnSample(...) at the integrator’s sampling cadence (e.g. dt_save chunks), not necessarily every internal adaptive step
+	 *  - OnFinish(...) once at the end
 	 *
 	 * @param obs Shared pointer to an observer implementation.
 	 * @throws std::runtime_error if obs is null.

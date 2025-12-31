@@ -41,6 +41,7 @@
 #include <cstddef>
 #include <cstdint>
 #include <memory>
+#include <vector>
 
 namespace Zaki::Vector
 {
@@ -113,6 +114,36 @@ class StarContext
 	const Zaki::Vector::DataColumn *MassDensity_gcm3() const;
 
 	// --------------------
+	// Derived cached masks
+	// --------------------
+	/**
+	 * @brief Direct Urca kinematic allowance mask (cached).
+	 *
+	 * mask[i] = 1 if direct Urca is kinematically allowed at radius index i,
+	 * else 0. Computed from Fermi-momentum triangle condition:
+	 *   kFn <= kFp + kFe  with kF = (3*pi^2*n)^(1/3).
+	 *
+	 * Number densities must be provided in fm^-3 for n_n, n_p, n_e.
+	 *
+	 * Cache invalidation is based on StarProfile versioning.
+	 *
+	 * @return Pointer to cached mask, or nullptr if required density columns are unavailable.
+	 */
+	const std::vector<std::uint8_t> *DirectUrcaMask() const;
+
+	/**
+	 * @brief Last index (largest r index) where direct Urca is allowed.
+	 *
+	 * Returns -1 if mask unavailable or no region allows DU.
+	 */
+	long DirectUrcaLastAllowedIndex() const;
+
+	/**
+	 * @brief Radius (km) at the last allowed index, or 0 if not available.
+	 */
+	double DirectUrcaBoundaryRadius_km() const;
+
+	// --------------------
 	// Global scalars (derived from columns)
 	// --------------------
 	double RadiusSurface() const; ///< r[-1] (km)
@@ -129,6 +160,9 @@ class StarContext
 
 	// Convenience: current version from profile
 	std::uint64_t ProfileVersion_() const;
+
+	// Direct Urca cache builder
+	void BuildDirectUrcaMaskCache_() const;
 
   private:
 	const CompactStar::Core::StarProfile *m_prof = nullptr;
@@ -147,6 +181,10 @@ class StarContext
 	mutable std::uint64_t m_cached_version = 0;
 
 	mutable std::unique_ptr<Zaki::Vector::DataColumn> m_rho_gcm3; // cached derived column
+
+	mutable std::unique_ptr<std::vector<std::uint8_t>> m_durca_mask; // 0/1 mask along r
+	mutable long m_durca_last_allowed = -1;							 // cached boundary index (or -1)
+	mutable double m_durca_boundary_r_km = 0.0;						 // cached boundary radius (km)
 };
 
 } // namespace CompactStar::Physics::Evolution

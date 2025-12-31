@@ -1,39 +1,39 @@
  ************************************************************
- * Logging started on  2025-12-29	22:21:01
+ * Logging started on  2025-12-30	18:51:40
  ************************************************************
- 22:21:01 - Info #9 in [RotationSolver.cpp:AttachNStar:164] Attaching NStar to RotationSolver class...
- 22:21:01 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results' created.
- 22:21:01 - Info #0 in [Prog.cpp:SetWrkDir:267] Work directory set to '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results'.
- 22:21:01 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results' created.
- 22:21:01 - Info #8 in [DataSet.cpp:SetWrkDir:348] Work directory set to '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results'.
- 22:21:01 - Info #11 in [RotationSolver.cpp:AttachMixedStar:178] Attaching MixedStar to RotationSolver class...
- 22:21:01 - Info #9 in [RotationSolver.cpp:AttachNStar:164] Attaching NStar to RotationSolver class...
- 22:21:01 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2' created.
- 22:21:01 - Info #0 in [Prog.cpp:SetWrkDir:267] Work directory set to '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2'.
- 22:21:01 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2' created.
- 22:21:01 - Info #0 in [Prog.cpp:SetWrkDir:267] Work directory set to '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2'.
- 22:21:01 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2' created.
- 22:21:01 - Info #8 in [DataSet.cpp:SetWrkDir:348] Work directory set to '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2'.
- 22:21:01 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2' created.
- 22:21:01 - Info #0 in [Prog.cpp:SetWrkDir:267] Work directory set to '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2'.
- 22:21:01 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2' created.
- 22:21:01 - Info #0 in [Prog.cpp:SetWrkDir:267] Work directory set to '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2'.
- 22:21:01 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2' created.
- 22:21:01 - Info #8 in [DataSet.cpp:SetWrkDir:348] Work directory set to '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2'.
- 22:21:01 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2' created.
- 22:21:01 - Info #8 in [DataSet.cpp:SetWrkDir:348] Work directory set to '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2'.
- 22:21:01 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2' created.
- 22:21:01 - Info #0 in [Prog.cpp:SetWrkDir:267] Work directory set to '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2'.
- 22:21:01 - Info #17 in [TOVSolver.cpp:Hidden_ImportEOS_Vis:569] EOS data imported from: /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/EOS/CompOSE/DS(CMF)-1_with_crust/DS(CMF)-1_with_crust.eos.
- 22:21:01 - Info #20 in [TOVSolver.cpp:Hidden_ImportEOS_Vis:597] Initializing main splines for EOS with n = 1191
- 22:21:01 - Info #22 in [TOVSolver.cpp:Hidden_ImportEOS_Vis:629] Initializing the splines for energy density and pressure: done.
- 22:21:01 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results' created.
- 22:21:01 - Info #8 in [DataSet.cpp:SetWrkDir:348] Work directory set to '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results'.
- 22:21:01 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2' created.
- 22:21:01 - Info #38 in [DataSet.cpp:Export:1833] DataSet exported to: /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2/NStar_Profile.tsv.
- 22:21:01 - Info #1 in [GSLIntegrator.cpp:Integrate:201] Using GSL stepper 'RKF45' (rtol=1e-06, atol=1e-10, max_steps=1000000, dt_save=1e+06)
- 22:21:01 - Info #3 in [DiagnosticsObserver.cpp:OnStart:343] OnStart(t0=0.000000)
- 22:21:01 - Info #17 in [TimeSeriesObserver.cpp:OnStart:1011] TimeSeriesObserver::OnStart(t0=0.000000)
- 22:21:03 - Info #18 in [TimeSeriesObserver.cpp:OnFinish:1064] TimeSeriesObserver::OnFinish(ok=true, t_final=1000000000.000000)
+ 18:51:40 - Info #9 in [RotationSolver.cpp:AttachNStar:164] Attaching NStar to RotationSolver class...
+ 18:51:40 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results' created.
+ 18:51:40 - Info #0 in [Prog.cpp:SetWrkDir:267] Work directory set to '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results'.
+ 18:51:40 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results' created.
+ 18:51:40 - Info #8 in [DataSet.cpp:SetWrkDir:348] Work directory set to '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results'.
+ 18:51:40 - Info #11 in [RotationSolver.cpp:AttachMixedStar:178] Attaching MixedStar to RotationSolver class...
+ 18:51:40 - Info #9 in [RotationSolver.cpp:AttachNStar:164] Attaching NStar to RotationSolver class...
+ 18:51:40 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2' created.
+ 18:51:40 - Info #0 in [Prog.cpp:SetWrkDir:267] Work directory set to '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2'.
+ 18:51:40 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2' created.
+ 18:51:40 - Info #0 in [Prog.cpp:SetWrkDir:267] Work directory set to '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2'.
+ 18:51:40 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2' created.
+ 18:51:40 - Info #8 in [DataSet.cpp:SetWrkDir:348] Work directory set to '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2'.
+ 18:51:40 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2' created.
+ 18:51:40 - Info #0 in [Prog.cpp:SetWrkDir:267] Work directory set to '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2'.
+ 18:51:40 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2' created.
+ 18:51:40 - Info #0 in [Prog.cpp:SetWrkDir:267] Work directory set to '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2'.
+ 18:51:40 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2' created.
+ 18:51:40 - Info #8 in [DataSet.cpp:SetWrkDir:348] Work directory set to '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2'.
+ 18:51:40 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2' created.
+ 18:51:40 - Info #8 in [DataSet.cpp:SetWrkDir:348] Work directory set to '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2'.
+ 18:51:40 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2' created.
+ 18:51:40 - Info #0 in [Prog.cpp:SetWrkDir:267] Work directory set to '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2'.
+ 18:51:40 - Info #17 in [TOVSolver.cpp:Hidden_ImportEOS_Vis:569] EOS data imported from: /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/EOS/CompOSE/DS(CMF)-1_with_crust/DS(CMF)-1_with_crust.eos.
+ 18:51:40 - Info #20 in [TOVSolver.cpp:Hidden_ImportEOS_Vis:597] Initializing main splines for EOS with n = 1191
+ 18:51:40 - Info #22 in [TOVSolver.cpp:Hidden_ImportEOS_Vis:629] Initializing the splines for energy density and pressure: done.
+ 18:51:41 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results' created.
+ 18:51:41 - Info #8 in [DataSet.cpp:SetWrkDir:348] Work directory set to '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results'.
+ 18:51:41 - Info #1 in [Directory.cpp:Create:249] Directory '/Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2' created.
+ 18:51:41 - Info #38 in [DataSet.cpp:Export:1833] DataSet exported to: /Users/keeper/Library/CloudStorage/GoogleDrive-m.zakeri@eku.edu/My Drive/Research/Tools/Coding/CompactStar/main/Test/results/spin_therm_evol_2/NStar_Profile.tsv.
+ 18:51:41 - Info #1 in [GSLIntegrator.cpp:Integrate:205] Using GSL stepper 'RKF45' (rtol=1e-06, atol=1e-10, max_samples=1000000, dt_save=3.1557e+09)
+ 18:51:41 - Info #3 in [DiagnosticsObserver.cpp:OnStart:343] OnStart(t0=0.000000)
+ 18:51:41 - Info #17 in [TimeSeriesObserver.cpp:OnStart:1129] OnStart(t0=0.000000)
+ 18:52:06 - Info #18 in [TimeSeriesObserver.cpp:OnFinish:1182] OnFinish(ok=true, t_final=31556952000000.000000)
  ************************************************************
 	 Total Warnings: 0 	 Total Errors: 0

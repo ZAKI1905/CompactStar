@@ -123,12 +123,40 @@ double Q_DirectUrca_erg_cm3_s(double T_local_K, double rho_g_cm3) noexcept
 // -----------------------------------------------------------------------------
 struct TPowers9
 {
-	double T9; // optional
-	double T9_2;
-	double T9_4;
-	double T9_6;
-	double T9_8;
+	// Base powers (always cheap to compute once)
+	double T9;	 // optional, but often useful for debugging/logging
+	double T9_2; // T9^2
+	double T9_4; // T9^4
+
+	// Optional cached higher powers
+	mutable double T9_6 = 0.0; // computed on demand
+	mutable double T9_8 = 0.0; // computed on demand
+	mutable bool has_T9_6 = false;
+	mutable bool has_T9_8 = false;
+
+	// Compute T9^6 = T9^4 * T9^2 (on demand)
+	inline double Pow6() const noexcept
+	{
+		if (!has_T9_6)
+		{
+			T9_6 = T9_4 * T9_2;
+			has_T9_6 = true;
+		}
+		return T9_6;
+	}
+
+	// Compute T9^8 = T9^4 * T9^4 (on demand)
+	inline double Pow8() const noexcept
+	{
+		if (!has_T9_8)
+		{
+			T9_8 = T9_4 * T9_4;
+			has_T9_8 = true;
+		}
+		return T9_8;
+	}
 };
+
 // -----------------------------------------------------------------------------
 inline TPowers9 MakeTPowers9(double T_local_K) noexcept
 {
@@ -140,23 +168,23 @@ inline TPowers9 MakeTPowers9(double T_local_K) noexcept
 	p.T9 = T9;
 	p.T9_2 = T9_2;
 	p.T9_4 = T9_4;
-	p.T9_6 = T9_4 * T9_2;
-	p.T9_8 = T9_4 * T9_4;
 	return p;
 }
+
 // -----------------------------------------------------------------------------
 inline double Q_ModifiedUrca_from_T9powers(double rho_g_cm3, const TPowers9 &p) noexcept
 {
 	constexpr double Q0 = 1.0e21;
 	const double rho15 = rho_g_cm3 * 1.0e-15;
-	return Q0 * rho15 * p.T9_8;
+	return Q0 * rho15 * p.Pow8();
 }
+
 // -----------------------------------------------------------------------------
 inline double Q_DirectUrca_from_T9powers(double rho_g_cm3, const TPowers9 &p) noexcept
 {
 	constexpr double Q0 = 1.0e27;
 	const double rho15 = rho_g_cm3 * 1.0e-15;
-	return Q0 * rho15 * p.T9_6;
+	return Q0 * rho15 * p.Pow6();
 }
 
 // -----------------------------------------------------------------------------
@@ -251,8 +279,13 @@ NeutrinoCooling_Details ComputeDerived(const NeutrinoCooling &drv,
 	//   - multiply by proper volume element dV_proper (cm^3)
 	//   - apply redshift factors to get L_inf
 	//
-	// For now, implement a minimal placeholder so the infrastructure runs.
-	//
+	if (!ctx.geo)
+	{
+		d.ok = false;
+		d.message = "ctx.geo == nullptr";
+		return d;
+	}
+
 	const auto &R_km = ctx.geo->R();
 	const auto &e_minus_nu = ctx.geo->ExpMinusNu();
 	const auto &wV_e2nu = ctx.geo->WVExp2Nu(); // 4π r^2 e^Λ e^{2ν}
@@ -282,13 +315,6 @@ NeutrinoCooling_Details ComputeDerived(const NeutrinoCooling &drv,
 		return d;
 	}
 
-	// const auto *eps_km2_col = ctx.star->EnergyDensity(); // eps [km^-2]
-	// if (!eps_km2_col || eps_km2_col->Size() != N)
-	// {
-	// 	d.ok = false;
-	// 	d.message = "StarContext::EnergyDensity missing or size mismatch with geometry grid.";
-	// 	return d;
-	// }
 	const auto *rho_g_cm3_col = ctx.star->MassDensity_gcm3(); // rho [g/cm^3]
 	if (!rho_g_cm3_col || rho_g_cm3_col->Size() != N)
 	{
@@ -326,140 +352,267 @@ NeutrinoCooling_Details ComputeDerived(const NeutrinoCooling &drv,
 		return d;
 	}
 
+	// -------------------------------------------------
+	// DUrca boundary (cached in StarContext). If <0, DUrca is nowhere allowed.
+	long durca_last = -1;
+	if (do_DU)
+	{
+		durca_last = ctx.star->DirectUrcaLastAllowedIndex();
+		if (durca_last >= static_cast<long>(N))
+			durca_last = static_cast<long>(N) - 1;
+	}
+	// -------------------------------------------------
+
 	// Helper lambda: compute emissivity-weighted integrand at zone i.
 	// Returns f_total(i) = (Q_DU + Q_MU + Q_PBF) * wV_e2nu[i]
 	// and also provides optional per-channel f's for bookkeeping.
-	auto eval_f = [&](std::size_t i, double &f_DU, double &f_MU, double &f_PBF) -> double
+	// auto eval_f = [&](std::size_t i, double &f_DU, double &f_MU, double &f_PBF) -> double
+	// {
+	// 	f_DU = 0.0;
+	// 	f_MU = 0.0;
+	// 	f_PBF = 0.0;
+
+	// 	// Local temperature (isothermal interior w/ redshift)
+	// 	const double T_local = d.Tinf_K * e_minus_nu[i];
+	// 	if (!(T_local > 0.0) || !std::isfinite(T_local))
+	// 		return 0.0;
+
+	// 	// const double rho_g_cm3 = RhoFromEps_km2((*eps_km2_col)[i]);
+	// 	const double rho_g_cm3 = (*rho_g_cm3_col)[i];
+	// 	if (!(rho_g_cm3 > 0.0) || !std::isfinite(rho_g_cm3))
+	// 		return 0.0;
+
+	// 	const auto p = MakeTPowers9(T_local);
+
+	// 	// Compute only enabled channels.
+	// 	// Multiply by geometric weight once at the end.
+	// 	double Qsum = 0.0;
+
+	// 	if (do_DU)
+	// 	{
+	// 		const double Q = Q_DirectUrca_from_T9powers(rho_g_cm3, p);
+	// 		if (std::isfinite(Q) && Q > 0.0)
+	// 		{
+	// 			f_DU = Q;
+	// 			Qsum += Q;
+	// 		}
+	// 	}
+
+	// 	if (do_MU)
+	// 	{
+	// 		const double Q = Q_ModifiedUrca_from_T9powers(rho_g_cm3, p);
+	// 		if (std::isfinite(Q) && Q > 0.0)
+	// 		{
+	// 			f_MU = Q;
+	// 			Qsum += Q;
+	// 		}
+	// 	}
+
+	// 	if (do_PBF)
+	// 	{
+	// 		// Placeholder until implemented:
+	// 		// const double Q = Q_PBF_erg_cm3_s(T_local, rho_g_cm3, ...);
+	// 		// if (std::isfinite(Q) && Q > 0.0) { f_PBF = Q; Qsum += Q; }
+	// 		// For now, leave zero.
+	// 	}
+
+	// 	const double w = wV_e2nu[i];
+	// 	if (!(w > 0.0) || !std::isfinite(w))
+	// 		return 0.0;
+
+	// 	// Convert per-channel to fully-weighted integrands for trapezoid accumulation
+	// 	// (units: Q * w, integrated over dr in km => "km^3" factor to be converted later).
+	// 	f_DU *= w;
+	// 	f_MU *= w;
+	// 	f_PBF *= w;
+
+	// 	return Qsum * w;
+	// };
+
+	// -------------------------------------------------
+	auto eval_f_MU_PBF = [&](std::size_t i, double &f_MU, double &f_PBF) -> double
 	{
-		f_DU = 0.0;
 		f_MU = 0.0;
 		f_PBF = 0.0;
 
-		// Local temperature (isothermal interior w/ redshift)
 		const double T_local = d.Tinf_K * e_minus_nu[i];
 		if (!(T_local > 0.0) || !std::isfinite(T_local))
 			return 0.0;
 
-		// const double rho_g_cm3 = RhoFromEps_km2((*eps_km2_col)[i]);
 		const double rho_g_cm3 = (*rho_g_cm3_col)[i];
 		if (!(rho_g_cm3 > 0.0) || !std::isfinite(rho_g_cm3))
 			return 0.0;
 
+		const double w = wV_e2nu[i];
+		if (!(w > 0.0) || !std::isfinite(w))
+			return 0.0;
+
 		const auto p = MakeTPowers9(T_local);
 
-		// Compute only enabled channels.
-		// Multiply by geometric weight once at the end.
 		double Qsum = 0.0;
-
-		if (do_DU)
-		{
-			const double Q = Q_DirectUrca_from_T9powers(rho_g_cm3, p);
-			if (std::isfinite(Q) && Q > 0.0)
-			{
-				f_DU = Q;
-				Qsum += Q;
-			}
-		}
 
 		if (do_MU)
 		{
 			const double Q = Q_ModifiedUrca_from_T9powers(rho_g_cm3, p);
 			if (std::isfinite(Q) && Q > 0.0)
 			{
-				f_MU = Q;
+				f_MU = Q * w;
 				Qsum += Q;
 			}
 		}
 
 		if (do_PBF)
 		{
-			// Placeholder until implemented:
-			// const double Q = Q_PBF_erg_cm3_s(T_local, rho_g_cm3, ...);
-			// if (std::isfinite(Q) && Q > 0.0) { f_PBF = Q; Qsum += Q; }
-			// For now, leave zero.
+			// placeholder; same pattern:
+			// const double Q = Q_PBF_from_...(rho_g_cm3, p, ...);
+			// if (finite && >0) { f_PBF = Q*w; Qsum += Q; }
 		}
 
-		const double w = wV_e2nu[i];
-		if (!(w > 0.0) || !std::isfinite(w))
-			return 0.0;
-
-		// Convert per-channel to fully-weighted integrands for trapezoid accumulation
-		// (units: Q * w, integrated over dr in km => "km^3" factor to be converted later).
-		f_DU *= w;
-		f_MU *= w;
-		f_PBF *= w;
-
-		return Qsum * w;
+		return Qsum * w; // weighted total (MU+PBF)
 	};
+	// -------------------------------------------------
 
-	// Trapezoid accumulators (km^3 in your current convention).
-	double I_total_km3 = 0.0;
-	double I_DU_km3 = 0.0;
+	// // Trapezoid accumulators (km^3 in your current convention).
+	// double I_total_km3 = 0.0;
+	// double I_DU_km3 = 0.0;
+	// double I_MU_km3 = 0.0;
+	// double I_PBF_km3 = 0.0;
+
+	// // Evaluate at i=0 to seed trapezoid.
+	// double f0_DU, f0_MU, f0_PBF;
+	// double f0 = eval_f(0, f0_DU, f0_MU, f0_PBF);
+
+	// for (std::size_t i = 0; i + 1 < N; ++i)
+	// {
+	// 	const double r0 = R_km[i];
+	// 	const double r1 = R_km[i + 1];
+	// 	const double dr = r1 - r0;
+
+	// 	// // Skip non-monotonic or degenerate steps.
+	// 	// // (If your grid is guaranteed monotonic, you can remove this branch.)
+	// 	// if (!(dr > 0.0) || !std::isfinite(dr))
+	// 	// {
+	// 	// 	// Re-seed next point in case of weird grid.
+	// 	// 	double tmpDU, tmpMU, tmpPBF;
+	// 	// 	f0 = eval_f(i + 1, tmpDU, tmpMU, tmpPBF);
+	// 	// 	f0_DU = tmpDU;
+	// 	// 	f0_MU = tmpMU;
+	// 	// 	f0_PBF = tmpPBF;
+	// 	// 	continue;
+	// 	// }
+
+	// 	double f1_DU, f1_MU, f1_PBF;
+	// 	const double f1 = eval_f(i + 1, f1_DU, f1_MU, f1_PBF);
+
+	// 	// Standard trapezoid: 0.5*(f0+f1)*dr
+	// 	const double wtrap = 0.5 * dr;
+
+	// 	I_total_km3 += (f0 + f1) * wtrap;
+
+	// 	// If you want per-channel bookkeeping, accumulate them too.
+	// 	// This costs only a few adds/mults and avoids extra integrations.
+	// 	if (do_DU)
+	// 		I_DU_km3 += (f0_DU + f1_DU) * wtrap;
+	// 	if (do_MU)
+	// 		I_MU_km3 += (f0_MU + f1_MU) * wtrap;
+	// 	if (do_PBF)
+	// 		I_PBF_km3 += (f0_PBF + f1_PBF) * wtrap;
+
+	// 	// Advance
+	// 	f0 = f1;
+	// 	f0_DU = f1_DU;
+	// 	f0_MU = f1_MU;
+	// 	f0_PBF = f1_PBF;
+	// }
+
+	// -------------------------------------------------
+	double I_MU_PBF_km3 = 0.0;
 	double I_MU_km3 = 0.0;
 	double I_PBF_km3 = 0.0;
 
-	// Evaluate at i=0 to seed trapezoid.
-	double f0_DU, f0_MU, f0_PBF;
-	double f0 = eval_f(0, f0_DU, f0_MU, f0_PBF);
+	double f0_MU, f0_PBF;
+	double f0 = eval_f_MU_PBF(0, f0_MU, f0_PBF);
 
 	for (std::size_t i = 0; i + 1 < N; ++i)
 	{
-		const double r0 = R_km[i];
-		const double r1 = R_km[i + 1];
-		const double dr = r1 - r0;
-
-		// // Skip non-monotonic or degenerate steps.
-		// // (If your grid is guaranteed monotonic, you can remove this branch.)
-		// if (!(dr > 0.0) || !std::isfinite(dr))
-		// {
-		// 	// Re-seed next point in case of weird grid.
-		// 	double tmpDU, tmpMU, tmpPBF;
-		// 	f0 = eval_f(i + 1, tmpDU, tmpMU, tmpPBF);
-		// 	f0_DU = tmpDU;
-		// 	f0_MU = tmpMU;
-		// 	f0_PBF = tmpPBF;
-		// 	continue;
-		// }
-
-		double f1_DU, f1_MU, f1_PBF;
-		const double f1 = eval_f(i + 1, f1_DU, f1_MU, f1_PBF);
-
-		// Standard trapezoid: 0.5*(f0+f1)*dr
+		const double dr = R_km[i + 1] - R_km[i];
 		const double wtrap = 0.5 * dr;
 
-		I_total_km3 += (f0 + f1) * wtrap;
+		double f1_MU, f1_PBF;
+		const double f1 = eval_f_MU_PBF(i + 1, f1_MU, f1_PBF);
 
-		// If you want per-channel bookkeeping, accumulate them too.
-		// This costs only a few adds/mults and avoids extra integrations.
-		if (do_DU)
-			I_DU_km3 += (f0_DU + f1_DU) * wtrap;
+		I_MU_PBF_km3 += (f0 + f1) * wtrap;
 		if (do_MU)
 			I_MU_km3 += (f0_MU + f1_MU) * wtrap;
 		if (do_PBF)
 			I_PBF_km3 += (f0_PBF + f1_PBF) * wtrap;
 
-		// Advance
 		f0 = f1;
-		f0_DU = f1_DU;
 		f0_MU = f1_MU;
 		f0_PBF = f1_PBF;
 	}
+	// -------------------------------------------------
 
+	// -------------------------------------------------
+	auto eval_f_DU = [&](std::size_t i) -> double
+	{
+		const double T_local = d.Tinf_K * e_minus_nu[i];
+		if (!(T_local > 0.0) || !std::isfinite(T_local))
+			return 0.0;
+
+		const double rho_g_cm3 = (*rho_g_cm3_col)[i];
+		if (!(rho_g_cm3 > 0.0) || !std::isfinite(rho_g_cm3))
+			return 0.0;
+
+		const double w = wV_e2nu[i];
+		if (!(w > 0.0) || !std::isfinite(w))
+			return 0.0;
+
+		const auto p = MakeTPowers9(T_local);
+
+		const double Q = Q_DirectUrca_from_T9powers(rho_g_cm3, p);
+		if (!std::isfinite(Q) || Q <= 0.0)
+			return 0.0;
+
+		return Q * w;
+	};
+
+	double I_DU_km3 = 0.0;
+
+	if (do_DU && durca_last >= 0)
+	{
+		const std::size_t M = static_cast<std::size_t>(durca_last);
+
+		double f0_du = eval_f_DU(0);
+
+		// integrate over [0..M], so loop i=0..M-1
+		for (std::size_t i = 0; i < M; ++i)
+		{
+			const double dr = R_km[i + 1] - R_km[i];
+			const double wtrap = 0.5 * dr;
+
+			const double f1_du = eval_f_DU(i + 1);
+
+			I_DU_km3 += (f0_du + f1_du) * wtrap;
+
+			f0_du = f1_du;
+		}
+	}
+	// -------------------------------------------------
+
+	// -------------------------------------------------
 	// Convert km^3 -> cm^3, apply global scale
 	d.L_nu_DU_inf_erg_s = gscale * (I_DU_km3 * KM3_TO_CM3);
 	d.L_nu_MU_inf_erg_s = gscale * (I_MU_km3 * KM3_TO_CM3);
 	d.L_nu_PBF_inf_erg_s = gscale * (I_PBF_km3 * KM3_TO_CM3);
 
-	// Total luminosity (either use I_total or sum channels; both should agree if PBF implemented)
-	// Using I_total is cheapest and avoids any numerical drift from per-channel guarding.
-	d.L_nu_inf_erg_s = gscale * (I_total_km3 * KM3_TO_CM3);
+	d.L_nu_inf_erg_s = gscale * ((I_MU_PBF_km3 + I_DU_km3) * KM3_TO_CM3);
 
-	// If you want a consistency check in debug builds, you can do:
-	// const double sum_channels = d.L_nu_DU_inf_erg_s + d.L_nu_MU_inf_erg_s + d.L_nu_PBF_inf_erg_s;
-	// assert(std::abs(d.L_nu_inf_erg_s - sum_channels) / std::max(1.0, d.L_nu_inf_erg_s) < 1e-12);
+	// -------------------------------------------------
 	// 6) Cooling rate
 	d.dTinf_dt_K_s = -d.L_nu_inf_erg_s / d.C_eff_erg_K;
 	d.dLnTinf_dt_1_s = d.dTinf_dt_K_s / d.Tinf_K;
+	// -------------------------------------------------
 
 	return d;
 }
