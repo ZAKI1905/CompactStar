@@ -11,6 +11,7 @@ set(CompactStar_EOS_headers
     SigmaOmegaPar.hpp
     SigmaOmegaRho.hpp
     CompOSE_EOS.hpp
+    CompOSE_Thermo.hpp
     SigmaOmegaRho_nstar.hpp
     Fermi_Gas_Many.hpp
 )
@@ -31,6 +32,7 @@ set(CompactStar_EOS_sources
     CompactStar/EOS/src/SigmaOmegaPar.cpp
     CompactStar/EOS/src/SigmaOmegaRho.cpp
     CompactStar/EOS/src/CompOSE_EOS.cpp
+    CompactStar/EOS/src/CompOSE_Thermo.cpp
     CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp
     CompactStar/EOS/src/Fermi_Gas_Many.cpp
 

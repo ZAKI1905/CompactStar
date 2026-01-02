@@ -86,7 +86,7 @@ void NeutrinoCooling::AccumulateRHS(double t,
 	//  Centralized computation (shared with diagnostics)
 	// -------------------------------------------------------------------------
 	// Compute all quantities through the details helper to prevent drift.
-	const auto d = Detail::ComputeDerived(*this, Y, ctx);
+	const auto d = Detail::NeutrinoCooling_Details::ComputeDerived(*this, Y, ctx);
 
 	// If the helper cannot compute a well-defined contribution, do nothing.
 	// This should not be treated as an error in infrastructure-first runs.

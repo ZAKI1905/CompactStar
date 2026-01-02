@@ -13,6 +13,7 @@ set(CompactStar_Physics_Evolution_headers
     StateLayout.hpp
     StatePacking.hpp
     DriverContext.hpp
+    ProfileCache.hpp
 )
 
 install(FILES ${CompactStar_Physics_Evolution_headers}
@@ -26,6 +27,7 @@ set(CompactStar_Physics_Evolution_sources
     CompactStar/Physics/Evolution/src/StatePacking.cpp
     CompactStar/Physics/Evolution/src/StarContext.cpp
     CompactStar/Physics/Evolution/src/GeometryCache.cpp
+    CompactStar/Physics/Evolution/src/ProfileCache.cpp
 )
 
 # Append integrator sources

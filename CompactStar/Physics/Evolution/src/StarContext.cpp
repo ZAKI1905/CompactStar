@@ -18,7 +18,7 @@ namespace CompactStar::Physics::Evolution
 // --------------------
 // Helpers
 // --------------------
-std::uint64_t StarContext::ProfileVersion_() const
+std::uint64_t StarContext::ProfileVersion() const
 {
 	if (!m_prof)
 		return 0;
@@ -38,7 +38,7 @@ StarContext::StarContext(const CompactStar::Core::StarProfile &prof)
 	ValidateOrThrow_();
 
 	// Initialize cache version snapshot to current (cache is empty until requested).
-	m_cached_version = ProfileVersion_();
+	m_cached_version = ProfileVersion();
 }
 
 //--------------------------------------------------------------
@@ -149,7 +149,7 @@ void StarContext::RefreshDerivedCachesIfNeeded_() const
 	if (!IsValid())
 		return;
 
-	const auto v = ProfileVersion_();
+	const auto v = ProfileVersion();
 
 	// If profile changed since last snapshot, invalidate derived caches.
 	if (v != m_cached_version)
@@ -211,11 +211,141 @@ void StarContext::BuildMassDensityCache_() const
 	m_rho_gcm3 = std::make_unique<Zaki::Vector::DataColumn>("rho(g/cm^3)", rho);
 }
 
+// //--------------------------------------------------------------
+// // Build direct Urca mask cache
+// void StarContext::BuildDirectUrcaMaskCache_() const
+// {
+// 	// Defensive: ensure profile still valid
+// 	if (!m_prof || !m_nb || !m_r)
+// 		return;
+
+// 	const std::size_t n = static_cast<std::size_t>(m_nb->Size());
+// 	if (n == 0)
+// 	{
+// 		m_durca_mask.reset();
+// 		m_durca_last_allowed = -1;
+// 		m_durca_boundary_r_km = 0.0;
+// 		return;
+// 	}
+
+// 	// Species fractions Yi = n_i / nB are stored as "species" columns.
+// 	// Per CompOSE convention:
+// 	//   10: neutron, 11: proton, 0: electron
+// 	const auto *Yn_col = m_prof->GetSpeciesPtr("10");
+// 	const auto *Yp_col = m_prof->GetSpeciesPtr("11");
+// 	const auto *Ye_col = m_prof->GetSpeciesPtr("0");
+
+// 	if (!Yn_col || !Yp_col || !Ye_col)
+// 	{
+// 		// If any required species fraction is missing, we cannot build the mask.
+// 		m_durca_mask.reset();
+// 		m_durca_last_allowed = -1;
+// 		m_durca_boundary_r_km = 0.0;
+// 		return;
+// 	}
+
+// 	// Sanity check on sizes
+// 	if (static_cast<std::size_t>(Yn_col->Size()) != n ||
+// 		static_cast<std::size_t>(Yp_col->Size()) != n ||
+// 		static_cast<std::size_t>(Ye_col->Size()) != n ||
+// 		static_cast<std::size_t>(m_r->Size()) != n)
+// 	{
+// 		m_durca_mask.reset();
+// 		m_durca_last_allowed = -1;
+// 		m_durca_boundary_r_km = 0.0;
+// 		return;
+// 	}
+
+// 	// Store as 0/1 bytes.
+// 	std::vector<uint8_t> mask(n, 0);
+
+// 	// kF = (3*pi^2*n)^(1/3).
+// 	const double three_pi2 = 3.0 * M_PI * M_PI;
+
+// 	// Compute mask and boundary in ONE reverse scan to avoid a second pass.
+// 	long last_allowed = -1;
+// 	double boundary_r_km = 0.0;
+
+// 	for (long il = static_cast<long>(n) - 1; il >= 0; --il)
+// 	{
+// 		const std::size_t i = static_cast<std::size_t>(il);
+
+// 		const double nB = (*m_nb)[i];
+// 		const double Yn = (*Yn_col)[i];
+// 		const double Yp = (*Yp_col)[i];
+// 		const double Ye = (*Ye_col)[i];
+
+// 		// If nB>0 and Y>=0 then nn/np/ne are automatically >=0.
+// 		if (!(nB > 0.0) || Yn < 0.0 || Yp < 0.0 || Ye < 0.0)
+// 		{
+// 			mask[i] = 0;
+// 			continue;
+// 		}
+
+// 		const double nn = Yn * nB;
+// 		const double np = Yp * nB;
+// 		const double ne = Ye * nB;
+
+// 		// If any is exactly 0, cbrt handles it fine and DU is not allowed anyway.
+// 		const double kFn = std::cbrt(three_pi2 * nn);
+// 		const double kFp = std::cbrt(three_pi2 * np);
+// 		const double kFe = std::cbrt(three_pi2 * ne);
+
+// 		const bool allowed = (kFn <= (kFp + kFe));
+// 		mask[i] = allowed ? 1 : 0;
+
+// 		// First allowed we encounter in reverse order is the outermost allowed point.
+// 		if (allowed && last_allowed < 0)
+// 		{
+// 			last_allowed = il;
+// 			boundary_r_km = (*m_r)[i];
+// 			// We do NOT break because we still need to fill mask for smaller i.
+// 		}
+// 	}
+
+// 	m_durca_mask = std::make_unique<std::vector<std::uint8_t>>(std::move(mask));
+// 	m_durca_last_allowed = last_allowed;
+// 	m_durca_boundary_r_km = boundary_r_km;
+// }
+
 //--------------------------------------------------------------
 // Build direct Urca mask cache
+//
+// Direct Urca (DU) kinematic allowance is typically checked via the
+// Fermi-momentum triangle condition:
+//
+//    kFn <= kFp + kFl
+//
+// where l is a lepton (electron, sometimes muon). In your current setup you
+// use electrons only.
+//
+// IMPORTANT for your EOS layout:
+// - index 0 is the core
+// - the EOS includes a crust region where electrons exist but baryons
+//   (neutrons/protons) may be effectively absent.
+//
+// If you blindly apply the triangle condition in an electron-only region,
+// you get the pathological result:
+//
+//   nn = np = 0  => kFn = kFp = 0, while kFe > 0  =>  0 <= 0 + kFe  (always true)
+//
+// which incorrectly flags DU as allowed in the crust.
+//
+// Fix:
+// 1) Require a *baryonic medium* with meaningful nn and np before testing DU.
+// 2) Define the DU boundary as the end of the *contiguous core DU-allowed region*
+//    as you scan outward from the core. This prevents any later numerical
+//    “islands” from corrupting the boundary.
+//
+// Notes on thresholds:
+// - nB_min: excludes crust/vacuum-like zones where baryons are not present.
+// - n_min : excludes nn/np ~ 0 where the triangle test becomes meaningless.
+//   These thresholds are NOT physics thresholds for DU; they are numerical/semantic
+//   guards against applying the criterion outside its domain.
+//--------------------------------------------------------------
 void StarContext::BuildDirectUrcaMaskCache_() const
 {
-	// Defensive: ensure profile still valid
+	// Defensive: ensure profile still valid and required core columns exist.
 	if (!m_prof || !m_nb || !m_r)
 		return;
 
@@ -229,22 +359,22 @@ void StarContext::BuildDirectUrcaMaskCache_() const
 	}
 
 	// Species fractions Yi = n_i / nB are stored as "species" columns.
-	// Per CompOSE convention:
-	//   10: neutron, 11: proton, 0: electron
+	// Per CompOSE convention in your loader:
+	//   "10": neutron, "11": proton, "0": electron
 	const auto *Yn_col = m_prof->GetSpeciesPtr("10");
 	const auto *Yp_col = m_prof->GetSpeciesPtr("11");
 	const auto *Ye_col = m_prof->GetSpeciesPtr("0");
 
 	if (!Yn_col || !Yp_col || !Ye_col)
 	{
-		// If any required species fraction is missing, we cannot build the mask.
+		// Missing species fractions => cannot build DU mask.
 		m_durca_mask.reset();
 		m_durca_last_allowed = -1;
 		m_durca_boundary_r_km = 0.0;
 		return;
 	}
 
-	// Sanity check on sizes
+	// Sanity check: all relevant columns must have consistent length.
 	if (static_cast<std::size_t>(Yn_col->Size()) != n ||
 		static_cast<std::size_t>(Yp_col->Size()) != n ||
 		static_cast<std::size_t>(Ye_col->Size()) != n ||
@@ -256,56 +386,107 @@ void StarContext::BuildDirectUrcaMaskCache_() const
 		return;
 	}
 
-	// Store as 0/1 bytes.
-	std::vector<uint8_t> mask(n, 0);
+	// Output mask (0/1) for all radii.
+	std::vector<std::uint8_t> mask(n, 0);
 
-	// kF = (3*pi^2*n)^(1/3).
+	// kF = (3*pi^2*n)^(1/3), with n in fm^-3 -> kF in fm^-1 (consistent).
 	const double three_pi2 = 3.0 * M_PI * M_PI;
 
-	// Compute mask and boundary in ONE reverse scan to avoid a second pass.
+	// ---------------------------------------------------------------------
+	// Guards against the "electron-only crust" false positive
+	// ---------------------------------------------------------------------
+	//
+	// In regions with essentially no baryons (nB ~ 0) or no nucleons (nn~0 or np~0),
+	// DU is not physically meaningful, and the triangle inequality degenerates.
+	//
+	// Choose a very small nB_min relative to any physical DU onset (~0.31 fm^-3)
+	// so we only exclude vacuum/crust-like zones.
+	constexpr double nB_min = 1.0e-6; // fm^-3 (numerical/semantic guard, not a DU threshold)
+	constexpr double n_min = 1.0e-12; // fm^-3 (ensures nn and np are genuinely present)
+
+	// ---------------------------------------------------------------------
+	// Define the DU boundary robustly for your indexing convention:
+	// - index 0 is the core
+	// - scan outward and identify the last index in the *contiguous* DU-allowed region
+	// ---------------------------------------------------------------------
 	long last_allowed = -1;
 	double boundary_r_km = 0.0;
+	bool seen_allowed_core_region = false;
 
-	for (long il = static_cast<long>(n) - 1; il >= 0; --il)
+	for (std::size_t i = 0; i < n; ++i)
 	{
-		const std::size_t i = static_cast<std::size_t>(il);
-
+		// Read background densities and fractions.
 		const double nB = (*m_nb)[i];
 		const double Yn = (*Yn_col)[i];
 		const double Yp = (*Yp_col)[i];
 		const double Ye = (*Ye_col)[i];
 
-		// If nB>0 and Y>=0 then nn/np/ne are automatically >=0.
-		if (!(nB > 0.0) || Yn < 0.0 || Yp < 0.0 || Ye < 0.0)
+		// Basic validity checks (fractions should be non-negative; nB must be finite).
+		// If this fails, mark not allowed and continue.
+		if (!std::isfinite(nB) || !std::isfinite(Yn) || !std::isfinite(Yp) || !std::isfinite(Ye) ||
+			Yn < 0.0 || Yp < 0.0 || Ye < 0.0)
 		{
 			mask[i] = 0;
 			continue;
 		}
 
+		// Exclude crust/vacuum-like zones with negligible baryons.
+		if (nB < nB_min)
+		{
+			mask[i] = 0;
+			// Do not "break" here: the profile might (in principle) have non-monotonic nB,
+			// but the contiguous-core boundary logic below will still protect last_allowed.
+			continue;
+		}
+
+		// Convert fractions to number densities in fm^-3.
 		const double nn = Yn * nB;
 		const double np = Yp * nB;
 		const double ne = Ye * nB;
 
-		// If any is exactly 0, cbrt handles it fine and DU is not allowed anyway.
+		// Require nucleons present. This is the critical guard that prevents
+		// 0 <= kFe from making DU appear allowed in an electron-only crust.
+		if (nn < n_min || np < n_min)
+		{
+			mask[i] = 0;
+			continue;
+		}
+
+		// (Optional) require leptons; typically ne>0 in npe matter, but keep it safe.
+		if (ne < n_min)
+		{
+			mask[i] = 0;
+			continue;
+		}
+
+		// Compute Fermi momenta (fm^-1). cbrt is safe for positive inputs.
 		const double kFn = std::cbrt(three_pi2 * nn);
 		const double kFp = std::cbrt(three_pi2 * np);
 		const double kFe = std::cbrt(three_pi2 * ne);
 
+		// Kinematic allowance.
 		const bool allowed = (kFn <= (kFp + kFe));
-		mask[i] = allowed ? 1 : 0;
+		mask[i] = allowed ? 1u : 0u;
 
-		// First allowed we encounter in reverse order is the outermost allowed point.
-		if (allowed && last_allowed < 0)
+		// Boundary selection: end of the contiguous DU-allowed core region.
+		if (allowed)
 		{
-			last_allowed = il;
+			seen_allowed_core_region = true;
+			last_allowed = static_cast<long>(i);
 			boundary_r_km = (*m_r)[i];
-			// We do NOT break because we still need to fill mask for smaller i.
+		}
+		else if (seen_allowed_core_region)
+		{
+			// Once we have left the DU-allowed region while scanning outward from the core,
+			// we stop: DU should not reappear at larger radius in a physically consistent
+			// monotone profile, and this avoids "islands" caused by numerical noise.
+			break;
 		}
 	}
 
 	m_durca_mask = std::make_unique<std::vector<std::uint8_t>>(std::move(mask));
 	m_durca_last_allowed = last_allowed;
-	m_durca_boundary_r_km = boundary_r_km;
+	m_durca_boundary_r_km = (last_allowed >= 0) ? boundary_r_km : 0.0;
 }
 
 //--------------------------------------------------------------

@@ -69,6 +69,8 @@
 // IDriverDiagnostics interface (same base as PhotonCooling)
 #include "CompactStar/Physics/Driver/Diagnostics/DriverDiagnostics.hpp"
 
+#include "CompactStar/Physics/Driver/Thermal/NeutrinoCooling_Cache.hpp"
+
 namespace CompactStar::Physics::Driver::Thermal::Detail
 {
 struct NeutrinoCooling_Details;
@@ -252,6 +254,22 @@ class NeutrinoCooling final : public IDriver,
 
 	/// Allow the Details bundle to access private members if needed.
 	friend struct CompactStar::Physics::Driver::Thermal::Detail::NeutrinoCooling_Details;
+
+	// friend NeutrinoCooling_Details Detail::ComputeDerived(const NeutrinoCooling &, ...);
+	/**
+	 * @brief Profile-versioned cache for neutrino luminosity coefficients.
+	 *
+	 * Marked mutable because AccumulateRHS/DiagnoseSnapshot are const by design
+	 * but may rebuild cached coefficients when the StarProfile version changes.
+	 */
+	mutable NeutrinoCoolingProfileCache cache_;
+
+	/**
+	 * @brief Access cached coefficients, rebuilding if the profile version changed.
+	 *
+	 * Implementation lives in NeutrinoCooling_Details.cpp to keep this header light.
+	 */
+	const NeutrinoCoolingCachePayload &Cache_(const Evolution::DriverContext &ctx) const;
 };
 
 } // namespace CompactStar::Physics::Driver::Thermal

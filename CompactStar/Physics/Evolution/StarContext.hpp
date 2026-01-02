@@ -150,6 +150,9 @@ class StarContext
 	double MassSurface() const;	  ///< m[-1] (km)
 	double ExpNuSurface() const;  ///< exp(nu[-1]) if nu exists, else 0
 
+	// Convenience: current version from profile
+	std::uint64_t ProfileVersion() const;
+
   private:
 	void BindColumnsOrThrow_(); // sets m_r/m_m/m_nu/m_lam/m_nb/m_pre/m_eps
 	void ValidateOrThrow_();	// checks consistent row counts for required cols
@@ -157,9 +160,6 @@ class StarContext
 	// Derived cache helpers
 	void RefreshDerivedCachesIfNeeded_() const;
 	void BuildMassDensityCache_() const;
-
-	// Convenience: current version from profile
-	std::uint64_t ProfileVersion_() const;
 
 	// Direct Urca cache builder
 	void BuildDirectUrcaMaskCache_() const;

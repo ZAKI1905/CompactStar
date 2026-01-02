@@ -7,6 +7,7 @@ set(CompactStar_Physics_Driver_Thermal_headers
     PhotonCooling.hpp
     PhotonCooling_Details.hpp
     NeutrinoCooling_Details.hpp
+    NeutrinoCooling_Cache.hpp
 )
 
 install(FILES ${CompactStar_Physics_Driver_Thermal_headers} DESTINATION include/CompactStar/Physics/Driver/Thermal)
