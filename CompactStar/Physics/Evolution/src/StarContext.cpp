@@ -6,12 +6,107 @@
 
 #include "CompactStar/Physics/Evolution/StarContext.hpp"
 #include "CompactStar/Core/StarProfile.hpp"
+#include "CompactStar/EOS/CompOSE_Thermo.hpp"
+#include "CompactStar/Physics/Evolution/GeometryCache.hpp"
 
 #include <Zaki/Physics/Constants.hpp> // unit conversions
 #include <Zaki/Vector/DataColumn.hpp>
 
 #include <cmath>
 #include <stdexcept>
+
+//==============================================================
+namespace
+{
+inline double Lerp(double a, double b, double w) { return (1.0 - w) * a + w * b; }
+
+inline std::vector<double> LogSpace(double a, double b, std::size_t N)
+{
+	if (N < 2 || a <= 0.0 || b <= 0.0)
+		throw std::runtime_error("LogSpace: invalid args.");
+	const double la = std::log(a);
+	const double lb = std::log(b);
+	std::vector<double> out(N);
+	for (std::size_t i = 0; i < N; ++i)
+	{
+		const double w = double(i) / double(N - 1);
+		out[i] = std::exp((1.0 - w) * la + w * lb);
+	}
+	return out;
+}
+
+inline std::size_t Bracket(const std::vector<double> &grid, double x, std::size_t hint)
+{
+	if (grid.size() < 2)
+		throw std::runtime_error("Bracket: grid too small.");
+
+	if (hint + 1 < grid.size() && grid[hint] <= x && x <= grid[hint + 1])
+		return hint;
+
+	auto it = std::upper_bound(grid.begin(), grid.end(), x);
+	if (it == grid.begin())
+		return 0;
+	if (it == grid.end())
+		return grid.size() - 2;
+	return std::size_t(it - grid.begin() - 1);
+}
+
+// CompOSE strong-sector charge q/e for numeric species codes.
+inline bool ComposeCharge(int code, double &q)
+{
+	switch (code)
+	{
+	case 10:
+		q = 0.0;
+		return true; // n
+	case 11:
+		q = +1.0;
+		return true; // p
+	case 20:
+		q = -1.0;
+		return true; // Δ-
+	case 21:
+		q = 0.0;
+		return true; // Δ0
+	case 22:
+		q = +1.0;
+		return true; // Δ+
+	case 23:
+		q = +2.0;
+		return true; // Δ++
+	case 100:
+		q = 0.0;
+		return true; // Λ0
+	case 110:
+		q = -1.0;
+		return true; // Σ-
+	case 111:
+		q = 0.0;
+		return true; // Σ0
+	case 112:
+		q = +1.0;
+		return true; // Σ+
+	case 120:
+		q = -1.0;
+		return true; // Ξ-
+	case 121:
+		q = 0.0;
+		return true; // Ξ0
+	case 500:
+		q = +2.0 / 3.0;
+		return true; // u
+	case 501:
+		q = -1.0 / 3.0;
+		return true; // d
+	case 502:
+		q = -1.0 / 3.0;
+		return true; // s
+	default:
+		return false;
+	}
+}
+} // namespace
+//==============================================================
 
 namespace CompactStar::Physics::Evolution
 {
@@ -161,6 +256,12 @@ void StarContext::RefreshDerivedCachesIfNeeded_() const
 		m_durca_mask.reset();
 		m_durca_last_allowed = -1;
 		m_durca_boundary_r_km = 0.0;
+
+		// Invalidate derived Yq cache
+		m_Yq_cache.reset();
+
+		// Invalidate heat capacity cache
+		m_cv_cache = HeatCapacityCache{};
 
 		// Update cached version
 		m_cached_version = v;
@@ -530,6 +631,187 @@ double StarContext::DirectUrcaBoundaryRadius_km() const
 
 	return m_durca_boundary_r_km;
 }
+
+//--------------------------------------------------------------
+const Zaki::Vector::DataColumn *StarContext::ChargeFractionYq() const
+{
+	RefreshDerivedCachesIfNeeded_();
+	if (!m_Yq_cache)
+		BuildYqCache_();
+	return m_Yq_cache.get();
+}
+
+//--------------------------------------------------------------
+void StarContext::BuildYqCache_() const
+{
+	if (!m_prof || !m_nb)
+	{
+		m_Yq_cache.reset();
+		return;
+	}
+
+	const std::size_t N = Size();
+	auto Yq = std::make_unique<Zaki::Vector::DataColumn>(N);
+
+	// Prefer: if the profile already has a Yq species column, just use it.
+	// Many CompOSE exports do not include it directly, so we compute it from strong-sector species fractions.
+	//
+	// We assume species columns are fractions Y_i = n_i/nB, consistent with your DirectUrca cache comment.
+	//
+	// Known CompOSE strong-sector numeric labels (as strings):
+	const int codes[] = {10, 11, 20, 21, 22, 23, 100, 110, 111, 112, 120, 121, 500, 501, 502};
+
+	struct Term
+	{
+		const Zaki::Vector::DataColumn *col;
+		double q;
+	};
+	std::vector<Term> terms;
+	terms.reserve(sizeof(codes) / sizeof(codes[0]));
+
+	for (int code : codes)
+	{
+		const std::string label = std::to_string(code);
+		const auto *col = m_prof->GetSpeciesPtr(label);
+		if (!col)
+			continue;
+
+		double q = 0.0;
+		if (!ComposeCharge(code, q))
+			continue;
+		terms.push_back({col, q});
+	}
+
+	if (terms.empty())
+	{
+		m_Yq_cache.reset();
+		return;
+	}
+
+	for (std::size_t i = 0; i < N; ++i)
+	{
+		double yq = 0.0;
+		for (const auto &t : terms)
+			yq += t.q * (*(t.col))[i];
+
+		(*Yq)[i] = yq;
+	}
+
+	m_Yq_cache = std::move(Yq);
+}
+
+//--------------------------------------------------------------
+double StarContext::HeatCapacityStar_Tinf(double Tinf_MeV,
+										  const CompactStar::EOS::CompOSE_Thermo &thermo) const
+{
+	// Ensure derived caches are in sync with profile version
+	RefreshDerivedCachesIfNeeded_();
+
+	// Build/rebuild if needed
+	if (!m_cv_cache.loaded ||
+		m_cv_cache.prof_version != ProfileVersion() ||
+		m_cv_cache.thermo_tag != static_cast<const void *>(&thermo))
+	{
+		BuildHeatCapacityCache_(thermo);
+	}
+
+	const auto &Tg = m_cv_cache.Tinf_MeV;
+	const auto &Cg = m_cv_cache.C_star;
+	if (Tg.size() < 2)
+		throw std::runtime_error("HeatCapacityStar_Tinf: cache invalid (grid too small).");
+
+	// Clamp
+	if (Tinf_MeV <= Tg.front())
+		return Cg.front();
+	if (Tinf_MeV >= Tg.back())
+		return Cg.back();
+
+	// Interpolate in log(T) for stability across decades
+	const std::size_t i = Bracket(Tg, Tinf_MeV, m_cv_cache.last_i);
+	m_cv_cache.last_i = i;
+
+	const double T0 = Tg[i];
+	const double T1 = Tg[i + 1];
+	const double w = (std::log(Tinf_MeV) - std::log(T0)) / (std::log(T1) - std::log(T0));
+
+	return Lerp(Cg[i], Cg[i + 1], w);
+}
+
+void StarContext::BuildHeatCapacityCache_(const CompactStar::EOS::CompOSE_Thermo &thermo) const
+{
+	if (!IsValid() || !m_nb || !m_nu)
+	{
+		m_cv_cache = HeatCapacityCache{};
+		return;
+	}
+
+	// Build GR geometry weights from existing columns
+	const GeometryCache geo(*this);
+
+	const auto &r = geo.R();   // km
+	const auto &wv = geo.WV(); // 4*pi*r^2*exp(Lambda)
+	const auto &eminusnu = geo.ExpMinusNu();
+
+	const std::size_t N = geo.Size();
+	if (N < 2)
+	{
+		m_cv_cache = HeatCapacityCache{};
+		return;
+	}
+
+	// Need Yq(r)
+	const auto *Yq_col = ChargeFractionYq();
+	if (!Yq_col)
+		throw std::runtime_error("BuildHeatCapacityCache_: missing strong-sector composition to compute Yq(r).");
+
+	// Temperature grid for T_infty (MeV). You can tune these later.
+	const double Tinf_min = 1e-5; // MeV
+	const double Tinf_max = 1.0;  // MeV
+	const std::size_t NT = 160;
+
+	HeatCapacityCache cache;
+	cache.loaded = true;
+	cache.prof_version = ProfileVersion();
+	cache.thermo_tag = static_cast<const void *>(&thermo);
+	cache.last_i = 0;
+
+	cache.Tinf_MeV = LogSpace(Tinf_min, Tinf_max, NT);
+	cache.C_star.assign(NT, 0.0);
+
+	// C(Tinf) = ∫ cV(Tlocal, nb, Yq) * WV(r) dr, with Tlocal = Tinf*exp(-nu).
+	for (std::size_t k = 0; k < NT; ++k)
+	{
+		const double Tinf = cache.Tinf_MeV[k];
+		double sum = 0.0;
+
+		for (std::size_t i = 0; i < N - 1; ++i)
+		{
+			const double dr = r[i + 1] - r[i]; // km
+
+			const double nb0 = (*m_nb)[i];
+			const double nb1 = (*m_nb)[i + 1];
+
+			const double yq0 = (*Yq_col)[i];
+			const double yq1 = (*Yq_col)[i + 1];
+
+			const double T0 = Tinf * eminusnu[i];
+			const double T1 = Tinf * eminusnu[i + 1];
+
+			const double cv0 = thermo.CvDensity_ForCooling(T0, nb0, yq0);
+			const double cv1 = thermo.CvDensity_ForCooling(T1, nb1, yq1);
+
+			const double f0 = cv0 * wv[i];
+			const double f1 = cv1 * wv[i + 1];
+
+			sum += 0.5 * (f0 + f1) * dr;
+		}
+
+		cache.C_star[k] = sum;
+	}
+
+	m_cv_cache = std::move(cache);
+}
+//--------------------------------------------------------------
 
 //==============================================================
 } // namespace CompactStar::Physics::Evolution

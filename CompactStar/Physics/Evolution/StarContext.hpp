@@ -52,6 +52,14 @@ namespace CompactStar::Core
 class StarProfile; // Core/StarProfile.hpp
 }
 
+namespace CompactStar
+{
+namespace EOS
+{
+class CompOSE_Thermo;
+}
+} // namespace CompactStar
+
 namespace CompactStar::Physics::Evolution
 {
 
@@ -114,6 +122,31 @@ class StarContext
 	const Zaki::Vector::DataColumn *MassDensity_gcm3() const;
 
 	// --------------------
+	// Heat capacity cache (GR, for cooling in terms of T_infty)
+	// --------------------
+
+	// --------------------
+	// Heat capacity cache (GR, for cooling in terms of T_infty)
+	// --------------------
+
+	/**
+	 * @brief Star-integrated heat capacity C(T_infty) for an isothermal (Tolman) core.
+	 *
+	 * Implements:
+	 *   C(Tinf) = ∫ cV(Tlocal, nB, Yq) dV
+	 * with:
+	 *   Tlocal(r) = Tinf * exp(-nu(r))
+	 *   dV = 4*pi*r^2*exp(Lambda(r)) dr   (via GeometryCache::WV()).
+	 *
+	 * The cache is built on-demand and invalidated when the profile version changes.
+	 *
+	 * @param Tinf_MeV Redshifted temperature at infinity (MeV).
+	 * @param thermo   CompOSE thermodynamics table interface (used for cV).
+	 */
+	double HeatCapacityStar_Tinf(double Tinf_MeV,
+								 const CompactStar::EOS::CompOSE_Thermo &thermo) const;
+
+	// --------------------
 	// Derived cached masks
 	// --------------------
 	/**
@@ -164,6 +197,12 @@ class StarContext
 	// Direct Urca cache builder
 	void BuildDirectUrcaMaskCache_() const;
 
+	// Derived cache helpers (continued)
+	void BuildYqCache_() const;
+	const Zaki::Vector::DataColumn *ChargeFractionYq() const;
+
+	void BuildHeatCapacityCache_(const CompactStar::EOS::CompOSE_Thermo &thermo) const;
+
   private:
 	const CompactStar::Core::StarProfile *m_prof = nullptr;
 
@@ -185,6 +224,25 @@ class StarContext
 	mutable std::unique_ptr<std::vector<std::uint8_t>> m_durca_mask; // 0/1 mask along r
 	mutable long m_durca_last_allowed = -1;							 // cached boundary index (or -1)
 	mutable double m_durca_boundary_r_km = 0.0;						 // cached boundary radius (km)
+
+	// -------- Heat capacity cache (owned by StarContext) --------
+	mutable std::unique_ptr<Zaki::Vector::DataColumn> m_Yq_cache; // cached strong-sector charge fraction Yq(r)
+
+	// Heat capacity cache (star-integrated C(Tinf) for isothermal core)
+	struct HeatCapacityCache
+	{
+		bool loaded = false;
+
+		std::uint64_t prof_version = 0;	  // profile version snapshot
+		const void *thermo_tag = nullptr; // pointer identity of thermo used to build this cache
+
+		std::vector<double> Tinf_MeV; // grid (MeV)
+		std::vector<double> C_star;	  // integrated heat capacity on the grid
+
+		mutable std::size_t last_i = 0; // accel for interpolation
+	};
+
+	mutable HeatCapacityCache m_cv_cache;
 };
 
 } // namespace CompactStar::Physics::Evolution

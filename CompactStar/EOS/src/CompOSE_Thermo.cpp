@@ -441,6 +441,43 @@ double CompOSE_Thermo::Q2(double T_MeV, double nb_fm3, double Yq) const
 }
 
 // -------------------------------------------------------------
+double CompOSE_Thermo::Q2_ForCooling(double T_MeV, double nb_fm3, double Yq) const
+{
+	if (!m_loaded)
+		throw std::runtime_error("CompOSE_Thermo::Q2_ForCooling: table not loaded.");
+
+	if (m_opt.clamp_to_domain)
+	{
+		ClampToDomain_(T_MeV, nb_fm3, Yq);
+	}
+	else
+	{
+		if (T_MeV < m_T.front() || T_MeV > m_T.back() ||
+			nb_fm3 < m_nb.front() || nb_fm3 > m_nb.back() ||
+			Yq < m_Yq.front() || Yq > m_Yq.back())
+			throw std::runtime_error("CompOSE_Thermo::Q2_ForCooling: query out of domain.");
+	}
+
+	// If low-T modeling is disabled, fall back to table interpolation
+	if (!m_opt.enable_lowT_fit)
+		return Q2(T_MeV, nb_fm3, Yq);
+
+	const double Tswitch = m_opt.lowT_switch_MeV;
+	const double wblend = m_opt.lowT_blend_width_MeV;
+
+	// Low-T fitted slope: Q2 ~ a0 * T
+	const double a0 = LowT_Slope_dQ2dT0_(nb_fm3, Yq);
+	const double Q2_lowT = a0 * T_MeV;
+
+	// Table-based entropy
+	const double Q2_tab = Q2(T_MeV, nb_fm3, Yq);
+
+	// Blend between low-T model and table entropy
+	const double w = BlendLowT_(T_MeV, Tswitch, Tswitch, wblend);
+	return (1.0 - w) * Q2_lowT + w * Q2_tab;
+}
+
+// -------------------------------------------------------------
 double CompOSE_Thermo::dQ2dT(double T_MeV, double nb_fm3, double Yq) const
 {
 	if (!m_loaded)
@@ -525,6 +562,138 @@ double CompOSE_Thermo::CvPerBaryon(double T_MeV, double nb_fm3, double Yq) const
 }
 
 // -------------------------------------------------------------
+//------------------------------------------------------------------------------
+// Smooth blending helpers
+double CompOSE_Thermo::SmoothStep01_(double x)
+{
+	// Clamp to [0,1]
+	if (x <= 0.0)
+		return 0.0;
+	if (x >= 1.0)
+		return 1.0;
+	// Classic smoothstep: 3x^2 - 2x^3 (C1 continuous)
+	return x * x * (3.0 - 2.0 * x);
+}
+
+double CompOSE_Thermo::BlendLowT_(double T, double lowT, double highT, double w) const
+{
+	// Return blend weight in [0,1] that goes from 0 (use low-T model) to 1 (use high-T model)
+	// over a window centered on [lowT, highT]. Here we use a symmetric blend around lowT_switch.
+	(void)highT; // kept for readability if you later change policy
+	if (w <= 0.0)
+		return (T >= lowT ? 1.0 : 0.0);
+
+	const double T0 = lowT - w;
+	const double T1 = lowT + w;
+	if (T <= T0)
+		return 0.0;
+	if (T >= T1)
+		return 1.0;
+	const double x = (T - T0) / (T1 - T0);
+	return SmoothStep01_(x);
+}
+
+//------------------------------------------------------------------------------
+// Low-T slope inference using constrained least squares fit Q2(T) ~ a*T
+//
+// We enforce Q2(0)=0 by construction and fit only the slope a using the first
+// few temperature grid points. This is robust and avoids relying solely on the
+// first interval [0,2] MeV.
+//
+// Given data (Ti, Qi), minimize sum_i (Qi - a*Ti)^2 =>
+//   a = (sum Ti*Qi)/(sum Ti^2), excluding the T=0 point (since it contributes nothing).
+//
+double CompOSE_Thermo::LowT_Slope_dQ2dT0_(double nb_fm3, double Yq) const
+{
+	if (!m_loaded)
+		throw std::runtime_error("CompOSE_Thermo::LowT_Slope_dQ2dT0_: table not loaded.");
+
+	// Need at least two temperature points
+	const std::size_t NT = m_T.size();
+	if (NT < 2)
+		throw std::runtime_error("CompOSE_Thermo::LowT_Slope_dQ2dT0_: NT < 2.");
+
+	// Determine how many points to use
+	int nfit = m_opt.lowT_fit_points;
+	if (nfit < 2)
+		nfit = 2;
+	if (static_cast<std::size_t>(nfit) > NT)
+		nfit = static_cast<int>(NT);
+
+	// Accumulate least-squares slope a = (Σ Ti*Qi)/(Σ Ti^2), skipping Ti=0.
+	double sum_TQ = 0.0;
+	double sum_T2 = 0.0;
+
+	for (int i = 0; i < nfit; ++i)
+	{
+		const double Ti = m_T[static_cast<std::size_t>(i)];
+		if (Ti <= 0.0)
+			continue; // skip T=0 point
+
+		const double Qi = Q2_OnPlane(static_cast<std::size_t>(i), nb_fm3, Yq);
+
+		sum_TQ += Ti * Qi;
+		sum_T2 += Ti * Ti;
+	}
+
+	// Fallback: if fit is ill-posed (e.g., all Ti=0), revert to first-interval slope.
+	if (sum_T2 <= 0.0)
+	{
+		const double T0 = m_T[0];
+		const double T1 = m_T[1];
+		const double Q0 = Q2_OnPlane(0, nb_fm3, Yq);
+		const double Q1 = Q2_OnPlane(1, nb_fm3, Yq);
+		return (Q1 - Q0) / (T1 - T0);
+	}
+
+	return sum_TQ / sum_T2; // units 1/MeV
+}
+
+//------------------------------------------------------------------------------
+// Public low-T cooling derivative
+double CompOSE_Thermo::dQ2dT_ForCooling(double T_MeV, double nb_fm3, double Yq) const
+{
+	if (!m_loaded)
+		throw std::runtime_error("CompOSE_Thermo::dQ2dT_ForCooling: table not loaded.");
+
+	if (m_opt.clamp_to_domain)
+	{
+		ClampToDomain_(T_MeV, nb_fm3, Yq);
+	}
+	else
+	{
+		if (T_MeV < m_T.front() || T_MeV > m_T.back() ||
+			nb_fm3 < m_nb.front() || nb_fm3 > m_nb.back() ||
+			Yq < m_Yq.front() || Yq > m_Yq.back())
+			throw std::runtime_error("CompOSE_Thermo::dQ2dT_ForCooling: query out of domain.");
+	}
+
+	// If low-T fit disabled, just use the regular derivative
+	if (!m_opt.enable_lowT_fit)
+		return dQ2dT(T_MeV, nb_fm3, Yq);
+
+	const double Tswitch = m_opt.lowT_switch_MeV;
+	const double wblend = m_opt.lowT_blend_width_MeV;
+
+	// Fit-based slope (T->0) for this (nB,Yq)
+	const double a0 = LowT_Slope_dQ2dT0_(nb_fm3, Yq);
+
+	// Table-based derivative at this T
+	const double dtab = dQ2dT(T_MeV, nb_fm3, Yq);
+
+	// If below the switch region, use the fitted slope; above, use table;
+	// blend smoothly around Tswitch to avoid kinks.
+	const double w = BlendLowT_(T_MeV, Tswitch, Tswitch, wblend);
+	return (1.0 - w) * a0 + w * dtab;
+}
+
+//------------------------------------------------------------------------------
+double CompOSE_Thermo::CvDensity_ForCooling(double T_MeV, double nb_fm3, double Yq) const
+{
+	// c_V = T * nB * dQ2/dT
+	return T_MeV * nb_fm3 * dQ2dT_ForCooling(T_MeV, nb_fm3, Yq);
+}
+//------------------------------------------------------------------------------
 
 } // namespace EOS
 } // namespace CompactStar

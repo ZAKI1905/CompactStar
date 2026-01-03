@@ -93,7 +93,7 @@ int main()
 		//
 		// Strategy:
 		//  - midpoints in nB and Yq to avoid boundary artifacts
-		//  - a few temperatures: 0, 2, 10, 50 MeV (or clamped if outside)
+		//  - a few temperatures: 0, 2, 8, 50 MeV (or clamped if outside)
 		//
 		const auto pick_mid = [](const std::vector<double> &g) -> double
 		{
@@ -103,30 +103,38 @@ int main()
 		const double nb_mid = pick_mid(Nbg);
 		const double yq_mid = pick_mid(Yqg);
 
+		const int precision = 5;
 		// Some temperature probes; will be clamped if outside domain
-		const std::vector<double> T_probe = {0.0, 2.0, 10.0, 50.0, 100.0, 160.0};
+		const std::vector<double> T_probe = {0.0, 0.2, 0.5, 1.0, 2.0, 4.0, 10.0, 50.0, 80.0, 160.0};
 
 		std::cout << "Sample evaluation point (mid-grid):\n";
 		std::cout << "  nB = " << nb_mid << " fm^-3\n";
 		std::cout << "  Yq = " << yq_mid << "\n\n";
 
-		std::cout << std::scientific << std::setprecision(8);
+		std::cout << std::scientific << std::setprecision(precision);
 
 		std::cout << "Thermo samples at mid-grid:\n";
-		std::cout << "  Columns: T[MeV], Q2=s/nB, dQ2/dT[1/MeV], CvDensity[fm^-3], CvPerBaryon\n";
+		std::cout << "  Columns: T[MeV], Q2=s/nB, dQ2/dT[1/MeV], CvDensity[fm^-3], CvPerBaryon, dQ2_Cool/dT, Cv_Cool, Q2_Cool\n";
 		for (double T : T_probe)
 		{
 			const double q2 = thermo.Q2(T, nb_mid, yq_mid);
 			const double dq2 = thermo.dQ2dT(T, nb_mid, yq_mid);
 			const double cv = thermo.CvDensity(T, nb_mid, yq_mid);
 			const double cvb = thermo.CvPerBaryon(T, nb_mid, yq_mid);
+			const double dq2_cool = thermo.dQ2dT_ForCooling(T, nb_mid, yq_mid);
+			const double cv_cool = thermo.CvDensity_ForCooling(T, nb_mid, yq_mid);
+			const double q2_cool = thermo.Q2_ForCooling(T, nb_mid, yq_mid);
 
 			std::cout << "  "
-					  << std::setw(12) << T
-					  << "  " << std::setw(14) << q2
-					  << "  " << std::setw(14) << dq2
-					  << "  " << std::setw(14) << cv
-					  << "  " << std::setw(14) << cvb
+					  << std::setw(precision) << T
+					  << "  " << std::setw(precision) << q2
+					  << "  " << std::setw(precision) << dq2
+					  << "  " << std::setw(precision) << cv
+					  << "  " << std::setw(precision) << cvb
+					  << "  " << std::setw(precision) << dq2_cool
+					  << "  " << std::setw(precision) << cv_cool
+					  << "  " << std::setw(precision) << q2_cool
+
 					  << "\n";
 		}
 		std::cout << "\n";
@@ -148,9 +156,9 @@ int main()
 			for (double yq : yq_probe)
 			{
 				const double cv = thermo.CvDensity(T_check, nb, yq);
-				std::cout << "  nB=" << std::setw(12) << nb
-						  << "  Yq=" << std::setw(12) << yq
-						  << "  Cv=" << std::setw(14) << cv
+				std::cout << "  nB=" << std::setw(precision) << nb
+						  << "  Yq=" << std::setw(precision) << yq
+						  << "  Cv=" << std::setw(precision) << cv
 						  << (cv < 0.0 ? "  [WARNING: negative]" : "")
 						  << "\n";
 			}

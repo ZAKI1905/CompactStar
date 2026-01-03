@@ -56,11 +56,21 @@ class CompOSE_Thermo
 		double Tmin_for_derivative_MeV; ///< If >0, snap very small T to the first-interval derivative.
 		bool clamp_to_domain;			///< Clamp queries to grid bounds instead of throwing.
 
+		// --- Low-T cooling policy (new) -----------------------------------------
+		bool enable_lowT_fit;		 ///< If true, use multi-point fit to get dQ2/dT|_{T->0}.
+		int lowT_fit_points;		 ///< Number of first temperature grid points to use (including T=0).
+		double lowT_switch_MeV;		 ///< Switch temperature for using fit-based slope.
+		double lowT_blend_width_MeV; ///< Blend width around switch to smooth derivative transition.
+
 		/// @brief Default options (robust and conservative).
 		Options()
 			: use_central_difference(true),
 			  Tmin_for_derivative_MeV(0.0),
-			  clamp_to_domain(true)
+			  clamp_to_domain(true),
+			  enable_lowT_fit(true),
+			  lowT_fit_points(3),		// uses T = 0,2,4 MeV by default
+			  lowT_switch_MeV(2.0),		// use fit slope up to 2 MeV (configurable)
+			  lowT_blend_width_MeV(1.0) // blend from (switch - w) to (switch + w)
 		{
 		}
 	};
@@ -99,6 +109,17 @@ class CompOSE_Thermo
 	double Q2(double T_MeV, double nb_fm3, double Yq) const;
 
 	/**
+	 * @brief Entropy per baryon Q2 = s/nB for cooling use.
+	 *
+	 * For T <= lowT_switch_MeV, uses a low-T linear model
+	 *   Q2(T) = a0 * T
+	 * where a0 is obtained from a constrained multi-point fit near T=0.
+	 *
+	 * Above the switch temperature, this blends smoothly to the table-interpolated Q2().
+	 */
+	double Q2_ForCooling(double T_MeV, double nb_fm3, double Yq) const;
+
+	/**
 	 * @brief Evaluate (∂Q2/∂T) at fixed (nB,Yq).
 	 * @return dQ2/dT in units of 1/MeV.
 	 */
@@ -130,12 +151,31 @@ class CompOSE_Thermo
 
 	/// @}
 
+	/**
+	 * @brief Low-T improved derivative dQ2/dT for cooling use.
+	 *
+	 * Uses a multi-point constrained fit near T=0 (Q2(0)=0) to infer the T->0 slope,
+	 * and blends to the standard table derivative above lowT_switch_MeV.
+	 */
+	double dQ2dT_ForCooling(double T_MeV, double nb_fm3, double Yq) const;
+
+	/**
+	 * @brief Low-T improved c_V density for cooling use.
+	 *
+	 * c_V = T * nB * dQ2/dT_ForCooling
+	 */
+	double CvDensity_ForCooling(double T_MeV, double nb_fm3, double Yq) const;
+
   private:
 	void ReadAxes_(const std::string &directory);
 	void ReadThermoQ2_(const std::string &directory);
 
 	static std::size_t BracketIndex_(const std::vector<double> &grid, double x);
 	void ClampToDomain_(double &T_MeV, double &nb_fm3, double &Yq) const;
+
+	double LowT_Slope_dQ2dT0_(double nb_fm3, double Yq) const;
+	static double SmoothStep01_(double x); // x in [0,1]
+	double BlendLowT_(double T, double lowT, double highT, double w) const;
 
   private:
 	// Axes
