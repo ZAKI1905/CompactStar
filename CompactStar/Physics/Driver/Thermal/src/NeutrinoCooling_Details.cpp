@@ -210,6 +210,8 @@ static void BuildNeutrinoCoolingCache(const CompactStar::Physics::Evolution::Sta
 	out.built_version = sc.ProfileVersion();
 }
 // -----------------------------------------------------------------------------
+// k_B in MeV/K
+constexpr double MEV_PER_K = 8.617333262145e-11;
 } // namespace
 // -----------------------------------------------------------------------------
 // namespace
@@ -861,7 +863,30 @@ NeutrinoCooling_Details NeutrinoCooling_Details::ComputeDerived(const NeutrinoCo
 	// 3) Heat capacity policy (your current placeholder)
 	// ------------------------------------------------------------
 	// Keep whatever policy you currently use; the cache only accelerates L_nu.
-	d.C_eff_erg_K = 1.0e40;
+	// d.C_eff_erg_K = 1.0e40;
+
+	// ------------------------------------------------------------
+	// 3) Heat capacity (GR-integrated, CompOSE-based)
+	// ------------------------------------------------------------
+	if (!ctx.thermo)
+	{
+		d.ok = false;
+		d.message = "ctx.thermo == nullptr (CompOSE_Thermo required for heat capacity).";
+		return d;
+	}
+
+	// Convert evolved Tinf(K) to Tinf(MeV)
+	const double Tinf_MeV = d.Tinf_K * MEV_PER_K;
+	if (!(Tinf_MeV > 0.0) || !std::isfinite(Tinf_MeV))
+	{
+		d.ok = false;
+		d.message = "Tinf_MeV <= 0 or non-finite after conversion.";
+		return d;
+	}
+
+	// Star-integrated heat capacity cache: C(Tinf)
+	d.C_eff_erg_K = ctx.star->HeatCapacityStar_Tinf(Tinf_MeV, *ctx.thermo, ctx.geo);
+
 	if (!(d.C_eff_erg_K > 0.0) || !std::isfinite(d.C_eff_erg_K))
 	{
 		d.ok = false;

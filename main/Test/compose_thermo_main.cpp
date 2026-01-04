@@ -114,15 +114,15 @@ int main()
 		std::cout << std::scientific << std::setprecision(precision);
 
 		std::cout << "Thermo samples at mid-grid:\n";
-		std::cout << "  Columns: T[MeV], Q2=s/nB, dQ2/dT[1/MeV], CvDensity[fm^-3], CvPerBaryon, dQ2_Cool/dT, Cv_Cool, Q2_Cool\n";
+		std::cout << "  Columns:\n T[MeV], Q2=s/nB, dQ2/dT[1/MeV], CvDensity[erg K^-1 cm^-3], CvPerBaryon, dQ2_Cool/dT, Cv_Cool, Q2_Cool\n";
 		for (double T : T_probe)
 		{
 			const double q2 = thermo.Q2(T, nb_mid, yq_mid);
 			const double dq2 = thermo.dQ2dT(T, nb_mid, yq_mid);
-			const double cv = thermo.CvDensity(T, nb_mid, yq_mid);
+			const double cv = thermo.CvDensity_cgs(T, nb_mid, yq_mid);
 			const double cvb = thermo.CvPerBaryon(T, nb_mid, yq_mid);
 			const double dq2_cool = thermo.dQ2dT_ForCooling(T, nb_mid, yq_mid);
-			const double cv_cool = thermo.CvDensity_ForCooling(T, nb_mid, yq_mid);
+			const double cv_cool = thermo.CvDensity_cgs_ForCooling(T, nb_mid, yq_mid);
 			const double q2_cool = thermo.Q2_ForCooling(T, nb_mid, yq_mid);
 
 			std::cout << "  "
@@ -155,7 +155,7 @@ int main()
 		{
 			for (double yq : yq_probe)
 			{
-				const double cv = thermo.CvDensity(T_check, nb, yq);
+				const double cv = thermo.CvDensity_cgs(T_check, nb, yq);
 				std::cout << "  nB=" << std::setw(precision) << nb
 						  << "  Yq=" << std::setw(precision) << yq
 						  << "  Cv=" << std::setw(precision) << cv

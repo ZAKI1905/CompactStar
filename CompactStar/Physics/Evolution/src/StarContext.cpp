@@ -702,7 +702,8 @@ void StarContext::BuildYqCache_() const
 
 //--------------------------------------------------------------
 double StarContext::HeatCapacityStar_Tinf(double Tinf_MeV,
-										  const CompactStar::EOS::CompOSE_Thermo &thermo) const
+										  const CompactStar::EOS::CompOSE_Thermo &thermo,
+										  const CompactStar::Physics::Evolution::GeometryCache *geo) const
 {
 	// Ensure derived caches are in sync with profile version
 	RefreshDerivedCachesIfNeeded_();
@@ -712,7 +713,7 @@ double StarContext::HeatCapacityStar_Tinf(double Tinf_MeV,
 		m_cv_cache.prof_version != ProfileVersion() ||
 		m_cv_cache.thermo_tag != static_cast<const void *>(&thermo))
 	{
-		BuildHeatCapacityCache_(thermo);
+		BuildHeatCapacityCache_(thermo, geo);
 	}
 
 	const auto &Tg = m_cv_cache.Tinf_MeV;
@@ -737,7 +738,11 @@ double StarContext::HeatCapacityStar_Tinf(double Tinf_MeV,
 	return Lerp(Cg[i], Cg[i + 1], w);
 }
 
-void StarContext::BuildHeatCapacityCache_(const CompactStar::EOS::CompOSE_Thermo &thermo) const
+//--------------------------------------------------------------
+// Builds the cache using CvDensity in cgs units: erg cm^-3 K^-1
+// outputs in erg K^-1
+void StarContext::BuildHeatCapacityCache_(const CompactStar::EOS::CompOSE_Thermo &thermo,
+										  const CompactStar::Physics::Evolution::GeometryCache *geo) const
 {
 	if (!IsValid() || !m_nb || !m_nu)
 	{
@@ -746,13 +751,15 @@ void StarContext::BuildHeatCapacityCache_(const CompactStar::EOS::CompOSE_Thermo
 	}
 
 	// Build GR geometry weights from existing columns
-	const GeometryCache geo(*this);
+	GeometryCache local_geo(*this);
+	const GeometryCache *G = geo ? geo : &local_geo;
 
-	const auto &r = geo.R();   // km
-	const auto &wv = geo.WV(); // 4*pi*r^2*exp(Lambda)
-	const auto &eminusnu = geo.ExpMinusNu();
+	const auto &r = G->R();	  // km
+	const auto &wv = G->WV(); // 4*pi*r^2*exp(Lambda)
+	const auto &eminusnu = G->ExpMinusNu();
+	const std::size_t N = G->Size();
+	constexpr double KM3_TO_CM3 = 1.0e15; // (km^3 -> cm^3)
 
-	const std::size_t N = geo.Size();
 	if (N < 2)
 	{
 		m_cv_cache = HeatCapacityCache{};
@@ -797,11 +804,11 @@ void StarContext::BuildHeatCapacityCache_(const CompactStar::EOS::CompOSE_Thermo
 			const double T0 = Tinf * eminusnu[i];
 			const double T1 = Tinf * eminusnu[i + 1];
 
-			const double cv0 = thermo.CvDensity_ForCooling(T0, nb0, yq0);
-			const double cv1 = thermo.CvDensity_ForCooling(T1, nb1, yq1);
+			const double cv0 = thermo.CvDensity_cgs_ForCooling(T0, nb0, yq0);
+			const double cv1 = thermo.CvDensity_cgs_ForCooling(T1, nb1, yq1);
 
-			const double f0 = cv0 * wv[i];
-			const double f1 = cv1 * wv[i + 1];
+			const double f0 = cv0 * wv[i] * KM3_TO_CM3;
+			const double f1 = cv1 * wv[i + 1] * KM3_TO_CM3;
 
 			sum += 0.5 * (f0 + f1) * dr;
 		}

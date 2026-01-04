@@ -127,9 +127,15 @@ class CompOSE_Thermo
 
 	/**
 	 * @brief Volumetric heat capacity: c_V = T*nB*dQ2/dT.
-	 * @return c_V in native CompOSE units (MeV * fm^-3 * (1/MeV) = fm^-3).
+	 * @return c_V in native CompOSE (natural) units (MeV * fm^-3 * (1/MeV) = fm^-3).
 	 */
-	double CvDensity(double T_MeV, double nb_fm3, double Yq) const;
+	double CvDensity_Natural(double T_MeV, double nb_fm3, double Yq) const;
+
+	/**
+	 * @brief Volumetric heat capacity: c_V = T*nB*dQ2/dT.
+	 * @return c_V in cV in cgs: erg cm^-3 K^-1.
+	 */
+	double CvDensity_cgs(double T_MeV, double nb_fm3, double Yq) const;
 
 	/**
 	 * @brief Heat capacity per baryon: (c_V/nB) = T*dQ2/dT.
@@ -163,8 +169,17 @@ class CompOSE_Thermo
 	 * @brief Low-T improved c_V density for cooling use.
 	 *
 	 * c_V = T * nB * dQ2/dT_ForCooling
+	 * c_V in native CompOSE (natural) units (MeV * fm^-3 * (1/MeV) = fm^-3).
 	 */
-	double CvDensity_ForCooling(double T_MeV, double nb_fm3, double Yq) const;
+	double CvDensity_Natural_ForCooling(double T_MeV, double nb_fm3, double Yq) const;
+
+	/**
+	 * @brief Low-T improved c_V density for cooling use.
+	 *
+	 * c_V = T * nB * dQ2/dT_ForCooling
+	 * c_V in cgs: erg cm^-3 K^-1.
+	 */
+	double CvDensity_cgs_ForCooling(double T_MeV, double nb_fm3, double Yq) const;
 
   private:
 	void ReadAxes_(const std::string &directory);

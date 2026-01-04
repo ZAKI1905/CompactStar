@@ -63,6 +63,8 @@ class CompOSE_Thermo;
 namespace CompactStar::Physics::Evolution
 {
 
+class GeometryCache;
+
 //==============================================================
 //                      StarContext Class
 //==============================================================
@@ -138,13 +140,17 @@ class StarContext
 	 *   Tlocal(r) = Tinf * exp(-nu(r))
 	 *   dV = 4*pi*r^2*exp(Lambda(r)) dr   (via GeometryCache::WV()).
 	 *
+	 * CV is in erg K^{-1}.
+	 *
 	 * The cache is built on-demand and invalidated when the profile version changes.
 	 *
 	 * @param Tinf_MeV Redshifted temperature at infinity (MeV).
 	 * @param thermo   CompOSE thermodynamics table interface (used for cV).
+	 * @param geo	   Pointer to GeometryCache
 	 */
 	double HeatCapacityStar_Tinf(double Tinf_MeV,
-								 const CompactStar::EOS::CompOSE_Thermo &thermo) const;
+								 const CompactStar::EOS::CompOSE_Thermo &thermo,
+								 const GeometryCache *geo = nullptr) const;
 
 	// --------------------
 	// Derived cached masks
@@ -201,7 +207,9 @@ class StarContext
 	void BuildYqCache_() const;
 	const Zaki::Vector::DataColumn *ChargeFractionYq() const;
 
-	void BuildHeatCapacityCache_(const CompactStar::EOS::CompOSE_Thermo &thermo) const;
+	// Builds the cache in cgs units: erg cm^-3 K^-1
+	void BuildHeatCapacityCache_(const CompactStar::EOS::CompOSE_Thermo &thermo,
+								 const CompactStar::Physics::Evolution::GeometryCache *geo) const;
 
   private:
 	const CompactStar::Core::StarProfile *m_prof = nullptr;

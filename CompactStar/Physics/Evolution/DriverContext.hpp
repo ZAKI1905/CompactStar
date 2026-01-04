@@ -38,6 +38,10 @@
 
 namespace CompactStar
 {
+namespace EOS
+{
+class CompOSE_Thermo; ///< CompOSE thermodynamics table interface (optional).
+}
 namespace Physics
 {
 
@@ -124,6 +128,17 @@ struct DriverContext
 	 *    (e.g., PhotonCooling with SurfaceModel::EnvelopeTbTs).
 	 */
 	const Driver::Thermal::Boundary::IEnvelope *envelope = nullptr;
+
+	/**
+	 * @brief Optional CompOSE thermodynamics table (for Cv, entropy, etc.).
+	 *
+	 * Non-owning pointer. May be nullptr if the run does not use thermal microphysics
+	 * from CompOSE tables.
+	 *
+	 * Drivers that require it (e.g. GR heat capacity from CompOSE entropy) must validate
+	 * presence based on Options.
+	 */
+	const CompactStar::EOS::CompOSE_Thermo *thermo = nullptr;
 
 	/**
 	 * @brief Global evolution configuration (policy + toggles + numerics).

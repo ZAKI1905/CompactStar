@@ -1,6 +1,7 @@
 // -------------------------------------------------------------
 //                      CompOSE_Thermo Class
 // -------------------------------------------------------------
+#include <Zaki/Physics/Constants.hpp>
 
 #include "CompactStar/EOS/CompOSE_Thermo.hpp"
 
@@ -549,9 +550,27 @@ double CompOSE_Thermo::dQ2dT(double T_MeV, double nb_fm3, double Yq) const
 }
 
 // -------------------------------------------------------------
-double CompOSE_Thermo::CvDensity(double T_MeV, double nb_fm3, double Yq) const
+// Natural units: d e / dT(MeV)  -> fm^-3
+double CompOSE_Thermo::CvDensity_Natural(double T_MeV, double nb_fm3, double Yq) const
 {
 	return T_MeV * nb_fm3 * dQ2dT(T_MeV, nb_fm3, Yq);
+}
+
+// -------------------------------------------------------------
+// cV in cgs: erg cm^-3 K^-1
+double CompOSE_Thermo::CvDensity_cgs(double T_MeV, double nb_fm3, double Yq) const
+{
+	const double cv_nat_fm3 = CvDensity_Natural(T_MeV, nb_fm3, Yq); // fm^-3
+
+	// kB in MeV/K (since T[MeV] = kB*T[K])
+	constexpr double kB_MeV_per_K = 8.617333262e-11;
+
+	// 1 (MeV fm^-3) = 1.602176634e33 (erg cm^-3)   [CompOSE manual]
+	constexpr double MeVfm3_to_ergcm3 = 1.602176634e33;
+
+	// (fm^-3) * (MeV/K) -> (MeV fm^-3 / K) -> erg cm^-3 / K
+	return cv_nat_fm3 *
+		   kB_MeV_per_K * MeVfm3_to_ergcm3;
 }
 
 // -------------------------------------------------------------
@@ -688,11 +707,29 @@ double CompOSE_Thermo::dQ2dT_ForCooling(double T_MeV, double nb_fm3, double Yq) 
 }
 
 //------------------------------------------------------------------------------
-double CompOSE_Thermo::CvDensity_ForCooling(double T_MeV, double nb_fm3, double Yq) const
+// Natural units: d e / dT(MeV)  -> fm^-3
+double CompOSE_Thermo::CvDensity_Natural_ForCooling(double T_MeV, double nb_fm3, double Yq) const
 {
 	// c_V = T * nB * dQ2/dT
 	return T_MeV * nb_fm3 * dQ2dT_ForCooling(T_MeV, nb_fm3, Yq);
 }
+// -------------------------------------------------------------
+// cV in cgs: erg cm^-3 K^-1
+double CompOSE_Thermo::CvDensity_cgs_ForCooling(double T_MeV, double nb_fm3, double Yq) const
+{
+	const double cv_nat_fm3 = CvDensity_Natural_ForCooling(T_MeV, nb_fm3, Yq); // fm^-3
+
+	// kB in MeV/K (since T[MeV] = kB*T[K])
+	constexpr double kB_MeV_per_K = 8.617333262e-11;
+
+	// 1 (MeV fm^-3) = 1.602176634e33 (erg cm^-3)   [CompOSE manual]
+	constexpr double MeVfm3_to_ergcm3 = 1.602176634e33;
+
+	// (fm^-3) * (MeV/K) -> (MeV fm^-3 / K) -> erg cm^-3 / K
+	return cv_nat_fm3 *
+		   kB_MeV_per_K * MeVfm3_to_ergcm3;
+}
+
 //------------------------------------------------------------------------------
 
 } // namespace EOS
