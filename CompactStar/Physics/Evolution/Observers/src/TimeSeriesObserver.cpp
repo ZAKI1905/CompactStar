@@ -152,29 +152,134 @@ inline std::size_t ClampFlushBytes(std::size_t v)
 // 	// 	emit("nan", 3);
 // }
 
+// template <class Emit>
+// static inline void AppendDouble(Emit &&emit, double v)
+// {
+// 	if (!std::isfinite(v))
+// 	{
+// 		emit("nan", 3);
+// 		return;
+// 	}
+
+// 	// Use shortest round-trip representation for doubles.
+// 	char tmp[64];
+// 	auto res = std::to_chars(tmp, tmp + sizeof(tmp), v, std::chars_format::general);
+// 	if (res.ec == std::errc())
+// 	{
+// 		emit(tmp, static_cast<std::size_t>(res.ptr - tmp));
+// 		return;
+// 	}
+
+// 	// Extremely rare fallback (keep output parseable).
+// 	emit("nan", 3);
+// }
+
 template <class Emit>
 static inline void AppendDouble(Emit &&emit, double v)
 {
 	if (!std::isfinite(v))
 	{
-		emit("nan", 3);
+		// Preserve sign for inf if you care; "nan" is fine for NaN.
+		if (std::isnan(v))
+		{
+			emit("nan", 3);
+			return;
+		}
+		if (v < 0)
+		{
+			emit("-inf", 4);
+			return;
+		}
+		emit("inf", 3);
 		return;
 	}
 
-	// Use shortest round-trip representation for doubles.
+	// Shortest/round-trip-ish buffer. 64 is plenty for "%.17g" and to_chars outputs.
 	char tmp[64];
+
+#if !defined(_LIBCPP_VERSION)
+	// Non-Apple-libc++ path: many libstdc++/newer libc++ provide float to_chars.
+	// If your toolchain supports it, this is typically the fastest option.
 	auto res = std::to_chars(tmp, tmp + sizeof(tmp), v, std::chars_format::general);
-	if (res.ec == std::errc())
+	if (res.ec == std::errc{})
 	{
 		emit(tmp, static_cast<std::size_t>(res.ptr - tmp));
 		return;
 	}
+	// Fall through to snprintf if something unexpected happens.
+#endif
 
-	// Extremely rare fallback (keep output parseable).
+	// Portable fast fallback (also the primary path on Apple libc++ where float to_chars is absent).
+	// "%.17g" is a good choice for round-tripping IEEE doubles in practice.
+	int n = std::snprintf(tmp, sizeof(tmp), "%.17g", v);
+	if (n > 0 && n < static_cast<int>(sizeof(tmp)))
+	{
+		emit(tmp, static_cast<std::size_t>(n));
+		return;
+	}
+
+	// If even snprintf fails/truncates (should be extremely rare with 64 bytes), emit a safe token.
 	emit("nan", 3);
 }
 
 } // namespace
+
+//------------------------------------------------------------------------------
+
+[[nodiscard]] double TimeSeriesObserver::Options::ComputeLogQ() const noexcept
+{
+	if (log_q > 1.0 && std::isfinite(log_q))
+		return log_q;
+
+	if (samples_per_decade > 0.0 && std::isfinite(samples_per_decade))
+		return std::pow(10.0, 1.0 / samples_per_decade);
+
+	return 10.0;
+}
+
+//------------------------------------------------------------------------------
+
+[[nodiscard]] std::string TimeSeriesObserver::Options::ToLogString() const
+{
+	std::ostringstream oss;
+
+	oss << "TimeSeriesObserver::Options("
+		<< "path='" << output_path.Str() << "', "
+		<< "format=" << (format == OutputFormat::CSV ? "CSV" : "TSV") << ", "
+		<< "append=" << (append ? "true" : "false") << ", "
+		<< "record_at_start=" << (record_at_start ? "true" : "false") << ", "
+		<< "record_every_n_samples=" << record_every_n_samples << ", "
+		<< "record_every_dt=" << record_every_dt << ", "
+		<< "record_cadence=" << (record_cadence == RecordCadence::LinearDt ? "LinearDt" : "LogTime");
+
+	if (record_every_dt > 0.0 && record_cadence == RecordCadence::LogTime)
+	{
+		oss << ", log_t_floor=" << log_t_floor
+			<< ", samples_per_decade=" << samples_per_decade
+			<< ", log_q=" << log_q
+			<< ", q_eff=" << ComputeLogQ();
+	}
+
+	oss << ", write_header=" << (write_header ? "true" : "false")
+		<< ", write_sidecar_metadata=" << (write_sidecar_metadata ? "true" : "false")
+		<< ", float_precision=" << float_precision
+		<< ", n_columns=" << columns.size()
+		<< ", use_catalog=" << (use_catalog ? "true" : "false");
+
+	if (use_catalog)
+	{
+		oss << ", catalog_path='" << catalog_path.Str() << "'"
+			<< ", n_profiles=" << catalog_profiles.size();
+	}
+
+	oss << ", include_builtin_time=" << (include_builtin_time ? "true" : "false")
+		<< ", include_builtin_sample_index=" << (include_builtin_sample_index ? "true" : "false")
+		<< ", buffered_io=" << (buffered_io ? "true" : "false")
+		<< ", flush_bytes=" << flush_bytes
+		<< ")";
+
+	return oss.str();
+}
 
 //------------------------------------------------------------------------------
 //  Construction / destruction
@@ -241,15 +346,61 @@ bool TimeSeriesObserver::ShouldRecord(double t, std::uint64_t sample_index) cons
 }
 
 //------------------------------------------------------------------------------
+// void TimeSeriesObserver::AdvanceTimeTrigger(double t)
+// {
+// 	if (opts_.record_every_dt <= 0.0)
+// 		return;
+
+// 	// Ensure monotonic progression of the trigger time even if multiple samples
+// 	// arrive with the same t (or integrator jitter).
+// 	while (t >= next_time_trigger_)
+// 		next_time_trigger_ += opts_.record_every_dt;
+// }
+
 void TimeSeriesObserver::AdvanceTimeTrigger(double t)
 {
 	if (opts_.record_every_dt <= 0.0)
 		return;
 
-	// Ensure monotonic progression of the trigger time even if multiple samples
-	// arrive with the same t (or integrator jitter).
-	while (t >= next_time_trigger_)
-		next_time_trigger_ += opts_.record_every_dt;
+	switch (opts_.record_cadence)
+	{
+	case RecordCadence::LinearDt:
+	{
+		// Advance in fixed linear increments
+		while (t >= next_time_trigger_)
+			next_time_trigger_ += opts_.record_every_dt;
+		break;
+	}
+
+	case RecordCadence::LogTime:
+	{
+		const double q = opts_.ComputeLogQ();
+		const double floor_t =
+			(opts_.log_t_floor > 0.0 && std::isfinite(opts_.log_t_floor))
+				? opts_.log_t_floor
+				: 1.0;
+
+		// Ensure next_time_trigger_ is in the valid domain
+		if (next_time_trigger_ < floor_t)
+			next_time_trigger_ = floor_t;
+
+		// Advance geometrically until we're ahead of current time
+		while (t >= next_time_trigger_)
+		{
+			const double next = next_time_trigger_ * q;
+
+			// Safety: prevent floating-point stagnation
+			if (!(next > next_time_trigger_))
+			{
+				next_time_trigger_ = t + 1.0; // guaranteed progress
+				break;
+			}
+
+			next_time_trigger_ = next;
+		}
+		break;
+	}
+	}
 }
 
 //------------------------------------------------------------------------------
@@ -1108,11 +1259,36 @@ void TimeSeriesObserver::OnStart(const RunInfo &run,
 	// Initialize time-trigger schedule
 	if (opts_.record_every_dt > 0.0)
 	{
-		next_time_trigger_ = run.t0;
+		if (opts_.record_cadence == RecordCadence::LinearDt)
+		{
+			next_time_trigger_ = run.t0;
 
-		// If we do NOT record at start, first eligible time is t0 + dt.
-		if (!opts_.record_at_start)
-			next_time_trigger_ = run.t0 + opts_.record_every_dt;
+			if (!opts_.record_at_start)
+				next_time_trigger_ = run.t0 + opts_.record_every_dt;
+		}
+		else // LogTime
+		{
+			const double floor_t =
+				(opts_.log_t_floor > 0.0 && std::isfinite(opts_.log_t_floor))
+					? opts_.log_t_floor
+					: 1.0;
+
+			const double q = opts_.ComputeLogQ();
+
+			// Base time for geometric progression
+			double t_base = std::max(run.t0, floor_t);
+
+			if (opts_.record_at_start)
+			{
+				// First trigger already satisfied at t0; next one is geometric
+				next_time_trigger_ = t_base * q;
+			}
+			else
+			{
+				// First trigger is the first geometric step
+				next_time_trigger_ = t_base * q;
+			}
+		}
 	}
 
 	// Write sidecar metadata once per run.

@@ -1,136 +1,160 @@
 cmake_minimum_required(VERSION 3.10)
 
-# set the project name and version
-project(CompactStar VERSION 2.0 DESCRIPTION "Compact Star")
+# ============================================================
+# CompactStar (Top-level) — deterministic macOS toolchain + Python
+# ============================================================
+
+# -----------------------------
+# Toolchain selection (MUST be before project())
+# -----------------------------
+if(APPLE)
+    # Prefer AppleClang on macOS for consistent libc++ runtime behavior.
+    # If you want to override, do it on the cmake command line and remove FORCE.
+    set(CMAKE_C_COMPILER "/usr/bin/clang" CACHE FILEPATH "C compiler" FORCE)
+    set(CMAKE_CXX_COMPILER "/usr/bin/clang++" CACHE FILEPATH "C++ compiler" FORCE)
+endif()
+
+# -----------------------------
+# Project
+# -----------------------------
+project(CompactStar VERSION 2.0 DESCRIPTION "Compact Star" LANGUAGES C CXX)
 
 string(TIMESTAMP CompactStar_RELEASE_DATE "%m, %d, %Y")
 
-# specify the C++ standard
+# -----------------------------
+# Language standard
+# -----------------------------
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-# add_compile_options(-Wall -Wextra -pedantic -Werror -g)
-# add_compile_options(-pthread -Wall -Wextra -pedantic -ggdb3)
+# Minimal global compile options you were using
 add_compile_options(-pthread)
 
-# For using gnuplot in the future
-# find_package(Boost REQUIRED COMPONENTS
-# iostreams system filesystem
-# )
+# -----------------------------
+# Prefer project venv Python if present (prevents Homebrew python3.14 surprises)
+# -----------------------------
+# If you want a different Python, override at configure time:
+# cmake .. -DPython3_EXECUTABLE=/path/to/python
+#
+# This block only sets Python3_EXECUTABLE if you did NOT already provide one.
+if(NOT DEFINED Python3_EXECUTABLE)
+    if(EXISTS "${CMAKE_SOURCE_DIR}/.venv/bin/python")
+        set(Python3_EXECUTABLE "${CMAKE_SOURCE_DIR}/.venv/bin/python"
+            CACHE FILEPATH "Project virtualenv Python" FORCE)
+    elseif(EXISTS "${CMAKE_SOURCE_DIR}/.venv/bin/python3")
+        set(Python3_EXECUTABLE "${CMAKE_SOURCE_DIR}/.venv/bin/python3"
+            CACHE FILEPATH "Project virtualenv Python3" FORCE)
+    endif()
+endif()
 
-# set(root_cmake_path "/opt/local/libexec/root6/share/root/cmake")
-# set(CMAKE_PREFIX_PATH ${root_cmake_path})
-# find_package(ROOT REQUIRED)
-
-# set(ROOT_LIBS
-# ROOT::Core
-# ROOT::Gpad
-# ROOT::Graf
-# ROOT::Hist
-# )
+# -----------------------------
+# Dependencies
+# -----------------------------
 find_package(GSL REQUIRED)
 
+# OpenMP: do NOT inject flags globally; link the imported target instead
+find_package(OpenMP REQUIRED)
+
+# Python / NumPy
+find_package(Python3 COMPONENTS Interpreter Development NumPy REQUIRED)
+message(STATUS "Using Python3 executable: ${Python3_EXECUTABLE}")
+message(STATUS "Python3 version: ${Python3_VERSION}")
+
+# -----------------------------
+# Local dependency paths
+# -----------------------------
 set(DEP_LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/dependencies/lib)
-set(DEP_INC_DIR dependencies/include)
+set(DEP_INC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/dependencies/include)
 
 set(ZAKI_LIB ${DEP_LIB_DIR}/Zaki/${CMAKE_SYSTEM_NAME}/${CMAKE_HOST_SYSTEM_PROCESSOR}/libZaki.a)
 set(CONFIND_LIB ${DEP_LIB_DIR}/Confind/${CMAKE_SYSTEM_NAME}/${CMAKE_HOST_SYSTEM_PROCESSOR}/libConfind.a)
 
-# list(APPEND CMAKE_PREFIX_PATH $ENV{ROOTSYS})
-
-# -----------------------------
-# Python / NumPy configuration
-# -----------------------------
-# Prefer Conda/Miniforge Python if we're in a conda env.
-if(DEFINED ENV{CONDA_PREFIX})
-    # This will be something like /Users/keeper/miniforge3
-    set(Python3_ROOT_DIR "$ENV{CONDA_PREFIX}")
-
-    # Make the executable explicit; cache so it persists between runs.
-    set(Python3_EXECUTABLE "$ENV{CONDA_PREFIX}/bin/python"
-        CACHE FILEPATH "Python 3 executable from active conda environment" FORCE)
+if(NOT EXISTS "${ZAKI_LIB}")
+    message(FATAL_ERROR "Missing Zaki static library: ${ZAKI_LIB}")
 endif()
 
-# for matplotlib:
-find_package(Python3 COMPONENTS Interpreter Development NumPy REQUIRED)
+if(NOT EXISTS "${CONFIND_LIB}")
+    message(FATAL_ERROR "Missing Confind static library: ${CONFIND_LIB}")
+endif()
 
-# configure a header file to pass some of the CMake settings
-# to the source code
-configure_file(CompactStarConfig.h.in ${CMAKE_CURRENT_SOURCE_DIR}/CompactStar/Core/CompactStarConfig.h)
+# -----------------------------
+# Configure headers
+# -----------------------------
+configure_file(
+    CompactStarConfig.h.in
+    ${CMAKE_CURRENT_SOURCE_DIR}/CompactStar/Core/CompactStarConfig.h
+)
 
-find_package(OpenMP REQUIRED)
-
-IF(OPENMP_FOUND)
-    SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
-    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
-ENDIF()
-
+# -----------------------------
+# Subdirectories / sources
+# -----------------------------
 add_subdirectory(CompactStar)
 
+# Build the CompactStar static library from sources exported by the subdir
 add_library(CompactStar STATIC ${CompactStar_SRC_Files})
-set_target_properties(CompactStar PROPERTIES VERSION ${PROJECT_VERSION})
+target_compile_features(CompactStar PUBLIC cxx_std_17)
+set_target_properties(CompactStar PROPERTIES
+    VERSION ${PROJECT_VERSION}
+    POSITION_INDEPENDENT_CODE ON
+)
 
 target_include_directories(CompactStar
     PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${GSL_INCLUDE_DIRS}
     ${DEP_INC_DIR}
-
-    # ${ROOT_INCLUDE_DIRS}
-    # OpenMP::OpenMP_CXX
 )
 
-target_link_libraries(CompactStar PUBLIC
+target_link_libraries(CompactStar
+    PUBLIC
     ${ZAKI_LIB}
-
-    # ${ROOT_LIBS}
     ${CONFIND_LIB}
+
     GSL::gsl
     GSL::gslcblas
-    Python3::Python # for matplotlib
-    Python3::Module # for matplotlib
-    Python3::NumPy
-    OpenMP::OpenMP_CXX
 
-    # Boost::iostreams
-    # Boost::system
-    # Boost::filesystem
+    Python3::Python
+    Python3::Module
+    Python3::NumPy
+
+    OpenMP::OpenMP_CXX
 )
 
+# -----------------------------
+# Install rules
+# -----------------------------
 install(TARGETS CompactStar DESTINATION lib)
 
 install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/dependencies/include"
-    DESTINATION dependencies)
+    DESTINATION dependencies
+)
 install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/dependencies/lib"
-    DESTINATION dependencies)
+    DESTINATION dependencies
+)
 
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/License" DESTINATION Docs)
 
-# Option for generating the doxygen docs
+# -----------------------------
+# Optional docs
+# -----------------------------
 option(GEN_DOCS "Generate documents using doxygen." OFF)
 
 if(GEN_DOCS)
     execute_process(
-        COMMAND
-        doxygen ${CMAKE_CURRENT_SOURCE_DIR}/docs/Doxyfile
+        COMMAND doxygen ${CMAKE_CURRENT_SOURCE_DIR}/docs/Doxyfile
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
     )
 endif()
 
-# install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/doxygen/html" DESTINATION Docs)
+# -----------------------------
+# Executables
+# -----------------------------
 add_subdirectory(main)
 
-# foreach(src ${CompactStar_main_SRC_Files})
-# add_executable(${src} "main/${src}.cpp")
-# target_link_libraries(${src} PUBLIC CompactStar)
-# target_include_directories(${src} PUBLIC
-# ${CMAKE_CURRENT_SOURCE_DIR}/include
-# ${GSL_INCLUDE_DIRS}
-# ${DEP_INC_DIR}
-# )
-# install(FILES "main/${src}.cpp" DESTINATION main)
-# install(TARGETS ${src} DESTINATION main/${src})
-# endforeach()
+# -----------------------------
+# Packaging
+# -----------------------------
 include(InstallRequiredSystemLibraries)
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/License.txt")
 set(CPACK_PACKAGE_VERSION_MAJOR "${CompactStar_VERSION_MAJOR}")

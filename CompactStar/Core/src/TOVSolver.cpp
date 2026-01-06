@@ -9,6 +9,7 @@
 #include <sys/stat.h>
 
 #include <array>
+#include <cmath>
 
 #include <gsl/gsl_const_cgsm.h>
 #include <gsl/gsl_errno.h>

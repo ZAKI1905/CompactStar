@@ -860,7 +860,7 @@ NeutrinoCooling_Details NeutrinoCooling_Details::ComputeDerived(const NeutrinoCo
 	}
 
 	// ------------------------------------------------------------
-	// 3) Heat capacity policy (your current placeholder)
+	// 3) Heat capacity policy 
 	// ------------------------------------------------------------
 	// Keep whatever policy you currently use; the cache only accelerates L_nu.
 	// d.C_eff_erg_K = 1.0e40;
@@ -870,6 +870,7 @@ NeutrinoCooling_Details NeutrinoCooling_Details::ComputeDerived(const NeutrinoCo
 	// ------------------------------------------------------------
 	if (!ctx.thermo)
 	{
+		Z_LOG_ERROR("NeutrinoCooling requires ctx.thermo (CompOSE_Thermo) but it is nullptr.");
 		d.ok = false;
 		d.message = "ctx.thermo == nullptr (CompOSE_Thermo required for heat capacity).";
 		return d;
@@ -938,8 +939,8 @@ NeutrinoCooling_Details NeutrinoCooling_Details::ComputeDerived(const NeutrinoCo
 	// PBF (hook; keep zero unless implemented)
 	if (opt.include_pair_breaking && payload.K_PBF > 0.0)
 	{
-		// If/when you implement, define exponent and compute here.
-		// Example (NOT a claim): L_PBF = payload.K_PBF * PowInt(d.Tinf_K, 7);
+		// If/when we implement, define exponent and compute here.
+		// Example: L_PBF = payload.K_PBF * PowInt(d.Tinf_K, 7);
 	}
 
 	// Apply global scaling at the end (keeps payload purely structural).

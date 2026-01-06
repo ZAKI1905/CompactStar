@@ -117,6 +117,35 @@ Evolution::DriverContext MakeDriverContext(Evolution::StarContext &star,
 										   const Physics::Driver::Thermal::Boundary::IEnvelope *env);
 
 /**
+ * @brief
+ *
+ * @param star StarContext (must outlive ctx).
+ * @param geo GeometryCache (must outlive ctx).
+ * @param cfg Evolution::Config (must outlive ctx).
+ * @param thermo EOS::CompOSE_Thermo (must outlive ctx).
+ * @return Evolution::DriverContext
+ */
+Evolution::DriverContext MakeDriverContext(Evolution::StarContext &star,
+										   Evolution::GeometryCache &geo,
+										   Evolution::Config &cfg,
+										   const EOS::CompOSE_Thermo *thermo);
+/**
+ * @brief
+ *
+ * @param star StarContext (must outlive ctx).
+ * @param geo GeometryCache (must outlive ctx).
+ * @param cfg Evolution::Config (must outlive ctx).
+ * @param env Envelope model (must outlive ctx).
+ * @param thermo EOS::CompOSE_Thermo (must outlive ctx).
+ * @return Evolution::DriverContext
+ */
+Evolution::DriverContext MakeDriverContext(Evolution::StarContext &star,
+										   Evolution::GeometryCache &geo,
+										   Evolution::Config &cfg,
+										   const Physics::Driver::Thermal::Boundary::IEnvelope *env,
+										   const EOS::CompOSE_Thermo *thermo);
+
+/**
  * @brief Configure StateLayout packing order for the given tags.
  *
  * @param wiring StateWiring with state_vec already registered.

@@ -53,14 +53,13 @@ Evolution::DriverContext MakeDriverContext(Evolution::StarContext &star,
 										   Evolution::GeometryCache &geo,
 										   Evolution::Config &cfg)
 {
-	// Evolution::DriverContext ctx;
-	// ctx.star = &star;
-	// ctx.geo = &geo;
-	// // ctx.envelope = nullptr; // reserved for future
-	// ctx.cfg = &cfg;
-	// return ctx;
-
-	return MakeDriverContext(star, geo, cfg, nullptr);
+	Evolution::DriverContext ctx;
+	ctx.star = &star;
+	ctx.geo = &geo;
+	ctx.envelope = nullptr;
+	ctx.thermo = nullptr;
+	ctx.cfg = &cfg;
+	return ctx;
 }
 
 //--------------------------------------------------------------
@@ -74,6 +73,38 @@ Evolution::DriverContext MakeDriverContext(Evolution::StarContext &star,
 	ctx.geo = &geo;
 	ctx.envelope = env; // <-- enable envelope wiring
 	ctx.cfg = &cfg;
+	ctx.thermo = nullptr;
+	return ctx;
+}
+
+//--------------------------------------------------------------
+Evolution::DriverContext MakeDriverContext(Evolution::StarContext &star,
+										   Evolution::GeometryCache &geo,
+										   Evolution::Config &cfg,
+										   const EOS::CompOSE_Thermo *thermo)
+{
+	Evolution::DriverContext ctx;
+	ctx.star = &star;
+	ctx.geo = &geo;
+	ctx.cfg = &cfg;
+	ctx.envelope = nullptr;
+	ctx.thermo = thermo;
+	return ctx;
+}
+
+//--------------------------------------------------------------
+Evolution::DriverContext MakeDriverContext(Evolution::StarContext &star,
+										   Evolution::GeometryCache &geo,
+										   Evolution::Config &cfg,
+										   const Physics::Driver::Thermal::Boundary::IEnvelope *env,
+										   const EOS::CompOSE_Thermo *thermo)
+{
+	Evolution::DriverContext ctx;
+	ctx.star = &star;
+	ctx.geo = &geo;
+	ctx.cfg = &cfg;
+	ctx.envelope = env;
+	ctx.thermo = thermo;
 	return ctx;
 }
 

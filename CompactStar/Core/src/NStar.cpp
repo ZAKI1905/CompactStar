@@ -12,6 +12,7 @@
 #include "CompactStar/Core/RotationSolver.hpp"
 #include "CompactStar/Core/TOVSolver.hpp"
 
+#include <cmath>
 #include <gsl/gsl_integration.h>
 #include <limits>
 

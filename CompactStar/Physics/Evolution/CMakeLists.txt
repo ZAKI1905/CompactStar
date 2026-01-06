@@ -28,6 +28,7 @@ set(CompactStar_Physics_Evolution_sources
     CompactStar/Physics/Evolution/src/StarContext.cpp
     CompactStar/Physics/Evolution/src/GeometryCache.cpp
     CompactStar/Physics/Evolution/src/ProfileCache.cpp
+    CompactStar/Physics/Evolution/src/EvolutionConfig.cpp
 )
 
 # Append integrator sources
