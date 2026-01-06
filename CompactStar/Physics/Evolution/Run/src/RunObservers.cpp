@@ -18,6 +18,7 @@
 
 #include "CompactStar/Physics/Evolution/Run/RunObservers.hpp"
 
+#include <Zaki/Physics/Constants.hpp>
 namespace CompactStar::Physics::Evolution::Run
 {
 //--------------------------------------------------------------
@@ -26,7 +27,8 @@ MakeDefaultDiagnosticsOptions(const RunPaths &p)
 {
 	Observers::DiagnosticsObserver::Options o;
 	o.output_path = p.diagnostics_jsonl;
-	o.record_every_n_steps = 1000;
+	o.record_every_n_steps = 0;
+	o.record_every_dt = 200.0 * Zaki::Physics::YR_2_SEC; // every 200 years
 	o.record_at_start = true;
 	o.write_catalog = true;
 	o.catalog_output_path = p.diagnostics_catalog_json;

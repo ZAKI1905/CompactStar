@@ -120,7 +120,7 @@ int main()
 	Core::NStar ns;
 	ns.SetWrkDir(base_results_dir);
 
-	const double target_M = 1.2; // Msun
+	const double target_M = 1.6; // Mass in Msun
 	const int n_rows = ns.SolveTOV_Profile(eos_file, target_M, out_dir);
 
 	if (n_rows <= 0)
@@ -196,7 +196,7 @@ int main()
 	// -------------------------------------------------------
 	Physics::State::ThermalState thermal;
 	thermal.Resize(1);
-	thermal.SetTinf(3.0e9); // K
+	thermal.SetTinf(1e9); // K
 
 	Physics::State::SpinState spin;
 	spin.Resize(1);
@@ -242,7 +242,7 @@ int main()
 	photonOpts.surface_model =
 		Physics::Driver::Thermal::PhotonCooling::Options::SurfaceModel::EnvelopeTbTs;
 	photonOpts.radiating_fraction = 1.0;
-	photonOpts.C_eff = 1.0e40;
+	photonOpts.C_eff = 1.0e40; // Change this!
 	photonOpts.global_scale = 1.0;
 
 	auto photonDriver =

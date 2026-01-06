@@ -20,7 +20,7 @@ plt.figure(figsize=(6, 4))
 
 # plt.loglog(t, Tinf, marker="o", linestyle="-", markersize=4,
 #            label=r"$T_\infty$ (interior)")
-plt.loglog(t, Ts, marker="s", linestyle="--", markersize=4,
+plt.loglog(t, Ts, marker="s", linestyle="--", markersize=0,
            label=r"$T_s$ (surface)")
 
 # plt.loglog(t, Lnu, marker="s", linestyle="--", markersize=2,
