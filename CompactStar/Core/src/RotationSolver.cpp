@@ -2,6 +2,9 @@
   Last edited in 2026
   RotationSolver class
 */
+#include <cmath>
+#include <gsl/gsl_math.h>
+// #include <gsl/gsl_roots.h>
 #include <gsl/gsl_deriv.h>
 #include <gsl/gsl_errno.h>
 #include <gsl/gsl_integration.h> // Aug 6, 2020
@@ -665,34 +668,13 @@ void RotationSolver::Reset()
 
 //--------------------------------------------------------------
 // Added on June 3, 2022
-// Evaluates the moment of inertia for the neutron star
+// Evaluates the moment of inertia for the neutron star.
+// Also stores the omega_bar profile for use by the second-order solver.
 void RotationSolver::FindNMomInertia()
 {
-	// double r_min = nstar_ptr->Profile().GetRadius()->operator[](0);
-	// double r_surface = nstar_ptr->Profile().GetRadius()->operator[](-1);
-
-	auto *R = nstar_ptr->Profile().GetRadius();
-	const std::size_t n = nstar_ptr->Size();
-
-	double r_surface = R->operator[](-1);
-
-	// Find first strictly-positive grid radius (or fall back to epsilon)
-	std::size_t i0 = 0;
-	while (i0 < n && !(R->operator[](i0) > 0.0))
-		++i0;
-
-	double r0 = (i0 < n) ? R->operator[](i0) : kR_EPS_KM;
-	if (r0 < kR_EPS_KM)
-		r0 = kR_EPS_KM;
-	double r = r0;
-
-	auto *P = nstar_ptr->prof_.GetPressure();
-	auto *E = nstar_ptr->prof_.GetEnergyDensity();
-	auto *M = nstar_ptr->prof_.GetMass();
-
-	// If these are not std::vector<double>, adapt this call to your container;
-	// the key point is: store references/pointers to contiguous arrays.
-	SetFastProfilePtrs_(*R, *P, *E, *M);
+	const size_t N = nstar_ptr->Size();
+	double r_min = nstar_ptr->Profile().GetRadius()->operator[](0);
+	double r_surface = nstar_ptr->Profile().GetRadius()->operator[](-1);
 
 	init_omega_bar = 5e-3;
 	// double r = r_min;
@@ -708,8 +690,12 @@ void RotationSolver::FindNMomInertia()
 	gsl_odeiv2_driver *fast_driver = gsl_odeiv2_driver_alloc_y_new(&fast_ode_sys, gsl_odeiv2_step_rk8pd,
 																   1.e-1, 1.e-10, 1.e-10);
 
+	// Prepare storage for omega_bar profile
+	stored_omega_bar_ = Zaki::Vector::DataColumn("omega_bar", N, 0.0);
+	stored_domega_bar_ = Zaki::Vector::DataColumn("domega_bar", N, 0.0);
+
 	// Radius loop inside the core
-	for (size_t i = 0; i < n; i++)
+	for (size_t i = 0; i < N; i++)
 	{
 		// fast_p = nstar_ptr->prof_.GetPressure()->operator[](i);
 		// fast_e = nstar_ptr->prof_.GetEnergyDensity()->operator[](i);
@@ -718,6 +704,10 @@ void RotationSolver::FindNMomInertia()
 		if (GSL_SUCCESS !=
 			gsl_odeiv2_driver_apply(fast_driver, &r, R->operator[](i), y))
 			break;
+
+		// Store omega_bar profile at each grid point
+		stored_omega_bar_[i] = y[0];
+		stored_domega_bar_[i] = y[1];
 	}
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -728,254 +718,548 @@ void RotationSolver::FindNMomInertia()
 
 	nstar_ptr->MomI = mom_inertia;
 
+	// Store first-order results in HartleResult
+	hartle_result_.Omega = ang_vel_Omega;
+	hartle_result_.J = ang_mom_J;
+	hartle_result_.I = mom_inertia;
+	hartle_result_.omega_bar = stored_omega_bar_;
+	hartle_result_.domega_bar = stored_domega_bar_;
+	hartle_result_.r_grid = nstar_ptr->Profile().GetRadius();
+
+	// Store first-order results in HartleResult
+	hartle_result_.Omega = ang_vel_Omega;
+	hartle_result_.J = ang_mom_J;
+	hartle_result_.I = mom_inertia;
+	hartle_result_.omega_bar = stored_omega_bar_;
+	hartle_result_.domega_bar = stored_domega_bar_;
+	hartle_result_.r_grid = nstar_ptr->Profile().GetRadius();
+
 	gsl_odeiv2_driver_free(fast_driver);
 }
 
-// //--------------------------------------------------------------
-// // Added on Apr 22, 2022
-// void RotationSolver::FindMixedMomInertia()
-// {
-// 	// Resolution of the solver (division of the radial distance)
-// 	// unsigned int solver_res = 5000 ;
-
-// 	// double r_min = mixedstar_ptr->core_region.Min();
-// 	//  double r_mantle = mixedstar_ptr->mantle_region.Min() ;
-// 	//  double r_max = mixedstar_ptr->mantle_region.Max() ;
-
-// 	double r_min_raw = mixedstar_ptr->core_region.Min();
-// 	double r0 = SafeR0(r_min_raw);
-// 	double r = r0;
-
-// 	init_omega_bar = 5e-3;
-// 	// double r = r_min;
-
-// 	double y[2];
-// 	y[0] = init_omega_bar;
-// 	y[1] = 0;
-
-// 	// -------------------------------------------------
-// 	// Added on Apr 20, 2022
-// 	double r_surface = mixedstar_ptr->mantle_region.Max();
-
-// 	// Added on March 23, 2022 to fix the bug
-// 	// in J, Omega, I calculations.
-// 	//  double log_r_star = log10(r_surface) ;
-
-// 	// Total angular momentum and velocity:
-// 	double ang_mom_J, ang_vel_Omega, mom_inertia;
-// 	// -------------------------------------------------
-
-// 	// double step = (r_surface - r_min) / radial_res ;
-
-// 	// One extra point for the exact value at r = R_star.
-// 	// bool surface_reached = false ;
-
-// 	// ---------------------------------------------------------------------
-// 	//                         RADIUS LOOP BEGINS
-// 	// ---------------------------------------------------------------------
-// 	// for (double r_i = r_min;  r_i < r_surface; r_i += step)
-// 	// {
-// 	//   if ( GSL_SUCCESS !=
-// 	//       gsl_odeiv2_driver_apply (tmp_driver, &r, r_i, y) )
-// 	//     break ;
-// 	// }
-// 	// ............  Radius Loop Ends .........................
-
-// 	// gsl_odeiv2_driver_apply (tmp_driver, &r, r_surface, y) ;
-// 	// ++++++++++++++++++++++++++++++++++++++++++++++++++
-
-// 	// ++++++++++++++++++++++++++++++++++++++++++++++++++
-// 	// New method:
-// 	gsl_odeiv2_system fast_ode_sys = {RotationSolver::ODE_Mixed_Fast, nullptr, 2, this};
-
-// 	gsl_odeiv2_driver *fast_driver = gsl_odeiv2_driver_alloc_y_new(&fast_ode_sys, gsl_odeiv2_step_rk8pd,
-// 																   1.e-1, 1.e-10, 1.e-10);
-
-// 	if (mixedstar_ptr->dark_core)
-// 	{
-// 		auto &Rad_dar = mixedstar_ptr->ds_dar[0];
-// 		const size_t N_dar = Rad_dar.Size();
-
-// 		size_t i0 = 0;
-// 		while (i0 < N_dar && !(Rad_dar[i0] > r0))
-// 			++i0;
-// 		// Loop inside the core
-// 		for (size_t i = i0; i < N_dar; i++)
-// 		{
-// 			// fast_p_v = mixedstar_ptr->ds_vis[3][i];
-// 			// fast_p_d = mixedstar_ptr->ds_dar[3][i];
-// 			// fast_e_v = mixedstar_ptr->ds_vis[4][i];
-// 			// fast_e_d = mixedstar_ptr->ds_dar[4][i];
-// 			// fast_m_tot = mixedstar_ptr->ds_vis[1][i] + mixedstar_ptr->ds_dar[1][i];
-
-// 			if (GSL_SUCCESS !=
-// 				gsl_odeiv2_driver_apply(fast_driver, &r, Rad_dar[i], y))
-// 				break;
-// 		}
-
-// 		auto &Rad_vis = mixedstar_ptr->ds_vis[0];
-// 		const size_t N_vis = Rad_vis.Size();
-// 		// Loop inside the mantle
-// 		for (size_t i = N_dar; i < N_vis; i++)
-// 		{
-// 			// fast_p_v = mixedstar_ptr->ds_vis[3][i];
-// 			// fast_p_d = 0;
-// 			// fast_e_v = mixedstar_ptr->ds_vis[4][i];
-// 			// fast_e_d = 0;
-// 			// fast_m_tot = mixedstar_ptr->ds_vis[1][i];
-
-// 			if (GSL_SUCCESS !=
-// 				gsl_odeiv2_driver_apply(fast_driver, &r, Rad_vis[i], y))
-// 				break;
-// 		}
-// 	}
-// 	// ++++++++++++++++++++++++++++++++++++++++++++++++++
-// 	else // We have a dark mantle
-// 	{
-// 		auto &Rad_vis = mixedstar_ptr->ds_vis[0];
-// 		const size_t N_vis = Rad_vis.Size();
-
-// 		size_t i0 = 0;
-// 		while (i0 < N_vis && !(Rad_vis[i0] > r0))
-// 			++i0;
-// 		// Loop inside the core
-// 		for (size_t i = i0; i < N_vis; i++)
-// 		{
-// 			// fast_p_v = mixedstar_ptr->ds_vis[3][i];
-// 			// fast_p_d = mixedstar_ptr->ds_dar[3][i];
-// 			// fast_e_v = mixedstar_ptr->ds_vis[4][i];
-// 			// fast_e_d = mixedstar_ptr->ds_dar[4][i];
-// 			// fast_m_tot = mixedstar_ptr->ds_vis[1][i] + mixedstar_ptr->ds_dar[1][i];
-
-// 			if (GSL_SUCCESS !=
-// 				gsl_odeiv2_driver_apply(fast_driver, &r, Rad_vis[i], y))
-// 				break;
-// 		}
-
-// 		auto &Rad_dar = mixedstar_ptr->ds_dar[0];
-// 		const size_t N_dar = Rad_dar.Size();
-// 		// Loop inside the mantle
-// 		for (size_t i = N_vis; i < N_dar; i++)
-// 		{
-// 			// fast_p_v = 0;
-// 			// fast_p_d = mixedstar_ptr->ds_dar[3][i];
-// 			// fast_e_v = 0;
-// 			// fast_e_d = mixedstar_ptr->ds_dar[4][i];
-// 			// fast_m_tot = mixedstar_ptr->ds_dar[1][i];
-
-// 			if (GSL_SUCCESS !=
-// 				gsl_odeiv2_driver_apply(fast_driver, &r, Rad_dar[i], y))
-// 				break;
-// 		}
-// 	}
-// 	// ++++++++++++++++++++++++++++++++++++++++++++++++++
-
-// 	// Total angular momentum and velocity:
-// 	ang_mom_J = pow(r_surface, 4) * y[1] / 6.;
-// 	ang_vel_Omega = y[0] + r_surface * y[1] / 3.;
-// 	mom_inertia = ang_mom_J / ang_vel_Omega;
-
-// 	mixedstar_ptr->MomI = mom_inertia;
-
-// 	gsl_odeiv2_driver_free(fast_driver);
-// }
-// // ------------------------------------------------------------
 //--------------------------------------------------------------
-// Added on Jan 7, 2026
+// Added on Apr 22, 2022
 void RotationSolver::FindMixedMomInertia()
 {
-	PROFILE_FUNCTION();
+	// Resolution of the solver (division of the radial distance)
+	// unsigned int solver_res = 5000 ;
 
-	// Defensive
-	if (!mixedstar_ptr)
+	// 	// double r_min = mixedstar_ptr->core_region.Min();
+	// 	//  double r_mantle = mixedstar_ptr->mantle_region.Min() ;
+	// 	//  double r_max = mixedstar_ptr->mantle_region.Max() ;
+
+	// 	double r_min_raw = mixedstar_ptr->core_region.Min();
+	// 	double r0 = SafeR0(r_min_raw);
+	// 	double r = r0;
+
+	// 	init_omega_bar = 5e-3;
+	// 	// double r = r_min;
+
+	// 	double y[2];
+	// 	y[0] = init_omega_bar;
+	// 	y[1] = 0;
+
+	// 	// -------------------------------------------------
+	// 	// Added on Apr 20, 2022
+	// 	double r_surface = mixedstar_ptr->mantle_region.Max();
+
+	// 	// Added on March 23, 2022 to fix the bug
+	// 	// in J, Omega, I calculations.
+	// 	//  double log_r_star = log10(r_surface) ;
+
+	// 	// Total angular momentum and velocity:
+	// 	double ang_mom_J, ang_vel_Omega, mom_inertia;
+	// 	// -------------------------------------------------
+
+	// 	// double step = (r_surface - r_min) / radial_res ;
+
+	// 	// One extra point for the exact value at r = R_star.
+	// 	// bool surface_reached = false ;
+
+	// 	// ---------------------------------------------------------------------
+	// 	//                         RADIUS LOOP BEGINS
+	// 	// ---------------------------------------------------------------------
+	// 	// for (double r_i = r_min;  r_i < r_surface; r_i += step)
+	// 	// {
+	// 	//   if ( GSL_SUCCESS !=
+	// 	//       gsl_odeiv2_driver_apply (tmp_driver, &r, r_i, y) )
+	// 	//     break ;
+	// 	// }
+	// 	// ............  Radius Loop Ends .........................
+
+	// 	// gsl_odeiv2_driver_apply (tmp_driver, &r, r_surface, y) ;
+	// 	// ++++++++++++++++++++++++++++++++++++++++++++++++++
+
+	// 	// ++++++++++++++++++++++++++++++++++++++++++++++++++
+	// 	// New method:
+	// 	gsl_odeiv2_system fast_ode_sys = {RotationSolver::ODE_Mixed_Fast, nullptr, 2, this};
+
+	// 	gsl_odeiv2_driver *fast_driver = gsl_odeiv2_driver_alloc_y_new(&fast_ode_sys, gsl_odeiv2_step_rk8pd,
+	// 																   1.e-1, 1.e-10, 1.e-10);
+
+	// 	if (mixedstar_ptr->dark_core)
+	// 	{
+	// 		auto &Rad_dar = mixedstar_ptr->ds_dar[0];
+	// 		const size_t N_dar = Rad_dar.Size();
+
+	// 		size_t i0 = 0;
+	// 		while (i0 < N_dar && !(Rad_dar[i0] > r0))
+	// 			++i0;
+	// 		// Loop inside the core
+	// 		for (size_t i = i0; i < N_dar; i++)
+	// 		{
+	// 			// fast_p_v = mixedstar_ptr->ds_vis[3][i];
+	// 			// fast_p_d = mixedstar_ptr->ds_dar[3][i];
+	// 			// fast_e_v = mixedstar_ptr->ds_vis[4][i];
+	// 			// fast_e_d = mixedstar_ptr->ds_dar[4][i];
+	// 			// fast_m_tot = mixedstar_ptr->ds_vis[1][i] + mixedstar_ptr->ds_dar[1][i];
+
+	// 			if (GSL_SUCCESS !=
+	// 				gsl_odeiv2_driver_apply(fast_driver, &r, Rad_dar[i], y))
+	// 				break;
+	// 		}
+
+	// 		auto &Rad_vis = mixedstar_ptr->ds_vis[0];
+	// 		const size_t N_vis = Rad_vis.Size();
+	// 		// Loop inside the mantle
+	// 		for (size_t i = N_dar; i < N_vis; i++)
+	// 		{
+	// 			// fast_p_v = mixedstar_ptr->ds_vis[3][i];
+	// 			// fast_p_d = 0;
+	// 			// fast_e_v = mixedstar_ptr->ds_vis[4][i];
+	// 			// fast_e_d = 0;
+	// 			// fast_m_tot = mixedstar_ptr->ds_vis[1][i];
+
+	// 			if (GSL_SUCCESS !=
+	// 				gsl_odeiv2_driver_apply(fast_driver, &r, Rad_vis[i], y))
+	// 				break;
+	// 		}
+	// 	}
+	// 	// ++++++++++++++++++++++++++++++++++++++++++++++++++
+	// 	else // We have a dark mantle
+	// 	{
+	// 		auto &Rad_vis = mixedstar_ptr->ds_vis[0];
+	// 		const size_t N_vis = Rad_vis.Size();
+
+	// 		size_t i0 = 0;
+	// 		while (i0 < N_vis && !(Rad_vis[i0] > r0))
+	// 			++i0;
+	// 		// Loop inside the core
+	// 		for (size_t i = i0; i < N_vis; i++)
+	// 		{
+	// 			// fast_p_v = mixedstar_ptr->ds_vis[3][i];
+	// 			// fast_p_d = mixedstar_ptr->ds_dar[3][i];
+	// 			// fast_e_v = mixedstar_ptr->ds_vis[4][i];
+	// 			// fast_e_d = mixedstar_ptr->ds_dar[4][i];
+	// 			// fast_m_tot = mixedstar_ptr->ds_vis[1][i] + mixedstar_ptr->ds_dar[1][i];
+
+	// 			if (GSL_SUCCESS !=
+	// 				gsl_odeiv2_driver_apply(fast_driver, &r, Rad_vis[i], y))
+	// 				break;
+	// 		}
+
+	// 		auto &Rad_dar = mixedstar_ptr->ds_dar[0];
+	// 		const size_t N_dar = Rad_dar.Size();
+	// 		// Loop inside the mantle
+	// 		for (size_t i = N_vis; i < N_dar; i++)
+	// 		{
+	// 			// fast_p_v = 0;
+	// 			// fast_p_d = mixedstar_ptr->ds_dar[3][i];
+	// 			// fast_e_v = 0;
+	// 			// fast_e_d = mixedstar_ptr->ds_dar[4][i];
+	// 			// fast_m_tot = mixedstar_ptr->ds_dar[1][i];
+
+	// 			if (GSL_SUCCESS !=
+	// 				gsl_odeiv2_driver_apply(fast_driver, &r, Rad_dar[i], y))
+	// 				break;
+	// 		}
+	// 	}
+	// 	// ++++++++++++++++++++++++++++++++++++++++++++++++++
+
+	// 	// Total angular momentum and velocity:
+	// 	ang_mom_J = pow(r_surface, 4) * y[1] / 6.;
+	// 	ang_vel_Omega = y[0] + r_surface * y[1] / 3.;
+	// 	mom_inertia = ang_mom_J / ang_vel_Omega;
+
+	// 	mixedstar_ptr->MomI = mom_inertia;
+
+	// 	gsl_odeiv2_driver_free(fast_driver);
+	// }
+	// // ------------------------------------------------------------
+	//--------------------------------------------------------------
+	// Added on Jan 7, 2026
+	void RotationSolver::FindMixedMomInertia()
 	{
-		Z_LOG_ERROR("Mixedstar_ptr is null.");
-		return;
+		PROFILE_FUNCTION();
+
+		// Defensive
+		if (!mixedstar_ptr)
+		{
+			Z_LOG_ERROR("Mixedstar_ptr is null.");
+			return;
+		}
+
+		// Master-grid totals must be ready (constructed in MixedStar::SurfaceIsReached or import-ctor).
+		// If you added a boolean like totals_ready_, use it here; otherwise rely on Size() checks.
+		// if (!mixedstar_ptr->totals_ready_) { ... }
+
+		// ---- Master grid + totals (all on the same radius grid) ----
+		auto Rdc = mixedstar_ptr->GetRadius_Master();	   // r_master_dc
+		auto Pdc = mixedstar_ptr->GetPress_Total_Master(); // pre_tot_dc
+		auto Edc = mixedstar_ptr->GetEps_Total_Master();   // eps_tot_dc
+		auto Mdc = mixedstar_ptr->GetMass_Total_Master();  // mass_tot_dc (master-grid aligned)
+
+		if (!mixedstar_ptr->HasTotalMasterProfiles())
+		{
+			Z_LOG_ERROR("Missing master-grid totals.");
+			return;
+		}
+		if (Rdc.Size() < 2 || Pdc.Size() < 2 || Edc.Size() < 2 || Mdc.Size() < 2)
+		{
+			Z_LOG_ERROR("Master-grid totals are too small.");
+			return;
+		}
+
+		// Ensure consistent lengths (important for interpolation correctness).
+		const std::size_t N = Rdc.Size();
+		if (Pdc.Size() != N || Edc.Size() != N || Mdc.Size() != N)
+		{
+			Z_LOG_ERROR("Inconsistent master-grid total sizes.");
+			return;
+		}
+
+		// ---- Robust center handling ----
+		const double r_min_raw = mixedstar_ptr->core_region.Min();
+		const double r0 = SafeR0(r_min_raw);
+		double r = r0;
+
+		// Surface is last point of master grid (more consistent than mantle_region.Max()).
+		const double r_surface = Rdc.Values().back();
+
+		// ---- Initial conditions (regular at center) ----
+		init_omega_bar = 5e-3;
+		double y[2];
+		y[0] = init_omega_bar; // \bar{\omega}(0)
+		y[1] = 0.0;			   // \bar{\omega}'(0)
+
+		// ---- Point the fast mixed interpolation at master-grid totals ----
+		SetFastMixedPtrs_(Rdc, Pdc, Edc, Mdc);
+
+		// ---- GSL system/driver ----
+		gsl_odeiv2_system sys = {RotationSolver::ODE_Mixed_Fast, nullptr, 2, this};
+
+		gsl_odeiv2_driver *drv = gsl_odeiv2_driver_alloc_y_new(
+			&sys, gsl_odeiv2_step_rk8pd,
+			1.e-1,	// initial step guess
+			1.e-10, // abs tol
+			1.e-10	// rel tol
+		);
+
+		// ---- Integrate along the master grid (single pass) ----
+		// Start from the first grid point strictly greater than r0.
+		std::size_t i0 = 0;
+		while (i0 < N && !((Rdc)[i0] > r0))
+			++i0;
+
+		for (std::size_t i = i0; i < N; ++i)
+		{
+			const double r_i = (Rdc)[i];
+			if (GSL_SUCCESS != gsl_odeiv2_driver_apply(drv, &r, r_i, y))
+				break;
+		}
+
+		// Ensure we hit the surface exactly (helps J/Omega stability).
+		if (r < r_surface)
+		{
+			(void)gsl_odeiv2_driver_apply(drv, &r, r_surface, y);
+		}
+
+		// ---- Compute J, Omega, I ----
+		const double ang_mom_J = std::pow(r_surface, 4) * y[1] / 6.0;
+		const double ang_vel_Omega = y[0] + r_surface * y[1] / 3.0;
+		const double mom_inertia = ang_mom_J / ang_vel_Omega;
+
+		mixedstar_ptr->MomI = mom_inertia;
+
+		gsl_odeiv2_driver_free(drv);
+	}
+	// ------------------------------------------------------------
+
+	//--------------------------------------------------------------
+	const HartleResult &RotationSolver::GetHartleResult() const
+	{
+		return hartle_result_;
 	}
 
-	// Master-grid totals must be ready (constructed in MixedStar::SurfaceIsReached or import-ctor).
-	// If you added a boolean like totals_ready_, use it here; otherwise rely on Size() checks.
-	// if (!mixedstar_ptr->totals_ready_) { ... }
-
-	// ---- Master grid + totals (all on the same radius grid) ----
-	auto Rdc = mixedstar_ptr->GetRadius_Master();	   // r_master_dc
-	auto Pdc = mixedstar_ptr->GetPress_Total_Master(); // pre_tot_dc
-	auto Edc = mixedstar_ptr->GetEps_Total_Master();   // eps_tot_dc
-	auto Mdc = mixedstar_ptr->GetMass_Total_Master();  // mass_tot_dc (master-grid aligned)
-
-	if (!mixedstar_ptr->HasTotalMasterProfiles())
+	//--------------------------------------------------------------
+	// Second-order (m0, p0) ODE for NStar with fast interpolation.
+	// y[0] = m0, y[1] = p0
+	// Source terms from omega_bar are read from fast_omega_bar, fast_domega_bar.
+	//
+	// Equations follow Hartle (1967), Eqs. (30)-(33).
+	// Using j(r) = exp(-nu) * sqrt(1 - 2m/r):
+	//
+	// dm0/dr = 4*pi*r^2 * (deps/dp) * p0 + S_m(r)
+	//
+	// dp0/dr = -(m0 + 4*pi*r^3*p0) / [r*(r - 2m)]
+	//          - 4*pi*r*(eps+p) * p0 / (r - 2m)  [FIX: confirm exact from textbook]
+	//          + S_p(r)
+	//
+	// where S_m, S_p are quadratic source terms in omega_bar.
+	//
+	int RotationSolver::ODE_Hartle2_N_Fast(double r, const double y[], double f[], void *params)
 	{
-		Z_LOG_ERROR("Missing master-grid totals.");
-		return;
+		RotationSolver *rot = static_cast<RotationSolver *>(params);
+
+		const double p = rot->fast_p;
+		const double eps = rot->fast_e;
+		const double m = rot->fast_m;
+		const double dEdP = rot->fast_dEdP;
+		const double nu_prime = rot->fast_nu_prime;
+
+		const double m0 = y[0];
+		const double p0 = y[1];
+
+		const double r2 = r * r;
+		const double r3 = r2 * r;
+		const double r_2m = r - 2.0 * m;
+
+		// Avoid division by zero at r = 0 or r = 2m
+		if (r < 1.e-10 || std::abs(r_2m) < 1.e-30)
+		{
+			f[0] = 0.0;
+			f[1] = 0.0;
+			return GSL_SUCCESS;
+		}
+
+		const double inv_r_2m = 1.0 / r_2m;
+		const double eps_plus_p = eps + p;
+
+		// ------- Homogeneous part of the equations -------
+		// dm0/dr (homogeneous): 4*pi*r^2 * (deps/dp) * p0
+		double dm0_dr = 4.0 * M_PI * r2 * dEdP * p0;
+
+		// dp0/dr (homogeneous, from perturbed TOV):
+		// dp0/dr = -(m0 + 4*pi*r^3 * p0) * (eps+p) / (r^2 * (r - 2m))
+		//          + (m0/r^2 + 4*pi*p0) * nu' [alternate form via nu']
+		//
+		// Using the standard form: dp0/dr = -nu'*(eps+p+p0*dEdP) ...
+		// We use the direct form from Hartle (1967) Appendix:
+		double dp0_dr = -(m0 + 4.0 * M_PI * r3 * p0) * inv_r_2m / r2;
+		// This is the gravitational term. Now apply the (eps+p) factor:
+		// Actually the full form is:
+		// dp0/dr = -p0 * [4*pi*(eps+p)*r / (r-2m) + m/(r^2*(r-2m))]
+		//          - m0 * [(eps+p) / (r^2*(r-2m))]
+		// Which groups as:
+		dp0_dr = -p0 * (4.0 * M_PI * eps_plus_p * r + m / r2) * inv_r_2m - m0 * eps_plus_p / (r2 * r_2m);
+
+		// ------- Source terms (quadratic in omega_bar) -------
+		if (rot->include_m0p0_source_)
+		{
+			const double ob = rot->fast_omega_bar;
+			const double dob = rot->fast_domega_bar;
+
+			// j(r)^2 = exp(-2*nu) * (1 - 2*m/r) = exp(-2*nu) * (r-2m)/r
+			// We compute j^2 using: j^2 = (r_2m / r) * exp(-2*nu)
+			// But we don't have nu directly in the fast cache.
+			// Instead, use the relation: exp(-2*nu) can be obtained from
+			// the TOV structure. For now, compute via the known formula:
+			// (1 - 2m/r) = r_2m / r
+			const double one_minus_2m_r = r_2m / r;
+
+			// Source term for dm0/dr:
+			// S_m = (1/12) * r^4 * (dob/dr)^2 / (1 - 2m/r)
+			//       - (1/3) * r^3 * 4*pi*(eps+p) * ob^2 / (1 - 2m/r)
+			// Ref: Hartle (1967) Eq. (33), adapted for omega_bar convention
+			double S_m = (1.0 / 12.0) * r2 * r2 * dob * dob * inv_r_2m * r - (1.0 / 3.0) * r3 * 4.0 * M_PI * eps_plus_p * ob * ob * inv_r_2m * r;
+
+			// Source term for dp0/dr:
+			// S_p = -(1/12) * r^2 * (dob)^2 / [(eps+p) * ???]
+			// Using the relation from the perturbed TOV with rotation:
+			// S_p = (1/12) * r * (dob)^2 * (r - 2m) / r
+			//       + (4/3) * M_PI * r * ob^2 * (eps+p) / (1-2m/r)
+			// This needs careful derivation — using Hartle (1967) Eq. (30):
+			// dp*/dr = ... + (1/3) * omega_bar^2 * r * (dp/dr) / [r-2m]
+			//          + (1/12) * r * (r-2m) * (d_omega_bar/dr)^2
+			//
+			// More precisely, the source for dp0/dr involves:
+			double S_p = (1.0 / 12.0) * r * one_minus_2m_r * dob * dob + (1.0 / 3.0) * ob * ob * r * nu_prime;
+
+			dm0_dr += S_m;
+			dp0_dr += S_p;
+		}
+
+		f[0] = dm0_dr;
+		f[1] = dp0_dr;
+
+		return GSL_SUCCESS;
 	}
-	if (Rdc.Size() < 2 || Pdc.Size() < 2 || Edc.Size() < 2 || Mdc.Size() < 2)
+
+	//--------------------------------------------------------------
+	// Stub for MixedStar second-order ODE (to be implemented in Phase C)
+	int RotationSolver::ODE_Hartle2_Mixed_Fast(double r, const double y[], double f[], void *params)
 	{
-		Z_LOG_ERROR("Master-grid totals are too small.");
-		return;
+		// TODO: Implement for MixedStar (Phase C)
+		f[0] = 0.0;
+		f[1] = 0.0;
+		return GSL_SUCCESS;
 	}
 
-	// Ensure consistent lengths (important for interpolation correctness).
-	const std::size_t N = Rdc.Size();
-	if (Pdc.Size() != N || Edc.Size() != N || Mdc.Size() != N)
+	//--------------------------------------------------------------
+	// Solves the second-order Hartle O(Omega^2) monopole equations for NStar.
+	// Uses superposition: particular solution (with source) + homogeneous solution.
+	// Shooting condition: p0(R) = 0.
+	void RotationSolver::SolveHartle2_N()
 	{
-		Z_LOG_ERROR("Inconsistent master-grid total sizes.");
-		return;
+		const size_t N = nstar_ptr->Size();
+		const auto *r_col = nstar_ptr->Profile().GetRadius();
+		const auto *p_col = nstar_ptr->Profile().GetPressure();
+		const auto *e_col = nstar_ptr->Profile().GetEnergyDensity();
+		const auto *m_col = nstar_ptr->Profile().GetMass();
+		const auto *nu_p_col = nstar_ptr->Profile().GetMetricNuPrime();
+
+		double r_min = (*r_col)[0];
+		double r_surface = (*r_col)[-1];
+
+		// --- Precompute d(eps)/d(p) column via finite differences on profile ---
+		// d(eps)/d(p) = (d_eps/d_r) / (d_p/d_r), computed from stored columns.
+		Zaki::Vector::DataColumn dEdP_col("dEdP", N, 0.0);
+		for (size_t i = 1; i < N - 1; i++)
+		{
+			double dp = (*p_col)[i + 1] - (*p_col)[i - 1];
+			double de = (*e_col)[i + 1] - (*e_col)[i - 1];
+			if (std::abs(dp) > 1.e-30)
+				dEdP_col[i] = de / dp;
+			else
+				dEdP_col[i] = 1.0; // Fallback (incompressible limit)
+		}
+		// Boundary: one-sided differences
+		{
+			double dp = (*p_col)[1] - (*p_col)[0];
+			double de = (*e_col)[1] - (*e_col)[0];
+			dEdP_col[0] = (std::abs(dp) > 1.e-30) ? de / dp : 1.0;
+		}
+		{
+			int last = static_cast<int>(N) - 1;
+			double dp = (*p_col)[last] - (*p_col)[last - 1];
+			double de = (*e_col)[last] - (*e_col)[last - 1];
+			dEdP_col[last] = (std::abs(dp) > 1.e-30) ? de / dp : 1.0;
+		}
+
+		// === Pass 1: Particular solution (p0_c = 0, source ON) ===
+		include_m0p0_source_ = true;
+
+		gsl_odeiv2_system ode_sys = {RotationSolver::ODE_Hartle2_N_Fast, nullptr, 2, this};
+		gsl_odeiv2_driver *driver = gsl_odeiv2_driver_alloc_y_new(
+			&ode_sys, gsl_odeiv2_step_rk8pd, 1.e-1, 1.e-10, 1.e-10);
+
+		double r = r_min;
+		double y_part[2] = {0.0, 0.0}; // m0 = 0, p0 = 0 at center
+
+		// Storage for particular solution profile
+		Zaki::Vector::DataColumn m0_part("m0_part", N, 0.0);
+		Zaki::Vector::DataColumn p0_part("p0_part", N, 0.0);
+
+		for (size_t i = 0; i < N; i++)
+		{
+			fast_p = (*p_col)[i];
+			fast_e = (*e_col)[i];
+			fast_m = (*m_col)[i];
+			fast_nu_prime = (*nu_p_col)[i];
+			fast_dEdP = dEdP_col[i];
+			fast_omega_bar = stored_omega_bar_[i];
+			fast_domega_bar = stored_domega_bar_[i];
+
+			if (GSL_SUCCESS !=
+				gsl_odeiv2_driver_apply(driver, &r, (*r_col)[i], y_part))
+				break;
+
+			m0_part[i] = y_part[0];
+			p0_part[i] = y_part[1];
+		}
+
+		gsl_odeiv2_driver_free(driver);
+
+		// === Pass 2: Homogeneous solution (p0_c = 1, source OFF) ===
+		include_m0p0_source_ = false;
+
+		gsl_odeiv2_system ode_sys_hom = {RotationSolver::ODE_Hartle2_N_Fast, nullptr, 2, this};
+		gsl_odeiv2_driver *driver_hom = gsl_odeiv2_driver_alloc_y_new(
+			&ode_sys_hom, gsl_odeiv2_step_rk8pd, 1.e-1, 1.e-10, 1.e-10);
+
+		r = r_min;
+		double y_hom[2] = {0.0, 1.0}; // m0 = 0, p0 = 1 at center
+
+		Zaki::Vector::DataColumn m0_hom("m0_hom", N, 0.0);
+		Zaki::Vector::DataColumn p0_hom("p0_hom", N, 0.0);
+
+		for (size_t i = 0; i < N; i++)
+		{
+			fast_p = (*p_col)[i];
+			fast_e = (*e_col)[i];
+			fast_m = (*m_col)[i];
+			fast_nu_prime = (*nu_p_col)[i];
+			fast_dEdP = dEdP_col[i];
+			fast_omega_bar = 0.0; // Not used when source is off
+			fast_domega_bar = 0.0;
+
+			if (GSL_SUCCESS !=
+				gsl_odeiv2_driver_apply(driver_hom, &r, (*r_col)[i], y_hom))
+				break;
+
+			m0_hom[i] = y_hom[0];
+			p0_hom[i] = y_hom[1];
+		}
+
+		gsl_odeiv2_driver_free(driver_hom);
+
+		// Reset source flag
+		include_m0p0_source_ = true;
+
+		// === Superposition: find p0_c such that p0(R) = 0 ===
+		double p0_part_R = p0_part[-1];
+		double p0_hom_R = p0_hom[-1];
+
+		double p0_c = 0.0;
+		if (std::abs(p0_hom_R) > 1.e-30)
+			p0_c = -p0_part_R / p0_hom_R;
+
+		// === Combine into final profiles ===
+		hartle_result_.m0 = Zaki::Vector::DataColumn("m0", N, 0.0);
+		hartle_result_.p0 = Zaki::Vector::DataColumn("p0", N, 0.0);
+		hartle_result_.xi0 = Zaki::Vector::DataColumn("xi0", N, 0.0);
+
+		for (size_t i = 0; i < N; i++)
+		{
+			hartle_result_.m0[i] = m0_part[i] + p0_c * m0_hom[i];
+			hartle_result_.p0[i] = p0_part[i] + p0_c * p0_hom[i];
+		}
+
+		// === Compute xi0 = -p0 / (dp/dr) ===
+		// dp/dr = -(eps+p) * nu' (from TOV equation)
+		for (size_t i = 0; i < N; i++)
+		{
+			double eps_plus_p = (*e_col)[i] + (*p_col)[i];
+			double nu_p = (*nu_p_col)[i];
+			double dp_dr = -eps_plus_p * nu_p;
+
+			if (std::abs(dp_dr) > 1.e-30)
+				hartle_result_.xi0[i] = -hartle_result_.p0[i] / dp_dr;
+			else
+				hartle_result_.xi0[i] = 0.0; // At surface: both p0 and dp/dr -> 0
+		}
+
+		// Store scalars
+		hartle_result_.p0_c = p0_c;
+		hartle_result_.delta_M = hartle_result_.m0[-1];
+		hartle_result_.valid = true;
 	}
 
-	// ---- Robust center handling ----
-	const double r_min_raw = mixedstar_ptr->core_region.Min();
-	const double r0 = SafeR0(r_min_raw);
-	double r = r0;
-
-	// Surface is last point of master grid (more consistent than mantle_region.Max()).
-	const double r_surface = Rdc.Values().back();
-
-	// ---- Initial conditions (regular at center) ----
-	init_omega_bar = 5e-3;
-	double y[2];
-	y[0] = init_omega_bar; // \bar{\omega}(0)
-	y[1] = 0.0;			   // \bar{\omega}'(0)
-
-	// ---- Point the fast mixed interpolation at master-grid totals ----
-	SetFastMixedPtrs_(Rdc, Pdc, Edc, Mdc);
-
-	// ---- GSL system/driver ----
-	gsl_odeiv2_system sys = {RotationSolver::ODE_Mixed_Fast, nullptr, 2, this};
-
-	gsl_odeiv2_driver *drv = gsl_odeiv2_driver_alloc_y_new(
-		&sys, gsl_odeiv2_step_rk8pd,
-		1.e-1,	// initial step guess
-		1.e-10, // abs tol
-		1.e-10	// rel tol
-	);
-
-	// ---- Integrate along the master grid (single pass) ----
-	// Start from the first grid point strictly greater than r0.
-	std::size_t i0 = 0;
-	while (i0 < N && !((Rdc)[i0] > r0))
-		++i0;
-
-	for (std::size_t i = i0; i < N; ++i)
+	//--------------------------------------------------------------
+	// Stub for MixedStar second-order solve (to be implemented in Phase C)
+	void RotationSolver::SolveHartle2_Mixed()
 	{
-		const double r_i = (Rdc)[i];
-		if (GSL_SUCCESS != gsl_odeiv2_driver_apply(drv, &r, r_i, y))
-			break;
+		// TODO: Implement for MixedStar (Phase C)
 	}
 
-	// Ensure we hit the surface exactly (helps J/Omega stability).
-	if (r < r_surface)
-	{
-		(void)gsl_odeiv2_driver_apply(drv, &r, r_surface, y);
-	}
-
-	// ---- Compute J, Omega, I ----
-	const double ang_mom_J = std::pow(r_surface, 4) * y[1] / 6.0;
-	const double ang_vel_Omega = y[0] + r_surface * y[1] / 3.0;
-	const double mom_inertia = ang_mom_J / ang_vel_Omega;
-
-	mixedstar_ptr->MomI = mom_inertia;
-
-	gsl_odeiv2_driver_free(drv);
-}
-// ------------------------------------------------------------
-//==============================================================
+	//==============================================================

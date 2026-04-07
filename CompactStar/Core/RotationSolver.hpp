@@ -42,6 +42,7 @@
 #include <vector>
 
 #include <Zaki/Math/Math_Core.hpp>
+#include <Zaki/Vector/DataColumn.hpp>
 
 #include "CompactStar/Core/Prog.hpp"
 
@@ -94,6 +95,32 @@ struct OmegaSeqPoint
 
 		return ss.str();
 	}
+};
+//==============================================================
+/// Stores the results of both first-order (omega_bar) and second-order
+/// (m0, p0, xi0) Hartle slow-rotation solutions on the radial grid.
+struct HartleResult
+{
+	// --- First-order O(Omega) ---
+	double Omega = 0.0;		///< Angular velocity [s^-1]
+	double J = 0.0;			///< Angular momentum [km^2]
+	double I = 0.0;			///< Moment of inertia [km^3]
+
+	Zaki::Vector::DataColumn omega_bar;	 ///< omega_bar(r) [km^-1]
+	Zaki::Vector::DataColumn domega_bar; ///< d(omega_bar)/dr(r) [km^-2]
+
+	// --- Second-order O(Omega^2) monopole (l=0) ---
+	Zaki::Vector::DataColumn m0;  ///< Mass perturbation delta_m(r) [km]
+	Zaki::Vector::DataColumn p0;  ///< Pressure perturbation delta_p(r) [km^-2]
+	Zaki::Vector::DataColumn xi0; ///< Isobar displacement xi_0(r) [km]
+
+	double p0_c = 0.0;		///< Central pressure perturbation (shooting result)
+	double delta_M = 0.0;	///< O(Omega^2) gravitational mass correction [km]
+
+	/// Grid reference (non-owning pointer to star's radius column)
+	const Zaki::Vector::DataColumn *r_grid = nullptr;
+
+	bool valid = false; ///< True after a successful second-order solve
 };
 //==============================================================
 class RotationSolver : public Prog
@@ -201,39 +228,35 @@ class RotationSolver : public Prog
 	// double fast_e;
 	// double fast_m;
 
-	// double fast_p_v;
-	// double fast_p_d;
-	// double fast_e_v;
-	// double fast_e_d;
-	// double fast_m_tot;
-	// -------- Fast Hartle RHS: profile-backed interpolation (thread-safe if solver is not shared) --------
-	const Zaki::Vector::DataColumn *fast_r_ = nullptr; // km
-	const Zaki::Vector::DataColumn *fast_p_ = nullptr; // geom units (consistent with Hartle equations)
-	const Zaki::Vector::DataColumn *fast_e_ = nullptr;
-	const Zaki::Vector::DataColumn *fast_m_ = nullptr;
+	double fast_p_v;
+	double fast_p_d;
+	double fast_e_v;
+	double fast_e_d;
+	double fast_m_tot;
 
-	mutable std::size_t fast_k_ = 0; // cached bracket index for interpolation
+	// Fast interpolation cache for second-order Hartle solver
+	double fast_nu;		  ///< Metric nu at current grid point
+	double fast_nu_prime; ///< dnu/dr at current grid point
+	double fast_dEdP;	  ///< d(eps)/d(p) at current grid point (NStar)
+	double fast_dEdP_v;	  ///< d(eps)/d(p) visible sector (MixedStar)
+	double fast_dEdP_d;	  ///< d(eps)/d(p) dark sector (MixedStar)
 
-	// Mixed-star: total quantities on a single radius grid (we will point these to prebuilt arrays)
-	const Zaki::Vector::DataColumn *fast_r_mix_ = nullptr;
-	const Zaki::Vector::DataColumn *fast_p_tot_ = nullptr;
-	const Zaki::Vector::DataColumn *fast_e_tot_ = nullptr;
-	const Zaki::Vector::DataColumn *fast_m_tot_ = nullptr;
+	/// Cached omega_bar profile for second-order integration
+	/// (stored as DataColumn for interpolation during m0/p0 solve)
+	Zaki::Vector::DataColumn stored_omega_bar_;
+	Zaki::Vector::DataColumn stored_domega_bar_;
 
-	mutable std::size_t fast_k_mix_ = 0;
+	// Fast interpolation cache for stored omega_bar profile
+	double fast_omega_bar;
+	double fast_domega_bar;
 
-	void SetFastProfilePtrs_(const Zaki::Vector::DataColumn &r,
-							 const Zaki::Vector::DataColumn &p,
-							 const Zaki::Vector::DataColumn &e,
-							 const Zaki::Vector::DataColumn &m);
+	/// Second-order Hartle results
+	HartleResult hartle_result_;
 
-	void SetFastMixedPtrs_(const Zaki::Vector::DataColumn &r,
-						   const Zaki::Vector::DataColumn &p_tot,
-						   const Zaki::Vector::DataColumn &e_tot,
-						   const Zaki::Vector::DataColumn &m_tot);
+	/// Whether to include source terms in the (m0,p0) ODE
+	/// (false for homogeneous solution in superposition method)
+	bool include_m0p0_source_ = true;
 
-	inline void EvalFastPEM_(double r, double &p, double &e, double &m) const;
-	inline void EvalFastMixedPEM_(double r, double &p, double &e, double &m) const;
 	//--------------------------------------------------------------
   public:
 	RotationSolver();
@@ -330,6 +353,18 @@ class RotationSolver : public Prog
 	/// Evaluates the moment of inertia for the mixed star
 	void FindMixedMomInertia();
 
+	/// Solves the second-order Hartle O(Omega^2) monopole equations
+	/// for an NStar. Requires FindNMomInertia() to have been called first
+	/// (or uses its own first-order solve). Stores results in hartle_result_.
+	void SolveHartle2_N();
+
+	/// Solves the second-order Hartle O(Omega^2) monopole equations
+	/// for a MixedStar.
+	void SolveHartle2_Mixed();
+
+	/// Returns the second-order Hartle result (const)
+	const HartleResult &GetHartleResult() const;
+
 	/// ..........................................................
 	/// Exports the results of solving the rotation equations
 	void ExportResults(const Zaki::String::Directory &) const;
@@ -339,6 +374,12 @@ class RotationSolver : public Prog
 	static int ODE_Mixed_Out(double r, const double y[], double f[], void *params);
 	static int ODE_Mixed_Fast(double r, const double y[], double f[], void *params);
 	static int ODE_N_Fast(double r, const double y[], double f[], void *params);
+
+	/// Second-order (m0, p0) ODE for NStar with fast interpolation
+	static int ODE_Hartle2_N_Fast(double r, const double y[], double f[], void *params);
+
+	/// Second-order (m0, p0) ODE for MixedStar with fast interpolation
+	static int ODE_Hartle2_Mixed_Fast(double r, const double y[], double f[], void *params);
 
 	// Resets the containers
 	void Reset();
