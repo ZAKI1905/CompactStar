@@ -124,34 +124,114 @@ void MixedStar::SurfaceIsReached(
 	// ..................................................................
 	//              Finding the total mass DataColumn
 	// ..................................................................
+	// if (dark_core)
+	// {
+	// 	mass_tot_dc.Resize(ds_vis[r_idx].Size());
+
+	// 	for (size_t i = 0; i < ds_dar[r_idx].Size(); i++)
+	// 	{
+	// 		mass_tot_dc[i] = ds_dar[m_idx][i] + ds_vis[m_idx][i];
+	// 	}
+	// 	for (size_t i = ds_dar[r_idx].Size(); i < ds_vis[r_idx].Size(); i++)
+	// 	{
+	// 		mass_tot_dc[i] = ds_dar[m_idx][-1] + ds_vis[m_idx][i];
+	// 	}
+	// }
+	// else
+	// {
+	// 	mass_tot_dc.Resize(ds_dar[r_idx].Size());
+
+	// 	for (size_t i = 0; i < ds_vis[r_idx].Size(); i++)
+	// 	{
+	// 		mass_tot_dc[i] = ds_dar[m_idx][i] + ds_vis[m_idx][i];
+	// 	}
+	// 	for (size_t i = ds_vis[r_idx].Size(); i < ds_dar[r_idx].Size(); i++)
+	// 	{
+	// 		mass_tot_dc[i] = ds_dar[m_idx][i] + ds_vis[m_idx][-1];
+	// 	}
+	// }
+	// ..................................................................
+	// ..................................................................
+	//      Build master-grid total profiles: r_master, M_tot, P_tot, eps_tot
+	// ..................................................................
+	//
+	// Master grid choice:
+	//   - dark_core == true  => visible extends further => master grid = ds_vis[r]
+	//   - dark_core == false => dark extends further    => master grid = ds_dar[r]
+	//
+	// Semantics beyond a component's surface:
+	//   - Mass: hold shorter component’s mass fixed at its surface value.
+	//   - Pressure/Energy density: treat as zero beyond its surface (vacuum).
+	//
+	// These conventions match your existing baryon-integrand logic and keep the
+	// physics consistent for exterior regions.
+
 	if (dark_core)
 	{
-		mass_tot_dc.Resize(ds_vis[r_idx].Size());
+		// Master grid is the visible radius column.
+		r_master_dc = ds_vis[r_idx];
 
-		for (size_t i = 0; i < ds_dar[r_idx].Size(); i++)
+		const size_t N_vis = ds_vis[r_idx].Size();
+		const size_t N_dar = ds_dar[r_idx].Size();
+
+		mass_tot_dc.Resize(N_vis);
+		pre_tot_dc.Resize(N_vis);
+		eps_tot_dc.Resize(N_vis);
+
+		// Core overlap region: both sectors exist on the same index range [0, N_dar).
+		for (size_t i = 0; i < N_dar; ++i)
 		{
-			mass_tot_dc[i] = ds_dar[m_idx][i] + ds_vis[m_idx][i];
+			mass_tot_dc[i] = ds_vis[m_idx][i] + ds_dar[m_idx][i];
+			pre_tot_dc[i] = ds_vis[pre_idx][i] + ds_dar[pre_idx][i];
+			eps_tot_dc[i] = ds_vis[eps_idx][i] + ds_dar[eps_idx][i];
 		}
-		for (size_t i = ds_dar[r_idx].Size(); i < ds_vis[r_idx].Size(); i++)
+
+		// Visible-only mantle: dark sector absent -> add only visible pressure/eps,
+		// while dark mass remains fixed at its surface value.
+		const double M_dar_surf = ds_dar[m_idx][-1];
+		for (size_t i = N_dar; i < N_vis; ++i)
 		{
-			mass_tot_dc[i] = ds_dar[m_idx][-1] + ds_vis[m_idx][i];
+			mass_tot_dc[i] = ds_vis[m_idx][i] + M_dar_surf;
+			pre_tot_dc[i] = ds_vis[pre_idx][i];
+			eps_tot_dc[i] = ds_vis[eps_idx][i];
 		}
 	}
 	else
 	{
-		mass_tot_dc.Resize(ds_dar[r_idx].Size());
+		// Master grid is the dark radius column.
+		r_master_dc = ds_dar[r_idx];
 
-		for (size_t i = 0; i < ds_vis[r_idx].Size(); i++)
+		const size_t N_vis = ds_vis[r_idx].Size();
+		const size_t N_dar = ds_dar[r_idx].Size();
+
+		mass_tot_dc.Resize(N_dar);
+		pre_tot_dc.Resize(N_dar);
+		eps_tot_dc.Resize(N_dar);
+
+		// Core overlap region: both sectors exist on the same index range [0, N_vis).
+		for (size_t i = 0; i < N_vis; ++i)
 		{
-			mass_tot_dc[i] = ds_dar[m_idx][i] + ds_vis[m_idx][i];
+			mass_tot_dc[i] = ds_vis[m_idx][i] + ds_dar[m_idx][i];
+			pre_tot_dc[i] = ds_vis[pre_idx][i] + ds_dar[pre_idx][i];
+			eps_tot_dc[i] = ds_vis[eps_idx][i] + ds_dar[eps_idx][i];
 		}
-		for (size_t i = ds_vis[r_idx].Size(); i < ds_dar[r_idx].Size(); i++)
+
+		// Dark-only mantle/halo: visible sector absent -> add only dark pressure/eps,
+		// while visible mass remains fixed at its surface value.
+		const double M_vis_surf = ds_vis[m_idx][-1];
+		for (size_t i = N_vis; i < N_dar; ++i)
 		{
-			mass_tot_dc[i] = ds_dar[m_idx][i] + ds_vis[m_idx][-1];
+			mass_tot_dc[i] = ds_dar[m_idx][i] + M_vis_surf;
+			pre_tot_dc[i] = ds_dar[pre_idx][i];
+			eps_tot_dc[i] = ds_dar[eps_idx][i];
 		}
 	}
+
+	totals_ready_ = true;
 	// ..................................................................
 
+	// if (!totals_ready_)
+	// 	Z_LOG_ERROR("MixedStar totals not initialized before building baryon integrands.");
 	// ..................................................................
 	//            Visible B Integrand
 	// ..................................................................
@@ -464,35 +544,113 @@ MixedStar::MixedStar(
 
 	EvaluateNu();
 
+	// // ..................................................................
+	// //              Finding the total mass DataColumn
+	// // ..................................................................
+	// if (dark_core)
+	// {
+	// 	mass_tot_dc.Resize(ds_vis[r_idx].Size());
+
+	// 	for (size_t i = 0; i < ds_dar[r_idx].Size(); i++)
+	// 	{
+	// 		mass_tot_dc[i] = ds_dar[m_idx][i] + ds_vis[m_idx][i];
+	// 	}
+	// 	for (size_t i = ds_dar[r_idx].Size(); i < ds_vis[r_idx].Size(); i++)
+	// 	{
+	// 		mass_tot_dc[i] = ds_dar[m_idx][-1] + ds_vis[m_idx][i];
+	// 	}
+	// }
+	// else
+	// {
+	// 	mass_tot_dc.Resize(ds_dar[r_idx].Size());
+
+	// 	for (size_t i = 0; i < ds_vis[r_idx].Size(); i++)
+	// 	{
+	// 		mass_tot_dc[i] = ds_dar[m_idx][i] + ds_vis[m_idx][i];
+	// 	}
+	// 	for (size_t i = ds_vis[r_idx].Size(); i < ds_dar[r_idx].Size(); i++)
+	// 	{
+	// 		mass_tot_dc[i] = ds_dar[m_idx][i] + ds_vis[m_idx][-1];
+	// 	}
+	// }
+	// // ..................................................................
 	// ..................................................................
-	//              Finding the total mass DataColumn
+	//      Build master-grid total profiles: r_master, M_tot, P_tot, eps_tot
 	// ..................................................................
+	//
+	// Master grid choice:
+	//   - dark_core == true  => visible extends further => master grid = ds_vis[r]
+	//   - dark_core == false => dark extends further    => master grid = ds_dar[r]
+	//
+	// Semantics beyond a component's surface:
+	//   - Mass: hold shorter component’s mass fixed at its surface value.
+	//   - Pressure/Energy density: treat as zero beyond its surface (vacuum).
+	//
+	// These conventions match your existing baryon-integrand logic and keep the
+	// physics consistent for exterior regions.
+
 	if (dark_core)
 	{
-		mass_tot_dc.Resize(ds_vis[r_idx].Size());
+		// Master grid is the visible radius column.
+		r_master_dc = ds_vis[r_idx];
 
-		for (size_t i = 0; i < ds_dar[r_idx].Size(); i++)
+		const size_t N_vis = ds_vis[r_idx].Size();
+		const size_t N_dar = ds_dar[r_idx].Size();
+
+		mass_tot_dc.Resize(N_vis);
+		pre_tot_dc.Resize(N_vis);
+		eps_tot_dc.Resize(N_vis);
+
+		// Core overlap region: both sectors exist on the same index range [0, N_dar).
+		for (size_t i = 0; i < N_dar; ++i)
 		{
-			mass_tot_dc[i] = ds_dar[m_idx][i] + ds_vis[m_idx][i];
+			mass_tot_dc[i] = ds_vis[m_idx][i] + ds_dar[m_idx][i];
+			pre_tot_dc[i] = ds_vis[pre_idx][i] + ds_dar[pre_idx][i];
+			eps_tot_dc[i] = ds_vis[eps_idx][i] + ds_dar[eps_idx][i];
 		}
-		for (size_t i = ds_dar[r_idx].Size(); i < ds_vis[r_idx].Size(); i++)
+
+		// Visible-only mantle: dark sector absent -> add only visible pressure/eps,
+		// while dark mass remains fixed at its surface value.
+		const double M_dar_surf = ds_dar[m_idx][-1];
+		for (size_t i = N_dar; i < N_vis; ++i)
 		{
-			mass_tot_dc[i] = ds_dar[m_idx][-1] + ds_vis[m_idx][i];
+			mass_tot_dc[i] = ds_vis[m_idx][i] + M_dar_surf;
+			pre_tot_dc[i] = ds_vis[pre_idx][i];
+			eps_tot_dc[i] = ds_vis[eps_idx][i];
 		}
 	}
 	else
 	{
-		mass_tot_dc.Resize(ds_dar[r_idx].Size());
+		// Master grid is the dark radius column.
+		r_master_dc = ds_dar[r_idx];
 
-		for (size_t i = 0; i < ds_vis[r_idx].Size(); i++)
+		const size_t N_vis = ds_vis[r_idx].Size();
+		const size_t N_dar = ds_dar[r_idx].Size();
+
+		mass_tot_dc.Resize(N_dar);
+		pre_tot_dc.Resize(N_dar);
+		eps_tot_dc.Resize(N_dar);
+
+		// Core overlap region: both sectors exist on the same index range [0, N_vis).
+		for (size_t i = 0; i < N_vis; ++i)
 		{
-			mass_tot_dc[i] = ds_dar[m_idx][i] + ds_vis[m_idx][i];
+			mass_tot_dc[i] = ds_vis[m_idx][i] + ds_dar[m_idx][i];
+			pre_tot_dc[i] = ds_vis[pre_idx][i] + ds_dar[pre_idx][i];
+			eps_tot_dc[i] = ds_vis[eps_idx][i] + ds_dar[eps_idx][i];
 		}
-		for (size_t i = ds_vis[r_idx].Size(); i < ds_dar[r_idx].Size(); i++)
+
+		// Dark-only mantle/halo: visible sector absent -> add only dark pressure/eps,
+		// while visible mass remains fixed at its surface value.
+		const double M_vis_surf = ds_vis[m_idx][-1];
+		for (size_t i = N_vis; i < N_dar; ++i)
 		{
-			mass_tot_dc[i] = ds_dar[m_idx][i] + ds_vis[m_idx][-1];
+			mass_tot_dc[i] = ds_dar[m_idx][i] + M_vis_surf;
+			pre_tot_dc[i] = ds_dar[pre_idx][i];
+			eps_tot_dc[i] = ds_dar[eps_idx][i];
 		}
 	}
+
+	totals_ready_ = true;
 	// ..................................................................
 
 	// ..................................................................
@@ -573,6 +731,12 @@ void MixedStar::Reset()
 	B_dar_integrand.ClearRows();
 
 	sequence.Reset();
+
+	totals_ready_ = false;
+	r_master_dc.Clear();
+	pre_tot_dc.Clear();
+	eps_tot_dc.Clear();
+	mass_tot_dc.Clear();
 }
 
 //--------------------------------------------------------------

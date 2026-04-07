@@ -197,16 +197,43 @@ class RotationSolver : public Prog
 	/// Mass of the star (it will set after importing TOV solution)
 	// double M_Star = -1 ;
 
-	double fast_p;
-	double fast_e;
-	double fast_m;
+	// double fast_p;
+	// double fast_e;
+	// double fast_m;
 
-	double fast_p_v;
-	double fast_p_d;
-	double fast_e_v;
-	double fast_e_d;
-	double fast_m_tot;
+	// double fast_p_v;
+	// double fast_p_d;
+	// double fast_e_v;
+	// double fast_e_d;
+	// double fast_m_tot;
+	// -------- Fast Hartle RHS: profile-backed interpolation (thread-safe if solver is not shared) --------
+	const Zaki::Vector::DataColumn *fast_r_ = nullptr; // km
+	const Zaki::Vector::DataColumn *fast_p_ = nullptr; // geom units (consistent with Hartle equations)
+	const Zaki::Vector::DataColumn *fast_e_ = nullptr;
+	const Zaki::Vector::DataColumn *fast_m_ = nullptr;
 
+	mutable std::size_t fast_k_ = 0; // cached bracket index for interpolation
+
+	// Mixed-star: total quantities on a single radius grid (we will point these to prebuilt arrays)
+	const Zaki::Vector::DataColumn *fast_r_mix_ = nullptr;
+	const Zaki::Vector::DataColumn *fast_p_tot_ = nullptr;
+	const Zaki::Vector::DataColumn *fast_e_tot_ = nullptr;
+	const Zaki::Vector::DataColumn *fast_m_tot_ = nullptr;
+
+	mutable std::size_t fast_k_mix_ = 0;
+
+	void SetFastProfilePtrs_(const Zaki::Vector::DataColumn &r,
+							 const Zaki::Vector::DataColumn &p,
+							 const Zaki::Vector::DataColumn &e,
+							 const Zaki::Vector::DataColumn &m);
+
+	void SetFastMixedPtrs_(const Zaki::Vector::DataColumn &r,
+						   const Zaki::Vector::DataColumn &p_tot,
+						   const Zaki::Vector::DataColumn &e_tot,
+						   const Zaki::Vector::DataColumn &m_tot);
+
+	inline void EvalFastPEM_(double r, double &p, double &e, double &m) const;
+	inline void EvalFastMixedPEM_(double r, double &p, double &e, double &m) const;
 	//--------------------------------------------------------------
   public:
 	RotationSolver();

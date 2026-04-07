@@ -277,8 +277,66 @@ class MixedStar : public Prog
 	/// @brief Dataset storing the dark baryon number density integrand.
 	Zaki::Vector::DataSet B_dar_integrand;
 
-	/// @brief Datacolumn storing the total mass of the mixed star.
+	/// @brief Datacolumn storing the total mass M_tot(r) on the mixed-star "master" radius grid.
+	/// @details
+	///   This column is constructed in SurfaceIsReached() and represents the enclosed gravitational mass
+	///   of the combined visible+dark configuration:
+	///     M_tot(r) = M_vis(r) + M_dar(r) ,
+	///   evaluated on the chosen master grid.
+	///
+	///   The master grid is selected as the longer of the two radius grids (visible or dark) so that
+	///   integrals and ODE RHS evaluations can be performed on a single monotonic radius array.
+	///
+	///   For radii beyond the surface of the shorter component, that component’s contribution is held
+	///   fixed at its surface value (consistent with the existing `mass_tot_dc` construction logic).
+	///
+	/// @note This is the canonical total-mass profile intended for rotation, metric weights, and
+	///       future rotochemical structural caches.
 	Zaki::Vector::DataColumn mass_tot_dc;
+
+	/// @brief Master radius grid r_master used for total profiles of the mixed star.
+	/// @details
+	///   This is a monotonic radius array spanning from the origin to the outermost surface among
+	///   the visible and dark components.
+	///
+	///   It is constructed in SurfaceIsReached() and is chosen as:
+	///     - ds_vis[r_idx] if the visible component extends farther (dark core case), or
+	///     - ds_dar[r_idx] if the dark component extends farther (dark mantle/halo case).
+	///
+	///   All "total" profiles (P_tot, eps_tot, M_tot) are defined on this grid.
+	Zaki::Vector::DataColumn r_master_dc;
+
+	/// @brief Total pressure profile P_tot(r) on the master radius grid.
+	/// @details
+	///   Constructed in SurfaceIsReached() as
+	///     P_tot(r) = P_vis(r) + P_dar(r),
+	///   evaluated on r_master_dc.
+	///
+	///   When one component terminates earlier (shorter grid), its pressure contribution is treated
+	///   as zero beyond its surface (vacuum), while the remaining component continues.
+	///
+	/// @note Units are the same "geometric" units used internally by the TOV solution and Hartle ODE.
+	Zaki::Vector::DataColumn pre_tot_dc;
+
+	/// @brief Total energy density profile eps_tot(r) on the master radius grid.
+	/// @details
+	///   Constructed in SurfaceIsReached() as
+	///     eps_tot(r) = eps_vis(r) + eps_dar(r),
+	///   evaluated on r_master_dc.
+	///
+	///   When one component terminates earlier, its energy-density contribution is treated as zero
+	///   beyond its surface.
+	///
+	/// @note Units are the same "geometric" units used internally by the TOV solution and Hartle ODE.
+	Zaki::Vector::DataColumn eps_tot_dc;
+
+	/// @brief Cached flag indicating whether the total (master-grid) profiles are initialized.
+	/// @details
+	///   Set to true at the end of SurfaceIsReached() after r_master_dc, mass_tot_dc, pre_tot_dc,
+	///   eps_tot_dc are fully constructed.
+	///
+	/// @note This is primarily defensive; accessors may log/return empty columns if false.
+	bool totals_ready_ = false;
 
 	// Index bookkeeping
 	/// @brief Index of radius.
@@ -364,6 +422,10 @@ class MixedStar : public Prog
 
 	/// Similar to the destructor
 	/// @brief Resets the mixed star to its initial state.
+	/// @details
+	///   This clears internally stored datasets and invalidates master-grid totals
+	///   (r_master_dc, mass_tot_dc, pre_tot_dc, eps_tot_dc). After Reset(), totals_ready_ is false
+	///   until SurfaceIsReached() is called again.
 	void Reset();
 
 	/// Constructor from file
@@ -393,7 +455,10 @@ class MixedStar : public Prog
 	Zaki::Vector::DataColumn *GetMass_Dark();
 
 	/// @brief Returns the total mass of the mixed star at a given radius.
-	/// @details The total mass is the sum of the visible and dark masses.
+	/// @details
+	///   This is a point-evaluation helper that uses the internal mixed-star profile representation.
+	///   For algorithms that require a single monotonic grid (e.g., fast Hartle RHS interpolation),
+	///   prefer the master-grid profile returned by GetMass_Total_Master().
 	/// @param in_r The radius at which to evaluate the total mass.
 	double GetMass_Total(const double &in_r) const;
 
@@ -401,6 +466,46 @@ class MixedStar : public Prog
 	/// extending from the origin to the surface of the star
 	/// @brief Returns the total mass of the mixed star as a function of radius.
 	Zaki::Vector::DataColumn *GetMass_Total();
+
+	/// @brief Returns the master radius grid used for total profiles.
+	/// @return Const reference to r_master_dc.
+	/// @note Valid after SurfaceIsReached() has been called.
+	const Zaki::Vector::DataColumn &GetRadius_Master() const
+	{
+		return r_master_dc;
+	}
+
+	/// @brief Returns the total mass profile M_tot(r) on the master grid.
+	/// @return Const reference to mass_tot_dc.
+	/// @note Valid after SurfaceIsReached() has been called.
+	const Zaki::Vector::DataColumn &GetMass_Total_Master() const
+	{
+		return mass_tot_dc;
+	}
+
+	/// @brief Returns the total pressure profile P_tot(r) on the master grid.
+	/// @return Const reference to pre_tot_dc.
+	/// @note Valid after SurfaceIsReached() has been called.
+	const Zaki::Vector::DataColumn &GetPress_Total_Master() const
+	{
+		return pre_tot_dc;
+	}
+
+	/// @brief Returns the total energy density profile eps_tot(r) on the master grid.
+	/// @return Const reference to eps_tot_dc.
+	/// @note Valid after SurfaceIsReached() has been called.
+	const Zaki::Vector::DataColumn &GetEps_Total_Master() const
+	{
+		return eps_tot_dc;
+	}
+
+	/// @brief Returns whether master-grid total profiles are available.
+	/// @return True if totals_ready_ is true; otherwise false.
+	/// @note totals_ready_ becomes true at the end of SurfaceIsReached().
+	bool HasTotalMasterProfiles() const
+	{
+		return totals_ready_;
+	}
 
 	/// Visible baryon number density as a function of radius
 	/// @brief Returns the visible baryon number density at a given radius.
