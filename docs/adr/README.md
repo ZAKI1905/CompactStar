@@ -34,9 +34,9 @@ alternatives, and may recommend — but must not mark one accepted.
 
 ## Index
 
-| ID | Title | Status |
-|---|---|---|
-| [ADR-0001](ADR-0001-species-profile-semantics.md) | Species profile semantics: densities or fractions? | **PROPOSED** |
+| ID | Title | Status | Decided |
+|---|---|---|---|
+| [ADR-0001](ADR-0001-species-profile-semantics.md) | Species profile semantics: densities or fractions? | **ACCEPTED** | 2026-08-31 — species columns are dimensionless fractions `Y_i = n_i/n_B` |
 
 ## Anticipated
 

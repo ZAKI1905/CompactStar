@@ -21,8 +21,20 @@
 - Established `GOVERNANCE.md`, `docs/SCIENTIFIC_INVARIANTS.md`, the ADR system, the
   current/target architecture split, `AGENTS.md`, and this roadmap.
 - Raised ADR-0001 (species profile semantics) as PROPOSED.
+- **ADR-0001 ACCEPTED 2026-08-31** by owner adjudication: `n_B` in fm⁻³ in the
+  `BaryonDensity` column; species columns are dimensionless fractions `Y_i = n_i/n_B`;
+  `n_i = Y_i n_B` derived at the point of use; **no normalization on import**. INV-01 moves to
+  GOVERNED (ACCEPTED).
 
-**Exit criteria.** Owner reviews the governance documents. **ADR-0001 is adjudicated.**
+**Exit criteria.**
+
+| Criterion | Status |
+|---|---|
+| ADR-0001 adjudicated | ✅ **SATISFIED** — ACCEPTED 2026-08-31 |
+| Owner reviews the remaining governance documents | ☐ Outstanding — `GOVERNANCE.md`, `SCIENTIFIC_INVARIANTS.md`, `AI_SKILL_PLAN.md`, and this roadmap remain **DRAFT** |
+
+Accepting ADR-0001 ratifies the species-semantics contract only. It does not ratify any other
+DRAFT document, nor the Hartle O(Ω²) / rotochemical candidate code.
 
 ---
 
@@ -113,8 +125,15 @@ resolved — ratified or replaced.
 
 ## Phase 5 — Standard non-superfluid rotochemical heating
 
-**Prerequisite:** Phase 4; **ADR-0001 accepted**; ADR on η conventions accepted.
+**Prerequisites:** Phase 4 · **ADR-0001 accepted ✅** · ADR on η conventions accepted ☐.
 
+> **Species-semantics prerequisite: SATISFIED** (ADR-0001, 2026-08-31).
+> **Phase 5 remains blocked** by every other prerequisite below.
+
+- **Correct `RotochemicalCache` for ADR-0001 conformance** — construct `n_i = Y_i · n_B` before
+  the `N_i`, `A_i`, and `B_i` species number-density integrations
+  (`RotochemicalCache.cpp:147`, `:25-44`, `:47-104`). *Recorded in Phase 0.5; deliberately not
+  implemented there.*
 - Correct `A_i` (divide by Ω²) and `B_i` (geometry-consistent finite difference).
 - Confirm the `Z_i` reduction under the ratified species semantics.
 - Define chemical state: η_npe and η_npμ, ordering, redshift frame, units (INV-11).
@@ -144,13 +163,16 @@ unauditable.
 
 ```
 0.5 governance ─► 1 build ─► 2 baseline ─► 3 consolidation ─► 4 rotation ─► 5 rotochemical ─► 6 BNV
-      │                                          │                  │              │
-   ADR-0001 ──────────────────────────────────────────────────────────────────────►│
-   ADR heat-capacity ──────────────────────────►│                                   │
-   ADR Hartle normalization ──────────────────────────────────────►│                │
-   ADR η conventions ───────────────────────────────────────────────────────────────►│
+                                               │                  │              │
+   ADR-0001 species semantics  ✅ ACCEPTED ────────────────────────────────────►│  (gate cleared)
+   ADR heat-capacity           ☐ open ───────►│                                  │
+   ADR Hartle normalization    ☐ open ──────────────────────────►│               │
+   ADR η conventions           ☐ open ──────────────────────────────────────────►│
 ```
 
-Four unresolved invariants gate the chain: **INV-01** (species semantics, ADR-0001) ·
-**INV-07** (Hartle normalization) · **INV-11** (η conventions) · **INV-15** (heat-capacity
-ownership).
+**Three** unresolved invariants still gate the chain: **INV-07** (Hartle normalization) ·
+**INV-11** (η conventions) · **INV-15** (heat-capacity ownership).
+
+**INV-01** (species semantics) is **no longer a gate** — resolved by ADR-0001. What remains from
+it is a single Phase-5 implementation task: `RotochemicalCache` must construct `n_i = Y_i n_B`
+before its species-density integrals. That is tracked as work, not as an open decision.

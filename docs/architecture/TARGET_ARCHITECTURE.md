@@ -87,7 +87,7 @@ The scientific objective: reproduce standard non-superfluid rotochemical heating
 
 | Component | Status |
 |---|---|
-| Enclosed species numbers `N_i` | **SCAFFOLDED** — not compiled; depends on INV-01 |
+| Enclosed species numbers `N_i` | **SCAFFOLDED** — not compiled; must construct `n_i = Y_i n_B` per ADR-0001 (currently does not) |
 | `A_i = (∂N_i/∂Ω²)|_{ε_c}` | **PARTIAL** — never divided by Ω² |
 | `B_i = (∂N_i/∂ε_c)|_Ω` | **PARTIAL** — perturbed grids × unperturbed volume weight |
 | `Z_i` reduction | **IMPLEMENTED in form** — correct, but not compiled |

@@ -10,38 +10,66 @@
 
 | Status | Meaning |
 |---|---|
+| **GOVERNED (ACCEPTED)** | Ratified by an ACCEPTED ADR. **Normative** — this is what the convention *is*, independent of whether all code conforms. Conformance is tracked separately. |
 | **VERIFIED CURRENT BEHAVIOR** | The code demonstrably does this. Says nothing about correctness. |
 | **INTENDED BUT UNVERIFIED** | Code or documentation asserts this; not confirmed by execution or test. |
 | **PROPOSED** | Suggested convention. Not yet adopted. |
 | **UNRESOLVED** | Sources conflict, or the convention is absent. **Fail-closed.** |
 | **LEGACY / COMPATIBILITY** | True of a retained older path, not of the canonical one. |
 
+**GOVERNED (ACCEPTED) is a statement about the contract, not about the code.** An entry may be
+governed while some component still violates it; such violations are recorded explicitly as
+implementation nonconformance.
+
 **A VERIFIED CURRENT BEHAVIOR entry is a statement about the code, not an endorsement of the
 physics.** Promotion to intended physics requires an ADR.
 
 ---
 
-## INV-01 — Species profile semantics ⚠ **UNRESOLVED**
+## INV-01 — Species profile semantics — **GOVERNED (ACCEPTED)**
 
-**Statement.** Per-species radial columns in `StarProfile` are documented as number densities
-(fm⁻³) but consumed as dimensionless fractions `Y_i = n_i / n_B`.
+**Statement.**
 
-**Evidence.** Documentation side: `StarProfile.hpp:45`, `:296`. Consumer side:
-`StarContext.cpp:544-546` (`nn = Yn * nB;` — multiplies by n_B, so the column is a fraction);
-`StarContext.cpp:695` (`yq += t.q * (*(t.col))[i];` — charge fraction summed directly);
-`TOVSolver.cpp:1971` (`ds_vis[rho_i_v_idx[7]] * ds_vis[rho_idx]`).
+> The `StarProfile::BaryonDensity` column stores total baryon number density `n_B` in fm⁻³.
+> Per-species profile columns store dimensionless composition fractions `Y_i = n_i / n_B`.
+> Physical species number densities are derived as `n_i = Y_i · n_B`.
 
-**Affected code.** Every enclosed-species integral (`RotochemicalCache.cpp:25-44`), the
-Direct-Urca threshold (`StarContext.cpp:564-569`), the charge-fraction cache
-(`StarContext.cpp:636-695`), and every A_i / B_i / Z_i coefficient.
+This applies identically whether the species label is human-readable (`"n"`, `"p"`, `"e"`,
+`"mu"`) or a CompOSE numeric particle code.
 
-**Confidence.** High that consumers assume fractions. Zero on which was intended.
+**Normative decision.** `docs/adr/ADR-0001-species-profile-semantics.md` — **ACCEPTED
+2026-08-31 by project-owner adjudication.** The owner supplied the authoritative EOS schema
+contract; this is not an inference from code.
 
-**Impact.** Resolving this wrong scales results by n_B ≈ 0.1–1 fm⁻³ — a silent, plausible-looking
-error. **This blocks all Phase-5 rotochemical work.**
+**Ingestion contract.** The input EOS table already carries `n_B` in its baryon-density column
+and `Y_i` in its extra composition columns. `TOVSolver` and `NStar` **preserve** these values —
+**no normalization is applied or wanted** on import. Verified: `TOVSolver.cpp:552` copies extras
+verbatim; `NStar.cpp:199` and `:236` copy `n_B` and `Y_i` directly into the profile.
 
-**Decision record.** `docs/adr/ADR-0001-species-profile-semantics.md` (PROPOSED). **Not resolved
-here — requires owner adjudication.**
+**Storage contract: RESOLVED. Implementation conformance: INCOMPLETE.**
+
+| Conformance | Component | Evidence |
+|---|---|---|
+| ✅ Conformant | Direct-Urca number-density reconstruction | `StarContext.cpp:544-546` — `nn = Yn*nB` etc., with the in-code comment *"Convert fractions to number densities in fm^-3."* |
+| ✅ Conformant | Charge-fraction construction | `StarContext.cpp:691-696` — `Y_q = Σ_i q_i Y_i`, dimensionless |
+| ✅ Conformant | Legacy per-species density reconstruction | `TOVSolver.cpp:1971` — species column × baryon density |
+| ❌ **Nonconformant** | `RotochemicalCache` | `RotochemicalCache.cpp:147` passes the raw `Y_i` column into `ComputeEnclosedNumber` (`:25-44`) and `ComputeStructuralDerivative` (`:47-104`), which document and treat it as `n_i` in fm⁻³ (`RotochemicalCache.hpp:116,133`). No `× n_B` is applied. |
+
+The nonconformant component is **not compiled** (absent from every CMake source list) and
+`Build()` is never called, so it has never produced output. This is pre-existing unvalidated
+candidate code from `675b4a9`, not a regression.
+
+**Confidence.** High. The contract is owner-supplied; conformance was verified file-by-file
+against `9f70f14`.
+
+**Impact.** The storage contract no longer blocks Phase 5. The `RotochemicalCache` correction —
+construct `n_i = Y_i n_B` before the `N_i`, `A_i`, `B_i` integrals — is recorded as a Phase-5
+implementation task. **No currently compiled behavior changes**, and no previously generated
+output is invalidated.
+
+**Documentation debt.** `StarProfile.hpp:45,296` still describe species columns as densities and
+must be corrected; the name `rho_i` is semantically misleading under this invariant. See
+ADR-0001 Consequences.
 
 ---
 
@@ -302,8 +330,10 @@ integral over `[r₀, r_N]`. The `1e54` converts fm⁻³·km³ to a dimensionles
 declared `NStar.hpp:393`) computes the **same formula without the `1e54` factor** — same name,
 different units (fm⁻³·km² vs km⁻¹). Harmless today only because it has zero callers.
 
-**Depends on INV-01.** If species columns are fractions rather than densities, per-species
-enclosed numbers require an additional `n_B` factor that the current integrand does not apply.
+**Relation to INV-01 (resolved).** This invariant integrates the `BaryonDensity` column `n_B`
+directly, not a species column, so it is **unaffected in form** by ADR-0001. Any *per-species*
+enclosed-number integral, however, must apply `n_i = Y_i n_B` — which the `RotochemicalCache`
+integrand does not currently do (see INV-01 conformance table).
 
 ---
 
@@ -337,6 +367,14 @@ one owner — `StarContext` or `DriverContext`.
 `n ≥ 1e-12 fm⁻³` suppress a crust false positive. The boundary is the end of the **contiguous**
 allowed region scanning outward from index 0.
 
+**Species input (per INV-01 / ADR-0001).** The Fermi momenta are built from **derived number
+densities**, not from the stored fraction columns:
+
+> `n_n = Y_n n_B`,  `n_p = Y_p n_B`,  `n_e = Y_e n_B`
+
+**The implementation already conforms** — `StarContext.cpp:544-546` performs exactly this
+conversion, under the in-code comment *"Convert fractions to number densities in fm^-3."*
+
 **Evidence.** `StarContext.cpp:412-591`, with 34 lines of in-code rationale at `:412-445`.
 
 **Confidence.** High. **Documented?** Yes — among the best-documented physics in the codebase.
@@ -360,13 +398,20 @@ allowed region scanning outward from index 0.
 
 | Status | Entries |
 |---|---|
+| **GOVERNED (ACCEPTED)** | **INV-01** — ADR-0001, accepted 2026-08-31 |
 | VERIFIED CURRENT BEHAVIOR | INV-02, 03, 04, 05⚠, 06, 10, 12, 13, 14, 16 |
 | INTENDED BUT UNVERIFIED | INV-08⚠, 09 |
-| **UNRESOLVED (fail-closed)** | **INV-01, 07⚠, 11, 15** — and sub-items of INV-06, INV-16 |
+| **UNRESOLVED (fail-closed)** | **INV-07⚠, 11, 15** — and sub-items of INV-06, INV-16 |
 
-**Four unresolved invariants block downstream phases:**
+**Three unresolved invariants block downstream phases:**
 
-- **INV-01** (species semantics) blocks Phase 5 — and is the recommended next adjudication.
 - **INV-07** (Hartle normalization) blocks Phase 4, transitively Phase 5.
 - **INV-11** (η convention) blocks Phase 5.
 - **INV-15** (heat-capacity ownership) blocks any thermal validation baseline in Phase 2.
+
+**INV-01 is resolved** as a storage contract (ADR-0001). One implementation nonconformance
+remains — `RotochemicalCache` must construct `n_i = Y_i n_B` — tracked as a Phase-5 task, not as
+an open invariant.
+
+Accepting ADR-0001 resolves only INV-01. **It does not confer accepted status on this document
+as a whole**, which remains DRAFT pending owner ratification.

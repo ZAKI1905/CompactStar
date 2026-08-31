@@ -90,7 +90,7 @@ TimeSeriesObserver + DiagnosticsObserver            LIVE
 |---|---|---|
 | `ProfileVersionedCache` | **LIVE — one client** | Only `NeutrinoCooling`. Not used by DU mask, heat capacity, or rotochemical |
 | `UnitContract` / `UnitVocabulary` | **COMPILED, UNEXERCISED** | Plumbing real; every producer returns an empty contract |
-| `RotochemicalCache` | **NOT COMPILED** | Absent from `Physics/Evolution/CMakeLists.txt`; `Build()` has zero callers |
+| `RotochemicalCache` | **NOT COMPILED · CANDIDATE** | Absent from `Physics/Evolution/CMakeLists.txt`; `Build()` has zero callers. **Known nonconformant with ADR-0001** — see below |
 | `CheckpointObserver` | **EMPTY** | 0 bytes; not in any CMakeLists |
 
 ### Drivers
@@ -128,9 +128,29 @@ These are live conflicts. Under `GOVERNANCE.md` §3 they are fail-closed until a
 3. **Heat capacity has two owners** (INV-15) — the two contributions are summed into the same
    state slot using different `C`.
 4. **Proper volume defined in three places** (INV-04).
-5. **Species semantics undefined** (INV-01, ADR-0001).
+
+**Resolved since the Phase-0 audit:** species semantics are no longer ambiguous. Per
+**ADR-0001 (ACCEPTED 2026-08-31)**, `StarProfile::BaryonDensity` stores `n_B` in fm⁻³ and
+species columns store dimensionless fractions `Y_i = n_i/n_B`, with `n_i = Y_i n_B` derived at
+the point of use. `TOVSolver` and `NStar` preserve the EOS-supplied values without
+normalization. See INV-01.
 
 ---
+
+### `RotochemicalCache` — ADR-0001 nonconformance
+
+Recorded for Phase 5. **Not repaired here.**
+
+- Status is unchanged: **NOT COMPILED · CANDIDATE**. It is absent from every CMake source list,
+  `Build()` has zero callers, and it has never produced output.
+- Under the accepted ADR-0001 semantics, its per-species integration path uses the **wrong
+  primitive**: `RotochemicalCache.cpp:147` passes the raw stored `Y_i` column into
+  `ComputeEnclosedNumber` (`:25-44`) and `ComputeStructuralDerivative` (`:47-104`), both of which
+  document and treat the argument as `n_i` in fm⁻³ (`RotochemicalCache.hpp:116,133`). No `× n_B`
+  is applied, so `N_i`, `A_i`, and `B_i` are all computed from fractions where densities are
+  required.
+- This is **pre-existing unvalidated candidate code** from `675b4a9`, not a regression introduced
+  by ADR-0001. The ADR made an existing latent defect explicit.
 
 ## 4. Known structural hazards
 

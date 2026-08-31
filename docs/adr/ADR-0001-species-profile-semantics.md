@@ -2,12 +2,15 @@
 
 | Field | Value |
 |---|---|
-| **Status** | **PROPOSED** — awaiting owner adjudication. Not accepted. |
-| **Date** | 2026-08-31 |
+| **Status** | **ACCEPTED** |
+| **Date proposed** | 2026-08-31 |
+| **Date accepted** | 2026-08-31 |
+| **Authority** | **Project-owner adjudication.** The owner supplied the EOS schema contract as domain authority; this is not an inference from repository evidence. |
+| **Selected alternative** | **Alternative 1 (as amended)** — stored species values are dimensionless fractions `Y_i` |
 | **Change class** | scientific-semantic |
-| **Governing authority** | None yet — this ADR exists because none exists |
+| **Governing authority** | This ADR is now the normative authority for species semantics |
 | **Affected invariants** | INV-01 (primary), INV-14, INV-16 |
-| **Blocks** | Phase 5 (rotochemical heating); any trusted per-species integral |
+| **Unblocks** | The species-semantics prerequisite of Phase 5. Phase 5 remains blocked by its other prerequisites. |
 
 ## Context
 
@@ -43,7 +46,9 @@ registered by label (`"n"`, `"p"`, `"e"`, `"mu"`, or CompOSE numeric codes such 
   `ds_vis[rho_i_v_idx[7]] * ds_vis[rho_idx]`, i.e. species-column × baryon-density column,
   again consistent with fraction × density.
 
-### Why this cannot be resolved from the repository
+### Why this could not be resolved from the repository alone
+
+*(Historical: this is why the ADR was raised. Resolved by owner adjudication — see Decision.)*
 
 Both readings are internally consistent within their own layer. The EOS ingestion path could
 plausibly deliver either, depending on the CompOSE table variant and any normalization applied
@@ -75,27 +80,104 @@ of these two is currently wrong**, whichever way the underlying convention actua
 
 ## Decision
 
-*Not decided. This ADR is PROPOSED.*
+**Alternative 1, as amended below.** The canonical CompactStar EOS and profile convention is:
+
+- `n_B(r)` — **total baryon number density**, in fm⁻³. Stored in
+  `StarProfile::Column::BaryonDensity`.
+- `Y_i(r) = n_i(r) / n_B(r)` — **dimensionless species fraction**. This is what a
+  `StarProfile` species column stores.
+- `n_i(r) = Y_i(r) · n_B(r)` — **physical species number density**, in fm⁻³. Always derived
+  explicitly at the point of use; never stored.
+
+### Amendment to Alternative 1 — no normalization on import
+
+Alternative 1 as originally drafted suggested that `TOVSolver` might need to normalize imported
+species values. **That is wrong and is explicitly rejected.**
+
+> The authoritative EOS schema supplies the extra species columns as dimensionless fractions
+> `Y_i`. `TOVSolver` and `NStar` **preserve** those values. Consumers requiring physical number
+> density must explicitly construct `n_i = Y_i · n_B`.
+
+No division, rescaling, or normalization is to be introduced anywhere in the ingestion, TOV, or
+profile-construction path. The input table already carries `n_B` in its baryon-density column and
+`Y_i` in its extra composition columns; the pipeline's job is to carry them through unchanged.
+
+### Verified data flow (authenticated at `9f70f14`)
+
+| Stage | Evidence | Behavior |
+|---|---|---|
+| EOS read — primary | `Core/src/TOVSolver.cpp:545,547` | `rho_val` → `eos_tab.rho` (this is `n_B`) |
+| EOS read — extras | `Core/src/TOVSolver.cpp:523-524` | `eos_tab.rho_i.push_back({})` + `AddExtraLabels(...)` |
+| EOS read — extras | `Core/src/TOVSolver.cpp:552` | `eos_tab.rho_i[i-3].push_back(std::atof(...))` — **copied verbatim** |
+| Normalization on import | `TOVSolver.cpp:515-560` | **None present. Correct — none is wanted.** |
+| Profile — baryon density | `Core/src/NStar.cpp:199` | `radial[idx_nb].PushBack(tp.rho)` |
+| Profile — species | `Core/src/NStar.cpp:236` | `tp.rho_i[j]` copied directly into the species column |
+
+The pipeline already conforms to the accepted contract.
+
+## Terminology (normative)
+
+These meanings are binding for all future code, comments, and documentation.
+
+| Term | Meaning | Units |
+|---|---|---|
+| `nB`, `n_B` | Total baryon number density | fm⁻³ |
+| `Y_i` | Dimensionless species fraction, `Y_i = n_i / n_B` | — |
+| `n_i` | Physical species number density, `n_i = Y_i · n_B` | fm⁻³ |
+| **species column** | A `StarProfile` species column means **`Y_i`, never `n_i`** | — |
+
+This applies identically whether the species label is human-readable (`"n"`, `"p"`, `"e"`,
+`"mu"`) or a CompOSE numeric particle code (`"10"`, `"11"`, `"0"`, …).
+
+The existing name `rho_i` is **semantically misleading** under this convention — it names a
+density but holds a fraction. See Consequences.
+
+## Implementation conformance (observed, not repaired here)
+
+### Currently consistent with the accepted invariant
+
+| Consumer | Evidence | Behavior |
+|---|---|---|
+| Direct-Urca number-density reconstruction | `Physics/Evolution/src/StarContext.cpp:544-546` | `nn = Yn*nB; np = Yp*nB; ne = Ye*nB;` — carries the explicit in-code comment *"Convert fractions to number densities in fm^-3."* |
+| Charge-fraction construction | `Physics/Evolution/src/StarContext.cpp:691-696` | `yq += t.q * (*(t.col))[i];` — sums `q_i Y_i`, correctly yielding a dimensionless `Y_q` with no `n_B` division |
+| Legacy per-species density reconstruction | `Core/src/TOVSolver.cpp:1971` | `b_den = ds_vis[rho_i_v_idx[7]] * ds_vis[rho_idx]` — species column × baryon density, correctly forming a density |
+
+### Currently inconsistent
+
+| Component | Evidence | Nature |
+|---|---|---|
+| `RotochemicalCache` | `Physics/Evolution/src/RotochemicalCache.cpp:147` passes `prof.GetSpeciesPtr(label)` — the raw stored `Y_i` column — directly into `ComputeEnclosedNumber` (`:25-44`) and `ComputeStructuralDerivative` (`:47-104`), both of which document the parameter as *"Species number density column (fm^-3)"* (`RotochemicalCache.hpp:116,133`) and integrate it as such. **No `× n_B` is applied anywhere.** | Uses `Y_i` where `n_i` is required, for `N_i`, `A_i`, and `B_i` |
+
+**This is not a newly introduced regression.** It is pre-existing, uncompiled, unvalidated
+candidate code from `675b4a9` — absent from every CMake source list, with `Build()` never called.
+It is recorded here as an implementation nonconformance to be corrected in Phase 5, and is
+deliberately **not repaired by this ADR**.
 
 ## Alternatives
 
-### Alternative 1 — Species columns are canonical **fractions** `Y_i = n_i / n_B`
+*Retained for the record. Alternative 1, as amended in the Decision, was selected.*
+
+### Alternative 1 — Species columns are canonical **fractions** `Y_i = n_i / n_B` ✅ **SELECTED**
 
 - **Statement.** The stored column is dimensionless. Number density is always derived as
   `n_i = Y_i · n_B` at the point of use.
-- **Required code changes.** Correct the documentation at `StarProfile.hpp:45,296`. Audit and
-  fix `RotochemicalCache::ComputeEnclosedNumber` (`RotochemicalCache.cpp:25-44`) to multiply by
-  `n_B` before integrating. Verify the EOS import path actually normalizes
-  (`TOVSolver.cpp:519-526`). Add a typed accessor `GetSpeciesFraction(label)` and retire the
+- **Required code changes.** Correct the Doxygen at `StarProfile.hpp:45,296`, which currently
+  describes species columns as densities. Correct `RotochemicalCache` to construct
+  `n_i = Y_i · n_B` before its species integrals. Add a typed accessor
+  `GetSpeciesFraction(label)` and a derived `GetSpeciesNumberDensity(label)`, and retire the
   ambiguous `GetSpecies`.
-- **Migration risk.** Low-to-moderate. Matches what the majority of live consumers already
-  assume, so most compiled behavior is unchanged. The risk is that the EOS import does *not*
-  normalize, in which case this alternative silently endorses existing incorrect DU thresholds.
-- **Validation needed.** Confirm `Σ_i Y_i` behaves as expected and that `Σ_i q_i Y_i ≈ 0`
-  (charge neutrality) on a reference profile. Confirm `Y_n + Y_p ≈ 1` for an npeμ EOS. Then
-  re-derive the DU boundary radius and compare against a published threshold density.
-- **Implications for existing outputs.** Previously generated DU boundaries and cooling curves
-  remain as-is only if the import truly normalizes; otherwise all are invalidated.
+  **Amended:** the original draft also proposed verifying that the EOS import normalizes.
+  **This is rejected** — the schema supplies `Y_i` directly and the import must preserve it.
+  Verification instead confirmed that no normalization is present, which is the correct behavior
+  (`TOVSolver.cpp:552`).
+- **Migration risk.** Low. Matches what every live compiled consumer already assumes, so
+  **no currently compiled behavior changes.** The original draft's stated risk — that the import
+  might not normalize — is resolved: it does not, and must not.
+- **Validation needed.** On a reference profile, confirm `Σ_i q_i Y_i ≈ 0` (charge neutrality)
+  and that `Y_n + Y_p ≈ 1` for npeμ matter. Then re-derive the DU boundary radius and compare
+  against a published threshold density. These belong to the Phase-2 baseline.
+- **Implications for existing outputs.** **None invalidated.** Every compiled consumer already
+  conforms; the sole nonconformant component is not compiled and has never produced output.
 
 ### Alternative 2 — Species columns are canonical **number densities** `n_i` [fm⁻³]
 
@@ -130,30 +212,63 @@ of these two is currently wrong**, whichever way the underlying convention actua
 
 ## Consequences
 
-Once accepted:
+Now in force:
 
-- INV-01 moves from **UNRESOLVED** to **VERIFIED CURRENT BEHAVIOR** or **PROPOSED**, as
-  appropriate, and `docs/SCIENTIFIC_INVARIANTS.md` is updated in the same change.
-- INV-14 (baryon-number definition) and INV-16 (Direct-Urca threshold) must be re-checked for
-  consistency with the ratified reading.
-- Phase 5 becomes unblocked; Phase 2 gains a concrete first validation target.
-- Any alternative other than a pure documentation fix is a **scientific-semantic change** and
-  therefore requires a validation baseline **before** implementation (`GOVERNANCE.md` §2).
+- **INV-01 is resolved.** It moves from UNRESOLVED to **GOVERNED (ACCEPTED)** in
+  `docs/SCIENTIFIC_INVARIANTS.md`, citing this ADR as the normative authority. The storage
+  contract is settled; **implementation conformance is not** — see above.
+- **INV-16 (Direct-Urca)** must document that its Fermi momenta are built from
+  `n_n = Y_n n_B`, `n_p = Y_p n_B`, `n_e = Y_e n_B`. The existing implementation already does
+  this correctly.
+- **INV-14 (baryon number)** is unaffected in form: it integrates `n_B` directly, not a species
+  column. Any *per-species* enclosed-number integral must apply `n_i = Y_i n_B`.
+- **The species-semantics prerequisite of Phase 5 is satisfied.** Phase 5 remains blocked by all
+  of its other prerequisites — INV-07, INV-11, out-of-equilibrium weak rates, and the CMake
+  reachability gap.
+- **No source change is authorized by this ADR.** The corrections below are recorded as future
+  implementation tasks.
+
+### Required future source corrections (recorded, not performed)
+
+1. **`Core/StarProfile.hpp:45,296`** — Doxygen describes species columns as number densities.
+   Must be corrected to dimensionless fractions `Y_i`. *(When edited, preserve Doxygen format.)*
+2. **`rho_i` naming** — semantically ambiguous: the name says density, the content is a fraction.
+   Should eventually be renamed or wrapped behind typed accessors.
+3. **Typed accessors** — a preferred future API distinguishes `GetSpeciesFraction(label)` from
+   a derived `GetSpeciesNumberDensity(label)`, retiring the ambiguous `GetSpecies`. Removing the
+   ambiguous accessor converts any future misuse from a silent numerical error into a build error.
+4. **`RotochemicalCache`** — must construct `n_i = Y_i · n_B` before its `N_i`, `A_i`, and `B_i`
+   species number-density integrals (`RotochemicalCache.cpp:147`, `:25-44`, `:47-104`).
+5. **Unit-contract machinery** — `Diagnostics/UnitContract` should eventually encode the
+   fraction/density distinction machine-readably, so conformance is checked rather than
+   conventional. It is currently populated by no producer.
 
 ## Validation
 
-No baseline currently exists — this is itself a finding. Minimum evidence before implementing
-any alternative:
+The decision itself required no numerical validation: it is a schema contract supplied by the
+owner, and the compiled pipeline was verified to already conform.
+
+Validation is still required before the **future source corrections** land, and belongs to the
+Phase-2 baseline:
 
 1. A reference stellar profile committed as a fixture, with the EOS table version recorded.
-2. Charge neutrality `Σ_i q_i n_i ≈ 0` demonstrated on that fixture under the ratified reading.
-3. The Direct-Urca onset density compared against an independent published value for the same EOS.
-4. A passive cooling curve captured as a regression baseline **before** any change lands.
+2. Charge neutrality `Σ_i q_i Y_i ≈ 0` demonstrated on that fixture.
+3. `Y_n + Y_p ≈ 1` for npeμ matter, confirming the columns really are fractions in the tables in use.
+4. The Direct-Urca onset density compared against an independent published value for the same EOS.
+5. A passive cooling curve captured as a regression baseline **before** any change lands.
 
 ## Provenance
 
 Conflict identified during Phase-0 reconnaissance (2026-08-31) against commit `d91c31b`;
-re-confirmed present in `9f70f14`. Alternatives drafted by an AI agent under
-`GOVERNANCE.md` §5 and `AGENTS.md`. **No alternative has been selected. Selection requires the
-project owner**, who alone holds the domain authority and the knowledge of what the EOS import
-was intended to deliver.
+re-confirmed present in `9f70f14`. Alternatives drafted by an AI agent under `GOVERNANCE.md` §5
+and `AGENTS.md`.
+
+**Adjudicated by the project owner on 2026-08-31**, who supplied the authoritative EOS schema
+contract — domain authority that could not be recovered from repository evidence, since both
+readings were internally consistent within their own layers. The agent then independently
+verified the ingestion, profile-construction, and consumer data flow against `9f70f14` and
+recorded conformance, including the single nonconformant component.
+
+Per `GOVERNANCE.md` §5, acceptance of this ADR ratifies **only** the species-semantics contract.
+It does not ratify the `RotochemicalCache` or Hartle O(Ω²) candidate code, and does not confer
+accepted status on any other DRAFT governance document.
