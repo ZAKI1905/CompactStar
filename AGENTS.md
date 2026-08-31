@@ -51,6 +51,21 @@ the class in your report. It determines the evidence you owe.
 baseline exists, creating one is the task — not the refactor. "The tests still pass" is not
 available here; there are none yet.
 
+**One exception, and it is not yours to declare.** `GOVERNANCE.md` §3.1 defines a narrow
+pre-baseline correctness exception, available only where an **ACCEPTED ADR** authorizes it for a
+named defect. That section is the sole definition of the rule — read it there; do not reconstruct
+it from this document, and do not generalize from a precedent.
+
+When you work under it, state in your report:
+
+- **which ADR** authorizes the exception;
+- **why the current output cannot serve as a baseline;**
+- **what independent validation** substitutes for regression — evidence that would stand even if
+  no prior run of this code existed;
+- **what baseline is established immediately afterward.**
+
+Absent such an ADR, the rule above is unchanged: no baseline, no refactor.
+
 ## 6. Prefer generic machinery
 
 Do not hardcode reaction names, campaign names, species names, or one-off execution modes into
@@ -111,7 +126,8 @@ promote it.
 □ Ancestry checked against other branches touching these files
 □ Governing invariant or ADR identified and cited
 □ Change class stated
-□ Baseline exists (or creating it is the task)
+□ Baseline exists (or creating it is the task) — or an ACCEPTED ADR authorizes governed
+  pre-baseline correctness work under GOVERNANCE.md §3.1, with its four report items stated
 □ No fail-closed condition open
 □ Scientific impact assessed
 ```

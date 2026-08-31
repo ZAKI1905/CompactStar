@@ -104,7 +104,7 @@ Traced through `StarContext::HeatCapacityStar_Tinf` (`StarContext.cpp:704-739`) 
 | **Composition input** | `Y_q(r)` from `ChargeFractionYq()` — under **ADR-0001** this is `Σ_i q_i Y_i`, correctly dimensionless | `StarContext.cpp:770-772`, `:691-696` |
 | **Units** | `c_V` in erg cm⁻³ K⁻¹; `WV·dr` in km³ scaled by `KM3_TO_CM3 = 1e15` → cm³; product **erg K⁻¹**. Dimensionally consistent with `L` in erg s⁻¹ and `T` in K. | `CompOSE_Thermo.cpp:717-731`; `StarContext.cpp:761`, `:810-811` |
 | **Temperature dependence** | Real. `C_⋆` is tabulated on a log-spaced `T∞` grid of 160 points over `[1e-5, 1] MeV` (≈ `[1.16e5, 1.16e10] K`) and interpolated linearly in `C` against `log T` | `StarContext.cpp:775-777`, `:785`, `:730-738` |
-| **Radial quadrature** | Trapezoid over the profile grid — consistent with **INV-13** (linear interpolant ⇒ second order in Δr, not fourth) | `StarContext.cpp:800-815` |
+| **Radial quadrature** | Trapezoid over the profile grid — consistent with **INV-13**; nominal accuracy O(Δr²) for sufficiently smooth data, so fourth-order behavior is unavailable from this component | `StarContext.cpp:800-815` |
 | **Caching / invalidation** | Rebuilt when the profile version changes **or** when the `CompOSE_Thermo` pointer identity changes; otherwise reused. This is INV-12's "rule 3". | `StarContext.cpp:709-717` |
 
 Two properties of this implementation are recorded here so that acceptance cannot later be
@@ -330,8 +330,11 @@ known to encode the rejected behavior.
    total heat capacities are of order `10³⁷–10³⁸ erg K⁻¹` at `T ≈ 10⁸ K`. Compare. This check
    alone distinguishes `C_⋆` from the `1e40` placeholder and is the single most informative test
    available before any baseline exists.
-4. **Grid convergence in `r`.** The integral is trapezoidal over the profile grid (INV-13),
-   so convergence must be second order in Δr. Confirm.
+4. **Grid convergence in `r`.** The integral is trapezoidal over the profile grid (INV-13), whose
+   nominal order is O(Δr²) for sufficiently smooth data. **Measure** the observed order under
+   refinement; do not assume it. A departure from the nominal order is itself a finding — the
+   profile grid is set by the TOV integrator rather than chosen for refinement, and `c_V` reaches
+   the integrand through table interpolation and domain clamping.
 5. **Grid convergence in `T`.** Vary `NT` from 160 (`StarContext.cpp:777`) and confirm the
    interpolated `C_⋆` is insensitive to the tabulation density over the range of interest.
 6. **Clamping behavior stated, not assumed.** Record explicitly what happens for
@@ -461,6 +464,15 @@ driver paths were re-read end to end, the `StarContext` heat-capacity implementa
 through `BuildHeatCapacityCache_` and its CompOSE `c_V` source, units were verified through the
 `KM3_TO_CM3` scaling, and the previously reported `NeutrinoCooling` null-check ordering issue was
 confirmed present at `:889` versus `:901`.
+
+**Post-acceptance clarification, 2026-08-31 (editorial).** During the Phase-0.5 governance
+coherence audit, two statements of *numerical* wording in this ADR — the radial-quadrature row of
+the evidence table and item 4 of §V1 — asserted second-order convergence in Δr as a requirement
+rather than as the quadrature's nominal order to be measured. They were corrected to match the
+amended INV-13. **No part of the Decision, the rejected behavior, the deferred architectural
+question, or the consequences was altered**, and the correction was necessary because an ACCEPTED
+ADR outranks `SCIENTIFIC_INVARIANTS.md` (`GOVERNANCE.md` §1) and would otherwise have re-imposed
+the assumption the invariant register now rejects.
 
 **Adjudicated by the project owner on 2026-08-31.** The owner fixed the physical convention —
 one canonical `C_⋆(T∞)`, the GR-integrated EOS-based quantity — and simultaneously directed that

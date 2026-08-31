@@ -44,15 +44,11 @@ All five inherit `AGENTS.md` in full. The contracts below add only what is speci
 - **Provenance.** ADR recording what changed, why, under which equations, with what validation.
 - **Stop conditions.** Ambiguous units, state meaning, ownership, cache validity, or authoritative
   path → **halt, draft a PROPOSED ADR, do not choose.** Missing baseline → halt; creating the
-  baseline becomes the task.
-- **Narrow exception — pre-baseline correctness work (roadmap Phase 2A).** A change may proceed
-  without a regression baseline when an ACCEPTED ADR has established that the *existing* behavior
-  is scientifically wrong, so that capturing a baseline first would enshrine it. ADR-0002 is the
-  first such case: `PhotonCooling` must stop dividing by a constant `C_eff` before any passive
-  cooling curve is frozen. In this mode the evidence standard is **not** relaxed — it is
-  *substituted*: validation must be independent physical verification (analytic limits, dimensional
-  analysis, convergence, comparison against published values), never agreement with the superseded
-  output. Absent an ACCEPTED ADR saying so, the missing-baseline stop condition stands.
+  baseline becomes the task — **except** under the narrow pre-baseline correctness exception
+  defined by `GOVERNANCE.md` §3.1, which requires an ACCEPTED ADR authorizing it for a named
+  defect. This skill does **not** define that exception and must not extend it; it implements the
+  workflow §3.1 permits, including §3.1's four required report items. First and currently only
+  case: **ADR-0002** (`PhotonCooling` heat-capacity conformance, roadmap Phase 2A).
 - **Governing documents.** All of them.
 
 ## 3. `numerical-audit`
@@ -66,7 +62,7 @@ All five inherit `AGENTS.md` in full. The contracts below add only what is speci
 - **Provenance.** Report; a PROPOSED ADR if a defect implies a convention change.
 - **Stop conditions.** Cannot locate an authoritative derivation → halt and report. **Never
   "fix" physics inside an audit.**
-- **Governing documents.** `SCIENTIFIC_INVARIANTS.md`, numerical policy.
+- **Governing documents.** `SCIENTIFIC_INVARIANTS.md`; `NUMERICAL_POLICY.md` once written — until then, record the numerical rationale in the report (`GOVERNANCE.md` §1).
 - **First targets.** Hartle O(Ω) normalization (INV-07); Hartle O(Ω²) source terms and the
   dropped j² factor (INV-08); `A_i` Ω² normalization (INV-09).
 
@@ -99,7 +95,7 @@ All five inherit `AGENTS.md` in full. The contracts below add only what is speci
 - **Stop conditions.** A build step mutates tracked scientific products → halt. A test appears
   destructive → halt. Required external data unavailable → halt and report precisely what is
   missing.
-- **Governing documents.** Validation policy; roadmap Phases 1–2.
+- **Governing documents.** `VALIDATION_POLICY.md` once written — until then, roadmap Phases 1, 2A, and 2B (`GOVERNANCE.md` §1).
 
 ---
 
@@ -117,11 +113,9 @@ scientific-change     ← last; requires a baseline, except the Phase-2A carve-o
 change can be shown correct — so a skill that performs one would generally be operating outside
 the evidence standard `GOVERNANCE.md` §2 requires.
 
-The one exception is **Phase 2A**, where the roadmap requires a small, ADR-mandated set of
-corrections *before* the baseline precisely because the current behavior is known to be wrong.
-Those changes are validated against physics rather than against a prior run — see the stop
-conditions under `scientific-change`. The carve-out is bounded by what an ACCEPTED ADR names; it
-is not a general licence to change numbers without a baseline.
+The sole exception is the one `GOVERNANCE.md` §3.1 defines, invoked in **Phase 2A** under
+**ADR-0002**. Its conditions, its evidence standard, and its reporting duties live in §3.1 and
+nowhere else.
 
 ## Deliberately excluded
 

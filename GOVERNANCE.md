@@ -31,6 +31,11 @@ Two consequences worth stating plainly:
   behavior (rule 7), not evidence that the behavior is correct or intended.
 - **Aspirational documents bind nothing.** `README.md` and `TARGET_ARCHITECTURE.md` describe
   intent. Where they disagree with `CURRENT_ARCHITECTURE.md`, they are wrong about the present.
+- **Unwritten authorities bind nothing.** Ranks 4 and 5 are reserved slots. `NUMERICAL_POLICY.md`
+  and `VALIDATION_POLICY.md` do not exist, and ratifying this document does **not** make them
+  normative or imply they are pending. They will be written when Phase-1/Phase-2 work supplies
+  enough evidence to write them usefully — not before. Until then, no requirement anywhere may be
+  discharged *only* by citing them, and no work may be blocked *solely* because they are absent.
 
 ---
 
@@ -40,8 +45,8 @@ Every change is classified before work begins. The class determines required evi
 
 | Class | Definition | Required evidence |
 |---|---|---|
-| **Scientific-semantic** | Changes physical meaning: equations, conventions, units, state definitions, conserved quantities, reaction channels | Governing authority cited · ADR · validation before and after · provenance record |
-| **Numerical-method** | Changes numerical results without changing physical meaning: integrator, tolerance, interpolation order, finite-difference scheme, grid | Convergence evidence · regression against baseline · `NUMERICAL_POLICY.md` citation |
+| **Scientific-semantic** | Changes physical meaning: equations, conventions, units, state definitions, conserved quantities, reaction channels | Governing authority cited · ADR · validation before and after · provenance record. **Narrow exception:** §3.1 governs the one case where a *prior* baseline cannot legitimately exist |
+| **Numerical-method** | Changes numerical results without changing physical meaning: integrator, tolerance, interpolation order, finite-difference scheme, grid | Convergence evidence · regression against baseline · `NUMERICAL_POLICY.md` citation **once that document exists**; until then the numerical rationale is recorded in the change itself |
 | **Structural / architecture** | Moves ownership, changes boundaries, promotes or retires a code path | ADR · `CURRENT_ARCHITECTURE.md` updated in the same change |
 | **Engineering** | Behavior-preserving: refactor, rename, dead-code removal, warning fixes | Proof of behavior preservation — bit-identical output, or a documented tolerance |
 | **Dependency / build** | Toolchain, third-party libraries, build configuration, platform support | Recorded versions · reproducible build instructions · ADR if it changes platform support |
@@ -67,12 +72,65 @@ is true:
 5. **Uncertain ownership.** Two components compute or own the same quantity and no document
    says which is authoritative.
 6. **Absent validation for a scientific-semantic change.** No baseline exists against which the
-   change could be shown correct.
+   change could be shown correct. **Unless §3.1 applies** — and §3.1 applies only when an ACCEPTED
+   ADR says it does.
 7. **Source-of-truth disagreement.** Branch, worktree, or checkout states disagree about the
    content of the files being changed.
 
 Encountering a fail-closed condition is a **successful outcome** of a task. The deliverable is
 the report and, where appropriate, a PROPOSED decision record — not a guess.
+
+### 3.1 Narrow exception — pre-baseline correctness work
+
+**This is the only exception to condition 6, and this section is its only definition.** Lower-
+ranked documents may require compliance with it or implement a workflow around it; none may
+restate, extend, or define its own version of it.
+
+There is one situation in which condition 6 would defeat its own purpose. A baseline exists to
+detect unintended change. If the behavior about to be captured has already been adjudicated as
+scientifically invalid, freezing it makes it the reference against which every later correction
+registers as a *regression* — converting a known defect into a durable obligation. Requiring a
+baseline first would then not protect the science; it would entrench the error.
+
+A scientific-semantic change may therefore proceed without a prior regression baseline **only
+when every one of the following holds:**
+
+1. An **ACCEPTED ADR** identifies a specific current behavior as scientifically invalid or
+   internally inconsistent.
+2. Capturing that behavior as the project's golden/reference baseline would knowingly enshrine
+   the rejected behavior.
+3. That ADR **explicitly identifies the minimum correction** that must precede the baseline.
+4. **Independent verification exists** that does not depend on agreement with the superseded
+   output.
+5. The change is **narrowly scoped** to the defect the ADR governs — no adjacent cleanup, no
+   unrelated corrections.
+6. The change **records which historical outputs are no longer suitable as reference results.**
+7. A regression baseline is **created immediately after** the pre-baseline correction is
+   validated — the exception defers the baseline, it does not waive it.
+
+The evidence standard is **substituted, not relaxed.** Condition 4 is satisfied by evidence that
+would stand even if no prior run of this code existed. Depending on the quantity, that may include:
+
+- dimensional analysis;
+- exact or asymptotic analytical limits;
+- thermodynamic identities;
+- convergence behavior under grid refinement;
+- comparison with independently published or reference calculations;
+- internal conservation identities;
+- cross-check against an independent implementation.
+
+**This is not a general license to change untested scientific code.** The repository is full of
+code that is unvalidated, and that alone is never grounds for invoking §3.1. Absent an ACCEPTED
+ADR that explicitly authorizes the exception for a named defect, condition 6 remains fully
+active and the normal answer stands: **if no baseline exists, creating one is the task.**
+
+An agent invoking §3.1 must state, in its report: which ADR authorizes it; why the current output
+cannot serve as a baseline; what independent verification substitutes for regression; and what
+baseline is established immediately afterward.
+
+**First and currently only use:** `docs/adr/ADR-0002-thermal-heat-capacity-ownership.md`, which
+rejects `PhotonCooling`'s constant heat-capacity denominator and names the minimum correction that
+must precede any passive-cooling baseline (roadmap Phase 2A).
 
 ---
 

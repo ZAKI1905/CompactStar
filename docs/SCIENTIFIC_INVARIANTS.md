@@ -24,6 +24,29 @@ implementation nonconformance.
 **A VERIFIED CURRENT BEHAVIOR entry is a statement about the code, not an endorsement of the
 physics.** Promotion to intended physics requires an ADR.
 
+## What ratification of this register would mean
+
+Stated before the owner is asked to decide, so the scope of that decision is unambiguous.
+
+Ratifying this document means the owner accepts **the register**: its status vocabulary; the
+ADR-backed contracts it records as GOVERNED (ACCEPTED); the fail-closed designation of its
+UNRESOLVED entries; and its descriptions of verified current behavior as **the best available
+evidence** about what the code does today.
+
+It does **not** mean any of the following, and no later document may read it that way:
+
+| Ratification does **not** | Because |
+|---|---|
+| Validate `INTENDED BUT UNVERIFIED` entries | They stay unverified until executed, tested, or derived — INV-08, INV-09 |
+| Resolve `UNRESOLVED` entries | They remain fail-closed — INV-07, INV-11, and sub-items of INV-06 and INV-16 |
+| Accept the Hartle O(Ω²) or rotochemical candidate code | `GOVERNANCE.md` §5 — merging is not ratification, and neither is the passage of time |
+| Permit implementation nonconformance | `RotochemicalCache` (INV-01) and `PhotonCooling` (INV-15) remain nonconformant and must be corrected, not excused |
+| Certify numerical correctness | No entry here is a validation result. A designated implementation is the accepted *owner* of a quantity, never a claim that it computes it correctly |
+| Endorse the physics of a `VERIFIED CURRENT BEHAVIOR` entry | That label describes the code. Placeholder emissivities and arbitrary normalizations are recorded, not blessed |
+
+Ratifying the register is what makes it *citable as authority* at rank 3. It settles what the
+conventions **are**, not whether the code meets them or whether the numbers are right.
+
 ---
 
 ## INV-01 — Species profile semantics — **GOVERNED (ACCEPTED)**
@@ -312,9 +335,19 @@ Also `StarContext.cpp:736`; `CompOSE_Thermo.cpp:549`.
 **Confidence.** High. **Documented?** **No — and documented misleadingly.** ARCHITECTURE.md
 refers to "GSL spline" and "interpolation"; a reader would reasonably assume cubic.
 
-**Why this matters.** This sets the true accuracy floor of every radial integral in the code —
-enclosed baryon number, moment of inertia, neutrino luminosity, heat capacity. Any convergence
-study must assume second-order-in-Δr behavior, not fourth.
+**Why this matters.** This sets the accuracy ceiling of every radial integral in the code —
+enclosed baryon number, moment of inertia, neutrino luminosity, heat capacity. The
+linear-interpolation and trapezoidal components have **nominal O(Δr²) accuracy for sufficiently
+smooth data**, so fourth-order behavior is not available from them.
+
+**Nominal order is not observed order.** The statement above is a property of the quadrature
+scheme in isolation. It does **not** license the stronger claim that a complete coupled
+observable — a TOV solve feeding a Hartle solve feeding a cooling integration, over a
+non-uniform grid, through clamped and table-interpolated EOS quantities — will exhibit
+second-order convergence. Smoothness is assumed rather than established; the grid is set by the
+integrator, not chosen for a refinement study; and clamping (INV-10) is not smooth at all.
+**The convergence order of the complete calculation must be measured, not inferred from the
+interpolation scheme.** Designing that measurement is Phase-2B work.
 
 ---
 
@@ -408,8 +441,10 @@ measurable against the existing passive-cooling curve, which encodes the rejecte
 dimensional check through `KM3_TO_CM3`; the degenerate `c_V ∝ T` low-temperature slope;
 order-of-magnitude comparison against published total heat capacities (~10³⁷–10³⁸ erg K⁻¹ at
 `T ≈ 10⁸ K` for a canonical star, which alone separates `C_⋆` from the `1e40` placeholder);
-second-order convergence in Δr (INV-13); insensitivity to the `NT = 160` temperature tabulation
-(`StarContext.cpp:777`); explicit statement of the endpoint-clamping behavior
+grid refinement in Δr — the quadrature is trapezoidal, of nominal order O(Δr²) for smooth data
+(INV-13), with the observed order to be *measured* rather than assumed; insensitivity to the
+`NT = 160` temperature tabulation (`StarContext.cpp:777`); explicit statement of the
+endpoint-clamping behavior
 (`StarContext.cpp:725-728`, see INV-10); and cache-rebuild correctness (INV-12). ADR-0002 §V1.
 
 **Impact.** INV-15 no longer blocks a thermal validation baseline as a *decision*. The roadmap

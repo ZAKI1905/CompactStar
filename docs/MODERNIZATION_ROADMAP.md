@@ -4,7 +4,9 @@
 > prerequisites hold.
 >
 > Governing principle: **do not propose scientific implementation before its prerequisites are
-> governed and validated.**
+> governed and validated.** "Validated" means *evidence adequate to the change*, which is normally
+> a regression baseline — and, in the single case `GOVERNANCE.md` §3.1 authorizes, independent
+> physical verification standing in for a baseline that cannot legitimately exist yet (Phase 2A).
 
 ---
 
@@ -34,6 +36,15 @@
 - **Repaired the Phase-2 / Phase-3 circular dependency** that ADR-0002 exposed. Phase 2 is split
   into **2A** (pre-baseline correctness prerequisites) and **2B** (the validation baseline);
   Phase 3 loses the heat-capacity ownership item.
+- **Governance coherence audit before ratification.** Resolved two defects that ADR-0002 created
+  or exposed. (a) **Authority inversion:** the Phase-2A pre-baseline exception existed only in the
+  rank-8 skill plan while rank-1 `GOVERNANCE.md` §3 still made it fail-closed, so the accepted
+  ADR-0002 workflow was procedurally invalid. The exception now lives once, at rank 1, as
+  `GOVERNANCE.md` **§3.1**, with seven binding conditions; `AGENTS.md` and `AI_SKILL_PLAN.md`
+  reference it rather than redefining it. (b) **Plumbing before mutation:** Phase 2A required
+  durable scientific verification while the test mechanism was not introduced until Phase 2B.
+  Minimal CTest plumbing moves to **Phase 1**. Also corrected the categorical convergence-order
+  claim (INV-13) and stated the scope of invariant-register ratification.
 
 **Exit criteria.**
 
@@ -41,7 +52,8 @@
 |---|---|
 | ADR-0001 adjudicated | ✅ **SATISFIED** — ACCEPTED 2026-08-31 |
 | ADR-0002 adjudicated | ✅ **SATISFIED** — ACCEPTED 2026-08-31 |
-| Owner reviews the remaining governance documents | ☐ Outstanding — `GOVERNANCE.md`, `SCIENTIFIC_INVARIANTS.md`, `AI_SKILL_PLAN.md`, and this roadmap remain **DRAFT** |
+| Governance package internally coherent | ✅ **SATISFIED** — coherence audit complete; no known contradiction between authority ranks |
+| Owner reviews the remaining governance documents | ☐ **Outstanding — the sole remaining criterion.** `GOVERNANCE.md`, `SCIENTIFIC_INVARIANTS.md`, `AI_SKILL_PLAN.md`, and this roadmap remain **DRAFT** and are presented as a ratification candidate |
 
 Accepting ADR-0001 ratifies the species-semantics contract only; accepting ADR-0002 ratifies the
 heat-capacity ownership convention only. Neither ratifies any other DRAFT document, nor the
@@ -50,22 +62,47 @@ Hartle O(Ω²) / rotochemical candidate code, nor the numerical correctness of
 
 ---
 
-## Phase 1 — Reproducible macOS build
+## Phase 1 — Reproducible macOS build **and minimal validation plumbing**
 
 **Prerequisite:** Phase 0.5 reviewed.
 
 Nothing below Phase 1 can be verified, because the project currently cannot be configured from a
 clean clone on any platform.
 
+**Build reproducibility**
+
 - Guard the seven absent optional `main/` subdirectories so a clean clone configures.
 - Stop writing generated configuration into the source tree — move `configure_file` output to
-  the binary directory.
+  the binary directory (`CMakeLists.txt:84-87`).
 - Define and document canonical macOS configure/build commands.
 - Record exact dependency versions: GSL, OpenMP, Python3/NumPy, and the vendored Zaki and
   Confind archives.
 - Adopt a warning policy and a default build type. *(Engineering class — must not change results.)*
 
-**Exit criteria.** A clean clone configures and builds on macOS with documented commands.
+**Minimal validation plumbing — generic infrastructure only**
+
+The project has **no test mechanism of any kind**: `enable_testing`, `include(CTest)`, and
+`add_test` appear in no `CMakeLists.txt` anywhere in the tree. Phase 1 establishes only the
+generic ability to *run* a test:
+
+- `enable_testing()` / CTest plumbing (or equivalent) in the top-level `CMakeLists.txt`.
+- A canonical location for test executables and fixtures.
+- A trivial smoke test that runs through the standard test command, proving the mechanism works.
+- The canonical test command, documented alongside the configure/build commands.
+
+**No scientific baseline and no physics check is created here** — only the mechanism. This is
+dependency/build class and must not change any number the code produces.
+
+**Why this belongs in Phase 1 rather than Phase 2A.** Three reasons, all from repository evidence.
+(a) `enable_testing()` is a top-level directive and must live in the same root `CMakeLists.txt`
+that Phase 1 is already opening — alongside `add_subdirectory` at `:92` and `:153`, and the
+`configure_file` relocation at `:84-87`. (b) It is dependency/build class, which is Phase 1's
+class; Phase 2A is scientific-semantic. (c) Decisively, `GOVERNANCE.md` §3.1 condition 5 requires
+Phase-2A work to be **narrowly scoped to the defect ADR-0002 governs**. Standing up a test
+framework inside that phase would violate the scoping condition that authorizes the phase at all.
+
+**Exit criteria.** A clean clone configures and builds on macOS with documented commands, **and**
+a trivial test runs through the documented test command.
 
 **Decision gate — platform.** **Mac-first development is acceptable initially.** Cross-platform
 dependency work moves earlier **only if** Linux or cloud compilation becomes required, CI must
@@ -76,7 +113,17 @@ Confind modernization is explicitly out of scope for now.**
 
 ## Phase 2A — Pre-baseline correctness prerequisites
 
-**Prerequisite:** Phase 1 complete — the project builds reproducibly.
+**Prerequisite:** Phase 1 complete — the project builds reproducibly **and a trivial test runs
+through the documented test command.**
+
+**Authorized by `GOVERNANCE.md` §3.1** under **ADR-0002**. This is the first and currently only
+invocation of the pre-baseline correctness exception. Every §3.1 condition must be satisfied and
+reported, including its four report items.
+
+**Durability requirement.** The independent verification below must be added as **tests running
+under the Phase-1 plumbing**, not as one-off manual checks. §3.1 condition 7 requires a regression
+baseline immediately afterward, and condition 4's independent evidence must remain re-runnable
+after the correction lands — a check that cannot be repeated cannot support the exception.
 
 **This phase is deliberately narrow.** It exists for one reason: a small number of known defects
 would make a validation baseline *scientifically misleading* if frozen into it. Those, and only
@@ -98,11 +145,13 @@ baseline captured *without* the correction would encode physics known in advance
   the INV-15 decision, admitted here only because routing a second driver through the same
   context path exercises the same unguarded pattern.
 - **Add narrowly targeted verification of the stellar heat-capacity calculation itself** —
-  ADR-0002 §V1: dimensional check through `KM3_TO_CM3`; the degenerate `c_V ∝ T` low-temperature
-  slope; order-of-magnitude comparison against published total heat capacities; second-order
-  convergence in Δr (INV-13); insensitivity to the `NT = 160` temperature grid; explicit
-  statement of the endpoint-clamping behavior (`StarContext.cpp:725-728`); cache-rebuild
-  correctness (INV-12).
+  ADR-0002 §V1, as durable tests under the Phase-1 plumbing: dimensional check through
+  `KM3_TO_CM3`; the degenerate `c_V ∝ T` low-temperature slope; order-of-magnitude comparison
+  against published total heat capacities; grid refinement in Δr — the quadrature is trapezoidal
+  (INV-13), so its *nominal* order is O(Δr²) for sufficiently smooth data, and the **observed**
+  order is what the test measures, not what it assumes; insensitivity to the `NT = 160`
+  temperature grid; explicit statement of the endpoint-clamping behavior
+  (`StarContext.cpp:725-728`); cache-rebuild correctness (INV-12).
 
 **Evidence standard.** Phase-2A changes are governed by their own scientific/numerical class
 under `GOVERNANCE.md` §2 and **require independent physical checks** — analytic limits, dimensional
@@ -119,14 +168,18 @@ independent verification; no known scientifically misleading defect remains on t
 
 **Prerequisite:** Phase 2A complete.
 
-The codebase has zero tests, zero assertions, and zero CI. Until baselines exist, no numerical
-change can be shown correct.
+The codebase has zero assertions and zero CI. Until baselines exist, no numerical change can be
+shown correct. Phase 1 supplied the *mechanism* and Phase 2A the first physics checks; Phase 2B
+expands that plumbing into the actual scientific baseline.
 
-- Introduce CTest and a test framework.
+- Expand the Phase-1 test plumbing into a full harness; add CI.
 - TOV reference checks against known solutions.
 - First-order Hartle moment-of-inertia checks against published values.
-- Grid-convergence harness — noting INV-13: interpolation is **linear**, so expect
-  second-order-in-Δr behavior, not fourth.
+- Grid-convergence harness. Per INV-13, interpolation is **linear** and `DataSet::Integrate` is
+  the trapezoid rule, whose nominal accuracy is O(Δr²) for sufficiently smooth integrands — so
+  fourth-order behavior is not available from these components. The convergence order of a
+  *complete* coupled observable (TOV → Hartle → cooling) is **measured by this harness, not
+  assumed from the interpolation scheme.**
 - Cache-correctness checks (INV-12).
 - **Passive cooling regression.** Because Phase 2A has landed, this now captures a **physically
   coherent energy equation** — `C_⋆(T∞) dT∞/dt = −L_ν,∞ − L_γ,∞` — rather than deliberately
