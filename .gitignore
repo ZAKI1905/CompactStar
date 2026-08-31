@@ -1,5 +1,7 @@
 Backup/
-build/
+# Anchored: ignore only the top-level out-of-source build directory.
+# An unanchored 'build/' also swallowed docs/build/ at any depth.
+/build/
 Other/
 .vscode/
 .DS_Store

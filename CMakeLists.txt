@@ -81,9 +81,15 @@ endif()
 # -----------------------------
 # Configure headers
 # -----------------------------
+# Generated configuration header goes in the BINARY tree, never the source tree.
+# The include spelling used by the sources is "CompactStar/Core/CompactStarConfig.h"
+# (Prog.hpp:253, Core/src/Banner.cpp:12), so mirror that layout under a generated
+# include root and put that root ahead of the source root on the include path.
+set(CompactStar_GENERATED_INCLUDE_DIR "${CMAKE_BINARY_DIR}/generated/include")
+
 configure_file(
     CompactStarConfig.h.in
-    ${CMAKE_CURRENT_SOURCE_DIR}/CompactStar/Core/CompactStarConfig.h
+    ${CompactStar_GENERATED_INCLUDE_DIR}/CompactStar/Core/CompactStarConfig.h
 )
 
 # -----------------------------
@@ -101,6 +107,10 @@ set_target_properties(CompactStar PROPERTIES
 
 target_include_directories(CompactStar
     PUBLIC
+    # Must precede the source root: a stale generated copy is still tracked at
+    # CompactStar/Core/CompactStarConfig.h, and this ordering makes the
+    # binary-tree header win. See docs/build/MACOS_BUILD.md.
+    ${CompactStar_GENERATED_INCLUDE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${GSL_INCLUDE_DIRS}
     ${DEP_INC_DIR}
