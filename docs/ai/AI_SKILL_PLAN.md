@@ -3,10 +3,11 @@
 > **STATUS: DRAFT.** Contracts only. **No tool-specific skill files are created by this plan.**
 >
 > Claude skills (`.claude/skills/`), Codex prompts (`.codex/`), or equivalents will be generated
-> **only after** `GOVERNANCE.md`, `docs/SCIENTIFIC_INVARIANTS.md`, and ADR-0001 have been
-> reviewed and ratified. Generating adapters against draft governance would bake in conventions
-> the owner has not yet approved — and ADR-0001 in particular could invert the meaning of every
-> per-species calculation a skill might touch.
+> **only after** `GOVERNANCE.md`, `docs/SCIENTIFIC_INVARIANTS.md`, and the accepted ADRs
+> (**ADR-0001**, **ADR-0002**) have been reviewed and ratified. Generating adapters against draft
+> governance would bake in conventions the owner has not yet approved — and ADR-0001 in particular
+> could invert the meaning of every per-species calculation a skill might touch, while ADR-0002
+> fixes the denominator of every thermal-evolution term.
 
 Five skills. The taxonomy is derived from recurring CompactStar workflows, not from directory
 structure. Prefer a few strong reusable skills over many bespoke prompts.
@@ -44,6 +45,14 @@ All five inherit `AGENTS.md` in full. The contracts below add only what is speci
 - **Stop conditions.** Ambiguous units, state meaning, ownership, cache validity, or authoritative
   path → **halt, draft a PROPOSED ADR, do not choose.** Missing baseline → halt; creating the
   baseline becomes the task.
+- **Narrow exception — pre-baseline correctness work (roadmap Phase 2A).** A change may proceed
+  without a regression baseline when an ACCEPTED ADR has established that the *existing* behavior
+  is scientifically wrong, so that capturing a baseline first would enshrine it. ADR-0002 is the
+  first such case: `PhotonCooling` must stop dividing by a constant `C_eff` before any passive
+  cooling curve is frozen. In this mode the evidence standard is **not** relaxed — it is
+  *substituted*: validation must be independent physical verification (analytic limits, dimensional
+  analysis, convergence, comparison against published values), never agreement with the superseded
+  output. Absent an ACCEPTED ADR saying so, the missing-baseline stop condition stands.
 - **Governing documents.** All of them.
 
 ## 3. `numerical-audit`
@@ -98,15 +107,21 @@ All five inherit `AGENTS.md` in full. The contracts below add only what is speci
 
 ```
 repo-authenticate     ← available immediately; needs no ratified governance
-build-validation      ← Phase 1–2; unblocks everything else
+build-validation      ← Phases 1–2B; unblocks everything else
 numerical-audit       ← after governance ratification
 governance-sync       ← after the first documents are ratified
-scientific-change     ← last; requires a baseline to exist
+scientific-change     ← last; requires a baseline, except the Phase-2A carve-out below
 ```
 
 `scientific-change` is deliberately last. Until a validation baseline exists, no scientific
-change can be shown correct — so a skill that performs one would be operating outside the
-evidence standard `GOVERNANCE.md` §2 requires.
+change can be shown correct — so a skill that performs one would generally be operating outside
+the evidence standard `GOVERNANCE.md` §2 requires.
+
+The one exception is **Phase 2A**, where the roadmap requires a small, ADR-mandated set of
+corrections *before* the baseline precisely because the current behavior is known to be wrong.
+Those changes are validated against physics rather than against a prior run — see the stop
+conditions under `scientific-change`. The carve-out is bounded by what an ACCEPTED ADR names; it
+is not a general licence to change numbers without a baseline.
 
 ## Deliberately excluded
 

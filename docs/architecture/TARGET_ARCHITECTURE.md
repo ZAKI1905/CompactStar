@@ -115,8 +115,18 @@ depends on them, and none of it exists.
 4. **Explicit context, no hidden global state.**
 5. **Fail closed on ambiguity** (`GOVERNANCE.md` §3).
 
-Principle 2 is currently violated by heat capacity (INV-15), proper volume (INV-04), and the
-duplicated TOV paths.
+Principle 2 is currently violated by proper volume (INV-04) and the duplicated TOV paths, and —
+**in the source only** — by heat capacity. Heat-capacity *ownership* is no longer ambiguous:
+**ADR-0002 (ACCEPTED 2026-08-31)** names one physical owner, `C_⋆(T∞)`, for the thermal degree of
+freedom (INV-15). What remains is a live **source nonconformance** — `PhotonCooling` still divides
+by a driver-local constant — scheduled as roadmap Phase 2A. A governed convention that the code
+does not yet meet is a different thing from an ungoverned ambiguity, and only the second is a
+fail-closed condition.
+
+ADR-0002 deliberately leaves open *where* the division by `C_⋆(T∞)` happens: each driver dividing
+by a shared `C_⋆` (preserving principle 3 above) or a centralized thermal-balance owner consuming
+power contributions. That choice is a target-architecture question and is recorded as an
+anticipated ADR, not decided here.
 
 ---
 

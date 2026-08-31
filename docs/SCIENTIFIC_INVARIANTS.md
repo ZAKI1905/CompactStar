@@ -337,26 +337,103 @@ integrand does not currently do (see INV-01 conformance table).
 
 ---
 
-## INV-15 — Heat-capacity ownership — **UNRESOLVED**
+## INV-15 — Heat-capacity ownership — **GOVERNED (ACCEPTED)**
 
-**Statement.** The effective heat capacity `C` entering `dT∞/dt` is computed **two incompatible
-ways in the same run**, and both contributions are summed into the same state slot.
+**Statement.**
 
-**Evidence.**
-- `NeutrinoCooling_Details.cpp:889` —
-  `ctx.star->HeatCapacityStar_Tinf(Tinf_MeV, *ctx.thermo, ctx.geo)`, a real GR volume integral
-  `∫ c_V(T_loc, n_B, Y_q) · 4πr² e^Λ dr` (`StarContext.cpp:788-817`).
-- `PhotonCooling_Details.cpp:320` — divides by `drv.GetOptions().C_eff`, a hard-coded scalar
-  `1.0e40` (`PhotonCooling.hpp:229`), set in the main program with the comment
-  `// Change this!` (`spin_therm_evol_2_main.cpp:245`).
+> CompactStar has **one** physical heat capacity for the evolved isothermal-interior thermal
+> degree of freedom: `C_⋆(T∞)`, the star-integrated, GR-weighted, temperature- and
+> structure-dependent heat capacity
+>
+> ```
+> C_⋆(T∞) = ∫₀^R c_V( T_local(r), n_B(r), Y_q(r) ) · 4π r² e^{Λ(r)} dr ,
+>            T_local(r) = T∞ · e^{−ν(r)}
+> ```
+>
+> with `c_V` supplied by the EOS/CompOSE thermodynamics, in the redshift convention of INV-10 and
+> the proper-volume measure of INV-04. **Every** energy channel acting on the thermal degree of
+> freedom divides by this same quantity:
+>
+> ```
+> C_⋆(T∞) · dT∞/dt = − L_ν,∞ − L_γ,∞ + L_H,∞ + ⋯
+> ```
+>
+> equivalently, in the evolved logarithmic variable,
+>
+> ```
+> d/dt ln(T∞/T_ref) = ( − L_ν,∞ − L_γ,∞ + L_H,∞ + ⋯ ) / ( T∞ · C_⋆(T∞) )
+> ```
+>
+> A driver-local constant such as `C_eff = 1e40 erg K⁻¹` is **not** the physical heat capacity of
+> production thermal evolution and is not acceptable as a production physical denominator. It may
+> be retained only as an **explicitly selected** test/debug approximation, and only if it applies
+> to the whole thermal balance rather than to a single channel.
 
-The run therefore integrates `dT∞/dt = −L_γ/C_hardcoded − L_ν/C_GR(T)`.
+**Normative decision.** `docs/adr/ADR-0002-thermal-heat-capacity-ownership.md` — **ACCEPTED
+2026-08-31 by project-owner adjudication.** The repository contained two mutually inconsistent
+behaviors and no document ranked them; the physical convention is owner-supplied, not inferred.
 
-**Ownership violation.** `C` is a property of the star, not of a cooling channel. It should have
-one owner — `StarContext` or `DriverContext`.
+**Designated implementation candidate.** `StarContext::HeatCapacityStar_Tinf(...)`
+(`StarContext.hpp:151`; implemented `StarContext.cpp:704-818`) is the currently designated
+implementation of `C_⋆(T∞)`. It integrates the CompOSE `c_V` (`StarContext.cpp:807-808`;
+`CompOSE_Thermo.cpp:711-732`) at the Tolman local temperature `T∞ e^{−ν}`
+(`StarContext.cpp:804-805`) against the canonical `GeometryCache::WV()` measure
+(`StarContext.cpp:758`, `:810-811`), yielding erg K⁻¹ via `KM3_TO_CM3 = 1e15` (`:761`).
 
-**Related defect.** `NeutrinoCooling_Details.cpp` dereferences `ctx.star` at line 889 and checks
-`if (!ctx.star)` at line 901 — a null-deref ordering bug.
+**Designation is not certification.** `C_⋆(T∞)` is the accepted physical *owner*; **this does not
+assert that its present implementation is numerically correct.** It has never been tested — the
+repository has no test suite. See *Numerical validation* below.
+
+**Three statuses, tracked separately.**
+
+| Aspect | Status |
+|---|---|
+| **Governing physics** | ✅ **RESOLVED** — ADR-0002, one canonical `C_⋆(T∞)` |
+| **Source conformance** | ❌ **NOT COMPLETE** — `PhotonCooling` remains non-conforming |
+| **Numerical validation** | ❌ **NOT COMPLETE** — `C_⋆(T∞)` itself is unverified |
+
+**Source conformance detail.**
+
+| Conformance | Component | Evidence |
+|---|---|---|
+| ✅ Conformant | `NeutrinoCooling` | `NeutrinoCooling_Details.cpp:889` obtains `ctx.star->HeatCapacityStar_Tinf(Tinf_MeV, *ctx.thermo, ctx.geo)`; `:968` divides `L_ν,∞` by it; `:969` converts per INV-10 |
+| ❌ **Nonconformant** | `PhotonCooling` | `PhotonCooling_Details.cpp:320` divides by `drv.GetOptions().C_eff` — the driver-local constant defaulting to `1.0e40` (`PhotonCooling.hpp:229`), hand-set in the live program with the comment `// Change this!` (`spin_therm_evol_2_main.cpp:245`, also `spin_therm_evol_main.cpp:178`). No coupling to `HeatCapacityStar_Tinf` exists anywhere in the driver. |
+
+The run therefore still integrates `dT∞/dt = −L_γ/1e40 − L_ν/C_⋆(T∞)`. **No source correction has
+landed.** Correcting `PhotonCooling` is roadmap **Phase 2A**; it is a scientific-semantic change
+and is deliberately not performed by ADR-0002.
+
+**Numerical validation detail.** Required before the Phase-2B thermal baseline, and **not**
+measurable against the existing passive-cooling curve, which encodes the rejected behavior:
+dimensional check through `KM3_TO_CM3`; the degenerate `c_V ∝ T` low-temperature slope;
+order-of-magnitude comparison against published total heat capacities (~10³⁷–10³⁸ erg K⁻¹ at
+`T ≈ 10⁸ K` for a canonical star, which alone separates `C_⋆` from the `1e40` placeholder);
+second-order convergence in Δr (INV-13); insensitivity to the `NT = 160` temperature tabulation
+(`StarContext.cpp:777`); explicit statement of the endpoint-clamping behavior
+(`StarContext.cpp:725-728`, see INV-10); and cache-rebuild correctness (INV-12). ADR-0002 §V1.
+
+**Impact.** INV-15 no longer blocks a thermal validation baseline as a *decision*. The roadmap
+circularity is repaired: photon-cooling conformance and targeted `C_⋆` verification are
+**Phase 2A**, and the baseline is **Phase 2B**. No golden regression may be captured from the
+existing passive-cooling outputs.
+
+### Known implementation hazards — recorded separately, not part of INV-15
+
+These are engineering/numerical defects on the heat-capacity path. They are **not** heat-capacity
+semantics questions and are deliberately not folded into the invariant above.
+
+- **Null-check ordering (confirmed present).** `NeutrinoCooling_Details.cpp` dereferences
+  `ctx.star` at **`:889`** — the `HeatCapacityStar_Tinf` call — while its `if (!ctx.star)` guard
+  is at **`:901`**, twelve lines later. The guard cannot fire. Scoped into **Phase 2A** only
+  because routing a second driver through the same context path would exercise the same unguarded
+  pattern. Also recorded in `CURRENT_ARCHITECTURE.md` §4.
+- **Cache key omits the geometry.** `HeatCapacityStar_Tinf` accepts an optional `GeometryCache`
+  and falls back to constructing one locally (`StarContext.cpp:754-755`), but the cache key is
+  only `(profile version, thermo pointer identity)` (`:712-714`). A later call at the same profile
+  version supplying a *different* `GeometryCache` reuses the earlier table. See INV-12 rule 3.
+- **Silent endpoint clamping.** Outside the tabulated `[1e-5, 1] MeV` range (≈ `[1.16e5, 1.16e10] K`)
+  the endpoint value is returned with no signal (`StarContext.cpp:725-728`). Already flagged as an
+  ungoverned numerical convention in INV-10.
 
 ---
 
@@ -398,20 +475,30 @@ conversion, under the in-code comment *"Convert fractions to number densities in
 
 | Status | Entries |
 |---|---|
-| **GOVERNED (ACCEPTED)** | **INV-01** — ADR-0001, accepted 2026-08-31 |
+| **GOVERNED (ACCEPTED)** | **INV-01** — ADR-0001, accepted 2026-08-31 · **INV-15** — ADR-0002, accepted 2026-08-31 |
 | VERIFIED CURRENT BEHAVIOR | INV-02, 03, 04, 05⚠, 06, 10, 12, 13, 14, 16 |
 | INTENDED BUT UNVERIFIED | INV-08⚠, 09 |
-| **UNRESOLVED (fail-closed)** | **INV-07⚠, 11, 15** — and sub-items of INV-06, INV-16 |
+| **UNRESOLVED (fail-closed)** | **INV-07⚠, 11** — and sub-items of INV-06, INV-16 |
 
-**Three unresolved invariants block downstream phases:**
+**Two unresolved invariants block downstream phases:**
 
 - **INV-07** (Hartle normalization) blocks Phase 4, transitively Phase 5.
 - **INV-11** (η convention) blocks Phase 5.
-- **INV-15** (heat-capacity ownership) blocks any thermal validation baseline in Phase 2.
 
 **INV-01 is resolved** as a storage contract (ADR-0001). One implementation nonconformance
 remains — `RotochemicalCache` must construct `n_i = Y_i n_B` — tracked as a Phase-5 task, not as
 an open invariant.
 
-Accepting ADR-0001 resolves only INV-01. **It does not confer accepted status on this document
-as a whole**, which remains DRAFT pending owner ratification.
+**INV-15 is resolved** as a physical ownership convention (ADR-0002): one canonical `C_⋆(T∞)`.
+It **no longer blocks the thermal baseline as a decision.** What remains is work, tracked in two
+places and not as an open invariant: `PhotonCooling` source conformance and targeted `C_⋆`
+verification are roadmap **Phase 2A**; the baseline itself is **Phase 2B**. The `NeutrinoCooling`
+null-check ordering defect is recorded as a separate implementation hazard, not as part of INV-15.
+
+**GOVERNED (ACCEPTED) is a claim about the contract, not about the code.** Both governed
+invariants currently have live implementation nonconformance — `RotochemicalCache` for INV-01,
+`PhotonCooling` for INV-15 — and neither designated implementation has been numerically validated.
+
+Accepting ADR-0001 resolves only INV-01; accepting ADR-0002 resolves only INV-15. **Neither
+confers accepted status on this document as a whole**, which remains DRAFT pending owner
+ratification.

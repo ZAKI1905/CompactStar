@@ -50,8 +50,10 @@ StateLayout{Spin:1, Thermal:1}    ← n_eta = 0; the Chem block is never configu
    ↓
 EvolutionSystem                   LIVE — plain registration-order loop
    ├─ MagneticDipole      LIVE      dΩ/dt = −K·sign(Ω)·|Ω|ⁿ
-   ├─ NeutrinoCooling     LIVE      placeholder Q₀ normalizations
-   └─ PhotonCooling       LIVE      L_γ ÷ hardcoded C_eff = 1e40   (INV-15)
+   ├─ NeutrinoCooling     LIVE      L_ν ÷ C_⋆(T∞)  ← governed denominator (ADR-0002)
+   │                                placeholder Q₀ normalizations
+   └─ PhotonCooling       LIVE      L_γ ÷ constant C_eff = 1e40
+                                    NONCONFORMING with ADR-0002 (INV-15)
    ↓
 GSLIntegrator (MSBDF, rtol 1e-6 / atol 1e-10)       LIVE
    ↓
@@ -98,8 +100,8 @@ TimeSeriesObserver + DiagnosticsObserver            LIVE
 | Driver | Status | Note |
 |---|---|---|
 | `MagneticDipole` | **LIVE** | `use_moment_of_inertia` is a logged no-op |
-| `NeutrinoCooling` | **LIVE** | Emissivity normalizations self-labeled placeholders; `K_PBF = 0.0` |
-| `PhotonCooling` | **LIVE** | Hardcoded `C_eff = 1e40` (INV-15) |
+| `NeutrinoCooling` | **LIVE** | Divides `L_ν,∞` by the governed `C_⋆(T∞)` — **conformant** with ADR-0002 (`NeutrinoCooling_Details.cpp:889`, `:968`). Emissivity normalizations self-labeled placeholders; `K_PBF = 0.0`. Carries a null-deref ordering defect — see §4 |
+| `PhotonCooling` | **LIVE · NONCONFORMANT** | Divides `L_γ,∞` by the driver-local constant `C_eff = 1e40` (`PhotonCooling_Details.cpp:320`; `PhotonCooling.hpp:229`) instead of the governed `C_⋆(T∞)`. **Violates ADR-0002** (INV-15). No correction has landed — see below |
 | `Rotochemical` | **NOT COMPILED · CANDIDATE** | `Driver/Chem/CMakeLists.txt` sources list is empty |
 | `HeatingFromChem` | **NOT COMPILED** | Header only; no `.cpp`; commented out of CMakeLists |
 | `AccretionTorque`, `BNVSpinTorque`, `BNVSource`, `WeakRestoration`, `Coupling` | **EMPTY** | 0–1 byte files; five appear in `install(FILES …)` rules |
@@ -125,17 +127,46 @@ These are live conflicts. Under `GOVERNANCE.md` §3 they are fail-closed until a
    `TOVSolver.cpp:2574` says *"copy of RadiusLoop."* Both are live. No document names a canonical one.
 2. **Two `NStar` profile-construction blocks** — `BuildFromTOV` and
    `InitFromTOVSolver`+`Append`+`FinalizeSurface`, with duplicated hardcoded column layouts.
-3. **Heat capacity has two owners** (INV-15) — the two contributions are summed into the same
-   state slot using different `C`.
-4. **Proper volume defined in three places** (INV-04).
+3. **Proper volume defined in three places** (INV-04).
 
-**Resolved since the Phase-0 audit:** species semantics are no longer ambiguous. Per
-**ADR-0001 (ACCEPTED 2026-08-31)**, `StarProfile::BaryonDensity` stores `n_B` in fm⁻³ and
-species columns store dimensionless fractions `Y_i = n_i/n_B`, with `n_i = Y_i n_B` derived at
-the point of use. `TOVSolver` and `NStar` preserve the EOS-supplied values without
-normalization. See INV-01.
+**Resolved since the Phase-0 audit:**
+
+- **Species semantics** are no longer ambiguous. Per **ADR-0001 (ACCEPTED 2026-08-31)**,
+  `StarProfile::BaryonDensity` stores `n_B` in fm⁻³ and species columns store dimensionless
+  fractions `Y_i = n_i/n_B`, with `n_i = Y_i n_B` derived at the point of use. `TOVSolver` and
+  `NStar` preserve the EOS-supplied values without normalization. See INV-01.
+- **Heat-capacity ownership** is no longer ambiguous. Per **ADR-0002 (ACCEPTED 2026-08-31)**,
+  the thermal degree of freedom has exactly one physical heat capacity — `C_⋆(T∞)`, the
+  GR-integrated EOS/CompOSE-based stellar heat capacity, designated to
+  `StarContext::HeatCapacityStar_Tinf` — and every energy channel divides by it. See INV-15.
+  **The ownership question is decided; the code does not yet conform** — see the next section.
 
 ---
+
+### `PhotonCooling` — ADR-0002 nonconformance
+
+Recorded for Phase 2A. **Not repaired here.**
+
+- Status is unchanged: **LIVE**. This driver runs in the one program that exercises the full
+  pipeline (`main/Test/spin_therm_evol_2_main.cpp`), so the nonconformance is **on the live
+  thermal path and affects every result produced to date** — unlike the ADR-0001 nonconformance
+  below, which is in code that has never been compiled.
+- Under ADR-0002 the sole physical denominator is `C_⋆(T∞)`. `PhotonCooling_Details.cpp:320`
+  instead divides by `drv.GetOptions().C_eff`, a driver-local constant defaulting to `1.0e40`
+  erg K⁻¹ (`PhotonCooling.hpp:229`) and hand-set at the call site with the comment
+  `// Change this!` (`spin_therm_evol_2_main.cpp:245`; also `spin_therm_evol_main.cpp:178`).
+- There is **no coupling from `PhotonCooling` to the stellar heat-capacity path at all**:
+  `HeatCapacityStar_Tinf` appears nowhere in the driver's four files. `ctx.star` is used only for
+  the envelope `Tb` mapping and surface gravity (`PhotonCooling_Details.cpp:153-177`).
+- The live equation is therefore `dT∞/dt = −L_γ/1e40 − L_ν/C_⋆(T∞)`: **two different heat
+  capacities summed into one state element**, with nothing in the code or the diagnostic output
+  signalling the mismatch.
+- **This is not resolved in code.** ADR-0002 settles which quantity is authoritative; it
+  authorizes no source change. The correction is roadmap **Phase 2A**, is scientific-semantic
+  class, and will change numbers the code produces by an amount that must be measured.
+- The driver's Doxygen (`PhotonCooling.hpp:55-62`, `:120-123`, `:214-229`;
+  `PhotonCooling.cpp:27,36`) documents the constant-`C_eff` equation as the driver's physics and
+  becomes wrong on the day the source is corrected.
 
 ### `RotochemicalCache` — ADR-0001 nonconformance
 
@@ -164,8 +195,16 @@ Recorded for Phase 5. **Not repaired here.**
 - **Declared-but-undefined symbols reachable from compiled code** —
   `Physics::Spin::DipoleFieldEstimate` and `CharacteristicAge` are called at `Pulsar.cpp:204,212`
   with no definition anywhere.
-- **Null-deref ordering** — `NeutrinoCooling_Details.cpp:889` dereferences `ctx.star`; the guard
-  is at `:901`.
+- **Null-deref ordering** — `NeutrinoCooling_Details.cpp:889` dereferences `ctx.star` (the
+  `HeatCapacityStar_Tinf` call); the `if (!ctx.star)` guard is twelve lines later at `:901` and
+  cannot fire. **Confirmed present at `ba49e10`.** Engineering-class defect, tracked separately
+  from the INV-15 heat-capacity decision, but scoped into Phase 2A because routing `PhotonCooling`
+  through the same context path exercises the same unguarded pattern.
+- **Heat-capacity cache key omits the geometry** — `StarContext::HeatCapacityStar_Tinf` accepts an
+  optional `GeometryCache` and falls back to a locally constructed one
+  (`StarContext.cpp:754-755`), but keys its cache only on `(profile version, thermo pointer)`
+  (`:712-714`). A later call at the same profile version with a different `GeometryCache` silently
+  reuses the earlier table (INV-12).
 
 ---
 
@@ -190,3 +229,7 @@ Recorded for Phase 5. **Not repaired here.**
 - It does **not** claim the O(Ω) solver is numerically correct. It is live and untested, and
   its normalization is unresolved (INV-07).
 - It does **not** claim placeholder emissivities represent real microphysics.
+- It does **not** claim the heat-capacity inconsistency is resolved in code. ADR-0002 decides the
+  physical owner; `PhotonCooling` still divides by a constant, and no source correction has landed.
+- It does **not** claim `StarContext::HeatCapacityStar_Tinf` is numerically validated. It is the
+  designated implementation of the governed quantity, and it is untested.

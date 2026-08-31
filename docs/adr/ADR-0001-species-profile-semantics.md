@@ -175,7 +175,8 @@ deliberately **not repaired by this ADR**.
   might not normalize — is resolved: it does not, and must not.
 - **Validation needed.** On a reference profile, confirm `Σ_i q_i Y_i ≈ 0` (charge neutrality)
   and that `Y_n + Y_p ≈ 1` for npeμ matter. Then re-derive the DU boundary radius and compare
-  against a published threshold density. These belong to the Phase-2 baseline.
+  against a published threshold density. These belong to the validation baseline (roadmap
+  **Phase 2B**; renumbered from Phase 2 by ADR-0002).
 - **Implications for existing outputs.** **None invalidated.** Every compiled consumer already
   conforms; the sole nonconformant component is not compiled and has never produced output.
 
@@ -249,13 +250,17 @@ The decision itself required no numerical validation: it is a schema contract su
 owner, and the compiled pipeline was verified to already conform.
 
 Validation is still required before the **future source corrections** land, and belongs to the
-Phase-2 baseline:
+validation baseline — roadmap **Phase 2B**, renumbered from Phase 2 by ADR-0002:
 
 1. A reference stellar profile committed as a fixture, with the EOS table version recorded.
 2. Charge neutrality `Σ_i q_i Y_i ≈ 0` demonstrated on that fixture.
 3. `Y_n + Y_p ≈ 1` for npeμ matter, confirming the columns really are fractions in the tables in use.
 4. The Direct-Urca onset density compared against an independent published value for the same EOS.
-5. A passive cooling curve captured as a regression baseline **before** any change lands.
+5. A passive cooling curve captured as a regression baseline **before** any ADR-0001 source
+   correction lands. Those corrections are Phase-5 work, so the Phase-2B baseline precedes them.
+   Note that the baseline itself is now preceded by the Phase-2A heat-capacity conformance work
+   required by **ADR-0002**; it must not be captured while `PhotonCooling` still divides by a
+   constant.
 
 ## Provenance
 

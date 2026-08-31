@@ -37,16 +37,17 @@ alternatives, and may recommend — but must not mark one accepted.
 | ID | Title | Status | Decided |
 |---|---|---|---|
 | [ADR-0001](ADR-0001-species-profile-semantics.md) | Species profile semantics: densities or fractions? | **ACCEPTED** | 2026-08-31 — species columns are dimensionless fractions `Y_i = n_i/n_B` |
+| [ADR-0002](ADR-0002-thermal-heat-capacity-ownership.md) | Heat-capacity ownership for the evolved thermal degree of freedom | **ACCEPTED** | 2026-08-31 — one canonical `C_⋆(T∞)`, the GR-integrated EOS-based stellar heat capacity |
 
 ## Anticipated
 
-Identified during Phase-0 reconnaissance; not yet drafted:
+Identified during Phase-0 reconnaissance or deferred by an accepted ADR; not yet drafted:
 
 | Subject | Blocking |
 |---|---|
 | Hartle first-order normalization and physical Ω (INV-07) | Phase 4 |
 | Chemical-imbalance definition, ordering, redshift frame (INV-11) | Phase 5 |
-| Heat-capacity ownership (INV-15) | Phase 2 |
+| Thermal-balance architecture — where the division by `C_⋆(T∞)` occurs (deferred by ADR-0002 §6) | Phase 3 |
 | Canonical TOV integration path | Phase 3 |
 | MixedStar modernization scope | Phase 3 |
 | Generated artifacts in version control | Phase 1 |
