@@ -1,8 +1,9 @@
 # CompactStar Governance
 
-> **STATUS: DRAFT.**
-> This document becomes normative only after explicit ratification by the project owner.
-> Until then it is a proposal describing how CompactStar *should* be governed.
+> **STATUS: RATIFIED — 2026-08-31.**
+> Ratified by the project owner at commit `617bb0e`, subject to the status distinctions and
+> unresolved items recorded in the governing documents. **This document is normative.** See §7
+> for the ratification record, including what ratification explicitly does *not* settle.
 
 CompactStar is a scientific instrument. Its outputs are intended to support publishable
 physics. Governance exists so that a result can be traced to the assumptions, equations,
@@ -16,9 +17,9 @@ When two sources disagree, the **higher-numbered rule loses**.
 
 | # | Authority | Status |
 |---|---|---|
-| 1 | `GOVERNANCE.md` (this document) | Normative once ratified |
+| 1 | `GOVERNANCE.md` (this document) | **Normative** — ratified 2026-08-31 |
 | 2 | Accepted decision records — `docs/adr/ADR-*.md` with status ACCEPTED | Normative |
-| 3 | `docs/SCIENTIFIC_INVARIANTS.md` | Normative once ratified |
+| 3 | `docs/SCIENTIFIC_INVARIANTS.md` | **Normative** — ratified 2026-08-31 |
 | 4 | `docs/NUMERICAL_POLICY.md` | Normative once ratified *(not yet written)* |
 | 5 | `docs/VALIDATION_POLICY.md` | Normative once ratified *(not yet written)* |
 | 6 | `docs/architecture/CURRENT_ARCHITECTURE.md` | Descriptive; authoritative for component boundaries and ownership |
@@ -175,3 +176,56 @@ Deliberately excluded for now, to keep governance maintainable: a separate contr
 policy (premature — see `docs/MODERNIZATION_ROADMAP.md` Phase 1).
 
 Governance grows only when a real recurring decision demands it.
+
+---
+
+## 7. Ratification record
+
+**Ratified by the project owner on 2026-08-31**, at commit
+`617bb0e78ea2da22c194a5de32126abb628fc50a` — the exact tree reviewed. Ratification is of the
+package as a set, subject to the status distinctions and unresolved items recorded within the
+documents themselves.
+
+### Ratified
+
+| Document | Rank | Effect |
+|---|---|---|
+| `GOVERNANCE.md` | 1 | Authority hierarchy, change classes, fail-closed conditions, and the narrowly governed pre-baseline correctness exception (§3.1) are normative |
+| `docs/SCIENTIFIC_INVARIANTS.md` | 3 | The invariant register, its status vocabulary, and the accepted ADR-backed contracts are the project's governing record |
+| `docs/MODERNIZATION_ROADMAP.md` | — | The modernization phase ordering and prerequisites are accepted |
+| `docs/ai/AI_SKILL_PLAN.md` | — | The AI-skill contracts and sequencing are accepted as the basis for creating repository-specific AI skills |
+
+`docs/adr/ADR-0001` and `docs/adr/ADR-0002` remain **independently normative at rank 2**; their
+authority derives from their own ACCEPTED status, not from this ratification.
+
+### Explicitly not ratified
+
+This decision does **not**:
+
+- resolve **INV-07** (Hartle normalization) or **INV-11** (chemical-imbalance convention);
+- resolve the unresolved sub-items of **INV-06** or **INV-16**;
+- validate any `INTENDED BUT UNVERIFIED` item;
+- ratify the Hartle O(Ω²) or rotochemical candidate code from commit `675b4a9` (§5 continues to
+  govern it);
+- certify the numerical correctness of `StarContext::HeatCapacityStar_Tinf`;
+- excuse known implementation nonconformance — `PhotonCooling` (INV-15) and `RotochemicalCache`
+  (INV-01) must be corrected, not tolerated;
+- make the nonexistent `NUMERICAL_POLICY.md` or `VALIDATION_POLICY.md` normative (§1);
+- authorize scientific source changes outside the governed roadmap and change-control
+  requirements.
+
+**Ratification settles what the conventions are. It does not certify that the code meets them,
+and it does not certify that any number the code produces is correct.**
+
+### Consequence
+
+The owner-review criterion of roadmap **Phase 0.5 is satisfied; Phase 0.5 is complete.** Phase 1
+— reproducible macOS build and minimal validation plumbing — becomes the active phase.
+
+### Amending a ratified document
+
+A ratified document is changed the way any governed artifact is: by a classified change citing
+its authority. A change to §1, §2, §3, or §3.1 is **structural** and requires an ADR, because it
+alters what evidence the project demands. Corrections of fact in the invariant register are
+**documentation** class. Re-ratification is not required for a documentation-class correction; it
+is required for any change that would alter what a previously ratified rule permits or forbids.

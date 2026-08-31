@@ -1,13 +1,18 @@
 # AI Skill Plan — CompactStar
 
-> **STATUS: DRAFT.** Contracts only. **No tool-specific skill files are created by this plan.**
+> **STATUS: RATIFIED — 2026-08-31.** Contracts only. **No tool-specific skill files are created
+> by this plan**, and none exist yet.
 >
-> Claude skills (`.claude/skills/`), Codex prompts (`.codex/`), or equivalents will be generated
-> **only after** `GOVERNANCE.md`, `docs/SCIENTIFIC_INVARIANTS.md`, and the accepted ADRs
-> (**ADR-0001**, **ADR-0002**) have been reviewed and ratified. Generating adapters against draft
-> governance would bake in conventions the owner has not yet approved — and ADR-0001 in particular
-> could invert the meaning of every per-species calculation a skill might touch, while ADR-0002
-> fixes the denominator of every thermal-evolution term.
+> The generation gate is now **open**. Claude skills (`.claude/skills/`), Codex prompts
+> (`.codex/`), or equivalents were withheld until `GOVERNANCE.md`,
+> `docs/SCIENTIFIC_INVARIANTS.md`, and the accepted ADRs (**ADR-0001**, **ADR-0002**) were
+> ratified — generating adapters against draft governance would have baked in conventions the
+> owner had not approved, and ADR-0001 in particular could have inverted the meaning of every
+> per-species calculation a skill might touch, while ADR-0002 fixes the denominator of every
+> thermal-evolution term. That ratification occurred at commit `617bb0e` (`GOVERNANCE.md` §7).
+>
+> Generating the skill files is therefore now authorized work, governed by the contracts below.
+> It is a separate task and has not been performed.
 
 Five skills. The taxonomy is derived from recurring CompactStar workflows, not from directory
 structure. Prefer a few strong reusable skills over many bespoke prompts.

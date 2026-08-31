@@ -1,6 +1,9 @@
 # CompactStar Scientific Invariants
 
-> **STATUS: DRAFT.** Normative only after owner ratification.
+> **STATUS: RATIFIED — 2026-08-31.** Normative at authority rank 3 (`GOVERNANCE.md` §1, §7).
+> Ratified at commit `617bb0e`, subject to the status distinctions below: ratification
+> accepts **the register**, not the correctness of the code or physics it records. See
+> *What ratification of this register means*.
 >
 > **Evidence base:** `docs/reconnaissance/2026-08-31-phase-0-reconnaissance.md`, audited at
 > commit `d91c31b`. Entries touching `RotationSolver` or `MixedStar` are marked ⚠ where
@@ -24,18 +27,16 @@ implementation nonconformance.
 **A VERIFIED CURRENT BEHAVIOR entry is a statement about the code, not an endorsement of the
 physics.** Promotion to intended physics requires an ADR.
 
-## What ratification of this register would mean
+## What ratification of this register means
 
-Stated before the owner is asked to decide, so the scope of that decision is unambiguous.
-
-Ratifying this document means the owner accepts **the register**: its status vocabulary; the
+The owner ratified this register on 2026-08-31 (`GOVERNANCE.md` §7). That decision means the owner accepts **the register**: its status vocabulary; the
 ADR-backed contracts it records as GOVERNED (ACCEPTED); the fail-closed designation of its
 UNRESOLVED entries; and its descriptions of verified current behavior as **the best available
 evidence** about what the code does today.
 
 It does **not** mean any of the following, and no later document may read it that way:
 
-| Ratification does **not** | Because |
+| Ratification did **not** | Because |
 |---|---|
 | Validate `INTENDED BUT UNVERIFIED` entries | They stay unverified until executed, tested, or derived — INV-08, INV-09 |
 | Resolve `UNRESOLVED` entries | They remain fail-closed — INV-07, INV-11, and sub-items of INV-06 and INV-16 |
@@ -535,5 +536,6 @@ invariants currently have live implementation nonconformance — `RotochemicalCa
 `PhotonCooling` for INV-15 — and neither designated implementation has been numerically validated.
 
 Accepting ADR-0001 resolves only INV-01; accepting ADR-0002 resolves only INV-15. **Neither
-confers accepted status on this document as a whole**, which remains DRAFT pending owner
-ratification.
+conferred accepted status on this document as a whole.** The register was ratified separately by
+the owner on 2026-08-31 (`GOVERNANCE.md` §7) — a decision about the register, not about the
+physics or the code it describes.

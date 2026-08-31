@@ -1,6 +1,7 @@
 # CompactStar Modernization Roadmap
 
-> **STATUS: DRAFT.** Ordered by **dependency, not by date.** A phase begins only when its
+> **STATUS: RATIFIED — 2026-08-31.** The phase ordering and prerequisites are accepted
+> (`GOVERNANCE.md` §7). Ordered by **dependency, not by date.** A phase begins only when its
 > prerequisites hold.
 >
 > Governing principle: **do not propose scientific implementation before its prerequisites are
@@ -12,7 +13,8 @@
 
 ## Phase 0.5 — Source-of-truth reconciliation and governance foundation
 
-**Status: this change.**
+**Status: ✅ COMPLETE — 2026-08-31.** All exit criteria satisfied; the governance package was
+ratified by the owner at commit `617bb0e` (`GOVERNANCE.md` §7).
 
 - Reconciled the source of truth. Owner commit `3639d71` ("updates", 2026-04-07) reworked
   `RotationSolver` and `MixedStar` and is **not** an ancestor of the previously audited
@@ -53,18 +55,23 @@
 | ADR-0001 adjudicated | ✅ **SATISFIED** — ACCEPTED 2026-08-31 |
 | ADR-0002 adjudicated | ✅ **SATISFIED** — ACCEPTED 2026-08-31 |
 | Governance package internally coherent | ✅ **SATISFIED** — coherence audit complete; no known contradiction between authority ranks |
-| Owner reviews the remaining governance documents | ☐ **Outstanding — the sole remaining criterion.** `GOVERNANCE.md`, `SCIENTIFIC_INVARIANTS.md`, `AI_SKILL_PLAN.md`, and this roadmap remain **DRAFT** and are presented as a ratification candidate |
+| Owner reviews the remaining governance documents | ✅ **SATISFIED** — `GOVERNANCE.md`, `SCIENTIFIC_INVARIANTS.md`, `AI_SKILL_PLAN.md`, and this roadmap **RATIFIED 2026-08-31** at commit `617bb0e`, subject to the recorded status distinctions (`GOVERNANCE.md` §7) |
 
-Accepting ADR-0001 ratifies the species-semantics contract only; accepting ADR-0002 ratifies the
-heat-capacity ownership convention only. Neither ratifies any other DRAFT document, nor the
-Hartle O(Ω²) / rotochemical candidate code, nor the numerical correctness of
-`StarContext::HeatCapacityStar_Tinf`.
+The two ADR acceptances and the package ratification are **separate decisions**. Accepting
+ADR-0001 settled the species-semantics contract; accepting ADR-0002 settled heat-capacity
+ownership; the 2026-08-31 ratification accepted the governance package as a set. **None of the
+three** ratifies the Hartle O(Ω²) / rotochemical candidate code, validates any
+`INTENDED BUT UNVERIFIED` item, resolves INV-07 or INV-11, excuses the `PhotonCooling` or
+`RotochemicalCache` nonconformance, or certifies the numerical correctness of
+`StarContext::HeatCapacityStar_Tinf`. `GOVERNANCE.md` §7 records the full non-scope.
 
 ---
 
 ## Phase 1 — Reproducible macOS build **and minimal validation plumbing**
 
-**Prerequisite:** Phase 0.5 reviewed.
+**Status: ACTIVE — the current phase.**
+
+**Prerequisite:** Phase 0.5 reviewed. ✅ **SATISFIED** — governance ratified 2026-08-31.
 
 Nothing below Phase 1 can be verified, because the project currently cannot be configured from a
 clean clone on any platform.
@@ -282,6 +289,7 @@ unauditable.
 
 ```
 0.5 governance ─► 1 build ─► 2A pre-baseline ─► 2B baseline ─► 3 consolidation ─► 4 rotation ─► 5 rotochemical ─► 6 BNV
+  ✅ RATIFIED      ◄ ACTIVE
                                     │                                 │                │              │
    ADR-0001 species semantics  ✅ ACCEPTED ──────────────────────────────────────────────────────────►│  (gate cleared)
    ADR-0002 heat capacity      ✅ ACCEPTED ─►│  (conformance is 2A work, not a gate)
