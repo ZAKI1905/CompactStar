@@ -175,7 +175,11 @@ int main()
 	// Effective area and heat capacity are just toy values here; adjust to keep
 	// dT/dt in a reasonable range.
 	thermOpts.radiating_fraction = 1.0; // in code units; real code would use ~4πR^2 z^2
-	thermOpts.C_eff = 1.0e40;			// big C_eff → slow cooling for demonstration
+	// NOTE (ADR-0002): PhotonCooling no longer takes a heat-capacity option. It now divides
+	// by the canonical C_*(T_inf) from StarContext + CompOSE_Thermo. This demo builds an EMPTY
+	// StarContext and sets no ctx.thermo, so photon cooling here fails closed and contributes
+	// zero. That is intentional and reported; wiring a real EOS/thermo table into this program
+	// is outside the ADR-0002 correction.
 	thermOpts.global_scale = 1.0;
 
 	auto thermalDriver =

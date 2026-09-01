@@ -242,7 +242,8 @@ int main()
 	photonOpts.surface_model =
 		Physics::Driver::Thermal::PhotonCooling::Options::SurfaceModel::EnvelopeTbTs;
 	photonOpts.radiating_fraction = 1.0;
-	photonOpts.C_eff = 1.0e40; // Change this!
+	// Heat capacity is no longer a PhotonCooling option: per ADR-0002 the denominator is
+	// the canonical C_*(T_inf) from StarContext + CompOSE_Thermo, shared with NeutrinoCooling.
 	photonOpts.global_scale = 1.0;
 
 	auto photonDriver =

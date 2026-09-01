@@ -24,7 +24,11 @@
  *
  * and:
  *
- *   dT_inf/dt += - L_{γ,∞} / C_eff .
+ *   dT_inf/dt += - L_{γ,∞} / C_*(T_inf)
+ *
+ * where C_*(T_inf) is the canonical GR-integrated stellar heat capacity from
+ * StarContext::HeatCapacityStar_Tinf, shared with NeutrinoCooling (ADR-0002,
+ * Pattern A). This driver owns no heat capacity of its own.
  *
  * ---------------------------------------------------------------------------
  * UNITS (must remain consistent):
@@ -33,7 +37,7 @@
  * - σ_SB is in cgs: [erg cm^-2 s^-1 K^-4]
  * - A_∞ must be in [cm^2] if σ_SB is cgs
  * - L_{γ,∞} is then [erg/s]
- * - C_eff must be [erg/K] so that dT/dt is [K/s]
+ * - C_*(T_inf) is [erg/K] so that dT/dt is [K/s]
  *
  * Geometry:
  * - If GeometryCache provides R in km (typical), convert to cm using:
@@ -222,6 +226,18 @@ Evolution::Diagnostics::ProducerCatalog PhotonCooling::DiagnosticsCatalog() cons
 
 	{
 		ScalarDescriptor sd;
+		sd.key = "C_star_erg_K";
+		sd.unit = "erg/K";
+		sd.description =
+			"Canonical GR-integrated stellar heat capacity used as the PhotonCooling denominator";
+		sd.source_hint = "computed";
+		sd.default_cadence = Cadence::Always;
+		sd.required = false;
+		pc.scalars.push_back(sd);
+	}
+
+	{
+		ScalarDescriptor sd;
 		sd.key = "L_gamma_inf_erg_s";
 		sd.unit = "erg/s";
 		sd.description = "Photon luminosity at infinity";
@@ -253,6 +269,7 @@ Evolution::Diagnostics::ProducerCatalog PhotonCooling::DiagnosticsCatalog() cons
 			"Tinf_K",
 			"Tsurf_K",
 			"Tb_K",
+			"C_star_erg_K",
 			"L_gamma_inf_erg_s",
 			"dLnTinf_dt_1_s"};
 		pc.profiles.push_back(std::move(p));

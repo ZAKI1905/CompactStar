@@ -81,6 +81,12 @@ struct PhotonCooling_Details
 
 	// Luminosity and RHS
 	double L_gamma_inf_erg_s = 0.0;
+
+	/// Canonical GR-integrated stellar heat capacity C_*(T_inf) [erg/K] used as the
+	/// denominator of the photon-cooling RHS, per ADR-0002. Obtained from
+	/// StarContext::HeatCapacityStar_Tinf — never a driver-local constant.
+	double C_star_erg_K = 0.0;
+
 	double dTinf_dt_K_s = 0.0;	 // physical cooling rate [K/s]
 	double dLnTinf_dt_1_s = 0.0; // ODE RHS contribution [1/s]
 };

@@ -52,14 +52,24 @@
  * - \(\mathcal{F}_{\rm rad}\): dimensionless “radiating fraction” (hot spots, emissivity, etc.)
  * - \(\mathcal{S}\): additional dimensionless global scale (debug / knob)
  *
- * The RHS contribution (in terms of the evolved variable) is:
+ * ## Heat capacity — governed by ADR-0002
+ * The denominator is the **canonical GR-integrated stellar heat capacity**
+ * \(C_\star(T_\infty)\), from `StarContext::HeatCapacityStar_Tinf`. It is a property of the
+ * star, not of this driver, and is shared with NeutrinoCooling so both channels sum into one
+ * coherent energy equation (ADR-0002 Pattern A):
+ *
+ * \f[
+ *   \frac{dT_\infty}{dt} = -\frac{L_{\gamma,\infty}}{C_\star(T_\infty)},
+ * \f]
+ *
+ * and for the evolved logarithmic state:
  *
  * \f[
  *   \frac{dy_T}{dt}
- *   \mathrel{+}= - \frac{L_{\gamma,\infty}}{C_{\rm eff}\,T_\infty}.
+ *   \mathrel{+}= - \frac{L_{\gamma,\infty}}{T_\infty\,C_\star(T_\infty)}.
  * \f]
  *
- * where \(C_{\rm eff}\) is an effective heat capacity [erg/K] (in cgs conventions).
+ * This driver does **not** own, accept, or approximate a heat capacity.
  *
  * ## Envelope / blanket modeling
  * Determining \(T_{\rm surf}\) from an interior temperature requires an envelope
@@ -77,7 +87,7 @@
  *
  * - Temperatures: Kelvin [K]
  * - Luminosity: erg/s
- * - Heat capacity \(C_{\rm eff}\): erg/K
+ * - Heat capacity \(C_\star\): erg/K (supplied by StarContext)
  * - If \(\sigma_{\rm SB}\) is cgs:
  *     \(\sigma_{\rm SB}\approx 5.670374419\times 10^{-5}\,{\rm erg\,cm^{-2}\,s^{-1}\,K^{-4}}\),
  *   then \(A_\infty\) must be in cm².
@@ -87,7 +97,11 @@
  *
  * ## Context usage
  * - `ctx.geo` is the preferred source for \(R\) and \(e^{2\nu(R)}\) (via cached geometry).
- * - `ctx.star` may be used to compute surface gravity \(g_{14}\) for envelope fits.
+ * - `ctx.star` is **required** whenever the driver actively cools: it supplies
+ *   \(C_\star(T_\infty)\), and surface gravity \(g_{14}\) for envelope fits.
+ * - `ctx.thermo` (CompOSE_Thermo) is **required** whenever the driver actively cools, because
+ *   \(C_\star\) integrates the EOS heat-capacity density. A deliberately disabled driver
+ *   (radiating_fraction <= 0 or global_scale <= 0) returns zero and needs neither.
  * - This driver does **not** require `ctx.envelope`; envelope policy is internal to Options.
  */
 
@@ -117,10 +131,10 @@ namespace CompactStar::Physics::Driver::Thermal
  *  1) obtains \(T_\infty\) from ThermalState,
  *  2) determines a local \(T_{\rm surf}\) using the selected surface/envelope model,
  *  3) computes \(L_{\gamma,\infty}\) using geometry and redshift factors,
- *  4) accumulates \(-L_{\gamma,\infty}/(C_{\rm eff}T_\infty)\) into the thermal RHS.
+ *  4) obtains the canonical \(C_\star(T_\infty)\) from `StarContext`,
+ *  5) accumulates \(-L_{\gamma,\infty}/(C_\star(T_\infty)\,T_\infty)\) into the thermal RHS.
  *
- * It does not compute \(C_{\rm eff}\) from EOS/microphysics (yet), and it does not
- * evolve a multi-zone temperature profile (isothermal-core assumption).
+ * It does not evolve a multi-zone temperature profile (isothermal-core assumption).
  */
 class PhotonCooling final : public IDriver,
 							public Driver::Diagnostics::IDriverDiagnostics
@@ -150,12 +164,13 @@ class PhotonCooling final : public IDriver,
 	 *  - Parameters should be physically interpretable.
 	 *  - All scale factors are dimensionless.
 	 *  - Temperatures are in Kelvin.
-	 *  - Heat capacity is in erg/K (if using cgs σ_SB).
 	 *
 	 * Validation policy (recommended in implementation):
 	 *  - If radiating_fraction <= 0 or global_scale <= 0: treat as intentionally disabled
 	 *    and produce zero RHS contribution (no exception).
-	 *  - If C_eff <= 0: this is physically invalid; throw or log+skip (choose one policy).
+	 *
+	 * There is deliberately **no heat-capacity option here.** Per ADR-0002 the denominator
+	 * is the canonical \(C_\star(T_\infty)\), owned by StarContext.
 	 */
 	struct Options
 	{
@@ -210,23 +225,6 @@ class PhotonCooling final : public IDriver,
 		 *  - 0.0 : disabled (no photon cooling)
 		 */
 		double radiating_fraction = 1.0;
-
-		/**
-		 * @brief Effective heat capacity \(C_{\rm eff}\) of the evolved thermal DOF.
-		 *
-		 * Enters as:
-		 * \f[
-		 *   \frac{dT_\infty}{dt} = -\frac{L_{\gamma,\infty}}{C_{\rm eff}}.
-		 * \f]
-		 *
-		 * Units:
-		 *  - erg/K (if \(L\) is erg/s and \(T\) is K).
-		 *
-		 * Notes:
-		 *  - In realistic models, \(C_{\rm eff}\) depends on T and composition.
-		 *  - Here it is treated as a user-provided effective constant.
-		 */
-		double C_eff = 1.0e40;
 
 		/**
 		 * @brief Global dimensionless multiplicative scale \f$\mathcal{S}\f$.
@@ -309,7 +307,8 @@ class PhotonCooling final : public IDriver,
 	 *  2) Compute \(T_{\rm surf}\) per Options::surface_model.
 	 *  3) Compute \(A_\infty = 4\pi R^2 e^{2\nu(R)}\) (prefer ctx.geo).
 	 *  4) Compute \(L_{\gamma,\infty}\).
-	 *  5) Add \(-L_{\gamma,\infty}/(C_{\rm eff}T_\infty)\) to the thermal RHS element.
+	 *  5) Obtain \(C_\star(T_\infty)\) from `StarContext` (ADR-0002).
+	 *  6) Add \(-L_{\gamma,\infty}/(C_\star(T_\infty)\,T_\infty)\) to the thermal RHS element.
 	 *
 	 * @param t     Current time [s] (by convention).
 	 * @param Y     Composite state vector (read-only).

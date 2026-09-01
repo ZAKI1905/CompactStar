@@ -3,8 +3,8 @@
 > **STATUS: V1 VERIFIED.**
 > Tier-A analytic verification (Phase 2A-1) and Tier-B verification on an authenticated
 > canonical `1.4 M☉` star (Phase 2A-2) are both complete. All seven ADR-0002 §V1 items are
-> adequately addressed. `C_⋆(10⁸ K) = 2.17e38 erg K⁻¹`, a factor **2.2** from the conventional
-> neutron-star estimate — order-of-magnitude agreement.
+> adequately addressed. `C_⋆(10⁸ K) = 2.17e38 erg K⁻¹`, within the same order of magnitude as the
+> conventional neutron-star estimate (`~1e38`), differing by a factor of ~2.2.
 >
 > Two documented hazards remain and do **not** invalidate the Phase-2A use: the endpoint clamp
 > (below the cooling range) and the `GeometryCache` cache-key omission (INV-12), which cannot fire
@@ -409,11 +409,19 @@ conventional estimate C ~ 1e39·T9   ~1e38 erg K⁻¹ at 10⁸ K
 ratio to 1e38                        2.17
 ```
 
-**Agreement within a factor of ~2.2** of the conventional estimate, and at the upper end of the
-broad band. That is the expected quality of agreement for a different EoS: CMF adds hyperons
-(Λ, Σ, Ξ appear in the particle list), which contribute additional degenerate species, and the
-star is comparatively large at `R = 13.5 km`. **No tolerance was tuned and no old cooling curve
-was used** — the comparison is against published scaling only.
+`2.17e38 erg K⁻¹` is **within the same order of magnitude** as the conventional `~1e38 erg K⁻¹`
+estimate, differing by a factor of **~2.2**. Note it lies numerically *above* `1e38`, i.e. above
+the quoted `10³⁷–10³⁸` band rather than at its upper end.
+
+A factor of ~2 is the expected quality of agreement for a diagnostic of this kind applied to a
+different EoS: the reference scaling is a generic non-superfluid estimate, while the value here
+is specific to this CMF model's composition, mass and radius. **No attempt was made to decompose
+the difference into individual causes** — attributing it to particular species or to the stellar
+radius would require a separate controlled study that has not been performed. It is recorded
+generically as EoS/composition/model dependence.
+
+**No tolerance was tuned and no old cooling curve was used** — the comparison is against published
+scaling only.
 
 This is the check ADR-0002 called "the single most informative test available", and it is the one
 that separates a genuine `C_⋆` from the `1e40 erg K⁻¹` `PhotonCooling` placeholder: the placeholder
@@ -468,9 +476,11 @@ realisation of the ADR-0002 canonical `C_⋆(T∞)` for the purposes of Phase 2A
 - the unit chain is exact and the `km³ → cm³` factor is detectably correct;
 - the radial quadrature converges at its nominal second order;
 - the `T∞` cache at `NT = 160` is accurate to `6.6e-4`, well inside the pre-declared 1 % criterion;
-- on an authenticated canonical `1.4 M☉` CMF star, `C_⋆(10⁸ K) = 2.17e38 erg K⁻¹`, agreeing with
-  the conventional neutron-star estimate to a factor of 2.2 — and **46× smaller than the
-  `1e40 erg K⁻¹` placeholder it is meant to replace**, which is the practically decisive result;
+- on an authenticated canonical `1.4 M☉` CMF star, `C_⋆(10⁸ K) = 2.17e38 erg K⁻¹` — the same
+  order of magnitude as the conventional estimate, differing by a factor of ~2.2, with the
+  difference recorded generically as EoS/composition dependence rather than attributed to a
+  specific cause — and **46× smaller than the `1e40 erg K⁻¹` placeholder it replaced**, which is
+  the practically decisive result;
 - the low-`T` coefficient is stable to 2.5 % against the fit stencil, resolving the Phase-2A-1
   concern;
 - domain clamping is confined to 0.196 % of the integral.
@@ -490,10 +500,17 @@ realisation of the ADR-0002 canonical `C_⋆(T∞)` for the purposes of Phase 2A
    convention; nothing in the API enforces one geometry per profile version.
 5. **Endpoint clamping (INV-10)** remains ungoverned, though outside the cooling range.
 
-### Consequence
+### Consequence — conformance has since landed (Phase 2A-3)
 
-The ADR-0002 §V1 prerequisite for **roadmap Phase 2A source conformance is satisfied.**
-`PhotonCooling` may now be corrected to divide by the governed `C_⋆(T∞)` under
-`GOVERNANCE.md` §3.1, whose conditions this document supplies evidence for: condition 4
-(independent verification not depending on the superseded output) is met by everything above,
-none of which used any prior passive-cooling curve.
+This document supplied the `GOVERNANCE.md` §3.1 condition-4 evidence for the `PhotonCooling`
+correction: independent verification that depends on no prior passive-cooling output.
+
+**That correction is now in the tree.** `PhotonCooling` divides by the canonical `C_⋆(T∞)`
+obtained from `StarContext::HeatCapacityStar_Tinf`, `PhotonCooling::Options::C_eff` has been
+removed, and the ADR-0002 Pattern A additive-driver architecture is preserved. Measured on this
+same authenticated star at `T∞ = 10⁸ K`, the instantaneous denominator ratio is **46.0**
+(`1e40 / 2.1727e38`) — a *local* rate ratio only, not a claim about the cooling trajectory, which
+is nonlinear in `T∞` and also driven by neutrino losses.
+
+Remaining §3.1 obligation: **condition 7**, the regression baseline, which must follow immediately
+(roadmap Phase 2B).

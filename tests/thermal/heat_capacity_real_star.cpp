@@ -38,7 +38,12 @@
 #include "CompactStar/Core/StarProfile.hpp"
 #include "CompactStar/EOS/CompOSE_Thermo.hpp"
 #include "CompactStar/Physics/Evolution/GeometryCache.hpp"
+#include "CompactStar/Physics/Driver/Thermal/PhotonCooling.hpp"
+#include "CompactStar/Physics/Driver/Thermal/PhotonCooling_Details.hpp"
+#include "CompactStar/Physics/Evolution/DriverContext.hpp"
 #include "CompactStar/Physics/Evolution/StarContext.hpp"
+#include "CompactStar/Physics/Evolution/StateVector.hpp"
+#include "CompactStar/Physics/State/ThermalState.hpp"
 
 namespace fs = std::filesystem;
 using CompactStar::Core::NStar;
@@ -252,6 +257,48 @@ int main(int argc, char **argv)
 				  << "   C_star(1e8 K) = " << v << " erg/K\n";
 	}
 	std::cout << "      spread across fit choices = " << (hi / lo) << "x\n";
+
+	// ---------------------------------------------------------------
+	// 6) Post-conformance sanity check: the PhotonCooling denominator
+	// ---------------------------------------------------------------
+	std::cout << "\nT8  PhotonCooling denominator after ADR-0002 conformance\n";
+	{
+		CompactStar::Physics::State::ThermalState th;
+		th.Resize(1);
+		th.SetTinf(1e8);
+		CompactStar::Physics::Evolution::StateVector Y;
+		Y.Register(CompactStar::Physics::State::StateTag::Thermal, th);
+
+		CompactStar::Physics::Driver::Thermal::PhotonCooling::Options po;
+		po.surface_model =
+			CompactStar::Physics::Driver::Thermal::PhotonCooling::Options::SurfaceModel::ApproxFromTinf;
+		CompactStar::Physics::Driver::Thermal::PhotonCooling pc(po);
+
+		CompactStar::Physics::Evolution::DriverContext dctx;
+		dctx.star = &ctx;
+		dctx.geo = &geo;
+		dctx.thermo = &thermo;
+
+		const auto pd =
+			CompactStar::Physics::Driver::Thermal::Detail::ComputeDerived(pc, Y, dctx);
+		if (!pd.ok)
+		{
+			std::cout << "      ComputeDerived not ok: " << pd.message << "\n";
+		}
+		else
+		{
+			const double old_rate = -pd.L_gamma_inf_erg_s / 1.0e40;
+			std::cout << "      C_star used by PhotonCooling = " << pd.C_star_erg_K << " erg/K\n"
+					  << "      L_gamma_inf                  = " << pd.L_gamma_inf_erg_s << " erg/s\n"
+					  << "      dTinf/dt (governed C_star)   = " << pd.dTinf_dt_K_s << " K/s\n"
+					  << "      dTinf/dt (old 1e40)          = " << old_rate << " K/s\n"
+					  << "      instantaneous ratio          = " << (pd.dTinf_dt_K_s / old_rate)
+					  << "   (expected 1e40 / C_star)\n"
+					  << "      NOTE: this is a LOCAL denominator ratio only. The full corrected\n"
+					  << "            cooling trajectory is NOT 46x faster -- C_star and L_gamma are\n"
+					  << "            both temperature dependent and neutrino cooling acts too.\n";
+		}
+	}
 
 	std::cout << "\nTier-B numbers produced. Adjudication is in "
 			  << "docs/validation/HEAT_CAPACITY_V1.md.\n";

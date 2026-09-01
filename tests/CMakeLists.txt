@@ -30,6 +30,14 @@ target_link_libraries(heat_capacity_v1 PRIVATE CompactStar)
 add_test(NAME heat_capacity_v1 COMMAND heat_capacity_v1)
 
 # ---------------------------------------------------------------------------
+#  ADR-0002 PhotonCooling source-conformance (Phase 2A). Self-contained.
+# ---------------------------------------------------------------------------
+add_executable(photon_cooling_conformance thermal/photon_cooling_conformance.cpp)
+target_link_libraries(photon_cooling_conformance PRIVATE CompactStar)
+add_test(NAME photon_cooling_conformance COMMAND photon_cooling_conformance)
+set_tests_properties(photon_cooling_conformance PROPERTIES LABELS "thermal")
+
+# ---------------------------------------------------------------------------
 #  Tier B — real canonical-star heat-capacity verification (ADR-0002 §V1).
 #
 #  Requires authenticated official CompOSE tables. Registered ONLY when

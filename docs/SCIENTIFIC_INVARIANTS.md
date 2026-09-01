@@ -423,19 +423,25 @@ repository has no test suite. See *Numerical validation* below.
 | Aspect | Status |
 |---|---|
 | **Governing physics** | ✅ **RESOLVED** — ADR-0002, one canonical `C_⋆(T∞)` |
-| **Source conformance** | ❌ **NOT COMPLETE** — `PhotonCooling` remains non-conforming |
-| **Numerical validation** | ❌ **NOT COMPLETE** — `C_⋆(T∞)` itself is unverified |
+| **Source conformance** | ✅ **COMPLETE** — `PhotonCooling` divides by `C_⋆(T∞)`; the driver-local `C_eff` option is removed (roadmap Phase 2A-3) |
+| **Numerical validation (V1)** | ✅ **COMPLETE** — `docs/validation/HEAT_CAPACITY_V1.md`, **V1 VERIFIED** |
+| **Phase-2B regression baseline** | ⬜ **NOT YET** — required next by `GOVERNANCE.md` §3.1 condition 7 |
 
 **Source conformance detail.**
 
 | Conformance | Component | Evidence |
 |---|---|---|
-| ✅ Conformant | `NeutrinoCooling` | `NeutrinoCooling_Details.cpp:889` obtains `ctx.star->HeatCapacityStar_Tinf(Tinf_MeV, *ctx.thermo, ctx.geo)`; `:968` divides `L_ν,∞` by it; `:969` converts per INV-10 |
-| ❌ **Nonconformant** | `PhotonCooling` | `PhotonCooling_Details.cpp:320` divides by `drv.GetOptions().C_eff` — the driver-local constant defaulting to `1.0e40` (`PhotonCooling.hpp:229`), hand-set in the live program with the comment `// Change this!` (`spin_therm_evol_2_main.cpp:245`, also `spin_therm_evol_main.cpp:178`). No coupling to `HeatCapacityStar_Tinf` exists anywhere in the driver. |
+| ✅ Conformant | `NeutrinoCooling` | Obtains `ctx.star->HeatCapacityStar_Tinf(Tinf_MeV, *ctx.thermo, ctx.geo)` and divides `L_ν,∞` by it, converting per INV-10 |
+| ✅ Conformant | `PhotonCooling` | Obtains the same canonical `C_⋆(T∞)` from `StarContext` and divides `L_γ,∞` by it (Phase 2A-3). `PhotonCooling::Options::C_eff` no longer exists |
 
-The run therefore still integrates `dT∞/dt = −L_γ/1e40 − L_ν/C_⋆(T∞)`. **No source correction has
-landed.** Correcting `PhotonCooling` is roadmap **Phase 2A**; it is a scientific-semantic change
-and is deliberately not performed by ADR-0002.
+The run now integrates the governed equation
+`C_⋆(T∞) dT∞/dt = −L_ν,∞ − L_γ,∞`, both channels sharing one denominator — ADR-0002 **Pattern A**
+(additive drivers, shared `C_⋆`). Pattern B, a centralized thermal-energy balance, remains the
+deferred Phase-3 architectural question and was **not** introduced.
+
+**Every passive-cooling output produced before this correction is superseded as a validation
+reference** and must not be used as a regression baseline (ADR-0002). Those artifacts are retained
+as historical products, not deleted.
 
 **Numerical validation detail.** Required before the Phase-2B thermal baseline, and **not**
 measurable against the existing passive-cooling curve, which encodes the rejected behavior:
@@ -458,11 +464,10 @@ existing passive-cooling outputs.
 These are engineering/numerical defects on the heat-capacity path. They are **not** heat-capacity
 semantics questions and are deliberately not folded into the invariant above.
 
-- **Null-check ordering (confirmed present).** `NeutrinoCooling_Details.cpp` dereferences
-  `ctx.star` at **`:889`** — the `HeatCapacityStar_Tinf` call — while its `if (!ctx.star)` guard
-  is at **`:901`**, twelve lines later. The guard cannot fire. Scoped into **Phase 2A** only
-  because routing a second driver through the same context path would exercise the same unguarded
-  pattern. Also recorded in `CURRENT_ARCHITECTURE.md` §4.
+- **Null-check ordering — ✅ CORRECTED (Phase 2A-3).** `NeutrinoCooling_Details.cpp` used to
+  dereference `ctx.star` in the `HeatCapacityStar_Tinf` call twelve lines *before* its
+  `if (!ctx.star)` guard, so the guard could never fire. The guard now precedes the first use.
+  Engineering-class fix; no emissivity, rate, cache, option, or numerical constant changed.
 - **Cache key omits the geometry.** `HeatCapacityStar_Tinf` accepts an optional `GeometryCache`
   and falls back to constructing one locally (`StarContext.cpp:754-755`), but the cache key is
   only `(profile version, thermo pointer identity)` (`:712-714`). A later call at the same profile

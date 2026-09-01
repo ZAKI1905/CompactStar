@@ -132,7 +132,10 @@ Confind modernization is explicitly out of scope for now.**
 
 ## Phase 2A — Pre-baseline correctness prerequisites
 
-**Status: NEXT — the active phase once work resumes.**
+**Status: ✅ COMPLETE.** Delivered in three increments — 2A-1 (Tier-A `C_⋆` verification),
+2A-2 (authenticated real-star Tier-B verification, **V1 VERIFIED**), and 2A-3 (`PhotonCooling`
+conformance plus the adjacent null-check repair). Evidence:
+`docs/validation/HEAT_CAPACITY_V1.md`.
 
 **Prerequisite:** Phase 1 complete — the project builds reproducibly **and a trivial test runs
 through the documented test command.** ✅ **SATISFIED** — Phase 1 completed in increments 1A–1D.
@@ -154,25 +157,19 @@ those, are corrected first.
 unrelated scientific corrections stay in their own phases. Admission requires showing that a
 baseline captured *without* the correction would encode physics known in advance to be wrong.
 
-- **Replace `PhotonCooling`'s production use of the constant `C_eff` with the governed
-  `C_⋆(T∞)`** (ADR-0002; INV-15). `PhotonCooling_Details.cpp:320` must divide by the canonical
-  stellar heat capacity, not `drv.GetOptions().C_eff`
-  (`PhotonCooling.hpp:229`). Update the driver's Doxygen (`PhotonCooling.hpp:55-62`, `:120-123`,
-  `:214-229`; `PhotonCooling.cpp:27,36`) in the same change, and stop hand-setting `C` in
-  `spin_therm_evol_2_main.cpp:245` and `spin_therm_evol_main.cpp:178`.
-- **Correct the immediately adjacent safety defect required to exercise that path** — the
-  confirmed null-check ordering issue in `NeutrinoCooling_Details.cpp`, which dereferences
-  `ctx.star` at `:889` while its guard sits at `:901`. Engineering class, tracked separately from
-  the INV-15 decision, admitted here only because routing a second driver through the same
-  context path exercises the same unguarded pattern.
-- **Add narrowly targeted verification of the stellar heat-capacity calculation itself** —
-  ADR-0002 §V1, as durable tests under the Phase-1 plumbing: dimensional check through
-  `KM3_TO_CM3`; the degenerate `c_V ∝ T` low-temperature slope; order-of-magnitude comparison
-  against published total heat capacities; grid refinement in Δr — the quadrature is trapezoidal
-  (INV-13), so its *nominal* order is O(Δr²) for sufficiently smooth data, and the **observed**
-  order is what the test measures, not what it assumes; insensitivity to the `NT = 160`
-  temperature grid; explicit statement of the endpoint-clamping behavior
-  (`StarContext.cpp:725-728`); cache-rebuild correctness (INV-12).
+- ✅ **Replace `PhotonCooling`'s production use of the constant `C_eff` with the governed
+  `C_⋆(T∞)`** (ADR-0002; INV-15). *(2A-3)* The driver now divides by
+  `StarContext::HeatCapacityStar_Tinf`; `Options::C_eff` was **removed**, not deprecated; the
+  driver Doxygen states the governed equation; and both manual call-site assignments are gone.
+  ADR-0002 **Pattern A** preserved — no central thermal-balance owner introduced.
+- ✅ **Correct the immediately adjacent safety defect required to exercise that path** *(2A-3)* —
+  the `NeutrinoCooling_Details.cpp` null-check ordering issue. The `if (!ctx.star)` guard now
+  precedes the first dereference. Engineering class; no neutrino microphysics changed.
+- ✅ **Add narrowly targeted verification of the stellar heat-capacity calculation itself**
+  *(2A-1, 2A-2)* — ADR-0002 §V1, as durable CTest under the Phase-1 plumbing. All seven items
+  addressed: exact unit chain, measured radial order **2.000**, `NT=160` interpolation error
+  `6.6e-4`, endpoint clamping characterized, cache rebuilds verified, and on an authenticated
+  `1.4 M☉` CMF star `C_⋆(10⁸ K) = 2.17e38 erg K⁻¹`. **V1 VERIFIED.**
 
 **Evidence standard.** Phase-2A changes are governed by their own scientific/numerical class
 under `GOVERNANCE.md` §2 and **require independent physical checks** — analytic limits, dimensional
@@ -180,14 +177,19 @@ analysis, convergence, and comparison against published values. They **must not*
 comparison against the existing passive-cooling curve, which encodes the behavior ADR-0002
 rejects. That is precisely the circularity this split removes.
 
-**Exit criteria.** The thermal energy equation uses one heat capacity; `C_⋆(T∞)` has passed
-independent verification; no known scientifically misleading defect remains on the thermal path.
+**Exit criteria. ✅ SATISFIED.** The thermal energy equation now uses one heat capacity for both
+channels; `C_⋆(T∞)` has passed independent verification (V1 VERIFIED); the adjacent null-check
+defect is repaired. **`GOVERNANCE.md` §3.1 condition 7 is now outstanding**: the regression
+baseline must follow immediately, with no unrelated work in between.
 
 ---
 
 ## Phase 2B — Validation baseline
 
-**Prerequisite:** Phase 2A complete.
+**Status: NEXT — the active phase.** Required immediately by `GOVERNANCE.md` §3.1 condition 7,
+which permitted the Phase-2A correction only on the undertaking that a baseline follow at once.
+
+**Prerequisite:** Phase 2A complete. ✅ **SATISFIED** — increments 2A-1 through 2A-3.
 
 The codebase has zero assertions and zero CI. Until baselines exist, no numerical change can be
 shown correct. Phase 1 supplied the *mechanism* and Phase 2A the first physics checks; Phase 2B
@@ -303,7 +305,7 @@ unauditable.
 
 ```
 0.5 governance ─► 1 build ─► 2A pre-baseline ─► 2B baseline ─► 3 consolidation ─► 4 rotation ─► 5 rotochemical ─► 6 BNV
-  ✅ RATIFIED    ✅ COMPLETE      ◄ NEXT
+  ✅ RATIFIED    ✅ COMPLETE      ✅ COMPLETE       ◄ NEXT
                                     │                                 │                │              │
    ADR-0001 species semantics  ✅ ACCEPTED ──────────────────────────────────────────────────────────►│  (gate cleared)
    ADR-0002 heat capacity      ✅ ACCEPTED ─►│  (conformance is 2A work, not a gate)

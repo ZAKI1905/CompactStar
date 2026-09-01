@@ -465,6 +465,19 @@ through `BuildHeatCapacityCache_` and its CompOSE `c_V` source, units were verif
 `KM3_TO_CM3` scaling, and the previously reported `NeutrinoCooling` null-check ordering issue was
 confirmed present at `:889` versus `:901`.
 
+**Implementation-conformance update, 2026-08-31 (status only).** The nonconformance this ADR
+recorded has been **corrected**. Roadmap Phase 2A-1/2A-2 produced the §V1 evidence
+(`docs/validation/HEAT_CAPACITY_V1.md`, **V1 VERIFIED**), and Phase 2A-3 changed `PhotonCooling`
+to divide by the canonical `C_⋆(T∞)` from `StarContext::HeatCapacityStar_Tinf`, removing
+`PhotonCooling::Options::C_eff` outright. **Pattern A was preserved and the §6 architectural
+question remains deferred.** The adjacent `NeutrinoCooling` null-check ordering defect was
+repaired in the same increment.
+
+The Context, Evidence, Rejected-current-behavior and Consequences sections above are **left
+unchanged as the historical record of why the correction was required** — they describe the state
+of the code at acceptance, not today's. `GOVERNANCE.md` §3.1 condition 7 (a regression baseline
+immediately afterward) is the one obligation still outstanding.
+
 **Post-acceptance clarification, 2026-08-31 (editorial).** During the Phase-0.5 governance
 coherence audit, two statements of *numerical* wording in this ADR — the radial-quadrature row of
 the evidence table and item 4 of §V1 — asserted second-order convergence in Δr as a requirement

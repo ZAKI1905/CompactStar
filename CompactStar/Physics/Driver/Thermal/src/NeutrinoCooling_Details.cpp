@@ -885,6 +885,15 @@ NeutrinoCooling_Details NeutrinoCooling_Details::ComputeDerived(const NeutrinoCo
 		return d;
 	}
 
+	// Require the star context BEFORE dereferencing it. The guard used to sit ~12 lines
+	// below this call, where it could never fire (Phase 2A engineering correction).
+	if (!ctx.star)
+	{
+		d.ok = false;
+		d.message = "ctx.star == nullptr (StarContext required).";
+		return d;
+	}
+
 	// Star-integrated heat capacity cache: C(Tinf)
 	d.C_eff_erg_K = ctx.star->HeatCapacityStar_Tinf(Tinf_MeV, *ctx.thermo, ctx.geo);
 
@@ -896,14 +905,8 @@ NeutrinoCooling_Details NeutrinoCooling_Details::ComputeDerived(const NeutrinoCo
 	}
 
 	// ------------------------------------------------------------
-	// 4) Require star context (profile-keyed cache depends on it)
+	// 4) (Star context was already required above, before first use.)
 	// ------------------------------------------------------------
-	if (!ctx.star)
-	{
-		d.ok = false;
-		d.message = "ctx.star == nullptr (StarContext required).";
-		return d;
-	}
 
 	// ------------------------------------------------------------
 	// 5) Fetch cache payload (rebuilt only if profile version changed)

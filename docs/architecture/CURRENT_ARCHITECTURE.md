@@ -65,8 +65,8 @@ EvolutionSystem                   LIVE — plain registration-order loop
    ├─ MagneticDipole      LIVE      dΩ/dt = −K·sign(Ω)·|Ω|ⁿ
    ├─ NeutrinoCooling     LIVE      L_ν ÷ C_⋆(T∞)  ← governed denominator (ADR-0002)
    │                                placeholder Q₀ normalizations
-   └─ PhotonCooling       LIVE      L_γ ÷ constant C_eff = 1e40
-                                    NONCONFORMING with ADR-0002 (INV-15)
+   └─ PhotonCooling       LIVE      L_γ ÷ C_⋆(T∞)  ← same denominator
+                                    CONFORMING with ADR-0002 (Pattern A)
    ↓
 GSLIntegrator (MSBDF, rtol 1e-6 / atol 1e-10)       LIVE
    ↓
@@ -114,7 +114,7 @@ TimeSeriesObserver + DiagnosticsObserver            LIVE
 |---|---|---|
 | `MagneticDipole` | **LIVE** | `use_moment_of_inertia` is a logged no-op |
 | `NeutrinoCooling` | **LIVE** | Divides `L_ν,∞` by the governed `C_⋆(T∞)` — **conformant** with ADR-0002 (`NeutrinoCooling_Details.cpp:889`, `:968`). Emissivity normalizations self-labeled placeholders; `K_PBF = 0.0`. Carries a null-deref ordering defect — see §4 |
-| `PhotonCooling` | **LIVE · NONCONFORMANT** | Divides `L_γ,∞` by the driver-local constant `C_eff = 1e40` (`PhotonCooling_Details.cpp:320`; `PhotonCooling.hpp:229`) instead of the governed `C_⋆(T∞)`. **Violates ADR-0002** (INV-15). No correction has landed — see below |
+| `PhotonCooling` | **LIVE** | Divides `L_γ,∞` by the canonical `C_⋆(T∞)` from `StarContext::HeatCapacityStar_Tinf` — **conformant** with ADR-0002 (Phase 2A-3). `Options::C_eff` removed. Requires `ctx.star` and `ctx.thermo` when actively cooling; a disabled driver still needs neither |
 | `Rotochemical` | **NOT COMPILED · CANDIDATE** | `Driver/Chem/CMakeLists.txt` sources list is empty |
 | `HeatingFromChem` | **NOT COMPILED** | Header only; no `.cpp`; commented out of CMakeLists |
 | `AccretionTorque`, `BNVSpinTorque`, `BNVSource`, `WeakRestoration`, `Coupling` | **EMPTY** | 0–1 byte files; five appear in `install(FILES …)` rules |
@@ -156,56 +156,41 @@ These are live conflicts. Under `GOVERNANCE.md` §3 they are fail-closed until a
 
 ---
 
-### `PhotonCooling` — ADR-0002 nonconformance
+### `PhotonCooling` — ADR-0002 conformance (Phase 2A-3)
 
-Recorded for Phase 2A. **Not repaired here.**
+**Corrected.** Previously the driver divided `L_γ,∞` by a driver-local constant
+`Options::C_eff = 1e40`, hand-set at the call site, while `NeutrinoCooling` used the canonical
+`C_⋆(T∞)` — two different heat capacities summed into one state element.
 
-- Status is unchanged: **LIVE**. This driver runs in the one program that exercises the full
-  pipeline (`main/Test/spin_therm_evol_2_main.cpp`), so the nonconformance is **on the live
-  thermal path and affects every result produced to date** — unlike the ADR-0001 nonconformance
-  below, which is in code that has never been compiled.
-- Under ADR-0002 the sole physical denominator is `C_⋆(T∞)`. `PhotonCooling_Details.cpp:320`
-  instead divides by `drv.GetOptions().C_eff`, a driver-local constant defaulting to `1.0e40`
-  erg K⁻¹ (`PhotonCooling.hpp:229`) and hand-set at the call site with the comment
-  `// Change this!` (`spin_therm_evol_2_main.cpp:245`; also `spin_therm_evol_main.cpp:178`).
-- There is **no coupling from `PhotonCooling` to the stellar heat-capacity path at all**:
-  `HeatCapacityStar_Tinf` appears nowhere in the driver's four files. `ctx.star` is used only for
-  the envelope `Tb` mapping and surface gravity (`PhotonCooling_Details.cpp:153-177`).
-- The live equation is therefore `dT∞/dt = −L_γ/1e40 − L_ν/C_⋆(T∞)`: **two different heat
-  capacities summed into one state element**, with nothing in the code or the diagnostic output
-  signalling the mismatch.
-- **This is not resolved in code.** ADR-0002 settles which quantity is authoritative; it
-  authorizes no source change. The correction is roadmap **Phase 2A**, is scientific-semantic
-  class, and will change numbers the code produces by an amount that must be measured.
-- The driver's Doxygen (`PhotonCooling.hpp:55-62`, `:120-123`, `:214-229`;
-  `PhotonCooling.cpp:27,36`) documents the constant-`C_eff` equation as the driver's physics and
-  becomes wrong on the day the source is corrected.
+Now:
 
-### `RotationSolver` — Phase-1B merge repair
+- `PhotonCooling` obtains `C_⋆(T∞)` from `StarContext::HeatCapacityStar_Tinf`, the same call
+  `NeutrinoCooling` makes, so the live equation is
+  `C_⋆(T∞) dT∞/dt = −L_ν,∞ − L_γ,∞`.
+- `PhotonCooling::Options::C_eff` **no longer exists**; it was removed rather than deprecated,
+  because ADR-0002 permits a constant heat capacity only as an explicit *whole-balance*
+  approximation, which a per-channel option can never be.
+- The driver requires `ctx.star` and `ctx.thermo` when actively cooling and **fails closed** with a
+  diagnostic if either is absent. A deliberately disabled driver
+  (`radiating_fraction <= 0` or `global_scale <= 0`) still returns zero and needs neither.
+- A new `C_star_erg_K` diagnostic exposes the denominator so later regressions can audit it.
+- **ADR-0002 Pattern A is preserved.** No central thermal-energy manager, power-only driver
+  interface, or new RHS ownership was introduced; Pattern B remains the deferred Phase-3 question.
 
-Recorded because it changes what "LIVE" can mean in this document.
+Verified by `tests/thermal/photon_cooling_conformance.cpp`, which asserts
+`C_star_erg_K == HeatCapacityStar_Tinf(...)`, `dT∞/dt == −L_γ/C_⋆`, and
+`d ln T∞/dt == (dT∞/dt)/T∞`, and which **fails against the old `1e40` denominator** (confirmed by
+a controlled temporary regression).
 
-- **Until Phase 1B the library did not compile at all.** Merge `9f70f14` combined owner commit
-  `3639d71` with the candidate lineage `e60e656` and resolved three hunks toward the candidate,
-  leaving `RotationSolver` internally inconsistent: the header lost the owner's ten profile-backed
-  interpolation members and four method declarations while the `.cpp` kept using them;
-  `FindNMomInertia` lost the declarations of `R` and `r`, the start-radius scan, the `P`/`E`/`M`
-  fetches and its `SetFastProfilePtrs_` call; and seven active lines spliced over a dead
-  commented-out function left the file at brace depth 1. Strictly, **no component in this document
-  could have been "compiled and reachable" while that held.**
-- **Phase 1B (`57334d8`) restored the intended union of both parents.** The owner's first-order
-  O(Ω) and MixedStar master-grid machinery from `3639d71` is authoritative and active again; the
-  library compiles and links. The first-order numerical path was verified equivalent to
-  `3639d71` — its 663-line kernel is byte-identical and the repaired `FindNMomInertia` differs
-  from the owner's by additions only, all of them write-only storage.
-- **Nothing was validated by this.** The repair was engineering class. The second-order candidate
-  region is byte-identical to before — no equation, `j²`, `δM`, `dε/dp`, or boundary condition was
-  touched — it remains unreachable (`rot_solver` is private, `SolveHartle2_N` and
-  `GetHartleResult` have no external callers, INV-08 unchanged), and `init_omega_bar` was not
-  touched, so **INV-07 remains unresolved**.
+**Consequence for historical outputs:** every passive-cooling product generated before this change
+is superseded as a validation reference. They are retained, not deleted, and must not be used as a
+regression baseline.
 
-**Buildable and reachable is not numerically validated.** The `LIVE` labels in this document now
-mean what they say; they still make no claim about correctness.
+**`main/Test/spin_therm_evol_main.cpp` is no longer compatible** with the governed contract: it
+builds an empty `StarContext` and sets no `ctx.thermo`, so its photon cooling now fails closed and
+contributes zero. That program is an infrastructure demo that relied on the constant precisely
+because it has no thermodynamics; wiring a real EOS into it is outside this correction and was not
+attempted. `spin_therm_evol_2_main.cpp` supplies both and is unaffected.
 
 ### `RotochemicalCache` — ADR-0001 nonconformance
 
@@ -234,11 +219,10 @@ Recorded for Phase 5. **Not repaired here.**
 - **Declared-but-undefined symbols reachable from compiled code** —
   `Physics::Spin::DipoleFieldEstimate` and `CharacteristicAge` are called at `Pulsar.cpp:204,212`
   with no definition anywhere.
-- **Null-deref ordering** — `NeutrinoCooling_Details.cpp:889` dereferences `ctx.star` (the
-  `HeatCapacityStar_Tinf` call); the `if (!ctx.star)` guard is twelve lines later at `:901` and
-  cannot fire. **Confirmed present at `ba49e10`.** Engineering-class defect, tracked separately
-  from the INV-15 heat-capacity decision, but scoped into Phase 2A because routing `PhotonCooling`
-  through the same context path exercises the same unguarded pattern.
+- **Null-deref ordering — ✅ RESOLVED (Phase 2A-3).** `NeutrinoCooling_Details.cpp` used to
+  dereference `ctx.star` in its `HeatCapacityStar_Tinf` call twelve lines before the
+  `if (!ctx.star)` guard, which therefore could never fire. The guard now precedes first use.
+  No emissivity, rate, cache, option, or numerical constant changed.
 - **Heat-capacity cache key omits the geometry** — `StarContext::HeatCapacityStar_Tinf` accepts an
   optional `GeometryCache` and falls back to a locally constructed one
   (`StarContext.cpp:754-755`), but keys its cache only on `(profile version, thermo pointer)`
@@ -344,10 +328,11 @@ Re-authenticated at **`11ffe45`** after roadmap Phase 1. Full evidence and comma
 - It does **not** claim the O(Ω) solver is numerically correct. It is live and untested, and
   its normalization is unresolved (INV-07).
 - It does **not** claim placeholder emissivities represent real microphysics.
-- It does **not** claim the heat-capacity inconsistency is resolved in code. ADR-0002 decides the
-  physical owner; `PhotonCooling` still divides by a constant, and no source correction has landed.
-- It does **not** claim `StarContext::HeatCapacityStar_Tinf` is numerically validated. It is the
-  designated implementation of the governed quantity, and it is untested.
+- It does **not** claim a passive-cooling regression baseline exists. The thermal equation is now
+  coherent, but no baseline has been captured — that is roadmap Phase 2B.
+- It does **not** claim the corrected cooling *trajectory* has been validated. Only the denominator
+  identity and the verified `C_⋆(T∞)` are established; the neutrino emissivity normalizations
+  remain self-labelled placeholders.
 - It does **not** claim the Phase-1B `RotationSolver` repair validated any physics. The library
   compiles; INV-07 and INV-08 are exactly as unresolved as before.
 - It does **not** claim a scientific test suite exists. One infrastructure smoke test exists, and

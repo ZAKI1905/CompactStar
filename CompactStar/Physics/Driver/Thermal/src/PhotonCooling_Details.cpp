@@ -30,8 +30,10 @@
 #include <cmath>
 #include <string>
 
+#include "CompactStar/EOS/CompOSE_Thermo.hpp"
 #include "CompactStar/Physics/Evolution/DriverContext.hpp"
 #include "CompactStar/Physics/Evolution/GeometryCache.hpp"
+#include "CompactStar/Physics/Evolution/StarContext.hpp"
 #include "CompactStar/Physics/Evolution/StateVector.hpp"
 #include "CompactStar/Physics/State/ThermalState.hpp"
 
@@ -225,13 +227,11 @@ PhotonCooling_Details ComputeDerived(const PhotonCooling &drv,
 
 	// ---------------------------------------------------------------------
 	// 3) Validate options used in the RHS
+	//
+	// The heat capacity is NOT a driver option (ADR-0002): it is the canonical
+	// C_*(T_inf) obtained from StarContext below, after the disable checks, so a
+	// deliberately disabled driver still needs no thermodynamic data.
 	// ---------------------------------------------------------------------
-	if (!(drv.GetOptions().C_eff > 0.0))
-	{
-		d.ok = false;
-		d.message = "C_eff <= 0.";
-		return d;
-	}
 
 	// if (!(drv.GetOptions().radiating_fraction > 0.0))
 	// {
@@ -317,7 +317,51 @@ PhotonCooling_Details ComputeDerived(const PhotonCooling &drv,
 	d.L_gamma_inf_erg_s =
 		drv.GetOptions().global_scale * d.A_eff_inf_cm2 * SigmaSB_cgs * T4;
 
-	d.dTinf_dt_K_s = -d.L_gamma_inf_erg_s / drv.GetOptions().C_eff;
+	// ---------------------------------------------------------------------
+	//  Canonical heat capacity C_*(T_inf) — ADR-0002.
+	//
+	//  The photon channel divides by exactly the same GR-integrated, EOS-based
+	//  stellar heat capacity that NeutrinoCooling uses, so both contributions sum
+	//  into one physically coherent energy equation. This is ADR-0002 Pattern A:
+	//  additive drivers sharing one denominator. Verified in
+	//  docs/validation/HEAT_CAPACITY_V1.md (V1 VERIFIED).
+	//
+	//  Fails closed: an actively cooling driver must have a valid star and
+	//  thermodynamics. Reached only after the disable checks above.
+	// ---------------------------------------------------------------------
+	if (!ctx.star)
+	{
+		d.ok = false;
+		d.message = "ctx.star == nullptr (StarContext required for C_*(T_inf)).";
+		return d;
+	}
+	if (!ctx.thermo)
+	{
+		d.ok = false;
+		d.message = "ctx.thermo == nullptr (CompOSE_Thermo required for C_*(T_inf)).";
+		return d;
+	}
+
+	// Same K -> MeV convention as NeutrinoCooling_Details.cpp (INV-02 records the
+	// duplicated-constant debt; consolidating it is separate, later work).
+	constexpr double MEV_PER_K = 8.617333262145e-11;
+	const double Tinf_MeV = d.Tinf_K * MEV_PER_K;
+	if (!(Tinf_MeV > 0.0) || !std::isfinite(Tinf_MeV))
+	{
+		d.ok = false;
+		d.message = "Tinf_MeV <= 0 or non-finite after conversion.";
+		return d;
+	}
+
+	d.C_star_erg_K = ctx.star->HeatCapacityStar_Tinf(Tinf_MeV, *ctx.thermo, ctx.geo);
+	if (!(d.C_star_erg_K > 0.0) || !std::isfinite(d.C_star_erg_K))
+	{
+		d.ok = false;
+		d.message = "C_*(T_inf) <= 0 or non-finite.";
+		return d;
+	}
+
+	d.dTinf_dt_K_s = -d.L_gamma_inf_erg_s / d.C_star_erg_K;
 
 	// Convert physical dT/dt to log-variable RHS (ODE variable):
 	// d/dt ln(Tinf/Tref) = (1/Tinf) dTinf/dt.  (Tref constant cancels)
@@ -397,6 +441,9 @@ void Diagnose(const PhotonCooling &self,
 	out.AddScalar("A_eff_inf_cm2", d.A_eff_inf_cm2, "cm^2",
 				  "Effective emitting area at infinity (radiating_fraction * A_inf)", "computed",
 				  Evolution::Diagnostics::Cadence::OncePerRun);
+
+	out.AddScalar("C_star_erg_K", d.C_star_erg_K, "erg/K",
+				  "Canonical GR-integrated stellar heat capacity used as the PhotonCooling denominator");
 
 	out.AddScalar("L_gamma_inf_erg_s", d.L_gamma_inf_erg_s, "erg/s",
 				  "Photon luminosity at infinity", "computed");
