@@ -319,7 +319,26 @@ CI and the convergence scope above remain outstanding items.
 
 ## Phase 3 — Behavior-preserving consolidation
 
-**Prerequisite:** Phase 2B baselines exist.
+**Prerequisite:** Phase 2B baselines exist. ✅ **SATISFIED** — `docs/validation/PHASE2B_CLOSURE.md`.
+
+**Status: ENTRY/SCOPING AUDIT COMPLETE.** No implementation item has started. The durable plan —
+ownership maps for all five targets, the cross-target dependency graph, the baseline-protection
+matrix, the per-increment preservation standard and the recommended sequence — is
+[`docs/architecture/PHASE3_CONSOLIDATION_PLAN.md`](architecture/PHASE3_CONSOLIDATION_PLAN.md).
+
+> **Class correction from that audit.** The line below states that every item is engineering
+> class. That is **not** what the higher-ranked documents require. Under `GOVERNANCE.md:51` a
+> change that "moves ownership, changes boundaries, promotes or retires a code path" is
+> **structural** and needs an ADR plus a same-change `CURRENT_ARCHITECTURE.md` update; two
+> `GOVERNANCE.md` fail-closed conditions are already active (`:70` uncertain authoritative code
+> path — the two live TOV paths; `:72` uncertain cache validity — the five INV-12 hazards); and
+> `SCIENTIFIC_INVARIANTS.md:147` (INV-04) states outright that single proper-volume ownership is
+> a "structural change; requires ADR". `GOVERNANCE.md` (rank 1) and `SCIENTIFIC_INVARIANTS.md`
+> (rank 3) outrank this roadmap (rank 4), so **the canonical-TOV, proper-volume and cache items
+> each require an ADR** and cannot be executed as pure refactoring. The recommended sequence also
+> deliberately departs from the bullet order below — TOV is the highest-risk item and the only
+> one with a live but wholly unvalidated path, so it is scheduled last rather than first. The
+> bullet list is left unchanged; nothing here alters Phase-3 scientific scope.
 
 Every item is **engineering class** and must produce bit-identical output, or a documented
 tolerance.
