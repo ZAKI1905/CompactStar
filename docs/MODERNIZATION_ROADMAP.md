@@ -213,7 +213,27 @@ expands that plumbing into the actual scientific baseline.
   CTests `tov_reference_analytic` (self-contained) and `tov_reference_cmf` (external data,
   SKIPs at 77 without it); artifact `tests/baselines/tov_dscmf1_reference.tsv`. Evidence:
   `docs/validation/TOV_REFERENCE.md`.
-- First-order Hartle moment-of-inertia checks against published values.
+- ✅ **First-order Hartle moment-of-inertia validation — COMPLETE (2B-4B).** The scale-free
+  observable `I = J/Ω` is independently validated. The production first-order equation is
+  derived term-by-term to be the published Hartle equation (`EQUATION MATCH`), and the
+  arbitrary central normalization cancels from `I` **analytically** and numerically to
+  **3.3e-15 over six decades** of central amplitude. An independent solver — conservative
+  form, different state variables, built from the metric rather than production's coefficient
+  helpers — agrees with production to **9.5e-9** on an exact constant-density background and
+  to **1.3e-5 – 2.1e-5** across the CMF sequence at 1.0/1.4/1.6/2.0 M☉. Surface and volume
+  extractions agree to `<8.1e-7`; both production and reference reproduce `I/(MR²) → 2/5`
+  monotonically in the weak field; `I = 1.17–2.61e45 g cm²` sits within 7 % of the
+  Breu–Rezzolla and Lattimer–Schutz relations (used as **sanity checks only** — the official
+  DS(CMF)-1 `eos.mr` carries no `I`, and no EOS-specific published sequence exists). `I`
+  inherits the 2B-4A surface jitter but the `r⁴` weighting does **not** amplify it (spread
+  `6.6e-5` vs the radius's `6.9e-4`), and the production/reference agreement is
+  resolution-independent. Three controlled detector mutations fire; a fourth (centre boundary)
+  provably cannot, for a documented reason. CTests `hartle_moment_inertia_analytic`
+  (self-contained) and `hartle_moment_inertia_cmf` (external data), labels
+  `rotation;hartle;scientific`. **This does NOT resolve INV-07:** absolute `ω̄`, physical `Ω`
+  and `J`, the `init_omega_bar` seed, and the `Ω [s⁻¹]` mislabel all remain unresolved, and
+  **no claim is made about O(Ω²)**. Phase 4 remains blocked. Evidence:
+  `docs/validation/HARTLE_MOMENT_INERTIA.md`.
 - ◐ **Grid-convergence harness — PARTIAL (2B-4A).** The **nonrotating TOV → cooling slice is
   measured and CHARACTERIZED**; the full ratified TOV → Hartle → cooling convergence remains
   pending the first-order Hartle validation and the unresolved INV-07 normalization.

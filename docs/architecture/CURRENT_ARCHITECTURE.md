@@ -91,7 +91,7 @@ TimeSeriesObserver + DiagnosticsObserver            LIVE
 | `MixedStar` | **COMPILED, UNEXERCISED** | No surviving `main/` uses it. Master-grid totals added by `3639d71` |
 | `TOVSolver` | **LIVE** | Two live integration paths — see §3 |
 | `TOVSolver_Thread` | **COMPILED, UNEXERCISED** | Bookkeeping subclass, 124 lines |
-| `RotationSolver` — O(Ω) | **LIVE** | Runs on every star build; feeds `SeqPoint::I`. Its profile-backed interpolation path was restored in Phase 1B — see below. **Buildable, not validated** (INV-07) |
+| `RotationSolver` — O(Ω) | **LIVE** | Runs on every star build; feeds `SeqPoint::I`. Its profile-backed interpolation path was restored in Phase 1B — see below. **`I = J/Ω` VALIDATED as a scale-free observable (Phase 2B-4B)**; the absolute first-order normalization remains **unresolved** (INV-07) |
 | `RotationSolver` — O(Ω²) | **UNREACHABLE SCAFFOLDING · CANDIDATE** | `rot_solver` private, no accessor. Equations untouched by Phase 1B; still unratified under `GOVERNANCE.md` §5 |
 | `StarBuilder` | **LIVE** | On the file-reading path only |
 | `SeqPoint`, `Prog` | **LIVE** | |
@@ -370,8 +370,12 @@ Re-authenticated at **`11ffe45`** after roadmap Phase 1. Full evidence and comma
 
 - It does **not** claim the rotochemical pipeline is operational. **It is not compiled.**
 - It does **not** claim second-order Hartle is validated. It is unreachable and unverified.
-- It does **not** claim the O(Ω) solver is numerically correct. It is live and untested, and
-  its normalization is unresolved (INV-07).
+- It claims of the O(Ω) solver **only** that its scale-free observable `I = J/Ω` is validated
+  (Phase 2B-4B: equation match against published Hartle, analytic and numerical cancellation
+  of the arbitrary normalization, agreement with an independent solver to 9.5e-9 analytic /
+  2.1e-5 on the CMF sequence, and the correct Newtonian limit). It does **not** claim the
+  absolute first-order normalization is correct: `ω̄`, `Ω`, `J`, the `init_omega_bar` seed and
+  the `Ω [s⁻¹]` annotation remain **unresolved** (INV-07).
 - It does **not** claim placeholder emissivities represent real microphysics.
 - It does **not** claim the passive-cooling regression validates the physics. A regression
   baseline now exists (`tests/baselines/passive_cooling_cmf_1p6_debug.tsv`, CTest

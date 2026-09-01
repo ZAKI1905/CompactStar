@@ -59,6 +59,16 @@ add_test(NAME cache_thermal_contract COMMAND cache_thermal_contract)
 set_tests_properties(cache_thermal_contract PROPERTIES LABELS "thermal;cache;contract")
 
 # ---------------------------------------------------------------------------
+#  Phase-2B-4B scale-free first-order Hartle moment of inertia. Self-contained.
+# ---------------------------------------------------------------------------
+add_executable(hartle_moment_inertia_analytic rotation/hartle_moment_inertia_analytic.cpp)
+target_include_directories(hartle_moment_inertia_analytic PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+target_link_libraries(hartle_moment_inertia_analytic PRIVATE CompactStar)
+add_test(NAME hartle_moment_inertia_analytic COMMAND hartle_moment_inertia_analytic)
+set_tests_properties(hartle_moment_inertia_analytic PROPERTIES
+    LABELS "rotation;hartle;scientific")
+
+# ---------------------------------------------------------------------------
 #  Evolution stepper contract + thermal-only execution. Self-contained.
 # ---------------------------------------------------------------------------
 add_executable(evolution_stepper_contract thermal/evolution_stepper_contract.cpp)
@@ -127,6 +137,17 @@ if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
     set_tests_properties(grid_convergence_cmf PROPERTIES
         LABELS "thermal;scientific;external-data;convergence"
         TIMEOUT 1800)
+
+    # Phase-2B-4B scale-free Hartle I on the authenticated CMF sequence.
+    add_executable(hartle_moment_inertia_cmf rotation/hartle_moment_inertia_cmf.cpp)
+    target_include_directories(hartle_moment_inertia_cmf PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+    target_link_libraries(hartle_moment_inertia_cmf PRIVATE CompactStar)
+    add_test(NAME hartle_moment_inertia_cmf
+             COMMAND hartle_moment_inertia_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(hartle_moment_inertia_cmf PROPERTIES
+        LABELS "rotation;hartle;scientific;external-data"
+        TIMEOUT 900)
 
     message(STATUS "CompactStar: Tier-B thermal test enabled (EOS data root supplied)")
 else()
