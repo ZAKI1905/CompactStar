@@ -197,7 +197,22 @@ shown correct. Phase 1 supplied the *mechanism* and Phase 2A the first physics c
 expands that plumbing into the actual scientific baseline.
 
 - Expand the Phase-1 test plumbing into a full harness; add CI.
-- TOV reference checks against known solutions.
+- ✅ **TOV reference checks against known solutions — COMPLETE (2B-2).** The production TOV
+  path is validated against references that are independent of CompactStar. Tier A: the exact
+  Schwarzschild constant-density interior solution, evaluated directly against
+  `TOVSolver::ODE` at two relativistic compactness values (`2GM/Rc² = 0.30, 0.50`) — max
+  relative deviation **`3.5e-16`**, i.e. the production right-hand side is correct to roundoff.
+  Tier B: the official CompOSE `eos.mr` for DS(CMF)-1_with_crust — `M_max` to **`2.8e-4`**,
+  radii to **0.20–0.35 %**, plus published CMF anchors. The radius residual is systematic and
+  **fully attributed** to the outer-boundary convention: production terminates at the EOS
+  table floor (`n_B = 1e-7 fm⁻³`, still inside the outer crust), and the residual is a
+  constant fraction (0.46–0.49, 8 % spread) of the hydrostatically-estimated omitted layer at
+  every mass. Two pre-existing characteristics documented and deliberately **not repaired**
+  (source frozen): that boundary convention, and a default `r_max = 70 km`/`radial_res = 10000`
+  grid that costs ~2.7 m of radius accuracy while leaving the mass converged to nine figures.
+  CTests `tov_reference_analytic` (self-contained) and `tov_reference_cmf` (external data,
+  SKIPs at 77 without it); artifact `tests/baselines/tov_dscmf1_reference.tsv`. Evidence:
+  `docs/validation/TOV_REFERENCE.md`.
 - First-order Hartle moment-of-inertia checks against published values.
 - Grid-convergence harness. Per INV-13, interpolation is **linear** and `DataSet::Integrate` is
   the trapezoid rule, whose nominal accuracy is O(Δr²) for sufficiently smooth integrands — so

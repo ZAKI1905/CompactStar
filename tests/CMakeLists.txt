@@ -30,6 +30,14 @@ target_link_libraries(heat_capacity_v1 PRIVATE CompactStar)
 add_test(NAME heat_capacity_v1 COMMAND heat_capacity_v1)
 
 # ---------------------------------------------------------------------------
+#  TOV equation-level reference against the exact Schwarzschild interior. Self-contained.
+# ---------------------------------------------------------------------------
+add_executable(tov_reference_analytic core/tov_reference_analytic.cpp)
+target_link_libraries(tov_reference_analytic PRIVATE CompactStar)
+add_test(NAME tov_reference_analytic COMMAND tov_reference_analytic)
+set_tests_properties(tov_reference_analytic PROPERTIES LABELS "core;tov;reference")
+
+# ---------------------------------------------------------------------------
 #  Evolution stepper contract + thermal-only execution. Self-contained.
 # ---------------------------------------------------------------------------
 add_executable(evolution_stepper_contract thermal/evolution_stepper_contract.cpp)
@@ -77,6 +85,17 @@ if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
                      "${CMAKE_CURRENT_SOURCE_DIR}/baselines/passive_cooling_cmf_1p6_debug.tsv")
     set_tests_properties(passive_cooling_regression PROPERTIES
         LABELS "thermal;scientific;external-data;regression")
+
+    # Phase-2B-2 TOV reference validation against the official CompOSE eos.mr.
+    # Reference data are third-party and live beside the .eos table in the
+    # authenticated distribution; the test SKIPs (77) if eos.mr is absent.
+    add_executable(tov_reference_cmf core/tov_reference_cmf.cpp)
+    target_link_libraries(tov_reference_cmf PRIVATE CompactStar)
+    add_test(NAME tov_reference_cmf
+             COMMAND tov_reference_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(tov_reference_cmf PROPERTIES
+        LABELS "core;tov;reference;external-data;scientific"
+        SKIP_RETURN_CODE 77)
 
     message(STATUS "CompactStar: Tier-B thermal test enabled (EOS data root supplied)")
 else()

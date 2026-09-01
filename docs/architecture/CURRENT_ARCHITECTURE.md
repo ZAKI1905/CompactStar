@@ -140,6 +140,12 @@ These are live conflicts. Under `GOVERNANCE.md` §3 they are fail-closed until a
 1. **Two live TOV integration paths.** `RadiusLoop` (sequence scans) and
    `SingleStarSolveToTOVPoints` (modern profile path) are an acknowledged copy-paste —
    `TOVSolver.cpp:2574` says *"copy of RadiusLoop."* Both are live. No document names a canonical one.
+   The `SingleStarSolveToTOVPoints` path — and `SolveToProfile`/`NStar::SolveTOV_Profile` above it —
+   is **VALIDATED** as of Phase 2B-2 against the exact Schwarzschild interior solution (to `3.5e-16`)
+   and the official CompOSE `eos.mr` (`M_max` to `2.8e-4`, radii to 0.20–0.35 %); see
+   `docs/validation/TOV_REFERENCE.md`. That document also records two deliberately unrepaired
+   characteristics: the surface is the EOS table floor rather than vacuum, and the default
+   `r_max = 70 km` with `radial_res = 10000` leaves ~80 % of the radial grid outside the star.
 2. **Two `NStar` profile-construction blocks** — `BuildFromTOV` and
    `InitFromTOVSolver`+`Append`+`FinalizeSurface`, with duplicated hardcoded column layouts.
 3. **Proper volume defined in three places** (INV-04).
