@@ -2,7 +2,8 @@
 
 | | |
 |---|---|
-| **Status** | **PROPOSED** — not accepted; no implementation authorized |
+| **Status** | **ACCEPTED** |
+| **Date accepted** | 2026-09-01 — by owner adjudication |
 | **Date drafted** | 2026-09-01 |
 | **Change class** | **Structural / architecture** (`GOVERNANCE.md:51`) |
 | **Drafted at** | `3cd78fb140c005e9c38d165406b0a8e3add4e546` |
@@ -238,7 +239,17 @@ constants or unit authority; `k_B`; the solar-mass conversion; Hartle normalizat
 O(Ω²); rotochemical semantics; BNV; general observer caching; or any application-wide dependency
 graph.
 
-## 14. Owner adjudication questions
+## 14. Owner adjudication — DECIDED
+
+Both questions were adjudicated by the owner on 2026-09-01. The alternatives analysis in §6 and
+§7 is retained deliberately: it records *why* these were the choices, and what was rejected.
+
+| Question | Decision |
+|---|---|
+| **Q1 — `StarContext` mutation model** | **ACCEPT S1.** A `StarContext` remains valid across a sanctioned in-place `StarProfile` mutation. On a `Version()` change, before any cached view or payload is used, it must revalidate/re-bind the column views, invalidate dependent payloads, and rebuild lazily. If the changed profile no longer satisfies the expected structural schema it must **FAIL CLOSED** rather than retain stale pointers. This does **not** imply arbitrary mutation is always safe — it means mutations performed through the sanctioned profile-edit/version mechanism are part of the supported contract. |
+| **Q2 — provenance identity mechanism** | **ACCEPT Option A.** Runtime provenance is `(source StarProfile object identity, Version())`. Binding lifetime rule: *a profile-derived context/cache/snapshot MUST NOT outlive the StarProfile from which it was built*; pointer identity is therefore valid for the lifetime of the source. **Do NOT add** generated UUIDs, global counters, serialized profile IDs, persistent provenance IDs, or copy/move identity semantics. Persistent or cross-process profile identity would be a separate architectural requirement and decision. |
+
+### The questions as originally posed (retained for provenance)
 
 **Q1 — `StarContext` mutation model.** Should a `StarContext` remain valid across sanctioned
 in-place `StarProfile` mutations, automatically re-binding its views and rebuilding derived
