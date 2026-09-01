@@ -344,8 +344,16 @@ Every item is **engineering class** and must produce bit-identical output, or a 
 tolerance.
 
 - Establish the canonical TOV path; retire or clearly subordinate the duplicate.
-- Single owner for unit conversions — remove the ~15 local re-derivations, including **k_B at
-  two precisions**.
+- ◐ **Single owner for unit conversions — PARTIAL: exact duplicate constants completed in 3A.**
+  `KM3_TO_CM3` (2 production sites) and the MeV fm⁻³→erg cm⁻³ factor (2 sites) now have one
+  owner, `CompactStar/Units.hpp` — a dependency-free header that adds no edge to the layer
+  graph. **Bit-identical**: 352 lines of deterministic scientific output unchanged, all five
+  golden artifact hashes unchanged, 13/13 and 8/8 green. Evidence:
+  `docs/validation/PHASE3A_UNIT_DUPLICATES.md`. **Still outstanding:** **k_B at two precisions**
+  (`8.617333262145e-11` vs `8.617333262e-11`) is increment **3C** — unifying it changes numbers
+  and needs a predeclared tolerance; and the **solar-mass authority** conflict (`SUN_M_KM` vs
+  `GSL_CONST_CGSM_SOLAR_MASS`, differing at `6.2e-5`) remains a scientific/unit authority
+  question **deferred out of Phase 3** pending owner or ADR adjudication.
 - Single owner for the proper-volume measure (INV-04).
 - One uniform cache-invalidation rule; add a version gate to `GeometryCache`; re-bind
   `StarContext` column pointers on invalidation (INV-12).

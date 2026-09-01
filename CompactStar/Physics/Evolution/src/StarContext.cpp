@@ -5,6 +5,7 @@
  */
 
 #include "CompactStar/Physics/Evolution/StarContext.hpp"
+#include "CompactStar/Units.hpp"
 #include "CompactStar/Core/StarProfile.hpp"
 #include "CompactStar/EOS/CompOSE_Thermo.hpp"
 #include "CompactStar/Physics/Evolution/GeometryCache.hpp"
@@ -758,7 +759,6 @@ void StarContext::BuildHeatCapacityCache_(const CompactStar::EOS::CompOSE_Thermo
 	const auto &wv = G->WV(); // 4*pi*r^2*exp(Lambda)
 	const auto &eminusnu = G->ExpMinusNu();
 	const std::size_t N = G->Size();
-	constexpr double KM3_TO_CM3 = 1.0e15; // (km^3 -> cm^3)
 
 	if (N < 2)
 	{
@@ -807,8 +807,8 @@ void StarContext::BuildHeatCapacityCache_(const CompactStar::EOS::CompOSE_Thermo
 			const double cv0 = thermo.CvDensity_cgs_ForCooling(T0, nb0, yq0);
 			const double cv1 = thermo.CvDensity_cgs_ForCooling(T1, nb1, yq1);
 
-			const double f0 = cv0 * wv[i] * KM3_TO_CM3;
-			const double f1 = cv1 * wv[i + 1] * KM3_TO_CM3;
+			const double f0 = cv0 * wv[i] * CompactStar::Units::KM3_TO_CM3;
+			const double f1 = cv1 * wv[i + 1] * CompactStar::Units::KM3_TO_CM3;
 
 			sum += 0.5 * (f0 + f1) * dr;
 		}

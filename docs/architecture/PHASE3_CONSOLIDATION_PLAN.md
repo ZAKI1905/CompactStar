@@ -285,7 +285,7 @@ derivable from the constants and the algebra in advance; that is why they are st
 
 | # | Title | Scope | Class | Prereq | ADR | Independently mergeable |
 |---|---|---|---|---|---|---|
-| **3A** | Centralize exactly-duplicated unit constants | `KM3_TO_CM3` (2 sites), `MeVfm3_to_ergcm3` (2 sites) → one owner | engineering | none | no | **yes** |
+| **3A** | ✅ **COMPLETE** — Centralize exactly-duplicated unit constants | `KM3_TO_CM3` (2 sites), `MeVfm3_to_ergcm3` (2 sites) → `CompactStar/Units.hpp`. **Bit-identical**: 352 lines of deterministic output unchanged, all five golden hashes unchanged, 13/13 + 8/8. Evidence: [`PHASE3A_UNIT_DUPLICATES.md`](../validation/PHASE3A_UNIT_DUPLICATES.md) | engineering | none | no | **yes** |
 | **3B** | Cache provenance and dependency-complete keys | profile identity+version token; `GeometryCache` carries it; `C_⋆` and `NeutrinoCooling` keys extended; `StarContext` re-binds columns | **STRUCTURAL** (fail-closed #4) | 3A optional | **YES** | **yes** |
 | **3C** | Unify `k_B` precision | one `k_B` across thermal + EOS | engineering w/ tolerance | 3A | no | **yes** |
 | **3D** | Single owner for the proper-volume measure | `GeometryCache` canonical; retire `NStar`/`MixedStar` inline forms | **STRUCTURAL** (INV-04) | **3B** | **YES** | yes |
@@ -306,7 +306,9 @@ benefits from cache/geometry ownership being settled first.
 
 ## 12. The first implementation task
 
-**`3A` — centralize the exactly-duplicated unit constants.**
+**`3A` — centralize the exactly-duplicated unit constants. ✅ COMPLETE** — see
+[`PHASE3A_UNIT_DUPLICATES.md`](../validation/PHASE3A_UNIT_DUPLICATES.md). The next increment is **3B**,
+which requires its ADR before any production change.
 
 Chosen on dependency and risk, not convenience. It is the only Phase-3 item that is
 simultaneously: **provably bit-identical** (the constants are literally equal — `1.0e15` and

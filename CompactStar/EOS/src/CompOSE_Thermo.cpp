@@ -4,6 +4,7 @@
 #include <Zaki/Physics/Constants.hpp>
 
 #include "CompactStar/EOS/CompOSE_Thermo.hpp"
+#include "CompactStar/Units.hpp"
 
 #include <algorithm>
 #include <cctype>
@@ -565,12 +566,9 @@ double CompOSE_Thermo::CvDensity_cgs(double T_MeV, double nb_fm3, double Yq) con
 	// kB in MeV/K (since T[MeV] = kB*T[K])
 	constexpr double kB_MeV_per_K = 8.617333262e-11;
 
-	// 1 (MeV fm^-3) = 1.602176634e33 (erg cm^-3)   [CompOSE manual]
-	constexpr double MeVfm3_to_ergcm3 = 1.602176634e33;
-
 	// (fm^-3) * (MeV/K) -> (MeV fm^-3 / K) -> erg cm^-3 / K
 	return cv_nat_fm3 *
-		   kB_MeV_per_K * MeVfm3_to_ergcm3;
+		   kB_MeV_per_K * CompactStar::Units::MEV_FM3_TO_ERG_CM3;
 }
 
 // -------------------------------------------------------------
@@ -722,12 +720,9 @@ double CompOSE_Thermo::CvDensity_cgs_ForCooling(double T_MeV, double nb_fm3, dou
 	// kB in MeV/K (since T[MeV] = kB*T[K])
 	constexpr double kB_MeV_per_K = 8.617333262e-11;
 
-	// 1 (MeV fm^-3) = 1.602176634e33 (erg cm^-3)   [CompOSE manual]
-	constexpr double MeVfm3_to_ergcm3 = 1.602176634e33;
-
 	// (fm^-3) * (MeV/K) -> (MeV fm^-3 / K) -> erg cm^-3 / K
 	return cv_nat_fm3 *
-		   kB_MeV_per_K * MeVfm3_to_ergcm3;
+		   kB_MeV_per_K * CompactStar::Units::MEV_FM3_TO_ERG_CM3;
 }
 
 //------------------------------------------------------------------------------

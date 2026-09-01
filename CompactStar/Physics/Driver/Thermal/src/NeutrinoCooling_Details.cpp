@@ -20,6 +20,7 @@
  */
 
 #include "CompactStar/Physics/Driver/Thermal/NeutrinoCooling_Details.hpp"
+#include "CompactStar/Units.hpp"
 #include "CompactStar/Physics/Driver/Thermal/NeutrinoCooling.hpp"
 
 #include <cmath>
@@ -89,9 +90,9 @@ static void BuildNeutrinoCoolingCache(const CompactStar::Physics::Evolution::Sta
 	// ---------------------------------------------------------------------
 	// Coefficient conventions
 	// ---------------------------------------------------------------------
-	// km^3 -> cm^3 conversion after integrating the geometry weights.
-	// NOTE: this is done once per profile version, not in the per-step hot path.
-	constexpr double KM3_TO_CM3 = 1.0e15;
+	// The km^3 -> cm^3 conversion applied after integrating the geometry weights
+	// is CompactStar::Units::KM3_TO_CM3. NOTE: this is done once per profile
+	// version, not in the per-step hot path.
 
 	// (T/1e9)^n factors moved into coefficients => multiply by (1e-9)^n
 	constexpr double INV_1E9_POW6 = 1.0e-54; // (1e-9)^6
@@ -181,7 +182,7 @@ static void BuildNeutrinoCoolingCache(const CompactStar::Physics::Evolution::Sta
 	const double I_MU_km3 = integrate_coeff(0, N - 1, 8);
 
 	// K_MU: [erg/s/K^8] = Q0_MU * (1e-9)^8 * (km^3->cm^3) * I_MU_km3
-	out.K_MU_erg_s_K8 = Q0_MU * INV_1E9_POW8 * KM3_TO_CM3 * I_MU_km3;
+	out.K_MU_erg_s_K8 = Q0_MU * INV_1E9_POW8 * CompactStar::Units::KM3_TO_CM3 * I_MU_km3;
 
 	// ---------------------------------------------------------------------
 	// Build DU coefficient over allowed region only [0..durca_last]
@@ -193,7 +194,7 @@ static void BuildNeutrinoCoolingCache(const CompactStar::Physics::Evolution::Sta
 		I_DU_km3 = integrate_coeff(0, M, 6);
 	}
 
-	out.K_DU_erg_s_K6 = Q0_DU * INV_1E9_POW6 * KM3_TO_CM3 * I_DU_km3;
+	out.K_DU_erg_s_K6 = Q0_DU * INV_1E9_POW6 * CompactStar::Units::KM3_TO_CM3 * I_DU_km3;
 
 	// PBF remains a hook (0 unless implemented)
 	out.K_PBF = 0.0;
