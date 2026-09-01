@@ -9,12 +9,13 @@
 > `docs/MODERNIZATION_ROADMAP.md` Phase 1 keep Mac-first as the governed policy.
 > **No claim of Linux or Windows support is made or implied.**
 
-## Scope of Phases 1A, 1B and 1C
+## Scope of Phase 1 (increments 1A–1D)
 
 **Phase 1A** made a clean checkout **configure** out of source without mutating tracked files.
 **Phase 1B** repaired a malformed historical merge in `RotationSolver` so the library **builds**.
 **Phase 1C** added the CTest mechanism and one build/link smoke test.
-None of the three changed a numerical method or added a scientific reference value.
+**Phase 1D** set the default build type and the warning policy, and inventoried what it revealed.
+None of the four changed a numerical method or added a scientific reference value.
 
 | Goal | Status |
 |---|---|
@@ -22,7 +23,7 @@ None of the three changed a numerical method or added a scientific reference val
 | Configure leaves tracked source unmodified | ✅ Achieved (Phase 1A) |
 | `CompactStar` library builds | ✅ Achieved (Phase 1B) — see *RotationSolver merge repair* |
 | CTest plumbing + smoke test | ✅ Achieved (Phase 1C) — see *Automated tests* |
-| Warning policy / default build type | ⬜ **Outstanding** — remaining Phase-1 item |
+| Warning policy / default build type | ✅ Achieved (Phase 1D) — see *Build type and warning policy* |
 
 ## Canonical commands
 
@@ -48,6 +49,12 @@ Run the automated tests:
 
 ```bash
 ctest --test-dir build --output-on-failure
+```
+
+Explicit Release build (**not** scientifically validated — see below):
+
+```bash
+cmake -S . -B build-release -DPython3_EXECUTABLE="$(command -v python3)" -DCMAKE_BUILD_TYPE=Release
 ```
 
 Configure without tests (library only):
@@ -354,6 +361,109 @@ rather than assumed.
 `.gitignore` gained `/build-*/` so the documented `build-no-tests/` directory stays untracked. It
 does not match the tracked `build_xcode/` (hyphen versus underscore).
 
+## Build type and warning policy (Phase 1D)
+
+### Default build type
+
+The project previously set no `CMAKE_BUILD_TYPE`, so builds were unoptimized with no debug
+information. The top-level `CMakeLists.txt` now defaults to **`Debug`** — and only when the user
+supplied nothing, and only for single-configuration generators:
+
+```
+-- CompactStar: no CMAKE_BUILD_TYPE given, defaulting to Debug
+```
+
+`Debug` was chosen because it is the standard configuration closest to the historical behavior
+while adding symbols. `Release`/`RelWithDebInfo` were deliberately **not** made the default:
+turning on optimization implicitly, before any numerical baseline exists, would change results
+with nothing in place to detect the change.
+
+Override it explicitly at configure time (`-DCMAKE_BUILD_TYPE=Release`); a user-supplied value is
+never overridden. Multi-configuration generators (Xcode, Visual Studio) select per build and are
+left untouched. The cache entry advertises `Debug;Release;RelWithDebInfo;MinSizeRel` for GUI users.
+
+> **`Debug` and `Release` are not asserted to be numerically equivalent.** No comparison has been
+> made and none is claimed. Any future scientific baseline **must state the build configuration it
+> was produced under**, and a baseline captured under one configuration does not transfer to
+> another without evidence.
+
+### Warning policy
+
+`-Wall -Wextra`, applied **`PRIVATE` to the `CompactStar` target only** via
+`target_compile_options` with `COMPILE_LANG_AND_ID` generator expressions for AppleClang, Clang
+and GNU. Consequences of that scoping, all verified from `compile_commands.json`:
+
+- the flags are **not** added globally with `add_compile_options`;
+- they do **not** propagate to consumers of the installed library, to the manual programs under
+  `main/`, or to the smoke test under `tests/` — the smoke test's compile line carries neither
+  flag and it compiles with zero warnings;
+- **`-Werror` is not enabled**, and no blanket suppression was added to quiet the build.
+
+This is an initial signal floor, not a final software-quality or numerical policy.
+
+### Dependency headers are system includes
+
+CompactStar's own include roots stay ordinary (`-I`); external and vendored dependency headers are
+now `SYSTEM` (`-isystem`), so the compiler suppresses diagnostics raised inside them. Verified on a
+real compile line:
+
+```
+-I  .../build/generated/include          <- CompactStar generated root
+-I  .../                                  <- CompactStar source root
+-isystem /opt/local/include               <- GSL
+-isystem .../dependencies/include         <- vendored Zaki / Confind
+-isystem .../python3.12                   <- Python
+-isystem .../numpy/_core/include          <- NumPy
+```
+
+The single `-Wformat-security` warning previously reported in
+`dependencies/include/Zaki/File/VecSaver.hpp` no longer appears in CompactStar's inventory.
+**This did not fix Zaki.** The warning still exists in that code; it is simply no longer counted
+as a CompactStar diagnostic. Nothing in `dependencies/` was modified, no archive was replaced, and
+no dependency version changed.
+
+### Dependency-source policy (provisional)
+
+The owner has confirmed Zaki and Confind sources exist and can be maintained separately. For this
+phase:
+
+- CompactStar consumes the authenticated vendored headers and `Darwin/{arm64,x86_64}` static
+  archives, unchanged;
+- warnings inside those headers are **not** part of CompactStar's warning inventory;
+- such warnings should be fixed in the dependency's own source repository, not here;
+- replacing the vendored dependency build is a separate dependency/build change and is **not**
+  authorized by this phase;
+- future cross-platform work may build Zaki/Confind from source once their exact source revisions
+  and build contracts are authenticated.
+
+No submodule, `FetchContent`, source build, package manager, or new dependency path was added.
+
+### Warning inventory — recorded, not repaired
+
+Clean `Debug` build of the full library: **0 errors, 175 warnings, 0 of them from dependencies.**
+Before this policy the same build reported 21 warnings, 1 of which was the Zaki header.
+
+**Nothing in this inventory was fixed.** Several groups touch scientific source, where a "cleanup"
+would be a numerical change requiring its own change class and evidence under `GOVERNANCE.md` §2.
+
+| Count | Diagnostic | Provisional class | Note |
+|---:|---|---|---|
+| 45 | `-Wunused-variable` | engineering candidate | Concentrated in BNV channels (28 in `BNV_B_Psi_Pion.cpp`). But `TOVSolver.cpp:2582` (`tmp_delta_p`) sits in scientific code — check it is not a dropped term before deleting. |
+| 35 | `-Wunused-parameter` | engineering candidate | Mostly interface conformance in BNV/analysis classes. |
+| 27 | `-Wsign-compare` | mixed | `int` vs `size_t` in loop bounds and comparisons (`TaskManager.cpp:147,379`; EOS readers). Usually benign, but a signed/unsigned boundary in an EOS table index is worth reading before dismissing. |
+| 21 | `-Woverloaded-virtual` | **numerical/scientific review required** | `Baryon::Mu(const double&)` hides `Particle::Mu()` (`Baryon.hpp:117`, `Particle.hpp:160`), likewise `ETerm`. A hidden virtual can silently change which function a call dispatches to. This is the most consequential group here. |
+| 16 | `-Wc++20-extensions` | language-standard/build-policy | `using enum StateTag;` at `Tags.hpp:72` in a C++17 build. **AppleClang accepts it as an extension** and compiles it. Resolving it means either raising the project to C++20 or rewriting the declaration — neither is authorized here. |
+| 14 | `-Wmismatched-tags` | engineering candidate | `struct` vs `class` forward-declaration mismatches. |
+| 10 | `-Wreorder-ctor` | engineering candidate | Member-initializer order differs from declaration order. Harmless unless one initializer reads another member — worth confirming per site. |
+| 2 | `-Wvla-cxx-extension` | **numerical/scientific review required** | `SigmaOmegaRho.cpp:580`, `SigmaOmegaRho_nstar.cpp:585`. Replacing a VLA changes storage representation in EOS code; not an engineering-class edit. |
+| 2 | `-Wunused-but-set-variable` | **numerical/scientific review required** | `TOVSolver.cpp:2197` (`exp_decrease`) and `:2828` (`best_M`). A computed-but-unused `best_M` in a TOV solver may indicate incomplete or dead logic rather than a stray local. |
+| 2 | `-Winconsistent-missing-override` | engineering candidate | `EnvelopePotekhin2003.hpp:58` (`ModelName`). |
+| 1 | `-Wunused-function` | engineering candidate | `DiagnosticsCatalogJson.cpp`. |
+| **175** | | | 0 from `dependencies/`, GSL, Python, or NumPy |
+
+The classifications are **provisional triage, not an audit**. Each group needs its own review, and
+those marked *numerical/scientific review required* must not be "cleaned up" as engineering work.
+
 ## Known rough edges (unchanged, pre-existing)
 
 - **Python discovery is not machine-independent** — see above.
@@ -365,8 +475,7 @@ does not match the tracked `build_xcode/` (hyphen versus underscore).
 - **17 pre-existing warnings** now visible because the whole library compiles: variable-length
   arrays (`SigmaOmegaRho.cpp:580`, `SigmaOmegaRho_nstar.cpp:585`), a missing `override`
   (`EnvelopePotekhin2003.hpp:58`), a C++20 `using enum` in a C++17 build (`Tags.hpp:72`), and a
-  format-security warning inside the vendored Zaki header. None are in `RotationSolver`. Adopting
-  a warning policy and a default build type is **the one outstanding Phase-1 item**; `-Werror` is
-  deliberately not enabled.
+  format-security warning inside the vendored Zaki header. The warning policy adopted in Phase 1D
+  supersedes this snapshot — see *Warning inventory* above for the current 175-warning picture.
 - **Test coverage is one smoke test.** It proves the mechanism, nothing more; real validation is
   Phase 2A/2B.

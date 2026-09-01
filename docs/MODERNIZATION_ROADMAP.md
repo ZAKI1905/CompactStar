@@ -69,14 +69,15 @@ three** ratifies the Hartle O(Ω²) / rotochemical candidate code, validates any
 
 ## Phase 1 — Reproducible macOS build **and minimal validation plumbing**
 
-**Status: ACTIVE — the current phase.** Increments 1A (configure), 1B (`RotationSolver` merge
-repair, library builds) and 1C (CTest plumbing) have landed. **One item remains outstanding:**
-the warning policy and default build type. Phase 1 is therefore **not complete.**
+**Status: ✅ COMPLETE.** Delivered in four increments — 1A (clean-checkout configure), 1B
+(`RotationSolver` merge repair, library builds), 1C (CTest plumbing and a link smoke test), and
+1D (default build type and warning policy). Every item below is satisfied and both exit-criteria
+clauses are demonstrated. Evidence: `docs/build/MACOS_BUILD.md`.
 
 **Prerequisite:** Phase 0.5 reviewed. ✅ **SATISFIED** — governance ratified 2026-08-31.
 
-Nothing below Phase 1 can be verified, because the project currently cannot be configured from a
-clean clone on any platform.
+Nothing below Phase 1 could be verified, because at the start of this phase the project could not
+be configured from a clean clone on any platform. It now can, on macOS.
 
 **Build reproducibility**
 
@@ -86,7 +87,7 @@ clean clone on any platform.
 - ✅ Define and document canonical macOS configure/build commands. *(1A)*
 - ✅ Record exact dependency versions: GSL, OpenMP, Python3/NumPy, and the vendored Zaki and
   Confind archives. *(1A)*
-- ☐ **OUTSTANDING** — adopt a warning policy and a default build type. *(Engineering class — must not change results.)* The full library build currently emits 17 pre-existing warnings; none has been fixed and `-Werror` is deliberately not enabled.
+- ✅ Adopt a warning policy and a default build type. *(Engineering class — must not change results.)* *(1D)* `Debug` is the default only when the user supplies none; `-Wall -Wextra` are `PRIVATE` to the `CompactStar` target; dependency headers are `SYSTEM`. The resulting 175 warnings are **inventoried, not repaired** — several touch scientific source and need their own change class. `-Werror` is deliberately not enabled.
 
 **Minimal validation plumbing — generic infrastructure only**
 
@@ -113,11 +114,14 @@ framework inside that phase would violate the scoping condition that authorizes 
 **Exit criteria.** A clean clone configures and builds on macOS with documented commands, **and**
 a trivial test runs through the documented test command.
 
-**Exit-criteria status.** Both clauses are now demonstrated — a clean checkout configures, the
-`CompactStar` library builds and links, and `ctest` runs one passing automated test
-(`docs/build/MACOS_BUILD.md`). **Phase 1 is nonetheless not complete**, because the phase item
-list also requires a warning policy and a default build type, which remain outstanding. That item
-is not being silently dropped and the exit criteria are not being redefined to exclude it.
+**Exit-criteria status. ✅ SATISFIED.** A clean checkout configures and the `CompactStar` library
+builds and links on macOS with documented commands, and `ctest` runs one passing automated test.
+The full phase item list is satisfied as well, including the warning policy and default build type.
+
+**What Phase 1 does not establish.** It produced **no scientific validation whatsoever.** The
+smoke test proves only that the library links and runs; the 175 warnings are recorded, not fixed;
+and `Debug` versus `Release` is **not** claimed to be numerically equivalent — any future baseline
+must state the configuration it was produced under.
 
 **Decision gate — platform.** **Mac-first development is acceptable initially.** Cross-platform
 dependency work moves earlier **only if** Linux or cloud compilation becomes required, CI must
@@ -128,8 +132,10 @@ Confind modernization is explicitly out of scope for now.**
 
 ## Phase 2A — Pre-baseline correctness prerequisites
 
+**Status: NEXT — the active phase once work resumes.**
+
 **Prerequisite:** Phase 1 complete — the project builds reproducibly **and a trivial test runs
-through the documented test command.**
+through the documented test command.** ✅ **SATISFIED** — Phase 1 completed in increments 1A–1D.
 
 **Authorized by `GOVERNANCE.md` §3.1** under **ADR-0002**. This is the first and currently only
 invocation of the pre-baseline correctness exception. Every §3.1 condition must be satisfied and
@@ -297,7 +303,7 @@ unauditable.
 
 ```
 0.5 governance ─► 1 build ─► 2A pre-baseline ─► 2B baseline ─► 3 consolidation ─► 4 rotation ─► 5 rotochemical ─► 6 BNV
-  ✅ RATIFIED      ◄ ACTIVE
+  ✅ RATIFIED    ✅ COMPLETE      ◄ NEXT
                                     │                                 │                │              │
    ADR-0001 species semantics  ✅ ACCEPTED ──────────────────────────────────────────────────────────►│  (gate cleared)
    ADR-0002 heat capacity      ✅ ACCEPTED ─►│  (conformance is 2A work, not a gate)

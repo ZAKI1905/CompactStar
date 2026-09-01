@@ -22,6 +22,28 @@ project(CompactStar VERSION 2.0 DESCRIPTION "Compact Star" LANGUAGES C CXX)
 string(TIMESTAMP CompactStar_RELEASE_DATE "%m, %d, %Y")
 
 # -----------------------------
+# Default development build type
+# -----------------------------
+# Historically no CMAKE_BUILD_TYPE was set, so builds were unoptimized with no
+# debug information. Debug is the closest standard configuration to that prior
+# behavior while adding symbols. Release/RelWithDebInfo are NOT made the default:
+# introducing optimization implicitly, before any numerical baseline exists,
+# would change results with nothing to detect the change against.
+#
+# A user-supplied -DCMAKE_BUILD_TYPE is never overridden. Multi-configuration
+# generators (Xcode, Visual Studio) select per-build and are left alone.
+#
+# Debug and Release are NOT asserted to be numerically equivalent. Any future
+# scientific baseline must state the build configuration it was produced under.
+if(NOT CMAKE_CONFIGURATION_TYPES AND NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug CACHE STRING
+        "Choose the type of build." FORCE)
+    set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS
+        Debug Release RelWithDebInfo MinSizeRel)
+    message(STATUS "CompactStar: no CMAKE_BUILD_TYPE given, defaulting to Debug")
+endif()
+
+# -----------------------------
 # Language standard
 # -----------------------------
 set(CMAKE_CXX_STANDARD 17)
@@ -105,6 +127,8 @@ set_target_properties(CompactStar PROPERTIES
     POSITION_INDEPENDENT_CODE ON
 )
 
+# CompactStar-owned include roots — ordinary (non-system), so our own headers
+# are subject to the warning policy below.
 target_include_directories(CompactStar
     PUBLIC
     # Must precede the source root: a stale generated copy is still tracked at
@@ -112,8 +136,33 @@ target_include_directories(CompactStar
     # binary-tree header win. See docs/build/MACOS_BUILD.md.
     ${CompactStar_GENERATED_INCLUDE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
+# External and vendored dependency headers — SYSTEM, so the compiler suppresses
+# diagnostics originating inside them (-isystem under AppleClang/GCC). This keeps
+# CompactStar's warning inventory a statement about CompactStar's own code.
+# It does NOT fix those dependencies: warnings in Zaki/Confind belong in their own
+# source repositories. See docs/build/MACOS_BUILD.md.
+target_include_directories(CompactStar
+    SYSTEM PUBLIC
     ${GSL_INCLUDE_DIRS}
     ${DEP_INC_DIR}
+)
+
+# -----------------------------
+# Warning policy (CompactStar-owned code only)
+# -----------------------------
+# Baseline signal floor, not a final quality policy. PRIVATE on purpose: these
+# flags must not propagate to consumers of the installed library, nor to the
+# manual programs under main/ or the tests under tests/.
+#
+# -Werror is deliberately NOT enabled. Warnings surfaced by this policy are
+# inventoried in docs/build/MACOS_BUILD.md and repaired under their own change
+# class -- some touch scientific source and are not engineering-class fixes.
+target_compile_options(CompactStar
+    PRIVATE
+    $<$<COMPILE_LANG_AND_ID:CXX,AppleClang,Clang,GNU>:-Wall;-Wextra>
+    $<$<COMPILE_LANG_AND_ID:C,AppleClang,Clang,GNU>:-Wall;-Wextra>
 )
 
 target_link_libraries(CompactStar
