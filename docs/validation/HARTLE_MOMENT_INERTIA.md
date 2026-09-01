@@ -262,12 +262,16 @@ matching.
 `I[g cm^2] = I[km^3] x 1e15 x c^2/G`, with `c^2/G = 1.346590922e28 g/cm`, i.e. the factor
 `1.346590922e43`.
 
-> **Recorded, not silently absorbed:** the repository's `Zaki::Physics::SUN_M_KM =
-> 1.476625038050 km` corresponds to `M_sun = 1.98835e33 g` under this `c^2/G`, while
-> `GSL_CONST_CGSM_SOLAR_MASS = 1.98892e33 g`. That is a pre-existing **~2.8e-4**
-> inconsistency between two constants in the build. It affects **only** the cgs number quoted
-> for reference; every validation comparison in this document is performed in consistent
-> geometric units and is untouched by it.
+> **Recorded, not silently absorbed — figure corrected by the Phase-2B closure audit.**
+> `Zaki::Physics::SUN_M_KM = 1.476625038050 km` is **exactly the IAU nominal `GM_sun/c^2`**
+> (`1.32712440018e26 / c^2 = 1.476625038 km`), i.e. it is the accurate, standard constant.
+> GSL's own pair `G = 6.673e-8`, `M_sun = 1.98892e33 g` gives `G M_sun/c^2 = 1.476716 km`.
+> The internally consistent discrepancy is therefore **6.2e-5**, not the `2.8e-4` originally
+> stated here — that larger figure came from comparing against CODATA `G = 6.67430e-8` rather
+> than the `G` the build actually uses. The gap is the well-known consequence of `G` being far
+> less precisely known than `GM_sun`. It affects **only** the cgs number quoted for reference;
+> every validation comparison in this document is performed in consistent geometric units and
+> is untouched by it. Classified in `PHASE2B_CLOSURE.md` as Phase-3 unit-consolidation debt.
 
 | `M` [M☉] | `I` [g cm^2] | `I/(M R^2)` | `Ibar = I/M^3` | Breu–Rezzolla | ratio | Lattimer–Schutz ratio |
 |---|---|---|---|---|---|---|

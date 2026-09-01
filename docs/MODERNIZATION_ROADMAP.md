@@ -186,9 +186,16 @@ baseline must follow immediately, with no unrelated work in between.
 
 ## Phase 2B — Validation baseline
 
-**Status: ACTIVE.** `GOVERNANCE.md` §3.1 **condition 7 is SATISFIED** — the passive-cooling
-regression baseline landed in increment 2B-1R, together with the integrator repair it required.
-Other Phase-2B items remain outstanding, so the phase stays active.
+**Status: ACTIVE — MERGE GATE SATISFIED.** `GOVERNANCE.md` §3.1 **condition 7 is SATISFIED** —
+the passive-cooling regression baseline landed in increment 2B-1R, together with the integrator
+repair it required. Two items remain outstanding — **CI** and the **full convergence scope** — so
+the phase stays ACTIVE and is **not** COMPLETE.
+
+**The exit criteria below are nevertheless SATISFIED, and so is the Phase-3 prerequisite**
+("Phase 2B baselines exist"), which is what downstream phases key off. The Phase-2B closure audit
+found the branch merge-ready on evidence: `docs/validation/PHASE2B_CLOSURE.md`. Measured
+**13/13 CTests** with the authenticated CompOSE data root and **8/8** without it (the five
+external-data tests are *excluded* by the CMake guard, not skipped).
 
 **Prerequisite:** Phase 2A complete. ✅ **SATISFIED** — increments 2A-1 through 2A-3.
 
@@ -196,7 +203,14 @@ The codebase has zero assertions and zero CI. Until baselines exist, no numerica
 shown correct. Phase 1 supplied the *mechanism* and Phase 2A the first physics checks; Phase 2B
 expands that plumbing into the actual scientific baseline.
 
-- Expand the Phase-1 test plumbing into a full harness; add CI.
+- ◐ **Expand the Phase-1 test plumbing into a full harness; add CI.** The harness half is
+  **done** — `tests/` went from the single Phase-1C smoke test to **13 registered CTests** across
+  Phase 2A–2B, each with a durable record under `docs/validation/`. **CI is the remaining
+  Phase-2B item and is absent**: no `.github/`, no CI configuration of any kind. It blocks the
+  COMPLETE label; it does **not** block merge or Phase-3 entry, neither of which references it.
+  Minimum viable scope (self-contained CI over the 8 data-free tests, versus a full external-data
+  scientific CI that has no reproducible provisioning path for the ~220 MB authenticated tables)
+  is analysed in `docs/validation/PHASE2B_CLOSURE.md` §5.
 - ✅ **TOV reference checks against known solutions — COMPLETE (2B-2).** The production TOV
   path is validated against references that are independent of CompactStar. Tier A: the exact
   Schwarzschild constant-density interior solution, evaluated directly against
@@ -235,8 +249,16 @@ expands that plumbing into the actual scientific baseline.
   **no claim is made about O(Ω²)**. Phase 4 remains blocked. Evidence:
   `docs/validation/HARTLE_MOMENT_INERTIA.md`.
 - ◐ **Grid-convergence harness — PARTIAL (2B-4A).** The **nonrotating TOV → cooling slice is
-  measured and CHARACTERIZED**; the full ratified TOV → Hartle → cooling convergence remains
-  pending the first-order Hartle validation and the unresolved INV-07 normalization.
+  measured and CHARACTERIZED**. The first-order Hartle validation it was waiting on **has since
+  landed** (2B-4B, `HARTLE-I VERIFIED` for the scale-free `I`), so that half of the dependency is
+  discharged — but the full ratified TOV → Hartle → cooling convergence **still cannot be
+  performed**, because no Hartle output reaches the thermal right-hand side at all today:
+  `DriverContext` exposes only `star`, `geo`, `envelope`, `thermo`, `cfg`, and the thermal drivers
+  reference no Hartle quantity. Creating that coupling needs the physical Ω normalization
+  (INV-07, Phase 4) and either O(Ω²) response (Phase 4) or rotochemical heating (Phase 5).
+  **The scope of this item is therefore left UNCHANGED pending owner adjudication** — relocating
+  it would alter ratified scientific meaning. Evidence and exact proposed wording:
+  `docs/validation/PHASE2B_CLOSURE.md` §6.
   Per INV-13, interpolation is **linear** and `DataSet::Integrate` is the trapezoid rule, whose
   nominal accuracy is O(Δr²) for sufficiently smooth integrands — so fourth-order behavior is
   not available from these components. The convergence order of a *complete* coupled observable
@@ -287,7 +309,11 @@ expands that plumbing into the actual scientific baseline.
   It remains a regression baseline, **not** a physics validation: the neutrino emissivity
   normalizations are still self-labeled placeholders (`NeutrinoCooling_Details.cpp:100-102`).
 
-**Exit criteria.** Baselines exist and run; a regression is detectable.
+**Exit criteria. ✅ SATISFIED.** Baselines exist and run; a regression is detectable. Six
+independent detector proofs were demonstrated and reverted — passive cooling (a 1 % photon
+perturbation caught 1000× over), cache invalidation (×3), the coarse radial grid, and the Hartle
+J/Ω/ODE extractions (×3). **Satisfying the exit criteria is not the same as completing the phase:**
+CI and the convergence scope above remain outstanding items.
 
 ---
 

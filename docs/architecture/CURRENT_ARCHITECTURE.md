@@ -336,16 +336,21 @@ Re-authenticated at **`11ffe45`** after roadmap Phase 1. Full evidence and comma
   code — hidden overloaded virtuals in the EOS particle hierarchy, VLAs in `SigmaOmegaRho*`, and
   set-but-unused variables in `TOVSolver` — and require classified review before any change.
   See [`docs/build/MACOS_BUILD.md`](../build/MACOS_BUILD.md) for the full table.
-- **No sanitizer policy and no assertion policy exist.** Neither has been established; the
-  repository still contains no assertions.
+- **No sanitizer policy and no assertion policy exist.** Neither has been established. Production
+  source still contains no assertions; the checks introduced in Phase 2A–2B live in `tests/`, not
+  in the library.
 
 ### Automated tests
 
 - **CTest infrastructure exists.** `include(CTest)` at top level provides standard `BUILD_TESTING`
   and `enable_testing()`; `tests/` is added only when testing is on (`CMakeLists.txt:222-226`).
-- **`tests/` is the canonical automated-test root**, holding exactly **one** test:
-  `compactstar_library_smoke` (`tests/CMakeLists.txt:19`;
-  `tests/smoke/compactstar_library_smoke.cpp`).
+- **`tests/` is the canonical automated-test root**, holding **13 registered CTests** as of the
+  Phase-2B closure audit (`tests/CMakeLists.txt`). Eight are self-contained; five are registered
+  only when `COMPACTSTAR_EOS_DATA_ROOT` supplies the authenticated CompOSE tables
+  (`tests/CMakeLists.txt:71` — the guard *excludes* them, it does not skip them):
+  `heat_capacity_real_star`, `passive_cooling_regression`, `tov_reference_cmf`,
+  `grid_convergence_cmf`, `hartle_moment_inertia_cmf`. Measured: **13/13 pass** with the data
+  root, **8/8 pass** without it.
 - **`main/Test/` remains manual demo/debug programs**, not a suite. None of its eight executables
   is registered with CTest.
 - **The smoke test is infrastructure validation, not a scientific baseline.** It establishes that
@@ -353,7 +358,16 @@ Re-authenticated at **`11ffe45`** after roadmap Phase 1. Full evidence and comma
   `libCompactStar.a` (`CompactStar::Core::Prog::GetName()`, verified present as a defined `T`
   symbol rather than an unresolved import), that transitive dependencies link, and that the binary
   runs and exits zero under CTest. **It asserts no scientific value of any kind.**
-  There is no scientific test suite.
+- **A scientific test suite now exists**, built across Phase 2A–2B: heat capacity
+  (`tests/thermal/heat_capacity_v1.cpp`, `heat_capacity_real_star.cpp`), photon conformance
+  (`photon_cooling_conformance.cpp`), the stepper contract
+  (`evolution_stepper_contract.cpp`), the passive-cooling regression baseline
+  (`passive_cooling_regression.cpp`), TOV references (`tests/core/tov_reference_*.cpp`), cache
+  contracts (`tests/evolution/cache_contract.cpp`, `tests/thermal/cache_thermal_contract.cpp`),
+  grid convergence (`tests/thermal/grid_convergence_cmf.cpp`) and the scale-free Hartle moment
+  of inertia (`tests/rotation/hartle_moment_inertia_*.cpp`). Each has a durable evidence record
+  under `docs/validation/`. **Scope limits are recorded in those records and are not superseded
+  by the existence of a green suite.**
 - **No CI exists.** No `.github/`, `.gitlab-ci.yml`, or equivalent is present.
 
 ### Tracked-artifact debt — unchanged
