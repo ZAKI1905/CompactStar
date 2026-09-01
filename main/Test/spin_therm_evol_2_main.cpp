@@ -170,6 +170,8 @@ int main()
 	cfg.n_eta = 0;
 
 	// (optional overrides)
+	// Explicit: the canonical scientific run must not depend on an implicit default.
+	cfg.stepper = Physics::Evolution::StepperType::RKF45;
 	cfg.rtol = 1e-6;
 	cfg.atol = 1e-10;
 	cfg.max_internal_steps = 1'000'000;

@@ -159,7 +159,21 @@ struct Config
 	/**
 	 * @brief Time stepper choice (GSL backend).
 	 */
-	StepperType stepper = StepperType::MSBDF;
+	// RKF45 — selected from the Phase-2B-1R convergence study on the authenticated
+	// 1.6 Msun CMF passive-cooling trajectory (100 yr -> 1 Myr). RKF45, RKCK and RK8PD all
+	// complete, are stable under tolerance tightening, and agree to ~3e-7 in T_inf, far
+	// inside the 1e-3 gate; RKF45 additionally showed the smallest nominal-to-tightest
+	// difference (6.4e-8). Being indistinguishable in accuracy, the lower-complexity
+	// general-purpose method is preferred. Evidence: docs/validation/PASSIVE_COOLING_BASELINE.md.
+	//
+	// MSBDF was the previous default and was UNUSABLE: it is implicit and GSL dereferences
+	// sys.jacobian unconditionally, which CompactStar does not supply, so every default run
+	// died with SIGSEGV. MSBDF remains in the enum for future Jacobian support and is now
+	// rejected with a clear error by GSLIntegrator rather than crashing.
+	//
+	// This is a non-stiff choice. A future rotochemical/chemical system may need a stiff
+	// method and a real Jacobian; that is NOT decided here.
+	StepperType stepper = StepperType::RKF45;
 
 	/**
 	 * @brief Relative tolerance for adaptive stepping (dimensionless).

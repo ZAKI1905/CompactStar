@@ -329,9 +329,26 @@ bool GSLIntegrator::Integrate(double t0, double t1, double *y) const
 	// ---------------------------------------------------------------------
 	//  Build GSL system description
 	// ---------------------------------------------------------------------
+	// CompactStar supplies no Jacobian. GSL's implicit steppers dereference
+	// sys.jacobian unconditionally — gsl_odeiv2.h:69 defines
+	//   GSL_ODEIV_JA_EVAL(S,...) (*((S)->jacobian))(...)
+	// with no null guard, and gsl_odeiv2.h:48 states "Some methods require the
+	// jacobian function". Passing a null Jacobian to gsl_odeiv2_step_msbdf therefore
+	// calls address 0x0 and kills the process with SIGSEGV.
+	//
+	// Fail closed BEFORE any GSL allocation. Never silently substitute another method:
+	// an explicit request for MSBDF must not become an explicit method without notice.
+	if (m_cfg->stepper == StepperType::MSBDF)
+	{
+		throw std::runtime_error(
+			"GSLIntegrator::Integrate: MSBDF requires a Jacobian, but CompactStar does not "
+			"provide one. Select an explicit stepper (RKCK, RKF45, RK8PD) or implement "
+			"Jacobian support. See docs/validation/PASSIVE_COOLING_BASELINE.md.");
+	}
+
 	gsl_odeiv2_system sys;
 	sys.function = &GslRHS;
-	sys.jacobian = nullptr; // analytic Jacobian not implemented
+	sys.jacobian = nullptr; // no Jacobian: implicit steppers are rejected above
 	sys.dimension = m_dim;
 	sys.params = const_cast<EvolutionSystem *>(m_sys);
 

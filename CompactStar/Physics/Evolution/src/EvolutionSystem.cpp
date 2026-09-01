@@ -100,16 +100,10 @@ int EvolutionSystem::operator()(double t, const double y[], double dydt[]) const
 	//   UnpackStateVector(StateVector&, const StateLayout&, const double*)
 	UnpackStateVector(m_state, m_layout, y);
 
-	{
-		const auto &th = m_state.GetThermal();
-		const auto &sp = m_state.GetSpin();
-
-		// Z_LOG_INFO("DEBUG t=" + std::to_string(t) +
-		// 		   "  y[0]=" + std::to_string(y[0]) +
-		// 		   "  y[1]=" + std::to_string(y[1]) +
-		// 		   "  unpacked: Tinf=" + std::to_string(th.Tinf()) +
-		// 		   "  Omega=" + std::to_string(sp.Omega()));
-	}
+	// NOTE: a dead debug block used to bind GetThermal()/GetSpin() here purely for a
+	// commented-out Z_LOG_INFO. Because GetSpin() throws when the tag is absent, it made a
+	// registered Spin block MANDATORY for every evolution — so a Thermal-only system could
+	// not run at all. Nothing read those bindings, so removing them changes no RHS value.
 
 	// 2) Clear RHS accumulator before driver contributions.
 	m_rhs.Clear();
