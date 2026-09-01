@@ -11,17 +11,17 @@
  * @brief Phase 2B-3 — INV-12 cache-correctness contracts for StarContext, GeometryCache
  *        and the generic ProfileVersionedCache. Self-contained; no external data.
  *
- *   usage: cache_contract [--audit-known-hazards]
+ *   usage: cache_contract
  *
- * TWO MODES, DELIBERATELY SEPARATED.
+ * All checks here are ordinary pass/fail contracts.
  *
- *  - Default (the registered CTest) asserts ONLY contracts that are currently CORRECT.
- *    Every check here must pass against a correct implementation and must fail if
- *    version-driven invalidation regresses.
- *
- *  - `--audit-known-hazards` reproduces KNOWN INV-12 DEFECTS for the validation report.
- *    It is NOT registered as a CTest and is NOT a green regression criterion. It never
- *    asserts that stale behavior is correct; it records and classifies it.
+ *  - `RunSupportedContracts` covers the version-driven invalidation that was already correct
+ *    before Phase 3B.
+ *  - `RunProvenanceContracts` covers the ADR-0003 provenance contract. Those three cases were
+ *    previously reproductions of measured DEFECTS behind `--audit-known-hazards`, kept out of
+ *    CTest because they could not pass. ADR-0003 (ACCEPTED) makes them requirements, so the
+ *    audit mode is gone and the known-bug output is no longer treated as expected behavior.
+ *    The historical measurements survive in docs/validation/CACHE_CORRECTNESS.md.
  *
  * The synthetic star is a uniform sphere with nu = Lambda = 0 and constant n_B. It
  * asserts no neutron-star property; it exists solely to drive cache state transitions
@@ -36,7 +36,7 @@
 
 #include <cmath>
 #include <cstdint>
-#include <cstring>
+#include <cstdio>
 #include <iomanip>
 #include <iostream>
 #include <string>
@@ -62,6 +62,13 @@ static void Report(const std::string &id, bool ok, const std::string &d)
 static double Rel(double a, double b)
 {
 	return std::fabs(b) > 0.0 ? std::fabs(a - b) / std::fabs(b) : std::fabs(a - b);
+}
+/// Scientific formatting: std::to_string would print 1e-15 as 0.000000.
+static std::string Sci(double v, int prec = 3)
+{
+	char b[64];
+	snprintf(b, sizeof(b), "%.*e", prec, v);
+	return b;
 }
 
 // ---------------------------------------------------------------------------
@@ -340,9 +347,8 @@ static void RunSupportedContracts()
 				   ", B.Version()=" + std::to_string(B.Version()) +
 				   "; mean rho A=" + std::to_string(MeanRho(sa)) +
 				   " vs B=" + std::to_string(MeanRho(sb)));
-		std::cout << "        => profile version != profile identity. Any cache keyed on\n"
-					 "           version alone and reused across contexts can collide.\n"
-					 "           Consequences are reproduced in --audit-known-hazards.\n";
+		std::cout << "        => profile version != profile identity. ADR-0003 therefore keys\n"
+					 "           reusable caches on (identity, version); see P2 below.\n";
 	}
 
 	// -----------------------------------------------------------------------
@@ -425,21 +431,21 @@ static void RunSupportedContracts()
 }
 
 // ===========================================================================
-//  KNOWN-HAZARD AUDIT — evidence for the report, NOT a pass/fail criterion
+//  ADR-0003 ENFORCED CONTRACTS — formerly the "known hazard" reproductions
+//
+//  Before Phase 3B these three cases were reproductions of measured DEFECTS, deliberately
+//  kept out of CTest because they could not pass. ADR-0003 (ACCEPTED) makes each one a
+//  requirement, so they are now ordinary assertions in the registered test. The historical
+//  measurements are preserved in docs/validation/CACHE_CORRECTNESS.md, labelled superseded.
 // ===========================================================================
-static void RunHazardAudit()
+static void RunProvenanceContracts()
 {
-	std::cout << "\n"
-			  << "===========================================================\n"
-			  << " KNOWN INV-12 HAZARD AUDIT — reproductions, not assertions\n"
-			  << " Nothing below is a regression criterion. No check here\n"
-			  << " claims that stale behavior is correct.\n"
-			  << "===========================================================\n";
+	std::cout << "\nADR-0003 ENFORCED PROVENANCE CONTRACTS\n";
 
 	// -----------------------------------------------------------------------
-	// HAZARD A — GeometryCache carries no provenance, so staleness is undetectable
+	// P1 (was HAZARD A) — GeometryCache provenance makes staleness ANSWERABLE
 	// -----------------------------------------------------------------------
-	std::cout << "\n[HAZARD A] GeometryCache snapshot has no source identity or version\n";
+	std::cout << "\nP1 GeometryCache carries its source provenance\n";
 	{
 		StarProfile prof;
 		Fixture f;
@@ -448,10 +454,11 @@ static void RunHazardAudit()
 		StarContext sc(prof);
 
 		GeometryCache G_old(sc);
-		const double r_old_mid = G_old.R()[f.N / 2];
-		const double wv_old_mid = G_old.WV()[f.N / 2];
+		Report("P1a a fresh GeometryCache matches the context it was built from",
+			   G_old.Matches(sc) && G_old.SourceProfile() == &prof,
+			   "source profile identity and version recorded");
+		const std::uint64_t v_at_build = G_old.SourceVersion();
 
-		// Mutate the geometry through the sanctioned API: stretch r, set Lambda != 0.
 		{
 			auto edit = prof.Edit();
 			auto &radial = prof.RadialMutable();
@@ -461,30 +468,23 @@ static void RunHazardAudit()
 				radial[7][i] = 0.20;  // lambda
 			}
 		}
-		GeometryCache G_new(sc);
 
-		std::cout << "    profile version now " << sc.ProfileVersion()
-				  << "; StarContext's own caches DID rebuild (mean rho = "
-				  << MeanRho(sc) << ")\n";
-		std::cout << "    G_old.R[mid]  = " << r_old_mid
-				  << "   G_new.R[mid]  = " << G_new.R()[f.N / 2] << "\n";
-		std::cout << "    G_old.WV[mid] = " << wv_old_mid
-				  << "   G_new.WV[mid] = " << G_new.WV()[f.N / 2] << "\n";
-		std::cout << "    G_old still returns its pre-mutation values: "
-				  << (G_old.R()[f.N / 2] == r_old_mid ? "YES" : "no") << "\n";
-		std::cout << "    relative WV divergence: "
-				  << Rel(wv_old_mid, G_new.WV()[f.N / 2]) << "\n";
-		std::cout << "\n    An immutable snapshot returning its construction-time values is\n"
-					 "    not itself wrong. The DEFECT is that GeometryCache exposes no\n"
-					 "    source profile identity, no source version and no Invalidate(),\n"
-					 "    so a holder of G_old CANNOT ask whether it is stale.\n"
-					 "    CLASSIFICATION: KNOWN INV-12 HAZARD (Phase-3 repair required).\n";
+		Report("P1b after a sanctioned mutation the old snapshot reports itself STALE",
+			   !G_old.Matches(sc),
+			   "Matches() == false (was undetectable before ADR-0003)");
+		Report("P1c the stale snapshot still remembers what it was built from",
+			   G_old.SourceProfile() == &prof && G_old.SourceVersion() == v_at_build,
+			   "provenance is preserved, not silently updated");
+
+		GeometryCache G_new(sc);
+		Report("P1d a freshly constructed snapshot matches again", G_new.Matches(sc),
+			   "caller owns rebuilding; there is no Refresh()");
 	}
 
 	// -----------------------------------------------------------------------
-	// HAZARD C — ProfileVersionedCache collides across equal-version profiles
+	// P2 (was HAZARD C) — ProfileVersionedCache keys on identity, not version alone
 	// -----------------------------------------------------------------------
-	std::cout << "\n[HAZARD C] ProfileVersionedCache key omits profile identity\n";
+	std::cout << "\nP2 ProfileVersionedCache distinguishes two equal-version profiles\n";
 	{
 		StarProfile A, B;
 		Fixture fa;
@@ -493,6 +493,11 @@ static void RunHazardAudit()
 		FillProfile(A, fa);
 		FillProfile(B, fb);
 		StarContext sa(A), sb(B);
+
+		Report("P2a the precondition still holds: equal numeric Version(), different physics",
+			   A.Version() == B.Version() && MeanRho(sa) != MeanRho(sb),
+			   "A.Version()=" + std::to_string(A.Version()) +
+				   " == B.Version()=" + std::to_string(B.Version()));
 
 		struct Payload
 		{
@@ -508,99 +513,99 @@ static void RunHazardAudit()
 
 		const double from_A = cache.Get(sa, builder).mean_rho;
 		const double from_B = cache.Get(sb, builder).mean_rho;
-		const double truth_B = MeanRho(sb);
-
-		std::cout << "    A.Version() = " << A.Version()
-				  << ", B.Version() = " << B.Version()
-				  << "  (equal: " << (A.Version() == B.Version() ? "YES" : "no") << ")\n";
-		std::cout << "    builder invocations across both Get() calls: " << builds << "\n";
-		std::cout << "    cache.Get(A) mean rho = " << from_A << "\n";
-		std::cout << "    cache.Get(B) mean rho = " << from_B
-				  << "   TRUE B mean rho = " << truth_B << "\n";
-		std::cout << "    relative error served for B: " << Rel(from_B, truth_B) << "\n";
-		if (builds == 1 && from_B == from_A)
-			std::cout << "\n    CONFIRMED: B silently received A's payload. The key is the\n"
-						 "    numeric version alone, so two different stars that happen to\n"
-						 "    share a version collide with no diagnostic.\n"
-						 "    CLASSIFICATION: KNOWN INV-12 HAZARD — profile identity omitted.\n";
-		else
-			std::cout << "\n    NOT REPRODUCED under this construction; investigate before\n"
-						 "    relying on the classification.\n";
+		Report("P2b the builder RE-RAN for the second profile", builds == 2,
+			   "builds = " + std::to_string(builds) + " (was 1 before ADR-0003)");
+		Report("P2c star B receives its OWN payload, not star A's",
+			   Rel(from_B, MeanRho(sb)) < 1e-12 && from_B != from_A,
+			   "B mean rho " + Sci(from_B) + " vs A " + Sci(from_A));
+		Report("P2d the cache records the identity it was built against",
+			   cache.BuiltAgainst().source == &B && cache.BuiltAgainst().version == B.Version(),
+			   "provenance is (identity, version)");
 	}
 
 	// -----------------------------------------------------------------------
-	// HAZARD E — StarContext column pointers are never re-bound
+	// P3 (was HAZARD E) — StarContext re-binds its column views (S1)
 	// -----------------------------------------------------------------------
-	// Assessed from source plus SAFE container-identity observation on a profile
-	// that has NO StarContext bound to it. No dangling pointer is ever formed or
-	// dereferenced; nothing here invokes undefined behavior.
-	std::cout << "\n[HAZARD E] StarContext column pointers are bound once and never re-bound\n";
+	std::cout << "\nP3 StarContext re-binds column views on a revision change (S1)\n";
 	{
-		StarProfile solo; // deliberately unbound: no StarContext observes this object
+		StarProfile prof;
 		Fixture f;
-		FillProfile(solo, f);
-		const void *eps_addr_1 = static_cast<const void *>(&solo.Radial()[4]);
-		const std::size_t n1 = static_cast<std::size_t>(solo.Radial()[4].Size());
+		FillProfile(prof, f);
+		StarContext sc(prof);
+		const double rho0 = MeanRho(sc);
+		Report("P3a baseline derived value is available", rho0 > 0.0, "mean rho " + Sci(rho0));
 
-		// (a) clear-and-refill at the SAME column count: reuses the existing
-		//     DataColumn objects, so addresses survive.
-		FillProfile(solo, f);
-		const void *eps_addr_2 = static_cast<const void *>(&solo.Radial()[4]);
-		const std::size_t n2 = static_cast<std::size_t>(solo.Radial()[4].Size());
-
-		// (b) a genuine structural change — growing the column count, which is what
-		//     re-importing a profile with more species columns does. The column
-		//     container reallocates and every DataColumn moves.
+		// A STRUCTURAL change: grow the column count so every DataColumn is reallocated.
+		// Before ADR-0003 the context kept pointers bound at construction; the version gate
+		// rebuilt payloads from addresses that no longer referred to live storage.
+		const void *eps_before = static_cast<const void *>(&prof.Radial()[4]);
 		{
-			auto edit = solo.Edit();
-			auto &radial = solo.RadialMutable();
-			radial.ClearRows();
+			auto edit = prof.Edit();
+			auto &radial = prof.RadialMutable();
 			radial.Reserve(14, f.N); // 11 -> 14 columns
 		}
-		const void *eps_addr_3 = static_cast<const void *>(&solo.Radial()[4]);
+		const void *eps_after = static_cast<const void *>(&prof.Radial()[4]);
+		Report("P3b the structural change really did move the columns",
+			   eps_before != eps_after,
+			   "eps column address changed, so a stale binding would be observable");
 
-		std::cout << "    in-place edits (see C8): DataColumn addresses stable -> bound "
-					 "pointers stay valid\n";
-		std::cout << "    (a) clear+refill at the same column count: column address "
-				  << (eps_addr_1 == eps_addr_2 ? "unchanged" : "CHANGED")
-				  << ", size " << n1 << " -> " << n2
-				  << "  => bound pointers survive this path\n";
-		std::cout << "    (b) column-count change 11 -> 14 (e.g. a re-import with more\n"
-					 "        species): column address "
-				  << (eps_addr_2 == eps_addr_3 ? "unchanged" : "CHANGED")
-				  << "  => any pointer bound before this point is DANGLING\n";
-		std::cout << "\n    From source: StarContext::BindColumnsOrThrow_() runs only in the\n"
-					 "    constructor (StarContext.cpp), and RefreshDerivedCachesIfNeeded_()\n"
-					 "    invalidates derived payloads without ever re-binding. A mutation\n"
-					 "    that reallocates or replaces column storage therefore bumps the\n"
-					 "    version — so payloads rebuild — while the seven cached raw pointers\n"
-					 "    (StarContext.hpp m_r/m_m/m_nu/m_lam/m_nb/m_pre/m_eps) may no longer\n"
-					 "    refer to live storage. The version gate gives false confidence.\n"
-					 "    This audit deliberately does NOT construct that state.\n"
-					 "    CLASSIFICATION: KNOWN POINTER-REBIND HAZARD (Phase-3 repair required).\n";
+		// The context must re-bind before any view is used, and stay correct.
+		const double rho1 = MeanRho(sc);
+		Report("P3c the context re-bound and still yields the correct derived value",
+			   rho1 > 0.0 && Rel(rho1, rho0) < 1e-12,
+			   "mean rho " + Sci(rho1) + " (unchanged: the values were preserved)");
+		Report("P3d the re-bound views point into the CURRENT profile storage",
+			   static_cast<const void *>(sc.EnergyDensity()) == eps_after,
+			   "bound pointer equals the live column address");
+	}
+
+	// -----------------------------------------------------------------------
+	// P4 — an invalid schema must FAIL CLOSED, not dereference stale memory
+	// -----------------------------------------------------------------------
+	std::cout << "\nP4 an unusable schema fails closed\n";
+	{
+		StarProfile prof;
+		Fixture f;
+		FillProfile(prof, f);
+		StarContext sc(prof);
+		(void)MeanRho(sc); // bind and build
+
+		// Drop the mandatory radius mapping through the sanctioned API. SetColumnIndex
+		// calls Touch(), so the revision advances and the context must revalidate.
+		prof.SetColumnIndex(StarProfile::Column::Radius, -1);
+
+		auto probe = [&]() {
+			try { (void)sc.MassDensity_gcm3(); return false; }
+			catch (const std::exception &) { return true; }
+		};
+
+		const bool threw_first = probe();
+		Report("P4a a profile that no longer satisfies the required schema throws rather "
+			   "than serving data through stale bindings",
+			   threw_first, threw_first ? "threw as required" : "NO THROW");
+
+		// The failed re-bind must NOT have advanced the cached revision: a context that
+		// threw must stay marked out-of-date, so the next call retries rather than
+		// reporting itself fresh with stale views.
+		Report("P4b the context is not left falsely marked current after a failed re-bind",
+			   probe(), "a second access throws again rather than returning stale data");
+
+		// Restoring the schema must make the context usable again.
+		prof.SetColumnIndex(StarProfile::Column::Radius, 0);
+		Report("P4c restoring the schema restores the context",
+			   !probe() && MeanRho(sc) > 0.0, "mean rho " + Sci(MeanRho(sc)));
 	}
 }
 
-int main(int argc, char **argv)
+int main()
 {
-	bool audit = false;
-	for (int i = 1; i < argc; ++i)
-		if (std::strcmp(argv[i], "--audit-known-hazards") == 0)
-			audit = true;
-
 	std::cout << std::scientific << std::setprecision(6);
 
-	if (audit)
-	{
-		RunHazardAudit();
-		std::cout << "\nHazard audit complete. This mode is a report, not a pass/fail "
-					 "criterion.\n";
-		return 0;
-	}
-
 	RunSupportedContracts();
+	RunProvenanceContracts();
+
 	std::cout << "\n"
-			  << (g_fail == 0 ? "supported cache contracts hold"
+			  << (g_fail == 0 ? "supported cache contracts and ADR-0003 provenance contracts hold"
 							  : "FAILURES: " + std::to_string(g_fail))
 			  << "\n";
 	return g_fail == 0 ? 0 : 1;

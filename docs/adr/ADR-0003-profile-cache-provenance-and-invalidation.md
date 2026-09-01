@@ -274,3 +274,59 @@ profile ID wanted (**Option B**)?
 
 No other question is raised: every remaining choice in this ADR is determined by the measured
 correctness requirements.
+
+
+---
+
+## 15. Implementation record (Phase 3B)
+
+**The accepted semantic decision was not modified during implementation.** Nothing in the
+evidence contradicted it, so no return to owner adjudication was required.
+
+**Accepted decisions implemented:** Q1 = **S1**, Q2 = **Option A**.
+
+**Components changed**
+
+| Component | Change |
+|---|---|
+| `Physics/Evolution/ProfileProvenance.hpp` | **new** — typed `{const StarProfile*, uint64_t}`, `IsSet()`, `==`/`!=`. Includes only `<cstdint>` and forward-declares `StarProfile`. No UUID, registry, allocation or serialization. |
+| `Physics/Evolution/GeometryCache.{hpp,cpp}` | records provenance at construction; adds `Provenance()`, `SourceProfile()`, `SourceVersion()`, `Matches(ctx)`. **No geometry array changed.** |
+| `Physics/Evolution/StarContext.{hpp,cpp}` | `Provenance()`; column views become `mutable` and `BindColumnsOrThrow_()` `const`; S1 re-bind ordering; `HeatCapacityCache::geo_prov`; supplied-geometry mismatch throws |
+| `Physics/Evolution/ProfileCache.{hpp,cpp}` | `ProfileVersionedCache` keys on `(identity, version)`; `ProfileProvenanceOf()`; `BuiltAgainst()` |
+| `Physics/Driver/Thermal/NeutrinoCooling.hpp`, `src/NeutrinoCooling_Details.cpp` | `cached_geo_prov_`; geometry-change invalidation; fail-closed on a `geo`/`star` mismatch via `ok=false` |
+
+**Three defects were found by the new contracts and fixed** — none was among the original five,
+and each is recorded because it shows the tests doing real work:
+
+1. `BuildHeatCapacityCache_` moves a locally built `HeatCapacityCache` into `m_cv_cache` at the
+   end, so an earlier `m_cv_cache.geo_prov = …` was silently discarded. The validity condition
+   then mismatched on every call and rebuilt the 160-point table each time — the passive-cooling
+   regression went from 11 s to a **1500 s timeout**. `geo_prov` is now set on the object that is
+   moved in. Caught by runtime, not by any assertion.
+2. `RefreshDerivedCachesIfNeeded_` early-returned on `!IsValid()` *before* the revision check, so
+   a failed re-bind left the context silently degraded rather than failing closed. The revision
+   check now precedes that guard. Caught by `cache_contract` **P4b**.
+3. `MassDensity_gcm3`, `DirectUrcaMask`, `DirectUrcaLastAllowedIndex` and
+   `DirectUrcaBoundaryRadius_km` tested `IsValid()` *before* refreshing, short-circuiting the
+   retry — the same wrong order as the H5 hazard itself. They now refresh first. The constructor
+   already throws when `r`/`m` are absent, so `IsValid()` can only become false via a failed
+   re-bind; the reorder therefore cannot change behavior for any validly constructed context.
+   Caught by `cache_contract` **P4c**.
+
+**Validation**
+
+- **13/13** authenticated and **8/8** self-contained CTests pass.
+- All five golden artifacts **byte-identical**, and — a stronger check than hashes alone — the
+  artifacts **re-emitted after the change** are byte-identical to the frozen pre-change files:
+  `passive_cooling_cmf_1p6_debug.tsv`, `grid_convergence_cmf_1p6_{debug,trajectory}.tsv`,
+  `hartle_I_dscmf1_debug.tsv`. `heat_capacity_real_star`'s 247-line deterministic output is
+  unchanged.
+- Four controlled detector mutations were applied and reverted byte-identically: removing
+  identity from the generic key (P2b–P2d fail), removing geometry from the `C_⋆` condition
+  (T3b, U7.d.2 fail), suppressing the column re-bind (P3c–P3d, P4a–P4b fail), and removing the
+  neutrino provenance guards (the test aborts on an exception escaping `ComputeDerived`, because
+  the `StarContext` guard still fires — two independent guards).
+
+**INV-12 disposition:** moved to **RESOLVED for profile-derived caches**, with the scope limit
+stated explicitly. Algorithm-local, EOS-keyed and bookkeeping caches were outside this contract
+and are unchanged.

@@ -14,6 +14,8 @@
 #include <cstdint>
 #include <utility>
 
+#include "CompactStar/Physics/Evolution/ProfileProvenance.hpp"
+
 namespace CompactStar::Physics::Evolution
 {
 
@@ -30,6 +32,13 @@ class StarContext;
  * @return Monotonic StarProfile version (0 if context is invalid by policy).
  */
 std::uint64_t ProfileVersion(const StarContext &sc);
+
+/**
+ * @brief Return the full provenance — (profile identity, version) — bound to @p sc.
+ *
+ * ADR-0003. Defined out-of-line for the same header-weight reason as ProfileVersion().
+ */
+ProfileProvenance ProfileProvenanceOf(const StarContext &sc);
 
 /**
  * @file ProfileCache.hpp
@@ -130,7 +139,7 @@ class ProfileVersionedCache
 	void Invalidate() noexcept
 	{
 		m_built = false;
-		m_version = 0;
+		m_prov = ProfileProvenance{};
 	}
 
 	/**
@@ -148,11 +157,14 @@ class ProfileVersionedCache
 	template <typename Builder>
 	const Payload &Get(const StarContext &sc, Builder &&builder) const
 	{
-		const std::uint64_t v = ProfileVersion(sc);
-		if (!m_built || v != m_version)
+		// ADR-0003: the key is (profile identity, version), NOT the version alone. Two
+		// independently built profiles routinely share a numeric version, so a
+		// version-only key silently served one star's payload for another.
+		const ProfileProvenance prov = ProfileProvenanceOf(sc);
+		if (!m_built || prov != m_prov)
 		{
 			builder(sc, m_payload); // customization point: define what is cached
-			m_version = v;
+			m_prov = prov;
 			m_built = true;
 		}
 		return m_payload;
@@ -191,7 +203,15 @@ class ProfileVersionedCache
 	 *
 	 * @return Last-seen profile version (0 if never built or explicitly invalidated).
 	 */
-	std::uint64_t BuiltAgainstVersion() const noexcept { return m_version; }
+	std::uint64_t BuiltAgainstVersion() const noexcept { return m_prov.version; }
+
+	/**
+	 * @brief Full provenance — identity and version — the payload was built against.
+	 *
+	 * ADR-0003. Identity is what distinguishes two profiles that happen to share a
+	 * numeric version.
+	 */
+	const ProfileProvenance &BuiltAgainst() const noexcept { return m_prov; }
 
   private:
 	// /**
@@ -213,8 +233,8 @@ class ProfileVersionedCache
 	/// True if @c m_payload contains valid data built by the provided builder.
 	mutable bool m_built = false;
 
-	/// The StarProfile version value used to build @c m_payload.
-	mutable std::uint64_t m_version = 0;
+	/// Provenance (profile identity + version) @c m_payload was built against.
+	mutable ProfileProvenance m_prov{};
 
 	/// Cached payload owned by the cache object.
 	mutable Payload m_payload{};

@@ -297,9 +297,38 @@ per-reaction-channel — `Rotochemical.cpp:110-111` documents the channel combin
 
 ---
 
-## INV-12 — Cache invalidation — **VERIFIED CURRENT BEHAVIOR (inconsistent)**
+## INV-12 — Cache invalidation — ✅ **RESOLVED for profile-derived caches** (ADR-0003)
 
-**Statement.** Five structurally different invalidation rules coexist.
+**Resolution, 2026-09-01 (Phase 3B).** ADR-0003 (**ACCEPTED**) established a
+`(StarProfile identity, Version())` provenance contract, and it is implemented and enforced by
+CTest. All five measured hazards are closed:
+
+| Hazard | Now |
+|---|---|
+| `GeometryCache` had no provenance | carries `(profile, version)`; `Matches()` answers staleness; still an immutable snapshot with no `Refresh()` |
+| `C_⋆` key omitted the geometry | key is `(profile version, thermo identity, geometry provenance)`; a caller-supplied foreign geometry **fails closed** |
+| `ProfileVersionedCache` keyed on version alone | keys on `(identity, version)` |
+| `NeutrinoCooling` collided across equal-version stars | payload depends on profile **and** geometry provenance; mismatch fails closed via the driver's `ok=false` |
+| `StarContext` never re-bound column views | contract **S1**: re-binds before use on a revision change, advances the cached revision only on success, and throws on an unusable schema |
+
+Enforced by `cache_contract` (P1–P4), `cache_thermal_contract` (T3–T4) and `heat_capacity_v1`
+(U7.d). The former `--audit-known-hazards` mode is **removed** — no known-bug output is retained
+as expected behavior. Evidence, including the superseded pre-repair measurements:
+`docs/validation/CACHE_CORRECTNESS.md`; contract: `docs/adr/ADR-0003-*.md`.
+
+**Scope of this resolution — precise.** It covers **profile-derived** caches only. Deliberately
+**outside** the ADR-0003 contract and **unchanged**: `RotationSolver`'s bracket/`omega_bar`
+acceleration caches (algorithm-local, cannot outlive their own solve), `TOVSolver`'s EOS splines
+and `gsl_interp_accel` (keyed to the imported EOS table, not to a profile), and the
+`TimeSeriesObserver` name→pointer maps (bookkeeping). No provenance hazard was demonstrated for
+any of them; this invariant makes no claim about future caches of other kinds.
+
+---
+
+### Historical record — the pre-repair measurement (Phase 2B-3, superseded)
+
+**Statement (as it stood before Phase 3B).** Five structurally different invalidation rules
+coexist.
 
 | Rule | Mechanism | Users |
 |---|---|---|

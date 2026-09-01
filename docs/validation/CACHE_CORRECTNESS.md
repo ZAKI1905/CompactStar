@@ -1,25 +1,42 @@
-# Cache correctness audit — Phase 2B-3 (INV-12)
+# Cache correctness — Phase 2B-3 measurement, Phase 3B repair (INV-12)
 
-> **STATUS: CACHE CHECKS COMPLETE.**
+> **STATUS: REPAIRED under ADR-0003 (ACCEPTED).**
 >
-> The **supported same-star cache contracts are durably verified** and now run under CTest.
-> **Five known INV-12 hazards are reproducibly characterized and quantified.** The
-> **canonical passive-cooling baseline provably does not reach any of them.** No golden
-> value moved. The architectural repair is **DEFERRED TO PHASE 3**.
+> This document has two layers, deliberately kept separate:
 >
-> **This is not a statement that the cache system is correct.** It is a statement about which
-> contracts hold, which do not, and which of them the current canonical path can reach.
+> - **Phase 2B-3 (2026-08-31) — the measurement.** Five hazards were reproduced under
+>   controlled conditions and quantified. Those numbers are **historical provenance** and are
+>   preserved verbatim below. They describe the code **before** Phase 3B.
+> - **Phase 3B (2026-09-01) — the repair.** ADR-0003 introduced a `(profile identity, version)`
+>   provenance contract. All five hazards are now **enforced contracts under CTest**, not
+>   reproductions. The `--audit-known-hazards` mode is **gone**: known-bug output is no longer
+>   emitted or treated as expected behavior.
 >
-> **No production source was modified.** The three controlled regressions in §7 were applied,
-> measured, and reverted; `git` confirms an identical tree.
+> **Read every "CONFIRMED"/"KNOWN HAZARD" verdict below as SUPERSEDED CURRENT BEHAVIOR** — an
+> accurate record of what was measured, not a description of the code today.
 
-| Field | Value |
-|---|---|
-| **Change class** | verification / numerical validation |
-| **Governing invariant** | `docs/SCIENTIFIC_INVARIANTS.md` INV-12 |
-| **Harnesses** | `tests/evolution/cache_contract.cpp`, `tests/thermal/cache_thermal_contract.cpp`, assertions added to `tests/thermal/passive_cooling_regression.cpp` |
-| **Existing coverage re-authenticated** | `tests/thermal/heat_capacity_v1.cpp` U7 |
-| **Build / toolchain** | `Debug`, AppleClang 17.0.0.17000604, CMake 4.2.1, GSL 2.7.1, macOS 15.6.1 arm64 |
+## 0. Before → after
+
+| # | Hazard (Phase 2B-3) | Measured error, before | Now enforced by | After |
+|---|---|---|---|---|
+| **H1** | `GeometryCache` had no provenance; staleness unaskable | 51.6 % geometry divergence, undetectable | `cache_contract` **P1a–P1d** | `Matches()` reports staleness; provenance preserved; caller rebuilds |
+| **H2** | `C_⋆` key omitted the geometry | **50 %** | `heat_capacity_v1` **U7.d.1–3**, `cache_thermal_contract` **T3a–T3c** | foreign geometry **fails closed**; equivalent provenance still reuses |
+| **H3** | `ProfileVersionedCache` keyed on version alone | **85.7 %** | `cache_contract` **P2a–P2d** | keyed on `(identity, version)`; builder re-runs per star |
+| **H4** | `NeutrinoCooling` reused across equal-version stars | **80 %** | `cache_thermal_contract` **T4a–T4d** | rebuilds per star; mismatched geometry fails closed |
+| **H5** | `StarContext` column views never re-bound | addresses moved on a column-count change | `cache_contract` **P3a–P3d, P4a–P4c** | re-binds before use; invalid schema throws; recovers when repaired |
+
+**Two implementation defects were found by these very tests and fixed** (neither was in the
+original five):
+
+- `RefreshDerivedCachesIfNeeded_` early-returned on `!IsValid()` *before* the revision check, so
+  a failed re-bind left the context silently degraded rather than failing closed. The revision
+  check now precedes that guard. (Caught by **P4b**.)
+- Four accessors — `MassDensity_gcm3`, `DirectUrcaMask`, `DirectUrcaLastAllowedIndex`,
+  `DirectUrcaBoundaryRadius_km` — tested `IsValid()` *before* refreshing, short-circuiting the
+  retry. `IsValid()` is a post-binding predicate, so that was the same wrong order as H5 itself.
+  The constructor already throws when `r`/`m` are absent, so `IsValid()` can only become false
+  via a failed re-bind; the reorder therefore cannot change behavior for any validly constructed
+  context. (Caught by **P4c**.)
 
 ---
 
@@ -27,14 +44,13 @@
 
 Two executables, each with two modes:
 
-| Mode | Registered as CTest? | Contents |
-|---|---|---|
-| default | **yes** | Only contracts that are **currently correct**. This is the regression criterion. |
-| `--audit-known-hazards` | **no** | Reproductions of known defects, for this document. |
+**Phase 2B-3 layout (historical).** Two modes: the registered CTest asserted only
+currently-correct contracts, while `--audit-known-hazards` reproduced the defects for this
+document without ever asserting that stale behavior was correct.
 
-The separation is deliberate. A known defect must never be laundered into a green
-"expected behavior" assertion. Nothing in the audit mode asserts that stale behavior is
-correct; it prints, quantifies, and classifies. `WILL_FAIL` is not used anywhere.
+**Phase 3B layout (current).** The audit mode is **removed**. Every case is an ordinary
+pass/fail contract in the registered CTest, because ADR-0003 makes each one a requirement.
+`WILL_FAIL` is not used anywhere, and no known-bug output is retained as expected behavior.
 
 ---
 
@@ -118,7 +134,9 @@ running that test (green).
 
 ## 5. Known hazards — reproduced and quantified
 
-Reproductions live behind `--audit-known-hazards`. None is a CTest.
+> **HISTORICAL — Phase 2B-3 measurement.** Everything in this section describes the code
+> **before** Phase 3B and is retained as provenance. Each hazard is now an enforced contract
+> under CTest (§0); the reproductions and the `--audit-known-hazards` mode no longer exist.
 
 ### HAZARD A — `GeometryCache` has no provenance · KNOWN INV-12 HAZARD
 
@@ -282,12 +300,5 @@ every finding is an engineering/architectural defect with an unambiguous owner. 
 ctest --test-dir build -L cache --output-on-failure
 ```
 
-The hazard reproductions are not CTests, by design:
-
-```bash
-./build/tests/cache_contract --audit-known-hazards
-```
-
-```bash
-./build/tests/cache_thermal_contract --audit-known-hazards
-```
+There is no longer a separate hazard-audit mode; every contract above runs in the
+registered tests.

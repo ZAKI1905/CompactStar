@@ -12,7 +12,7 @@
  *        fraction Y_q (observed through C_star) and the NeutrinoCooling profile-versioned
  *        cache. Self-contained; builds its own synthetic CompOSE fixture.
  *
- *   usage: cache_thermal_contract [--audit-known-hazards]
+ *   usage: cache_thermal_contract
  *
  * SCOPE. Deliberately does NOT duplicate what `heat_capacity_v1` (U7) already covers
  * durably: repeated-query stability of C_star, its rebuild on profile-version change, and
@@ -21,9 +21,9 @@
  * that no existing test exercises — Y_q, and the NeutrinoCooling payload — plus a
  * quantified reproduction of the geometry-key hazard.
  *
- * MODES. Default (registered CTest) asserts only currently-correct contracts.
- * `--audit-known-hazards` reproduces known defects for the validation report and is NOT a
- * CTest and NOT a pass/fail criterion.
+ * All checks are ordinary pass/fail contracts. The two cases in `RunProvenanceContracts`
+ * were previously defect reproductions behind `--audit-known-hazards`; ADR-0003 (ACCEPTED)
+ * makes them requirements, so that mode is gone.
  *
  * FIXTURE. Q2 = s/n_B = slope * T * (1 + Yq), so
  *      c_V = T * n_B * dQ2/dT = T * n_B * slope * (1 + Yq)
@@ -39,6 +39,7 @@
 
 #include <cmath>
 #include <cstdint>
+#include <cstdio>
 #include <cstring>
 #include <filesystem>
 #include <fstream>
@@ -81,6 +82,13 @@ static void Report(const std::string &id, bool ok, const std::string &d)
 static double Rel(double a, double b)
 {
 	return std::fabs(b) > 0.0 ? std::fabs(a - b) / std::fabs(b) : std::fabs(a - b);
+}
+/// Scientific formatting: std::to_string would print 1e-15 as 0.000000.
+static std::string Sci(double v, int prec = 3)
+{
+	char b[64];
+	snprintf(b, sizeof(b), "%.*e", prec, v);
+	return b;
 }
 
 // ---------------------------------------------------------------------------
@@ -339,164 +347,140 @@ static void RunSupportedContracts(const fs::path &root)
 }
 
 // ===========================================================================
-//  KNOWN-HAZARD AUDIT
+//  ADR-0003 ENFORCED CONTRACTS — formerly the "known hazard" reproductions
+//
+//  Before Phase 3B these two cases reproduced measured DEFECTS (50 % and 80 % relative
+//  error) and were kept out of CTest because they could not pass. ADR-0003 (ACCEPTED) makes
+//  each one a requirement. The historical measurements survive in
+//  docs/validation/CACHE_CORRECTNESS.md, labelled superseded.
 // ===========================================================================
-static void RunHazardAudit(const fs::path &root)
+static void RunProvenanceContracts(const fs::path &root)
 {
 	CompOSE_Thermo::Options opt;
 	CompOSE_Thermo thermo((root / "yqdep").string(), opt);
 	if (!thermo.IsLoaded())
 	{
-		std::cout << "fixture failed to load; audit aborted\n";
+		Report("T0b fixture loads for the provenance contracts", false, "not loaded");
 		return;
 	}
 	const double T = 1.0e-4;
 
-	std::cout << "\n"
-			  << "===========================================================\n"
-			  << " KNOWN INV-12 HAZARD AUDIT (thermal path)\n"
-			  << " Reproductions for the report. Not assertions, not a\n"
-			  << " regression criterion.\n"
-			  << "===========================================================\n";
+	std::cout << "\nADR-0003 ENFORCED PROVENANCE CONTRACTS\n";
 
 	// -----------------------------------------------------------------------
-	// HAZARD B — heat-capacity cache key omits the GeometryCache
+	// T3 (was HAZARD B) — geometry participates in the C_star validity condition
 	// -----------------------------------------------------------------------
-	std::cout << "\n[HAZARD B] HeatCapacityStar_Tinf key = (profile version, thermo ptr); "
-				 "geometry omitted\n";
+	std::cout << "\nT3 C_star honours the supplied GeometryCache\n";
 	{
-		// One context, one profile version, one thermo — but two SEMANTICALLY DIFFERENT
-		// GeometryCache objects of identical size.
-		StarProfile flat;
-		FillProfile(flat, 0.10, 0.85, 1.0e-4); // Lambda = 0
-		StarContext sc_flat(flat);
-		GeometryCache geo_flat(sc_flat);
+		StarProfile probe;
+		FillProfile(probe, 0.10, 0.85, 1.0e-4);
+		StarContext sc(probe);
+		GeometryCache geo_ok(sc);
 
+		// A geometry built from a DIFFERENT profile (thicker: e^Lambda = 2).
 		StarProfile fat;
 		FillProfile(fat, 0.10, 0.85, 1.0e-4);
 		{
 			auto edit = fat.Edit();
 			auto &radial = fat.RadialMutable();
 			for (std::size_t i = 0; i < kN; ++i)
-				radial[7][i] = std::log(2.0); // e^Lambda = 2 -> proper volume doubles
+				radial[7][i] = std::log(2.0);
 		}
 		StarContext sc_fat(fat);
-		GeometryCache geo_fat(sc_fat);
+		GeometryCache geo_foreign(sc_fat);
 
-		// Truth for each geometry, from a FRESH context so no cache is shared.
-		StarProfile flat_t;
-		FillProfile(flat_t, 0.10, 0.85, 1.0e-4);
-		StarContext truth_flat_ctx(flat_t);
-		const double truth_flat = truth_flat_ctx.HeatCapacityStar_Tinf(T, thermo, &geo_flat);
+		const double c_ok = sc.HeatCapacityStar_Tinf(T, thermo, &geo_ok);
+		Report("T3a a matching geometry is accepted", c_ok > 0.0,
+			   "C_star = " + Sci(c_ok));
 
-		StarProfile fat_t;
-		FillProfile(fat_t, 0.10, 0.85, 1.0e-4);
-		StarContext truth_fat_ctx(fat_t);
-		const double truth_fat = truth_fat_ctx.HeatCapacityStar_Tinf(T, thermo, &geo_fat);
+		bool threw = false;
+		try { (void)sc.HeatCapacityStar_Tinf(T, thermo, &geo_foreign); }
+		catch (const std::exception &) { threw = true; }
+		Report("T3b a geometry from a different profile FAILS CLOSED", threw,
+			   threw ? "threw as required (previously returned a 50 %-wrong C_star)"
+					 : "NO THROW — stale geometry accepted");
 
-		// Now the hazard: ONE context, asked twice with different geometry.
-		StarProfile probe;
-		FillProfile(probe, 0.10, 0.85, 1.0e-4);
-		StarContext sc(probe);
-		const double first = sc.HeatCapacityStar_Tinf(T, thermo, &geo_flat);
-		const double second = sc.HeatCapacityStar_Tinf(T, thermo, &geo_fat);
-
-		std::cout << "    truth with flat geometry (e^Lambda=1) = " << truth_flat << " erg/K\n"
-				  << "    truth with fat  geometry (e^Lambda=2) = " << truth_fat << " erg/K"
-				  << "   (ratio " << truth_fat / truth_flat << ")\n";
-		std::cout << "    one context, 1st call with geo_flat   = " << first << " erg/K\n"
-				  << "    same context, 2nd call with geo_fat   = " << second << " erg/K\n";
-		std::cout << "    relative error served on the 2nd call = "
-				  << Rel(second, truth_fat) << "\n";
-		if (second == first)
-			std::cout << "\n    CONFIRMED: the second call reused the first table verbatim.\n"
-						 "    The supplied GeometryCache is a real INPUT to\n"
-						 "    BuildHeatCapacityCache_ but is absent from the cache key\n"
-						 "    (StarContext.cpp: key is (prof_version, &thermo)).\n"
-						 "    CLASSIFICATION: KNOWN INV-12 HAZARD — CONFIRMED.\n";
-		else
-			std::cout << "\n    NOT REPRODUCED; re-check before relying on the classification.\n";
+		// An equivalent geometry rebuilt for the SAME (profile, version) is interchangeable:
+		// provenance, not object address, is the key (ADR-0003 §11).
+		GeometryCache geo_equiv(sc);
+		const double c_equiv = sc.HeatCapacityStar_Tinf(T, thermo, &geo_equiv);
+		Report("T3c an equivalent geometry with identical provenance is accepted and agrees",
+			   c_equiv == c_ok,
+			   "same value; a different C++ object does not force a spurious rebuild");
 	}
 
 	// -----------------------------------------------------------------------
-	// HAZARD D — a NeutrinoCooling driver reused across equal-version stars
+	// T4 (was HAZARD D) — a reused driver must not serve one star's payload for another
 	// -----------------------------------------------------------------------
-	std::cout << "\n[HAZARD D] NeutrinoCooling driver reused across two equal-version stars\n";
+	std::cout << "\nT4 NeutrinoCooling across two equal-version stars\n";
 	{
 		StarProfile A, B;
 		FillProfile(A, 0.15, 0.85, 1.0e-4);
-		FillProfile(B, 0.15, 0.85, 5.0e-4); // 5x the energy density: a different star
+		FillProfile(B, 0.15, 0.85, 5.0e-4); // 5x the energy density
 		StarContext sa(A), sb(B);
 		GeometryCache ga(sa), gb(sb);
 
 		DriverContext ca;
-		ca.star = &sa;
-		ca.geo = &ga;
-		ca.thermo = &thermo;
+		ca.star = &sa; ca.geo = &ga; ca.thermo = &thermo;
 		DriverContext cb;
-		cb.star = &sb;
-		cb.geo = &gb;
-		cb.thermo = &thermo;
-
+		cb.star = &sb; cb.geo = &gb; cb.thermo = &thermo;
 		ThermalHolder st(1.0e8);
+
+		Report("T4a precondition: the two stars share a numeric Version()",
+			   A.Version() == B.Version(),
+			   "both " + std::to_string(A.Version()));
 
 		Th::NeutrinoCooling reused(CoolingOpts());
 		const auto rA = Th::Detail::NeutrinoCooling_Details::ComputeDerived(reused, st.Y, ca);
 		const auto rB = Th::Detail::NeutrinoCooling_Details::ComputeDerived(reused, st.Y, cb);
 
-		// The same star B, but through a FRESH driver instance — the correct answer.
 		Th::NeutrinoCooling fresh(CoolingOpts());
 		const auto fB = Th::Detail::NeutrinoCooling_Details::ComputeDerived(fresh, st.Y, cb);
 
-		std::cout << "    A.Version() = " << A.Version() << ", B.Version() = " << B.Version()
-				  << "  (equal: " << (A.Version() == B.Version() ? "YES" : "no") << ")\n";
-		std::cout << "    reused driver, star A : L_nu = " << rA.L_nu_inf_erg_s << " erg/s\n";
-		std::cout << "    reused driver, star B : L_nu = " << rB.L_nu_inf_erg_s << " erg/s\n";
-		std::cout << "    FRESH  driver, star B : L_nu = " << fB.L_nu_inf_erg_s
-				  << " erg/s   <-- correct\n";
-		std::cout << "    relative error served for B by the reused driver: "
-				  << Rel(rB.L_nu_inf_erg_s, fB.L_nu_inf_erg_s) << "\n";
-		if (rB.L_nu_inf_erg_s == rA.L_nu_inf_erg_s &&
-			rB.L_nu_inf_erg_s != fB.L_nu_inf_erg_s)
-			std::cout << "\n    CONCRETE SILENT CROSS-STAR CACHE COLLISION.\n"
-						 "    The reused driver returned star A's version-keyed payload for\n"
-						 "    star B, with no error, no warning and no diagnostic flag.\n"
-						 "    This is the concrete consequence of HAZARD C on the thermal\n"
-						 "    path. CLASSIFICATION: KNOWN INV-12 HAZARD — CONFIRMED.\n";
-		else
-			std::cout << "\n    NOT REPRODUCED under this construction.\n";
+		Report("T4b the reused driver returns star B's OWN luminosity, not star A's",
+			   rA.ok && rB.ok && fB.ok && rB.L_nu_inf_erg_s == fB.L_nu_inf_erg_s &&
+				   rB.L_nu_inf_erg_s != rA.L_nu_inf_erg_s,
+			   "reused B = " + Sci(rB.L_nu_inf_erg_s) + ", fresh B = " +
+				   Sci(fB.L_nu_inf_erg_s) + ", A = " + Sci(rA.L_nu_inf_erg_s));
+
+		// Returning to star A must rebuild again, not serve B's payload.
+		const auto rA2 = Th::Detail::NeutrinoCooling_Details::ComputeDerived(reused, st.Y, ca);
+		Report("T4c switching back rebuilds again", rA2.ok &&
+			   rA2.L_nu_inf_erg_s == rA.L_nu_inf_erg_s,
+			   "A revisited = " + Sci(rA2.L_nu_inf_erg_s));
+
+		// A geometry that does not belong to ctx.star must fail closed, through the
+		// driver's own diagnostic mechanism (no termination).
+		DriverContext bad;
+		bad.star = &sa; bad.geo = &gb; bad.thermo = &thermo;
+		const auto rbad = Th::Detail::NeutrinoCooling_Details::ComputeDerived(reused, st.Y, bad);
+		Report("T4d a mismatched profile/geometry pair fails closed rather than computing",
+			   !rbad.ok, rbad.ok ? "COMPUTED ANYWAY" : "ok=false: " + rbad.message);
 	}
 }
 
 int main(int argc, char **argv)
 {
-	bool audit = false;
-	for (int i = 1; i < argc; ++i)
-		if (std::strcmp(argv[i], "--audit-known-hazards") == 0)
-			audit = true;
+	if (argc < 1)
+		return 2;
+	(void)argv;
 
 	std::cout << std::scientific << std::setprecision(6);
 	const fs::path root = fs::temp_directory_path() / "compactstar_cache_thermal";
 	fs::remove_all(root);
 	WriteThermo(root / "yqdep", kSlope);
 
-	if (audit)
-	{
-		RunHazardAudit(root);
-		std::cout << "\nHazard audit complete. This mode is a report, not a pass/fail "
-					 "criterion.\n";
-		fs::remove_all(root);
-		return 0;
-	}
-
 	std::cout << "THERMAL CACHE CONTRACTS (Y_q via C_star; NeutrinoCooling payload)\n"
 				 "Synthetic fixture; asserts no neutron-star property.\n"
 				 "C_star repeat/version/thermo-identity contracts live in heat_capacity_v1 "
 				 "(U7).\n\n";
 	RunSupportedContracts(root);
+	RunProvenanceContracts(root);
+
 	std::cout << "\n"
-			  << (g_fail == 0 ? "supported thermal cache contracts hold"
-							  : "FAILURES: " + std::to_string(g_fail))
+			  << (g_fail == 0
+					  ? "supported thermal cache contracts and ADR-0003 provenance contracts hold"
+					  : "FAILURES: " + std::to_string(g_fail))
 			  << "\n";
 	fs::remove_all(root);
 	return g_fail == 0 ? 0 : 1;

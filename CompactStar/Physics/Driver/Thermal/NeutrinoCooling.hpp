@@ -70,6 +70,7 @@
 #include "CompactStar/Physics/Driver/Diagnostics/DriverDiagnostics.hpp"
 
 #include "CompactStar/Physics/Driver/Thermal/NeutrinoCooling_Cache.hpp"
+#include "CompactStar/Physics/Evolution/ProfileProvenance.hpp"
 
 namespace CompactStar::Physics::Driver::Thermal::Detail
 {
@@ -263,6 +264,16 @@ class NeutrinoCooling final : public IDriver,
 	 * but may rebuild cached coefficients when the StarProfile version changes.
 	 */
 	mutable NeutrinoCoolingProfileCache cache_;
+
+	/**
+	 * @brief Geometry provenance the cached payload was built against (ADR-0003).
+	 *
+	 * The payload genuinely depends on the GeometryCache (it integrates the geometry
+	 * weights), but @c ProfileVersionedCache deliberately knows profile provenance ONLY —
+	 * consumer-specific dependencies stay with the consumer. This driver therefore carries
+	 * the geometry half of its own validity condition here.
+	 */
+	mutable Evolution::ProfileProvenance cached_geo_prov_{};
 
 	/**
 	 * @brief Access cached coefficients, rebuilding if the profile version changed.

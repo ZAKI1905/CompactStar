@@ -23,6 +23,10 @@ namespace CompactStar::Physics::Evolution
 // -------------------------------------------------------
 GeometryCache::GeometryCache(const StarContext &ctx)
 {
+	// ADR-0003: record provenance before building. Purely additive — no geometry
+	// array below is affected.
+	m_prov = ctx.Provenance();
+
 	Build_(ctx);
 }
 
@@ -33,6 +37,13 @@ std::size_t GeometryCache::Size() const
 {
 	return m_r.Size();
 }
+
+//--------------------------------------------------------------
+bool GeometryCache::Matches(const StarContext &ctx) const
+{
+	return m_prov.IsSet() && m_prov == ctx.Provenance();
+}
+
 
 // -------------------------------------------------------
 // GeometryCache::R

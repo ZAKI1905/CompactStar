@@ -464,11 +464,16 @@ int main()
 		Report("U7.c cache rebuilds on a different thermo object",
 			   RelErr(c_2, 2.0 * c_1) < 1e-9, "ratio " + std::to_string(c_2 / c_1));
 
-		// D: KNOWN HAZARD — cache key omits the GeometryCache (INV-12)
+		// D: the GeometryCache is part of the heat-capacity validity condition (ADR-0003).
+		//
+		// Before Phase 3B this block was a Note recording a KNOWN HAZARD: a second call at the
+		// same (profile version, thermo) with a DIFFERENT GeometryCache silently reused the
+		// first table, returning a 50 %-wrong C_star. ADR-0003 makes that fail closed, so this
+		// is now an ordinary correctness assertion, not a demonstration of a defect.
 		StarProfile p3;
 		FillProfile(p3, N0, kR_km, kNb_fm3, kYq, /*lambda=*/std::log(2.0)); // e^Λ = 2
 		StarContext c3(p3);
-		GeometryCache geo_fat(c3); // semantically different geometry
+		GeometryCache geo_fat(c3); // built from a DIFFERENT profile
 
 		StarProfile p4;
 		FillProfile(p4, N0, kR_km, kNb_fm3, kYq);
@@ -476,14 +481,27 @@ int main()
 		GeometryCache geo_flat(c4);
 
 		const double d1 = c4.HeatCapacityStar_Tinf(T, thermo, &geo_flat);
-		const double d2 = c4.HeatCapacityStar_Tinf(T, thermo, &geo_fat); // same version+thermo
-		const bool stale = (d1 == d2);
-		Note("U7.d GeometryCache-key hazard (INV-12)",
-			 stale ? "CONFIRMED: second call with a DIFFERENT GeometryCache reused the cached "
-					 "table (identical result); the key is only (profile version, thermo ptr)"
-				   : "not reproduced: results differed");
-		std::cout << "      flat geometry = " << d1 << ",  fat geometry (e^Lambda=2) = " << d2
-				  << "  (ratio 2 expected if the GeometryCache were honored)\n";
+		Report("U7.d.1 a matching GeometryCache is accepted and used", d1 > 0.0,
+			   "C_star = " + std::to_string(d1));
+
+		bool threw = false;
+		std::string msg;
+		try
+		{
+			(void)c4.HeatCapacityStar_Tinf(T, thermo, &geo_fat); // foreign provenance
+		}
+		catch (const std::exception &e)
+		{
+			threw = true;
+			msg = e.what();
+		}
+		Report("U7.d.2 a GeometryCache from a different profile FAILS CLOSED (ADR-0003)",
+			   threw, threw ? "threw as required" : "NO THROW — stale geometry was accepted");
+
+		// The context must remain usable afterwards, and still agree with the first result.
+		const double d3 = c4.HeatCapacityStar_Tinf(T, thermo, &geo_flat);
+		Report("U7.d.3 the context is still usable after the rejection, and stable",
+			   d3 == d1, "C_star unchanged after the failed call");
 	}
 
 	std::cout << "\n" << (g_fail == 0 ? "Tier-A checks passed" : "Tier-A FAILURES: " + std::to_string(g_fail))

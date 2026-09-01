@@ -54,6 +54,7 @@
 
 #include <Zaki/Vector/DataColumn.hpp>
 #include <cstddef>
+#include "CompactStar/Physics/Evolution/ProfileProvenance.hpp"
 
 // namespace Zaki
 // {
@@ -105,6 +106,34 @@ class GeometryCache
 	//--------------------------------------------------------------
 	/** @brief Number of radial samples (N). */
 	[[nodiscard]] std::size_t Size() const;
+
+	//--------------------------------------------------------------
+	//  Provenance (ADR-0003)
+	//
+	//  A GeometryCache is an IMMUTABLE SNAPSHOT. It records, at construction, which
+	//  StarProfile it was derived from and at which revision, so a holder can answer the
+	//  question it previously could not: "does this geometry still describe that star?"
+	//
+	//  There is deliberately no Refresh() and no mutation in place. A changed profile means
+	//  the caller constructs a new GeometryCache; the caller already owns construction.
+	//
+	//  Lifetime: this snapshot must not outlive the StarProfile it was built from.
+	//--------------------------------------------------------------
+
+	/// Identity + revision of the profile this geometry was built from.
+	[[nodiscard]] const ProfileProvenance &Provenance() const noexcept { return m_prov; }
+
+	/// The StarProfile this geometry was built from (non-owning; may be null if unbound).
+	[[nodiscard]] const CompactStar::Core::StarProfile *SourceProfile() const noexcept
+	{
+		return m_prov.source;
+	}
+
+	/// The profile revision observed at construction.
+	[[nodiscard]] std::uint64_t SourceVersion() const noexcept { return m_prov.version; }
+
+	/// True iff this snapshot still describes @p ctx's profile at its current revision.
+	[[nodiscard]] bool Matches(const StarContext &ctx) const;
 
 	//--------------------------------------------------------------
 	/** @name Primitive grids / exponentials */
@@ -159,6 +188,8 @@ class GeometryCache
 
 	//--------------------------------------------------------------
 	// Cached columns
+	ProfileProvenance m_prov{}; ///< source profile identity + revision (ADR-0003)
+
 	Zaki::Vector::DataColumn m_r;
 	Zaki::Vector::DataColumn m_mass; // in km
 	Zaki::Vector::DataColumn m_area;

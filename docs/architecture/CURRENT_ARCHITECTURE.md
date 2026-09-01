@@ -217,34 +217,57 @@ Recorded for Phase 5. **Not repaired here.**
 
 ## 4. Known structural hazards
 
-> **Cache hazards below were audited in Phase 2B-3.** What works today, what does not, and
-> what the canonical baseline actually reaches are now measured rather than inferred —
-> `docs/validation/CACHE_CORRECTNESS.md`. Summary: **version-driven invalidation within one
-> `StarContext` under sanctioned in-place mutation is VERIFIED and under CTest**; the four
-> identity/provenance defects below are **reproduced and quantified**; and the **canonical
-> passive-cooling baseline provably reaches none of them**. That last statement is about that
-> one procedure — *the general API is not safe merely because the baseline is.* The
-> architectural repair is deferred to Phase 3.
+> **Cache provenance is governed by ADR-0003 (ACCEPTED) and was implemented in Phase 3B.**
+> The five hazards that Phase 2B-3 measured are **repaired and now enforced by CTest**; the
+> `--audit-known-hazards` mode no longer exists. Historical measurements are preserved, labelled
+> superseded, in `docs/validation/CACHE_CORRECTNESS.md`.
 
-- **Working today — version-driven invalidation within one `StarContext`.** On a sanctioned
-  in-place profile mutation, `RefreshDerivedCachesIfNeeded_` correctly drops and rebuilds the
-  mass-density, `Y_q`, Direct-Urca and `C_star` caches, and `ProfileVersionedCache` re-runs its
-  builder. Verified to exact analytic factors by `cache_contract` and `cache_thermal_contract`,
-  and shown to catch three controlled invalidation regressions.
-- **`GeometryCache` has no version gate.** Deep-copies at construction, never rebuilt. If a
-  profile is re-solved afterwards, downstream integrals silently use stale geometry (INV-12).
-  Measured: 51.6 % geometry divergence after a sanctioned mutation. The operative defect is
-  that the class exposes **no source identity, no source version and no `Invalidate()`**, so a
-  holder cannot ask whether it is stale.
-- **`ProfileVersionedCache` is keyed on the numeric version alone**, not on profile identity.
-  Two independently built profiles routinely share a version (both `1`), so one cache object
-  reused across two stars silently serves the first star's payload — measured at **85.7 %**
-  error generically, and **80 %** in the concrete `NeutrinoCooling` cross-star case, with no
-  warning or diagnostic flag.
-- **`StarContext` binds raw column pointers once** and never re-binds. A reallocating profile
-  mutation bumps the version — payloads rebuild — while the seven cached pointers dangle.
-  Bounded safely in the audit: in-place value edits and same-width refills leave `DataColumn`
-  addresses stable, but growing the column count moves every column.
+**Current cache contract.**
+
+- **Runtime provenance is `(StarProfile identity, StarProfile::Version())`**, carried by the
+  typed `ProfileProvenance` in `CompactStar/Physics/Evolution/ProfileProvenance.hpp`. There is no
+  generated UUID, no global registry and no persistent/serialized profile ID.
+- **Lifetime rule:** a profile-derived context, cache or snapshot **must not outlive the
+  `StarProfile` it was built from**. Pointer identity is meaningful for exactly that long. In
+  practice `StarContext` is constructed only by callers — `main/Test/spin_therm_evol_2_main.cpp`
+  and the test harnesses; no library code constructs one — so the caller already owns and
+  outlives both.
+- **`GeometryCache` is an immutable provenance-carrying snapshot.** It records
+  `(profile, version)` at construction and exposes `Provenance()`, `SourceProfile()`,
+  `SourceVersion()` and `Matches(ctx)`. There is deliberately **no `Refresh()`**: a changed
+  profile means the caller constructs a new one. Its geometry arrays (`R`, `Mass`, `Area`,
+  `ExpNu`, `ExpLambda`, `WV`, `WVExpNu`, `WVExp2Nu`, …) are **numerically unchanged** by this
+  work — proper-volume ownership remains Phase 3D.
+- **`StarContext` follows contract S1** — it stays valid across a sanctioned in-place profile
+  mutation. On a revision change `RefreshDerivedCachesIfNeeded_` **re-binds the column views
+  first**, then invalidates derived payloads, then advances the cached revision **last**. A
+  profile that no longer satisfies the required schema makes `BindColumnsOrThrow_` throw; because
+  the revision is advanced only on success, the context is never left falsely marked current, and
+  a later repair restores it. The revision check deliberately precedes the `IsValid()` guard, and
+  the four derived accessors refresh before testing `IsValid()`, so a failed re-bind fails closed
+  rather than degrading to silent nulls.
+- **`ProfileVersionedCache<T>` keys on `(identity, version)`**, not the version alone. It knows
+  profile provenance **only**; consumer-specific dependencies stay typed at the consumer, and
+  there is no generic `void*` dependency list or dependency graph.
+- **Heat capacity `C_⋆(T∞)` is keyed on `(profile version, thermo identity, geometry
+  provenance)`.** A caller-supplied `GeometryCache` whose provenance does not match the context's
+  current profile **throws** — silently substituting a locally built geometry would discard what
+  the caller asked for. An *equivalent* geometry rebuilt for the same `(profile, version)` is
+  interchangeable and does not force a rebuild: the key is provenance, not object address.
+  `CompOSE_Thermo` needs no version because it exposes no setter or reload — pointer identity
+  suffices.
+- **The `NeutrinoCooling` payload depends on `(profile identity, version, geometry
+  provenance)`.** Driver `Options` are **not** in the key: `SetOptions` exists, but the payload
+  builder reads no option — `include_*` and `global_scale` are applied at evaluation time. A
+  `DriverContext` whose `geo` does not belong to its `star` fails closed through the driver's
+  ordinary `ok=false` diagnostic, without terminating.
+
+**Out of the ADR-0003 contract, unchanged:** `RotationSolver`'s bracket/`omega_bar` acceleration
+caches (algorithm-local, cannot outlive their own solve), `TOVSolver`'s EOS splines and
+`gsl_interp_accel` (keyed to the imported EOS table, not to a profile), and the
+`TimeSeriesObserver` name→pointer maps (bookkeeping, not scientific state). No provenance hazard
+was demonstrated for any of them.
+
 - **No driver dependency graph.** `IDriver::DependsOn()` / `Updates()` are declared, overridden
   by every driver, and **never called**. `EvolutionSystem.cpp:125-134` iterates in registration
   order. The comment at `IDriver.hpp:102-103` referring to an "Evolution graph" is stale.
@@ -262,13 +285,13 @@ Recorded for Phase 5. **Not repaired here.**
   complete and agree to 4.3e-6. Cause undiagnosed; recorded in
   `docs/validation/PASSIVE_COOLING_BASELINE.md`. A stiff method with a real Jacobian is the likely
   long-term answer, and `MSBDF` remains unavailable until one exists.
-- **Heat-capacity cache key omits the geometry** — `StarContext::HeatCapacityStar_Tinf` accepts an
-  optional `GeometryCache` and falls back to a locally constructed one
-  (`StarContext.cpp:754-755`), but keys its cache only on `(profile version, thermo pointer)`
-  (`:712-714`). A later call at the same profile version with a different `GeometryCache` silently
-  reuses the earlier table (INV-12). Confirmed in Phase 2B-3 at **50 %** error against the truth
-  computed through a fresh context.
-- **Canonical-baseline exposure — NONE.** `passive_cooling_regression` now asserts, on every one
+- **Heat-capacity cache key — ✅ REPAIRED (Phase 3B, ADR-0003).** The key was
+  `(profile version, thermo pointer)` while the supplied `GeometryCache` was a genuine input, so a
+  later call at the same profile version with a different geometry silently reused the earlier
+  table — measured at **50 %** error in Phase 2B-3. The key now includes the geometry's
+  provenance, and a supplied geometry belonging to a different profile or revision **fails
+  closed**. See the cache contract above.
+- **Canonical-baseline exposure — NONE, and now additionally protected by the contract above.** `passive_cooling_regression` now asserts, on every one
   of 602 driver-context observations in the canonical run, that exactly one profile version, one
   `GeometryCache`, one `StarContext` and one `CompOSE_Thermo` are in play from start to finish.
   Every hazard above needs either a structural mutation during evolution or a cache/driver reused

@@ -33,4 +33,10 @@ std::uint64_t ProfileVersion(const StarContext &sc)
 	return sc.ProfileVersion();
 }
 
+//--------------------------------------------------------------
+ProfileProvenance ProfileProvenanceOf(const StarContext &sc)
+{
+	return sc.Provenance();
+}
+
 } // namespace CompactStar::Physics::Evolution

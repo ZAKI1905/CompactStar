@@ -114,6 +114,12 @@ namespace CompactStar::Physics::Evolution
 // --------------------
 // Helpers
 // --------------------
+ProfileProvenance StarContext::Provenance() const
+{
+	return ProfileProvenance{m_prof, ProfileVersion()};
+}
+
+//--------------------------------------------------------------
 std::uint64_t StarContext::ProfileVersion() const
 {
 	if (!m_prof)
@@ -175,7 +181,7 @@ double StarContext::ExpNuSurface() const
 //==============================================================
 
 //--------------------------------------------------------------
-void StarContext::BindColumnsOrThrow_()
+void StarContext::BindColumnsOrThrow_() const
 {
 	// Mandatory geometry
 	m_r = m_prof->GetRadius();
@@ -226,6 +232,14 @@ void StarContext::ValidateOrThrow_()
 //--------------------------------------------------------------
 const Zaki::Vector::DataColumn *StarContext::MassDensity_gcm3() const
 {
+	// ADR-0003: refresh BEFORE testing IsValid(). IsValid() is a POST-binding predicate,
+	// so consulting it first is the same wrong order as the H5 rebind hazard: after a
+	// failed re-bind it would short-circuit the retry and let the context degrade
+	// silently to nullptr instead of failing closed. The constructor already throws when
+	// r/m are absent, so IsValid() can only become false via a failed re-bind — this
+	// reorder therefore cannot change behavior for any validly constructed context.
+	RefreshDerivedCachesIfNeeded_();
+
 	if (!IsValid())
 		return nullptr;
 
@@ -233,16 +247,14 @@ const Zaki::Vector::DataColumn *StarContext::MassDensity_gcm3() const
 	if (!m_eps)
 		return nullptr;
 
-	RefreshDerivedCachesIfNeeded_();
-
 	return m_rho_gcm3.get();
 }
 
 //--------------------------------------------------------------
 void StarContext::RefreshDerivedCachesIfNeeded_() const
 {
-	// If the profile is not valid, do not attempt to build derived caches.
-	if (!IsValid())
+	// No profile bound at all: nothing to do, and nothing to fail about.
+	if (!m_prof)
 		return;
 
 	const auto v = ProfileVersion();
@@ -250,6 +262,15 @@ void StarContext::RefreshDerivedCachesIfNeeded_() const
 	// If profile changed since last snapshot, invalidate derived caches.
 	if (v != m_cached_version)
 	{
+		// ADR-0003 (S1) — ORDER IS LOAD-BEARING. Re-bind the column views FIRST: a
+		// sanctioned mutation may have reallocated or replaced column storage, so the
+		// pointers bound at construction can be stale. BindColumnsOrThrow_ throws if the
+		// profile no longer satisfies the required schema; because m_cached_version is
+		// advanced only at the very end of this block, a throw leaves the context marked
+		// out-of-date rather than falsely current, and the next call retries. There is no
+		// window in which the version says "fresh" while the views are stale.
+		BindColumnsOrThrow_();
+
 		// Invalidate mass density cache
 		m_rho_gcm3.reset();
 
@@ -267,6 +288,15 @@ void StarContext::RefreshDerivedCachesIfNeeded_() const
 		// Update cached version
 		m_cached_version = v;
 	}
+
+	// The revision check above deliberately precedes this guard. If a sanctioned mutation
+	// leaves the profile without its required columns, BindColumnsOrThrow_ throws and
+	// m_cached_version is never advanced, so EVERY later access re-attempts the re-bind and
+	// throws again. Placing an IsValid() early-return ahead of that block would instead let
+	// the context degrade silently to "unusable" after the first failure — returning nulls
+	// rather than failing closed. (Caught by cache_contract P4b.)
+	if (!IsValid())
+		return;
 
 	// Build on demand
 	if (!m_rho_gcm3 && m_eps)
@@ -600,10 +630,17 @@ void StarContext::BuildDirectUrcaMaskCache_() const
 // Cache invalidation is based on StarProfile versioning.
 const std::vector<std::uint8_t> *StarContext::DirectUrcaMask() const
 {
+	// ADR-0003: refresh BEFORE testing IsValid(). IsValid() is a POST-binding predicate,
+	// so consulting it first is the same wrong order as the H5 rebind hazard: after a
+	// failed re-bind it would short-circuit the retry and let the context degrade
+	// silently to nullptr instead of failing closed. The constructor already throws when
+	// r/m are absent, so IsValid() can only become false via a failed re-bind — this
+	// reorder therefore cannot change behavior for any validly constructed context.
+	RefreshDerivedCachesIfNeeded_();
+
 	if (!IsValid())
 		return nullptr;
 
-	RefreshDerivedCachesIfNeeded_();
 
 	return m_durca_mask.get();
 }
@@ -613,10 +650,17 @@ const std::vector<std::uint8_t> *StarContext::DirectUrcaMask() const
 // Returns -1 if mask unavailable or no region allows DU.
 long StarContext::DirectUrcaLastAllowedIndex() const
 {
+	// ADR-0003: refresh BEFORE testing IsValid(). IsValid() is a POST-binding predicate,
+	// so consulting it first is the same wrong order as the H5 rebind hazard: after a
+	// failed re-bind it would short-circuit the retry and let the context degrade
+	// silently to nullptr instead of failing closed. The constructor already throws when
+	// r/m are absent, so IsValid() can only become false via a failed re-bind — this
+	// reorder therefore cannot change behavior for any validly constructed context.
+	RefreshDerivedCachesIfNeeded_();
+
 	if (!IsValid())
 		return -1;
 
-	RefreshDerivedCachesIfNeeded_();
 
 	return m_durca_last_allowed;
 }
@@ -625,10 +669,17 @@ long StarContext::DirectUrcaLastAllowedIndex() const
 // Radius (km) at the last allowed index, or 0 if not available.
 double StarContext::DirectUrcaBoundaryRadius_km() const
 {
+	// ADR-0003: refresh BEFORE testing IsValid(). IsValid() is a POST-binding predicate,
+	// so consulting it first is the same wrong order as the H5 rebind hazard: after a
+	// failed re-bind it would short-circuit the retry and let the context degrade
+	// silently to nullptr instead of failing closed. The constructor already throws when
+	// r/m are absent, so IsValid() can only become false via a failed re-bind — this
+	// reorder therefore cannot change behavior for any validly constructed context.
+	RefreshDerivedCachesIfNeeded_();
+
 	if (!IsValid())
 		return 0.0;
 
-	RefreshDerivedCachesIfNeeded_();
 
 	return m_durca_boundary_r_km;
 }
@@ -709,10 +760,24 @@ double StarContext::HeatCapacityStar_Tinf(double Tinf_MeV,
 	// Ensure derived caches are in sync with profile version
 	RefreshDerivedCachesIfNeeded_();
 
-	// Build/rebuild if needed
+	// ADR-0003 §10: a caller-supplied GeometryCache must belong to THIS profile at its
+	// current revision. Silently substituting a locally built geometry would discard what
+	// the caller explicitly asked for, so a mismatch fails closed.
+	const ProfileProvenance here = Provenance();
+	if (geo && geo->Provenance() != here)
+		throw std::runtime_error(
+			"StarContext::HeatCapacityStar_Tinf: the supplied GeometryCache was built from a "
+			"different StarProfile or a different profile revision than this StarContext "
+			"currently holds. Rebuild the GeometryCache from this context (ADR-0003).");
+
+	// Build/rebuild if needed. The geometry participates in the validity condition through
+	// its PROVENANCE: an equivalent geometry rebuilt for the same (profile, version) is
+	// interchangeable and must not force a rebuild (ADR-0003 §11).
+	const ProfileProvenance geo_prov = geo ? geo->Provenance() : here;
 	if (!m_cv_cache.loaded ||
 		m_cv_cache.prof_version != ProfileVersion() ||
-		m_cv_cache.thermo_tag != static_cast<const void *>(&thermo))
+		m_cv_cache.thermo_tag != static_cast<const void *>(&thermo) ||
+		m_cv_cache.geo_prov != geo_prov)
 	{
 		BuildHeatCapacityCache_(thermo, geo);
 	}
@@ -780,6 +845,12 @@ void StarContext::BuildHeatCapacityCache_(const CompactStar::EOS::CompOSE_Thermo
 	cache.loaded = true;
 	cache.prof_version = ProfileVersion();
 	cache.thermo_tag = static_cast<const void *>(&thermo);
+	// ADR-0003: record which geometry this table was integrated against. This MUST be set on
+	// the local object that is moved into m_cv_cache at the end of the function — assigning
+	// to m_cv_cache earlier is silently discarded by that move, which would make the
+	// validity condition mismatch on every call and rebuild the whole 160-point table each
+	// time (~100x slowdown, caught by the passive-cooling regression timing out).
+	cache.geo_prov = G->Provenance();
 	cache.last_i = 0;
 
 	cache.Tinf_MeV = LogSpace(Tinf_min, Tinf_max, NT);

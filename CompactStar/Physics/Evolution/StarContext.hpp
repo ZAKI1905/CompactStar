@@ -40,6 +40,7 @@
 // #include <Zaki/Vector/DataSet.hpp>
 #include <cstddef>
 #include <cstdint>
+#include "CompactStar/Physics/Evolution/ProfileProvenance.hpp"
 #include <memory>
 #include <vector>
 
@@ -192,8 +193,16 @@ class StarContext
 	// Convenience: current version from profile
 	std::uint64_t ProfileVersion() const;
 
+	/**
+	 * @brief Current provenance of the bound profile: (identity, version).
+	 *
+	 * ADR-0003. A derived snapshot records this at construction; a consumer compares its
+	 * recorded token against this to decide whether the snapshot still applies.
+	 */
+	[[nodiscard]] ProfileProvenance Provenance() const;
+
   private:
-	void BindColumnsOrThrow_(); // sets m_r/m_m/m_nu/m_lam/m_nb/m_pre/m_eps
+	void BindColumnsOrThrow_() const; // sets m_r/m_m/m_nu/m_lam/m_nb/m_pre/m_eps
 	void ValidateOrThrow_();	// checks consistent row counts for required cols
 
 	// Derived cache helpers
@@ -216,13 +225,16 @@ class StarContext
 
 	// Non-owning cached pointers to frequently accessed columns (set in ctor).
 
-	const Zaki::Vector::DataColumn *m_r = nullptr;	 ///< r(km)
-	const Zaki::Vector::DataColumn *m_m = nullptr;	 ///< m(km)
-	const Zaki::Vector::DataColumn *m_nu = nullptr;	 ///< nu
-	const Zaki::Vector::DataColumn *m_lam = nullptr; ///< lambda
-	const Zaki::Vector::DataColumn *m_nb = nullptr;	 ///< nB(fm^-3)
-	const Zaki::Vector::DataColumn *m_pre = nullptr; ///< p (km^-2)
-	const Zaki::Vector::DataColumn *m_eps = nullptr; ///< eps (km^-2)
+	// ADR-0003 (S1): these views are RE-BOUND when the bound profile's revision changes,
+	// so they are mutable — the re-bind happens inside the const refresh path, before any
+	// cached view or payload may be used.
+	mutable const Zaki::Vector::DataColumn *m_r = nullptr;	 ///< r(km)
+	mutable const Zaki::Vector::DataColumn *m_m = nullptr;	 ///< m(km)
+	mutable const Zaki::Vector::DataColumn *m_nu = nullptr;	 ///< nu
+	mutable const Zaki::Vector::DataColumn *m_lam = nullptr; ///< lambda
+	mutable const Zaki::Vector::DataColumn *m_nb = nullptr;	 ///< nB(fm^-3)
+	mutable const Zaki::Vector::DataColumn *m_pre = nullptr; ///< p (km^-2)
+	mutable const Zaki::Vector::DataColumn *m_eps = nullptr; ///< eps (km^-2)
 
 	// -------- derived caches (owned by StarContext) --------
 	mutable std::uint64_t m_cached_version = 0;
@@ -243,6 +255,12 @@ class StarContext
 
 		std::uint64_t prof_version = 0;	  // profile version snapshot
 		const void *thermo_tag = nullptr; // pointer identity of thermo used to build this cache
+
+		// ADR-0003: the GeometryCache is a genuine input to BuildHeatCapacityCache_, so it
+		// belongs in the validity condition. Keyed on the geometry's PROVENANCE, not on the
+		// address of the GeometryCache object: an equivalent geometry rebuilt for the same
+		// (profile, version) is interchangeable and must not force a rebuild (ADR-0003 §11).
+		ProfileProvenance geo_prov{};
 
 		std::vector<double> Tinf_MeV; // grid (MeV)
 		std::vector<double> C_star;	  // integrated heat capacity on the grid

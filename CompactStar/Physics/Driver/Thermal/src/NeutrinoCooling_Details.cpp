@@ -895,6 +895,17 @@ NeutrinoCooling_Details NeutrinoCooling_Details::ComputeDerived(const NeutrinoCo
 		return d;
 	}
 
+	// ADR-0003 §13: never compute a luminosity from a mismatched profile/geometry pair.
+	// Fail closed through the driver's existing diagnostic mechanism — no termination.
+	if (ctx.geo && !ctx.geo->Matches(*ctx.star))
+	{
+		d.ok = false;
+		d.message = "GeometryCache provenance does not match ctx.star (different StarProfile "
+					"or revision). Rebuild the GeometryCache from the current context "
+					"(ADR-0003).";
+		return d;
+	}
+
 	// Star-integrated heat capacity cache: C(Tinf)
 	d.C_eff_erg_K = ctx.star->HeatCapacityStar_Tinf(Tinf_MeV, *ctx.thermo, ctx.geo);
 
@@ -1030,6 +1041,18 @@ void Diagnose(const NeutrinoCooling &self,
 const NeutrinoCoolingCachePayload &
 NeutrinoCooling::Cache_(const Evolution::DriverContext &ctx) const
 {
+	// ADR-0003: the payload depends on the geometry as well as on the profile. The generic
+	// ProfileVersionedCache tracks profile provenance only, so the geometry half of the
+	// validity condition is enforced here: if the geometry snapshot backing the cached
+	// coefficients is no longer the one supplied, drop the payload before asking for it.
+	const Evolution::ProfileProvenance geo_prov =
+		ctx.geo ? ctx.geo->Provenance() : Evolution::ProfileProvenance{};
+	if (geo_prov != cached_geo_prov_)
+	{
+		cache_.Invalidate();
+		cached_geo_prov_ = geo_prov;
+	}
+
 	// Builder lambda lives in this .cpp.
 	return cache_.Get(*ctx.star, [&](const Evolution::StarContext &sc,
 									 NeutrinoCoolingCachePayload &out)
