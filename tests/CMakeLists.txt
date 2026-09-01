@@ -67,10 +67,16 @@ if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
              COMMAND heat_capacity_real_star "${COMPACTSTAR_EOS_DATA_ROOT}")
     set_tests_properties(heat_capacity_real_star PROPERTIES
         LABELS "thermal;external-data;scientific")
-    # Phase-2B passive-cooling regression harness. Built here; registered as a CTest in
-    # the immediately following commit, together with its golden baseline.
+    # Phase-2B passive-cooling regression baseline (GOVERNANCE.md §3.1 condition 7).
+    # Requires the authenticated external CMF tables; ~11 s runtime.
     add_executable(passive_cooling_regression thermal/passive_cooling_regression.cpp)
     target_link_libraries(passive_cooling_regression PRIVATE CompactStar)
+    add_test(NAME passive_cooling_regression
+             COMMAND passive_cooling_regression "${COMPACTSTAR_EOS_DATA_ROOT}"
+                     --compare
+                     "${CMAKE_CURRENT_SOURCE_DIR}/baselines/passive_cooling_cmf_1p6_debug.tsv")
+    set_tests_properties(passive_cooling_regression PROPERTIES
+        LABELS "thermal;scientific;external-data;regression")
 
     message(STATUS "CompactStar: Tier-B thermal test enabled (EOS data root supplied)")
 else()

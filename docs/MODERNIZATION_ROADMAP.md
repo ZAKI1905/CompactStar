@@ -186,10 +186,9 @@ baseline must follow immediately, with no unrelated work in between.
 
 ## Phase 2B — Validation baseline
 
-**Status: ACTIVE — and §3.1 condition 7 is OVERDUE.** The Phase-2A correction was permitted only
-on the undertaking that a baseline follow at once. Increment 2B-1 attempted it and was **blocked**
-by a pre-existing integrator defect (see below). **No unrelated modernization item may begin until
-condition 7 is discharged.**
+**Status: ACTIVE.** `GOVERNANCE.md` §3.1 **condition 7 is SATISFIED** — the passive-cooling
+regression baseline landed in increment 2B-1R, together with the integrator repair it required.
+Other Phase-2B items remain outstanding, so the phase stays active.
 
 **Prerequisite:** Phase 2A complete. ✅ **SATISFIED** — increments 2A-1 through 2A-3.
 
@@ -206,17 +205,18 @@ expands that plumbing into the actual scientific baseline.
   *complete* coupled observable (TOV → Hartle → cooling) is **measured by this harness, not
   assumed from the interpolation scheme.**
 - Cache-correctness checks (INV-12).
-- ⛔ **Passive cooling regression — ATTEMPTED, BLOCKED (2B-1).** It would capture the now coherent
-  `C_⋆(T∞) dT∞/dt = −L_ν,∞ − L_γ,∞`, and the harness
-  (`tests/thermal/passive_cooling_regression.cpp`) is written against production APIs and builds.
-  **It cannot run**: the default `MSBDF` stepper is implicit while `GSLIntegrator` supplies a null
-  Jacobian, so the authenticated live configuration segfaults. No golden values were frozen and no
-  CTest was registered. **`GOVERNANCE.md` §3.1 condition 7 is still outstanding.** Repairing the
-  integrator is a numerical-method change and must precede the baseline. See
+- ✅ **Passive cooling regression — COMPLETE (2B-1, blocked → 2B-1R, established).** Captures the
+  coherent `C_⋆(T∞) dT∞/dt = −L_ν,∞ − L_γ,∞` on the authenticated 1.6 M☉ CMF star over
+  100 yr → 1 Myr: nine log-spaced epochs, one continuous integration, energy identity closing to
+  2.1e-16, state tolerance 1e-5 derived from measurement, and a 1% photon perturbation caught
+  1000× over. Golden values in `tests/baselines/passive_cooling_cmf_1p6_debug.tsv`; CTest
+  `passive_cooling_regression` (labels `thermal;scientific;external-data;regression`), registered
+  only when `COMPACTSTAR_EOS_DATA_ROOT` is supplied. **`GOVERNANCE.md` §3.1 condition 7 is
+  SATISFIED.** Required first repairing two pre-existing defects — an unusable `MSBDF` default
+  with no Jacobian, and an `EvolutionSystem` block that made a Spin state mandatory. Evidence:
   `docs/validation/PASSIVE_COOLING_BASELINE.md`.
-  When it lands it remains a regression baseline, not a physics validation: the neutrino
-  emissivity normalizations are still self-labeled placeholders
-  (`NeutrinoCooling_Details.cpp:100-102`).
+  It remains a regression baseline, **not** a physics validation: the neutrino emissivity
+  normalizations are still self-labeled placeholders (`NeutrinoCooling_Details.cpp:100-102`).
 
 **Exit criteria.** Baselines exist and run; a regression is detectable.
 

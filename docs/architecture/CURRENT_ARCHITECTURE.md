@@ -68,7 +68,9 @@ EvolutionSystem                   LIVE — plain registration-order loop
    └─ PhotonCooling       LIVE      L_γ ÷ C_⋆(T∞)  ← same denominator
                                     CONFORMING with ADR-0002 (Pattern A)
    ↓
-GSLIntegrator (MSBDF, rtol 1e-6 / atol 1e-10)       LIVE
+GSLIntegrator (RKF45, rtol 1e-6 / atol 1e-10)       LIVE
+   │   default was MSBDF and unusable — implicit, no Jacobian (Phase 2B-1R)
+   │   MSBDF now REJECTED with a diagnostic until Jacobian support exists
    ↓
 TimeSeriesObserver + DiagnosticsObserver            LIVE
 ```
@@ -223,19 +225,13 @@ Recorded for Phase 5. **Not repaired here.**
   dereference `ctx.star` in its `HeatCapacityStar_Tinf` call twelve lines before the
   `if (!ctx.star)` guard, which therefore could never fire. The guard now precedes first use.
   No emissivity, rate, cache, option, or numerical constant changed.
-- **The default integrator configuration crashes.** `EvolutionConfig.hpp:162` defaults
-  `stepper` to `MSBDF`, an implicit BDF method mapped to `gsl_odeiv2_step_msbdf`
-  (`GSLIntegrator.cpp:59`), while `GSLIntegrator.cpp:334` hard-codes
-  `sys.jacobian = nullptr`. GSL invokes the null Jacobian, execution jumps to `0x0`, and the
-  process dies with `SIGSEGV`. **This affects any run that does not override the stepper,
-  including `main/Test/spin_therm_evol_2_main.cpp`**, which sets none. Pre-existing since the
-  integrator was added. Discovered during Phase 2B-1; it blocks the passive-cooling baseline
-  (`docs/validation/PASSIVE_COOLING_BASELINE.md`).
-- **`EvolutionSystem` cannot run a thermal-only state.** `EvolutionSystem.cpp:103-112`
-  unconditionally calls `m_state.GetSpin()` inside a block whose only consumer is commented-out
-  logging, so a `StateVector` without a registered `Spin` block throws
-  `requested tag 'Spin' is not registered`. A vestige of removed debug code, not a physics
-  requirement.
+- **Stiff early transient, explicit stepper.** `T∞` falls from `1e9 K` to `1.2e7 K` between 100
+  and ~300 yr under the placeholder neutrino normalizations, so the passive system is effectively
+  stiff there. The default `RKF45` is adequate on measured evidence, but one output cadence
+  (`samples_per_decade = 300`) produces a non-finite state in that window while 50–250 and 400 all
+  complete and agree to 4.3e-6. Cause undiagnosed; recorded in
+  `docs/validation/PASSIVE_COOLING_BASELINE.md`. A stiff method with a real Jacobian is the likely
+  long-term answer, and `MSBDF` remains unavailable until one exists.
 - **Heat-capacity cache key omits the geometry** — `StarContext::HeatCapacityStar_Tinf` accepts an
   optional `GeometryCache` and falls back to a locally constructed one
   (`StarContext.cpp:754-755`), but keys its cache only on `(profile version, thermo pointer)`
@@ -341,9 +337,12 @@ Re-authenticated at **`11ffe45`** after roadmap Phase 1. Full evidence and comma
 - It does **not** claim the O(Ω) solver is numerically correct. It is live and untested, and
   its normalization is unresolved (INV-07).
 - It does **not** claim placeholder emissivities represent real microphysics.
-- It does **not** claim a passive-cooling regression baseline exists. The thermal equation is now
-  coherent, but **no baseline has been captured**: Phase 2B-1 was blocked by the default-stepper
-  defect above. `GOVERNANCE.md` §3.1 condition 7 remains outstanding.
+- It does **not** claim the passive-cooling regression validates the physics. A regression
+  baseline now exists (`tests/baselines/passive_cooling_cmf_1p6_debug.tsv`, CTest
+  `passive_cooling_regression`, requiring the authenticated external CMF data), and
+  `GOVERNANCE.md` §3.1 condition 7 is satisfied — but the neutrino emissivity normalizations it
+  freezes are self-labelled placeholders, so it detects change, not correctness.
+- It does **not** claim CI exists. The regression must be run by hand.
 - It does **not** claim the corrected cooling *trajectory* has been validated. Only the denominator
   identity and the verified `C_⋆(T∞)` are established; the neutrino emissivity normalizations
   remain self-labelled placeholders.

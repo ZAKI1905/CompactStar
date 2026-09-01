@@ -425,7 +425,7 @@ repository has no test suite. See *Numerical validation* below.
 | **Governing physics** | ✅ **RESOLVED** — ADR-0002, one canonical `C_⋆(T∞)` |
 | **Source conformance** | ✅ **COMPLETE** — `PhotonCooling` divides by `C_⋆(T∞)`; the driver-local `C_eff` option is removed (roadmap Phase 2A-3) |
 | **Numerical validation (V1)** | ✅ **COMPLETE** — `docs/validation/HEAT_CAPACITY_V1.md`, **V1 VERIFIED** |
-| **Phase-2B regression baseline** | ⛔ **BLOCKED** — `GOVERNANCE.md` §3.1 condition 7 remains **outstanding**. The authenticated live configuration cannot execute: `Config::stepper` defaults to `MSBDF` (implicit) while `GSLIntegrator` supplies `sys.jacobian = nullptr`, so GSL calls a null pointer and the run segfaults. Pre-existing, unrelated to the ADR-0002 correction. See `docs/validation/PASSIVE_COOLING_BASELINE.md` |
+| **Passive-cooling regression baseline** | ✅ **COMPLETE** — `GOVERNANCE.md` §3.1 condition 7 **SATISFIED**. Golden values at `tests/baselines/passive_cooling_cmf_1p6_debug.tsv`, nine epochs from 100 yr to 1 Myr, energy identity closing to 2.1e-16, state tolerance 1e-5. See `docs/validation/PASSIVE_COOLING_BASELINE.md`. **Regression only — the neutrino `Q0` normalizations remain placeholders and this validates no neutrino microphysics.** |
 
 **Source conformance detail.**
 

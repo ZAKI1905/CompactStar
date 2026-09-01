@@ -1,0 +1,68 @@
+# CompactStar passive-cooling regression baseline
+# schema_version	2
+#
+# ============================ NOT A PHYSICS VALIDATION ======================
+# REGRESSION baseline only. The neutrino emissivity normalizations frozen here
+# are SELF-LABELLED PLACEHOLDERS in source: Q0_DU = 1.0e27, Q0_MU = 1.0e21
+# (NeutrinoCooling_Details.cpp, "Placeholder normalizations"). A scientifically
+# justified change to them is EXPECTED to move every value below and must be
+# separately reviewed and re-baselined. Nothing here validates neutrino physics.
+# ===========================================================================
+#
+# --- provenance ---
+# source_commit	800f24522bf7fc56387c2288e38c7906c1b54fcc (+ Phase-2B-1R repair)
+# build_configuration	Debug
+# compiler	AppleClang 17.0.0.17000604
+# gsl_version	2.7.1
+#
+# --- numerical method (the metadata hole the Jan-2026 run exposed) ---
+# stepper	RKF45
+# integration	single continuous Integrate(t0,t1)
+# rtol	1.000000000000e-06
+# atol	1.000000000000e-10
+# save_cadence	LogTime
+# samples_per_decade	1.500000000000e+02
+#
+# --- EOS provenance (dual representation) ---
+# eos_structural	CMF #1 EoS with crust (official CompOSE), PROCESSED .eos
+# sha256_processed_eos	5747dd73256c0c28bc56be337cbb96d0918a54bc9ed9fc40984c5befd47ae5dd
+# sha256_cold_raw_eos_thermo	416444999ccac569e2c9b34808888949c36d759f30cce25dab0d42c13e900ce3
+# sha256_cold_raw_eos_nb	d9c8e78c2fcf37fe770fecfc2d3a211d840a28299821a56c77e66f9ff74edef8
+# sha256_cold_raw_eos_t	1a37b9563c40962b203e7bca1aa3b41e8c8b1427953df68095a51dd2cc17ff96
+# sha256_cold_raw_eos_yq	1a37b9563c40962b203e7bca1aa3b41e8c8b1427953df68095a51dd2cc17ff96
+# eos_thermo	CMF hadronic EoS with electrons (official CompOSE), RAW tables
+# sha256_thermo_eos_thermo	a456fb8595208ddf3119350a856fbf2b906c0a0e19bb7c716571748d0aa0724b
+# sha256_thermo_eos_nb	3f79dbcc6f8b519696377f89ebc86464bc55cd61d9e2459f6e21e2d9e00f380d
+# sha256_thermo_eos_t	2e4c6ec1feb85b16d0ee7036dce183782a9f681577e79c72315171069aa8513d
+# sha256_thermo_eos_yq	d98fcd2f7752039c552c2ef2d04ab485b75db47a61f8ae1740875b54bf9824fd
+#
+# --- star (structural fingerprint) ---
+# requested_mass_Msun	1.600000000000e+00
+# achieved_mass_Msun	1.599975834172e+00
+# radius_km	1.346832307596e+01
+# central_eps	7.312533426775e+14
+# radial_points	2635
+# profile_version	5
+#
+# --- thermal configuration ---
+# Tinf_initial_K	1.000000000000e+09
+# t0_yr	1.000000000000e+02
+# t1_yr	1.000000000000e+06
+# envelope	EnvelopeTbTs / Potekhin1997 Iron / xi=0 / rho_b=1e10
+# photon	radiating_fraction=1, global_scale=1, C_star from StarContext
+# neutrino	DU=on, MU=on, PBF=off, global_scale=1
+# state	THERMAL ONLY (no SpinState). Spin verified bit-identically decoupled.
+#
+# --- tolerances applied by the regression ---
+# tol_state	1.000000000000e-05
+# tol_luminosity	1.000000000000e-04
+t_yr	Tinf_K	C_star_erg_K	L_nu_inf_erg_s	L_nu_DU_inf_erg_s	L_nu_MU_inf_erg_s	L_gamma_inf_erg_s	Tsurf_K	Tb_K	dLnTinf_dt_1_s	Lnu_over_Lgamma
+1.000000000000e+02	1.000000000000e+09	2.427415716799e+39	4.452680016590e+45	4.452652792623e+45	2.722396690425e+40	2.286617974022e+36	7.225153678548e+06	1.244143443096e+09	-1.834329401454e-03	1.947277624499e+09
+3.019951720402e+02	1.208661645218e+07	2.934017119236e+37	1.388184772129e+34	1.388184770889e+34	1.239907634441e+25	5.228427443443e+31	4.996218890472e+05	1.503748460819e+07	-3.929276003518e-11	2.655071313785e+02
+1.000000000000e+03	8.307535493452e+06	2.015999103203e+37	1.463699970526e+33	1.463699969909e+33	6.176309514360e+23	2.110164683010e+31	3.982243144018e+05	1.033576581246e+07	-8.865554254653e-12	6.936425305148e+01
+3.019951720402e+03	6.168097676949e+06	1.497190380977e+37	2.452032862476e+32	2.452032861906e+32	5.703761379179e+22	1.026501574452e+31	3.325742272558e+05	7.673998281151e+06	-2.766360346108e-12	2.388727814455e+01
+1.000000000000e+04	4.496566686614e+06	1.091857998793e+37	3.680485092667e+31	3.680485092212e+31	4.549877638261e+21	4.777115332276e+30	2.746882719939e+05	5.594373959594e+06	-8.469500988103e-13	7.704409118617e+00
+3.019951720402e+04	3.310461889200e+06	8.037479679016e+36	5.860712083327e+30	5.860712082935e+30	3.926993193333e+20	2.276795408489e+30	2.282336561573e+05	4.118689453067e+06	-3.058319972732e-13	2.574105719589e+00
+1.000000000000e+05	2.242118839746e+06	5.442063212981e+36	5.656797062582e+29	5.656797062408e+29	1.738683094698e+19	8.867220180967e+29	1.802999302998e+05	2.789517453112e+06	-1.190322234026e-13	6.379448065048e-01
+3.019951720402e+05	1.329027695749e+06	3.226881775112e+36	2.453708793222e+28	2.453708793196e+28	2.649864450573e+17	2.501185883032e+29	1.313969177647e+05	1.653501093359e+06	-6.404297429884e-14	9.810181681691e-02
+1.000000000000e+06	4.669660596398e+05	1.133676415825e+36	4.616690144545e+25	4.616690144539e+25	6.155083319477e+13	1.990050410146e+28	6.978542136721e+04	5.809727612491e+05	-3.767870748806e-14	2.319886029524e-03

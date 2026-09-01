@@ -475,12 +475,13 @@ repaired in the same increment.
 
 The Context, Evidence, Rejected-current-behavior and Consequences sections above are **left
 unchanged as the historical record of why the correction was required** — they describe the state
-of the code at acceptance, not today's. `GOVERNANCE.md` §3.1 condition 7 (a regression baseline
-immediately afterward) is the one obligation still outstanding. Phase 2B-1 attempted it and was
-**blocked**: the authenticated live configuration cannot execute because `Config::stepper` defaults
-to `MSBDF` while `GSLIntegrator` passes a null Jacobian. That defect is pre-existing and unrelated
-to this ADR; it must be repaired as its own numerical-method change before the baseline can be
-frozen. See `docs/validation/PASSIVE_COOLING_BASELINE.md`.
+of the code at acceptance, not today's. **`GOVERNANCE.md` §3.1 condition 7 — SATISFIED.** Phase 2B-1 was blocked by two pre-existing
+defects unrelated to this ADR (an unusable `MSBDF` default with no Jacobian, and an
+`EvolutionSystem` block that made a Spin state mandatory). Both were repaired in Phase 2B-1R, and
+the passive-cooling regression baseline was established immediately afterward:
+`tests/baselines/passive_cooling_cmf_1p6_debug.tsv`, CTest `passive_cooling_regression`, evidence
+in `docs/validation/PASSIVE_COOLING_BASELINE.md`. Every §3.1 condition for the Phase-2A-3
+correction is now discharged.
 
 **Post-acceptance clarification, 2026-08-31 (editorial).** During the Phase-0.5 governance
 coherence audit, two statements of *numerical* wording in this ADR — the radial-quadrature row of
