@@ -3,9 +3,22 @@
 > **STATUS: DESCRIPTIVE.** Authoritative for component boundaries and ownership
 > (`GOVERNANCE.md` authority rank 6). Describes **only** behavior that is compiled and reachable.
 >
-> **Base commit:** `9f70f14` (`master` merge of owner work `3639d71` + April candidate `675b4a9`).
-> Evidence for non-`RotationSolver`/`MixedStar` components derives from the `d91c31b` audit; see
-> `docs/reconnaissance/2026-08-31-phase-0-reconnaissance.md` §N.
+> **Current snapshot:** `11ffe45` — the head of roadmap Phase 1 (increments 1A–1D).
+>
+> **Evidence scope is deliberately mixed, and the layers must not be conflated:**
+>
+> | Claim area | Authenticated at | How |
+> |---|---|---|
+> | Build, configuration, warning policy, test plumbing (§5) | **`11ffe45`** | Re-authenticated during this Phase-1 sync against the actual CMake files and a clean configure/build/test |
+> | `RotationSolver` merge integrity and buildability | **`57334d8`** | Re-authenticated during Phase 1B against the three-way merge `9f70f14` = `3639d71` + `e60e656` |
+> | Everything else — EOS, TOV, Evolution, Drivers, Microphysics, caches | `9f70f14`, from the `d91c31b` audit | Phase-0 reconnaissance; see `docs/reconnaissance/2026-08-31-phase-0-reconnaissance.md` |
+>
+> **The repository was not re-audited in full at `11ffe45`.** Phase 1 was a build/test phase and
+> touched no scientific source. Unchanged-subsystem claims still carry their original Phase-0
+> evidence scope and its caveats.
+>
+> **Historical base commit:** `9f70f14` (`master` merge of owner work `3639d71` + April candidate
+> `675b4a9`) — retained because most component-level evidence below still derives from it.
 >
 > For intended design, see [`TARGET_ARCHITECTURE.md`](TARGET_ARCHITECTURE.md). **Do not read
 > intent from this document.**
@@ -76,8 +89,8 @@ TimeSeriesObserver + DiagnosticsObserver            LIVE
 | `MixedStar` | **COMPILED, UNEXERCISED** | No surviving `main/` uses it. Master-grid totals added by `3639d71` |
 | `TOVSolver` | **LIVE** | Two live integration paths — see §3 |
 | `TOVSolver_Thread` | **COMPILED, UNEXERCISED** | Bookkeeping subclass, 124 lines |
-| `RotationSolver` — O(Ω) | **LIVE** | Runs on every star build; feeds `SeqPoint::I` |
-| `RotationSolver` — O(Ω²) | **UNREACHABLE SCAFFOLDING · CANDIDATE** | `rot_solver` private, no accessor |
+| `RotationSolver` — O(Ω) | **LIVE** | Runs on every star build; feeds `SeqPoint::I`. Its profile-backed interpolation path was restored in Phase 1B — see below. **Buildable, not validated** (INV-07) |
+| `RotationSolver` — O(Ω²) | **UNREACHABLE SCAFFOLDING · CANDIDATE** | `rot_solver` private, no accessor. Equations untouched by Phase 1B; still unratified under `GOVERNANCE.md` §5 |
 | `StarBuilder` | **LIVE** | On the file-reading path only |
 | `SeqPoint`, `Prog` | **LIVE** | |
 
@@ -168,6 +181,32 @@ Recorded for Phase 2A. **Not repaired here.**
   `PhotonCooling.cpp:27,36`) documents the constant-`C_eff` equation as the driver's physics and
   becomes wrong on the day the source is corrected.
 
+### `RotationSolver` — Phase-1B merge repair
+
+Recorded because it changes what "LIVE" can mean in this document.
+
+- **Until Phase 1B the library did not compile at all.** Merge `9f70f14` combined owner commit
+  `3639d71` with the candidate lineage `e60e656` and resolved three hunks toward the candidate,
+  leaving `RotationSolver` internally inconsistent: the header lost the owner's ten profile-backed
+  interpolation members and four method declarations while the `.cpp` kept using them;
+  `FindNMomInertia` lost the declarations of `R` and `r`, the start-radius scan, the `P`/`E`/`M`
+  fetches and its `SetFastProfilePtrs_` call; and seven active lines spliced over a dead
+  commented-out function left the file at brace depth 1. Strictly, **no component in this document
+  could have been "compiled and reachable" while that held.**
+- **Phase 1B (`57334d8`) restored the intended union of both parents.** The owner's first-order
+  O(Ω) and MixedStar master-grid machinery from `3639d71` is authoritative and active again; the
+  library compiles and links. The first-order numerical path was verified equivalent to
+  `3639d71` — its 663-line kernel is byte-identical and the repaired `FindNMomInertia` differs
+  from the owner's by additions only, all of them write-only storage.
+- **Nothing was validated by this.** The repair was engineering class. The second-order candidate
+  region is byte-identical to before — no equation, `j²`, `δM`, `dε/dp`, or boundary condition was
+  touched — it remains unreachable (`rot_solver` is private, `SolveHartle2_N` and
+  `GetHartleResult` have no external callers, INV-08 unchanged), and `init_omega_bar` was not
+  touched, so **INV-07 remains unresolved**.
+
+**Buildable and reachable is not numerically validated.** The `LIVE` labels in this document now
+mean what they say; they still make no claim about correctness.
+
 ### `RotochemicalCache` — ADR-0001 nonconformance
 
 Recorded for Phase 5. **Not repaired here.**
@@ -210,15 +249,91 @@ Recorded for Phase 5. **Not repaired here.**
 
 ## 5. Build reality
 
-- **A clean clone cannot configure.** `main/CMakeLists.txt` requires seven gitignored,
-  absent directories.
-- **Non-macOS builds are impossible.** Zaki and Confind ship only as prebuilt
-  `Darwin/{arm64,x86_64}` static archives with no source; configuration hard-fails elsewhere.
-- **`configure_file` writes into the source tree**, so no build is truly out-of-source.
-- **No warning policy, no default optimization, no sanitizers, no assertions.**
-- **No automated tests, no CI.** `main/Test/` is manual demo programs, not a suite.
-- **~84% of tracked files are generated artifacts** — Doxygen output, an Xcode build directory,
-  and ~400 MiB of committed run results including three ~90 MB profiler traces.
+Re-authenticated at **`11ffe45`** after roadmap Phase 1. Full evidence and commands:
+[`docs/build/MACOS_BUILD.md`](../build/MACOS_BUILD.md).
+
+### Configuration and build
+
+- **A clean macOS checkout configures out of source, and the library builds and links.**
+  The seven historical/private program directories (`BNV_2022`, `EOS`, `SpinDown_2022`,
+  `SpinDown_2023`, `BNV_2023`, `BNV_2024`, `LightDM_2024`) are gitignored, absent from a clean
+  checkout, and are now **optional**: each is added only if it carries a `CMakeLists.txt`,
+  otherwise a `STATUS` message is emitted (`main/CMakeLists.txt:7-23`). Tracked
+  `main/Examples` and `main/Test` remain **required** and unconditional (`:28-29`), so a
+  misspelled required directory still fails configure.
+- **Python discovery still needs help on the reference Mac.**
+  `find_package(Python3 COMPONENTS Interpreter Development NumPy REQUIRED)`
+  (`CMakeLists.txt:82`) fails when the first Python CMake finds lacks NumPy. The canonical
+  configure command therefore passes `-DPython3_EXECUTABLE`, or a project `.venv` supplies one.
+- **Builds are genuinely out of source.** `configure_file` writes the generated
+  `CompactStarConfig.h` into the **binary tree** at
+  `${CMAKE_BINARY_DIR}/generated/include/CompactStar/Core/CompactStarConfig.h`
+  (`CMakeLists.txt:110-116`), and that generated root precedes the source root on the include
+  path (`:137`). A fresh configure leaves tracked source state unchanged.
+  **Artifact debt remains:** a stale generated copy is still tracked at
+  `CompactStar/Core/CompactStarConfig.h`, alongside an editor duplicate
+  `CompactStar/Core/CompactStarConfig 2.h`. Both are inert for the build — the binary-tree copy
+  wins — and neither was removed; retiring them is a generated-artifact decision.
+
+### Platform support — unchanged
+
+- **macOS is still the only authenticated development platform.** This repository ships Zaki and
+  Confind as prebuilt static archives for `Darwin/{arm64,x86_64}` only
+  (`dependencies/lib/{Zaki,Confind}/Darwin/…`), and `CMakeLists.txt:95-101` hard-fails when the
+  archive for the host platform is absent. Configuration therefore still fails on other platforms.
+- **Dependency source exists externally but is not integrated here.** Per project-owner authority,
+  ZakiLib (private) and CONFIND (public) exist as external version-controlled repositories. That
+  is **not** the same as authenticated binary equivalence or cross-platform support: their current
+  source revisions have **not** been shown to reproduce the archives CompactStar consumes, and
+  their build contracts have not been authenticated. This repository contains no dependency
+  source, no submodule, no `FetchContent`, and no package-manager integration.
+  **Cross-platform status is unchanged.**
+
+### Build configuration, warnings, diagnostics
+
+- **A default development build type now exists.** `Debug` is selected when the user supplies
+  none, and only for single-configuration generators (`CMakeLists.txt:35-43`); a user-supplied
+  `-DCMAKE_BUILD_TYPE` is never overridden and multi-config generators are untouched.
+  `Debug` is a **development** default, not a production or scientific configuration, and
+  **`Debug` and `Release` are not claimed to be numerically equivalent** — no comparison exists.
+- **A warning policy exists for CompactStar-owned code.** `-Wall -Wextra`, applied **`PRIVATE`**
+  to the `CompactStar` target for AppleClang/Clang/GNU (`CMakeLists.txt:161-166`), so the flags
+  reach neither consumers of the installed library, nor `main/`, nor `tests/`.
+- **Dependency headers are `SYSTEM`-classified** (`CMakeLists.txt:144-149`), so GSL and the
+  vendored Zaki/Confind headers compile with `-isystem` and their diagnostics are excluded from
+  CompactStar's inventory. This suppresses reporting; it does not fix those dependencies.
+- **`-Werror` is not enabled.** A clean `Debug` build succeeds **with warnings**; they were
+  inventoried during Phase 1D and **none was repaired**. Several classes touch scientific/EOS
+  code — hidden overloaded virtuals in the EOS particle hierarchy, VLAs in `SigmaOmegaRho*`, and
+  set-but-unused variables in `TOVSolver` — and require classified review before any change.
+  See [`docs/build/MACOS_BUILD.md`](../build/MACOS_BUILD.md) for the full table.
+- **No sanitizer policy and no assertion policy exist.** Neither has been established; the
+  repository still contains no assertions.
+
+### Automated tests
+
+- **CTest infrastructure exists.** `include(CTest)` at top level provides standard `BUILD_TESTING`
+  and `enable_testing()`; `tests/` is added only when testing is on (`CMakeLists.txt:222-226`).
+- **`tests/` is the canonical automated-test root**, holding exactly **one** test:
+  `compactstar_library_smoke` (`tests/CMakeLists.txt:19`;
+  `tests/smoke/compactstar_library_smoke.cpp`).
+- **`main/Test/` remains manual demo/debug programs**, not a suite. None of its eight executables
+  is registered with CTest.
+- **The smoke test is infrastructure validation, not a scientific baseline.** It establishes that
+  CompactStar headers compile, that a test executable links a genuine out-of-line symbol from
+  `libCompactStar.a` (`CompactStar::Core::Prog::GetName()`, verified present as a defined `T`
+  symbol rather than an unresolved import), that transitive dependencies link, and that the binary
+  runs and exits zero under CTest. **It asserts no scientific value of any kind.**
+  There is no scientific test suite.
+- **No CI exists.** No `.github/`, `.gitlab-ci.yml`, or equivalent is present.
+
+### Tracked-artifact debt — unchanged
+
+- **Generated artifacts still dominate the tracked tree** — Doxygen output, a committed Xcode
+  build directory, and ~400 MiB of committed run results including three ~90 MB profiler traces.
+  The **~84%** figure comes from the Phase-0 reconnaissance and is retained with that evidence
+  scope; it was not recomputed here. Phase 1 added **3** tracked files to a tree of ~2,650, so it
+  cannot have moved the figure materially.
 
 ---
 
@@ -233,3 +348,11 @@ Recorded for Phase 5. **Not repaired here.**
   physical owner; `PhotonCooling` still divides by a constant, and no source correction has landed.
 - It does **not** claim `StarContext::HeatCapacityStar_Tinf` is numerically validated. It is the
   designated implementation of the governed quantity, and it is untested.
+- It does **not** claim the Phase-1B `RotationSolver` repair validated any physics. The library
+  compiles; INV-07 and INV-08 are exactly as unresolved as before.
+- It does **not** claim a scientific test suite exists. One infrastructure smoke test exists, and
+  it asserts no scientific value. Scientific validation is roadmap Phase 2A/2B.
+- It does **not** claim `Debug` is a production or scientifically validated configuration, nor
+  that `Debug` and `Release` agree numerically.
+- It does **not** claim the external ZakiLib/CONFIND repositories constitute cross-platform
+  support. Their revisions have not been shown to reproduce the archives consumed here.
