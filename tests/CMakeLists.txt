@@ -59,6 +59,18 @@ if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
              COMMAND heat_capacity_real_star "${COMPACTSTAR_EOS_DATA_ROOT}")
     set_tests_properties(heat_capacity_real_star PROPERTIES
         LABELS "thermal;external-data;scientific")
+    # Phase-2B passive-cooling regression harness (GOVERNANCE.md §3.1 condition 7).
+    #
+    # BUILT BUT DELIBERATELY NOT REGISTERED AS A TEST. The authenticated live thermal
+    # configuration cannot currently run: Config::stepper defaults to MSBDF, an implicit
+    # BDF method, while GSLIntegrator::Integrate hard-codes sys.jacobian = nullptr, so GSL
+    # calls a null function pointer and the process dies with SIGSEGV. See
+    # docs/validation/PASSIVE_COOLING_BASELINE.md. Registering a segfaulting test would be
+    # dishonest; the add_test() line belongs in the increment that repairs the integrator
+    # and freezes the golden values in the same change.
+    add_executable(passive_cooling_regression thermal/passive_cooling_regression.cpp)
+    target_link_libraries(passive_cooling_regression PRIVATE CompactStar)
+
     message(STATUS "CompactStar: Tier-B thermal test enabled (EOS data root supplied)")
 else()
     message(STATUS "CompactStar: Tier-B thermal test NOT registered "

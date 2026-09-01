@@ -476,7 +476,11 @@ repaired in the same increment.
 The Context, Evidence, Rejected-current-behavior and Consequences sections above are **left
 unchanged as the historical record of why the correction was required** — they describe the state
 of the code at acceptance, not today's. `GOVERNANCE.md` §3.1 condition 7 (a regression baseline
-immediately afterward) is the one obligation still outstanding.
+immediately afterward) is the one obligation still outstanding. Phase 2B-1 attempted it and was
+**blocked**: the authenticated live configuration cannot execute because `Config::stepper` defaults
+to `MSBDF` while `GSLIntegrator` passes a null Jacobian. That defect is pre-existing and unrelated
+to this ADR; it must be repaired as its own numerical-method change before the baseline can be
+frozen. See `docs/validation/PASSIVE_COOLING_BASELINE.md`.
 
 **Post-acceptance clarification, 2026-08-31 (editorial).** During the Phase-0.5 governance
 coherence audit, two statements of *numerical* wording in this ADR — the radial-quadrature row of

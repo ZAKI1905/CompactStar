@@ -223,6 +223,19 @@ Recorded for Phase 5. **Not repaired here.**
   dereference `ctx.star` in its `HeatCapacityStar_Tinf` call twelve lines before the
   `if (!ctx.star)` guard, which therefore could never fire. The guard now precedes first use.
   No emissivity, rate, cache, option, or numerical constant changed.
+- **The default integrator configuration crashes.** `EvolutionConfig.hpp:162` defaults
+  `stepper` to `MSBDF`, an implicit BDF method mapped to `gsl_odeiv2_step_msbdf`
+  (`GSLIntegrator.cpp:59`), while `GSLIntegrator.cpp:334` hard-codes
+  `sys.jacobian = nullptr`. GSL invokes the null Jacobian, execution jumps to `0x0`, and the
+  process dies with `SIGSEGV`. **This affects any run that does not override the stepper,
+  including `main/Test/spin_therm_evol_2_main.cpp`**, which sets none. Pre-existing since the
+  integrator was added. Discovered during Phase 2B-1; it blocks the passive-cooling baseline
+  (`docs/validation/PASSIVE_COOLING_BASELINE.md`).
+- **`EvolutionSystem` cannot run a thermal-only state.** `EvolutionSystem.cpp:103-112`
+  unconditionally calls `m_state.GetSpin()` inside a block whose only consumer is commented-out
+  logging, so a `StateVector` without a registered `Spin` block throws
+  `requested tag 'Spin' is not registered`. A vestige of removed debug code, not a physics
+  requirement.
 - **Heat-capacity cache key omits the geometry** — `StarContext::HeatCapacityStar_Tinf` accepts an
   optional `GeometryCache` and falls back to a locally constructed one
   (`StarContext.cpp:754-755`), but keys its cache only on `(profile version, thermo pointer)`
@@ -329,7 +342,8 @@ Re-authenticated at **`11ffe45`** after roadmap Phase 1. Full evidence and comma
   its normalization is unresolved (INV-07).
 - It does **not** claim placeholder emissivities represent real microphysics.
 - It does **not** claim a passive-cooling regression baseline exists. The thermal equation is now
-  coherent, but no baseline has been captured — that is roadmap Phase 2B.
+  coherent, but **no baseline has been captured**: Phase 2B-1 was blocked by the default-stepper
+  defect above. `GOVERNANCE.md` §3.1 condition 7 remains outstanding.
 - It does **not** claim the corrected cooling *trajectory* has been validated. Only the denominator
   identity and the verified `C_⋆(T∞)` are established; the neutrino emissivity normalizations
   remain self-labelled placeholders.

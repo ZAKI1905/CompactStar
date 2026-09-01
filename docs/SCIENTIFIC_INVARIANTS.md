@@ -425,7 +425,7 @@ repository has no test suite. See *Numerical validation* below.
 | **Governing physics** | ✅ **RESOLVED** — ADR-0002, one canonical `C_⋆(T∞)` |
 | **Source conformance** | ✅ **COMPLETE** — `PhotonCooling` divides by `C_⋆(T∞)`; the driver-local `C_eff` option is removed (roadmap Phase 2A-3) |
 | **Numerical validation (V1)** | ✅ **COMPLETE** — `docs/validation/HEAT_CAPACITY_V1.md`, **V1 VERIFIED** |
-| **Phase-2B regression baseline** | ⬜ **NOT YET** — required next by `GOVERNANCE.md` §3.1 condition 7 |
+| **Phase-2B regression baseline** | ⛔ **BLOCKED** — `GOVERNANCE.md` §3.1 condition 7 remains **outstanding**. The authenticated live configuration cannot execute: `Config::stepper` defaults to `MSBDF` (implicit) while `GSLIntegrator` supplies `sys.jacobian = nullptr`, so GSL calls a null pointer and the run segfaults. Pre-existing, unrelated to the ADR-0002 correction. See `docs/validation/PASSIVE_COOLING_BASELINE.md` |
 
 **Source conformance detail.**
 

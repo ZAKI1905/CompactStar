@@ -186,8 +186,10 @@ baseline must follow immediately, with no unrelated work in between.
 
 ## Phase 2B — Validation baseline
 
-**Status: NEXT — the active phase.** Required immediately by `GOVERNANCE.md` §3.1 condition 7,
-which permitted the Phase-2A correction only on the undertaking that a baseline follow at once.
+**Status: ACTIVE — and §3.1 condition 7 is OVERDUE.** The Phase-2A correction was permitted only
+on the undertaking that a baseline follow at once. Increment 2B-1 attempted it and was **blocked**
+by a pre-existing integrator defect (see below). **No unrelated modernization item may begin until
+condition 7 is discharged.**
 
 **Prerequisite:** Phase 2A complete. ✅ **SATISFIED** — increments 2A-1 through 2A-3.
 
@@ -204,10 +206,16 @@ expands that plumbing into the actual scientific baseline.
   *complete* coupled observable (TOV → Hartle → cooling) is **measured by this harness, not
   assumed from the interpolation scheme.**
 - Cache-correctness checks (INV-12).
-- **Passive cooling regression.** Because Phase 2A has landed, this now captures a **physically
-  coherent energy equation** — `C_⋆(T∞) dT∞/dt = −L_ν,∞ − L_γ,∞` — rather than deliberately
-  preserving a known placeholder. It remains a regression baseline, not a physics validation: the
-  neutrino emissivity normalizations are still self-labeled placeholders
+- ⛔ **Passive cooling regression — ATTEMPTED, BLOCKED (2B-1).** It would capture the now coherent
+  `C_⋆(T∞) dT∞/dt = −L_ν,∞ − L_γ,∞`, and the harness
+  (`tests/thermal/passive_cooling_regression.cpp`) is written against production APIs and builds.
+  **It cannot run**: the default `MSBDF` stepper is implicit while `GSLIntegrator` supplies a null
+  Jacobian, so the authenticated live configuration segfaults. No golden values were frozen and no
+  CTest was registered. **`GOVERNANCE.md` §3.1 condition 7 is still outstanding.** Repairing the
+  integrator is a numerical-method change and must precede the baseline. See
+  `docs/validation/PASSIVE_COOLING_BASELINE.md`.
+  When it lands it remains a regression baseline, not a physics validation: the neutrino
+  emissivity normalizations are still self-labeled placeholders
   (`NeutrinoCooling_Details.cpp:100-102`).
 
 **Exit criteria.** Baselines exist and run; a regression is detectable.
