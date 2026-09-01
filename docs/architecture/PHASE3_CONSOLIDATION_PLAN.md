@@ -286,7 +286,7 @@ derivable from the constants and the algebra in advance; that is why they are st
 | # | Title | Scope | Class | Prereq | ADR | Independently mergeable |
 |---|---|---|---|---|---|---|
 | **3A** | ✅ **COMPLETE** — Centralize exactly-duplicated unit constants | `KM3_TO_CM3` (2 sites), `MeVfm3_to_ergcm3` (2 sites) → `CompactStar/Units.hpp`. **Bit-identical**: 352 lines of deterministic output unchanged, all five golden hashes unchanged, 13/13 + 8/8. Evidence: [`PHASE3A_UNIT_DUPLICATES.md`](../validation/PHASE3A_UNIT_DUPLICATES.md) | engineering | none | no | **yes** |
-| **3B** | Cache provenance and dependency-complete keys | profile identity+version token; `GeometryCache` carries it; `C_⋆` and `NeutrinoCooling` keys extended; `StarContext` re-binds columns | **STRUCTURAL** (fail-closed #4) | 3A optional | **YES** | **yes** |
+| **3B** | ◐ **GOVERNANCE / ADR DRAFTED — AWAITING OWNER ADJUDICATION.** Implementation **not** started. Cache provenance and dependency-complete keys | profile identity+version token; `GeometryCache` carries it; `C_⋆` and `NeutrinoCooling` keys extended; `StarContext` re-binds columns. Proposed contract: [`ADR-0003`](../adr/ADR-0003-profile-cache-provenance-and-invalidation.md) (**PROPOSED**) | **STRUCTURAL** (fail-closed #4) | 3A ✅ | **YES — drafted, not accepted** | **yes** |
 | **3C** | Unify `k_B` precision | one `k_B` across thermal + EOS | engineering w/ tolerance | 3A | no | **yes** |
 | **3D** | Single owner for the proper-volume measure | `GeometryCache` canonical; retire `NStar`/`MixedStar` inline forms | **STRUCTURAL** (INV-04) | **3B** | **YES** | yes |
 | **3E** | Canonical TOV path | designate Path 2; subordinate Path 1 — **after** building equivalence coverage | **STRUCTURAL** (fail-closed #3) | 3B, 3D | **YES** | yes |
@@ -321,6 +321,46 @@ It deliberately excludes `k_B` (3C, not bitwise) and the solar mass (deferred, c
 
 **Stop conditions for 3A:** any artifact hash changes; any test fails; any consolidation would
 merge two numerically *different* constants; the change grows beyond constant ownership.
+
+## 12b. Owner design intent — recorded, NOT implemented
+
+> Direction supplied by the owner during Phase 3B-G. This section records **intent for future
+> work**. Nothing here describes current state, and **nothing in it was implemented or moved by
+> this or any preceding task.**
+
+### ZakiLib / CompactStar units boundary
+
+- **ZakiLib is the reusable general-purpose physics utility library.** Broadly reusable physical
+  constants and ordinary conversions belong there when appropriate: the speed of light, Newton's
+  constant, the Boltzmann constant, ordinary metric conversions, and similarly general
+  physics-textbook quantities.
+- **ZakiLib's values were deliberately researched and sourced at modern precision.** Do **not**
+  assume GSL supersedes them merely because CompactStar already links GSL. (Phase 2B-4B measured
+  a case in point: `Zaki::Physics::SUN_M_KM` is exactly the IAU nominal `GM☉/c²`, while GSL's own
+  `G`/`M☉` pair differs from it by `6.2e-5`.)
+- **CompactStar should own the specialized compact-object / nuclear-astrophysics conversions and
+  domain conventions** — natural/geometric-unit density conversions, fm-based compact-object
+  conversions, cgs ↔ geometric pressure and energy-density conversions, and other conventions
+  whose meaning is specific to neutron-star work. `CompactStar/Units.hpp` (added in 3A) is
+  consistent with this split.
+- **`M☉ ↔ km` is a boundary case and is NOT adjudicated by this statement**, particularly because
+  the current choices differ numerically. It remains the deferred authority question.
+
+**No constants were moved by this task, and ZakiLib was not modified.**
+
+### CONFIND / ROOT — future dependency direction
+
+- **CONFIND should fundamentally be a numerical library, not a visualization framework.** Its
+  desired output is numerical data/files suitable for post-processing.
+- **Visualization belongs downstream, preferably in Python.**
+- **If** a future audit confirms ROOT is used only for plotting/visualization — and not for
+  numerical algorithms, serialization contracts, or required public interfaces — **the intended
+  direction is to remove ROOT from CONFIND**, and thereby remove the unnecessary transitive ROOT
+  dependence from CompactStar.
+- This is **future dependency work, not Phase 3B cache scope.** CONFIND was not inspected in
+  depth and its dependency configuration was not altered.
+
+---
 
 ## 13. Stop conditions for Phase 3 generally
 

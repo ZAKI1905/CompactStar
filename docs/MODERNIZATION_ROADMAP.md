@@ -355,8 +355,15 @@ tolerance.
   `GSL_CONST_CGSM_SOLAR_MASS`, differing at `6.2e-5`) remains a scientific/unit authority
   question **deferred out of Phase 3** pending owner or ADR adjudication.
 - Single owner for the proper-volume measure (INV-04).
-- One uniform cache-invalidation rule; add a version gate to `GeometryCache`; re-bind
-  `StarContext` column pointers on invalidation (INV-12).
+- ◐ **One uniform cache-invalidation rule; add a version gate to `GeometryCache`; re-bind
+  `StarContext` column pointers on invalidation (INV-12) — ADR PROPOSED, implementation not
+  started.** `docs/adr/ADR-0003-profile-cache-provenance-and-invalidation.md` proposes the
+  structural contract: a `(profile identity, version)` provenance token, `GeometryCache` carrying
+  and exposing it, dependency-complete keys for `C_⋆` (+ geometry) and the `NeutrinoCooling`
+  payload (+ identity, geometry), and `StarContext` re-binding its column views on a version
+  change. Status is **PROPOSED**, awaiting owner adjudication on two decision-level questions
+  (the `StarContext` mutation model, and the provenance identity mechanism). **INV-12 remains
+  unresolved and its five hazards remain current** until implementation lands and validates.
 - Classify dead and unreachable code; retire only after dependency review.
 
 **Heat capacity is no longer a Phase-3 item.** Its physical ownership is governed by **ADR-0002**,
