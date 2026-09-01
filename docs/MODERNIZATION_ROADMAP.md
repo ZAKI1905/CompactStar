@@ -219,7 +219,23 @@ expands that plumbing into the actual scientific baseline.
   fourth-order behavior is not available from these components. The convergence order of a
   *complete* coupled observable (TOV → Hartle → cooling) is **measured by this harness, not
   assumed from the interpolation scheme.**
-- Cache-correctness checks (INV-12).
+- ✅ **Cache-correctness checks (INV-12) — COMPLETE (2B-3).** The supported same-star cache
+  contracts are durably verified under CTest (`cache_contract`, `cache_thermal_contract`,
+  label `cache`): mass-density, `Y_q` and Direct-Urca rebuild exactly on a sanctioned profile
+  mutation and are stable on repeat; `ProfileVersionedCache` honors its same-star rebuild
+  contract; the `NeutrinoCooling` payload rebuilds with `L_nu` scaling exactly with `rho` and
+  drops the DU channel when composition closes it. **Five known INV-12 hazards are reproduced
+  and quantified** — stale `GeometryCache` with no provenance (51.6 % geometry divergence,
+  undetectable by any caller), the `C_star` key omitting the geometry (50 % error), the
+  version-only generic key colliding across equal-version profiles (85.7 %), the concrete
+  cross-star `NeutrinoCooling` collision (80 %), and `StarContext` column pointers never
+  re-bound after a structural change. They live behind `--audit-known-hazards` and are
+  deliberately **not** CTests: a known defect is never laundered into a green assertion.
+  **The canonical passive-cooling baseline provably reaches none of them** — asserted over 602
+  driver-context observations (one profile version, one `GeometryCache`, one `StarContext`,
+  one thermo). Three controlled regressions were shown to be caught, then reverted exactly.
+  **INV-12 architectural repair — DEFERRED TO PHASE 3**; the cache system is *not* corrected.
+  Evidence: `docs/validation/CACHE_CORRECTNESS.md`.
 - ✅ **Passive cooling regression — COMPLETE (2B-1, blocked → 2B-1R, established).** Captures the
   coherent `C_⋆(T∞) dT∞/dt = −L_ν,∞ − L_γ,∞` on the authenticated 1.6 M☉ CMF star over
   100 yr → 1 Myr: nine log-spaced epochs, one continuous integration, energy identity closing to

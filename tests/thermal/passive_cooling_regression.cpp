@@ -44,6 +44,7 @@
 #include <chrono>
 #include <map>
 #include <sstream>
+#include <set>
 #include <string>
 #include <vector>
 
@@ -129,6 +130,24 @@ struct StarInfo
 	std::uint64_t prof_version = 0;
 };
 
+// ---------------------------------------------------------------------------
+//  Phase-2B-3 (INV-12): observations proving the canonical run never enters a
+//  known cache-hazard state. Everything here is recorded test-side, from the
+//  DriverContext the observer already receives; no production API was added.
+// ---------------------------------------------------------------------------
+struct CacheSafety
+{
+	std::uint64_t version_at_start = 0;
+	std::uint64_t version_at_finish = 0;
+	std::size_t distinct_versions_during_run = 0;
+	std::size_t distinct_geo_ptrs = 0;
+	std::size_t distinct_star_ptrs = 0;
+	std::size_t distinct_thermo_ptrs = 0;
+	std::size_t observations = 0;
+	bool geo_is_the_run_geo = false;   // ctx.geo == &geo constructed from this run's StarContext
+	bool star_is_the_run_star = false; // ctx.star == &starCtx
+};
+
 struct RunOpts
 {
 	double rtol = kRtol;
@@ -144,7 +163,7 @@ struct RunOpts
 // ---------------------------------------------------------------------------
 static bool RunTrajectory(const fs::path &root, const RunOpts &ro,
 						  std::vector<Checkpoint> &out, StarInfo &si,
-						  std::string &err)
+						  std::string &err, CacheSafety *cs = nullptr)
 {
 	const fs::path cold = root / "DS-CMF-1-with-crust" / "DS(CMF)-1_with_crust.eos";
 	const fs::path fineT = root / "DNS-CMF-Hadronic-with-electrons";
@@ -255,6 +274,22 @@ static bool RunTrajectory(const fs::path &root, const RunOpts &ro,
 		std::string *err;
 		std::size_t next = 0;
 
+		// INV-12 canonical-path observations. Recorded on EVERY callback, not just
+		// at the checkpoints we keep, so a mid-run swap could not slip through.
+		std::set<const void *> geo_seen, star_seen, thermo_seen;
+		std::set<std::uint64_t> version_seen;
+		std::size_t n_obs = 0;
+
+		void Observe(const P::Evolution::DriverContext &c)
+		{
+			++n_obs;
+			geo_seen.insert(static_cast<const void *>(c.geo));
+			star_seen.insert(static_cast<const void *>(c.star));
+			thermo_seen.insert(static_cast<const void *>(c.thermo));
+			if (c.star)
+				version_seen.insert(c.star->ProfileVersion());
+		}
+
 		void Record(double t_s, const P::Evolution::StateVector &Y,
 					const P::Evolution::DriverContext &c)
 		{
@@ -304,10 +339,18 @@ static bool RunTrajectory(const fs::path &root, const RunOpts &ro,
 
 		void OnStart(const P::Evolution::Observers::RunInfo &r,
 					 const P::Evolution::StateVector &Y,
-					 const P::Evolution::DriverContext &c) override { Record(r.t0, Y, c); }
+					 const P::Evolution::DriverContext &c) override
+		{
+			Observe(c);
+			Record(r.t0, Y, c);
+		}
 		void OnSample(const P::Evolution::Observers::SampleInfo &s_,
 					  const P::Evolution::StateVector &Y,
-					  const P::Evolution::DriverContext &c) override { Record(s_.t, Y, c); }
+					  const P::Evolution::DriverContext &c) override
+		{
+			Observe(c);
+			Record(s_.t, Y, c);
+		}
 		std::string Name() const override { return "PassiveCoolingCapture"; }
 	};
 
@@ -322,6 +365,9 @@ static bool RunTrajectory(const fs::path &root, const RunOpts &ro,
 	P::Evolution::GSLIntegrator integrator(system, cfg, w.dim);
 	std::vector<double> y(w.dim);
 	P::Evolution::PackStateVector(w.state_vec, w.layout, y.data());
+
+	// INV-12: the profile must not change across the integration.
+	const std::uint64_t version_at_start = starCtx.ProfileVersion();
 
 	const double YR = Zaki::Physics::YR_2_SEC;
 	const double t0 = kT0_yr * YR;
@@ -367,6 +413,23 @@ static bool RunTrajectory(const fs::path &root, const RunOpts &ro,
 			  std::to_string(kCheckpointsYr.size());
 		return false;
 	}
+	if (cs)
+	{
+		cs->version_at_start = version_at_start;
+		cs->version_at_finish = starCtx.ProfileVersion();
+		cs->distinct_versions_during_run = cap->version_seen.size();
+		cs->distinct_geo_ptrs = cap->geo_seen.size();
+		cs->distinct_star_ptrs = cap->star_seen.size();
+		cs->distinct_thermo_ptrs = cap->thermo_seen.size();
+		cs->observations = cap->n_obs;
+		cs->geo_is_the_run_geo =
+			cap->geo_seen.size() == 1 &&
+			*cap->geo_seen.begin() == static_cast<const void *>(&geo);
+		cs->star_is_the_run_star =
+			cap->star_seen.size() == 1 &&
+			*cap->star_seen.begin() == static_cast<const void *>(&starCtx);
+	}
+
 	return true;
 }
 
@@ -691,8 +754,9 @@ int main(int argc, char **argv)
 
 	std::vector<Checkpoint> cks;
 	StarInfo si;
+	CacheSafety cs;
 	std::string err;
-	if (!RunTrajectory(root, {}, cks, si, err))
+	if (!RunTrajectory(root, {}, cks, si, err, &cs))
 	{
 		std::cerr << "FAILED: " << err << "\n";
 		return 3;
@@ -708,6 +772,49 @@ int main(int argc, char **argv)
 				  << c.energy_identity_rel << "\n";
 
 	int fails = 0;
+
+	// -----------------------------------------------------------------------
+	//  Phase-2B-3 (INV-12) — canonical-path cache-safety contract
+	// -----------------------------------------------------------------------
+	//  The known INV-12 hazards (stale GeometryCache, version-only cache identity,
+	//  cross-star driver reuse, unrebound column pointers) all require either a
+	//  structural mutation during evolution or a driver/context reused across
+	//  stars. These assertions prove the canonical baseline does neither. They are
+	//  observations of the DriverContext the observer already receives; they add
+	//  no production API and cannot change any golden value.
+	std::cout << "\nINV-12 canonical-path cache safety (" << cs.observations
+			  << " driver-context observations during the run):\n";
+	auto cache_chk = [&](const char *what, bool ok, const std::string &detail) {
+		std::cout << (ok ? "  [ok]   " : "  [FAIL] ") << what << " — " << detail << "\n";
+		if (!ok)
+			++fails;
+	};
+	cache_chk("profile version is unchanged across the integration",
+			  cs.version_at_start == cs.version_at_finish,
+			  "start " + std::to_string(cs.version_at_start) + ", finish " +
+				  std::to_string(cs.version_at_finish));
+	cache_chk("profile version never changed mid-run",
+			  cs.distinct_versions_during_run == 1,
+			  std::to_string(cs.distinct_versions_during_run) +
+				  " distinct version(s) observed");
+	cache_chk("exactly one GeometryCache is used, and it is this run's",
+			  cs.distinct_geo_ptrs == 1 && cs.geo_is_the_run_geo,
+			  std::to_string(cs.distinct_geo_ptrs) +
+				  " distinct GeometryCache object(s), identity matches the run's");
+	cache_chk("exactly one StarContext is used, so no driver is reused across stars",
+			  cs.distinct_star_ptrs == 1 && cs.star_is_the_run_star,
+			  std::to_string(cs.distinct_star_ptrs) +
+				  " distinct StarContext object(s), identity matches the run's");
+	cache_chk("exactly one CompOSE_Thermo is used, so the heat-capacity key is stable",
+			  cs.distinct_thermo_ptrs == 1,
+			  std::to_string(cs.distinct_thermo_ptrs) + " distinct thermo object(s)");
+	cache_chk("the run actually produced observations", cs.observations > 0,
+			  std::to_string(cs.observations) + " observations");
+	if (!fails)
+		std::cout << "  => KNOWN CACHE HAZARDS ARE NOT REACHED BY THIS BASELINE.\n"
+					 "     (Scope: this canonical procedure only. Not a claim about the\n"
+					 "     general API — see docs/validation/CACHE_CORRECTNESS.md.)\n";
+
 	for (const auto &c : cks)
 		if (!(c.C_star_match_rel < kTolPatternA))
 		{

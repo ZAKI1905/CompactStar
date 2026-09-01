@@ -38,6 +38,27 @@ add_test(NAME tov_reference_analytic COMMAND tov_reference_analytic)
 set_tests_properties(tov_reference_analytic PROPERTIES LABELS "core;tov;reference")
 
 # ---------------------------------------------------------------------------
+#  INV-12 cache-correctness contracts. Self-contained.
+#  The registered test runs ONLY the supported-contract cases. The known-hazard
+#  reproductions live behind --audit-known-hazards and are deliberately NOT a
+#  CTest: they document defects, they do not assert that defects are correct.
+# ---------------------------------------------------------------------------
+add_executable(cache_contract evolution/cache_contract.cpp)
+target_link_libraries(cache_contract PRIVATE CompactStar)
+add_test(NAME cache_contract COMMAND cache_contract)
+set_tests_properties(cache_contract PROPERTIES LABELS "evolution;cache;contract")
+
+# ---------------------------------------------------------------------------
+#  INV-12 cache contracts on the thermal path (Y_q, NeutrinoCooling payload).
+#  Self-contained. Same two-mode split as cache_contract: only the supported
+#  contracts are registered; --audit-known-hazards is documentation, not a test.
+# ---------------------------------------------------------------------------
+add_executable(cache_thermal_contract thermal/cache_thermal_contract.cpp)
+target_link_libraries(cache_thermal_contract PRIVATE CompactStar)
+add_test(NAME cache_thermal_contract COMMAND cache_thermal_contract)
+set_tests_properties(cache_thermal_contract PROPERTIES LABELS "thermal;cache;contract")
+
+# ---------------------------------------------------------------------------
 #  Evolution stepper contract + thermal-only execution. Self-contained.
 # ---------------------------------------------------------------------------
 add_executable(evolution_stepper_contract thermal/evolution_stepper_contract.cpp)

@@ -217,10 +217,34 @@ Recorded for Phase 5. **Not repaired here.**
 
 ## 4. Known structural hazards
 
+> **Cache hazards below were audited in Phase 2B-3.** What works today, what does not, and
+> what the canonical baseline actually reaches are now measured rather than inferred —
+> `docs/validation/CACHE_CORRECTNESS.md`. Summary: **version-driven invalidation within one
+> `StarContext` under sanctioned in-place mutation is VERIFIED and under CTest**; the four
+> identity/provenance defects below are **reproduced and quantified**; and the **canonical
+> passive-cooling baseline provably reaches none of them**. That last statement is about that
+> one procedure — *the general API is not safe merely because the baseline is.* The
+> architectural repair is deferred to Phase 3.
+
+- **Working today — version-driven invalidation within one `StarContext`.** On a sanctioned
+  in-place profile mutation, `RefreshDerivedCachesIfNeeded_` correctly drops and rebuilds the
+  mass-density, `Y_q`, Direct-Urca and `C_star` caches, and `ProfileVersionedCache` re-runs its
+  builder. Verified to exact analytic factors by `cache_contract` and `cache_thermal_contract`,
+  and shown to catch three controlled invalidation regressions.
 - **`GeometryCache` has no version gate.** Deep-copies at construction, never rebuilt. If a
   profile is re-solved afterwards, downstream integrals silently use stale geometry (INV-12).
+  Measured: 51.6 % geometry divergence after a sanctioned mutation. The operative defect is
+  that the class exposes **no source identity, no source version and no `Invalidate()`**, so a
+  holder cannot ask whether it is stale.
+- **`ProfileVersionedCache` is keyed on the numeric version alone**, not on profile identity.
+  Two independently built profiles routinely share a version (both `1`), so one cache object
+  reused across two stars silently serves the first star's payload — measured at **85.7 %**
+  error generically, and **80 %** in the concrete `NeutrinoCooling` cross-star case, with no
+  warning or diagnostic flag.
 - **`StarContext` binds raw column pointers once** and never re-binds. A reallocating profile
   mutation bumps the version — payloads rebuild — while the seven cached pointers dangle.
+  Bounded safely in the audit: in-place value edits and same-width refills leave `DataColumn`
+  addresses stable, but growing the column count moves every column.
 - **No driver dependency graph.** `IDriver::DependsOn()` / `Updates()` are declared, overridden
   by every driver, and **never called**. `EvolutionSystem.cpp:125-134` iterates in registration
   order. The comment at `IDriver.hpp:102-103` referring to an "Evolution graph" is stale.
@@ -242,7 +266,13 @@ Recorded for Phase 5. **Not repaired here.**
   optional `GeometryCache` and falls back to a locally constructed one
   (`StarContext.cpp:754-755`), but keys its cache only on `(profile version, thermo pointer)`
   (`:712-714`). A later call at the same profile version with a different `GeometryCache` silently
-  reuses the earlier table (INV-12).
+  reuses the earlier table (INV-12). Confirmed in Phase 2B-3 at **50 %** error against the truth
+  computed through a fresh context.
+- **Canonical-baseline exposure — NONE.** `passive_cooling_regression` now asserts, on every one
+  of 602 driver-context observations in the canonical run, that exactly one profile version, one
+  `GeometryCache`, one `StarContext` and one `CompOSE_Thermo` are in play from start to finish.
+  Every hazard above needs either a structural mutation during evolution or a cache/driver reused
+  across contexts; the canonical run does neither.
 
 ---
 
