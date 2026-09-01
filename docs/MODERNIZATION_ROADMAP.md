@@ -214,11 +214,29 @@ expands that plumbing into the actual scientific baseline.
   SKIPs at 77 without it); artifact `tests/baselines/tov_dscmf1_reference.tsv`. Evidence:
   `docs/validation/TOV_REFERENCE.md`.
 - First-order Hartle moment-of-inertia checks against published values.
-- Grid-convergence harness. Per INV-13, interpolation is **linear** and `DataSet::Integrate` is
-  the trapezoid rule, whose nominal accuracy is O(Δr²) for sufficiently smooth integrands — so
-  fourth-order behavior is not available from these components. The convergence order of a
-  *complete* coupled observable (TOV → Hartle → cooling) is **measured by this harness, not
-  assumed from the interpolation scheme.**
+- ◐ **Grid-convergence harness — PARTIAL (2B-4A).** The **nonrotating TOV → cooling slice is
+  measured and CHARACTERIZED**; the full ratified TOV → Hartle → cooling convergence remains
+  pending the first-order Hartle validation and the unresolved INV-07 normalization.
+  Per INV-13, interpolation is **linear** and `DataSet::Integrate` is the trapezoid rule, whose
+  nominal accuracy is O(Δr²) for sufficiently smooth integrands — so fourth-order behavior is
+  not available from these components. The convergence order of a *complete* coupled observable
+  is **measured by this harness, not assumed from the interpolation scheme** — and the
+  measurement contradicts the nominal expectation: over `radial_res = 5000…40000` (measured
+  Δr ratios 2.00), the observed order is **≈ 0.70** for `R`, `e^ν(R)` and `L_ν`, and **0.742**
+  for the cooling-trajectory norm — **not 2** — because the stellar radius is fixed by a
+  step-dependent *surface-termination event* at the EOS table floor rather than by a quadrature.
+  `C_star` converges separately (core-dominated, `~1e-6` by the default grid). The
+  variable-resolution builder is **bit-exact** against canonical `NStar::SolveTOV_Profile` at
+  `radial_res = 10000` (all twelve checks, including the full 9-epoch trajectory, rel `0`).
+  Thermal-integrator error is **subdominant by 2.7e3**; the target-mass search contributes
+  **zero** differential error above 5000 (bit-identical `ε_c`). Default-grid continuum error:
+  `R ~5.2e-4`, `T_inf ~4.5e-4`. **Accuracy adequacy is UNRESOLVED** — no governed downstream
+  discretization budget exists, and the regression tolerances are deliberately not
+  reinterpreted as one. Coarse-grid detector: `radial_res = 2500` is caught at 130x the
+  default-grid radius error. CTest `grid_convergence_cmf` (labels
+  `thermal;scientific;external-data;convergence`, ~106 s); artifacts
+  `tests/baselines/grid_convergence_cmf_1p6_{debug,trajectory}.tsv`. Golden baselines
+  unchanged. Evidence: `docs/validation/GRID_CONVERGENCE.md`.
 - ✅ **Cache-correctness checks (INV-12) — COMPLETE (2B-3).** The supported same-star cache
   contracts are durably verified under CTest (`cache_contract`, `cache_thermal_contract`,
   label `cache`): mass-density, `Y_q` and Direct-Urca rebuild exactly on a sanctioned profile

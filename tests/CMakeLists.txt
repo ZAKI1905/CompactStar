@@ -118,6 +118,16 @@ if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
         LABELS "core;tov;reference;external-data;scientific"
         SKIP_RETURN_CODE 77)
 
+    # Phase-2B-4A nonrotating TOV -> cooling grid-convergence harness.
+    # Registered only with the authenticated external data root.
+    add_executable(grid_convergence_cmf thermal/grid_convergence_cmf.cpp)
+    target_link_libraries(grid_convergence_cmf PRIVATE CompactStar)
+    add_test(NAME grid_convergence_cmf
+             COMMAND grid_convergence_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(grid_convergence_cmf PROPERTIES
+        LABELS "thermal;scientific;external-data;convergence"
+        TIMEOUT 1800)
+
     message(STATUS "CompactStar: Tier-B thermal test enabled (EOS data root supplied)")
 else()
     message(STATUS "CompactStar: Tier-B thermal test NOT registered "
