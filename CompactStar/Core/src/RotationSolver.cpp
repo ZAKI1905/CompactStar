@@ -672,9 +672,31 @@ void RotationSolver::Reset()
 // Also stores the omega_bar profile for use by the second-order solver.
 void RotationSolver::FindNMomInertia()
 {
-	const size_t N = nstar_ptr->Size();
-	double r_min = nstar_ptr->Profile().GetRadius()->operator[](0);
-	double r_surface = nstar_ptr->Profile().GetRadius()->operator[](-1);
+	// double r_min = nstar_ptr->Profile().GetRadius()->operator[](0);
+	// double r_surface = nstar_ptr->Profile().GetRadius()->operator[](-1);
+
+	auto *R = nstar_ptr->Profile().GetRadius();
+	const std::size_t n = nstar_ptr->Size();
+
+	double r_surface = R->operator[](-1);
+
+	// Find first strictly-positive grid radius (or fall back to epsilon)
+	std::size_t i0 = 0;
+	while (i0 < n && !(R->operator[](i0) > 0.0))
+		++i0;
+
+	double r0 = (i0 < n) ? R->operator[](i0) : kR_EPS_KM;
+	if (r0 < kR_EPS_KM)
+		r0 = kR_EPS_KM;
+	double r = r0;
+
+	auto *P = nstar_ptr->prof_.GetPressure();
+	auto *E = nstar_ptr->prof_.GetEnergyDensity();
+	auto *M = nstar_ptr->prof_.GetMass();
+
+	// If these are not std::vector<double>, adapt this call to your container;
+	// the key point is: store references/pointers to contiguous arrays.
+	SetFastProfilePtrs_(*R, *P, *E, *M);
 
 	init_omega_bar = 5e-3;
 	// double r = r_min;
@@ -691,11 +713,11 @@ void RotationSolver::FindNMomInertia()
 																   1.e-1, 1.e-10, 1.e-10);
 
 	// Prepare storage for omega_bar profile
-	stored_omega_bar_ = Zaki::Vector::DataColumn("omega_bar", N, 0.0);
-	stored_domega_bar_ = Zaki::Vector::DataColumn("domega_bar", N, 0.0);
+	stored_omega_bar_ = Zaki::Vector::DataColumn("omega_bar", n, 0.0);
+	stored_domega_bar_ = Zaki::Vector::DataColumn("domega_bar", n, 0.0);
 
 	// Radius loop inside the core
-	for (size_t i = 0; i < N; i++)
+	for (size_t i = 0; i < n; i++)
 	{
 		// fast_p = nstar_ptr->prof_.GetPressure()->operator[](i);
 		// fast_e = nstar_ptr->prof_.GetEnergyDensity()->operator[](i);
@@ -726,21 +748,13 @@ void RotationSolver::FindNMomInertia()
 	hartle_result_.domega_bar = stored_domega_bar_;
 	hartle_result_.r_grid = nstar_ptr->Profile().GetRadius();
 
-	// Store first-order results in HartleResult
-	hartle_result_.Omega = ang_vel_Omega;
-	hartle_result_.J = ang_mom_J;
-	hartle_result_.I = mom_inertia;
-	hartle_result_.omega_bar = stored_omega_bar_;
-	hartle_result_.domega_bar = stored_domega_bar_;
-	hartle_result_.r_grid = nstar_ptr->Profile().GetRadius();
-
 	gsl_odeiv2_driver_free(fast_driver);
 }
 
-//--------------------------------------------------------------
-// Added on Apr 22, 2022
-void RotationSolver::FindMixedMomInertia()
-{
+// //--------------------------------------------------------------
+// // Added on Apr 22, 2022
+// void RotationSolver::FindMixedMomInertia()
+// {
 	// Resolution of the solver (division of the radial distance)
 	// unsigned int solver_res = 5000 ;
 

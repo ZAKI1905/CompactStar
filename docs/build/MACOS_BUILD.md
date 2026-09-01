@@ -9,17 +9,18 @@
 > `docs/MODERNIZATION_ROADMAP.md` Phase 1 keep Mac-first as the governed policy.
 > **No claim of Linux or Windows support is made or implied.**
 
-## Scope of Phase 1A
+## Scope of Phases 1A and 1B
 
-Phase 1A made a **clean checkout configure** out of source without mutating tracked files.
-It did **not** attempt a full working build, add tests, or touch scientific source.
+**Phase 1A** made a clean checkout **configure** out of source without mutating tracked files.
+**Phase 1B** repaired a malformed historical merge in `RotationSolver` so the library **builds**.
+Neither added tests nor changed any numerical method.
 
 | Goal | Status |
 |---|---|
-| Clean checkout configures out of source | ✅ Achieved |
-| Configure leaves tracked source unmodified | ✅ Achieved |
-| `CompactStar` library builds | ❌ **Blocked** by pre-existing source defect — see *Known next blocker* |
-| CTest plumbing | ⬜ Deliberately not in this increment — next Phase-1 task |
+| Clean checkout configures out of source | ✅ Achieved (Phase 1A) |
+| Configure leaves tracked source unmodified | ✅ Achieved (Phase 1A) |
+| `CompactStar` library builds | ✅ Achieved (Phase 1B) — see *RotationSolver merge repair* |
+| CTest plumbing | ⬜ Deliberately not yet — next Phase-1 task |
 
 ## Canonical commands
 
@@ -187,26 +188,90 @@ as current. Retiring it is recorded as future work.
 - **No warning policy or default build type yet** — remaining Phase-1 build items.
 - **No test plumbing yet** — the next Phase-1 increment.
 
-## Known next blocker — library build fails
+## RotationSolver merge repair (Phase 1B)
 
-`cmake --build build --target CompactStar` was run as a **diagnostic**. It is **not** a Phase-1A
-exit criterion and it **failed**. Reported separately from configure success, which passed.
+Phase 1A left the library unbuildable: 11 translation units compiled, then
+`CompactStar/Core/src/RotationSolver.cpp` failed with 20 errors. The cause was **not** a coding
+mistake but a **malformed historical merge**.
 
-- 11 translation units compiled successfully; the build stops in
-  `CompactStar/Core/src/RotationSolver.cpp` with **20 errors** (`-ferror-limit` reached).
-- The failure is a **header/implementation mismatch**: the `.cpp` defines a "fast profile pointer"
-  fast path whose members and methods are **not declared** in `CompactStar/Core/RotationSolver.hpp`.
-  Undeclared in the header but used in the `.cpp`: `fast_r_`, `fast_m_`, `fast_k_`, `fast_r_mix_`,
-  `fast_p_tot_`, `fast_e_tot_`, `fast_m_tot_`, `fast_k_mix_`. Three out-of-line definitions match no
-  declaration: `SetFastProfilePtrs_` (`:83`), `SetFastMixedPtrs_` (`:96`), `EvalFastPEM_` (`:114`).
-  Related type errors at `:102-104` assign `const Zaki::Vector::DataColumn *` to `double`.
-- **This is pre-existing and unrelated to the Phase-1A changes.** `RotationSolver.cpp` and
-  `RotationSolver.hpp` are unmodified at `1677caa`, and `RotationSolver.cpp` contains **zero**
-  references to `CompactStarConfig` — the only thing this increment relocated.
-- It plausibly originates in owner commit `3639d71`, which reworked `RotationSolver` and which
-  `docs/SCIENTIFIC_INVARIANTS.md` INV-05 already flags ⚠ as requiring re-audit. **Repairing it is
-  not authorized by Phase 1A** and must not be done as a drive-by fix: `RotationSolver` is on the
-  O(Ω) path (INV-07) and any change to it needs its governing class established first.
+### Origin
 
-One non-fatal warning also appears: `Physics/State/Tags.hpp:72` uses `using enum StateTag;`,
-a C++20 construct in a C++17 build (`-Wc++20-extensions`). AppleClang accepts it as an extension.
+Merge `9f70f14` ("Merge branch 'master'", 2026-04-07, three minutes after `3639d71`) combined:
+
+- **`3639d71`** — owner work introducing profile-backed interpolation at the actual GSL RHS radius,
+  cached bracket indices, `SafeR0`/finite-radius handling, and the single-pass MixedStar
+  master-grid moment-of-inertia integration;
+- **`e60e656`** — the PR #1 second-order Hartle / rotochemical candidate lineage
+  (`GOVERNANCE.md` §5: UNVERIFIED SCIENTIFIC CANDIDATE).
+
+The merge resolved three hunks the wrong way, in each case taking the candidate side:
+
+1. **Header taken wholesale.** `RotationSolver.hpp` at `9f70f14` is the candidate header verbatim
+   except that `fast_p`/`fast_e`/`fast_m` were commented out. All ten owner interpolation members
+   (`fast_r_`, `fast_p_`, `fast_e_`, `fast_m_`, `fast_k_`, `fast_r_mix_`, `fast_p_tot_`,
+   `fast_e_tot_`, `fast_m_tot_`, `fast_k_mix_`) and four method declarations
+   (`SetFastProfilePtrs_`, `SetFastMixedPtrs_`, `EvalFastPEM_`, `EvalFastMixedPEM_`) were dropped —
+   while the `.cpp` kept defining and using them.
+2. **`FindNMomInertia` setup deleted.** The declarations of `R` and `r`, the `i0`/`kR_EPS_KM`
+   start-radius scan, the `P`/`E`/`M` fetches, and the `SetFastProfilePtrs_(*R, *P, *E, *M)` call
+   were lost, yet the body still referenced `R` and `r`. The candidate's `HartleResult` population
+   was also duplicated verbatim.
+3. **A dead function was resurrected.** Seven active lines from `e60e656:1293-1299` were spliced
+   over the owner's fully commented-out obsolete implementation (`3639d71:734-740`), making
+   `void RotationSolver::FindMixedMomInertia()` and its `{` active again while the matching `}`
+   stayed commented. The file therefore ended at **brace depth 1**, illegally nesting the last
+   ~370 lines — including the real master-grid `FindMixedMomInertia` — inside a phantom body.
+
+### Repair
+
+Reconstructed the intended **union** of the two parents rather than choosing either:
+
+- Restored the owner's ten members, four method declarations, and `FindNMomInertia` setup from
+  `3639d71`; removed the duplicated `HartleResult` block.
+- Re-commented the two spliced lines, closing the brace imbalance.
+- Restored `fast_p`/`fast_e`/`fast_m` as declarations, because the second-order candidate code
+  (`ODE_Hartle2_N_Fast`, `SolveHartle2_N`) reads and writes them. No first-order code touches them.
+- Commented out the five genuinely obsolete first-order scalars (`fast_p_v`, `fast_p_d`,
+  `fast_e_v`, `fast_e_d`, `fast_m_tot`), matching `3639d71` — verified to have no active use.
+
+**Second-order candidate code was not altered and remains unratified and unreachable.**
+`init_omega_bar` was not touched: INV-07 defers its normalization to Phase 4.
+
+### Numerical scope
+
+Engineering class. The first-order O(Ω) path is equivalent to `3639d71`:
+
+- `cpp.3639d71:5-667` is **byte-identical** to the corresponding pre-repair block (663 lines),
+  covering `kR_EPS_KM`, `SafeR0`, both `SetFast*Ptrs_`, both `EvalFast*PEM_`, `ODE_N_Fast`,
+  `ODE_Mixed_Fast`, every `GetHartle*Coeff*`, and `Solve_Mixed`. Not one arithmetic expression
+  differs, before or after the repair.
+- The repaired `FindNMomInertia` diffs against `3639d71` with **additions only** — the candidate's
+  `stored_omega_bar_`/`stored_domega_bar_` storage and the `HartleResult` copy. These write to new
+  members and never feed back into `y[]`, `r`, or the GSL driver.
+- The repaired `FindMixedMomInertia` is identical to `3639d71` modulo indentation.
+
+### Build result
+
+```
+[100%] Linking CXX static library libCompactStar.a
+[100%] Built target CompactStar
+```
+
+70 translation units compile (was 11), 0 errors, `libCompactStar.a` ≈ 10 MB. Verified by a clean
+rebuild from a deleted `build/`. No warning appears in `RotationSolver`, and there are no
+`unused-*` warnings anywhere.
+
+## Known rough edges (unchanged, pre-existing)
+
+- **Python discovery is not machine-independent** — see above.
+- **A stale generated `CompactStarConfig.h` is still tracked**, plus an editor duplicate
+  `CompactStar/Core/CompactStarConfig 2.h`. Both inert for the build.
+- **Residual indentation artifact.** The ~370 lines after the former splice point are still
+  tab-indented from the historical reformat. This is cosmetic, compiles correctly, and was left
+  alone deliberately — reformatting is out of scope.
+- **17 pre-existing warnings** now visible because the whole library compiles: variable-length
+  arrays (`SigmaOmegaRho.cpp:580`, `SigmaOmegaRho_nstar.cpp:585`), a missing `override`
+  (`EnvelopePotekhin2003.hpp:58`), a C++20 `using enum` in a C++17 build (`Tags.hpp:72`), and a
+  format-security warning inside the vendored Zaki header. None are in `RotationSolver`; no
+  warning policy exists yet (a remaining Phase-1 item).
+- **No test plumbing yet** — the next Phase-1 increment.
