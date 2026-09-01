@@ -163,6 +163,20 @@ endif()
 add_subdirectory(main)
 
 # -----------------------------
+# Testing (standard CTest semantics)
+# -----------------------------
+# include(CTest) defines the BUILD_TESTING option (default ON) and calls
+# enable_testing() for us. tests/ is the canonical automated-test root;
+# main/Test/ holds manual demo programs and is deliberately NOT registered.
+# Configuring with -DBUILD_TESTING=OFF skips tests entirely; the CompactStar
+# library still configures and builds, and no test target is ever installed.
+include(CTest)
+
+if(BUILD_TESTING)
+    add_subdirectory(tests)
+endif()
+
+# -----------------------------
 # Packaging
 # -----------------------------
 include(InstallRequiredSystemLibraries)

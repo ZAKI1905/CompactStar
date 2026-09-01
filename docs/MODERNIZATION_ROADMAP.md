@@ -69,7 +69,9 @@ three** ratifies the Hartle O(Ω²) / rotochemical candidate code, validates any
 
 ## Phase 1 — Reproducible macOS build **and minimal validation plumbing**
 
-**Status: ACTIVE — the current phase.**
+**Status: ACTIVE — the current phase.** Increments 1A (configure), 1B (`RotationSolver` merge
+repair, library builds) and 1C (CTest plumbing) have landed. **One item remains outstanding:**
+the warning policy and default build type. Phase 1 is therefore **not complete.**
 
 **Prerequisite:** Phase 0.5 reviewed. ✅ **SATISFIED** — governance ratified 2026-08-31.
 
@@ -78,24 +80,24 @@ clean clone on any platform.
 
 **Build reproducibility**
 
-- Guard the seven absent optional `main/` subdirectories so a clean clone configures.
-- Stop writing generated configuration into the source tree — move `configure_file` output to
-  the binary directory (`CMakeLists.txt:84-87`).
-- Define and document canonical macOS configure/build commands.
-- Record exact dependency versions: GSL, OpenMP, Python3/NumPy, and the vendored Zaki and
-  Confind archives.
-- Adopt a warning policy and a default build type. *(Engineering class — must not change results.)*
+- ✅ Guard the seven absent optional `main/` subdirectories so a clean clone configures. *(1A)*
+- ✅ Stop writing generated configuration into the source tree — `configure_file` output moved to
+  the binary directory. *(1A)*
+- ✅ Define and document canonical macOS configure/build commands. *(1A)*
+- ✅ Record exact dependency versions: GSL, OpenMP, Python3/NumPy, and the vendored Zaki and
+  Confind archives. *(1A)*
+- ☐ **OUTSTANDING** — adopt a warning policy and a default build type. *(Engineering class — must not change results.)* The full library build currently emits 17 pre-existing warnings; none has been fixed and `-Werror` is deliberately not enabled.
 
 **Minimal validation plumbing — generic infrastructure only**
 
-The project has **no test mechanism of any kind**: `enable_testing`, `include(CTest)`, and
-`add_test` appear in no `CMakeLists.txt` anywhere in the tree. Phase 1 establishes only the
-generic ability to *run* a test:
+At the start of Phase 1 the project had **no test mechanism of any kind**: `enable_testing`,
+`include(CTest)`, and `add_test` appeared in no `CMakeLists.txt` anywhere in the tree. Phase 1
+establishes only the generic ability to *run* a test — delivered by increment 1C:
 
-- `enable_testing()` / CTest plumbing (or equivalent) in the top-level `CMakeLists.txt`.
-- A canonical location for test executables and fixtures.
-- A trivial smoke test that runs through the standard test command, proving the mechanism works.
-- The canonical test command, documented alongside the configure/build commands.
+- ✅ `enable_testing()` / CTest plumbing — `include(CTest)` in the top-level `CMakeLists.txt`, gated on standard `BUILD_TESTING`. *(1C)*
+- ✅ A canonical location for test executables and fixtures — `tests/`, distinct from the manual demo programs in `main/Test/`. *(1C)*
+- ✅ A trivial smoke test that runs through the standard test command — `compactstar_library_smoke`, which resolves a real out-of-line symbol from `libCompactStar.a`. *(1C)*
+- ✅ The canonical test command, documented alongside the configure/build commands. *(1C)*
 
 **No scientific baseline and no physics check is created here** — only the mechanism. This is
 dependency/build class and must not change any number the code produces.
@@ -110,6 +112,12 @@ framework inside that phase would violate the scoping condition that authorizes 
 
 **Exit criteria.** A clean clone configures and builds on macOS with documented commands, **and**
 a trivial test runs through the documented test command.
+
+**Exit-criteria status.** Both clauses are now demonstrated — a clean checkout configures, the
+`CompactStar` library builds and links, and `ctest` runs one passing automated test
+(`docs/build/MACOS_BUILD.md`). **Phase 1 is nonetheless not complete**, because the phase item
+list also requires a warning policy and a default build type, which remain outstanding. That item
+is not being silently dropped and the exit criteria are not being redefined to exclude it.
 
 **Decision gate — platform.** **Mac-first development is acceptable initially.** Cross-platform
 dependency work moves earlier **only if** Linux or cloud compilation becomes required, CI must

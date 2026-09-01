@@ -9,18 +9,20 @@
 > `docs/MODERNIZATION_ROADMAP.md` Phase 1 keep Mac-first as the governed policy.
 > **No claim of Linux or Windows support is made or implied.**
 
-## Scope of Phases 1A and 1B
+## Scope of Phases 1A, 1B and 1C
 
 **Phase 1A** made a clean checkout **configure** out of source without mutating tracked files.
 **Phase 1B** repaired a malformed historical merge in `RotationSolver` so the library **builds**.
-Neither added tests nor changed any numerical method.
+**Phase 1C** added the CTest mechanism and one build/link smoke test.
+None of the three changed a numerical method or added a scientific reference value.
 
 | Goal | Status |
 |---|---|
 | Clean checkout configures out of source | ✅ Achieved (Phase 1A) |
 | Configure leaves tracked source unmodified | ✅ Achieved (Phase 1A) |
 | `CompactStar` library builds | ✅ Achieved (Phase 1B) — see *RotationSolver merge repair* |
-| CTest plumbing | ⬜ Deliberately not yet — next Phase-1 task |
+| CTest plumbing + smoke test | ✅ Achieved (Phase 1C) — see *Automated tests* |
+| Warning policy / default build type | ⬜ **Outstanding** — remaining Phase-1 item |
 
 ## Canonical commands
 
@@ -30,10 +32,28 @@ Configure, out of source:
 cmake -S . -B build -DPython3_EXECUTABLE="$(command -v python3)"
 ```
 
-Diagnostic build of the library:
+Build everything (library, manual demo programs, and the test executable):
+
+```bash
+cmake --build build -j8
+```
+
+Build only the library:
 
 ```bash
 cmake --build build --target CompactStar -j8
+```
+
+Run the automated tests:
+
+```bash
+ctest --test-dir build --output-on-failure
+```
+
+Configure without tests (library only):
+
+```bash
+cmake -S . -B build-no-tests -DPython3_EXECUTABLE="$(command -v python3)" -DBUILD_TESTING=OFF
 ```
 
 `build/` is already gitignored. It is disposable — delete and re-create it freely.
@@ -179,15 +199,6 @@ as current. Retiring it is recorded as future work.
 - A misspelled required directory still fails configure.
 - The generated header exists only under `build/generated/include/...`.
 
-## Known rough edges
-
-- **Python discovery is not machine-independent.** The canonical configure command needs
-  `-DPython3_EXECUTABLE` (or a project `.venv`) wherever the default Python lacks NumPy.
-- **A stale generated `CompactStarConfig.h` is still tracked**, as is an apparent editor duplicate
-  `CompactStar/Core/CompactStarConfig 2.h`. Both are inert for the build.
-- **No warning policy or default build type yet** — remaining Phase-1 build items.
-- **No test plumbing yet** — the next Phase-1 increment.
-
 ## RotationSolver merge repair (Phase 1B)
 
 Phase 1A left the library unbuildable: 11 translation units compiled, then
@@ -261,6 +272,88 @@ Engineering class. The first-order O(Ω) path is equivalent to `3639d71`:
 rebuild from a deleted `build/`. No warning appears in `RotationSolver`, and there are no
 `unused-*` warnings anywhere.
 
+## Automated tests (Phase 1C)
+
+### Layout and mechanism
+
+```
+tests/
+├── CMakeLists.txt
+└── smoke/
+    └── compactstar_library_smoke.cpp
+```
+
+`tests/` is the **canonical automated-test root**. The top-level `CMakeLists.txt` calls
+`include(CTest)` — which defines the standard `BUILD_TESTING` option (default `ON`) and calls
+`enable_testing()` — and then adds `tests/` only when `BUILD_TESTING` is on. No custom test switch
+was invented, no third-party framework was added, and no test target is installed.
+
+**`main/Test/` is not the automated suite.** It holds manual demo and debugging programs
+(`tov_debug_main`, `spin_therm_evol_2_main`, `compose_thermo_main`, …). None of them is registered
+with CTest, none was renamed, and none of their output is treated as a baseline.
+
+### What the smoke test proves
+
+`compactstar_library_smoke` constructs `CompactStar::Core::Prog` with a name and calls
+`GetName()`. `Prog` is the library's non-scientific base class; `Prog::GetName()` is defined
+**out of line** in `CompactStar/Core/src/Prog.cpp`, so the call forces the linker to pull a real
+object file out of the archive. An empty `main()` linked against a static library can pull nothing
+at all, which would make such a test vacuous — this one is not:
+
+```
+$ nm -C build/tests/compactstar_library_smoke | grep 'Prog::GetName'
+0000000100003630 T CompactStar::Core::Prog::GetName() const
+```
+
+`T` means *defined in the text section*, not an unresolved import. The binary carries 16
+`CompactStar::` symbols and is 233 KB against 17 KB for an empty `main()`.
+
+So the test demonstrates that: public headers compile; an executable resolves a genuine
+`libCompactStar.a` symbol; the archive and its transitive dependencies (GSL, OpenMP, Python3,
+Zaki, Confind) link; and the binary starts and exits zero under CTest.
+
+`Prog` was chosen over `RotationSolver` because it is semantically neutral — nothing about it
+suggests a physics result. Its constructor performs only member initialisation, it reads no files,
+needs no EOS table or data directory, opens no network connection, and mutates nothing.
+Constructing through the naming constructor means `GetName()` takes its non-logging path.
+`ShowBannerOnce()` was also considered and rejected: it calls `EnableClearScreen()`, which would
+wipe the terminal of anyone running `ctest` interactively.
+
+### What the smoke test explicitly does NOT prove
+
+**It is infrastructure validation, not the CompactStar scientific validation baseline.**
+
+It asserts no stellar mass, no moment of inertia, no cooling luminosity, no EOS value, no Hartle
+result, no reaction rate, no thermal result, and no reference number of any kind — and none may be
+added to it. It says nothing about whether any physics in the library is correct. Scientific
+validation is roadmap **Phase 2A** (independent verification of `C_⋆(T∞)` under `GOVERNANCE.md`
+§3.1) and **Phase 2B** (the regression baseline), governed separately.
+
+### Observed result
+
+```
+$ ctest --test-dir build -N
+  Test #1: compactstar_library_smoke
+Total Tests: 1
+
+$ ctest --test-dir build --output-on-failure
+1/1 Test #1: compactstar_library_smoke ........   Passed    0.33 sec
+100% tests passed, 0 tests failed out of 1
+```
+
+Exactly one test is discovered — the manual programs under `main/Test/` do not appear.
+
+With `-DBUILD_TESTING=OFF`: configure succeeds, no `tests/` subdirectory is generated,
+`ctest -N` reports `Total Tests: 0`, and `cmake --build build-no-tests --target CompactStar`
+still produces `libCompactStar.a`.
+
+Note that `cmake --build build --target CompactStar` does **not** build the test executable, and
+CTest does not build it either — a full `cmake --build build` is required first. This was verified
+rather than assumed.
+
+`.gitignore` gained `/build-*/` so the documented `build-no-tests/` directory stays untracked. It
+does not match the tracked `build_xcode/` (hyphen versus underscore).
+
 ## Known rough edges (unchanged, pre-existing)
 
 - **Python discovery is not machine-independent** — see above.
@@ -272,6 +365,8 @@ rebuild from a deleted `build/`. No warning appears in `RotationSolver`, and the
 - **17 pre-existing warnings** now visible because the whole library compiles: variable-length
   arrays (`SigmaOmegaRho.cpp:580`, `SigmaOmegaRho_nstar.cpp:585`), a missing `override`
   (`EnvelopePotekhin2003.hpp:58`), a C++20 `using enum` in a C++17 build (`Tags.hpp:72`), and a
-  format-security warning inside the vendored Zaki header. None are in `RotationSolver`; no
-  warning policy exists yet (a remaining Phase-1 item).
-- **No test plumbing yet** — the next Phase-1 increment.
+  format-security warning inside the vendored Zaki header. None are in `RotationSolver`. Adopting
+  a warning policy and a default build type is **the one outstanding Phase-1 item**; `-Werror` is
+  deliberately not enabled.
+- **Test coverage is one smoke test.** It proves the mechanism, nothing more; real validation is
+  Phase 2A/2B.

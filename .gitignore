@@ -1,7 +1,10 @@
 Backup/
-# Anchored: ignore only the top-level out-of-source build directory.
+# Anchored: ignore only top-level out-of-source build directories.
 # An unanchored 'build/' also swallowed docs/build/ at any depth.
+# '/build-*/' covers documented variants such as build-no-tests/; it does not
+# match the tracked build_xcode/ (hyphen vs underscore).
 /build/
+/build-*/
 Other/
 .vscode/
 .DS_Store
