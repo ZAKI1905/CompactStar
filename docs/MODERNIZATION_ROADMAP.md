@@ -321,14 +321,18 @@ CI and the convergence scope above remain outstanding items.
 
 **Prerequisite:** Phase 2B baselines exist. ✅ **SATISFIED** — `docs/validation/PHASE2B_CLOSURE.md`.
 
-**Status: IN PROGRESS — increments 3A, 3B, 3C, 3D and 3E-0 complete; the 3E ownership ADR
-(ADR-0005) is DRAFTED and PROPOSED, awaiting owner adjudication. No canonical TOV owner is
-selected and no 3E implementation has started.**
+**Status: IN PROGRESS — increments 3A, 3B, 3C, 3D, 3E-0, 3E-I1 and 3E-I2 complete. ADR-0005 is
+ACCEPTED; `SingleStarSolveToTOVPoints` is the canonical TOV numerical primitive, and both
+ordinary visible-sector `NStar` construction paths now use the canonical `CompactStar::Geometry`
+mathematics. Phase 3E remains ACTIVE: I3 is optional, I4 is REQUIRED, and fail-closed condition
+#3 is discharged only for the visible-sector `Solve()` workflow.**
 **3A** centralized the exactly-duplicated unit constants (bit-identical). **3B** implemented the
 ADR-0003 cache-provenance contract (goldens bit-identical; INV-12 resolved for profile-derived
 caches). **3C** adopted the authoritative ZakiLib Boltzmann constant. **3D** established the
-canonical proper-volume owner per ADR-0004 — on the **validated path only**; the legacy TOV
-Path-1, `MixedStar` and candidate migrations remain deferred, and **Phase 3 is not complete.**
+canonical proper-volume owner per ADR-0004 — on the validated path; **3E-I2 then conformed TOV
+Path-1 as well**, so both ordinary visible-sector `NStar` paths share one geometry owner.
+`MixedStar`, the candidate code and the INV-14 scalar accessor remain deferred, and
+**Phase 3 is not complete.**
 The durable plan —
 ownership maps for all five targets, the cross-target dependency graph, the baseline-protection
 matrix, the per-increment preservation standard and the recommended sequence — is
@@ -377,10 +381,19 @@ tolerance.
   **`RadiusLoop` was retained, not deleted** — implementation found a second caller ADR-0005 had
   missed, the public-but-unexercised `GenTestSequence` — so **fail-closed condition #3 is
   DISCHARGED for the ordinary visible-sector `Solve()` workflow but remains PARTIALLY OPEN
-  overall**, pending I4. Still open inside Phase 3E: **I2** (Path-1 ADR-0004 conformance),
-  **I3** (optional postprocessing convergence), **I4** (`GenTestSequence` migration +
-  `RadiusLoop` deletion). Evidence:
-  `docs/validation/TOV_PATH_EQUIVALENCE.md`, `docs/validation/PHASE3E_I1_CANONICAL_TOV.md`;
+  overall**, pending I4.
+  **3E-I2 then completed Path-1 geometry conformance**: `NStar::Append` (Λ) and
+  `NStar::FinalizeSurface` (proper volume) migrated to `CompactStar::Geometry`. Λ is
+  **bit-identical**; Path-1 `B` moved by at most **1.640e-16** against the unwidened `1.0e-15`;
+  and because the composition now mirrors `BuildFromTOV`, **Path-1 and Path-2 `B` are bitwise
+  identical**, so the ADR-0004 gap on these paths is closed rather than merely bounded. The
+  baryon-number reference and all six protected artifacts are unchanged; only the
+  path-equivalence *measurement record* was re-emitted, and only its `rel_B` field moved.
+  Still open inside Phase 3E: **I3** (optional postprocessing convergence) and **I4**
+  (**required** — `GenTestSequence` coverage and migration, `RadiusLoop` deletion, and the only
+  step that fully closes fail-closed condition #3). Evidence:
+  `docs/validation/TOV_PATH_EQUIVALENCE.md`, `docs/validation/PHASE3E_I1_CANONICAL_TOV.md`,
+  `docs/validation/PHASE3E_I2_PATH1_GEOMETRY.md`;
   contract: `docs/adr/ADR-0005-canonical-tov-numerical-primitive.md`.
 - ◐ **Single owner for unit conversions — PARTIAL: exact duplicate constants completed in 3A.**
   `KM3_TO_CM3` (2 production sites) and the MeV fm⁻³→erg cm⁻³ factor (2 sites) now have one

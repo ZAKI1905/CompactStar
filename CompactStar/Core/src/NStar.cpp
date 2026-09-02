@@ -574,13 +574,29 @@ void NStar::FinalizeSurface()
 			const int mcol = prof_.GetColumnIndex(StarProfile::Column::Mass);
 			const int nbcol = prof_.GetColumnIndex(StarProfile::Column::BaryonDensity);
 
-			B_integrand[0] = prof_.Radial()[rcol];				  // r
-			B_integrand[1] = prof_.Radial()[rcol].pow(2);		  // r^2
-			B_integrand[1] *= 4.0 * M_PI * prof_.Radial()[nbcol]; // 4π r^2 nB
+			// ADR-0004: the proper-volume measure w_V = 4*pi*r^2*exp(Lambda) comes from the
+			// single mathematical owner. This site owns only its own physics factor (n_B) and
+			// its own unit conversion (FM3_TO_KM3 = 1e54, which belongs to INV-14, NOT to dV).
+			//
+			// The former inline form divided by `(1 - 2m/r).sqrt()` through
+			// Zaki::Vector::DataColumn::operator/=, which silently substitutes 1 for a zero
+			// divisor -- dropping the metric factor at that node with only a log line. The
+			// primitive fails closed instead.
+			//
+			// Composition deliberately mirrors the already-validated BuildFromTOV form, so the
+			// two ordinary visible-sector NStar construction paths now share one mathematical
+			// owner AND one arithmetic ordering. Governed by the |dB|/B <= 1.0e-15 predeclared
+			// in ADR-0004 §7.1 before any implementation existed. Deferred out of Phase 3D
+			// because Path 1 had no coverage; Phase 3E-0 supplied it, so this migrated in 3E-I2.
+			const std::size_t n_nodes = prof_.Radial()[rcol].Size();
+			Zaki::Vector::DataColumn wV;
+			wV.Reserve(n_nodes);
+			for (std::size_t i = 0; i < n_nodes; ++i)
+				wV.PushBack(CompactStar::Geometry::ProperVolumeWeight(
+					prof_.Radial()[rcol][i], prof_.Radial()[mcol][i]));
 
-			// divide by sqrt(1 - 2M/r)
-			// M is already in km, r in km
-			B_integrand[1] /= (1.0 - 2.0 * prof_.Radial()[mcol] / prof_.Radial()[rcol]).sqrt();
+			B_integrand[0] = prof_.Radial()[rcol]; // r
+			B_integrand[1] = wV * prof_.Radial()[nbcol];
 			// fm^{-3} → km^{-3}
 			B_integrand[1] *= FM3_TO_KM3;
 
@@ -718,21 +734,21 @@ void NStar::Append(const TOVPoint &in_tov)
 	const double r_km = in_tov.r;
 	const double m_km = Zaki::Physics::SUN_M_KM * in_tov.m;
 
-	double denom = 1.0;
-	if (r_km > 0.0)
-	{
-		denom = 1.0 - 2.0 * m_km / r_km;
-		if (denom <= 0.0)
-			denom = 1e-15; // protect against log of non-positive
-	}
-
-	// g_rr = 1 / (1 - 2M/r)
-	// const double grr = 1.0 / denom;
-
-	// λ = 0.5 * ln(g_rr) = -0.5 * ln(denom)
-	// const double lambda_geom = 0.5 * std::log(grr);
-	// or equivalently:
-	const double lambda_geom = -0.5 * std::log(denom);
+	// ADR-0004: the metric factor has ONE mathematical owner,
+	// CompactStar/Geometry.hpp. This Path-1 site no longer defines it.
+	//
+	// g_rr = 1/(1 - 2m/r);  lambda = 0.5*ln(g_rr) = -0.5*ln(1 - 2m/r).
+	//
+	// Bit-identical to the former inline form on every ordinary node: the primitive
+	// performs the same `1.0 - 2.0 * m_km / r_km` subtraction and the same
+	// `-0.5 * std::log(denom)`. The former `denom <= 0 -> 1e-15` clamp is gone; under
+	// the accepted hybrid physical-domain contract (ADR-0004 §0-Q3) such input fails
+	// closed rather than being regularized. It was unreachable here in any case:
+	// measured max 2m/r = 0.481 across the authenticated stars (ADR-0004 §11).
+	//
+	// Deferred out of Phase 3D because Path 1 had no coverage; Phase 3E-0 supplied it,
+	// so this migrated in Phase 3E-I2.
+	const double lambda_geom = CompactStar::Geometry::Lambda(r_km, m_km);
 
 	radial[idx_lam].PushBack(lambda_geom);
 	// ------------------------------------------------------------

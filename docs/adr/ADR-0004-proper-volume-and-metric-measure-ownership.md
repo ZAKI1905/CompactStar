@@ -950,3 +950,56 @@ LEGACY MIGRATIONS DEFERRED`. INV-14 untouched.
 **Validation.** 16/16 authenticated, 10/10 self-contained. No test deleted, no tolerance widened.
 
 Full record: [`docs/validation/PHASE3D_PROPER_VOLUME.md`](../validation/PHASE3D_PROPER_VOLUME.md).
+
+---
+
+## 24. Implementation record — Phase 3E-I2 (Path-1 conformance)
+
+§13 deferred TOV Path 1 *"pending new coverage first."* Phase 3E-0 supplied that coverage
+(`docs/validation/TOV_PATH_EQUIVALENCE.md`), so the deferral ended. **The accepted decisions of
+§0 are unchanged.**
+
+**Scope clarification.** ADR-0005's migration shorthand named only the `FinalizeSurface`
+proper-volume factor, but the authenticated source held a **second** Path-1 nonconformance:
+`NStar::Append` independently computed `f = 1 − 2m/r`, clamped `f ≤ 0 → 1e-15`, and formed
+`Λ = −½ ln f`. That is governed by this ADR and was deferred for the same reason. Phase 3E-I2
+migrated **both** sites; it did not broaden further.
+
+| Site | Before | After |
+|---|---|---|
+| `NStar::Append` — Λ | local `denom`/clamp/`-0.5*log` block | `CompactStar::Geometry::Lambda(r_km, m_km)` |
+| `NStar::FinalizeSurface` — baryon integrand | `r².pow(2) * 4π n_B /(1−2m/r).sqrt() * 1e54` | `w_V = Geometry::ProperVolumeWeight(r,m)` per node, then `w_V · n_B · 1e54` |
+
+`FM3_TO_KM3` was **not** moved into `Geometry` — it belongs to INV-14, not to `dV`.
+
+**Λ: bit-identical.** Phase 3E-0 measured Path-1 Λ ≡ Path-2 Λ bitwise *before* this migration;
+after it, Λ is still bitwise between the paths (`max_profile_ulp = 0` across 14 central densities
+and `radial_res` 5000/10000/20000). Path 2 is provably untouched — `BuildFromTOV` calls neither
+migrated function — so **Path-1 Λ is bit-identical pre/post**.
+
+**B: the governed movement, and a stronger-than-required outcome.** The composition now mirrors
+`BuildFromTOV`, so both ordinary paths share one mathematical owner *and* one arithmetic
+ordering. Result: **Path-1 `B` is now bitwise identical to Path-2 `B` at all 17 measured
+comparisons.** The five comparisons that previously carried a one-ULP gap (`1.387e-16`,
+`1.637e-16`, `1.269e-16`, `1.640e-16`, `1.640e-16`) are now exactly `0`. Path-1 `B` therefore
+moved by at most **1.640e-16**, well inside the `1.0e-15` predeclared in §7.1 before any
+implementation existed. The bound was not widened; the gap is closed rather than merely bounded.
+
+At the four M☉ anchors Path-1 `B` was already bitwise-equal to Path 2 before I2, so those values
+did not move at all: `1.27388873109076839e+57`, `1.83218336257875150e+57`,
+`2.12457569547972117e+57`, `2.74576306114479063e+57`.
+
+**`baryon_number_dscmf1_reference.tsv` is unchanged and was not re-baselined** — it is produced
+through Path 2, which I2 does not touch. `baryon_number_cmf` reports worst `|ΔB|/B = 0.000e+00`.
+
+**Detector D4.** Removing the proper-volume factor from the migrated `FinalizeSurface` fires
+**8 assertions, every one of them B-related**, at `|ΔB|/B` = 8.4 %–19.5 %, while **all 7
+radial-column assertions stay green**. That selectivity is what makes the
+RADIAL-INTEGRATION vs BARYON-INTEGRATION classification trustworthy. Reverted byte-identically.
+
+**Still nonconformant, and deliberately untouched:** `NStar::BaryonNumIntegrand(double)` (INV-14
+defect, zero callers), all six `MixedStar` sites (no coverage; §0-Q2), the `GOVERNANCE.md` §5
+candidate code, and `NStar::EvaluateNu`'s boundary-condition `x = 1e-15` (not this measure,
+§4.4).
+
+Full record: [`docs/validation/PHASE3E_I2_PATH1_GEOMETRY.md`](../validation/PHASE3E_I2_PATH1_GEOMETRY.md).

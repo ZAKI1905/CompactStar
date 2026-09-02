@@ -153,13 +153,17 @@ Phase-3D audit measured for the same degenerate input, disagreeing by a factor o
 
 - **Governed contract** — the above, for all code under ADR-0004.
 - **Canonical-path conformance** — `CompactStar/Geometry.hpp` implements it and is the sole
-  definition used by `NStar::BuildFromTOV` (Λ production and the baryon integrand) and by
-  `GeometryCache::DeriveLambdaFromMR_`. **No canonical `1e-15` clamp remains on that path.**
-- **Legacy nonconformance, deferred** — TOV Path 1 (`NStar::Append`, `NStar::FinalizeSurface`),
-  the scalar `NStar::BaryonNumIntegrand(double)` (INV-14), all six `MixedStar` sites, and the
-  §5-protected candidate code still carry their own inline forms and their own degenerate
-  behavior. **These have not migrated.** Path 1 waits on Phase 3E equivalence coverage;
-  `MixedStar` waits on focused coverage (ADR-0004 §0-Q2).
+  definition used by **both ordinary visible-sector `NStar` construction paths**:
+  `NStar::BuildFromTOV` (Λ production and the baryon integrand, Phase 3D) and, since
+  **Phase 3E-I2**, `NStar::Append` (Λ production) and `NStar::FinalizeSurface` (baryon
+  proper-volume factor). `GeometryCache::DeriveLambdaFromMR_` also delegates.
+  **No canonical `1e-15` clamp remains on any of those paths.**
+- **Legacy nonconformance, still deferred** — the scalar `NStar::BaryonNumIntegrand(double)`
+  (separate INV-14 defect, zero callers), all six `MixedStar` sites, the §5-protected candidate
+  code, and `TOVSolver::RadiusLoop`'s surroundings still carry their own inline forms and their
+  own degenerate behavior. **These have not migrated.** `MixedStar` waits on focused coverage
+  (ADR-0004 §0-Q2). `NStar::EvaluateNu`'s boundary-condition `x = 1e-15` is **not this measure**
+  (ADR-0004 §4.4) and is deliberately untouched.
 
 **Evidence.** Canonical: `CompactStar/Geometry.hpp`; `NStar.cpp` (BuildFromTOV);
 `GeometryCache.cpp:DeriveLambdaFromMR_`. Contract tests: `proper_volume_contract`,
@@ -173,7 +177,7 @@ so no node on any validated path reaches a fail-closed branch (ADR-0004 §11).
 
 ---
 
-## INV-04 — Proper-volume measure — **GOVERNED (ADR-0004 ACCEPTED) — CANONICAL VALIDATED PATH CONFORMED; LEGACY MIGRATIONS DEFERRED**
+## INV-04 — Proper-volume measure — **GOVERNED (ADR-0004 ACCEPTED) — BOTH ORDINARY VISIBLE-SECTOR NStar PATHS CONFORMED; MixedStar / CANDIDATE / SCALAR-ACCESSOR MIGRATIONS DEFERRED**
 
 **Statement.** The canonical measure is `w_V(r) = 4πr² e^{Λ}`, with redshifted variants
 `w_V e^{ν}` and `w_V e^{2ν}`.
@@ -191,16 +195,23 @@ Phase-3-entry wording (Option A) and ADR-0004 §8.2 shows it is unattainable for
 unsafe for `NStar` (it would construct a provenance-bearing cache inside an open `EditScope`,
 against ADR-0003).
 
-**Conformed — the validated path.** `NStar::BuildFromTOV`: Λ production (bit-identical) and the
-baryon-number integrand (`|ΔB|/B = 1.368e-16` on 1.0 M☉, bitwise on 1.4/1.6/2.0, against the
-`1.0e-15` predeclared in ADR-0004 §7.1 **before** implementation).
-`GeometryCache::DeriveLambdaFromMR_` delegates; all cached arrays bit-identical.
+**Conformed — BOTH ordinary visible-sector `NStar` construction paths.**
+
+- *Path 2* (`NStar::BuildFromTOV`, Phase 3D): Λ production bit-identical; baryon integrand
+  `|ΔB|/B = 1.368e-16` on 1.0 M☉, bitwise on 1.4/1.6/2.0, against the `1.0e-15` predeclared in
+  ADR-0004 §7.1 **before** implementation.
+- *Path 1* (`NStar::Append` + `NStar::FinalizeSurface`, **Phase 3E-I2**): Λ production
+  **bit-identical**; baryon proper-volume factor migrated under the same governed bound, with
+  measured movement ≤ **1.640e-16**. Because the composition now mirrors `BuildFromTOV`, Path-1
+  and Path-2 `B` are **bitwise identical at all 17 measured comparisons** — the former
+  conformance gap is closed, not merely bounded.
+- `GeometryCache::DeriveLambdaFromMR_` delegates; all cached arrays bit-identical.
 
 **NOT conformed — deferred, and deliberately still recorded here:**
 
 | Site | Blocking |
 |---|---|
-| TOV Path 1 — `NStar::Append` Λ block, `NStar::FinalizeSurface` baryon integrand | Phase 3E equivalence coverage; ADR-0004 §13 |
+| ~~TOV Path 1 — `NStar::Append` Λ block, `NStar::FinalizeSurface` baryon integrand~~ | **CONFORMED in Phase 3E-I2** once Phase 3E-0 supplied the coverage ADR-0004 §13 was waiting for |
 | `NStar::BaryonNumIntegrand(double)` scalar accessor | separate INV-14 defect (missing `1e54`), zero callers — **must not be repaired opportunistically** |
 | `MixedStar.cpp` — six sites, two build paths | zero coverage, two-sector mass semantics; ADR-0004 §0-Q2, §15 |
 | `DarkCore_Analysis`, `BNV_*`, `Decay_Analysis` | `GOVERNANCE.md` §5 candidate code; contract only |

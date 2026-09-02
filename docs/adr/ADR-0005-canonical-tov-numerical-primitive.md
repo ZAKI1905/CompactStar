@@ -525,3 +525,35 @@ moves full closure to **I4**. Not closed by wording.
 scalars preserved at zero under M1. INV-04 **not** resolved. INV-14 and INV-07 untouched.
 
 Full record: [`docs/validation/PHASE3E_I1_CANONICAL_TOV.md`](../validation/PHASE3E_I1_CANONICAL_TOV.md).
+
+---
+
+## 22. Implementation record — Phase 3E-I2
+
+**3E-I2 COMPLETE.** It completed **ordinary Path-1 geometry conformance**, not merely the one
+site this ADR's §15 shorthand named.
+
+§15 described I2 as migrating `FinalizeSurface`'s proper-volume factor. The authenticated source
+held a **second** Path-1 ADR-0004 nonconformance the shorthand omitted: `NStar::Append`
+independently computed `f = 1 − 2m/r`, clamped `f ≤ 0 → 1e-15`, and formed `Λ = −½ ln f`. Both
+were deferred out of Phase 3D for the same reason (no Path-1 coverage) and both became migratable
+when 3E-0 supplied it, so I2 migrated both. **The accepted decisions of §0 are unchanged.**
+
+**Results.** Λ **bit-identical** pre/post. Path-1 `B` moved by at most **1.640e-16** against the
+unwidened `1.0e-15`, and because the composition now mirrors `BuildFromTOV`, **Path-1 and Path-2
+`B` are bitwise identical at all 17 measured comparisons** — the conformance gap is closed, not
+merely bounded. `baryon_number_dscmf1_reference.tsv` and all six protected scientific artifacts
+are **unchanged**; the `tov_path_equivalence_dscmf1.tsv` *measurement record* was re-emitted
+(only `rel_B` moved) after authenticating that it is not a compared golden. Detector **D4 fires
+with 8 B-only assertions** while every radial-column assertion stays green. 18/18 and 10/10.
+
+**Q3 = P3 remains in force**: `Append`+`FinalizeSurface` was **not** converged onto
+`BuildFromTOV`, and the mirror `M`/`R`/`z_surf` zeros are still preserved under M1.
+
+**Remaining in Phase 3E.** **I3** — optional postprocessing convergence; take it only if later
+evidence shows enough benefit. **I4 — required**: add focused coverage for `GenTestSequence`,
+migrate it to the canonical primitive, then delete `RadiusLoop`. I4 is what removes the last live
+duplicate radial implementation and is the **only** step that can fully close fail-closed
+condition #3, which I2 does not change.
+
+Full record: [`docs/validation/PHASE3E_I2_PATH1_GEOMETRY.md`](../validation/PHASE3E_I2_PATH1_GEOMETRY.md).

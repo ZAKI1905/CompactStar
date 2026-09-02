@@ -176,11 +176,15 @@ These are live conflicts. Under `GOVERNANCE.md` §3 they are fail-closed until a
 
 2. **Two `NStar` profile-construction blocks** — `BuildFromTOV` and
    `InitFromTOVSolver`+`Append`+`FinalizeSurface`, with duplicated hardcoded column layouts.
-   **Still two after 3E-I1**, deliberately: ADR-0005 Q3 = **P3 staged**, so I1 unified the radial
-   numerics only. Path 1 also still carries its **unmigrated ADR-0004 proper-volume expression**
-   (Phase 3E-I2) and still leaves the profile's mirror `M`/`R`/`z_surf` at **zero** (preserved
-   under M1; classified `INTERNAL STATE ASYMMETRY — CURRENTLY UNOBSERVED`, not declared correct).
-   The `Analysis` and profile-export hooks are preserved, pending classification in Phase 3F.
+   **Still two after 3E-I1/I2**, deliberately: ADR-0005 Q3 = **P3 staged**, so I1 unified the
+   radial numerics and I2 unified the *geometry mathematics* — but the two construction styles
+   themselves remain. **As of Phase 3E-I2 both ordinary visible-sector paths use the canonical
+   `CompactStar::Geometry` owner**: `BuildFromTOV` (3D) and now `Append` (Λ) plus
+   `FinalizeSurface` (proper volume). Path-1 and Path-2 `B` are consequently **bitwise
+   identical**, closing the last ADR-0004 conformance gap on these paths. Path 1 still leaves the
+   profile's mirror `M`/`R`/`z_surf` at **zero** (preserved under M1; classified
+   `INTERNAL STATE ASYMMETRY — CURRENTLY UNOBSERVED`, not declared correct). The `Analysis` and
+   profile-export hooks are preserved, pending classification in Phase 3F.
    Phase 3E-0 measured the two blocks as **value-equivalent** but found two real interface asymmetries:
    `FinalizeSurface` never calls `SetSurfaceScalars`, so Path 1 leaves the profile's mirror
    `M`/`R`/`z_surf` at **zero** while Path 2 populates them; and Path 1 alone owns the
