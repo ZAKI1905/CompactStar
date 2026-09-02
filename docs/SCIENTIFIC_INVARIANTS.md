@@ -283,6 +283,17 @@ the last grid point: `R = r[-1]`, `M = m[-1]`, `z_surf = exp(ν[-1])`. The ν in
 **Evidence.** `TOVSolver.cpp:1204-1208`, `:1372-1385`, `:1873`, `:2657`; `NStar.cpp:297,301,336`,
 `:823-842`; `PhotonCooling_Details.cpp:310`.
 
+**Phase 4C-G note (2026-09-02) — O(Ω²) surface semantics, no convention change.** The last node
+`R_*` is the EOS-table-floor surface (`p_* = 3.351885e25 dyn cm⁻²`, `n_B = 1e-7 fm⁻³` for
+DS(CMF)-1; `TOV_REFERENCE.md` §5). For the Hartle monopole sector this was audited and
+classified **`SURFACE ADEQUATE AS-IS`**: exterior matching identities are exact in vacuum and
+hold at `R_*` to `≈ 1e-6`; the surface mass-shell and number-boundary terms are evaluated
+explicitly from `ε_*`, `n_*`; `ξ₀(R_*)` is the displacement of the floor isobar and differs from
+the `p = 0` surface displacement by `O(ΔR/R_*) ≈ 4–7e-3` relative
+(`docs/validation/PHASE4C_HARTLE2_DERIVATION.md` §11; ADR-0007 P7). The doc-comment at
+`TOVSolver.hpp:549-554` still says "`1e-5` times smaller than the central pressure" where the
+code uses `1e-15` (`TOVSolver.cpp:1206`) — a stale comment, not a behaviour difference.
+
 **⚠ UNRESOLVED sub-item — heat-blanket base.** Two competing thresholds coexist:
 `TbDefinition.hpp:60` uses ρ_b = 1e10 g/cm³ (located by inward scan,
 `TbDefinition.cpp:91-95`), while `StarBuilder.hpp` carries
@@ -393,7 +404,7 @@ conformance to the `MixedStar` track. And **nothing at O(Ω²) is normalized** �
 
 ---
 
-## INV-08 — Hartle perturbative order — **INTENDED BUT UNVERIFIED** ⚠
+## INV-08 — Hartle perturbative order — **INTENDED BUT UNVERIFIED** ⚠ — **UNVERIFIED SCIENTIFIC CANDIDATE — GOVERNED REPLACEMENT ADR PROPOSED (ADR-0007, 2026-09-02)**
 
 **Statement.** First order O(Ω) supplies frame dragging and I. Second order O(Ω²) supplies the
 monopole structural perturbations `(m₀, p₀)` with isobar displacement `ξ₀ = −p₀/(dp/dr)`,
@@ -475,11 +486,33 @@ here and neither is a repair: `HartleResult` lost its five seed-normalized *firs
 moved. **No candidate output was executed for a result or baselined.** Evidence:
 `docs/validation/PHASE4A_FIRST_ORDER_NORMALIZATION.md` §8.
 
-**Status.** **UNVERIFIED SCIENTIFIC CANDIDATE** under `GOVERNANCE.md` §5 — unchanged; public
-reachability is a reason for more caution, not a promotion. Must not be cited as implemented
-physics. Correction and validation require a separate ADR after INV-07 (ADR-0006) is settled
-(`docs/adr/README.md`, anticipated); because the candidate's output cannot serve as a baseline,
-that ADR is expected to invoke `GOVERNANCE.md` §3.1.
+**Phase 4C-G note (2026-09-02) — governed replacement derived and proposed; candidate untouched.**
+Primary-source access was authenticated (the journal scan of Hartle 1967, ApJ 150, 1005, read
+page by page; Hartle & Thorne 1968 §II as secondary) and the `l = 0` system CompactStar should
+implement was derived from it: variable `p₀* = −ξ₀(dp/dr)/(ε+p) = ν'ξ₀` (H67 87–88, 99),
+equations H67 (97) and (100) written per `Ω_geom²` from the verified `s`, `s'`
+(`docs/validation/PHASE4C_HARTLE2_DERIVATION.md` §6–§7, dimensionally audited term by term),
+fixed-`ε_c` centre condition `m₀(0) = p₀*(0) = 0` with **no** surface condition (H67 108, p. 1009;
+HT68 §II f), regular series `p₀* → (1/3)j_c²ω̄_c²r²`, `m₀ → (4π/15)(ε_c+p_c)[(dε/dp)_c+2]j_c²ω̄_c²r⁵`
+(H67 108, re-derived), EOS-owned `dε/dp` (no API exists — an implementation prerequisite),
+`δM = m₀(R_*) + 4πR_*²ε_*ξ₀(R_*) + J²/R_*³` (H67 105–107 plus the explicit surface-shell term),
+`ξ₀(R_*)` generally nonzero. Every 4A-0 defect hypothesis above was classified against the
+primary text: all **CONFIRMED** (the centre-start item **PARTLY CORRECT** — bound confirmed,
+series start now recommended); the candidate's own premises — its equation citations
+"(30)–(33)" and "no `e^{−2ν}` available" — **REFUTED** (record §17). The surface convention was
+audited for O(Ω²): **`SURFACE ADEQUATE AS-IS`** — exterior identities hold at the EOS-floor node
+to `≈ 1e-6`, the shell and number-boundary terms are `≲ 1e-5`, and `ξ₀(R_*)` is the
+floor-isobar displacement with an `O(ΔR/R) ≈ 4–7e-3` relative systematic (record §11). The
+angular integration of H67 (109) shows `l = 0` suffices for every scalar count (record §14).
+**`GOVERNANCE.md` §3.1 is applicable once ADR-0007 is accepted; all seven conditions are
+recorded in ADR-0007 §9.** The candidate is byte-identical; no candidate output was executed.
+
+**Status.** **UNVERIFIED SCIENTIFIC CANDIDATE — GOVERNED REPLACEMENT ADR PROPOSED** under
+`GOVERNANCE.md` §5: `docs/adr/ADR-0007-hartle-second-order-monopole-response.md` (PROPOSED
+2026-09-02, **not accepted**; Q1–Q13; recommends atomic replacement of the public candidate API
+in 4C-I). Public reachability remains a reason for more caution, not a promotion; the candidate
+must not be cited as implemented physics; its historical outputs are not reference results.
+Next action: owner adjudication of ADR-0007 **before any O(Ω²) production change**.
 
 ---
 
@@ -511,6 +544,16 @@ which shifts the central density (INV-08), and its `p0` is seed-normalized; so e
 missing `÷Ω²`, `A_i` computed from it would not be `(∂N_i/∂Ω²)|_{ε_c}`. The Phase-4 output for
 Phase 5 must be `Ω²`-normalized response coefficients at fixed `ε_c`
 (`docs/validation/PHASE4_ROTATION_ENTRY.md` §16; ADR-0006 P8–P9).
+
+**Phase 4C-G note (2026-09-02).** The complete O(Ω²) expression for a scalar count was derived
+from H67 (109) (`docs/validation/PHASE4C_HARTLE2_DERIVATION.md` §14–§15): per unit `Ω_geom²`,
+`A_i = ∫ w_V {(dn_i/dp)δp̂₀ + n_i[m̂₀/(r−2m) + (1/3)r²e^{−2ν}s²]} dr + w_V(R_*) n_i(R_*) ξ̂₀(R_*)`
+with `n_i = Y_i n_B`. The `∫(dn_i/dp)p₀ w_V dr` integrand above is therefore **incomplete** as
+well as un-normalized: the proper-volume (`m₀`) and time-dilation (`ω̄²`) terms and the boundary
+term are of the same order; `h₀` cancels; the `l = 2` sector integrates to zero. The fixed-`ε_c`
+family is the particular solution with `p₀*(0) = 0`; the regular homogeneous solution is the
+TOV sequence derivative (`B_i`'s source) and ADR-0007 P11 proposes exposing it. `Z_i` stays
+Phase 5.
 
 ---
 
@@ -651,6 +694,11 @@ different units (fm⁻³·km² vs km⁻¹). Harmless today only because it has z
 directly, not a species column, so it is **unaffected in form** by ADR-0001. Any *per-species*
 enclosed-number integral, however, must apply `n_i = Y_i n_B` — which the `RotochemicalCache`
 integrand does not currently do (see INV-01 conformance table).
+
+**Phase 4C-G note (2026-09-02).** This integral is Hartle & Thorne (1968) eq. (3e). Its O(Ω²)
+monopole extension (density, proper-volume, time-dilation and boundary terms; `l = 2` integrates
+out) is derived in `docs/validation/PHASE4C_HARTLE2_DERIVATION.md` §14 and reduces to this
+expression at `Ω = 0`.
 
 ---
 
@@ -801,7 +849,7 @@ conversion, under the in-code comment *"Convert fractions to number densities in
 |---|---|
 | **GOVERNED (ACCEPTED)** | **INV-01** — ADR-0001, accepted 2026-08-31 · **INV-15** — ADR-0002, accepted 2026-08-31 · **INV-07** — ADR-0006, accepted 2026-09-02, **first-order source conformed and physical response independently verified 2026-09-02** |
 | VERIFIED CURRENT BEHAVIOR | INV-02, 03, 04, 05, 06, 10, 12, 13, 14, 16 |
-| INTENDED BUT UNVERIFIED | INV-08⚠, 09 |
+| INTENDED BUT UNVERIFIED | INV-08⚠ — **governed replacement ADR-0007 PROPOSED 2026-09-02** · INV-09 |
 | **UNRESOLVED (fail-closed)** | **INV-11** — and sub-items of INV-06, INV-16 |
 
 **One unresolved invariant still blocks a downstream phase:**
@@ -818,6 +866,10 @@ slow-rotation truncation itself.
 
 **INV-08 wording corrected (2026-09-02):** the O(Ω²) candidate is *publicly callable with zero
 repository callers*, not "structurally unreachable"; its status is unchanged.
+**Phase 4C-G (2026-09-02):** the governed replacement was derived from the primary source and
+proposed as **ADR-0007 (PROPOSED — owner adjudication required)**; the surface convention needs
+no prior governance for it; INV-08 is not resolved until acceptance, 4C-I conformance and 4D
+validation.
 
 **INV-01 is resolved** as a storage contract (ADR-0001). One implementation nonconformance
 remains — `RotochemicalCache` must construct `n_i = Y_i n_B` — tracked as a Phase-5 task, not as

@@ -471,7 +471,7 @@ its `p0` is the Eulerian `δp`, not Hartle's `p₀*`.
 |---|---|---|
 | **4A** | ✅ **COMPLETE 2026-09-02.** ADR-0006 accepted, then implemented: typed physical spin input (`Ω [rad s⁻¹]`) with geometric internals and one conversion owner; seed internalized behind a non-public seam; `HartleResult` stripped of its five seed-normalized first-order fields (the `[s⁻¹]` mislabel is gone); seed-free `HartleFirstOrderResponse` and explicit `NStar::RotationAt(AngularVelocity)`; export headers corrected. **No implicit physical spin on construction.** V1–V9 pass at the predeclared bounds, four detectors fired and were reverted byte-identically, `I` bit-identical, seven goldens byte-identical, O(Ω²) byte-identical. Evidence: `docs/validation/PHASE4A_FIRST_ORDER_NORMALIZATION.md` | ADR-0006 ✅; `I` and the seven goldens bitwise ✅ |
 | **4B** | ✅ **COMPLETE 2026-09-02.** Independent *physical* validation of the normalized first-order response: node-by-node comparison of `ω̄/Ω` and `ω̄'/Ω` against an independently derived and independently normalized profile (`2.9e-9` analytic vs a predeclared `1e-7`; `≤ 2.3e-5` on the four CMF stars vs `1e-4`), exterior-matching identities against an independent `I`, the volume-integral identity from production's own shape, and two **derived** weak-field coefficients. Detector D1 proves the coverage is new. **Zero production change.** Evidence: `docs/validation/PHASE4B_FIRST_ORDER_PHYSICS.md` | 4A ✅ |
-| **4C** | **◄ NEXT (4C-G).** **Separate ADR** for O(Ω²), derived from primary equations and **replacing** the AI candidate as scientific authority rather than patching it: perturbation variable (`p₀*` vs `δp`), corrected equations with `j²`, fixed-`ε_c` boundary condition, exterior `δM` term, EOS `dε/dp` authority, `Ω²`-normalized exposure — expected to invoke `GOVERNANCE.md` §3.1; then implement | ADR accepted; 4A/4B first-order layer ✅ |
+| **4C** | **4C-G ✅ COMPLETE 2026-09-02 — ADR-0007 PROPOSED. ◄ NEXT: owner adjudication of ADR-0007, then 4C-I.** The O(Ω²) monopole contract was derived from the **primary source** (Hartle 1967 eqs. 87–88, 97, 99–100, 105–108, read from the journal scan; Hartle & Thorne 1968 §II secondary), not from the candidate: variable `p₀*`; the `l = 0` system per `Ω_geom²` from the verified `s`, `s'` (dimensionally audited); fixed-`ε_c` centre condition with a regular-series start and **no** surface condition; EOS-owned `dε/dp` (an API prerequisite — none exists); `δM = m₀(R_*) + 4πR_*²ε_*ξ₀(R_*) + J²/R_*³`; surface classified **`SURFACE ADEQUATE AS-IS`** with explicit `R_*` semantics; `l = 0` sufficient for all scalar counts (derived from the angular integration); the complete Phase-5 `δN_i` interface (five contributions); §3.1 conditions satisfiable; atomic replacement of the public candidate recommended. Every 4A-0 defect hypothesis classified against the primary text. Evidence: `docs/validation/PHASE4C_HARTLE2_DERIVATION.md`; `docs/adr/ADR-0007-hartle-second-order-monopole-response.md`. **4C-I** (implementation under `GOVERNANCE.md` §3.1, preceded by the EOS-derivative API) follows acceptance | ADR-0007 accepted by the owner; 4A/4B first-order layer ✅ |
 | **4D** | independent O(Ω²) validation (regular-centre series, Newtonian limit, independent solver, quadratic scaling at a predeclared bound, published slow-rotation results) | 4C |
 | **4E** | fixed-`ε_c` structural response coefficients for Phase 5 (`m₀/Ω²`, `δp₀/Ω²`, `ξ₀/Ω²`, `δM/Ω²`, `ω̄/Ω`, `I`) | 4D |
 
@@ -488,14 +488,19 @@ its `p0` is the Eulerian `δp`, not Hartle's `p₀*`.
 - Verify true RHS-radius interpolation and cached bracket indices as introduced by `3639d71`.
 - **Verify the second-order equations against a cited derivation** — restore the j² factor,
   complete δM with the exterior term, source `dε/dp` from the EOS rather than profile
-  differences, impose proper central series expansions (INV-08).
+  differences, impose proper central series expansions (INV-08). *(4C-G, 2026-09-02: derived
+  from the primary source and governed in ADR-0007 PROPOSED — the derivation is done; the
+  correction awaits adjudication and 4C-I.)*
 - Make `HartleResult` reachable from `NStar`. *(4A-0 re-scoping: a raw `HartleResult` is already
   reachable through an external `RotationSolver`; what is needed is a **normalized** response
   accessor on `NStar` — ADR-0006 Q4, increment 4E.)*
 - Convergence tests and validation against published moment-of-inertia and δM values.
 
 **Exit criteria.** O(Ω) and O(Ω²) validated and reachable. The candidate status of `675b4a9` is
-resolved — ratified or replaced.
+resolved — ratified or replaced. *(4C-G surfaced an owner reading: the candidate is `l = 0` only,
+so "O(Ω²) validated" is recommended to mean the monopole sector, with `l = 2` — shape and
+quadrupole — scheduled as a separate later ADR; ADR-0007 Q11 / owner question Q6. Not narrowed
+here.)*
 
 ---
 
@@ -541,7 +546,7 @@ unauditable.
 
 ```
 0.5 governance ─► 1 build ─► 2A pre-baseline ─► 2B baseline ─► 3 consolidation ─► 4 rotation ─► 5 rotochemical ─► 6 BNV
-  ✅ RATIFIED    ✅ COMPLETE      ✅ COMPLETE      ◐ ACTIVE (gate met)   ✅ COMPLETE (merged df859b5)   ◐ 4A+4B COMPLETE — 4C-G NEXT
+  ✅ RATIFIED    ✅ COMPLETE      ✅ COMPLETE      ◐ ACTIVE (gate met)   ✅ COMPLETE (merged df859b5)   ◐ 4A+4B+4C-G COMPLETE — ADR-0007 ADJUDICATION NEXT
                                     │                                 │                │              │
    ADR-0001 species semantics  ✅ ACCEPTED ──────────────────────────────────────────────────────────►│  (gate cleared)
    ADR-0002 heat capacity      ✅ ACCEPTED ─►│  (conformance is 2A work, not a gate)
