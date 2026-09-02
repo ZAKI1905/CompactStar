@@ -8,6 +8,9 @@
 > **Evidence base:** `docs/reconnaissance/2026-08-31-phase-0-reconnaissance.md`, audited at
 > commit `d91c31b`. Entries touching `RotationSolver` or `MixedStar` are marked ⚠ where
 > commit `3639d71` (reachable from `9f70f14`) may supersede the cited evidence.
+> **Rotation entries re-audited at `df859b5` (2026-09-02, Phase 4A-0):** INV-05 (rotation half),
+> INV-07 and INV-08 now cite current source lines; evidence in
+> `docs/validation/PHASE4_ROTATION_ENTRY.md`.
 
 ## Status vocabulary
 
@@ -235,7 +238,7 @@ not fully resolved until then.**
 
 ---
 
-## INV-05 — Radial center convention — **VERIFIED CURRENT BEHAVIOR** ⚠
+## INV-05 — Radial center convention — **VERIFIED CURRENT BEHAVIOR**
 
 **Statement (as of `d91c31b`).** Integration starts at `r_min = 1 cm = 1e-5 km`, never r = 0.
 Initial conditions `y[0] = (4/3)πr³ε(p_c)`, `y[1] = p_c`. Central ε clamped to
@@ -244,11 +247,19 @@ solver.
 
 **Evidence.** `TOVSolver.hpp:559,629`; `TOVSolver.cpp:1708-1712`, `:2545-2550` (duplicated).
 
-**⚠ Supersession.** `9f70f14` adds explicit regularization in `RotationSolver`:
-`kR_EPS_KM = 1e-6` km and `SafeR0()` (`RotationSolver.cpp:31-37`), with `r_safe` guards at
-`:244,260,276,292`. **The rotation half of this entry must be re-audited against `9f70f14`.**
+**Rotation half — re-audited at `df859b5` (Phase 4A-0, supersedes the `9f70f14` ⚠).**
+`RotationSolver` carries `kR_EPS_KM = 1e-6 km` (`RotationSolver.cpp:31`) and `SafeR0()`
+(`:33-38`, used by `Solve_Mixed` `:375` and `FindMixedMomInertia` `:947`), with `r_safe` guards in
+the four first-order right-hand sides (`:244`, `:260`, `:276`, `:292`). `FindNMomInertia` starts
+at the first strictly-positive profile radius, falling back to `kR_EPS_KM` (`:684-690`) — on
+production profiles `r₀ = 1e-5 km` — with `ω̄(r₀) = init_omega_bar`, `ω̄'(r₀) = 0` (`:704-706`).
+**No series expansion**; the regular series `ω̄ = ω̄_c[1 + (8π/5)(ε_c+p_c)r² + …]` bounds the
+truncation at `≲ 1e-12` relative, and `I` is immune to the centre condition by construction
+(`HARTLE_MOMENT_INERTIA.md` §15.1). The O(Ω²) candidate starts at `r[0]` with literal zeros
+(`:1170-1171`, `:1204-1205`) — assessed in INV-08 (item D). Evidence:
+`docs/validation/PHASE4_ROTATION_ENTRY.md` §7.3.
 
-**Confidence.** High for TOV, superseded for rotation. **Documented?** No — implicit only.
+**Confidence.** High for TOV and for rotation (at `df859b5`). **Documented?** No — implicit only.
 
 ---
 
@@ -276,21 +287,36 @@ determined only up to scale. The code fixes that scale with a hard-coded
 `init_omega_bar = 5e-3`. Consequently `HartleResult::Omega` and `.J` carry an **arbitrary,
 unphysical normalization**; only `I = J/Ω` is scale-invariant and physically meaningful.
 
-**Evidence.** `RotationSolver.cpp:1240` (`d91c31b`). Extraction:
-`J = R⁴y[1]/6`, `Ω = y[0] + Ry[1]/3`, `I = J/Ω` (`:1276-1288`).
+**Evidence (current, `df859b5`).** Seed `init_omega_bar = 5e-3` at `RotationSolver.cpp:701`
+(`FindNMomInertia`) and `:954` (`FindMixedMomInertia`); extraction `J = R⁴y[1]/6`,
+`Ω = y[0] + Ry[1]/3`, `I = J/Ω` at `:737-739` (and `:992-994`, `:488-490`). Historical
+(`d91c31b`) locations were `:1240` and `:1276-1288`.
 
-**⚠ Persists.** `init_omega_bar` still appears 13 times in `9f70f14`. **Unresolved in both
-states.**
-
-**Secondary defect.** `HartleResult::Omega` is documented `[s^-1]` (`RotationSolver.hpp:105`)
-but stores a geometric km⁻¹ value. Elsewhere the file multiplies by
-`Zaki::Physics::LIGHT_C_KM_S` where s⁻¹ is wanted.
+**Re-audit, 2026-09-02 (Phase 4A-0 — `docs/validation/PHASE4_ROTATION_ENTRY.md` §8–§9).**
+- The seed's physical meaning was measured: on the audited stars `Ω_raw·c ≈ 2.2–2.4×10³ s⁻¹`
+  (a fast millisecond pulsar), purely by accident of the number `5e-3`.
+- The normalization contract was **derived** from linear homogeneity and exterior matching:
+  `A = Ω_target_geom/Ω_raw`, `Ω_target_geom = Ω_phys/c`; `ω̄_phys = Aω̄_raw`, `J_phys = AJ_raw`,
+  `I` unchanged; checked numerically through the public API to `2e-16`.
+- Every O(Ω²) candidate output was measured to scale as the seed **squared** (entry record §12),
+  confirming the impact statement below.
+- Unit audit: `HartleResult::Omega` annotated `[s^-1]` (`RotationSolver.hpp:105`) still stores
+  km⁻¹ (`:744`); `ExportResults` advertises `omega_bar_c (1/s)`, `Omega (1/s)` (`:637-638`) for
+  seed-normalized values populated only by `Solve_Mixed` (`:540-542`, `× LIGHT_C_KM_S`); `J`,
+  `M`, `R` are exported without units; `init_omega_bar` itself has no documented unit
+  (`hpp:212`); `p0_c` has none (`hpp:117`).
+- The legacy public entry points `Solve(Axis,…)`, `Solve(double,…)`, `ODE`, `GetMass`,
+  `GetPress` are **declared but undefined** (`hpp:370-375,403,315,318`; no symbol in the library).
 
 **Impact.** Any O(Ω²) quantity is quadratic in ω̄ and therefore inherits the square of this
-arbitrary factor. **This blocks Phase-4 and, transitively, Phase-5.**
+arbitrary factor (measured). **This blocks Phase-4 and, transitively, Phase-5.**
 
-**Proposed resolution.** Rescale to a physical Ω before any second-order quantity is exported,
-and correct the unit annotation. Requires an ADR.
+**Proposed resolution.** **`docs/adr/ADR-0006-hartle-first-order-physical-normalization.md` —
+PROPOSED 2026-09-02, owner adjudication required.** Physical `Ω [rad s⁻¹]` at the public API,
+geometric km⁻¹ internally with one named conversion `Ω/c`, rescaling `A = Ω_geom/Ω_raw`, the seed
+strictly internal, one canonical geometric `HartleResult` with named physical accessors,
+unit-true exports, normalized response (`ω̄/Ω`, `I`) exposed to consumers. **Status stays
+UNRESOLVED until the ADR is accepted and Phase 4A conforms.**
 
 ---
 
@@ -301,25 +327,71 @@ monopole structural perturbations `(m₀, p₀)` with isobar displacement `ξ₀
 surface condition `p₀(R) = 0` enforced by exact superposition of a particular and a homogeneous
 solution.
 
-**Evidence.** `RotationSolver.cpp:1554-1700`; superposition `:1591-1678`.
+**Evidence (current, `df859b5`).** `ODE_Hartle2_N_Fast` `RotationSolver.cpp:1024-1110`;
+`SolveHartle2_N` `:1126-1270`; superposition `:1233-1250`; `ξ₀` `:1252-1264`; `delta_M` `:1268`.
+The candidate code is whitespace-identical to `675b4a9` (author "Claude", 2026-04-05); the merge
+and the Phase-1B repair changed no formula. Full equation map:
+`docs/validation/PHASE4_ROTATION_ENTRY.md` §10–§12.
 
-**Verified sub-claim.** The superposition construction is correctly implemented — the one
-second-order component that matches its documentation.
+**Current behaviour re-authenticated 2026-09-02 (Phase 4A-0). The historical `d91c31b`
+findings below are retained, corrected where marked.**
 
-**Unverified and defective sub-claims (as of `d91c31b`).**
-- The factor `j² = e^{−2ν}(1 − 2m/r)` is **dropped** from the source terms. The code names it
-  (`:1502`), states that ν is unavailable in the fast cache (`:1504-1507`), and omits
-  `e^{−2ν}`. `S_m` (`:1514`) then uses `1/(1 − 2m/r)` — the **reciprocal** of the required factor.
-- `delta_M = m0[-1]` only; the exterior matching term `J²/R³` is absent (`:1696`).
-- `dε/dp` is reconstructed by centered finite differences of the **profile**, not obtained from
-  the EOS, with a `1.0` fallback labeled "incompressible limit" (incompressible is dε/dp → ∞).
-- Central boundary conditions are literal `{0,0}` and `{0,1}` — no series expansion.
-- Shipped source carries `[FIX: confirm exact from textbook]` (`:1444`) and `???` (`:1518`).
-- MixedStar second order is a no-op stub (`:1542-1548`, `:1702-1705`).
-- Zero call sites; `rot_solver` is private with no accessor — **structurally unreachable**.
+- **Reachability — corrected.** `NStar::rot_solver` is private with no accessor (`NStar.hpp:100`),
+  but `RotationSolver` is a public class: `AttachNStar`, `FindNMomInertia`, `SolveHartle2_N` and
+  `GetHartleResult` are public and defined (`hpp:306,382,390,397`), and `NStar` grants
+  `friend class RotationSolver` (`NStar.hpp:82`). An external solver attached to any `NStar`
+  executes the candidate from user code; this was compiled, linked and run against the
+  unmodified library (entry record §13). **Correct classification: `PUBLIC SCIENTIFIC CANDIDATE
+  — ZERO REPOSITORY CALLERS — EXECUTABLE FROM USER CODE — UNVALIDATED`**, not "structurally
+  unreachable". Zero repository callers remains true.
+- **Variable.** The code's `p0` is, by annotation (`hpp:114`, `[km⁻²]`), by the one correct
+  homogeneous term `dm0/dr = 4πr²(dε/dp)p0` (`:1054`) and by `ξ₀ = −p0/(dp/dr)` (`:1258-1261`),
+  the **Eulerian monopole pressure perturbation `δp₀ = (ε+p)p₀*`** — not Hartle's dimensionless
+  `p₀*`. Its evolution equation (`:1068`) is **dimensionally inconsistent under either reading**
+  (the `p0` and `m0` coefficients are one power of `1/r` too many — the comment at `:1057` writes
+  `r²(r−2m)` for the TOV factor `r(r−2m)`), and the GR factors `(1+dε/dp)ν'` and
+  `(1+8πr²p)/(1−2m/r)` are absent.
+- **`j²` factor — re-confirmed.** `S_m` (`:1088`) uses `1/(1−2m/r)`, the reciprocal of the
+  `(1−2m/r)` part of `j² = e^{−2ν}(1−2m/r)`, and omits `e^{−2ν}`; the second `S_m` term is also
+  wrong in sign, by a factor 2, and by one power of `r` (dimension km⁻¹ where dimensionless is
+  required); `S_p` (`:1100`) has a dimensionally inconsistent second term. The comment
+  `:1078-1080` claiming `ν` is unavailable is false — the profile carries `MetricNu`
+  (`StarProfile.hpp:246`).
+- **Boundary condition — corrected.** The superposition arithmetic is correct *for the condition
+  it imposes*, `p0(R) = δp(R) = 0` (achieved to `1e-21`). That is **not** Hartle's condition: it
+  forces `ξ₀(R) = 0` (no monopole surface displacement) and `p0_c = δp(r₀) ≠ 0` (measured
+  `−0.47 p_c`, `−0.52 p_c`), i.e. the central density changes. Hartle's fixed-central-density
+  solution has `p₀*(0) = 0` with no homogeneous admixture, `p₀*(R) ≠ 0`, `ξ₀(R) = p₀*(R)/ν'(R)`.
+  The candidate confuses the Eulerian `δp` with the Lagrangian `Δp = δp + ξ₀ dp/dr`, whose
+  vanishing already *defines* `ξ₀`. **Consequently it does not produce the fixed-`ε_c`
+  derivatives INV-09 requires.**
+- **`delta_M = m0[-1]` only** (`:1268`); the exterior term `J²/R³` is absent. Measured values at
+  the raw seed are **negative** (`δM/M = −1.6` on the 1.4 M☉ CMF star, `−3.4e-6` on the
+  constant-density star), where the physical monopole mass change is positive and small.
+- **`dε/dp`** by centered profile finite differences (`:1140-1161`) — mathematically the EOS
+  derivative by the chain rule on a barotrope, numerically inferior (range `3.8–4.9e3` on the
+  CMF star); the correct authority is the EOS (`1/c_s²`). The `1.0` fallback (`:1148`) is the
+  **causal limit `c_s² = 1`** — *correction:* incompressible matter has `dε/dp → 0`, not `→ ∞`
+  (the constant-density star gives exactly `0`).
+- **Centre — downgraded to a documented approximation.** Literal `{0,0}` / `{0,1}` starts at
+  `r₀ = 1e-5 km` (`:1170-1171`, `:1204-1205`) versus the regular series
+  `p₀* = (1/3)j_c²ω̄_c²r² + …`, `m₀ = (4π/15)(ε_c+p_c)[(dε/dp)_c+2]j_c²ω̄_c²r⁵ + …`: relative
+  truncation `O((r₀/R)²) ≈ 6e-13` — acceptable for the correct equations; no series expansion.
+- **Seed dependence — measured.** `SolveHartle2_N` consumes `stored_omega_bar_` /
+  `stored_domega_bar_` (`:1184-1185`) written at seed `5e-3`; every output (`m0`, `p0`, `ξ₀`,
+  `p0_c`, `δM`) scales as the seed **squared** to `≤ 1.5e-3` over six decades, exactly where the
+  driver's fixed absolute tolerance `1e-10` is not engaged (entry record §12). Quadratic scaling
+  is a normalization diagnostic, **not** correctness.
+- Shipped source still carries `[FIX: confirm exact from textbook]` (`:1019`) and `???`
+  (`:1091`). MixedStar second order is a no-op stub (`:1114-1120`, `:1274-1277`).
+- *(Historical, `d91c31b` numbering: `:1554-1700`, `:1591-1678`, `:1502`, `:1504-1507`, `:1514`,
+  `:1696`, `:1444`, `:1518`, `:1542-1548`, `:1702-1705`.)*
 
-**Status.** **UNVERIFIED SCIENTIFIC CANDIDATE** under `GOVERNANCE.md` §5. Must not be cited as
-implemented physics.
+**Status.** **UNVERIFIED SCIENTIFIC CANDIDATE** under `GOVERNANCE.md` §5 — unchanged; public
+reachability is a reason for more caution, not a promotion. Must not be cited as implemented
+physics. Correction and validation require a separate ADR after INV-07 (ADR-0006) is settled
+(`docs/adr/README.md`, anticipated); because the candidate's output cannot serve as a baseline,
+that ADR is expected to invoke `GOVERNANCE.md` §3.1.
 
 ---
 
@@ -343,7 +415,14 @@ to Ω². `B_i` integrates perturbed-star radial grids against the **unperturbed*
 weight (`:135-136`, `:162-163`) — a metric/grid mismatch with a possible out-of-range read.
 
 **Compilation status.** `RotochemicalCache.cpp` is **not in any CMake source list** in either
-`d91c31b` or `9f70f14`. Never compiled; `Build()` has zero callers.
+`d91c31b` or `9f70f14` (re-checked at `df859b5`). Never compiled; `Build()` has zero callers.
+
+**Phase 4A-0 note (2026-09-02).** `A_i` requires the O(Ω²) solution of the **fixed-central-density**
+family (`p₀*(0) = 0`) per unit `Ω²`. The current O(Ω²) candidate imposes `δp(R) = 0` instead,
+which shifts the central density (INV-08), and its `p0` is seed-normalized; so even after the
+missing `÷Ω²`, `A_i` computed from it would not be `(∂N_i/∂Ω²)|_{ε_c}`. The Phase-4 output for
+Phase 5 must be `Ω²`-normalized response coefficients at fixed `ε_c`
+(`docs/validation/PHASE4_ROTATION_ENTRY.md` §16; ADR-0006 P8–P9).
 
 ---
 
@@ -633,14 +712,18 @@ conversion, under the in-code comment *"Convert fractions to number densities in
 | Status | Entries |
 |---|---|
 | **GOVERNED (ACCEPTED)** | **INV-01** — ADR-0001, accepted 2026-08-31 · **INV-15** — ADR-0002, accepted 2026-08-31 |
-| VERIFIED CURRENT BEHAVIOR | INV-02, 03, 04, 05⚠, 06, 10, 12, 13, 14, 16 |
+| VERIFIED CURRENT BEHAVIOR | INV-02, 03, 04, 05, 06, 10, 12, 13, 14, 16 |
 | INTENDED BUT UNVERIFIED | INV-08⚠, 09 |
 | **UNRESOLVED (fail-closed)** | **INV-07⚠, 11** — and sub-items of INV-06, INV-16 |
 
 **Two unresolved invariants block downstream phases:**
 
-- **INV-07** (Hartle normalization) blocks Phase 4, transitively Phase 5.
+- **INV-07** (Hartle normalization) blocks Phase 4, transitively Phase 5. **ADR-0006 is
+  PROPOSED (2026-09-02)** and awaits owner adjudication; the status is unchanged until then.
 - **INV-11** (η convention) blocks Phase 5.
+
+**INV-08 wording corrected (2026-09-02):** the O(Ω²) candidate is *publicly callable with zero
+repository callers*, not "structurally unreachable"; its status is unchanged.
 
 **INV-01 is resolved** as a storage contract (ADR-0001). One implementation nonconformance
 remains — `RotochemicalCache` must construct `n_i = Y_i n_B` — tracked as a Phase-5 task, not as

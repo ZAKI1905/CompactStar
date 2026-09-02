@@ -335,7 +335,8 @@ Path-1 as well**, so both ordinary visible-sector `NStar` paths share one geomet
 scalar accessor remain deferred by governed decision. **Phase 3 is COMPLETE on its ratified exit
 criterion** ("one authoritative owner per quantity; baselines still pass") — see
 `docs/validation/PHASE3_CLOSEOUT.md`, the durable authority for the merge decision. The branch
-has **not** been merged.
+was merged to `master` at **`df859b5`** and post-merge verified (19/19, 10/10, seven artifact
+hashes unchanged; re-authenticated again at Phase-4 entry).
 The durable plan —
 ownership maps for all five targets, the cross-target dependency graph, the baseline-protection
 matrix, the per-increment preservation standard and the recommended sequence — is
@@ -444,7 +445,37 @@ ADR and must be evaluated **after** baselines exist. It is not a prerequisite fo
 
 ## Phase 4 — Rotation correctness
 
-**Prerequisite:** Phase 3; ADR on Hartle normalization accepted.
+**Prerequisite:** Phase 3 ✅ (merged at `df859b5`); ADR on Hartle normalization accepted ☐ —
+**ADR-0006 PROPOSED 2026-09-02, owner adjudication required.**
+
+**Status: ENTRY AUDIT COMPLETE (increment 4A-0, 2026-09-02) —
+`PHASE-4 ROTATION ENTRY AUDIT COMPLETE — ADR-0006 OWNER ADJUDICATION REQUIRED`.**
+Evidence: `docs/validation/PHASE4_ROTATION_ENTRY.md`. Documentation only; no production change.
+What the audit established: (a) `RotationSolver` provenance is fully resolved to four lineages
+(owner first-order, AI candidate `675b4a9`, merge repair `57334d8`, later validation-only) with
+no UNKNOWN block, and the source is byte-identical to the Phase 2B-4B-validated source;
+(b) the INV-07 normalization contract is **derived** — `A = (Ω_phys/c)/Ω_raw`, `ω̄_phys = Aω̄_raw`,
+`J_phys = AJ_raw`, `I` unchanged — and checked through the public API to `2e-16`; the hard-coded
+seed corresponds to `Ω ≈ 2.2–2.4×10³ s⁻¹`; (c) the O(Ω²) candidate is **publicly callable with
+zero repository callers** (the "structurally unreachable" wording was wrong and is corrected in
+INV-08 and `CURRENT_ARCHITECTURE.md`), executes, and every output scales as the seed squared;
+its equations are mapped term by term against Hartle's l = 0 system and found defective beyond the
+`j²` factor (dimensionally inconsistent homogeneous `p0` equation, wrong source terms, a
+non-Hartle boundary condition `δp(R) = 0` that shifts the central density, incomplete `δM`);
+its `p0` is the Eulerian `δp`, not Hartle's `p₀*`.
+
+**Proposed internal sequence (dependency order; the ratified item list below is unchanged):**
+
+| Increment | Content | Gate |
+|---|---|---|
+| **4A** | ADR-0006 accepted → physical spin input (`Ω [rad s⁻¹]`, geometric inside), rescaling, seed internalized, `HartleResult`/export unit contract, normalized first-order response exposed | ADR-0006; `I` and the seven goldens bitwise |
+| **4B** | physical first-order validation — nine predeclared tests and four detectors (entry record §18), reusing the Phase-2B Hartle harnesses | 4A |
+| **4C** | **separate ADR** for O(Ω²): variable (`p₀*` vs `δp`), corrected equations with `j²`, fixed-`ε_c` boundary condition, exterior `δM` term, EOS `dε/dp` authority, `Ω²`-normalized exposure — expected to invoke `GOVERNANCE.md` §3.1; then implement by replacing, not patching, the candidate | ADR accepted; 4A for the physical layer |
+| **4D** | independent O(Ω²) validation (regular-centre series, Newtonian limit, independent solver, quadratic scaling at a predeclared bound, published slow-rotation results) | 4C |
+| **4E** | fixed-`ε_c` structural response coefficients for Phase 5 (`m₀/Ω²`, `δp₀/Ω²`, `ξ₀/Ω²`, `δM/Ω²`, `ω̄/Ω`, `I`) | 4D |
+
+`MixedStar` two-fluid rotation is a separate track (compiled, unexercised, unvalidated; ADR-0004
+§0-Q2 coverage first) and blocks no ordinary-`NStar` item. **Phase 5 must not begin before 4E.**
 
 - **Re-audit `RotationSolver` and `MixedStar` against `9f70f14`.** The Phase-0 findings were made
   against the superseded `d91c31b` and must not be carried forward.
@@ -454,7 +485,9 @@ ADR and must be evaluated **after** baselines exist. It is not a prerequisite fo
 - **Verify the second-order equations against a cited derivation** — restore the j² factor,
   complete δM with the exterior term, source `dε/dp` from the EOS rather than profile
   differences, impose proper central series expansions (INV-08).
-- Make `HartleResult` reachable from `NStar`.
+- Make `HartleResult` reachable from `NStar`. *(4A-0 re-scoping: a raw `HartleResult` is already
+  reachable through an external `RotationSolver`; what is needed is a **normalized** response
+  accessor on `NStar` — ADR-0006 Q4, increment 4E.)*
 - Convergence tests and validation against published moment-of-inertia and δM values.
 
 **Exit criteria.** O(Ω) and O(Ω²) validated and reachable. The candidate status of `675b4a9` is
@@ -504,12 +537,13 @@ unauditable.
 
 ```
 0.5 governance ─► 1 build ─► 2A pre-baseline ─► 2B baseline ─► 3 consolidation ─► 4 rotation ─► 5 rotochemical ─► 6 BNV
-  ✅ RATIFIED    ✅ COMPLETE      ✅ COMPLETE       ◄ NEXT
+  ✅ RATIFIED    ✅ COMPLETE      ✅ COMPLETE      ◐ ACTIVE (gate met)   ✅ COMPLETE (merged df859b5)   ◄ 4A-0 ENTRY AUDIT DONE
                                     │                                 │                │              │
    ADR-0001 species semantics  ✅ ACCEPTED ──────────────────────────────────────────────────────────►│  (gate cleared)
    ADR-0002 heat capacity      ✅ ACCEPTED ─►│  (conformance is 2A work, not a gate)
    ADR thermal-balance arch.   ☐ open, deferred ────────────────────►│  (optional; not a gate)
-   ADR Hartle normalization    ☐ open ─────────────────────────────────────────────────►│
+   ADR-0006 Hartle normalization  ◐ PROPOSED 2026-09-02 — owner adjudication ────────►│
+   ADR Hartle O(Ω²) equations  ☐ anticipated (after ADR-0006) ─────────────────────────►│
    ADR η conventions           ☐ open ────────────────────────────────────────────────────────────────►│
 ```
 
@@ -523,8 +557,8 @@ ADR-0002 breaks it by deciding the physical ownership **now**, ahead of any base
 splitting the correction out of Phase 3 into **Phase 2A**, which precedes the baseline. Nothing in
 Phase 2A depends on a passive-cooling baseline: it is validated by independent physical checks.
 
-**Two** unresolved invariants still gate the chain: **INV-07** (Hartle normalization) ·
-**INV-11** (η conventions).
+**Two** unresolved invariants still gate the chain: **INV-07** (Hartle normalization — ADR-0006
+PROPOSED, awaiting owner adjudication) · **INV-11** (η conventions).
 
 **INV-01** (species semantics) is **no longer a gate** — resolved by ADR-0001. What remains from
 it is a single Phase-5 implementation task: `RotochemicalCache` must construct `n_i = Y_i n_B`

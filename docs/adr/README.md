@@ -41,6 +41,7 @@ alternatives, and may recommend — but must not mark one accepted.
 | [ADR-0003](ADR-0003-profile-cache-provenance-and-invalidation.md) | Profile-derived cache provenance and dependency-complete invalidation | **ACCEPTED** | 2026-09-01 — provenance is `(StarProfile identity, Version())`; Q1 = S1, Q2 = Option A |
 | [ADR-0004](ADR-0004-proper-volume-and-metric-measure-ownership.md) | Proper-volume measure and metric-factor ownership | **ACCEPTED** | 2026-09-01 — Q1 = Option B (dependency-neutral primitive owns the mathematics, `GeometryCache` owns the cached arrays); Q2 = `MixedStar` governed now, migration deferred; Q3 = hybrid physical-domain contract (regular-center limit at `r=m=0`, fail closed otherwise, no `1e-15` clamp) |
 | [ADR-0005](ADR-0005-canonical-tov-numerical-primitive.md) | Canonical TOV numerical primitive and sequence workflow interface | **ACCEPTED** | 2026-09-02 — `SingleStarSolveToTOVPoints` is the canonical numerical primitive; Q1 = retain `Solve()` as a subordinate workflow orchestrator, Q2 = preserve the `_Sequence.tsv` contract, Q3 = P3 staged migration, Q4 = preserve the `Analysis`/export hooks |
+| [ADR-0006](ADR-0006-hartle-first-order-physical-normalization.md) | Physical normalization and unit contract for Hartle first-order rotation | **PROPOSED** | drafted 2026-09-02 (Phase 4A-0) — owner adjudication of Q1 (public spin input), Q2 (seed internal), Q3 (`HartleResult` storage), Q4 (normalized response exposure) required; carries no authority |
 
 ## Anticipated
 
@@ -48,10 +49,11 @@ Identified during Phase-0 reconnaissance or deferred by an accepted ADR; not yet
 
 | Subject | Blocking |
 |---|---|
-| Hartle first-order normalization and physical Ω (INV-07) | Phase 4 |
+| ~~Hartle first-order normalization and physical Ω (INV-07)~~ — **drafted as ADR-0006 (PROPOSED)** | Phase 4A |
+| Hartle O(Ω²) — perturbation variable (`p₀*` vs `δp`), corrected l = 0 equations with `j²`, fixed-central-density boundary condition, exterior `δM = m₀(R) + J²/R³` term, EOS `dε/dp` authority, exposure as `Ω²`-normalized response coefficients (INV-08, INV-09) — separate from ADR-0006; expected to invoke `GOVERNANCE.md` §3.1 because the candidate's output cannot serve as a baseline (`docs/validation/PHASE4_ROTATION_ENTRY.md` §10–§12) | Phase 4C |
 | Chemical-imbalance definition, ordering, redshift frame (INV-11) | Phase 5 |
 | Thermal-balance architecture — where the division by `C_⋆(T∞)` occurs (deferred by ADR-0002 §6) | Phase 3 |
-| MixedStar modernization scope — including the six inline proper-volume sites ADR-0004 §15 declines to migrate | post-Phase-3 (deferred by ADR-0004 §0-Q2; needs focused coverage first) |
+| MixedStar modernization scope — including the six inline proper-volume sites ADR-0004 §15 declines to migrate, and the two-fluid rotation path (`FindMixedMomInertia`, `Solve_Mixed`, stub second order) | post-Phase-3 (deferred by ADR-0004 §0-Q2; needs focused coverage first) |
 | Solar-mass-in-km authority (`Zaki::Physics::SUN_M_KM` vs `GSL_CONST_CGSM_SOLAR_MASS`, `6.2e-5` apart) | unadjudicated; deferred out of Phase 3 by the roadmap |
 | Core-library vs project-specific-extension boundary (BNV / Decay / DarkCore modules; `Analysis` as the extension seam) | future repository-organisation task (owner clarification, Phase 3F) |
 | Generated artifacts in version control | Phase 1 |

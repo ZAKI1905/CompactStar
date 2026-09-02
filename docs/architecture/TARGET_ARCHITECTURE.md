@@ -42,9 +42,9 @@
 | `MixedStar` migrated to `StarProfile` | **ABSENT** — still `ds_vis`/`ds_dar` with private int indices |
 | MixedStar master-grid totals (r, M, p, ε on one grid) | **IMPLEMENTED** by `3639d71` — requires re-audit |
 | Single canonical TOV integration path | **ABSENT** — two live paths |
-| Hartle O(Ω): ω̄, J, I | **PARTIAL** — live, untested, normalization unresolved (INV-07) |
-| Hartle O(Ω²): m₀, p₀, ξ₀, δM | **SCAFFOLDED · CANDIDATE** — unreachable; dropped j² factor; incomplete δM |
-| `HartleResult` reachable from `NStar` | **ABSENT** — `rot_solver` is private |
+| Hartle O(Ω): ω̄, J, I | **PARTIAL** — live; `I` validated scale-free (Phase 2B-4B); normalization unresolved (INV-07; ADR-0006 PROPOSED) |
+| Hartle O(Ω²): m₀, p₀, ξ₀, δM | **SCAFFOLDED · CANDIDATE** — publicly callable but zero callers; equations defective beyond the j² factor (INV-08, Phase 4A-0); incomplete δM |
+| Normalized rotation response exposed from `NStar` | **ABSENT** — `NStar::rot_solver` is private; a raw `HartleResult` is reachable only through an external `RotationSolver` (ADR-0006 Q4) |
 | Profile-backed interpolation at the true RHS radius | **IMPLEMENTED** by `3639d71` — requires re-audit |
 
 ---
