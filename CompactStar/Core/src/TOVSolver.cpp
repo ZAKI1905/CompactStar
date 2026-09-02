@@ -1665,15 +1665,30 @@ void TOVSolver::Solve(const Zaki::Math::Axis &in_ax,
 		return;
 	}
 
-	// EOS range
-	const double eos_e_min = eos_tab.eps.front();
-	const double eos_e_max = eos_tab.eps.back();
-
-	// user-configurable floor (usually 10×)
-	const double floor_e = central_eps_floor_factor * eos_e_min;
-	// keep a small safety margin at the top
-	const double ceil_e = 0.999 * eos_e_max;
-
+	// ------------------------------------------------------------------
+	// ADR-0005 (ACCEPTED 2026-09-02): this function is a SEQUENCE / WORKFLOW
+	// ORCHESTRATOR, not a numerical authority. The canonical TOV numerical
+	// primitive is SingleStarSolveToTOVPoints, and it owns:
+	//   the central-density clamp, the p_of_e conversion, the initial
+	//   conditions, the GSL RK8PD driver, the radial grid, the step_scale
+	//   ladder, the pressure-cutoff termination and TOVPoint construction.
+	//
+	// What remains here is orchestration only: sweeping the Axis, driving the
+	// existing star finalization, the Analysis and export hooks, Sequence
+	// accumulation, and the unconditional _Sequence.tsv export.
+	//
+	// The clamp is deliberately NOT duplicated here any more. The primitive
+	// computes floor/ceiling from the same eos_tab with the same
+	// central_eps_floor_factor and the same 0.999 margin, so the effective
+	// central density is unchanged. The only observable difference is the log
+	// line: the warning now originates in SingleStarSolveToTOVPoints and reads
+	// "Requested eps(...)" rather than "Solve: requested eps(...)". No
+	// numerical behavior changes. See docs/validation/PHASE3E_I1_CANONICAL_TOV.md.
+	//
+	// Phase 3E-0 measured this delegation as exactly equivalent: all 25 radial
+	// columns bit-identical at 14 central densities and radial_res
+	// 5000/10000/20000 (docs/validation/TOV_PATH_EQUIVALENCE.md).
+	// ------------------------------------------------------------------
 	for (size_t idx = 0; idx <= in_ax.res; idx++)
 	{
 		Z_LOG_INFO("Sequence " + std::to_string(idx + 1) +
@@ -1682,36 +1697,15 @@ void TOVSolver::Solve(const Zaki::Math::Axis &in_ax,
 		if (idx % 10 == 0)
 			PrintStatus(idx, in_ax.res);
 
-		// requested central energy density
-		double ec_req = in_ax[idx];
-		double ec = ec_req;
+		// The ONE radial integration for this sequence member.
+		std::vector<TOVPoint> tov_points;
+		SingleStarSolveToTOVPoints(in_ax[idx], tov_points);
 
-		// clamp to EOS range
-		if (ec < floor_e)
-		{
-			Z_LOG_WARNING("Solve: requested eps(" + std::to_string(ec_req) +
-						  ") < floor(" + std::to_string(floor_e) +
-						  ") -> clamping.");
-			ec = floor_e;
-		}
-		else if (ec > ceil_e)
-		{
-			Z_LOG_WARNING("Solve: requested eps(" + std::to_string(ec_req) +
-						  ") > ceil(" + std::to_string(ceil_e) +
-						  ") -> clamping.");
-			ec = ceil_e;
-		}
-
-		// Convert ec to pressure
-		init_press = p_of_e(ec);
-
-		double r = r_min;
-		double y[2];
-
-		y[1] = init_press;
-		y[0] = (4. / 3.) * M_PI * std::pow(r, 3.) * GetEDens(y[1]);
-
-		RadiusLoop(r, y);
+		// Feed the points through the EXISTING Path-1 postprocessing,
+		// unchanged. Converging this onto BuildFromTOV is ADR-0005 Q3 = P3 and
+		// is deliberately NOT part of this increment.
+		for (const auto &tp : tov_points)
+			n_star.Append(tp);
 
 		SurfaceIsReached();
 
@@ -1738,6 +1732,21 @@ void TOVSolver::Solve(const Zaki::Math::Axis &in_ax,
 
 //--------------------------------------------------------------
 // The radius iteration in the neutron star scenario
+// ------------------------------------------------------------------
+// NON-AUTHORITATIVE as of ADR-0005 (ACCEPTED 2026-09-02) / Phase 3E-I1.
+//
+// The canonical TOV numerical primitive is SingleStarSolveToTOVPoints.
+// Solve(Axis,...) no longer calls this function. It survives only because
+// GenTestSequence() -- a PUBLIC but UNEXERCISED radial-resolution harness whose
+// sole repository reference is commented out (main/Test/tov_debug_main.cpp:196)
+// -- still calls it, and migrating uncovered code inside a structural increment
+// is the risk AGENTS.md forbids.
+//
+// DO NOT add new callers. Retirement (migrating GenTestSequence to the canonical
+// primitive, then deleting this function) is assigned to Phase 3E-I4.
+// Until then GOVERNANCE.md fail-closed condition #3 is discharged for the
+// ordinary visible-sector Solve() workflow but NOT fully closed.
+// ------------------------------------------------------------------
 void TOVSolver::RadiusLoop(double &in_r, double *in_y)
 {
 	PROFILE_FUNCTION();

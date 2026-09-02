@@ -256,7 +256,7 @@ wanted, can be added alongside. **Caller churn is not justified by the age of an
 ## 8. `RadiusLoop` disposition
 
 Once `Solve()` delegates, `TOVSolver::RadiusLoop` is no longer an independent numerical authority.
-Its only live caller is `Solve()` itself.
+~~Its only live caller is `Solve()` itself.~~ **CORRECTED during 3E-I1 implementation:** `TOVSolver::GenTestSequence` (`TOVSolver.cpp:3244`) also calls it (`:3308`). That function is a **public but unexercised** radial-resolution harness whose sole repository reference is commented out (`main/Test/tov_debug_main.cpp:196-203`) and which has zero test coverage. The decision below is unaffected — staged retirement was already the preference — but the closure timing is: see §21.
 
 The ADR distinguishes two things that are easy to conflate:
 
@@ -471,3 +471,57 @@ Remove now, deprecate, or preserve?
 **Recommendation: PRESERVE during 3E; classify in 3F.** They are unused by production callers but
 the equivalence harness depends on the export hook remaining virtual and `n_exp_cond_f` remaining
 settable.
+
+---
+
+## 21. Implementation record — Phase 3E-I1
+
+Appended after implementation. **The accepted decisions of §0 were not altered.** One factual
+claim in §8 was found to be wrong during implementation and is corrected in place above.
+
+**Commits.** Acceptance `f86618a` (`docs: accept canonical TOV ownership`); implementation
+`refactor: unify TOV radial integration`. Acceptance precedes implementation in history.
+
+**Canonical primitive.** `TOVSolver::SingleStarSolveToTOVPoints(ec, out_tov)`. `Solve(Axis)` now
+calls it once per Axis node and feeds the returned `TOVPoint`s to the **existing** Path-1
+postprocessing (`NStar::Append` → `SurfaceIsReached` → `FinalizeSurface`), unchanged.
+`Solve()`'s duplicate clamp, `p_of_e` conversion, `y[]` initialization and `RadiusLoop` call were
+removed. **Exactly one radial integration per sequence member.**
+
+**`NStar` was not modified**, and did not need to be: `ImportEOS` performs
+`InitFromTOVSolver` once, and `StarProfile::Reset` deliberately preserves the column schema and
+species mapping across sequence members, so delegation changes only *when* `Append` is called.
+
+**Clamp.** No longer duplicated; the primitive owns it. `central_eps_floor_factor`, the floor and
+the ceiling formulas are unchanged, so the effective central density is identical. The single
+observable difference is the warning's origin and wording (`"Requested eps(...)"` rather than
+`"Solve: requested eps(...)"`) — logging only.
+
+**Bit-identity.** `tov_path_equivalence_dscmf1.tsv` re-emitted **byte-identical** to its pre-I1
+baseline. Path 2 is provably untouched, so unchanged path-to-path differences prove every Path-1
+value is bit-identical: all 25 radial columns, `ec`/`pc`/`M`/`R`/`I`, and `B`. **The ADR-0004
+`1.0e-15` allowance was not spent in I1** — it belongs to I2.
+
+**`_Sequence.tsv`.** Contract preserved and now guarded by `tov_sequence_workflow_cmf`: filename,
+six-field header with exact names and order, byte-exact raw header line, row count, and exported
+values checked against in-memory `SeqPoint` at `%.8e` precision (worst rel `3.137e-09`). The
+rounded file is never used as a numerical oracle.
+
+**`RadiusLoop` disposition.** Retained and marked non-authoritative in source, **not deleted** —
+because of the §8 correction above. Retirement (migrate `GenTestSequence`, then delete) is
+Phase 3E-I4.
+
+**Detectors.** D2 (sequence accumulation) and D3a/D3b (header name, filename) all fire; reverts
+byte-identical. **D1 is impossible for the `Solve()` workflow** — it contains no GSL driver, no
+step ladder and no `RadiusLoop` call — but **remains constructible globally** via
+`GenTestSequence`. Recorded as measured, not as §16 predicted.
+
+**Fail-closed condition #3: DISCHARGED for the ordinary visible-sector `Solve()` workflow;
+PARTIALLY OPEN overall.** §19's table anticipated closure at I1; the `GenTestSequence` caller
+moves full closure to **I4**. Not closed by wording.
+
+**Deferred.** I2 (Path-1 ADR-0004 conformance), I3 (postprocessing convergence, Q3 = P3), I4
+(`GenTestSequence` migration + `RadiusLoop` deletion, now also the closure gate). Mirror surface
+scalars preserved at zero under M1. INV-04 **not** resolved. INV-14 and INV-07 untouched.
+
+Full record: [`docs/validation/PHASE3E_I1_CANONICAL_TOV.md`](../validation/PHASE3E_I1_CANONICAL_TOV.md).

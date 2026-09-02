@@ -137,29 +137,51 @@ TimeSeriesObserver + DiagnosticsObserver            LIVE
 
 These are live conflicts. Under `GOVERNANCE.md` §3 they are fail-closed until adjudicated.
 
-1. **Two live TOV integration paths.** `RadiusLoop` (sequence scans) and
-   `SingleStarSolveToTOVPoints` (modern profile path) are an acknowledged copy-paste —
-   `TOVSolver.cpp:2574` says *"copy of RadiusLoop."* Both are live. No document names a canonical one.
-   The `SingleStarSolveToTOVPoints` path — and `SolveToProfile`/`NStar::SolveTOV_Profile` above it —
-   is **VALIDATED** as of Phase 2B-2 against the exact Schwarzschild interior solution (to `3.5e-16`)
-   and the official CompOSE `eos.mr` (`M_max` to `2.8e-4`, radii to 0.20–0.35 %); see
-   `docs/validation/TOV_REFERENCE.md`. That document also records two deliberately unrepaired
-   characteristics: the surface is the EOS table floor rather than vacuum, and the default
-   `r_max = 70 km` with `radial_res = 10000` leaves ~80 % of the radial grid outside the star.
+1. **TOV integration — canonical owner established (ADR-0005), one duplicate still reachable.**
+   **`TOVSolver::SingleStarSolveToTOVPoints` is the CANONICAL NUMERICAL PRIMITIVE** per
+   **ADR-0005 (ACCEPTED 2026-09-02)**. It owns the central-density clamp, the `p_of_e`
+   conversion, the initial conditions, the GSL RK8PD driver, the radial grid, the step ladder,
+   the pressure-cutoff termination and `TOVPoint` construction — and nothing else.
 
-   **Path 1 remains live and non-canonical, but its numerical relationship to Path 2 is now
-   measured** by Phase 3E-0 (`docs/validation/TOV_PATH_EQUIVALENCE.md`). On the authenticated
-   `DS(CMF)-1` EOS, at fourteen central densities and three radial resolutions, the two paths
-   produce **bit-identical** radial structure (all 25 columns) and **bit-identical**
-   `ec`/`pc`/`M`/`R`/`I`, with `B` differing by at most one ULP — the governed ADR-0004
-   conformance gap. The evidence supports **hypothesis H2**: *one* TOV algorithm copied into two
-   radial-loop implementations, differing in orchestration and output ownership rather than in
-   physics. **This does not designate a canonical owner**, and the fail-closed condition above
-   stays open until the Phase-3E ADR. What the measurement scopes out is equally explicit: one
-   EOS only, the nonrotating visible-sector path only, and no claim about physical Ω or J.
+   The three public entry points are now explicitly **orchestrators over that one primitive**:
+
+   | Role | Component |
+   |---|---|
+   | **CANONICAL NUMERICAL PRIMITIVE** | `TOVSolver::SingleStarSolveToTOVPoints` |
+   | **TARGET-MASS ORCHESTRATOR** | `TOVSolver::SolveToProfile` |
+   | **SEQUENCE / WORKFLOW ORCHESTRATOR** | `TOVSolver::Solve(Axis, dir, file)` |
+   | **WORKFLOW OUTPUT CONTRACT** | `<file>_Sequence.tsv` |
+
+   **`Solve()` delegates to the primitive as of Phase 3E-I1** and no longer owns a radial
+   integration; there is exactly one radial integration per sequence member. Its output contract
+   is unchanged and is now guarded by `tov_sequence_workflow_cmf`. All six live callers are
+   unmodified.
+
+   The primitive path is **VALIDATED** as of Phase 2B-2 against the exact Schwarzschild interior
+   solution (to `3.5e-16`) and the official CompOSE `eos.mr` (`M_max` to `2.8e-4`, radii to
+   0.20–0.35 %); see `docs/validation/TOV_REFERENCE.md`. That document also records two
+   deliberately unrepaired characteristics: the surface is the EOS table floor rather than
+   vacuum, and the default `r_max = 70 km` with `radial_res = 10000` leaves ~80 % of the radial
+   grid outside the star.
+
+   **`TOVSolver::RadiusLoop` was RETAINED, not deleted**, and is marked non-authoritative in
+   source. It survives only because `TOVSolver::GenTestSequence` — a **public but unexercised**
+   radial-resolution harness whose sole repository reference is commented out
+   (`main/Test/tov_debug_main.cpp:196`) and which has zero coverage — still calls it. Migrating
+   uncovered code inside a structural increment was declined. Retirement is Phase 3E-I4.
+
+   **Therefore `GOVERNANCE.md` fail-closed condition #3 is DISCHARGED for the ordinary
+   visible-sector `Solve()` workflow but remains PARTIALLY OPEN overall.** `MixedStar` and the
+   dark-sector paths are separately out of scope and uncanonicalized.
+
 2. **Two `NStar` profile-construction blocks** — `BuildFromTOV` and
    `InitFromTOVSolver`+`Append`+`FinalizeSurface`, with duplicated hardcoded column layouts.
-   Phase 3E-0 measured them as **value-equivalent** but found two real interface asymmetries:
+   **Still two after 3E-I1**, deliberately: ADR-0005 Q3 = **P3 staged**, so I1 unified the radial
+   numerics only. Path 1 also still carries its **unmigrated ADR-0004 proper-volume expression**
+   (Phase 3E-I2) and still leaves the profile's mirror `M`/`R`/`z_surf` at **zero** (preserved
+   under M1; classified `INTERNAL STATE ASYMMETRY — CURRENTLY UNOBSERVED`, not declared correct).
+   The `Analysis` and profile-export hooks are preserved, pending classification in Phase 3F.
+   Phase 3E-0 measured the two blocks as **value-equivalent** but found two real interface asymmetries:
    `FinalizeSurface` never calls `SetSurfaceScalars`, so Path 1 leaves the profile's mirror
    `M`/`R`/`z_surf` at **zero** while Path 2 populates them; and Path 1 alone owns the
    sequence-accumulation and unconditional `_Sequence.tsv` export, which is the **only** thing

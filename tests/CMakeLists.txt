@@ -200,6 +200,19 @@ if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
         LABELS "core;tov;scientific;external-data;equivalence"
         TIMEOUT 1800)
 
+    # Phase-3E-I1 workflow/interface contract for TOVSolver::Solve.
+    # ADR-0005 Q1/Q2: Solve() stays a public sequence orchestrator and its
+    # _Sequence.tsv output is a compatibility contract. All six live callers
+    # consume only that file, and one reads it back as program input, so ONE
+    # focused test protects the contract -- deliberately not one per caller.
+    add_executable(tov_sequence_workflow_cmf core/tov_sequence_workflow_cmf.cpp)
+    target_link_libraries(tov_sequence_workflow_cmf PRIVATE CompactStar)
+    add_test(NAME tov_sequence_workflow_cmf
+             COMMAND tov_sequence_workflow_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(tov_sequence_workflow_cmf PROPERTIES
+        LABELS "core;tov;workflow;interface;external-data"
+        TIMEOUT 900)
+
     message(STATUS "CompactStar: Tier-B thermal test enabled (EOS data root supplied)")
 else()
     message(STATUS "CompactStar: Tier-B thermal test NOT registered "

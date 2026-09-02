@@ -368,11 +368,20 @@ tolerance.
   on its `_Sequence.tsv` output and one reads that file back as program input; the TSV filename,
   schema and column order preserved as a **compatibility contract**; `RadiusLoop` retired as an
   authority; and a **staged P3** migration that unifies the radial solve first and decides
-  `NStar`-construction convergence separately. Four owner questions are open.
-  **No canonical owner is selected and fail-closed condition #3 remains OPEN** — it can close
-  only once 3E-I1 lands and validates, not on ADR acceptance. Evidence:
-  `docs/validation/TOV_PATH_EQUIVALENCE.md`; contract:
-  `docs/adr/ADR-0005-canonical-tov-numerical-primitive.md`.
+  `NStar`-construction convergence separately.
+  **ADR-0005 is ACCEPTED (2026-09-02) and 3E-I1 has landed:** `Solve()` delegates to
+  `SingleStarSolveToTOVPoints`, so there is exactly one radial integration per sequence member,
+  and every Path-1 value is **bit-identical** (the equivalence artifact re-emitted byte-identical;
+  the ADR-0004 `1e-15` allowance was not spent). The `_Sequence.tsv` contract is preserved and now
+  guarded by a dedicated interface test, and all six callers are unmodified.
+  **`RadiusLoop` was retained, not deleted** — implementation found a second caller ADR-0005 had
+  missed, the public-but-unexercised `GenTestSequence` — so **fail-closed condition #3 is
+  DISCHARGED for the ordinary visible-sector `Solve()` workflow but remains PARTIALLY OPEN
+  overall**, pending I4. Still open inside Phase 3E: **I2** (Path-1 ADR-0004 conformance),
+  **I3** (optional postprocessing convergence), **I4** (`GenTestSequence` migration +
+  `RadiusLoop` deletion). Evidence:
+  `docs/validation/TOV_PATH_EQUIVALENCE.md`, `docs/validation/PHASE3E_I1_CANONICAL_TOV.md`;
+  contract: `docs/adr/ADR-0005-canonical-tov-numerical-primitive.md`.
 - ◐ **Single owner for unit conversions — PARTIAL: exact duplicate constants completed in 3A.**
   `KM3_TO_CM3` (2 production sites) and the MeV fm⁻³→erg cm⁻³ factor (2 sites) now have one
   owner, `CompactStar/Units.hpp` — a dependency-free header that adds no edge to the layer
