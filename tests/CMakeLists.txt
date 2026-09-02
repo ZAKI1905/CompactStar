@@ -213,6 +213,18 @@ if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
         LABELS "core;tov;workflow;interface;external-data"
         TIMEOUT 900)
 
+    # Phase-3E-I4 coverage for TOVSolver::GenTestSequence -- the last remaining
+    # caller of the duplicate ordinary-star radial loop. Committed BEFORE the
+    # migration it justifies, so its equivalence assertion is evidence about the
+    # legacy RadiusLoop implementation rather than a description of the new one.
+    add_executable(tov_gen_test_sequence_cmf core/tov_gen_test_sequence_cmf.cpp)
+    target_link_libraries(tov_gen_test_sequence_cmf PRIVATE CompactStar)
+    add_test(NAME tov_gen_test_sequence_cmf
+             COMMAND tov_gen_test_sequence_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(tov_gen_test_sequence_cmf PROPERTIES
+        LABELS "core;tov;scientific;external-data;equivalence"
+        TIMEOUT 3600)
+
     message(STATUS "CompactStar: Tier-B thermal test enabled (EOS data root supplied)")
 else()
     message(STATUS "CompactStar: Tier-B thermal test NOT registered "
