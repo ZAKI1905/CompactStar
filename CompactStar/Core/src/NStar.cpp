@@ -1112,6 +1112,26 @@ double NStar::Find_MomInertia()
 }
 
 //--------------------------------------------------------------
+/// Seed-free first-order rotational response (ADR-0006 Q4).
+///
+/// Forwards the response the owned solver produced during construction. The solver itself stays
+/// private: exposing it would put the arbitrary seed and the unratified O(Omega^2) candidate on
+/// the public surface, which is exactly what ADR-0006 Q4 rejects.
+const HartleFirstOrderResponse &NStar::RotationResponse() const
+{
+	return rot_solver.FirstOrderResponse();
+}
+
+//--------------------------------------------------------------
+/// First-order rotation at an explicitly requested physical angular velocity (ADR-0006 Q1/P3).
+///
+/// A scaling of the existing response — no ODE is re-solved here.
+PhysicalFirstOrderRotation NStar::RotationAt(AngularVelocity omega) const
+{
+	return rot_solver.FirstOrderResponse().At(omega);
+}
+
+//--------------------------------------------------------------
 /// Precision for printing the profile
 /// by default it is set to '9' digits
 void NStar::SetProfilePrecision(const int &in_prec)

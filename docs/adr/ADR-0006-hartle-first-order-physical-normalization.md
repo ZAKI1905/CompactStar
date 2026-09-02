@@ -285,6 +285,61 @@ does not decide the cgs conversion of `J` or `I` (which needs the unadjudicated 
 authority). Acceptance fixes the convention; it does not certify that any implementation meets it
 — conformance is roadmap increment 4A and is tracked separately, exactly as ADR-0002's was.
 
+---
+
+## 12. Implementation record (Phase 4A, 2026-09-02)
+
+**The accepted decision was not modified during implementation.** Nothing in the evidence
+contradicted it, so no return to owner adjudication was required. Q1 = A + D, Q2 = A, Q3 = A,
+Q4 = A and the no-implicit-spin clarification were implemented as written.
+
+**Components changed**
+
+| Component | Change |
+|---|---|
+| `CompactStar/AngularVelocity.hpp` | **new** — typed physical angular velocity (rad s⁻¹) with `FromRadPerSecond` / `FromHz` / `FromPeriodSeconds`; **no factory accepts km⁻¹**. `GeomKmInverse()` and the free `AngularVelocityGeomToRadPerSecond()` are the two conversion owners. Top level beside `Units.hpp` / `Geometry.hpp`; depends on no CompactStar component. Fails closed on non-finite input and on a zero *period*; a zero angular velocity or frequency is valid. Negative values are accepted, because `MagneticDipole` writes `−K sign(Ω)|Ω|ⁿ` |
+| `Core/RotationSolver.hpp` | `HartleFirstOrderResponse` (seed-free `I`, `ω̄/Ω`, `ω̄'/Ω`) and `PhysicalFirstOrderRotation` (one canonical geometric `Ω`, `J`, `I`, profiles, `OmegaRadPerSecond()`); `HartleResult` **stripped** of `Omega`, `J`, `I`, `omega_bar`, `domega_bar` and re-scoped to the second-order candidate; private `kDefaultInitOmegaBar = 5e-3`, `seed_omega_bar_`, `first_order_solve_count_`, `first_order_response_`; public `FirstOrderResponse()`; declared-never-defined `RotationSolverTestSeam` befriended |
+| `Core/src/RotationSolver.cpp` | seed read from `seed_omega_bar_` (bit-identical default); solve-completion flag; seed-free response built **after** the untouched extraction; `HartleFirstOrderResponse::At()` — the single materialization owner; `ExportResults` header tokens corrected |
+| `Core/NStar.hpp`, `Core/src/NStar.cpp` | `RotationResponse()` and `RotationAt(AngularVelocity)`; `RotationSolverTestSeam` befriended. `rot_solver` stays **private** |
+| `tests/rotation/hartle_normalization_contract.cpp`, `..._cmf.cpp`, `tests/CMakeLists.txt` | **new** — V1–V9 as two CTests (self-contained + external data) |
+
+**Raw / normalized separation.** The raw `ω̄_raw`, `J_raw`, `Ω_raw` never leave the solver. The
+response is `I`, `ω̄/Ω`, `ω̄'/Ω`; the physical solution is that response times `Ω_geom`, with `J`
+taken from the exterior matching applied to the scaled surface derivative and `I` carried
+through rather than recomputed as `J/Ω` (so zero spin is not a `0/0`).
+
+**Seed handling.** Value unchanged at `5e-3`, private, no public setter, no constructor
+argument. Reachable only through `RotationSolverTestSeam`, which is declared in production and
+defined only by the validation harnesses.
+
+**Unit corrections.** The `HartleResult::Omega` `[s^-1]`/km⁻¹ mislabel is gone with the field;
+the legacy export header now reads `omega_bar_c_seed (1/s)`, `M (M_sun)`, `R (km)`,
+`J_seednorm (km^2)`, `Omega_seednorm (1/s)`. No cgs `J`/`I` accessor was added (§10).
+
+**Validation.** All of §7 passes, at the bounds fixed above before implementation: seed
+invariance `≤ 4.3e-15` (bound `1e-10`), requested-`Ω` recovery `2.1e-16` (`1e-13`),
+`J = IΩ_phys/c` `3.1e-16` (`1e-13`), conversion exact against an independent SI literal `c`
+(`1e-15`), linearity `0` at every node (`1e-14`), zero spin exact, annotations and header tokens
+exact. **`I` bit-identical; the seven Phase-3 artifacts byte-identical**, with
+`hartle_I_dscmf1_debug.tsv` additionally **re-emitted** and compared byte-for-byte.
+
+**Detectors.** All four of §8 fire and were reverted byte-identically (SHA-256 verified), with
+the contract test green at the reverted state. D2 fires at `8.99e10` relative error — the `c²`
+signature — as predicted.
+
+**Second-order non-scope.** `ODE_Hartle2_N_Fast`, `SolveHartle2_N`, `ODE_Hartle2_Mixed_Fast` and
+`SolveHartle2_Mixed` are **byte-identical** to the pre-change source. Nothing at O(Ω²) was
+repaired, normalized, executed for a result or baselined; INV-08 is unchanged. P9 governs how a
+*future* second-order product must relate to this contract, and that is Phase-4C work.
+
+**Known residual, recorded not repaired.** `Solve_Mixed` retains four inline `× c` conversions
+and its own seed literal on the legacy two-fluid path. P12 governs it as a contract and defers
+conformance to the `MixedStar` track; only its export *labels* were corrected here.
+
+Full record: `docs/validation/PHASE4A_FIRST_ORDER_NORMALIZATION.md`.
+
+---
+
 ## Provenance
 
 Drafted by an AI agent under `GOVERNANCE.md` §5 and `AGENTS.md` during roadmap increment 4A-0

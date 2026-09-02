@@ -2,6 +2,16 @@
 
 > **FORMAL STATUS: `PHASE-4 ROTATION ENTRY AUDIT COMPLETE — ADR-0006 OWNER ADJUDICATION REQUIRED`**
 >
+> **SUPERSEDED IN PART — 2026-09-02.** ADR-0006 was **ACCEPTED** and implemented in Phase 4A.
+> This record remains the durable audit of the state **at Phase-4 entry** (`df859b5`) and its
+> derivations, provenance map and second-order equation map stand unchanged. But its
+> descriptions of *current* first-order behavior — the API map (§4), the call/reachability table
+> for the first-order entry points (§5), the unit-annotation verdicts (§9) and the source line
+> numbers throughout — describe the pre-4A source. For current first-order behavior see
+> `docs/validation/PHASE4A_FIRST_ORDER_NORMALIZATION.md` and INV-07. **The O(Ω²) sections
+> (§10–§13) are NOT superseded:** the candidate is byte-identical and every defect recorded there
+> is still present.
+>
 > This is an **audit / scientific-derivation / governance** record (increment 4A-0). **No
 > production source, test, baseline or CMake file was changed.** No candidate was activated,
 > repaired, normalized or baselined. The one scratch measurement program used in §12–§13 lives

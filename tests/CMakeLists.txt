@@ -69,6 +69,17 @@ set_tests_properties(hartle_moment_inertia_analytic PROPERTIES
     LABELS "rotation;hartle;scientific")
 
 # ---------------------------------------------------------------------------
+#  Phase-4A ADR-0006 first-order physical-normalization contract. Self-contained.
+#  Tolerances are predeclared in ADR-0006 SS7 and must not be widened here.
+# ---------------------------------------------------------------------------
+add_executable(hartle_normalization_contract rotation/hartle_normalization_contract.cpp)
+target_include_directories(hartle_normalization_contract PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+target_link_libraries(hartle_normalization_contract PRIVATE CompactStar)
+add_test(NAME hartle_normalization_contract COMMAND hartle_normalization_contract)
+set_tests_properties(hartle_normalization_contract PROPERTIES
+    LABELS "rotation;hartle;scientific;contract")
+
+# ---------------------------------------------------------------------------
 #  Evolution stepper contract + thermal-only execution. Self-contained.
 # ---------------------------------------------------------------------------
 add_executable(evolution_stepper_contract thermal/evolution_stepper_contract.cpp)
@@ -171,6 +182,18 @@ if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
              COMMAND hartle_moment_inertia_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
     set_tests_properties(hartle_moment_inertia_cmf PROPERTIES
         LABELS "rotation;hartle;scientific;external-data"
+        TIMEOUT 900)
+
+    # Phase-4A ADR-0006 normalization contract on the authenticated CMF sequence,
+    # plus the V9 slow-rotation regime diagnostic (reported, never enforced).
+    add_executable(hartle_normalization_cmf rotation/hartle_normalization_cmf.cpp)
+    target_include_directories(hartle_normalization_cmf PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+    target_link_libraries(hartle_normalization_cmf PRIVATE CompactStar)
+    add_test(NAME hartle_normalization_cmf
+             COMMAND hartle_normalization_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(hartle_normalization_cmf PROPERTIES
+        LABELS "rotation;hartle;scientific;external-data;contract"
         TIMEOUT 900)
 
     # Phase-3D INV-14 / ADR-0004 baryon-number reference on the authenticated

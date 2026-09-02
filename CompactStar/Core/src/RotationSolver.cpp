@@ -633,9 +633,18 @@ void RotationSolver::ExportResults(const Zaki::String::Directory &in_dir) const
 {
 	Zaki::File::VecSaver vec_saver_2(wrk_dir_ + "/" + in_dir);
 
-	char seq_header[200];
-	snprintf(seq_header, sizeof(seq_header), "%-16s\t %-14s\t %-14s\t %-14s\t %-16s",
-			 "omega_bar_c (1/s)", "M", "R", "J", "Omega (1/s)");
+	// Header tokens must describe the values actually written (ADR-0006 P7). `omega_seq_pts` is
+	// populated ONLY by Solve_Mixed, the legacy two-fluid sequence path, from a caller-supplied
+	// omega_bar SEED: `omega_bar_c` is that seed times c and `Omega` is the seed-normalized
+	// angular velocity times c. Both are in 1/s, and neither is a requested physical spin — so
+	// they are labelled `_seed` / `_seednorm` rather than promoted to physical quantities. `M`,
+	// `R` and `J` previously carried no unit at all. The ordinary NStar first-order path never
+	// populates this container and does not export through here; its physical results come from
+	// NStar::RotationAt().
+	char seq_header[300];
+	snprintf(seq_header, sizeof(seq_header), "%-22s\t %-14s\t %-14s\t %-18s\t %-20s",
+			 "omega_bar_c_seed (1/s)", "M (M_sun)", "R (km)", "J_seednorm (km^2)",
+			 "Omega_seednorm (1/s)");
 
 	vec_saver_2.SetHeader(seq_header);
 	vec_saver_2.Export1D(omega_seq_pts);
@@ -698,7 +707,12 @@ void RotationSolver::FindNMomInertia()
 	// the key point is: store references/pointers to contiguous arrays.
 	SetFastProfilePtrs_(*R, *P, *E, *M);
 
-	init_omega_bar = 5e-3;
+	// Arbitrary internal numerical normalization, NOT a physical spin (ADR-0006 Q2/P4). The
+	// equation is linear and homogeneous, so this choice cancels from every quantity the public
+	// API exposes. `seed_omega_bar_` defaults to the historical 5e-3 and is reachable only
+	// through `RotationSolverTestSeam`, so seed invariance can be proved without the seed
+	// becoming scientific API.
+	init_omega_bar = seed_omega_bar_;
 	// double r = r_min;
 
 	double y[2];
@@ -716,6 +730,11 @@ void RotationSolver::FindNMomInertia()
 	stored_omega_bar_ = Zaki::Vector::DataColumn("omega_bar", n, 0.0);
 	stored_domega_bar_ = Zaki::Vector::DataColumn("domega_bar", n, 0.0);
 
+	// Records whether every grid point was integrated. Used ONLY to decide whether the
+	// seed-free response below may be published; the extraction of J, Omega and I is
+	// deliberately untouched, so `SeqPoint::I` is unaffected either way.
+	bool solve_complete = true;
+
 	// Radius loop inside the core
 	for (size_t i = 0; i < n; i++)
 	{
@@ -725,7 +744,10 @@ void RotationSolver::FindNMomInertia()
 
 		if (GSL_SUCCESS !=
 			gsl_odeiv2_driver_apply(fast_driver, &r, R->operator[](i), y))
+		{
+			solve_complete = false;
 			break;
+		}
 
 		// Store omega_bar profile at each grid point
 		stored_omega_bar_[i] = y[0];
@@ -740,12 +762,48 @@ void RotationSolver::FindNMomInertia()
 
 	nstar_ptr->MomI = mom_inertia;
 
-	// Store first-order results in HartleResult
-	hartle_result_.Omega = ang_vel_Omega;
-	hartle_result_.J = ang_mom_J;
-	hartle_result_.I = mom_inertia;
-	hartle_result_.omega_bar = stored_omega_bar_;
-	hartle_result_.domega_bar = stored_domega_bar_;
+	++first_order_solve_count_;
+
+	// ---- Seed-free first-order response (ADR-0006 Q4) -------------------------------------
+	// Dividing by Omega_raw removes the arbitrary seed ANALYTICALLY, not approximately: the
+	// equation is linear and homogeneous, so omega_bar_raw, domega_bar_raw and Omega_raw all
+	// carry the same factor A and every ratio below is a property of the star alone.
+	//
+	// Nothing published here is a physical spin. Per ADR-0006's binding clarification, an
+	// NStar that was never given an explicit angular velocity does NOT acquire an implicit
+	// one; a physical Omega, J and omega_bar(r) exist only after a caller supplies an
+	// AngularVelocity to HartleFirstOrderResponse::At().
+	//
+	// The former `hartle_result_.Omega/J/I/omega_bar/domega_bar` assignment lived here. It
+	// published Omega_raw behind an accessor annotated `[s^-1]` while storing km^-1, i.e. it
+	// exposed the arbitrary seed as physical data. ADR-0006 removed those fields;
+	// `HartleResult` is now the second-order candidate's result only.
+	first_order_response_ = HartleFirstOrderResponse{};
+	if (solve_complete && n >= 2 && std::isfinite(ang_vel_Omega) && ang_vel_Omega != 0.0 &&
+		std::isfinite(mom_inertia))
+	{
+		first_order_response_.omega_bar_over_Omega =
+			Zaki::Vector::DataColumn("omega_bar_over_Omega", n, 0.0);
+		first_order_response_.domega_bar_over_Omega_dr =
+			Zaki::Vector::DataColumn("domega_bar_over_Omega_dr", n, 0.0);
+
+		for (size_t i = 0; i < n; i++)
+		{
+			// Division, not multiplication by a precomputed reciprocal: one correctly-rounded
+			// operation per node instead of two.
+			first_order_response_.omega_bar_over_Omega[static_cast<int>(i)] =
+				stored_omega_bar_[static_cast<int>(i)] / ang_vel_Omega;
+			first_order_response_.domega_bar_over_Omega_dr[static_cast<int>(i)] =
+				stored_domega_bar_[static_cast<int>(i)] / ang_vel_Omega;
+		}
+
+		first_order_response_.I = mom_inertia;
+		first_order_response_.r_grid = nstar_ptr->Profile().GetRadius();
+		first_order_response_.valid = true;
+	}
+
+	// The candidate's grid reference. Its numerical fields are written only by
+	// SolveHartle2_N, which remains unratified and untouched (INV-08).
 	hartle_result_.r_grid = nstar_ptr->Profile().GetRadius();
 
 	gsl_odeiv2_driver_free(fast_driver);
@@ -1003,6 +1061,64 @@ void RotationSolver::FindNMomInertia()
 	const HartleResult &RotationSolver::GetHartleResult() const
 	{
 		return hartle_result_;
+	}
+
+	//--------------------------------------------------------------
+	const HartleFirstOrderResponse &RotationSolver::FirstOrderResponse() const
+	{
+		return first_order_response_;
+	}
+
+	//--------------------------------------------------------------
+	// Materializes the first-order solution at an explicitly requested physical angular
+	// velocity (ADR-0006 P3). This is a SCALING of the already-computed seed-free response,
+	// never a new ODE solve: the first-order problem is linear and homogeneous, so
+	//
+	//     omega_bar_phys(r) = [omega_bar/Omega](r) * Omega_geom ,
+	//     domega_bar_phys(r) = [domega_bar/(Omega dr)](r) * Omega_geom ,
+	//
+	// and the exterior matching omega_bar = Omega - 2J/r^3 then gives J from the scaled
+	// surface derivative. `I` is carried through unchanged rather than recomputed as J/Omega,
+	// which would be 0/0 at zero spin (ADR-0006 P5).
+	PhysicalFirstOrderRotation HartleFirstOrderResponse::At(AngularVelocity omega) const
+	{
+		const int n = static_cast<int>(omega_bar_over_Omega.Size());
+
+		if (!valid || r_grid == nullptr || n < 2 ||
+			static_cast<int>(domega_bar_over_Omega_dr.Size()) != n ||
+			static_cast<int>(r_grid->Size()) != n)
+		{
+			throw std::runtime_error(
+				"CompactStar::HartleFirstOrderResponse::At: no valid first-order response is "
+				"available for this star, so no physical rotation can be materialized. A "
+				"response is produced by RotationSolver::FindNMomInertia() on a star with a "
+				"complete radial profile. Governed by ADR-0006.");
+		}
+
+		// The single physical -> geometric conversion (ADR-0006 P2), owned by AngularVelocity.
+		const double Omega_geom = omega.GeomKmInverse();
+
+		PhysicalFirstOrderRotation out;
+		out.Omega_geom = Omega_geom;
+		out.I = I;
+		out.r_grid = r_grid;
+		out.omega_bar = Zaki::Vector::DataColumn("omega_bar", static_cast<size_t>(n), 0.0);
+		out.domega_bar = Zaki::Vector::DataColumn("domega_bar", static_cast<size_t>(n), 0.0);
+
+		for (int i = 0; i < n; i++)
+		{
+			out.omega_bar[i] = omega_bar_over_Omega[i] * Omega_geom;
+			out.domega_bar[i] = domega_bar_over_Omega_dr[i] * Omega_geom;
+		}
+
+		// Exterior matching at the surface, applied to the SCALED derivative. Deriving J from
+		// the published array rather than from `I * Omega_geom` keeps the relation J = I Omega
+		// a genuine consistency check on the arrays a consumer actually receives.
+		const double r_surface = (*r_grid)[-1];
+		out.J = pow(r_surface, 4) * out.domega_bar[-1] / 6.;
+
+		out.valid = true;
+		return out;
 	}
 
 	//--------------------------------------------------------------

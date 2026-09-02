@@ -469,8 +469,8 @@ its `p0` is the Eulerian `δp`, not Hartle's `p₀*`.
 
 | Increment | Content | Gate |
 |---|---|---|
-| **4A** | **ADR-0006 ACCEPTED 2026-09-02** → physical spin input (`Ω [rad s⁻¹]`, typed; geometric inside), rescaling, seed internalized, result/export unit contract, seed-free normalized first-order response exposed through `NStar` | ADR-0006 ✅; `I` and the seven goldens bitwise |
-| **4B** | physical first-order validation — nine predeclared tests and four detectors (entry record §18), reusing the Phase-2B Hartle harnesses | 4A |
+| **4A** | ✅ **COMPLETE 2026-09-02.** ADR-0006 accepted, then implemented: typed physical spin input (`Ω [rad s⁻¹]`) with geometric internals and one conversion owner; seed internalized behind a non-public seam; `HartleResult` stripped of its five seed-normalized first-order fields (the `[s⁻¹]` mislabel is gone); seed-free `HartleFirstOrderResponse` and explicit `NStar::RotationAt(AngularVelocity)`; export headers corrected. **No implicit physical spin on construction.** V1–V9 pass at the predeclared bounds, four detectors fired and were reverted byte-identically, `I` bit-identical, seven goldens byte-identical, O(Ω²) byte-identical. Evidence: `docs/validation/PHASE4A_FIRST_ORDER_NORMALIZATION.md` | ADR-0006 ✅; `I` and the seven goldens bitwise ✅ |
+| **4B** | **◄ NEXT.** Independent *physical* validation of the normalized first-order response across analytic and real-star cases — distinct from the ADR-0006 conformance tests, which necessarily landed with the 4A implementation because the ADR requires them | 4A ✅ |
 | **4C** | **separate ADR** for O(Ω²): variable (`p₀*` vs `δp`), corrected equations with `j²`, fixed-`ε_c` boundary condition, exterior `δM` term, EOS `dε/dp` authority, `Ω²`-normalized exposure — expected to invoke `GOVERNANCE.md` §3.1; then implement by replacing, not patching, the candidate | ADR accepted; 4A for the physical layer |
 | **4D** | independent O(Ω²) validation (regular-centre series, Newtonian limit, independent solver, quadratic scaling at a predeclared bound, published slow-rotation results) | 4C |
 | **4E** | fixed-`ε_c` structural response coefficients for Phase 5 (`m₀/Ω²`, `δp₀/Ω²`, `ξ₀/Ω²`, `δM/Ω²`, `ω̄/Ω`, `I`) | 4D |
@@ -480,8 +480,11 @@ its `p0` is the Eulerian `δp`, not Hartle's `p₀*`.
 
 - **Re-audit `RotationSolver` and `MixedStar` against `9f70f14`.** The Phase-0 findings were made
   against the superseded `d91c31b` and must not be carried forward.
-- Physical Hartle normalization — replace `init_omega_bar = 5e-3` and scale to a physical Ω
-  (INV-07); correct the `[s^-1]` unit annotation.
+- ✅ **Physical Hartle normalization — COMPLETE (4A).** The seed is now private with no public
+  setter (its value is deliberately unchanged at `5e-3`, since it carries no physical meaning
+  and changing it would move `I` for no gain); a physical Ω is supplied through the typed
+  `AngularVelocity` and the solution is scaled to it; the `[s^-1]` annotation is gone with the
+  field that carried it (INV-07 CONFORMED).
 - Verify true RHS-radius interpolation and cached bracket indices as introduced by `3639d71`.
 - **Verify the second-order equations against a cited derivation** — restore the j² factor,
   complete δM with the exterior term, source `dε/dp` from the EOS rather than profile
@@ -538,7 +541,7 @@ unauditable.
 
 ```
 0.5 governance ─► 1 build ─► 2A pre-baseline ─► 2B baseline ─► 3 consolidation ─► 4 rotation ─► 5 rotochemical ─► 6 BNV
-  ✅ RATIFIED    ✅ COMPLETE      ✅ COMPLETE      ◐ ACTIVE (gate met)   ✅ COMPLETE (merged df859b5)   ◄ 4A-0 ENTRY AUDIT DONE
+  ✅ RATIFIED    ✅ COMPLETE      ✅ COMPLETE      ◐ ACTIVE (gate met)   ✅ COMPLETE (merged df859b5)   ◐ 4A COMPLETE — 4B NEXT
                                     │                                 │                │              │
    ADR-0001 species semantics  ✅ ACCEPTED ──────────────────────────────────────────────────────────►│  (gate cleared)
    ADR-0002 heat capacity      ✅ ACCEPTED ─►│  (conformance is 2A work, not a gate)

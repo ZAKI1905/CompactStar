@@ -12,6 +12,7 @@
 > | Build, configuration, warning policy, test plumbing (§5) | **`11ffe45`** | Re-authenticated during this Phase-1 sync against the actual CMake files and a clean configure/build/test |
 > | `RotationSolver` merge integrity and buildability | **`57334d8`** | Re-authenticated during Phase 1B against the three-way merge `9f70f14` = `3639d71` + `e60e656` |
 > | `RotationSolver` API reachability, provenance, unit annotations | **`df859b5`** | Phase 4A-0 entry audit — `docs/validation/PHASE4_ROTATION_ENTRY.md` |
+> | First-order rotation API, units and normalization | **Phase 4A** | ADR-0006 implemented and validated — `docs/validation/PHASE4A_FIRST_ORDER_NORMALIZATION.md` |
 > | Everything else — EOS, TOV, Evolution, Drivers, Microphysics, caches | `9f70f14`, from the `d91c31b` audit | Phase-0 reconnaissance; see `docs/reconnaissance/2026-08-31-phase-0-reconnaissance.md` |
 >
 > **The repository was not re-audited in full at `11ffe45`.** Phase 1 was a build/test phase and
@@ -53,6 +54,14 @@ NStar::prof_ : StarProfile        LIVE — canonical star representation
    │   geometric units: km, km⁻²  ·  versioned (m_version + EditScope)
    ↓
 RotationSolver::FindNMomInertia → SeqPoint::I              LIVE, O(Ω) only
+   │   raw internal solve from an arbitrary seed (private; never published)
+   └─► HartleFirstOrderResponse   { I, ω̄/Ω, ω̄'/Ω }          LIVE — SEED-FREE (ADR-0006)
+          via NStar::RotationResponse()
+          NO implicit physical spin: construction confers no Ω
+             │
+             └─ + explicit AngularVelocity [rad/s]  ──►  PhysicalFirstOrderRotation
+                   { Ω [km⁻¹], J [km²], I [km³], ω̄(r), ω̄'(r) }   via NStar::RotationAt()
+                   a scaling of the response — NOT a second ODE solve
    ↓
 StarContext(prof_)                LIVE
    ├─→ GeometryCache               LIVE — deep copy, NO version gate (INV-12)
@@ -94,8 +103,10 @@ TimeSeriesObserver + DiagnosticsObserver            LIVE
 | `MixedStar` | **COMPILED, UNEXERCISED** | No surviving `main/` uses it. Master-grid totals added by `3639d71` |
 | `TOVSolver` | **LIVE** | Two live integration paths — see §3 |
 | `TOVSolver_Thread` | **COMPILED, UNEXERCISED** | Bookkeeping subclass, 124 lines |
-| `RotationSolver` — O(Ω) | **LIVE** | Runs on every star build; feeds `SeqPoint::I`. Its profile-backed interpolation path was restored in Phase 1B — see below. **`I = J/Ω` VALIDATED as a scale-free observable (Phase 2B-4B)**; the absolute first-order normalization remains **unresolved** (INV-07). Phase 4A-0: the hard-coded seed `init_omega_bar = 5e-3` (`RotationSolver.cpp:701`) corresponds to `Ω ≈ 2.2–2.4×10³ s⁻¹` on the audited stars; **ADR-0006 (PROPOSED)** carries the normalization contract |
-| `RotationSolver` — O(Ω²) | **PUBLIC, ZERO CALLERS · CANDIDATE** | `NStar::rot_solver` is private with no accessor (`NStar.hpp:100`), **but** `RotationSolver` is a public class: `AttachNStar`, `FindNMomInertia`, `SolveHartle2_N`, `GetHartleResult` are public and defined (`RotationSolver.hpp:306,382,390,397`), and an external solver attached to any `NStar` executes the candidate from user code (demonstrated 2026-09-02, Phase 4A-0). Equations recorded as defective — dimensionally inconsistent homogeneous `p0` equation, wrong source terms and `j²`, non-Hartle boundary condition, incomplete `δM` (INV-08). Unratified under `GOVERNANCE.md` §5. **Not "unreachable"** |
+| `RotationSolver` — O(Ω) | **LIVE** | Runs on every star build; feeds `SeqPoint::I`. Its profile-backed interpolation path was restored in Phase 1B — see below. **`I = J/Ω` VALIDATED as a scale-free observable (Phase 2B-4B)**. **Phase 4A: the first-order normalization is GOVERNED and CONFORMED (ADR-0006).** The arbitrary seed is private (`RotationSolver.hpp:326`, default `5e-3`) with no public setter; construction publishes the **seed-free** `HartleFirstOrderResponse` (`I`, `ω̄/Ω`, `ω̄'/Ω`) and **no implicit physical spin**; a physical solution requires an explicit `AngularVelocity` in rad s⁻¹. `I` is bit-identical across the change |
+| `CompactStar::AngularVelocity` | **LIVE** | Top-level, dependency-neutral typed physical angular velocity (`CompactStar/AngularVelocity.hpp`). Factories `FromRadPerSecond` / `FromHz` / `FromPeriodSeconds`; **no factory accepts km⁻¹**. Together with `AngularVelocityGeomToRadPerSecond()` it is the **sole owner of the physical ↔ geometric angular conversion** on the governed path, using `Zaki::Physics::LIGHT_C_KM_S` |
+| `HartleFirstOrderResponse`, `PhysicalFirstOrderRotation` | **LIVE** | The two first-order result types (`RotationSolver.hpp:159`, `:110`). The response is seed-free by construction; the physical solution stores **one canonical geometric `Ω`** with a named `OmegaRadPerSecond()` accessor and no duplicated state (ADR-0006 Q3) |
+| `RotationSolver` — O(Ω²) | **PUBLIC, ZERO CALLERS · CANDIDATE** | **Untouched by Phase 4A — all four second-order functions are byte-identical to the pre-change source, and their outputs remain quadratic in the arbitrary seed** (ADR-0006 P9 defers seed-free second-order products to Phase 4C). `NStar::rot_solver` is private with no accessor (`NStar.hpp:105`), **but** `RotationSolver` is a public class: `AttachNStar`, `FindNMomInertia`, `SolveHartle2_N`, `GetHartleResult` are public and defined (`RotationSolver.hpp:306,382,390,397`), and an external solver attached to any `NStar` executes the candidate from user code (demonstrated 2026-09-02, Phase 4A-0). Equations recorded as defective — dimensionally inconsistent homogeneous `p0` equation, wrong source terms and `j²`, non-Hartle boundary condition, incomplete `δM` (INV-08). Unratified under `GOVERNANCE.md` §5. **Not "unreachable"** |
 | `RotationSolver::Solve(Axis,…)`, `Solve(double,…)`, `ODE`, `GetMass`, `GetPress` | **DECLARED, UNDEFINED** | Declared at `RotationSolver.hpp:370-375,403,315,318`; no definition, no symbol in `libCompactStar.a` (removed by the owner's rework `3639d71`). Sole reference `main/Examples/rotating_ns.cpp:62` is not in `main/Examples/CMakeLists.txt` and would not link |
 | `StarBuilder` | **LIVE** | On the file-reading path only |
 | `SeqPoint`, `Prog` | **LIVE** | |
@@ -489,7 +500,11 @@ Re-authenticated at **`11ffe45`** after roadmap Phase 1. Full evidence and comma
 - It does **not** claim the rotochemical pipeline is operational. **It is not compiled.**
 - It does **not** claim second-order Hartle is validated. It is publicly callable, has zero
   repository callers, is unverified, and its equations are recorded as defective (INV-08;
-  `docs/validation/PHASE4_ROTATION_ENTRY.md` §10–§12).
+  `docs/validation/PHASE4_ROTATION_ENTRY.md` §10–§12). Phase 4A left it byte-identical.
+- It does **not** claim the physically normalized first-order response has been validated
+  against independent physical references. Phase 4A validated the **contract** — seed
+  isolation, requested-spin recovery, `J = IΩ`, units, zero spin — not the physics beyond what
+  Phase 2B-4B already established for the scale-free `I`. That is Phase 4B.
 - It claims of the O(Ω) solver **only** that its scale-free observable `I = J/Ω` is validated
   (Phase 2B-4B: equation match against published Hartle, analytic and numerical cancellation
   of the arbitrary normalization, agreement with an independent solver to 9.5e-9 analytic /

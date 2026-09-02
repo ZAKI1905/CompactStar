@@ -83,6 +83,11 @@ class NStar : public Prog
 	friend class TOVSolver;
 	friend class Sequence;
 
+	// Test-only seam (ADR-0006 Q2): lets a validation harness read the owned solver's internal
+	// numerical state — the arbitrary seed and the first-order solve counter — without any of
+	// it becoming public scientific API. Declared, never defined, in production.
+	friend struct RotationSolverTestSeam;
+
   private:
 	// ------------------------------------------------------------
 	// 1) Legacy storage (pre-StarProfile)
@@ -360,6 +365,48 @@ class NStar : public Prog
 	// 9) Rotation / moment of inertia (keep)
 	// ------------------------------------------------------------
 	[[nodiscard]] double Find_MomInertia();
+
+	/**
+	 * @brief The star's **seed-free** first-order (Hartle O(Omega)) rotational response.
+	 *
+	 * Governed by **ADR-0006** (ACCEPTED 2026-09-02), Q4. Available for every star built
+	 * through the ordinary construction path, because `Find_MomInertia()` runs there already.
+	 *
+	 * Contains `I` and the dimensionless shapes `omega_bar(r)/Omega` and
+	 * `[d omega_bar/dr](r)/Omega`. The arbitrary internal normalization of the frame-dragging
+	 * solve cancels analytically from each of them, so **nothing here depends on the numerical
+	 * seed** and nothing here is a physical spin.
+	 *
+	 * **This star has no implicit angular velocity.** Per ADR-0006's binding clarification, a
+	 * physical `Omega`, `J` and `omega_bar(r)` come into existence only when a caller supplies
+	 * an explicit `AngularVelocity` — see `RotationAt()`.
+	 *
+	 * @return A reference owned by this `NStar`; it must not outlive the star, and its
+	 *         `r_grid` points into this star's profile (the ADR-0003 lifetime rule).
+	 */
+	[[nodiscard]] const HartleFirstOrderResponse &RotationResponse() const;
+
+	/**
+	 * @brief Materialize the first-order rotation of this star at an explicitly requested
+	 *        physical angular velocity.
+	 *
+	 * Governed by **ADR-0006** Q1/P3. `omega` is a physical angular velocity in rad s^-1,
+	 * carried by an explicit type so the unit cannot be lost at the call site:
+	 *
+	 * @code
+	 *   const auto rot = star.RotationAt(AngularVelocity::FromHz(716.0));
+	 *   const double J = rot.J;                       // [km^2]
+	 *   const double W = rot.OmegaRadPerSecond();     // [s^-1], as requested
+	 * @endcode
+	 *
+	 * This is a **scaling of the response, not a new ODE solve** — the first-order problem is
+	 * linear, so calling it at many angular velocities costs no additional integration.
+	 * Zero spin is well defined: it yields `Omega = 0`, `J = 0`, `omega_bar == 0` and the
+	 * unchanged `I`.
+	 *
+	 * @throws std::runtime_error if this star has no valid first-order response.
+	 */
+	[[nodiscard]] PhysicalFirstOrderRotation RotationAt(AngularVelocity omega) const;
 
 	// ------------------------------------------------------------
 	void EvaluateNu();

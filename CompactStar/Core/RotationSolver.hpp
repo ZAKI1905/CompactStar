@@ -44,6 +44,7 @@
 #include <Zaki/Math/Math_Core.hpp>
 #include <Zaki/Vector/DataColumn.hpp>
 
+#include "CompactStar/AngularVelocity.hpp"
 #include "CompactStar/Core/Prog.hpp"
 
 //==============================================================
@@ -97,24 +98,116 @@ struct OmegaSeqPoint
 	}
 };
 //==============================================================
-/// Stores the results of both first-order (omega_bar) and second-order
-/// (m0, p0, xi0) Hartle slow-rotation solutions on the radial grid.
+/// First-order Hartle solution at an explicitly requested physical angular velocity.
+///
+/// Produced ONLY by `HartleFirstOrderResponse::At(AngularVelocity)`. A star that was never
+/// given a physical spin has no object of this type: ADR-0006's binding clarification is that
+/// construction does not confer an implicit `Omega`.
+///
+/// **Storage is geometric, exactly once** (ADR-0006 Q3/P6). `Omega_geom` is the single stored
+/// angular velocity; the physical value is *derived* by `OmegaRadPerSecond()` so the two can
+/// never drift apart. There is no `Omega_phys` member and there must never be one.
+struct PhysicalFirstOrderRotation
+{
+	/// Angular velocity as seen at infinity, geometric [km^-1]. CANONICAL — the one stored form.
+	double Omega_geom = 0.0;
+
+	/// Total angular momentum [km^2], from the exterior matching `omega_bar = Omega - 2J/r^3`
+	/// applied to the scaled surface derivative: `J = R^4 omega_bar'(R) / 6`.
+	double J = 0.0;
+
+	/// Moment of inertia [km^3]. Scale-free and independent of `Omega`; carried through from the
+	/// response unchanged, never recomputed as `J/Omega` (which is 0/0 at zero spin).
+	double I = 0.0;
+
+	/// omega_bar(r) = Omega - omega(r) at the requested spin, geometric [km^-1].
+	/// Multiply an entry by `c` — i.e. `AngularVelocityGeomToRadPerSecond` — for s^-1.
+	Zaki::Vector::DataColumn omega_bar;
+
+	/// d(omega_bar)/dr at the requested spin, geometric [km^-2].
+	Zaki::Vector::DataColumn domega_bar;
+
+	/// Non-owning pointer to the radius column [km] this solution is tabulated on.
+	/// Lifetime follows the owning `StarProfile`, per the ADR-0003 lifetime rule: this object
+	/// must not outlive the star it was materialized from.
+	const Zaki::Vector::DataColumn *r_grid = nullptr;
+
+	bool valid = false; ///< True when the underlying first-order response was usable.
+
+	/// The requested angular velocity in physical rad s^-1, derived from `Omega_geom` through
+	/// the single geometric -> physical conversion owner (ADR-0006 P2/P6).
+	[[nodiscard]] double OmegaRadPerSecond() const noexcept
+	{
+		return AngularVelocityGeomToRadPerSecond(Omega_geom);
+	}
+};
+//==============================================================
+/// The **seed-free** first-order rotational response of a star.
+///
+/// Every member is a quantity from which the arbitrary internal `omega_bar` normalization
+/// cancels analytically, so nothing here depends on the numerical seed (ADR-0006 Q2/Q4):
+///
+///   - `I = J_raw / Omega_raw` is a ratio of two quantities that scale identically;
+///   - `omega_bar_over_Omega(r) = omega_bar_raw(r) / Omega_raw` likewise;
+///   - `domega_bar_over_Omega_dr(r) = domega_bar_raw(r) / Omega_raw` likewise.
+///
+/// This is what ordinary star construction leaves behind. It is a property of the *star*, not
+/// of any particular spin — the frame-dragging shape `omega(r)/Omega = 1 - omega_bar/Omega`
+/// and the moment of inertia are the same at every angular velocity in the linear theory.
+///
+/// To obtain a physical solution, supply an explicit `AngularVelocity` to `At()`.
+struct HartleFirstOrderResponse
+{
+	/// Moment of inertia [km^3]. Scale-free; validated as such in Phase 2B-4B.
+	double I = 0.0;
+
+	/// omega_bar(r) / Omega — dimensionless.
+	Zaki::Vector::DataColumn omega_bar_over_Omega;
+
+	/// [d omega_bar/dr](r) / Omega — [km^-1].
+	Zaki::Vector::DataColumn domega_bar_over_Omega_dr;
+
+	/// Non-owning pointer to the radius column [km]. See the lifetime note above.
+	const Zaki::Vector::DataColumn *r_grid = nullptr;
+
+	bool valid = false; ///< True after a complete, usable first-order solve.
+
+	/// Materialize the first-order solution at an explicitly requested physical angular
+	/// velocity. This is a **scaling of an existing solution, not a new ODE solve**: the
+	/// first-order problem is linear and homogeneous, so the response fully determines the
+	/// solution at every `Omega` (ADR-0006 P3).
+	///
+	/// Zero spin is well defined and is not a special case: it yields `Omega = 0`, `J = 0`,
+	/// `omega_bar == 0` and the unchanged `I` (ADR-0006 P5).
+	///
+	/// @throws std::runtime_error if the response is not valid.
+	[[nodiscard]] PhysicalFirstOrderRotation At(AngularVelocity omega) const;
+};
+//==============================================================
+/// Result of the **O(Omega^2) second-order candidate** (`SolveHartle2_N`).
+///
+/// **UNVERIFIED SCIENTIFIC CANDIDATE** under `GOVERNANCE.md` §5 and INV-08: publicly callable,
+/// with zero repository callers, and its equations are recorded as defective
+/// (`docs/validation/PHASE4_ROTATION_ENTRY.md` §10-§12). Nothing here is validated physics.
+///
+/// Every field below inherits the **square** of the arbitrary internal first-order seed,
+/// because the solve is driven by the raw stored `omega_bar` (measured: entry record §12).
+/// ADR-0006 P9 requires any future second-order product to be seed-free; that is Phase-4C work
+/// and is deliberately NOT done here.
+///
+/// The first-order fields this struct used to carry — `Omega`, `J`, `I`, `omega_bar`,
+/// `domega_bar` — were removed by ADR-0006: `Omega` was annotated `[s^-1]` while storing km^-1,
+/// and all five held seed-normalized values behind a public accessor. First-order results now
+/// live in `HartleFirstOrderResponse` and `PhysicalFirstOrderRotation`, which are seed-free by
+/// construction.
 struct HartleResult
 {
-	// --- First-order O(Omega) ---
-	double Omega = 0.0;		///< Angular velocity [s^-1]
-	double J = 0.0;			///< Angular momentum [km^2]
-	double I = 0.0;			///< Moment of inertia [km^3]
-
-	Zaki::Vector::DataColumn omega_bar;	 ///< omega_bar(r) [km^-1]
-	Zaki::Vector::DataColumn domega_bar; ///< d(omega_bar)/dr(r) [km^-2]
-
-	// --- Second-order O(Omega^2) monopole (l=0) ---
+	// --- Second-order O(Omega^2) monopole (l=0) --- CANDIDATE, UNVALIDATED ---
 	Zaki::Vector::DataColumn m0;  ///< Mass perturbation delta_m(r) [km]
 	Zaki::Vector::DataColumn p0;  ///< Pressure perturbation delta_p(r) [km^-2]
 	Zaki::Vector::DataColumn xi0; ///< Isobar displacement xi_0(r) [km]
 
-	double p0_c = 0.0;		///< Central pressure perturbation (shooting result)
+	double p0_c = 0.0;		///< Central pressure perturbation (shooting result) [km^-2]
 	double delta_M = 0.0;	///< O(Omega^2) gravitational mass correction [km]
 
 	/// Grid reference (non-owning pointer to star's radius column)
@@ -122,6 +215,14 @@ struct HartleResult
 
 	bool valid = false; ///< True after a successful second-order solve
 };
+//==============================================================
+/// Test-only access seam for `RotationSolver`'s internal numerical state.
+///
+/// Declared — never defined — in production. Validation harnesses define it to reach the
+/// arbitrary `omega_bar` seed and the first-order solve counter, neither of which may become
+/// public scientific API (ADR-0006 Q2). Friendship, not a public setter, is what keeps the seed
+/// out of the contract while still allowing seed invariance to be *proved* rather than asserted.
+struct RotationSolverTestSeam;
 //==============================================================
 class RotationSolver : public Prog
 {
@@ -208,8 +309,29 @@ class RotationSolver : public Prog
 	/// energy denisty spline
 	// gsl_spline *e_spline = nullptr ;
 
-	/// Initial bar{omega} (at r = r(i=0))
+	/// Initial bar{omega} (at r = r(i=0)), as used by the most recent solve.
+	/// **Arbitrary internal numerical normalization — NOT a physical quantity** (ADR-0006 Q2).
 	double init_omega_bar = -1;
+
+	/// The default internal seed for the first-order solve. Its value carries no physical
+	/// meaning: the frame-dragging equation is linear and homogeneous, so every seed yields the
+	/// same physics once normalized. It is kept at its historical value because changing it
+	/// would move `I` at the level of the solver's fixed absolute tolerance for no scientific
+	/// gain (`docs/validation/PHASE4_ROTATION_ENTRY.md` §12).
+	static constexpr double kDefaultInitOmegaBar = 5e-3;
+
+	/// The seed the next first-order solve will use. Private, with no public setter: it is
+	/// reachable only through `RotationSolverTestSeam`, so that seed invariance can be tested
+	/// without the seed becoming part of the scientific API (ADR-0006 Q2).
+	double seed_omega_bar_ = kDefaultInitOmegaBar;
+
+	/// Number of first-order ODE integrations performed by this solver. Diagnostic only,
+	/// readable through `RotationSolverTestSeam`; it exists so that "one raw solve per built
+	/// star, and none for a rescaling" can be asserted rather than assumed.
+	std::size_t first_order_solve_count_ = 0;
+
+	/// Seed-free first-order response of the attached star, rebuilt by every solve.
+	HartleFirstOrderResponse first_order_response_;
 
 	/// Solution to TOV is saved here
 	// TOVTable tov_solution ;
@@ -393,8 +515,18 @@ class RotationSolver : public Prog
 	/// for a MixedStar.
 	void SolveHartle2_Mixed();
 
-	/// Returns the second-order Hartle result (const)
+	/// Returns the second-order Hartle result (const).
+	///
+	/// **UNVERIFIED SCIENTIFIC CANDIDATE** (`GOVERNANCE.md` §5, INV-08). Its contents are
+	/// quadratic in the arbitrary internal seed and are not physical results.
 	const HartleResult &GetHartleResult() const;
+
+	/// The seed-free first-order response of the attached star (ADR-0006 Q4).
+	///
+	/// Valid after `FindNMomInertia()`. Contains no arbitrary normalization and no physical
+	/// spin; call `HartleFirstOrderResponse::At()` with an explicit `AngularVelocity` to
+	/// materialize a physical first-order solution.
+	const HartleFirstOrderResponse &FirstOrderResponse() const;
 
 	/// ..........................................................
 	/// Exports the results of solving the rotation equations
@@ -414,6 +546,9 @@ class RotationSolver : public Prog
 
 	// Resets the containers
 	void Reset();
+
+	// Test-only seam (ADR-0006 Q2). Grants no public API; see RotationSolverTestSeam.
+	friend struct RotationSolverTestSeam;
 };
 
 //==============================================================
