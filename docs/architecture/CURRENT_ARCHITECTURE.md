@@ -146,8 +146,25 @@ These are live conflicts. Under `GOVERNANCE.md` §3 they are fail-closed until a
    `docs/validation/TOV_REFERENCE.md`. That document also records two deliberately unrepaired
    characteristics: the surface is the EOS table floor rather than vacuum, and the default
    `r_max = 70 km` with `radial_res = 10000` leaves ~80 % of the radial grid outside the star.
+
+   **Path 1 remains live and non-canonical, but its numerical relationship to Path 2 is now
+   measured** by Phase 3E-0 (`docs/validation/TOV_PATH_EQUIVALENCE.md`). On the authenticated
+   `DS(CMF)-1` EOS, at fourteen central densities and three radial resolutions, the two paths
+   produce **bit-identical** radial structure (all 25 columns) and **bit-identical**
+   `ec`/`pc`/`M`/`R`/`I`, with `B` differing by at most one ULP — the governed ADR-0004
+   conformance gap. The evidence supports **hypothesis H2**: *one* TOV algorithm copied into two
+   radial-loop implementations, differing in orchestration and output ownership rather than in
+   physics. **This does not designate a canonical owner**, and the fail-closed condition above
+   stays open until the Phase-3E ADR. What the measurement scopes out is equally explicit: one
+   EOS only, the nonrotating visible-sector path only, and no claim about physical Ω or J.
 2. **Two `NStar` profile-construction blocks** — `BuildFromTOV` and
    `InitFromTOVSolver`+`Append`+`FinalizeSurface`, with duplicated hardcoded column layouts.
+   Phase 3E-0 measured them as **value-equivalent** but found two real interface asymmetries:
+   `FinalizeSurface` never calls `SetSurfaceScalars`, so Path 1 leaves the profile's mirror
+   `M`/`R`/`z_surf` at **zero** while Path 2 populates them; and Path 1 alone owns the
+   sequence-accumulation and unconditional `_Sequence.tsv` export, which is the **only** thing
+   its six live `main/` callers consume. No caller anywhere attaches an `Analysis` or an export
+   condition, so those two hooks are currently dead on all production callers.
 3. **Proper volume defined in several places** (INV-04) — **partially resolved in Phase 3D**;
    the validated path now has one owner, the legacy sites do not. See the Phase-3D entry below.
 

@@ -321,7 +321,8 @@ CI and the convergence scope above remain outstanding items.
 
 **Prerequisite:** Phase 2B baselines exist. ✅ **SATISFIED** — `docs/validation/PHASE2B_CLOSURE.md`.
 
-**Status: IN PROGRESS — increments 3A, 3B, 3C and 3D complete; 3E not started.**
+**Status: IN PROGRESS — increments 3A, 3B, 3C, 3D and 3E-0 complete; the 3E ownership ADR is
+NOT yet drafted.**
 **3A** centralized the exactly-duplicated unit constants (bit-identical). **3B** implemented the
 ADR-0003 cache-provenance contract (goldens bit-identical; INV-12 resolved for profile-derived
 caches). **3C** adopted the authoritative ZakiLib Boltzmann constant. **3D** established the
@@ -349,7 +350,19 @@ matrix, the per-increment preservation standard and the recommended sequence —
 Every item is **engineering class** and must produce bit-identical output, or a documented
 tolerance.
 
-- Establish the canonical TOV path; retire or clearly subordinate the duplicate.
+- ◐ **Establish the canonical TOV path; retire or clearly subordinate the duplicate — 3E-0
+  MEASUREMENT COMPLETE, ownership ADR NOT drafted.** Phase 3E-0 measured the two live paths
+  against each other on `DS(CMF)-1` at fourteen central densities and `radial_res`
+  5000/10000/20000: **all 25 radial columns bit-identical**, `ec`/`pc`/`M`/`R`/`I`
+  bit-identical, `B` within one ULP (the governed ADR-0004 gap), identical species order and
+  surface termination, identical clamp behavior, and no cross-star state leakage in the Path-1
+  sequence loop. The duplication is therefore **H2** — one algorithm copied into two radial
+  loops — so canonicalization carries no numerical migration risk on the radial solve. The real
+  work is interface: the unconditional `_Sequence.tsv` contract, Path 1's unset mirror surface
+  scalars, the dead `Analysis`/export hooks, and Path 1's unmigrated ADR-0004 conformance.
+  `TOVSolver::Solve` has **six** live callers, not three. **No canonical owner is designated and
+  the fail-closed condition remains open.** Evidence:
+  `docs/validation/TOV_PATH_EQUIVALENCE.md`.
 - ◐ **Single owner for unit conversions — PARTIAL: exact duplicate constants completed in 3A.**
   `KM3_TO_CM3` (2 production sites) and the MeV fm⁻³→erg cm⁻³ factor (2 sites) now have one
   owner, `CompactStar/Units.hpp` — a dependency-free header that adds no edge to the layer

@@ -187,6 +187,19 @@ if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
         LABELS "core;tov;reference;external-data;scientific"
         TIMEOUT 900)
 
+    # Phase-3E-0 equivalence measurement of the two LIVE TOV paths.
+    # Path 1 (TOVSolver::Solve + NStar::Append + FinalizeSurface) vs Path 2
+    # (SingleStarSolveToTOVPoints + NStar(points,labels) + BuildFromTOV) at the
+    # same frozen central densities. Measurement only: it designates no canonical
+    # owner. Criteria are predeclared in the source header.
+    add_executable(tov_path_equivalence_cmf core/tov_path_equivalence_cmf.cpp)
+    target_link_libraries(tov_path_equivalence_cmf PRIVATE CompactStar)
+    add_test(NAME tov_path_equivalence_cmf
+             COMMAND tov_path_equivalence_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(tov_path_equivalence_cmf PROPERTIES
+        LABELS "core;tov;scientific;external-data;equivalence"
+        TIMEOUT 1800)
+
     message(STATUS "CompactStar: Tier-B thermal test enabled (EOS data root supplied)")
 else()
     message(STATUS "CompactStar: Tier-B thermal test NOT registered "
