@@ -359,7 +359,16 @@ tolerance.
   `docs/validation/PHASE3C_BOLTZMANN_AUTHORITY.md`. **Still outstanding:** the **solar-mass authority** conflict (`SUN_M_KM` vs
   `GSL_CONST_CGSM_SOLAR_MASS`, differing at `6.2e-5`) remains a scientific/unit authority
   question **deferred out of Phase 3** pending owner or ADR adjudication.
-- Single owner for the proper-volume measure (INV-04).
+- ◐ **Single owner for the proper-volume measure (INV-04) — ADR PROPOSED, implementation not
+  started.** `docs/adr/ADR-0004-proper-volume-and-metric-measure-ownership.md` proposes the
+  structural contract: a **dependency-neutral geometry primitive** as the single *mathematical*
+  owner of `f = 1 − 2m/r`, `e^{Λ}` and `w_V = 4πr² e^{Λ}`, with **`GeometryCache` retained
+  unchanged** as the canonical *cached-representation* owner. It supersedes the Phase-3-entry
+  wording *"`GeometryCache` canonical; retire the inline forms"*, which the 3D audit found not
+  implementable as written. Status is **PROPOSED**, awaiting owner adjudication on three
+  decision-level questions (the ownership boundary, `MixedStar` scope, and degenerate-input
+  semantics). **INV-04 remains `VERIFIED CURRENT BEHAVIOR / LEGACY split`** until an accepted
+  implementation lands and validates.
 - ◐ **One uniform cache-invalidation rule; add a version gate to `GeometryCache`; re-bind
   `StarContext` column pointers on invalidation (INV-12) — ADR PROPOSED, implementation not
   started.** `docs/adr/ADR-0003-profile-cache-provenance-and-invalidation.md` proposes the

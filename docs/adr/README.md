@@ -39,6 +39,7 @@ alternatives, and may recommend — but must not mark one accepted.
 | [ADR-0001](ADR-0001-species-profile-semantics.md) | Species profile semantics: densities or fractions? | **ACCEPTED** | 2026-08-31 — species columns are dimensionless fractions `Y_i = n_i/n_B` |
 | [ADR-0002](ADR-0002-thermal-heat-capacity-ownership.md) | Heat-capacity ownership for the evolved thermal degree of freedom | **ACCEPTED** | 2026-08-31 — one canonical `C_⋆(T∞)`, the GR-integrated EOS-based stellar heat capacity |
 | [ADR-0003](ADR-0003-profile-cache-provenance-and-invalidation.md) | Profile-derived cache provenance and dependency-complete invalidation | **ACCEPTED** | 2026-09-01 — provenance is `(StarProfile identity, Version())`; Q1 = S1, Q2 = Option A |
+| [ADR-0004](ADR-0004-proper-volume-and-metric-measure-ownership.md) | Proper-volume measure and metric-factor ownership | **PROPOSED** | — awaiting owner adjudication (Q1 ownership boundary, Q2 `MixedStar` scope, Q3 degenerate-input semantics) |
 
 ## Anticipated
 
@@ -50,7 +51,7 @@ Identified during Phase-0 reconnaissance or deferred by an accepted ADR; not yet
 | Chemical-imbalance definition, ordering, redshift frame (INV-11) | Phase 5 |
 | Thermal-balance architecture — where the division by `C_⋆(T∞)` occurs (deferred by ADR-0002 §6) | Phase 3 |
 | Canonical TOV integration path | Phase 3 |
-| MixedStar modernization scope | Phase 3 |
+| MixedStar modernization scope — including the six inline proper-volume sites ADR-0004 §15 declines to migrate | Phase 3 |
 | Generated artifacts in version control | Phase 1 |
 | Dependency ownership — Zaki / Confind | Phase 1 |
 | Direct-Urca muon channel omission (INV-16) | Phase 5 |

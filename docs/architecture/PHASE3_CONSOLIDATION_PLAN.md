@@ -1,7 +1,13 @@
 # Phase 3 entry — behavior-preserving consolidation scoping audit
 
-> **STATUS: `PHASE-3 ENTRY/SCOPING AUDIT COMPLETE`.** Planning only — **no production source,
-> test, baseline, ADR or invariant was modified.**
+> **STATUS: `3A COMPLETE` · `3B COMPLETE` · `3C COMPLETE` · `3D GOVERNANCE / ADR PROPOSED — AWAITING OWNER ADJUDICATION`.**
+> The Phase-3 entry/scoping audit that produced this document is complete and its findings
+> stand except where §5 is corrected below. Increments 3A, 3B and 3C have landed and are
+> validated. **3D is governance only so far:**
+> [`ADR-0004`](../adr/ADR-0004-proper-volume-and-metric-measure-ownership.md) is **PROPOSED**
+> and carries no authority until the owner accepts it; **no proper-volume implementation has
+> started**, INV-04 remains `VERIFIED CURRENT BEHAVIOR / LEGACY split`, and the 3D audit
+> modified no production source, test, baseline, accepted ADR or invariant.
 >
 > **Headline finding, and it changes the plan:** the roadmap states *"Every item is engineering
 > class"* (`MODERNIZATION_ROADMAP.md:298`), but **three of the five Phase-3 items are
@@ -152,7 +158,7 @@ Choosing either constant **changes numbers** and is therefore *not* behavior-pre
 | `NStar.cpp:279` / `:563` | baryon-number integrand | `4π r² n_B` (**coordinate**, then × `e^Λ` elsewhere) | LIVE | `seq.b` only |
 | `NStar.cpp:1067` | baryon-number integrand | `4π r² n_B / √(1−2m/r)` — inline `e^Λ` | LIVE | weakly |
 | `MixedStar.cpp:163,179` | mixed-star volume | inline equivalent | compiled, **unexercised** | no |
-| `DarkCore_Analysis.cpp:97` | dark-core integrand | `4π r²` — **coordinate volume, correctly not proper** | compiled, unexercised | no |
+| `DarkCore_Analysis.cpp:97-100` | dark-core integrand | ~~`4π r²` — coordinate volume~~ **CORRECTED by ADR-0004 §4.3: line `:98` divides by `√(1−2M_tot/r)`, so this IS a proper-volume weight, and `:100` builds the `e^{ν}` variant** | compiled, unexercised | no |
 
 **Not proper-volume — must not be swept in:** `RotationSolver.cpp:309,329,349` are the Hartle
 ODE *coefficients* `4πr(ε+p)/(1−2m/r)`; `RotationSolver.cpp:1054-1088` are O(Ω²) source terms;
@@ -164,12 +170,32 @@ weighting** (`e^ν`, `e^{2ν}` — separately applied, correctly), **baryon-numb
 **Canonical owner candidate: `GeometryCache`** — it already owns the canonical form and the
 redshift variants, and every validated consumer already reads it.
 
+> **Superseded in part by ADR-0004 (PROPOSED).** The 3D audit found this wording — *"`GeometryCache`
+> canonical; retire `NStar`/`MixedStar` inline forms"* — **not implementable as written**. `MixedStar`
+> has no `StarProfile` (`MixedStar.hpp:269,272`) so it cannot construct a `GeometryCache` at all;
+> `NStar` builds its integrand inside an open `EditScope` (`NStar.cpp:90,277-281`), where a
+> provenance-bearing `GeometryCache` would conflict with **ADR-0003**; and `GeometryCache` throws
+> without a `ν` column (`GeometryCache.cpp:178-179`), which the measure does not need. ADR-0004
+> proposes splitting the **mathematical** owner (a dependency-neutral primitive) from the
+> **cached-representation** owner (`GeometryCache`, unchanged). See ADR-0004 §8, §10, §17.
+>
+> The audit also raised the inventory from the six rows above to **twenty-two** live or compiled
+> proper-volume / redshifted-proper-volume sites (ADR-0004 §4), and recorded **six** mutually
+> inconsistent degenerate-input behaviors where INV-03 records one clamp (ADR-0004 §11).
+
 **Floating-point warning (§12).** `NStar.cpp:1067` computes `1/√(1−2m/r)` inline, while
 `GeometryCache` computes `exp(Λ)` from a tabulated/derived `Λ`. These are algebraically equal
 but **not bitwise equal** — different operation order and a `1e-15` clamp. Centralizing the
 baryon-number integrand on `GeometryCache` therefore **cannot promise bit identity**; it needs a
 predeclared tolerance. `seq.b` is not covered by any golden baseline, which lowers the risk but
 also means the change would be **unobserved** — an argument for adding coverage first.
+
+**Now measured (ADR-0004 §6, §7).** Pointwise the canonical `w_V` and the inline product agree to
+**3 ULP** (max relative 6.4e-16). The *integral* is far less sensitive: across 1.0/1.4/1.6/2.0 M☉,
+`seq.b` moves by at most **1 ULP — 1.64e-16 relative** — and is bitwise unchanged on three of the
+four stars. The predeclared bound, derived from the operation counts **before** any implementation
+exists, is **`|ΔB|/B ≤ 1.0e-15`** (ADR-0004 §7.1). Separately measured: `GeometryCache`'s
+stored-Λ and derived-Λ routes are **bit-identical** on every node of all four stars (ADR-0004 §9).
 
 ## 6. Target D — cache dependency/provenance map
 
@@ -274,7 +300,7 @@ kept deferred. Do not open this ADR in Phase 3.**
 | **3A** unit U-1 (exact duplicates) | full 13/13; all five artifact hashes byte-identical | **BIT-IDENTICAL REQUIRED** |
 | **3B** cache provenance + dependency-complete keys | `cache_contract`, `cache_thermal_contract`, `passive_cooling_regression`, `heat_capacity_v1`, `heat_capacity_real_star`; **the `--audit-known-hazards` reproductions must stop reproducing**; full 13/13 | **BIT-IDENTICAL REQUIRED** on the canonical run (it provably never enters a hazard state — `PHASE2B_CLOSURE.md` §6) |
 | **3C** unit U-2 (`k_B`) | `heat_capacity_v1`, `heat_capacity_real_star`, `passive_cooling_regression`, full 13/13 | **PREDECLARED `≤1.7e-11` — HELD FOR THE PHYSICS, NOT MET FOR THE EVOLVED TRAJECTORY.** The bound is **left exactly as predeclared** — it was not widened after the fact. Resolution: the bound *is* satisfied wherever the quantity is a physical observable. Fixed-state response is `1.68e-11`; the static `grid_convergence_cmf_1p6_debug.tsv` moves only its two heat-capacity columns, at `1.70e-11` and `1.71e-11`; `M`, `R`, and all luminosities at fixed `T` move **exactly zero**. The `1.3e-6` seen on the *evolved* passive-cooling trajectory is adaptive step placement, not displacement: with `k_B` held **fixed** and only `rtol` moved `1e-6 → 1e-8`, the same trajectory moves `1.146e-6`, and the old-vs-new difference shrinks 3.8× when the integrator is tightened. Step placement is not a physical observable, so the predeclared bound was applied to the wrong quantity there. Owner adjudicated: adopt and re-baseline. Evidence: [`PHASE3C_BOLTZMANN_AUTHORITY.md`](../validation/PHASE3C_BOLTZMANN_AUTHORITY.md) §14. |
-| **3D** proper-volume ownership | `heat_capacity_v1` (V1), `passive_cooling_regression`, neutrino diagnostics, `hartle_moment_inertia_*`, baryon number; full 13/13 | **NUMERICALLY IDENTICAL TO ROUNDOFF** for `w_V` consumers; **NEW TOLERANCE PREDECLARED** for the `NStar` baryon-number path |
+| **3D** proper-volume ownership | `heat_capacity_v1` (V1), `passive_cooling_regression`, neutrino diagnostics, `hartle_moment_inertia_*`, baryon number; full 13/13 | **BIT-IDENTICAL REQUIRED** for every `w_V` consumer (strengthened from "numerically identical to roundoff": ADR-0004 §13 keeps `GeometryCache`'s composition verbatim, so bit identity is achievable by construction). **PREDECLARED `\|ΔB\|/B ≤ 1.0e-15`** on `SeqPoint::b` for the `NStar` baryon-number path — derived in ADR-0004 §7.1 from the operation counts, before any implementation exists; measured worst case 1.64e-16. **NOT YET MIGRATABLE**: the zero-caller scalar accessor, all six `MixedStar` sites, and every candidate site. |
 | **3E** TOV canonicalization | *new* Path-1↔Path-2 equivalence harness **first**; then `tov_reference_analytic`, `tov_reference_cmf`, `grid_convergence_cmf`, `passive_cooling_regression`, `hartle_moment_inertia_cmf`; full 13/13 | **BIT-IDENTICAL REQUIRED** for Path 2 (it must not move at all); Path 1 behavior change must be **measured and documented** |
 | **3F** dead-code classification | compile + link + full 13/13; reference search | **NOT APPLICABLE** (no deletion) |
 
@@ -288,7 +314,7 @@ derivable from the constants and the algebra in advance; that is why they are st
 | **3A** | ✅ **COMPLETE** — Centralize exactly-duplicated unit constants | `KM3_TO_CM3` (2 sites), `MeVfm3_to_ergcm3` (2 sites) → `CompactStar/Units.hpp`. **Bit-identical**: 352 lines of deterministic output unchanged, all five golden hashes unchanged, 13/13 + 8/8. Evidence: [`PHASE3A_UNIT_DUPLICATES.md`](../validation/PHASE3A_UNIT_DUPLICATES.md) | engineering | none | no | **yes** |
 | **3B** | ✅ **COMPLETE.** Cache provenance and dependency-complete keys | profile identity+version token; `GeometryCache` carries it; `C_⋆` and `NeutrinoCooling` keys extended; `StarContext` re-binds columns. Contract: [`ADR-0003`](../adr/ADR-0003-profile-cache-provenance-and-invalidation.md) (**ACCEPTED**). All five hazards are now enforced CTests; INV-12 RESOLVED for profile-derived caches; goldens byte-identical. | **STRUCTURAL** (fail-closed #4) | 3A ✅ | **YES — accepted** | **yes** |
 | **3C** | ✅ **COMPLETE** — Adopt the authoritative ZakiLib Boltzmann constant | All four production consumers now use `Zaki::Physics::K_BOLTZ_EV * 1.0e-6`; **no `k_B` literal and no GSL Boltzmann constant remain on any production path**. No ZakiLib change, no archive rebuild. Test oracles derive `k_B` independently in `long double` from the SI-exact defining constants and agree with production to **1 ULP**. `tov_dscmf1_reference.tsv` and `hartle_I_dscmf1_debug.tsv` **byte-identical** as predicted (no thermal constant enters them); the three thermal artifacts re-baselined with recorded hashes. 13/13 + 8/8. Evidence: [`PHASE3C_BOLTZMANN_AUTHORITY.md`](../validation/PHASE3C_BOLTZMANN_AUTHORITY.md) | **numerical-method / constant-authority** | 3A ✅ | no | **yes** |
-| **3D** | Single owner for the proper-volume measure | `GeometryCache` canonical; retire `NStar`/`MixedStar` inline forms | **STRUCTURAL** (INV-04) | **3B** | **YES** | yes |
+| **3D** | ⏳ **GOVERNANCE / ADR PROPOSED — AWAITING OWNER ADJUDICATION.** Single owner for the proper-volume measure | Contract: [`ADR-0004`](../adr/ADR-0004-proper-volume-and-metric-measure-ownership.md) (**PROPOSED**). Proposes a **dependency-neutral geometry primitive** as the mathematical owner and **`GeometryCache` unchanged** as the canonical cached owner — the earlier "`GeometryCache` canonical; retire inline forms" wording is not implementable as written (§5 above). Implementation **not started**; INV-04 **not** resolved. Three owner questions open: ownership boundary, `MixedStar` scope, degenerate-input semantics. | **STRUCTURAL** (INV-04) | 3B ✅ | **YES — proposed** | yes |
 | **3E** | Canonical TOV path | designate Path 2; subordinate Path 1 — **after** building equivalence coverage | **STRUCTURAL** (fail-closed #3) | 3B, 3D | **YES** | yes |
 | **3F** | Dead/unreachable classification record | document only; delete nothing | documentation | none | no | **yes** |
 
@@ -312,7 +338,10 @@ benefits from cache/geometry ownership being settled first.
 [`PHASE3C_BOLTZMANN_AUTHORITY.md`](../validation/PHASE3C_BOLTZMANN_AUTHORITY.md).
 The next increment is **3D** (single owner for the proper-volume measure), which requires its
 own ADR — INV-04 states the proper-volume measure may not be changed without one — and which
-depends on 3B's provenance contract, now in place.
+depends on 3B's provenance contract, now in place. **That ADR is now drafted:**
+[`ADR-0004`](../adr/ADR-0004-proper-volume-and-metric-measure-ownership.md), status
+**PROPOSED**. It carries no authority under `docs/adr/README.md` until the owner accepts it, and
+**no 3D source change is authorized**. The 3D governance audit changed documentation only.
 
 Chosen on dependency and risk, not convenience. It is the only Phase-3 item that is
 simultaneously: **provably bit-identical** (the constants are literally equal — `1.0e15` and
@@ -375,3 +404,6 @@ merge two numerically *different* constants; the change grows beyond constant ow
 - Removal or relocation of the `BuildFromTOV → Find_MomInertia` side effect without separate
   measurement.
 - Retiring TOV Path 1 before equivalence coverage exists.
+- **Repairing `NStar::BaryonNumIntegrand`'s missing `1e54` (or `MixedStar`'s commented-out
+  equivalent) inside a proper-volume change.** That is an INV-14 scientific-semantic defect,
+  deliberately held separate from 3D — see ADR-0004 §14.
