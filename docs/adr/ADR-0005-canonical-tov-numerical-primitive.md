@@ -507,7 +507,7 @@ six-field header with exact names and order, byte-exact raw header line, row cou
 values checked against in-memory `SeqPoint` at `%.8e` precision (worst rel `3.137e-09`). The
 rounded file is never used as a numerical oracle.
 
-**`RadiusLoop` disposition.** Retained and marked non-authoritative in source, **not deleted** —
+**`RadiusLoop` disposition (as of I1; superseded by I4 — see §23).** Retained and marked non-authoritative in source, **not deleted** —
 because of the §8 correction above. Retirement (migrate `GenTestSequence`, then delete) is
 Phase 3E-I4.
 
@@ -557,3 +557,61 @@ duplicate radial implementation and is the **only** step that can fully close fa
 condition #3, which I2 does not change.
 
 Full record: [`docs/validation/PHASE3E_I2_PATH1_GEOMETRY.md`](../validation/PHASE3E_I2_PATH1_GEOMETRY.md).
+
+---
+
+## 23. Implementation record — Phase 3E-I4
+
+**3E-I4 COMPLETE. The duplicate ordinary-star radial loop is deleted, and fail-closed condition
+#3 is CLOSED for ordinary visible-sector TOV radial numerical ownership.** This supersedes §21's
+I1 note that `RadiusLoop` was retained.
+
+**Two commits, in evidence order.** Commit A (`e7ace8f`, `test: cover TOV resolution sequence`)
+added focused coverage for `GenTestSequence` **against the legacy `RadiusLoop` implementation**
+and proved that coverage could detect it. Commit B performed the migration and deletion. The test
+existed against the old code before it was used as evidence for the new code.
+
+**Coverage.** `tests/core/tov_gen_test_sequence_cmf.cpp` compares the real `GenTestSequence`
+against `SingleStarSolveToTOVPoints` + the *same* `Append`/`FinalizeSurface` postprocessing, at a
+frozen in-domain `ec` (the 1.6 M☉ reference star's central density) and all sixteen production
+resolutions. Result on the legacy implementation: **16/16 bitwise** on `(ec, M, R, pc, B, I)`.
+Runtime 4 s; the resolution list was not reduced to make it cheap.
+
+**§18 out-of-domain audit, measured.** The legacy routine called `p_of_e(ec)` directly, bypassing
+the central-density clamp. A probe found that a request below the EOS minimum **aborted the
+process (SIGABRT)** — so the legacy out-of-domain behavior was not a well-defined public
+behavior, no STOP condition arose, and I4 guarantees compatibility **on the ordinary valid domain
+only**. The out-of-domain change (a clamped star instead of a crash) is recorded as a deliberate
+improvement, not claimed as preservation. No caller is affected: `GenTestSequence` has none.
+
+**Migration and result.** `GenTestSequence` now calls the canonical primitive and appends the
+returned points. `p_of_e_prec = 1e-9`, the 16 resolutions and their order, one integration per
+row, and the full hook order are all preserved. Post-migration the full-precision in-memory
+`SeqPoint`s are **bit-identical** at every resolution and `_TestSequence.tsv` is **byte-identical**
+(`e43bd05c…` before and after). `Append`+`FinalizeSurface` was not replaced by `BuildFromTOV`;
+**I3 remains optional and untaken.**
+
+**Deletion.** Zero production callers remained, so `RadiusLoop`'s definition (155 lines) and
+declaration were removed, along with the stale comments that described it as a numerical route.
+
+**One-owner proof.** The only ordinary visible-sector radial implementation is
+`SingleStarSolveToTOVPoints` (driver and step ladder). `RadiusLoopMixed` is the distinct
+two-fluid algorithm and is out of scope. All three orchestrators — `Solve(Axis)`,
+`SolveToProfile(target_M)`, `GenTestSequence(ec)` — delegate to the one primitive.
+
+**Detector D1: FIRES before I4** (RadiusLoop-only tolerance change → `0/16` bitwise, worst rel
+`2.690e-10`); **IMPOSSIBLE after I4** — there is no second ordinary-star radial driver, and no
+duplicate was manufactured to force a mutation. The detector's disappearance is the proof.
+
+**Preservation.** `tov_sequence_workflow_cmf` 10/10, `tov_path_equivalence_cmf` 67/67,
+`baryon_number_cmf` 14/14; all seven committed artifacts **byte-identical**; 19/19 authenticated
+and 10/10 self-contained; production diff confined to `TOVSolver.cpp` and `TOVSolver.hpp`.
+
+**Closure scope.** Condition #3 is closed for **ordinary visible-sector** TOV radial numerical
+ownership only. It does **not** cover `MixedStar`/`RadiusLoopMixed` two-fluid integration, the
+dark-sector TOV paths, or future alternative solvers — those are distinct physics scopes, not
+competing implementations of the same path. The two `NStar` construction styles remain
+value-equivalent and geometry-conformant but not textually consolidated; that is optional I3, a
+postprocessing question, and it does not reopen the authoritative-path question.
+
+Full record: [`docs/validation/PHASE3E_I4_RADIUSLOOP_RETIREMENT.md`](../validation/PHASE3E_I4_RADIUSLOOP_RETIREMENT.md).

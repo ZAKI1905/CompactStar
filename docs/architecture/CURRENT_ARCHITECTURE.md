@@ -137,25 +137,25 @@ TimeSeriesObserver + DiagnosticsObserver            LIVE
 
 These are live conflicts. Under `GOVERNANCE.md` §3 they are fail-closed until adjudicated.
 
-1. **TOV integration — canonical owner established (ADR-0005), one duplicate still reachable.**
-   **`TOVSolver::SingleStarSolveToTOVPoints` is the CANONICAL NUMERICAL PRIMITIVE** per
-   **ADR-0005 (ACCEPTED 2026-09-02)**. It owns the central-density clamp, the `p_of_e`
-   conversion, the initial conditions, the GSL RK8PD driver, the radial grid, the step ladder,
-   the pressure-cutoff termination and `TOVPoint` construction — and nothing else.
-
-   The three public entry points are now explicitly **orchestrators over that one primitive**:
+1. **TOV integration — RESOLVED for the ordinary visible sector (ADR-0005, Phase 3E).**
+   **`TOVSolver::SingleStarSolveToTOVPoints` is the CANONICAL NUMERICAL PRIMITIVE** and, as of
+   Phase 3E-I4, the **only** ordinary-star radial implementation in the codebase. It owns the
+   central-density clamp, the `p_of_e` conversion, the initial conditions, the GSL RK8PD driver,
+   the radial grid, the step ladder, the pressure-cutoff termination and `TOVPoint` construction
+   — and nothing else.
 
    | Role | Component |
    |---|---|
    | **CANONICAL NUMERICAL PRIMITIVE** | `TOVSolver::SingleStarSolveToTOVPoints` |
    | **TARGET-MASS ORCHESTRATOR** | `TOVSolver::SolveToProfile` |
    | **SEQUENCE / WORKFLOW ORCHESTRATOR** | `TOVSolver::Solve(Axis, dir, file)` |
-   | **WORKFLOW OUTPUT CONTRACT** | `<file>_Sequence.tsv` |
+   | **RESOLUTION-SWEEP DIAGNOSTIC ORCHESTRATOR** | `TOVSolver::GenTestSequence(ec, …)` |
+   | **WORKFLOW OUTPUT CONTRACTS** | `<file>_Sequence.tsv`, `<file>_TestSequence.tsv` |
 
-   **`Solve()` delegates to the primitive as of Phase 3E-I1** and no longer owns a radial
-   integration; there is exactly one radial integration per sequence member. Its output contract
-   is unchanged and is now guarded by `tov_sequence_workflow_cmf`. All six live callers are
-   unmodified.
+   **All three orchestrators delegate to the one primitive.** `TOVSolver::RadiusLoop` — the
+   duplicate ordinary-star radial loop — was **REMOVED** in Phase 3E-I4 after `GenTestSequence`,
+   its last caller, was covered and migrated. Both output contracts are preserved and guarded by
+   tests, and none of the callers changed.
 
    The primitive path is **VALIDATED** as of Phase 2B-2 against the exact Schwarzschild interior
    solution (to `3.5e-16`) and the official CompOSE `eos.mr` (`M_max` to `2.8e-4`, radii to
@@ -164,21 +164,17 @@ These are live conflicts. Under `GOVERNANCE.md` §3 they are fail-closed until a
    vacuum, and the default `r_max = 70 km` with `radial_res = 10000` leaves ~80 % of the radial
    grid outside the star.
 
-   **`TOVSolver::RadiusLoop` was RETAINED, not deleted**, and is marked non-authoritative in
-   source. It survives only because `TOVSolver::GenTestSequence` — a **public but unexercised**
-   radial-resolution harness whose sole repository reference is commented out
-   (`main/Test/tov_debug_main.cpp:196`) and which has zero coverage — still calls it. Migrating
-   uncovered code inside a structural increment was declined. Retirement is Phase 3E-I4.
-
-   **Therefore `GOVERNANCE.md` fail-closed condition #3 is DISCHARGED for the ordinary
-   visible-sector `Solve()` workflow but remains PARTIALLY OPEN overall.** `MixedStar` and the
-   dark-sector paths are separately out of scope and uncanonicalized.
+   **`GOVERNANCE.md` fail-closed condition #3 is CLOSED for ordinary visible-sector TOV radial
+   numerical ownership.** It does **not** cover `MixedStar`/`RadiusLoopMixed` two-fluid
+   integration or the dark-sector TOV paths — those are distinct physics scopes, still
+   uncanonicalized, and remain listed below.
 
 2. **Two `NStar` profile-construction blocks** — `BuildFromTOV` and
    `InitFromTOVSolver`+`Append`+`FinalizeSurface`, with duplicated hardcoded column layouts.
-   **Still two after 3E-I1/I2**, deliberately: ADR-0005 Q3 = **P3 staged**, so I1 unified the
+   **Still two after 3E-I1/I2/I4**, deliberately: ADR-0005 Q3 = **P3 staged**, so I1 unified the
    radial numerics and I2 unified the *geometry mathematics* — but the two construction styles
-   themselves remain. **As of Phase 3E-I2 both ordinary visible-sector paths use the canonical
+   themselves remain. Converging them is **optional increment I3**, a postprocessing question
+   that does not reopen the authoritative-path question. **As of Phase 3E-I2 both ordinary visible-sector paths use the canonical
    `CompactStar::Geometry` owner**: `BuildFromTOV` (3D) and now `Append` (Λ) plus
    `FinalizeSurface` (proper volume). Path-1 and Path-2 `B` are consequently **bitwise
    identical**, closing the last ADR-0004 conformance gap on these paths. Path 1 still leaves the

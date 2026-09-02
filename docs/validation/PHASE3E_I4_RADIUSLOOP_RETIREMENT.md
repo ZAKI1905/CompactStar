@@ -1,7 +1,11 @@
 # Phase 3E-I4 — `GenTestSequence` coverage and `RadiusLoop` retirement
 
-> **STATUS (Commit A): `GEN_TEST_SEQUENCE COVERAGE ESTABLISHED — DUPLICATE RadiusLoop STILL
-> LIVE`.**
+> **STATUS: `PHASE-3E-I4 DUPLICATE TOV RADIAL LOOP RETIRED`**
+> and, on the evidence below, **`PHASE-3E CANONICAL TOV OWNERSHIP COMPLETE`**.
+>
+> **`GOVERNANCE.md` fail-closed condition #3 is CLOSED for ordinary visible-sector TOV radial
+> numerical ownership.** Scope is stated precisely in §14 — it does **not** cover `MixedStar`,
+> the two-fluid path, or dark-sector TOV.
 >
 > This document is written in two stages, matching the two commits. Commit A establishes
 > coverage against the **legacy** implementation and proves the coverage can detect it. Commit B
@@ -163,3 +167,144 @@ that impossibility is the proof that ownership is resolved.
 | suite | **19/19** authenticated (198.97 s), **10/10** self-contained |
 
 Commit A contains only the test, its CMake registration, and this evidence document.
+
+
+---
+
+# Commit B — migration and retirement
+
+## 7. The out-of-domain audit (§18), measured before migrating
+
+The legacy routine called `p_of_e(in_e_c)` **directly**, bypassing the central-density
+floor/ceiling clamp that `Solve()` and `SolveToProfile()` both apply. `p_of_e` has its own,
+*different* clamp — to `[eos_e_min, eos_e_max]`, returning `p_min`/`p_max` at the ends — whereas
+the canonical primitive clamps `ec` to `[10·eos_e_min, 0.999·eos_e_max]` **before** inverting.
+So the two agree inside that inner band and can differ outside it.
+
+That difference was **measured, not reasoned about**, with a temporary probe (reverted
+byte-identically):
+
+> `GenTestSequence(ec = 1.0e8)` — below `eos_e_min = 1.65880787e+08` — **aborted the process,
+> exit 134 (SIGABRT)**, before producing any star.
+
+**Conclusion: the legacy out-of-domain behavior is not a well-defined public behavior; it is a
+hard abort.** §18's first branch therefore applies, and no STOP condition arises. I4 guarantees
+compatibility **on the ordinary valid domain only**, and the out-of-domain change — a clamped
+star instead of a crash — is recorded as a deliberate improvement rather than claimed as
+preservation. It affects no caller: `GenTestSequence` has none.
+
+## 8. Migration
+
+Inside `GenTestSequence`'s loop, this replaced the inline setup and the `RadiusLoop` call:
+
+```cpp
+std::vector<TOVPoint> tov_points;
+SingleStarSolveToTOVPoints(in_e_c, tov_points);
+
+for (const auto &tp : tov_points)
+    n_star.Append(tp);
+SurfaceIsReached();
+```
+
+**Preserved exactly**: `p_of_e_prec = 1e-9` (still set before the loop, still never restored);
+`test.Modify(this, idx)` setting `radial_res` per iteration; the 16 resolutions and their order;
+one integration per row; and the hook order `SurfaceIsReached → analysis->Analyze →
+n_exp_cond_f → ExportNStarProfile → Sequence::Add → n_star.Reset`, followed by
+`ExportSequence(..._TestSequence.tsv)` and `analysis->Export`. `Append`+`FinalizeSurface` was
+**not** replaced by `BuildFromTOV` — I3 remains optional and untaken.
+
+## 9. Post-migration result — bit-identical
+
+| Check | Result |
+|---|---|
+| full-precision in-memory `SeqPoint` at all 16 resolutions, `(ec, M, R, pc, B, I)` at `%.17g` | **BIT-IDENTICAL** to the pre-migration dump |
+| `gts_TestSequence.tsv` | **BYTE-IDENTICAL** — `e43bd05c1b22f7dbc26a39a10fe68d013bde5440eb3d5ce502eb83555245e511` before and after |
+| coverage test | 9/9, `GEN_TEST_SEQUENCE EQUIVALENT TO CANONICAL PRIMITIVE` |
+
+No tolerance was selected after the migration; none was needed.
+
+## 10. `RadiusLoop` reference audit and deletion
+
+Post-migration audit found **zero production callers**. Removed:
+
+- the definition in `TOVSolver.cpp` (**155 lines**, including the I1 non-authoritative banner);
+- the declaration in `TOVSolver.hpp`;
+- the stale comment `"(by construction in RadiusLoop)"`, retargeted to the canonical primitive;
+- the commented-out `RadiusLoop(r, y)` call left in an older disabled block;
+- the `"identical to RadiusLoop"` / `"copy of RadiusLoop"` / `"exactly as in RadiusLoop"`
+  comments inside `SingleStarSolveToTOVPoints`, which described a function that no longer exists.
+
+The only surviving mentions are two comments that state, accurately, that the duplicate was
+retired in 3E-I4.
+
+## 11. One-owner structural proof (§21)
+
+| Site | Function | Classification |
+|---|---|---|
+| `TOVSolver.cpp:2410` (driver), `:2457` (step ladder) | `SingleStarSolveToTOVPoints` | **the ONE ordinary visible-sector radial implementation** |
+| `:2801`, `:2807` (drivers), `:2833` (ladder) | `RadiusLoopMixed` | two-fluid mixed-star core/mantle — **distinct physics, out of scope** |
+
+> **ONE LIVE ORDINARY-STAR RADIAL NUMERICAL IMPLEMENTATION: `SingleStarSolveToTOVPoints`.**
+
+All three orchestrators — `Solve(Axis)`, `SolveToProfile(target_M)`, `GenTestSequence(ec)` —
+delegate to it.
+
+## 12. Detector D1 — before and after
+
+| | Result |
+|---|---|
+| **D1 BEFORE I4** | **FIRES** — RadiusLoop-only rel tol `1e-10 → 1e-8` breaks G6 to `0/16` bitwise, worst rel `2.690e-10` |
+| **D1 AFTER I4** | **IMPOSSIBLE — ONE OWNER.** There is no second ordinary-star radial driver to perturb. Any mutation of `SingleStarSolveToTOVPoints` moves every orchestrator identically, so it is not a *Path-1-only* mutation and cannot express the duplicate-implementation fault. |
+
+No duplicate was manufactured to force a mutation. **The impossibility is the proof that the
+ownership problem is resolved** — the detector's own disappearance is the result.
+
+## 13. Preservation results
+
+| Check | Result |
+|---|---|
+| `tov_sequence_workflow_cmf` | **10/10** — `_Sequence.tsv` filename, header, order, units, row count, hooks unchanged |
+| `tov_path_equivalence_cmf` | **67/67** |
+| `baryon_number_cmf` | **14/14**, worst `\|ΔB\|/B = 0.000e+00` |
+| six protected scientific artifacts | **byte-identical** |
+| `baryon_number_dscmf1_reference.tsv` | **byte-identical** |
+| `tov_path_equivalence_dscmf1.tsv` | **byte-identical** (numerically unchanged, as expected — I4 alters neither compared workflow's postprocessing) |
+| Authenticated suite | **19/19** (199.68 s vs 198.97 s at Commit A — no regression) |
+| Self-contained suite | **10/10** |
+| Production diff | `TOVSolver.cpp`, `TOVSolver.hpp` **only** |
+
+`NStar`, `Geometry.hpp`, `StarProfile`, `RotationSolver`, `MixedStar`, thermal and EOS code:
+**untouched**. `SolveToProfile` untouched. The six `Solve()` callers untouched.
+
+## 14. Governance closure — precise scope
+
+`GOVERNANCE.md:70` condition 3: *"Two or more implementations are live and no document
+establishes which is canonical."*
+
+- ADR-0005 is **ACCEPTED** and names the authority — the "no document" half was discharged at I1.
+- `Solve()`, `SolveToProfile()` and `GenTestSequence()` all delegate to that authority.
+- `RadiusLoop` is **deleted**; the reference audit confirms no ordinary-star duplicate remains.
+- All validation passes.
+
+> **CONDITION #3: CLOSED for ordinary visible-sector TOV radial numerical ownership.**
+
+**Explicitly NOT covered by this closure**, and not claimed:
+
+- `MixedStar` / `Solve_Mixed` / `RadiusLoopMixed` two-fluid radial integration — a **distinct
+  physics problem**, not a competing implementation of the ordinary-star path;
+- dark-sector TOV (`ODE_Dark_Core`, `ODE_Dark_Mantle`);
+- any future alternative solver;
+- the two `NStar` construction styles (`BuildFromTOV` vs `Append`+`FinalizeSurface`), which are
+  **value-equivalent and geometry-conformant but not textually consolidated** — that is optional
+  increment I3, and it is a *postprocessing* question, not an authoritative-path question.
+
+## 15. Explicit non-scope and deferred items
+
+| Item | State |
+|---|---|
+| **3E-I3** — converge `Append`+`FinalizeSurface` onto `BuildFromTOV` | **OPTIONAL, not taken.** Reassess in the Phase-3 closeout; it does not block 3E. |
+| mirror `M`/`R`/`z_surf` zeros | preserved (M1) — still `INTERNAL STATE ASYMMETRY — CURRENTLY UNOBSERVED` |
+| `NStar::BaryonNumIntegrand(double)` | untouched — separate INV-14 defect |
+| INV-04 | unchanged from its post-I2 status; I4 does not touch proper-volume ownership |
+| INV-07 / Hartle | untouched; `I` bit-identical |
+| `MixedStar`, candidates, ZakiLib, CONFIND | untouched |

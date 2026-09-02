@@ -1600,7 +1600,6 @@ void TOVSolver::AddAnalysis(Analysis *in_analysis)
 // 		// ------------------------------------------
 // 		//                RADIUS LOOP
 // 		// ------------------------------------------
-// 		RadiusLoop(r, y);
 // 		// ------------------------------------------
 // 		// ------------------------------------------
 // 		SurfaceIsReached();
@@ -1732,161 +1731,6 @@ void TOVSolver::Solve(const Zaki::Math::Axis &in_ax,
 
 //--------------------------------------------------------------
 // The radius iteration in the neutron star scenario
-// ------------------------------------------------------------------
-// NON-AUTHORITATIVE as of ADR-0005 (ACCEPTED 2026-09-02) / Phase 3E-I1.
-//
-// The canonical TOV numerical primitive is SingleStarSolveToTOVPoints.
-// Solve(Axis,...) no longer calls this function. It survives only because
-// GenTestSequence() -- a PUBLIC but UNEXERCISED radial-resolution harness whose
-// sole repository reference is commented out (main/Test/tov_debug_main.cpp:196)
-// -- still calls it, and migrating uncovered code inside a structural increment
-// is the risk AGENTS.md forbids.
-//
-// DO NOT add new callers. Retirement (migrating GenTestSequence to the canonical
-// primitive, then deleting this function) is assigned to Phase 3E-I4.
-// Until then GOVERNANCE.md fail-closed condition #3 is discharged for the
-// ordinary visible-sector Solve() workflow but NOT fully closed.
-// ------------------------------------------------------------------
-void TOVSolver::RadiusLoop(double &in_r, double *in_y)
-{
-	PROFILE_FUNCTION();
-
-	//----------------------------------------
-	//          GSL ODE SYSTEM SETUP
-	//----------------------------------------
-
-	gsl_odeiv2_system ode_sys = {TOVSolver::ODE, nullptr, 2, this};
-
-	gsl_odeiv2_driver *tmp_driver = gsl_odeiv2_driver_alloc_y_new(&ode_sys, gsl_odeiv2_step_rk8pd,
-																  1.e-1, 1.e-10, 1.e-10);
-	//----------------------------------------
-	//          RADIAL GRID SETUP
-	//----------------------------------------
-	// Logarithmic grid
-	// double min_log_r = log10(r_min) ;
-	// double max_log_r = log10(r_max) ;
-	// double step = (max_log_r - min_log_r) / radial_res;
-	//----------------------------------------
-	// Linear grid
-	double step = (r_max - r_min) / radial_res;
-	//----------------------------------------
-	double step_scale = 1; // Adaptive steps (Aug 6, 2020)
-
-	// results.reserve(1000) ; // (deleted on Apr 22, 2022)
-	// double error_estimate = 0 ; (added on Apr 23, 2023)
-	// ----------------------------------------
-	//          RADIUS LOOP
-	// ----------------------------------------
-	// Logarithmic steps
-	// for (double log_r_i = min_log_r; log_r_i <= max_log_r; log_r_i += step * step_scale)
-	// Linear steps
-	for (double r_i = r_min; r_i <= r_max; r_i += step * step_scale)
-	{
-		//  If using logarithmic grid
-		// double ri = pow(10, log_r_i) ;
-		// If using linear grid
-		double ri = r_i;
-
-		double tmp_delta_p = in_y[1]; // Adaptive steps (Aug 6, 2020)
-
-		int status = gsl_odeiv2_driver_apply(tmp_driver, &in_r, ri, in_y);
-
-		// std::cout << "\n r = "<< in_r << ", in_y[0] = " << in_y[0] << ", " << tmp_driver->e->yerr[0] ;
-		// error_estimate += abs(tmp_driver->e->yerr[0]) ;
-
-		if (status != GSL_SUCCESS)
-		{
-#if TOV_SOLVER_VERBOSE
-			printf("\t-------------------%s-------------------\n", "GSL");
-			printf("error, return value=%d\n.", status);
-			printf("Pressure = %2.2e.\n", in_y[1]);
-#endif
-			break;
-		}
-
-		// ................................................................
-		//       Determining the step size adaptively (Aug 6, 2020)
-		//       The steps are becoming too large, cap them! (Nov 8, 2021)
-		// ................................................................
-		// tmp_delta_p = tmp_delta_p - in_y[1] ;
-		// // Adapting the step size if changes are
-		// // too small
-		// if( tmp_delta_p/in_y[1] < 1e-8 ) {
-		//   // double the step-size
-		//   step_scale *= 1.5 ;
-		// }
-		// // going back to normal scaling
-		// else if ( tmp_delta_p/in_y[1] < 1e-6 ){
-		//   step_scale = 1 ;
-		// }
-		// // too big
-		// else{
-		//   // scale step-size
-		//   step_scale = pow(10.,-6.-log10(tmp_delta_p/in_y[1])) ;
-		// }
-
-		// // Checking if the next radius is closer than 1e-8 to this ri
-		// while(
-		//   // 1e-3 > (pow(10, log_r_i + step*step_scale) - ri )
-		//   1e-3 > (log_r_i + step*step_scale - ri )
-		//   ){
-		//   // std::cout << " -> ri = " << ri << "\n" ;
-		//   step_scale *= 1.5 ;
-		// }
-
-		// // Added on Nov 8, 2021
-		// // Checking if the next radius is further than 5 (m) to this ri
-		// while(
-		//   // 5e+2 < (pow(10, log_r_i + step*step_scale) - ri )
-		//   5e+2 < (log_r_i + step*step_scale - ri )
-		//   ){
-		//   // std::cout << " -> ri = " << ri << "\n" ;
-		//   // std::cout << " -> Delta_r = " << pow(10, log_r_i + step*step_scale) - ri  << "\n" ;
-		//   step_scale /= 1.5 ;
-		// }
-		// ......................
-		if (ri < 100) // < 1 m
-		{
-			step_scale = 0.005;
-		}
-		else if (ri < 1000) // 1 m - 10 m
-		{
-			step_scale = 0.025;
-		}
-		else if (ri < 10000) // 10 m - 100 m
-		{
-			step_scale = 0.05;
-		}
-		else if (ri < 100000) // 100 m - 1 km
-		{
-			step_scale = 0.25;
-		}
-		else // > 1 km
-		{
-			step_scale = 1;
-		}
-
-		// ................................................................
-
-		// We set nu(r) = 0, and calculate it after the loop
-		// results.emplace_back( r/1.e+5, y[0]/GSL_CONST_CGSM_SOLAR_MASS,
-		//                       GetNuDer(r, {y[0], y[1]}), 0,
-		//                       y[1], GetEDens(y[1]),
-		//                       GetRho(y[1]), GetRho_i(y[1]));
-		n_star.Append({in_r / 1.e+5, in_y[0] / GSL_CONST_CGSM_SOLAR_MASS,
-					   GetNuDer(in_r, {in_y[0], in_y[1]}), 0,
-					   in_y[1], GetEDens(in_y[1]),
-					   GetRho(in_y[1]), GetRho_i(in_y[1])});
-
-		// Hard stop once we are at/below cutoff
-		if (in_y[1] <= PressureCutoff())
-			break;
-	}
-	// std::cout << "\n\n err ( y[0] ) = " << error_estimate / GSL_CONST_CGSM_SOLAR_MASS ;
-	gsl_odeiv2_driver_free(tmp_driver);
-}
-
-//--------------------------------------------------------------
 void TOVSolver::Solve_Mixed(const Zaki::Math::Axis &in_v_ax,
 							const Zaki::Math::Axis &in_d_ax,
 							const Zaki::String::Directory &in_dir,
@@ -2559,7 +2403,7 @@ int TOVSolver::SingleStarSolveToTOVPoints(double ec_central,
 	y[0] = (4.0 / 3.0) * M_PI * std::pow(r, 3.0) * GetEDens(y[1]);
 
 	// ----------------------------------------------------------
-	// 2) GSL ODE setup (identical to RadiusLoop)
+	// 2) GSL ODE setup -- the ONE ordinary-star radial driver (ADR-0005)
 	// ----------------------------------------------------------
 	gsl_odeiv2_system ode_sys = {TOVSolver::ODE, nullptr, 2, this};
 
@@ -2580,7 +2424,9 @@ int TOVSolver::SingleStarSolveToTOVPoints(double ec_central,
 	const double p_cut = PressureCutoff();
 
 	// ----------------------------------------------------------
-	// 3) Radius loop — copy of RadiusLoop, but pushing TOVPoint
+	// 3) Radius loop — the canonical ordinary-star radial integration.
+	//    Historically this was a copy of TOVSolver::RadiusLoop; that duplicate was retired
+	//    in Phase 3E-I4 and this is now the sole implementation.
 	// ----------------------------------------------------------
 	for (double log_r_i = min_log_r;
 		 log_r_i <= max_log_r;
@@ -2603,7 +2449,7 @@ int TOVSolver::SingleStarSolveToTOVPoints(double ec_central,
 		}
 
 		// ------------------------------------------------------
-		// Step scaling (exactly as in RadiusLoop)
+		// Step scaling
 		// r is in cm; thresholds 100, 1000, ... are cm as well.
 		// ------------------------------------------------------
 		if (ri < 100.0) // < 1 m
@@ -2742,7 +2588,7 @@ int TOVSolver::SolveToProfile(double target_M_solar,
 			return 0;
 		}
 
-		const double M_here = tmp.back().m; // Msun (by construction in RadiusLoop)
+		const double M_here = tmp.back().m; // Msun (by construction in SingleStarSolveToTOVPoints)
 
 		ec_grid.push_back(ec);
 		M_grid.push_back(M_here);
@@ -3294,19 +3140,34 @@ void TOVSolver::GenTestSequence(const double &in_e_c,
 			PrintStatus(idx, test.Size());
 		}
 
-		init_press = p_of_e(in_e_c);
-
-		double r = r_min;
-		double y[2];
-
-		y[1] = init_press;
-		y[0] = (4. / 3.) * M_PI * pow(r, 3.) * GetEDens(y[1]);
-
 		// ------------------------------------------
-		//                RADIUS LOOP
+		//        CANONICAL RADIAL INTEGRATION
 		// ------------------------------------------
-		RadiusLoop(r, y);
-		// ------------------------------------------
+		// ADR-0005 (ACCEPTED 2026-09-02): SingleStarSolveToTOVPoints is the ONE ordinary-star
+		// radial numerical authority. This diagnostic is a resolution-sweep ORCHESTRATOR over
+		// it, exactly as Solve(Axis) is a sequence orchestrator over it. Phase 3E-I4 replaced
+		// the former inline setup + RadiusLoop call; RadiusLoop itself is gone.
+		//
+		// Bit-identical on the ordinary valid domain: measured 16/16 bitwise on
+		// (ec, M, R, pc, B, I) at every one of the 16 resolutions before the migration
+		// (docs/validation/PHASE3E_I4_RADIUSLOOP_RETIREMENT.md).
+		//
+		// DELIBERATE BEHAVIOR CHANGE, out-of-domain only: the former code called
+		// p_of_e(in_e_c) directly, bypassing the central-density floor/ceiling clamp that
+		// Solve() and SolveToProfile() both apply. Measured, that path did not degrade
+		// gracefully -- a request below the EOS energy-density minimum ABORTED the process
+		// (SIGABRT). The canonical primitive clamps into the valid band instead, so such a
+		// request now yields the clamped star rather than a crash. Compatibility is guaranteed
+		// on the ordinary valid domain; the out-of-domain change is an improvement, recorded
+		// rather than claimed as preservation.
+		//
+		// p_of_e_prec = 1e-9 (set above, and as before never restored) still applies: the
+		// primitive calls p_of_e.
+		std::vector<TOVPoint> tov_points;
+		SingleStarSolveToTOVPoints(in_e_c, tov_points);
+
+		for (const auto &tp : tov_points)
+			n_star.Append(tp);
 		// ------------------------------------------
 		SurfaceIsReached();
 		// ------------------------------------------

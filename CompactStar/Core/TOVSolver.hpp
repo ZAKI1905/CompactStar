@@ -811,14 +811,6 @@ class TOVSolver : public Prog
 					 const Zaki::String::Directory &dir,
 					 const Zaki::String::Directory &file_name);
 
-	/**
-	 * @brief Radius iteration loop for neutron stars.
-	 *
-	 * @param r	 Current radius value.
-	 * @param y State vector at the current radius.
-	 */
-	void RadiusLoop(double &r, double *y);
-
 	// The radius iteration in the mixed star scenario
 	void RadiusLoopMixed(double &r, double *y_core,
 						 double *y_mantle);

@@ -321,11 +321,11 @@ CI and the convergence scope above remain outstanding items.
 
 **Prerequisite:** Phase 2B baselines exist. ✅ **SATISFIED** — `docs/validation/PHASE2B_CLOSURE.md`.
 
-**Status: IN PROGRESS — increments 3A, 3B, 3C, 3D, 3E-0, 3E-I1 and 3E-I2 complete. ADR-0005 is
-ACCEPTED; `SingleStarSolveToTOVPoints` is the canonical TOV numerical primitive, and both
-ordinary visible-sector `NStar` construction paths now use the canonical `CompactStar::Geometry`
-mathematics. Phase 3E remains ACTIVE: I3 is optional, I4 is REQUIRED, and fail-closed condition
-#3 is discharged only for the visible-sector `Solve()` workflow.**
+**Status: IN PROGRESS — increments 3A, 3B, 3C, 3D and 3E complete (3E-0, I1, I2, I4; I3
+optional and not taken). `SingleStarSolveToTOVPoints` is the canonical TOV numerical primitive
+and, after I4, the ONLY ordinary-star radial implementation — `RadiusLoop` is deleted and all
+three orchestrators delegate to the one primitive. Fail-closed condition #3 is CLOSED for
+ordinary visible-sector TOV radial ownership (not MixedStar, not dark-sector).**
 **3A** centralized the exactly-duplicated unit constants (bit-identical). **3B** implemented the
 ADR-0003 cache-provenance contract (goldens bit-identical; INV-12 resolved for profile-derived
 caches). **3C** adopted the authoritative ZakiLib Boltzmann constant. **3D** established the
@@ -355,46 +355,26 @@ matrix, the per-increment preservation standard and the recommended sequence —
 Every item is **engineering class** and must produce bit-identical output, or a documented
 tolerance.
 
-- ◐ **Establish the canonical TOV path; retire or clearly subordinate the duplicate — 3E-0
-  MEASUREMENT COMPLETE, ownership ADR NOT drafted.** Phase 3E-0 measured the two live paths
-  against each other on `DS(CMF)-1` at fourteen central densities and `radial_res`
-  5000/10000/20000: **all 25 radial columns bit-identical**, `ec`/`pc`/`M`/`R`/`I`
-  bit-identical, `B` within one ULP (the governed ADR-0004 gap), identical species order and
-  surface termination, identical clamp behavior, and no cross-star state leakage in the Path-1
-  sequence loop. The duplication is therefore **H2** — one algorithm copied into two radial
-  loops — so canonicalization carries no numerical migration risk on the radial solve. The real
-  work is interface: the unconditional `_Sequence.tsv` contract, Path 1's unset mirror surface
-  scalars, the dead `Analysis`/export hooks, and Path 1's unmigrated ADR-0004 conformance.
-  `TOVSolver::Solve` has **six** live callers, not three.
-  **`ADR-0005` (PROPOSED)** now proposes the authority:
-  `SingleStarSolveToTOVPoints` as the canonical **numerical primitive**; `Solve(Axis)` retained
-  as a **subordinate workflow orchestrator** rather than deleted, because all six callers depend
-  on its `_Sequence.tsv` output and one reads that file back as program input; the TSV filename,
-  schema and column order preserved as a **compatibility contract**; `RadiusLoop` retired as an
-  authority; and a **staged P3** migration that unifies the radial solve first and decides
-  `NStar`-construction convergence separately.
-  **ADR-0005 is ACCEPTED (2026-09-02) and 3E-I1 has landed:** `Solve()` delegates to
-  `SingleStarSolveToTOVPoints`, so there is exactly one radial integration per sequence member,
-  and every Path-1 value is **bit-identical** (the equivalence artifact re-emitted byte-identical;
-  the ADR-0004 `1e-15` allowance was not spent). The `_Sequence.tsv` contract is preserved and now
-  guarded by a dedicated interface test, and all six callers are unmodified.
-  **`RadiusLoop` was retained, not deleted** — implementation found a second caller ADR-0005 had
-  missed, the public-but-unexercised `GenTestSequence` — so **fail-closed condition #3 is
-  DISCHARGED for the ordinary visible-sector `Solve()` workflow but remains PARTIALLY OPEN
-  overall**, pending I4.
-  **3E-I2 then completed Path-1 geometry conformance**: `NStar::Append` (Λ) and
-  `NStar::FinalizeSurface` (proper volume) migrated to `CompactStar::Geometry`. Λ is
-  **bit-identical**; Path-1 `B` moved by at most **1.640e-16** against the unwidened `1.0e-15`;
-  and because the composition now mirrors `BuildFromTOV`, **Path-1 and Path-2 `B` are bitwise
-  identical**, so the ADR-0004 gap on these paths is closed rather than merely bounded. The
-  baryon-number reference and all six protected artifacts are unchanged; only the
-  path-equivalence *measurement record* was re-emitted, and only its `rel_B` field moved.
-  Still open inside Phase 3E: **I3** (optional postprocessing convergence) and **I4**
-  (**required** — `GenTestSequence` coverage and migration, `RadiusLoop` deletion, and the only
-  step that fully closes fail-closed condition #3). Evidence:
+- ✅ **Establish the canonical TOV path; retire or clearly subordinate the duplicate — COMPLETE
+  (Phase 3E).** 3E-0 measured the two live paths **bit-identical** in all 25 radial columns
+  (H2: one algorithm copied into two loops). **ADR-0005 ACCEPTED**: Q1 retain `Solve()` as a
+  subordinate workflow orchestrator, Q2 preserve the `_Sequence.tsv` contract, Q3 = P3 staged,
+  Q4 preserve the hooks. **I1** made `Solve()` delegate to `SingleStarSolveToTOVPoints`.
+  **I2** conformed Path-1 `Append`/`FinalizeSurface` to `CompactStar::Geometry`, after which
+  Path-1 and Path-2 `B` are **bitwise identical**. **I4** covered `GenTestSequence` *before*
+  migrating it (16/16 bitwise, output byte-identical), then **deleted `RadiusLoop`**.
+  `SingleStarSolveToTOVPoints` is now the **only** ordinary-star radial implementation, and
+  `Solve`, `SolveToProfile` and `GenTestSequence` all delegate to it. Both file contracts are
+  preserved and guarded; none of the callers changed.
+  **`GOVERNANCE.md` fail-closed condition #3 is CLOSED for ordinary visible-sector TOV radial
+  numerical ownership** — explicitly *not* `MixedStar`/`RadiusLoopMixed` two-fluid integration or
+  the dark-sector paths, which are distinct physics scopes rather than competing implementations.
+  **`3E-I3` remains OPTIONAL**: the two `NStar` construction styles are value-equivalent and
+  geometry-conformant but not textually consolidated. Evidence:
   `docs/validation/TOV_PATH_EQUIVALENCE.md`, `docs/validation/PHASE3E_I1_CANONICAL_TOV.md`,
-  `docs/validation/PHASE3E_I2_PATH1_GEOMETRY.md`;
-  contract: `docs/adr/ADR-0005-canonical-tov-numerical-primitive.md`.
+  `docs/validation/PHASE3E_I2_PATH1_GEOMETRY.md`,
+  `docs/validation/PHASE3E_I4_RADIUSLOOP_RETIREMENT.md`; contract:
+  `docs/adr/ADR-0005-canonical-tov-numerical-primitive.md`.
 - ◐ **Single owner for unit conversions — PARTIAL: exact duplicate constants completed in 3A.**
   `KM3_TO_CM3` (2 production sites) and the MeV fm⁻³→erg cm⁻³ factor (2 sites) now have one
   owner, `CompactStar/Units.hpp` — a dependency-free header that adds no edge to the layer
