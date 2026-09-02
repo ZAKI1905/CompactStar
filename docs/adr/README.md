@@ -39,7 +39,7 @@ alternatives, and may recommend — but must not mark one accepted.
 | [ADR-0001](ADR-0001-species-profile-semantics.md) | Species profile semantics: densities or fractions? | **ACCEPTED** | 2026-08-31 — species columns are dimensionless fractions `Y_i = n_i/n_B` |
 | [ADR-0002](ADR-0002-thermal-heat-capacity-ownership.md) | Heat-capacity ownership for the evolved thermal degree of freedom | **ACCEPTED** | 2026-08-31 — one canonical `C_⋆(T∞)`, the GR-integrated EOS-based stellar heat capacity |
 | [ADR-0003](ADR-0003-profile-cache-provenance-and-invalidation.md) | Profile-derived cache provenance and dependency-complete invalidation | **ACCEPTED** | 2026-09-01 — provenance is `(StarProfile identity, Version())`; Q1 = S1, Q2 = Option A |
-| [ADR-0004](ADR-0004-proper-volume-and-metric-measure-ownership.md) | Proper-volume measure and metric-factor ownership | **PROPOSED** | — awaiting owner adjudication (Q1 ownership boundary, Q2 `MixedStar` scope, Q3 degenerate-input semantics) |
+| [ADR-0004](ADR-0004-proper-volume-and-metric-measure-ownership.md) | Proper-volume measure and metric-factor ownership | **ACCEPTED** | 2026-09-01 — Q1 = Option B (dependency-neutral primitive owns the mathematics, `GeometryCache` owns the cached arrays); Q2 = `MixedStar` governed now, migration deferred; Q3 = hybrid physical-domain contract (regular-center limit at `r=m=0`, fail closed otherwise, no `1e-15` clamp) |
 
 ## Anticipated
 

@@ -2,17 +2,76 @@
 
 | | |
 |---|---|
-| **Status** | **PROPOSED** |
+| **Status** | **ACCEPTED — 2026-09-01** |
 | **Date drafted** | 2026-09-01 |
 | **Change class** | **Structural / architecture** (`GOVERNANCE.md:51`) |
 | **Drafted at** | `0dd11a80ccaffedb093095aaea903e6e689e40c3` |
 | **Roadmap increment** | Phase 3D (`docs/architecture/PHASE3_CONSOLIDATION_PLAN.md` §11) |
 | **Governing invariants** | **INV-04** (proper-volume measure) — remains `VERIFIED CURRENT BEHAVIOR / LEGACY split`; **INV-03** (metric convention) |
 | **Prerequisite** | Phase 3B — ADR-0003 **ACCEPTED**; provenance contract in place |
+| **Accepted at** | `5eb6bdd314b34b1acccb2df59a92eb7eb813c145` (acceptance commit; implementation follows separately) |
 
-> **This ADR proposes a contract. It writes no code and authorizes no implementation.**
-> No production source, test, baseline, ADR status or invariant status was changed by the audit
-> that produced it. INV-04 is **not** marked resolved.
+> **ACCEPTED.** The owner adjudicated Q1, Q2 and Q3 (§0 below). This ADR is now **normative**,
+> ranking directly below `GOVERNANCE.md`.
+>
+> The audit that produced the draft wrote no code: no production source, test, baseline or
+> invariant status was changed by it. Implementation is Phase 3D-I and lands in a **separate
+> commit after** this acceptance.
+>
+> **INV-04 is NOT marked fully resolved by this acceptance.** The canonical validated path is
+> conformed; TOV Path 1, the scalar `NStar` accessor, `MixedStar` and the candidate scientific
+> code remain governed-but-nonconformant. See §24 of the implementation record.
+
+---
+
+## 0. Owner decisions (binding)
+
+Adjudicated 2026-09-01. The alternatives (§17), the measurements (§6, §7, §9) and the open
+questions as originally posed (§22) are retained unchanged below, as the lifecycle requires.
+
+### Q1 — ownership boundary: **OPTION B — a dependency-neutral mathematical primitive**
+
+Three distinct owners, per §3:
+
+| Role | Owner |
+|---|---|
+| **A. Mathematical** | a dependency-neutral CompactStar primitive owning `f(r,m)`, `Λ(r,m)`, `e^{Λ}(r,m)`, `w_V(r,m) = 4π r² e^{Λ}` **including domain/failure semantics** |
+| **B. Cached representation** | `Physics::Evolution::GeometryCache` — retains `ExpLambda`, `WV`, `WVExpNu`, `WVExp2Nu` |
+| **C. Consumer integrands** | `NStar`, the thermal drivers and others retain `n_B·w_V`, `c_V·w_V`, `Q_ν·w_V·e^{2ν}` **and their own unit conversions** |
+
+**`Core` must NOT be made to depend on `Physics/Evolution` merely to obtain `w_V`.**
+
+### Q2 — `MixedStar`: **GOVERNED NOW, SOURCE MIGRATION DEFERRED**
+
+This ADR governs `MixedStar`'s future mathematical contract — including the requirement that its
+metric factor use **total enclosed mass** (§15). `MixedStar` source is **not** modified in 3D. A
+later task must establish focused coverage **first**; superficial tests must not be manufactured
+to unlock the migration.
+
+### Q3 — degenerate inputs: **HYBRID PHYSICAL-DOMAIN CONTRACT**
+
+For finite `r`, `m`:
+
+| Case | Behavior |
+|---|---|
+| `r == 0` **and** `m == 0` | **regular-center limit**: `f = 1`, `Λ = 0`, `e^{Λ} = 1`, `w_V = 0` |
+| `r < 0` | **fail closed** |
+| `r == 0` **and** `m != 0` | **fail closed** |
+| `r > 0` **and** `f = 1 − 2m/r ≤ 0` | **fail closed** — includes the horizon/Schwarzschild-radius condition and any configuration outside the domain of the static stellar metric |
+| `r > 0` **and** `f > 0` | evaluate normally, **no artificial clamp** |
+
+Non-finite `r` or `m`: **fail closed**.
+
+There is **no `1e-15` clamp** in the canonical primitive, and **no tolerance band around
+`r = 0`** — the regular-center case is the exact `r == 0, m == 0` case. This task introduces no
+new negative-mass policy; finite `m` is otherwise governed by the `f > 0` domain condition.
+
+This is option **(d)** of §22-Q3 for the invalid cases, combined with the exact analytic limit at
+the regular center. Per §22's supplementary note, adopting it inside `GeometryCache` is a
+**scientific-semantic** change and not merely structural — which is why §4 of the implementing
+brief classifies 3D as spanning both classes. The ordinary physical domain is untouched: measured
+`max 2m/r = 0.481` across the four authenticated stars (§11), so **no validated production datum
+reaches any fail-closed branch.**
 
 ---
 
@@ -764,6 +823,10 @@ This ADR does **not**:
 ---
 
 ## 22. Owner adjudication questions
+
+> **RESOLVED 2026-09-01.** Q1 = Option B; Q2 = governed now, migration deferred; Q3 = hybrid
+> physical-domain contract. See §0. The questions are retained below as posed, because the
+> reasoning that framed them is part of the record.
 
 ### Q1 — What does "single owner" mean?
 
