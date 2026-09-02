@@ -56,8 +56,8 @@
 | Tag-keyed `StateVector`, flat `y[]` via `StateLayout`/`StatePacking` | **IMPLEMENTED** |
 | Additive `RHSAccumulator` — drivers never talk to each other | **IMPLEMENTED** |
 | `DriverContext` as the only channel for static context | **IMPLEMENTED** |
-| Single uniform cache-invalidation rule | **ABSENT** — five rules coexist (INV-12) |
-| `GeometryCache` version-gated | **ABSENT** — no gate at all |
+| Single uniform cache-invalidation rule | **IMPLEMENTED** (Phase 3B, ADR-0003) — `(profile identity, version)` provenance; INV-12 resolved for profile-derived caches |
+| `GeometryCache` version-gated | **IMPLEMENTED** (Phase 3B) — carries `ProfileProvenance`; `Matches()` answers staleness; immutable snapshot, no `Refresh()` |
 | Driver dependency DAG resolving `DependsOn()`/`Updates()` | **ABSENT** — planned as `Evolution/Graph` in `notes.txt`; `Coupling.hpp` is 0 bytes |
 | Diagnostics share driver physics via `*_Details` | **IMPLEMENTED** — genuinely prevents drift |
 | Populated `UnitContract` per producer | **SCAFFOLDED** — always empty |

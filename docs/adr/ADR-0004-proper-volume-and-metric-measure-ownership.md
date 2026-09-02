@@ -1003,3 +1003,11 @@ candidate code, and `NStar::EvaluateNu`'s boundary-condition `x = 1e-15` (not th
 §4.4).
 
 Full record: [`docs/validation/PHASE3E_I2_PATH1_GEOMETRY.md`](../validation/PHASE3E_I2_PATH1_GEOMETRY.md).
+
+**Phase 3F boundary note (owner clarification, no change to §0 decisions).** The "candidate
+scientific code" this ADR lists in §16 spans two different categories: the `GOVERNANCE.md` §5
+core candidates from `675b4a9` (rotochemical), and the **project-specific extension modules**
+`DarkCore_Analysis`, `BNV_*`, `Decay_Analysis`, which consume the core rather than form it. The
+§16 *contract* (obtain `w_V` from the single owner, never a third measure) applies to both when
+they are next touched; the extension modules are **not** a prerequisite for core closure. See
+`docs/validation/PHASE3_CLOSEOUT.md` §7a.

@@ -6,10 +6,10 @@
 > validated, and 3E-0 has measured the two TOV paths. **ADR-0004 is ACCEPTED (2026-09-01) and
 > implemented in 3D**; INV-04 is now
 > `GOVERNED (ACCEPTED) — CANONICAL VALIDATED PATH CONFORMED; LEGACY MIGRATIONS DEFERRED`.
-> **3E is governance only so far:**
-> [`ADR-0005`](../adr/ADR-0005-canonical-tov-numerical-primitive.md) is **PROPOSED** and carries
-> no authority until the owner accepts it; **no canonical-TOV implementation has started**, and
-> the 3E-G task modified no production source, test, baseline, accepted ADR or invariant.
+> **3E is COMPLETE**: [`ADR-0005`](../adr/ADR-0005-canonical-tov-numerical-primitive.md) is
+> **ACCEPTED (2026-09-02)** and implemented through I1, I2 and I4; `SingleStarSolveToTOVPoints`
+> is the sole ordinary-star radial implementation and `RadiusLoop` is deleted. **Phase 3 is
+> closed** — see [`PHASE3_CLOSEOUT.md`](../validation/PHASE3_CLOSEOUT.md).
 >
 > **Headline finding, and it changes the plan:** the roadmap states *"Every item is engineering
 > class"* (`MODERNIZATION_ROADMAP.md:298`), but **three of the five Phase-3 items are
@@ -304,7 +304,7 @@ kept deferred. Do not open this ADR in Phase 3.**
 | **3C** unit U-2 (`k_B`) | `heat_capacity_v1`, `heat_capacity_real_star`, `passive_cooling_regression`, full 13/13 | **PREDECLARED `≤1.7e-11` — HELD FOR THE PHYSICS, NOT MET FOR THE EVOLVED TRAJECTORY.** The bound is **left exactly as predeclared** — it was not widened after the fact. Resolution: the bound *is* satisfied wherever the quantity is a physical observable. Fixed-state response is `1.68e-11`; the static `grid_convergence_cmf_1p6_debug.tsv` moves only its two heat-capacity columns, at `1.70e-11` and `1.71e-11`; `M`, `R`, and all luminosities at fixed `T` move **exactly zero**. The `1.3e-6` seen on the *evolved* passive-cooling trajectory is adaptive step placement, not displacement: with `k_B` held **fixed** and only `rtol` moved `1e-6 → 1e-8`, the same trajectory moves `1.146e-6`, and the old-vs-new difference shrinks 3.8× when the integrator is tightened. Step placement is not a physical observable, so the predeclared bound was applied to the wrong quantity there. Owner adjudicated: adopt and re-baseline. Evidence: [`PHASE3C_BOLTZMANN_AUTHORITY.md`](../validation/PHASE3C_BOLTZMANN_AUTHORITY.md) §14. |
 | **3D** proper-volume ownership | `proper_volume_contract`, `geometry_cache_measure_contract`, `baryon_number_cmf`, `heat_capacity_v1`, `passive_cooling_regression`, `hartle_moment_inertia_*`; full suite | **MET.** Every `w_V` consumer **bit-identical**: all five protected artifacts byte-identical, `GeometryCache`'s `ExpLambda`/`WV`/`WVExpNu`/`WVExp2Nu` bitwise on both Λ routes. **`\|ΔB\|/B` predeclared `≤1.0e-15` in ADR-0004 §7.1 before implementation; measured `1.368e-16`** (one ULP, on the 1.0 M☉ star only — 1.4/1.6/2.0 bitwise), matching the ADR's blind §7.2 prediction exactly. Structure (`M`, `R`, `ec`) bitwise on all four stars. **NOT MIGRATED, as planned**: the zero-caller scalar accessor (separate INV-14 defect), TOV Path 1, all six `MixedStar` sites, and every candidate site. |
 | **3E** TOV canonicalization | *new* Path-1↔Path-2 equivalence harness **first**; then `tov_reference_analytic`, `tov_reference_cmf`, `grid_convergence_cmf`, `passive_cooling_regression`, `hartle_moment_inertia_cmf`; full 13/13 | **BIT-IDENTICAL REQUIRED** for Path 2 (it must not move at all); Path 1 behavior change must be **measured and documented** |
-| **3F** dead-code classification | compile + link + full 13/13; reference search | **NOT APPLICABLE** (no deletion) |
+| **3F** dead-code classification | compile + link + full suite (**executed: 19/19, 10/10**); reference search | **NOT APPLICABLE** (no deletion; documentation-only) |
 
 **No tolerance may be selected after observing new output.** 3C's and 3D's tolerances are
 derivable from the constants and the algebra in advance; that is why they are stated here.
@@ -318,7 +318,7 @@ derivable from the constants and the algebra in advance; that is why they are st
 | **3C** | ✅ **COMPLETE** — Adopt the authoritative ZakiLib Boltzmann constant | All four production consumers now use `Zaki::Physics::K_BOLTZ_EV * 1.0e-6`; **no `k_B` literal and no GSL Boltzmann constant remain on any production path**. No ZakiLib change, no archive rebuild. Test oracles derive `k_B` independently in `long double` from the SI-exact defining constants and agree with production to **1 ULP**. `tov_dscmf1_reference.tsv` and `hartle_I_dscmf1_debug.tsv` **byte-identical** as predicted (no thermal constant enters them); the three thermal artifacts re-baselined with recorded hashes. 13/13 + 8/8. Evidence: [`PHASE3C_BOLTZMANN_AUTHORITY.md`](../validation/PHASE3C_BOLTZMANN_AUTHORITY.md) | **numerical-method / constant-authority** | 3A ✅ | no | **yes** |
 | **3D** | ✅ **COMPLETE IN VALIDATED SCOPE — LEGACY MIGRATIONS DEFERRED.** Canonical owner for the proper-volume measure | Contract: [`ADR-0004`](../adr/ADR-0004-proper-volume-and-metric-measure-ownership.md) (**ACCEPTED 2026-09-01**). Q1 = **Option B**: `CompactStar/Geometry.hpp` owns the mathematics (`f`, `Λ`, `e^Λ`, `w_V`) **and the domain semantics**; `GeometryCache` stays the cached owner; consumers keep their own physics factors and unit conversions. **No new dependency edge** — `Core` does not include `Physics/Evolution`. Q2 = `MixedStar` governed, migration deferred. Q3 = **hybrid physical-domain contract** — exact regular-centre limit, fail closed otherwise, **no `1e-15` clamp** — replacing six mutually inconsistent legacy behaviors. Conformed: `NStar::BuildFromTOV` Λ + baryon integrand, `GeometryCache::DeriveLambdaFromMR_`. **INV-04 is NOT resolved**: TOV Path 1, the scalar accessor, `MixedStar` and candidate code remain governed-but-nonconformant. Evidence: [`PHASE3D_PROPER_VOLUME.md`](../validation/PHASE3D_PROPER_VOLUME.md) | **STRUCTURAL + SCIENTIFIC-SEMANTIC** (INV-04, INV-03) | 3B ✅ | **YES — accepted** | yes |
 | **3E** | ✅ **CANONICAL TOV OWNERSHIP COMPLETE.** 3E-0, I1, I2 and I4 done; I3 optional and not taken | ADR-0005 **ACCEPTED**. `SingleStarSolveToTOVPoints` is the canonical numerical primitive and, after **I4**, the **only** ordinary-star radial implementation: `Solve(Axis)`, `SolveToProfile` and `GenTestSequence` all delegate to it, and **`RadiusLoop` is deleted**. `GenTestSequence` was covered **before** migration (16/16 bitwise) and its output is **byte-identical** after. **I2** had already conformed Path-1 geometry to `CompactStar::Geometry`. Both `_Sequence.tsv` and `_TestSequence.tsv` contracts preserved and guarded; no caller changed. **Fail-closed condition #3 CLOSED for ordinary visible-sector TOV radial ownership** (not `MixedStar`, not dark-sector). Evidence: [`PHASE3E_I4_RADIUSLOOP_RETIREMENT.md`](../validation/PHASE3E_I4_RADIUSLOOP_RETIREMENT.md) | **STRUCTURAL** (fail-closed #3) | 3B, 3D ✅ | **YES — accepted** | yes |
-| **3F** | Dead/unreachable classification record | document only; delete nothing | documentation | none | no | **yes** |
+| **3F** | ✅ **COMPLETE** — Dead/unreachable/legacy classification and Phase-3 closeout | documentation only; nothing deleted; core-vs-project boundary recorded per owner clarification. Evidence: [`PHASE3_CLOSEOUT.md`](../validation/PHASE3_CLOSEOUT.md) | documentation | none | no | **yes** |
 
 **Deliberately *not* the roadmap bullet order.** The roadmap leads with TOV; the dependency
 graph says TOV is the *riskiest* item, is the only one with an unvalidated live path, and
@@ -354,10 +354,9 @@ The 3E-0 harness record:
 [`TOV_PATH_EQUIVALENCE.md`](../validation/TOV_PATH_EQUIVALENCE.md). It also corrected the caller
 count: `TOVSolver::Solve` has **six** live callers, not three (`spin_therm_evol_main`,
 `tov_debug_main`, `sig_omega`, `Table_5-8_Glenn`, `coulatt`, `polytrope`).
-The next increment is **3E-G**: draft the structural ADR designating the canonical TOV numerical
-primitive and specifying how the legacy sequence API and its file output are preserved or
-subordinated. **Phase 3 is not complete**, and no canonical TOV owner has been selected.
-**That ADR is now drafted:**
+*(Historical: the next increment at that point was 3E-G.)* The ADR that section anticipated
+became **ADR-0005, ACCEPTED 2026-09-02 and fully implemented** (I1, I2, I4).
+**Superseded — retained as history:**
 [`ADR-0005`](../adr/ADR-0005-canonical-tov-numerical-primitive.md), status **PROPOSED**. It
 carries no authority under `docs/adr/README.md` until the owner accepts it, and **no 3E source
 change is authorized**. The 3E-G governance task changed documentation only.

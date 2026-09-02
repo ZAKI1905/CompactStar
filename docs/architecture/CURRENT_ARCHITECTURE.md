@@ -441,13 +441,16 @@ Re-authenticated at **`11ffe45`** after roadmap Phase 1. Full evidence and comma
 
 - **CTest infrastructure exists.** `include(CTest)` at top level provides standard `BUILD_TESTING`
   and `enable_testing()`; `tests/` is added only when testing is on (`CMakeLists.txt:222-226`).
-- **`tests/` is the canonical automated-test root**, holding **13 registered CTests** as of the
-  Phase-2B closure audit (`tests/CMakeLists.txt`). Eight are self-contained; five are registered
-  only when `COMPACTSTAR_EOS_DATA_ROOT` supplies the authenticated CompOSE tables
-  (`tests/CMakeLists.txt:71` — the guard *excludes* them, it does not skip them):
-  `heat_capacity_real_star`, `passive_cooling_regression`, `tov_reference_cmf`,
-  `grid_convergence_cmf`, `hartle_moment_inertia_cmf`. Measured: **13/13 pass** with the data
-  root, **8/8 pass** without it.
+- **`tests/` is the canonical automated-test root**, holding **19 registered CTests** as of the
+  Phase-3 closeout (`tests/CMakeLists.txt`). Ten are self-contained; nine are registered only
+  when `COMPACTSTAR_EOS_DATA_ROOT` supplies the authenticated CompOSE tables (the guard
+  *excludes* them, it does not skip them): `heat_capacity_real_star`,
+  `passive_cooling_regression`, `tov_reference_cmf`, `grid_convergence_cmf`,
+  `hartle_moment_inertia_cmf`, `baryon_number_cmf`, `tov_path_equivalence_cmf`,
+  `tov_sequence_workflow_cmf`, `tov_gen_test_sequence_cmf`. Measured at the closeout HEAD:
+  **19/19 pass** with the data root (197.89 s), **10/10 pass** without it (13.44 s). Purpose
+  classification and the one assertion-free diagnostic (`heat_capacity_real_star`) are recorded
+  in `docs/validation/PHASE3_CLOSEOUT.md` §16.
 - **`main/Test/` remains manual demo/debug programs**, not a suite. None of its eight executables
   is registered with CTest.
 - **The smoke test is infrastructure validation, not a scientific baseline.** It establishes that

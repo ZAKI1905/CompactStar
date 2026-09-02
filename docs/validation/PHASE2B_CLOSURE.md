@@ -259,7 +259,7 @@ Default-grid continuum error `T_inf ≈ 4.5e-4`, `R ≈ 5.2e-4`. **No governed d
 budget exists**; adequacy is **unresolved**, and the regression tolerance `1e-5` is explicitly
 *not* a continuum-accuracy claim.
 
-**Cache.** Same-star contracts verified; **five hazards remain** — unversioned `GeometryCache`
+**Cache.** *(Historical as of Phase 3B: all five hazards were closed by ADR-0003 — see INV-12.)* Same-star contracts verified; **five hazards remain** — unversioned `GeometryCache`
 (51.6 % divergence, unaskable), `C_star` key omitting geometry (50 %), version-only generic key
 (85.7 %), cross-star `NeutrinoCooling` collision (80 %), unrebound column pointers. The canonical
 baseline provably reaches none of them; **that is a claim about one procedure, not the API.**

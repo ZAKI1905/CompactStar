@@ -159,10 +159,12 @@ Phase-3D audit measured for the same degenerate input, disagreeing by a factor o
   proper-volume factor). `GeometryCache::DeriveLambdaFromMR_` also delegates.
   **No canonical `1e-15` clamp remains on any of those paths.**
 - **Legacy nonconformance, still deferred** — the scalar `NStar::BaryonNumIntegrand(double)`
-  (separate INV-14 defect, zero callers), all six `MixedStar` sites, the §5-protected candidate
-  code, and `TOVSolver::RadiusLoop`'s surroundings still carry their own inline forms and their
-  own degenerate behavior. **These have not migrated.** `MixedStar` waits on focused coverage
-  (ADR-0004 §0-Q2). `NStar::EvaluateNu`'s boundary-condition `x = 1e-15` is **not this measure**
+  (separate INV-14 defect, zero callers), all six `MixedStar` sites, and the inline forms in the
+  **project-specific extension modules** (`DarkCore_Analysis`, `BNV_*`, `Decay_Analysis` — owner
+  clarification, Phase 3F: research-project code consuming the core, not core candidates) still
+  carry their own inline forms and their own degenerate behavior. **These have not migrated.**
+  `MixedStar` waits on focused coverage (ADR-0004 §0-Q2); the project modules are outside core
+  closure scope. (`TOVSolver::RadiusLoop` was deleted in Phase 3E-I4.) `NStar::EvaluateNu`'s boundary-condition `x = 1e-15` is **not this measure**
   (ADR-0004 §4.4) and is deliberately untouched.
 
 **Evidence.** Canonical: `CompactStar/Geometry.hpp`; `NStar.cpp` (BuildFromTOV);
@@ -214,7 +216,7 @@ against ADR-0003).
 | ~~TOV Path 1 — `NStar::Append` Λ block, `NStar::FinalizeSurface` baryon integrand~~ | **CONFORMED in Phase 3E-I2** once Phase 3E-0 supplied the coverage ADR-0004 §13 was waiting for |
 | `NStar::BaryonNumIntegrand(double)` scalar accessor | separate INV-14 defect (missing `1e54`), zero callers — **must not be repaired opportunistically** |
 | `MixedStar.cpp` — six sites, two build paths | zero coverage, two-sector mass semantics; ADR-0004 §0-Q2, §15 |
-| `DarkCore_Analysis`, `BNV_*`, `Decay_Analysis` | `GOVERNANCE.md` §5 candidate code; contract only |
+| `DarkCore_Analysis`, `BNV_*`, `Decay_Analysis` | **project-specific extension modules** (owner clarification, Phase 3F) — not core candidates; ADR-0004 §16 contract only; not a core closure prerequisite |
 
 **Evidence.** `CompactStar/Geometry.hpp`; `GeometryCache.cpp`; `NStar.cpp` (BuildFromTOV).
 Tests: `proper_volume_contract`, `geometry_cache_measure_contract`, `baryon_number_cmf`.

@@ -204,7 +204,7 @@ shown correct. Phase 1 supplied the *mechanism* and Phase 2A the first physics c
 expands that plumbing into the actual scientific baseline.
 
 - ◐ **Expand the Phase-1 test plumbing into a full harness; add CI.** The harness half is
-  **done** — `tests/` went from the single Phase-1C smoke test to **13 registered CTests** across
+  **done** — `tests/` went from the single Phase-1C smoke test to **13 registered CTests** (at Phase-2B closure; **19** after Phase 3) across
   Phase 2A–2B, each with a durable record under `docs/validation/`. **CI is the remaining
   Phase-2B item and is absent**: no `.github/`, no CI configuration of any kind. It blocks the
   COMPLETE label; it does **not** block merge or Phase-3 entry, neither of which references it.
@@ -331,13 +331,20 @@ ADR-0003 cache-provenance contract (goldens bit-identical; INV-12 resolved for p
 caches). **3C** adopted the authoritative ZakiLib Boltzmann constant. **3D** established the
 canonical proper-volume owner per ADR-0004 — on the validated path; **3E-I2 then conformed TOV
 Path-1 as well**, so both ordinary visible-sector `NStar` paths share one geometry owner.
-`MixedStar`, the candidate code and the INV-14 scalar accessor remain deferred, and
-**Phase 3 is not complete.**
+`MixedStar`, the §5 core candidates, the project-specific extension modules and the INV-14
+scalar accessor remain deferred by governed decision. **Phase 3 is COMPLETE on its ratified exit
+criterion** ("one authoritative owner per quantity; baselines still pass") — see
+`docs/validation/PHASE3_CLOSEOUT.md`, the durable authority for the merge decision. The branch
+has **not** been merged.
 The durable plan —
 ownership maps for all five targets, the cross-target dependency graph, the baseline-protection
 matrix, the per-increment preservation standard and the recommended sequence — is
 [`docs/architecture/PHASE3_CONSOLIDATION_PLAN.md`](architecture/PHASE3_CONSOLIDATION_PLAN.md).
 
+> *(Scope note, Phase 3F: the blockquote below records the state **at Phase-3 entry**. Both
+> fail-closed conditions it names have since been discharged — #3 by ADR-0005 / 3E-I4 for the
+> ordinary visible sector, #4 by ADR-0003 / 3B for profile-derived caches.)*
+>
 > **Class correction from that audit.** The line below states that every item is engineering
 > class. That is **not** what the higher-ranked documents require. Under `GOVERNANCE.md:51` a
 > change that "moves ownership, changes boundaries, promotes or retires a code path" is

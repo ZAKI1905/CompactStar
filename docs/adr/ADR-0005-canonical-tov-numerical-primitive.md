@@ -615,3 +615,10 @@ value-equivalent and geometry-conformant but not textually consolidated; that is
 postprocessing question, and it does not reopen the authoritative-path question.
 
 Full record: [`docs/validation/PHASE3E_I4_RADIUSLOOP_RETIREMENT.md`](../validation/PHASE3E_I4_RADIUSLOOP_RETIREMENT.md).
+
+**Phase 3F hook classification (owner clarification; supersedes the provisional §11 label, no
+change to Q1–Q4).** `Analysis` is classified **SUPPORTED EXTENSION HOOK — CURRENTLY UNUSED BY
+CORE WORKFLOWS**, not legacy: its purpose is in-memory per-star analysis while a sequence loop
+runs, before the profile is reset, and three project modules (`DarkCore_Analysis`,
+`BNV_Analysis`, `Decay_Analysis`) derive from `Core::Analysis` to use it. It is preserved (Q4)
+and not recommended for deletion. See `docs/validation/PHASE3_CLOSEOUT.md` §7.

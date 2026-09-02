@@ -51,7 +51,9 @@ Identified during Phase-0 reconnaissance or deferred by an accepted ADR; not yet
 | Hartle first-order normalization and physical Ω (INV-07) | Phase 4 |
 | Chemical-imbalance definition, ordering, redshift frame (INV-11) | Phase 5 |
 | Thermal-balance architecture — where the division by `C_⋆(T∞)` occurs (deferred by ADR-0002 §6) | Phase 3 |
-| MixedStar modernization scope — including the six inline proper-volume sites ADR-0004 §15 declines to migrate | Phase 3 |
+| MixedStar modernization scope — including the six inline proper-volume sites ADR-0004 §15 declines to migrate | post-Phase-3 (deferred by ADR-0004 §0-Q2; needs focused coverage first) |
+| Solar-mass-in-km authority (`Zaki::Physics::SUN_M_KM` vs `GSL_CONST_CGSM_SOLAR_MASS`, `6.2e-5` apart) | unadjudicated; deferred out of Phase 3 by the roadmap |
+| Core-library vs project-specific-extension boundary (BNV / Decay / DarkCore modules; `Analysis` as the extension seam) | future repository-organisation task (owner clarification, Phase 3F) |
 | Generated artifacts in version control | Phase 1 |
 | Dependency ownership — Zaki / Confind | Phase 1 |
 | Direct-Urca muon channel omission (INV-16) | Phase 5 |
