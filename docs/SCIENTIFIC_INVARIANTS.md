@@ -280,7 +280,7 @@ the last grid point: `R = r[-1]`, `M = m[-1]`, `z_surf = exp(ν[-1])`. The ν in
 
 ---
 
-## INV-07 — Hartle first-order normalization ⚠ **UNRESOLVED**
+## INV-07 — Hartle first-order normalization — **GOVERNED (ADR-0006 ACCEPTED) — IMPLEMENTATION PENDING**
 
 **Statement.** The frame-dragging equation for ω̄ is linear and homogeneous, so its solution is
 determined only up to scale. The code fixes that scale with a hard-coded
@@ -311,12 +311,22 @@ unphysical normalization**; only `I = J/Ω` is scale-invariant and physically me
 **Impact.** Any O(Ω²) quantity is quadratic in ω̄ and therefore inherits the square of this
 arbitrary factor (measured). **This blocks Phase-4 and, transitively, Phase-5.**
 
-**Proposed resolution.** **`docs/adr/ADR-0006-hartle-first-order-physical-normalization.md` —
-PROPOSED 2026-09-02, owner adjudication required.** Physical `Ω [rad s⁻¹]` at the public API,
-geometric km⁻¹ internally with one named conversion `Ω/c`, rescaling `A = Ω_geom/Ω_raw`, the seed
-strictly internal, one canonical geometric `HartleResult` with named physical accessors,
-unit-true exports, normalized response (`ω̄/Ω`, `I`) exposed to consumers. **Status stays
-UNRESOLVED until the ADR is accepted and Phase 4A conforms.**
+**Normative decision.** **`docs/adr/ADR-0006-hartle-first-order-physical-normalization.md` —
+ACCEPTED 2026-09-02 by project-owner adjudication** (Q1 = A + D, Q2 = A, Q3 = A, Q4 = A). The
+governed contract: physical `Ω` in rad s⁻¹ at the public API carried by an explicit typed
+quantity; geometric km⁻¹ internally with **one** named conversion `Ω_geom = Ω_phys/c`; rescaling
+`A = Ω_geom/Ω_raw`; the seed **strictly internal**; one canonical geometric result with named
+physical accessors and no duplicated state; unit-true exports; and a seed-free normalized
+response (`I`, `ω̄/Ω`, `ω̄'/Ω`) exposed through `NStar`.
+
+**Binding clarification (ADR-0006 Decision).** An `NStar` constructed without an explicit
+physical spin does **not** acquire an implicit physical `Ω`. Construction may compute the
+seed-free `I`, `ω̄/Ω` and `ω̄'/Ω`; physical `Ω`, `J`, `ω̄(r)` and `dω̄/dr` may be materialized only
+after an explicit physical angular velocity is supplied.
+
+**Status: GOVERNED (ACCEPTED) — IMPLEMENTATION PENDING.** As with INV-15, acceptance settles the
+convention, not the conformance of the code. The source still carries the seed-normalized values
+and the `[s^-1]` mislabel described above; correcting them is roadmap increment 4A.
 
 ---
 
@@ -711,16 +721,19 @@ conversion, under the in-code comment *"Convert fractions to number densities in
 
 | Status | Entries |
 |---|---|
-| **GOVERNED (ACCEPTED)** | **INV-01** — ADR-0001, accepted 2026-08-31 · **INV-15** — ADR-0002, accepted 2026-08-31 |
+| **GOVERNED (ACCEPTED)** | **INV-01** — ADR-0001, accepted 2026-08-31 · **INV-15** — ADR-0002, accepted 2026-08-31 · **INV-07** — ADR-0006, accepted 2026-09-02 (implementation pending) |
 | VERIFIED CURRENT BEHAVIOR | INV-02, 03, 04, 05, 06, 10, 12, 13, 14, 16 |
 | INTENDED BUT UNVERIFIED | INV-08⚠, 09 |
-| **UNRESOLVED (fail-closed)** | **INV-07⚠, 11** — and sub-items of INV-06, INV-16 |
+| **UNRESOLVED (fail-closed)** | **INV-11** — and sub-items of INV-06, INV-16 |
 
-**Two unresolved invariants block downstream phases:**
+**One unresolved invariant still blocks a downstream phase:**
 
-- **INV-07** (Hartle normalization) blocks Phase 4, transitively Phase 5. **ADR-0006 is
-  PROPOSED (2026-09-02)** and awaits owner adjudication; the status is unchanged until then.
 - **INV-11** (η convention) blocks Phase 5.
+
+**INV-07 is resolved as a contract** by ADR-0006 (ACCEPTED 2026-09-02): the Hartle first-order
+normalization and unit convention is settled. What remains is **work, not a decision** —
+roadmap increment 4A must make the source conform, and until it does the code still carries the
+arbitrary seed-normalized `Ω` and `J` and the `[s^-1]` mislabel.
 
 **INV-08 wording corrected (2026-09-02):** the O(Ω²) candidate is *publicly callable with zero
 repository callers*, not "structurally unreachable"; its status is unchanged.

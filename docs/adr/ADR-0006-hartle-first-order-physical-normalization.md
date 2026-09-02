@@ -2,11 +2,14 @@
 
 | Field | Value |
 |---|---|
-| **Status** | **PROPOSED** — carries no authority (`docs/adr/README.md` lifecycle) |
+| **Status** | **ACCEPTED** |
+| **Date accepted** | 2026-09-02 — by project-owner adjudication |
 | **Date drafted** | 2026-09-02 |
+| **Authority** | **Project-owner adjudication.** The owner selected Q1 = A + D, Q2 = A, Q3 = A, Q4 = A and supplied the binding no-implicit-spin clarification recorded in the Decision. The public-API convention is owner-supplied; it is not an inference from repository evidence. |
 | **Drafted at** | `df859b5a73c4cac0c115f240744d89ce9f830b8d` (branch `physics/rotation-correctness`) |
+| **Accepted at** | `59714a3dab0037a77b100c27192d76ca2a14d030` (acceptance commit; implementation follows separately) |
 | **Change class** | **scientific-semantic** (units, physical meaning of `Ω`, `J`, `ω̄`) **and structural** (public rotation API, `HartleResult` ownership) — strictest applies (`GOVERNANCE.md` §2) |
-| **Governing authority** | INV-07 (UNRESOLVED, fail-closed); INV-02 (unit boundary: geometric outside TOV); ADR-0005 §13 (`Find_MomInertia` side effect and `I` must stay bit-identical); Hartle (1967) ApJ 150, 1005 — validated first-order equation and exterior matching (`docs/validation/HARTLE_MOMENT_INERTIA.md`, `EQUATION MATCH`) |
+| **Governing authority** | INV-07 (UNRESOLVED and fail-closed at drafting; **this ADR is now its normative authority**); INV-02 (unit boundary: geometric outside TOV); ADR-0005 §13 (`Find_MomInertia` side effect and `I` must stay bit-identical); Hartle (1967) ApJ 150, 1005 — validated first-order equation and exterior matching (`docs/validation/HARTLE_MOMENT_INERTIA.md`, `EQUATION MATCH`) |
 | **Evidence record** | `docs/validation/PHASE4_ROTATION_ENTRY.md` (Phase 4A-0), §7–§9, §12–§13, §17–§18 |
 | **Affected invariants** | **INV-07** (primary); INV-05 (rotation half); INV-02 (a new physical/geometric boundary); consumers INV-08, INV-09 (second order inherits the normalization) |
 | **Blocks** | roadmap Phase 4A (implementation), 4B (physical validation); transitively 4C–4E and Phase 5 |
@@ -234,9 +237,53 @@ threshold; the integrator tolerance policy (`NUMERICAL_POLICY.md` does not exist
 | **Q3** | Store both `Ω_geom` and `Ω_phys`, or one canonical quantity with named accessors? | **One geometric canonical field + accessors** (5-Q3 A) |
 | **Q4** | How is the first-order response exposed to Phase 5? | **Explicit normalized response fields** (5-Q4 A) |
 
+**All four were adjudicated by the owner on 2026-09-02 exactly as recommended — see the
+Decision.**
+
 ## Decision
 
-*Empty while PROPOSED.*
+**Adjudicated by the project owner on 2026-09-02.** The proposed contract of §4 (P1–P12) is
+**ACCEPTED**, with the four owner questions of §11 decided as follows and with one binding
+clarification.
+
+| Question | Decision |
+|---|---|
+| **Q1 — public spin input** | **A + D.** The public scientific spin input is a **physical angular velocity `Ω` in rad s⁻¹**, represented by a **small explicit typed quantity** rather than a bare `double`. Named factories convert from spin frequency and period; no implicit Hz ↔ rad s⁻¹ conversion exists. No public entry point accepts a geometric `km⁻¹` spin. |
+| **Q2 — the arbitrary seed** | **A.** The central `ω̄` seed is **strictly internal numerical normalization**. It is not a scientific parameter, gets no public setter and no public constructor argument, and must never appear in a result or an export under a physical label. |
+| **Q3 — result storage** | **A.** Store **one canonical geometric representation** (`Ω [km⁻¹]`, `J [km²]`, `I [km³]`, `ω̄ [km⁻¹]`, `ω̄' [km⁻²]`) and provide **named physical accessors**. **No duplicated `Ω_geom` / `Ω_phys` state.** |
+| **Q4 — exposure** | **A.** Expose **explicit seed-free normalized first-order response through `NStar`** — never the raw seed-normalized profiles, and never the private `RotationSolver` or the O(Ω²) candidate. |
+
+### Binding clarification — no implicit physical spin
+
+> An `NStar` constructed without an explicit physical spin does **not** acquire an implicit
+> physical `Ω`.
+>
+> Automatic star construction may compute
+>
+> ```
+> I ,      ω̄(r)/Ω ,      [d ω̄/dr](r)/Ω
+> ```
+>
+> because these are **seed-free**: the arbitrary normalization cancels analytically from each of
+> them.
+>
+> A physical
+>
+> ```
+> Ω ,      J ,      ω̄(r) ,      dω̄/dr(r)
+> ```
+>
+> may be materialized **only after an explicit physical angular velocity is supplied.**
+
+This is a consequence of Q1, Q2 and Q4 taken together, **not a new independent scientific
+decision**: if construction supplied a default `Ω`, the seed would re-enter the public surface
+(against Q2) and a star would silently carry a spin nobody requested (against Q1).
+
+**Scope of acceptance.** This settles the first-order normalization and unit contract. Per §9 it
+ratifies **nothing** at O(Ω²), does not activate or normalize the `SolveHartle2_N` candidate, and
+does not decide the cgs conversion of `J` or `I` (which needs the unadjudicated `G` / solar-mass
+authority). Acceptance fixes the convention; it does not certify that any implementation meets it
+— conformance is roadmap increment 4A and is tracked separately, exactly as ADR-0002's was.
 
 ## Provenance
 
@@ -246,5 +293,12 @@ equation and extraction were re-authenticated against the Phase 2B-4B validation
 byte-identical), the rescaling contract was derived from linear homogeneity and exterior
 matching and checked numerically on two stars through the public API (`J_phys/Ω_geom − I`
 within `2e-16`), the repository's spin conventions were audited file by file, and every unit
-annotation on the rotation path was tabulated. The agent recommends; **only the project owner
-may move this ADR to ACCEPTED.**
+annotation on the rotation path was tabulated. The agent recommended; the agent did not select
+among the alternatives.
+
+**Adjudicated by the project owner on 2026-09-02**, who selected Q1 = A + D, Q2 = A, Q3 = A,
+Q4 = A and supplied the binding no-implicit-spin clarification recorded in the Decision. Per
+`GOVERNANCE.md` §5, acceptance of this ADR ratifies **only** the first-order normalization and
+unit contract. It does **not** ratify the Hartle O(Ω²) or rotochemical candidate code, does not
+certify that any implementation of this contract is numerically correct, and confers accepted
+status on no other document.

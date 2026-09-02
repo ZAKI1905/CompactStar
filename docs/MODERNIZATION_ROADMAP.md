@@ -445,8 +445,9 @@ ADR and must be evaluated **after** baselines exist. It is not a prerequisite fo
 
 ## Phase 4 — Rotation correctness
 
-**Prerequisite:** Phase 3 ✅ (merged at `df859b5`); ADR on Hartle normalization accepted ☐ —
-**ADR-0006 PROPOSED 2026-09-02, owner adjudication required.**
+**Prerequisite:** Phase 3 ✅ (merged at `df859b5`); ADR on Hartle normalization accepted
+✅ — **ADR-0006 ACCEPTED 2026-09-02** (Q1 = A + D, Q2 = A, Q3 = A, Q4 = A; binding clarification:
+no implicit physical spin on `NStar` construction). **The Phase-4 prerequisite is satisfied.**
 
 **Status: ENTRY AUDIT COMPLETE (increment 4A-0, 2026-09-02) —
 `PHASE-4 ROTATION ENTRY AUDIT COMPLETE — ADR-0006 OWNER ADJUDICATION REQUIRED`.**
@@ -468,7 +469,7 @@ its `p0` is the Eulerian `δp`, not Hartle's `p₀*`.
 
 | Increment | Content | Gate |
 |---|---|---|
-| **4A** | ADR-0006 accepted → physical spin input (`Ω [rad s⁻¹]`, geometric inside), rescaling, seed internalized, `HartleResult`/export unit contract, normalized first-order response exposed | ADR-0006; `I` and the seven goldens bitwise |
+| **4A** | **ADR-0006 ACCEPTED 2026-09-02** → physical spin input (`Ω [rad s⁻¹]`, typed; geometric inside), rescaling, seed internalized, result/export unit contract, seed-free normalized first-order response exposed through `NStar` | ADR-0006 ✅; `I` and the seven goldens bitwise |
 | **4B** | physical first-order validation — nine predeclared tests and four detectors (entry record §18), reusing the Phase-2B Hartle harnesses | 4A |
 | **4C** | **separate ADR** for O(Ω²): variable (`p₀*` vs `δp`), corrected equations with `j²`, fixed-`ε_c` boundary condition, exterior `δM` term, EOS `dε/dp` authority, `Ω²`-normalized exposure — expected to invoke `GOVERNANCE.md` §3.1; then implement by replacing, not patching, the candidate | ADR accepted; 4A for the physical layer |
 | **4D** | independent O(Ω²) validation (regular-centre series, Newtonian limit, independent solver, quadratic scaling at a predeclared bound, published slow-rotation results) | 4C |
@@ -542,7 +543,7 @@ unauditable.
    ADR-0001 species semantics  ✅ ACCEPTED ──────────────────────────────────────────────────────────►│  (gate cleared)
    ADR-0002 heat capacity      ✅ ACCEPTED ─►│  (conformance is 2A work, not a gate)
    ADR thermal-balance arch.   ☐ open, deferred ────────────────────►│  (optional; not a gate)
-   ADR-0006 Hartle normalization  ◐ PROPOSED 2026-09-02 — owner adjudication ────────►│
+   ADR-0006 Hartle normalization  ✅ ACCEPTED 2026-09-02 ──────────────────────────────►│
    ADR Hartle O(Ω²) equations  ☐ anticipated (after ADR-0006) ─────────────────────────►│
    ADR η conventions           ☐ open ────────────────────────────────────────────────────────────────►│
 ```
@@ -557,8 +558,9 @@ ADR-0002 breaks it by deciding the physical ownership **now**, ahead of any base
 splitting the correction out of Phase 3 into **Phase 2A**, which precedes the baseline. Nothing in
 Phase 2A depends on a passive-cooling baseline: it is validated by independent physical checks.
 
-**Two** unresolved invariants still gate the chain: **INV-07** (Hartle normalization — ADR-0006
-PROPOSED, awaiting owner adjudication) · **INV-11** (η conventions).
+**One** unresolved invariant still gates the chain: **INV-11** (η conventions). **INV-07** is
+**no longer a gate** — resolved as a contract by **ADR-0006 (ACCEPTED 2026-09-02)**; what remains
+from it is Phase-4A implementation work, tracked as work rather than as an open decision.
 
 **INV-01** (species semantics) is **no longer a gate** — resolved by ADR-0001. What remains from
 it is a single Phase-5 implementation task: `RotochemicalCache` must construct `n_i = Y_i n_B`
