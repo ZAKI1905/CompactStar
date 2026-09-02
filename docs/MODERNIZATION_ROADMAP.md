@@ -321,7 +321,13 @@ CI and the convergence scope above remain outstanding items.
 
 **Prerequisite:** Phase 2B baselines exist. ✅ **SATISFIED** — `docs/validation/PHASE2B_CLOSURE.md`.
 
-**Status: ENTRY/SCOPING AUDIT COMPLETE.** No implementation item has started. The durable plan —
+**Status: IN PROGRESS — increments 3A, 3B, 3C and 3D complete; 3E not started.**
+**3A** centralized the exactly-duplicated unit constants (bit-identical). **3B** implemented the
+ADR-0003 cache-provenance contract (goldens bit-identical; INV-12 resolved for profile-derived
+caches). **3C** adopted the authoritative ZakiLib Boltzmann constant. **3D** established the
+canonical proper-volume owner per ADR-0004 — on the **validated path only**; the legacy TOV
+Path-1, `MixedStar` and candidate migrations remain deferred, and **Phase 3 is not complete.**
+The durable plan —
 ownership maps for all five targets, the cross-target dependency graph, the baseline-protection
 matrix, the per-increment preservation standard and the recommended sequence — is
 [`docs/architecture/PHASE3_CONSOLIDATION_PLAN.md`](architecture/PHASE3_CONSOLIDATION_PLAN.md).
@@ -359,25 +365,35 @@ tolerance.
   `docs/validation/PHASE3C_BOLTZMANN_AUTHORITY.md`. **Still outstanding:** the **solar-mass authority** conflict (`SUN_M_KM` vs
   `GSL_CONST_CGSM_SOLAR_MASS`, differing at `6.2e-5`) remains a scientific/unit authority
   question **deferred out of Phase 3** pending owner or ADR adjudication.
-- ◐ **Single owner for the proper-volume measure (INV-04) — ADR PROPOSED, implementation not
-  started.** `docs/adr/ADR-0004-proper-volume-and-metric-measure-ownership.md` proposes the
-  structural contract: a **dependency-neutral geometry primitive** as the single *mathematical*
-  owner of `f = 1 − 2m/r`, `e^{Λ}` and `w_V = 4πr² e^{Λ}`, with **`GeometryCache` retained
-  unchanged** as the canonical *cached-representation* owner. It supersedes the Phase-3-entry
-  wording *"`GeometryCache` canonical; retire the inline forms"*, which the 3D audit found not
-  implementable as written. Status is **PROPOSED**, awaiting owner adjudication on three
-  decision-level questions (the ownership boundary, `MixedStar` scope, and degenerate-input
-  semantics). **INV-04 remains `VERIFIED CURRENT BEHAVIOR / LEGACY split`** until an accepted
-  implementation lands and validates.
-- ◐ **One uniform cache-invalidation rule; add a version gate to `GeometryCache`; re-bind
-  `StarContext` column pointers on invalidation (INV-12) — ADR PROPOSED, implementation not
-  started.** `docs/adr/ADR-0003-profile-cache-provenance-and-invalidation.md` proposes the
-  structural contract: a `(profile identity, version)` provenance token, `GeometryCache` carrying
-  and exposing it, dependency-complete keys for `C_⋆` (+ geometry) and the `NeutrinoCooling`
-  payload (+ identity, geometry), and `StarContext` re-binding its column views on a version
-  change. Status is **PROPOSED**, awaiting owner adjudication on two decision-level questions
-  (the `StarContext` mutation model, and the provenance identity mechanism). **INV-12 remains
-  unresolved and its five hazards remain current** until implementation lands and validates.
+- ◐ **Single owner for the proper-volume measure (INV-04) — ADR-0004 ACCEPTED; canonical
+  validated path CONFORMED; legacy migrations DEFERRED.**
+  `docs/adr/ADR-0004-proper-volume-and-metric-measure-ownership.md` was **ACCEPTED 2026-09-01**.
+  Q1 = **Option B**: `CompactStar/Geometry.hpp` is the dependency-neutral *mathematical* owner of
+  `f = 1 − 2m/r`, `Λ`, `e^{Λ}` and `w_V = 4πr² e^{Λ}` **including domain semantics**, while
+  **`GeometryCache` is retained as the canonical *cached-representation* owner** and consumers
+  keep their own physics factors and unit conversions. `Core` was **not** made to depend on
+  `Physics/Evolution`. Q2 = `MixedStar` **governed now, source migration deferred** until focused
+  coverage exists. Q3 = the **hybrid physical-domain contract**: exact regular-centre limit at
+  `r = m = 0`, fail closed for `r < 0`, `r = 0` with `m ≠ 0`, `f ≤ 0` and non-finite input, and
+  **no `1e-15` clamp** — replacing six mutually inconsistent legacy behaviors.
+  This supersedes the Phase-3-entry wording *"`GeometryCache` canonical; retire the inline
+  forms"*, which the 3D audit found not implementable as written.
+  **Conformed:** `NStar::BuildFromTOV` (Λ bit-identical; `|ΔB|/B = 1.368e-16` against the
+  `1.0e-15` predeclared before implementation) and `GeometryCache::DeriveLambdaFromMR_` (cached
+  arrays bit-identical). **Not conformed, deferred:** TOV **Path 1**, the scalar
+  `NStar::BaryonNumIntegrand(double)` (separate INV-14 defect, deliberately unrepaired),
+  `MixedStar`'s six sites, and the §5 candidate code.
+  **INV-04 is therefore `GOVERNED (ACCEPTED) — CANONICAL VALIDATED PATH CONFORMED; LEGACY
+  MIGRATIONS DEFERRED`, not resolved.** Evidence: `docs/validation/PHASE3D_PROPER_VOLUME.md`.
+- ✅ **One uniform cache-invalidation rule; version gate on `GeometryCache`; `StarContext`
+  re-binds column pointers on invalidation (INV-12) — ADR-0003 ACCEPTED and IMPLEMENTED.**
+  `docs/adr/ADR-0003-profile-cache-provenance-and-invalidation.md` was **ACCEPTED 2026-09-01**
+  (Q1 = S1, Q2 = Option A) and implemented in increment 3B: a `(profile identity, version)`
+  provenance token, `GeometryCache` carrying and exposing it, dependency-complete keys for `C_⋆`
+  (+ geometry) and the `NeutrinoCooling` payload (+ identity, geometry), and `StarContext`
+  re-binding its column views on a version change. **All five former hazards are now enforced
+  CTests and no longer reproduce**; the goldens were byte-identical. **INV-12 is RESOLVED for
+  profile-derived caches.** Evidence: `docs/validation/` and the ADR's implementation record.
 - Classify dead and unreachable code; retire only after dependency review.
 
 **Heat capacity is no longer a Phase-3 item.** Its physical ownership is governed by **ADR-0002**,

@@ -886,3 +886,67 @@ or a malformed input first does.
 bit-identical and is the only pair compatible with §13's `BIT-IDENTICAL REQUIRED` row without
 further evidence. (c) and (d) would make the primitive's adoption in `GeometryCache` a
 scientific-semantic change in its own right.)*
+
+---
+
+## 23. Implementation record (Phase 3D-I)
+
+Appended after implementation. **The accepted semantic decisions of §0 were not altered by
+implementation**; nothing in the evidence below contradicts them.
+
+**Commits.** Acceptance `f92df9a` (`docs: accept proper-volume ownership contract`);
+implementation `refactor: establish canonical proper-volume measure`. Acceptance precedes
+implementation in history, as required.
+
+**Primitive.** `CompactStar/Geometry.hpp`, namespace `CompactStar::Geometry` — four free scalar
+functions: `MetricDenominator`, `Lambda`, `ExpLambda`, `ProperVolumeWeight`. Standard library
+only (`<cmath>`, `<stdexcept>`, `<string>`); no state, no registry, no hierarchy, no templates;
+no dependency edge. `Core` was **not** made to depend on `Physics/Evolution`.
+
+**Hybrid domain contract (§0-Q3) as built.** Regular centre returns `f = 1`, `Λ = 0` (as `-0.0`,
+which is bit-identical to what the legacy `r ≤ 0 → denom = 1` branch produced and composes
+correctly), `e^Λ = 1`, `w_V = 0`. `r < 0`, `r = 0` with `m ≠ 0`, `f ≤ 0`, and non-finite input
+all throw `std::runtime_error` — the project's convention. No clamp, no epsilon, no tolerance
+band around `r = 0`.
+
+**Migrated — the validated path only.** `NStar::BuildFromTOV` Λ production (bit-identical) and
+its baryon-number integrand; `GeometryCache::DeriveLambdaFromMR_` (delegates; the `eps`
+parameter is removed). `GeometryCache`'s `DataColumn` composition is kept verbatim, so its
+cached arrays are bit-identical by construction rather than by measurement — confirmed bitwise
+96/96 on both Λ routes.
+
+**Baryon-number result.** The §7.2 prediction, made from a scratch replication **before any
+implementation existed**, was reproduced exactly: `|ΔB|/B = 1.368e-16` (one ULP) on the 1.0 M☉
+star, **bitwise** on 1.4 / 1.6 / 2.0, with `M`, `R` and `ec` bitwise on all four. The pre-mutation
+capture reproduced all four §7.2 values **bitwise**, authenticating that evidence on the
+implementing machine. The `1.0e-15` bound of §7.1 was **not widened**.
+
+**Behavior preservation.** All five protected artifacts **byte-identical**. The conditional
+B-only exception the implementing brief permitted for `grid_convergence_cmf_1p6_debug.tsv` was
+**not needed** — that artifact carries a `B` column and did not move at any resolution. No
+golden was re-baselined.
+
+**Tests and detectors.** New: `proper_volume_contract`, `geometry_cache_measure_contract`
+(self-contained) and `baryon_number_cmf` (external-data) with the durable canonical reference
+`tests/baselines/baryon_number_dscmf1_reference.tsv`. Detectors **D1, D2, D2b, D3, D5, D6 all
+fire**; every mutation was reverted byte-identically by SHA-256. **D4 was correctly not
+executed** — `MixedStar` is unmigrated and uncovered, so per §18.7 there was nothing for it to
+fire in. Three initial non-firings were diagnosed rather than accepted: `heat_capacity_v1`'s
+fixture is flat space (`m = 0` at every node, so `e^Λ ≡ 1`); `heat_capacity_real_star` contains
+**no assertions at all** and is a diagnostic harness rather than a detector; and the first D6
+mutation was bit-identical to the composition it replaced. The material detector for the cached
+measure is `passive_cooling_regression`, under which dropping `e^Λ` moves `C_⋆` by **15–17 %**.
+
+**Deferred, and still governed by this ADR (§13, §15, §16).** TOV Path 1 (`NStar::Append`,
+`NStar::FinalizeSurface`); the zero-caller scalar `NStar::BaryonNumIntegrand(double)` with its
+separate INV-14 defect, deliberately **not repaired**; all six `MixedStar` sites; and the §5
+candidate code. None was touched.
+
+**Invariants.** INV-03 keeps its headline; its clamp wording is superseded by this ADR and its
+entry now separates governed contract, canonical conformance and deferred legacy nonconformance.
+**INV-04 is NOT resolved** — it is `GOVERNED (ACCEPTED) — CANONICAL VALIDATED PATH CONFORMED;
+LEGACY MIGRATIONS DEFERRED`. INV-14 untouched.
+
+**Validation.** 16/16 authenticated, 10/10 self-contained. No test deleted, no tolerance widened.
+
+Full record: [`docs/validation/PHASE3D_PROPER_VOLUME.md`](../validation/PHASE3D_PROPER_VOLUME.md).

@@ -96,6 +96,30 @@ set_tests_properties(photon_cooling_conformance PROPERTIES LABELS "thermal")
 #     DS-CMF-1-with-crust/DS(CMF)-1_with_crust.eos
 #     DNS-CMF-Hadronic-with-electrons/eos.{t,nb,yq,thermo}
 # ---------------------------------------------------------------------------
+#  ADR-0004 canonical proper-volume / metric primitive. Self-contained.
+#  Exercises CompactStar/Geometry.hpp directly: the regular-centre limit, the
+#  fail-closed domain, the metric factor against two independent algebraic
+#  forms, and the w_V composition. No EOS assets, no TOV solve.
+# ---------------------------------------------------------------------------
+add_executable(proper_volume_contract core/proper_volume_contract.cpp)
+target_link_libraries(proper_volume_contract PRIVATE CompactStar)
+add_test(NAME proper_volume_contract COMMAND proper_volume_contract)
+set_tests_properties(proper_volume_contract PROPERTIES
+    LABELS "core;geometry;contract;scientific")
+
+# ---------------------------------------------------------------------------
+#  ADR-0004 GeometryCache conformance. Self-contained.
+#  Pins the stored-Lambda and derived-Lambda routes to the same cached arrays,
+#  ties the cached WV to the canonical primitive, and proves WVExpNu/WVExp2Nu
+#  are composed from the ONE WV array rather than independently re-derived.
+# ---------------------------------------------------------------------------
+add_executable(geometry_cache_measure_contract evolution/geometry_cache_measure_contract.cpp)
+target_link_libraries(geometry_cache_measure_contract PRIVATE CompactStar)
+add_test(NAME geometry_cache_measure_contract COMMAND geometry_cache_measure_contract)
+set_tests_properties(geometry_cache_measure_contract PROPERTIES
+    LABELS "evolution;geometry;cache;contract")
+
+# ---------------------------------------------------------------------------
 set(COMPACTSTAR_EOS_DATA_ROOT "" CACHE PATH
     "Path to authenticated official CompOSE tables; enables the Tier-B thermal test.")
 
@@ -147,6 +171,20 @@ if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
              COMMAND hartle_moment_inertia_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
     set_tests_properties(hartle_moment_inertia_cmf PROPERTIES
         LABELS "rotation;hartle;scientific;external-data"
+        TIMEOUT 900)
+
+    # Phase-3D INV-14 / ADR-0004 baryon-number reference on the authenticated
+    # DS(CMF)-1 sequence (1.0 / 1.4 / 1.6 / 2.0 Msun). Guards the proper-volume
+    # migration under the tolerance predeclared in ADR-0004 SS7.1 before
+    # implementation: |dB|/B <= 1.0e-15.
+    add_executable(baryon_number_cmf core/baryon_number_cmf.cpp)
+    target_link_libraries(baryon_number_cmf PRIVATE CompactStar)
+    add_test(NAME baryon_number_cmf
+             COMMAND baryon_number_cmf "${COMPACTSTAR_EOS_DATA_ROOT}"
+                     --compare
+                     "${CMAKE_CURRENT_SOURCE_DIR}/baselines/baryon_number_dscmf1_reference.tsv")
+    set_tests_properties(baryon_number_cmf PROPERTIES
+        LABELS "core;tov;reference;external-data;scientific"
         TIMEOUT 900)
 
     message(STATUS "CompactStar: Tier-B thermal test enabled (EOS data root supplied)")

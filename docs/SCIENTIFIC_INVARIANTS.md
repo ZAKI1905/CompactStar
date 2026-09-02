@@ -132,34 +132,93 @@ k_B authority change.
 
 ---
 
-## INV-03 — Metric convention — **VERIFIED CURRENT BEHAVIOR**
+## INV-03 — Metric convention — **VERIFIED CURRENT BEHAVIOR** (domain governed by ADR-0004)
 
 **Statement.** `ds² = −e^{2ν} dt² + e^{2Λ} dr² + r² dΩ²`, so `g_tt = −e^{2ν}`, `g_rr = e^{2Λ}`,
-with `Λ = −½ ln(1 − 2m/r)`. Degenerate argument clamped: `denom ≤ 0 → 1e-15`.
+with `Λ = −½ ln(1 − 2m/r)`. **The metric convention itself is unchanged.**
 
-**Evidence.** `StarProfile.hpp:246-247`; `NStar.cpp:211-227`; `GeometryCache.cpp:118-133`;
-`SurfaceGravity.cpp:38-42`.
+**Domain and failure semantics are governed by ADR-0004** (ACCEPTED 2026-09-01, rank-2
+authority), which supersedes this entry's former wording *"degenerate argument clamped:
+`denom ≤ 0 → 1e-15`"*. That wording recorded one of **six** mutually inconsistent behaviors the
+Phase-3D audit measured for the same degenerate input, disagreeing by a factor of `3.16e7` at
+`f = 0` (ADR-0004 §11). The accepted contract is:
 
-**Confidence.** High. **Documented?** Yes, in three headers — the best-documented invariant.
+| Case | Behavior |
+|---|---|
+| `r = 0`, `m = 0` | exact regular-centre limit: `f = 1`, `Λ = 0`, `e^Λ = 1`, `w_V = 0` |
+| `r < 0`; `r = 0` with `m ≠ 0`; `f = 1 − 2m/r ≤ 0`; non-finite `r` or `m` | **fail closed** |
+| `r > 0`, `f > 0` | evaluate, **no clamp, no epsilon** |
 
-**Note.** The formula and its clamp appear in at least three places (INV-04).
+**Three distinct statuses, deliberately not merged:**
+
+- **Governed contract** — the above, for all code under ADR-0004.
+- **Canonical-path conformance** — `CompactStar/Geometry.hpp` implements it and is the sole
+  definition used by `NStar::BuildFromTOV` (Λ production and the baryon integrand) and by
+  `GeometryCache::DeriveLambdaFromMR_`. **No canonical `1e-15` clamp remains on that path.**
+- **Legacy nonconformance, deferred** — TOV Path 1 (`NStar::Append`, `NStar::FinalizeSurface`),
+  the scalar `NStar::BaryonNumIntegrand(double)` (INV-14), all six `MixedStar` sites, and the
+  §5-protected candidate code still carry their own inline forms and their own degenerate
+  behavior. **These have not migrated.** Path 1 waits on Phase 3E equivalence coverage;
+  `MixedStar` waits on focused coverage (ADR-0004 §0-Q2).
+
+**Evidence.** Canonical: `CompactStar/Geometry.hpp`; `NStar.cpp` (BuildFromTOV);
+`GeometryCache.cpp:DeriveLambdaFromMR_`. Contract tests: `proper_volume_contract`,
+`geometry_cache_measure_contract`. Legacy, unmigrated: `StarProfile.hpp:246-247`;
+`SurfaceGravity.cpp:38-42`; `NStar.cpp` Path-1 blocks; `MixedStar.cpp`.
+
+**No validated output moved.** Measured `max 2m/r = 0.481` across the four authenticated stars,
+so no node on any validated path reaches a fail-closed branch (ADR-0004 §11).
+
+**Confidence.** High. **Documented?** Yes.
 
 ---
 
-## INV-04 — Proper-volume measure — **VERIFIED CURRENT BEHAVIOR / LEGACY split**
+## INV-04 — Proper-volume measure — **GOVERNED (ADR-0004 ACCEPTED) — CANONICAL VALIDATED PATH CONFORMED; LEGACY MIGRATIONS DEFERRED**
 
 **Statement.** The canonical measure is `w_V(r) = 4πr² e^{Λ}`, with redshifted variants
-`w_V e^{ν}` and `w_V e^{2ν}`. **Canonical in the Evolution layer only.** Core re-derives the
-equivalent inline as `1/√(1 − 2m/r)`.
+`w_V e^{ν}` and `w_V e^{2ν}`.
 
-**Evidence.** Canonical: `GeometryCache.cpp:230-236`. Inline duplicates: `NStar.cpp:280`,
-`:1067`; `MixedStar.cpp:163,179`. `GeometryCache.cpp:194` re-derives λ when absent from the
-profile — a third copy of the clamp.
+**Ownership, resolved by ADR-0004 §0-Q1 (Option B) into three distinct roles:**
 
-**Confidence.** High that these are numerically equivalent today. **ARCHITECTURE.md calls
-`WV()` "the universal radial integration measure" — it is not universal in Core.**
+| Role | Owner | Scope |
+|---|---|---|
+| **A. Mathematical** | `CompactStar/Geometry.hpp` (`CompactStar::Geometry`) | `f`, `Λ`, `e^Λ`, `w_V`, **and the domain/failure semantics**. Dependency-neutral: standard library only, no layer edge. |
+| **B. Cached representation** | `Physics::Evolution::GeometryCache` | `ExpLambda`, `WV`, `WVExpNu`, `WVExp2Nu`; ADR-0003 provenance. Obtains the *formula* from A; keeps its own `DataColumn` composition. |
+| **C. Consumer integrands** | `NStar`, thermal drivers, … | their own physics factor (`n_B`, `c_V`, `Q_ν`) and their own unit conversions (`1e54` is INV-14, **not** part of `dV`). |
 
-**Proposed action.** Single owner. Structural change; requires ADR.
+`Core` was **not** made to depend on `Physics/Evolution` to obtain the measure — that was the
+Phase-3-entry wording (Option A) and ADR-0004 §8.2 shows it is unattainable for `MixedStar` and
+unsafe for `NStar` (it would construct a provenance-bearing cache inside an open `EditScope`,
+against ADR-0003).
+
+**Conformed — the validated path.** `NStar::BuildFromTOV`: Λ production (bit-identical) and the
+baryon-number integrand (`|ΔB|/B = 1.368e-16` on 1.0 M☉, bitwise on 1.4/1.6/2.0, against the
+`1.0e-15` predeclared in ADR-0004 §7.1 **before** implementation).
+`GeometryCache::DeriveLambdaFromMR_` delegates; all cached arrays bit-identical.
+
+**NOT conformed — deferred, and deliberately still recorded here:**
+
+| Site | Blocking |
+|---|---|
+| TOV Path 1 — `NStar::Append` Λ block, `NStar::FinalizeSurface` baryon integrand | Phase 3E equivalence coverage; ADR-0004 §13 |
+| `NStar::BaryonNumIntegrand(double)` scalar accessor | separate INV-14 defect (missing `1e54`), zero callers — **must not be repaired opportunistically** |
+| `MixedStar.cpp` — six sites, two build paths | zero coverage, two-sector mass semantics; ADR-0004 §0-Q2, §15 |
+| `DarkCore_Analysis`, `BNV_*`, `Decay_Analysis` | `GOVERNANCE.md` §5 candidate code; contract only |
+
+**Evidence.** `CompactStar/Geometry.hpp`; `GeometryCache.cpp`; `NStar.cpp` (BuildFromTOV).
+Tests: `proper_volume_contract`, `geometry_cache_measure_contract`, `baryon_number_cmf`.
+
+**Redshifted variants.** The primitive owns `w_V` only. `GeometryCache` composes `w_V e^{ν}` and
+`w_V e^{2ν}` from the **single** `WV` array; `geometry_cache_measure_contract` G3 pins that
+bitwise so a second measure cannot appear (ADR-0004 §12).
+
+**`ARCHITECTURE.md` claim resolved.** `WV()` is the canonical *cached* measure; the canonical
+*mathematical* measure is the primitive, and `Core`'s validated path now uses it. The claim that
+`WV()` is "the universal radial integration measure" remains inaccurate for the deferred legacy
+sites above, and `CURRENT_ARCHITECTURE.md` says so explicitly.
+
+**Remaining action.** Migrate the deferred sites as their blocking coverage lands. **INV-04 is
+not fully resolved until then.**
 
 ---
 

@@ -170,21 +170,29 @@ class GeometryCache
 
 	//--------------------------------------------------------------
 	/**
-	 * @brief Derive Lambda from mass and radius, row-by-row, with safety clamp.
+	 * @brief Derive Lambda from mass and radius, row-by-row, from the canonical primitive.
 	 *
-	 * Computes:
+	 * Computes, per node:
 	 * \f[
-	 *   \Lambda_i = -\tfrac12\ln(\max(1-2m_i/r_i,\epsilon))
+	 *   \Lambda_i = -\tfrac12\ln(1-2m_i/r_i)
 	 * \f]
+	 * by delegating to `CompactStar::Geometry::Lambda`, the single mathematical owner of the
+	 * metric factor under **ADR-0004**. `GeometryCache` remains the canonical *cached* owner
+	 * (role B); it does not own the formula.
+	 *
+	 * The former `eps` clamp parameter is gone. Under the accepted hybrid physical-domain
+	 * contract (ADR-0004 §0-Q3) a non-positive denominator, a negative radius, a zero radius
+	 * with non-zero enclosed mass, or a non-finite input **fails closed** rather than being
+	 * regularized into a finite, physically meaningless weight. The clamp was unreachable on
+	 * every validated path (`max 2m/r = 0.481`, ADR-0004 §11).
 	 *
 	 * @param r Radius column (km)
 	 * @param m Mass column (km)
-	 * @param eps Clamp value for denom <= 0
+	 * @throws std::runtime_error if any node lies outside the accepted domain.
 	 */
 	static Zaki::Vector::DataColumn
 	DeriveLambdaFromMR_(const Zaki::Vector::DataColumn &r,
-						const Zaki::Vector::DataColumn &m,
-						double eps = 1e-15);
+						const Zaki::Vector::DataColumn &m);
 
 	//--------------------------------------------------------------
 	// Cached columns

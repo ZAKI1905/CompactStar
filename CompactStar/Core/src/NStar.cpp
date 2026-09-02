@@ -9,6 +9,7 @@
 #include <Zaki/Util/Instrumentor.hpp>
 
 #include "CompactStar/Core/NStar.hpp"
+#include "CompactStar/Geometry.hpp"
 #include "CompactStar/Core/RotationSolver.hpp"
 #include "CompactStar/Core/TOVSolver.hpp"
 
@@ -208,21 +209,18 @@ void NStar::BuildFromTOV(const std::vector<TOVPoint> &in_tov,
 			// const double r_km = tp.r;
 			// const double m_km = Zaki::Physics::SUN_M_KM * tp.m;
 
-			double denom = 1.0;
-			if (r_km > 0.0)
-			{
-				denom = 1.0 - 2.0 * m_km / r_km;
-				if (denom <= 0.0)
-					denom = 1e-15; // protect against log of non-positive
-			}
-
-			// g_rr = 1 / (1 - 2M/r)
-			// const double grr = 1.0 / denom;
-
-			// λ = 0.5 * ln(g_rr) = -0.5 * ln(denom)
-			// const double lambda_geom = 0.5 * std::log(grr);
-			// or equivalently:
-			const double lambda_geom = -0.5 * std::log(denom);
+			// ADR-0004: the metric factor has ONE mathematical owner,
+			// CompactStar/Geometry.hpp. This site no longer defines it.
+			//
+			// g_rr = 1/(1 - 2m/r);  lambda = 0.5*ln(g_rr) = -0.5*ln(1 - 2m/r).
+			//
+			// Bit-identical to the former inline form on every ordinary node: the primitive
+			// performs the same `1.0 - 2.0 * m_km / r_km` subtraction and the same
+			// `-0.5 * std::log(denom)`. The former `denom <= 0 -> 1e-15` clamp is gone; under
+			// the accepted hybrid physical-domain contract (ADR-0004 §0-Q3) such input fails
+			// closed rather than being regularized. It was unreachable here in any case:
+			// measured max 2m/r = 0.481 across the authenticated stars (ADR-0004 §11).
+			const double lambda_geom = CompactStar::Geometry::Lambda(r_km, m_km);
 
 			radial[idx_lam].PushBack(lambda_geom);
 			// ------------------------------------------------------------
@@ -274,10 +272,28 @@ void NStar::BuildFromTOV(const std::vector<TOVPoint> &in_tov,
 			B_integrand[0] = radial[idx_r];
 			B_integrand[0].SetLabel("r(km)");
 
-			B_integrand[1] = radial[idx_r].pow(2);
+			// ADR-0004: the proper-volume measure w_V = 4*pi*r^2*exp(Lambda) comes from the
+			// single mathematical owner. This site owns only its own physics factor (n_B) and
+			// its own unit conversion (FM3_TO_KM3 = 1e54, which belongs to INV-14, NOT to dV).
+			//
+			// The former inline form divided by `(1 - 2m/r).sqrt()` through
+			// Zaki::Vector::DataColumn::operator/=, which silently substitutes 1 for a zero
+			// divisor -- dropping the metric factor at that node with only a log line. The
+			// primitive fails closed instead.
+			//
+			// This reassociates the arithmetic and is therefore NOT bit-identical. The
+			// tolerance |dB|/B <= 1.0e-15 was predeclared in ADR-0004 §7.1 from the operation
+			// counts, before implementation; §7.2 measured at most 1.64e-16 (1 ULP).
+			// Guarded by the `baryon_number_cmf` reference test.
+			const std::size_t n_nodes = radial[idx_r].Size();
+			Zaki::Vector::DataColumn wV;
+			wV.Reserve(n_nodes);
+			for (std::size_t i = 0; i < n_nodes; ++i)
+				wV.PushBack(CompactStar::Geometry::ProperVolumeWeight(radial[idx_r][i],
+																	  radial[idx_m][i]));
+
+			B_integrand[1] = wV * radial[idx_nb];
 			B_integrand[1].SetLabel("B_v");
-			B_integrand[1] *= 4.0 * M_PI * radial[idx_nb];
-			B_integrand[1] /= (1.0 - 2.0 * radial[idx_m] / radial[idx_r]).sqrt();
 			B_integrand[1] *= FM3_TO_KM3;
 			B_integrand.Interpolate(0, 1);
 		}

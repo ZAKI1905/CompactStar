@@ -9,6 +9,7 @@
  *    (e.g., deriving Lambda from 1-2m/r).
  */
 
+#include "CompactStar/Geometry.hpp"
 #include "CompactStar/Physics/Evolution/GeometryCache.hpp"
 #include "CompactStar/Physics/Evolution/StarContext.hpp"
 
@@ -118,30 +119,20 @@ const Zaki::Vector::DataColumn &GeometryCache::WVExp2Nu() const { return m_wVExp
 // -------------------------------------------------------
 Zaki::Vector::DataColumn
 GeometryCache::DeriveLambdaFromMR_(const Zaki::Vector::DataColumn &r,
-								   const Zaki::Vector::DataColumn &m,
-								   double eps)
+								   const Zaki::Vector::DataColumn &m)
 {
 	const std::size_t N = std::min(r.Size(), m.Size());
 	Zaki::Vector::DataColumn Lambda;
 	Lambda.SetLabel("Lambda(derived)");
 	Lambda.Reserve(N);
 
+	// ADR-0004: the metric factor has ONE mathematical owner. This loop is now a cached
+	// representation of it, not a second definition. On the ordinary physical domain the
+	// result is bit-identical to the former inline form -- the primitive reproduces the same
+	// `1.0 - 2.0 * m / r` subtraction and the same `-0.5 * std::log(denom)` -- and outside it,
+	// the primitive fails closed instead of clamping to 1e-15.
 	for (std::size_t i = 0; i < N; ++i)
-	{
-		const double r_km = r[i];
-		const double m_km = m[i];
-
-		double denom = 1.0;
-		if (r_km > 0.0)
-		{
-			denom = 1.0 - 2.0 * m_km / r_km;
-			if (denom <= 0.0)
-				denom = eps;
-		}
-
-		// Lambda = -0.5 * ln(denom)
-		Lambda.PushBack(-0.5 * std::log(denom));
-	}
+		Lambda.PushBack(CompactStar::Geometry::Lambda(r[i], m[i]));
 
 	return Lambda;
 }
@@ -202,7 +193,7 @@ void GeometryCache::Build_(const StarContext &ctx)
 	{
 		if (!m_col || m_col->Size() != N)
 			throw std::runtime_error("GeometryCache: Lambda missing and cannot derive it (need m(km) column)");
-		Lambda = DeriveLambdaFromMR_(m_r, *m_col, 1e-15);
+		Lambda = DeriveLambdaFromMR_(m_r, *m_col);
 	}
 
 	// -----------------------------

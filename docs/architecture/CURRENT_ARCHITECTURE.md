@@ -148,7 +148,8 @@ These are live conflicts. Under `GOVERNANCE.md` §3 they are fail-closed until a
    `r_max = 70 km` with `radial_res = 10000` leaves ~80 % of the radial grid outside the star.
 2. **Two `NStar` profile-construction blocks** — `BuildFromTOV` and
    `InitFromTOVSolver`+`Append`+`FinalizeSurface`, with duplicated hardcoded column layouts.
-3. **Proper volume defined in three places** (INV-04).
+3. **Proper volume defined in several places** (INV-04) — **partially resolved in Phase 3D**;
+   the validated path now has one owner, the legacy sites do not. See the Phase-3D entry below.
 
 **Resolved since the Phase-0 audit:**
 
@@ -236,8 +237,42 @@ Recorded for Phase 5. **Not repaired here.**
   `(profile, version)` at construction and exposes `Provenance()`, `SourceProfile()`,
   `SourceVersion()` and `Matches(ctx)`. There is deliberately **no `Refresh()`**: a changed
   profile means the caller constructs a new one. Its geometry arrays (`R`, `Mass`, `Area`,
-  `ExpNu`, `ExpLambda`, `WV`, `WVExpNu`, `WVExp2Nu`, …) are **numerically unchanged** by this
-  work — proper-volume ownership remains Phase 3D.
+  `ExpNu`, `ExpLambda`, `WV`, `WVExpNu`, `WVExp2Nu`, …) are **numerically unchanged** by that
+  work, and remain bit-identical after Phase 3D (below) — only the *source of the Λ formula*
+  changed, not the composition.
+- **The proper-volume measure has one mathematical owner** — `CompactStar/Geometry.hpp`
+  (`CompactStar::Geometry`), per **ADR-0004 (ACCEPTED 2026-09-01)**. It owns `f = 1 − 2m/r`,
+  `Λ = −½ ln f`, `e^Λ` and `w_V = 4π r² e^Λ`, **including the domain and failure semantics**. It
+  is header-only, depends on the standard library alone, holds no state and adds **no edge to
+  the dependency graph** — which is why it sits at the top level beside `Units.hpp` and can be
+  included from `Core`, `EOS`, `Physics`, `Extensions` and `Microphysics` alike.
+
+  Ownership is deliberately **split three ways** (ADR-0004 §0-Q1, Option B):
+  the primitive owns the *mathematics*; **`GeometryCache` remains the canonical *cached*
+  representation** (`ExpLambda`, `WV`, `WVExpNu`, `WVExp2Nu`, with its ADR-0003 provenance and
+  its `DataColumn` composition kept verbatim); and **consumers keep their own physics factor and
+  unit conversions** — `n_B`, `c_V`, `Q_ν`, and the `1e54` baryon conversion, which belongs to
+  INV-14 and is deliberately *not* in the measure. `Core` was **not** made to depend on
+  `Physics/Evolution`; `NStar.cpp` includes no `GeometryCache`.
+
+  **Degenerate inputs no longer disagree.** Before 3D the repository held six mutually
+  inconsistent behaviors for the same invalid input, differing by `3.16e7` at `f = 0` and
+  including a silent divisor substitution inherited from `Zaki::Vector::DataColumn::operator/=`.
+  The accepted contract is: exact regular-centre limit at `r = m = 0`; **fail closed** for
+  `r < 0`, for `r = 0` with `m ≠ 0`, for `f ≤ 0`, and for non-finite input; no clamp and no
+  epsilon anywhere. `SurfaceGravity` and the Hartle/TOV coefficients are **not** this measure
+  and are untouched (ADR-0004 §4.4).
+
+  **What actually conformed, and what did not.** Conformed: `NStar::BuildFromTOV` — Λ production
+  (bit-identical) and the baryon-number integrand (`|ΔB|/B = 1.368e-16`, one ULP, against
+  `1.0e-15` predeclared before implementation) — and `GeometryCache::DeriveLambdaFromMR_`.
+  **Still carrying their own inline forms, and not migrated:** TOV **Path 1**
+  (`NStar::Append`, `NStar::FinalizeSurface`), pending Phase 3E equivalence coverage; the scalar
+  `NStar::BaryonNumIntegrand(double)`, which has a separate INV-14 defect and zero callers and
+  was deliberately **not** repaired here; all six `MixedStar` sites, pending focused coverage
+  (`MixedStar` is COMPILED but UNEXERCISED, with zero tests); and the `GOVERNANCE.md` §5
+  candidate scientific code. **These are governed by ADR-0004 but are not yet conformant.**
+
 - **`StarContext` follows contract S1** — it stays valid across a sanctioned in-place profile
   mutation. On a revision change `RefreshDerivedCachesIfNeeded_` **re-binds the column views
   first**, then invalidates derived payloads, then advances the cached revision **last**. A
