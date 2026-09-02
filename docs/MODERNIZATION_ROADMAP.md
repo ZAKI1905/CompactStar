@@ -470,8 +470,8 @@ its `p0` is the Eulerian `δp`, not Hartle's `p₀*`.
 | Increment | Content | Gate |
 |---|---|---|
 | **4A** | ✅ **COMPLETE 2026-09-02.** ADR-0006 accepted, then implemented: typed physical spin input (`Ω [rad s⁻¹]`) with geometric internals and one conversion owner; seed internalized behind a non-public seam; `HartleResult` stripped of its five seed-normalized first-order fields (the `[s⁻¹]` mislabel is gone); seed-free `HartleFirstOrderResponse` and explicit `NStar::RotationAt(AngularVelocity)`; export headers corrected. **No implicit physical spin on construction.** V1–V9 pass at the predeclared bounds, four detectors fired and were reverted byte-identically, `I` bit-identical, seven goldens byte-identical, O(Ω²) byte-identical. Evidence: `docs/validation/PHASE4A_FIRST_ORDER_NORMALIZATION.md` | ADR-0006 ✅; `I` and the seven goldens bitwise ✅ |
-| **4B** | **◄ NEXT.** Independent *physical* validation of the normalized first-order response across analytic and real-star cases — distinct from the ADR-0006 conformance tests, which necessarily landed with the 4A implementation because the ADR requires them | 4A ✅ |
-| **4C** | **separate ADR** for O(Ω²): variable (`p₀*` vs `δp`), corrected equations with `j²`, fixed-`ε_c` boundary condition, exterior `δM` term, EOS `dε/dp` authority, `Ω²`-normalized exposure — expected to invoke `GOVERNANCE.md` §3.1; then implement by replacing, not patching, the candidate | ADR accepted; 4A for the physical layer |
+| **4B** | ✅ **COMPLETE 2026-09-02.** Independent *physical* validation of the normalized first-order response: node-by-node comparison of `ω̄/Ω` and `ω̄'/Ω` against an independently derived and independently normalized profile (`2.9e-9` analytic vs a predeclared `1e-7`; `≤ 2.3e-5` on the four CMF stars vs `1e-4`), exterior-matching identities against an independent `I`, the volume-integral identity from production's own shape, and two **derived** weak-field coefficients. Detector D1 proves the coverage is new. **Zero production change.** Evidence: `docs/validation/PHASE4B_FIRST_ORDER_PHYSICS.md` | 4A ✅ |
+| **4C** | **◄ NEXT (4C-G).** **Separate ADR** for O(Ω²), derived from primary equations and **replacing** the AI candidate as scientific authority rather than patching it: perturbation variable (`p₀*` vs `δp`), corrected equations with `j²`, fixed-`ε_c` boundary condition, exterior `δM` term, EOS `dε/dp` authority, `Ω²`-normalized exposure — expected to invoke `GOVERNANCE.md` §3.1; then implement | ADR accepted; 4A/4B first-order layer ✅ |
 | **4D** | independent O(Ω²) validation (regular-centre series, Newtonian limit, independent solver, quadratic scaling at a predeclared bound, published slow-rotation results) | 4C |
 | **4E** | fixed-`ε_c` structural response coefficients for Phase 5 (`m₀/Ω²`, `δp₀/Ω²`, `ξ₀/Ω²`, `δM/Ω²`, `ω̄/Ω`, `I`) | 4D |
 
@@ -541,7 +541,7 @@ unauditable.
 
 ```
 0.5 governance ─► 1 build ─► 2A pre-baseline ─► 2B baseline ─► 3 consolidation ─► 4 rotation ─► 5 rotochemical ─► 6 BNV
-  ✅ RATIFIED    ✅ COMPLETE      ✅ COMPLETE      ◐ ACTIVE (gate met)   ✅ COMPLETE (merged df859b5)   ◐ 4A COMPLETE — 4B NEXT
+  ✅ RATIFIED    ✅ COMPLETE      ✅ COMPLETE      ◐ ACTIVE (gate met)   ✅ COMPLETE (merged df859b5)   ◐ 4A+4B COMPLETE — 4C-G NEXT
                                     │                                 │                │              │
    ADR-0001 species semantics  ✅ ACCEPTED ──────────────────────────────────────────────────────────►│  (gate cleared)
    ADR-0002 heat capacity      ✅ ACCEPTED ─►│  (conformance is 2A work, not a gate)

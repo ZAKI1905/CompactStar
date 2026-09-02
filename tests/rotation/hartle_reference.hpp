@@ -124,7 +124,29 @@ struct Result
 	double Omega = 0;			 // omegabar(R) + R omegabar'(R)/3  [km^-1]
 	double I_surface = 0;		 // J/Omega          [km^3]
 	double I_volume = 0;		 // (8pi/3) int r^4 (eps+p) e^{lam-nu} (omegabar/Omega) dr
-	std::vector<double> ombar;	 // solution on the background grid
+	std::vector<double> ombar;	 // solution on the background grid            [km^-1]
+
+	// ---- Phase 4B additions (purely additive; the integration above is untouched) ----------
+	//
+	// The derivative profile, recovered from the conserved flux at each node:
+	//
+	//     omegabar'(r) = q(r) / ( r^4 j(r) ) ,      q = r^4 j omegabar' .
+	//
+	// It is a by-product of the SAME conservative integration, not a finite difference of
+	// `ombar`, so it carries the solver's own accuracy rather than a differencing error.
+	std::vector<double> dombar;	 // d(omegabar)/dr on the background grid       [km^-2]
+
+	// The scale-free shape, normalized by THIS solver's own surface extraction:
+	//
+	//     s(r)      = omegabar_ref(r)  / Omega_ref ,       dimensionless
+	//     s_prime(r)= omegabar_ref'(r) / Omega_ref ,       [km^-1]
+	//
+	// with Omega_ref = omegabar_ref(R) + R omegabar_ref'(R)/3 computed above. This removes the
+	// reference's own arbitrary seed WITHOUT using any production quantity — it is the
+	// independent counterpart of `HartleFirstOrderResponse::omega_bar_over_Omega` and
+	// `::domega_bar_over_Omega_dr`, and it is what Phase 4B compares against.
+	std::vector<double> s;		 // omegabar/Omega, independently normalized    [-]
+	std::vector<double> s_prime; // omegabar'/Omega, independently normalized   [km^-1]
 };
 
 /// GSL right-hand side for the conservative system. y[0] = omegabar, y[1] = q.
@@ -166,6 +188,7 @@ inline Result Solve(const Background &bg, double seed, double r0,
 	double y[2] = {seed, 0.0};
 	double r = r0;
 	out.ombar.assign(bg.N(), 0.0);
+	out.dombar.assign(bg.N(), 0.0);
 
 	for (std::size_t i = 0; i < bg.N(); ++i)
 	{
@@ -173,6 +196,10 @@ inline Result Solve(const Background &bg, double seed, double r0,
 		if (rt <= r0)
 		{
 			out.ombar[i] = y[0];
+			// Regular centre: q = r^4 j omegabar' = O(r^5) and the start is q(r0) = 0, so the
+			// derivative is exactly zero here — the same statement production makes with
+			// omegabar'(r0) = 0.
+			out.dombar[i] = 0.0;
 			continue;
 		}
 		if (gsl_odeiv2_driver_apply(d, &r, rt, y) != GSL_SUCCESS)
@@ -182,6 +209,7 @@ inline Result Solve(const Background &bg, double seed, double r0,
 			return out;
 		}
 		out.ombar[i] = y[0];
+		out.dombar[i] = y[1] / (rt * rt * rt * rt * bg.j_at(rt));
 	}
 	gsl_odeiv2_driver_free(d);
 
@@ -210,6 +238,20 @@ inline Result Solve(const Background &bg, double seed, double r0,
 	for (std::size_t i = 0; i + 1 < bg.N(); ++i)
 		acc += 0.5 * (integrand(i) + integrand(i + 1)) * (bg.r[i + 1] - bg.r[i]);
 	out.I_volume = (8.0 * M_PI / 3.0) * acc / out.Omega;
+
+	// Independent normalization (Phase 4B). Divide by the reference's OWN Omega, never by a
+	// production quantity, so the comparison in the 4B harnesses is between two separately
+	// normalized objects rather than between a profile and a rescaled copy of itself.
+	out.s.assign(bg.N(), 0.0);
+	out.s_prime.assign(bg.N(), 0.0);
+	if (out.Omega != 0.0)
+	{
+		for (std::size_t i = 0; i < bg.N(); ++i)
+		{
+			out.s[i] = out.ombar[i] / out.Omega;
+			out.s_prime[i] = out.dombar[i] / out.Omega;
+		}
+	}
 
 	out.ok = true;
 	return out;

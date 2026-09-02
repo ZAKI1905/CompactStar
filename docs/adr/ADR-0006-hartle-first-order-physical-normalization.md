@@ -309,8 +309,12 @@ taken from the exterior matching applied to the scaled surface derivative and `I
 through rather than recomputed as `J/Ω` (so zero spin is not a `0/0`).
 
 **Seed handling.** Value unchanged at `5e-3`, private, no public setter, no constructor
-argument. Reachable only through `RotationSolverTestSeam`, which is declared in production and
-defined only by the validation harnesses.
+argument. Reached through `RotationSolverTestSeam`, declared in production and defined by the
+validation harnesses. *(Phase-4B wording correction: the accurate classification is a*
+***`PRIVILEGED TEST BACKDOOR — NOT SUPPORTED SCIENTIFIC API`***; *calling it reachable only by
+the harnesses is too strong in C++, since any translation unit could define the befriended type.
+What Q2 requires does hold: no supported public seed setter, no supported public seed constructor
+argument, and no production consumer of the seam.)*
 
 **Unit corrections.** The `HartleResult::Omega` `[s^-1]`/km⁻¹ mislabel is gone with the field;
 the legacy export header now reads `omega_bar_c_seed (1/s)`, `M (M_sun)`, `R (km)`,
@@ -337,6 +341,27 @@ and its own seed literal on the legacy two-fluid path. P12 governs it as a contr
 conformance to the `MixedStar` track; only its export *labels* were corrected here.
 
 Full record: `docs/validation/PHASE4A_FIRST_ORDER_NORMALIZATION.md`.
+
+### Evidence update — Phase 4B (2026-09-02). **No decision text is changed.**
+
+The contract this ADR fixes has since been validated as *physics*, not only as an API contract.
+Phase 4B compared the seed-free response `ω̄/Ω` and `ω̄'/Ω` **node by node** against an
+independently derived and independently normalized profile, and added three closed-form physical
+checks. Against bounds predeclared from the Phase-2B record: profile agreement `2.9e-9` on the
+exact analytic star (bound `1e-7`) and `≤ 2.3e-5` across the four authenticated CMF stars (bound
+`1e-4`); the exterior identities `s(R) = 1 − 2I/R³` and `s'(R) = 6I/R⁴` against the
+**independent** `I`; the volume-integral identity from production's own shape (`1.1e-7` analytic,
+`≤ 3.1e-5` CMF); and the derived weak-field coefficients `ω(0)/Ω → 2(M/R)`, `ω(R)/Ω → 0.8(M/R)`.
+The independent oracle's own numerical floor is four to ten decades below the difference it
+measures.
+
+**§7 item 9 (the `Ω/Ω_K` diagnostic) is explicitly NOT promoted by this.** Phase 4B records the
+distinction in the terms this ADR should carry: *normalization correctness is not slow-rotation
+truncation accuracy*. `Ω/Ω_K ≈ 0.6` at 716 Hz says nothing about the size of the neglected O(Ω²)
+terms; §10's deferral of a governed regime threshold stands.
+
+Phase 4B changed **no production source** and left the O(Ω²) candidate byte-identical.
+Record: `docs/validation/PHASE4B_FIRST_ORDER_PHYSICS.md`.
 
 ---
 

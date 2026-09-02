@@ -80,6 +80,22 @@ set_tests_properties(hartle_normalization_contract PROPERTIES
     LABELS "rotation;hartle;scientific;contract")
 
 # ---------------------------------------------------------------------------
+#  Phase-4B independent PHYSICAL validation of the normalized first-order Hartle
+#  response (profile shape, exterior identities, volume identity, weak-field
+#  limit). Self-contained. Bounds are predeclared in the source from the Phase-2B
+#  record and must not be widened here.
+# ---------------------------------------------------------------------------
+add_executable(hartle_first_order_physics_analytic
+    rotation/hartle_first_order_physics_analytic.cpp)
+target_include_directories(hartle_first_order_physics_analytic PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+target_link_libraries(hartle_first_order_physics_analytic PRIVATE CompactStar)
+add_test(NAME hartle_first_order_physics_analytic
+         COMMAND hartle_first_order_physics_analytic)
+set_tests_properties(hartle_first_order_physics_analytic PROPERTIES
+    LABELS "rotation;hartle;scientific;reference")
+
+# ---------------------------------------------------------------------------
 #  Evolution stepper contract + thermal-only execution. Self-contained.
 # ---------------------------------------------------------------------------
 add_executable(evolution_stepper_contract thermal/evolution_stepper_contract.cpp)
@@ -194,6 +210,19 @@ if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
              COMMAND hartle_normalization_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
     set_tests_properties(hartle_normalization_cmf PROPERTIES
         LABELS "rotation;hartle;scientific;external-data;contract"
+        TIMEOUT 900)
+
+    # Phase-4B independent physical validation of the normalized first-order
+    # response on the authenticated DS(CMF)-1 sequence.
+    add_executable(hartle_first_order_physics_cmf
+        rotation/hartle_first_order_physics_cmf.cpp)
+    target_include_directories(hartle_first_order_physics_cmf PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+    target_link_libraries(hartle_first_order_physics_cmf PRIVATE CompactStar)
+    add_test(NAME hartle_first_order_physics_cmf
+             COMMAND hartle_first_order_physics_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(hartle_first_order_physics_cmf PROPERTIES
+        LABELS "rotation;hartle;scientific;external-data;reference"
         TIMEOUT 900)
 
     # Phase-3D INV-14 / ADR-0004 baryon-number reference on the authenticated

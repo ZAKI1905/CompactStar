@@ -73,8 +73,17 @@ namespace fs = std::filesystem;
 //  The arbitrary omega_bar seed must NOT become public scientific API, yet seed invariance has
 //  to be *proved* rather than asserted. `RotationSolverTestSeam` is declared — never defined —
 //  in `RotationSolver.hpp` and befriended by `RotationSolver` and `NStar`; defining it here
-//  gives this harness, and only this harness, the access it needs. There is deliberately no
-//  `SetInitOmegaBar()` and no seed constructor argument anywhere in production.
+//  gives this harness the access it needs.
+//
+//  CLASSIFICATION (Phase 4B, precise): this is a
+//
+//      PRIVILEGED TEST BACKDOOR — NOT SUPPORTED SCIENTIFIC API.
+//
+//  It is *not* a mechanism only a test can use: a friend declaration names a type, and any
+//  translation unit could define that type and obtain the same access. What ADR-0006 Q2
+//  actually requires, and what holds, is narrower and sufficient: there is no supported public
+//  seed setter, no supported public seed constructor argument, and no production consumer of
+//  the seam.
 // ---------------------------------------------------------------------------
 namespace CompactStar::Core
 {

@@ -290,7 +290,7 @@ the last grid point: `R = r[-1]`, `M = m[-1]`, `z_surf = exp(ν[-1])`. The ν in
 
 ---
 
-## INV-07 — Hartle first-order normalization — **GOVERNED (ADR-0006 ACCEPTED) — FIRST-ORDER PHYSICAL NORMALIZATION CONFORMED**
+## INV-07 — Hartle first-order normalization — **GOVERNED (ADR-0006 ACCEPTED) — FIRST-ORDER PHYSICAL NORMALIZATION CONFORMED AND PHYSICAL RESPONSE INDEPENDENTLY VERIFIED**
 
 **Statement.** The frame-dragging equation for ω̄ is linear and homogeneous, so its solution is
 determined only up to scale. The code fixes that scale with a hard-coded
@@ -342,15 +342,20 @@ after an explicit physical angular velocity is supplied.
 | **Governing convention** | ✅ **RESOLVED** — ADR-0006 (Q1 = A + D, Q2 = A, Q3 = A, Q4 = A) |
 | **Source conformance** | ✅ **COMPLETE** — typed physical spin input, one conversion owner, seed internalized, seed-free response exposed, unit annotations corrected |
 | **Contract validation** | ✅ **COMPLETE** — ADR-0006 §7 items V1–V9, two CTests, four detectors fired and reverted byte-identically |
-| **Independent physical validation of the normalized response** | ☐ **Phase 4B** — not claimed here |
+| **Independent physical validation of the normalized response** | ✅ **COMPLETE (Phase 4B, 2026-09-02)** — `PHYSICAL FIRST-ORDER HARTLE RESPONSE VERIFIED`; evidence `docs/validation/PHASE4B_FIRST_ORDER_PHYSICS.md` |
 
 What the code now does. The public scientific spin input is a physical `Ω` in rad s⁻¹ carried by
 the typed `CompactStar::AngularVelocity` (`CompactStar/AngularVelocity.hpp`), whose
 `GeomKmInverse()` and the companion `AngularVelocityGeomToRadPerSecond()` are the **only** two
 places on the governed first-order path where an angular velocity meets `c`. The arbitrary seed
 is the private `RotationSolver::seed_omega_bar_` (`RotationSolver.hpp:326`, default unchanged at
-`5e-3`, `:321`), with **no public setter**; it is reachable only through the declared-never-defined
+`5e-3`, `:321`), with **no public setter**; it is reached through the declared-never-defined
 `RotationSolverTestSeam` (`:225`, `:551`), so seed invariance is *proved* rather than asserted.
+That seam is precisely a **`PRIVILEGED TEST BACKDOOR — NOT SUPPORTED SCIENTIFIC API`** (Phase-4B
+wording correction): calling it reachable *only* by the harnesses is too strong in C++, since any
+translation unit could define the befriended type. What ADR-0006 Q2 requires does hold — no
+supported public seed setter, no supported public seed constructor argument, and no production
+consumer of the seam.
 Construction publishes only the **seed-free** `HartleFirstOrderResponse` — `I`, `ω̄/Ω`, `ω̄'/Ω`
 (`:159`) — through `NStar::RotationResponse()` (`NStar.hpp:387`); a physical `Ω`, `J` and `ω̄(r)`
 exist only via `NStar::RotationAt(AngularVelocity)` (`:409`). **No implicit physical spin is
@@ -360,6 +365,21 @@ Measured: seed invariance `≤ 4.3e-15` over six decades (bound `1e-10`); reques
 to `2.1e-16` (bound `1e-13`); `J = I Ω_phys/c` to `3.1e-16` (bound `1e-13`); conversion exact
 against an independent SI literal `c` (bound `1e-15`); `ω̄_phys` linear in `Ω` to `0` at every
 node. **`I` is bit-identical and all seven Phase-3 artifacts are byte-identical.**
+
+**Phase 4B — the response is physically right, not merely contract-conformant (2026-09-02).**
+The seed-free shape `s(r) = ω̄(r)/Ω` and `s'(r) = ω̄'(r)/Ω` was compared **node by node** against
+an independently derived and independently normalized profile (the conservative-form solver in
+`tests/rotation/hartle_reference.hpp`, which normalizes by its own surface extraction and never
+calls production's ODE, its coefficient helpers, or the materialization). Agreement is `2.9e-9`
+(`s`) and `9.5e-9` (`s'`) on the exact analytic star against a predeclared bound of `1e-7`, and
+`≤ 1.85e-5` and `≤ 2.28e-5` across the four authenticated CMF stars against `1e-4`. The response
+further satisfies the exterior-matching identities `s(R) = 1 − 2I/R³` and `s'(R) = 6I/R⁴` against
+the **independent** `I`, reproduces `I` through a volume integral that reads only the interior
+(`1.1e-7` analytic, `≤ 3.1e-5` CMF), and reproduces two **derived** weak-field coefficients,
+`ω(0)/Ω → 2(M/R)` and `ω(R)/Ω → 0.8(M/R)`, to `3.0e-4` and `1.7e-3` at `M/R = 0.002`. A detector
+that corrupts the interior shape while leaving `I` and the surface untouched fails the Phase-4B
+tests and passes every Phase-2B and Phase-4A test — the proof that this validation is not
+redundant. **Zero production source changed.**
 
 **The `[s^-1]` mislabel is gone**, together with the four other seed-normalized first-order
 fields: `HartleResult` no longer carries `Omega`, `J`, `I`, `omega_bar` or `domega_bar` at all
@@ -779,7 +799,7 @@ conversion, under the in-code comment *"Convert fractions to number densities in
 
 | Status | Entries |
 |---|---|
-| **GOVERNED (ACCEPTED)** | **INV-01** — ADR-0001, accepted 2026-08-31 · **INV-15** — ADR-0002, accepted 2026-08-31 · **INV-07** — ADR-0006, accepted 2026-09-02, **first-order source conformed 2026-09-02** |
+| **GOVERNED (ACCEPTED)** | **INV-01** — ADR-0001, accepted 2026-08-31 · **INV-15** — ADR-0002, accepted 2026-08-31 · **INV-07** — ADR-0006, accepted 2026-09-02, **first-order source conformed and physical response independently verified 2026-09-02** |
 | VERIFIED CURRENT BEHAVIOR | INV-02, 03, 04, 05, 06, 10, 12, 13, 14, 16 |
 | INTENDED BUT UNVERIFIED | INV-08⚠, 09 |
 | **UNRESOLVED (fail-closed)** | **INV-11** — and sub-items of INV-06, INV-16 |
@@ -788,12 +808,13 @@ conversion, under the in-code comment *"Convert fractions to number densities in
 
 - **INV-11** (η convention) blocks Phase 5.
 
-**INV-07 is resolved as a contract** by ADR-0006 (ACCEPTED 2026-09-02) **and the first-order
-source now conforms** (Phase 4A, 2026-09-02): the seed is internal, the public spin input is a
-typed physical `Ω` in rad s⁻¹, and the `[s^-1]` mislabel is gone. What remains is **Phase-4B
-work, not a decision** — independent physical validation of the normalized response — and
-`MixedStar` conformance on its own track. **Rotation as a whole is not validated:** O(Ω²)
-remains an unverified candidate (INV-08).
+**INV-07 is fully resolved for first order.** ADR-0006 (ACCEPTED 2026-09-02) settled the
+contract, Phase 4A made the source conform, and **Phase 4B verified the normalized response
+against independent evidence** — an independently normalized profile, the exterior-matching and
+volume identities, and derived weak-field coefficients. What remains from it is `MixedStar`
+conformance on its own track. **Rotation as a whole is still not validated:** O(Ω²) remains an
+unverified candidate (INV-08), and nothing in the first-order work bears on the adequacy of the
+slow-rotation truncation itself.
 
 **INV-08 wording corrected (2026-09-02):** the O(Ω²) candidate is *publicly callable with zero
 repository callers*, not "structurally unreachable"; its status is unchanged.

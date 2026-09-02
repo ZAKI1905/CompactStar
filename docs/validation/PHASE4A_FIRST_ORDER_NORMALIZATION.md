@@ -40,7 +40,7 @@ rad s⁻¹ rather than a bare `double` whose unit lived in a comment.
 | Question | Decision | Where it lands |
 |---|---|---|
 | **Q1** public spin input | **A + D** — physical `Ω` in rad s⁻¹, carried by an explicit typed quantity | `CompactStar/AngularVelocity.hpp`; `NStar::RotationAt(AngularVelocity)` |
-| **Q2** the arbitrary seed | **A** — strictly internal numerical normalization | `RotationSolver::seed_omega_bar_` (private, no public setter); reachable only through `RotationSolverTestSeam` |
+| **Q2** the arbitrary seed | **A** — strictly internal numerical normalization | `RotationSolver::seed_omega_bar_` (private, no public setter); reached through `RotationSolverTestSeam`, classified in Phase 4B as a **`PRIVILEGED TEST BACKDOOR — NOT SUPPORTED SCIENTIFIC API`** (see `PHASE4B_FIRST_ORDER_PHYSICS.md` §13) |
 | **Q3** result storage | **A** — one canonical geometric representation, named physical accessors, no duplicated state | `PhysicalFirstOrderRotation::Omega_geom` + `OmegaRadPerSecond()` |
 | **Q4** exposure | **A** — seed-free normalized response through `NStar` | `NStar::RotationResponse()` returning `HartleFirstOrderResponse` |
 | **Binding clarification** | no implicit physical spin on construction | construction publishes only `I`, `ω̄/Ω`, `ω̄'/Ω`; `Ω`, `J`, `ω̄(r)` require an explicit `AngularVelocity` |
