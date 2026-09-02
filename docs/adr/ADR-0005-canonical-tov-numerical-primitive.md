@@ -2,20 +2,56 @@
 
 | | |
 |---|---|
-| **Status** | **PROPOSED** |
+| **Status** | **ACCEPTED — 2026-09-02** |
 | **Date drafted** | 2026-09-02 |
 | **Change class** | **Structural / architecture** (`GOVERNANCE.md:51`) |
 | **Drafted at** | `f3497ea82e5c19f92d89cacb76e179f085f4c53b` |
+| **Accepted at** | `fbeb229fe9c54f67d3db4c4e0a5d43d1c9cfa19e` (acceptance commit; implementation follows separately) |
 | **Roadmap increment** | Phase 3E (`docs/architecture/PHASE3_CONSOLIDATION_PLAN.md`) |
 | **Fail-closed condition addressed** | **#3 — uncertain authoritative code path** (`GOVERNANCE.md:70`) |
 | **Governing invariants** | INV-03, INV-04, INV-13, INV-14 (non-scope), INV-07 (non-scope) |
 | **Prerequisite** | Phase 3E-0 — `TOV-PATH EQUIVALENCE VERIFIED` (`docs/validation/TOV_PATH_EQUIVALENCE.md`) |
 
-> **This ADR proposes a contract. It writes no code and authorizes no implementation.**
-> No production source, test, baseline, ADR status or invariant status was changed by the task
-> that produced it.
+> **ACCEPTED.** The owner adjudicated Q1–Q4 (§0 below). This ADR is now **normative**, ranking
+> directly below `GOVERNANCE.md`.
 >
-> **The fail-closed condition remains OPEN.** Drafting an ADR does not close it; see §19.
+> The audit that produced the draft wrote no code. Implementation is staged (§15) and lands in
+> **separate commits after** this acceptance.
+>
+> **Fail-closed condition #3 remains OPEN at acceptance.** Naming an authority does not remove a
+> second live implementation from the source; it can close only when 3E-I1 lands and validates.
+> See §19.
+
+---
+
+## 0. Owner decisions (binding)
+
+Adjudicated 2026-09-02. The alternatives (§6, §9, §10) and the evidence (§2, §5) are retained
+unchanged below, as the lifecycle requires.
+
+### Q1 — Preserve `Solve()`: **YES**
+
+`TOVSolver::Solve(Axis, dir, file)` remains a supported public **sequence / workflow
+orchestrator**. It becomes **subordinate** to the canonical numerical primitive: it may no longer
+own a radial integration of its own.
+
+### Q2 — Preserve the `_Sequence.tsv` contract: **YES**
+
+Filename `<file>_Sequence.tsv`; schema and order `ec(g/cm^3)`, `M(Sun)`, `R(km)`,
+`pc(dyne/cm^2)`, `B`, `I(km^3)`; existing tabular workflow behavior and precision semantics
+preserved.
+
+### Q3 — Postprocessing scope: **P3 — STAGED**
+
+**3E-I1 unifies the radial numerical implementation only.** Converging
+`Append`+`FinalizeSurface` onto `BuildFromTOV` is **not** in this increment, and neither is
+fixing the mirror `M`/`R`/`z_surf` zeros (**M1** applies during I1). Those are separate
+postprocessing questions to be decided on their own evidence.
+
+### Q4 — `Analysis` and profile-export hooks: **PRESERVE**
+
+The `Analysis` hook, `n_exp_cond_f`, and the `virtual ExportNStarProfile` are preserved and not
+deprecated in 3E-I1. They will be classified in Phase 3F.
 
 ---
 
