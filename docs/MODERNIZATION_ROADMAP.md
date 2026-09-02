@@ -321,8 +321,9 @@ CI and the convergence scope above remain outstanding items.
 
 **Prerequisite:** Phase 2B baselines exist. ✅ **SATISFIED** — `docs/validation/PHASE2B_CLOSURE.md`.
 
-**Status: IN PROGRESS — increments 3A, 3B, 3C, 3D and 3E-0 complete; the 3E ownership ADR is
-NOT yet drafted.**
+**Status: IN PROGRESS — increments 3A, 3B, 3C, 3D and 3E-0 complete; the 3E ownership ADR
+(ADR-0005) is DRAFTED and PROPOSED, awaiting owner adjudication. No canonical TOV owner is
+selected and no 3E implementation has started.**
 **3A** centralized the exactly-duplicated unit constants (bit-identical). **3B** implemented the
 ADR-0003 cache-provenance contract (goldens bit-identical; INV-12 resolved for profile-derived
 caches). **3C** adopted the authoritative ZakiLib Boltzmann constant. **3D** established the
@@ -360,9 +361,18 @@ tolerance.
   loops — so canonicalization carries no numerical migration risk on the radial solve. The real
   work is interface: the unconditional `_Sequence.tsv` contract, Path 1's unset mirror surface
   scalars, the dead `Analysis`/export hooks, and Path 1's unmigrated ADR-0004 conformance.
-  `TOVSolver::Solve` has **six** live callers, not three. **No canonical owner is designated and
-  the fail-closed condition remains open.** Evidence:
-  `docs/validation/TOV_PATH_EQUIVALENCE.md`.
+  `TOVSolver::Solve` has **six** live callers, not three.
+  **`ADR-0005` (PROPOSED)** now proposes the authority:
+  `SingleStarSolveToTOVPoints` as the canonical **numerical primitive**; `Solve(Axis)` retained
+  as a **subordinate workflow orchestrator** rather than deleted, because all six callers depend
+  on its `_Sequence.tsv` output and one reads that file back as program input; the TSV filename,
+  schema and column order preserved as a **compatibility contract**; `RadiusLoop` retired as an
+  authority; and a **staged P3** migration that unifies the radial solve first and decides
+  `NStar`-construction convergence separately. Four owner questions are open.
+  **No canonical owner is selected and fail-closed condition #3 remains OPEN** — it can close
+  only once 3E-I1 lands and validates, not on ADR acceptance. Evidence:
+  `docs/validation/TOV_PATH_EQUIVALENCE.md`; contract:
+  `docs/adr/ADR-0005-canonical-tov-numerical-primitive.md`.
 - ◐ **Single owner for unit conversions — PARTIAL: exact duplicate constants completed in 3A.**
   `KM3_TO_CM3` (2 production sites) and the MeV fm⁻³→erg cm⁻³ factor (2 sites) now have one
   owner, `CompactStar/Units.hpp` — a dependency-free header that adds no edge to the layer

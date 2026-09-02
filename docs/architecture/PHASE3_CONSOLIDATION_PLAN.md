@@ -2,12 +2,14 @@
 
 > **STATUS: `3A COMPLETE` · `3B COMPLETE` · `3C COMPLETE` · `3D GOVERNANCE / ADR PROPOSED — AWAITING OWNER ADJUDICATION`.**
 > The Phase-3 entry/scoping audit that produced this document is complete and its findings
-> stand except where §5 is corrected below. Increments 3A, 3B and 3C have landed and are
-> validated. **3D is governance only so far:**
-> [`ADR-0004`](../adr/ADR-0004-proper-volume-and-metric-measure-ownership.md) is **PROPOSED**
-> and carries no authority until the owner accepts it; **no proper-volume implementation has
-> started**, INV-04 remains `VERIFIED CURRENT BEHAVIOR / LEGACY split`, and the 3D audit
-> modified no production source, test, baseline, accepted ADR or invariant.
+> stand except where §5 is corrected below. Increments 3A, 3B, 3C and 3D have landed and are
+> validated, and 3E-0 has measured the two TOV paths. **ADR-0004 is ACCEPTED (2026-09-01) and
+> implemented in 3D**; INV-04 is now
+> `GOVERNED (ACCEPTED) — CANONICAL VALIDATED PATH CONFORMED; LEGACY MIGRATIONS DEFERRED`.
+> **3E is governance only so far:**
+> [`ADR-0005`](../adr/ADR-0005-canonical-tov-numerical-primitive.md) is **PROPOSED** and carries
+> no authority until the owner accepts it; **no canonical-TOV implementation has started**, and
+> the 3E-G task modified no production source, test, baseline, accepted ADR or invariant.
 >
 > **Headline finding, and it changes the plan:** the roadmap states *"Every item is engineering
 > class"* (`MODERNIZATION_ROADMAP.md:298`), but **three of the five Phase-3 items are
@@ -170,7 +172,7 @@ weighting** (`e^ν`, `e^{2ν}` — separately applied, correctly), **baryon-numb
 **Canonical owner candidate: `GeometryCache`** — it already owns the canonical form and the
 redshift variants, and every validated consumer already reads it.
 
-> **Superseded in part by ADR-0004 (PROPOSED).** The 3D audit found this wording — *"`GeometryCache`
+> **Superseded in part by ADR-0004 (ACCEPTED 2026-09-01).** The 3D audit found this wording — *"`GeometryCache`
 > canonical; retire `NStar`/`MixedStar` inline forms"* — **not implementable as written**. `MixedStar`
 > has no `StarProfile` (`MixedStar.hpp:269,272`) so it cannot construct a `GeometryCache` at all;
 > `NStar` builds its integrand inside an open `EditScope` (`NStar.cpp:90,277-281`), where a
@@ -315,7 +317,7 @@ derivable from the constants and the algebra in advance; that is why they are st
 | **3B** | ✅ **COMPLETE.** Cache provenance and dependency-complete keys | profile identity+version token; `GeometryCache` carries it; `C_⋆` and `NeutrinoCooling` keys extended; `StarContext` re-binds columns. Contract: [`ADR-0003`](../adr/ADR-0003-profile-cache-provenance-and-invalidation.md) (**ACCEPTED**). All five hazards are now enforced CTests; INV-12 RESOLVED for profile-derived caches; goldens byte-identical. | **STRUCTURAL** (fail-closed #4) | 3A ✅ | **YES — accepted** | **yes** |
 | **3C** | ✅ **COMPLETE** — Adopt the authoritative ZakiLib Boltzmann constant | All four production consumers now use `Zaki::Physics::K_BOLTZ_EV * 1.0e-6`; **no `k_B` literal and no GSL Boltzmann constant remain on any production path**. No ZakiLib change, no archive rebuild. Test oracles derive `k_B` independently in `long double` from the SI-exact defining constants and agree with production to **1 ULP**. `tov_dscmf1_reference.tsv` and `hartle_I_dscmf1_debug.tsv` **byte-identical** as predicted (no thermal constant enters them); the three thermal artifacts re-baselined with recorded hashes. 13/13 + 8/8. Evidence: [`PHASE3C_BOLTZMANN_AUTHORITY.md`](../validation/PHASE3C_BOLTZMANN_AUTHORITY.md) | **numerical-method / constant-authority** | 3A ✅ | no | **yes** |
 | **3D** | ✅ **COMPLETE IN VALIDATED SCOPE — LEGACY MIGRATIONS DEFERRED.** Canonical owner for the proper-volume measure | Contract: [`ADR-0004`](../adr/ADR-0004-proper-volume-and-metric-measure-ownership.md) (**ACCEPTED 2026-09-01**). Q1 = **Option B**: `CompactStar/Geometry.hpp` owns the mathematics (`f`, `Λ`, `e^Λ`, `w_V`) **and the domain semantics**; `GeometryCache` stays the cached owner; consumers keep their own physics factors and unit conversions. **No new dependency edge** — `Core` does not include `Physics/Evolution`. Q2 = `MixedStar` governed, migration deferred. Q3 = **hybrid physical-domain contract** — exact regular-centre limit, fail closed otherwise, **no `1e-15` clamp** — replacing six mutually inconsistent legacy behaviors. Conformed: `NStar::BuildFromTOV` Λ + baryon integrand, `GeometryCache::DeriveLambdaFromMR_`. **INV-04 is NOT resolved**: TOV Path 1, the scalar accessor, `MixedStar` and candidate code remain governed-but-nonconformant. Evidence: [`PHASE3D_PROPER_VOLUME.md`](../validation/PHASE3D_PROPER_VOLUME.md) | **STRUCTURAL + SCIENTIFIC-SEMANTIC** (INV-04, INV-03) | 3B ✅ | **YES — accepted** | yes |
-| **3E** | ◐ **3E-0 MEASUREMENT COMPLETE — OWNERSHIP ADR NOT YET DRAFTED.** Canonical TOV path | Phase 3E-0 measured the two live paths against each other at fourteen central densities and three radial resolutions: **all 25 radial columns bit-identical**, `ec`/`pc`/`M`/`R`/`I` bit-identical, `B` within one ULP (the governed ADR-0004 gap), no cross-star state leakage, identical species order and surface termination. Evidence supports **H2** — one algorithm copied into two radial loops, differing in orchestration and output ownership, not in physics. Remaining work is **interface**, not numerics: the unconditional `_Sequence.tsv` contract (the only thing all six live `main/` callers consume), Path 1's unset mirror surface scalars, the dead `Analysis`/export hooks, and Path 1's unmigrated ADR-0004 conformance. **No canonical owner designated; the fail-closed condition stays open.** Evidence: [`TOV_PATH_EQUIVALENCE.md`](../validation/TOV_PATH_EQUIVALENCE.md) | **STRUCTURAL** (fail-closed #3) | 3B, 3D ✅ | **YES — not yet drafted** | yes |
+| **3E** | ◐ **3E-0 MEASUREMENT COMPLETE; ADR-0005 PROPOSED — AWAITING OWNER ADJUDICATION.** Canonical TOV path | 3E-0 measured the two live paths as **bit-identical** in all 25 radial columns and in `ec`/`pc`/`M`/`R`/`I`, with `B` within one ULP (the governed ADR-0004 gap): **H2 verified**, one algorithm copied into two radial loops. [`ADR-0005`](../adr/ADR-0005-canonical-tov-numerical-primitive.md) (**PROPOSED**) proposes `SingleStarSolveToTOVPoints` as the canonical **numerical primitive**, `Solve(Axis)` retained as a subordinate **workflow orchestrator**, the `_Sequence.tsv` schema preserved as a compatibility contract, `RadiusLoop` retired as an authority, and a staged **P3** migration (radial first, postprocessing decided separately). Four owner questions open. **Implementation not started; no canonical owner selected; fail-closed condition #3 stays OPEN until 3E-I1 lands and validates.** Evidence: [`TOV_PATH_EQUIVALENCE.md`](../validation/TOV_PATH_EQUIVALENCE.md) | **STRUCTURAL** (fail-closed #3) | 3B, 3D ✅ | **YES — proposed** | yes |
 | **3F** | Dead/unreachable classification record | document only; delete nothing | documentation | none | no | **yes** |
 
 **Deliberately *not* the roadmap bullet order.** The roadmap leads with TOV; the dependency
@@ -344,10 +346,15 @@ count: `TOVSolver::Solve` has **six** live callers, not three (`spin_therm_evol_
 `tov_debug_main`, `sig_omega`, `Table_5-8_Glenn`, `coulatt`, `polytrope`).
 The next increment is **3E-G**: draft the structural ADR designating the canonical TOV numerical
 primitive and specifying how the legacy sequence API and its file output are preserved or
-subordinated. **Phase 3 is not complete**, and no canonical TOV owner has been selected. **That ADR is now drafted:**
-[`ADR-0004`](../adr/ADR-0004-proper-volume-and-metric-measure-ownership.md), status
-**PROPOSED**. It carries no authority under `docs/adr/README.md` until the owner accepts it, and
-**no 3D source change is authorized**. The 3D governance audit changed documentation only.
+subordinated. **Phase 3 is not complete**, and no canonical TOV owner has been selected.
+**That ADR is now drafted:**
+[`ADR-0005`](../adr/ADR-0005-canonical-tov-numerical-primitive.md), status **PROPOSED**. It
+carries no authority under `docs/adr/README.md` until the owner accepts it, and **no 3E source
+change is authorized**. The 3E-G governance task changed documentation only.
+
+> *(This paragraph previously pointed at ADR-0004 and described 3D as governance-only. That was
+> leftover 3D-G-era prose: ADR-0004 is the **accepted** proper-volume ADR and 3D is implemented.
+> Corrected in the 3E-G documentation commit.)*
 
 Chosen on dependency and risk, not convenience. It is the only Phase-3 item that is
 simultaneously: **provably bit-identical** (the constants are literally equal — `1.0e15` and
