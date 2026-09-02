@@ -563,8 +563,11 @@ double CompOSE_Thermo::CvDensity_cgs(double T_MeV, double nb_fm3, double Yq) con
 {
 	const double cv_nat_fm3 = CvDensity_Natural(T_MeV, nb_fm3, Yq); // fm^-3
 
-	// kB in MeV/K (since T[MeV] = kB*T[K])
-	constexpr double kB_MeV_per_K = 8.617333262e-11;
+	// k_B in MeV/K (since T[MeV] = k_B*T[K]) — authoritative generic constant from
+	// ZakiLib. Phase 3C replaced the former local 8.617333262e-11 literal, which was
+	// 1.7e-11 from the SI-exact value and disagreed with the thermal drivers' own copy.
+	// See docs/validation/PHASE3C_BOLTZMANN_AUTHORITY.md.
+	const double kB_MeV_per_K = Zaki::Physics::K_BOLTZ_EV * 1.0e-6;
 
 	// (fm^-3) * (MeV/K) -> (MeV fm^-3 / K) -> erg cm^-3 / K
 	return cv_nat_fm3 *
@@ -717,8 +720,11 @@ double CompOSE_Thermo::CvDensity_cgs_ForCooling(double T_MeV, double nb_fm3, dou
 {
 	const double cv_nat_fm3 = CvDensity_Natural_ForCooling(T_MeV, nb_fm3, Yq); // fm^-3
 
-	// kB in MeV/K (since T[MeV] = kB*T[K])
-	constexpr double kB_MeV_per_K = 8.617333262e-11;
+	// k_B in MeV/K (since T[MeV] = k_B*T[K]) — authoritative generic constant from
+	// ZakiLib. Phase 3C replaced the former local 8.617333262e-11 literal, which was
+	// 1.7e-11 from the SI-exact value and disagreed with the thermal drivers' own copy.
+	// See docs/validation/PHASE3C_BOLTZMANN_AUTHORITY.md.
+	const double kB_MeV_per_K = Zaki::Physics::K_BOLTZ_EV * 1.0e-6;
 
 	// (fm^-3) * (MeV/K) -> (MeV fm^-3 / K) -> erg cm^-3 / K
 	return cv_nat_fm3 *

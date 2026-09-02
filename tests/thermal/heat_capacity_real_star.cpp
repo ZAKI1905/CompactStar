@@ -53,7 +53,27 @@ using CompactStar::Physics::Evolution::GeometryCache;
 using CompactStar::Physics::Evolution::StarContext;
 
 // k_B in MeV/K — the value CompOSE_Thermo itself uses (INV-02 records the split).
-constexpr double kB_MeV_per_K = 8.617333262e-11;
+// ---------------------------------------------------------------------------
+//  k_B in MeV/K — derived INDEPENDENTLY from the exact SI definitions, so this
+//  oracle never asks production (or ZakiLib) what the answer is.
+//
+//      k_B  = 1.380649e-23 J/K        (exact by definition, SI 2019)
+//      1 MeV = 1.602176634e-13 J      (exact: e is defined, x 1e6)
+//
+//  Evaluated in long double before narrowing, so the quotient is rounded once.
+//  Production uses Zaki::Physics::K_BOLTZ_EV * 1e-6, which is +2 ULP from the
+//  correctly rounded MeV/K double because Zaki stores the eV/K form to 15 figures.
+//  Bit equality is therefore NOT required; kKbTolUlp below is the predeclared
+//  agreement, fixed from that known representation and not from observed output.
+// ---------------------------------------------------------------------------
+static constexpr long double kKbJ_per_K_L   = 1.380649e-23L;
+static constexpr long double kMeV_in_J_L    = 1.602176634e-13L;
+constexpr double kB_MeV_per_K_SI = static_cast<double>(kKbJ_per_K_L / kMeV_in_J_L);
+/// Predeclared: production may differ from the directly rounded SI double by a few ULP
+/// because it scales an eV/K representation. 8 ULP is ~1e-16 relative — four orders
+/// tighter than any scientific tolerance in this file.
+static constexpr double kKbTolUlp = 8.0;
+constexpr double kB_MeV_per_K = kB_MeV_per_K_SI;
 constexpr double KM3_TO_CM3 = 1.0e15;
 
 static double KtoMeV(double T_K) { return T_K * kB_MeV_per_K; }

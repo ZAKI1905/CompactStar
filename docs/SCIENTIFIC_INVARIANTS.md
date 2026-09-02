@@ -110,10 +110,25 @@ column labels `"r(km)"`, `"m(km)"`, `"p(km^-2)"`, `"eps(km^-2)"`.
 **Confidence.** High. **Documented?** Storage units yes (ARCHITECTURE.md); **the CGS/geometric
 split is undocumented.**
 
-**Note.** Fifteen-plus local conversion constants are re-derived rather than drawn from
-`Zaki::Physics::Constants`, including **k_B at two different precisions**
-(`8.617333262145e-11` in `NeutrinoCooling_Details.cpp:214` vs `8.617333262e-11` in
-`CompOSE_Thermo.cpp:566`). See INV-13.
+**Note.** Local conversion constants are re-derived rather than drawn from
+`Zaki::Physics::Constants`. **The k_B part of that debt is closed (Phase 3C):** production
+formerly carried **k_B at two different precisions** — `8.617333262145e-11` in the thermal
+drivers and `8.617333262e-11` in `CompOSE_Thermo` — and all four consumers now delegate to the
+authoritative generic constant `Zaki::Physics::K_BOLTZ_EV * 1.0e-6`. Adopting it was an
+owner-authorized **numerical-method / constant-authority change**, not behavior-preserving
+work: the direct effect on `CvDensity_cgs` and `C_⋆` is `+1.68e-11` (matching the analytic
+expectation), while `L_ν`, `L_γ`, `M` and `R` are bit-identical at fixed state. Evidence:
+`docs/validation/PHASE3C_BOLTZMANN_AUTHORITY.md`.
+
+**Still outstanding local conversion debt:** the exact-duplicate constants centralized in
+Phase 3A (`CompactStar/Units.hpp`) covered only `km³→cm³` and `MeV fm⁻³→erg cm⁻³`; the
+**solar-mass authority** (`Zaki::Physics::SUN_M_KM` vs `GSL_CONST_CGSM_SOLAR_MASS`, differing at
+`6.2e-5`) remains **unadjudicated and deferred**, and other geometric/compact-object conversions
+are still re-derived locally. See INV-13.
+
+**This invariant's own status is unchanged:** INV-02 governs the CGS-inside-TOV /
+geometric-outside unit boundary, which is VERIFIED CURRENT BEHAVIOR and is not affected by the
+k_B authority change.
 
 ---
 

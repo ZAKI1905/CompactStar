@@ -1,18 +1,17 @@
 # Phase 3C — Boltzmann-constant authority and ownership audit
 
-> **STATUS: `PHASE-3C OWNER ADJUDICATION REQUIRED`.**
+> **STATUS: `PHASE-3C IMPLEMENTED — AUTHORITY ADOPTED`.**
 >
-> The **ownership** question is settled by owner intent plus objective authority: **ZakiLib
+> The **ownership** question was settled by owner intent plus objective authority: **ZakiLib
 > already defines Boltzmann's constant, correctly, and CompactStar already links the symbol.**
-> No ZakiLib change and no dependency-archive rebuild are needed.
+> No ZakiLib change and no dependency-archive rebuild were needed.
 >
-> What requires adjudication is a **numerical consequence that the Phase-3 plan's own
-> predeclared tolerance did not survive.** The plan predeclared `≤1.7e-11` for increment 3C,
-> derived from the two constants. The measured effect on the validated passive-cooling
-> trajectory is **up to 1.3e-6** — roughly **10⁵ times larger** — because the adaptive ODE
-> stepper amplifies the perturbation to its own `rtol = 1e-6` scale. The governing rule is that
-> a tolerance may not be widened after observing the output, so this is the owner's call, not
-> mine. See §9.
+> The owner adjudicated the open tolerance question in the Phase 3C brief and **directed
+> adoption with re-baselining** of the `k_B`-dependent artifacts, with the predeclared
+> `1.7e-11` bound left **unwidened** and the shift **not** characterized as a regression.
+> §13–§15 record that adjudication and the implementation evidence. The `1.3e-6` trajectory
+> figure is now *explained*, not merely observed: an identical-magnitude shift is produced by
+> changing the integrator tolerance alone with `k_B` held fixed (§14).
 
 | Field | Value |
 |---|---|
@@ -229,3 +228,164 @@ value, eliminates a documented invariant defect, costs nothing in dependency ter
 resulting shift is four orders of magnitude inside the tolerances that Phase 2B derived from
 measurement. But re-baselining validated scientific evidence is the owner's decision to take
 knowingly, not a side effect for me to absorb.
+
+---
+
+## 13. Owner adjudication (Phase 3C brief)
+
+The owner selected the first option of §12: **adopt the authoritative ZakiLib constant and
+re-baseline only the artifacts that actually depend on it.** The brief attached four binding
+constraints, all of which are honoured here:
+
+1. The predeclared `1.7e-11` bound is **not** widened retroactively. It stands in
+   `PHASE3_CONSOLIDATION_PLAN.md` as written, annotated with the reason it was not met.
+2. The re-baselined goldens are **not** to be characterized as a regression. They are a
+   one-time authority correction moving every consumer *toward* SI-exact.
+3. No test may be deleted to accommodate re-baselining. None was; all 13 remain.
+4. **INV-02 keeps its `VERIFIED CURRENT BEHAVIOR` headline.** The owner explicitly corrected
+   the audit's own recommendation here: INV-02 records verified behaviour, not an unresolved
+   defect, so only its *note* was updated. This document's §11 recommendation to "update INV-02
+   to record that the split is resolved" was therefore executed as a note-only edit.
+
+## 14. Why `1.3e-6` is step selection, not physics
+
+The audit (§6) measured `1.3e-6` on the passive-cooling trajectory and attributed it to
+adaptive-stepper amplification. That attribution was an inference. It has now been **tested
+directly**, by holding the authority fixed and changing only the integrator tolerance:
+
+| Comparison | `k_B` authority | `rtol` | max &#124;rel&#124; |
+|---|---|---|---|
+| old vs new | **changed** | `1e-6` (default) | `1.343e-6` |
+| old vs new | **changed** | `1e-8` | `3.517e-7` (**3.8×** smaller) |
+| old vs old | **identical** | `1e-6` → `1e-8` | **`1.146e-6`** |
+| new vs new | **identical** | `1e-6` → `1e-8` | `1.543e-7` |
+
+The third row is decisive. Changing *only* the step-size tolerance, with the constant held
+fixed, moves the trajectory by essentially the same amount as changing the constant does. The
+`1.3e-6` is therefore a property of where the adaptive driver places its steps, not a physical
+displacement — and it shrinks when the integrator is tightened, which a physical shift would
+not do.
+
+The **static** diagnostics confirm the complementary half. With no time integration at all, the
+fixed-state response is the analytic ratio and nothing else:
+
+| Quantity (fixed state) | measured | analytic |
+|---|---|---|
+| `CvDensity_cgs` | `+1.684741e-11` | `+1.684735e-11` |
+| `CvDensity_cgs_ForCooling` | `+1.684736e-11` | `+1.684735e-11` |
+| `C_⋆(10^8 K)` | `+1.686970e-11` | `≈1.685e-11` |
+| `L_ν`, `L_ν,DU`, `L_ν,MU`, `L_γ` | **exactly 0** | `k_B`-independent at fixed `T` |
+| `M`, `R` | **exactly 0** | `k_B`-independent |
+
+`grid_convergence_cmf_1p6_debug.tsv` is a static (non-evolved) artifact and shows the same
+thing at file level: of its sixteen columns, **fourteen are byte-identical** — including
+`ec_gcm3`, `achieved_M`, `R_km`, `B`, `z_surf`, `compactness`, `Lnu_1e8` and `Lgamma_1e8` — and
+only the two heat-capacity-derived columns move:
+
+| Column | max &#124;rel&#124; |
+|---|---|
+| `Cstar_1e8` | `1.6983e-11` |
+| `dlnT_dt_1e8` | `1.7136e-11` |
+
+**Both are inside the predeclared `1.7e-11` bound.** The bound was correct for the physics; it
+was applied to an evolved trajectory whose step placement is not a physical observable.
+
+## 15. Implementation and evidence
+
+**Production sites changed — four, all to the same authority:**
+
+| File | Before | After |
+|---|---|---|
+| `EOS/src/CompOSE_Thermo.cpp` (`CvDensity_cgs`) | local `8.617333262e-11` | `Zaki::Physics::K_BOLTZ_EV * 1.0e-6` |
+| `EOS/src/CompOSE_Thermo.cpp` (`CvDensity_cgs_ForCooling`) | local `8.617333262e-11` | `Zaki::Physics::K_BOLTZ_EV * 1.0e-6` |
+| `Physics/Driver/Thermal/src/PhotonCooling_Details.cpp:347` | local `8.617333262145e-11` | `Zaki::Physics::K_BOLTZ_EV * 1.0e-6` |
+| `Physics/Driver/Thermal/src/NeutrinoCooling_Details.cpp:215` | local `8.617333262145e-11` | `Zaki::Physics::K_BOLTZ_EV * 1.0e-6` |
+
+No `k_B` literal and no GSL Boltzmann constant remain on any production path.
+`CompactStar/Units.hpp` deliberately does **not** own `k_B` — ZakiLib does — and its note
+records that.
+
+**Test oracles are independent of the production authority.** The three thermal conformance
+tests derive `k_B [MeV/K]` themselves in `long double` from the two SI-exact defining
+constants, and never import `Zaki::Physics::K_BOLTZ_EV`:
+
+```cpp
+static constexpr long double kKbJ_per_K_L = 1.380649e-23L;   // SI exact
+static constexpr long double kMeV_in_J_L  = 1.602176634e-13L; // SI exact
+constexpr double kB_MeV_per_K_SI = static_cast<double>(kKbJ_per_K_L / kMeV_in_J_L);
+static constexpr double kKbTolUlp = 8.0;  // fixed from representation, not from output
+```
+
+Measured production-vs-oracle agreement: **1 ULP (`1.5e-16`)**, inside the 8-ULP allowance,
+which was fixed from the floating-point representation before the comparison was run.
+
+**Artifact dependency classification (all five goldens re-emitted and compared):**
+
+| Golden | `k_B`? | Result |
+|---|---|---|
+| `tov_dscmf1_reference.tsv` | no | **byte-identical** |
+| `hartle_I_dscmf1_debug.tsv` | no | **byte-identical** |
+| `passive_cooling_cmf_1p6_debug.tsv` | yes | re-baselined |
+| `grid_convergence_cmf_1p6_debug.tsv` | yes | re-baselined |
+| `grid_convergence_cmf_1p6_trajectory.tsv` | yes | re-baselined |
+
+The two `k_B`-independent artifacts remaining byte-identical is a **falsifiable prediction that
+held**: TOV structure and the Hartle moment of inertia contain no thermal constant, so a
+genuine `k_B`-only change must leave them untouched. Had either moved, the change would have
+been touching something it should not.
+
+**Re-baseline provenance:**
+
+| Golden | old SHA-256 | new SHA-256 |
+|---|---|---|
+| `passive_cooling_cmf_1p6_debug.tsv` | `edaa5e3bc5984e2d8cf5acee6664816083ecf83415a9355582614cc3baf42d6e` | `831744b0a206541fd0e24adc67876cc1ee4d02d89a580942a9fb0c6749999453` |
+| `grid_convergence_cmf_1p6_debug.tsv` | `3be2005f8cfdae2798637e4d51674461c9f56dc36ea48d79ad9459109dcc3c88` | `61d84ddcb87645197c5406c880b648fdf3bb9b0ed8c58350800ca2f2d296ff40` |
+| `grid_convergence_cmf_1p6_trajectory.tsv` | `e04f748536d27331bbd383ce4aa11547d5a4f12f927b5df9192d36522a986194` | `ca32863dabaa28fad63d5c36b287a3b94e9b6b85f11980bf2be4e65499d9a0c6` |
+
+Changed columns, `passive_cooling_cmf_1p6_debug.tsv`: `Tinf_K` `1.679e-7`, `C_star_erg_K`
+`1.720e-7`, `L_nu_inf_erg_s` `1.007e-6`, `L_nu_DU_inf_erg_s` `1.007e-6`, `L_nu_MU_inf_erg_s`
+`1.343e-6`, `L_gamma_inf_erg_s` `4.063e-7`, `Tsurf_K` `1.016e-7`, `Tb_K` `1.679e-7`,
+`dLnTinf_dt_1_s` `6.651e-7`, `Lnu_over_Lgamma` `6.010e-7`. That `L_ν` moves at all — it is
+analytically independent of `k_B` at fixed temperature, and moved **exactly zero** in the
+fixed-state test — is itself the signature of step-placement, not of physics.
+
+Trajectory artifact: `Tinf_K` `1.679e-7`, `L_nu_inf` `1.007e-6`, `L_gamma_inf` `4.063e-7`,
+`C_star` `1.720e-7`.
+
+All changes are one to two orders of magnitude inside the `1e-5`/`1e-4` regression tolerances
+that Phase 2B derived from measurement, and those tolerances were **not** altered.
+
+## 16. Detector sensitivity is retained (the re-baseline did not blind the test)
+
+Re-baselining a golden always raises the question of whether the test still detects anything.
+It does. With the new baselines in place, an artificial `+1.0e-4` relative perturbation was
+injected into `k_B` at **all four** production sites, the library rebuilt, and the regression
+re-run:
+
+```
+The following tests FAILED:
+    10 - passive_cooling_regression (Failed)
+```
+
+The perturbation was then reverted and the revert verified **byte-identical by SHA-256** against
+the pre-perturbation copies of all three source files, the library rebuilt, and the test
+returned to `Passed`. So `passive_cooling_regression` still discriminates a `1e-4` thermal
+perturbation while accepting the `1.3e-6` step-placement shift — the detector band sits between
+the two, which is where it belongs.
+
+## 17. Validation summary
+
+| Check | Result |
+|---|---|
+| Full authenticated suite | **13/13 passed** (196.68 s) |
+| Self-contained suite | **8/8 passed** (13.39 s) |
+| Production `k_B` literals remaining | **0** |
+| GSL Boltzmann on a production path | **0** |
+| ZakiLib modified / archive rebuilt | **no / no** |
+| Production-vs-oracle agreement | **1 ULP** (allowance 8 ULP, predeclared) |
+| `k_B`-independent goldens | **byte-identical** (TOV, Hartle-I) |
+| `k_B`-dependent goldens | 3 re-baselined, hashes recorded (§15) |
+| Tests deleted or tolerances widened | **none** |
+| Predeclared `1.7e-11` bound | **left unwidened**; satisfied by every static observable |
+| Detector sensitivity after re-baseline | **retained** (§16) |
+| INV-02 headline | **unchanged** (`VERIFIED CURRENT BEHAVIOR`); note only |

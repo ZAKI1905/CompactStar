@@ -211,8 +211,14 @@ static void BuildNeutrinoCoolingCache(const CompactStar::Physics::Evolution::Sta
 	out.built_version = sc.ProfileVersion();
 }
 // -----------------------------------------------------------------------------
-// k_B in MeV/K
-constexpr double MEV_PER_K = 8.617333262145e-11;
+// k_B in MeV/K — the authoritative generic constant, owned by ZakiLib.
+// Zaki::Physics::K_BOLTZ_EV = 8.61733326214518e-5 eV/K is the SI-exact quotient
+// k_B / e = 1.380649e-23 / 1.602176634e-19 rounded to 15 significant figures; the
+// x1e-6 scaling to MeV/K lands +2 ULP from the correctly rounded exact double.
+// Phase 3C replaced two divergent local literals (8.617333262145e-11 here,
+// 8.617333262e-11 in CompOSE_Thermo) with this single authority.
+// See docs/validation/PHASE3C_BOLTZMANN_AUTHORITY.md.
+const double MEV_PER_K = Zaki::Physics::K_BOLTZ_EV * 1.0e-6;
 } // namespace
 // -----------------------------------------------------------------------------
 // namespace

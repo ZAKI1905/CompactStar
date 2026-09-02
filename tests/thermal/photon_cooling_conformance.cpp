@@ -55,7 +55,27 @@ constexpr double kR_km = 10.0;
 constexpr double kNb = 0.30;
 constexpr double kYq = 0.10;
 constexpr double kTinf_K = 1.0e8;
-constexpr double kMEV_PER_K = 8.617333262145e-11; // matches the drivers
+// ---------------------------------------------------------------------------
+//  k_B in MeV/K — derived INDEPENDENTLY from the exact SI definitions, so this
+//  oracle never asks production (or ZakiLib) what the answer is.
+//
+//      k_B  = 1.380649e-23 J/K        (exact by definition, SI 2019)
+//      1 MeV = 1.602176634e-13 J      (exact: e is defined, x 1e6)
+//
+//  Evaluated in long double before narrowing, so the quotient is rounded once.
+//  Production uses Zaki::Physics::K_BOLTZ_EV * 1e-6, which is +2 ULP from the
+//  correctly rounded MeV/K double because Zaki stores the eV/K form to 15 figures.
+//  Bit equality is therefore NOT required; kKbTolUlp below is the predeclared
+//  agreement, fixed from that known representation and not from observed output.
+// ---------------------------------------------------------------------------
+static constexpr long double kKbJ_per_K_L   = 1.380649e-23L;
+static constexpr long double kMeV_in_J_L    = 1.602176634e-13L;
+constexpr double kB_MeV_per_K_SI = static_cast<double>(kKbJ_per_K_L / kMeV_in_J_L);
+/// Predeclared: production may differ from the directly rounded SI double by a few ULP
+/// because it scales an eV/K representation. 8 ULP is ~1e-16 relative — four orders
+/// tighter than any scientific tolerance in this file.
+static constexpr double kKbTolUlp = 8.0;
+constexpr double kMEV_PER_K = kB_MeV_per_K_SI;
 constexpr double kOldPlaceholder = 1.0e40;		  // the rejected PhotonCooling C_eff
 
 static int g_fail = 0;

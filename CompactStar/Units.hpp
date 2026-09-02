@@ -21,9 +21,11 @@
  * literals, no conversion functions, no runtime state.
  *
  * Explicitly NOT owned here, each for a stated reason:
- *   - k_B (MeV/K). Production currently carries TWO precisions — `8.617333262145e-11` in the
- *     thermal drivers and `8.617333262e-11` in `CompOSE_Thermo`. Unifying them changes numbers
- *     and is roadmap increment 3C, not 3A.
+ *   - k_B (MeV/K). RESOLVED in roadmap increment 3C, and deliberately NOT owned here: it is a
+ *     fundamental constant, so its authority is the reusable library. All four production
+ *     consumers now use `Zaki::Physics::K_BOLTZ_EV * 1.0e-6`. (Before 3C they carried two
+ *     divergent literals, `8.617333262145e-11` in the thermal drivers and `8.617333262e-11`
+ *     in `CompOSE_Thermo`.) See docs/validation/PHASE3C_BOLTZMANN_AUTHORITY.md.
  *   - The solar-mass conversions (`Zaki::Physics::SUN_M_KM` vs `GSL_CONST_CGSM_SOLAR_MASS`).
  *     These disagree at ~6.2e-5 and choosing one is a scientific/unit authority decision
  *     requiring owner or ADR adjudication — explicitly deferred out of Phase 3.

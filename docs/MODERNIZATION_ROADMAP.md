@@ -349,9 +349,14 @@ tolerance.
   owner, `CompactStar/Units.hpp` — a dependency-free header that adds no edge to the layer
   graph. **Bit-identical**: 352 lines of deterministic scientific output unchanged, all five
   golden artifact hashes unchanged, 13/13 and 8/8 green. Evidence:
-  `docs/validation/PHASE3A_UNIT_DUPLICATES.md`. **Still outstanding:** **k_B at two precisions**
-  (`8.617333262145e-11` vs `8.617333262e-11`) is increment **3C** — unifying it changes numbers
-  and needs a predeclared tolerance; and the **solar-mass authority** conflict (`SUN_M_KM` vs
+  `docs/validation/PHASE3A_UNIT_DUPLICATES.md`. **k_B — ✅ RESOLVED in 3C.** The two local
+  precisions (`8.617333262145e-11`, `8.617333262e-11`) are gone; all four production consumers
+  now read the authoritative `Zaki::Physics::K_BOLTZ_EV * 1.0e-6`, and no GSL Boltzmann constant
+  remains on a production path. ZakiLib was **not** modified and the archive was **not** rebuilt —
+  it already owned the constant and CompactStar already linked the symbol. Fixed-state response
+  is the analytic `1.68e-11`; the TOV and Hartle-I goldens stayed **byte-identical** as predicted,
+  and only the three thermal artifacts were re-baselined. Evidence:
+  `docs/validation/PHASE3C_BOLTZMANN_AUTHORITY.md`. **Still outstanding:** the **solar-mass authority** conflict (`SUN_M_KM` vs
   `GSL_CONST_CGSM_SOLAR_MASS`, differing at `6.2e-5`) remains a scientific/unit authority
   question **deferred out of Phase 3** pending owner or ADR adjudication.
 - Single owner for the proper-volume measure (INV-04).

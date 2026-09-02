@@ -27,6 +27,7 @@
 #include "CompactStar/Physics/Driver/Thermal/Boundary/SurfaceGravity.hpp"
 #include "CompactStar/Physics/Driver/Thermal/Boundary/TbDefinition.hpp"
 
+#include <Zaki/Physics/Constants.hpp>
 #include <cmath>
 #include <string>
 
@@ -344,7 +345,14 @@ PhotonCooling_Details ComputeDerived(const PhotonCooling &drv,
 
 	// Same K -> MeV convention as NeutrinoCooling_Details.cpp (INV-02 records the
 	// duplicated-constant debt; consolidating it is separate, later work).
-	constexpr double MEV_PER_K = 8.617333262145e-11;
+	// k_B in MeV/K — the authoritative generic constant, owned by ZakiLib.
+	// Zaki::Physics::K_BOLTZ_EV = 8.61733326214518e-5 eV/K is the SI-exact quotient
+	// k_B / e = 1.380649e-23 / 1.602176634e-19 rounded to 15 significant figures; the
+	// x1e-6 scaling to MeV/K lands +2 ULP from the correctly rounded exact double.
+	// Phase 3C replaced two divergent local literals (8.617333262145e-11 here,
+	// 8.617333262e-11 in CompOSE_Thermo) with this single authority.
+	// See docs/validation/PHASE3C_BOLTZMANN_AUTHORITY.md.
+	const double MEV_PER_K = Zaki::Physics::K_BOLTZ_EV * 1.0e-6;
 	const double Tinf_MeV = d.Tinf_K * MEV_PER_K;
 	if (!(Tinf_MeV > 0.0) || !std::isfinite(Tinf_MeV))
 	{
