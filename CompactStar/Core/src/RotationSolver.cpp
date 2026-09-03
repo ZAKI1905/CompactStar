@@ -1257,6 +1257,7 @@ void RotationSolver::FindNMomInertia()
 		try
 		{
 			const auto b = rot->monopole_bg_.At(r);
+			const double b_slope = rot->monopole_bg_.eps_slope; // ADR-0008 Q3, this segment only
 
 			const double mhat = y[0];
 			const double phat = y[1];
@@ -1272,7 +1273,44 @@ void RotationSolver::FindNMomInertia()
 			const double r3 = r2 * r;
 			const double r4 = r3 * r;
 
-			f[0] = 4.0 * M_PI * r2 * eps_p * b.dedp * phat			 // term 1
+			// ---- term 1: the EOS energy-density MEASURE (ADR-0008 Q1/Q3) ----------------
+			// Hartle's l = 0 field equation (H67 eq. 93) carries the matter source as
+			// -8 pi xi dE/dR, i.e. the Lebesgue-Stieltjes measure
+			//
+			//     dm0_hat|_EOS = -4 pi r^2 xi0_hat d(eps) ,      xi0_hat = p0*_hat / nu' .
+			//
+			// His eq. (97) rewrites it as 4 pi r^2 (E+P)(dE/dP) p0* through (88) and the TOV
+			// relation -- an identity only where eps is differentiable AND the background
+			// satisfies dp/dr = -(eps+p) nu' pointwise. On a tabulated background neither holds
+			// inside a feature narrower than the node spacing, and a nodal dE/dP column loses
+			// whatever energy-density variation falls between its samples: that is the defect
+			// Phase 4D measured (PHASE4D_MONOPOLE_VALIDATION.md section 14) and ADR-0008
+			// corrects. Within one governed segment the measure density is the segment secant
+			// installed in `eps_slope`, so the segment's TOTAL contribution is exactly its
+			// Delta eps. `dedp` is NOT read here (ADR-0008 Q8: it remains the centre-series
+			// authority only) and there is exactly one active EOS mass source.
+			double term1 = 0.0;
+			if (b_slope != 0.0)
+			{
+				// xi0_hat = p0*_hat/nu'. Both vanish at the centre (p0* ~ r^2, nu' ~ r), so the
+				// ratio is finite there; where the division is ill-conditioned the SAME
+				// regular-centre limit the derived xi0 column uses is applied, never an
+				// epsilon regularization and never a fabricated zero (ADR-0008 §11 of the
+				// implementation record; PHASE4C_HARTLE2_DERIVATION.md 9.2).
+				double xi = phat / b.nup;
+				if (!std::isfinite(xi))
+				{
+					const double denom = 4.0 * M_PI * (b.e + 3.0 * b.p);
+					if (!(denom != 0.0) || !std::isfinite(rot->monopole_bg_.centre_xi_num))
+						return GSL_EBADFUNC; // fail closed
+					xi = rot->monopole_bg_.centre_xi_num * r / denom;
+					if (!std::isfinite(xi))
+						return GSL_EBADFUNC;
+				}
+				term1 = -4.0 * M_PI * r2 * xi * b_slope;
+			}
+
+			f[0] = term1											 // term 1 (ADR-0008 measure)
 				   + (1.0 / 12.0) * r4 * e_m2nu * D * b.sp * b.sp	 // term 2
 				   + (8.0 * M_PI / 3.0) * r4 * eps_p * e_m2nu * b.s * b.s; // term 3
 
@@ -1379,6 +1417,24 @@ void RotationSolver::FindNMomInertia()
 			return false;
 		}
 
+		// ADR-0008 Q3: the governed measure is carried by the profile partition itself, so the
+		// partition must be a partition: strictly increasing radii and finite energy-density
+		// increments. A non-monotone or non-finite node makes the segment measure meaningless,
+		// and the contract fails closed rather than integrating something else.
+		for (std::size_t i = 0; i + 1 < n; ++i)
+		{
+			const int ii = static_cast<int>(i);
+			const double dr = R->operator[](ii + 1) - R->operator[](ii);
+			const double de = (*E)[ii + 1] - (*E)[ii];
+			if (!(dr > 0.0) || !std::isfinite(dr) || !std::isfinite(de))
+			{
+				Z_LOG_ERROR("ComputeMonopoleResponse: the radial partition is not strictly "
+							"increasing, or carries a non-finite energy-density increment, so "
+							"the governed EOS measure (ADR-0008 Q3) is undefined.");
+				return false;
+			}
+		}
+
 		monopole_bg_.r = R;
 		monopole_bg_.p = P;
 		monopole_bg_.e = E;
@@ -1389,6 +1445,8 @@ void RotationSolver::FindNMomInertia()
 		monopole_bg_.s = &first_order_response_.omega_bar_over_Omega;
 		monopole_bg_.sp = &first_order_response_.domega_bar_over_Omega_dr;
 		monopole_bg_.k = 0;
+		monopole_bg_.eps_slope = 0.0;	 // installed per segment below (ADR-0008 Q3)
+		monopole_bg_.centre_xi_num = 0.0; // set by the centre initialization
 
 		if (!monopole_bg_.Complete())
 		{
@@ -1417,8 +1475,12 @@ void RotationSolver::FindNMomInertia()
 			s_c = b0.s;
 
 			phat0 = (1.0 / 3.0) * j2_c * s_c * s_c * r0 * r0;
+			// ADR-0008 Q8: the regular-centre series keeps the POINTWISE EOS derivative of the
+			// 4C-I0 authority. It is a local, well-resolved property of the central state, not
+			// an integrated measure, and the measure contract does not touch it.
 			mhat0 = (4.0 * M_PI / 15.0) * (b0.e + b0.p) * (b0.dedp + 2.0) * j2_c * s_c * s_c *
 					std::pow(r0, 5);
+			monopole_bg_.centre_xi_num = j2_c * s_c * s_c;
 		}
 		catch (const std::exception &ex)
 		{
@@ -1449,17 +1511,32 @@ void RotationSolver::FindNMomInertia()
 		double y[2] = {mhat0, phat0};
 		bool ok = true;
 
+		// ADR-0008 Q3: profile-node boundaries are MANDATORY integration boundaries. The driver
+		// advances exactly one governed segment per call, and that segment's own energy-density
+		// measure density is installed before the call, so no step -- and no adaptive substep,
+		// since `gsl_odeiv2_driver_apply` integrates to its target and never past it -- can
+		// carry one segment's Delta eps into another. This is what removes the node-placement
+		// sensitivity the nodal-derivative source had.
 		for (std::size_t i = 0; i < n; ++i)
 		{
-			if (GSL_SUCCESS !=
-				gsl_odeiv2_driver_apply(driver, &r, R->operator[](static_cast<int>(i)), y))
+			const int ii = static_cast<int>(i);
+			// Segment ending at node i; node 0 is the start of the integration (no advance on a
+			// governed profile), and takes the first segment's measure for the degenerate case
+			// where the start radius had to be raised off a non-positive first node.
+			const int lo = (i == 0) ? 0 : ii - 1;
+			const int hi = (i == 0) ? 1 : ii;
+			monopole_bg_.eps_slope =
+				((*E)[hi] - (*E)[lo]) / (R->operator[](hi) - R->operator[](lo));
+
+			if (GSL_SUCCESS != gsl_odeiv2_driver_apply(driver, &r, R->operator[](ii), y))
 			{
 				ok = false;
 				break;
 			}
-			mhat_col[static_cast<int>(i)] = y[0];
-			phat_col[static_cast<int>(i)] = y[1];
+			mhat_col[ii] = y[0];
+			phat_col[ii] = y[1];
 		}
+		monopole_bg_.eps_slope = 0.0;
 
 		gsl_odeiv2_driver_free(driver);
 		++monopole_solve_count_;
@@ -1511,10 +1588,16 @@ void RotationSolver::FindNMomInertia()
 		const double xi_star = xi_col[last];
 		const double I_first = first_order_response_.I;
 
-		// The surface mass shell: the (eps+p)(deps/dp) p0* term of dm0/dr carries a delta
-		// function where the density is discontinuous at the surface. Negligible on an
-		// EOS-floor star, DOMINANT on a constant-density one -- so it is computed, never
-		// assumed small (ADR-0007 P6).
+		// The surface mass shell is the TERMINAL ATOM of the same energy-density measure
+		// (ADR-0008 Q7): the interior measure runs over [r0, R_*) segment by segment above, and
+		// the remaining jump eps_* -> 0 at R_* is applied here exactly ONCE,
+		//
+		//     Delta m0_hat|_{R_*} = 4 pi R_*^2 (eps_* - 0) xi0_hat(R_*) ,
+		//
+		// the same jump operator a declared internal discontinuity would use. It is never also
+		// folded into the last interior segment, whose measure is eps[n-1] - eps[n-2]. It is
+		// negligible on an EOS-floor star and DOMINANT on a constant-density one -- so it is
+		// computed, never assumed small (ADR-0007 P6).
 		const double shell_hat = 4.0 * M_PI * R_star * R_star * eps_star * xi_star;
 
 		// delta_M = m0(R_*) + shell + J^2/R_*^3, with J/Omega = I from the VERIFIED

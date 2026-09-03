@@ -145,6 +145,11 @@ struct MHOptions
 	double atol = 1e-16;
 	double h_init = 1e-6;
 	double I_exterior = 0.0;   ///< the I to use in I^2/R^3 (independent or production, caller's choice)
+	/// ADR-0008 (ACCEPTED 2026-09-03): evaluate the EOS energy-density contribution to dm0/dr as
+	/// the MEASURE -4 pi r^2 xi0_hat d(eps), one profile segment at a time, instead of the
+	/// pointwise 4 pi r^2 (eps+p)(deps/dp) p0* rewrite. false keeps the ADR-0007 differential
+	/// form, which is what a smooth-EOS equivalence check compares against.
+	bool eos_measure = false;
 	const gsl_odeiv2_step_type *step = gsl_odeiv2_step_rk8pd; ///< admissibility sweeps may vary this
 };
 
@@ -167,6 +172,8 @@ struct Params
 	const Background2 *bg;
 	bool sources;
 	double gammahat;
+	bool measure = false;	 ///< ADR-0008 source form
+	double eps_slope = 0.0;	 ///< d(eps)/dr of the segment the driver is inside [km^-3]
 };
 
 /// y[0] = mhat, y[1] = hhat.
@@ -187,8 +194,24 @@ inline int RHS(double r, const double y[], double f[], void *pv)
 	// H67 (90): p0* from the first integral
 	const double phat = P->gammahat - y[1] + (1.0 / 3.0) * r2 * e2 * s * s;
 
-	// H67 (97)
-	f[0] = 4.0 * M_PI * r2 * ep * b.dedp * phat + (1.0 / 12.0) * r4 * e2 * D * sp * sp +
+	// H67 (97). The EOS term is either Hartle's smooth rewrite (ADR-0007 P2) or the measure
+	// -4 pi r^2 xi0_hat d(eps) of his eq. (93) on the current segment (ADR-0008 Q1/Q3).
+	double term1;
+	if (P->measure)
+	{
+		term1 = 0.0;
+		if (P->eps_slope != 0.0)
+		{
+			const double xi = phat / b.nup;
+			if (!std::isfinite(xi))
+				return GSL_EBADFUNC;
+			term1 = -4.0 * M_PI * r2 * xi * P->eps_slope;
+		}
+	}
+	else
+		term1 = 4.0 * M_PI * r2 * ep * b.dedp * phat;
+
+	f[0] = term1 + (1.0 / 12.0) * r4 * e2 * D * sp * sp +
 		   (8.0 * M_PI / 3.0) * r4 * ep * e2 * s * s;
 
 	// H67 (98)
@@ -245,7 +268,9 @@ inline MHResult Solve(const Background2 &bg, const MHOptions &opt)
 	const double s0 = opt.sources_on ? b0.s : 0.0;
 	const double gammahat = phat0 - (1.0 / 3.0) * r0 * r0 * e2_0 * s0 * s0;
 
-	detail::Params P{&bg, opt.sources_on, gammahat};
+	detail::Params P{&bg, opt.sources_on, gammahat, opt.eos_measure, 0.0};
+	if (opt.eos_measure && n > 1)
+		P.eps_slope = (bg.eps[1] - bg.eps[0]) / (bg.r[1] - bg.r[0]);
 
 	// mhat(r0) from the leading power of its own RHS.
 	double y[2] = {0.0, 0.0};
@@ -274,6 +299,10 @@ inline MHResult Solve(const Background2 &bg, const MHOptions &opt)
 	for (std::size_t i = 0; i < n; ++i)
 	{
 		const double rt = bg.r[i];
+		// ADR-0008 Q3: one governed segment per driver call, with that segment's own measure
+		// density installed first. Node boundaries are hard integration boundaries.
+		if (opt.eos_measure && i > 0)
+			P.eps_slope = (bg.eps[i] - bg.eps[i - 1]) / (bg.r[i] - bg.r[i - 1]);
 		if (rt > r0)
 		{
 			if (gsl_odeiv2_driver_apply(d, &r, rt, y) != GSL_SUCCESS)

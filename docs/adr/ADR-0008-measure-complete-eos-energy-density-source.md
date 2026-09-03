@@ -218,6 +218,40 @@ independent revalidation of §Validation.
 Only after A–J: `tests/baselines/hartle_monopole_dscmf1_debug.tsv` with a same-build repeatability
 tolerance, per `GOVERNANCE.md` §3.1 condition 7.
 
+## Implementation record — Phase 4D-RI (2026-09-03)
+
+The correction is **implemented**; evidence: `docs/validation/PHASE4D_RI_EOS_MEASURE_IMPLEMENTATION.md`.
+Acceptance (`cc4bec4`) preceded every production edit.
+
+| Clause | As implemented |
+|---|---|
+| Q1/Q3 source | `RotationSolver::ODE_HartleMonopole_` term 1 is `-4 pi r^2 xi0_hat * eps_slope` with `eps_slope = (eps_{i+1}-eps_i)/(r_{i+1}-r_i)` of the segment the driver is inside; `dedp` is no longer read by the right-hand side, so there is exactly one active EOS mass source |
+| Q3 boundaries | `ComputeMonopoleResponse()` advances one governed segment per `gsl_odeiv2_driver_apply`, installing that segment's measure density first; the partition is validated (strictly increasing `r`, finite `Delta eps`) and fails closed otherwise |
+| Q4 | no threshold of any kind exists in the implementation |
+| Q5/Q6 | no internal atom runs and no detector exists — the current EOS layer declares none; the per-segment structure admits one at a boundary without touching the equation |
+| Q7 | interior measure over `[r0, R_*)`; the terminal `eps_* -> 0` atom applied once, still published as `surface_shell_mass_over_Omega2`; verified to telescope correctly (`M4c`) |
+| Q8 | the regular-centre series still consumes `(deps/dp)_c`; absence still fails closed (`M6`) |
+| Q9 | provenance untouched; `(source_profile, source_version)` still guards the cache |
+| Q10 | point-constructed constant-density stars: interior measure exactly `0`, output **bitwise unchanged** |
+| Q2 | the optional EOS-knot snapshot was **not** added: the profile partition meets the accepted contract (same-partition accounting `1.4e-7 ... 3.8e-7`) |
+
+Measured: constant-density star unchanged (`deltaM_hat = 1.4674047059e+03`, EOS channel exactly
+`0`); smooth HT68 Harrison-Wheeler EOS agrees with the superseded differential form on `deltaM_hat`
+to `5.5e-6 / 1.25e-5 / 1.15e-5` (bound `2e-5`); per-segment measure identity `~4e-13` of the total
+EOS integral; same-partition accounting vs production `<= 3.8e-7` (Validation C, `1e-6`); DS(CMF)-1
+`deltaM_hat` moves `+6.5 / +5.4 / +4.8 / +3.2 %` at 1.0/1.4/1.6/2.0 Msun, in the predicted
+direction and size; EOS-derivative sensitivity now exactly `0.0` (Validation E); radial spread of
+`deltaM_hat` `3.7e-5` (Validation D's spread half, `1e-4`) though **its monotonicity half is NOT
+met** — the residual is the TOV background's own resolution dependence and is deferred to the
+revalidation increment. Detectors D1-D4 all fire and were reverted byte-identically. Seven durable
+artifacts and `I` unchanged.
+
+> **Status: `CORRECTION IMPLEMENTED — INDEPENDENT REVALIDATION REQUIRED — NO MONOPOLE BASELINE`.**
+> The independent `(m0,h0)` and continuum revalidation of §Validation was deliberately not
+> repeated here. No baseline exists or may be created before it succeeds.
+
+---
+
 ## Provenance
 
 Drafted by the AI agent (Phase 4D-RG, 2026-09-03) from the primary source re-read

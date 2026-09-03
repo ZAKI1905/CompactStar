@@ -404,7 +404,7 @@ conformance to the `MixedStar` track. And **nothing at O(Ω²) is normalized** �
 
 ---
 
-## INV-08 — Hartle perturbative order — **GOVERNED (ADR-0007 ACCEPTED) — O(Ω²) MONOPOLE SOURCE CONFORMED; IMPLEMENTATION INDEPENDENTLY VERIFIED; PHYSICAL VALIDATION FAILED ON TABULATED CRUSTS WITH DENSITY STEPS (`δM̂` ≈ −4.6 % ON DS(CMF)-1) — ADR-0007 AMENDMENT REQUIRED**
+## INV-08 — Hartle perturbative order — **GOVERNED (ADR-0007 + ADR-0008 ACCEPTED) — MEASURE-COMPLETE O(Ω²) MONOPOLE SOURCE CONFORMED; INDEPENDENT REVALIDATION REQUIRED**
 
 **Statement.** First order O(Ω) supplies frame dragging and I. Second order O(Ω²) supplies the
 monopole structural perturbations `(m₀, p₀)` with isobar displacement `ξ₀ = −p₀/(dp/dr)`,
@@ -592,7 +592,26 @@ scratch the measure form on the profile's own `ε` nodes converges DS(CMF)-1's `
 res 5000–40000 (today: 1.6 % erratic), sits at the sequence-derivative oracle's floor (`≈ 7e-5`), and
 reduces exactly to today's result on smooth or constant-density stars; the internal jump operator is
 certified to `2e-10…4e-9` on an exact two-layer star. Evidence: `docs/validation/PHASE4D_R_EOS_MEASURE_DERIVATION.md`.
-**Status unchanged until the owner adjudicates ADR-0008 and the correction is implemented and re-validated.**
+**Phase 4D-RI (2026-09-03).** ADR-0008 was **ACCEPTED** (Q1–Q12) and its correction **implemented**:
+the EOS energy-density contribution to `dm₀/dr` is now the measure `−4πr²ξ̂₀ dε`, integrated one
+governed profile segment at a time with the profile nodes as mandatory integration boundaries, and
+the surface shell is the terminal `ε_* → 0` atom of that same measure. `dε/dp` is retained for the
+regular-centre series and diagnostics and is no longer the radial mass source. Measured: the
+constant-density analytic star is **bitwise unchanged** (its interior measure is identically zero);
+the smooth HT68 EOS agrees with the superseded differential form on `δM̂` to `≤ 1.3e-5`; the
+same-partition source accounting reproduces production to `≤ 3.8e-7`; DS(CMF)-1 `δM̂` moves
+`+6.5 / +5.4 / +4.8 / +3.2 %` at 1.0/1.4/1.6/2.0 M☉ — the direction and size ADR-0008 predicted —
+and its radial spread falls from `1.6 %` to `3.7e-5`; the retired-FD substitution now moves `δM̂` by
+exactly `0.0`. Detectors D1–D4 fire and revert byte-identically. Evidence: `docs/validation/PHASE4D_RI_EOS_MEASURE_IMPLEMENTATION.md`.
+
+**Status.** **GOVERNED (ADR-0007 + ADR-0008 ACCEPTED) — MEASURE-COMPLETE O(Ω²) MONOPOLE SOURCE CONFORMED; INDEPENDENT REVALIDATION REQUIRED**. The
+implementation conforms to the amended contract; **the corrected independent revalidation — the
+`(m₀,h₀)` and continuum oracles, the homogeneous sequence campaign, the published comparisons and
+M1–M10 in full — has NOT been repeated**, so no O(Ω²) number here is validated physics, none may be
+cited as a result, and **no monopole baseline exists or may be created** (ADR-0008 Q12).
+`GOVERNANCE.md` §3.1: **CORRECTION IMPLEMENTED — INDEPENDENT REVALIDATION REQUIRED — NO BASELINE
+YET.** ADR-0008 Validation D's monotonicity half is recorded as **not met** (the residual is the TOV
+background's own resolution dependence). The `l = 2` sector remains out of scope, not verified.
 
 ---
 
@@ -639,7 +658,10 @@ was exercised test-side: exact (`3e-9`) on the analytic star, `1.04e-3` on DS(CM
 predeclared `1e-3` because the tabulated crust's density steps are not represented by the nodal
 `dε/dp` column — an omission worth ≈ `4.6 %` of the sourced `δM̂`. That is precisely the `B_i`-side
 machinery this invariant will need (`δN_i` integrals over displaced layers carry the same internal
-steps), so Phase 5 inherits the defect until ADR-0007 is amended. **This invariant is not resolved.**
+steps). *Phase 4D-RI (2026-09-03):* ADR-0008 is ACCEPTED and the `A_i`-side source is corrected, so
+the fixed-`ε_c` fields Phase 5 will consume are measure-complete; the baryon-conserving reduction
+(`B_i`, `A_B/B_B`, `Z_i`), `dn_i/dp` and its own measure completeness (ADR-0008 Q11) remain
+unimplemented. **This invariant is not resolved.**
 *Phase 4D-RG (2026-09-03):* `docs/adr/ADR-0008-measure-complete-eos-energy-density-source.md` (PROPOSED) Q11 requires the scalar particle-number response to be
 **measure-complete** — `δN̂_i` carries `−4πr²e^{λ}ξ̂₀ dn_i` with atoms at composition discontinuities; a nodal
 `dn_i/dp` column is forbidden as the integrator's source. The `B_i` side inherits the same rule.
@@ -975,7 +997,7 @@ conversion, under the in-code comment *"Convert fractions to number densities in
 
 | Status | Entries |
 |---|---|
-| **GOVERNED (ACCEPTED)** | **INV-01** — ADR-0001, accepted 2026-08-31 · **INV-15** — ADR-0002, accepted 2026-08-31 · **INV-07** — ADR-0006, accepted 2026-09-02, **first-order source conformed and physical response independently verified 2026-09-02** · **INV-08** — ADR-0007, accepted 2026-09-02, **O(Ω²) monopole source conformed 2026-09-03 and implementation independently verified by Phase 4D (2026-09-03); **physical validation FAILED on tabulated crusts with density steps — `δM̂` ≈ −4.6 % on DS(CMF)-1**, ADR-0007 amendment required; no baseline** |
+| **GOVERNED (ACCEPTED)** | **INV-01** — ADR-0001, accepted 2026-08-31 · **INV-15** — ADR-0002, accepted 2026-08-31 · **INV-07** — ADR-0006, accepted 2026-09-02, **first-order source conformed and physical response independently verified 2026-09-02** · **INV-08** — ADR-0007, accepted 2026-09-02, **O(Ω²) monopole source conformed 2026-09-03; Phase 4D verified the implementation and FAILED the physics on tabulated crusts with density steps; **ADR-0008 ACCEPTED and the measure-complete source implemented 2026-09-03 (Phase 4D-RI)** — independent revalidation required, no baseline** |
 | VERIFIED CURRENT BEHAVIOR | INV-02, 03, 04, 05, 06, 10, 12, 13, 14, 16 |
 | INTENDED BUT UNVERIFIED | INV-09 |
 | **UNRESOLVED (fail-closed)** | **INV-11** — and sub-items of INV-06, INV-16 |

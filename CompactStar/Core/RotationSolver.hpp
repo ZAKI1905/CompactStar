@@ -266,9 +266,18 @@ struct PhysicalHartleMonopole
 /// and no free constant. The regular homogeneous solution — the non-rotating sequence
 /// derivative — is deliberately **not** exposed (ADR-0007 P11 as modified at acceptance).
 ///
-/// **Not yet independently validated.** ADR-0007 fixes the contract and this is its conforming
-/// implementation, but the scientific verification is Phase 4D. Until then no number here is
-/// validated physics and no baseline of it may be created (INV-08).
+/// **EOS source (ADR-0008, ACCEPTED 2026-09-03).** The energy-density contribution to `m0` is
+/// the measure `-4 pi r^2 xi0_hat d(eps)` of Hartle's eq. (93), integrated one governed profile
+/// segment at a time, with the surface shell the terminal `eps_* -> 0` atom of that same
+/// measure. The nodal `d(eps)/dp` column is retained for the regular-centre series and for
+/// diagnostics, and is no longer the radial mass source: it cannot represent energy-density
+/// variation narrower than the profile spacing, which is why Phase 4D's validation failed
+/// (`docs/validation/PHASE4D_MONOPOLE_VALIDATION.md`).
+///
+/// **Not yet independently validated.** ADR-0007 (as amended by ADR-0008) fixes the contract and
+/// this is its conforming implementation; the corrected independent revalidation is still
+/// outstanding. No number here is validated physics and no baseline of it may be created
+/// (INV-08).
 struct HartleMonopoleResponse
 {
 	/// m0(r)/Omega_geom^2 [km^3].
@@ -518,11 +527,28 @@ class RotationSolver : public Prog
 		const Zaki::Vector::DataColumn *m = nullptr;	///< [km]
 		const Zaki::Vector::DataColumn *nu = nullptr;	///< dimensionless
 		const Zaki::Vector::DataColumn *nup = nullptr;	///< [km^-1]
-		const Zaki::Vector::DataColumn *dedp = nullptr; ///< dimensionless (ADR-0007 P5)
+		const Zaki::Vector::DataColumn *dedp = nullptr; ///< dimensionless (ADR-0007 P5); since
+														///< ADR-0008 Q8 this is consumed ONLY by
+														///< the regular-centre series, never as
+														///< the radial mass source
 		const Zaki::Vector::DataColumn *s = nullptr;	///< omega_bar/Omega, dimensionless
 		const Zaki::Vector::DataColumn *sp = nullptr;	///< [d omega_bar/dr]/Omega, [km^-1]
 
 		mutable std::size_t k = 0; ///< shared cached bracket index
+
+		/// ADR-0008 Q3 — the energy-density MEASURE density of the profile segment the driver
+		/// is currently inside: `d(eps)/dr|_segment = (eps_{i+1} - eps_i)/(r_{i+1} - r_i)`
+		/// [km^-3]. Piecewise constant by construction, so the segment's total contribution is
+		/// exactly `Delta eps_i` whatever the EOS does between the two nodes. Installed by
+		/// `ComputeMonopoleResponse()` before each one-segment `gsl_odeiv2_driver_apply`; it is
+		/// deliberately NOT interpolated and NOT reconstructed from `dedp * dp/dr`.
+		double eps_slope = 0.0;
+
+		/// ADR-0007 P4 regular-centre limit numerator `j_c^2 s_c^2` for
+		/// `xi0_hat -> j_c^2 s_c^2 r / [4 pi (eps + 3 p)]`, used by the right-hand side on the
+		/// same terms as the derived `xi0` column when `p0*/nu'` is ill-conditioned. Zero until
+		/// the centre initialization has run.
+		double centre_xi_num = 0.0;
 
 		struct Sample
 		{
@@ -649,8 +675,10 @@ class RotationSolver : public Prog
 	/// Recomputes when the cached response is absent or stale (source profile changed or its
 	/// `Version()` moved); reuses it otherwise. Fails closed — leaving no partial response —
 	/// if the profile is incomplete, the first-order response is unusable, the profile carries
-	/// no authoritative `d(eps)/dp` (ADR-0007 P5), the integration fails, or any published
-	/// value would be non-finite.
+	/// no authoritative `d(eps)/dp` (ADR-0007 P5 — still required for the regular-centre
+	/// series, ADR-0008 Q8), the radial partition is not strictly increasing or carries a
+	/// non-finite energy-density increment (ADR-0008 Q3), the integration fails, or any
+	/// published value would be non-finite.
 	///
 	/// @return true if a valid, current response is available afterwards.
 	bool ComputeMonopoleResponse();
@@ -677,8 +705,14 @@ class RotationSolver : public Prog
 	static int ODE_Mixed_Fast(double r, const double y[], double f[], void *params);
 	static int ODE_N_Fast(double r, const double y[], double f[], void *params);
 
-	/// The governed O(Omega^2) monopole right-hand side (ADR-0007 P2), in the normalized
-	/// variables `y[0] = m0/Omega^2 [km^3]`, `y[1] = p0*/Omega^2 [km^2]`.
+	/// The governed O(Omega^2) monopole right-hand side (ADR-0007 P2 as amended by ADR-0008),
+	/// in the normalized variables `y[0] = m0/Omega^2 [km^3]`, `y[1] = p0*/Omega^2 [km^2]`.
+	///
+	/// The EOS energy-density contribution to `dm0/dr` is the **measure**
+	/// `-4 pi r^2 xi0_hat d(eps)` (H67 eq. 93; ADR-0008 Q1/Q3), evaluated inside one governed
+	/// profile segment at a time through `MonopoleBackground_::eps_slope`. It is **not** the
+	/// pointwise `4 pi r^2 (eps+p)(deps/dp) p0*` rewrite, which cannot represent
+	/// energy-density variation narrower than the profile spacing.
 	static int ODE_HartleMonopole_(double r, const double y[], double f[], void *params);
 
 	// Resets the containers

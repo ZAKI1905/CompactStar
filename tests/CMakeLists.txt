@@ -74,6 +74,18 @@ add_test(NAME hartle_monopole_physics_analytic COMMAND hartle_monopole_physics_a
 set_tests_properties(hartle_monopole_physics_analytic PROPERTIES
     LABELS "rotation;hartle;monopole;scientific;reference")
 
+# Phase 4D-RI implementation contract of the MEASURE-COMPLETE EOS energy-density source
+# (ADR-0008, ACCEPTED 2026-09-03): constant-density interior measure identically zero, smooth-EOS
+# equivalence with the superseded differential form, per-segment measure identity and
+# same-partition source accounting, terminal surface atom applied exactly once. Self-contained.
+add_executable(hartle_monopole_measure_contract rotation/hartle_monopole_measure_contract.cpp)
+target_include_directories(hartle_monopole_measure_contract PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+target_link_libraries(hartle_monopole_measure_contract PRIVATE CompactStar)
+add_test(NAME hartle_monopole_measure_contract COMMAND hartle_monopole_measure_contract)
+set_tests_properties(hartle_monopole_measure_contract PROPERTIES
+    LABELS "rotation;hartle;monopole;contract;measure"
+    TIMEOUT 900)
+
 # Phase 4D Experiment K: the governed O(Omega^2) monopole response against PUBLISHED
 # second-order results — Chandrasekhar & Miller 1974 Table I (homogeneous stars, analytic
 # background) and Hartle & Thorne 1968 Tables 3/5 on the printed Harrison-Wheeler EOS

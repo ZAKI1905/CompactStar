@@ -16,6 +16,15 @@
  * chains: SECOND-ORDER-ISOLATED (production's Phase-4B-verified s, s') and FULLY INDEPENDENT
  * (hartle_reference.hpp's own first order on the same tabulated background).
  *
+ * PHASE 4D-RI (2026-09-03): ADR-0008 was ACCEPTED and the EOS energy-density source of both
+ * production and this oracle is now the measure -4 pi r^2 xi0_hat d(eps) evaluated one profile
+ * segment at a time (MHOptions::eos_measure). The (m0,h0) formulation, its own interpolation,
+ * centre start and tolerances are unchanged, so the comparison stays a genuine cross-check of a
+ * different variable pair; the SUPERSEDED differential form is still run and REPORTED beside it,
+ * and its disagreement is the size of the sub-node energy-density variation the nodal deps/dp
+ * column cannot represent. The corrected independent revalidation is a separate increment: no
+ * bound here is widened and no result here is a validation claim.
+ *
  * ============================ PREDECLARED BOUNDS ============================
  *   G  full profile, production vs (m0,h0) reference, per star   rel <= 1e-4   (ADR-0007 §7-4)
  *   F  near-vacuum identity. No profile node lies beyond R_*, so the vacuum statement
@@ -25,6 +34,8 @@
  *      (A first run defined the window as (eps+p) r^2 < 1e-6, which also admits the
  *       central nodes where I^2/r^3 is ~1e19 — a test defect, corrected and recorded.)
  *   I  EOS-derivative sensitivity                                         REPORTED  (§7-10)
+ *      Since ADR-0008 the profile deps/dp no longer enters the radial mass source at all, so
+ *      this substitution now probes only the regular-centre series coefficient b_5.
  *      The ADR spread bound (1e-3) applies to an INDEPENDENT derivative source. None is
  *      available (c_s^2: CONDITIONAL CHECK UNAVAILABLE); the retired profile FD is a
  *      diagnostic only. A first run asserted the bound against the FD and measured 5.0e-2;
@@ -44,6 +55,9 @@
  *      Phase 4D and deliberately not repaired here (ADR-0007 amendment required).
  *      Chronology: a first run computed only the eps_c form at 10000; 20000 was added, then the
  *      p_c form and the inversion diagnostic, then 40000 and the Stieltjes diagnostic.
+ *      PHASE 4D-RI: with ADR-0008 accepted, this line is computed with the corrected source in
+ *      both production and the oracle and is REPORTED here; its adjudication against the
+ *      ADR-0008 target (<= 2e-4) belongs to the corrected independent revalidation increment.
  *   H  radial convergence: order MEASURED, no pass criterion invented    reported (§7-9, INV-13)
  *   R  reference floor / disagreement                                    <= 0.1
  * ===========================================================================
@@ -314,6 +328,7 @@ int main(int argc, char **argv)
 		const Background2 bg_iso = FromProfile(cns, s_p, sp_p);
 		MHOptions oi;
 		oi.I_exterior = pf.I;
+		oi.eos_measure = true; // ADR-0008 Q1/Q3 (accepted source form)
 		const MHResult ri = hartle_mono_ref::Solve(bg_iso, oi);
 		row.m_iso = Compare(pf.mhat, ri.mhat, pf.r);
 		row.p_iso = Compare(pf.phat, ri.phat, pf.r);
@@ -337,6 +352,7 @@ int main(int argc, char **argv)
 			bg_full.sp = fo.s_prime;
 			MHOptions of;
 			of.I_exterior = fo.I_surface;
+			of.eos_measure = true;
 			rf = hartle_mono_ref::Solve(bg_full, of);
 			row.m_full = Compare(pf.mhat, rf.mhat, pf.r);
 			row.p_full = Compare(pf.phat, rf.phat, pf.r);
@@ -356,14 +372,19 @@ int main(int argc, char **argv)
 			const double km2_to_gcm3 = Zaki::Physics::INV_FM4_2_G_CM3 / Zaki::Physics::INV_FM4_2_INV_KM2;
 			const double eps_win = kVacuumEps_gcm3 / km2_to_gcm3;
 			const std::size_t n = pf.r.size();
-			// matter part of the (97) source on production's own fields
+			// matter part of the (97) source on production's own fields, in the ACCEPTED measure
+			// form (ADR-0008): the EOS part uses each segment's own d(eps)/dr, evaluated at the
+			// node from the segment that ends there.
 			std::vector<double> fm(n, 0.0);
 			for (std::size_t i = 0; i < n; ++i)
 			{
 				const int ii = static_cast<int>(i);
 				const double r = pf.r[i], eps = (*P.GetEnergyDensity())[ii], p = (*P.GetPressure())[ii];
-				const double nu = (*P.GetMetricNu())[ii], dedp = (*P.GetEosDEdP())[ii];
-				fm[i] = 4.0 * M_PI * r * r * (eps + p) * dedp * pf.phat[i] +
+				const double nu = (*P.GetMetricNu())[ii];
+				const std::size_t lo = (i == 0) ? 0 : i - 1, hi = (i == 0) ? 1 : i;
+				const double slope = ((*P.GetEnergyDensity())[static_cast<int>(hi)] - (*P.GetEnergyDensity())[static_cast<int>(lo)]) /
+									 (pf.r[hi] - pf.r[lo]);
+				fm[i] = -4.0 * M_PI * r * r * pf.xihat[i] * slope +
 						(8.0 * M_PI / 3.0) * r * r * r * r * (eps + p) * std::exp(-2.0 * nu) * s_p[i] * s_p[i];
 			}
 			// remaining matter source from node i to R_* (trapezoid)
@@ -395,6 +416,17 @@ int main(int argc, char **argv)
 			sp_vs_I = Rel(sp_p[n - 1], 6.0 * pf.I / (pf.R * pf.R * pf.R * pf.R));
 		}
 
+		// SUPERSEDED differential form, reported only: the gap is the sub-node energy-density
+		// variation the nodal deps/dp column loses (ADR-0008; PHASE4D_MONOPOLE_VALIDATION.md).
+		double old_form_dM = std::numeric_limits<double>::quiet_NaN();
+		{
+			MHOptions oo = oi;
+			oo.eos_measure = false;
+			const MHResult ro = hartle_mono_ref::Solve(bg_iso, oo);
+			if (ro.ok)
+				old_form_dM = Rel(ro.deltaM_hat, pf.deltaM);
+		}
+
 		const bool ok_iso = ri.ok && std::max({row.m_iso.max_rel, row.p_iso.max_rel, row.d_iso.max_rel, row.x_iso.max_rel}) <= kG_Profile;
 		const bool ok_full = rf.ok && fo.ok && std::max({row.m_full.max_rel, row.p_full.max_rel, row.x_full.max_rel}) <= kG_Profile;
 		Report(Sci(M, 2) + " Msun: ISOLATED chain agrees at every node", ok_iso,
@@ -410,6 +442,8 @@ int main(int argc, char **argv)
 				   "  | s'(R_*) vs 6I/R_*^4 rel=" + Sci(sp_vs_I));
 		Report(Sci(M, 2) + " Msun: matching arithmetic deltaM_hat = mhat(R_*) + shell + I^2/R_*^3 is exact",
 			   Rel(pf.deltaM, pf.mhat.back() + pf.shell + pf.I * pf.I / (pf.R * pf.R * pf.R)) <= 1e-14, "");
+		std::cout << "     REPORTED — the SUPERSEDED differential (nodal deps/dp) oracle disagrees with the corrected production deltaM_hat by "
+				  << Sci(old_form_dM) << "; that is the sub-node energy-density variation ADR-0008 recovers, not a numerical error.\n";
 
 		rows.push_back(row);
 		if (M == 1.6)
@@ -540,8 +574,16 @@ int main(int argc, char **argv)
 			std::cout << "     (No pass criterion is invented here: INV-13 requires the order to be measured. R_* itself\n"
 						 "      moves with the grid, so surface-node quantities carry that shift; deltaM_hat is the\n"
 						 "      exterior-matched quantity and is the cleanest convergence indicator.)\n";
-			Report("Ha the 5000/10000/20000 sequence was produced and deltaM_hat's successive differences shrink",
-				   std::fabs(h[1].dM - h[2].dM) < std::fabs(h[0].dM - h[1].dM), "");
+			const double lo = std::min({h[0].dM, h[1].dM, h[2].dM}), hi = std::max({h[0].dM, h[1].dM, h[2].dM});
+			const double spread = (hi - lo) / std::fabs(h[1].dM);
+			std::cout << "     RECORD — PHASE 4D-RI: with the ADR-0008 measure source the relative SPREAD of deltaM_hat over\n"
+					  << "     5000/10000/20000 is " << Sci(spread) << " (ADR-0008 Validation D asks <= 1e-4), but its successive\n"
+					  << "     differences are NOT monotone (" << Sci(std::fabs(h[0].dM - h[1].dM), 2) << " then "
+					  << Sci(std::fabs(h[1].dM - h[2].dM), 2) << " km^3) and R_* itself moves with the grid\n"
+					  << "     (" << Sci(h[0].R, 8) << " -> " << Sci(h[2].R, 8) << " km). The residual is the TOV background's own\n"
+					  << "     resolution dependence, not the monopole source; separating the two is the corrected\n"
+					  << "     revalidation increment's line D, not this implementation task's.\n";
+			Report("Ha the 5000/10000/20000 sequence was produced and its convergence measured", h.size() == 3, "");
 		}
 	}
 
@@ -614,6 +656,7 @@ int main(int argc, char **argv)
 			o.sources_on = false;
 			o.phat_at_r0 = 1.0;
 			o.I_exterior = 0.0;
+			o.eos_measure = true; // ADR-0008 Q1/Q3: the accepted source, on the oracle too
 			const auto hom = hartle_mono_ref::Solve(bg, o);
 			const auto &P = c.Profile();
 			const double ec = (*P.GetEnergyDensity())[0], pc = (*P.GetPressure())[0], dedpc = (*P.GetEosDEdP())[0];
@@ -630,7 +673,10 @@ int main(int argc, char **argv)
 			// 4 pi r^2 (eps+p)(deps/dp) p0* dr equals 4 pi r^2 p0* (-d eps)/nu': integrating against
 			// the profile's OWN density steps includes every density discontinuity the nodal
 			// (deps/dp) column cannot represent; integrating against the column reproduces the
-			// ODE (a check of this discretization). Test-side diagnostic, no production change.
+			// SUPERSEDED discretization. Test-side diagnostic, no production change.
+			// PHASE 4D-RI: since ADR-0008 the eps-step sum is what production itself integrates, so
+			// this block now measures the discretization gap the correction closed, and
+			// `dM_corr_sourced` is the contribution production no longer omits.
 			double m0h_col = 0.0, m0h_stj = 0.0, dM_corr_sourced = 0.0;
 			const auto fs_ = Fields(c);
 			{
