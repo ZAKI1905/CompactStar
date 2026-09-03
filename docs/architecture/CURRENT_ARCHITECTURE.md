@@ -189,6 +189,12 @@ These are live conflicts. Under `GOVERNANCE.md` §3 they are fail-closed until a
    > `_trajectory.tsv` are such a star. Root cause: trial-state surface guard; amplifier: the GSL
    > driver's step size inherited across target segments. **Every candidate repair changes `R_*`
    > and so requires an ADR.** Evidence: `docs/validation/TOV_RADIAL_RES_2500_AUDIT.md`.
+   > **That ADR is drafted (TOV-SURF-G, 2026-09-03): `docs/adr/ADR-0009-tov-surface-event-and-termination.md`, PROPOSED.** It proposes
+   > `R_*` = the crossing `p(R_*) = p_cut` of the accepted solution located as a bracketed event
+   > (partition-invariant to `8e-11`), no fatal trial-state guard, an explicit completion status and
+   > fail-closed publication through `SolveToProfile`/`Solve`/test builders, and a one-time governed
+   > regeneration of every artifact carrying `R_*` after validation. Evidence: `docs/validation/TOV_SURFACE_CONTRACT_DERIVATION.md`.
+   > Nothing changes until the owner adjudicates it.
 
    **All three orchestrators delegate to the one primitive.** `TOVSolver::RadiusLoop` — the
    duplicate ordinary-star radial loop — was **REMOVED** in Phase 3E-I4 after `GenTestSequence`,
