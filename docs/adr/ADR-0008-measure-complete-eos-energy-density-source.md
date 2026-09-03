@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | **PROPOSED** (2026-09-03) — owner adjudication required before any production correction |
+| **Status** | **ACCEPTED** — 2026-09-03 (owner adjudication of Q1–Q12 recorded in the Decision below) |
 | **Date** | 2026-09-03 |
 | **Change class** | scientific-semantic (source measure of H67 eq. 97) and numerical-method (its integration); the production correction it authorizes proceeds under `GOVERNANCE.md` §3.1 as ADR-0007 §9 already does |
 | **Governing authority** | Hartle (1967) ApJ 150, 1005, eqs. (18), (88), (93), (97)–(100), (107)–(108); Hartle & Thorne (1968); Chandrasekhar & Miller (1974) eqs. (50)–(56); ADR-0007 (ACCEPTED); ADR-0003 (provenance); ADR-0005 (TOV primitive); INV-06, INV-08, INV-09, INV-13 |
@@ -60,7 +60,33 @@ profile's `dε/dp` nodes match it to `3e-14` and the profile's `ε` nodes match 
 
 ## Decision
 
-*Empty while PROPOSED.* Filled in only on ratification (owner adjudication of Q1–Q12).
+**ACCEPTED 2026-09-03.** The owner adjudicated every decision question. The bindings below are
+normative; where they differ from ADR-0007 they amend it, and only as scoped in the banner.
+
+| # | Binding decision |
+|---|---|
+| **Q1** | **Option C.** The EOS energy-density contribution to `dm̂₀` is the measure `dm̂₀\|_EOS = −4πr²ξ̂₀ dε`, for **all** EOS energy-density variation. The `dε/dp` differential form is a smooth-region **rewrite**, not the canonical numerical source representation. |
+| **Q2** | **Mandatory source of truth: the `StarProfile` energy-density values at the radial nodes** (which already equal the EOS interpolant evaluated on the star). An immutable EOS `(p_k, ε_k)` snapshot for sub-segment/knot refinement is **optional and future**, and is **not** required by this correction unless the accepted profile-partition contract cannot otherwise be met. True-transition metadata is governed here but does not exist in the current EOS layer and must not be invented. |
+| **Q3** | **Per-segment ODE source.** On profile interval `[r_i, r_{i+1}]`: `dε/dr\|_seg = (ε_{i+1} − ε_i)/(r_{i+1} − r_i)` and `source_EOS(r) = −4πr² ξ̂₀(r) · dε/dr\|_seg` throughout that segment. **Profile-node boundaries are mandatory integration boundaries**; the integrator may never carry one segment's measure density into another. No operator splitting of the continuous part. Declared true discontinuities (when the EOS layer supports them) use the exact jump operator `Δm̂₀ = 4πr_t²(ε⁻ − ε⁺) ξ̂₀(r_t)`. **No steepness threshold.** |
+| **Q4** | Sharp continuous segments are handled by the measure regardless of steepness. A rule of the form `if Δε/ε > X → transition` is **forbidden**. |
+| **Q5** | True discontinuities: no smoothing; exact jump operator; `p̂₀*`, `ĥ₀`, `ξ̂₀` remain continuous through the material interface. The current EOS representation cannot express constant-pressure jumps; this ADR does not broaden into an importer redesign. |
+| **Q6** | Transition location: the EOS layer owns `p_t, ε⁻, ε⁺`; the profile owns `r_t` through the governed `p(r)` mapping. **No transition detector exists or is created now.** |
+| **Q7** | **One unified measure.** The interior measure covers `[r₀, R_*)`; the terminal `ε_* → 0` atom at `R_*` is applied **exactly once** with the same measure/jump semantics and continues to be exposed as `surface_shell_mass_over_Omega2`. It must not be double counted inside the final interior segment. |
+| **Q8** | 4C-I0 stands. `dε/dp` remains authoritative for the regular-centre series, smooth-region cross-checks, EOS diagnostics and future pointwise-derivative physics. It is **no longer the monopole mass-source integrator input away from the centre**. The profile `dε/dp` authority is **not** removed and its fail-closed semantics are unchanged. |
+| **Q9** | Provenance unchanged: `StarProfile` identity + `Version()` remains sufficient. Any future measure metadata must be profile-attached and `Touch()` the profile when changed. **No new cache authority.** |
+| **Q10** | Point-constructed stars: the profile `ε` nodes define the measure. On a constant-density analytic star the interior `Δε = 0` and the terminal surface atom carries the whole density drop; an explicit `dε/dp` is still required for the centre series. |
+| **Q11** | Phase-5 principle: the particle-number structural response **must** be measure-complete (`dn_i` with atoms at composition/species-density discontinuities). A nodal `dn_i/dp` column alone is **forbidden** as the Phase-5 integrator source. Nothing of Phase 5 is implemented under this ADR. |
+| **Q12** | The `246f3f2` monopole output is **not** a reference. Required chronology: **ADR-0008 acceptance → production correction → independent revalidation → first monopole baseline.** No baseline may be created before that revalidation succeeds. |
+
+The correction this Decision authorizes proceeds under `GOVERNANCE.md` §3.1 (third use, after
+ADR-0002 and ADR-0007): the behaviour being replaced is adjudicated here as physically incomplete,
+capturing it as the golden baseline would enshrine it, the minimum correction is named above, the
+independent evidence that substitutes for regression is
+`docs/validation/PHASE4D_R_EOS_MEASURE_DERIVATION.md` (measure derivation from H67 eq. (93),
+smooth-region equivalence, exact-jump certification on a two-layer star, convergence comparison),
+the scope is the ordinary-`NStar` `l = 0` EOS energy-density source only, all pre-correction
+monopole numbers are recorded as non-references, and the baseline follows immediately after the
+independent revalidation of §Validation.
 
 ## Decision questions
 
