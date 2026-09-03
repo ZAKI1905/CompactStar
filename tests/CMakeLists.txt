@@ -62,6 +62,31 @@ set_tests_properties(hartle_monopole_contract PROPERTIES
     LABELS "rotation;hartle;monopole;contract")
 
 # ---------------------------------------------------------------------------
+#  Phase 4D INDEPENDENT physical validation of the governed O(Omega^2) monopole response on
+#  the exact constant-density background (ADR-0007 §7). Self-contained. The oracles are a
+#  test-only (m0,h0) solver and a continuum solver in hartle_monopole_reference.hpp.
+# ---------------------------------------------------------------------------
+add_executable(hartle_monopole_physics_analytic rotation/hartle_monopole_physics_analytic.cpp)
+target_include_directories(hartle_monopole_physics_analytic PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+target_link_libraries(hartle_monopole_physics_analytic PRIVATE CompactStar)
+add_test(NAME hartle_monopole_physics_analytic COMMAND hartle_monopole_physics_analytic)
+set_tests_properties(hartle_monopole_physics_analytic PROPERTIES
+    LABELS "rotation;hartle;monopole;scientific;reference")
+
+# Phase 4D Experiment K: the governed O(Omega^2) monopole response against PUBLISHED
+# second-order results — Chandrasekhar & Miller 1974 Table I (homogeneous stars, analytic
+# background) and Hartle & Thorne 1968 Tables 3/5 on the printed Harrison-Wheeler EOS
+# (historical fixture embedded in tests/rotation/hartle_thorne_1968_hw_eos.hpp). Self-contained.
+add_executable(hartle_monopole_published rotation/hartle_monopole_published.cpp)
+target_include_directories(hartle_monopole_published PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+target_link_libraries(hartle_monopole_published PRIVATE CompactStar)
+add_test(NAME hartle_monopole_published COMMAND hartle_monopole_published)
+set_tests_properties(hartle_monopole_published PROPERTIES
+    LABELS "rotation;hartle;monopole;scientific;published"
+    TIMEOUT 900)
+
+# ---------------------------------------------------------------------------
 #  INV-12 cache-correctness contracts. Self-contained.
 #  The registered test runs ONLY the supported-contract cases. The known-hazard
 #  reproductions live behind --audit-known-hazards and are deliberately NOT a
@@ -211,6 +236,19 @@ if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
              COMMAND grid_convergence_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
     set_tests_properties(grid_convergence_cmf PROPERTIES
         LABELS "thermal;scientific;external-data;convergence"
+        TIMEOUT 1800)
+
+    # Phase 4D INDEPENDENT physical validation of the governed O(Omega^2) monopole response on
+    # the authenticated CMF sequence (ADR-0007 §7): (m0,h0) reference solver, exterior identity,
+    # radial convergence, EOS-derivative sensitivity, homogeneous sequence-derivative identity.
+    add_executable(hartle_monopole_physics_cmf rotation/hartle_monopole_physics_cmf.cpp)
+    target_include_directories(hartle_monopole_physics_cmf PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+    target_link_libraries(hartle_monopole_physics_cmf PRIVATE CompactStar)
+    add_test(NAME hartle_monopole_physics_cmf
+             COMMAND hartle_monopole_physics_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(hartle_monopole_physics_cmf PROPERTIES
+        LABELS "rotation;hartle;monopole;scientific;external-data;reference"
         TIMEOUT 1800)
 
     # Phase 4C-I1 governed O(Omega^2) monopole conformance on the authenticated CMF

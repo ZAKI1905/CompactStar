@@ -404,7 +404,7 @@ conformance to the `MixedStar` track. And **nothing at O(Ω²) is normalized** �
 
 ---
 
-## INV-08 — Hartle perturbative order — **GOVERNED (ADR-0007 ACCEPTED) — O(Ω²) MONOPOLE SOURCE CONFORMED; INDEPENDENT PHYSICAL VALIDATION PENDING**
+## INV-08 — Hartle perturbative order — **GOVERNED (ADR-0007 ACCEPTED) — O(Ω²) MONOPOLE SOURCE CONFORMED; IMPLEMENTATION INDEPENDENTLY VERIFIED; PHYSICAL VALIDATION FAILED ON TABULATED CRUSTS WITH DENSITY STEPS (`δM̂` ≈ −4.6 % ON DS(CMF)-1) — ADR-0007 AMENDMENT REQUIRED**
 
 **Statement.** First order O(Ω) supplies frame dragging and I. Second order O(Ω²) supplies the
 monopole structural perturbations `(m₀, p₀)` with isobar displacement `ξ₀ = −p₀/(dp/dr)`,
@@ -544,15 +544,46 @@ composes `δM̂ = m̂₀(R_*) + 4πR_*²ε_*ξ̂₀(R_*) + I²/R_*³`. Measured:
 zero monopole solves on ordinary construction. Evidence:
 `docs/validation/PHASE4C_I1_MONOPOLE_IMPLEMENTATION.md`.
 
-**Status.** **GOVERNED (ADR-0007 ACCEPTED) — O(Ω²) MONOPOLE SOURCE CONFORMED; INDEPENDENT
-PHYSICAL VALIDATION PENDING.** The source now conforms to an accepted contract — which is **not**
-verification. **No O(Ω²) number produced by this repository is validated physics**, none may be
-cited as a result, and **no monopole baseline exists or may be created** until Phase 4D supplies
-independent evidence (regular-centre series against an independent solver in different variables,
-Newtonian limits, exterior and conservation identities, published Hartle–Thorne models,
-convergence, EOS-derivative sensitivity, detectors M1–M9). `GOVERNANCE.md` §3.1: **CORRECTION
-EXECUTED — INDEPENDENT VERIFICATION PENDING — NO BASELINE YET.** The `l = 2` sector is out of
-scope, not verified.
+**Phase 4D evidence (2026-09-03, `docs/validation/PHASE4D_MONOPOLE_VALIDATION.md`).** The governed response was recomputed by
+two test-only routes that never call production's ODE — Hartle's `(m₀, h₀)` system (97)+(98)+(90) on
+the tabulated background, and a continuum solver on the closed-form constant-density interior — and
+compared node by node. **Implementation level:** analytic profile agreement `9.7e-9` (bound `1e-7`),
+converging to the continuum solution as `h²`; centre series `≤ 5.0e-10` over the first ten nodes
+(bound `1e-8`); shell identity exact, shell = 90 % of `δM̂` on the homogeneous star; Newtonian
+intercepts `|δM̂/R³ − 1| = 1.1e-6`, `|3Mξ̂/R⁴ − 1| = 4.9e-7` (bound `5e-3`, monotone); continuum
+first integral `6.1e-15` (bound `1e-9`; tabulated form is an exact-`h²` floor, `1.9e-9` at
+N = 16001, `4.8e-10` at 32001); homogeneous `δM̂` vs the exact `dM/dp_c` `3.0e-9`; DS(CMF)-1 four
+stars, second-order-isolated `≤ 3.8e-7` and fully independent `≤ 3.7e-5` (bound `1e-4`); near-vacuum
+identity `≤ 1.7e-8`; **published:** Chandrasekhar & Miller (1974) Table I, 19/19 homogeneous
+configurations, `ξ₀` and the shell-excluded `δM/M` to `≤ 7.3e-4`; Hartle & Thorne (1968) Tables 3/5
+on the printed HW EOS, 8/8, `δR/R ≤ 4.9e-3`, `δM/M ≤ 1.1e-2` (bound `2e-2`); detectors M1–M9 all
+fire and were reverted byte-identically. **Not met:** §7 item 11 on the tabulated DS(CMF)-1
+background — the homogeneous `δM̂` vs `(dM/dp_c)δp_c` is `1.04e-3` (bound `1e-3`), resolution-
+independent (10000/20000/40000), diagnosed as **density steps in the crust EOS that the nodal
+`dε/dp` column cannot represent** (the column integrated over the crust misses 17 % of the crust's own
+`Δε` at every resolution; the dominant feature is the table's crust–core transition, `Δε/ε = 36 %` over
+`Δp/p = 1.5 %`, a layer ≈ 0.6 m thick that falls between profile nodes at every tested resolution). **The same Stieltjes evaluation against the profile's own density steps
+reproduces the independent TOV-sequence derivative to `7e-5`, and applied to the SOURCED solution it
+quantifies the contribution production omits at ≈ `4.6 %` of `δM̂`** — Hartle's `dE/dP` delta functions at
+internal density discontinuities, which the smooth Steffen authority cannot carry (the 4C-I0 "FD crust
+noise" was those steps). §7 item 10 has no independent derivative source (`c_s²`: CONDITIONAL CHECK
+UNAVAILABLE; the retired FD moves `δM̂` by 5 %); §7 item 9 measured order `2.35` on `δM̂`, Richardson
+residual `7.7e-4` at res 20000. The two 4D-entry re-scopings (Newtonian *intercept* per the ADR's own
+wording; the tabulated first integral taken at the continuum level) are recorded verbatim with their
+original measurements.
+
+**Status.** **GOVERNED (ADR-0007 ACCEPTED) — O(Ω²) MONOPOLE SOURCE CONFORMED; IMPLEMENTATION INDEPENDENTLY VERIFIED; PHYSICAL VALIDATION FAILED ON TABULATED CRUSTS WITH DENSITY STEPS (`δM̂` ≈ −4.6 % ON DS(CMF)-1) — ADR-0007 AMENDMENT REQUIRED**. The implementation is
+verified against independent formulations, analytic limits, continuum convergence and two published
+second-order calculations; **on a tabulated crust with density discontinuities the accepted contract
+omits Hartle's internal delta-function shells, and on DS(CMF)-1 that omission is ≈ `4.6 %` of `δM̂`**
+(≈ `1e-3` of the homogeneous `δM̂`) — a substantive physical discrepancy that 4D was required to
+report and not repair. Consequently **no monopole baseline was created** (`GOVERNANCE.md` §3.1
+condition 7 remains deferred: **CORRECTION EXECUTED — IMPLEMENTATION INDEPENDENTLY VERIFIED —
+PHYSICAL VALIDATION FAILED ON STEPPED CRUSTS — NO BASELINE YET**), **no O(Ω²) `δM̂` from a stepped
+tabulated EOS may be cited as a result**, and the smallest next action is an **ADR-0007 amendment
+adjudicating internal density discontinuities** (internal shells `4πr_i²Δε_i ξ₀(r_i)`, or term 1
+integrated against `dε` on the EOS table), its implementation, a re-run of 4D Experiment J, then the
+baseline. The `l = 2` sector remains out of scope, not verified.
 
 ---
 
@@ -592,6 +623,14 @@ validates it. **This invariant is not resolved:** the baryon-conserving equilibr
 reduction — `B_i`, `A_B/B_B`, `Z_i` — remains Phase 5, the public homogeneous/sequence-derivative
 response is deliberately not exposed, `dn_i/dp` is not implemented, and the defects recorded below
 stand.
+
+**Phase 4D note (2026-09-03).** The fixed-`ε_c` `A_i`-side source is now **independently verified at
+the implementation level** (`docs/validation/PHASE4D_MONOPOLE_VALIDATION.md`), and the sequence-derivative identity
+was exercised test-side: exact (`3e-9`) on the analytic star, `1.04e-3` on DS(CMF)-1 against the
+predeclared `1e-3` because the tabulated crust's density steps are not represented by the nodal
+`dε/dp` column — an omission worth ≈ `4.6 %` of the sourced `δM̂`. That is precisely the `B_i`-side
+machinery this invariant will need (`δN_i` integrals over displaced layers carry the same internal
+steps), so Phase 5 inherits the defect until ADR-0007 is amended. **This invariant is not resolved.**
 
 **Phase 4C-G / ADR-0007 note (2026-09-02).** ADR-0007 (ACCEPTED) makes the **fixed-`ε_c` Hartle
 response the governed Phase-4 structural family**: Phase 4 delivers `(∂/∂Ω²)|_{ε_c}` coefficients
@@ -919,7 +958,7 @@ conversion, under the in-code comment *"Convert fractions to number densities in
 
 | Status | Entries |
 |---|---|
-| **GOVERNED (ACCEPTED)** | **INV-01** — ADR-0001, accepted 2026-08-31 · **INV-15** — ADR-0002, accepted 2026-08-31 · **INV-07** — ADR-0006, accepted 2026-09-02, **first-order source conformed and physical response independently verified 2026-09-02** · **INV-08** — ADR-0007, accepted 2026-09-02, **O(Ω²) monopole source conformed 2026-09-03; independent physical validation pending (Phase 4D) — no O(Ω²) number is validated physics** |
+| **GOVERNED (ACCEPTED)** | **INV-01** — ADR-0001, accepted 2026-08-31 · **INV-15** — ADR-0002, accepted 2026-08-31 · **INV-07** — ADR-0006, accepted 2026-09-02, **first-order source conformed and physical response independently verified 2026-09-02** · **INV-08** — ADR-0007, accepted 2026-09-02, **O(Ω²) monopole source conformed 2026-09-03 and implementation independently verified by Phase 4D (2026-09-03); **physical validation FAILED on tabulated crusts with density steps — `δM̂` ≈ −4.6 % on DS(CMF)-1**, ADR-0007 amendment required; no baseline** |
 | VERIFIED CURRENT BEHAVIOR | INV-02, 03, 04, 05, 06, 10, 12, 13, 14, 16 |
 | INTENDED BUT UNVERIFIED | INV-09 |
 | **UNRESOLVED (fail-closed)** | **INV-11** — and sub-items of INV-06, INV-16 |
@@ -944,6 +983,14 @@ correction has now been **executed** — the AI-authored candidate is deleted an
 monopole response is in its place. INV-08 is GOVERNED and its **source conforms**, but
 **no O(Ω²) number is validated physics**: that requires Phase-4D independent validation, and
 **no monopole baseline exists or may be created** before it.
+**Phase 4D (2026-09-03):** the independent validation was executed (`docs/validation/PHASE4D_MONOPOLE_VALIDATION.md`). Every
+implementation-level line passed — independent `(m₀, h₀)` and continuum solvers, centre series,
+Newtonian intercepts, shell, published Chandrasekhar–Miller and Hartle–Thorne second-order tables,
+detectors M1–M9 — but ADR-0007 §7 item 11 was **not met** on DS(CMF)-1 (`1.04e-3` vs `1e-3`,
+resolution-independent), diagnosed as crust density steps invisible to the nodal `dε/dp` column.
+The Stieltjes evaluation against the profile's own density steps then showed the omission is
+≈ `4.6 %` of the sourced `δM̂` on DS(CMF)-1 — **HARTLE MONOPOLE VALIDATION FAILED** on stepped crusts;
+implementation verified, contract amendment required, still no baseline.
 
 **INV-01 is resolved** as a storage contract (ADR-0001). One implementation nonconformance
 remains — `RotochemicalCache` must construct `n_i = Y_i n_B` — tracked as a Phase-5 task, not as

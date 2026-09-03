@@ -375,6 +375,39 @@ byte-identically.
 
 ---
 
+## 14. Validation record — Phase 4D (2026-09-03)
+
+Evidence: `docs/validation/PHASE4D_MONOPOLE_VALIDATION.md`. Production diff **NONE**; `I` and the seven
+durable artifacts byte-identical; detectors M1–M9 applied, measured and reverted byte-identically.
+
+| §7 item | Outcome |
+|---|---|
+| 1, 2 | seed invariance and materialization contract re-run (`hartle_monopole_contract`); `±Ω` bitwise, `Q(2Ω) = 4Q(Ω)` exact |
+| 3 | centre series `≤ 5.0e-10` over the first ten nodes of a fine-centre fixture (bound `1e-8`) — **met** |
+| 4 | independent `(m₀, h₀)` solver, (97)+(98)+(90): analytic `9.7e-9` (bound `1e-7`), exact `h²` scaling against the continuum solver; DS(CMF)-1 four stars `≤ 3.8e-7` isolated, `≤ 3.7e-5` fully independent (bound `1e-4`) — **met** |
+| 5 | matching arithmetic exact; near-vacuum identity on the outermost nodes `≤ 1.7e-8` after the matter-source correction (raw spread `1e-6`–`4e-6` over 3–10 nodes); no profile node lies beyond `R_*` — **met as testable** |
+| 6 | continuum `6.1e-15` (bound `1e-9`) — **met**; tabulated form is an exact-`h²` input floor (`1.9e-9` at N = 16001, `4.8e-10` at 32001), recorded |
+| 7 | linear-in-`M/R` intercepts `1.1e-6` (`δM̂/R³`) and `4.9e-7` (`3Mξ̂/R⁴`), monotone over `M/R = 0.15…0.001` (bound `5e-3`); omitting the shell gives `4e-4` instead of 1 — **met** |
+| 8 | Chandrasekhar & Miller 1974 Table I: 19/19 configurations, `I/MR²`, `ϖ₁`, `ξ₀` (incl. its sign change) and `δM/M` in C&M's shell-excluded convention to `≤ 7.3e-4`; Hartle & Thorne 1968 Tables 3/5 on the printed HW EOS: 8/8, `R`, `M`, `R_g/R`, `ω_c/Ω`, `ω_s/Ω`, `δR/R ≤ 4.9e-3`, `δM/M ≤ 1.1e-2` (bound `2e-2`) — **met** |
+| 9 | radial convergence 5000/10000/20000 at fixed `ε_c`: `δM̂` order `2.35`, `ξ̂(R_*)` order `4.9`, Richardson residual `7.7e-4` on `δM̂` at 20000 — **reported** |
+| 10 | no independent derivative source (`c_s²`: CONDITIONAL CHECK UNAVAILABLE); the retired profile FD moves `δM̂` by `5.0e-2` — **not independently testable** |
+| 11 | analytic star: homogeneous `δM̂` vs exact `dM/dp_c` `3.0e-9` — **met**; DS(CMF)-1: `1.17e-3`/`1.02e-3`/`1.04e-3` at res 10000/20000/40000 vs `1e-3`, in both the `p_c` and `ε_c` forms — **NOT MET**, resolution-independent; the nodal `dε/dp` column integrated over the crust misses 17 % of the crust's own `Δε` at every resolution, i.e. density steps of the crust EOS that no sampled derivative represents (Hartle's `dE/dP` delta functions at internal discontinuities, which this ADR did not adjudicate). Summing the same source against the profile's own `ε` steps reproduces the TOV-sequence derivative to `7e-5`, and applied to the SOURCED solution it quantifies the omitted shells at **≈ `4.6 %` of `δM̂`** on DS(CMF)-1 — a substantive physical discrepancy of this contract, reported and not repaired |
+| 12 | `I`, both Hartle CTests, seven goldens — **bitwise** |
+
+Two 4D-entry re-scopings are recorded verbatim in the harness and the record: item 7 was first
+asserted at the weakest field (`4.5e-3`, `5.3e-3` at `M/R = 0.002`) before being taken as the
+*intercept* this table specifies; item 6's tabulated form was first asserted at N = 16001 (`1.9e-9`)
+before being taken at the continuum level. Neither bound was widened.
+
+> **Status: `HARTLE MONOPOLE VALIDATION FAILED`** — precisely: the implementation of this contract
+> is independently verified, but the contract itself (P2 term 1 with the smooth P5 derivative)
+> omits Hartle's internal delta-function shells on a tabulated crust with density steps, worth
+> ≈ `4.6 %` of `δM̂` on DS(CMF)-1. **§3.1: CORRECTION EXECUTED — IMPLEMENTATION INDEPENDENTLY
+> VERIFIED — PHYSICAL VALIDATION FAILED ON STEPPED CRUSTS — NO BASELINE YET.** Next: amend this ADR
+> for internal density discontinuities, implement, re-run 4D Experiment J, then the first baseline.
+
+---
+
 ## Decision
 
 **Adjudicated by the project owner on 2026-09-02.** The contract of §4 (**P1–P14**) is
