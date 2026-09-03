@@ -308,14 +308,15 @@ crust–core transition, losing `ΔM ≈ 2.3e-3 M☉` and `ΔR ≈ 0.56 km`. One
 (`grid_convergence_cmf_1p6_debug.tsv` / `_trajectory.tsv`, `radial_res = 2500` rows) was computed
 on such a star. **No repair was made**: every candidate changes `R_*` and therefore INV-06 itself,
 so an ADR is required. Evidence: `docs/validation/TOV_RADIAL_RES_2500_AUDIT.md`.
-*TOV-SURF-G (2026-09-03):* that ADR is drafted as `docs/adr/ADR-0009-tov-surface-event-and-termination.md` (**PROPOSED**, not
-accepted). It keeps this invariant's **value** (`p_cut = max(1e-15 p_c, eos_tab.pre[0])`, the EOS-floor
-surface of ADR-0007 P7 / ADR-0008 Q7) and proposes to amend only its **locator**: `R_*` as the unique
-crossing `p(R_*) = p_cut` of the accepted solution, located by a deterministic bracketed event
-(measured partition-invariant to `8e-11` on `R_*`, `1e-11` on `M`, against today's `1.6e-3`), stored
-as the final node; no fatal trial-state guard in the right-hand side; fail-closed publication when the
-event is not reached. Expected shifts of the canonical stars: `R_*` +1.0…+5.0 m, `z_surf` `1e-4…5e-4`.
-Evidence: `docs/validation/TOV_SURFACE_CONTRACT_DERIVATION.md`. **Nothing changes until the owner adjudicates Q1–Q14.**
+*TOV-SURF-I (2026-09-03):* ADR-0009 is **ACCEPTED**: the locator is the unique
+accepted-solution crossing `p(R_*) = p_cut`, stored as the final node; the cutoff
+value and EOS-floor semantics stay unchanged. **SOURCE NONCONFORMANT; VALIDATION
+PENDING.** The implementation candidate stopped at V7: the 2.0-M☉ target-mass
+workflow changed its central density and returned mass outside the declared mass
+impact bound. The candidate source was restored, so the original behavior described
+above remains live. No numerical-validation claim or artifact migration is authorized.
+Authority: `docs/adr/ADR-0009-tov-surface-event-and-termination.md:55`;
+evidence: `docs/validation/TOV_SURFACE_IMPLEMENTATION.md:88`, `:227`.
 
 **⚠ UNRESOLVED sub-item — heat-blanket base.** Two competing thresholds coexist:
 `TbDefinition.hpp:60` uses ρ_b = 1e10 g/cm³ (located by inward scan,
@@ -846,13 +847,14 @@ EOS interpolant's own values (`5e-16`), so `Δε` between nodes is exact — whi
 column loses whatever variation falls between samples (17 % of the crust's `Δε` on DS(CMF)-1). Inside a
 sub-node feature the linear background also violates `dp/dr = −(ε+p)ν'` by `O(1)`, which is why
 evaluating the EOS derivative at the actual ODE state does not converge either (`docs/adr/ADR-0008-measure-complete-eos-energy-density-source.md`).
-*TOV-SURF-G note (2026-09-03):* `docs/adr/ADR-0009-tov-surface-event-and-termination.md` (PROPOSED) proposes to record that the radial
-**output target partition is a sampling device, not part of the definition of the TOV solution**: with
-the surface located as an event, `M`, `R_*`, `z_surf`, the central-density root and `dM/dp_c` were
-measured invariant under eight partitions (1.75–28 m) to `1e-11`, `8e-11`, and `3e-6` respectively
-(`docs/validation/TOV_SURFACE_CONTRACT_DERIVATION.md` §6–§8). Only *sampled* integrals legitimately depend on it. *(Unrepaired and unchanged: the comment block at `TOVSolver.hpp:494-498` still
-describes a natural cubic spline, and `TOVSolver.hpp:549-554` still says `1e-5` where
-`PressureCutoff` uses `1e-15` — stale comments, no behaviour difference.)*
+*TOV-SURF-I (2026-09-03):* ADR-0009 Q6 accepts that the radial **output target
+partition is sampling only**; it does not define the TOV surface. Numerical
+conformance is **pending**, not established by acceptance or the prior scratch
+study. The candidate's V7 failure stopped validation and its source was restored;
+full partition, derivative, both-EOS and driver-reset checks remain incomplete.
+See `docs/adr/ADR-0009-tov-surface-event-and-termination.md:60` and
+`docs/validation/TOV_SURFACE_IMPLEMENTATION.md:181`. The existing linear background
+interpolation and EOS derivative authorities above are unchanged.
 
 ---
 

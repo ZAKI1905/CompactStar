@@ -1,5 +1,13 @@
 # CompactStar — Current Architecture
 
+> **TOV-SURF-I status (2026-09-03):** ADR-0009 is accepted, but its candidate
+> implementation stopped at V7 and was restored. The current source retains the
+> original ordinary-star trial-pressure guard and partial-result behavior;
+> no completion-status API or event locator is installed. Acceptance does not
+> confer source conformance. Corrected Phase-4D and artifact migration remain blocked.
+> Evidence: `docs/validation/TOV_SURFACE_IMPLEMENTATION.md:44`, `:88`, `:227`;
+> live source: `CompactStar/Core/src/TOVSolver.cpp:1496`, `:2653`.
+
 > **STATUS: DESCRIPTIVE.** Authoritative for component boundaries and ownership
 > (`GOVERNANCE.md` authority rank 6). Describes **only** behavior that is compiled and reachable.
 >
@@ -189,12 +197,12 @@ These are live conflicts. Under `GOVERNANCE.md` §3 they are fail-closed until a
    > `_trajectory.tsv` are such a star. Root cause: trial-state surface guard; amplifier: the GSL
    > driver's step size inherited across target segments. **Every candidate repair changes `R_*`
    > and so requires an ADR.** Evidence: `docs/validation/TOV_RADIAL_RES_2500_AUDIT.md`.
-   > **That ADR is drafted (TOV-SURF-G, 2026-09-03): `docs/adr/ADR-0009-tov-surface-event-and-termination.md`, PROPOSED.** It proposes
-   > `R_*` = the crossing `p(R_*) = p_cut` of the accepted solution located as a bracketed event
-   > (partition-invariant to `8e-11`), no fatal trial-state guard, an explicit completion status and
-   > fail-closed publication through `SolveToProfile`/`Solve`/test builders, and a one-time governed
-   > regeneration of every artifact carrying `R_*` after validation. Evidence: `docs/validation/TOV_SURFACE_CONTRACT_DERIVATION.md`.
-   > Nothing changes until the owner adjudicates it.
+   > **ADR-0009 ACCEPTED (TOV-SURF-I, 2026-09-03):** the accepted locator is the unique
+   > crossing `p(R_*) = p_cut`, with pressure-coordinate terminal landing, a sampling-only
+   > partition, no fatal trial-pressure guard, and fail-closed publication. The candidate
+   > implementation stopped at V7 and was restored; these semantics are not yet installed.
+   > Artifact migration remains blocked. Authority: `docs/adr/ADR-0009-tov-surface-event-and-termination.md:55`;
+   > evidence: `docs/validation/TOV_SURFACE_IMPLEMENTATION.md:88`, `:227`.
 
    **All three orchestrators delegate to the one primitive.** `TOVSolver::RadiusLoop` — the
    duplicate ordinary-star radial loop — was **REMOVED** in Phase 3E-I4 after `GenTestSequence`,

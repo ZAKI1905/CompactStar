@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | **ACCEPTED — 2026-09-03** (owner adjudication in TOV-SURF-I); source conformance and validation pending |
+| **Status** | **ACCEPTED — 2026-09-03** (owner adjudication in TOV-SURF-I); source conformance and validation **not achieved** (TOV-SURF-I V7 stop) |
 | **Date** | 2026-09-03 |
 | **Change class** | scientific-semantic (definition of `R_*`; INV-06) **and** numerical-method (event location; right-hand-side domain contract) **and** structural (completion status; fail-closed publication) — the strictest class governs |
 | **Governing authority** | ADR-0005 §7.1 (the primitive owns "the termination test"; §7.3 froze `SolveToProfile`'s fallback for Phase 3E only); ADR-0003; ADR-0004 (`EvaluateNu` surface BC); ADR-0007 P7 / ADR-0008 Q7 (surface = EOS-floor node, terminal atom); INV-06, INV-13; TOV-RR-01 |
@@ -70,6 +70,17 @@ the questions and scratch measurements below retain their historical evidentiary
 This is the normal scientific-semantic migration path, **not** the GOVERNANCE §3.1
 pre-baseline exception: acceptance → source correction → independent validation →
 separate artifact migration. Acceptance alone does not claim source conformance.
+
+## Implementation disposition — TOV-SURF-I (2026-09-03)
+
+Acceptance remains in force. The candidate compiled, but the 2.0-M☉ target-mass
+workflow changed its returned mass by `4.8353e-5` relative, exceeding V7's `1e-9`
+bound. Work stopped under the owner's impact-envelope rule. Candidate source was
+preserved outside the checkout and restored to the authenticated starting source;
+no source conformance or completed V1–V12 validation is claimed. All seven artifacts
+remain unchanged. INV-06/INV-13 validation, artifact migration, corrected Phase-4D
+revalidation and the first monopole baseline remain blocked. Evidence:
+`docs/validation/TOV_SURFACE_IMPLEMENTATION.md:88` and `:181`.
 
 ## Decision questions
 
