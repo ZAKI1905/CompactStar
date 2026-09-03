@@ -404,7 +404,7 @@ conformance to the `MixedStar` track. And **nothing at O(Ω²) is normalized** �
 
 ---
 
-## INV-08 — Hartle perturbative order — **INTENDED BUT UNVERIFIED** ⚠ — **UNVERIFIED SCIENTIFIC CANDIDATE — GOVERNED REPLACEMENT ADR PROPOSED (ADR-0007, 2026-09-02)**
+## INV-08 — Hartle perturbative order — **GOVERNED (ADR-0007 ACCEPTED) — REPLACEMENT CONTRACT ESTABLISHED; CURRENT CANDIDATE NONCONFORMANT / REPLACEMENT PENDING**
 
 **Statement.** First order O(Ω) supplies frame dragging and I. Second order O(Ω²) supplies the
 monopole structural perturbations `(m₀, p₀)` with isobar displacement `ξ₀ = −p₀/(dp/dr)`,
@@ -507,12 +507,26 @@ angular integration of H67 (109) shows `l = 0` suffices for every scalar count (
 **`GOVERNANCE.md` §3.1 is applicable once ADR-0007 is accepted; all seven conditions are
 recorded in ADR-0007 §9.** The candidate is byte-identical; no candidate output was executed.
 
-**Status.** **UNVERIFIED SCIENTIFIC CANDIDATE — GOVERNED REPLACEMENT ADR PROPOSED** under
-`GOVERNANCE.md` §5: `docs/adr/ADR-0007-hartle-second-order-monopole-response.md` (PROPOSED
-2026-09-02, **not accepted**; Q1–Q13; recommends atomic replacement of the public candidate API
-in 4C-I). Public reachability remains a reason for more caution, not a promotion; the candidate
-must not be cited as implemented physics; its historical outputs are not reference results.
-Next action: owner adjudication of ADR-0007 **before any O(Ω²) production change**.
+**Normative decision (2026-09-02).**
+**`docs/adr/ADR-0007-hartle-second-order-monopole-response.md` — ACCEPTED 2026-09-02 by
+project-owner adjudication.** The governed contract: integrate Hartle's `p₀*`; the fixed-`ε_c`
+family (`m₀(0) = p₀*(0) = 0`) with **no surface condition**; the `l = 0` equations H67 (97),
+(100) per `Ω_geom²` from the verified `s`, `s'`; a regular-series start at `r₀`; `dε/dp` owned by
+the EOS/TOV layer as the derivative of the star's own `ε(p)` interpolant; `δM = m₀(R_*) +
+4πR_*²ε_*ξ₀(R_*) + J²/R_*³`; surface `SURFACE ADEQUATE AS-IS` with explicit `R_*` semantics
+(`R_*` is never labelled the exact `p = 0` surface); seed-free coefficients materialized only at
+an explicit `AngularVelocity`. `GOVERNANCE.md` §3.1 is **AUTHORIZED** by that ADR (§9) —
+**the correction is not yet executed.** Modified at acceptance: the homogeneous
+sequence-derivative response is **not** a public API in Phase 4C (validation use only).
+
+**Status.** **GOVERNED (ADR-0007 ACCEPTED) — REPLACEMENT CONTRACT ESTABLISHED; CURRENT CANDIDATE
+NONCONFORMANT / REPLACEMENT PENDING.** Acceptance fixes the contract; it certifies no number.
+The shipped `SolveHartle2_N` / `ODE_Hartle2_N_Fast` remain byte-identical, publicly callable,
+zero-caller and **nonconformant** to that contract in every respect listed above; they must not
+be cited as implemented physics and their historical outputs are not reference results.
+**Second-order physics is neither implemented nor validated.** Conformance is roadmap 4C-I1
+(atomic replacement, preceded by the 4C-I0 EOS-derivative authority) and verification is 4D,
+tracked separately — exactly as ADR-0002's and ADR-0006's conformance were.
 
 ---
 
@@ -544,6 +558,15 @@ which shifts the central density (INV-08), and its `p0` is seed-normalized; so e
 missing `÷Ω²`, `A_i` computed from it would not be `(∂N_i/∂Ω²)|_{ε_c}`. The Phase-4 output for
 Phase 5 must be `Ω²`-normalized response coefficients at fixed `ε_c`
 (`docs/validation/PHASE4_ROTATION_ENTRY.md` §16; ADR-0006 P8–P9).
+
+**Phase 4C-G / ADR-0007 note (2026-09-02).** ADR-0007 (ACCEPTED) makes the **fixed-`ε_c` Hartle
+response the governed Phase-4 structural family**: Phase 4 delivers `(∂/∂Ω²)|_{ε_c}` coefficients
+and nothing else. The baryon-conserving equilibrium-sequence reduction — `B_i`, `A_B/B_B`, and
+`Z_i = A_i − B_i(A_B/B_B)` — **remains Phase 5**, and constant `B` is never imposed inside the
+Hartle solve. At acceptance the owner further deferred *public* ownership of `B_i` /
+`∂N_i/∂ε_c`: the regular homogeneous solution may be computed internally or test-side in 4D to
+validate the sequence-derivative identity, but it is not a public Phase-4C API. **This invariant
+is not resolved** — the defects below stand until Phase 5 addresses them.
 
 **Phase 4C-G note (2026-09-02).** The complete O(Ω²) expression for a scalar count was derived
 from H67 (109) (`docs/validation/PHASE4C_HARTLE2_DERIVATION.md` §14–§15): per unit `Ω_geom²`,
@@ -847,9 +870,9 @@ conversion, under the in-code comment *"Convert fractions to number densities in
 
 | Status | Entries |
 |---|---|
-| **GOVERNED (ACCEPTED)** | **INV-01** — ADR-0001, accepted 2026-08-31 · **INV-15** — ADR-0002, accepted 2026-08-31 · **INV-07** — ADR-0006, accepted 2026-09-02, **first-order source conformed and physical response independently verified 2026-09-02** |
+| **GOVERNED (ACCEPTED)** | **INV-01** — ADR-0001, accepted 2026-08-31 · **INV-15** — ADR-0002, accepted 2026-08-31 · **INV-07** — ADR-0006, accepted 2026-09-02, **first-order source conformed and physical response independently verified 2026-09-02** · **INV-08** — ADR-0007, accepted 2026-09-02, **contract only: the shipped candidate is nonconformant and second-order physics is neither implemented nor validated** |
 | VERIFIED CURRENT BEHAVIOR | INV-02, 03, 04, 05, 06, 10, 12, 13, 14, 16 |
-| INTENDED BUT UNVERIFIED | INV-08⚠ — **governed replacement ADR-0007 PROPOSED 2026-09-02** · INV-09 |
+| INTENDED BUT UNVERIFIED | INV-09 |
 | **UNRESOLVED (fail-closed)** | **INV-11** — and sub-items of INV-06, INV-16 |
 
 **One unresolved invariant still blocks a downstream phase:**
@@ -865,11 +888,12 @@ unverified candidate (INV-08), and nothing in the first-order work bears on the 
 slow-rotation truncation itself.
 
 **INV-08 wording corrected (2026-09-02):** the O(Ω²) candidate is *publicly callable with zero
-repository callers*, not "structurally unreachable"; its status is unchanged.
-**Phase 4C-G (2026-09-02):** the governed replacement was derived from the primary source and
-proposed as **ADR-0007 (PROPOSED — owner adjudication required)**; the surface convention needs
-no prior governance for it; INV-08 is not resolved until acceptance, 4C-I conformance and 4D
-validation.
+repository callers*, not "structurally unreachable".
+**Phase 4C-G / ADR-0007 (2026-09-02):** the governed replacement was derived from the primary
+source and **ADR-0007 was ACCEPTED**. INV-08 is therefore GOVERNED as a *contract*, but the
+shipped candidate is nonconformant and **no O(Ω²) number is validated physics**: that requires
+4C-I1 conformance and 4D independent validation. `GOVERNANCE.md` §3.1 is authorized by ADR-0007
+§9 and **not yet exercised**.
 
 **INV-01 is resolved** as a storage contract (ADR-0001). One implementation nonconformance
 remains — `RotochemicalCache` must construct `n_i = Y_i n_B` — tracked as a Phase-5 task, not as

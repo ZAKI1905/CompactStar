@@ -2,14 +2,16 @@
 
 | Field | Value |
 |---|---|
-| **Status** | **PROPOSED** — drafted by an AI agent; **not accepted**; carries no authority (`docs/adr/README.md` lifecycle) |
+| **Status** | **ACCEPTED** |
+| **Date accepted** | 2026-09-02 — by project-owner adjudication |
 | **Date drafted** | 2026-09-02 |
 | **Drafted at** | `bb073c8ed0c7ce15f3a8c960e9f76173bde51a39` (branch `physics/rotation-correctness`) |
+| **Accepted at** | `bcef5b57e3267fe26d1269efaa472d314818d367` (acceptance commit; implementation follows separately as 4C-I0 / 4C-I1) |
 | **Change class** | **scientific-semantic** (equations, perturbation variable, boundary condition, `dε/dp` ownership, `δM` definition, normalization) **and structural** (public O(Ω²) API and result type replaced) — strictest applies (`GOVERNANCE.md` §2). Implementation would proceed under `GOVERNANCE.md` **§3.1** (recorded in §9) |
 | **Governing authority** | **Primary:** J. B. Hartle, ApJ 150, 1005 (1967) — eqs. (87)–(88), (97), (99)–(100), (105)–(108), (109), p. 1009, p. 1022. **Secondary:** Hartle & Thorne, ApJ 153, 807 (1968) §II — (7a–c), (13)–(17b), (24b). Repository: ADR-0006 (ACCEPTED; first-order normalization, no implicit spin), ADR-0001 (`n_i = Y_i n_B`), ADR-0004 (`w_V = 4πr²e^{λ}`), ADR-0005 (`I` and the goldens bitwise), INV-02, INV-05, INV-06, INV-07, INV-13, INV-14 |
 | **Evidence record** | `docs/validation/PHASE4C_HARTLE2_DERIVATION.md` (Phase 4C-G) — every equation, unit, bound and line citation below is derived or cited there |
 | **Affected invariants** | **INV-08** (primary), **INV-09** (the fixed-`ε_c` response Phase 5 consumes), INV-06 (surface semantics for O(Ω²) quantities — no convention change), INV-14 (O(Ω²) extension of the baryon integral) |
-| **Blocks** | roadmap 4C-I (implementation), 4D (validation), 4E (Phase-5 structural fields); transitively Phase 5 |
+| **Blocks** | roadmap 4C-I0 (EOS derivative authority), 4C-I1 (monopole implementation), 4D (validation), 4E (Phase-5 structural fields); transitively Phase 5 |
 | **Explicitly does not decide** | the `l = 2` sector (shape, quadrupole) beyond its scope classification (Q11); the chemical-imbalance convention (INV-11); MixedStar rotation; the solar-mass / `G` authority; any change to the TOV surface convention |
 
 ---
@@ -149,9 +151,13 @@ Hartle's `ν_H = 2ν`, `λ_H = 2λ`; geometric km (INV-02); `Ω ≡ Ω_geom = Ω
   indicative) reached through a public `NStar` accessor; nothing produced by the candidate sits
   behind it; every field carries its unit in the declaration; `I` and the first-order response
   are untouched.
-- **P11 — Homogeneous (sequence-derivative) solution.** Optionally exposed as a separate
-  struct per unit `p₀*(0)`; it equals `∂/∂ε_c` along the non-rotating sequence with
-  `δε_c = (ε_c+p_c)(dε/dp)_c p₀*(0)` and serves Phase 5's `B_i` and validation identity K.
+- **P11 — Homogeneous (sequence-derivative) solution.** The regular homogeneous solution per
+  unit `p₀*(0)` equals `∂/∂ε_c` along the non-rotating sequence with
+  `δε_c = (ε_c+p_c)(dε/dp)_c p₀*(0)`, and serves Phase 5's `B_i` and validation identity K.
+  > **MODIFIED AT ACCEPTANCE (owner, 2026-09-02) — see Decision Q8.** The mathematics stands and
+  > may be computed **internally or test-side in 4D** to validate the sequence-derivative
+  > identity. **It is NOT exposed as a public production API in Phase 4C.** Public ownership of
+  > `B_i` / `∂N_i/∂ε_c` is deferred until Phase 5 adjudicates that architecture.
 - **P12 — Scope (Q11).** The `l = 0` sector is sufficient for every scalar count (`A`, `N_i`),
   for `M` and for `I` at O(Ω²) — derived from the angular integration (evidence record §14).
   The `l = 2` sector (shape, quadrupole) is outside this ADR; whether the ratified Phase-4 exit
@@ -236,9 +242,12 @@ Hartle's `ν_H = 2ν`, `λ_H = 2λ`; geometric km (INV-02); `Ω ≡ Ω_geom = Ω
   from profile differences; any O(Ω²) output not per `Ω_geom²` or not from an explicit
   `AngularVelocity`; any `δM` without the `I²/R_*³` and shell terms; identifying `R_*` with the
   `p = 0` surface in any formula or label; exposing candidate output behind the new accessor.
-- Required in the same change (4C-I): the EOS-derivative API and profile column (P5), the new
-  result type and `NStar` accessor, deletion of the candidate (Q13 A), `CURRENT_ARCHITECTURE.md`
-  rows, INV-08/INV-09 status, and the tests of §7.
+- Required, split across two governed increments (owner sequencing, 2026-09-02):
+  **4C-I0** — the EOS-derivative authority of P5 (the `dε/dp` evaluator on the star's own `ε(p)`
+  interpolant and its profile-attached delivery), with its own analytic and real-EOS validation;
+  **4C-I1** — the governed monopole solver, the new result type and `NStar` accessor, and the
+  atomic deletion of the candidate (Q13 A), plus `CURRENT_ARCHITECTURE.md` rows, INV-08/INV-09
+  status, and the tests of §7.
 - Not changed: the first-order ODE, `I`, `HartleFirstOrderResponse`, the seven goldens, the TOV
   surface convention.
 - Historical outputs: every value ever produced by `SolveHartle2_N` / `GetHartleResult`
@@ -314,7 +323,35 @@ authority; no acceptance.
 
 ## Decision
 
-*Left empty while PROPOSED. Filled in only on ratification by the project owner.*
+**Adjudicated by the project owner on 2026-09-02.** The contract of §4 (**P1–P14**) is
+**ACCEPTED**, together with the `GOVERNANCE.md` §3.1 record of §9, with **one modification**
+(P11, recorded below). The owner's eight adjudications map onto this ADR's thirteen decision
+questions (§2) as follows.
+
+| Owner decision (as adjudicated) | ADR question(s) | Outcome |
+|---|---|---|
+| **Canonical integrated pressure variable = Hartle `p₀*`** | Q1 | §5-Q1 **A**. `δp₀`, `ξ₀`, `δε₀` are derived fields (P1) |
+| **Governed family = fixed central energy density `ε_c`** | Q2 | §5-Q2 **A**. `m̂₀(0) = p̂₀*(0) = 0`, no homogeneous admixture, **no surface condition of any kind** (P3) |
+| **Second-order scientific products = seed-free coefficients per `Ω_geom²`, materialized only at an explicit `AngularVelocity`** | Q9, Q10 | §5-Q9 **A** (P9, P10). The ADR-0006 no-implicit-spin clarification extends to O(Ω²): no `NStar` carries a physical second-order perturbation without an explicit spin |
+| **`dε/dp` authority = derivative of the SAME EOS `ε(p)` interpolant that constructed the star, owned by the EOS/TOV layer** | Q5 | §5-Q5 **A** (P5). Profile finite differences are not an authority; no second interpolant; no `1.0` fallback. Implemented and validated as increment **4C-I0** |
+| **EOS-floor surface = `SURFACE ADEQUATE AS-IS`** for this monopole / Phase-5 scope, with explicit `R_*` semantics, the shell and boundary terms, and the documented surface-displacement systematic. **`R_*` must never be labelled as the exact `p = 0` surface** | Q6, Q7, Q8 | §5-Q6 **A** (P6, P7, P8). No change to INV-06 or to the TOV surface convention |
+| **Validated `l = 0` O(Ω²) structural response is the Phase-4 second-order deliverable that unlocks Phase 5.** `l = 2` shape / quadrupole physics is a **separate future rotation extension** and does **not** block Phase-4 completion, Phase 5, or the BNV thermal program | Q11 | §5-Q11 **A** (P12). **No claim is made that `l = 2` physics is validated** — it is out of scope, not verified |
+| **Current public second-order candidate API = atomic replacement in 4C-I1** | Q13 | §5-Q13 **A**. It is **not** deleted in 4C-I0; until 4C-I1 it remains publicly callable, zero-caller, and marked an unverified candidate |
+| **Homogeneous sequence-derivative response = NOT a public production API in Phase 4C** | — (modifies P11) | The mathematics remains valid and **may be computed internally or test-side in 4D** to validate the sequence-derivative identity (§7 item 11). Public ownership of `B_i` / `∂N_i/∂ε_c` is **deferred until Phase 5** adjudicates that architecture |
+| **`GOVERNANCE.md` §3.1 record explicitly accepted** | Q12 | §9 items 1–7 are in force. §3.1 is **AUTHORIZED**; the correction itself is **not yet executed** — 4C-I0 adds no O(Ω²) physics and creates no monopole baseline |
+
+Questions **Q3** (canonical `l = 0` equations, P2) and **Q4** (regular-centre numerical start, P4)
+are accepted as proposed in §4; they were not varied.
+
+**Implementation sequencing (owner, binding).** 4C-I0 establishes the `dε/dp` authority alone and
+must leave every existing scientific output byte-identical; 4C-I1 then performs the atomic
+replacement. The second-order solver must not execute without authoritative `dε/dp`, but ordinary
+first-order/TOV construction must **not** begin to require it.
+
+**Scope of acceptance.** This settles the O(Ω²) *monopole* contract. It ratifies no number: no
+O(Ω²) quantity in this repository is validated physics until 4C-I1 conformance and 4D independent
+validation are complete. It decides nothing about the `l = 2` sector, the chemical-imbalance
+convention (INV-11), MixedStar rotation, or the solar-mass / `G` authority.
 
 ## Provenance
 
@@ -325,3 +362,8 @@ citation recorded in `docs/validation/PHASE4C_HARTLE2_DERIVATION.md`. The agent 
 alternatives and recommendations; **the project owner decides.** Two misprints in the primary
 source (H67 (115) sign, (117) factor) are recorded in the evidence record §2.3; neither enters
 this contract.
+
+**Accepted 2026-09-02 by the project owner** (adjudication recorded verbatim in the Decision
+section above), at `bcef5b57e3267fe26d1269efaa472d314818d367`. The owner varied one item of the
+drafted contract — P11's optional public exposure of the homogeneous response — and accepted the
+remainder, including the §3.1 record, as drafted.
