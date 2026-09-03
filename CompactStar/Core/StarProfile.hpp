@@ -59,6 +59,7 @@
 #include <Zaki/Vector/DataColumn.hpp>
 #include <Zaki/Vector/DataSet.hpp>
 #include <algorithm>
+#include <cmath>
 #include <cstddef>
 #include <cstdint>
 
@@ -307,6 +308,27 @@ struct StarProfile
 	 * Must be the same length as `species_labels`.
 	 */
 	std::vector<int> species_idx;
+
+	// ------------------------------------------------------------
+	// 7) EOS-derived thermodynamic derivative (ADR-0007 P5, Phase 4C-I0)
+	// ------------------------------------------------------------
+	/**
+	 * @brief `d(eps)/dp` at each radial node — **dimensionless**, EOS-owned.
+	 *
+	 * Deliberately **not** a column of `radial`. `radial` holds what the TOV integration
+	 * produced along the star; this is a property of the *equation of state*, evaluated by its
+	 * owner (`TOVSolver::GetEDensDeriv`) on the same `eps(p)` interpolant that built the star
+	 * and merely carried here. Keeping it out of `radial` also means the profile's column
+	 * count, its species-column indices, its export layout and every file derived from them
+	 * are untouched by this addition — the schema is unchanged, and there is still exactly one
+	 * authoritative copy of the derivative per profile.
+	 *
+	 * Empty and `has_eos_dedp_ == false` unless a complete, all-finite set was installed.
+	 */
+	Zaki::Vector::DataColumn eos_dedp_;
+
+	/// Whether `eos_dedp_` holds a complete, validated, all-finite set for this profile.
+	bool has_eos_dedp_ = false;
 
   public:
 	/// Read-only access to the radial dataset (does not change version).
@@ -868,6 +890,112 @@ struct StarProfile
 	// ------------------------------------------------------------
 	// 14) Reset
 	// ------------------------------------------------------------
+	// 12) EOS thermodynamic derivative (ADR-0007 P5, ACCEPTED 2026-09-02)
+	// ------------------------------------------------------------
+	/**
+	 * @brief Whether this profile carries an authoritative `d(eps)/dp` for every node.
+	 *
+	 * False is the normal state for a profile built without EOS-derivative data — e.g. a
+	 * point-constructed analytic star whose caller did not supply one. Consumers that require
+	 * the derivative (the governed O(Omega^2) monopole solver) must test this and fail closed;
+	 * consumers that do not (all first-order and TOV physics) are unaffected.
+	 */
+	bool HasEosDEdP() const noexcept { return has_eos_dedp_; }
+
+	/**
+	 * @brief The `d(eps)/dp` column — **dimensionless** — or nullptr when absent.
+	 *
+	 * One value per radial node, in node order. `d(eps)/dp = 1/c_s^2` in `c = 1` units:
+	 * causal matter gives `>= 1`, incompressible matter `0` as a formal limit.
+	 */
+	const Zaki::Vector::DataColumn *GetEosDEdP() const noexcept
+	{
+		return has_eos_dedp_ ? &eos_dedp_ : nullptr;
+	}
+
+	/**
+	 * @brief Install a complete EOS-derivative set (bulk path).
+	 *
+	 * Validated before it is accepted: the size must match the radius column and every value
+	 * must be finite. Anything else clears the data and returns false, so that a partial or
+	 * corrupt set can never be published as authoritative.
+	 *
+	 * @return true if the data was accepted.
+	 * @note Calls Touch() (ADR-0003: any cache keyed on Version() sees this).
+	 */
+	bool SetEosDEdP(const Zaki::Vector::DataColumn &in_dedp)
+	{
+		const int rcol = GetColumnIndex(Column::Radius);
+		const std::size_t n_nodes =
+			IsValidColumnIndex(rcol)
+				? const_cast<Zaki::Vector::DataSet &>(radial)[static_cast<std::size_t>(rcol)].Size()
+				: 0;
+
+		if (n_nodes == 0 || in_dedp.Size() != n_nodes)
+		{
+			ClearEosDEdP();
+			return false;
+		}
+		for (std::size_t i = 0; i < n_nodes; ++i)
+		{
+			if (!std::isfinite(in_dedp[static_cast<int>(i)]))
+			{
+				ClearEosDEdP();
+				return false;
+			}
+		}
+
+		eos_dedp_ = in_dedp;
+		eos_dedp_.SetLabel("dEdP");
+		has_eos_dedp_ = true;
+		Touch();
+		return true;
+	}
+
+	/**
+	 * @brief Append one node's `d(eps)/dp` (incremental path).
+	 *
+	 * Accumulates only; the data does not become authoritative until FinalizeEosDEdP()
+	 * validates the completed set. Mirrors how the incremental construction path builds the
+	 * radial columns one appended point at a time.
+	 * @note Calls Touch().
+	 */
+	void AppendEosDEdP(double in_dedp)
+	{
+		has_eos_dedp_ = false; // not authoritative until finalized
+		eos_dedp_.PushBack(in_dedp);
+		Touch();
+	}
+
+	/**
+	 * @brief Validate and publish an incrementally accumulated EOS-derivative set.
+	 *
+	 * Applies exactly the same acceptance test as SetEosDEdP(): complete and all-finite, or
+	 * discarded. Returns false when the profile simply has no derivative data, which is a
+	 * normal outcome, not an error.
+	 */
+	bool FinalizeEosDEdP()
+	{
+		if (eos_dedp_.Size() == 0)
+		{
+			ClearEosDEdP();
+			return false;
+		}
+		const Zaki::Vector::DataColumn staged = eos_dedp_;
+		return SetEosDEdP(staged);
+	}
+
+	/**
+	 * @brief Drop any EOS-derivative data. @note Calls Touch().
+	 */
+	void ClearEosDEdP() noexcept
+	{
+		eos_dedp_ = Zaki::Vector::DataColumn();
+		has_eos_dedp_ = false;
+		Touch();
+	}
+
+	// ------------------------------------------------------------
 	/**
 	 * @brief Reset profile to an empty state. Invalidates all views.
 	 * @note This will call Touch().
@@ -882,6 +1010,10 @@ struct StarProfile
 		z_surf = 0.0;
 		// species_labels.clear();
 		// species_idx.clear();
+
+		// EOS-derivative data belongs to the profile that was just discarded (ADR-0007 P5).
+		eos_dedp_ = Zaki::Vector::DataColumn();
+		has_eos_dedp_ = false;
 
 		Touch();
 	}

@@ -38,6 +38,16 @@ add_test(NAME tov_reference_analytic COMMAND tov_reference_analytic)
 set_tests_properties(tov_reference_analytic PROPERTIES LABELS "core;tov;reference")
 
 # ---------------------------------------------------------------------------
+#  Phase 4C-I0 EOS thermodynamic-derivative authority (ADR-0007 P5). Self-contained:
+#  builds its own synthetic EOS tables in a temp directory. Contract only — it exercises
+#  no O(Omega^2) physics.
+# ---------------------------------------------------------------------------
+add_executable(eos_derivative_contract eos/eos_derivative_contract.cpp)
+target_link_libraries(eos_derivative_contract PRIVATE CompactStar)
+add_test(NAME eos_derivative_contract COMMAND eos_derivative_contract)
+set_tests_properties(eos_derivative_contract PROPERTIES LABELS "eos;derivative;contract")
+
+# ---------------------------------------------------------------------------
 #  INV-12 cache-correctness contracts. Self-contained.
 #  The registered test runs ONLY the supported-contract cases. The known-hazard
 #  reproductions live behind --audit-known-hazards and are deliberately NOT a
@@ -188,6 +198,17 @@ if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
     set_tests_properties(grid_convergence_cmf PROPERTIES
         LABELS "thermal;scientific;external-data;convergence"
         TIMEOUT 1800)
+
+    # Phase 4C-I0 EOS d(eps)/dp on the authenticated CMF sequence (ADR-0007 P5).
+    # Asserts completeness, finiteness and positivity; prints the retired profile
+    # finite difference as a diagnostic only. No O(Omega^2) physics.
+    add_executable(eos_derivative_cmf eos/eos_derivative_cmf.cpp)
+    target_link_libraries(eos_derivative_cmf PRIVATE CompactStar)
+    add_test(NAME eos_derivative_cmf
+             COMMAND eos_derivative_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(eos_derivative_cmf PROPERTIES
+        LABELS "eos;derivative;scientific;external-data"
+        TIMEOUT 900)
 
     # Phase-2B-4B scale-free Hartle I on the authenticated CMF sequence.
     add_executable(hartle_moment_inertia_cmf rotation/hartle_moment_inertia_cmf.cpp)

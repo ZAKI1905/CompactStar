@@ -10,6 +10,7 @@
 
 #include <array>
 #include <cmath>
+#include <limits>
 
 #include <gsl/gsl_const_cgsm.h>
 #include <gsl/gsl_errno.h>
@@ -90,6 +91,91 @@ static double SafeSplineEval(gsl_spline *sp,
 	}
 
 	return y;
+}
+
+//==============================================================
+//        Safe Spline Derivative Evaluation — FAIL-CLOSED
+//==============================================================
+/**
+ * A derivative is a *local* physical property of the state being asked about, so the clamping
+ * that `SafeSplineEval` applies to a value lookup is not admissible here: clamping would return
+ * the derivative at a boundary while pretending to describe the requested state. This helper
+ * therefore refuses everything it cannot answer exactly — out of domain, non-finite argument,
+ * missing interpolant, GSL error — and returns NaN so that the caller cannot mistake the result
+ * for a physical number. Exact endpoints are inside the domain and are evaluated.
+ *
+ * ADR-0007 P5 (ACCEPTED 2026-09-02); Phase 4C-I0.
+ */
+static double SafeSplineEvalDeriv(gsl_spline *sp,
+								  gsl_interp_accel *acc,
+								  double x,
+								  const char *what)
+{
+	const double kNaN = std::numeric_limits<double>::quiet_NaN();
+
+	if (!sp || !sp->interp)
+	{
+		Z_LOG_ERROR(std::string("SafeSplineEvalDeriv: null spline for ") + what);
+		return kNaN;
+	}
+
+	if (!std::isfinite(x))
+	{
+		Z_LOG_ERROR(std::string("SafeSplineEvalDeriv: non-finite x for ") + what);
+		return kNaN;
+	}
+
+	const double xmin = sp->interp->xmin;
+	const double xmax = sp->interp->xmax;
+
+	// Deliberately NOT clamped — see the comment above.
+	if (x < xmin || x > xmax)
+	{
+		Z_LOG_ERROR(std::string("SafeSplineEvalDeriv: x out of range for ") + what +
+					"  x=" + std::to_string(x) +
+					"  [" + std::to_string(xmin) + "," + std::to_string(xmax) + "]");
+		return kNaN;
+	}
+
+	double dydx = 0.0;
+	const int status = gsl_spline_eval_deriv_e(sp, x, acc, &dydx);
+
+	if (status != GSL_SUCCESS)
+	{
+		Z_LOG_ERROR(std::string("SafeSplineEvalDeriv: gsl_spline_eval_deriv_e failed for ") +
+					what + " status=" + std::to_string(status));
+		return kNaN;
+	}
+
+	if (!std::isfinite(dydx))
+	{
+		Z_LOG_ERROR(std::string("SafeSplineEvalDeriv: non-finite derivative for ") + what);
+		return kNaN;
+	}
+
+	return dydx;
+}
+
+//==============================================================
+/**
+ * Converts the raw `eps(p)` spline derivative from the EOS table's own units
+ * (g/cm^3 per dyne/cm^2, i.e. s^2/cm^2) to the dimensionless geometric `d(eps)/dp`.
+ *
+ * Derived from the *same* two constants `NStar::BuildFromTOV` uses to place `eps` and `p` on
+ * the profile:
+ *
+ *     eps_geom = eps_cgs * (INV_FM4_2_INV_KM2 / INV_FM4_2_G_CM3)
+ *     p_geom   = p_cgs   * (INV_FM4_2_INV_KM2 / INV_FM4_2_Dyn_CM2)
+ *  => d(eps_geom)/d(p_geom) = (INV_FM4_2_Dyn_CM2 / INV_FM4_2_G_CM3) * d(eps_cgs)/d(p_cgs)
+ *
+ * The ratio is `c^2` in cgs (cm^2/s^2), because `INV_FM4_2_Dyn_CM2` converts an energy density
+ * to dyne/cm^2 = erg/cm^3 while `INV_FM4_2_G_CM3` converts the same energy density to the
+ * mass-density equivalent g/cm^3. That identity is asserted against an independent literal
+ * `c = 2.99792458e10 cm/s` by `tests/eos/eos_derivative_contract.cpp`; it is not assumed here.
+ */
+static double EosDerivCgsToDimensionless()
+{
+	return Zaki::Physics::INV_FM4_2_Dyn_CM2 / Zaki::Physics::INV_FM4_2_G_CM3;
 }
 
 //==============================================================
@@ -976,6 +1062,44 @@ double TOVSolver::GetEDens(const double &in_pres)
 double TOVSolver::GetEDens_Dark(const double &in_pres)
 {
 	return SafeSplineEval(dark_eps_p_spline, dark_p_accel, in_pres, "dark eps(p) spline");
+}
+
+//--------------------------------------------------------------
+// EOS thermodynamic derivative — ADR-0007 P5 (Phase 4C-I0).
+// The authority is the SAME visi_eps_p_spline that GetEDens reads, through the SAME
+// accelerator; there is no second interpolant anywhere in this class.
+bool TOVSolver::HasEDensDeriv() const noexcept
+{
+	return visi_eps_p_spline != nullptr && visi_eps_p_spline->interp != nullptr;
+}
+
+//--------------------------------------------------------------
+double TOVSolver::EDensDerivPressMin() const noexcept
+{
+	if (!HasEDensDeriv())
+		return std::numeric_limits<double>::quiet_NaN();
+	return visi_eps_p_spline->interp->xmin;
+}
+
+//--------------------------------------------------------------
+double TOVSolver::EDensDerivPressMax() const noexcept
+{
+	if (!HasEDensDeriv())
+		return std::numeric_limits<double>::quiet_NaN();
+	return visi_eps_p_spline->interp->xmax;
+}
+
+//--------------------------------------------------------------
+// Input pressure (dyne/cm^2), output d(eps)/dp — DIMENSIONLESS.
+// Fail-closed outside the interpolant's domain: see SafeSplineEvalDeriv.
+double TOVSolver::GetEDensDeriv(const double &in_pres)
+{
+	const double dedp_cgs = SafeSplineEvalDeriv(visi_eps_p_spline, visi_p_accel, in_pres,
+											   "visible eps(p) spline derivative");
+	if (!std::isfinite(dedp_cgs))
+		return std::numeric_limits<double>::quiet_NaN();
+
+	return dedp_cgs * EosDerivCgsToDimensionless();
 }
 
 //--------------------------------------------------------------
@@ -2494,15 +2618,23 @@ int TOVSolver::SingleStarSolveToTOVPoints(double ec_central,
 		const double rho_here = GetRho(y[1]);
 		const std::vector<double> rho_i_here = GetRho_i(y[1]);
 
+		// ADR-0007 P5: the authoritative barotropic derivative, taken from the same eps(p)
+		// interpolant that produced `e_here` one line above. Dimensionless. NaN if the
+		// pressure sits outside the interpolant's domain, which is exactly the state in
+		// which no derivative may be claimed; a profile carrying any NaN simply publishes
+		// no EOS-derivative data and every consumer of it fails closed.
+		const double dedp_here = GetEDensDeriv(y[1]);
+
 		out_tov.emplace_back(
 			r_km,
 			m_msun,
 			nu_prime,
-			0.0,	   // ν will be reconstructed later from ν'(r)
-			y[1],	   // p
-			e_here,	   // ε
-			rho_here,  // total baryon density
-			rho_i_here // species densities
+			0.0,	    // ν will be reconstructed later from ν'(r)
+			y[1],	    // p
+			e_here,	    // ε
+			rho_here,   // total baryon density
+			rho_i_here, // species densities
+			dedp_here   // d(eps)/dp, dimensionless (ADR-0007 P5)
 		);
 
 		// ------------------------------------------------------

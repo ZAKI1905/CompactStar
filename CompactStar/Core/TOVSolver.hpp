@@ -40,6 +40,7 @@
 #define CompactStar_Core_TOVSolver_H
 
 #include <gsl/gsl_spline.h>
+#include <limits>
 #include <vector>
 
 #include <Zaki/Math/Math_Core.hpp>
@@ -319,13 +320,34 @@ struct TOVPoint
 	double r, m, nu_der, nu, p, e, rho;
 	std::vector<double> rho_i;
 
+	/**
+	 * @brief The barotropic EOS derivative d(eps)/dp at this node — **DIMENSIONLESS**.
+	 *
+	 * ADR-0007 P5 (ACCEPTED 2026-09-02) makes the EOS the sole authority for this quantity:
+	 * it is the derivative of the *same* `eps(p)` interpolant that constructed the star
+	 * (`TOVSolver::GetEDensDeriv`), never a finite difference of the radial profile.
+	 * `d(eps)/dp = 1/c_s^2` in `c = 1` units, so causal matter has `d(eps)/dp >= 1` and
+	 * incompressible matter has `d(eps)/dp = 0` as a formal limit.
+	 *
+	 * Unlike `p` and `e`, which are carried across this boundary in cgs, this member is
+	 * dimensionless and therefore unit-system independent.
+	 *
+	 * **NaN means "not supplied".** That is the default, and it is deliberately distinct from
+	 * an explicitly supplied `0.0` (the correct value for incompressible matter). A profile
+	 * built from points that do not all carry a finite value simply has no EOS-derivative
+	 * data, and any consumer that requires one fails closed — see
+	 * `StarProfile::HasEosDEdP()`.
+	 */
+	double dedp;
+
 	TOVPoint(const double &in_r, const double &in_m,
 			 const double &in_nu_der, const double &in_nu,
 			 const double &in_p, const double &in_e,
-			 const double &in_rho, const std::vector<double> &in_rho_i)
+			 const double &in_rho, const std::vector<double> &in_rho_i,
+			 const double &in_dedp = std::numeric_limits<double>::quiet_NaN())
 		: r(in_r), m(in_m), nu_der(in_nu_der), nu(in_nu),
 		  p(in_p), e(in_e), rho(in_rho),
-		  rho_i(in_rho_i)
+		  rho_i(in_rho_i), dedp(in_dedp)
 	{
 	}
 
@@ -737,6 +759,53 @@ class TOVSolver : public Prog
 	 * @return Energy density corresponding to the given pressure.
 	 */
 	double GetEDens(const double &in_pressure);
+
+	// ----------------------------------------------------------
+	//   EOS thermodynamic derivative — the single scientific authority
+	//   (ADR-0007 P5, ACCEPTED 2026-09-02; Phase 4C-I0)
+	// ----------------------------------------------------------
+	/**
+	 * @brief Whether the visible `eps(p)` interpolant exists and can supply a derivative.
+	 *
+	 * False before `ImportEOS`, or when the table was too short / non-monotonic for GSL.
+	 */
+	bool HasEDensDeriv() const noexcept;
+
+	/// Lower end of the `eps(p)` interpolant's pressure domain, in the EOS table's own
+	/// units (dyne/cm^2). NaN when no interpolant exists.
+	double EDensDerivPressMin() const noexcept;
+
+	/// Upper end of the `eps(p)` interpolant's pressure domain, in the EOS table's own
+	/// units (dyne/cm^2). NaN when no interpolant exists.
+	double EDensDerivPressMax() const noexcept;
+
+	/**
+	 * @brief The barotropic EOS derivative `d(eps)/dp` at a given pressure — **DIMENSIONLESS**.
+	 *
+	 * This is the quantity Hartle's O(Omega^2) `l = 0` system needs (H67 eq. 97, `dE/dP`), and
+	 * ADR-0007 P5 fixes its authority: it is the analytic derivative of the **same**
+	 * `visi_eps_p_spline` from which `GetEDens` reads `eps`, evaluated through the same
+	 * accelerator. There is no second interpolant, no profile finite difference, and no
+	 * fallback value.
+	 *
+	 * **Units.** The table stores `eps` in g/cm^3 against `p` in dyne/cm^2, so the raw spline
+	 * derivative carries s^2/cm^2. The profile conversion in `NStar::BuildFromTOV` scales
+	 * `eps` by `INV_FM4_2_INV_KM2 / INV_FM4_2_G_CM3` and `p` by
+	 * `INV_FM4_2_INV_KM2 / INV_FM4_2_Dyn_CM2`, so the geometric (and hence dimensionless)
+	 * derivative is the raw one times `INV_FM4_2_Dyn_CM2 / INV_FM4_2_G_CM3` — which is `c^2` in
+	 * cgs. That factor is applied here, and this function is its only owner.
+	 *
+	 * **Domain semantics — stricter than a value lookup, deliberately.** A derivative is a
+	 * *local* property of the state, so a clamped out-of-range query would silently describe a
+	 * different state than the one asked about. `GetEDens` clamps and warns; this function
+	 * **fails closed**: outside `[EDensDerivPressMin(), EDensDerivPressMax()]`, on a non-finite
+	 * argument, with no interpolant, or on any GSL error it logs and returns NaN. Exact
+	 * endpoints are evaluated, not rejected. Callers must test `std::isfinite`.
+	 *
+	 * @param in_pressure pressure in the EOS table's own units (dyne/cm^2).
+	 * @return `d(eps)/dp`, dimensionless, or NaN if it cannot be evaluated for this argument.
+	 */
+	double GetEDensDeriv(const double &in_pressure);
 
 	/**
 	 * @brief Get the energy density of the dark component corresponding to a given pressure.

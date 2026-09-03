@@ -519,6 +519,18 @@ an explicit `AngularVelocity`. `GOVERNANCE.md` §3.1 is **AUTHORIZED** by that A
 **the correction is not yet executed.** Modified at acceptance: the homogeneous
 sequence-derivative response is **not** a public API in Phase 4C (validation use only).
 
+**Phase 4C-I0 note (2026-09-02) — the EOS derivative authority of ADR-0007 P5 is in place; the
+candidate is untouched.** `TOVSolver::GetEDensDeriv` now owns `dε/dp` as the derivative of the
+same `ε(p)` Steffen interpolant that builds the star, delivered dimensionless (the cgs→geometric
+factor `INV_FM4_2_Dyn_CM2/INV_FM4_2_G_CM3` matches `c²` to `1.5e-16` against an independent
+literal) and **fail-closed** off-domain, and `StarProfile::HasEosDEdP()`/`GetEosDEdP()` carry it
+to consumers all-or-nothing. `RotationSolver.{hpp,cpp}` were **not touched**; the four
+second-order functions and `HartleResult` are byte-identical to `master`. The retired profile
+finite difference was measured against the new authority on DS(CMF)-1: median agreement `~4e-7`
+in the core but **155–490 % error at ~25 crust nodes per star**, which is why P5 removes it from
+authority. Evidence: `docs/validation/PHASE4C_I0_EOS_DERIVATIVE.md`. **No O(Ω²) physics was
+implemented, executed or baselined.**
+
 **Status.** **GOVERNED (ADR-0007 ACCEPTED) — REPLACEMENT CONTRACT ESTABLISHED; CURRENT CANDIDATE
 NONCONFORMANT / REPLACEMENT PENDING.** Acceptance fixes the contract; it certifies no number.
 The shipped `SolveHartle2_N` / `ODE_Hartle2_N_Fast` remain byte-identical, publicly callable,
@@ -698,6 +710,21 @@ second-order convergence. Smoothness is assumed rather than established; the gri
 integrator, not chosen for a refinement study; and clamping (INV-10) is not smooth at all.
 **The convergence order of the complete calculation must be measured, not inferred from the
 interpolation scheme.** Designing that measurement is Phase-2B work.
+
+**Phase 4C-I0 note (2026-09-02) — the EOS tables are a separate interpolation domain.** This
+invariant governs `Zaki::Vector::DataSet` (linear). The **EOS** splines inside `TOVSolver` are a
+different mechanism and a different choice: `TOV_gsl_interp_type = gsl_interp_steffen`
+(`TOVSolver.hpp:488`), a monotonicity-preserving C¹ cubic, used for `ε(p)`, `n_B(p)` and every
+species column. ADR-0007 P5 makes the `dε/dp` authority the **analytic derivative of that same
+interpolant** (`TOVSolver::GetEDensDeriv`), evaluated through the same accelerator — not a
+re-interpolation under a smoother scheme, which would make the derivative inconsistent with the
+`ε` the star was actually built from. Detector D3
+(`docs/validation/PHASE4C_I0_EOS_DERIVATIVE.md` §11) measured the consequence of violating that:
+a `gsl_interp_cspline` derivative over the same table yields **negative** `dε/dp` at 22–66 crust
+nodes on DS(CMF)-1, i.e. `c_s² < 0`. Steffen's monotonicity preservation is load-bearing here,
+not cosmetic. *(Unrepaired and unchanged: the comment block at `TOVSolver.hpp:494-498` still
+describes a natural cubic spline, and `TOVSolver.hpp:549-554` still says `1e-5` where
+`PressureCutoff` uses `1e-15` — stale comments, no behaviour difference.)*
 
 ---
 

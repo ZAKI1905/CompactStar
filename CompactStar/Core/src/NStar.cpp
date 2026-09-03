@@ -253,6 +253,44 @@ void NStar::BuildFromTOV(const std::vector<TOVPoint> &in_tov,
 			}
 		}
 
+		// ------------------------------------------------------------
+		// EOS thermodynamic derivative (ADR-0007 P5, ACCEPTED 2026-09-02)
+		// ------------------------------------------------------------
+		// The derivative is EOS-owned: TOVSolver evaluated it on the same eps(p) interpolant
+		// that produced this star, and the points merely carried it here. It is published
+		// only if EVERY node has one — a partial set is no authority at all, and the
+		// all-or-nothing rule is what lets a consumer trust HasEosDEdP() without inspecting
+		// nodes. Points that carry no derivative (NaN, the default) leave the profile without
+		// EOS-derivative data; first-order and TOV physics neither read it nor care, and the
+		// governed O(Omega^2) solver fails closed on it.
+		{
+			bool all_finite = true;
+			for (const auto &tp : in_tov)
+			{
+				if (!std::isfinite(tp.dedp))
+				{
+					all_finite = false;
+					break;
+				}
+			}
+
+			if (all_finite)
+			{
+				Zaki::Vector::DataColumn dedp_col;
+				dedp_col.Reserve(n_rows);
+				for (const auto &tp : in_tov)
+					dedp_col.PushBack(tp.dedp);
+
+				if (!prof_.SetEosDEdP(dedp_col))
+					Z_LOG_ERROR("EOS derivative column rejected by StarProfile; "
+								"profile will carry no d(eps)/dp.");
+			}
+			else
+			{
+				prof_.ClearEosDEdP();
+			}
+		}
+
 		// interpolate the columns we actually have
 		{
 			std::vector<int> interp_cols;
@@ -561,6 +599,15 @@ void NStar::FinalizeSurface()
 		EvaluateNu(); // profile-aware version we just wrote
 
 		// --------------------------------------------------------
+		// 1.b2) Publish the EOS thermodynamic derivative (ADR-0007 P5)
+		// --------------------------------------------------------
+		// Same all-or-nothing acceptance as the bulk path in BuildFromTOV: complete and
+		// all-finite, or the profile simply carries none. A star built through this path with
+		// points that never supplied a derivative finalizes to "absent", which is a normal
+		// outcome and not an error.
+		prof_.FinalizeEosDEdP();
+
+		// --------------------------------------------------------
 		// 1.c) Build baryon-number integrand
 		// --------------------------------------------------------
 		if (!prof_.HasColumn(StarProfile::Column::BaryonDensity) ||
@@ -752,6 +799,11 @@ void NStar::Append(const TOVPoint &in_tov)
 
 	radial[idx_lam].PushBack(lambda_geom);
 	// ------------------------------------------------------------
+
+	// ADR-0007 P5: accumulate the EOS-owned derivative for this node. It does not become
+	// authoritative until FinalizeSurface() validates the completed set, exactly as the
+	// surface scalars and the baryon integrand do not.
+	prof_.AppendEosDEdP(in_tov.dedp);
 
 	// ------------------------------------------------------------
 	// 2.a) per-species for the profile

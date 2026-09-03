@@ -321,6 +321,31 @@ authority; no acceptance.
 | Q7 | Disposition of the public candidate API? | **A — atomic replacement** (§5-Q13) |
 | Q8 | Expose the homogeneous (sequence-derivative) solution as an optional second struct? | **Yes** (P11) |
 
+## 12. Implementation record — Phase 4C-I0 (2026-09-02)
+
+**P5 only.** The `dε/dp` authority of P5 is implemented and independently validated; **no other
+clause of §4 is implemented**, no O(Ω²) equation was added, and the candidate is byte-identical
+to `master`. Evidence: `docs/validation/PHASE4C_I0_EOS_DERIVATIVE.md`.
+
+| P5 requirement | As implemented |
+|---|---|
+| the EOS/TOV layer owns the evaluation | `TOVSolver::GetEDensDeriv`, with `HasEDensDeriv`, `EDensDerivPressMin/Max` (`TOVSolver.hpp`) |
+| the derivative of the **same** `ε(p)` interpolant | differentiates `visi_eps_p_spline` (`gsl_interp_steffen`, `TOVSolver.hpp:488`) through the same accelerator `GetEDens` uses; no second interpolant exists |
+| delivered dimensionless | `× (INV_FM4_2_Dyn_CM2 / INV_FM4_2_G_CM3)`, derived from the same two constants `NStar::BuildFromTOV` uses for `ε` and `p`, and asserted against an independent literal `c = 2.99792458e10 cm/s` to `1.458e-16` |
+| never a profile finite difference, no `1.0` fallback | the only finite differences in the tree are a test oracle and a printed diagnostic; detector D1 proves the fail-closed contract catches a substitution |
+| carried to the profile so `RotationSolver` needs no EOS object | `StarProfile::HasEosDEdP()` / `GetEosDEdP()`, filled through `TOVPoint::dedp` by both ordinary-`NStar` construction paths. `RotationSolver.{hpp,cpp}` were **not touched** |
+| absence fails closed | out-of-domain / non-finite / no-interpolant ⇒ NaN (never a clamped boundary value, never `0.0`, which is the physical value for incompressible matter); a profile publishes the set only if every node has a finite value |
+| point-constructed stars may supply their own | `TOVPoint`'s trailing `dedp` (default NaN = "not supplied"), distinct from an explicit `0.0` |
+
+Validated by `tests/eos/eos_derivative_contract.cpp` (15/15, self-contained, bounds predeclared
+from the interpolation order) and `tests/eos/eos_derivative_cmf.cpp` (17/17, DS(CMF)-1), with
+detectors D1–D3 fired and reverted byte-identically. Suites: **25/25** and **13/13**; the seven
+durable artifacts and `I` are byte-identical. `dn_i/dp` remains **GOVERNED PRINCIPLE
+ESTABLISHED — IMPLEMENTATION DEFERRED TO PHASE 5**. `GOVERNANCE.md` §3.1 is **AUTHORIZED, NOT
+YET EXERCISED**: 4C-I0 changed no scientific output and created no monopole baseline.
+
+---
+
 ## Decision
 
 **Adjudicated by the project owner on 2026-09-02.** The contract of §4 (**P1–P14**) is
