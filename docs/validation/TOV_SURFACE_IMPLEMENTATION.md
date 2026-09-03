@@ -250,3 +250,80 @@ Changed documentation files are this record, `docs/adr/ADR-0009-tov-surface-even
 The acceptance commit is listed in §1; the stopped-record commit is identified by
 Git history and the final delivery report. The final report also records verified
 local/remote equality after the non-force push.
+
+## 8. TOV-SURF-I-R owner clarification and pre-restoration diagnosis
+
+**Resume starting HEAD:** `96c1425f8503c2845e72f5755b02840798f6b958`.
+Clean worktree, upstream and live remote equal; accepted ancestor `7a223d3` and
+proposal ancestor `8034a9c` authenticated. Production/test bytes equal the pre-candidate
+source. All seven artifact hashes in §6 remain unchanged. Candidate patch exists
+and matches SHA256 `4f4f28cdc14d50bda499e26a891b455e10ae8e068834b4814479ca12002552dc`.
+The complete archived manifest and starting 31/31 + 17/17 logs were authenticated;
+these recent suites are reused because source and build state were restored and
+no intervening source change exists. The original stopped record above remains
+historical evidence. Classification remains scientific-semantic + numerical-method
++ structural under the normal migration path, not GOVERNANCE §3.1.
+
+The owner clarified **V7a** as the identical-εc impact experiment, retaining the
+`1e-9` relative mass bound and the existing radius envelope. **V7b** is the complete,
+stable-branch, deterministic target-mass workflow with its unchanged absolute
+`1e-4 M☉` tolerance; historical εc equality is not required. ADR-0009's accepted
+scientific Decision is not rewritten. See its post-acceptance clarification.
+
+### 8.1 Exact archived-binary bisection diagnosis
+
+Before restoring the patch, LLDB traced the **preserved original executables**
+`scratch/old_probe` and `scratch/new_probe` from the authenticated TOV-SURF-I archive.
+Breakpoints read local variables only; no numerical variable or source was modified.
+Commands/logs and their SHA256 manifest are preserved at
+`/Users/keeper/.codex/diagnostics/tov-surf-ir-20260903/` (`old.lldb:1`, `new.lldb:1`,
+`old-profile.lldb:1`). Both binaries reproduce their archived final masses exactly.
+
+Both selected the same positive-slope coarse bracket:
+`[806030255434967.75, 1551240399781547.5] g/cm³`.
+Old endpoint masses `[1.7001029821130762, 2.0467345600684186] M☉`;
+candidate `[1.700102983637509, 2.0467345605021521] M☉`.
+The candidate excludes 18 incomplete low-density coarse samples, changing compacted
+indices from `(20,21)` to `(2,3)` but **not** these endpoints or stable-branch selection.
+
+Zero-based iteration trace; accepted means `|M-2| < 1e-4 M☉`:
+
+| Behavior | iteration | εc (g/cm³) | M (M☉) | absolute residual (M☉) | accepted? |
+|---|---|---|---|---|---|
+| old | 0 | 1178635327608257.5 | 1.9617227924250455 | 0.038277207574954453 | no |
+| old | 1 | 1364937863694902.5 | 2.0161260692509688 | 0.016126069250968822 | no |
+| old | 2 | 1271786595651580 | 1.9927512688280649 | 0.007248731171935141 | no |
+| old | 3 | 1318362229673241.3 | 2.0052551548445821 | 0.0052551548445820551 | no |
+| old | 4 | 1295074412662410.5 | 1.9992211126858292 | 0.00077888731417075086 | no |
+| old | 5 | 1306718321167826 | 2.0022907812973161 | 0.0022907812973160802 | no |
+| old | 6 | 1300896366915118.3 | 2.0007693277192287 | 0.00076932771922866294 | no |
+| old | 7 | 1297985389788764.5 | 1.9987052318295861 | 0.0012947681704138514 | no |
+| old | 8 | 1299440878351941.5 | 2.0003847970065332 | 0.00038479700653315518 | no |
+| old | 9 | 1298713134070353 | 2.0001919017217573 | 0.0001919017217573149 | no |
+| old | 10 | 1298349261929558.8 | 2.0000952962048859 | 0.000095296204885908508 | yes |
+| new | 0 | 1178635327608257.5 | 1.9617227927722212 | 0.038277207227778831 | no |
+| new | 1 | 1364937863694902.5 | 2.016126070354213 | 0.016126070354212985 | no |
+| new | 2 | 1271786595651580 | 1.9927512699268111 | 0.0072487300731889359 | no |
+| new | 3 | 1318362229673241.3 | 2.0052551558256626 | 0.0052551558256626052 | no |
+| new | 4 | 1295074412662410.5 | 1.999221112887285 | 0.00077888711271500988 | no |
+| new | 5 | 1306718321167826 | 2.0022907828021772 | 0.0022907828021772048 | no |
+| new | 6 | 1300896366915118.3 | 2.0007693277528409 | 0.00076932775284088706 | no |
+| new | 7 | 1297985389788764.5 | 1.9999985861663816 | 0.0000014138336184021938 | yes |
+
+**Cause: E — restoration of a previously truncated bisection member**, followed by
+the unchanged first-acceptable stopping rule. It is not simply neighboring iterates
+crossing a nearly equal threshold (A), a changed coarse bracket (B), removal of a
+coarse sample affecting that bracket (C), or a stable-branch selection change (D).
+
+At iteration 7 both evaluate `εc=1297985389788764.5 g/cm³`. LLDB inspection of the old
+`tmp` shows **2479 nodes**, last `R=12.376323231955196 km`,
+`M=1.9987052318295861 M☉`, `p=4.4009432910546427e31 dyn/cm²`,
+`ε=70785195087364.766 g/cm³`: about `1.31e6` times the governed pressure cutoff,
+a crust-truncated profile. The old root finder incorrectly treats its mass as a
+sample and continues to iteration 10. The corrected member completes and returns
+`1.9999985861663816 M☉` at iteration 7, satisfying the unchanged tolerance.
+
+The candidate residual is `1.4138336184021938e-6 M☉`, versus the old accepted
+`9.5296204885908508e-5 M☉`: the candidate is about **67.4 times closer** to the target.
+This diagnosis requires no mass-tolerance or bisection-policy change. V7a and V7b
+must still pass before the remaining V1–V12 campaign resumes.

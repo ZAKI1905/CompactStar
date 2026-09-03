@@ -230,3 +230,25 @@ Drafted by the AI agent (TOV-SURF-G, 2026-09-03) from the TOV-RR-01 audit and th
 measurements recorded in `docs/validation/TOV_SURFACE_CONTRACT_DERIVATION.md`. The draft changed no production, test, CMake or baseline file. The owner accepted Q1–Q14
 on 2026-09-03 in TOV-SURF-I; this acceptance commit changes only this ADR and precedes
 implementation. No artifact has been regenerated.
+
+## Post-acceptance owner clarification — V7 (TOV-SURF-I-R, 2026-09-03)
+
+This validation clarification leaves the accepted scientific Decision Q1–Q14 above
+unchanged. The owner splits V7 into two experiments:
+
+- **V7a — fixed central density:** compare old and corrected solves at identical
+  inherited εc. The existing `|ΔM/M| <= 1e-9` and radius impact map apply here.
+  The four inherited εc values are `454550405078491.75`, `616488270506054.5`,
+  `731253342677476.12`, and `1298349261929558.8 g/cm³`.
+- **V7b — target-mass contract:** independently solve targets 1.0, 1.4, 1.6, 2.0 M☉.
+  Only complete `SURFACE_REACHED` stars may participate; retain stable-branch
+  selection, exclude failures, use no nearest-sample fallback, reach `p=p_cut`,
+  and reproduce identical results on repeated calls. Require the unchanged
+  absolute residual `|M-returned - M-target| < 1e-4 M☉`. εc may move.
+
+The `1e-9` bound belongs only to V7a; it is not widened or applied to two independently
+solved target-mass results. Coarse `N=24`, stable-branch criterion, first-acceptable
+bisection stopping, and production `mass_tol=1e-4 M☉` remain unchanged. Commit
+`96c1425` retains the valid historical STOP caused by applying the fixed-density
+impact bound to independent target-mass workflows. The resume diagnosis and exact
+traces are recorded in `docs/validation/TOV_SURFACE_IMPLEMENTATION.md:254`.
