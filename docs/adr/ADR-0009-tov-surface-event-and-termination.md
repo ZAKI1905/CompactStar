@@ -2,12 +2,12 @@
 
 | Field | Value |
 |---|---|
-| **Status** | **PROPOSED** (2026-09-03) — owner adjudication of Q1–Q14 required before any repair |
+| **Status** | **ACCEPTED — 2026-09-03** (owner adjudication in TOV-SURF-I); source conformance and validation pending |
 | **Date** | 2026-09-03 |
 | **Change class** | scientific-semantic (definition of `R_*`; INV-06) **and** numerical-method (event location; right-hand-side domain contract) **and** structural (completion status; fail-closed publication) — the strictest class governs |
 | **Governing authority** | ADR-0005 §7.1 (the primitive owns "the termination test"; §7.3 froze `SolveToProfile`'s fallback for Phase 3E only); ADR-0003; ADR-0004 (`EvaluateNu` surface BC); ADR-0007 P7 / ADR-0008 Q7 (surface = EOS-floor node, terminal atom); INV-06, INV-13; TOV-RR-01 |
 | **Affected invariants** | INV-06 (locator amended, value unchanged); INV-13 (partition is sampling only); INV-08/INV-09 (dependency only) |
-| **Blocks** | the TOV surface repair increment; regeneration of every durable artifact carrying `R_*`; the corrected Phase-4D revalidation and the first monopole baseline (ADR-0008 Q12) |
+| **Blocks** | regeneration of every durable artifact carrying `R_*` until implementation and validation; the corrected Phase-4D revalidation and the first monopole baseline (ADR-0008 Q12) |
 | **Evidence record** | `docs/validation/TOV_SURFACE_CONTRACT_DERIVATION.md`; defect: `docs/validation/TOV_RADIAL_RES_2500_AUDIT.md` |
 
 > **Relation to prior ADRs.** Amends ADR-0005 only in what "the termination test" of the canonical
@@ -46,7 +46,30 @@ fails") and deferred it.
 
 ## Decision
 
-*Empty while PROPOSED.* Filled in only on ratification (owner adjudication of Q1–Q14).
+The owner accepted Q1–Q14 on 2026-09-03 in the TOV-SURF-I implementation request.
+This acceptance precedes source mutation. The following decisions are authoritative;
+the questions and scratch measurements below retain their historical evidentiary role.
+
+| Question | Accepted decision |
+|---|---|
+| Q1 | `R_*` is the unique crossing of the accepted continuous TOV solution, `p(R_*) = p_cut`. |
+| Q2 | Keep `PressureCutoff() = max(1e-15 p_c, eos_tab.pre[0])`; the cutoff value is not reopened. |
+| Q3 | A trial pressure at or below the cutoff is not a fatal RHS condition. The surface is an accepted-solution integration event. |
+| Q4 | For internal RK trial states only, evaluate `ε(max(p, p_floor))` through the existing EOS clamp while retaining trial `p` in the pressure terms. No broader EOS continuation or sub-cutoff publication. |
+| Q5 | Canonical locator: pressure-coordinate terminal integration from the last accepted state above the cutoff to exactly `p_cut`. Independent test-side cross-check: bracketed radial re-integration/root refinement. |
+| Q6 | The radial target partition is sampling only and does not define the star. |
+| Q7 | No canonical driver reset per output segment. If post-fix evidence requires it, stop for owner review. |
+| Q8 | Fail closed before `SURFACE_REACHED`; no partial star is authoritative. |
+| Q9 | Explicit reset-per-solve completion status: `SURFACE_REACHED`, `GSL_FAILURE`, `EOS_DOMAIN_FAILURE`, `R_MAX_EXHAUSTED`, `INVALID_INITIAL_STATE`, `PARTITION_INVALID`, or semantic equivalents. Integer success is positive only for `SURFACE_REACHED`; failed output is cleared. |
+| Q10 | Append exactly one final node at `R_*`, with `p=p_cut`, event mass, EOS energy/baryon/species densities and authoritative derivative at `p_cut`, TOV `ν′`, and initial `ν=0` for later reconstruction. Nothing below the cutoff is stored. |
+| Q11 | Preserve all seven durable artifacts as historical evidence. Migration is a separate later task after successful validation. |
+| Q12 | Apply evidence §12 V1–V12 and its predeclared scientific bounds; do not substitute artifact regression tolerances. |
+| Q13 | Amend INV-06's locator to the accepted-solution crossing stored as the final node; retain its cutoff value and EOS-floor semantics. |
+| Q14 | ADR-0008 physics is unchanged. Corrected Phase-4D revalidation and the first monopole baseline remain blocked until TOV implementation, validation, and artifact migration. |
+
+This is the normal scientific-semantic migration path, **not** the GOVERNANCE §3.1
+pre-baseline exception: acceptance → source correction → independent validation →
+separate artifact migration. Acceptance alone does not claim source conformance.
 
 ## Decision questions
 
@@ -152,7 +175,7 @@ fails") and deferred it.
 - **Validation needed** — as C.
 - **Implications** — admissible equivalent; recommended only as the cross-check of C's locator.
 
-## Consequences (once accepted)
+## Consequences
 
 - `R_*` becomes a property of the star (`p(R_*) = p_cut` on the accepted solution), not of the
   output grid; INV-06's locator is amended; INV-13 gains "the radial output partition is a sampling
@@ -171,7 +194,7 @@ Evidence record §12, V1–V12, with the predeclared bounds, the sweep, and the 
 scientific from regression tolerances. Baseline migration per evidence §11: regenerate once, after
 V1–V8 pass, in a dedicated commit with recorded deltas; any delta outside the impact map is a STOP.
 
-## Recommendations (evidence-based; not authority until adjudicated)
+## Historical recommendations (accepted above)
 
 | # | recommendation | basis |
 |---|---|---|
@@ -193,6 +216,6 @@ V1–V8 pass, in a dedicated commit with recorded deltas; any delta outside the 
 ## Provenance
 
 Drafted by the AI agent (TOV-SURF-G, 2026-09-03) from the TOV-RR-01 audit and the scratch
-measurements recorded in `docs/validation/TOV_SURFACE_CONTRACT_DERIVATION.md`. **The owner decides
-Q1–Q14.** No production, test, CMake or baseline file changed; nothing repaired; nothing
-regenerated.
+measurements recorded in `docs/validation/TOV_SURFACE_CONTRACT_DERIVATION.md`. The draft changed no production, test, CMake or baseline file. The owner accepted Q1–Q14
+on 2026-09-03 in TOV-SURF-I; this acceptance commit changes only this ADR and precedes
+implementation. No artifact has been regenerated.
