@@ -275,7 +275,15 @@ expands that plumbing into the actual scientific baseline.
   `R ~5.2e-4`, `T_inf ~4.5e-4`. **Accuracy adequacy is UNRESOLVED** — no governed downstream
   discretization budget exists, and the regression tolerances are deliberately not
   reinterpreted as one. Coarse-grid detector: `radial_res = 2500` is caught at 130x the
-  default-grid radius error. CTest `grid_convergence_cmf` (labels
+  default-grid radius error. **⚠ Reinterpreted 2026-09-03 (TOV-RR-01,
+  `docs/validation/TOV_RADIAL_RES_2500_AUDIT.md`):** that 130x is **not** coarse-grid
+  discretization error. At `radial_res = 2500` the TOV integration terminates at the crust–core
+  transition — `R = 12.9042` km, `M = 1.59768` M☉ against `13.4635` / `1.59998` at 5000 — so both
+  `radial_res = 2500` rows of the artifacts are a star missing its outer crust, and the
+  `B_fixed_mass` row's `ε_c` is 0.22 % high because the mass root-finder compensated. The other
+  four resolutions are clean and monotone, so the convergence conclusion stands on them; the 2500
+  point is not a coarse-grid value of the same star. Not repaired — every candidate repair changes
+  `R_*` and needs an ADR. CTest `grid_convergence_cmf` (labels
   `thermal;scientific;external-data;convergence`, ~106 s); artifacts
   `tests/baselines/grid_convergence_cmf_1p6_{debug,trajectory}.tsv`. Golden baselines
   unchanged. Evidence: `docs/validation/GRID_CONVERGENCE.md`.

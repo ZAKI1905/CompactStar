@@ -177,6 +177,19 @@ These are live conflicts. Under `GOVERNANCE.md` §3 they are fail-closed until a
    | **RESOLUTION-SWEEP DIAGNOSTIC ORCHESTRATOR** | `TOVSolver::GenTestSequence(ec, …)` |
    | **WORKFLOW OUTPUT CONTRACTS** | `<file>_Sequence.tsv`, `<file>_TestSequence.tsv` |
 
+   > **⚠ Known defect (2026-09-03, TOV-RR-01, audit only — not repaired).** The primitive's
+   > surface is located by a **fatal** guard inside `TOVSolver::ODE` (`y[1] < PressureCutoff()` →
+   > `GSL_EBADFUNC`), applied to **trial** states; the loop's own accepted-state test
+   > `if (y[1] <= p_cut) break;` therefore never fires (87/87 solves on DS(CMF)-1). Consequences:
+   > `R_*` is one target step short and scatters over 33 m (0.24 %) with `radial_res` while `M` is
+   > constant to `1.7e-8`; and at the crust–core near-discontinuity the same guard can end the
+   > integration 0.56 km early, losing `ΔM ≈ 2.3e-3 M☉` — for a scattered set of resolutions
+   > (`2500, 2510, 2525, 3000` sampled) and, at the **default 10000**, ≈3 % of central densities
+   > near 2 M☉. The `radial_res = 2500` rows of `grid_convergence_cmf_1p6_debug.tsv` /
+   > `_trajectory.tsv` are such a star. Root cause: trial-state surface guard; amplifier: the GSL
+   > driver's step size inherited across target segments. **Every candidate repair changes `R_*`
+   > and so requires an ADR.** Evidence: `docs/validation/TOV_RADIAL_RES_2500_AUDIT.md`.
+
    **All three orchestrators delegate to the one primitive.** `TOVSolver::RadiusLoop` — the
    duplicate ordinary-star radial loop — was **REMOVED** in Phase 3E-I4 after `GenTestSequence`,
    its last caller, was covered and migrated. Both output contracts are preserved and guarded by

@@ -294,6 +294,21 @@ the `p = 0` surface displacement by `O(ΔR/R_*) ≈ 4–7e-3` relative
 `TOVSolver.hpp:549-554` still says "`1e-5` times smaller than the central pressure" where the
 code uses `1e-15` (`TOVSolver.cpp:1206`) — a stale comment, not a behaviour difference.
 
+**⚠ UNRESOLVED sub-item (2026-09-03, TOV-RR-01) — the surface is NOT located by the governed
+cutoff test.** Measured on DS(CMF)-1 across 29 radial resolutions (87/87 solves): every ordinary
+star terminates because `gsl_odeiv2_driver_apply` returns `GSL_EBADFUNC`, never because the loop's
+own `if (y[1] <= p_cut) break;` fires. `TOVSolver::ODE` applies the cutoff test to **trial** states
+inside the right-hand side, and a user-function error is fatal for the GSL driver, so the last
+stored node sits *above* `p_cut` (`1.0–8.1 × p_cut` on normal stars) and `R_*` is systematically
+**one target step short**, scattering over **33 m (0.24 %)** with resolution while `M` is constant
+to `1.7e-8`. Worse, at a near-discontinuous EOS feature the same guard can fire far from the
+surface: a scattered set of resolutions (`2500, 2510, 2525, 3000` among those sampled) and, at the
+**production default 10000**, ≈3 % of central densities near 2 M☉, produce a star truncated at the
+crust–core transition, losing `ΔM ≈ 2.3e-3 M☉` and `ΔR ≈ 0.56 km`. One durable artifact
+(`grid_convergence_cmf_1p6_debug.tsv` / `_trajectory.tsv`, `radial_res = 2500` rows) was computed
+on such a star. **No repair was made**: every candidate changes `R_*` and therefore INV-06 itself,
+so an ADR is required. Evidence: `docs/validation/TOV_RADIAL_RES_2500_AUDIT.md`.
+
 **⚠ UNRESOLVED sub-item — heat-blanket base.** Two competing thresholds coexist:
 `TbDefinition.hpp:60` uses ρ_b = 1e10 g/cm³ (located by inward scan,
 `TbDefinition.cpp:91-95`), while `StarBuilder.hpp` carries
