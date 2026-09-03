@@ -16,6 +16,7 @@
 > | EOS thermodynamic derivative `dε/dp` — authority, units, domain semantics, profile delivery | **`13111de`** | Phase 4C-I0 — `docs/validation/PHASE4C_I0_EOS_DERIVATIVE.md` |
 > | O(Ω²) monopole — candidate retirement and governed replacement, provenance, materialization | **`a97f9c5`** | Phase 4C-I1 — `docs/validation/PHASE4C_I1_MONOPOLE_IMPLEMENTATION.md` |
 > | O(Ω²) monopole — independent physical validation (analytic, continuum, DS(CMF)-1, Chandrasekhar–Miller 1974, Hartle–Thorne 1968) | **`377bc4a`** | Phase 4D — `docs/validation/PHASE4D_MONOPOLE_VALIDATION.md` — `HARTLE MONOPOLE VALIDATION FAILED` on stepped crusts (implementation verified; ADR-0007 amendment required) |
+> | O(Ω²) monopole — EOS energy-density source as a measure (derivation, scratch evaluation of three numerical authorities) | **`246f3f2`** | Phase 4D-RG — `docs/validation/PHASE4D_R_EOS_MEASURE_DERIVATION.md` — ADR-0008 **PROPOSED** |
 > | First-order rotation API, units and normalization | **Phase 4A** | ADR-0006 implemented and validated — `docs/validation/PHASE4A_FIRST_ORDER_NORMALIZATION.md` |
 > | First-order rotation **physics** (profile shape) | **Phase 4B** | Independently verified — `docs/validation/PHASE4B_FIRST_ORDER_PHYSICS.md` |
 > | Everything else — EOS, TOV, Evolution, Drivers, Microphysics, caches | `9f70f14`, from the `d91c31b` audit | Phase-0 reconnaissance; see `docs/reconnaissance/2026-08-31-phase-0-reconnaissance.md` |
@@ -520,7 +521,8 @@ Re-authenticated at **`11ffe45`** after roadmap Phase 1. Full evidence and comma
   **HARTLE MONOPOLE VALIDATION FAILED** (implementation verified; accepted contract incomplete for
   stepped crusts): **no O(Ω²) `δM̂` from a stepped tabulated EOS may be cited**, **no monopole
   baseline exists**, ADR-0007 must be amended, and the `l = 2` sector is out of scope rather than
-  verified.
+  verified. The amendment is drafted as ADR-0008 (PROPOSED, 2026-09-03): the source is the measure
+  `−4πr²ξ̂₀ dε`; nothing in production changes until the owner adjudicates it.
 - It **does** now claim the physically normalized first-order response is verified as physics
   (Phase 4B): the shape agrees node-by-node with an independently derived and independently
   normalized profile, satisfies the exterior and volume identities, and reproduces derived

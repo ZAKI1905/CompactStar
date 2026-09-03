@@ -406,6 +406,13 @@ before being taken at the continuum level. Neither bound was widened.
 > VERIFIED — PHYSICAL VALIDATION FAILED ON STEPPED CRUSTS — NO BASELINE YET.** Next: amend this ADR
 > for internal density discontinuities, implement, re-run 4D Experiment J, then the first baseline.
 
+**Post-validation note (2026-09-03, Phase 4D-RG).** The amendment is drafted as `docs/adr/ADR-0008-measure-complete-eos-energy-density-source.md`
+(**PROPOSED**): the EOS energy-density source of (97) is taken as the measure `−4πr²ξ̂₀ dε` of Hartle's
+eq. (93), with the nodal `dε/dp` column demoted from source representation to diagnostics and the
+surface shell the terminal atom of the same measure. It amends/supersedes **P2, P5 and P6 only where EOS
+energy-density variation is represented by a measure rather than a pointwise radial derivative**; P1,
+P3, P4, P7–P14 and the Decision below are unaffected. Evidence: `docs/validation/PHASE4D_R_EOS_MEASURE_DERIVATION.md`.
+
 ---
 
 ## Decision

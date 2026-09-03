@@ -585,6 +585,15 @@ adjudicating internal density discontinuities** (internal shells `4πr_i²Δε_i
 integrated against `dε` on the EOS table), its implementation, a re-run of 4D Experiment J, then the
 baseline. The `l = 2` sector remains out of scope, not verified.
 
+**Phase 4D-RG (2026-09-03).** The amendment is drafted: `docs/adr/ADR-0008-measure-complete-eos-energy-density-source.md` (**PROPOSED**) —
+the EOS source of Hartle's (97) is the measure `−4πr²ξ̂₀ dε` of his eq. (93); a nodal `dε/dp` column
+cannot represent it (the 4C-I0 derivative authority itself is correct to `3e-14` at the nodes). In
+scratch the measure form on the profile's own `ε` nodes converges DS(CMF)-1's `δM̂` to `4e-5` across
+res 5000–40000 (today: 1.6 % erratic), sits at the sequence-derivative oracle's floor (`≈ 7e-5`), and
+reduces exactly to today's result on smooth or constant-density stars; the internal jump operator is
+certified to `2e-10…4e-9` on an exact two-layer star. Evidence: `docs/validation/PHASE4D_R_EOS_MEASURE_DERIVATION.md`.
+**Status unchanged until the owner adjudicates ADR-0008 and the correction is implemented and re-validated.**
+
 ---
 
 ## INV-09 — Fixed-ε_c versus equilibrium-sequence derivatives — **INTENDED BUT UNVERIFIED**
@@ -631,6 +640,9 @@ predeclared `1e-3` because the tabulated crust's density steps are not represent
 `dε/dp` column — an omission worth ≈ `4.6 %` of the sourced `δM̂`. That is precisely the `B_i`-side
 machinery this invariant will need (`δN_i` integrals over displaced layers carry the same internal
 steps), so Phase 5 inherits the defect until ADR-0007 is amended. **This invariant is not resolved.**
+*Phase 4D-RG (2026-09-03):* `docs/adr/ADR-0008-measure-complete-eos-energy-density-source.md` (PROPOSED) Q11 requires the scalar particle-number response to be
+**measure-complete** — `δN̂_i` carries `−4πr²e^{λ}ξ̂₀ dn_i` with atoms at composition discontinuities; a nodal
+`dn_i/dp` column is forbidden as the integrator's source. The `B_i` side inherits the same rule.
 
 **Phase 4C-G / ADR-0007 note (2026-09-02).** ADR-0007 (ACCEPTED) makes the **fixed-`ε_c` Hartle
 response the governed Phase-4 structural family**: Phase 4 delivers `(∂/∂Ω²)|_{ε_c}` coefficients
@@ -783,7 +795,12 @@ re-interpolation under a smoother scheme, which would make the derivative incons
 (`docs/validation/PHASE4C_I0_EOS_DERIVATIVE.md` §11) measured the consequence of violating that:
 a `gsl_interp_cspline` derivative over the same table yields **negative** `dε/dp` at 22–66 crust
 nodes on DS(CMF)-1, i.e. `c_s² < 0`. Steffen's monotonicity preservation is load-bearing here,
-not cosmetic. *(Unrepaired and unchanged: the comment block at `TOVSolver.hpp:494-498` still
+not cosmetic. *Phase 4D-RG note (2026-09-03):* a linearly interpolated background represents a
+**measure** faithfully only through the *values* it carries at the nodes — the profile's `ε` nodes are the
+EOS interpolant's own values (`5e-16`), so `Δε` between nodes is exact — while a *sampled derivative*
+column loses whatever variation falls between samples (17 % of the crust's `Δε` on DS(CMF)-1). Inside a
+sub-node feature the linear background also violates `dp/dr = −(ε+p)ν'` by `O(1)`, which is why
+evaluating the EOS derivative at the actual ODE state does not converge either (`docs/adr/ADR-0008-measure-complete-eos-energy-density-source.md`). *(Unrepaired and unchanged: the comment block at `TOVSolver.hpp:494-498` still
 describes a natural cubic spline, and `TOVSolver.hpp:549-554` still says `1e-5` where
 `PressureCutoff` uses `1e-15` — stale comments, no behaviour difference.)*
 
