@@ -408,6 +408,60 @@ class NStar : public Prog
 	 */
 	[[nodiscard]] PhysicalFirstOrderRotation RotationAt(AngularVelocity omega) const;
 
+	/**
+	 * @brief Compute this star's governed O(Omega^2) monopole (l = 0) structural response.
+	 *
+	 * Governed by **ADR-0007** (ACCEPTED 2026-09-02). The result is the **fixed-central-energy-
+	 * density**, **seed-free** response *per unit* `Omega_geom^2`.
+	 *
+	 * **This performs work.** It runs one ODE integration over the star, and it is
+	 * deliberately **not** part of ordinary star construction: existing workflows do not need
+	 * a second-order solution and must not pay for one. The name says so on purpose — there is
+	 * no innocent-looking getter that secretly integrates.
+	 *
+	 * Recomputes when no response exists or the cached one is stale (the source profile changed
+	 * or its `Version()` moved); otherwise reuses the cached one and integrates nothing.
+	 *
+	 * **Fails closed**, leaving no partial response, when the profile is incomplete, the
+	 * first-order response is unusable, the star carries no authoritative `d(eps)/dp`
+	 * (ADR-0007 P5 — a profile finite difference is not a permitted substitute), the
+	 * integration fails, or any value that would be published is non-finite.
+	 *
+	 * **Computing this confers no spin.** ADR-0006's binding clarification extends to second
+	 * order: a physical perturbation exists only after an explicit `AngularVelocity` is
+	 * supplied to `MonopoleAt()`.
+	 *
+	 * @return true if a valid, current response is available afterwards.
+	 */
+	bool ComputeHartleMonopoleResponse();
+
+	/**
+	 * @brief The current O(Omega^2) monopole response, or `nullptr`.
+	 *
+	 * A cheap read-only accessor: it never integrates, and it returns `nullptr` when no
+	 * response has been computed **or when the cached one is stale** with respect to this
+	 * star's profile identity and `Version()` (ADR-0003). Call
+	 * `ComputeHartleMonopoleResponse()` to (re)compute.
+	 *
+	 * @warning **Not independently validated physics.** ADR-0007 fixes the contract and the
+	 *          implementation conforms to it, but scientific verification is Phase 4D (INV-08).
+	 */
+	[[nodiscard]] const HartleMonopoleResponse *MonopoleResponse() const;
+
+	/**
+	 * @brief Materialize this star's O(Omega^2) monopole perturbation at an explicitly
+	 *        requested physical angular velocity.
+	 *
+	 * `Q = Q_hat * Omega_geom^2` for every field — a **scaling, not a new ODE solve**, so
+	 * calling it at many spins costs no additional integration. Zero spin materializes exact
+	 * zeros, and `+Omega` and `-Omega` materialize bit-identical perturbations because every
+	 * quantity is quadratic in `Omega`.
+	 *
+	 * @throws std::runtime_error if this star has no valid, current monopole response — call
+	 *         `ComputeHartleMonopoleResponse()` first.
+	 */
+	[[nodiscard]] PhysicalHartleMonopole MonopoleAt(AngularVelocity omega) const;
+
 	// ------------------------------------------------------------
 	void EvaluateNu();
 

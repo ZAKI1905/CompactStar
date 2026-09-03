@@ -404,7 +404,7 @@ conformance to the `MixedStar` track. And **nothing at O(Ω²) is normalized** �
 
 ---
 
-## INV-08 — Hartle perturbative order — **GOVERNED (ADR-0007 ACCEPTED) — REPLACEMENT CONTRACT ESTABLISHED; CURRENT CANDIDATE NONCONFORMANT / REPLACEMENT PENDING**
+## INV-08 — Hartle perturbative order — **GOVERNED (ADR-0007 ACCEPTED) — O(Ω²) MONOPOLE SOURCE CONFORMED; INDEPENDENT PHYSICAL VALIDATION PENDING**
 
 **Statement.** First order O(Ω) supplies frame dragging and I. Second order O(Ω²) supplies the
 monopole structural perturbations `(m₀, p₀)` with isobar displacement `ξ₀ = −p₀/(dp/dr)`,
@@ -531,14 +531,28 @@ in the core but **155–490 % error at ~25 crust nodes per star**, which is why 
 authority. Evidence: `docs/validation/PHASE4C_I0_EOS_DERIVATIVE.md`. **No O(Ω²) physics was
 implemented, executed or baselined.**
 
-**Status.** **GOVERNED (ADR-0007 ACCEPTED) — REPLACEMENT CONTRACT ESTABLISHED; CURRENT CANDIDATE
-NONCONFORMANT / REPLACEMENT PENDING.** Acceptance fixes the contract; it certifies no number.
-The shipped `SolveHartle2_N` / `ODE_Hartle2_N_Fast` remain byte-identical, publicly callable,
-zero-caller and **nonconformant** to that contract in every respect listed above; they must not
-be cited as implemented physics and their historical outputs are not reference results.
-**Second-order physics is neither implemented nor validated.** Conformance is roadmap 4C-I1
-(atomic replacement, preceded by the 4C-I0 EOS-derivative authority) and verification is 4D,
-tracked separately — exactly as ADR-0002's and ADR-0006's conformance were.
+**Phase 4C-I1 note (2026-09-03) — the candidate is GONE and the governed source is in place.**
+`GOVERNANCE.md` §3.1 was **executed**: `SolveHartle2_N`, `ODE_Hartle2_N_Fast`, the two MixedStar
+stubs, `HartleResult`, `GetHartleResult` and every proven candidate-only member were **deleted**,
+and the governed fixed-`ε_c`, `Ω²`-normalized response replaced them in the same commit
+(zero live definitions, zero public declarations, zero compiled callers remain). The new
+`HartleMonopoleResponse` integrates `p₀*` from the regular-centre series with no shooting and no
+surface condition, interpolates every background input at the **actual** ODE radius through one
+shared bracket, takes `dε/dp` only from the Phase-4C-I0 authority (absence fails closed), and
+composes `δM̂ = m̂₀(R_*) + 4πR_*²ε_*ξ̂₀(R_*) + I²/R_*³`. Measured: seed invariance **7.85e-15**
+(bound 1e-10), exact quadratic materialization, `I` bit-identical, seven artifacts unchanged,
+zero monopole solves on ordinary construction. Evidence:
+`docs/validation/PHASE4C_I1_MONOPOLE_IMPLEMENTATION.md`.
+
+**Status.** **GOVERNED (ADR-0007 ACCEPTED) — O(Ω²) MONOPOLE SOURCE CONFORMED; INDEPENDENT
+PHYSICAL VALIDATION PENDING.** The source now conforms to an accepted contract — which is **not**
+verification. **No O(Ω²) number produced by this repository is validated physics**, none may be
+cited as a result, and **no monopole baseline exists or may be created** until Phase 4D supplies
+independent evidence (regular-centre series against an independent solver in different variables,
+Newtonian limits, exterior and conservation identities, published Hartle–Thorne models,
+convergence, EOS-derivative sensitivity, detectors M1–M9). `GOVERNANCE.md` §3.1: **CORRECTION
+EXECUTED — INDEPENDENT VERIFICATION PENDING — NO BASELINE YET.** The `l = 2` sector is out of
+scope, not verified.
 
 ---
 
@@ -570,6 +584,14 @@ which shifts the central density (INV-08), and its `p0` is seed-normalized; so e
 missing `÷Ω²`, `A_i` computed from it would not be `(∂N_i/∂Ω²)|_{ε_c}`. The Phase-4 output for
 Phase 5 must be `Ω²`-normalized response coefficients at fixed `ε_c`
 (`docs/validation/PHASE4_ROTATION_ENTRY.md` §16; ADR-0006 P8–P9).
+
+**Phase 4C-I1 note (2026-09-03).** The fixed-`ε_c` structural response is now **implemented**
+(`NStar::ComputeHartleMonopoleResponse()` → `HartleMonopoleResponse`, coefficients per
+`Ω_geom²`), so the `A_i` side of this invariant has a governed source to consume once Phase 4D
+validates it. **This invariant is not resolved:** the baryon-conserving equilibrium-sequence
+reduction — `B_i`, `A_B/B_B`, `Z_i` — remains Phase 5, the public homogeneous/sequence-derivative
+response is deliberately not exposed, `dn_i/dp` is not implemented, and the defects recorded below
+stand.
 
 **Phase 4C-G / ADR-0007 note (2026-09-02).** ADR-0007 (ACCEPTED) makes the **fixed-`ε_c` Hartle
 response the governed Phase-4 structural family**: Phase 4 delivers `(∂/∂Ω²)|_{ε_c}` coefficients
@@ -897,7 +919,7 @@ conversion, under the in-code comment *"Convert fractions to number densities in
 
 | Status | Entries |
 |---|---|
-| **GOVERNED (ACCEPTED)** | **INV-01** — ADR-0001, accepted 2026-08-31 · **INV-15** — ADR-0002, accepted 2026-08-31 · **INV-07** — ADR-0006, accepted 2026-09-02, **first-order source conformed and physical response independently verified 2026-09-02** · **INV-08** — ADR-0007, accepted 2026-09-02, **contract only: the shipped candidate is nonconformant and second-order physics is neither implemented nor validated** |
+| **GOVERNED (ACCEPTED)** | **INV-01** — ADR-0001, accepted 2026-08-31 · **INV-15** — ADR-0002, accepted 2026-08-31 · **INV-07** — ADR-0006, accepted 2026-09-02, **first-order source conformed and physical response independently verified 2026-09-02** · **INV-08** — ADR-0007, accepted 2026-09-02, **O(Ω²) monopole source conformed 2026-09-03; independent physical validation pending (Phase 4D) — no O(Ω²) number is validated physics** |
 | VERIFIED CURRENT BEHAVIOR | INV-02, 03, 04, 05, 06, 10, 12, 13, 14, 16 |
 | INTENDED BUT UNVERIFIED | INV-09 |
 | **UNRESOLVED (fail-closed)** | **INV-11** — and sub-items of INV-06, INV-16 |
@@ -916,11 +938,12 @@ slow-rotation truncation itself.
 
 **INV-08 wording corrected (2026-09-02):** the O(Ω²) candidate is *publicly callable with zero
 repository callers*, not "structurally unreachable".
-**Phase 4C-G / ADR-0007 (2026-09-02):** the governed replacement was derived from the primary
-source and **ADR-0007 was ACCEPTED**. INV-08 is therefore GOVERNED as a *contract*, but the
-shipped candidate is nonconformant and **no O(Ω²) number is validated physics**: that requires
-4C-I1 conformance and 4D independent validation. `GOVERNANCE.md` §3.1 is authorized by ADR-0007
-§9 and **not yet exercised**.
+**Phase 4C-G / ADR-0007 (2026-09-02) and 4C-I1 (2026-09-03):** the governed replacement was
+derived from the primary source, **ADR-0007 was ACCEPTED**, and the `GOVERNANCE.md` §3.1
+correction has now been **executed** — the AI-authored candidate is deleted and the governed
+monopole response is in its place. INV-08 is GOVERNED and its **source conforms**, but
+**no O(Ω²) number is validated physics**: that requires Phase-4D independent validation, and
+**no monopole baseline exists or may be created** before it.
 
 **INV-01 is resolved** as a storage contract (ADR-0001). One implementation nonconformance
 remains — `RotochemicalCache` must construct `n_i = Y_i n_B` — tracked as a Phase-5 task, not as

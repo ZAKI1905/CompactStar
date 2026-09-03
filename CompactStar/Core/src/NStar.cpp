@@ -1133,6 +1133,39 @@ SeqPoint &NStar::GetSequence() noexcept
 }
 
 //--------------------------------------------------------------
+// O(Omega^2) monopole response (ADR-0007). Explicit by design: ordinary construction runs
+// only the first-order solve, so no existing workflow pays for an integration it never uses.
+bool NStar::ComputeHartleMonopoleResponse()
+{
+	return rot_solver.ComputeMonopoleResponse();
+}
+
+//--------------------------------------------------------------
+// Read-only, never integrates, and returns nullptr rather than a response whose recorded
+// profile version no longer matches this star's (ADR-0003).
+const HartleMonopoleResponse *NStar::MonopoleResponse() const
+{
+	return rot_solver.MonopoleResponse();
+}
+
+//--------------------------------------------------------------
+// Materializes at an EXPLICIT physical angular velocity (ADR-0006 clarification, extended to
+// second order by ADR-0007 P9). Pure scaling by Omega_geom^2 -- no ODE solve.
+PhysicalHartleMonopole NStar::MonopoleAt(AngularVelocity omega) const
+{
+	const HartleMonopoleResponse *resp = rot_solver.MonopoleResponse();
+	if (resp == nullptr)
+	{
+		throw std::runtime_error(
+			"CompactStar::NStar::MonopoleAt: this star has no valid, current O(Omega^2) "
+			"monopole response. Call ComputeHartleMonopoleResponse() first; it fails closed "
+			"when the star carries no authoritative d(eps)/dp (ADR-0007 P5), and a cached "
+			"response is discarded when the profile changes.");
+	}
+	return resp->At(omega);
+}
+
+//--------------------------------------------------------------
 // Baryon number integrand
 double NStar::BaryonNumIntegrand(double in_r) const
 {

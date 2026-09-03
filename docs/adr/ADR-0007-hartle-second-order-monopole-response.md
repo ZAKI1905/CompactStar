@@ -344,6 +344,35 @@ durable artifacts and `I` are byte-identical. `dn_i/dp` remains **GOVERNED PRINC
 ESTABLISHED — IMPLEMENTATION DEFERRED TO PHASE 5**. `GOVERNANCE.md` §3.1 is **AUTHORIZED, NOT
 YET EXERCISED**: 4C-I0 changed no scientific output and created no monopole baseline.
 
+## 13. Implementation record — Phase 4C-I1 (2026-09-03)
+
+**The §3.1 correction is EXECUTED.** The candidate of `675b4a9` — `SolveHartle2_N`,
+`ODE_Hartle2_N_Fast`, the two MixedStar stubs, `HartleResult`, `GetHartleResult` and every
+proven candidate-only member — is **deleted**, and the governed response replaces it **in the
+same commit**. Evidence: `docs/validation/PHASE4C_I1_MONOPOLE_IMPLEMENTATION.md`.
+
+| Contract clause | As implemented |
+|---|---|
+| P1 canonical variable | `p₀*` integrated; `δp₀`, `ξ₀` derived |
+| P2 governed equations | `RotationSolver::ODE_HartleMonopole_`, each term carrying its `[term N]` marker and citing this ADR; term 7 analytically expanded so no numerical differentiation of the source appears in the RHS; **all eight background inputs interpolated at the ACTUAL driver radius through one shared bracket** (INV-13), unlike the candidate's per-node scalars; `1 − 2m/r` from `Geometry::MetricDenominator` (ADR-0004), no clamp |
+| P3 fixed `ε_c` | no homogeneous admixture, no shooting, **no surface condition** |
+| P4 regular-centre start | series at `r₀`; verified exact (rel `0.0`) against an independent recomputation |
+| P5 EOS derivative | consumed **only** through `StarProfile::HasEosDEdP()`/`GetEosDEdP()`; absence fails the whole computation |
+| P6/P7 `δM`, surface | `m̂₀(R_*) + 4πR_*²ε_*ξ̂₀(R_*) + I²/R_*³` with `I` from the verified first-order response; `R_*` documented as the EOS-floor node, never as `p = 0` |
+| P9/P10 representation | `HartleMonopoleResponse` (all fields `_over_Omega2`) + `PhysicalHartleMonopole` via `At(AngularVelocity)`; one canonical geometric `Ω`; **explicit** `NStar::ComputeHartleMonopoleResponse()`, never automatic on construction |
+| P11 (as modified) | the homogeneous response is **not** exposed |
+| provenance | source profile identity + `Version()`; a stale response is never returned as current |
+
+Measured: seed invariance **`7.85e-15`** (bound `1e-10`); quadratic materialization and the `δM̂`
+identity exact (`0.0`); zero solves on ordinary construction, one per explicit request, none per
+materialization; first-order arithmetic byte-identical and `I` bit-identical; the seven durable
+artifacts unchanged. Suites **27/27** and **14/14**. Detectors D1–D4 fired and were reverted
+byte-identically.
+
+> **§3.1 status: CORRECTION EXECUTED — INDEPENDENT VERIFICATION PENDING — NO BASELINE YET.**
+> No number produced by this implementation is validated physics; that requires Phase 4D
+> (§7 items 3–11, detectors M1–M9), after which the first monopole baseline may be created.
+
 ---
 
 ## Decision

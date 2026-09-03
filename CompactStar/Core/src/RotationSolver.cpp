@@ -3,6 +3,8 @@
   RotationSolver class
 */
 #include <cmath>
+#include <limits>
+#include <stdexcept>
 #include <gsl/gsl_math.h>
 // #include <gsl/gsl_roots.h>
 #include <gsl/gsl_deriv.h>
@@ -19,6 +21,7 @@
 // #include <Zaki/Vector/DataColumn.hpp>
 
 #include "CompactStar/Core/MixedStar.hpp"
+#include "CompactStar/Geometry.hpp"
 #include "CompactStar/Core/NStar.hpp"
 #include "CompactStar/Core/RotationSolver.hpp"
 
@@ -313,7 +316,6 @@ double RotationSolver::GetHartleDOmegaCoeff_Mixed(const double r)
 // MixedStar: coefficient for y[0]
 double RotationSolver::GetHartleOmegaCoeff_N_Fast(const double r)
 {
-	// return 16. * M_PI * (fast_p + fast_e) / (1. - 2. * fast_m / r);
 	double p, e, m;
 	EvalFastPEM_(r, p, e, m);
 	return 16. * M_PI * (p + e) / (1. - 2. * m / r);
@@ -323,7 +325,6 @@ double RotationSolver::GetHartleOmegaCoeff_N_Fast(const double r)
 // MixedStar: coefficient for y[1]
 double RotationSolver::GetHartleDOmegaCoeff_N_Fast(const double r)
 {
-	// return 4. * M_PI * (fast_p + fast_e) * r / (1. - 2. * fast_m / r);
 	double p, e, m;
 	EvalFastPEM_(r, p, e, m);
 	return 4. * M_PI * (p + e) * r / (1. - 2. * m / r);
@@ -738,10 +739,6 @@ void RotationSolver::FindNMomInertia()
 	// Radius loop inside the core
 	for (size_t i = 0; i < n; i++)
 	{
-		// fast_p = nstar_ptr->prof_.GetPressure()->operator[](i);
-		// fast_e = nstar_ptr->prof_.GetEnergyDensity()->operator[](i);
-		// fast_m = nstar_ptr->prof_.GetMass()->operator[](i);
-
 		if (GSL_SUCCESS !=
 			gsl_odeiv2_driver_apply(fast_driver, &r, R->operator[](i), y))
 		{
@@ -774,10 +771,10 @@ void RotationSolver::FindNMomInertia()
 	// one; a physical Omega, J and omega_bar(r) exist only after a caller supplies an
 	// AngularVelocity to HartleFirstOrderResponse::At().
 	//
-	// The former `hartle_result_.Omega/J/I/omega_bar/domega_bar` assignment lived here. It
-	// published Omega_raw behind an accessor annotated `[s^-1]` while storing km^-1, i.e. it
-	// exposed the arbitrary seed as physical data. ADR-0006 removed those fields;
-	// `HartleResult` is now the second-order candidate's result only.
+	// A `hartle_result_.Omega/J/I/omega_bar/domega_bar` assignment lived here until ADR-0006.
+	// It published Omega_raw behind an accessor annotated `[s^-1]` while storing km^-1, i.e. it
+	// exposed the arbitrary seed as physical data. ADR-0006 removed those fields, and ADR-0007
+	// retired the rest of that struct with the candidate it belonged to (Phase 4C-I1).
 	first_order_response_ = HartleFirstOrderResponse{};
 	if (solve_complete && n >= 2 && std::isfinite(ang_vel_Omega) && ang_vel_Omega != 0.0 &&
 		std::isfinite(mom_inertia))
@@ -802,9 +799,12 @@ void RotationSolver::FindNMomInertia()
 		first_order_response_.valid = true;
 	}
 
-	// The candidate's grid reference. Its numerical fields are written only by
-	// SolveHartle2_N, which remains unratified and untouched (INV-08).
-	hartle_result_.r_grid = nstar_ptr->Profile().GetRadius();
+	// The O(Omega^2) monopole response is NOT computed here. Ordinary star construction runs
+	// this function, and ADR-0007's implementation contract keeps the second-order integration
+	// off that path: it is work no existing workflow needs. Call
+	// `RotationSolver::ComputeMonopoleResponse()` (or `NStar::ComputeHartleMonopoleResponse()`)
+	// explicitly. Any previously cached response is left alone; its recorded profile version
+	// is what makes it detectably stale.
 
 	gsl_odeiv2_driver_free(fast_driver);
 }
@@ -1058,12 +1058,6 @@ void RotationSolver::FindNMomInertia()
 	// ------------------------------------------------------------
 
 	//--------------------------------------------------------------
-	const HartleResult &RotationSolver::GetHartleResult() const
-	{
-		return hartle_result_;
-	}
-
-	//--------------------------------------------------------------
 	const HartleFirstOrderResponse &RotationSolver::FirstOrderResponse() const
 	{
 		return first_order_response_;
@@ -1121,275 +1115,503 @@ void RotationSolver::FindNMomInertia()
 		return out;
 	}
 
+	//==============================================================
+	//   O(Omega^2) MONOPOLE (l = 0) — GOVERNED BY ADR-0007 (ACCEPTED 2026-09-02)
+	//
+	//   This section REPLACES the candidate of commit 675b4a9 (ODE_Hartle2_N_Fast,
+	//   SolveHartle2_N, HartleResult), which Phase 4C-G adjudicated invalid against the
+	//   primary source and which was deleted in the same commit that added this code
+	//   (GOVERNANCE.md 3.1, authorized by ADR-0007 SS9). Nothing here is derived from it: every
+	//   term below is transcribed from ADR-0007 P2, whose provenance is the journal scan of
+	//   Hartle (1967) ApJ 150, 1005 -- eqs. (97) and (100) -- recorded term by term in
+	//   docs/validation/PHASE4C_HARTLE2_DERIVATION.md SS6-SS7.
+	//
+	//   NOT YET INDEPENDENTLY VALIDATED. Conformance to an accepted contract is not physical
+	//   verification; that is Phase 4D (INV-08). No baseline of these numbers may be created
+	//   before it.
+	//==============================================================
+
 	//--------------------------------------------------------------
-	// Second-order (m0, p0) ODE for NStar with fast interpolation.
-	// y[0] = m0, y[1] = p0
-	// Source terms from omega_bar are read from fast_omega_bar, fast_domega_bar.
+	bool RotationSolver::MonopoleBackground_::Complete() const noexcept
+	{
+		const Zaki::Vector::DataColumn *cols[] = {r, p, e, m, nu, nup, dedp, s, sp};
+		for (const auto *c : cols)
+			if (c == nullptr)
+				return false;
+
+		const std::size_t n = r->Size();
+		if (n < 2)
+			return false;
+		for (const auto *c : cols)
+			if (c->Size() != n)
+				return false;
+
+		return true;
+	}
+
+	//--------------------------------------------------------------
+	// Every background input, sampled at the radius the ODE driver is ACTUALLY asking about.
 	//
-	// Equations follow Hartle (1967), Eqs. (30)-(33).
-	// Using j(r) = exp(-nu) * sqrt(1 - 2m/r):
+	// The retired candidate assigned per-node scalars before each gsl_odeiv2_driver_apply and
+	// let its right-hand side use them at whatever internal radius GSL chose, so a node value
+	// stood in for an inter-node one. That is scientifically invalid and is not repeated here.
 	//
-	// dm0/dr = 4*pi*r^2 * (deps/dp) * p0 + S_m(r)
+	// One shared bracket index serves all eight quantities, so they always refer to the same
+	// radial interval, and the interpolation is linear -- the order the profile itself carries
+	// (INV-13). The bracket walk mirrors EvalFastPEM_, which the validated first-order solver
+	// already uses for exactly this purpose.
+	RotationSolver::MonopoleBackground_::Sample
+	RotationSolver::MonopoleBackground_::At(double r_km) const
+	{
+		Sample out;
+
+		const auto &R = *r;
+		const std::size_t n = R.Size();
+
+		auto gather = [&](std::size_t i) {
+			out.p = (*p)[static_cast<int>(i)];
+			out.e = (*e)[static_cast<int>(i)];
+			out.m = (*m)[static_cast<int>(i)];
+			out.nu = (*nu)[static_cast<int>(i)];
+			out.nup = (*nup)[static_cast<int>(i)];
+			out.dedp = (*dedp)[static_cast<int>(i)];
+			out.s = (*s)[static_cast<int>(i)];
+			out.sp = (*sp)[static_cast<int>(i)];
+		};
+
+		// Outside the tabulated range the driver can only be at an endpoint of its own
+		// integration interval; clamping there is the same convention EvalFastPEM_ uses.
+		if (r_km <= R.Values().front())
+		{
+			gather(0);
+			return out;
+		}
+		if (r_km >= R.Values().back())
+		{
+			gather(n - 1);
+			return out;
+		}
+
+		std::size_t idx = k;
+		if (idx >= n - 1)
+			idx = n - 2;
+		while (idx + 1 < n && r_km > R[static_cast<int>(idx + 1)])
+			++idx;
+		while (idx > 0 && r_km < R[static_cast<int>(idx)])
+			--idx;
+		k = idx;
+
+		const double r0 = R[static_cast<int>(idx)];
+		const double r1 = R[static_cast<int>(idx + 1)];
+		const double t = (r1 > r0) ? (r_km - r0) / (r1 - r0) : 0.0;
+
+		auto lerp = [&](const Zaki::Vector::DataColumn &c) {
+			const double a = c[static_cast<int>(idx)];
+			const double b = c[static_cast<int>(idx + 1)];
+			return a + t * (b - a);
+		};
+
+		out.p = lerp(*p);
+		out.e = lerp(*e);
+		out.m = lerp(*m);
+		out.nu = lerp(*nu);
+		out.nup = lerp(*nup);
+		out.dedp = lerp(*dedp);
+		out.s = lerp(*s);
+		out.sp = lerp(*sp);
+		return out;
+	}
+
+	//--------------------------------------------------------------
+	// ADR-0007 P2, verbatim, in the normalized variables
 	//
-	// dp0/dr = -(m0 + 4*pi*r^3*p0) / [r*(r - 2m)]
-	//          - 4*pi*r*(eps+p) * p0 / (r - 2m)  [FIX: confirm exact from textbook]
-	//          + S_p(r)
+	//     mhat = m0 / Omega_geom^2   [km^3]      phat = p0* / Omega_geom^2   [km^2]
 	//
-	// where S_m, S_p are quadratic source terms in omega_bar.
+	// driven by the VERIFIED seed-free first-order response s = omega_bar/Omega [1] and
+	// s' = [d omega_bar/dr]/Omega [km^-1]. The raw stored_omega_bar_ / stored_domega_bar_
+	// arrays are deliberately NOT reachable from here: consuming them would reintroduce the
+	// arbitrary internal seed that ADR-0006 P9 forbids in any second-order product.
 	//
-	int RotationSolver::ODE_Hartle2_N_Fast(double r, const double y[], double f[], void *params)
+	//   dmhat/dr = 4 pi r^2 (eps+p) (deps/dp) phat                          [ADR-0007 P2, term 1]
+	//            + (1/12) r^4 exp(-2 nu) (1 - 2m/r) s'^2                    [            term 2]
+	//            + (8 pi/3) r^4 (eps+p) exp(-2 nu) s^2                      [            term 3]
+	//
+	//   dphat/dr = - mhat (1 + 8 pi r^2 p)/(r - 2m)^2                       [            term 4]
+	//              - 4 pi (eps+p) r^2 phat/(r - 2m)                         [            term 5]
+	//              + (1/12) r^3 exp(-2 nu) s'^2                             [            term 6]
+	//              + (2/3) r exp(-2 nu) s (s + r s' - r nu' s)              [            term 7]
+	//
+	// Term 7 is the analytically expanded form of Hartle's (1/3) d/dr[ r^3 j^2 omegabar^2 /
+	// (r - 2m) ]; the expansion is derived in PHASE4C_HARTLE2_DERIVATION.md SS7 and is kept in
+	// this form so no numerical differentiation of the source appears in the right-hand side.
+	//
+	// Dimensions, checked term by term: every term of f[0] is km^2 and every term of f[1] is
+	// km (PHASE4C_HARTLE2_DERIVATION.md SS6.3). Deliberately NOT algebraically compressed --
+	// each term must stay visibly traceable to the contract it came from.
+	int RotationSolver::ODE_HartleMonopole_(double r, const double y[], double f[], void *params)
 	{
 		RotationSolver *rot = static_cast<RotationSolver *>(params);
 
-		const double p = rot->fast_p;
-		const double eps = rot->fast_e;
-		const double m = rot->fast_m;
-		const double dEdP = rot->fast_dEdP;
-		const double nu_prime = rot->fast_nu_prime;
-
-		const double m0 = y[0];
-		const double p0 = y[1];
-
-		const double r2 = r * r;
-		const double r3 = r2 * r;
-		const double r_2m = r - 2.0 * m;
-
-		// Avoid division by zero at r = 0 or r = 2m
-		if (r < 1.e-10 || std::abs(r_2m) < 1.e-30)
+		// Geometry::MetricDenominator fails closed by throwing (ADR-0004 SS0-Q3). A C++
+		// exception must not cross the GSL C callback boundary, so the driver is told instead.
+		try
 		{
-			f[0] = 0.0;
-			f[1] = 0.0;
-			return GSL_SUCCESS;
+			const auto b = rot->monopole_bg_.At(r);
+
+			const double mhat = y[0];
+			const double phat = y[1];
+
+			// ADR-0004: the metric factor has ONE mathematical owner. No clamp, no 1e-15.
+			const double D = CompactStar::Geometry::MetricDenominator(r, b.m); // 1 - 2m/r
+			const double r_2m = r * D;										  // r - 2m
+
+			const double e_m2nu = std::exp(-2.0 * b.nu);
+			const double eps_p = b.e + b.p;
+
+			const double r2 = r * r;
+			const double r3 = r2 * r;
+			const double r4 = r3 * r;
+
+			f[0] = 4.0 * M_PI * r2 * eps_p * b.dedp * phat			 // term 1
+				   + (1.0 / 12.0) * r4 * e_m2nu * D * b.sp * b.sp	 // term 2
+				   + (8.0 * M_PI / 3.0) * r4 * eps_p * e_m2nu * b.s * b.s; // term 3
+
+			f[1] = -mhat * (1.0 + 8.0 * M_PI * r2 * b.p) / (r_2m * r_2m)  // term 4
+				   - 4.0 * M_PI * eps_p * r2 * phat / r_2m				  // term 5
+				   + (1.0 / 12.0) * r3 * e_m2nu * b.sp * b.sp			  // term 6
+				   + (2.0 / 3.0) * r * e_m2nu * b.s *
+						 (b.s + r * b.sp - r * b.nup * b.s);			  // term 7
+
+			if (!std::isfinite(f[0]) || !std::isfinite(f[1]))
+				return GSL_EBADFUNC;
 		}
-
-		const double inv_r_2m = 1.0 / r_2m;
-		const double eps_plus_p = eps + p;
-
-		// ------- Homogeneous part of the equations -------
-		// dm0/dr (homogeneous): 4*pi*r^2 * (deps/dp) * p0
-		double dm0_dr = 4.0 * M_PI * r2 * dEdP * p0;
-
-		// dp0/dr (homogeneous, from perturbed TOV):
-		// dp0/dr = -(m0 + 4*pi*r^3 * p0) * (eps+p) / (r^2 * (r - 2m))
-		//          + (m0/r^2 + 4*pi*p0) * nu' [alternate form via nu']
-		//
-		// Using the standard form: dp0/dr = -nu'*(eps+p+p0*dEdP) ...
-		// We use the direct form from Hartle (1967) Appendix:
-		double dp0_dr = -(m0 + 4.0 * M_PI * r3 * p0) * inv_r_2m / r2;
-		// This is the gravitational term. Now apply the (eps+p) factor:
-		// Actually the full form is:
-		// dp0/dr = -p0 * [4*pi*(eps+p)*r / (r-2m) + m/(r^2*(r-2m))]
-		//          - m0 * [(eps+p) / (r^2*(r-2m))]
-		// Which groups as:
-		dp0_dr = -p0 * (4.0 * M_PI * eps_plus_p * r + m / r2) * inv_r_2m - m0 * eps_plus_p / (r2 * r_2m);
-
-		// ------- Source terms (quadratic in omega_bar) -------
-		if (rot->include_m0p0_source_)
+		catch (const std::exception &)
 		{
-			const double ob = rot->fast_omega_bar;
-			const double dob = rot->fast_domega_bar;
-
-			// j(r)^2 = exp(-2*nu) * (1 - 2*m/r) = exp(-2*nu) * (r-2m)/r
-			// We compute j^2 using: j^2 = (r_2m / r) * exp(-2*nu)
-			// But we don't have nu directly in the fast cache.
-			// Instead, use the relation: exp(-2*nu) can be obtained from
-			// the TOV structure. For now, compute via the known formula:
-			// (1 - 2m/r) = r_2m / r
-			const double one_minus_2m_r = r_2m / r;
-
-			// Source term for dm0/dr:
-			// S_m = (1/12) * r^4 * (dob/dr)^2 / (1 - 2m/r)
-			//       - (1/3) * r^3 * 4*pi*(eps+p) * ob^2 / (1 - 2m/r)
-			// Ref: Hartle (1967) Eq. (33), adapted for omega_bar convention
-			double S_m = (1.0 / 12.0) * r2 * r2 * dob * dob * inv_r_2m * r - (1.0 / 3.0) * r3 * 4.0 * M_PI * eps_plus_p * ob * ob * inv_r_2m * r;
-
-			// Source term for dp0/dr:
-			// S_p = -(1/12) * r^2 * (dob)^2 / [(eps+p) * ???]
-			// Using the relation from the perturbed TOV with rotation:
-			// S_p = (1/12) * r * (dob)^2 * (r - 2m) / r
-			//       + (4/3) * M_PI * r * ob^2 * (eps+p) / (1-2m/r)
-			// This needs careful derivation — using Hartle (1967) Eq. (30):
-			// dp*/dr = ... + (1/3) * omega_bar^2 * r * (dp/dr) / [r-2m]
-			//          + (1/12) * r * (r-2m) * (d_omega_bar/dr)^2
-			//
-			// More precisely, the source for dp0/dr involves:
-			double S_p = (1.0 / 12.0) * r * one_minus_2m_r * dob * dob + (1.0 / 3.0) * ob * ob * r * nu_prime;
-
-			dm0_dr += S_m;
-			dp0_dr += S_p;
+			return GSL_EBADFUNC;
 		}
-
-		f[0] = dm0_dr;
-		f[1] = dp0_dr;
 
 		return GSL_SUCCESS;
 	}
 
 	//--------------------------------------------------------------
-	// Stub for MixedStar second-order ODE (to be implemented in Phase C)
-	int RotationSolver::ODE_Hartle2_Mixed_Fast(double r, const double y[], double f[], void *params)
+	const HartleMonopoleResponse *RotationSolver::MonopoleResponse() const
 	{
-		// TODO: Implement for MixedStar (Phase C)
-		f[0] = 0.0;
-		f[1] = 0.0;
-		return GSL_SUCCESS;
+		if (nstar_ptr == nullptr)
+			return nullptr;
+
+		const auto &prof = nstar_ptr->Profile();
+		if (!monopole_response_.MatchesSource(static_cast<const void *>(&prof), prof.Version()))
+			return nullptr; // absent or stale -- never returned as current
+
+		return &monopole_response_;
 	}
 
 	//--------------------------------------------------------------
-	// Solves the second-order Hartle O(Omega^2) monopole equations for NStar.
-	// Uses superposition: particular solution (with source) + homogeneous solution.
-	// Shooting condition: p0(R) = 0.
-	void RotationSolver::SolveHartle2_N()
+	// Computes the governed fixed-eps_c, seed-free O(Omega^2) monopole response.
+	//
+	// PUBLICATION IS ATOMIC. Everything is built in local storage and `monopole_response_` is
+	// assigned exactly once, at the end, only if every acceptance test passed. On any failure
+	// the cached response is cleared, so a stale or partial result can never be mistaken for a
+	// current one.
+	bool RotationSolver::ComputeMonopoleResponse()
 	{
-		const size_t N = nstar_ptr->Size();
-		const auto *r_col = nstar_ptr->Profile().GetRadius();
-		const auto *p_col = nstar_ptr->Profile().GetPressure();
-		const auto *e_col = nstar_ptr->Profile().GetEnergyDensity();
-		const auto *m_col = nstar_ptr->Profile().GetMass();
-		const auto *nu_p_col = nstar_ptr->Profile().GetMetricNuPrime();
-
-		double r_min = (*r_col)[0];
-		double r_surface = (*r_col)[-1];
-
-		// --- Precompute d(eps)/d(p) column via finite differences on profile ---
-		// d(eps)/d(p) = (d_eps/d_r) / (d_p/d_r), computed from stored columns.
-		Zaki::Vector::DataColumn dEdP_col("dEdP", N, 0.0);
-		for (size_t i = 1; i < N - 1; i++)
+		if (nstar_ptr == nullptr)
 		{
-			double dp = (*p_col)[i + 1] - (*p_col)[i - 1];
-			double de = (*e_col)[i + 1] - (*e_col)[i - 1];
-			if (std::abs(dp) > 1.e-30)
-				dEdP_col[i] = de / dp;
-			else
-				dEdP_col[i] = 1.0; // Fallback (incompressible limit)
-		}
-		// Boundary: one-sided differences
-		{
-			double dp = (*p_col)[1] - (*p_col)[0];
-			double de = (*e_col)[1] - (*e_col)[0];
-			dEdP_col[0] = (std::abs(dp) > 1.e-30) ? de / dp : 1.0;
-		}
-		{
-			int last = static_cast<int>(N) - 1;
-			double dp = (*p_col)[last] - (*p_col)[last - 1];
-			double de = (*e_col)[last] - (*e_col)[last - 1];
-			dEdP_col[last] = (std::abs(dp) > 1.e-30) ? de / dp : 1.0;
+			Z_LOG_ERROR("ComputeMonopoleResponse: no NStar is attached.");
+			monopole_response_ = HartleMonopoleResponse{};
+			return false;
 		}
 
-		// === Pass 1: Particular solution (p0_c = 0, source ON) ===
-		include_m0p0_source_ = true;
+		const auto &prof = nstar_ptr->Profile();
+		const void *prof_id = static_cast<const void *>(&prof);
+		const std::uint64_t prof_ver = prof.Version();
 
-		gsl_odeiv2_system ode_sys = {RotationSolver::ODE_Hartle2_N_Fast, nullptr, 2, this};
-		gsl_odeiv2_driver *driver = gsl_odeiv2_driver_alloc_y_new(
-			&ode_sys, gsl_odeiv2_step_rk8pd, 1.e-1, 1.e-10, 1.e-10);
+		// Already current for this exact profile state: reuse, and do NOT integrate again.
+		if (monopole_response_.MatchesSource(prof_id, prof_ver))
+			return true;
 
-		double r = r_min;
-		double y_part[2] = {0.0, 0.0}; // m0 = 0, p0 = 0 at center
+		monopole_response_ = HartleMonopoleResponse{};
 
-		// Storage for particular solution profile
-		Zaki::Vector::DataColumn m0_part("m0_part", N, 0.0);
-		Zaki::Vector::DataColumn p0_part("p0_part", N, 0.0);
+		// ---- inputs -------------------------------------------------------------------
+		const auto *R = prof.GetRadius();
+		const auto *P = prof.GetPressure();
+		const auto *E = prof.GetEnergyDensity();
+		const auto *M = prof.GetMass();
+		const auto *NU = prof.GetMetricNu();
+		const auto *NUP = prof.GetMetricNuPrime();
 
-		for (size_t i = 0; i < N; i++)
+		if (R == nullptr || P == nullptr || E == nullptr || M == nullptr || NU == nullptr ||
+			NUP == nullptr)
 		{
-			fast_p = (*p_col)[i];
-			fast_e = (*e_col)[i];
-			fast_m = (*m_col)[i];
-			fast_nu_prime = (*nu_p_col)[i];
-			fast_dEdP = dEdP_col[i];
-			fast_omega_bar = stored_omega_bar_[i];
-			fast_domega_bar = stored_domega_bar_[i];
+			Z_LOG_ERROR("ComputeMonopoleResponse: the profile is missing a required column.");
+			return false;
+		}
 
+		// ADR-0007 P5: the ONLY admissible source of d(eps)/dp is the EOS authority, carried
+		// on the profile by Phase 4C-I0. No profile finite difference, no fallback value, no
+		// EOS object reached from the rotation solver. Absent data fails the computation.
+		if (!prof.HasEosDEdP() || prof.GetEosDEdP() == nullptr)
+		{
+			Z_LOG_ERROR(
+				"ComputeMonopoleResponse: this star carries no authoritative d(eps)/dp, so the "
+				"governed O(Omega^2) monopole system cannot be integrated. Build the star from "
+				"an EOS-backed TOV solve, or supply the derivative explicitly on the TOVPoints "
+				"for an analytic star. ADR-0007 P5 forbids substituting a profile finite "
+				"difference.");
+			return false;
+		}
+		const auto *DEDP = prof.GetEosDEdP();
+
+		if (!first_order_response_.valid)
+		{
+			Z_LOG_ERROR("ComputeMonopoleResponse: no valid first-order response; the O(Omega^2) "
+						"sources are built from omega_bar/Omega and its derivative.");
+			return false;
+		}
+
+		const std::size_t n = R->Size();
+		if (n < 2 || DEDP->Size() != n ||
+			first_order_response_.omega_bar_over_Omega.Size() != n ||
+			first_order_response_.domega_bar_over_Omega_dr.Size() != n)
+		{
+			Z_LOG_ERROR("ComputeMonopoleResponse: input column sizes disagree with the radial "
+						"grid.");
+			return false;
+		}
+
+		monopole_bg_.r = R;
+		monopole_bg_.p = P;
+		monopole_bg_.e = E;
+		monopole_bg_.m = M;
+		monopole_bg_.nu = NU;
+		monopole_bg_.nup = NUP;
+		monopole_bg_.dedp = DEDP;
+		monopole_bg_.s = &first_order_response_.omega_bar_over_Omega;
+		monopole_bg_.sp = &first_order_response_.domega_bar_over_Omega_dr;
+		monopole_bg_.k = 0;
+
+		if (!monopole_bg_.Complete())
+		{
+			Z_LOG_ERROR("ComputeMonopoleResponse: incomplete background workspace.");
+			return false;
+		}
+
+		// ---- regular-centre start (ADR-0007 P4) ---------------------------------------
+		// The first strictly-positive grid radius, matching the first-order convention
+		// (INV-05). Literal {0,0} starts are what the retired candidate did; the governed
+		// contract initializes from the regular series instead, which makes "fixed eps_c"
+		// exact to rounding rather than to O((r0/R)^2).
+		std::size_t i0 = 0;
+		while (i0 < n && !(R->operator[](static_cast<int>(i0)) > 0.0))
+			++i0;
+		double r0 = (i0 < n) ? R->operator[](static_cast<int>(i0)) : kR_EPS_KM;
+		if (r0 < kR_EPS_KM)
+			r0 = kR_EPS_KM;
+
+		double mhat0 = 0.0, phat0 = 0.0, j2_c = 0.0, s_c = 0.0;
+		try
+		{
+			const auto b0 = monopole_bg_.At(r0);
+			// j^2 = exp(-2 nu) (1 - 2m/r), Hartle's j = exp[-(nu+lambda)] in this convention.
+			j2_c = std::exp(-2.0 * b0.nu) * CompactStar::Geometry::MetricDenominator(r0, b0.m);
+			s_c = b0.s;
+
+			phat0 = (1.0 / 3.0) * j2_c * s_c * s_c * r0 * r0;
+			mhat0 = (4.0 * M_PI / 15.0) * (b0.e + b0.p) * (b0.dedp + 2.0) * j2_c * s_c * s_c *
+					std::pow(r0, 5);
+		}
+		catch (const std::exception &ex)
+		{
+			Z_LOG_ERROR(std::string("ComputeMonopoleResponse: centre initialization failed: ") +
+						ex.what());
+			return false;
+		}
+
+		if (!std::isfinite(mhat0) || !std::isfinite(phat0))
+		{
+			Z_LOG_ERROR("ComputeMonopoleResponse: non-finite regular-centre initialization.");
+			return false;
+		}
+
+		// ---- integrate -----------------------------------------------------------------
+		// PROVISIONAL NUMERICAL IMPLEMENTATION -- the step type and tolerances mirror the
+		// first-order driver because that is a reasonable engineering starting point, NOT
+		// because the retired candidate used them. Their adequacy, and the convergence of the
+		// result under radial refinement, are Phase 4D questions (ADR-0007 SS7 item 9).
+		Zaki::Vector::DataColumn mhat_col("m0_over_Omega2", n, 0.0);
+		Zaki::Vector::DataColumn phat_col("p0star_over_Omega2", n, 0.0);
+
+		gsl_odeiv2_system sys = {RotationSolver::ODE_HartleMonopole_, nullptr, 2, this};
+		gsl_odeiv2_driver *driver =
+			gsl_odeiv2_driver_alloc_y_new(&sys, gsl_odeiv2_step_rk8pd, 1.e-1, 1.e-10, 1.e-10);
+
+		double r = r0;
+		double y[2] = {mhat0, phat0};
+		bool ok = true;
+
+		for (std::size_t i = 0; i < n; ++i)
+		{
 			if (GSL_SUCCESS !=
-				gsl_odeiv2_driver_apply(driver, &r, (*r_col)[i], y_part))
+				gsl_odeiv2_driver_apply(driver, &r, R->operator[](static_cast<int>(i)), y))
+			{
+				ok = false;
 				break;
-
-			m0_part[i] = y_part[0];
-			p0_part[i] = y_part[1];
+			}
+			mhat_col[static_cast<int>(i)] = y[0];
+			phat_col[static_cast<int>(i)] = y[1];
 		}
 
 		gsl_odeiv2_driver_free(driver);
+		++monopole_solve_count_;
 
-		// === Pass 2: Homogeneous solution (p0_c = 1, source OFF) ===
-		include_m0p0_source_ = false;
-
-		gsl_odeiv2_system ode_sys_hom = {RotationSolver::ODE_Hartle2_N_Fast, nullptr, 2, this};
-		gsl_odeiv2_driver *driver_hom = gsl_odeiv2_driver_alloc_y_new(
-			&ode_sys_hom, gsl_odeiv2_step_rk8pd, 1.e-1, 1.e-10, 1.e-10);
-
-		r = r_min;
-		double y_hom[2] = {0.0, 1.0}; // m0 = 0, p0 = 1 at center
-
-		Zaki::Vector::DataColumn m0_hom("m0_hom", N, 0.0);
-		Zaki::Vector::DataColumn p0_hom("p0_hom", N, 0.0);
-
-		for (size_t i = 0; i < N; i++)
+		if (!ok)
 		{
-			fast_p = (*p_col)[i];
-			fast_e = (*e_col)[i];
-			fast_m = (*m_col)[i];
-			fast_nu_prime = (*nu_p_col)[i];
-			fast_dEdP = dEdP_col[i];
-			fast_omega_bar = 0.0; // Not used when source is off
-			fast_domega_bar = 0.0;
-
-			if (GSL_SUCCESS !=
-				gsl_odeiv2_driver_apply(driver_hom, &r, (*r_col)[i], y_hom))
-				break;
-
-			m0_hom[i] = y_hom[0];
-			p0_hom[i] = y_hom[1];
+			Z_LOG_ERROR("ComputeMonopoleResponse: the O(Omega^2) integration did not complete.");
+			return false;
 		}
 
-		gsl_odeiv2_driver_free(driver_hom);
+		// ---- derived fields (ADR-0007 P1: p0* is integrated, the rest are derived) ------
+		Zaki::Vector::DataColumn dp_col("delta_p0_over_Omega2", n, 0.0);
+		Zaki::Vector::DataColumn xi_col("xi0_over_Omega2", n, 0.0);
 
-		// Reset source flag
-		include_m0p0_source_ = true;
-
-		// === Superposition: find p0_c such that p0(R) = 0 ===
-		double p0_part_R = p0_part[-1];
-		double p0_hom_R = p0_hom[-1];
-
-		double p0_c = 0.0;
-		if (std::abs(p0_hom_R) > 1.e-30)
-			p0_c = -p0_part_R / p0_hom_R;
-
-		// === Combine into final profiles ===
-		hartle_result_.m0 = Zaki::Vector::DataColumn("m0", N, 0.0);
-		hartle_result_.p0 = Zaki::Vector::DataColumn("p0", N, 0.0);
-		hartle_result_.xi0 = Zaki::Vector::DataColumn("xi0", N, 0.0);
-
-		for (size_t i = 0; i < N; i++)
+		for (std::size_t i = 0; i < n; ++i)
 		{
-			hartle_result_.m0[i] = m0_part[i] + p0_c * m0_hom[i];
-			hartle_result_.p0[i] = p0_part[i] + p0_c * p0_hom[i];
+			const int ii = static_cast<int>(i);
+			const double eps_p = (*E)[ii] + (*P)[ii];
+
+			dp_col[ii] = eps_p * phat_col[ii];
+
+			// xi0 = p0*/nu'. Both vanish at the centre (p0* ~ r^2, nu' ~ r), so the ratio is
+			// finite there but the division is not always well conditioned on the first node.
+			// Where it is not, the regular-centre series is used -- NOT a zero and not an
+			// arbitrary epsilon, which would replace a real value with a fabricated one:
+			//
+			//     xi0_hat -> j_c^2 s_c^2 r / [4 pi (eps_c + 3 p_c)]
+			//
+			// (PHASE4C_HARTLE2_DERIVATION.md SS9.2).
+			const double nup_i = (*NUP)[ii];
+			double xi = phat_col[ii] / nup_i;
+			if (!std::isfinite(xi))
+			{
+				const double denom = 4.0 * M_PI * ((*E)[ii] + 3.0 * (*P)[ii]);
+				xi = (denom != 0.0)
+						 ? j2_c * s_c * s_c * R->operator[](ii) / denom
+						 : std::numeric_limits<double>::quiet_NaN();
+			}
+			xi_col[ii] = xi;
 		}
 
-		// === Compute xi0 = -p0 / (dp/dr) ===
-		// dp/dr = -(eps+p) * nu' (from TOV equation)
-		for (size_t i = 0; i < N; i++)
-		{
-			double eps_plus_p = (*e_col)[i] + (*p_col)[i];
-			double nu_p = (*nu_p_col)[i];
-			double dp_dr = -eps_plus_p * nu_p;
+		// ---- surface (ADR-0007 P6/P7) --------------------------------------------------
+		// R_* is the LAST PROFILE NODE -- the production EOS-floor surface (INV-06). It is
+		// deliberately not identified with the exact p = 0 radius; the resulting isobar
+		// systematic is documented in PHASE4C_HARTLE2_DERIVATION.md SS11 and carried, not hidden.
+		const int last = static_cast<int>(n) - 1;
+		const double R_star = R->operator[](last);
+		const double eps_star = (*E)[last];
+		const double xi_star = xi_col[last];
+		const double I_first = first_order_response_.I;
 
-			if (std::abs(dp_dr) > 1.e-30)
-				hartle_result_.xi0[i] = -hartle_result_.p0[i] / dp_dr;
-			else
-				hartle_result_.xi0[i] = 0.0; // At surface: both p0 and dp/dr -> 0
+		// The surface mass shell: the (eps+p)(deps/dp) p0* term of dm0/dr carries a delta
+		// function where the density is discontinuous at the surface. Negligible on an
+		// EOS-floor star, DOMINANT on a constant-density one -- so it is computed, never
+		// assumed small (ADR-0007 P6).
+		const double shell_hat = 4.0 * M_PI * R_star * R_star * eps_star * xi_star;
+
+		// delta_M = m0(R_*) + shell + J^2/R_*^3, with J/Omega = I from the VERIFIED
+		// first-order response. No raw J, no seed-dependent quantity, no arbitrary Omega.
+		const double deltaM_hat =
+			mhat_col[last] + shell_hat + (I_first * I_first) / (R_star * R_star * R_star);
+
+		// ---- acceptance ---------------------------------------------------------------
+		for (std::size_t i = 0; i < n; ++i)
+		{
+			const int ii = static_cast<int>(i);
+			if (!std::isfinite(mhat_col[ii]) || !std::isfinite(phat_col[ii]) ||
+				!std::isfinite(dp_col[ii]) || !std::isfinite(xi_col[ii]))
+			{
+				Z_LOG_ERROR("ComputeMonopoleResponse: a non-finite value reached a published "
+							"field; the response is discarded.");
+				return false;
+			}
+		}
+		if (!std::isfinite(deltaM_hat) || !std::isfinite(shell_hat) || !std::isfinite(xi_star) ||
+			!(R_star > 0.0))
+		{
+			Z_LOG_ERROR("ComputeMonopoleResponse: non-finite surface quantity; discarded.");
+			return false;
 		}
 
-		// Store scalars
-		hartle_result_.p0_c = p0_c;
-		hartle_result_.delta_M = hartle_result_.m0[-1];
-		hartle_result_.valid = true;
+		// ---- publish, atomically -------------------------------------------------------
+		HartleMonopoleResponse out;
+		out.m0_over_Omega2 = mhat_col;
+		out.p0star_over_Omega2 = phat_col;
+		out.delta_p0_over_Omega2 = dp_col;
+		out.xi0_over_Omega2 = xi_col;
+		out.deltaM_over_Omega2 = deltaM_hat;
+		out.surface_shell_mass_over_Omega2 = shell_hat;
+		out.surface_xi0_over_Omega2 = xi_star;
+		out.R_surface = R_star;
+		out.I = I_first;
+		out.r_grid = R;
+		out.source_profile = prof_id;
+		out.source_version = prof_ver;
+		out.valid = true;
+
+		monopole_response_ = out;
+		return true;
 	}
 
 	//--------------------------------------------------------------
-	// Stub for MixedStar second-order solve (to be implemented in Phase C)
-	void RotationSolver::SolveHartle2_Mixed()
+	// Materializes the monopole perturbation at an explicitly requested physical angular
+	// velocity: Q = Q_hat * Omega_geom^2 (ADR-0007 P9). This is a SCALING, never a new ODE
+	// solve -- the coefficients are properties of the star and do not depend on Omega.
+	//
+	// Zero spin gives exact zeros. Because every quantity is quadratic in Omega, +Omega and
+	// -Omega give BIT-IDENTICAL results: (-x)*(-x) and x*x are the same IEEE-754 product.
+	PhysicalHartleMonopole HartleMonopoleResponse::At(AngularVelocity omega) const
 	{
-		// TODO: Implement for MixedStar (Phase C)
+		const int n = static_cast<int>(m0_over_Omega2.Size());
+
+		if (!valid || r_grid == nullptr || n < 2 ||
+			static_cast<int>(p0star_over_Omega2.Size()) != n ||
+			static_cast<int>(delta_p0_over_Omega2.Size()) != n ||
+			static_cast<int>(xi0_over_Omega2.Size()) != n ||
+			static_cast<int>(r_grid->Size()) != n)
+		{
+			throw std::runtime_error(
+				"CompactStar::HartleMonopoleResponse::At: no valid O(Omega^2) monopole response "
+				"is available for this star. Call NStar::ComputeHartleMonopoleResponse() first; "
+				"it fails closed when the star carries no authoritative d(eps)/dp. Governed by "
+				"ADR-0007.");
+		}
+
+		// The single physical -> geometric conversion (ADR-0006 P2), owned by AngularVelocity.
+		const double Omega_geom = omega.GeomKmInverse();
+		const double q = Omega_geom * Omega_geom;
+
+		PhysicalHartleMonopole out;
+		out.Omega_geom = Omega_geom;
+		out.m0 = Zaki::Vector::DataColumn("m0", static_cast<size_t>(n), 0.0);
+		out.p0star = Zaki::Vector::DataColumn("p0star", static_cast<size_t>(n), 0.0);
+		out.delta_p0 = Zaki::Vector::DataColumn("delta_p0", static_cast<size_t>(n), 0.0);
+		out.xi0 = Zaki::Vector::DataColumn("xi0", static_cast<size_t>(n), 0.0);
+
+		for (int i = 0; i < n; ++i)
+		{
+			out.m0[i] = m0_over_Omega2[i] * q;
+			out.p0star[i] = p0star_over_Omega2[i] * q;
+			out.delta_p0[i] = delta_p0_over_Omega2[i] * q;
+			out.xi0[i] = xi0_over_Omega2[i] * q;
+		}
+
+		out.delta_M = deltaM_over_Omega2 * q;
+		out.surface_shell_mass = surface_shell_mass_over_Omega2 * q;
+		out.surface_xi0 = surface_xi0_over_Omega2 * q;
+		out.r_grid = r_grid;
+		out.source_profile = source_profile;
+		out.source_version = source_version;
+		out.valid = true;
+		return out;
 	}
 
 	//==============================================================

@@ -38,6 +38,7 @@
 #ifndef CompactStar_Core_RotationSolver_H
 #define CompactStar_Core_RotationSolver_H
 
+#include <cstdint>
 #include <gsl/gsl_spline.h>
 #include <vector>
 
@@ -184,36 +185,147 @@ struct HartleFirstOrderResponse
 	[[nodiscard]] PhysicalFirstOrderRotation At(AngularVelocity omega) const;
 };
 //==============================================================
-/// Result of the **O(Omega^2) second-order candidate** (`SolveHartle2_N`).
+/// The O(Omega^2) monopole perturbation of a star at an **explicitly requested** physical
+/// angular velocity.
 ///
-/// **UNVERIFIED SCIENTIFIC CANDIDATE** under `GOVERNANCE.md` §5 and INV-08: publicly callable,
-/// with zero repository callers, and its equations are recorded as defective
-/// (`docs/validation/PHASE4_ROTATION_ENTRY.md` §10-§12). Nothing here is validated physics.
+/// Produced ONLY by `HartleMonopoleResponse::At(AngularVelocity)`. Computing the normalized
+/// response confers no spin: ADR-0006's binding clarification, extended to second order by
+/// ADR-0007 P9, is that a physical perturbation exists only after a caller supplies an
+/// `AngularVelocity`.
 ///
-/// Every field below inherits the **square** of the arbitrary internal first-order seed,
-/// because the solve is driven by the raw stored `omega_bar` (measured: entry record §12).
-/// ADR-0006 P9 requires any future second-order product to be seed-free; that is Phase-4C work
-/// and is deliberately NOT done here.
-///
-/// The first-order fields this struct used to carry — `Omega`, `J`, `I`, `omega_bar`,
-/// `domega_bar` — were removed by ADR-0006: `Omega` was annotated `[s^-1]` while storing km^-1,
-/// and all five held seed-normalized values behind a public accessor. First-order results now
-/// live in `HartleFirstOrderResponse` and `PhysicalFirstOrderRotation`, which are seed-free by
-/// construction.
-struct HartleResult
+/// Every field is the corresponding coefficient times `Omega_geom^2`, so **no ODE is solved
+/// here** and materializing many spins costs nothing. Because the quantities are quadratic in
+/// `Omega`, `+Omega` and `-Omega` produce bit-identical perturbations, and zero spin produces
+/// exact zeros.
+struct PhysicalHartleMonopole
 {
-	// --- Second-order O(Omega^2) monopole (l=0) --- CANDIDATE, UNVALIDATED ---
-	Zaki::Vector::DataColumn m0;  ///< Mass perturbation delta_m(r) [km]
-	Zaki::Vector::DataColumn p0;  ///< Pressure perturbation delta_p(r) [km^-2]
-	Zaki::Vector::DataColumn xi0; ///< Isobar displacement xi_0(r) [km]
+	/// Angular velocity as seen at infinity, geometric [km^-1]. CANONICAL — the one stored
+	/// form; the physical value is derived, never stored alongside (ADR-0006 Q3/P6).
+	double Omega_geom = 0.0;
 
-	double p0_c = 0.0;		///< Central pressure perturbation (shooting result) [km^-2]
-	double delta_M = 0.0;	///< O(Omega^2) gravitational mass correction [km]
+	/// m0(r) — the O(Omega^2) perturbation of the enclosed-mass function [km].
+	Zaki::Vector::DataColumn m0;
 
-	/// Grid reference (non-owning pointer to star's radius column)
+	/// p0*(r) — Hartle's dimensionless pressure perturbation factor (H67 eqs. 87-88, 99).
+	Zaki::Vector::DataColumn p0star;
+
+	/// delta_p0(r) = (eps + p) p0*(r) — the Eulerian monopole pressure perturbation [km^-2].
+	Zaki::Vector::DataColumn delta_p0;
+
+	/// xi0(r) = p0*/nu' — the outward displacement of the isobar that sits at r [km].
+	Zaki::Vector::DataColumn xi0;
+
+	/// delta_M — the O(Omega^2) change in the star's gravitational mass [km],
+	/// `m0(R_*) + 4 pi R_*^2 eps_* xi0(R_*) + J^2/R_*^3` (ADR-0007 P6).
+	double delta_M = 0.0;
+
+	/// The surface mass-shell term of `delta_M` alone [km], kept separately because it is
+	/// negligible on an EOS-floor star and dominant on a constant-density one.
+	double surface_shell_mass = 0.0;
+
+	/// xi0 at the production surface node R_* [km]. **R_* is the EOS-floor surface, not the
+	/// exact p = 0 radius** (INV-06; ADR-0007 P7), so this carries that documented systematic.
+	double surface_xi0 = 0.0;
+
+	/// Non-owning pointer to the radius column [km] this solution is tabulated on. It must not
+	/// outlive the owning `StarProfile`; `source_profile`/`source_version` below let a holder
+	/// detect that the source has changed rather than read through a stale grid.
 	const Zaki::Vector::DataColumn *r_grid = nullptr;
 
-	bool valid = false; ///< True after a successful second-order solve
+	/// Provenance of the response this was materialized from (ADR-0003).
+	const void *source_profile = nullptr;
+	std::uint64_t source_version = 0;
+
+	bool valid = false;
+
+	/// The requested angular velocity in physical rad s^-1, derived through the single
+	/// geometric -> physical conversion owner (ADR-0006 P2/P6).
+	[[nodiscard]] double OmegaRadPerSecond() const noexcept
+	{
+		return AngularVelocityGeomToRadPerSecond(Omega_geom);
+	}
+};
+//==============================================================
+/// The **seed-free, fixed-central-energy-density** O(Omega^2) monopole (l = 0) structural
+/// response of a star, per unit `Omega_geom^2`.
+///
+/// **Governed by ADR-0007 (ACCEPTED 2026-09-02).** This replaced the retired `HartleResult`
+/// candidate of commit `675b4a9`; nothing of that candidate's numerical content survives, and
+/// none of its historical output is a reference result (ADR-0007 §9 item 6).
+///
+/// Every field carries the `_over_Omega2` suffix because that is exactly what it is: a
+/// coefficient, not a perturbation. Multiplying by `Omega_geom^2` — which is what `At()` does —
+/// is the only way to obtain a physical quantity. The coefficients are independent of `Omega`
+/// (the system is linear with sources quadratic in `omega_bar`) and independent of the internal
+/// first-order seed, because they are built from the verified seed-free `omega_bar/Omega` and
+/// `[d omega_bar/dr]/Omega` and never from the raw stored profile.
+///
+/// **Fixed epsilon_c.** This is Hartle's particular solution with `m0(0) = p0*(0) = 0` and no
+/// homogeneous admixture (H67 p. 1009, p. 1022; HT68 §II f): the rotating star has the same
+/// central energy density as the non-rotating one. There is no surface condition, no shooting
+/// and no free constant. The regular homogeneous solution — the non-rotating sequence
+/// derivative — is deliberately **not** exposed (ADR-0007 P11 as modified at acceptance).
+///
+/// **Not yet independently validated.** ADR-0007 fixes the contract and this is its conforming
+/// implementation, but the scientific verification is Phase 4D. Until then no number here is
+/// validated physics and no baseline of it may be created (INV-08).
+struct HartleMonopoleResponse
+{
+	/// m0(r)/Omega_geom^2 [km^3].
+	Zaki::Vector::DataColumn m0_over_Omega2;
+
+	/// p0*(r)/Omega_geom^2 [km^2]. `p0*` itself is dimensionless.
+	Zaki::Vector::DataColumn p0star_over_Omega2;
+
+	/// delta_p0(r)/Omega_geom^2 — dimensionless, `= (eps + p) * p0star_over_Omega2`.
+	Zaki::Vector::DataColumn delta_p0_over_Omega2;
+
+	/// xi0(r)/Omega_geom^2 [km^3], `= p0star_over_Omega2 / nu'`.
+	Zaki::Vector::DataColumn xi0_over_Omega2;
+
+	/// delta_M/Omega_geom^2 [km^3] — `m0_hat(R_*) + shell_hat + I^2/R_*^3` (ADR-0007 P6).
+	double deltaM_over_Omega2 = 0.0;
+
+	/// The surface mass-shell term alone, `4 pi R_*^2 eps_* xi0_hat(R_*)` [km^3].
+	double surface_shell_mass_over_Omega2 = 0.0;
+
+	/// xi0_hat at the production surface node [km^3]. See `PhysicalHartleMonopole::surface_xi0`
+	/// for the R_* semantics.
+	double surface_xi0_over_Omega2 = 0.0;
+
+	/// The production surface radius R_* [km] — the **last profile node**, i.e. the EOS-floor
+	/// surface, deliberately not identified with the exact p = 0 radius (INV-06, ADR-0007 P7).
+	double R_surface = 0.0;
+
+	/// The moment of inertia [km^3] this response used for the exterior `I^2/R_*^3` term,
+	/// carried through from the verified first-order response.
+	double I = 0.0;
+
+	/// Non-owning pointer to the radius column [km]. See the lifetime note on
+	/// `PhysicalHartleMonopole::r_grid`.
+	const Zaki::Vector::DataColumn *r_grid = nullptr;
+
+	/// Provenance (ADR-0003): the identity and `Version()` of the `StarProfile` this response
+	/// was computed from. A response whose provenance no longer matches its star is **stale**
+	/// and must not be returned as current.
+	const void *source_profile = nullptr;
+	std::uint64_t source_version = 0;
+
+	bool valid = false; ///< True only after a complete, all-finite solve (published atomically).
+
+	/// True when this response was computed from `profile` at its current version.
+	[[nodiscard]] bool MatchesSource(const void *profile, std::uint64_t version) const noexcept
+	{
+		return valid && source_profile == profile && source_version == version;
+	}
+
+	/// Materialize the monopole perturbation at an explicitly requested physical angular
+	/// velocity: `Q = Q_hat * Omega_geom^2`. **No ODE is solved** (ADR-0007 P9/§19.3).
+	///
+	/// Zero spin yields exact zeros; `+Omega` and `-Omega` yield bit-identical results.
+	///
+	/// @throws std::runtime_error if the response is not valid.
+	[[nodiscard]] PhysicalHartleMonopole At(AngularVelocity omega) const;
 };
 //==============================================================
 /// Test-only access seam for `RotationSolver`'s internal numerical state.
@@ -346,13 +458,6 @@ class RotationSolver : public Prog
 	/// Mass of the star (it will set after importing TOV solution)
 	// double M_Star = -1 ;
 
-	// Per-grid-point scalars used ONLY by the second-order O(Omega^2) candidate
-	// path (ODE_Hartle2_N_Fast, SolveHartle2_N). Not read by any first-order code,
-	// which uses the profile-backed fast_p_/fast_e_/fast_m_ interpolation below.
-	double fast_p;
-	double fast_e;
-	double fast_m;
-
 	// double fast_p_v;
 	// double fast_p_d;
 	// double fast_e_v;
@@ -387,28 +492,57 @@ class RotationSolver : public Prog
 	inline void EvalFastPEM_(double r, double &p, double &e, double &m) const;
 	inline void EvalFastMixedPEM_(double r, double &p, double &e, double &m) const;
 
-	// Fast interpolation cache for second-order Hartle solver
-	double fast_nu;		  ///< Metric nu at current grid point
-	double fast_nu_prime; ///< dnu/dr at current grid point
-	double fast_dEdP;	  ///< d(eps)/d(p) at current grid point (NStar)
-	double fast_dEdP_v;	  ///< d(eps)/d(p) visible sector (MixedStar)
-	double fast_dEdP_d;	  ///< d(eps)/d(p) dark sector (MixedStar)
-
-	/// Cached omega_bar profile for second-order integration
-	/// (stored as DataColumn for interpolation during m0/p0 solve)
+	/// Raw first-order omega_bar profile at the internal seed, stored per node by
+	/// `FindNMomInertia` and divided by `Omega_raw` there to build the seed-free
+	/// `first_order_response_`. **First-order machinery** (ADR-0006 Q4) — the O(Omega^2)
+	/// solver never reads these; it consumes only the seed-free response.
 	Zaki::Vector::DataColumn stored_omega_bar_;
 	Zaki::Vector::DataColumn stored_domega_bar_;
 
-	// Fast interpolation cache for stored omega_bar profile
-	double fast_omega_bar;
-	double fast_domega_bar;
+	// ---------------------------------------------------------------------------------
+	//  O(Omega^2) monopole (l = 0) — ADR-0007. Replaces the retired 675b4a9 candidate.
+	// ---------------------------------------------------------------------------------
+	/// Background sampled at the ACTUAL radius the ODE driver asks for.
+	///
+	/// The retired candidate set per-node scalars before each `gsl_odeiv2_driver_apply` and let
+	/// the right-hand side use them at whatever internal radius GSL chose — a node value
+	/// standing in for an inter-node one. This workspace instead interpolates every input at
+	/// the true RHS radius, through **one shared bracket index** so that all eight quantities
+	/// refer to the same radial interval, and linearly, which is the interpolation order the
+	/// profile itself carries (INV-13).
+	struct MonopoleBackground_
+	{
+		const Zaki::Vector::DataColumn *r = nullptr;	///< [km]
+		const Zaki::Vector::DataColumn *p = nullptr;	///< [km^-2]
+		const Zaki::Vector::DataColumn *e = nullptr;	///< [km^-2]
+		const Zaki::Vector::DataColumn *m = nullptr;	///< [km]
+		const Zaki::Vector::DataColumn *nu = nullptr;	///< dimensionless
+		const Zaki::Vector::DataColumn *nup = nullptr;	///< [km^-1]
+		const Zaki::Vector::DataColumn *dedp = nullptr; ///< dimensionless (ADR-0007 P5)
+		const Zaki::Vector::DataColumn *s = nullptr;	///< omega_bar/Omega, dimensionless
+		const Zaki::Vector::DataColumn *sp = nullptr;	///< [d omega_bar/dr]/Omega, [km^-1]
 
-	/// Second-order Hartle results
-	HartleResult hartle_result_;
+		mutable std::size_t k = 0; ///< shared cached bracket index
 
-	/// Whether to include source terms in the (m0,p0) ODE
-	/// (false for homogeneous solution in superposition method)
-	bool include_m0p0_source_ = true;
+		struct Sample
+		{
+			double p = 0, e = 0, m = 0, nu = 0, nup = 0, dedp = 0, s = 0, sp = 0;
+		};
+
+		[[nodiscard]] bool Complete() const noexcept;
+		[[nodiscard]] Sample At(double r_km) const;
+	};
+
+	MonopoleBackground_ monopole_bg_;
+
+	/// The published response. Never mutated incrementally: a complete candidate is built in
+	/// local storage and assigned here only once every acceptance test has passed.
+	HartleMonopoleResponse monopole_response_;
+
+	/// Number of monopole ODE integrations performed by this solver. Read through
+	/// `RotationSolverTestSeam` so "one solve per explicit request, none per materialization"
+	/// can be proved rather than asserted.
+	std::size_t monopole_solve_count_ = 0;
 
 	//--------------------------------------------------------------
   public:
@@ -506,20 +640,25 @@ class RotationSolver : public Prog
 	/// Evaluates the moment of inertia for the mixed star
 	void FindMixedMomInertia();
 
-	/// Solves the second-order Hartle O(Omega^2) monopole equations
-	/// for an NStar. Requires FindNMomInertia() to have been called first
-	/// (or uses its own first-order solve). Stores results in hartle_result_.
-	void SolveHartle2_N();
-
-	/// Solves the second-order Hartle O(Omega^2) monopole equations
-	/// for a MixedStar.
-	void SolveHartle2_Mixed();
-
-	/// Returns the second-order Hartle result (const).
+	/// Compute the governed O(Omega^2) monopole response of the attached star (ADR-0007).
 	///
-	/// **UNVERIFIED SCIENTIFIC CANDIDATE** (`GOVERNANCE.md` §5, INV-08). Its contents are
-	/// quadratic in the arbitrary internal seed and are not physical results.
-	const HartleResult &GetHartleResult() const;
+	/// **This performs work**: one ODE integration over the star. It is deliberately not run
+	/// by `FindNMomInertia`, and therefore not by ordinary star construction — existing
+	/// workflows do not need it and must not pay for it.
+	///
+	/// Recomputes when the cached response is absent or stale (source profile changed or its
+	/// `Version()` moved); reuses it otherwise. Fails closed — leaving no partial response —
+	/// if the profile is incomplete, the first-order response is unusable, the profile carries
+	/// no authoritative `d(eps)/dp` (ADR-0007 P5), the integration fails, or any published
+	/// value would be non-finite.
+	///
+	/// @return true if a valid, current response is available afterwards.
+	bool ComputeMonopoleResponse();
+
+	/// The current O(Omega^2) monopole response, or nullptr when none has been computed or the
+	/// cached one is stale. A cheap read-only accessor: it never integrates. Call
+	/// `ComputeMonopoleResponse()` to (re)compute.
+	[[nodiscard]] const HartleMonopoleResponse *MonopoleResponse() const;
 
 	/// The seed-free first-order response of the attached star (ADR-0006 Q4).
 	///
@@ -538,11 +677,9 @@ class RotationSolver : public Prog
 	static int ODE_Mixed_Fast(double r, const double y[], double f[], void *params);
 	static int ODE_N_Fast(double r, const double y[], double f[], void *params);
 
-	/// Second-order (m0, p0) ODE for NStar with fast interpolation
-	static int ODE_Hartle2_N_Fast(double r, const double y[], double f[], void *params);
-
-	/// Second-order (m0, p0) ODE for MixedStar with fast interpolation
-	static int ODE_Hartle2_Mixed_Fast(double r, const double y[], double f[], void *params);
+	/// The governed O(Omega^2) monopole right-hand side (ADR-0007 P2), in the normalized
+	/// variables `y[0] = m0/Omega^2 [km^3]`, `y[1] = p0*/Omega^2 [km^2]`.
+	static int ODE_HartleMonopole_(double r, const double y[], double f[], void *params);
 
 	// Resets the containers
 	void Reset();

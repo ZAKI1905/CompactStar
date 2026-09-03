@@ -48,6 +48,20 @@ add_test(NAME eos_derivative_contract COMMAND eos_derivative_contract)
 set_tests_properties(eos_derivative_contract PROPERTIES LABELS "eos;derivative;contract")
 
 # ---------------------------------------------------------------------------
+#  Phase 4C-I1 governed O(Omega^2) monopole IMPLEMENTATION contract (ADR-0007).
+#  Self-contained. Protects contracts — fail-closed inputs, regular-centre start,
+#  provenance/staleness, seed invariance, materialization algebra, solve accounting.
+#  It is NOT independent physical validation of the ODE; that is Phase 4D.
+# ---------------------------------------------------------------------------
+add_executable(hartle_monopole_contract rotation/hartle_monopole_contract.cpp)
+target_include_directories(hartle_monopole_contract PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+target_link_libraries(hartle_monopole_contract PRIVATE CompactStar)
+add_test(NAME hartle_monopole_contract COMMAND hartle_monopole_contract)
+set_tests_properties(hartle_monopole_contract PROPERTIES
+    LABELS "rotation;hartle;monopole;contract")
+
+# ---------------------------------------------------------------------------
 #  INV-12 cache-correctness contracts. Self-contained.
 #  The registered test runs ONLY the supported-contract cases. The known-hazard
 #  reproductions live behind --audit-known-hazards and are deliberately NOT a
@@ -198,6 +212,19 @@ if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
     set_tests_properties(grid_convergence_cmf PROPERTIES
         LABELS "thermal;scientific;external-data;convergence"
         TIMEOUT 1800)
+
+    # Phase 4C-I1 governed O(Omega^2) monopole conformance on the authenticated CMF
+    # sequence (ADR-0007). Structural conformance and diagnostics only — the independent
+    # scientific validation is Phase 4D, and no golden is produced here.
+    add_executable(hartle_monopole_cmf rotation/hartle_monopole_cmf.cpp)
+    target_include_directories(hartle_monopole_cmf PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+    target_link_libraries(hartle_monopole_cmf PRIVATE CompactStar)
+    add_test(NAME hartle_monopole_cmf
+             COMMAND hartle_monopole_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(hartle_monopole_cmf PROPERTIES
+        LABELS "rotation;hartle;monopole;external-data"
+        TIMEOUT 900)
 
     # Phase 4C-I0 EOS d(eps)/dp on the authenticated CMF sequence (ADR-0007 P5).
     # Asserts completeness, finiteness and positivity; prints the retired profile
