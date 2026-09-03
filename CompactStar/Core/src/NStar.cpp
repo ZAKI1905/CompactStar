@@ -1294,7 +1294,7 @@ int NStar::SolveTOV_Profile(const Zaki::String::Directory &eos_file,
 	const int n_pts = tov.SolveToProfile(target_M_solar,
 										 tov_points,
 										 &species_labels);
-	if (n_pts <= 0 || tov_points.empty())
+	if (n_pts <= 0 || tov_points.empty() || tov.LastSolveStatus() != TOVSolveStatus::SURFACE_REACHED)
 	{
 		Z_LOG_ERROR("SolveToProfile failed for "
 					"target mass = " +

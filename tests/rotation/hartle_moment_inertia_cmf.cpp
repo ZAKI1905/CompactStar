@@ -183,7 +183,9 @@ int main(int argc, char **argv)
 		probe.SetWrkDir((wrk / "labels").string());
 		probe.ImportEOS(cold.string(), true);
 		std::vector<TOVPoint> tmp;
-		probe.SolveToProfile(1.4, tmp, &g_labels);
+		if (probe.SolveToProfile(1.4, tmp, &g_labels) <= 0 ||
+			probe.LastSolveStatus() != CompactStar::Core::TOVSolveStatus::SURFACE_REACHED)
+			return 4;
 	}
 
 	// =======================================================================

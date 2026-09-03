@@ -11,6 +11,7 @@
 #include <array>
 #include <cmath>
 #include <limits>
+#include <memory>
 
 #include <gsl/gsl_const_cgsm.h>
 #include <gsl/gsl_errno.h>
@@ -1490,41 +1491,32 @@ int TOVSolver::ODE(double r, const double y[], double f[], void *params)
 {
 	TOVSolver *tov_obj = (TOVSolver *)params;
 
-	// set a minimum pressure cutoff. if we don't, the ODE solver will wobble all
-	// over the surface and crash, or if we make the error tolerance really strict
-	// it'll integrate forever
-	if (y[1] < tov_obj->PressureCutoff())
+	// ADR-0009 Q3/Q4: a trial stage may cross the surface. Only the energy
+	// density lookup is continued to the EOS floor; pressure remains the trial p.
+	// The accepted-solution event is located by SingleStarSolveToTOVPoints.
+	if (!std::isfinite(r) || r <= 0.0 || !std::isfinite(y[0]) ||
+		!std::isfinite(y[1]))
+		return GSL_EBADFUNC;
+	if (tov_obj->eos_tab.pre.empty())
 	{
-#if TOV_SOLVER_VERBOSE
-		printf("\u2554----------------- Surface reached ----------------\u2557\n");
-		printf("\u2551 %14s %14s %15s %7s\n", "R (km)", "M (M_sun)", "\u03B5_c (g/cm^3)", "\u2551");
-		printf("\u2551 %14le %14le %14le %7s\n", r / 1.e+5,
-			   y[0] / GSL_CONST_CGSM_SOLAR_MASS, tov_obj->GetEDens(tov_obj->GetInitPress()), "\u2551");
-		printf("\u255A--------------------------------------------------\u255D\n");
-		std::cout << "\n init_press =" << tov_obj->GetInitPress() << "\n";
-		std::cout << "\n Pressure Cut Off =" << tov_obj->PressureCutoff() << "\n";
-		std::cout << " y[1] = " << y[1] << "\n";
-#endif
-		return GSL_EBADFUNC; // this flag tells GSL integrator to quit
+		tov_obj->last_solve_status = TOVSolveStatus::EOS_DOMAIN_FAILURE;
+		return GSL_EBADFUNC;
 	}
+	const double e = tov_obj->GetEDens(std::max(y[1], tov_obj->eos_tab.pre.front()));
+	if (!std::isfinite(e) || e <= 0.0)
+	{
+		tov_obj->last_solve_status = TOVSolveStatus::EOS_DOMAIN_FAILURE;
+		return GSL_EBADFUNC;
+	}
+	const double metric = 1. - (2. * GSL_CONST_CGSM_GRAVITATIONAL_CONSTANT * y[0] /
+		(pow(GSL_CONST_CGSM_SPEED_OF_LIGHT, 2.) * r));
+	if (!std::isfinite(metric) || metric <= 0.0)
+		return GSL_EBADFUNC;
 
-	// Mass Continuity Equation
-	f[0] = 4. * M_PI * r * r * tov_obj->GetEDens(y[1]);
-
-	// TOV Equation
-	//      - [ eps(r) + p/c^2 ]
-	// f[1]  = - eos_eps(y[1])
-	//       + (y[1] / pow (GSL_CONST_CGSM_SPEED_OF_LIGHT, 2.));
-
-	// //    [ M(r) + 4.pi.r^3 p(r) ]
-	// f[1] *= y[0] + 4*M_PI*r*r*r*y[1] / pow(GSL_CONST_CGSM_SPEED_OF_LIGHT, 2.) ;
-
-	// //    / [ r.(r - 2M(r)) ]
-	// f[1]  *= 1./r ;
-	// f[1]  *= 1./( r/GSL_CONST_CGSM_GRAVITATIONAL_CONSTANT
-	//               - 2*y[0]/pow (GSL_CONST_CGSM_SPEED_OF_LIGHT, 2.)) ;
-
-	f[1] = -(GSL_CONST_CGSM_GRAVITATIONAL_CONSTANT / pow(r, 2.)) * (tov_obj->GetEDens(y[1]) + (y[1] / pow(GSL_CONST_CGSM_SPEED_OF_LIGHT, 2.))) * (y[0] + 4 * M_PI * pow(r, 3.) * y[1] / pow(GSL_CONST_CGSM_SPEED_OF_LIGHT, 2.)) / (1. - (2. * GSL_CONST_CGSM_GRAVITATIONAL_CONSTANT * y[0] / (pow(GSL_CONST_CGSM_SPEED_OF_LIGHT, 2.) * r)));
+	f[0] = 4. * M_PI * r * r * e;
+	f[1] = -(GSL_CONST_CGSM_GRAVITATIONAL_CONSTANT / pow(r, 2.)) * (e + (y[1] / pow(GSL_CONST_CGSM_SPEED_OF_LIGHT, 2.))) * (y[0] + 4 * M_PI * pow(r, 3.) * y[1] / pow(GSL_CONST_CGSM_SPEED_OF_LIGHT, 2.)) / metric;
+	if (!std::isfinite(f[0]) || !std::isfinite(f[1]))
+		return GSL_EBADFUNC;
 
 	return GSL_SUCCESS;
 }
@@ -1772,6 +1764,7 @@ void TOVSolver::Solve(const Zaki::Math::Axis &in_ax,
 					  const Zaki::String::Directory &in_dir,
 					  const Zaki::String::Directory &in_file)
 {
+	last_solve_status = TOVSolveStatus::INVALID_INITIAL_STATE;
 #if TOV_SOLVER_VERBOSE
 	std::cout << "\n\n\t\t ****************************************"
 			  << "*******************************" << " \n";
@@ -1784,6 +1777,7 @@ void TOVSolver::Solve(const Zaki::Math::Axis &in_ax,
 
 	if (eos_tab.eps.empty())
 	{
+		last_solve_status = TOVSolveStatus::EOS_DOMAIN_FAILURE;
 		Z_LOG_ERROR("Solve(...) called but EOS table is empty.");
 		return;
 	}
@@ -1822,7 +1816,13 @@ void TOVSolver::Solve(const Zaki::Math::Axis &in_ax,
 
 		// The ONE radial integration for this sequence member.
 		std::vector<TOVPoint> tov_points;
-		SingleStarSolveToTOVPoints(in_ax[idx], tov_points);
+		const int npts = SingleStarSolveToTOVPoints(in_ax[idx], tov_points);
+		if (npts <= 0 || last_solve_status != TOVSolveStatus::SURFACE_REACHED)
+		{
+			n_star.Reset();
+			ClearSequence();
+			return;
+		}
 
 		// Feed the points through the EXISTING Path-1 postprocessing,
 		// unchanged. Converging this onto BuildFromTOV is ADR-0005 Q3 = P3 and
@@ -2474,183 +2474,136 @@ void TOVSolver::Solve_Mixed(const Contour &eps_cont,
 //--------------------------------------------------------------
 // Single-star TOV solve → vector<TOVPoint>
 //--------------------------------------------------------------
+// The terminal change of independent variable uses the SAME radial RHS:
+// dr/dp = 1/f_p; dm/dp = f_m/f_p (derivation §6, ADR-0009 Q5).
+int TOVSolver::PressureCoordinateODE(double p, const double y[], double f[], void *params)
+{
+	const double radial_y[2] = {y[1], p}; // y = {r, m}
+	double radial_f[2];
+	const int status = ODE(y[0], radial_y, radial_f, params);
+	if (status != GSL_SUCCESS)
+		return status;
+	if (radial_f[1] >= 0.0)
+		return GSL_EBADFUNC;
+	f[0] = 1.0 / radial_f[1];
+	f[1] = radial_f[0] / radial_f[1];
+	return std::isfinite(f[0]) && std::isfinite(f[1]) ? GSL_SUCCESS : GSL_EBADFUNC;
+}
+
+bool TOVSolver::LocateSurface(double p_above, double r_above, double m_above,
+							 double r_below, double &r_surface, double &m_surface)
+{
+	const double p_cut = PressureCutoff();
+	if (!(p_above > p_cut))
+		return false;
+	gsl_odeiv2_system sys = {PressureCoordinateODE, nullptr, 2, this};
+	std::unique_ptr<gsl_odeiv2_driver, decltype(&gsl_odeiv2_driver_free)> driver(
+		gsl_odeiv2_driver_alloc_y_new(&sys, gsl_odeiv2_step_rk8pd,
+			-(p_above - p_cut) * 1.e-3, 1.e-10, 1.e-10), gsl_odeiv2_driver_free);
+	if (!driver)
+		return false;
+	double p = p_above;
+	double y[2] = {r_above, m_above};
+	if (gsl_odeiv2_driver_apply(driver.get(), &p, p_cut, y) != GSL_SUCCESS ||
+		p != p_cut || !std::isfinite(y[0]) || !std::isfinite(y[1]) ||
+		y[0] <= r_above || y[0] > r_below || y[1] < m_above)
+		return false;
+	r_surface = y[0];
+	m_surface = y[1];
+	return true;
+}
+
 int TOVSolver::SingleStarSolveToTOVPoints(double ec_central,
 										  std::vector<TOVPoint> &out_tov)
 {
 	PROFILE_FUNCTION();
-
 	out_tov.clear();
-
-	if (eos_tab.eps.empty())
-	{
-		Z_LOG_ERROR("EOS table is empty.");
+	last_solve_status = TOVSolveStatus::INVALID_INITIAL_STATE;
+	auto fail = [&](TOVSolveStatus status) {
+		last_solve_status = status;
+		out_tov.clear(); // ADR-0009: partial profiles are never authoritative.
 		return 0;
-	}
+	};
+	if (eos_tab.eps.empty() || eos_tab.pre.empty())
+		return fail(TOVSolveStatus::EOS_DOMAIN_FAILURE);
+	if (radial_res == 0 || !std::isfinite(r_min) || !std::isfinite(r_max) ||
+		r_min <= 0.0 || r_max <= r_min)
+		return fail(TOVSolveStatus::PARTITION_INVALID);
+	const double step = (r_max - r_min) / radial_res;
+	if (!std::isfinite(step) || step <= 0.0)
+		return fail(TOVSolveStatus::PARTITION_INVALID);
+	if (!std::isfinite(ec_central) || ec_central <= 0.0)
+		return fail(TOVSolveStatus::INVALID_INITIAL_STATE);
 
-	// ----------------------------------------------------------
-	// 0) Clamp central energy density to EOS range (same as Solve)
-	// ----------------------------------------------------------
-	const double eos_e_min = eos_tab.eps.front();
-	const double eos_e_max = eos_tab.eps.back();
-
-	const double floor_e = central_eps_floor_factor * eos_e_min;
-	const double ceil_e = 0.999 * eos_e_max;
-
-	const double ec_req = ec_central;
-	double ec = ec_req;
-
-	if (ec < floor_e)
-	{
-		Z_LOG_WARNING("Requested eps(" +
-					  std::to_string(ec_req) + ") < floor(" +
-					  std::to_string(floor_e) + ") -> clamping.");
-		ec = floor_e;
-	}
-	else if (ec > ceil_e)
-	{
-		Z_LOG_WARNING("Requested eps(" +
-					  std::to_string(ec_req) + ") > ceil(" +
-					  std::to_string(ceil_e) + ") -> clamping.");
-		ec = ceil_e;
-	}
-
-	// ----------------------------------------------------------
-	// 1) Convert central ε to central pressure, set initial y[]
-	// ----------------------------------------------------------
+	// Preserve the canonical central-density clamp and pressure conversion.
+	const double floor_e = central_eps_floor_factor * eos_tab.eps.front();
+	const double ceil_e = 0.999 * eos_tab.eps.back();
+	if (!std::isfinite(floor_e) || !std::isfinite(ceil_e) ||
+		floor_e <= 0.0 || ceil_e <= floor_e)
+		return fail(TOVSolveStatus::EOS_DOMAIN_FAILURE);
+	const double ec = std::clamp(ec_central, floor_e, ceil_e);
 	init_press = p_of_e(ec);
-
-	double r = r_min; // cm
-	double y[2];
-
-	// y[1] = p(r), y[0] = m(r) in cgs (g)
-	y[1] = init_press;
-	y[0] = (4.0 / 3.0) * M_PI * std::pow(r, 3.0) * GetEDens(y[1]);
-
-	// ----------------------------------------------------------
-	// 2) GSL ODE setup -- the ONE ordinary-star radial driver (ADR-0005)
-	// ----------------------------------------------------------
-	gsl_odeiv2_system ode_sys = {TOVSolver::ODE, nullptr, 2, this};
-
-	gsl_odeiv2_driver *driver = gsl_odeiv2_driver_alloc_y_new(
-		&ode_sys,
-		gsl_odeiv2_step_rk8pd,
-		1.e-1,	// initial step
-		1.e-10, // abs tol
-		1.e-10	// rel tol
-	);
-
-	double min_log_r = r_min;
-	double max_log_r = r_max;
-
-	double step = (max_log_r - min_log_r) / radial_res;
-	double step_scale = 1.0;
-
 	const double p_cut = PressureCutoff();
+	if (!std::isfinite(init_press) || !std::isfinite(p_cut) ||
+		p_cut <= 0.0 || init_press <= p_cut)
+		return fail(TOVSolveStatus::INVALID_INITIAL_STATE);
+	double r = r_min;
+	double y[2] = {(4.0 / 3.0) * M_PI * std::pow(r, 3.0) * GetEDens(init_press), init_press};
+	if (!std::isfinite(y[0]) || y[0] <= 0.0)
+		return fail(TOVSolveStatus::EOS_DOMAIN_FAILURE);
 
-	// ----------------------------------------------------------
-	// 3) Radius loop — the canonical ordinary-star radial integration.
-	//    Historically this was a copy of TOVSolver::RadiusLoop; that duplicate was retired
-	//    in Phase 3E-I4 and this is now the sole implementation.
-	// ----------------------------------------------------------
-	for (double log_r_i = min_log_r;
-		 log_r_i <= max_log_r;
-		 log_r_i += step * step_scale)
+	gsl_odeiv2_system sys = {TOVSolver::ODE, nullptr, 2, this};
+	std::unique_ptr<gsl_odeiv2_driver, decltype(&gsl_odeiv2_driver_free)> driver(
+		gsl_odeiv2_driver_alloc_y_new(&sys, gsl_odeiv2_step_rk8pd,
+			1.e-1, 1.e-10, 1.e-10), gsl_odeiv2_driver_free);
+	if (!driver)
+		return fail(TOVSolveStatus::GSL_FAILURE);
+
+	// Output targets retain the established step_scale ladder. Adaptive history
+	// is inherited; a target is a sampling request, never the surface definition.
+	for (double target = r_min;;)
 	{
-		double ri = log_r_i;
-
-		double tmp_delta_p = y[1]; // kept for potential future step-control tweaks
-
-		int status = gsl_odeiv2_driver_apply(driver, &r, ri, y);
-
+		const double r_above = r, m_above = y[0], p_above = y[1];
+		const int status = gsl_odeiv2_driver_apply(driver.get(), &r, target, y);
 		if (status != GSL_SUCCESS)
+			return fail(last_solve_status == TOVSolveStatus::EOS_DOMAIN_FAILURE ?
+				last_solve_status : TOVSolveStatus::GSL_FAILURE);
+		const bool surface = y[1] <= p_cut;
+		if (surface)
 		{
-#if TOV_SOLVER_VERBOSE
-			printf("\t-------------------%s-------------------\n", "GSL");
-			printf("error, return value=%d\n.", status);
-			printf("Pressure = %2.2e.\n", y[1]);
-#endif
-			break;
+			if (!LocateSurface(p_above, r_above, m_above, r, r, y[0]))
+				return fail(last_solve_status == TOVSolveStatus::EOS_DOMAIN_FAILURE ?
+					last_solve_status : TOVSolveStatus::GSL_FAILURE);
+			y[1] = p_cut;
 		}
-
-		// ------------------------------------------------------
-		// Step scaling
-		// r is in cm; thresholds 100, 1000, ... are cm as well.
-		// ------------------------------------------------------
-		if (ri < 100.0) // < 1 m
-		{
-			step_scale = 0.005;
-		}
-		else if (ri < 1000.0) // 1 m - 10 m
-		{
-			step_scale = 0.025;
-		}
-		else if (ri < 10000.0) // 10 m - 100 m
-		{
-			step_scale = 0.05;
-		}
-		else if (ri < 100000.0) // 100 m - 1 km
-		{
-			step_scale = 0.25;
-		}
-		else // > 1 km
-		{
-			step_scale = 1.0;
-		}
-
-		// ------------------------------------------------------
-		// Build and store TOVPoint at this radius
-		//
-		// Conventions:
-		//  - r in km         → r / 1e5 (cm → km)
-		//  - m in solar mass → y[0] / GSL_CONST_CGSM_SOLAR_MASS
-		//  - ν' from GetNuDer
-		//  - ν = 0 (rebuilt later by NStar::BuildFromTOV)
-		//  - p as is (cgs)
-		//  - e = GetEDens(p)
-		//  - ρ = GetRho(p)
-		//  - ρ_i = GetRho_i(p) (vector)
-		// ------------------------------------------------------
-		const double r_km = r / 1.e5;
-		const double m_msun = y[0] / GSL_CONST_CGSM_SOLAR_MASS;
 
 		const double nu_prime = GetNuDer(r, {y[0], y[1]});
-		const double e_here = GetEDens(y[1]);
-		const double rho_here = GetRho(y[1]);
-		const std::vector<double> rho_i_here = GetRho_i(y[1]);
-
-		// ADR-0007 P5: the authoritative barotropic derivative, taken from the same eps(p)
-		// interpolant that produced `e_here` one line above. Dimensionless. NaN if the
-		// pressure sits outside the interpolant's domain, which is exactly the state in
-		// which no derivative may be claimed; a profile carrying any NaN simply publishes
-		// no EOS-derivative data and every consumer of it fails closed.
-		const double dedp_here = GetEDensDeriv(y[1]);
-
-		out_tov.emplace_back(
-			r_km,
-			m_msun,
-			nu_prime,
-			0.0,	    // ν will be reconstructed later from ν'(r)
-			y[1],	    // p
-			e_here,	    // ε
-			rho_here,   // total baryon density
-			rho_i_here, // species densities
-			dedp_here   // d(eps)/dp, dimensionless (ADR-0007 P5)
-		);
-
-		// ------------------------------------------------------
-		// Termination condition: pressure below cutoff
-		// (same notion as used throughout TOVSolver)
-		// ------------------------------------------------------
-		if (y[1] <= p_cut)
-			break;
+		const double e = GetEDens(y[1]), rho = GetRho(y[1]);
+		const auto species = GetRho_i(y[1]);
+		const double dedp = GetEDensDeriv(y[1]);
+		if (!std::isfinite(r) || !std::isfinite(y[0]) || !std::isfinite(y[1]) ||
+			!std::isfinite(nu_prime) || !std::isfinite(e) || !std::isfinite(rho) ||
+			!std::isfinite(dedp) || e <= 0.0 || rho < 0.0 ||
+			!std::all_of(species.begin(), species.end(), [](double n) { return std::isfinite(n) && n >= 0.0; }))
+			return fail(TOVSolveStatus::EOS_DOMAIN_FAILURE);
+		if ((!out_tov.empty() && r / 1.e5 <= out_tov.back().r) || y[1] < p_cut)
+			return fail(TOVSolveStatus::PARTITION_INVALID);
+		out_tov.emplace_back(r / 1.e5, y[0] / GSL_CONST_CGSM_SOLAR_MASS,
+			nu_prime, 0.0, y[1], e, rho, species, dedp);
+		if (surface)
+		{
+			last_solve_status = TOVSolveStatus::SURFACE_REACHED;
+			return static_cast<int>(out_tov.size());
+		}
+		if (target == r_max)
+			return fail(TOVSolveStatus::R_MAX_EXHAUSTED);
+		const double scale = target < 100.0 ? 0.005 : target < 1000.0 ? 0.025 :
+			target < 10000.0 ? 0.05 : target < 100000.0 ? 0.25 : 1.0;
+		const double next = std::min(target + step * scale, r_max);
+		if (!std::isfinite(next) || next <= target)
+			return fail(TOVSolveStatus::PARTITION_INVALID);
+		target = next;
 	}
-
-	gsl_odeiv2_driver_free(driver);
-
-	if (out_tov.empty())
-		return 0;
-
-	return static_cast<int>(out_tov.size());
 }
 
 //--------------------------------------------------------------
@@ -2666,9 +2619,15 @@ int TOVSolver::SolveToProfile(double target_M_solar,
 	// (void)model_name; // currently unused; EOS assumed already imported
 
 	out_tov.clear();
+	if (out_species_labels)
+		out_species_labels->clear();
+	last_solve_status = TOVSolveStatus::INVALID_INITIAL_STATE;
+	if (!std::isfinite(target_M_solar) || target_M_solar <= 0.0)
+		return 0;
 
 	if (eos_tab.eps.empty())
 	{
+		last_solve_status = TOVSolveStatus::EOS_DOMAIN_FAILURE;
 		Z_LOG_ERROR("EOS table is empty. Call ImportEOS(...) first.");
 		return 0;
 	}
@@ -2684,6 +2643,7 @@ int TOVSolver::SolveToProfile(double target_M_solar,
 
 	if (floor_e <= 0.0 || ceil_e <= floor_e)
 	{
+		last_solve_status = TOVSolveStatus::EOS_DOMAIN_FAILURE;
 		Z_LOG_ERROR("SolveToProfile: invalid EOS energy-density range.");
 		return 0;
 	}
@@ -2698,8 +2658,6 @@ int TOVSolver::SolveToProfile(double target_M_solar,
 	ec_grid.reserve(N_coarse + 1);
 	M_grid.reserve(N_coarse + 1);
 
-	int best_idx = -1;
-	double best_mass_diff = std::numeric_limits<double>::infinity();
 
 	const double log_e_lo = std::log10(floor_e);
 	const double log_e_hi = std::log10(ceil_e);
@@ -2713,11 +2671,11 @@ int TOVSolver::SolveToProfile(double target_M_solar,
 		std::vector<TOVPoint> tmp;
 		const int npts = SingleStarSolveToTOVPoints(ec, tmp);
 
-		if (npts <= 0 || tmp.empty())
+		if (npts <= 0 || tmp.empty() || last_solve_status != TOVSolveStatus::SURFACE_REACHED)
 		{
 			Z_LOG_ERROR("SolveToProfile: SingleStarSolveToTOVPoints failed at ec = " +
 						std::to_string(ec));
-			return 0;
+			continue;
 		}
 
 		const double M_here = tmp.back().m; // Msun (by construction in SingleStarSolveToTOVPoints)
@@ -2725,12 +2683,6 @@ int TOVSolver::SolveToProfile(double target_M_solar,
 		ec_grid.push_back(ec);
 		M_grid.push_back(M_here);
 
-		const double diff = std::fabs(M_here - target_M_solar);
-		if (diff < best_mass_diff)
-		{
-			best_mass_diff = diff;
-			best_idx = static_cast<int>(ec_grid.size()) - 1;
-		}
 	}
 
 	if (ec_grid.empty())
@@ -2764,32 +2716,11 @@ int TOVSolver::SolveToProfile(double target_M_solar,
 		}
 	}
 
-	// If we didn't find a stable-branch bracket, we fall back to "closest"
+	// ADR-0009: a target without a complete stable-branch bracket is failure.
 	if (idx_lo < 0 || idx_hi < 0)
 	{
-		Z_LOG_WARNING("SolveToProfile: could not bracket target mass on a stable branch. "
-					  "Falling back to closest coarse sample.");
-
-		if (best_idx < 0)
-			return 0;
-
-		const double ec_best = ec_grid[static_cast<std::size_t>(best_idx)];
-
-		std::vector<TOVPoint> tmp;
-		const int npts = SingleStarSolveToTOVPoints(ec_best, tmp);
-
-		if (npts <= 0 || tmp.empty())
-		{
-			Z_LOG_ERROR("SolveToProfile: fallback SingleStarSolveToTOVPoints failed.");
-			return 0;
-		}
-
-		out_tov = std::move(tmp);
-
-		if (out_species_labels)
-			*out_species_labels = eos_tab.extra_labels;
-
-		return static_cast<int>(out_tov.size());
+		last_solve_status = TOVSolveStatus::MASS_TARGET_NOT_REACHED;
+		return 0;
 	}
 
 	// ----------------------------------------------------------
@@ -2812,8 +2743,7 @@ int TOVSolver::SolveToProfile(double target_M_solar,
 	const int max_iter = 40;
 
 	std::vector<TOVPoint> best_profile;
-	double best_M = std::numeric_limits<double>::quiet_NaN();
-	best_mass_diff = std::numeric_limits<double>::infinity();
+	double best_mass_diff = std::numeric_limits<double>::infinity();
 
 	for (int iter = 0; iter < max_iter; ++iter)
 	{
@@ -2822,11 +2752,11 @@ int TOVSolver::SolveToProfile(double target_M_solar,
 		std::vector<TOVPoint> tmp;
 		const int npts = SingleStarSolveToTOVPoints(ec_mid, tmp);
 
-		if (npts <= 0 || tmp.empty())
+		if (npts <= 0 || tmp.empty() || last_solve_status != TOVSolveStatus::SURFACE_REACHED)
 		{
 			Z_LOG_ERROR("SolveToProfile: SingleStarSolveToTOVPoints failed at ec_mid = " +
 						std::to_string(ec_mid));
-			break;
+			return 0;
 		}
 
 		const double M_mid = tmp.back().m;
@@ -2836,7 +2766,6 @@ int TOVSolver::SolveToProfile(double target_M_solar,
 		{
 			best_mass_diff = diff;
 			best_profile = std::move(tmp);
-			best_M = M_mid;
 		}
 
 		if (diff < mass_tol)
@@ -2859,12 +2788,14 @@ int TOVSolver::SolveToProfile(double target_M_solar,
 		}
 	}
 
-	if (best_profile.empty())
+	if (best_profile.empty() || best_mass_diff >= mass_tol)
 	{
+		last_solve_status = TOVSolveStatus::MASS_TARGET_NOT_REACHED;
 		Z_LOG_ERROR("SolveToProfile: bisection failed to produce a valid profile.");
 		return 0;
 	}
 
+	last_solve_status = TOVSolveStatus::SURFACE_REACHED;
 	out_tov = std::move(best_profile);
 
 	if (out_species_labels)
@@ -3238,6 +3169,7 @@ void TOVSolver::GenTestSequence(const double &in_e_c,
 								const Zaki::String::Directory &in_dir,
 								const Zaki::String::Directory &in_file)
 {
+	last_solve_status = TOVSolveStatus::INVALID_INITIAL_STATE;
 
 //   std::cout << "\n Dir = " << in_dir << "\t file = " << in_file << "\n" ;
 // return ;
@@ -3296,7 +3228,13 @@ void TOVSolver::GenTestSequence(const double &in_e_c,
 		// p_of_e_prec = 1e-9 (set above, and as before never restored) still applies: the
 		// primitive calls p_of_e.
 		std::vector<TOVPoint> tov_points;
-		SingleStarSolveToTOVPoints(in_e_c, tov_points);
+		const int npts = SingleStarSolveToTOVPoints(in_e_c, tov_points);
+		if (npts <= 0 || last_solve_status != TOVSolveStatus::SURFACE_REACHED)
+		{
+			n_star.Reset();
+			ClearSequence();
+			return;
+		}
 
 		for (const auto &tp : tov_points)
 			n_star.Append(tp);

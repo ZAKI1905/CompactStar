@@ -380,3 +380,23 @@ else()
     message(STATUS "CompactStar: Tier-B thermal test NOT registered "
                    "(set COMPACTSTAR_EOS_DATA_ROOT to enable)")
 endif()
+
+# ADR-0009 surface-event contracts. Reports are disposable build outputs only.
+add_executable(tov_surface_contract core/tov_surface_contract.cpp)
+target_link_libraries(tov_surface_contract PRIVATE CompactStar)
+foreach(mode sweep audit derivatives consumers contracts)
+    add_test(NAME tov_surface_${mode}_hw COMMAND tov_surface_contract HW ${mode}
+        "${CMAKE_CURRENT_BINARY_DIR}/tov_surface_${mode}_hw.tsv")
+    set_tests_properties(tov_surface_${mode}_hw PROPERTIES LABELS "core;tov;surface;scientific" TIMEOUT 900)
+endforeach()
+if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
+    foreach(mode v7a v7b sweep audit derivatives consumers contracts)
+        add_test(NAME tov_surface_${mode}_cmf COMMAND tov_surface_contract
+            "${COMPACTSTAR_EOS_DATA_ROOT}/DS-CMF-1-with-crust/DS(CMF)-1_with_crust.eos" ${mode}
+            "${CMAKE_CURRENT_BINARY_DIR}/tov_surface_${mode}_cmf.tsv")
+        set_tests_properties(tov_surface_${mode}_cmf PROPERTIES LABELS "core;tov;surface;scientific;external-data" TIMEOUT 900)
+    endforeach()
+    add_test(NAME tov_surface_grid_cmf COMMAND grid_convergence_cmf
+        "${COMPACTSTAR_EOS_DATA_ROOT}" --surface-dry-run)
+    set_tests_properties(tov_surface_grid_cmf PROPERTIES LABELS "core;tov;surface;thermal;scientific;external-data" TIMEOUT 1200)
+endif()

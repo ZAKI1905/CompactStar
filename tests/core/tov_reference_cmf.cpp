@@ -290,7 +290,9 @@ int main(int argc, char **argv)
 	std::cout << "\nB4/B5 center and surface conditions\n";
 	{
 		std::vector<TOVPoint> pts;
-		tov.SingleStarSolveToTOVPoints(9.0e14, pts);
+		if (tov.SingleStarSolveToTOVPoints(9.0e14, pts) <= 0 ||
+			tov.LastSolveStatus() != CompactStar::Core::TOVSolveStatus::SURFACE_REACHED)
+			return 4;
 		const auto &c = pts.front();
 		const auto &s = pts.back();
 		const double r_cm = c.r * 1.0e5;

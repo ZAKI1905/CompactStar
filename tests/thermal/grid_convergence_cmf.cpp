@@ -58,6 +58,7 @@
 #include <vector>
 
 #include "CompactStar/Core/NStar.hpp"
+#include "CompactStar/Geometry.hpp"
 #include "CompactStar/Core/TOVSolver.hpp"
 #include "CompactStar/EOS/CompOSE_Thermo.hpp"
 #include "CompactStar/Physics/Driver/Thermal/Boundary/EnvelopePotekhin1997.hpp"
@@ -107,6 +108,7 @@ constexpr double kTstatic_K = 1.0e8;
 static const std::vector<std::size_t> kResolutions = {2500, 5000, 10000, 20000, 40000};
 
 static int g_fail = 0;
+static bool g_surface_validation = false;
 static void Report(const std::string &id, bool ok, const std::string &d)
 {
 	std::cout << (ok ? "  [PASS] " : "  [FAIL] ") << id << " — " << d << "\n";
@@ -180,7 +182,7 @@ static std::unique_ptr<NStar> BuildAtResolution(const fs::path &cold, const fs::
 	{
 		n = tov.SolveToProfile(kTargetM, pts, &labels);
 	}
-	if (n <= 0 || pts.size() < 4)
+	if (n <= 0 || pts.size() < 4 || tov.LastSolveStatus() != CompactStar::Core::TOVSolveStatus::SURFACE_REACHED)
 		return nullptr;
 	// Reject a degenerate profile rather than feeding it to BuildFromTOV.
 	if (!(pts.back().r > 0.0) || !std::isfinite(pts.back().m) || !(pts.back().p > 0.0))
@@ -251,6 +253,19 @@ static bool StaticDiagnostics(NStar &ns, CompOSE_Thermo &thermo, double Tinf_K, 
 	const auto nd = Th::Detail::NeutrinoCooling_Details::ComputeDerived(neutrino, Y, ctx);
 	if (!pd.ok || !nd.ok)
 		return false;
+	if (g_surface_validation)
+	{
+		const auto &profile = ns.Profile();
+		const double r = (*profile.GetRadius())[-1], m = (*profile.GetMass())[-1];
+		const double f = CompactStar::Geometry::MetricDenominator(r, m);
+		const double nu = (*profile.GetMetricNu())[-1];
+		const double area = 4.0 * M_PI * r * r * 1.e10 * f;
+		if (pd.R_surf_km != r || Rel(pd.exp2nu_surf, f) > 1.e-13 ||
+			Rel(profile.ExpNuSurface(), std::sqrt(f)) > 1.e-13 ||
+			std::fabs(nu - 0.5 * std::log(f)) > 1.e-13 ||
+			Rel(pd.A_inf_cm2, area) > 1.e-13)
+			return false;
+	}
 	c.C_star = pd.C_star_erg_K;
 	c.L_gamma = pd.L_gamma_inf_erg_s;
 	c.L_nu = nd.L_nu_inf_erg_s;
@@ -447,8 +462,19 @@ int main(int argc, char **argv)
 	const fs::path root = argv[1];
 	fs::path emit_dir;
 	for (int i = 2; i < argc; ++i)
+	{
 		if (std::strcmp(argv[i], "--emit-dir") == 0 && i + 1 < argc)
 			emit_dir = argv[++i];
+		else if (std::strcmp(argv[i], "--surface-dry-run") == 0)
+			g_surface_validation = true;
+	}
+	if (g_surface_validation && !emit_dir.empty())
+	{
+		std::cerr << "Surface validation cannot emit baseline artifacts.\n";
+		return 2;
+	}
+	const std::vector<std::size_t> surface_resolutions = {1250, 2500, 5000, 10000, 20000, 40000, 80000};
+	const auto &requested_resolutions = g_surface_validation ? surface_resolutions : kResolutions;
 
 	const fs::path dist = root / "DS-CMF-1-with-crust";
 	const fs::path cold = dist / "DS(CMF)-1_with_crust.eos";
@@ -458,7 +484,7 @@ int main(int argc, char **argv)
 		std::cerr << "authenticated EOS data missing under " << root.string() << "\n";
 		return 3;
 	}
-	const fs::path wrk = fs::temp_directory_path() / "compactstar_grid_convergence";
+	const fs::path wrk = fs::temp_directory_path() / (g_surface_validation ? "compactstar_tov_surface_convergence" : "compactstar_grid_convergence");
 	fs::remove_all(wrk);
 	fs::create_directories(wrk);
 
@@ -508,7 +534,9 @@ int main(int argc, char **argv)
 			probe.SetWrkDir((wrk / "labels").string());
 			probe.ImportEOS(cold.string(), true);
 			std::vector<TOVPoint> tmp;
-			probe.SolveToProfile(kTargetM, tmp, &g_species_labels);
+			if (probe.SolveToProfile(kTargetM, tmp, &g_species_labels) <= 0 ||
+				probe.LastSolveStatus() != CompactStar::Core::TOVSolveStatus::SURFACE_REACHED)
+				return 4;
 		}
 
 		// Test-side builder at the production default resolution.
@@ -578,7 +606,7 @@ int main(int argc, char **argv)
 	// =======================================================================
 	std::cout << "\nEXPERIMENT A  fixed ec* — isolates radial discretization\n";
 	std::vector<Case> A;
-	for (std::size_t res : kResolutions)
+	for (std::size_t res : requested_resolutions)
 	{
 		Case c;
 		const auto t0 = std::chrono::steady_clock::now();
@@ -601,15 +629,15 @@ int main(int argc, char **argv)
 	std::cout << "\nEXPERIMENT B  fixed target mass " << kTargetM
 			  << " Msun — the production workflow\n";
 	std::vector<Case> B;
-	for (std::size_t res : kResolutions)
+	for (std::size_t res : requested_resolutions)
 	{
 		Case c;
 		const auto t0 = std::chrono::steady_clock::now();
 		auto ns = BuildAtResolution(cold, wrk / ("B" + std::to_string(res)), res, false, 0.0, c);
 		if (!ns) { std::cout << "    res=" << res << " FAILED\n"; B.push_back(c); continue; }
-		StaticDiagnostics(*ns, thermo, kTstatic_K, c);
+		const bool static_ok = StaticDiagnostics(*ns, thermo, kTstatic_K, c);
 		std::string err;
-		c.ok = CoolingTrajectory(*ns, thermo, kRtol, kAtol, c.Tinf, c.Lnu_t, c.Lgam_t,
+		c.ok = static_ok && CoolingTrajectory(*ns, thermo, kRtol, kAtol, c.Tinf, c.Lnu_t, c.Lgam_t,
 								 c.Cstar_t, err);
 		c.seconds = std::chrono::duration<double>(std::chrono::steady_clock::now() - t0).count();
 		if (!c.ok)
@@ -791,6 +819,32 @@ int main(int argc, char **argv)
 	// =======================================================================
 	//  Assertions — convergence EVIDENCE only. No invented accuracy threshold.
 	// =======================================================================
+	if (g_surface_validation)
+	{
+		std::cout << std::setprecision(17);
+		for (const auto *set : {&A, &B})
+		{
+			const char *name = set == &A ? "fixed_ec" : "fixed_mass";
+			for (const auto &c : *set)
+			{
+				std::cout << "SURFACE_GRID " << name << " " << c.res << " " << c.ec << " " << c.M << " " << c.R
+					<< " " << c.B << " " << c.z_surf << " " << c.C_star << " " << c.L_nu << " " << c.L_gamma << " " << c.dlnT_dt << "\n";
+				Report("surface complete / downstream consistency", c.ok && std::isfinite(c.C_star) && c.C_star > 0,
+					name + std::string(" res=") + std::to_string(c.res));
+				for (std::size_t k = 0; k < c.Tinf.size(); ++k)
+					std::cout << "SURFACE_TRAJ " << c.res << " " << kEpochsYr[k] << " " << c.Tinf[k]
+						<< " " << c.Lnu_t[k] << " " << c.Lgam_t[k] << " " << c.Cstar_t[k] << "\n";
+			}
+		}
+		for (const auto &c : A)
+			Report("surface partition / common branch", Rel(c.R, A.back().R) <= 1.e-8 && Rel(c.M, A.back().M) <= 1.e-9,
+				"res=" + std::to_string(c.res));
+		for (const auto &c : B)
+			Report("surface target residual", std::fabs(c.M-kTargetM) < 1.e-4,
+				"res=" + std::to_string(c.res));
+		std::cout << "SURFACE_GRID_FAILURES " << g_fail << "\n";
+		return g_fail ? 1 : 0;
+	}
 	std::cout << "\nCRITERIA\n";
 	Report("G1 the coarse grid is detected as materially different from the finest",
 		   coarse_R > 0.0 && def_err_R > 0.0 && coarse_R > 10.0 * def_err_R,

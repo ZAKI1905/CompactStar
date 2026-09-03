@@ -273,15 +273,19 @@ truncation at `≲ 1e-12` relative, and `I` is immune to the centre condition by
 
 ---
 
-## INV-06 — Stellar surface convention — **VERIFIED CURRENT BEHAVIOR**
+## INV-06 — Stellar surface convention — **GOVERNED / CONFORMED / VALIDATED (ordinary NStar)**
 
-**Statement.** Surface is where `p(r) ≤ max(1e-15·p_c, eos_tab.pre[0])`. Surface quantities are
-the last grid point: `R = r[-1]`, `M = m[-1]`, `z_surf = exp(ν[-1])`. The ν integration uses
-`ν(R) = ½ ln(1 − 2M/R)` as its outward boundary condition. Photon emitting area is
-`A_∞ = 4πR² e^{2ν(R)}`.
+**Statement.** The ordinary-star surface is the unique crossing of the accepted
+continuous solution `p(R_*) = max(1e-15·p_c, eos_tab.pre[0])`, stored as the final
+profile node. No sub-cutoff point is published; incomplete integration is failure.
+The cutoff value and EOS-floor semantics are unchanged; this is not a `p=0` claim.
+Surface quantities use that final node: `R=r[-1]`, `M=m[-1]`, `z_surf=exp(ν[-1])`;
+`ν(R)=½ ln(1−2M/R)`, photon emitting area `A_∞=4πR² exp(2ν(R))`.
 
-**Evidence.** `TOVSolver.cpp:1204-1208`, `:1372-1385`, `:1873`, `:2657`; `NStar.cpp:297,301,336`,
-`:823-842`; `PhotonCooling_Details.cpp:310`.
+**Evidence.** ADR-0009 Q1–Q14; `CompactStar/Core/src/TOVSolver.cpp:1490`, `:2493`,
+`:2516`, `:2595`; `CompactStar/Core/src/NStar.cpp:867`;
+`CompactStar/Physics/Driver/Thermal/src/PhotonCooling_Details.cpp:292`;
+`docs/validation/TOV_SURFACE_IMPLEMENTATION.md:339`.
 
 **Phase 4C-G note (2026-09-02) — O(Ω²) surface semantics, no convention change.** The last node
 `R_*` is the EOS-table-floor surface (`p_* = 3.351885e25 dyn cm⁻²`, `n_B = 1e-7 fm⁻³` for
@@ -294,8 +298,8 @@ the `p = 0` surface displacement by `O(ΔR/R_*) ≈ 4–7e-3` relative
 `TOVSolver.hpp:549-554` still says "`1e-5` times smaller than the central pressure" where the
 code uses `1e-15` (`TOVSolver.cpp:1206`) — a stale comment, not a behaviour difference.
 
-**⚠ UNRESOLVED sub-item (2026-09-03, TOV-RR-01) — the surface is NOT located by the governed
-cutoff test.** Measured on DS(CMF)-1 across 29 radial resolutions (87/87 solves): every ordinary
+**Historical defect (TOV-RR-01; corrected by ADR-0009 in TOV-SURF-I-R) — the old surface
+was not located by the governed cutoff test.** Measured on DS(CMF)-1 across 29 radial resolutions (87/87 solves): every ordinary
 star terminates because `gsl_odeiv2_driver_apply` returns `GSL_EBADFUNC`, never because the loop's
 own `if (y[1] <= p_cut) break;` fires. `TOVSolver::ODE` applies the cutoff test to **trial** states
 inside the right-hand side, and a user-function error is fatal for the GSL driver, so the last
@@ -308,15 +312,13 @@ crust–core transition, losing `ΔM ≈ 2.3e-3 M☉` and `ΔR ≈ 0.56 km`. One
 (`grid_convergence_cmf_1p6_debug.tsv` / `_trajectory.tsv`, `radial_res = 2500` rows) was computed
 on such a star. **No repair was made**: every candidate changes `R_*` and therefore INV-06 itself,
 so an ADR is required. Evidence: `docs/validation/TOV_RADIAL_RES_2500_AUDIT.md`.
-*TOV-SURF-I (2026-09-03):* ADR-0009 is **ACCEPTED**: the locator is the unique
-accepted-solution crossing `p(R_*) = p_cut`, stored as the final node; the cutoff
-value and EOS-floor semantics stay unchanged. **SOURCE NONCONFORMANT; VALIDATION
-PENDING.** The implementation candidate stopped at V7: the 2.0-M☉ target-mass
-workflow changed its central density and returned mass outside the declared mass
-impact bound. The candidate source was restored, so the original behavior described
-above remains live. No numerical-validation claim or artifact migration is authorized.
-Authority: `docs/adr/ADR-0009-tov-surface-event-and-termination.md:55`;
-evidence: `docs/validation/TOV_SURFACE_IMPLEMENTATION.md:88`, `:227`.
+*TOV-SURF-I-R (2026-09-03):* the accepted locator is implemented and numerically
+validated on CMF and HW. The prior V7 stop remains historical; owner clarification
+separates fixed-εc surface impact (V7a) from the target-mass contract (V7b). Both pass.
+The final node is the accepted-solution event and incomplete profiles fail closed;
+all seven durable artifacts await a separate migration. Authority:
+`docs/adr/ADR-0009-tov-surface-event-and-termination.md:55`; evidence:
+`docs/validation/TOV_SURFACE_IMPLEMENTATION.md:379`, `docs/validation/TOV_SURFACE_IMPLEMENTATION.md:428`.
 
 **⚠ UNRESOLVED sub-item — heat-blanket base.** Two competing thresholds coexist:
 `TbDefinition.hpp:60` uses ρ_b = 1e10 g/cm³ (located by inward scan,
@@ -847,14 +849,12 @@ EOS interpolant's own values (`5e-16`), so `Δε` between nodes is exact — whi
 column loses whatever variation falls between samples (17 % of the crust's `Δε` on DS(CMF)-1). Inside a
 sub-node feature the linear background also violates `dp/dr = −(ε+p)ν'` by `O(1)`, which is why
 evaluating the EOS derivative at the actual ODE state does not converge either (`docs/adr/ADR-0008-measure-complete-eos-energy-density-source.md`).
-*TOV-SURF-I (2026-09-03):* ADR-0009 Q6 accepts that the radial **output target
-partition is sampling only**; it does not define the TOV surface. Numerical
-conformance is **pending**, not established by acceptance or the prior scratch
-study. The candidate's V7 failure stopped validation and its source was restored;
-full partition, derivative, both-EOS and driver-reset checks remain incomplete.
-See `docs/adr/ADR-0009-tov-surface-event-and-termination.md:60` and
-`docs/validation/TOV_SURFACE_IMPLEMENTATION.md:181`. The existing linear background
-interpolation and EOS derivative authorities above are unchanged.
+*TOV-SURF-I-R (2026-09-03):* the ordinary radial **output target partition is
+sampling only — governed, conformed and numerically validated** under ADR-0009 Q6.
+Across five production resolutions and three diagnostic uniform grids, both EOSs
+meet relative bounds M≤1e-9 and R/lapse/compactness≤1e-8; sampled integrals retain
+resolution error. The existing linear background interpolation and EOS derivative
+authorities are unchanged. Evidence: `docs/validation/TOV_SURFACE_IMPLEMENTATION.md:428`, `docs/validation/TOV_SURFACE_IMPLEMENTATION.md:562`.
 
 ---
 

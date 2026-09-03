@@ -475,10 +475,28 @@ class MixedSequence : public Prog
 };
 
 //==============================================================
+/// Completion of the ordinary-star solve (ADR-0009).
+enum class TOVSolveStatus
+{
+	SURFACE_REACHED,
+	GSL_FAILURE,
+	EOS_DOMAIN_FAILURE,
+	R_MAX_EXHAUSTED,
+	INVALID_INITIAL_STATE,
+	PARTITION_INVALID,
+	MASS_TARGET_NOT_REACHED
+};
+
 class TOVSolver : public Prog
 {
 	friend class MixedStar;
 	friend class NStar;
+
+  private:
+	TOVSolveStatus last_solve_status = TOVSolveStatus::INVALID_INITIAL_STATE;
+	static int PressureCoordinateODE(double p, const double y[], double f[], void *params);
+	bool LocateSurface(double p_above, double r_above, double m_above,
+					   double r_below, double &r_surface, double &m_surface);
 	//--------------------------------------------------------------
   protected:
 	/// The number of TOV object instances
@@ -983,13 +1001,15 @@ class TOVSolver : public Prog
 	 *        and return the radial TOV points.
 	 *
 	 * Contract:
-	 *  - @p ec_central is in the same units as eos_tab.eps (km^-2 in the current setup).
-	 *  - On success, returns >0 and fills @p out_tov with (r, m, nu', nu=0, p, e, rho, rho_i).
+	 *  - @p ec_central is in the same units as eos_tab.eps (g/cm^3).
+	 *  - Only SURFACE_REACHED returns >0 and fills @p out_tov with (r, m, nu', nu=0, p, e, rho, rho_i).
 	 *  - On failure, returns 0 and leaves @p out_tov empty.
 	 *
-	 * No units conversion or baryon-number / I integration happens here; that’s
-	 * left to NStar::BuildFromTOV.
+	 * Output r is km, m is solar masses, pressure and energy density are cgs,
+	 * and nu_prime is cm^-1. Baryon-number / I integration is left to NStar::BuildFromTOV.
 	 */
+	TOVSolveStatus LastSolveStatus() const noexcept { return last_solve_status; }
+
 	int SingleStarSolveToTOVPoints(double ec_central,
 								   std::vector<TOVPoint> &out_tov);
 
@@ -1009,7 +1029,7 @@ class TOVSolver : public Prog
 	 * 2. For each sampled \( \varepsilon_c \):
 	 *      - Integrate the TOV equations using
 	 *        @ref SingleStarSolveToTOVPoints,
-	 *      - Record the resulting mass \( M(\varepsilon_c) \).
+	 *      - Record mass only for SURFACE_REACHED.
 	 * 3. Identify a *stable branch* interval where
 	 *      \f$ M(\varepsilon_{c,i+1}) > M(\varepsilon_{c,i}) \f$
 	 *    and where \( M(\varepsilon_c) \) brackets the target mass.
@@ -1017,8 +1037,7 @@ class TOVSolver : public Prog
 	 *    \( \varepsilon_c \) on that monotonic segment until a desired
 	 *    mass tolerance is achieved.
 	 * 5. If a stable-branch bracketing interval cannot be found (e.g. EOS
-	 *    with no monotonic segment covering the target), fall back to
-	 *    returning the profile whose mass is closest among the coarse samples.
+	 *    with no monotonic segment covering the target), fail closed. No nearest-sample fallback.
 	 *
 	 * ### Output
 	 * - On **success**, @p out_tov is filled with the radial grid

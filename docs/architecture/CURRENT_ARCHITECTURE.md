@@ -1,12 +1,11 @@
 # CompactStar — Current Architecture
 
-> **TOV-SURF-I status (2026-09-03):** ADR-0009 is accepted, but its candidate
-> implementation stopped at V7 and was restored. The current source retains the
-> original ordinary-star trial-pressure guard and partial-result behavior;
-> no completion-status API or event locator is installed. Acceptance does not
-> confer source conformance. Corrected Phase-4D and artifact migration remain blocked.
-> Evidence: `docs/validation/TOV_SURFACE_IMPLEMENTATION.md:44`, `:88`, `:227`;
-> live source: `CompactStar/Core/src/TOVSolver.cpp:1496`, `:2653`.
+> **TOV-SURF-I-R (2026-09-03):** the ordinary canonical TOV primitive now locates
+> the accepted-solution `p=p_cut` event by pressure-coordinate terminal integration.
+> Explicit completion status prevents partial-profile publication through ordinary
+> callers. Cutoff value, target-mass tolerance and inherited driver history are
+> unchanged. Both-EOS validation passes; artifact migration precedes corrected
+> Phase-4D. Evidence: `docs/validation/TOV_SURFACE_IMPLEMENTATION.md:339`.
 
 > **STATUS: DESCRIPTIVE.** Authoritative for component boundaries and ownership
 > (`GOVERNANCE.md` authority rank 6). Describes **only** behavior that is compiled and reachable.
@@ -185,29 +184,19 @@ These are live conflicts. Under `GOVERNANCE.md` §3 they are fail-closed until a
    | **RESOLUTION-SWEEP DIAGNOSTIC ORCHESTRATOR** | `TOVSolver::GenTestSequence(ec, …)` |
    | **WORKFLOW OUTPUT CONTRACTS** | `<file>_Sequence.tsv`, `<file>_TestSequence.tsv` |
 
-   > **⚠ Known defect (2026-09-03, TOV-RR-01, audit only — not repaired).** The primitive's
-   > surface is located by a **fatal** guard inside `TOVSolver::ODE` (`y[1] < PressureCutoff()` →
-   > `GSL_EBADFUNC`), applied to **trial** states; the loop's own accepted-state test
-   > `if (y[1] <= p_cut) break;` therefore never fires (87/87 solves on DS(CMF)-1). Consequences:
-   > `R_*` is one target step short and scatters over 33 m (0.24 %) with `radial_res` while `M` is
-   > constant to `1.7e-8`; and at the crust–core near-discontinuity the same guard can end the
-   > integration 0.56 km early, losing `ΔM ≈ 2.3e-3 M☉` — for a scattered set of resolutions
-   > (`2500, 2510, 2525, 3000` sampled) and, at the **default 10000**, ≈3 % of central densities
-   > near 2 M☉. The `radial_res = 2500` rows of `grid_convergence_cmf_1p6_debug.tsv` /
-   > `_trajectory.tsv` are such a star. Root cause: trial-state surface guard; amplifier: the GSL
-   > driver's step size inherited across target segments. **Every candidate repair changes `R_*`
-   > and so requires an ADR.** Evidence: `docs/validation/TOV_RADIAL_RES_2500_AUDIT.md`.
-   > **ADR-0009 ACCEPTED (TOV-SURF-I, 2026-09-03):** the accepted locator is the unique
-   > crossing `p(R_*) = p_cut`, with pressure-coordinate terminal landing, a sampling-only
-   > partition, no fatal trial-pressure guard, and fail-closed publication. The candidate
-   > implementation stopped at V7 and was restored; these semantics are not yet installed.
-   > Artifact migration remains blocked. Authority: `docs/adr/ADR-0009-tov-surface-event-and-termination.md:55`;
-   > evidence: `docs/validation/TOV_SURFACE_IMPLEMENTATION.md:88`, `:227`.
+   > **ADR-0009 source conformed (TOV-SURF-I-R):** ordinary trial pressure below
+   > the cutoff is no longer a fatal surface signal. The final accepted crossing
+   > is located by `dr/dp=1/f_p`, `dm/dp=f_m/f_p`, reusing the radial RHS;
+   > status `SURFACE_REACHED` is required for publication. `SolveToProfile` skips
+   > failed coarse samples, rejects failed bisection members and has no nearest
+   > fallback. `Solve`, `GenTestSequence` and the NStar wrapper guard completion.
+   > No MixedStar event migration. Source: `CompactStar/Core/src/TOVSolver.cpp:1490`,
+   > `:2493`, `:2516`, `:2613`; validation: `docs/validation/TOV_SURFACE_IMPLEMENTATION.md:339`.
 
    **All three orchestrators delegate to the one primitive.** `TOVSolver::RadiusLoop` — the
    duplicate ordinary-star radial loop — was **REMOVED** in Phase 3E-I4 after `GenTestSequence`,
    its last caller, was covered and migrated. Both output contracts are preserved and guarded by
-   tests, and none of the callers changed.
+   tests. ADR-0009 subsequently added completion guards without changing these output contracts.
 
    The primitive path is **VALIDATED** as of Phase 2B-2 against the exact Schwarzschild interior
    solution (to `3.5e-16`) and the official CompOSE `eos.mr` (`M_max` to `2.8e-4`, radii to

@@ -1,3 +1,4 @@
+#include <stdexcept>
 // -*- lsst-c++ -*-
 /*
  * CompactStar
@@ -131,7 +132,9 @@ class GtsSolver : public TOVSolver
 		SetRadialRes(res);
 
 		std::vector<TOVPoint> pts;
-		SingleStarSolveToTOVPoints(ec, pts);
+		if (SingleStarSolveToTOVPoints(ec, pts) <= 0 ||
+			LastSolveStatus() != CompactStar::Core::TOVSolveStatus::SURFACE_REACHED)
+			throw std::runtime_error("CanonicalReference: incomplete TOV star");
 
 		n_star.Reset();
 		for (const auto &tp : pts)

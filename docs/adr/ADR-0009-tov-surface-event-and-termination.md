@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Status** | **ACCEPTED — 2026-09-03** (owner adjudication in TOV-SURF-I); source conformance and validation **not achieved** (TOV-SURF-I V7 stop) |
+| **Status** | **ACCEPTED — 2026-09-03** (owner adjudication in TOV-SURF-I); **SOURCE CONFORMED / NUMERICALLY VALIDATED** (TOV-SURF-I-R); artifact migration required |
 | **Date** | 2026-09-03 |
 | **Change class** | scientific-semantic (definition of `R_*`; INV-06) **and** numerical-method (event location; right-hand-side domain contract) **and** structural (completion status; fail-closed publication) — the strictest class governs |
 | **Governing authority** | ADR-0005 §7.1 (the primitive owns "the termination test"; §7.3 froze `SolveToProfile`'s fallback for Phase 3E only); ADR-0003; ADR-0004 (`EvaluateNu` surface BC); ADR-0007 P7 / ADR-0008 Q7 (surface = EOS-floor node, terminal atom); INV-06, INV-13; TOV-RR-01 |
@@ -71,7 +71,7 @@ This is the normal scientific-semantic migration path, **not** the GOVERNANCE §
 pre-baseline exception: acceptance → source correction → independent validation →
 separate artifact migration. Acceptance alone does not claim source conformance.
 
-## Implementation disposition — TOV-SURF-I (2026-09-03)
+## Historical implementation disposition — TOV-SURF-I (2026-09-03)
 
 Acceptance remains in force. The candidate compiled, but the 2.0-M☉ target-mass
 workflow changed its returned mass by `4.8353e-5` relative, exceeding V7's `1e-9`
@@ -80,7 +80,7 @@ preserved outside the checkout and restored to the authenticated starting source
 no source conformance or completed V1–V12 validation is claimed. All seven artifacts
 remain unchanged. INV-06/INV-13 validation, artifact migration, corrected Phase-4D
 revalidation and the first monopole baseline remain blocked. Evidence:
-`docs/validation/TOV_SURFACE_IMPLEMENTATION.md:88` and `:181`.
+`docs/validation/TOV_SURFACE_IMPLEMENTATION.md:96` and `:181`.
 
 ## Decision questions
 
@@ -251,4 +251,17 @@ solved target-mass results. Coarse `N=24`, stable-branch criterion, first-accept
 bisection stopping, and production `mass_tol=1e-4 M☉` remain unchanged. Commit
 `96c1425` retains the valid historical STOP caused by applying the fixed-density
 impact bound to independent target-mass workflows. The resume diagnosis and exact
-traces are recorded in `docs/validation/TOV_SURFACE_IMPLEMENTATION.md:254`.
+traces are recorded in `docs/validation/TOV_SURFACE_IMPLEMENTATION.md:262`.
+
+## Implementation validation outcome — TOV-SURF-I-R (2026-09-03)
+
+The exact restored candidate conforms to Q1–Q14. V7a and V7b pass under the owner
+clarification; both-EOS surface/partition sweeps, sequence derivatives, downstream
+surface checks and V11/V12 detectors pass. No production reset; no PressureCutoff,
+mass tolerance, coarse N or stable-branch change. The historical stop remains in Git
+and the evidence record. All seven original artifact hashes remain unchanged.
+**TOV SURFACE EVENT IMPLEMENTED AND VALIDATED — ARTIFACT MIGRATION REQUIRED.**
+
+Evidence: `docs/validation/TOV_SURFACE_IMPLEMENTATION.md:339`. Corrected Phase-4D revalidation and the first monopole
+baseline must use the migrated artifacts and remain subsequent tasks. This outcome
+does not reopen ADR-0008 physics or authorize Phase 5.

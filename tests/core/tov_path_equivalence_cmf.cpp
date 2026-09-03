@@ -685,6 +685,17 @@ int main(int argc, char **argv)
 			Zaki::Math::Axis ax{{pr.req, pr.req}, 1, "Linear"};
 			auto p1 = RunPath1(cold, wrk, ax, 10000);
 			const Snapshot s2 = RunPath2(cold, wrk, pr.req, 10000);
+			if (pr.req < floor_e)
+			{
+				// ADR-0009: clamping does not authorize a star which never reaches
+				// the surface. Both ordinary paths must now reject this profile.
+				std::vector<TOVPoint> points;
+				const int n = probe.SingleStarSolveToTOVPoints(pr.req, points);
+				Report("D below floor: both paths fail closed", p1.empty() && !s2.valid &&
+					n == 0 && points.empty() && probe.LastSolveStatus() != CompactStar::Core::TOVSolveStatus::SURFACE_REACHED,
+					"incomplete clamped star is not publishable");
+				continue;
+			}
 			const bool ok = !p1.empty() && p1[0].valid && s2.valid &&
 							p1[0].seq.ec == s2.seq.ec && p1[0].seq.m == s2.seq.m &&
 							p1[0].seq.r == s2.seq.r;
