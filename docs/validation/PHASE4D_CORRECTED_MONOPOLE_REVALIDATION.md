@@ -2,6 +2,14 @@
 
 > **FORMAL STATUS: `HARTLE O(OMEGA^2) MONOPOLE RESPONSE CHARACTERIZED — INDEPENDENT VALIDATION INCOMPLETE`**
 >
+> **Current status (Phase 4D-DA owner adjudication, 2026-09-04): `HARTLE O(OMEGA^2) MONOPOLE RESPONSE VERIFIED`** —
+> the monotonicity clause of ADR-0008 Validation D is adjudicated in §21 as a numerical heuristic the
+> accepted profile-partition representation does not mathematically possess (and which ADR-0008's own
+> cited evidence did not satisfy); its replacement criterion D′1–D′5, derived from pre-existing authority
+> and a computed error envelope, is met by the evidence of this record without new production work. The
+> CHARACTERIZED banner below and §§1–20 are preserved unchanged as the historical Phase 4D-RV result.
+> **No monopole baseline is created by the adjudication; that is a separate task.**
+>
 > Every physics line of the corrected campaign passes on the migrated ADR-0009 backgrounds with
 > the independent `(m₀, h₀)` oracle carrying the EOS measure by its own Stieltjes route: analytic
 > profile `9.7e-9`, continuum first integral `6.1e-15`, DS(CMF)-1 four stars `≤ 5.3e-5` (fully
@@ -357,6 +365,8 @@ campaign), `tests/rotation/hartle_monopole_physics_analytic.cpp` (Bs, A2 added),
 
 > **`HARTLE O(OMEGA^2) MONOPOLE RESPONSE CHARACTERIZED — INDEPENDENT VALIDATION INCOMPLETE`**
 
+*Superseded by the Phase 4D-DA owner adjudication of §21 (2026-09-04): status `HARTLE O(OMEGA^2) MONOPOLE RESPONSE VERIFIED`. The text of this section is retained as written at 4D-RV.*
+
 VERIFIED requires (task §27) every line including ADR-0008 D's accepted monotonicity; D's
 monotonicity clause is NOT MET (§10). Everything else — independent solver admissibility,
 analytic validation, ADR-0008 A/B/C/E/F/G/J, the sequence identity, the published comparisons,
@@ -397,3 +407,212 @@ ADR-0008 Q3/Q4 and INV-13 explicitly recognised, after which the first monopole 
 created from the already-committed characterization evidence, or (b) a governed increment adopting
 the optional EOS-knot partition (ADR-0008 Q2b) in production, which removes the measure-location
 term but, as the knot oracle shows, not the first-order sampled-background term.
+
+## 21. OWNER ADJUDICATION — ADR-0008 Validation D monotonicity (Phase 4D-DA, 2026-09-04)
+
+**Scope.** Narrow governance / numerical-analysis adjudication at HEAD
+`42b34ac17ffb3aecd4470d5df54d448f457c30db`. No production, test or baseline file changed; scratch
+diagnostics only (session scratchpad `da/toy.py`, `da/da_phase.cpp`, `da/da_envelope.cpp`, linked
+against the unchanged corrected library). ADR-0008's accepted Decision is not rewritten.
+
+### 21.1 The clause, verbatim, and where it came from
+
+ADR-0008 §Validation line D (`docs/adr/ADR-0008-measure-complete-eos-energy-density-source.md:210`):
+
+> `| D | radial convergence 5000/10000/20000/40000 of δM̂ | successive differences monotone, relative spread ≤ 1e-4; no node-placement behaviour |`
+
+Origin: the 4D-RG validation plan (`docs/validation/PHASE4D_R_EOS_MEASURE_DERIVATION.md:292`) — "H
+re-run with no node-placement behaviour" — written against Phase 4D's Experiment H, whose nodal-column
+`δM̂` was "erratic (1.6 %)" with an "erratic order (2.35)" attributed to node placement
+(`PHASE4D_MONOPOLE_VALIDATION.md:274`, `:284`). The evidence the ADR cites for the corrected form is
+`PHASE4D_R_EOS_MEASURE_DERIVATION.md:224`: SECANT `δM̂` = 865.868 / 865.866 / 865.836 / 865.846 at
+5000/10000/20000/40000, described there as "relative spread `4e-5` and **no node-placement
+behaviour**". That very sequence has successive differences `−2e-3, −3.0e-2, +1.0e-2 km³` — neither
+its values nor its difference magnitudes are monotone. **The clause "successive differences monotone"
+was therefore never operationally defined and was not satisfied by the evidence the ADR accepted as
+demonstrating the property it meant to protect.** The same ADR's Q3 states the measured property as
+"`O(h²)` on smooth segments, exact segment measure, no node-placement behaviour" and Q4 states that
+"the weight's sub-segment location error is `O(h)`" — an `O(h)` term whose coefficient depends on where
+a sub-node feature falls relative to the nodes.
+
+### 21.2 Numerical analysis — why a cell-average measure cannot be required to converge monotonically
+
+Let a sharp feature carry measure `D` at `r_f` inside a cell `[a, a+h]` and let the weight vary
+across the cell, `W(r) = W(r_f) + W′(r − r_f) + …`. The exact contribution is `D·W(r_f)`. A
+cell-average (secant) source spreads `D` uniformly over the cell and contributes
+`D·(1/h)∫W dr = D·W(a + h/2) + O(h²)`. The error is
+
+    e(h) = D·W′·h·(1/2 − φ) + O(h²),      φ = (r_f − a)/h ∈ [0, 1)  (the feature's phase).
+
+It is first order in `h` with a coefficient `(1/2 − φ)` that changes sign with the phase, and under grid
+doubling the phase evolves as `φ → frac(2φ)` — the Bernoulli doubling map, whose orbit is
+quasi-random for almost every `φ₀`. Consequences (toy model, `da/toy.py`, `A = 1`, an `O(h²)` term
+`B = 0.2`):
+
+| `φ₀` | phases on `h, h/2, … h/32` | errors `e_k` | values monotone | `|Δe|` decreasing | `|e_k| ≤ A h_k/2` |
+|---|---|---|---|---|---|
+| 0.3 | 0.3, 0.6, 0.2, 0.4, 0.8, 0.6 | +0.40, 0.00, +0.088, +0.016, −0.018, −0.003 | no | yes | yes |
+| 0.1 | 0.1, 0.2, 0.4, 0.8, 0.6, 0.2 | +0.60, +0.20, +0.038, −0.034, −0.006, +0.010 | no | yes | yes |
+| 0.7 | 0.7, 0.4, 0.8, 0.6, 0.2, 0.4 | 0.00, +0.10, −0.063, −0.009, +0.020, +0.003 | no | **no** | yes |
+
+Over 200 000 random phases on a four-level ladder (`h, h/2, h/4, h/8`): values monotone in 25 % of
+cases, difference magnitudes decreasing in 75 %; with a second independent `O(h)` phase term of 30 %
+amplitude (a sampled background entering the same quantity) the figures are 25 % and 55 %; with the
+measure located exactly (pure `O(h²)`) but the second phase term present, 42 % and 48 %. **A correct
+implementation of the accepted Q3/Q4 representation is therefore expected to fail a strict monotonicity
+test most of the time**, while the envelope `|e_k| ≤ A·h_k/2` holds always: the mathematically
+guaranteed property of this discretization is an `O(h)` **envelope** with a computable coefficient,
+not monotone successive differences. Requiring strict monotonicity of the accepted representation is
+equivalent to requiring the phase orbit to be favourable — not a property of the physics or of the
+implementation.
+
+### 21.3 The real star — the layer phase predicts the sign of production's residual at every resolution
+
+Scratch `da/da_phase.cpp` on the fixed-`ε_c` 1.6 M☉ ladder (production, unchanged): the crust–core
+transition is the table pair 890–891 (`ε` 4.929e13 → 6.713e13 g cm⁻³, `Δε_t = 1.325e-5 km⁻²`),
+mapped into the profile through the interval containing `p_t`; `W = 4πr²ξ̂₀` from production's own
+`ξ̂₀` column; `e_pred = Δε_t·W′·h·(1/2 − φ)` (leading order, transition interval only).
+
+| N | outer `h` [m] | `φ` | `r_t` [km] | `W′` [km⁴] | `e_pred` [km³] | production `δM̂` | profile oracle K=4 | EOS-knot oracle K=2 | production − knot | production − profile | first-order `I` [km³] |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 5000 | 14.000 | 0.559 | 12.911289 | 1.034e6 | −1.14e-2 | 865.86819222 | 865.86869133 | 865.89612869 | **−2.79e-2** | −5.0e-4 | 159.5881112 |
+| 10000 | 7.000 | 0.306 | 12.910467 | 1.039e6 | +1.87e-2 | 865.86605162 | 865.86621332 | 865.85602984 | **+1.00e-2** | −1.6e-4 | 159.5871416 |
+| 20000 | 3.500 | 0.770 | 12.910214 | 1.030e6 | −1.29e-2 | 865.83608597 | 865.83614760 | 865.85364848 | **−1.76e-2** | −6.2e-5 | 159.5776228 |
+| 40000 | 1.750 | 0.546 | 12.910136 | 1.034e6 | −1.11e-3 | 865.84554381 | 865.84558674 | 865.84754056 | **−2.00e-3** | −4.3e-5 | 159.5807196 |
+| 80000 | 0.875 | 0.304 | 12.910055 | 1.037e6 | +2.36e-3 | 865.84747426 | 865.84756129 | 865.84500369 | **+2.47e-3** | −8.7e-5 | 159.5813769 |
+| 160000 | 0.4375 | 0.772 | 12.910026 | 1.032e6 | −1.63e-3 | 865.84426055 | 865.84451768 | 865.84503652 | **−7.8e-4** | −2.6e-4 | 159.5804077 |
+
+The sign of production minus the EOS-knot oracle is exactly the sign of `(1/2 − φ)` at **6 of 6**
+resolutions, and the leading-order single-interval magnitude is within a factor 0.5–2.5 (the
+neighbouring crust intervals share the sharp structure). The 20000 point is not anomalous: its phase
+(0.77) simply puts the layer far from its cell midpoint. **The residual is the `O(h)` location term of
+the accepted representation, with the predicted phase dependence, not a monopole defect.**
+
+Rigorous envelope (`da/da_envelope.cpp`): the location error of every interval is bounded by
+`|Δε_i|·|W′_i|·h_i/2`, so `E_crust(N) = Σ_{ε<1e14 g cm⁻³} |Δε_i||W′_i|h_i/2`, computed from
+production's own profile and `ξ̂₀` column, bounds production − knot-oracle (the two share the first-order
+background, so their difference is purely the measure representation):
+
+| N | `E_crust(N)` [km³] | transition interval alone | `|production − knot|` | ratio to `E_crust` |
+|---|---|---|---|---|
+| 5000 | 0.5347 | 0.0965 | 0.0279 | 0.052 |
+| 10000 | 0.2686 | 0.0403 | 0.0100 | 0.037 |
+| 20000 | 0.1343 | 0.0119 | 0.0176 | 0.131 |
+| 40000 | 0.0672 | 0.0125 | 0.0020 | 0.030 |
+| 80000 | 0.0336 | 0.0061 | 0.0025 | 0.073 |
+
+`E_crust` halves exactly per doubling (`∝ 1/N`); the observed residual is 3–13 % of it at every
+resolution. (The single-interval bound is exceeded at 20000 — 0.0176 vs 0.0119 — which is why the
+envelope must sum the crust intervals, as the analysis requires.)
+
+### 21.4 The first-order background
+
+The independently validated first-order moment of inertia on the same ladder is `159.5881112,
+159.5871416, 159.5776228, 159.5807196, 159.5813769, 159.5804077 km³` — the same phase dip at 20000
+(`−6.0e-5`) and a new dip at 160000. `I` is a sampled integral of the first-order solution on the same
+partition (INV-13; its resolution spread is recorded at `4.6e-5` over 5000–40000 in
+`TOV_SURFACE_ARTIFACT_MIGRATION.md` §11). It enters `δM̂` through `I²/R_*³` (`−1.2e-3 km³` at 20000)
+and through the rotational sources `s², s'²` (`−5.6e-3 km³`); the 4D-RV decomposition assigns
+`−2.31e-2 km³` of the 20000 movement to the EOS channel (the location term of §21.3) and
+`−6.8e-3 km³` to the first-order-fed channels. A second-order criterion cannot require strict
+monotonicity of a quantity whose already-validated input carries its own `O(h)` phase term at the
+same scale: even the EOS-knot oracle, which removes the measure-location term, has values that decrease
+monotonically (`865.896 → 865.856 → 865.854 → 865.848 → 865.845 → 865.845`) but difference
+magnitudes that do not (`4.0e-2, 2.4e-3, 6.1e-3, 2.5e-3, 3.3e-5 km³`).
+
+### 21.5 Continuum limit
+
+The EOS-knot oracle at 80000 and 160000 gives `865.84500` and `865.84504 km³` (`4e-8` apart); its
+first-order-fed noise at these resolutions is `≲ 3e-4 km³`. Production at 80000/160000 is
+`865.84747 / 865.84426` — `+2.5e-3 / −0.8e-3 km³` from the knot value, each inside `E_crust(N)` and of
+the predicted sign. All admissible representations approach one limit:
+
+    δM̂(1.6 M☉, fixed ε_c = 7.312533427e14 g cm⁻³) = 865.845 ± 0.001 km³,
+
+revising 4D-RV's `865.846 ± 0.002`. Production at the default 10000 (`865.86605`) is `+2.4e-5` above
+it; the four-star chain-B agreement (`≤ 5.3e-5`) is consistent with this envelope. This estimate is a
+diagnostic, not a baseline value.
+
+### 21.6 What Validation D protects, and what strict monotonicity adds
+
+| Failure D was meant to falsify | Detected by | Strict monotonicity needed? |
+|---|---|---|
+| response fails to approach a common continuum value | knot oracle 80000/160000 `4e-8` apart; production inside its `1/N` envelope | no — an envelope + independent-limit test detects it |
+| percent-level grid dependence (the 4D nodal-column pathology) | spread `3.7e-5` vs `1.6 %` | no — the spread bound does |
+| answer follows arbitrary node placement materially | residual `≤ 13 %` of a computed `O(h)` envelope that halves per doubling | no — the envelope test does; monotonicity would *fail* a correct `O(h)` scheme |
+| measure correction fails to remove the missing-EOS source | M10 recreates `4.6 %`; sequence identity `1.03e-4` | no |
+| independent formulations approach different limits | chain B / EOS-knot `≤ 5.3e-5` (bound `1e-4`); knot vs production at 160000 `9e-7` | no |
+| the surface locator controls the answer | `R_*` spread `3.4e-11` (ADR-0009 floor) | no |
+| no refinement envelope exists | `E_crust(N) ∝ 1/N` computed; residual inside it | no |
+
+Strict monotonicity detects none of these that the other tests miss, and is failed by correct
+implementations of the accepted scheme in the majority of phase orbits (§21.2). It was a convenient
+heuristic imported from smooth-integrand intuition, inconsistent with Q3/Q4.
+
+### 21.7 Options
+
+- **A — retain D as written.** Not scientifically necessary (§21.6) and unattainable by the accepted
+  representation without both an EOS-knot production partition **and** a redesign of the sampled
+  first-order background (§21.4). Would leave a bounded, independently validated result permanently
+  CHARACTERIZED. Rejected.
+- **B — post-validation clarification of D** (adopted, §21.8): keep the spread bound; replace the
+  monotonicity heuristic by the properties the representation actually has, each with a bound from
+  pre-existing authority or from the computed envelope.
+- **C — EOS-knot partition in production (ADR-0008 Q2b).** Removes the measure-location term
+  (`≤ 3e-5` at production resolution — below the `1e-4` scientific bound) but not the first-order term;
+  the knot oracle's own difference magnitudes are not monotone, so C cannot deliver D as written. Cost:
+  an immutable `(p_k, ε_k)` snapshot on `StarProfile` with `Touch()` provenance, a new EOS→profile
+  authority, importer/true-discontinuity semantics to be re-governed. Benefit relative to an already
+  bounded and independently validated result: cosmetic. **Remains optional**, per Q2.
+- **D — broader representation change** (knot partition plus sub-node first-order treatment). Not
+  mathematically necessary; not recommended.
+
+### 21.8 Owner questions
+
+| | Answer |
+|---|---|
+| **Q1** | The phrase had no operational definition. Both readings — (A) values monotone, (B) `|Δ|` decreasing — fail on the evidence ADR-0008 itself cited as "no node-placement behaviour (`4e-5`)". Its evidenced purpose was to exclude the percent-level nodal-column pathology, i.e. reading **D**: a heuristic for "convergent, no erratic jumps", whose operative content was the `≤ 1e-4` spread. |
+| **Q2** | **No.** The accepted Q3/Q4 representation has an `O(h)` error with a phase-dependent sign (§21.2); strict monotonicity is expected to fail for correct implementations in most phase orbits. |
+| **Q3** | A **numerical representation floor**: the `O(h)` sub-node location term of the profile-partition measure (predicted sign at 6/6 resolutions, inside a computed envelope) plus the validated first-order background's own phase term. Not a monopole defect. |
+| **Q4** | Yes — it **confirms** the diagnosis: an independent implementation of the same accepted representation (different variables, own integrator, own Stieltjes construction) reproduces the pattern to `≤ 5.8e-7`, so the pattern belongs to the representation, not to production's code. |
+| **Q5** | The knot sequence's monotone values are consistent with convergence but not proof by themselves; convergence is established by 80000/160000 agreeing to `4e-8` and production approaching the same value inside its `1/N` envelope (§21.5). |
+| **Q6** | **Yes.** A validated input with its own `O(h)` phase term at the same scale makes strict second-order monotonicity an illegitimate standalone hard requirement. |
+| **Q7** | **Clarified** (Option B): monotonicity superseded by D′; spread retained. |
+| **Q8** | D′ below. |
+| **Q9** | **Met** by existing 4D-RV evidence plus the scratch envelope of §21.3 — no production work. |
+| **Q10** | EOS-knot partitioning **remains optional** (ADR-0008 Q2 unchanged). |
+| **Q11** | **Yes**: every VERIFIED condition of the 4D-RV brief now holds — the only unmet line was D's monotonicity, adjudicated here. |
+| **Q12** | **Yes**, in a separate first-baseline task (same-build repeatability, narrow regression), never in this adjudication. |
+| **Q13** | None. |
+
+**D′ — ADR-0008 Validation D, clarified (owner, 2026-09-04).** `δM̂` on the fixed-`ε_c` DS(CMF)-1
+ladder 5000/10000/20000/40000:
+
+| | criterion | bound and its authority | measured |
+|---|---|---|---|
+| D′1 | relative spread of production `δM̂` over the ladder | `≤ 1e-4` — ADR-0008 D, unchanged | `3.71e-5` |
+| D′2 | production vs the independent **same-representation** (profile-partition Stieltjes) oracle at every ladder resolution | `≤ 1e-6` — ADR-0008 Validation C, the accepted implementation-identity bound for the same measure on the same partition | `5.8e-7 / 1.9e-7 / 7.1e-8 / 5.0e-8` |
+| D′3 | production vs the independent **refined-representation** (EOS-knot Stieltjes) oracle at every ladder resolution — independent formulations approach the same limit | `≤ 1e-4` — ADR-0007 §7 item 4, the accepted bound between independent formulations on DS(CMF)-1 | `3.2e-5 / 1.2e-5 / 2.0e-5 / 2.3e-6` |
+| D′4 | the representation term vanishes: `|production − knot oracle|_N ≤ E_crust(N) = Σ_crust |Δε_i||W′_i|h_i/2` computed from the production profile, and `E_crust` contracts as `1/N` over the ladder | rigorous first-order bound of a cell-average source (§21.2–§21.3); no free parameter | ratios `0.052 / 0.037 / 0.131 / 0.030`; `E_crust` ratio per doubling `2.00` |
+| D′5 | no surface or missing-source pathology: `R_*` spread over the ladder; M10 deficit; sequence identity | `≤ 1e-8` (ADR-0009 V4); `≥ 3 %` (ADR-0008 I); `≤ 2e-4` (ADR-0008 B) | `3.4e-11`; `4.61 %`; `1.03e-4` |
+
+Reported, not asserted: the knot oracle's own ladder and the continuum estimate (§21.5). No bound
+above was chosen from the observed production sequence.
+
+### 21.9 Governance mechanism and disposition
+
+Post-validation owner clarification appended to ADR-0008's Validation section (the ADR-0009 V7 and
+migration-envelope precedent); the accepted Decision Q1–Q12 is unchanged; the original D wording,
+this record's §§1–20 (including the CHARACTERIZED outcome), the historical Phase 4D failure and the
+detector evidence are preserved. `tests/rotation/hartle_monopole_physics_cmf.cpp` is not changed here:
+its Hc line remains recorded-not-asserted; the first-baseline task may install D′1–D′5 as asserted
+lines. Production diff NONE; test diff NONE; baseline NOT created.
+
+> **Status after adjudication: `HARTLE O(OMEGA^2) MONOPOLE RESPONSE VERIFIED`** — independent solver
+> admissibility, analytic validation, ADR-0008 A–J (D as clarified), the sequence derivative, published
+> comparisons, M1–M10 and an unchanged production source. `GOVERNANCE.md` §3.1 state: **CORRECTION
+> IMPLEMENTED — INDEPENDENTLY VERIFIED — BASELINE TO BE CREATED IN THE NEXT TASK** (condition 7).
+
+**Exactly one next action:** create the first Hartle monopole scientific baseline from the
+already-verified production response, in a separate commit with same-build repeatability and a narrow
+regression test. Phase 5 does not begin.
