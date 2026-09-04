@@ -272,7 +272,7 @@ optionally at the EOS-table knots), never production's segment density.
 | H, I | M1–M9 fire; M10 recreates the ≥ 3 % deficit — see the record §13 |
 | J | met — seven artifacts and `I` unchanged |
 
-> **Status: `CORdocs/validation/PHASE4D_CORRECTED_MONOPOLE_REVALIDATION.mdTION IMPLEMENTED — INDEPENDENT REVALIDATION EXECUTED — VALIDATION D MONOTONICITY NOT MET — NO MONOPOLE BASELINE`.**
+> **Status: `CORRECTION IMPLEMENTED — INDEPENDENT REVALIDATION EXECUTED — VALIDATION D MONOTONICITY NOT MET — NO MONOPOLE BASELINE`.**
 > Scientific status `HARTLE O(OMEGA^2) MONOPOLE RESPONSE CHARACTERIZED — INDEPENDENT VALIDATION INCOMPLETE`. The accepted Decision is
 > unchanged. The owner's adjudication of D's monotonicity clause against the measured node-placement
 > floor (record §20) precedes any baseline.
@@ -309,7 +309,7 @@ of Validation line D above. Evidence: `docs/validation/PHASE4D_CORRECTED_MONOPOL
 - **EOS-knot partition (Q2b)** remains optional: it removes a `≤ 3e-5` term below the scientific bound
   and cannot restore monotone differences while the first-order background is sampled.
 
-> **Status: `CORdocs/validation/PHASE4D_CORRECTED_MONOPOLE_REVALIDATION.mdTION IMPLEMENTED — INDEPENDENTLY VERIFIED (Phase 4D-RV + 4D-DA) — FIRST MONOPOLE BASELINE NEXT`.**
+> **Status: `CORRECTION IMPLEMENTED — INDEPENDENTLY VERIFIED (Phase 4D-RV + 4D-DA) — FIRST MONOPOLE BASELINE NEXT`.**
 > Scientific status `HARTLE O(OMEGA^2) MONOPOLE RESPONSE VERIFIED`. No baseline was created by the adjudication; condition 7 of `GOVERNANCE.md`
 > §3.1 is discharged by the separate first-baseline task.
 
