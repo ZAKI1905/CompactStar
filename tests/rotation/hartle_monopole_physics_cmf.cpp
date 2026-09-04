@@ -8,67 +8,65 @@
 
 /**
  * @file hartle_monopole_physics_cmf.cpp
- * @brief Phase 4D — INDEPENDENT physical validation of the governed O(Omega^2) monopole
- *        response on the authenticated DS(CMF)-1 sequence. External data required.
+ * @brief Phase 4D-RV — corrected INDEPENDENT physical revalidation of the governed O(Omega^2)
+ *        monopole response on the migrated (ADR-0009) DS(CMF)-1 backgrounds. External data.
  *
- * The oracle is the test-only (m0,h0) solver of hartle_monopole_reference.hpp — Hartle's
- * (97)+(98) with p0* from the first integral (90) — never production's (m0,p0*) system. Two
- * chains: SECOND-ORDER-ISOLATED (production's Phase-4B-verified s, s') and FULLY INDEPENDENT
- * (hartle_reference.hpp's own first order on the same tabulated background).
+ * THE CLAIM UNDER TEST (ADR-0007 as amended by ADR-0008, on the ADR-0009 surface event). For
+ * ordinary NStar, with R_* the accepted p = p_cut event stored as the final node, the fixed-eps_c
+ * l = 0 response m0_hat, p0*_hat, delta_p0_hat, xi0_hat, deltaM_hat per Omega_geom^2 is
+ * physically correct when the EOS energy-density source is the MEASURE -4 pi r^2 xi0_hat d(eps)
+ * (smooth variation, sharp continuous tabulated variation, the terminal eps_* -> 0 atom). NOT
+ * claimed: l = 2, high-spin truncation accuracy, baryon-conserving reduction, Phase-5 A_i/B_i/Z_i,
+ * rotochemical heating, MixedStar rotation.
  *
- * PHASE 4D-RI (2026-09-03): ADR-0008 was ACCEPTED and the EOS energy-density source of both
- * production and this oracle is now the measure -4 pi r^2 xi0_hat d(eps) evaluated one profile
- * segment at a time (MHOptions::eos_measure). The (m0,h0) formulation, its own interpolation,
- * centre start and tolerances are unchanged, so the comparison stays a genuine cross-check of a
- * different variable pair; the SUPERSEDED differential form is still run and REPORTED beside it,
- * and its disagreement is the size of the sub-node energy-density variation the nodal deps/dp
- * column cannot represent. The corrected independent revalidation is a separate increment: no
- * bound here is widened and no result here is a validation claim.
+ * THE INDEPENDENT ORACLE (hartle_monopole_reference.hpp). Hartle's (m0,h0) pair, (97)+(98) with
+ * p0* an algebraic by-product of the first integral (90) — never production's (m0,p0*) system —
+ * with its own interpolation, centre start, exterior arithmetic and tighter tolerances. Since
+ * Phase 4D-RV the EOS measure is represented INDEPENDENTLY of production's per-segment
+ * eps_slope density: `SolveStieltjes` accumulates the measure as midpoint ATOMS on an
+ * independently constructed partition (K-fold refinement of every profile interval, optionally
+ * with every EOS-table knot mapped into the interval first), while its driver integrates the
+ * smooth part with no EOS term. The production-like secant realisation (`eos_measure`) and the
+ * SUPERSEDED differential form are still run and REPORTED, never asserted.
+ *
+ * Two chains everywhere: SECOND-ORDER-ISOLATED (production's Phase-4B-verified s, s') and
+ * FULLY INDEPENDENT (hartle_reference.hpp's own first order on the same tabulated background).
  *
  * ============================ PREDECLARED BOUNDS ============================
- *   G  full profile, production vs (m0,h0) reference, per star   rel <= 1e-4   (ADR-0007 §7-4)
- *   F  near-vacuum identity. No profile node lies beyond R_*, so the vacuum statement
- *      "mhat + I^2/r^3 = const" is examined on the outermost nodes (eps < 1e9 g/cm^3,
- *      r > R_* / 2): the MATTER-source-corrected value must be constant to      <= 1e-6   (§7-5)
- *      and the raw (uncorrected) spread is reported. The matching arithmetic is exact.
- *      (A first run defined the window as (eps+p) r^2 < 1e-6, which also admits the
- *       central nodes where I^2/r^3 is ~1e19 — a test defect, corrected and recorded.)
- *   I  EOS-derivative sensitivity                                         REPORTED  (§7-10)
- *      Since ADR-0008 the profile deps/dp no longer enters the radial mass source at all, so
- *      this substitution now probes only the regular-centre series coefficient b_5.
- *      The ADR spread bound (1e-3) applies to an INDEPENDENT derivative source. None is
- *      available (c_s^2: CONDITIONAL CHECK UNAVAILABLE); the retired profile FD is a
- *      diagnostic only. A first run asserted the bound against the FD and measured 5.0e-2;
- *      the assertion was withdrawn as mis-specified and the number is recorded.
- *   J  homogeneous deltaM vs the non-rotating sequence derivative                <= 1e-3   (§7-11)
- *      H67 p. 1022: the homogeneous solution is the change of CENTRAL PRESSURE along the
- *      non-rotating sequence, so the native identity is deltaM_hom = (dM/dp_c) delta p_c with
- *      delta p_c = (eps_c + p_c) p0*_c; that is what the analytic Experiment J certified (3e-9).
- *      OUTCOME ON DS(CMF)-1 (recorded, not asserted): 1.17e-3 / 1.02e-3 / 1.04e-3 at radial
- *      resolution 10000 / 20000 / 40000 — NOT MET and resolution-independent. Diagnosis, proven
- *      test-side: the nodal deps/dp column integrated over the crust misses ~17 % of the crust's
- *      own Delta eps at every resolution (density steps of the crust EOS that no sampled
- *      derivative represents); a Stieltjes sum of the same source against the profile's own eps
- *      steps reproduces the sequence derivative to ~7e-5, and applied to the SOURCED solution it
- *      puts the omitted internal delta-function shells (Hartle's dE/dP at discontinuities) at
- *      ~4.6 % of deltaM_hat. That is a physical discrepancy of the accepted contract, reported by
- *      Phase 4D and deliberately not repaired here (ADR-0007 amendment required).
- *      Chronology: a first run computed only the eps_c form at 10000; 20000 was added, then the
- *      p_c form and the inversion diagnostic, then 40000 and the Stieltjes diagnostic.
- *      PHASE 4D-RI: with ADR-0008 accepted, this line is computed with the corrected source in
- *      both production and the oracle and is REPORTED here; its adjudication against the
- *      ADR-0008 target (<= 2e-4) belongs to the corrected independent revalidation increment.
- *   H  radial convergence: order MEASURED, no pass criterion invented    reported (§7-9, INV-13)
- *   R  reference floor / disagreement                                    <= 0.1
+ *   Z  ADR-0009 background: every star SURFACE_REACHED, last node p == p_cut exactly, finite
+ *      surface EOS data, no partial profile                                     exact
+ *   G  full profile, production vs the INDEPENDENT Stieltjes oracle (profile partition K=4,
+ *      and EOS-knot partition K=2), per star, both chains                       rel <= 1e-4   (ADR-0007 §7-4)
+ *   F  near-vacuum identity on the outermost nodes (eps < 1e9 g/cm^3, r > R_* / 2), matter-
+ *      corrected mhat + S + I^2/r^3 constant                                  <= 1e-6   (§7-5)
+ *   C  ADR-0008 Validation C: sourced same-partition accounting vs production m0_hat  <= 1e-6
+ *   R  reference floor: the EOS-knot oracle's own floor (tolerance, centre start, K-refinement)
+ *      must be subdominant to its production disagreement                        ratio <= 0.1
+ *      The profile-partition oracle converges in K to the SAME continuous-density measure
+ *      production integrates, so its production disagreement sits AT its own floor; that
+ *      agreement is reported as floor-limited and both must lie two decades under G  <= 1e-6
+ *   H  ADR-0008 Validation D: deltaM_hat over 5000/10000/20000/40000 at fixed eps_c —
+ *      relative spread <= 1e-4 (asserted, Hb) AND successive differences of decreasing
+ *      magnitude |d1| >= |d2| >= |d3| (Hc). Hc is RECORDED, never waived: if it is not met the
+ *      scientific status of the record is CHARACTERIZED, not VERIFIED (task §27), and the
+ *      per-resolution decomposition (first-order I, EOS channel, rotational channel, both
+ *      independent oracles) is printed so the cause is attributable. 80000 is a diagnostic
+ *      extension; R_* spread <= 1e-8 (ADR-0009 floor) is asserted (Ha)
+ *   I  ADR-0008 Validation E: the retired-FD substitution moves deltaM_hat by      < 1e-3
+ *   J  ADR-0008 Validation B: homogeneous deltaM vs (dM/dp_c) dp_c, res 10000 and 20000,
+ *      on complete ADR-0009 stars, INDEPENDENT Stieltjes oracle                <= 2e-4;  40000 reported
  * ===========================================================================
- *
- * No 4C-I1 diagnostic value, no retired-candidate value and no PHASE4_ROTATION_ENTRY number is
- * an expected answer anywhere in this file.
+ * Chronology kept from the historical harness (recorded, not hidden): Phase 4D asserted §7-11 at
+ * 1e-3 and measured 1.04e-3 (the nodal-derivative defect); Phase 4D-RI reported line J and H with
+ * the corrected source on both sides and left their adjudication to this revalidation. The
+ * near-vacuum window was corrected once in 4D ((eps+p)r^2 < 1e-6 admitted the central nodes).
+ * No 4C-I1, 4D or 4D-RI diagnostic value is an expected answer anywhere in this file.
  */
 
 #include <algorithm>
 #include <cmath>
 #include <cstdio>
+#include <cstdlib>
 #include <filesystem>
 #include <iomanip>
 #include <iostream>
@@ -77,11 +75,15 @@
 #include <string>
 #include <vector>
 
+#include <gsl/gsl_errno.h>
+#include <gsl/gsl_odeiv2.h>
+
 #include "CompactStar/AngularVelocity.hpp"
 #include "CompactStar/Core/NStar.hpp"
 #include "CompactStar/Core/RotationSolver.hpp"
 #include "CompactStar/Core/StarProfile.hpp"
 #include "CompactStar/Core/TOVSolver.hpp"
+#include "eos_table_knots.hpp"
 #include "hartle_monopole_reference.hpp"
 #include "hartle_profile_compare.hpp"
 #include "hartle_reference.hpp"
@@ -90,30 +92,34 @@
 
 #include <unistd.h>
 
-#include <cstdlib>
-
 namespace fs = std::filesystem;
 
-/// HARTLE_4D_QUICK=1 restricts the run to G (isolated chain) + F: used ONLY by the detector
-/// sweep, where each production mutation is rebuilt and the whole 4D suite re-run nine times.
-/// The registered CTest runs the full set.
+/// HARTLE_4D_QUICK=1 restricts the run to Z + G (isolated chain) + F + C: used ONLY by the
+/// detector sweep. The registered CTest runs the full set.
 static bool Quick() { return std::getenv("HARTLE_4D_QUICK") != nullptr; }
 
 using CompactStar::Core::NStar;
 using CompactStar::Core::TOVPoint;
+using CompactStar::Core::TOVSolveStatus;
 using CompactStar::Core::TOVSolver;
 using hartle_mono_ref::Background2;
 using hartle_mono_ref::Cmp;
 using hartle_mono_ref::Compare;
 using hartle_mono_ref::MHOptions;
 using hartle_mono_ref::MHResult;
+using hartle_mono_ref::StieltjesOptions;
 
 static constexpr double kG_Profile = 1.0e-4;
 static constexpr double kF_Exterior = 1.0e-6;
-static constexpr double kI_Spread = 1.0e-3;
-static constexpr double kJ_Homog = 1.0e-3;
+static constexpr double kC_Accounting = 1.0e-6;
 static constexpr double kR_FloorRatio = 0.1;
-static constexpr double kVacuumEps_gcm3 = 1.0e9; // near-vacuum window: eps below this AND r > R_* / 2
+static constexpr double kH_Spread = 1.0e-4;
+static constexpr double kH_Rstar = 1.0e-8;
+static constexpr double kI_FD = 1.0e-3;
+static constexpr double kJ_Homog = 2.0e-4;
+static constexpr double kVacuumEps_gcm3 = 1.0e9;
+static constexpr int kK_Profile = 4; // Stieltjes refinement, profile partition
+static constexpr int kK_Knots = 2;   // Stieltjes refinement, EOS-knot partition
 
 static int g_fail = 0;
 static void Report(const std::string &id, bool ok, const std::string &d)
@@ -137,23 +143,54 @@ static double Rel(double a, double b)
 }
 
 // ---------------------------------------------------------------------------
+//  ADR-0009-aware star construction. `Probe` only exposes the protected cutoff accessor.
+// ---------------------------------------------------------------------------
+struct Probe : TOVSolver
+{
+	using TOVSolver::PressureCutoff;
+};
+
 struct Star
 {
 	std::unique_ptr<NStar> ns;
 	std::vector<TOVPoint> pts;
 	std::vector<std::string> labels;
-	double ec_cgs = 0;
+	double ec_cgs = 0, p_cut = 0;
+	bool complete = false; ///< SURFACE_REACHED, last node exactly at the cutoff, finite surface data
+	std::string why;
 };
+
+static void CheckComplete(Star &st, const Probe &tov)
+{
+	st.p_cut = tov.PressureCutoff();
+	const bool status = tov.LastSolveStatus() == TOVSolveStatus::SURFACE_REACHED;
+	const bool n_ok = st.pts.size() >= 4;
+	const bool at_cut = n_ok && st.pts.back().p == st.p_cut;
+	const bool finite = n_ok && std::isfinite(st.pts.back().e) && st.pts.back().e > 0.0 &&
+						std::isfinite(st.pts.back().dedp) && std::isfinite(st.pts.back().m);
+	bool increasing = n_ok;
+	for (std::size_t i = 1; n_ok && i < st.pts.size(); ++i)
+		increasing = increasing && st.pts[i].r > st.pts[i - 1].r && st.pts[i].p >= st.p_cut;
+	st.complete = status && n_ok && at_cut && finite && increasing;
+	if (!st.complete)
+		st.why = std::string("status=") + (status ? "SURFACE_REACHED" : "other") + " nodes=" +
+				 std::to_string(st.pts.size()) + " at_cut=" + (at_cut ? "1" : "0") + " finite=" +
+				 (finite ? "1" : "0") + " increasing=" + (increasing ? "1" : "0");
+}
 
 static Star BuildAtMass(const fs::path &cold, const fs::path &wrk, double M)
 {
 	Star st;
-	TOVSolver tov;
+	Probe tov;
 	tov.SetWrkDir(wrk.string());
 	tov.ImportEOS(cold.string(), true);
 	const int n = tov.SolveToProfile(M, st.pts, &st.labels);
 	if (n <= 0 || st.pts.size() < 4)
+	{
+		st.why = "SolveToProfile returned no complete profile";
 		return st;
+	}
+	CheckComplete(st, tov);
 	st.ec_cgs = st.pts.front().e;
 	st.ns = st.labels.empty() ? std::make_unique<NStar>(st.pts) : std::make_unique<NStar>(st.pts, st.labels);
 	if (!st.ns->ComputeHartleMonopoleResponse())
@@ -164,12 +201,16 @@ static Star BuildAtMass(const fs::path &cold, const fs::path &wrk, double M)
 static Star BuildAtDensity(const fs::path &cold, const fs::path &wrk, double ec, std::size_t res)
 {
 	Star st;
-	TOVSolver tov;
+	Probe tov;
 	tov.SetWrkDir(wrk.string());
 	tov.SetRadialRes(res);
 	tov.ImportEOS(cold.string(), true);
 	if (tov.SingleStarSolveToTOVPoints(ec, st.pts) <= 0 || st.pts.size() < 4)
+	{
+		st.why = "primitive returned no complete profile";
 		return st;
+	}
+	CheckComplete(st, tov);
 	st.ec_cgs = ec;
 	st.ns = std::make_unique<NStar>(st.pts);
 	if (!st.ns->ComputeHartleMonopoleResponse())
@@ -178,20 +219,25 @@ static Star BuildAtDensity(const fs::path &cold, const fs::path &wrk, double ec,
 }
 
 /// One member of the non-rotating sequence: M [km] and the ACTUAL central p, eps [km^-2] the
-/// solver used (its own inversion of the central condition), for the sequence derivative.
+/// solver used, for the sequence derivative. Only a COMPLETE (SURFACE_REACHED, p = p_cut) star
+/// may enter the derivative (ADR-0009 Q8; task §21).
 struct SeqPt
 {
 	double M_km = std::numeric_limits<double>::quiet_NaN(), pc = 0, ec = 0;
+	bool complete = false;
 };
 static SeqPt SequencePoint(const fs::path &cold, const fs::path &wrk, double ec, std::size_t res)
 {
 	SeqPt o;
-	TOVSolver tov;
+	Probe tov;
 	tov.SetWrkDir(wrk.string());
 	tov.SetRadialRes(res);
 	tov.ImportEOS(cold.string(), true);
 	std::vector<TOVPoint> pts;
 	if (tov.SingleStarSolveToTOVPoints(ec, pts) <= 0 || pts.empty())
+		return o;
+	o.complete = tov.LastSolveStatus() == TOVSolveStatus::SURFACE_REACHED && pts.back().p == tov.PressureCutoff();
+	if (!o.complete)
 		return o;
 	o.M_km = pts.back().m * Zaki::Physics::SUN_M_KM;
 	o.pc = pts.front().p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2;
@@ -260,12 +306,135 @@ static Background2 FromProfile(const NStar &ns, const std::vector<double> &s, co
 	return o;
 }
 
+/// Linear interpolation of a field on the profile grid at a requested radius.
+static double AtRadius(const std::vector<double> &r, const std::vector<double> &f, double rq)
+{
+	return Background2::Lerp(r, f, rq);
+}
+
+// ---------------------------------------------------------------------------
+//  ADR-0008 Validation C — same-partition source accounting (own driver, rtol 1e-13). Carries
+//  m0_hat, p0*_hat, the EOS channel of m0_hat and the per-segment weight, one governed segment
+//  per driver call. An implementation identity, distinct from the independent oracle above.
+// ---------------------------------------------------------------------------
+struct AccParams
+{
+	const Background2 *bg;
+	double slope;
+};
+static int AccRHS(double r, const double y[], double f[], void *pv)
+{
+	const AccParams *P = static_cast<const AccParams *>(pv);
+	const auto b = P->bg->At(r);
+	const double D = 1.0 - 2.0 * b.m / r, r_2m = r * D, e2 = std::exp(-2.0 * b.nu), ep = b.eps + b.p;
+	const double r2 = r * r, r3 = r2 * r, r4 = r3 * r;
+	const double mhat = y[0], phat = y[1];
+	const double xi = phat / b.nup;
+	if (!std::isfinite(xi) || !(D > 0.0))
+		return GSL_EBADFUNC;
+	const double term1 = (P->slope != 0.0) ? -4.0 * M_PI * r2 * xi * P->slope : 0.0;
+	f[0] = term1 + (1.0 / 12.0) * r4 * e2 * D * b.sp * b.sp + (8.0 * M_PI / 3.0) * r4 * ep * e2 * b.s * b.s;
+	f[1] = -mhat * (1.0 + 8.0 * M_PI * r2 * b.p) / (r_2m * r_2m) - 4.0 * M_PI * ep * r2 * phat / r_2m +
+		   (1.0 / 12.0) * r3 * e2 * b.sp * b.sp + (2.0 / 3.0) * r * e2 * b.s * (b.s + r * b.sp - r * b.nup * b.s);
+	f[2] = term1;
+	f[3] = 4.0 * M_PI * r2 * xi;
+	return (std::isfinite(f[0]) && std::isfinite(f[1])) ? GSL_SUCCESS : GSL_EBADFUNC;
+}
+struct AccResult
+{
+	bool ok = false;
+	std::vector<double> mhat;
+	double eos_total = 0.0, worst_segment_abs = 0.0;
+};
+static AccResult Account(const Background2 &b, double mhat0, double phat0)
+{
+	AccResult out;
+	const std::size_t n = b.N();
+	AccParams P{&b, 0.0};
+	gsl_odeiv2_system sys = {AccRHS, nullptr, 4, &P};
+	gsl_odeiv2_driver *d = gsl_odeiv2_driver_alloc_y_new(&sys, gsl_odeiv2_step_rk8pd, 1e-6, 1e-16, 1e-13);
+	double y[4] = {mhat0, phat0, 0.0, 0.0};
+	double r = b.r.front();
+	out.mhat.assign(n, 0.0);
+	out.mhat[0] = y[0];
+	for (std::size_t i = 1; i < n; ++i)
+	{
+		P.slope = (b.eps[i] - b.eps[i - 1]) / (b.r[i] - b.r[i - 1]);
+		const double before = y[2];
+		y[3] = 0.0;
+		if (gsl_odeiv2_driver_apply(d, &r, b.r[i], y) != GSL_SUCCESS)
+		{
+			gsl_odeiv2_driver_free(d);
+			return out;
+		}
+		out.worst_segment_abs = std::max(out.worst_segment_abs, std::fabs((y[2] - before) + P.slope * y[3]));
+		out.mhat[i] = y[0];
+	}
+	gsl_odeiv2_driver_free(d);
+	out.eos_total = y[2];
+	out.ok = true;
+	return out;
+}
+
+// ---------------------------------------------------------------------------
+struct OracleSet
+{
+	MHResult secant, differential, stj_profile, stj_knots;
+};
+static OracleSet RunOracles(const Background2 &bg, double I_ext, const eos_knots::Knots *knots,
+							bool sources_on = true, double phat_at_r0 = std::numeric_limits<double>::quiet_NaN())
+{
+	OracleSet o;
+	MHOptions base;
+	base.I_exterior = I_ext;
+	base.sources_on = sources_on;
+	base.phat_at_r0 = phat_at_r0;
+	MHOptions sec = base;
+	sec.eos_measure = true;
+	o.secant = hartle_mono_ref::Solve(bg, sec);
+	MHOptions dif = base;
+	dif.eos_measure = false;
+	o.differential = hartle_mono_ref::Solve(bg, dif);
+	StieltjesOptions sp;
+	sp.refine = kK_Profile;
+	o.stj_profile = hartle_mono_ref::SolveStieltjes(bg, base, sp);
+	if (knots != nullptr && knots->ok)
+	{
+		StieltjesOptions sk;
+		sk.refine = kK_Knots;
+		sk.knot_p = &knots->p;
+		sk.knot_eps = &knots->eps;
+		o.stj_knots = hartle_mono_ref::SolveStieltjes(bg, base, sk);
+	}
+	return o;
+}
+
+struct ChainCmp
+{
+	Cmp m, p, d, x;
+	double dM = 0;
+	bool ok = false;
+	double Worst() const { return std::max({m.max_rel, p.max_rel, x.max_rel, dM}); }
+};
+static ChainCmp CompareFields(const ProdFields &pf, const MHResult &ref)
+{
+	ChainCmp c;
+	c.ok = ref.ok;
+	c.m = Compare(pf.mhat, ref.mhat, pf.r);
+	c.p = Compare(pf.phat, ref.phat, pf.r);
+	c.d = Compare(pf.dphat, ref.dphat, pf.r);
+	c.x = Compare(pf.xihat, ref.xihat, pf.r);
+	c.dM = Rel(pf.deltaM, ref.deltaM_hat);
+	return c;
+}
+
 struct StarRow
 {
-	double M = 0, R = 0, dedp_c = 0, mhat_R = 0, phat_R = 0, xi_R = 0, shell = 0, ext = 0, dM = 0;
-	Cmp m_iso, p_iso, d_iso, x_iso, m_full, p_full, x_full;
-	double dM_iso = 0, dM_full = 0;
-	double ext_const = 0, dM_node_indep = 0;
+	double target = 0, ec = 0, M = 0, R = 0, p_cut = 0, eps_R = 0, I = 0, dedp_c = 0;
+	double mhat_R = 0, phat_R = 0, xi_R = 0, shell = 0, ext = 0, dM = 0;
+	ChainCmp iso_prof, iso_knot, iso_sec, full_prof, full_knot;
+	double old_form = 0, prof_vs_knot_dM = 0, prof_vs_knot_node = 0;
+	double ext_const = 0, raw_spread = 0;
 	std::size_t n = 0, n_vac = 0;
 };
 
@@ -283,25 +452,33 @@ int main(int argc, char **argv)
 		std::cerr << "authenticated EOS missing: " << cold.string() << "\n";
 		return 3;
 	}
-	const fs::path wrk = fs::temp_directory_path() / ("compactstar_hartle_monopole_4d_cmf_" + std::to_string(::getpid()));
+	const fs::path wrk = fs::temp_directory_path() / ("compactstar_hartle_monopole_4drv_cmf_" + std::to_string(::getpid()));
 	fs::remove_all(wrk);
 	fs::create_directories(wrk);
 
 	std::cout << std::scientific << std::setprecision(6);
-	std::cout << "Phase 4D — INDEPENDENT validation of the governed O(Omega^2) monopole response on\n"
-				 "DS(CMF)-1_with_crust. Oracle: the test-only (m0,h0) solver. Bounds from ADR-0007 §7.\n\n";
+	std::cout << "Phase 4D-RV — corrected INDEPENDENT validation of the governed O(Omega^2) monopole response on\n"
+				 "DS(CMF)-1_with_crust (ADR-0007 + ADR-0008 on the ADR-0009 surface event). Oracle: the test-only\n"
+				 "(m0,h0) solver with the measure accumulated as Stieltjes atoms on an independent partition.\n\n";
+
+	const eos_knots::Knots knots = eos_knots::Read(cold.string());
+	Report("K0 EOS-table knots read for the knot-refined measure partition", knots.ok,
+		   std::to_string(knots.rows) + " rows");
+	const double km2_to_gcm3 = Zaki::Physics::INV_FM4_2_G_CM3 / Zaki::Physics::INV_FM4_2_INV_KM2;
 
 	// =====================================================================
-	//  G — four stars, both chains
+	//  Z + G + F + C — four stars
 	// =====================================================================
-	std::cout << "G. Full-profile comparison, production vs the independent (m0,h0) solver\n";
+	std::cout << "\nG. Four canonical stars (governed target-mass workflow), production vs the independent oracle\n";
 	const double masses[] = {1.0, 1.4, 1.6, 2.0};
 	std::vector<StarRow> rows;
-	Star star16; // kept for H, I, J, R
+	Star star16;
 
 	for (double M : masses)
 	{
 		Star st = BuildAtMass(cold, wrk / ("m" + std::to_string(M)), M);
+		Report("Z " + Sci(M, 2) + " Msun: complete ADR-0009 star (SURFACE_REACHED, last node p == p_cut, finite surface data)",
+			   st.complete, st.why);
 		if (!st.ns)
 		{
 			Report("G build " + Sci(M, 2) + " Msun", false, "no production response");
@@ -313,8 +490,13 @@ int main(int argc, char **argv)
 		ProdShape(cns, s_p, sp_p);
 
 		StarRow row;
-		row.M = M;
+		row.target = M;
+		row.ec = st.ec_cgs;
+		row.M = st.pts.back().m;
 		row.R = pf.R;
+		row.p_cut = st.p_cut;
+		row.eps_R = pf.eps_R * km2_to_gcm3;
+		row.I = pf.I;
 		row.n = pf.r.size();
 		row.dedp_c = (*cns.Profile().GetEosDEdP())[0];
 		row.mhat_R = pf.mhat.back();
@@ -324,57 +506,38 @@ int main(int argc, char **argv)
 		row.ext = pf.I * pf.I / (pf.R * pf.R * pf.R);
 		row.dM = pf.deltaM;
 
-		// isolated chain
+		// ---- chain A: production s, s' ----
 		const Background2 bg_iso = FromProfile(cns, s_p, sp_p);
-		MHOptions oi;
-		oi.I_exterior = pf.I;
-		oi.eos_measure = true; // ADR-0008 Q1/Q3 (accepted source form)
-		const MHResult ri = hartle_mono_ref::Solve(bg_iso, oi);
-		row.m_iso = Compare(pf.mhat, ri.mhat, pf.r);
-		row.p_iso = Compare(pf.phat, ri.phat, pf.r);
-		row.d_iso = Compare(pf.dphat, ri.dphat, pf.r);
-		row.x_iso = Compare(pf.xihat, ri.xihat, pf.r);
-		row.dM_iso = Rel(pf.deltaM, ri.deltaM_hat);
+		const OracleSet oa = RunOracles(bg_iso, pf.I, &knots);
+		row.iso_prof = CompareFields(pf, oa.stj_profile);
+		row.iso_knot = CompareFields(pf, oa.stj_knots);
+		row.iso_sec = CompareFields(pf, oa.secant);
+		row.old_form = oa.differential.ok ? Rel(oa.differential.deltaM_hat, pf.deltaM) : std::numeric_limits<double>::quiet_NaN();
+		row.prof_vs_knot_dM = Rel(oa.stj_profile.deltaM_hat, oa.stj_knots.deltaM_hat);
+		row.prof_vs_knot_node = Compare(oa.stj_profile.mhat, oa.stj_knots.mhat, pf.r).max_rel;
 
-		// fully independent chain: independent first order on the same tabulated background
-		if (Quick())
-		{
-			row.m_full = row.m_iso; row.p_full = row.p_iso; row.x_full = row.x_iso; row.dM_full = row.dM_iso;
-		}
-		const auto hb = Quick() ? hartle_ref::Background{} : hartle_4b::BackgroundFromProfile(cns);
+		// ---- chain B: independent first order ----
 		hartle_ref::Result fo;
-		MHResult rf;
 		if (!Quick())
 		{
+			const auto hb = hartle_4b::BackgroundFromProfile(cns);
 			fo = hartle_ref::Solve(hb, 5.0e-3, hb.r.front(), 1e-13, 1e-16);
 			Background2 bg_full = bg_iso;
 			bg_full.s = fo.s;
 			bg_full.sp = fo.s_prime;
-			MHOptions of;
-			of.I_exterior = fo.I_surface;
-			of.eos_measure = true;
-			rf = hartle_mono_ref::Solve(bg_full, of);
-			row.m_full = Compare(pf.mhat, rf.mhat, pf.r);
-			row.p_full = Compare(pf.phat, rf.phat, pf.r);
-			row.x_full = Compare(pf.xihat, rf.xihat, pf.r);
-			row.dM_full = Rel(pf.deltaM, rf.deltaM_hat);
-		}
-		else
-		{
-			fo.ok = true;
-			rf.ok = true;
+			const OracleSet ob = RunOracles(bg_full, fo.I_surface, &knots);
+			row.full_prof = CompareFields(pf, ob.stj_profile);
+			row.full_knot = CompareFields(pf, ob.stj_knots);
+			row.full_prof.ok = row.full_prof.ok && fo.ok;
+			row.full_knot.ok = row.full_knot.ok && fo.ok;
 		}
 
-		// F — near-vacuum identity on the outermost nodes (no node lies beyond R_*)
-		double raw_spread = std::numeric_limits<double>::quiet_NaN(), corr_spread = raw_spread, sp_vs_I = raw_spread;
+		// ---- F: near-vacuum identity on the outermost nodes ----
+		double sp_vs_I = std::numeric_limits<double>::quiet_NaN();
 		{
 			const auto &P = cns.Profile();
-			const double km2_to_gcm3 = Zaki::Physics::INV_FM4_2_G_CM3 / Zaki::Physics::INV_FM4_2_INV_KM2;
 			const double eps_win = kVacuumEps_gcm3 / km2_to_gcm3;
 			const std::size_t n = pf.r.size();
-			// matter part of the (97) source on production's own fields, in the ACCEPTED measure
-			// form (ADR-0008): the EOS part uses each segment's own d(eps)/dr, evaluated at the
-			// node from the segment that ends there.
 			std::vector<double> fm(n, 0.0);
 			for (std::size_t i = 0; i < n; ++i)
 			{
@@ -387,7 +550,6 @@ int main(int argc, char **argv)
 				fm[i] = -4.0 * M_PI * r * r * pf.xihat[i] * slope +
 						(8.0 * M_PI / 3.0) * r * r * r * r * (eps + p) * std::exp(-2.0 * nu) * s_p[i] * s_p[i];
 			}
-			// remaining matter source from node i to R_* (trapezoid)
 			std::vector<double> S(n, 0.0);
 			for (std::size_t i = n - 1; i-- > 0;)
 				S[i] = S[i + 1] + 0.5 * (fm[i] + fm[i + 1]) * (pf.r[i + 1] - pf.r[i]);
@@ -406,64 +568,65 @@ int main(int argc, char **argv)
 				}
 			}
 			row.n_vac = nv;
-			if (nv >= 2)
-			{
-				raw_spread = (rhi - rlo) / pf.deltaM;
-				corr_spread = (chi - clo) / pf.deltaM;
-			}
-			row.ext_const = corr_spread;
-			row.dM_node_indep = raw_spread;
+			row.raw_spread = nv >= 2 ? (rhi - rlo) / pf.deltaM : std::numeric_limits<double>::quiet_NaN();
+			row.ext_const = nv >= 2 ? (chi - clo) / pf.deltaM : std::numeric_limits<double>::quiet_NaN();
 			sp_vs_I = Rel(sp_p[n - 1], 6.0 * pf.I / (pf.R * pf.R * pf.R * pf.R));
 		}
 
-		// SUPERSEDED differential form, reported only: the gap is the sub-node energy-density
-		// variation the nodal deps/dp column loses (ADR-0008; PHASE4D_MONOPOLE_VALIDATION.md).
-		double old_form_dM = std::numeric_limits<double>::quiet_NaN();
-		{
-			MHOptions oo = oi;
-			oo.eos_measure = false;
-			const MHResult ro = hartle_mono_ref::Solve(bg_iso, oo);
-			if (ro.ok)
-				old_form_dM = Rel(ro.deltaM_hat, pf.deltaM);
-		}
+		// ---- C: same-partition accounting (ADR-0008 Validation C) ----
+		const auto acc = Account(bg_iso, pf.mhat.front(), pf.phat.front());
+		const double acc_node = acc.ok ? Compare(acc.mhat, pf.mhat, pf.r).max_rel : 1.0;
+		const double acc_R = acc.ok ? Rel(acc.mhat.back(), pf.mhat.back()) : 1.0;
 
-		const bool ok_iso = ri.ok && std::max({row.m_iso.max_rel, row.p_iso.max_rel, row.d_iso.max_rel, row.x_iso.max_rel}) <= kG_Profile;
-		const bool ok_full = rf.ok && fo.ok && std::max({row.m_full.max_rel, row.p_full.max_rel, row.x_full.max_rel}) <= kG_Profile;
-		Report(Sci(M, 2) + " Msun: ISOLATED chain agrees at every node", ok_iso,
-			   "max rel mhat=" + Sci(row.m_iso.max_rel) + " phat=" + Sci(row.p_iso.max_rel) + " dphat=" +
-				   Sci(row.d_iso.max_rel) + " xihat=" + Sci(row.x_iso.max_rel) + " dM=" + Sci(row.dM_iso));
-		Report(Sci(M, 2) + " Msun: FULLY INDEPENDENT chain agrees at every node", ok_full,
-			   "max rel mhat=" + Sci(row.m_full.max_rel) + " phat=" + Sci(row.p_full.max_rel) + " xihat=" +
-				   Sci(row.x_full.max_rel) + " dM=" + Sci(row.dM_full));
+		const bool ok_iso = row.iso_prof.ok && row.iso_knot.ok && row.iso_prof.Worst() <= kG_Profile &&
+							row.iso_knot.Worst() <= kG_Profile && row.iso_prof.d.max_rel <= kG_Profile;
+		Report(Sci(M, 2) + " Msun: SECOND-ORDER-ISOLATED chain — production agrees with the INDEPENDENT Stieltjes oracle (profile K=4 and EOS-knot K=2) at every node",
+			   ok_iso,
+			   "profile: mhat=" + Sci(row.iso_prof.m.max_rel) + " phat=" + Sci(row.iso_prof.p.max_rel) + " dphat=" +
+				   Sci(row.iso_prof.d.max_rel) + " xihat=" + Sci(row.iso_prof.x.max_rel) + " dM=" + Sci(row.iso_prof.dM) +
+				   " | knots: mhat=" + Sci(row.iso_knot.m.max_rel) + " phat=" + Sci(row.iso_knot.p.max_rel) + " xihat=" +
+				   Sci(row.iso_knot.x.max_rel) + " dM=" + Sci(row.iso_knot.dM) + "  bound=" + Sci(kG_Profile));
+		if (!Quick())
+			Report(Sci(M, 2) + " Msun: FULLY INDEPENDENT chain agrees at every node (profile and knot oracles)",
+				   row.full_prof.ok && row.full_knot.ok && row.full_prof.Worst() <= kG_Profile && row.full_knot.Worst() <= kG_Profile,
+				   "profile: mhat=" + Sci(row.full_prof.m.max_rel) + " phat=" + Sci(row.full_prof.p.max_rel) + " xihat=" +
+					   Sci(row.full_prof.x.max_rel) + " dM=" + Sci(row.full_prof.dM) + " | knots: mhat=" + Sci(row.full_knot.m.max_rel) +
+					   " phat=" + Sci(row.full_knot.p.max_rel) + " xihat=" + Sci(row.full_knot.x.max_rel) + " dM=" + Sci(row.full_knot.dM));
 		Report(Sci(M, 2) + " Msun: near-vacuum identity — matter-corrected mhat + S + I^2/r^3 constant over the outermost nodes",
 			   std::isfinite(row.ext_const) && row.ext_const <= kF_Exterior,
-			   "corrected spread/deltaM=" + Sci(row.ext_const) + "  raw spread/deltaM=" + Sci(row.dM_node_indep) + " over " +
+			   "corrected spread/deltaM=" + Sci(row.ext_const) + "  raw spread/deltaM=" + Sci(row.raw_spread) + " over " +
 				   std::to_string(row.n_vac) + " nodes (eps < 1e9 g/cm^3)  bound=" + Sci(kF_Exterior) +
 				   "  | s'(R_*) vs 6I/R_*^4 rel=" + Sci(sp_vs_I));
 		Report(Sci(M, 2) + " Msun: matching arithmetic deltaM_hat = mhat(R_*) + shell + I^2/R_*^3 is exact",
 			   Rel(pf.deltaM, pf.mhat.back() + pf.shell + pf.I * pf.I / (pf.R * pf.R * pf.R)) <= 1e-14, "");
-		std::cout << "     REPORTED — the SUPERSEDED differential (nodal deps/dp) oracle disagrees with the corrected production deltaM_hat by "
-				  << Sci(old_form_dM) << "; that is the sub-node energy-density variation ADR-0008 recovers, not a numerical error.\n";
+		Report(Sci(M, 2) + " Msun: ADR-0008 Validation C — same-partition source accounting reproduces production m0_hat",
+			   acc.ok && acc_node <= kC_Accounting && acc_R <= kC_Accounting,
+			   "worst node rel=" + Sci(acc_node) + "  m0_hat(R_*) rel=" + Sci(acc_R) + "  worst segment residual=" +
+				   Sci(acc.worst_segment_abs) + " km^3 of an EOS total " + Sci(acc.eos_total) + "  bound=" + Sci(kC_Accounting));
+		std::cout << "     REPORTED — production-like secant oracle (variable-pair cross-check only): mhat=" << Sci(row.iso_sec.m.max_rel)
+				  << " phat=" << Sci(row.iso_sec.p.max_rel) << " dM=" << Sci(row.iso_sec.dM) << "\n"
+				  << "     REPORTED — measure-discretization diagnostic, profile-partition vs EOS-knot Stieltjes oracle: deltaM_hat rel="
+				  << Sci(row.prof_vs_knot_dM) << ", node-wise mhat rel=" << Sci(row.prof_vs_knot_node) << "\n"
+				  << "     REPORTED — the SUPERSEDED differential (nodal deps/dp) oracle disagrees with production deltaM_hat by "
+				  << Sci(row.old_form) << " (the sub-node energy-density variation ADR-0008 recovers; M10's target)\n";
 
 		rows.push_back(row);
 		if (M == 1.6)
 			star16 = std::move(st);
 	}
 
-	std::cout << "\n  M[Msun]  R_*[km]   dedp_c    mhat(R_*)   phat(R_*)   xi_hat(R_*)  shell_hat   I^2/R_*^3   deltaM_hat\n";
+	std::cout << "\n  target  eps_c[g/cm^3]    M[Msun]         R_*[km]      p_cut[dyn/cm^2]  eps_*[g/cm^3]  I[km^3]       dedp_c\n";
 	for (const auto &w : rows)
 	{
 		char b[400];
-		snprintf(b, sizeof(b), "  %5.2f   %8.5f  %.4e  %.4e  %.4e  %.4e  %.4e  %.4e  %.4e\n", w.M, w.R, w.dedp_c, w.mhat_R,
-				 w.phat_R, w.xi_R, w.shell, w.ext, w.dM);
+		snprintf(b, sizeof(b), "  %5.2f   %.9e  %.10f  %.9f  %.7e  %.7e  %.9e  %.7e\n", w.target, w.ec, w.M, w.R, w.p_cut, w.eps_R, w.I, w.dedp_c);
 		std::cout << b;
 	}
-	std::cout << "  M[Msun]  RMS mhat    RMS phat    RMS xihat   worst r mhat  worst r phat  worst r xihat  surface rel phat\n";
+	std::cout << "  target  mhat(R_*)        phat(R_*)        xi_hat(R_*)      shell_hat        I^2/R_*^3        deltaM_hat        nodes\n";
 	for (const auto &w : rows)
 	{
 		char b[400];
-		snprintf(b, sizeof(b), "  %5.2f   %.3e   %.3e   %.3e   %8.4f km   %8.4f km   %8.4f km    %.3e\n", w.M, w.m_iso.rms,
-				 w.p_iso.rms, w.x_iso.rms, w.m_iso.r_worst, w.p_iso.r_worst, w.x_iso.r_worst, w.p_iso.surface_rel);
+		snprintf(b, sizeof(b), "  %5.2f   %.9e  %.9e  %.9e  %.9e  %.9e  %.10e  %zu\n", w.target, w.mhat_R, w.phat_R, w.xi_R, w.shell, w.ext, w.dM, w.n);
 		std::cout << b;
 	}
 
@@ -476,7 +639,7 @@ int main(int argc, char **argv)
 	}
 	if (!star16.ns)
 	{
-		std::cout << "\nFAIL — 1.6 Msun star unavailable for H/I/J/R\n";
+		std::cout << "\nFAIL — 1.6 Msun star unavailable for R/H/I/J\n";
 		return 1;
 	}
 	const NStar &c16 = *star16.ns;
@@ -486,272 +649,294 @@ int main(int argc, char **argv)
 	const Background2 bg16 = FromProfile(c16, s16, sp16);
 
 	// =====================================================================
-	//  R — reference admissibility on 1.6 Msun
+	//  R — the reference's own floor on 1.6 Msun
 	// =====================================================================
-	std::cout << "\nR. Reference admissibility on 1.6 Msun\n";
+	std::cout << "\nR. Reference floor on 1.6 Msun — integrator tolerance, centre start, measure-partition refinement, EOS-knot refinement\n";
 	{
 		MHOptions o0;
 		o0.I_exterior = pf16.I;
-		const auto base = hartle_mono_ref::Solve(bg16, o0);
-		double floor = 0.0;
+		StieltjesOptions p4;
+		p4.refine = kK_Profile;
+		const auto base = hartle_mono_ref::SolveStieltjes(bg16, o0, p4);
+		StieltjesOptions k2;
+		k2.refine = kK_Knots;
+		k2.knot_p = &knots.p;
+		k2.knot_eps = &knots.eps;
+		const auto kbase = hartle_mono_ref::SolveStieltjes(bg16, o0, k2);
+		auto move = [&](const MHResult &v, const MHResult &ref) {
+			return std::max({Compare(v.mhat, ref.mhat, pf16.r).max_rel, Compare(v.phat, ref.phat, pf16.r).max_rel,
+							 Compare(v.xihat, ref.xihat, pf16.r).max_rel, Rel(v.deltaM_hat, ref.deltaM_hat)});
+		};
+		double floor_tol = 0.0, floor_r0 = 0.0, floor_K = 0.0, floor_knotK = 0.0;
 		for (double tol : {1e-11, 1e-15})
 		{
 			MHOptions o = o0;
 			o.rtol = tol;
 			o.atol = tol * 1e-3;
-			const auto v = hartle_mono_ref::Solve(bg16, o);
-			floor = std::max({floor, Compare(v.mhat, base.mhat, pf16.r).max_rel, Compare(v.phat, base.phat, pf16.r).max_rel,
-							  Rel(v.deltaM_hat, base.deltaM_hat)});
+			floor_tol = std::max(floor_tol, move(hartle_mono_ref::SolveStieltjes(bg16, o, p4), base));
 		}
 		{
 			MHOptions o = o0;
 			o.r0 = 1e-7;
-			const auto v = hartle_mono_ref::Solve(bg16, o);
-			floor = std::max({floor, Compare(v.mhat, base.mhat, pf16.r).max_rel, Compare(v.phat, base.phat, pf16.r).max_rel,
-							  Rel(v.deltaM_hat, base.deltaM_hat)});
+			floor_r0 = std::max(floor_r0, move(hartle_mono_ref::SolveStieltjes(bg16, o, p4), base));
 		}
-		const auto it = std::find_if(rows.begin(), rows.end(), [](const StarRow &w) { return w.M == 1.6; });
-		const double signal = std::max({it->m_iso.max_rel, it->p_iso.max_rel, it->x_iso.max_rel, it->dM_iso});
-		Report("Ra reference self-movement (tol 1e-11..1e-15, r0 1e-5..1e-7) is subdominant to the disagreement",
-			   signal > 0 && floor / signal <= kR_FloorRatio,
-			   "floor=" + Sci(floor) + "  signal=" + Sci(signal) + "  ratio=" + Sci(signal > 0 ? floor / signal : 0.0, 2));
+		// The reference's own discretization floor is its movement under FURTHER refinement
+		// (K=8 vs K=4; knot K=4 vs K=2); the coarser points form the convergence ladder and are
+		// reported, not counted as the floor of the K=4 / K=2 references.
+		std::cout << "     profile-partition refinement ladder K (deltaM_hat, and movement vs K=4):\n";
+		for (int K : {1, 2, 8})
+		{
+			StieltjesOptions s;
+			s.refine = K;
+			const auto v = hartle_mono_ref::SolveStieltjes(bg16, o0, s);
+			const double mv = move(v, base);
+			if (K > kK_Profile)
+				floor_K = std::max(floor_K, mv);
+			std::cout << "       K=" << K << ": deltaM_hat=" << Sci(v.deltaM_hat, 10) << "  movement=" << Sci(mv) << (K > kK_Profile ? "  (floor)" : "  (ladder)") << "\n";
+		}
+		std::cout << "       K=4: deltaM_hat=" << Sci(base.deltaM_hat, 10) << " (reference)\n";
+		std::cout << "     EOS-knot partition refinement ladder K (deltaM_hat, and movement vs knot K=2):\n";
+		for (int K : {1, 4})
+		{
+			StieltjesOptions s = k2;
+			s.refine = K;
+			const auto v = hartle_mono_ref::SolveStieltjes(bg16, o0, s);
+			const double mv = move(v, kbase);
+			if (K > kK_Knots)
+				floor_knotK = std::max(floor_knotK, mv);
+			std::cout << "       K=" << K << ": deltaM_hat=" << Sci(v.deltaM_hat, 10) << "  movement=" << Sci(mv) << (K > kK_Knots ? "  (floor)" : "  (ladder)") << "\n";
+		}
+		std::cout << "       K=2: deltaM_hat=" << Sci(kbase.deltaM_hat, 10) << " (reference)\n";
+		const auto it = std::find_if(rows.begin(), rows.end(), [](const StarRow &w) { return w.target == 1.6; });
+		const double signal = it->iso_prof.Worst();
+		const double signal_k = it->iso_knot.Worst();
+		const double floor = std::max({floor_tol, floor_r0, floor_K});
+		std::cout << "     floor components: tolerance " << Sci(floor_tol) << ", centre start " << Sci(floor_r0)
+				  << ", partition refinement " << Sci(floor_K) << ", knot refinement " << Sci(floor_knotK) << "\n"
+				  << "     absolute floor on deltaM_hat: " << Sci(floor * base.deltaM_hat) << " km^3; relative floor " << Sci(floor)
+				  << "; production-oracle disagreement (profile oracle) " << Sci(signal) << ", (knot oracle) " << Sci(signal_k) << "\n";
+		const double floor_k = std::max(floor_knotK, std::max(floor_tol, floor_r0));
+		Report("Ra the knot-oracle floor (tolerance, centre start, K-refinement) is subdominant to its production disagreement",
+			   signal_k > 0 && floor_k / signal_k <= kR_FloorRatio,
+			   "floor=" + Sci(floor_k) + "  signal=" + Sci(signal_k) + "  floor/signal=" + Sci(signal_k > 0 ? floor_k / signal_k : 0.0, 2));
+		Report("Rb the profile-partition oracle and production agree down to that oracle's own floor, both two decades under the G bound",
+			   std::max(floor, signal) <= 1.0e-6,
+			   "floor=" + Sci(floor) + "  disagreement=" + Sci(signal) + "  (floor-limited agreement at " + Sci(std::max(floor, signal)) + ")");
 	}
 
 	// =====================================================================
-	//  H — radial convergence at fixed central density (1.6 Msun)
+	//  H — corrected radial convergence at fixed eps_c (ADR-0008 Validation D)
 	// =====================================================================
-	std::cout << "\nH. Radial convergence at fixed eps_c = " << Sci(star16.ec_cgs, 6) << " g/cm^3 (1.6 Msun)\n";
+	std::cout << "\nH. Radial convergence at fixed eps_c = " << Sci(star16.ec_cgs, 9) << " g/cm^3 (1.6 Msun), migrated ADR-0009 background\n";
 	{
 		struct Hrow
 		{
 			std::size_t res, n;
-			double R, M, dM, xi, mR, p_half;
+			double R, M, I, mR, xi, shell, ext, dM, p25, p50, p75, dM_prof, dM_knot;
+			double eos_part, rot_part; // m0_hat(R_*) channels from the same-partition accounting integrator
+			bool complete;
 		};
 		std::vector<Hrow> h;
-		for (std::size_t res : {std::size_t(5000), std::size_t(10000), std::size_t(20000)})
+		for (std::size_t res : {std::size_t(5000), std::size_t(10000), std::size_t(20000), std::size_t(40000), std::size_t(80000)})
 		{
 			Star st = BuildAtDensity(cold, wrk / ("h" + std::to_string(res)), star16.ec_cgs, res);
 			if (!st.ns)
 			{
-				Report("H build res=" + std::to_string(res), false, "");
+				Report("H build res=" + std::to_string(res), false, st.why);
 				continue;
 			}
 			const auto f = Fields(*st.ns);
-			// interior sample: p0*_hat at the node nearest R/2
-			std::size_t k = 0;
-			for (std::size_t i = 0; i < f.r.size(); ++i)
-				if (std::fabs(f.r[i] - 0.5 * f.R) < std::fabs(f.r[k] - 0.5 * f.R))
-					k = i;
-			h.push_back({res, f.r.size(), f.R, st.pts.back().m, f.deltaM, f.xi_R, f.mhat.back(), f.phat[k]});
+			std::vector<double> s, sp;
+			ProdShape(*st.ns, s, sp);
+			const Background2 bg = FromProfile(*st.ns, s, sp);
+			const OracleSet o = RunOracles(bg, f.I, &knots);
+			const auto acc = Account(bg, f.mhat.front(), f.phat.front());
+			h.push_back({res, f.r.size(), f.R, st.pts.back().m, f.I, f.mhat.back(), f.xi_R, f.shell, f.I * f.I / (f.R * f.R * f.R), f.deltaM,
+						 AtRadius(f.r, f.phat, 0.25 * f.R), AtRadius(f.r, f.phat, 0.5 * f.R), AtRadius(f.r, f.phat, 0.75 * f.R),
+						 o.stj_profile.deltaM_hat, o.stj_knots.deltaM_hat,
+						 acc.ok ? acc.eos_total : std::numeric_limits<double>::quiet_NaN(),
+						 acc.ok ? acc.mhat.back() - acc.mhat.front() - acc.eos_total : std::numeric_limits<double>::quiet_NaN(), st.complete});
 		}
-		std::cout << "     res     nodes    R_*[km]     M[Msun]        deltaM_hat      xi_hat(R_*)     mhat(R_*)       phat(R/2)\n";
+		std::cout << "     res    nodes   complete  R_*[km]         M[Msun]          I[km^3]          mhat(R_*)        xi_hat(R_*)      shell_hat     I^2/R_*^3      deltaM_hat\n";
 		for (const auto &x : h)
 		{
-			char b[300];
-			snprintf(b, sizeof(b), "     %5zu   %5zu   %.6f  %.8f  %.8e  %.8e  %.8e  %.8e\n", x.res, x.n, x.R, x.M, x.dM, x.xi, x.mR, x.p_half);
+			char b[400];
+			snprintf(b, sizeof(b), "     %5zu  %5zu   %d   %.9f  %.10f  %.9e  %.9e  %.9e  %.4e  %.9e  %.10e\n", x.res, x.n, x.complete ? 1 : 0, x.R, x.M, x.I, x.mR, x.xi, x.shell, x.ext, x.dM);
 			std::cout << b;
 		}
-		if (h.size() == 3)
+		std::cout << "     res    phat(R/4)        phat(R/2)        phat(3R/4)       | independent oracle deltaM_hat: profile K=4     EOS-knot K=2\n";
+		for (const auto &x : h)
 		{
-			auto order = [](double a, double b, double c) {
-				const double d1 = std::fabs(a - b), d2 = std::fabs(b - c);
-				return d2 > 0 ? std::log2(d1 / d2) : std::numeric_limits<double>::quiet_NaN();
-			};
-			auto rich = [](double b, double c, double p) { return c + (c - b) / (std::pow(2.0, p) - 1.0); };
-			const double pM = order(h[0].dM, h[1].dM, h[2].dM), pX = order(h[0].xi, h[1].xi, h[2].xi),
-						 pm = order(h[0].mR, h[1].mR, h[2].mR), pp = order(h[0].p_half, h[1].p_half, h[2].p_half);
-			std::cout << "     successive differences deltaM_hat: " << Sci(std::fabs(h[0].dM - h[1].dM)) << ", "
-					  << Sci(std::fabs(h[1].dM - h[2].dM)) << "  observed order " << Sci(pM, 2) << "\n";
-			std::cout << "     successive differences xi_hat(R_*): " << Sci(std::fabs(h[0].xi - h[1].xi)) << ", "
-					  << Sci(std::fabs(h[1].xi - h[2].xi)) << "  observed order " << Sci(pX, 2) << "\n";
-			std::cout << "     successive differences mhat(R_*):   " << Sci(std::fabs(h[0].mR - h[1].mR)) << ", "
-					  << Sci(std::fabs(h[1].mR - h[2].mR)) << "  observed order " << Sci(pm, 2) << "\n";
-			std::cout << "     successive differences phat(R/2):   " << Sci(std::fabs(h[0].p_half - h[1].p_half)) << ", "
-					  << Sci(std::fabs(h[1].p_half - h[2].p_half)) << "  observed order " << Sci(pp, 2) << "\n";
-			if (std::isfinite(pM) && pM > 0.5)
-				std::cout << "     Richardson-style residual on deltaM_hat at res=20000 (order " << Sci(pM, 2)
-						  << "): " << Sci(Rel(h[2].dM, rich(h[1].dM, h[2].dM, pM))) << " relative\n";
-			std::cout << "     (No pass criterion is invented here: INV-13 requires the order to be measured. R_* itself\n"
-						 "      moves with the grid, so surface-node quantities carry that shift; deltaM_hat is the\n"
-						 "      exterior-matched quantity and is the cleanest convergence indicator.)\n";
-			const double lo = std::min({h[0].dM, h[1].dM, h[2].dM}), hi = std::max({h[0].dM, h[1].dM, h[2].dM});
-			const double spread = (hi - lo) / std::fabs(h[1].dM);
-			std::cout << "     RECORD — PHASE 4D-RI: with the ADR-0008 measure source the relative SPREAD of deltaM_hat over\n"
-					  << "     5000/10000/20000 is " << Sci(spread) << " (ADR-0008 Validation D asks <= 1e-4), but its successive\n"
-					  << "     differences are NOT monotone (" << Sci(std::fabs(h[0].dM - h[1].dM), 2) << " then "
-					  << Sci(std::fabs(h[1].dM - h[2].dM), 2) << " km^3) and R_* itself moves with the grid\n"
-					  << "     (" << Sci(h[0].R, 8) << " -> " << Sci(h[2].R, 8) << " km). The residual is the TOV background's own\n"
-					  << "     resolution dependence, not the monopole source; separating the two is the corrected\n"
-					  << "     revalidation increment's line D, not this implementation task's.\n";
-			Report("Ha the 5000/10000/20000 sequence was produced and its convergence measured", h.size() == 3, "");
+			char b[400];
+			snprintf(b, sizeof(b), "     %5zu  %.9e  %.9e  %.9e  |  %.10e  %.10e\n", x.res, x.p25, x.p50, x.p75, x.dM_prof, x.dM_knot);
+			std::cout << b;
 		}
+		std::cout << "     res    m0_hat(R_*) EOS channel   rotational channel   | first-order I[km^3]   I vs 80000\n";
+		for (const auto &x : h)
+		{
+			char b[400];
+			snprintf(b, sizeof(b), "     %5zu  %.10e       %.10e     |  %.10e   %+.3e\n", x.res, x.eos_part, x.rot_part, x.I, h.back().I != 0 ? x.I / h.back().I - 1.0 : 0.0);
+			std::cout << b;
+		}
+		const bool have4 = h.size() >= 4 && h[0].res == 5000 && h[3].res == 40000;
+		if (have4)
+		{
+			auto diffs = [&](auto get) {
+				std::vector<double> d;
+				for (std::size_t i = 1; i < 4; ++i)
+					d.push_back(get(h[i]) - get(h[i - 1]));
+				return d;
+			};
+			const auto dP = diffs([](const Hrow &x) { return x.dM; });
+			const auto dO = diffs([](const Hrow &x) { return x.dM_prof; });
+			const auto dK = diffs([](const Hrow &x) { return x.dM_knot; });
+			auto spread4 = [&](auto get) {
+				double lo = 1e300, hi = -1e300;
+				for (std::size_t i = 0; i < 4; ++i)
+				{
+					lo = std::min(lo, get(h[i]));
+					hi = std::max(hi, get(h[i]));
+				}
+				return (hi - lo) / std::fabs(get(h[1]));
+			};
+			auto decreasing = [](const std::vector<double> &d) {
+				return std::fabs(d[0]) >= std::fabs(d[1]) && std::fabs(d[1]) >= std::fabs(d[2]);
+			};
+			auto same_sign = [](const std::vector<double> &d) {
+				return (d[0] >= 0) == (d[1] >= 0) && (d[1] >= 0) == (d[2] >= 0);
+			};
+			const double sprP = spread4([](const Hrow &x) { return x.dM; });
+			const double sprO = spread4([](const Hrow &x) { return x.dM_prof; });
+			const double sprK = spread4([](const Hrow &x) { return x.dM_knot; });
+			double rspread = 0.0;
+			for (std::size_t i = 0; i < 4; ++i)
+				rspread = std::max(rspread, Rel(h[i].R, h[1].R));
+			std::cout << "     successive differences 5000->10000->20000->40000 [km^3]:\n"
+					  << "       production            : " << Sci(dP[0]) << ", " << Sci(dP[1]) << ", " << Sci(dP[2])
+					  << "   magnitudes decreasing: " << (decreasing(dP) ? "YES" : "NO") << "   monotone values: " << (same_sign(dP) ? "YES" : "NO") << "\n"
+					  << "       oracle, profile K=4   : " << Sci(dO[0]) << ", " << Sci(dO[1]) << ", " << Sci(dO[2])
+					  << "   magnitudes decreasing: " << (decreasing(dO) ? "YES" : "NO") << "   monotone values: " << (same_sign(dO) ? "YES" : "NO") << "\n"
+					  << "       oracle, EOS-knot K=2  : " << Sci(dK[0]) << ", " << Sci(dK[1]) << ", " << Sci(dK[2])
+					  << "   magnitudes decreasing: " << (decreasing(dK) ? "YES" : "NO") << "   monotone values: " << (same_sign(dK) ? "YES" : "NO") << "\n";
+			if (h.size() >= 5)
+				std::cout << "       extension 40000->80000: production " << Sci(h[4].dM - h[3].dM) << ", profile oracle " << Sci(h[4].dM_prof - h[3].dM_prof)
+						  << ", knot oracle " << Sci(h[4].dM_knot - h[3].dM_knot) << " km^3 (diagnostic)\n";
+			std::cout << "     relative spread over 5000..40000: production " << Sci(sprP) << ", profile oracle " << Sci(sprO) << ", knot oracle " << Sci(sprK)
+					  << "; R_* spread " << Sci(rspread) << "\n";
+			Report("Ha every convergence star is a complete ADR-0009 star and R_* is partition-invariant at the validated floor",
+				   std::all_of(h.begin(), h.end(), [](const Hrow &x) { return x.complete; }) && rspread <= kH_Rstar,
+				   "R_* spread=" + Sci(rspread) + "  bound=" + Sci(kH_Rstar));
+			Report("Hb ADR-0008 Validation D (spread): production deltaM_hat relative spread over 5000/10000/20000/40000 <= 1e-4",
+				   sprP <= kH_Spread, "spread=" + Sci(sprP) + "  bound=" + Sci(kH_Spread));
+			auto diffsI = diffs([](const Hrow &x) { return x.I; });
+			auto diffsE = diffs([](const Hrow &x) { return x.eos_part; });
+			auto diffsR = diffs([](const Hrow &x) { return x.rot_part; });
+			std::cout << "       first-order I         : " << Sci(diffsI[0]) << ", " << Sci(diffsI[1]) << ", " << Sci(diffsI[2])
+					  << "   magnitudes decreasing: " << (decreasing(diffsI) ? "YES" : "NO") << "   monotone values: " << (same_sign(diffsI) ? "YES" : "NO") << "\n"
+					  << "       m0 EOS channel        : " << Sci(diffsE[0]) << ", " << Sci(diffsE[1]) << ", " << Sci(diffsE[2])
+					  << "   magnitudes decreasing: " << (decreasing(diffsE) ? "YES" : "NO") << "   monotone values: " << (same_sign(diffsE) ? "YES" : "NO") << "\n"
+					  << "       m0 rotational channel : " << Sci(diffsR[0]) << ", " << Sci(diffsR[1]) << ", " << Sci(diffsR[2])
+					  << "   magnitudes decreasing: " << (decreasing(diffsR) ? "YES" : "NO") << "   monotone values: " << (same_sign(diffsR) ? "YES" : "NO") << "\n";
+			const bool hc = decreasing(dP);
+			std::cout << "     RECORD — Hc ADR-0008 Validation D (monotonicity of production deltaM_hat, 5000->10000->20000->40000): "
+					  << (hc ? "MET" : "NOT MET") << " — |d| = " << Sci(std::fabs(dP[0])) << " -> " << Sci(std::fabs(dP[1])) << " -> " << Sci(std::fabs(dP[2]))
+					  << " km^3; reading (ii) 'values monotone': " << (same_sign(dP) ? "MET" : "NOT MET") << ".\n"
+					  << "     This line is RECORDED, NOT WAIVED: when it is not met the scientific status of the revalidation record is\n"
+					  << "     CHARACTERIZED — INDEPENDENT VALIDATION INCOMPLETE (task §27), no monopole baseline is created, and the\n"
+					  << "     decomposition above attributes the residual (first-order sampled background vs measure weight location).\n";
+		}
+		else
+			Report("Ha the 5000/10000/20000/40000 sequence was produced", false, "");
 	}
 
 	// =====================================================================
-	//  I — EOS-derivative sensitivity (Steffen authority vs profile FD; c_s^2 unavailable)
+	//  I — EOS derivative / measure sensitivity on 1.6 Msun
 	// =====================================================================
-	std::cout << "\nI. EOS-derivative sensitivity on 1.6 Msun\n";
+	std::cout << "\nI. EOS-derivative / measure sensitivity on 1.6 Msun\n";
 	{
-		// Substitute the retired profile finite difference THROUGH the governed explicit-supply
-		// mechanism (TOVPoint::dedp), test-side; production's authority is untouched.
 		std::vector<TOVPoint> pts_fd = star16.pts;
-		const double c2 = Zaki::Physics::INV_FM4_2_Dyn_CM2 / Zaki::Physics::INV_FM4_2_G_CM3; // cgs -> dimensionless
+		const double c2 = Zaki::Physics::INV_FM4_2_Dyn_CM2 / Zaki::Physics::INV_FM4_2_G_CM3;
 		const std::size_t n = pts_fd.size();
 		for (std::size_t i = 0; i < n; ++i)
 		{
 			const std::size_t lo = (i == 0) ? 0 : i - 1, hi = (i + 1 < n) ? i + 1 : n - 1;
 			const double dp = pts_fd[hi].p - pts_fd[lo].p, de = pts_fd[hi].e - pts_fd[lo].e;
-			pts_fd[i].dedp = std::fabs(dp) > 1e-30 ? (de / dp) * c2 : 1.0; // the candidate's fallback, deliberately
+			pts_fd[i].dedp = std::fabs(dp) > 1e-30 ? (de / dp) * c2 : 1.0; // the retired candidate's fallback, deliberately
 		}
 		NStar ns_fd = star16.labels.empty() ? NStar(pts_fd) : NStar(pts_fd, star16.labels);
 		const bool ok = ns_fd.ComputeHartleMonopoleResponse();
+		const OracleSet o = RunOracles(bg16, pf16.I, &knots);
+		std::cout << "     A governed measure (production):            deltaM_hat=" << Sci(pf16.deltaM, 10) << "  xi_hat(R_*)=" << Sci(pf16.xi_R, 10) << "\n";
 		if (ok)
 		{
-			const NStar &cfd = ns_fd;
-			const auto ff = Fields(cfd);
-			const auto cm = Compare(ff.mhat, pf16.mhat, pf16.r), cp = Compare(ff.phat, pf16.phat, pf16.r),
-					   cx = Compare(ff.xihat, pf16.xihat, pf16.r);
-			std::cout << "     A (Steffen, authority): deltaM_hat=" << Sci(pf16.deltaM, 8) << "  xi_hat(R_*)=" << Sci(pf16.xi_R, 8) << "\n"
-					  << "     B (profile FD, diagnostic): deltaM_hat=" << Sci(ff.deltaM, 8) << "  xi_hat(R_*)=" << Sci(ff.xi_R, 8) << "\n"
-					  << "     B-A spread: deltaM_hat " << Sci(Rel(ff.deltaM, pf16.deltaM)) << ", xi_hat(R_*) " << Sci(Rel(ff.xi_R, pf16.xi_R))
-					  << ", profile max rel mhat " << Sci(cm.max_rel) << " phat " << Sci(cp.max_rel) << " xihat " << Sci(cx.max_rel)
-					  << " (worst at r=" << Sci(cp.r_worst, 4) << " km)\n"
-					  << "     C (tabulated c_s^2): CONDITIONAL CHECK UNAVAILABLE — the governed import carries no such column and the\n"
-					  << "       raw eos.thermo's three additional columns are undocumented (one negative, one zero, one equal to n_B).\n"
-					  << "     The ADR spread bound (<= 1e-3 on deltaM_hat) applies to an INDEPENDENT source; the FD row is a diagnostic\n"
-					  << "     showing how much the retired method moves the global answer.\n";
-			std::cout << "     RECORD — §7 item 10 (independent-derivative spread <= " << Sci(kI_Spread, 0)
-					  << "): NOT INDEPENDENTLY TESTABLE with the available inputs; the retired-FD diagnostic moves\n"
-					  << "     deltaM_hat by " << Sci(Rel(ff.deltaM, pf16.deltaM)) << " (the crust derivative is load-bearing at the percent level).\n";
-			Report("Ia the FD-substituted star computed through the governed explicit-supply mechanism (diagnostic only)", true, "");
+			const auto ff = Fields(ns_fd);
+			std::cout << "     B retired profile-FD derivative substituted:  deltaM_hat=" << Sci(ff.deltaM, 10) << "  spread vs A=" << Sci(Rel(ff.deltaM, pf16.deltaM)) << "\n";
+			Report("Ia ADR-0008 Validation E — the retired-FD substitution moves deltaM_hat by < 1e-3 (deps/dp enters only the centre series now)",
+				   Rel(ff.deltaM, pf16.deltaM) < kI_FD, "spread=" + Sci(Rel(ff.deltaM, pf16.deltaM)) + "  bound=" + Sci(kI_FD));
 		}
 		else
 			Report("Ia FD-substituted star computed", false, "");
+		std::cout << "     C nodal deps/dp differential form (oracle):    deltaM_hat=" << Sci(o.differential.deltaM_hat, 10) << "  vs A=" << Sci(Rel(o.differential.deltaM_hat, pf16.deltaM))
+				  << "  (the superseded representation; the historical ~5 % deficit as a diagnostic)\n"
+				  << "     D EOS-knot-refined measure (oracle):           deltaM_hat=" << Sci(o.stj_knots.deltaM_hat, 10) << "  vs A=" << Sci(Rel(o.stj_knots.deltaM_hat, pf16.deltaM)) << "\n"
+				  << "       profile-partition Stieltjes (oracle):        deltaM_hat=" << Sci(o.stj_profile.deltaM_hat, 10) << "  vs A=" << Sci(Rel(o.stj_profile.deltaM_hat, pf16.deltaM)) << "\n"
+				  << "       production-like secant (oracle):             deltaM_hat=" << Sci(o.secant.deltaM_hat, 10) << "  vs A=" << Sci(Rel(o.secant.deltaM_hat, pf16.deltaM)) << "\n";
 	}
 
 	// =====================================================================
-	//  J — homogeneous family vs the TOV sequence derivative dM/deps_c (test-side)
+	//  J — homogeneous family vs the TOV sequence derivative (ADR-0008 Validation B)
 	// =====================================================================
-	std::cout << "\nJ. Homogeneous (sequence-derivative) family vs dM/deps_c from a TOV sweep — 1.6 Msun\n";
+	std::cout << "\nJ. Homogeneous (sequence-derivative) family vs dM/dp_c from a TOV sweep of complete ADR-0009 stars — 1.6 Msun\n";
 	{
-		double relP_fin = 1.0, relE_fin = 1.0;
-		bool okfin = false;
-		std::size_t res_fin = 0;
-		// 40000 was added after the 10000 and 20000 measurements (1.171e-3, 1.016e-3 in the p_c
-		// form): the residual is grid-limited by the crust sampling of the dedp column, see the
-		// integrability diagnostic printed with each row.
+		bool ok_bind = true;
 		for (std::size_t res : {std::size_t(10000), std::size_t(20000), std::size_t(40000)})
 		{
 			Star st = BuildAtDensity(cold, wrk / ("j" + std::to_string(res)), star16.ec_cgs, res);
-			if (!st.ns)
+			if (!st.ns || !st.complete)
 			{
-				Report("J build res=" + std::to_string(res), false, "");
+				Report("J build res=" + std::to_string(res), false, st.why);
+				ok_bind = false;
 				continue;
 			}
 			const NStar &c = *st.ns;
 			std::vector<double> s0, sp0;
 			ProdShape(c, s0, sp0);
 			const Background2 bg = FromProfile(c, s0, sp0);
-			MHOptions o;
-			o.sources_on = false;
-			o.phat_at_r0 = 1.0;
-			o.I_exterior = 0.0;
-			o.eos_measure = true; // ADR-0008 Q1/Q3: the accepted source, on the oracle too
-			const auto hom = hartle_mono_ref::Solve(bg, o);
+			const OracleSet hom = RunOracles(bg, 0.0, &knots, false, 1.0);
 			const auto &P = c.Profile();
 			const double ec = (*P.GetEnergyDensity())[0], pc = (*P.GetPressure())[0], dedpc = (*P.GetEosDEdP())[0];
-			const double dp_c = (ec + pc);			  // p0*_c = 1  [km^-2]
-			const double deps_c = (ec + pc) * dedpc; // authority derivative
+			const double dp_c = (ec + pc); // p0*_c = 1
 			const double rel_step = 1.0e-3;
 			const SeqPt up = SequencePoint(cold, wrk / "jp", star16.ec_cgs * (1.0 + rel_step), res);
 			const SeqPt dn = SequencePoint(cold, wrk / "jm", star16.ec_cgs * (1.0 - rel_step), res);
+			Report("J res=" + std::to_string(res) + ": both sequence neighbours are complete ADR-0009 stars", up.complete && dn.complete, "");
 			const double dM_dpc = (up.M_km - dn.M_km) / (up.pc - dn.pc);
-			const double dM_dec = (up.M_km - dn.M_km) / (up.ec - dn.ec);
 			const double dedp_seq = (up.ec - dn.ec) / (up.pc - dn.pc);
-			const double expP = dM_dpc * dp_c, expE = dM_dec * deps_c, got = hom.deltaM_hat;
-			// Stieltjes evaluation of the m0 source. With dp/dr = -(eps+p) nu' the source
-			// 4 pi r^2 (eps+p)(deps/dp) p0* dr equals 4 pi r^2 p0* (-d eps)/nu': integrating against
-			// the profile's OWN density steps includes every density discontinuity the nodal
-			// (deps/dp) column cannot represent; integrating against the column reproduces the
-			// SUPERSEDED discretization. Test-side diagnostic, no production change.
-			// PHASE 4D-RI: since ADR-0008 the eps-step sum is what production itself integrates, so
-			// this block now measures the discretization gap the correction closed, and
-			// `dM_corr_sourced` is the contribution production no longer omits.
-			double m0h_col = 0.0, m0h_stj = 0.0, dM_corr_sourced = 0.0;
-			const auto fs_ = Fields(c);
+			const double expP = dM_dpc * dp_c;
+			const double rP = Rel(hom.stj_profile.deltaM_hat, expP), rK = Rel(hom.stj_knots.deltaM_hat, expP),
+						 rS = Rel(hom.secant.deltaM_hat, expP), rD = Rel(hom.differential.deltaM_hat, expP);
+			std::cout << "     res " << res << ": dM/dp_c=" << Sci(dM_dpc, 9) << " km^3  (deps/dp)_c sequence=" << Sci(dedp_seq, 7) << " vs authority=" << Sci(dedpc, 7)
+					  << " rel=" << Sci(Rel(dedp_seq, dedpc)) << "\n"
+					  << "                expected (dM/dp_c) dp_c=" << Sci(expP, 9) << "\n"
+					  << "                homogeneous deltaM: Stieltjes profile K=4 " << Sci(hom.stj_profile.deltaM_hat, 9) << " rel=" << Sci(rP)
+					  << " | EOS-knot K=2 " << Sci(hom.stj_knots.deltaM_hat, 9) << " rel=" << Sci(rK)
+					  << " | secant (reported) rel=" << Sci(rS) << " | superseded differential (reported) rel=" << Sci(rD) << "\n";
+			const bool bind = res <= 20000;
+			const bool ok = hom.stj_profile.ok && hom.stj_knots.ok && std::isfinite(dM_dpc) && up.complete && dn.complete && rP <= kJ_Homog && rK <= kJ_Homog;
+			if (bind)
 			{
-				const int nn = static_cast<int>(bg.r.size());
-				for (int i = 0; i + 1 < nn; ++i)
-				{
-					const double rm = 0.5 * (bg.r[i] + bg.r[i + 1]), nupm = 0.5 * (bg.nup[i] + bg.nup[i + 1]);
-					const double ph_h = 0.5 * (hom.phat[i] + hom.phat[i + 1]), ph_s = 0.5 * (fs_.phat[i] + fs_.phat[i + 1]);
-					const double step_eps = bg.eps[i] - bg.eps[i + 1];
-					const double step_col = 0.5 * (bg.dedp[i] + bg.dedp[i + 1]) * (bg.p[i] - bg.p[i + 1]);
-					const double w = 4.0 * M_PI * rm * rm / nupm;
-					m0h_col += w * ph_h * step_col;
-					m0h_stj += w * ph_h * step_eps;
-					dM_corr_sourced += w * ph_s * (step_eps - step_col);
-				}
+				ok_bind = ok_bind && ok;
+				Report("Ja ADR-0008 Validation B at res " + std::to_string(res) + ": independent homogeneous deltaM vs (dM/dp_c) dp_c <= 2e-4 (profile and knot oracles)",
+					   ok, "rel profile=" + Sci(rP) + "  knot=" + Sci(rK) + "  bound=" + Sci(kJ_Homog));
 			}
-			std::cout << "     res " << res << ": Stieltjes check — homogeneous m0(R_*) by ODE " << Sci(hom.mhat_R, 8)
-					  << ", by sum against the dedp column " << Sci(m0h_col, 8) << " (rel " << Sci(Rel(m0h_col, hom.mhat_R))
-					  << "), against the profile's eps steps " << Sci(m0h_stj, 8) << "\n"
-					  << "                -> eps-step homogeneous deltaM vs (dM/dp_c) dp_c: rel=" << Sci(Rel(m0h_stj + hom.shell_hat, expP))
-					  << "   | implied correction to the SOURCED deltaM_hat from unrepresented density steps: "
-					  << Sci(dM_corr_sourced / fs_.deltaM) << " relative\n";
-			// integrability of the nodal dedp column: trapezoid sum of (deps/dp) dp over the profile
-			// must reproduce eps_* - eps_c exactly if the column samples the EOS derivative adequately
-			double integ_all = 0.0, integ_crust = 0.0, d_eps_crust = 0.0;
-			{
-				const double eps_cc = 1.0e14 * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3;
-				const int nn = static_cast<int>(bg.r.size());
-				bool in_crust_started = false;
-				double eps_at_cc = 0.0;
-				for (int i = 0; i + 1 < nn; ++i)
-				{
-					const double dI = 0.5 * (bg.dedp[i] + bg.dedp[i + 1]) * (bg.p[i + 1] - bg.p[i]);
-					integ_all += dI;
-					if (bg.eps[i] < eps_cc)
-					{
-						if (!in_crust_started)
-						{
-							in_crust_started = true;
-							eps_at_cc = bg.eps[i];
-						}
-						integ_crust += dI;
-					}
-				}
-				d_eps_crust = bg.eps.back() - eps_at_cc;
-			}
-			const double d_eps_all = bg.eps.back() - bg.eps.front();
-			std::cout << "     res " << res << ": dedp-column integrability: sum (deps/dp) dp vs (eps_* - eps_c): rel err "
-					  << Sci(Rel(integ_all, d_eps_all)) << " over the whole star; crust (eps < 1e14 g/cm^3): "
-					  << Sci(Rel(integ_crust, d_eps_crust)) << "\n";
-			std::cout << "     res " << res << ": sequence dM/dp_c=" << Sci(dM_dpc, 8) << "  dM/deps_c=" << Sci(dM_dec, 8)
-					  << "  (deps/dp)_c sequence=" << Sci(dedp_seq, 7) << " vs authority=" << Sci(dedpc, 7)
-					  << "  rel=" << Sci(Rel(dedp_seq, dedpc)) << "\n"
-					  << "                m0_hom(R_*)=" << Sci(hom.mhat_R, 8) << "  shell_hom=" << Sci(hom.shell_hat, 3)
-					  << "  deltaM_hom=" << Sci(got, 8) << "\n"
-					  << "                p_c form: expected (dM/dp_c) dp_c=" << Sci(expP, 8) << "  rel=" << Sci(Rel(got, expP))
-					  << "   | eps_c form: expected (dM/deps_c) deps_c=" << Sci(expE, 8) << "  rel=" << Sci(Rel(got, expE)) << "\n";
-			relP_fin = Rel(got, expP);
-			relE_fin = Rel(got, expE);
-			okfin = hom.ok && std::isfinite(dM_dpc);
-			res_fin = res;
+			else
+				std::cout << "     RECORD — res 40000 (diagnostic, not asserted): rel profile=" << Sci(rP) << "  knot=" << Sci(rK) << "\n";
 		}
-		std::cout << "     RECORD — Ja (ADR-0007 §7 item 11, predeclared <= " << Sci(kJ_Homog, 0) << "): production's homogeneous delta M vs (dM/dp_c) dp_c at res "
-				  << res_fin << ": rel=" << Sci(relP_fin) << (okfin && relP_fin <= kJ_Homog ? "  MET" : "  NOT MET") << "\n"
-				  << "     (Not asserted: the residual is resolution-independent and is diagnosed above as density steps of the crust EOS that\n"
-				  << "      the nodal deps/dp column cannot represent — an input-representation limit (INV-13) recorded in the 4D record, not widened away.)\n";
-		Report("Ja the sequence-derivative comparison was produced at 10000/20000/40000 with the Stieltjes diagnostic", okfin, "");
-		std::cout << "     RECORD — the eps_c form at the finest res: rel=" << Sci(relE_fin) << (relE_fin <= kJ_Homog ? " <= " : " > ")
-				  << Sci(kJ_Homog, 0) << "; any gap between the two forms is the solver's central-condition inversion\n"
-				  << "     against the authority derivative, not the monopole solver.\n";
-		std::cout << "     (Test-side only — ADR-0007 P11 as modified at acceptance; no public API.)\n";
+		Report("Jb the sequence-derivative identity holds at both binding resolutions", ok_bind, "");
+		std::cout << "     (Test-side only — ADR-0007 P11 as modified at acceptance; no public homogeneous API.)\n";
 	}
 
 	fs::remove_all(wrk);
-
 	std::cout << "\nSLOW-ROTATION DISCLAIMER: coefficient correctness, not truncation accuracy at high spin.\n";
 	std::cout << "\n" << (g_fail == 0 ? "PASS" : "FAIL") << " — " << g_fail << " failed check(s)\n";
 	return g_fail == 0 ? 0 : 1;

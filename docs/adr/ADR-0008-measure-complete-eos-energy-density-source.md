@@ -252,6 +252,31 @@ artifacts and `I` unchanged.
 
 ---
 
+
+## Revalidation record — Phase 4D-RV (2026-09-03)
+
+The corrected independent revalidation of §Validation was executed on the migrated ADR-0009
+backgrounds; evidence: `docs/validation/PHASE4D_CORRECTED_MONOPOLE_REVALIDATION.md`. The `(m₀,h₀)` oracle now carries the
+EOS measure by its own Stieltjes route (midpoint atoms on an independently refined partition,
+optionally at the EOS-table knots), never production's segment density.
+
+| Line | Outcome |
+|---|---|
+| A | met — analytic values unchanged (`4.7e-15` between the Stieltjes and differential oracles on the zero-measure interior) |
+| B | met — `1.03e-4` (10000), `5.7e-5` (20000) with the independent route; `1.17e-3` for the superseded form |
+| C | met — `≤ 8.2e-8` |
+| D | **spread met (`3.7e-5 ≤ 1e-4`); monotonicity NOT MET** — with `R_*` fixed to `3e-11`, `δM̂` over 5000/10000/20000/40000 moves `−2.1e-3, −3.0e-2, +9.5e-3 km³`; the EOS-knot oracle makes the values monotone (`865.896 → 865.856 → 865.854 → 865.848 → 865.845`), and the first-order `I` carries the same `−9.5e-3 km³` dip at 20000 — the residual is O(h) node placement of the profile-partition weight (Q4) and of the validated sampled first-order background, not monopole physics; the 4D-RI attribution to a moving `R_*` is superseded |
+| E | met — `0.0` |
+| F | met at its authenticated scope (`δM̂` measure vs differential at `3e14/1e15/3e15`: `1.25e-5`); on the denser HT68 models the superseded form's deficit grows to `1.7e-4` while the independent oracles agree with production to `≤ 1.9e-6` (recorded) |
+| G | met — bitwise |
+| H, I | M1–M9 fire; M10 recreates the ≥ 3 % deficit — see the record §13 |
+| J | met — seven artifacts and `I` unchanged |
+
+> **Status: `CORdocs/validation/PHASE4D_CORRECTED_MONOPOLE_REVALIDATION.mdTION IMPLEMENTED — INDEPENDENT REVALIDATION EXECUTED — VALIDATION D MONOTONICITY NOT MET — NO MONOPOLE BASELINE`.**
+> Scientific status `HARTLE O(OMEGA^2) MONOPOLE RESPONSE CHARACTERIZED — INDEPENDENT VALIDATION INCOMPLETE`. The accepted Decision is
+> unchanged. The owner's adjudication of D's monotonicity clause against the measured node-placement
+> floor (record §20) precedes any baseline.
+
 ## Provenance
 
 Drafted by the AI agent (Phase 4D-RG, 2026-09-03) from the primary source re-read

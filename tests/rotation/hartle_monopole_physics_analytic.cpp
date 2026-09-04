@@ -57,6 +57,14 @@
  *   J  homogeneous delta M vs the exact dM/dp_c derivative     rel <= 1e-3  (§7 item 11)
  *   R  reference admissibility: self-movement / disagreement  <= 0.1
  *   S  materialization: +/-Omega bitwise; Q(2W)=4Q(W)          <= 1e-14    (§7 item 2)
+ *   --- Phase 4D-RV (2026-09-03) additions, ADR-0008 + ADR-0009 revalidation ---
+ *   Bs the INDEPENDENT Stieltjes-measure oracle (hartle_mono_ref::SolveStieltjes, profile
+ *      partition K=4) reproduces the differential oracle on the constant-density star, whose
+ *      interior measure is identically zero (ADR-0008 Validation A: "values unchanged")   <= 1e-12
+ *      and agrees with production                                                       <= 1e-7
+ *   A2 enlarged-centre fixture (r0 = 0.1 km): production vs the (m0,h0) oracle, both started
+ *      from the regular series. Here a literal-zero start would displace p0*_hat by
+ *      ~(r0/R)^2 of its surface value (~1e-4), so detector M7 is load-bearing            <= 1e-7
  * ===========================================================================
  */
 
@@ -105,6 +113,8 @@ static constexpr double kJ_Homog = 1.0e-3;
 static constexpr double kR_FloorRatio = 0.1;
 static constexpr double kS_Quadratic = 1.0e-14;
 static constexpr std::size_t kN_Primary = 4001;
+static constexpr double kBs_Unchanged = 1.0e-12;
+static constexpr double kA2_Enlarged = 0.1; // km
 
 static int g_fail = 0;
 static void Report(const std::string &id, bool ok, const std::string &d)
@@ -483,6 +493,53 @@ int main()
 		Report("Ra the reference's own floor (tol 1e-11..1e-15, r0 1e-5..1e-7) is subdominant",
 			   ratio <= kR_FloorRatio,
 			   "floor=" + Sci(floor) + "  signal=" + Sci(signal) + "  floor/signal=" + Sci(ratio, 2));
+	}
+
+	// --- Bs: the INDEPENDENT Stieltjes-measure oracle on a zero-measure interior (Phase 4D-RV) ---
+	std::cout << "\nBs. Independent Stieltjes-measure oracle on the constant-density star (interior measure identically zero)\n";
+	{
+		MHOptions o;
+		o.I_exterior = prod4001.I;
+		hartle_mono_ref::StieltjesOptions st;
+		st.refine = 4;
+		const auto v = hartle_mono_ref::SolveStieltjes(bg4001_iso, o, st);
+		const double vs_diff = std::max({Compare(v.mhat, ref4001_iso.mhat, prod4001.r).max_rel,
+										 Compare(v.phat, ref4001_iso.phat, prod4001.r).max_rel,
+										 Compare(v.xihat, ref4001_iso.xihat, prod4001.r).max_rel,
+										 Rel(v.deltaM_hat, ref4001_iso.deltaM_hat)});
+		const double vs_prod = std::max({Compare(prod4001.mhat, v.mhat, prod4001.r).max_rel,
+										 Compare(prod4001.phat, v.phat, prod4001.r).max_rel,
+										 Compare(prod4001.xihat, v.xihat, prod4001.r).max_rel,
+										 Rel(prod4001.deltaM, v.deltaM_hat)});
+		Report("Bs1 the Stieltjes-measure oracle reproduces the differential oracle where the interior measure is zero (ADR-0008 Validation A)",
+			   v.ok && vs_diff <= kBs_Unchanged, "worst rel=" + Sci(vs_diff) + "  bound=" + Sci(kBs_Unchanged));
+		Report("Bs2 production agrees with the Stieltjes-measure oracle at every node (N=4001)",
+			   v.ok && vs_prod <= kB_Profile, "worst rel=" + Sci(vs_prod) + "  bound=" + Sci(kB_Profile) + "  shell(oracle)=" + Sci(v.shell_hat));
+	}
+
+	// --- A2: enlarged-centre fixture (M7's load-bearing target) ---
+	std::cout << "\nA2. Enlarged-centre fixture r0 = " << Sci(kA2_Enlarged, 1) << " km, N = 2001 (production vs the (m0,h0) oracle, both series-started)\n";
+	{
+		const auto g = UniformGrid(kA2_Enlarged, u.R_km, 2001);
+		auto ns = ProductionStar(u, g);
+		if (!ns)
+			Report("A2 build", false, "no response");
+		else
+		{
+			const NStar &cns = *ns;
+			const auto pf = Fields(cns);
+			std::vector<double> s_p, sp_p;
+			ProdShape(cns, s_p, sp_p);
+			MHOptions o;
+			o.I_exterior = cns.RotationResponse().I;
+			const auto ref = hartle_mono_ref::Solve(FromProfile(cns, s_p, sp_p), o);
+			const double worst = std::max({Compare(pf.mhat, ref.mhat, pf.r).max_rel, Compare(pf.phat, ref.phat, pf.r).max_rel,
+										   Compare(pf.xihat, ref.xihat, pf.r).max_rel, Rel(pf.deltaM, ref.deltaM_hat)});
+			const double zero_start_scale = pf.phat.front() / std::fabs(pf.phat.back());
+			Report("A2a production agrees with the (m0,h0) oracle on the enlarged-centre fixture", ref.ok && worst <= kB_Profile,
+				   "worst rel=" + Sci(worst) + "  bound=" + Sci(kB_Profile) + "  | a literal-zero start would displace p0*_hat by ~" +
+					   Sci(zero_start_scale, 1) + " of its surface value here");
+		}
 	}
 
 	// --- continuum reference (B-cont) ---

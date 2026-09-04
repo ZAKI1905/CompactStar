@@ -53,6 +53,8 @@
 #include "CompactStar/Core/RotationSolver.hpp"
 #include "CompactStar/Core/StarProfile.hpp"
 #include "CompactStar/Core/TOVSolver.hpp"
+#include "eos_table_knots.hpp"
+#include "hartle_monopole_reference.hpp"
 #include "hartle_profile_compare.hpp"
 #include "hartle_thorne_1968_hw_eos.hpp"
 
@@ -63,10 +65,29 @@
 namespace fs = std::filesystem;
 using CompactStar::Core::NStar;
 using CompactStar::Core::TOVPoint;
+using CompactStar::Core::TOVSolveStatus;
 using CompactStar::Core::TOVSolver;
 using hartle_4b::UniformStar;
 
+/// Exposes the protected cutoff accessor for the ADR-0009 completeness check.
+struct Probe : TOVSolver
+{
+	using TOVSolver::PressureCutoff;
+};
+
 static constexpr double kK_Published = 2.0e-2; // ADR-0007 §7 item 8
+static constexpr double kF_Smooth = 2.0e-5;	// ADR-0008 Validation F (smooth-EOS measure-vs-differential equivalence on deltaM_hat)
+// AUTHENTICATED SCOPE of the 2e-5 bound (Phase 4D-RV, recorded chronology): ADR-0008's Context
+// table set "smooth HW EOS vs today <= 1.25e-5" from scratch stars at eps_c = 3e14, 1e15, 3e15
+// g/cm^3 (PHASE4D_R_EOS_MEASURE_DERIVATION.md §8), and 4D-RI §13 asserted the bound on deltaM_hat at
+// exactly those three densities (5.5e-6 / 1.25e-5 / 1.15e-5). A first 4D-RV run of this file
+// asserted the same bound over all eight HT68 Table-5 configurations and measured 4.1e-5 (6e15),
+// 1.7e-4 (1e16), 2.5e-5 (3e16), 1.4e-4 (1e17): the SUPERSEDED nodal-derivative form loses more of
+// the densified table's sub-node slope structure on the denser, steeper stars — the ADR-0008
+// mechanism itself — while the INDEPENDENT Stieltjes oracles agree with production to <= 2e-6 on
+// all eight (F2). The bound is therefore asserted at its authenticated scope (F1) and every
+// configuration is reported (F1r); nothing was widened.
+static const double kF_AuthenticatedEc[] = {3.0e14, 1.0e15, 3.0e15};
 static constexpr std::size_t kN_Grid = 4001;
 
 static int g_fail = 0;
@@ -218,7 +239,10 @@ static void RunHartleThorne(const fs::path &wrk)
 	{
 		double ec, R, M, Rg_R, Omega, ws, wc, dR_R, dM_M, shell_over_dM;
 		std::size_t n;
+		bool complete = false;
+		double f_diff = 0, f_stj = 0, f_knot = 0, f_sec = 0; // deltaM_hat rel: production vs the oracle forms
 	};
+	const eos_knots::Knots knots = eos_knots::Read(eos.string());
 	std::vector<Out> outs;
 	const auto &T3 = ht68::Table3();
 	const auto &T5 = ht68::Table5();
@@ -226,7 +250,7 @@ static void RunHartleThorne(const fs::path &wrk)
 
 	for (std::size_t k = 0; k < T3.size(); ++k)
 	{
-		TOVSolver tov;
+		Probe tov;
 		const fs::path w = wrk / ("hw" + std::to_string(k));
 		fs::create_directories(w);
 		tov.SetWrkDir(w.string());
@@ -237,6 +261,8 @@ static void RunHartleThorne(const fs::path &wrk)
 			Report("K2 TOV at E_c=" + Sci(T3[k].ec, 2), false, "no profile");
 			continue;
 		}
+		const bool complete = tov.LastSolveStatus() == TOVSolveStatus::SURFACE_REACHED && pts.back().p == tov.PressureCutoff() &&
+							  std::isfinite(pts.back().e) && std::isfinite(pts.back().dedp);
 		NStar ns(pts);
 		if (!ns.ComputeHartleMonopoleResponse())
 		{
@@ -260,6 +286,46 @@ static void RunHartleThorne(const fs::path &wrk)
 		o.dR_R = mono->surface_xi0_over_Omega2 * Mkm / (o.R * o.R * o.R * o.R);
 		o.dM_M = mono->deltaM_over_Omega2 / (o.R * o.R * o.R);
 		o.shell_over_dM = mono->surface_shell_mass_over_Omega2 / mono->deltaM_over_Omega2;
+		o.complete = complete;
+		// F — ADR-0008 Validation F on the smooth HW EOS: production (measure) vs the SUPERSEDED
+		// differential oracle on deltaM_hat, plus the INDEPENDENT Stieltjes oracles (reported).
+		{
+			const auto &P = c.Profile();
+			const auto *r = P.GetRadius();
+			const int n = static_cast<int>(r->Size());
+			hartle_mono_ref::Background2 bg;
+			for (int i = 0; i < n; ++i)
+			{
+				bg.r.push_back((*r)[i]);
+				bg.p.push_back((*P.GetPressure())[i]);
+				bg.eps.push_back((*P.GetEnergyDensity())[i]);
+				bg.m.push_back((*P.GetMass())[i]);
+				bg.nu.push_back((*P.GetMetricNu())[i]);
+				bg.nup.push_back((*P.GetMetricNuPrime())[i]);
+				bg.dedp.push_back((*P.GetEosDEdP())[i]);
+				bg.s.push_back(rot.omega_bar_over_Omega[i]);
+				bg.sp.push_back(rot.domega_bar_over_Omega_dr[i]);
+			}
+			hartle_mono_ref::MHOptions od;
+			od.I_exterior = mono->I;
+			od.eos_measure = false;
+			const auto diff = hartle_mono_ref::Solve(bg, od);
+			hartle_mono_ref::MHOptions os = od;
+			os.eos_measure = true;
+			const auto sec = hartle_mono_ref::Solve(bg, os);
+			hartle_mono_ref::StieltjesOptions sp;
+			sp.refine = 4;
+			const auto stj = hartle_mono_ref::SolveStieltjes(bg, od, sp);
+			hartle_mono_ref::StieltjesOptions sk;
+			sk.refine = 2;
+			sk.knot_p = &knots.p;
+			sk.knot_eps = &knots.eps;
+			const auto knt = hartle_mono_ref::SolveStieltjes(bg, od, sk);
+			o.f_diff = diff.ok ? Rel(mono->deltaM_over_Omega2, diff.deltaM_hat) : 1.0;
+			o.f_sec = sec.ok ? Rel(mono->deltaM_over_Omega2, sec.deltaM_hat) : 1.0;
+			o.f_stj = stj.ok ? Rel(mono->deltaM_over_Omega2, stj.deltaM_hat) : 1.0;
+			o.f_knot = (knots.ok && knt.ok) ? Rel(mono->deltaM_over_Omega2, knt.deltaM_hat) : 1.0;
+		}
 		outs.push_back(o);
 	}
 
@@ -295,6 +361,39 @@ static void RunHartleThorne(const fs::path &wrk)
 	}
 	const bool all = outs.size() == T3.size();
 	Report("K2a all eight HT68 configurations reconstructed from the printed EOS", all, std::to_string(outs.size()) + "/8");
+	Report("K2z every HT68 star is a complete ADR-0009 star (SURFACE_REACHED, last node p == p_cut, finite surface data)",
+		   all && std::all_of(outs.begin(), outs.end(), [](const Out &o) { return o.complete; }), "");
+	{
+		std::cout << "\n    F. ADR-0008 Validation F on the smooth HW EOS — production deltaM_hat vs the oracle forms (relative):\n"
+					 "    E_c[g/cm^3] | superseded differential | Stieltjes profile K=4 | Stieltjes EOS-knot K=2 | secant\n";
+		double wf = 0.0, ws_ = 0.0, wk = 0.0;
+		for (const auto &o : outs)
+		{
+			char b[300];
+			snprintf(b, sizeof(b), "    %.2e    |  %.3e              |  %.3e            |  %.3e             |  %.3e\n", o.ec, o.f_diff, o.f_stj, o.f_knot, o.f_sec);
+			std::cout << b;
+			wf = std::max(wf, o.f_diff);
+			ws_ = std::max(ws_, o.f_stj);
+			wk = std::max(wk, o.f_knot);
+		}
+		double wf_auth = 0.0;
+		std::size_t n_auth = 0;
+		for (const auto &o : outs)
+			for (double ec : kF_AuthenticatedEc)
+				if (o.ec == ec)
+				{
+					wf_auth = std::max(wf_auth, o.f_diff);
+					++n_auth;
+				}
+		Report("F1 smooth-EOS measure-vs-differential equivalence on deltaM_hat at the AUTHENTICATED scope of ADR-0008 Validation F (eps_c = 3e14, 1e15, 3e15; bound 2e-5)",
+			   all && n_auth == 3 && wf_auth <= kF_Smooth, "worst rel=" + Sci(wf_auth) + "  bound=" + Sci(kF_Smooth));
+		std::cout << "     RECORD — F1r the same equivalence over all eight HT68 configurations: worst rel " << Sci(wf)
+				  << (wf <= kF_Smooth ? " <= " : " > ") << Sci(kF_Smooth, 0)
+				  << " (not asserted: outside the bound's authenticated scope; the superseded form's deficit grows with the density gradient,\n"
+				  << "      production is the measure-complete side and the independent oracles confirm it at F2).\n";
+		Report("F2 the INDEPENDENT Stieltjes oracles (profile and EOS-knot partitions) agree with production on the smooth EOS within the same bound",
+			   all && ws_ <= kF_Smooth && wk <= kF_Smooth, "worst rel profile=" + Sci(ws_) + "  knots=" + Sci(wk) + "  (reported beside F1; same bound)");
+	}
 	Report("K2b Table 3 radii agree (EOS reconstruction, non-rotating)", all && wR <= kK_Published, "worst rel=" + Sci(wR));
 	Report("K2c Table 3 masses agree (EOS reconstruction, non-rotating)", all && wM <= kK_Published, "worst rel=" + Sci(wM));
 	Report("K2d Table 5 R_g/R = sqrt(I/M)/R agrees (first order)", all && wRg <= kK_Published, "worst rel=" + Sci(wRg));

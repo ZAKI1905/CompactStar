@@ -461,3 +461,10 @@ this contract.
 section above), at `bcef5b57e3267fe26d1269efaa472d314818d367`. The owner varied one item of the
 drafted contract — P11's optional public exposure of the homogeneous response — and accepted the
 remainder, including the §3.1 record, as drafted.
+
+**Post-revalidation pointer (2026-09-03, Phase 4D-RV).** The corrected independent revalidation of this
+contract as amended by ADR-0008, on the ADR-0009 surface event, is recorded in
+`docs/validation/PHASE4D_CORRECTED_MONOPOLE_REVALIDATION.md`: status `HARTLE O(OMEGA^2) MONOPOLE RESPONSE CHARACTERIZED — INDEPENDENT VALIDATION INCOMPLETE` — every physics line of §7 passes on the migrated backgrounds
+(analytic `9.7e-9`, DS(CMF)-1 `≤ 5.3e-5` against an independent EOS-knot measure route, C&M 1974 and
+HT68 1968 reproduced, M1–M10 fire), while ADR-0008 Validation D's monotonicity clause is not met at the
+node-placement floor. §9 item 7's baseline remains deferred pending the owner's adjudication of that clause.

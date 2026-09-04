@@ -541,6 +541,249 @@ inline ContinuumResult SolveUniformContinuum(const hartle_4b::UniformStar &u,
 }
 
 // ===========================================================================
+//  Phase 4D-RV (2026-09-03): the INDEPENDENT measure route.
+//
+//  ADR-0008 makes the EOS energy-density contribution to m0 the Lebesgue-Stieltjes measure
+//
+//      dm0_hat|_EOS = -4 pi r^2 xi0_hat d(eps) ,        xi0_hat = p0*_hat / nu'      (H67 eq. 93)
+//
+//  Production realises it as a per-segment ODE density  -4 pi r^2 xi0_hat (Delta eps_i/Delta r_i)
+//  integrated by its RK driver between profile nodes, and `MHOptions::eos_measure` above copies
+//  that realisation into the (m0,h0) solver — a cross-check of the VARIABLE PAIR, not of the
+//  measure representation. The solver below represents the measure by a DIFFERENT route:
+//
+//    * the smooth part of the system (rotational sources; the h0 equation) is integrated by
+//      this solver's own driver with NO EOS term in the right-hand side;
+//    * the EOS measure is accumulated as a Riemann-Stieltjes sum of ATOMS on an INDEPENDENTLY
+//      constructed partition: every profile interval is split into K equal sub-intervals
+//      (optionally with every EOS-table knot mapped into the interval first, through the
+//      profile's own linear p(r)), and each sub-interval's Delta eps is applied once, at its
+//      midpoint, as  m0_hat += -4 pi r_mid^2 xi0_hat(r_mid) Delta eps_j  (midpoint rule, O(K^-2));
+//    * the terminal atom eps_* -> 0 at R_* is applied exactly once, by the caller's assembly of
+//      delta M (unchanged from the historical solver).
+//
+//  Neither production's segment loop, its eps_slope, nor its right-hand side term is reused.
+//  Refining K measures this route's own discretization floor; adding the EOS knots moves the
+//  sub-node location of the measure to where the star's own EOS puts it, which is the
+//  "PROFILE-PARTITION measure vs EOS-knot measure" diagnostic of the revalidation task.
+// ===========================================================================
+struct StieltjesOptions
+{
+	int refine = 4;								 ///< K equal sub-intervals per (knot-refined) interval; >= 1
+	const std::vector<double> *knot_p = nullptr;   ///< optional EOS-table pressures [km^-2], any order
+	const std::vector<double> *knot_eps = nullptr; ///< matching energy densities [km^-2]
+};
+
+inline MHResult SolveStieltjes(const Background2 &bg, const MHOptions &opt, const StieltjesOptions &st)
+{
+	MHResult out;
+	if (!bg.Consistent() || st.refine < 1)
+	{
+		out.message = "inconsistent background or refinement";
+		return out;
+	}
+	if ((st.knot_p == nullptr) != (st.knot_eps == nullptr) ||
+		(st.knot_p != nullptr && st.knot_p->size() != st.knot_eps->size()))
+	{
+		out.message = "inconsistent knot table";
+		return out;
+	}
+	const std::size_t n = bg.N();
+
+	double r0 = std::isfinite(opt.r0) ? opt.r0 : bg.r.front();
+	if (!(r0 > 0.0))
+		r0 = 1e-6;
+	out.r0_used = r0;
+
+	const auto b0 = bg.At(r0);
+	const double e2_0 = std::exp(-2.0 * b0.nu);
+	const double j2_0 = e2_0 * (1.0 - 2.0 * b0.m / r0);
+	double phat0;
+	if (std::isfinite(opt.phat_at_r0))
+		phat0 = opt.phat_at_r0;
+	else
+		phat0 = opt.sources_on ? (1.0 / 3.0) * j2_0 * b0.s * b0.s * r0 * r0 : 0.0;
+	const double s0 = opt.sources_on ? b0.s : 0.0;
+	const double gammahat = phat0 - (1.0 / 3.0) * r0 * r0 * e2_0 * s0 * s0;
+
+	// The right-hand side carries NO EOS term: measure = true with a zero density.
+	detail::Params P{&bg, opt.sources_on, gammahat, true, 0.0};
+
+	// m0_hat(r0): the leading power of the SMOOTH right-hand side plus the regular-centre
+	// value of the EOS measure, which for a sourced solve is (4 pi/15)(eps+p)(deps/dp) j^2 s^2 r0^5
+	// — i.e. the b5 series of H67 (108) reassembled from its two parts. The measure part is
+	// the pointwise centre limit (ADR-0008 Q8 keeps deps/dp for the centre series).
+	double y[2] = {0.0, 0.0};
+	{
+		double f[2];
+		if (detail::RHS(r0, y, f, &P) != GSL_SUCCESS)
+		{
+			out.message = "RHS failed at r0";
+			return out;
+		}
+		const int k = opt.sources_on ? 4 : 2;
+		y[0] = r0 * f[0] / static_cast<double>(k + 1);
+		if (opt.sources_on)
+			y[0] += (4.0 * M_PI / 15.0) * (b0.eps + b0.p) * b0.dedp * j2_0 * b0.s * b0.s * std::pow(r0, 5);
+		else
+			y[0] += (4.0 * M_PI / 3.0) * (b0.eps + b0.p) * b0.dedp * phat0 * std::pow(r0, 3);
+	}
+
+	gsl_odeiv2_system sys = {detail::RHS, nullptr, 2, &P};
+	gsl_odeiv2_driver *d =
+		gsl_odeiv2_driver_alloc_y_new(&sys, opt.step, opt.h_init, opt.atol, opt.rtol);
+
+	out.mhat.assign(n, 0.0);
+	out.hhat.assign(n, 0.0);
+	out.phat.assign(n, 0.0);
+	out.dphat.assign(n, 0.0);
+	out.xihat.assign(n, 0.0);
+
+	auto record = [&](std::size_t i, double rt) {
+		const double e2 = std::exp(-2.0 * bg.nu[i]);
+		const double s = opt.sources_on ? bg.s[i] : 0.0;
+		const double phat = gammahat - y[1] + (1.0 / 3.0) * rt * rt * e2 * s * s;
+		out.mhat[i] = y[0];
+		out.hhat[i] = y[1];
+		out.phat[i] = phat;
+		out.dphat[i] = (bg.eps[i] + bg.p[i]) * phat;
+		double xi = phat / bg.nup[i];
+		if (!std::isfinite(xi))
+		{
+			const double den = 4.0 * M_PI * (bg.eps[i] + 3.0 * bg.p[i]);
+			xi = (den != 0.0 && opt.sources_on) ? j2_0 * b0.s * b0.s * rt / den : 0.0;
+		}
+		out.xihat[i] = xi;
+	};
+
+	// Sub-partition points of one profile interval [r_i, r_{i+1}]: the interval ends, every
+	// mapped EOS knot strictly inside it (eps at the knot from the TABLE), then K-fold splitting
+	// with eps linear between neighbouring points.
+	std::vector<double> pr, pe; // sub-partition radii and energy densities
+	double r = r0;
+	std::size_t i0 = 0;
+	while (i0 < n && bg.r[i0] <= r0)
+	{
+		record(i0, bg.r[i0]);
+		++i0;
+	}
+	if (i0 == 0)
+	{
+		// r0 lies below the first node: advance the smooth part to r[0] with no atom (the
+		// profile carries no measure below its first node), then continue from node 1.
+		if (bg.r[0] > r && gsl_odeiv2_driver_apply(d, &r, bg.r[0], y) != GSL_SUCCESS)
+		{
+			out.message = "GSL failed below the first node";
+			gsl_odeiv2_driver_free(d);
+			return out;
+		}
+		record(0, bg.r[0]);
+		i0 = 1;
+	}
+	for (std::size_t i = i0; i < n; ++i)
+	{
+		const double ra = bg.r[i - 1], rb = bg.r[i];
+		const double pa = bg.p[i - 1], pb = bg.p[i];
+		const double ea = bg.eps[i - 1], eb = bg.eps[i];
+		pr.clear();
+		pe.clear();
+		pr.push_back(std::max(ra, r0));
+		pe.push_back(ra >= r0 ? ea : ea + (eb - ea) * (r0 - ra) / (rb - ra));
+		if (st.knot_p != nullptr && pb < pa)
+		{
+			std::vector<std::pair<double, double>> inside; // (r_k, eps_k)
+			for (std::size_t k = 0; k < st.knot_p->size(); ++k)
+			{
+				const double pk = (*st.knot_p)[k];
+				if (pk < pa && pk > pb)
+				{
+					const double rk = ra + (pa - pk) / (pa - pb) * (rb - ra);
+					if (rk > pr.front() && rk < rb)
+						inside.emplace_back(rk, (*st.knot_eps)[k]);
+				}
+			}
+			std::sort(inside.begin(), inside.end());
+			for (const auto &q : inside)
+				if (q.first > pr.back())
+				{
+					pr.push_back(q.first);
+					pe.push_back(q.second);
+				}
+		}
+		pr.push_back(rb);
+		pe.push_back(eb);
+
+		for (std::size_t j = 0; j + 1 < pr.size(); ++j)
+		{
+			const double a = pr[j], b = pr[j + 1];
+			const double de_total = pe[j + 1] - pe[j];
+			for (int q = 0; q < st.refine; ++q)
+			{
+				const double sa = a + (b - a) * static_cast<double>(q) / st.refine;
+				const double sb = a + (b - a) * static_cast<double>(q + 1) / st.refine;
+				const double mid = 0.5 * (sa + sb);
+				const double de = de_total / st.refine;
+				if (mid > r)
+				{
+					if (gsl_odeiv2_driver_apply(d, &r, mid, y) != GSL_SUCCESS)
+					{
+						out.message = "GSL failed at r = " + std::to_string(mid);
+						gsl_odeiv2_driver_free(d);
+						return out;
+					}
+				}
+				if (de != 0.0)
+				{
+					// the atom: -4 pi r_mid^2 xi0_hat(r_mid) Delta eps_j, with xi0_hat from the
+					// first integral at the CURRENT state (h0 continuous through an atom)
+					const auto bm = bg.At(mid);
+					const double e2m = std::exp(-2.0 * bm.nu);
+					const double sm = opt.sources_on ? bm.s : 0.0;
+					const double phm = gammahat - y[1] + (1.0 / 3.0) * mid * mid * e2m * sm * sm;
+					double xim = phm / bm.nup;
+					if (!std::isfinite(xim))
+					{
+						const double den = 4.0 * M_PI * (bm.eps + 3.0 * bm.p);
+						xim = (den != 0.0 && opt.sources_on) ? j2_0 * b0.s * b0.s * mid / den : 0.0;
+					}
+					y[0] += -4.0 * M_PI * mid * mid * xim * de;
+				}
+				if (sb > r)
+				{
+					if (gsl_odeiv2_driver_apply(d, &r, sb, y) != GSL_SUCCESS)
+					{
+						out.message = "GSL failed at r = " + std::to_string(sb);
+						gsl_odeiv2_driver_free(d);
+						return out;
+					}
+				}
+			}
+		}
+		record(i, rb);
+	}
+	gsl_odeiv2_driver_free(d);
+
+	const std::size_t last = n - 1;
+	out.gammahat = gammahat;
+	out.R_star = bg.r[last];
+	out.eps_star = bg.eps[last];
+	out.mhat_R = out.mhat[last];
+	out.phat_R = out.phat[last];
+	out.xihat_R = out.xihat[last];
+	out.shell_hat = 4.0 * M_PI * out.R_star * out.R_star * out.eps_star * out.xihat_R;
+	out.exterior_hat = opt.I_exterior * opt.I_exterior / (out.R_star * out.R_star * out.R_star);
+	out.deltaM_hat = out.mhat_R + out.shell_hat + out.exterior_hat;
+	for (std::size_t i = 0; i < n; ++i)
+		if (!std::isfinite(out.mhat[i]) || !std::isfinite(out.phat[i]) || !std::isfinite(out.xihat[i]))
+		{
+			out.message = "non-finite output";
+			return out;
+		}
+	out.ok = true;
+	return out;
+}
+
+// ===========================================================================
 //  Comparison metric shared by the 4D harnesses (the same rule Phase 4B used).
 // ===========================================================================
 struct Cmp

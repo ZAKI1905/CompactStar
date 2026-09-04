@@ -436,7 +436,7 @@ conformance to the `MixedStar` track. And **nothing at O(Ω²) is normalized** �
 
 ---
 
-## INV-08 — Hartle perturbative order — **GOVERNED (ADR-0007 + ADR-0008 ACCEPTED) — MEASURE-COMPLETE O(Ω²) MONOPOLE SOURCE CONFORMED; INDEPENDENT REVALIDATION REQUIRED**
+## INV-08 — Hartle perturbative order — **GOVERNED (ADR-0007 + ADR-0008 ACCEPTED) — MEASURE-COMPLETE O(Ω²) MONOPOLE SOURCE CONFORMED AND INDEPENDENTLY CHARACTERIZED ON THE ADR-0009 SURFACE CONTRACT; ADR-0008 VALIDATION D MONOTONICITY NOT MET — OWNER ADJUDICATION REQUIRED; NO BASELINE**
 
 **Statement.** First order O(Ω) supplies frame dragging and I. Second order O(Ω²) supplies the
 monopole structural perturbations `(m₀, p₀)` with isobar displacement `ξ₀ = −p₀/(dp/dr)`,
@@ -650,6 +650,27 @@ migration is complete. Corrected independent Phase-4D revalidation is ready, not
 performed; the first monopole baseline still requires its success and Phase 5 remains
 blocked. Evidence and current hashes: `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:1003`, `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:889`.
 
+**Phase 4D-RV (2026-09-03) — corrected independent revalidation executed** (`docs/validation/PHASE4D_CORRECTED_MONOPOLE_REVALIDATION.md`).
+The measure-complete response was recomputed on the migrated ADR-0009 backgrounds by the `(m₀,h₀)`
+oracle carrying the EOS measure by its own Stieltjes route (midpoint atoms on an independently
+refined partition, optionally at the EOS-table knots): analytic `9.7e-9`, continuum first integral
+`6.1e-15`, DS(CMF)-1 four stars `≤ 2.6e-7` (profile partition) / `≤ 5.3e-5` (EOS-knot partition)
+against `1e-4` in both chains, same-partition accounting `≤ 8.2e-8`, homogeneous sequence identity
+`1.03e-4 / 5.7e-5` (bound `2e-4`), retired-FD sensitivity `0.0`, smooth-EOS equivalence `1.25e-5`
+at its authenticated scope, Chandrasekhar–Miller 1974 `≤ 7.3e-4`, Hartle–Thorne 1968 `≤ 1.1e-2`,
+every star `SURFACE_REACHED` at `p = p_cut`, detectors M1–M10 load-bearing, production diff NONE,
+seven artifacts and `I` unchanged. **NOT MET:** ADR-0008 Validation D's monotonicity clause — with
+`R_*` fixed to `3e-11`, `δM̂` over 5000/10000/20000/40000 moves `−2.1e-3, −3.0e-2, +9.5e-3 km³`
+(spread `3.7e-5`, inside D's `1e-4`); the residual is O(h) node placement of the profile-partition
+measure weight (removed by the EOS-knot oracle, ADR-0008 Q4) and of the validated first-order
+sampled background (`I` dips `6e-5` at 20000), not monopole physics. The 4D-RI attribution to a
+moving `R_*` is superseded.
+
+**Status.** **GOVERNED (ADR-0007 + ADR-0008 ACCEPTED) — MEASURE-COMPLETE O(Ω²) MONOPOLE SOURCE CONFORMED AND INDEPENDENTLY CHARACTERIZED ON THE ADR-0009 SURFACE CONTRACT; ADR-0008 VALIDATION D MONOTONICITY NOT MET — OWNER ADJUDICATION REQUIRED; NO BASELINE.**
+Scientific status of the revalidation: `HARTLE O(OMEGA^2) MONOPOLE RESPONSE CHARACTERIZED — INDEPENDENT VALIDATION INCOMPLETE`. No monopole baseline exists or was created (ADR-0008
+Q12); no O(Ω²) number may be cited as a validated result before the owner adjudicates D (record §20);
+`l = 2` remains out of scope, not verified. The previous status paragraph above is retained as history.
+
 ---
 
 ## INV-09 — Fixed-ε_c versus equilibrium-sequence derivatives — **INTENDED BUT UNVERIFIED**
@@ -699,6 +720,11 @@ steps). *Phase 4D-RI (2026-09-03):* ADR-0008 is ACCEPTED and the `A_i`-side sour
 the fixed-`ε_c` fields Phase 5 will consume are measure-complete; the baryon-conserving reduction
 (`B_i`, `A_B/B_B`, `Z_i`), `dn_i/dp` and its own measure completeness (ADR-0008 Q11) remain
 unimplemented. **This invariant is not resolved.**
+*Phase 4D-RV (2026-09-03):* the `A_i`-side fixed-`ε_c` source is independently **characterized** on
+the migrated ADR-0009 backgrounds (`docs/validation/PHASE4D_CORRECTED_MONOPOLE_REVALIDATION.md`: `≤ 5.3e-5` against a fully independent EOS-knot measure route;
+sequence identity `≤ 1.03e-4`), with ADR-0008 Validation D's monotonicity clause not met at the
+node-placement floor; the baryon-conserving reduction, `dn_i/dp` and its measure completeness remain
+unimplemented and this invariant remains **not resolved**.
 *Phase 4D-RG (2026-09-03):* `docs/adr/ADR-0008-measure-complete-eos-energy-density-source.md` (PROPOSED) Q11 requires the scalar particle-number response to be
 **measure-complete** — `δN̂_i` carries `−4πr²e^{λ}ξ̂₀ dn_i` with atoms at composition discontinuities; a nodal
 `dn_i/dp` column is forbidden as the integrator's source. The `B_i` side inherits the same rule.
