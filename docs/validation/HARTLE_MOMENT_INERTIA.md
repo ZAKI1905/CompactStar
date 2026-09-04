@@ -414,3 +414,10 @@ remains blocked.
 ```bash
 ctest --test-dir build -L hartle --output-on-failure
 ```
+
+## TOV-SURF-MR artifact supersession note — 2026-09-03
+
+The preceding record is historical. Current I values use the corrected TOV background. B3a now tests I against its own finest-grid value; event-radius spread no longer bounds a sampled integral. Independent first-order physics bounds remain unchanged.
+Current artifact hashes, exact producer reproduction, regression evidence and the
+remaining Phase-4D dependency gate: `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:889`, `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:960`,
+`docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:1003`. No production scientific source changed during migration.

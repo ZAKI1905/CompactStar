@@ -368,3 +368,10 @@ ctest --test-dir build -L tov --output-on-failure
 `tov_reference_analytic` needs no external data. `tov_reference_cmf` reports CTest **SKIP**
 (exit 77) if `eos.mr` is absent from the distribution, and fails loudly on any real
 disagreement.
+
+## TOV-SURF-MR artifact supersession note — 2026-09-03
+
+The preceding record is historical. Current CompactStar radii use the finite p=p_cut event. Independent CompOSE comparisons and the omitted-layer bound remain; the old B7 mass-independent fraction-spread heuristic is replaced by direct event consistency.
+Current artifact hashes, exact producer reproduction, regression evidence and the
+remaining Phase-4D dependency gate: `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:889`, `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:960`,
+`docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:1003`. No production scientific source changed during migration.

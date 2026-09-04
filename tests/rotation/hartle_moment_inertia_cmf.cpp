@@ -346,36 +346,19 @@ int main(int argc, char **argv)
 		std::cout << "      observed order (3 finest): "
 				  << (std::isfinite(p) ? Sci(p) : std::string("not reliably measurable"))
 				  << "\n";
-		// Phase 2B-4A established that the stellar RADIUS itself does not converge
-		// smoothly: it is fixed by a step-dependent surface-termination event at the EOS
-		// table floor, with a sub-linear, drifting order. I is an r^4-weighted integral
-		// over the same star, so §15's question is whether that weighting AMPLIFIES the
-		// inherited surface behaviour. The criterion is therefore derived from the
-		// measured radius behaviour on this very matrix, not invented: I's relative
-		// spread must be no larger than R's over the same resolutions.
-		auto spread = [](const std::vector<double> &v, std::size_t from) {
-			if (v.size() <= from + 1) return 1.0;
-			double lo = v[from], hi = v[from];
-			for (std::size_t i = from; i < v.size(); ++i)
-			{
-				lo = std::min(lo, v[i]);
-				hi = std::max(hi, v[i]);
-			}
-			return lo > 0.0 ? (hi - lo) / lo : 1.0;
-		};
-		// index 1 onwards = 5000..40000; radial_res = 2500 is outside the asymptotic
-		// regime (2B-4A) and is reported but excluded, never silently dropped.
-		const double sI = spread(Ip_seq, 1);
-		const double sR = spread(R_seq, 1);
-		std::cout << "      relative spread over res 5000-40000:  I = " << Sci(sI)
-				  << "   R = " << Sci(sR) << "\n";
-		std::cout << "      (radial_res = 2500 is outside the asymptotic regime per 2B-4A "
-					 "and is excluded from the spread, not dropped: I = "
-				  << Sci(Ip_seq.empty() ? 0.0 : Ip_seq[0], 8) << " km^3)\n";
-		Report("B3a the r^4 weighting does NOT amplify the inherited surface behaviour: "
-			   "I is no more grid-sensitive than R itself",
-			   Ip_seq.size() == 5 && sI <= sR,
-			   "I spread " + Sci(sI) + " vs R spread " + Sci(sR));
+		// ADR-0009 makes R an event; its sampling spread cannot bound a sampled I.
+		// Protect refinement of I itself toward the finest computed I. This is a
+		// finite-resolution contraction check, not a new continuum-accuracy budget.
+		// All five complete stars remain in B3b's unchanged independent 1e-3 gate;
+		// Phase-4A/4B normalization and physical-profile bounds are unchanged.
+		std::vector<double> errors;
+		for (double value : Ip_seq)
+			errors.push_back(Rel(value, Ip_seq.back()));
+		for (std::size_t i = 0; i < errors.size(); ++i)
+			std::cout << "      I relative to finest, row " << i << ": " << Sci(errors[i]) << "\n";
+		Report("B3a I approaches its finest computed value on the finest four grids",
+			   errors.size() == 5 && errors[3] < errors[2] && errors[2] < errors[1],
+			   "own relative errors at 5000 -> 10000 -> 20000 contract; 40000 is reference");
 
 		double worst = 0, best = 1.0;
 		for (std::size_t i = 0; i < Ip_seq.size(); ++i)

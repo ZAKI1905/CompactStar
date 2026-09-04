@@ -320,6 +320,12 @@ all seven durable artifacts await a separate migration. Authority:
 `docs/adr/ADR-0009-tov-surface-event-and-termination.md:55`; evidence:
 `docs/validation/TOV_SURFACE_IMPLEMENTATION.md:379`, `docs/validation/TOV_SURFACE_IMPLEMENTATION.md:428`.
 
+*TOV-SURF-MR (2026-09-03):* all seven governed surface artifacts are migrated;
+current hashes and exact producer reproduction are recorded in `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:889`.
+The historical stopped migration and owner R1–R6 adjudication remain preserved.
+INV-06 stays **GOVERNED / CONFORMED / VALIDATED** at finite `p=p_cut`; no cutoff
+or production behavior changed (`docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:1003`).
+
 **⚠ UNRESOLVED sub-item — heat-blanket base.** Two competing thresholds coexist:
 `TbDefinition.hpp:60` uses ρ_b = 1e10 g/cm³ (located by inward scan,
 `TbDefinition.cpp:91-95`), while `StarBuilder.hpp` carries
@@ -639,6 +645,11 @@ cited as a result, and **no monopole baseline exists or may be created** (ADR-00
 YET.** ADR-0008 Validation D's monotonicity half is recorded as **not met** (the residual is the TOV
 background's own resolution dependence). The `l = 2` sector remains out of scope, not verified.
 
+*TOV-SURF-MR dependency update (2026-09-03):* the ADR-0009 background artifact
+migration is complete. Corrected independent Phase-4D revalidation is ready, not
+performed; the first monopole baseline still requires its success and Phase 5 remains
+blocked. Evidence and current hashes: `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:1003`, `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:889`.
+
 ---
 
 ## INV-09 — Fixed-ε_c versus equilibrium-sequence derivatives — **INTENDED BUT UNVERIFIED**
@@ -855,6 +866,11 @@ Across five production resolutions and three diagnostic uniform grids, both EOSs
 meet relative bounds M≤1e-9 and R/lapse/compactness≤1e-8; sampled integrals retain
 resolution error. The existing linear background interpolation and EOS derivative
 authorities are unchanged. Evidence: `docs/validation/TOV_SURFACE_IMPLEMENTATION.md:428`, `docs/validation/TOV_SURFACE_IMPLEMENTATION.md:562`.
+
+*TOV-SURF-MR (2026-09-03):* the installed seven-resolution matrix confirms target
+partition sampling-only within the existing M≤1e-9 and R≤1e-8 bounds. Both arms
+contain complete stars, including 2500; sampled B and thermal integrals retain their
+measured finite-resolution behavior. Current grid authority: `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:907`.
 
 ---
 

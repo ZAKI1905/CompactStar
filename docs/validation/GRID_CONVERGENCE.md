@@ -317,3 +317,10 @@ To regenerate the artifacts:
 
 The registered CTest deliberately does **not** pass `--emit-dir`, so running the suite never
 rewrites the recorded matrix.
+
+## TOV-SURF-MR artifact supersession note — 2026-09-03
+
+The preceding record is historical. The current matrix contains 14 debug and 63 trajectory rows at seven resolutions; 2500 is a complete star. The historical coarse-grid detector and old measured orders above do not describe the current artifacts.
+Current artifact hashes, exact producer reproduction, regression evidence and the
+remaining Phase-4D dependency gate: `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:889`, `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:960`,
+`docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:1003`. No production scientific source changed during migration.

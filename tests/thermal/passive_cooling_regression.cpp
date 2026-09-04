@@ -86,7 +86,7 @@ constexpr double kT1_yr = 1.0e6;
 constexpr double kRtol = 1e-6;
 constexpr double kAtol = 1e-10;
 constexpr double kSamplesPerDecade = 150.0;
-static const char *kSourceCommit = "800f24522bf7fc56387c2288e38c7906c1b54fcc (+ Phase-2B-1R repair)";
+static const char *kSourceCommit = "94165f359ccfadf34bf64ede62e7bef9c581a067 (ADR-0009 validated science)";
 // Selected from the Phase-2B-1R convergence study; see PASSIVE_COOLING_BASELINE.md.
 constexpr P::Evolution::StepperType kBaselineStepper = P::Evolution::StepperType::RKF45;
 
@@ -457,6 +457,7 @@ static void WriteBaseline(const fs::path &p, const std::vector<Checkpoint> &cks,
 	  << "#\n"
 	  << "# --- provenance ---\n"
 	  << "# source_commit\t" << kSourceCommit << "\n"
+	  << "# thermal_configuration_origin\t800f24522bf7fc56387c2288e38c7906c1b54fcc (+ Phase-2B-1R repair)\n"
 	  << "# build_configuration\tDebug\n"
 	  << "# compiler\tAppleClang 17.0.0.17000604\n"
 	  << "# gsl_version\t2.7.1\n"

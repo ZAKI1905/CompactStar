@@ -1,5 +1,8 @@
 # TOV surface artifact migration — stopped candidate audit
 
+> **CURRENT: TOV SURFACE ARTIFACT MIGRATION COMPLETE — CORRECTED PHASE-4D REVALIDATION READY.** See §20. All earlier status lines and §§1–18 describe the historical stopped attempt; §19 preserves the owner adjudication.
+
+
 **Status: TOV SURFACE ARTIFACT MIGRATION FAILED — OWNER REVIEW REQUIRED**
 
 **Current status (TOV-SURF-MA, 2026-09-03): TOV SURFACE MIGRATION ENVELOPE ADJUDICATED — ARTIFACT MIGRATION MAY RESUME** — see §19. The historical stop status above and §§1–18 are preserved unchanged.
@@ -809,3 +812,208 @@ re-verified unchanged.
 run1/run2 byte-identical candidates, performs the authorized copy, updates the four legacy
 regressions, runs the complete non-Phase-4D suites, records new hashes, and pushes one
 atomic migration commit.
+
+## 20. Completed artifact promotion — TOV-SURF-MR (2026-09-03)
+
+**TOV SURFACE ARTIFACT MIGRATION COMPLETE — CORRECTED PHASE-4D REVALIDATION READY**
+
+Sections 1–18 are the historical stopped attempt; §19 is the accepted owner
+adjudication. Their original text and old hashes are preserved. This section
+establishes the new current regression authority. The governing change classes are
+generated artifact, test/regression orchestration, and documentation (GOVERNANCE §2);
+ADR-0009 Q11 and the §19 owner adjudication authorize promotion. No production
+scientific behavior changed, and the §3.1 exception was not invoked.
+
+### 20.1 Resume authentication
+
+Starting and owner-adjudication SHA: `816b754d43360aaf8034c078648a01a5fe2ef768`,
+branch `governance/tov-surface-contract`, named TOV-surface worktree, clean tree;
+local = upstream = live remote, 19 ahead / 0 behind master. The acceptance,
+implementation stop, V7 clarification and validated implementation ancestors were
+re-authenticated. Commit `816b754` changes documentation only; all 197 production
+file hashes match the preserved validated source manifest.
+Evidence: `/Users/keeper/.codex/diagnostics/tov-surf-mr-20260903/authentication-and-copy.json:1`; immutable source history at
+`816b754`; original `/Users/keeper/.codex/diagnostics/tov-surf-m-20260903/evidence/production-hashes.json:1`.
+
+All 80 entries of `/Users/keeper/.codex/diagnostics/tov-surf-m-20260903/SHA256SUMS.json` authenticate; its own SHA256 is
+`1c704e2d3c03e4f0584e8dec0f0ea123a2e2c4fa3531e2cb627c925c76d1f1a6`.
+All seven old current artifacts matched §2 before copying. The preserved run1/run2
+pairs are byte-identical and match §4. Neither run was regenerated. The original
+1,045-field CSV/JSON audit and hash-occurrence audit are unchanged.
+The prompt's path-equivalence candidate hash contains a one-character typo;
+authenticated run1/run2, the manifest and §4 agree on `5c0f4b3bdb…`, the full value
+in §20.4. This value was computed from bytes rather than copied from the prompt.
+
+### 20.2 Binding migration semantics
+
+The historical 5000 row is accepted by §19.5 Q5/R1–R6: its 9.90011708 m omitted
+interval, `ΔM/M=1.6200244697598425e-9`, and `ΔB/B=1.8507188048e-9` are the documented
+one-layer tails. The R1–R6 adjudication was consumed without rerunning or reopening
+its physics. V7a's old/new `1e-9` bound remains the four canonical fixed-εc stars at
+resolution 10000. Corrected-vs-corrected V4 M/R bounds remain `1e-9`/`1e-8`.
+
+The 2500 rows are class-A truncated-star recovery, not normal tails. Target-mass
+rows retain V7b semantics: εc may change, the absolute `1e-4 Msun` tolerance and
+first-acceptable bisection policy remain unchanged. The 2.0 target's larger I/B
+movement remains the already adjudicated target-root change (§19.6).
+
+### 20.3 Exact patch, single copy, and producer reproduction
+
+`candidate-producers.patch` SHA256:
+`f2674572f78b0d9371d45eaa41856ff5ef56d5c78b807f2061fb926086c66060`.
+`git apply --check` passed, then the patch was applied exactly; the resulting four-file
+diff was byte-identical to the archive patch and each source matched the archived
+producer source. Files: `tests/thermal/grid_convergence_cmf.cpp`,
+`tests/core/tov_reference_cmf.cpp`, `tests/rotation/hartle_moment_inertia_cmf.cpp`,
+`tests/thermal/passive_cooling_regression.cpp`. No other test/source change was made.
+
+The seven exact run1 files were copied once into `tests/baselines`; immediate
+post-copy hashes all matched. Both `cmake --build build -j6` and
+`cmake --build build-selfcontained -j6` passed. Only the four changed test translation
+units compiled; no production scientific source edit was introduced. Existing
+Tags.hpp C++20-extension warnings remain unrelated to the migration.
+Evidence: `/Users/keeper/.codex/diagnostics/tov-surf-mr-20260903/build-main.log:1`, `/Users/keeper/.codex/diagnostics/tov-surf-mr-20260903/build-selfcontained.log:1`.
+
+The six canonical producer commands in §3 then ran sequentially with the current
+built executables, replacing RUN with
+`/tmp/compactstar-tov-migration-reproduction-mr-20260903`. All exited 0; all seven
+outputs are byte-identical to both preserved run1 and installed baselines. No
+producer wrote into `tests/baselines`. Exact argv, runtimes and executable hashes:
+`/Users/keeper/.codex/diagnostics/tov-surf-mr-20260903/reproduction-commands.json:1`; byte comparisons:
+`/Users/keeper/.codex/diagnostics/tov-surf-mr-20260903/reproduction-hashes.json:1`. Ten external EOS/reference input hashes were
+also rechecked. A setup script initially resolved relative manifest paths against
+the worktree; that FileNotFoundError occurred before producer launch and was
+corrected to the authenticated compose root (`/Users/keeper/.codex/diagnostics/tov-surf-mr-20260903/orchestration-note.json:1`).
+There was no producer failure or scientific discrepancy.
+
+### 20.4 CURRENT seven-artifact hash authority
+
+The new column below is current regression authority. Old values remain historical
+provenance, including the unchanged §2 table. Every new value was recomputed from
+installed repository bytes, matches both preserved runs, and matches the post-copy
+producer output. Class A = truncation-contaminated grid artifact; B = corrected
+surface/background; D = ordinary-path equivalence.
+
+| Artifact | Class | Old SHA256 — historical | New SHA256 — CURRENT | Producer | Repeatability |
+|---|---|---|---|---|---|
+| `passive_cooling_cmf_1p6_debug.tsv` | B | `831744b0a206541fd0e24adc67876cc1ee4d02d89a580942a9fb0c6749999453` | `afcad5d078fe458bdb441278ce56caa2d025becc6b489d00e9baad91a101c0de` | `passive_cooling_regression` | run1 = run2 = installed = reproduction, byte-identical |
+| `tov_dscmf1_reference.tsv` | B | `ba9f6ee51e501e5e5a2133f72d3d16f351e5c721eb3f7a7c04e4d922fbc13e28` | `3d9af9129a6a4ffde9e0f8c5507a160f968a861c0cf9f3b089cceecab86b701a` | `tov_reference_cmf` | run1 = run2 = installed = reproduction, byte-identical |
+| `grid_convergence_cmf_1p6_debug.tsv` | A | `61d84ddcb87645197c5406c880b648fdf3bb9b0ed8c58350800ca2f2d296ff40` | `2c68e2f7e871192e00322bcc12b6d8b13eb7fdbda4a6d8d7050f26f0271ce5eb` | `grid_convergence_cmf` | run1 = run2 = installed = reproduction, byte-identical |
+| `grid_convergence_cmf_1p6_trajectory.tsv` | A | `ca32863dabaa28fad63d5c36b287a3b94e9b6b85f11980bf2be4e65499d9a0c6` | `7c84557742ec0ec747756d118b2837fb54095a94c10194d4ccc2d0a778f5b04f` | `grid_convergence_cmf` | run1 = run2 = installed = reproduction, byte-identical |
+| `hartle_I_dscmf1_debug.tsv` | B | `ddf018579364e9b3bf24f1e3a3e2577e70fb09b8b84eb718237d9da683aa9d15` | `a21d4c3f6d89322cb4cca7a073e0e142f180e529332d704b7b16a145eae741c9` | `hartle_moment_inertia_cmf` | run1 = run2 = installed = reproduction, byte-identical |
+| `baryon_number_dscmf1_reference.tsv` | B | `8da5799d21da2017dd7dc49dfec8571ade6efba22846a652796118f248d4a646` | `7b036942f2ae599ace3b2fc8b9a7d91f6d11b5899ab7e8a88d2bb4ee6686493b` | `baryon_number_cmf` | run1 = run2 = installed = reproduction, byte-identical |
+| `tov_path_equivalence_dscmf1.tsv` | D | `bbf61e5fddb4709500f22a1eb11b1e20554f7463376619e86e96ea0a2540d871` | `5c0f4b3bdb70921f8f2a869af10edc4d8f5ae3963a9d150e11ef859d21e1c678` | `tov_path_equivalence_cmf` | run1 = run2 = installed = reproduction, byte-identical |
+
+### 20.5 Corrected grid authority and measured finite-resolution diagnostics
+
+Installed debug artifact: **14 rows**, both A_fixed_ec and B_fixed_mass at
+**1250, 2500, 5000, 10000, 20000, 40000, 80000**. Installed trajectory:
+**63 rows**, nine epochs for each resolution. No data row was removed; 4 debug
+and 18 trajectory rows are new. Every star is complete and `SURFACE_REACHED`, using
+the governed event; both arms have identical structure and εc at every resolution.
+The 2500 star is on the same physical branch with no missing-crust compensation.
+Evidence: `tests/baselines/grid_convergence_cmf_1p6_debug.tsv:4`,
+`tests/baselines/grid_convergence_cmf_1p6_trajectory.tsv:3`,
+`tests/thermal/grid_convergence_cmf.cpp:109`, `:820`, `:846`;
+`/Users/keeper/.codex/diagnostics/tov-surf-mr-20260903/reproduce-grid_convergence_cmf.log:3270`.
+
+From installed bytes, the maximum M/R differences relative to the finest row are
+`9.12514e-11` and `1.27660e-10`, within unchanged V4 bounds. The historical coarse-grid
+radius-error detector is retired; G1 requires complete stars on one physical branch,
+G3 tests event-radius partition invariance, and G2/G4/G5 retain their existing
+trajectory-contraction/time-floor/target-residual gates. Installed-byte calculation:
+`/Users/keeper/.codex/diagnostics/tov-surf-mr-20260903/installed-grid-integrity.json:1`, `/Users/keeper/.codex/diagnostics/tov-surf-mr-20260903/convergence.json:1`.
+
+| Quantity | Finest-three effective order / finest-pair norm contraction |
+|---|---|
+| achieved_M | not reliably measurable: numerical floor or nonmonotone |
+| R_km | not reliably measurable: numerical floor or nonmonotone |
+| B | 2.234619361 |
+| Cstar_1e8 | 2.246126826 |
+| Lnu_1e8 | 0.164427240 |
+| Lgamma_1e8 | not reliably measurable: numerical floor or nonmonotone |
+| dlnT_dt_1e8 | 0.147859455 |
+| terminal_Tinf | 0.964651796 |
+| trajectory_norm | 0.146235960 |
+
+These are finite-resolution diagnostics, not a universal asymptotic order. The
+calculation uses actual `dr_eff_km` ratios, sign/floor checks, and
+`max_epoch |ln(Tinf_a/Tinf_b)|`; it reads installed bytes and does not generate any
+artifact (`/Users/keeper/.codex/diagnostics/tov-surf-mr-20260903/installed_convergence_summary.py:1`). The numerical-method and
+thermal formulas are unchanged; the complete old/new field audit remains §5.
+
+### 20.6 Legacy heuristic and consumer migration
+
+| Consumer | Installed migration and retained protection | Evidence |
+|---|---|---|
+| TOV reference | Radius +1.199/+1.027/+5.035 m at targets 1.0/1.4/1.6; external CompOSE values unchanged. B7 keeps the omitted-layer bound and replaces only mass-independent fraction spread with complete governed-event consistency. Reference budgets unchanged. | §9; `tests/core/tov_reference_cmf.cpp:62`, `:440`, `:465` |
+| First-order Hartle I | B3a now requires I's own contraction toward its finest sampled value. Independent B3b and Phase-4A/B physics bounds unchanged; no continuum tolerance introduced. Target 2.0 I shift −5.30690e-6 follows permitted εc movement. | §11; `tests/rotation/hartle_moment_inertia_cmf.cpp:349`, `:359`, `:367` |
+| Passive cooling | Metadata and baseline bytes only; terminal Tinf shift −1.05949e-4, max reported luminosity shift 8.47219e-4. Thermal formulas, controls, energy and channel-consistency checks unchanged. | §10; `tests/thermal/passive_cooling_regression.cpp:89`, `:109`, `:460` |
+| Baryon number | First three target rows retain εc and have B tails ≤7.95112e-10; target 2.0 B shift −6.24356e-5 is V7b. INV-14 formula and existing 1e-15 deterministic comparisons unchanged. | §12; `tests/core/baryon_number_cmf.cpp:57`, `:60`, `:250` |
+| Path equivalence | 17 equivalent rows; only matching node counts change. All M/R/B/I/profile differences and ULP comparisons remain zero. Invalid/incomplete input rejection is retained; no second locator. | §13; `tests/baselines/tov_path_equivalence_dscmf1.tsv:8`; final CTest log |
+
+All four former legacy failures are now green. Regression tolerances derive from
+repeatability, not scientific migration amplitude: all seven outputs reproduce
+byte-for-byte; the existing passive `1e-5`/`1e-4`, baryon `1e-15`, path equality and
+independent TOV/Hartle/thermal scientific bounds were retained. No tolerance widening.
+
+### 20.7 Final serial validation
+
+Main and self-contained suites ran sequentially with `-j1 --stop-on-failure`.
+No shared heat-capacity fixture collision occurred. These are the requested existing
+regression suites; no additional ADR-0009 adjudication campaign was performed.
+
+| Suite | Included | Excluded | Result | CTest wall time |
+|---|---|---|---|---|
+| main | 41 | 3 independent Phase-4D tests | 41/41 PASS, no skips | 551.05 s |
+| selfcontained | 20 | 2 independent Phase-4D tests | 20/20 PASS, no skips | 65.14 s |
+
+Full-build exclusions are exactly `hartle_monopole_physics_analytic`,
+`hartle_monopole_physics_cmf`, `hartle_monopole_published`; self-contained exclusions
+are exactly the analytic and published tests. Existing monopole API/measure-contract
+regressions are included, distinct from the reserved independent revalidation.
+All surface, path, grid, first-order Hartle normalization/physics, EOS, thermal,
+baryon and remaining applicable tests passed. No unexpected test failure.
+Evidence: `/Users/keeper/.codex/diagnostics/tov-surf-mr-20260903/ctest-main.log:1`, `/Users/keeper/.codex/diagnostics/tov-surf-mr-20260903/ctest-selfcontained.log:1`, matching
+JUnit files, selection JSON and `/Users/keeper/.codex/diagnostics/tov-surf-mr-20260903/suite-results.json:1`.
+
+```sh
+ctest --test-dir build --output-on-failure --stop-on-failure -j1 -E '^(hartle_monopole_physics_analytic|hartle_monopole_physics_cmf|hartle_monopole_published)$'
+ctest --test-dir build-selfcontained --output-on-failure --stop-on-failure -j1 -E '^(hartle_monopole_physics_analytic|hartle_monopole_published)$'
+```
+
+### 20.8 Historical preservation and documentation synchronization
+
+The preserved hash-occurrence audit's 60 entries were re-authenticated, plus seven
+historical entries in this record: 67 existing old-hash occurrences across 15 files,
+all historical, all retained. The seven additional old-hash cells in §20.4 explicitly
+record provenance; only its NEW column is current authority. No blind replacement
+or historical hash update occurred. Current architecture, invariant register, roadmap
+and ADR index point here. Historical Phase-3/Phase-4 snapshots, the radial-2500 audit,
+the surface derivation, and implementation history retain their original bytes;
+any supersession notice is appended. Evidence:
+`/Users/keeper/.codex/diagnostics/tov-surf-mr-20260903/hash-occurrence-resume-audit.json:1`; §20.4.
+
+All seven baseline files and the four exact reviewed test changes are included in
+one atomic migration commit, together with this completion and current-state pointers.
+No diagnostics or scratch files are committed. The final source/patch/hash/history,
+`git diff --check`, commit and non-force push checks are retained in the resume
+archive and delivery report; Git supplies the migration commit's immutable identity.
+
+### 20.9 Status and dependency gate
+
+ADR-0009: **ACCEPTED / SOURCE CONFORMED / NUMERICALLY VALIDATED / ARTIFACT MIGRATION COMPLETE**.
+INV-06: **GOVERNED / CONFORMED / VALIDATED** for the finite `p=p_cut` event.
+INV-13: output target partition is sampling only within the unchanged validated
+bounds; sampled integrals retain finite-resolution error. Scientific production
+diff relative to `816b754`: **NONE**. Accepted ADR-0009 Decision unchanged.
+
+Corrected Phase-4D independent revalidation is **READY, NOT RUN**. First monopole
+baseline: **NOT CREATED**, still blocked until that revalidation succeeds.
+Phase 5: **NOT BEGUN**, remains blocked. No merge or history rewrite.
+Authority: ADR-0009 Q14 and ADR-0008 Q12; §20.7 establishes the migration test gate.
+
+**Exactly one next action:** use Claude/Fable for corrected Phase-4D independent
+monopole revalidation against ADR-0007 + ADR-0008 on these migrated ADR-0009
+backgrounds. Only after that successful revalidation may the first monopole
+scientific baseline be created.

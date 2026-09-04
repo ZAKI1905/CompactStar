@@ -164,7 +164,7 @@ int main(int argc, char **argv)
 	// B1 — target-mass path (the one production actually uses)
 	// ----------------------------------------------------------------------
 	std::cout << "\nB1 target-mass path: NStar::SolveTOV_Profile\n";
-	struct B1Row { double M, R_prod, R_ref; };
+	struct B1Row { double M, R_prod, R_ref, ec; };
 	std::vector<B1Row> b1;
 	double R16_production = 0.0;
 	for (double Mt : {1.0, 1.4, 1.6})
@@ -183,7 +183,7 @@ int main(int argc, char **argv)
 		if (std::fabs(Mt - 1.6) < 1e-9)
 			R16_production = s.r;
 		if (Rref > 0.0)
-			b1.push_back({s.m, s.r, Rref});
+			b1.push_back({s.m, s.r, Rref, s.ec});
 		std::cout << "    target " << Mt << " -> M=" << s.m << " R=" << s.r
 				  << " km   ref R(M)=" << Rref << " km   dR=" << std::scientific << dR
 				  << std::fixed << "   ec=" << std::scientific << s.ec << std::fixed << "\n";
@@ -405,8 +405,10 @@ int main(int argc, char **argv)
 	// tabulated rows,
 	//     delta_r = (1/g_eff) * (p0/rho0) / (1 - 1/Gamma) .
 	// If the residual is a boundary-convention effect it must be BOUNDED by this height
-	// and must be the SAME FRACTION of it at every mass. A solver or unit error would
-	// show no such scaling.
+	// (TOV_REFERENCE section 5). The old same-fraction assertion mixed this
+	// approximate missing-layer estimate with target-step surface error. ADR-0009
+	// removes that error; require the governed event directly, retain the bound,
+	// and report the approximate fraction without imposing a new tolerance.
 	std::cout << "\nB7 attribution of the systematic radius residual\n";
 	{
 		double e0 = 0, p0 = 0, e1 = 0, p1 = 0;
@@ -427,6 +429,7 @@ int main(int argc, char **argv)
 		const double G = 6.67430e-8, c2 = 2.99792458e10 * 2.99792458e10,
 					 Msun = 1.98892e33;
 		std::vector<double> ratios;
+		bool events = b1.size() == 3;
 		std::cout << "      M      R_prod      R_ref    residual   omitted-layer   fraction\n";
 		for (const auto &row : b1)
 		{
@@ -437,6 +440,13 @@ int main(int argc, char **argv)
 			const double resid_km = row.R_ref - row.R_prod;
 			const double frac = resid_km / dr_km;
 			ratios.push_back(frac);
+			std::vector<TOVPoint> event;
+			const bool complete = tov.SingleStarSolveToTOVPoints(row.ec, event) > 0 &&
+				tov.LastSolveStatus() == TOVSolveStatus::SURFACE_REACHED;
+			events = events && complete && p0 > 0.0 &&
+				Rel(event.back().p, p0) <= 1.e-8 &&
+				Rel(event.back().r, row.R_prod) <= 1.e-8 &&
+				Rel(event.back().m, row.M) <= 1.e-9;
 			std::cout << "   " << std::setprecision(3) << row.M << "   " << std::setprecision(6)
 					  << row.R_prod << "  " << row.R_ref << "   " << std::setprecision(5)
 					  << resid_km << " km    " << dr_km << " km     "
@@ -451,11 +461,9 @@ int main(int argc, char **argv)
 		double lo = 1e9, hi = -1e9;
 		for (double f : ratios) { lo = std::min(lo, f); hi = std::max(hi, f); }
 		const double spread = (ratios.empty() || lo <= 0.0) ? 1.0 : (hi - lo) / lo;
-		Report("B7 the residual is the same fraction of that layer at every mass "
-			   "(a boundary convention, not a solver error)",
-			   spread < 0.15,
-			   "fraction spans [" + std::to_string(lo) + ", " + std::to_string(hi) +
-				   "], relative spread " + std::to_string(spread));
+		std::cout << "    diagnostic omitted-layer fraction spread = " << spread << "\n";
+		Report("B7 corrected radii belong to the complete governed EOS-floor event",
+			   events, "same central density: pressure/radius <= 1e-8, mass <= 1e-9 (ADR-0009)");
 	}
 
 	if (!emit.empty())

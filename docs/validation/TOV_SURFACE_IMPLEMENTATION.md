@@ -695,3 +695,10 @@ Files changed by the implementation commit (16):
 
 The implementation commit and post-push local/remote equality are recorded by Git
 history and the delivery report, preserving `7a223d3`, `96c1425` and `03b7d58`.
+
+## TOV-SURF-MR artifact supersession note — 2026-09-03
+
+The preceding record is historical. The seven artifacts preserved during implementation have now been migrated under the owner R1–R6 adjudication. All implementation measurements and historical hash tables above remain unchanged.
+Current artifact hashes, exact producer reproduction, regression evidence and the
+remaining Phase-4D dependency gate: `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:889`, `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:960`,
+`docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:1003`. No production scientific source changed during migration.

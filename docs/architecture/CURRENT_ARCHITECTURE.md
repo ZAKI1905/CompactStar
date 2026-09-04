@@ -1,11 +1,14 @@
 # CompactStar — Current Architecture
 
-> **TOV-SURF-I-R (2026-09-03):** the ordinary canonical TOV primitive now locates
-> the accepted-solution `p=p_cut` event by pressure-coordinate terminal integration.
-> Explicit completion status prevents partial-profile publication through ordinary
-> callers. Cutoff value, target-mass tolerance and inherited driver history are
-> unchanged. Both-EOS validation passes; artifact migration precedes corrected
-> Phase-4D. Evidence: `docs/validation/TOV_SURFACE_IMPLEMENTATION.md:339`.
+> **TOV-SURF-MR (2026-09-03):** ADR-0009 is accepted, source conformed and
+> numerically validated; the seven surface artifacts are now migrated. The ordinary
+> primitive retains its accepted-solution `p=p_cut` event and fail-closed completion;
+> cutoff, target-mass tolerance and inherited driver history are unchanged.
+> Current hashes and producer reproduction: `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:889`.
+> Main 41/41 and self-contained 20/20 pass; corrected Phase-4D independent revalidation
+> is ready but has not run. The first monopole baseline and Phase 5 remain blocked.
+> Evidence: `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:960`, `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:1003`;
+> source validation: `docs/validation/TOV_SURFACE_IMPLEMENTATION.md:339`.
 
 > **STATUS: DESCRIPTIVE.** Authoritative for component boundaries and ownership
 > (`GOVERNANCE.md` authority rank 6). Describes **only** behavior that is compiled and reachable.

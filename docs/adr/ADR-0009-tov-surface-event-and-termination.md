@@ -2,12 +2,12 @@
 
 | Field | Value |
 |---|---|
-| **Status** | **ACCEPTED — 2026-09-03** (owner adjudication in TOV-SURF-I); **SOURCE CONFORMED / NUMERICALLY VALIDATED** (TOV-SURF-I-R); artifact migration required |
+| **Status** | **ACCEPTED — 2026-09-03** (owner adjudication in TOV-SURF-I); **SOURCE CONFORMED / NUMERICALLY VALIDATED** (TOV-SURF-I-R); **ARTIFACT MIGRATION COMPLETE** (TOV-SURF-MR) |
 | **Date** | 2026-09-03 |
 | **Change class** | scientific-semantic (definition of `R_*`; INV-06) **and** numerical-method (event location; right-hand-side domain contract) **and** structural (completion status; fail-closed publication) — the strictest class governs |
 | **Governing authority** | ADR-0005 §7.1 (the primitive owns "the termination test"; §7.3 froze `SolveToProfile`'s fallback for Phase 3E only); ADR-0003; ADR-0004 (`EvaluateNu` surface BC); ADR-0007 P7 / ADR-0008 Q7 (surface = EOS-floor node, terminal atom); INV-06, INV-13; TOV-RR-01 |
 | **Affected invariants** | INV-06 (locator amended, value unchanged); INV-13 (partition is sampling only); INV-08/INV-09 (dependency only) |
-| **Blocks** | regeneration of every durable artifact carrying `R_*` until implementation and validation; the corrected Phase-4D revalidation and the first monopole baseline (ADR-0008 Q12) |
+| **Dependency state** | artifact migration complete; corrected Phase-4D independent revalidation ready; the first monopole baseline still requires that successful revalidation (ADR-0008 Q12) |
 | **Evidence record** | `docs/validation/TOV_SURFACE_CONTRACT_DERIVATION.md`; defect: `docs/validation/TOV_RADIAL_RES_2500_AUDIT.md` |
 
 > **Relation to prior ADRs.** Amends ADR-0005 only in what "the termination test" of the canonical
@@ -302,3 +302,17 @@ This is a validation-scope clarification recorded by the same mechanism as the V
 clarification (commit `03b7d58`), not a new ADR and not a GOVERNANCE §3.1 matter.
 Evidence: `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md` §19;
 `/Users/keeper/.codex/diagnostics/tov-surf-ma-20260903/`.
+
+## Artifact migration outcome — TOV-SURF-MR (2026-09-03)
+
+**ACCEPTED / SOURCE CONFORMED / NUMERICALLY VALIDATED / ARTIFACT MIGRATION COMPLETE.**
+The owner-adjudicated R1–R6 envelope authorized exact promotion of the seven preserved
+run1 artifacts. All seven reproduce byte-for-byte with the applied reviewed producer
+patch; the non-Phase-4D suites pass 41/41 and 20/20 serially. The accepted Decision
+Q1–Q14, corrected V4/default V7a bounds, mass tolerance, cutoff and production source
+are unchanged. Historical hashes and the stop/adjudication chronology are preserved.
+Current hashes and evidence: `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:889`, `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:960`.
+
+Corrected Phase-4D independent revalidation against ADR-0007 + ADR-0008 is ready,
+but was not performed here. The first monopole baseline remains blocked until it
+succeeds; Phase 5 remains blocked. Dependency gate: `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:1003`.

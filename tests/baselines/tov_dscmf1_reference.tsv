@@ -1,7 +1,7 @@
 # CompactStar TOV reference comparison — DS(CMF)-1_with_crust
 # reference: official CompOSE eos.mr (external, third-party)
 # target_M	achieved_M	R_production_km	R_official_km
-1.000000	1.000044	13.426323	13.472825
-1.400000	1.400022	13.545323	13.574875
-1.600000	1.599976	13.468323	13.494859
+1.000000	1.000044	13.427522	13.472825
+1.400000	1.400022	13.546350	13.574875
+1.600000	1.599976	13.473358	13.494859
 # M_max_production	2.06944	M_max_official	2.06887

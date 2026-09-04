@@ -105,7 +105,8 @@ static const std::vector<double> kEpochsYr = {
 constexpr double kTstatic_K = 1.0e8;
 
 /// Refinement sequence. Contains the production default (10000).
-static const std::vector<std::size_t> kResolutions = {2500, 5000, 10000, 20000, 40000};
+// ADR-0009 derivation section 13: corrected, complete stars on one branch.
+static const std::vector<std::size_t> kResolutions = {1250, 2500, 5000, 10000, 20000, 40000, 80000};
 
 static int g_fail = 0;
 static bool g_surface_validation = false;
@@ -253,7 +254,6 @@ static bool StaticDiagnostics(NStar &ns, CompOSE_Thermo &thermo, double Tinf_K, 
 	const auto nd = Th::Detail::NeutrinoCooling_Details::ComputeDerived(neutrino, Y, ctx);
 	if (!pd.ok || !nd.ok)
 		return false;
-	if (g_surface_validation)
 	{
 		const auto &profile = ns.Profile();
 		const double r = (*profile.GetRadius())[-1], m = (*profile.GetMass())[-1];
@@ -473,8 +473,7 @@ int main(int argc, char **argv)
 		std::cerr << "Surface validation cannot emit baseline artifacts.\n";
 		return 2;
 	}
-	const std::vector<std::size_t> surface_resolutions = {1250, 2500, 5000, 10000, 20000, 40000, 80000};
-	const auto &requested_resolutions = g_surface_validation ? surface_resolutions : kResolutions;
+	const auto &requested_resolutions = kResolutions;
 
 	const fs::path dist = root / "DS-CMF-1-with-crust";
 	const fs::path cold = dist / "DS(CMF)-1_with_crust.eos";
@@ -654,9 +653,9 @@ int main(int argc, char **argv)
 	// =======================================================================
 	//  Convergence analysis
 	// =======================================================================
-	// Order fitting uses the four finest resolutions; 2500 is retained and reported
-	// as a coarse diagnostic (and as the detector proof) but is excluded from order
-	// fitting if it is not in the asymptotic regime. That exclusion is stated, never silent.
+	// Report every adjacent pair; fit only the finest three when their signs and
+	// numerical floor permit it. A finite-resolution order is not a universal order.
+	// The 2500 star is complete under ADR-0009, not a truncation-error detector.
 	auto fit = [&](const std::vector<Case> &S, auto get, const char *name)
 	{
 		std::cout << "    " << std::setw(22) << std::left << name << std::right;
@@ -819,7 +818,6 @@ int main(int argc, char **argv)
 	// =======================================================================
 	//  Assertions — convergence EVIDENCE only. No invented accuracy threshold.
 	// =======================================================================
-	if (g_surface_validation)
 	{
 		std::cout << std::setprecision(17);
 		for (const auto *set : {&A, &B})
@@ -843,13 +841,16 @@ int main(int argc, char **argv)
 			Report("surface target residual", std::fabs(c.M-kTargetM) < 1.e-4,
 				"res=" + std::to_string(c.res));
 		std::cout << "SURFACE_GRID_FAILURES " << g_fail << "\n";
-		return g_fail ? 1 : 0;
 	}
 	std::cout << "\nCRITERIA\n";
-	Report("G1 the coarse grid is detected as materially different from the finest",
-		   coarse_R > 0.0 && def_err_R > 0.0 && coarse_R > 10.0 * def_err_R,
-		   "coarse R error " + Sci(coarse_R) + " vs default " + Sci(def_err_R) +
-			   "  (ratio " + Sci(def_err_R > 0 ? coarse_R / def_err_R : 0.0, 1) + ")");
+	Report("G1 every resolution is a complete star on the same physical branch",
+		   A.size() == kResolutions.size() && B.size() == A.size() &&
+			   std::all_of(A.begin(), A.end(), [](const Case &c) { return c.ok; }) &&
+			   std::all_of(B.begin(), B.end(), [](const Case &c) { return c.ok; }) &&
+			   std::equal(A.begin(), A.end(), B.begin(), [](const Case &a, const Case &b) {
+				   return a.ec == b.ec && Rel(a.M, b.M) <= 1.e-9 && Rel(a.R, b.R) <= 1.e-8;
+			   }),
+		   "fixed-mass arm does not compensate a missing crust; 2500 retained");
 	Report("G2 refinement contracts the trajectory norm",
 		   Bn.size() >= 3 && Bn[Bn.size() - 1].dmax < Bn[Bn.size() - 2].dmax &&
 			   Bn[Bn.size() - 2].dmax < Bn[Bn.size() - 3].dmax,
@@ -857,10 +858,10 @@ int main(int argc, char **argv)
 								Sci(Bn[Bn.size() - 2].dmax) + " -> " +
 								Sci(Bn[Bn.size() - 1].dmax)
 						  : "insufficient pairs");
-	Report("G3 Experiment A radius contracts under refinement",
-		   A.size() >= 4 && std::fabs(A[A.size() - 1].R - A[A.size() - 2].R) <
-								std::fabs(A[A.size() - 2].R - A[A.size() - 3].R),
-		   "successive |dR| decreasing on the finest pairs");
+	Report("G3 event radius is partition-invariant (ADR-0009)",
+		   std::all_of(A.begin(), A.end(), [&](const Case &c) {
+			   return Rel(c.R, A.back().R) <= 1.e-8;
+		   }), "R relative to finest <= 1e-8; no monotonic order at the solver floor");
 	Report("G4 thermal-integrator error is subdominant to radial-refinement error",
 		   floor_10k >= 0.0 && def_err_T > 0.0 && floor_10k < 0.1 * def_err_T,
 		   "integrator floor " + Sci(floor_10k) + " vs default-grid radial error " +
@@ -882,11 +883,13 @@ int main(int argc, char **argv)
 	// =======================================================================
 	//  Artifacts
 	// =======================================================================
+	if (g_fail != 0)
+		return 1; // No failed scientific run may become an artifact.
 	if (!emit_dir.empty())
 	{
 		fs::create_directories(emit_dir);
 		std::ofstream o(emit_dir / "grid_convergence_cmf_1p6_debug.tsv");
-		o << "# Phase 2B-4A convergence matrix — DS(CMF)-1_with_crust, nonrotating slice\n"
+		o << "# ADR-0009 migrated Phase 2B-4A convergence matrix — DS(CMF)-1_with_crust, nonrotating slice\n"
 		  << "# static thermal diagnostics evaluated at T_inf = " << kTstatic_K << " K\n"
 		  << "# NOT a golden cooling curve; the golden baseline remains "
 			 "passive_cooling_cmf_1p6_debug.tsv\n"
@@ -904,7 +907,7 @@ int main(int argc, char **argv)
 		for (const auto &c : B) row("B_fixed_mass", c);
 
 		std::ofstream t(emit_dir / "grid_convergence_cmf_1p6_trajectory.tsv");
-		t << "# Phase 2B-4A passive-cooling trajectories per radial resolution "
+		t << "# ADR-0009 migrated Phase 2B-4A passive-cooling trajectories per radial resolution "
 			 "(Experiment B)\n"
 		  << "# NOT a golden baseline. Reference values live in "
 			 "passive_cooling_cmf_1p6_debug.tsv\n"
