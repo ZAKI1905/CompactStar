@@ -46,7 +46,7 @@ thermodynamic response conflicts.
 
 | Requirement or statement used here | Exact PDF filename | Equation / page / section | Role |
 |---|---|---|---|
-| The npe and np-mu imbalance definitions | `2005-Fernandez-Reisenegger-Formalism-NonSuperfluid.pdf` | eqs. (7)-(8), PDF p. 4, section 2.1 | benchmark |
+| The npe and np-mu imbalance definitions | `2005-Fernandez-Reisenegger-Formalism-NonSuperfluid.pdf` | eqs. (7)-(8), PDF p. 3; explanation continues on p. 4, section 2.1 | benchmark |
 | 2005 treated intrinsic redshifted chemical-potential deviations as uniform without the electrostatic completion | `2005-Fernandez-Reisenegger-Formalism-NonSuperfluid.pdf` | eq. (9), PDF p. 4, section 2.1 | superseded where corrected |
 | The local linear response is `delta n_i=sum_j (partial n_i/partial mu_j) delta mu_j`, evaluated at beta equilibrium | `2005-Fernandez-Reisenegger-Formalism-NonSuperfluid.pdf` | eq. (10), PDF p. 4, section 2.1 | benchmark requirement |
 | Integrated number response, original paper `B_ij`, and naive full inverse | `2005-Fernandez-Reisenegger-Formalism-NonSuperfluid.pdf` | eqs. (11)-(13), PDF p. 4, section 2.1 | eqs. (12)-(13) corrected by 2006 |
@@ -235,7 +235,8 @@ canonical derivative chart.
 
 ### 6.1 Full intrinsic response
 
-In a smooth phase, define the intrinsic four-species objects
+In a smooth phase where the full intrinsic density/potential map is locally invertible, define
+the intrinsic four-species objects
 
 ```text
 K = partial mu / partial n,
@@ -257,6 +258,15 @@ form the resulting local response is
 chi_CN = chi - (chi q) (q^T chi q)^{-1} (q^T chi).
 ```
 
+**Phase 5A-1A source correction:** define `u=e^{-Phi} delta mu^infinity` in the
+Cowling approximation. Equation (10) gives `delta mu=u-q delta psi`, hence neutrality
+requires `delta psi=(q^T chi u)/(q^T chi q)` when the denominator is nonzero.
+The local journal PDF prints eq. (11) with `delta mu^infinity` in the numerator but
+without the required `e^{-Phi}`. This is an inferred printed redshift omission, established
+by substitution into eq. (10), not a claim of an authenticated published erratum.
+Equation (13), with its overall `e^{-Phi}`, is consistent with the expression above.
+The projection formula here is unchanged; it maps `u` to `delta n`.
+
 This is the matrix content of the bracket in 2006 eq. (13). It obeys
 
 ```text
@@ -277,7 +287,8 @@ Restrict the intrinsic energy Hessian to the source basis:
 H_y = S_y^T K S_y = partial g_y/partial y.
 ```
 
-For a stable smooth phase, the corresponding local reduced number response is
+In a strictly stable smooth active-species interior with nonsingular `H_y`, the corresponding
+local reduced number response is
 
 ```text
 chi_y = H_y^{-1} = partial y/partial g_y.
