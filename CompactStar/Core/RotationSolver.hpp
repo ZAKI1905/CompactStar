@@ -274,10 +274,10 @@ struct PhysicalHartleMonopole
 /// variation narrower than the profile spacing, which is why Phase 4D's validation failed
 /// (`docs/validation/PHASE4D_MONOPOLE_VALIDATION.md`).
 ///
-/// **Not yet independently validated.** ADR-0007 (as amended by ADR-0008) fixes the contract and
-/// this is its conforming implementation; the corrected independent revalidation is still
-/// outstanding. No number here is validated physics and no baseline of it may be created
-/// (INV-08).
+/// **Independently verified** (Phase 4D-RV + 4D-DA); the first trusted regression baseline exists.
+/// Phase 4E ratifies this existing response as a Phase-5 structural input for ordinary NStar,
+/// fixed-central-energy-density l=0 rotation on ADR-0009 backgrounds (INV-08).
+/// Scope, units and provenance contract: docs/validation/PHASE4_CLOSEOUT.md.
 struct HartleMonopoleResponse
 {
 	/// m0(r)/Omega_geom^2 [km^3].

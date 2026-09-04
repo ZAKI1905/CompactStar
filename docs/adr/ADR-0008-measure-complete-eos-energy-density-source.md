@@ -338,3 +338,22 @@ Scientific status remains **HARTLE O(OMEGA^2) MONOPOLE RESPONSE VERIFIED**; no p
 The scientific blocker for Phase 4E is cleared, but closeout/Phase-5 field ratification is not
 performed here. Phase 5 is not begun; INV-09 and `l=2` remain outside this baseline's scope.
 Historical failed/CHARACTERIZED/no-baseline records above retain their experiment-time meaning.
+
+
+## Post-closeout pointer — Phase 4E (2026-09-04)
+
+The accepted Decision is unchanged. Correction → independent revalidation → owner
+convergence adjudication → VERIFIED → first trusted baseline (`2e2f016`) → **Phase-4
+closeout / Phase-5 structural-interface ratification**. GOVERNANCE §3.1 condition 7
+was discharged by the separate baseline commit; this closeout adds no scientific layer.
+
+The existing `HartleFirstOrderResponse` and `HartleMonopoleResponse` are ratified as
+normalized structural inputs, with their existing units and provenance/lifetime rule.
+INV-08 is CLOSED / VERIFIED / REGRESSION-PROTECTED for ordinary-NStar fixed-ε_c l=0
+O(Ω²) on ADR-0009 backgrounds. This is not a fixed-baryon-number response; INV-09
+remains unresolved. l=2 is unimplemented/unvalidated and nonblocking; MixedStar and
+high-spin/O(Ω⁴) accuracy are not covered. **PHASE 5 NOT YET BEGUN.**
+Current contract, unchanged eight-artifact authority, final suites and integration gate:
+`docs/validation/PHASE4_CLOSEOUT.md:33`, `docs/validation/PHASE4_CLOSEOUT.md:64`, `docs/validation/PHASE4_CLOSEOUT.md:158`,
+`docs/validation/PHASE4_CLOSEOUT.md:183`, `docs/validation/PHASE4_CLOSEOUT.md:201`, `docs/validation/PHASE4_CLOSEOUT.md:219`.
+Historical failed/CHARACTERIZED/no-baseline statements above retain their dated meaning.

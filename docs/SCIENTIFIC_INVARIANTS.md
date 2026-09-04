@@ -436,7 +436,21 @@ conformance to the `MixedStar` track. And **nothing at O(Ω²) is normalized** �
 
 ---
 
-## INV-08 — Hartle perturbative order — **GOVERNED (ADR-0007 + ADR-0008 ACCEPTED) — MEASURE-COMPLETE O(Ω²) MONOPOLE SOURCE CONFORMED AND INDEPENDENTLY PHYSICALLY VERIFIED ON THE ADR-0009 TOV SURFACE CONTRACT — FIRST TRUSTED REGRESSION BASELINE ESTABLISHED**
+## INV-08 — Hartle perturbative order — **CLOSED / VERIFIED FOR GOVERNED SCOPE — ADR-0007 + ADR-0008 CONFORMED, INDEPENDENTLY PHYSICALLY VERIFIED, REGRESSION-PROTECTED**
+
+**Current Phase 4E disposition (2026-09-04).** The existing normalized first-order and
+fixed-central-energy-density monopole responses are ratified as Phase-5 structural inputs.
+INV-08 is closed only for ordinary NStar, fixed ε_c, l=0 O(Ω²), on complete ADR-0009
+backgrounds. The particular solution has no homogeneous admixture or imposed surface
+pressure-perturbation condition. It is not a fixed-baryon-number sequence response.
+`l=2` is unimplemented/unvalidated and nonblocking; high-spin/O(Ω⁴) accuracy is not
+established; MixedStar rotation is not covered. Phase 5 has not begun.
+Current field/unit/provenance contract: `docs/validation/PHASE4_CLOSEOUT.md:64`, `docs/validation/PHASE4_CLOSEOUT.md:85`,
+`docs/validation/PHASE4_CLOSEOUT.md:115`, `docs/validation/PHASE4_CLOSEOUT.md:158`.
+
+**Historical chronology follows.** The original statement and candidate evidence below
+retain their experiment-time meaning and are not the current verified contract.
+
 
 **Statement.** First order O(Ω) supplies frame dragging and I. Second order O(Ω²) supplies the
 monopole structural perturbations `(m₀, p₀)` with isobar displacement `ξ₀ = −p₀/(dp/dr)`,
@@ -697,6 +711,15 @@ Evidence: `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:1`, `docs/validation/PHA
 
 ## INV-09 — Fixed-ε_c versus equilibrium-sequence derivatives — **INTENDED BUT UNVERIFIED**
 
+*Current Phase 4E status:* **A_i-side structural rotation inputs VERIFIED AND RATIFIED**:
+m̂₀, p̂₀*/δp̂₀, ξ̂₀, s, s′, I and surface/provenance data. This does not implement or
+verify A_i. INV-09 remains **unresolved** for measure-complete particle-number response,
+composition/species measure dn_i, B_i, Z_i, baryon-conserving sequence reduction and exact
+ownership of the homogeneous/sequence derivative. ADR-0008 Q11 forbids treating a nodal
+`dn_i/dp` column alone as the particle-number source. Phase 5 has not begun.
+Evidence and boundary: `docs/validation/PHASE4_CLOSEOUT.md:158`, `docs/validation/PHASE4_CLOSEOUT.md:201`.
+
+**Historical Phase 4D-BL disposition, preserved:**
 *Current Phase 4D-BL status:* the structural response is VERIFIED and now baselined. INV-09
 remains **unresolved** for baryon-conserving reduction, `A_i/B_i/Z_i`, and particle-number measure
 completeness (ADR-0008 Q11). No Phase-5 implementation or interface ratification here. `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:272`.
@@ -1096,7 +1119,7 @@ conversion, under the in-code comment *"Convert fractions to number densities in
 
 | Status | Entries |
 |---|---|
-| **GOVERNED (ACCEPTED)** | **INV-01** — ADR-0001, accepted 2026-08-31 · **INV-15** — ADR-0002, accepted 2026-08-31 · **INV-07** — ADR-0006, accepted 2026-09-02, **first-order source conformed and physical response independently verified 2026-09-02** · **INV-08** — ADR-0007 + ADR-0008 ACCEPTED; measure-complete monopole SOURCE CONFORMED / INDEPENDENTLY VERIFIED (4D-RV + 4D-DA); first trusted regression baseline established (4D-BL), `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:1` |
+| **GOVERNED (ACCEPTED)** | **INV-01** — ADR-0001, accepted 2026-08-31 · **INV-15** — ADR-0002, accepted 2026-08-31 · **INV-07** — ADR-0006, accepted 2026-09-02, **first-order source conformed and physical response independently verified 2026-09-02** · **INV-08** — CLOSED / VERIFIED for ordinary-NStar fixed-ε_c l=0 O(Ω²) on ADR-0009 backgrounds; ADR-0007 + ADR-0008 GOVERNED / CONFORMED / independently physically verified / regression-protected; Phase-5 structural interface ratified (4E), `docs/validation/PHASE4_CLOSEOUT.md:158` |
 | VERIFIED CURRENT BEHAVIOR | INV-02, 03, 04, 05, 06, 10, 12, 13, 14, 16 |
 | INTENDED BUT UNVERIFIED | INV-09 |
 | **UNRESOLVED (fail-closed)** | **INV-11** — and sub-items of INV-06, INV-16 |

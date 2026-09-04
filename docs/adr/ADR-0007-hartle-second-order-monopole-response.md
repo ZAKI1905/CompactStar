@@ -468,3 +468,22 @@ contract as amended by ADR-0008, on the ADR-0009 surface event, is recorded in
 (analytic `9.7e-9`, DS(CMF)-1 `≤ 5.3e-5` against an independent EOS-knot measure route, C&M 1974 and
 HT68 1968 reproduced, M1–M10 fire), while ADR-0008 Validation D's monotonicity clause is not met at the
 node-placement floor. §9 item 7's baseline remains deferred pending the owner's adjudication of that clause.
+
+
+## Post-closeout pointer — Phase 4E (2026-09-04)
+
+The accepted Decision is unchanged. Correction → independent revalidation → owner
+convergence adjudication → VERIFIED → first trusted baseline (`2e2f016`) → **Phase-4
+closeout / Phase-5 structural-interface ratification**. GOVERNANCE §3.1 condition 7
+was discharged by the separate baseline commit; this closeout adds no scientific layer.
+
+The existing `HartleFirstOrderResponse` and `HartleMonopoleResponse` are ratified as
+normalized structural inputs, with their existing units and provenance/lifetime rule.
+INV-08 is CLOSED / VERIFIED / REGRESSION-PROTECTED for ordinary-NStar fixed-ε_c l=0
+O(Ω²) on ADR-0009 backgrounds. This is not a fixed-baryon-number response; INV-09
+remains unresolved. l=2 is unimplemented/unvalidated and nonblocking; MixedStar and
+high-spin/O(Ω⁴) accuracy are not covered. **PHASE 5 NOT YET BEGUN.**
+Current contract, unchanged eight-artifact authority, final suites and integration gate:
+`docs/validation/PHASE4_CLOSEOUT.md:33`, `docs/validation/PHASE4_CLOSEOUT.md:64`, `docs/validation/PHASE4_CLOSEOUT.md:158`,
+`docs/validation/PHASE4_CLOSEOUT.md:183`, `docs/validation/PHASE4_CLOSEOUT.md:201`, `docs/validation/PHASE4_CLOSEOUT.md:219`.
+Historical failed/CHARACTERIZED/no-baseline statements above retain their dated meaning.
