@@ -546,10 +546,12 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
 
 > **Species-semantics prerequisite: SATISFIED** (ADR-0001, 2026-08-31).
 > **Phase-4 structural-input gate: SATISFIED** (`docs/validation/PHASE4_CLOSEOUT.md:201`).
-> **PHASE 5 NOT YET BEGUN.** A subsequent task may enter Phase-5 governance/work after
-> normal reviewed branch integration. Remaining chemical-convention and particle-number /
-> sequence-reduction prerequisites below still require their own authority and validation;
-> this closeout does not resolve them or activate existing unverified candidate code.
+> **Phase 5A-0 documentation audit complete; Phase-5 physics not begun.** The source-backed current
+> EOS/thermodynamic capability and corrected 2006 rotochemical requirements are inventoried in
+> `docs/validation/PHASE5A0_EOS_THERMODYNAMIC_AUDIT.md`. The audit identifies a governed
+> arbitrary-composition thermodynamic EOS/data extension as necessary; it does not choose or
+> implement that extension, resolve chemical conventions or particle-number/sequence reduction,
+> or activate existing unverified candidate code.
 
 - **Correct `RotochemicalCache` for ADR-0001 conformance** — construct `n_i = Y_i · n_B` before
   the `N_i`, `A_i`, and `B_i` species number-density integrations
