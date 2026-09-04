@@ -74,6 +74,21 @@
 > For intended design, see [`TARGET_ARCHITECTURE.md`](TARGET_ARCHITECTURE.md). **Do not read
 > intent from this document.**
 
+## Scientific source library
+
+- Shared source root is `/Users/keeper/Documents/CompactStar/literature`; it is outside Git and shared
+  by all worktrees.
+- Before re-deriving established scientific material, consult `/Users/keeper/Documents/CompactStar/literature/catalog.tsv` and
+  `/Users/keeper/Documents/CompactStar/literature/README.md`.
+- PDFs under this root are read-only scientific references; do not rename, move, or edit them in
+  normal research tasks.
+- `literature/_incoming` is staging/provenance only and is not scientific authority.
+- `catalog.tsv` role labels define source authority; later entries may explicitly supersede earlier
+  treatments.
+- User-authored BNV papers are in `literature/bnv/zakeri`.
+- Future scientific work should name the exact source PDF used when equations or decisions depend
+  on it.
+
 ## Labels used here
 
 | Label | Meaning |

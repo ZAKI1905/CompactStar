@@ -131,3 +131,18 @@ promote it.
 □ No fail-closed condition open
 □ Scientific impact assessed
 ```
+
+## Scientific source library
+
+- Shared source root is `/Users/keeper/Documents/CompactStar/literature`; it is outside Git and
+  shared by all worktrees.
+- Before re-deriving established scientific material, consult `/Users/keeper/Documents/CompactStar/literature/catalog.tsv` and
+  `/Users/keeper/Documents/CompactStar/literature/README.md`.
+- PDFs in the shared source root are read-only scientific references; do not rename, move, or edit
+  them during normal research tasks.
+- `literature/_incoming` is staging/provenance only and is not scientific authority.
+- `catalog.tsv` role labels define source authority; a later paper may explicitly supersede an earlier
+  treatment.
+- User-authored BNV papers are under `literature/bnv/zakeri`.
+- Future scientific work should name the exact source PDF used when equations or decisions depend
+  on it.
