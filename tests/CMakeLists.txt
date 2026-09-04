@@ -263,6 +263,18 @@ if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
         LABELS "rotation;hartle;monopole;scientific;external-data;reference"
         TIMEOUT 1800)
 
+    # Phase 4D-BL production regression, established AFTER independent verification.
+    # This baseline is not an independent physics oracle.
+    add_executable(hartle_monopole_regression rotation/hartle_monopole_regression.cpp)
+    target_link_libraries(hartle_monopole_regression PRIVATE CompactStar)
+    target_compile_definitions(hartle_monopole_regression PRIVATE
+        COMPACTSTAR_BASELINE_DIR="${CMAKE_CURRENT_SOURCE_DIR}/baselines")
+    add_test(NAME hartle_monopole_regression
+             COMMAND hartle_monopole_regression "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(hartle_monopole_regression PROPERTIES
+        LABELS "rotation;hartle;monopole;scientific;regression;external-data"
+        TIMEOUT 900)
+
     # Phase 4C-I1 governed O(Omega^2) monopole conformance on the authenticated CMF
     # sequence (ADR-0007). Structural conformance and diagnostics only — the independent
     # scientific validation is Phase 4D, and no golden is produced here.

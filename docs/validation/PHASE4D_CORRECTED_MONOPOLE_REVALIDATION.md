@@ -616,3 +616,15 @@ lines. Production diff NONE; test diff NONE; baseline NOT created.
 **Exactly one next action:** create the first Hartle monopole scientific baseline from the
 already-verified production response, in a separate commit with same-build repeatability and a narrow
 regression test. Phase 5 does not begin.
+
+
+## 22. Subsequent first baseline — Phase 4D-BL (2026-09-04)
+
+After the VERIFIED authority at `eccbfa6`, the separate Phase-4D-BL task established
+`tests/baselines/hartle_monopole_dscmf1_debug.tsv` from current production output, with exact
+repeatability and complete 45/45 full + 22/22 self-contained serial suites. Record, schema,
+units, hash authority and dependency gate: `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:1`, `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:250`, `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:272`.
+This artifact is a regression authority, not an independent physics oracle; scientific status
+remains VERIFIED. §§1–21, including the original CHARACTERIZED state and owner adjudication,
+are unchanged. The scientific blocker for Phase 4E is cleared; closeout is not performed here,
+and Phase 5 is not begun.

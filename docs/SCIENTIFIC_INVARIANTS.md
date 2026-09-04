@@ -436,7 +436,7 @@ conformance to the `MixedStar` track. And **nothing at O(Ω²) is normalized** �
 
 ---
 
-## INV-08 — Hartle perturbative order — **GOVERNED (ADR-0007 + ADR-0008 ACCEPTED) — MEASURE-COMPLETE O(Ω²) MONOPOLE SOURCE CONFORMED AND INDEPENDENTLY PHYSICALLY VERIFIED ON THE ADR-0009 TOV SURFACE CONTRACT — FIRST MONOPOLE BASELINE NEXT**
+## INV-08 — Hartle perturbative order — **GOVERNED (ADR-0007 + ADR-0008 ACCEPTED) — MEASURE-COMPLETE O(Ω²) MONOPOLE SOURCE CONFORMED AND INDEPENDENTLY PHYSICALLY VERIFIED ON THE ADR-0009 TOV SURFACE CONTRACT — FIRST TRUSTED REGRESSION BASELINE ESTABLISHED**
 
 **Statement.** First order O(Ω) supplies frame dragging and I. Second order O(Ω²) supplies the
 monopole structural perturbations `(m₀, p₀)` with isobar displacement `ξ₀ = −p₀/(dp/dr)`,
@@ -685,9 +685,21 @@ evidence; continuum `δM̂(1.6 M☉) = 865.845 ± 0.001 km³`. EOS-knot partitio
 Scientific status `HARTLE O(OMEGA^2) MONOPOLE RESPONSE VERIFIED`. `l = 2` is still not implemented or validated. The first monopole baseline
 (`GOVERNANCE.md` §3.1 condition 7) is the next, separate task; Phase 5 remains blocked behind 4E.
 
+**Phase 4D-BL (2026-09-04): first trusted monopole regression baseline established.**
+The scientific response remains VERIFIED; `tests/baselines/hartle_monopole_dscmf1_debug.tsv`
+records four current production target-mass stars, with exact same-build repeatability and all
+45 full / 22 self-contained tests green. GOVERNANCE §3.1 condition 7 is discharged.
+`l=2` remains unimplemented/unvalidated; high-spin accuracy is not claimed. The scientific blocker
+for Phase 4E is cleared; interface ratification/closeout remains separate and Phase 5 has not begun.
+Evidence: `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:1`, `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:224`, `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:250`, `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:272`.
+
 ---
 
 ## INV-09 — Fixed-ε_c versus equilibrium-sequence derivatives — **INTENDED BUT UNVERIFIED**
+
+*Current Phase 4D-BL status:* the structural response is VERIFIED and now baselined. INV-09
+remains **unresolved** for baryon-conserving reduction, `A_i/B_i/Z_i`, and particle-number measure
+completeness (ADR-0008 Q11). No Phase-5 implementation or interface ratification here. `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:272`.
 
 **Statement.** Hartle perturbation theory gives the rotational response at **fixed central
 energy density**; physical spin-down follows an **equilibrium sequence** along which ε_c changes.
@@ -1084,7 +1096,7 @@ conversion, under the in-code comment *"Convert fractions to number densities in
 
 | Status | Entries |
 |---|---|
-| **GOVERNED (ACCEPTED)** | **INV-01** — ADR-0001, accepted 2026-08-31 · **INV-15** — ADR-0002, accepted 2026-08-31 · **INV-07** — ADR-0006, accepted 2026-09-02, **first-order source conformed and physical response independently verified 2026-09-02** · **INV-08** — ADR-0007, accepted 2026-09-02, **O(Ω²) monopole source conformed 2026-09-03; Phase 4D verified the implementation and FAILED the physics on tabulated crusts with density steps; **ADR-0008 ACCEPTED and the measure-complete source implemented 2026-09-03 (Phase 4D-RI)** — independent revalidation required, no baseline** |
+| **GOVERNED (ACCEPTED)** | **INV-01** — ADR-0001, accepted 2026-08-31 · **INV-15** — ADR-0002, accepted 2026-08-31 · **INV-07** — ADR-0006, accepted 2026-09-02, **first-order source conformed and physical response independently verified 2026-09-02** · **INV-08** — ADR-0007 + ADR-0008 ACCEPTED; measure-complete monopole SOURCE CONFORMED / INDEPENDENTLY VERIFIED (4D-RV + 4D-DA); first trusted regression baseline established (4D-BL), `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:1` |
 | VERIFIED CURRENT BEHAVIOR | INV-02, 03, 04, 05, 06, 10, 12, 13, 14, 16 |
 | INTENDED BUT UNVERIFIED | INV-09 |
 | **UNRESOLVED (fail-closed)** | **INV-11** — and sub-items of INV-06, INV-16 |
@@ -1097,9 +1109,9 @@ conversion, under the in-code comment *"Convert fractions to number densities in
 contract, Phase 4A made the source conform, and **Phase 4B verified the normalized response
 against independent evidence** — an independently normalized profile, the exterior-matching and
 volume identities, and derived weak-field coefficients. What remains from it is `MixedStar`
-conformance on its own track. **Rotation as a whole is still not validated:** O(Ω²) remains an
-unverified candidate (INV-08), and nothing in the first-order work bears on the adequacy of the
-slow-rotation truncation itself.
+conformance on its own track. **First order and the O(Ω²) monopole response are independently verified**, with the first
+monopole regression now established (`docs/validation/PHASE4D_MONOPOLE_BASELINE.md:1`). This does not validate `l=2` or high-spin
+accuracy of the slow-rotation truncation.
 
 **INV-08 wording corrected (2026-09-02):** the O(Ω²) candidate is *publicly callable with zero
 repository callers*, not "structurally unreachable".

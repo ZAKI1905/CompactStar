@@ -319,3 +319,22 @@ Drafted by the AI agent (Phase 4D-RG, 2026-09-03) from the primary source re-rea
 (H67 pp. 1009–1010, 1019–1022; C&M 1974 p. 69) and the scratch experiments recorded in
 `docs/validation/PHASE4D_R_EOS_MEASURE_DERIVATION.md`. **The owner decides Q1–Q12.** No
 production, test or CMake file changed; no baseline created.
+
+## Post-baseline record — Phase 4D-BL (2026-09-04)
+
+The accepted Decision Q1–Q12 and the post-validation D′ clarification are unchanged.
+Chronology: correction implemented → independent revalidation (`42b34ac`) → owner convergence
+adjudication (`2d85ad5`, `c87fb09`) → VERIFIED (`eccbfa6`) → **FIRST MONOPOLE BASELINE**
+in the separate `test: establish Hartle monopole baseline` commit.
+
+`tests/baselines/hartle_monopole_dscmf1_debug.tsv` is the first trusted **regression** artifact,
+produced by explicit production monopole computations after independent verification; it is not
+an independent physics oracle. Exact run1/run2/post-install reproduction, units/provenance audit,
+complete 45/45 and 22/22 serial passes, and eight current hashes: `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:1`, `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:224`, `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:250`.
+
+**CORRECTION IMPLEMENTED — INDEPENDENTLY VERIFIED (Phase 4D-RV + 4D-DA) — FIRST MONOPOLE
+BASELINE ESTABLISHED.** This discharges GOVERNANCE §3.1 condition 7 (`GOVERNANCE.md:109`).
+Scientific status remains **HARTLE O(OMEGA^2) MONOPOLE RESPONSE VERIFIED**; no production changes.
+The scientific blocker for Phase 4E is cleared, but closeout/Phase-5 field ratification is not
+performed here. Phase 5 is not begun; INV-09 and `l=2` remain outside this baseline's scope.
+Historical failed/CHARACTERIZED/no-baseline records above retain their experiment-time meaning.
