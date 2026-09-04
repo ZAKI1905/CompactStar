@@ -1,5 +1,11 @@
 # Phase 5A-1 — thermodynamic contract derivation and evidence
 
+> **Phase 5A-1B current-status note (2026-09-04):** ADR-0010 is now **ACCEPTED** with the
+> Phase 5A-1A revisions R1-R7 (`docs/adr/ADR-0010-rotochemical-off-equilibrium-thermodynamic-contract.md:357-379`).
+> The proposal-time statuses and recommendations below are retained as historical Phase 5A-1
+> evidence; they are not rewritten as though acceptance had already occurred. No thermodynamic
+> provider or other Phase-5 physics has been implemented.
+
 **Date:** 2026-09-04
 
 **Starting SHA:** `77a328676d83f515fe603cb62341d2efcd70ed78`

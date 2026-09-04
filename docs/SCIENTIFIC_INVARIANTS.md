@@ -711,13 +711,19 @@ Evidence: `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:1`, `docs/validation/PHA
 
 ## INV-09 — Fixed-ε_c versus equilibrium-sequence derivatives — **INTENDED BUT UNVERIFIED**
 
-*Current Phase 4E status:* **A_i-side structural rotation inputs VERIFIED AND RATIFIED**:
-m̂₀, p̂₀*/δp̂₀, ξ̂₀, s, s′, I and surface/provenance data. This does not implement or
-verify A_i. INV-09 remains **unresolved** for measure-complete particle-number response,
-composition/species measure dn_i, B_i, Z_i, baryon-conserving sequence reduction and exact
-ownership of the homogeneous/sequence derivative. ADR-0008 Q11 forbids treating a nodal
-`dn_i/dp` column alone as the particle-number source. Phase 5 has not begun.
-Evidence and boundary: `docs/validation/PHASE4_CLOSEOUT.md:158`, `docs/validation/PHASE4_CLOSEOUT.md:201`.
+*Current Phase 5A-1B status:* ADR-0010 is **ACCEPTED** for the cold charge-neutral local
+thermodynamic provider contract (`docs/adr/ADR-0010-rotochemical-off-equilibrium-thermodynamic-contract.md:371-378`).
+That acceptance does **not** implement the provider and does **not** resolve INV-09. Still
+unresolved are the measure-complete particle-number/species response, composition measure
+`dn_i`, `A_i`, `B_i`, structural `Z_i`, baryon-conserving sequence reduction, and exact ownership
+of the homogeneous/sequence derivative. Global paper `Z/W` construction and evolution are also
+not authorized. ADR-0008 Q11 still forbids treating a nodal `dn_i/dp` column alone as the
+particle-number source.
+
+*Historical Phase 4E status, preserved:* **A_i-side structural rotation inputs VERIFIED AND
+RATIFIED**: m̂₀, p̂₀*/δp̂₀, ξ̂₀, s, s′, I and surface/provenance data. This did not implement or
+verify `A_i`. Evidence and boundary: `docs/validation/PHASE4_CLOSEOUT.md:158`,
+`docs/validation/PHASE4_CLOSEOUT.md:201`.
 
 **Historical Phase 4D-BL disposition, preserved:**
 *Current Phase 4D-BL status:* the structural response is VERIFIED and now baselined. INV-09
@@ -819,21 +825,30 @@ Phase 5.
 
 ## INV-11 — Chemical-imbalance redshift convention — **UNRESOLVED**
 
-**Statement.** *No convention exists.* `ChemState` states that the meaning of η_i "is defined by
-the drivers/microphysics layer, not by this class," and that units "are typically energy
-(e.g. erg), but this is not enforced." No driver defines it.
+**Current Phase 5A-1B boundary.** ADR-0010 now governs the **local** cold neutral conjugates
+`g=(mu_n,-eta_npe,-eta_npmu)` in MeV, without electrostatic or GR-redshift terms
+(`docs/adr/ADR-0010-rotochemical-off-equilibrium-thermodynamic-contract.md:238-250`). It does not
+govern the evolved chemical-state ordering, redshift frame, storage units/interface, or the
+global paper `Z/W` and reaction/evolution equations. Those items remain **UNRESOLVED** and
+fail-closed. INV-11 therefore blocks later chemical-state and Layer-D evolution work, but not
+implementation/validation of the accepted local provider contract.
+
+**Historical implementation statement.** No production evolution convention exists. `ChemState`
+states that the meaning of η_i "is defined by the drivers/microphysics layer, not by this class,"
+and that units "are typically energy (e.g. erg), but this is not enforced." No driver defines it.
 
 **Evidence.** `ChemState.hpp:46-57`. `η_npe` and `η_npμ` appear **only in comments**
 (`Rotochemical.cpp:104-111`, `ChemState.hpp:18`) — no symbol, enum, index constant, or accessor.
 
-**What is undefined.** (a) Local versus redshifted frame — the F&R convention `η^∞ = e^ν η_local`
-is unrepresented; (b) DOF count and ordering — `n_eta = 0` in `RunBuilder.cpp:39` and all four
-main programs; (c) units — the driver writes `Z·2ΩΩ̇` where Z is a particle count, with no
+**What remains undefined for the evolved state.** (a) Local-to-redshifted mapping and storage —
+the F&R convention `η^∞ = e^ν η_local` is unrepresented; (b) DOF count and ordering — `n_eta = 0`
+in `RunBuilder.cpp:39` and all four main programs; (c) units — the driver writes `Z·2ΩΩ̇` where Z is a particle count, with no
 susceptibility `∂μ/∂N` to convert number to energy; (d) whether components are per-species or
 per-reaction-channel — `Rotochemical.cpp:110-111` documents the channel combination
 `(Z_n − Z_p − Z_e)` in prose, then writes raw per-species `Z_i` into slot `i`.
 
-**Confidence.** High that nothing is defined. **Fail-closed. Blocks Phase-5.**
+**Confidence.** High that the evolved-state items remain undefined. **Fail-closed for global
+chemical-state/evolution work; not a blocker for the accepted local provider implementation.**
 
 ---
 
@@ -1124,9 +1139,10 @@ conversion, under the in-code comment *"Convert fractions to number densities in
 | INTENDED BUT UNVERIFIED | INV-09 |
 | **UNRESOLVED (fail-closed)** | **INV-11** — and sub-items of INV-06, INV-16 |
 
-**One unresolved invariant still blocks a downstream phase:**
+**One unresolved invariant still blocks downstream chemical-state/evolution work:**
 
-- **INV-11** (η convention) blocks Phase 5.
+- **INV-11** blocks the evolved η ordering/redshift contract and Layer-D evolution. ADR-0010
+  accepts only the local neutral-conjugate contract, whose implementation has not begun.
 
 **INV-07 is fully resolved for first order.** ADR-0006 (ACCEPTED 2026-09-02) settled the
 contract, Phase 4A made the source conform, and **Phase 4B verified the normalized response

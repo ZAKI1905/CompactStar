@@ -1,6 +1,14 @@
 # CompactStar Modernization Roadmap
 
-> **Current Phase 4E closeout (2026-09-04): PHASE 4 ROTATION CORRECTNESS COMPLETE —
+> **Current Phase 5A state (2026-09-04): PHASE 5A THERMODYNAMIC CONTRACT ACCEPTED —
+> IMPLEMENTATION NOT YET BEGUN.** ADR-0010 is ACCEPTED with the owner-ratified Q1-Q6 and the
+> Phase 5A-1A revisions R1-R7. The next governed task is implementation and validation of the
+> **local cold charge-neutral thermodynamic provider contract only**, beginning with analytic/toy
+> providers. No stellar susceptibility integration, particle-number/sequence reduction, paper
+> `Z/W`, reaction/evolution equation, superfluid extension, or BNV work is authorized by this
+> status (`docs/adr/ADR-0010-rotochemical-off-equilibrium-thermodynamic-contract.md:358-378`).
+>
+> **Historical Phase 4E closeout (2026-09-04): PHASE 4 ROTATION CORRECTNESS COMPLETE —
 > PHASE-5 STRUCTURAL INTERFACE RATIFIED.** The existing normalized
 > `HartleFirstOrderResponse` + `HartleMonopoleResponse` are the supported structural inputs;
 > no wrapper, new physics or baseline change. INV-08 is CLOSED/VERIFIED only for ordinary
@@ -542,7 +550,9 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
 
 ## Phase 5 — Standard non-superfluid rotochemical heating
 
-**Prerequisites:** Phase 4 COMPLETE ✅ · **ADR-0001 accepted ✅** · **ADR-0002 accepted ✅** · ADR on η conventions accepted ☐.
+**Prerequisites:** Phase 4 COMPLETE ✅ · **ADR-0001 accepted ✅** · **ADR-0002 accepted ✅** ·
+**ADR-0010 local thermodynamic contract accepted ✅** · evolved η ordering/redshift convention ☐
+(blocks later chemical-state/evolution work, not the local Phase 5A provider).
 
 > **Species-semantics prerequisite: SATISFIED** (ADR-0001, 2026-08-31).
 > **Phase-4 structural-input gate: SATISFIED** (`docs/validation/PHASE4_CLOSEOUT.md:201`).
@@ -552,12 +562,20 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
 > arbitrary-composition thermodynamic EOS/data extension as necessary; it does not choose or
 > implement that extension, resolve chemical conventions or particle-number/sequence reduction,
 > or activate existing unverified candidate code.
-> **Phase 5A-1 governance proposal drafted; owner adjudication required.**
-> `docs/adr/ADR-0010-rotochemical-off-equilibrium-thermodynamic-contract.md` is **PROPOSED** and
-> remains `PENDING OWNER ADJUDICATION`; its source/equation, coordinate, null-mode, EOS-option and
-> validation evidence is in
-> `docs/validation/PHASE5A1_THERMODYNAMIC_CONTRACT_DERIVATION.md`. No thermodynamic EOS or other
-> Phase-5 physics is implemented by this documentation step.
+> **PHASE 5A THERMODYNAMIC CONTRACT ACCEPTED — IMPLEMENTATION NOT YET BEGUN.** Phase 5A-1
+> proposed ADR-0010; the Phase 5A-1A independent Astra adjudication required R1-R7; Phase 5A-1B
+> records the owner's acceptance of Q1-Q6 with those revisions
+> (`docs/adr/ADR-0010-rotochemical-off-equilibrium-thermodynamic-contract.md:358-395`;
+> `docs/validation/PHASE5A1A_ADR0010_INDEPENDENT_ADJUDICATION.md:468-614`). The accepted contract
+> is cold-only, charge-neutral, and local. It does not implement any provider, derivative,
+> interpolation, matrix operation, global coefficient, rate, or evolution equation.
+
+- **NEXT — implement and validate only the accepted local thermodynamic provider contract.** Begin
+  with analytic free-lepton and toy charge-neutral providers and the local V1-V8 falsifiers. Do not
+  begin APR or DS(CMF), stellar integration, particle-number response, sequence reduction, paper
+  `Z/W`, or evolution until their respective gates are met.
+
+Later Phase-5 work, explicitly not the next increment:
 
 - **Correct `RotochemicalCache` for ADR-0001 conformance** — construct `n_i = Y_i · n_B` before
   the `N_i`, `A_i`, and `B_i` species number-density integrations
@@ -594,14 +612,15 @@ unauditable.
 
 ```
 0.5 governance ─► 1 build ─► 2A pre-baseline ─► 2B baseline ─► 3 consolidation ─► 4 rotation ─► 5 rotochemical ─► 6 BNV
-  ✅ RATIFIED    ✅ COMPLETE      ✅ COMPLETE      ◐ ACTIVE (gate met)   ✅ COMPLETE (merged df859b5)   ◐ 4A–4D DONE — 4D-RV + 4D-DA: MONOPOLE VERIFIED — FIRST BASELINE NEXT, THEN 4E CLOSEOUT
+  ✅ RATIFIED    ✅ COMPLETE      ✅ COMPLETE      ◐ ACTIVE (gate met)   ✅ COMPLETE (merged df859b5)   ✅ 4 COMPLETE; 5A CONTRACT ACCEPTED, IMPLEMENTATION NOT BEGUN
                                     │                                 │                │              │
    ADR-0001 species semantics  ✅ ACCEPTED ──────────────────────────────────────────────────────────►│  (gate cleared)
    ADR-0002 heat capacity      ✅ ACCEPTED ─►│  (conformance is 2A work, not a gate)
    ADR thermal-balance arch.   ☐ open, deferred ────────────────────►│  (optional; not a gate)
    ADR-0006 Hartle normalization  ✅ ACCEPTED 2026-09-02 ──────────────────────────────►│
-   ADR Hartle O(Ω²) equations  ☐ anticipated (after ADR-0006) ─────────────────────────►│
-   ADR η conventions           ☐ open ────────────────────────────────────────────────────────────────►│
+   ADR-0007/0008 Hartle O(Ω²)   ✅ ACCEPTED / VERIFIED ─────────────────────────────────►│
+   ADR-0010 local thermo        ✅ ACCEPTED 2026-09-04 ────────────────────────────────────────────────►│
+   evolved η state convention  ☐ open ────────────────────────────────────────────────────────────────►│
 ```
 
 **The former Phase-2 / Phase-3 circularity is gone.** It ran:
@@ -614,9 +633,10 @@ ADR-0002 breaks it by deciding the physical ownership **now**, ahead of any base
 splitting the correction out of Phase 3 into **Phase 2A**, which precedes the baseline. Nothing in
 Phase 2A depends on a passive-cooling baseline: it is validated by independent physical checks.
 
-**One** unresolved invariant still gates the chain: **INV-11** (η conventions). **INV-07** is
-**no longer a gate** — resolved as a contract by **ADR-0006 (ACCEPTED 2026-09-02)**; what remains
-from it is Phase-4A implementation work, tracked as work rather than as an open decision.
+**INV-11 remains unresolved for the evolved chemical-state ordering/redshift convention.** It
+blocks later global chemical-state and Layer-D evolution work, but not implementation of the
+accepted local neutral-conjugate provider contract. **INV-07 is no longer a gate** — resolved by
+ADR-0006 and implemented/verified in Phase 4.
 
 **INV-01** (species semantics) is **no longer a gate** — resolved by ADR-0001. What remains from
 it is a single Phase-5 implementation task: `RotochemicalCache` must construct `n_i = Y_i n_B`
