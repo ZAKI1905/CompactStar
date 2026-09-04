@@ -552,6 +552,12 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
 > arbitrary-composition thermodynamic EOS/data extension as necessary; it does not choose or
 > implement that extension, resolve chemical conventions or particle-number/sequence reduction,
 > or activate existing unverified candidate code.
+> **Phase 5A-1 governance proposal drafted; owner adjudication required.**
+> `docs/adr/ADR-0010-rotochemical-off-equilibrium-thermodynamic-contract.md` is **PROPOSED** and
+> remains `PENDING OWNER ADJUDICATION`; its source/equation, coordinate, null-mode, EOS-option and
+> validation evidence is in
+> `docs/validation/PHASE5A1_THERMODYNAMIC_CONTRACT_DERIVATION.md`. No thermodynamic EOS or other
+> Phase-5 physics is implemented by this documentation step.
 
 - **Correct `RotochemicalCache` for ADR-0001 conformance** — construct `n_i = Y_i · n_B` before
   the `N_i`, `A_i`, and `B_i` species number-density integrations
