@@ -265,3 +265,40 @@ and the evidence record. All seven original artifact hashes remain unchanged.
 Evidence: `docs/validation/TOV_SURFACE_IMPLEMENTATION.md:339`. Corrected Phase-4D revalidation and the first monopole
 baseline must use the migrated artifacts and remain subsequent tasks. This outcome
 does not reopen ADR-0008 physics or authorize Phase 5.
+
+## Post-validation owner clarification — artifact-migration envelope (TOV-SURF-MA, 2026-09-03)
+
+This clarification leaves the accepted Decision Q1–Q14, the Q12/V4 corrected-vs-corrected
+bounds (`M ≤ 1e-9`, `R_* ≤ 1e-8`), `PressureCutoff`, and production unchanged. It settles
+the scope of the old→new mass bound used by the artifact migration (Q11).
+
+- The `|ΔM/M| ≤ 1e-9` old→new bound is **V7a's**: it was derived from the impact map measured
+  at the default `radial_res = 10000` for the four inherited canonical εc
+  (`docs/validation/TOV_SURFACE_CONTRACT_DERIVATION.md:192`, `:248`; V7a clarification above)
+  and is not a universal bound on historical rows at other output partitions. The V7a
+  result and the Q12/V4 bounds are not weakened.
+- The old surface error is resolution-dependent by construction: a nontruncated old row is
+  the corrected star with its event node removed (old `N_profile` = corrected − 1; old `R`,
+  `M`, `B` reproduced to `≤ 4e-13`), and its old→new delta is the mass of the omitted
+  layer `ΔM = m(R_*) − m(R_old) ≈ 4πR⁴(1 − 2M/R)(p_old,last − p_cut)/M`, bounded by the
+  weight of one outer output step `E(N) = m(R_*) − m(R_* − Δr_outer(N))`, `Δr_outer(N) =
+  (r_max − r_min)/N`. Measured on the corrected solver at 1.6 M☉: `E(N)/M` = `2.90e-9`,
+  `1.10e-9`, `4.8e-10`, `2.2e-10` for `N` = 5000, 10000, 20000, 40000; the historical
+  5000 row's `1.62e-9` is its 9.90 m layer (0.71 of a step), inside a parameter-free
+  endpoint bracket to `≤ 3.4e-3` of the tail. `E(10000)` already exceeds `1e-9`, so the
+  V7a number is an empirical envelope of four measured phases, not a physical bound.
+- **Migration gate for nondefault, nontruncated, fixed-εc historical rows:** the
+  surface-tail rule R1–R6 of `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md` §19.5
+  (nontruncation screen; node identity; mass tail inside the endpoint bracket; baryon tail
+  equal to the one added trapezoid interval of the INV-14 integrand; V4 invariance of the
+  migrated rows; byte-identical producer and dry-run agreement). No universal old→new
+  number is imposed; no bound is fitted. Truncated rows (the 2500 rows) remain class-A
+  recovery; target-mass rows remain under V7b.
+- The historical 5000 row is accepted; TOV-SURF-M may resume from the preserved
+  byte-identical run1/run2 candidates without regeneration; no new production or TOV
+  validation is required before migration.
+
+This is a validation-scope clarification recorded by the same mechanism as the V7
+clarification (commit `03b7d58`), not a new ADR and not a GOVERNANCE §3.1 matter.
+Evidence: `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md` §19;
+`/Users/keeper/.codex/diagnostics/tov-surf-ma-20260903/`.
