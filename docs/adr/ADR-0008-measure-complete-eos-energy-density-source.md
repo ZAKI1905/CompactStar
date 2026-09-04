@@ -277,6 +277,42 @@ optionally at the EOS-table knots), never production's segment density.
 > unchanged. The owner's adjudication of D's monotonicity clause against the measured node-placement
 > floor (record §20) precedes any baseline.
 
+
+## Post-validation owner clarification — Validation D monotonicity (Phase 4D-DA, 2026-09-04)
+
+This clarification leaves the accepted Decision Q1–Q12 unchanged and preserves the original wording
+of Validation line D above. Evidence: `docs/validation/PHASE4D_CORRECTED_MONOPOLE_REVALIDATION.md` §21.
+
+- **What D said.** "successive differences monotone, relative spread `≤ 1e-4`; no node-placement
+  behaviour". The monotonicity phrase was never operationally defined, and the evidence this ADR cited
+  for the corrected form (`PHASE4D_R_EOS_MEASURE_DERIVATION.md:224`, `865.868 / 865.866 / 865.836 /
+  865.846`) already had non-monotone successive differences while being accepted as showing "no
+  node-placement behaviour (`4e-5`)". Its evidenced purpose was to exclude the percent-level pathology
+  of the nodal-derivative column.
+- **Why it cannot be required of the accepted representation.** Q3/Q4 accept a profile-partition
+  measure whose sub-segment weight location carries an `O(h)` error. For a sharp feature at phase `φ`
+  within a cell that error is `Δε·W′·h·(1/2 − φ)`, with `φ → frac(2φ)` under grid doubling; a correct
+  implementation therefore fails strict monotonicity in most phase orbits (toy model: values monotone
+  25 %, difference magnitudes decreasing 55 % with a sampled background present), while the envelope
+  `|e| ≤ Δε|W′|h/2` always holds. On DS(CMF)-1 the predicted sign matches production minus the
+  EOS-knot oracle at 6/6 resolutions and the residual is 3–13 % of the computed envelope, which halves
+  per doubling. The validated first-order sampled background (`I`) carries the same phase term.
+  Literal "no node-placement behaviour" would contradict Q4; it is read as the absence of the material
+  pathology, with the remaining representation term required to be bounded and vanishing.
+- **Validation D as clarified (D′).** D′1 spread `≤ 1e-4` (unchanged); D′2 production vs the
+  independent same-representation Stieltjes oracle `≤ 1e-6` at every ladder resolution (Validation C's
+  bound); D′3 production vs the independent EOS-knot Stieltjes oracle `≤ 1e-4` (ADR-0007 §7-4); D′4
+  `|production − knot oracle|_N ≤ E_crust(N) = Σ_crust |Δε_i||W′_i|h_i/2` from the production profile,
+  with `E_crust ∝ 1/N`; D′5 `R_*` spread `≤ 1e-8`, M10 `≥ 3 %`, sequence identity `≤ 2e-4`. Measured:
+  `3.71e-5`; `≤ 5.8e-7`; `≤ 3.2e-5`; ratios `≤ 0.131` with the envelope halving exactly; `3.4e-11`,
+  `4.61 %`, `1.03e-4`. Continuum `δM̂(1.6 M☉) = 865.845 ± 0.001 km³` (diagnostic).
+- **EOS-knot partition (Q2b)** remains optional: it removes a `≤ 3e-5` term below the scientific bound
+  and cannot restore monotone differences while the first-order background is sampled.
+
+> **Status: `CORdocs/validation/PHASE4D_CORRECTED_MONOPOLE_REVALIDATION.mdTION IMPLEMENTED — INDEPENDENTLY VERIFIED (Phase 4D-RV + 4D-DA) — FIRST MONOPOLE BASELINE NEXT`.**
+> Scientific status `HARTLE O(OMEGA^2) MONOPOLE RESPONSE VERIFIED`. No baseline was created by the adjudication; condition 7 of `GOVERNANCE.md`
+> §3.1 is discharged by the separate first-baseline task.
+
 ## Provenance
 
 Drafted by the AI agent (Phase 4D-RG, 2026-09-03) from the primary source re-read

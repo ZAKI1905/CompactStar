@@ -436,7 +436,7 @@ conformance to the `MixedStar` track. And **nothing at O(Ω²) is normalized** �
 
 ---
 
-## INV-08 — Hartle perturbative order — **GOVERNED (ADR-0007 + ADR-0008 ACCEPTED) — MEASURE-COMPLETE O(Ω²) MONOPOLE SOURCE CONFORMED AND INDEPENDENTLY CHARACTERIZED ON THE ADR-0009 SURFACE CONTRACT; ADR-0008 VALIDATION D MONOTONICITY NOT MET — OWNER ADJUDICATION REQUIRED; NO BASELINE**
+## INV-08 — Hartle perturbative order — **GOVERNED (ADR-0007 + ADR-0008 ACCEPTED) — MEASURE-COMPLETE O(Ω²) MONOPOLE SOURCE CONFORMED AND INDEPENDENTLY PHYSICALLY VERIFIED ON THE ADR-0009 TOV SURFACE CONTRACT — FIRST MONOPOLE BASELINE NEXT**
 
 **Statement.** First order O(Ω) supplies frame dragging and I. Second order O(Ω²) supplies the
 monopole structural perturbations `(m₀, p₀)` with isobar displacement `ξ₀ = −p₀/(dp/dr)`,
@@ -671,6 +671,20 @@ Scientific status of the revalidation: `HARTLE O(OMEGA^2) MONOPOLE RESPONSE CHAR
 Q12); no O(Ω²) number may be cited as a validated result before the owner adjudicates D (record §20);
 `l = 2` remains out of scope, not verified. The previous status paragraph above is retained as history.
 
+**Phase 4D-DA owner adjudication (2026-09-04)** (`docs/validation/PHASE4D_CORRECTED_MONOPOLE_REVALIDATION.md` §21; ADR-0008 post-validation clarification).
+ADR-0008 Validation D's "successive differences monotone" was a numerical heuristic the accepted
+profile-partition measure does not mathematically possess: its sub-node weight location carries an
+`O(h)` error `Δε·W′·h·(1/2 − φ)` whose sign follows the feature's node phase under the doubling map
+(predicted sign matches production minus the EOS-knot oracle at 6/6 resolutions; residual 3–13 % of
+the computed envelope `E_crust(N) ∝ 1/N`), and the validated first-order `I` carries the same phase
+term. D is clarified into D′1–D′5 (spread `≤ 1e-4`; same-representation oracle `≤ 1e-6`; EOS-knot
+oracle `≤ 1e-4`; computed `1/N` envelope; `R_*`/M10/sequence-identity guards), all met by the 4D-RV
+evidence; continuum `δM̂(1.6 M☉) = 865.845 ± 0.001 km³`. EOS-knot partitioning stays optional.
+
+**Status.** **GOVERNED (ADR-0007 + ADR-0008 ACCEPTED) — MEASURE-COMPLETE O(Ω²) MONOPOLE SOURCE CONFORMED AND INDEPENDENTLY PHYSICALLY VERIFIED ON THE ADR-0009 TOV SURFACE CONTRACT — FIRST MONOPOLE BASELINE NEXT.**
+Scientific status `HARTLE O(OMEGA^2) MONOPOLE RESPONSE VERIFIED`. `l = 2` is still not implemented or validated. The first monopole baseline
+(`GOVERNANCE.md` §3.1 condition 7) is the next, separate task; Phase 5 remains blocked behind 4E.
+
 ---
 
 ## INV-09 — Fixed-ε_c versus equilibrium-sequence derivatives — **INTENDED BUT UNVERIFIED**
@@ -725,6 +739,7 @@ the migrated ADR-0009 backgrounds (`docs/validation/PHASE4D_CORRECTED_MONOPOLE_R
 sequence identity `≤ 1.03e-4`), with ADR-0008 Validation D's monotonicity clause not met at the
 node-placement floor; the baryon-conserving reduction, `dn_i/dp` and its measure completeness remain
 unimplemented and this invariant remains **not resolved**.
+*Phase 4D-DA (2026-09-04):* the fixed-`ε_c` structural response (`A_i` side) is now **independently verified** (`docs/validation/PHASE4D_CORRECTED_MONOPOLE_REVALIDATION.md` §21); the baryon-conserving reduction, `dn_i/dp` and its measure completeness remain Phase-5 work — **not resolved**.
 *Phase 4D-RG (2026-09-03):* `docs/adr/ADR-0008-measure-complete-eos-energy-density-source.md` (PROPOSED) Q11 requires the scalar particle-number response to be
 **measure-complete** — `δN̂_i` carries `−4πr²e^{λ}ξ̂₀ dn_i` with atoms at composition discontinuities; a nodal
 `dn_i/dp` column is forbidden as the integrator's source. The `B_i` side inherits the same rule.
