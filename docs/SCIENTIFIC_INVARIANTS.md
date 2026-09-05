@@ -711,6 +711,20 @@ Evidence: `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:1`, `docs/validation/PHA
 
 ## INV-09 — Fixed-ε_c versus equilibrium-sequence derivatives — **INTENDED BUT UNVERIFIED**
 
+*Phase 5B-0 owner adjudication (2026-09-05):* **PREFLIGHT COMPLETE; ADR-0011 ACCEPTED;
+INV-09 IMPLEMENTATION CONTRACT DEFINED.** The source-backed particle-current/`dn_i` measure,
+whole-star fixed-baryon constraint, domain-qualified PN7/PN8 source mapping, complete canonical-star
+`B_i` production owner and accepted PB1–PB14 validation plan are recorded in
+`docs/validation/PHASE5B0_INV09_GLOBAL_RESPONSE_PREFLIGHT.md:1` and
+`docs/adr/ADR-0011-particle-number-structural-response.md:1`. The ratified Structure-1 midpoint
+is the primary free-gas implementation/validation fixture, not a published `I_Omega` benchmark.
+The regular homogeneous method is a mandatory independent PB7 oracle only. The carried 0.410%
+threshold-localized dEdP column issue is not a blocker to the selected measure/complete-star path,
+but the GSL/Zaki convention mismatch is: **PHASE-5B PRODUCTION IMPLEMENTATION IS BLOCKED ON A
+SEPARATE UNIT-BOUNDARY RECONCILIATION**, and PB7 is blocked until that work is accepted and
+completed. Scratch convergence is not ratification or a baseline. **INV-09 remains INTENDED BUT
+UNVERIFIED; INV-11 remains UNRESOLVED.** No production or downstream chemical work is authorized.
+
 *Structure-1 ratification update (2026-09-05):* **TRACK-R STRUCTURE-1 IS HUMAN-RATIFIED WITH
 A QUALIFIED CLAIM.** The static free-gas implementation and the common-state FR2005 Table-1
 numbers at the source's printed `rho_c = 1.10e15 g cm^-3` are accepted (Levels 1 and 2).

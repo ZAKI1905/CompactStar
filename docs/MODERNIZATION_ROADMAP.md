@@ -617,6 +617,18 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
   semantics remain unresolved; the continuous sub-Sigma supremum is not claimed as reproduced.
   Evidence: `docs/validation/TRACKR_FREEGAS_WHOLESTAR_STRUCTURE1_RATIFICATION.md:1`.
 
+- **PHASE 5B-0 PREFLIGHT COMPLETE. ADR-0011 ACCEPTED. INV-09 IMPLEMENTATION CONTRACT DEFINED.**
+  The complete particle-number measure, whole-star fixed-baryon constraint, domain-qualified
+  PN7/PN8 source mapping, complete canonical-star `B_i` owner, scratch sensitivity evidence and
+  accepted PB1–PB14 validation plan are recorded in
+  `docs/validation/PHASE5B0_INV09_GLOBAL_RESPONSE_PREFLIGHT.md:1` and
+  `docs/adr/ADR-0011-particle-number-structural-response.md:1`. The Structure-1 midpoint is the
+  primary free-gas implementation/validation fixture, not a published `I_Omega` benchmark.
+  **PHASE-5B PRODUCTION IMPLEMENTATION IS BLOCKED ON A SEPARATE GSL/ZAKI UNIT-BOUNDARY
+  RECONCILIATION.** PB7 is blocked with it. INV-09 remains **INTENDED BUT UNVERIFIED** and
+  INV-11 remains **UNRESOLVED**. No production implementation, legacy-cache activation, Btilde,
+  paper Z/W, evolution or BNV began.
+
 Later Phase-5 work, explicitly not the next increment:
 
 - **Correct `RotochemicalCache` for ADR-0001 conformance** — construct `n_i = Y_i · n_B` before
