@@ -604,6 +604,11 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
   `docs/validation/PHASE5A5_TRACKR_PE_INDEPENDENT_REVIEW.md:682-726`;
   `docs/validation/PHASE5A5_TRACKR_LOCAL_RATIFICATION.md:3-46`, `:94-135`.
 
+- **TRACK-R STATIC WHOLE-STAR STRUCTURE INTERFACE AUDITED — IMPLEMENTATION NOT YET BEGUN.**
+  FR2005 Table-1 targets, the value-only barotrope prerequisite, existing TOV table
+  interface, surface-tail and central-state comparison policy, and S1-S12 plan:
+  `docs/validation/TRACKR_FREEGAS_WHOLESTAR_INTERFACE_AUDIT.md:1`.
+
 Later Phase-5 work, explicitly not the next increment:
 
 - **Correct `RotochemicalCache` for ADR-0001 conformance** — construct `n_i = Y_i · n_B` before
