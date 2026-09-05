@@ -713,8 +713,10 @@ Evidence: `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:1`, `docs/validation/PHA
 
 *Current Phase 5A-2 status:* ADR-0010 is **ACCEPTED**, and its cold charge-neutral local
 thermodynamic provider boundary plus analytic free leptons are now implemented and validated
-against self-contained V1-V10 analytic fixtures
-(`docs/validation/PHASE5A2_LOCAL_THERMODYNAMIC_IMPLEMENTATION.md`). This local implementation
+against corrected, load-bearing self-contained V1-V10 analytic fixtures, with no permanent
+production diff in the validation correction
+(`docs/validation/PHASE5A2_LOCAL_THERMODYNAMIC_VALIDATION_CORRECTION.md`; implementation history:
+`docs/validation/PHASE5A2_LOCAL_THERMODYNAMIC_IMPLEMENTATION.md`). This local implementation
 does **not** resolve INV-09. Still
 unresolved are the measure-complete particle-number/species response, composition measure
 `dn_i`, `A_i`, `B_i`, structural `Z_i`, baryon-conserving sequence reduction, and exact ownership

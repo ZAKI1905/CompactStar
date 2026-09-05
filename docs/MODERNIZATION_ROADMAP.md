@@ -1,13 +1,15 @@
 # CompactStar Modernization Roadmap
 
-> **Current Phase 5A state (2026-09-04): PHASE 5A-2 LOCAL THERMODYNAMIC CONTRACT IMPLEMENTED
-> AND VERIFIED — TRACK-R EOS REPRODUCTION PREREQUISITES READY.** The accepted ADR-0010 generic
-> cold charge-neutral provider, analytic free electrons/muons, and a test-only analytic toy EOS
-> now pass local V1-V10. Complete serial suites pass 23/23 self-contained (91.14 s) and 46/46 with the
-> authenticated external EOS root (686.34 s); all eight governed artifacts are unchanged. This does **not**
+> **Current Phase 5A state (2026-09-04): PHASE 5A-2 VALIDATION GAPS CORRECTED — READY FOR
+> CANONICAL INTEGRATION.** The accepted ADR-0010 generic cold charge-neutral provider, analytic
+> free electrons/muons, and test-only analytic toy EOS now pass corrected, load-bearing local
+> V1-V10. Complete serial suites pass 23/23 self-contained (91.38 s) and 46/46 with the
+> authenticated external EOS root (682.88 s); all eight governed artifacts are unchanged and the
+> correction has no permanent production diff. This does **not**
 > implement a realistic Track-R or Track-P EOS, stellar susceptibility integration,
 > particle-number/sequence reduction, paper `Z/W`, reaction/evolution equations, superfluidity,
-> or BNV. Evidence: `docs/validation/PHASE5A2_LOCAL_THERMODYNAMIC_IMPLEMENTATION.md`.
+> or BNV. Evidence: `docs/validation/PHASE5A2_LOCAL_THERMODYNAMIC_VALIDATION_CORRECTION.md`;
+> implementation history: `docs/validation/PHASE5A2_LOCAL_THERMODYNAMIC_IMPLEMENTATION.md`.
 >
 > **Historical Phase 4E closeout (2026-09-04): PHASE 4 ROTATION CORRECTNESS COMPLETE —
 > PHASE-5 STRUCTURAL INTERFACE RATIFIED.** The existing normalized

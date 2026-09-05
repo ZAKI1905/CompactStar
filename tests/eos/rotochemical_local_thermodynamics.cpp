@@ -312,6 +312,34 @@ struct IndependentLeptonValues
 	double derivative;
 };
 
+long double IndependentLeptonEnergyIntegral(long double density, long double mass,
+											long double hbar_c)
+{
+	// Independently integrate the dimensionless momentum integral after k=p_F u:
+	// epsilon = 3 n m integral_0^1 u^2 sqrt(1+x^2 u^2) du.
+	// Composite Simpson quadrature with compensated summation does not reproduce
+	// either production's small-x series or its cancellation-prone antiderivative.
+	constexpr std::size_t panels = 32768;
+	const long double pi = std::acos(-1.0L);
+	const long double p = hbar_c * std::pow(3.0L * pi * pi * density, 1.0L / 3.0L);
+	const long double x = p / mass;
+	const long double step = 1.0L / static_cast<long double>(panels);
+	long double sum = 1.0L * std::sqrt(1.0L + x * x);
+	long double compensation = 0.0L;
+	for (std::size_t index = 1; index < panels; ++index)
+	{
+		const long double u = step * static_cast<long double>(index);
+		const long double value =
+			(index % 2 == 0 ? 2.0L : 4.0L) * u * u *
+			std::sqrt(1.0L + x * x * u * u);
+		const long double corrected = value - compensation;
+		const long double updated = sum + corrected;
+		compensation = (updated - sum) - corrected;
+		sum = updated;
+	}
+	return 3.0L * density * mass * step * sum / 3.0L;
+}
+
 IndependentLeptonValues IndependentFreeLepton(double density, double mass,
 											  double hbar_c)
 {
@@ -321,19 +349,53 @@ IndependentLeptonValues IndependentFreeLepton(double density, double mass,
 	const long double hc = hbar_c;
 	const long double p = hc * std::pow(3.0L * pi * pi * n, 1.0L / 3.0L);
 	const long double mu = std::sqrt(m * m + p * p);
-	const long double energy =
-		(p * mu * (2.0L * p * p + m * m) -
-		 m * m * m * m * std::log((p + mu) / m)) /
-		(8.0L * pi * pi * hc * hc * hc);
-	const long double derivative = p * p / (3.0L * mu * n);
+	const long double energy = IndependentLeptonEnergyIntegral(n, m, hc);
+	// Independent reciprocal of dn/dmu=mu*p/[pi^2 (hbar c)^3].
+	const long double derivative = pi * pi * hc * hc * hc / (mu * p);
 	return {static_cast<double>(p), static_cast<double>(mu),
 			static_cast<double>(energy), static_cast<double>(derivative)};
+}
+
+double DensityForTargetX(double target_x, double mass, double hbar_c)
+{
+	const long double pi = std::acos(-1.0L);
+	const long double momentum_over_hbar_c =
+		static_cast<long double>(mass) * target_x / hbar_c;
+	return static_cast<double>(momentum_over_hbar_c * momentum_over_hbar_c *
+								 momentum_over_hbar_c / (3.0L * pi * pi));
+}
+
+double IndependentEnergyDerivative(double density, double mass, double hbar_c,
+								   double relative_step)
+{
+	const long double n = density;
+	const long double step = n * relative_step;
+	const long double upper = IndependentLeptonEnergyIntegral(
+		n + step, static_cast<long double>(mass), static_cast<long double>(hbar_c));
+	const long double lower = IndependentLeptonEnergyIntegral(
+		n - step, static_cast<long double>(mass), static_cast<long double>(hbar_c));
+	return static_cast<double>((upper - lower) / (2.0L * step));
 }
 
 void V1UnitsAndSigns(const AnalyticChargeNeutralToyProvider &provider)
 {
 	const ChargeNeutralCoordinates coordinates{0.21, 0.043, 0.021};
 	const auto evaluation = provider.Evaluate(coordinates);
+	const double b = coordinates.n_B_fm3 - 0.20;
+	const double e = coordinates.n_e_fm3 - 0.04;
+	const double u = coordinates.n_mu_fm3 - 0.02;
+	// Direct differentiation of the declared toy polynomial gives these
+	// nonzero imbalances; neither expectation is derived from returned g entries.
+	const double expected_eta_npe = 2.0 * b - 10.0 * e - 5.0 * u;
+	const double expected_eta_npmu = 2.0 * b - 5.0 * e - 12.0 * u;
+	RequireNear(evaluation.conjugates.EtaNpeMeV(), expected_eta_npe,
+				ScaledTolerance(expected_eta_npe),
+				"V1 public EtaNpeMeV accessor has the wrong value/sign");
+	RequireNear(evaluation.conjugates.EtaNpmuMeV(), expected_eta_npmu,
+				ScaledTolerance(expected_eta_npmu),
+				"V1 public EtaNpmuMeV accessor has the wrong value/sign");
+
+	// The optional charged-potential split is a separate consistency identity.
 	const auto potentials = provider.IntrinsicPotentials(coordinates);
 	const double eta_npe = potentials[0] - potentials[1] - potentials[2];
 	const double eta_npmu = potentials[0] - potentials[1] - potentials[3];
@@ -345,7 +407,10 @@ void V1UnitsAndSigns(const AnalyticChargeNeutralToyProvider &provider)
 				ScaledTolerance(eta_npmu), "V1 g_2 sign is not -eta_npmu");
 	Require(provider.Metadata().coordinate_chart.find("fm^-3") != std::string::npos,
 			"V1 provider coordinate units are not declared");
-	std::cout << "V1 PASS: x in fm^-3, g in MeV, H in MeV fm^3; eta signs verified.\n";
+	std::cout << "V1 PASS: x in fm^-3, g in MeV, H in MeV fm^3; public eta expected/actual="
+			  << expected_eta_npe << "/" << evaluation.conjugates.EtaNpeMeV()
+			  << "," << expected_eta_npmu << "/" << evaluation.conjugates.EtaNpmuMeV()
+			  << ".\n";
 }
 
 void V2ChargeNeutrality()
@@ -393,11 +458,16 @@ void V4AnalyticFreeLeptons()
 	RequireNear(electron.HbarCMeVFm(), 197.3269804, 2.0e-6,
 				"V4 hbar-c convention drifted");
 
-	double maximum_relative_error = 0.0;
+	constexpr std::array<double, 6> target_x_values{
+		1.0e-5, 1.0e-3, 0.009999, 0.01, 0.010001, 1.0};
+	double maximum_energy_relative_error = 0.0;
+	double maximum_other_relative_error = 0.0;
 	for (const auto lepton : {electron, muon})
 	{
-		for (double density : {1.0e-5, 1.0e-3, 1.0e-2, 1.0e-1})
+		for (double target_x : target_x_values)
 		{
+			const double density = DensityForTargetX(
+				target_x, lepton.RestMassEnergyMeV(), lepton.HbarCMeVFm());
 			const auto actual = lepton.Evaluate(density);
 			const auto expected = IndependentFreeLepton(
 				density, lepton.RestMassEnergyMeV(), lepton.HbarCMeVFm());
@@ -409,19 +479,53 @@ void V4AnalyticFreeLeptons()
 			{
 				const double relative = std::abs(pair[0] - pair[1]) /
 										std::max(1.0, std::abs(pair[1]));
-				maximum_relative_error = std::max(maximum_relative_error, relative);
+				maximum_other_relative_error = std::max(maximum_other_relative_error, relative);
 				Require(relative <= 2.0e-14, "V4 analytic lepton value/derivative mismatch");
 			}
 			const double energy_relative = std::abs(actual.energy_density_MeV_fm3 -
-													expected.energy) /
-										   std::max(1.0, std::abs(expected.energy));
-			maximum_relative_error = std::max(maximum_relative_error, energy_relative);
-			Require(energy_relative <= 3.0e-11,
+												expected.energy) /
+										   std::abs(expected.energy);
+			maximum_energy_relative_error = std::max(maximum_energy_relative_error,
+													 energy_relative);
+			// 8e-13 is a narrow evidence-based guard above the independently measured
+			// 6.95e-13 cancellation maximum just above x=0.01 on this platform.
+			Require(energy_relative <= 8.0e-13,
 					"V4 analytic lepton energy-density mismatch");
 		}
+
+		// Verify mu=d epsilon/dn using the independent quadrature energy at one
+		// series-branch point and one relativistic point.  The centered errors
+		// must converge under step halving.
+		for (double target_x : {1.0e-3, 1.0})
+		{
+			const double density = DensityForTargetX(
+				target_x, lepton.RestMassEnergyMeV(), lepton.HbarCMeVFm());
+			const double expected_mu = IndependentFreeLepton(
+				density, lepton.RestMassEnergyMeV(), lepton.HbarCMeVFm()).mu;
+			std::array<double, 4> errors{};
+			const std::array<double, 4> relative_steps = target_x < 0.01
+				? std::array<double, 4>{0.2, 0.1, 0.05, 0.025}
+				: std::array<double, 4>{0.005, 0.0025, 0.00125, 0.000625};
+			for (std::size_t index = 0; index < relative_steps.size(); ++index)
+				errors[index] = std::abs(
+					IndependentEnergyDerivative(density, lepton.RestMassEnergyMeV(),
+												lepton.HbarCMeVFm(), relative_steps[index]) -
+					expected_mu);
+			for (std::size_t index = 0; index + 1 < errors.size(); ++index)
+				Require(errors[index + 1] < errors[index],
+						"V4 independent energy-gradient error did not converge");
+			std::cout << "V4 diagnostic " << lepton.Name() << " x=" << target_x
+					  << " gradient errors=" << errors[0] << "," << errors[1]
+					  << "," << errors[2] << "," << errors[3] << "\n";
+			Require(errors.back() / expected_mu <= 1.0e-8,
+					"V4 independent energy-gradient check is not accurate enough");
+		}
 	}
-	std::cout << "V4 PASS: independent free-lepton max scaled error="
-			  << maximum_relative_error << ".\n";
+	std::cout << "V4 PASS: target x={1e-5,1e-3,0.009999,0.01,0.010001,1} for e/mu; "
+			  << "independent quadrature max relative energy error="
+			  << maximum_energy_relative_error << ", other="
+			  << maximum_other_relative_error
+			  << "; independent mu=d epsilon/dn convergence verified.\n";
 }
 
 void V5AnalyticToy(const AnalyticChargeNeutralToyProvider &provider)
@@ -441,7 +545,28 @@ void V5AnalyticToy(const AnalyticChargeNeutralToyProvider &provider)
 			RequireNear(evaluation.hessian(row, column), expected_h[row][column], 0.0,
 						"V5 toy Hessian differs from closed form");
 	}
-	std::cout << "V5 PASS: analytic toy energy, gradient, and Hessian are exact.\n";
+
+	// Independent energy-gradient finite differences along every canonical axis.
+	constexpr double step = 1.0e-5;
+	double maximum_gradient_error = 0.0;
+	for (std::size_t column = 0; column < 3; ++column)
+	{
+		Vector3 upper = x;
+		Vector3 lower = x;
+		upper[column] += step;
+		lower[column] -= step;
+		const double finite_difference =
+			(provider.Evaluate(VectorAsCoordinates(upper)).energy_density_MeV_fm3 -
+			 provider.Evaluate(VectorAsCoordinates(lower)).energy_density_MeV_fm3) /
+			(2.0 * step);
+		maximum_gradient_error = std::max(
+			maximum_gradient_error,
+			std::abs(finite_difference - evaluation.conjugates.value_MeV[column]));
+	}
+	Require(maximum_gradient_error <= 3.0e-9,
+			"V5 all-axis energy-gradient finite differences disagree with g");
+	std::cout << "V5 PASS: analytic toy energy/gradient/H exact; all-axis energy-gradient max error="
+			  << maximum_gradient_error << ".\n";
 }
 
 void V6HessianSymmetry(const AnalyticChargeNeutralToyProvider &provider)
@@ -482,32 +607,111 @@ void V7LinearResponseConvergence(const AnalyticChargeNeutralToyProvider &provide
 		minimum_order = std::min(minimum_order, order);
 	}
 	Require(minimum_order > 1.99, "V7 did not demonstrate the expected quadratic remainder");
+
+	// Hold the other two coordinates fixed and differentiate each Hessian column.
+	constexpr double column_step = 1.0e-5;
+	double maximum_column_error = 0.0;
+	for (std::size_t column = 0; column < 3; ++column)
+	{
+		Vector3 upper = base;
+		Vector3 lower = base;
+		upper[column] += column_step;
+		lower[column] -= column_step;
+		const Vector3 upper_g = provider.Evaluate(VectorAsCoordinates(upper)).conjugates.value_MeV;
+		const Vector3 lower_g = provider.Evaluate(VectorAsCoordinates(lower)).conjugates.value_MeV;
+		for (std::size_t row = 0; row < 3; ++row)
+		{
+			const double finite_difference =
+				(upper_g[row] - lower_g[row]) / (2.0 * column_step);
+			maximum_column_error = std::max(
+				maximum_column_error,
+				std::abs(finite_difference - hessian[row][column]));
+		}
+	}
+	std::cout << "V7 diagnostic all-column max error=" << maximum_column_error << "\n";
+	Require(maximum_column_error <= 1.0e-8,
+			"V7 held-fixed-coordinate Hessian-column check failed");
 	std::cout << "V7 PASS: errors=" << errors[0] << "," << errors[1] << ","
 			  << errors[2] << "," << errors[3]
-			  << "; minimum observed order=" << minimum_order << ".\n";
+			  << "; minimum observed order=" << minimum_order
+			  << "; all-column max error=" << maximum_column_error << ".\n";
+}
+
+Matrix3 IndependentToyYHessian(const Vector3 &x)
+{
+	// Direct differentiation in y=(n_n,n_e,n_mu), where
+	// n_B=n_n+n_e+n_mu and b=n_B-0.20.  No x-basis Hessian or inverse
+	// coordinate map enters this oracle.
+	const double cubic = kCubicCoefficient * (x[0] - 0.20);
+	Matrix3 hessian{{
+		{{2.0, 0.0, 0.0}},
+		{{0.0, 8.0, 3.0}},
+		{{0.0, 3.0, 10.0}},
+	}};
+	for (auto &row : hessian)
+		for (double &value : row)
+			value += cubic;
+	return hessian;
+}
+
+Matrix3 IndependentToyFractionHessian(double n_B, double Y_e, double Y_mu)
+{
+	// Direct differentiation of the toy energy after substituting
+	// x=(n_B,n_B Y_e,n_B Y_mu).  This is not assembled from J^T H_x J.
+	const double b = n_B - 0.20;
+	return {{{{
+		2.0 - 4.0 * Y_e - 4.0 * Y_mu + 10.0 * Y_e * Y_e +
+			10.0 * Y_e * Y_mu + 12.0 * Y_mu * Y_mu + 10.0 * b,
+		2.0 * n_B * (-2.0 + 10.0 * Y_e + 5.0 * Y_mu) - 0.10,
+		2.0 * n_B * (-2.0 + 5.0 * Y_e + 12.0 * Y_mu) - 0.04}},
+		{{2.0 * n_B * (-2.0 + 10.0 * Y_e + 5.0 * Y_mu) - 0.10,
+		  10.0 * n_B * n_B, 5.0 * n_B * n_B}},
+		{{2.0 * n_B * (-2.0 + 5.0 * Y_e + 12.0 * Y_mu) - 0.04,
+		  5.0 * n_B * n_B, 12.0 * n_B * n_B}}}};
 }
 
 void V8BasisEquivalence(const AnalyticChargeNeutralToyProvider &provider)
 {
 	const Matrix3 T{{{{1.0, -1.0, -1.0}}, {{0.0, 1.0, 0.0}}, {{0.0, 0.0, 1.0}}}};
-	const Matrix3 U{{{{1.0, 1.0, 1.0}}, {{0.0, 1.0, 0.0}}, {{0.0, 0.0, 1.0}}}};
-	const auto evaluation = provider.Evaluate({0.218, 0.049, 0.026});
-	const Matrix3 H_x = evaluation.hessian.value_MeV_fm3;
-	const Matrix3 H_y = Multiply(Transpose(U), Multiply(H_x, U));
-	const Matrix3 reconstructed_H_x = Multiply(Transpose(T), Multiply(H_y, T));
-	const double h_error = MaxAbsDifference(H_x, reconstructed_H_x);
-	Require(h_error <= ScaledTolerance(InfinityNorm(H_x)),
-			"V8 exact x/y Hessian transformation failed");
+	const Matrix3 identity{{{{1.0, 0.0, 0.0}}, {{0.0, 1.0, 0.0}}, {{0.0, 0.0, 1.0}}}};
+	double h_error = 0.0;
+	double inverse_error = 0.0;
+	double wrong_map_discrepancy = 0.0;
+	for (const Vector3 x : {
+			 Vector3{0.182, 0.033, 0.017},
+			 Vector3{0.218, 0.049, 0.026},
+			 Vector3{0.236, 0.052, 0.031}})
+	{
+		const Matrix3 H_x = provider.Evaluate(VectorAsCoordinates(x)).hessian.value_MeV_fm3;
+		const Matrix3 expected_H_y = IndependentToyYHessian(x);
+		const Matrix3 expected_H_x = Multiply(Transpose(T), Multiply(expected_H_y, T));
+		h_error = std::max(h_error, MaxAbsDifference(H_x, expected_H_x));
+		Require(MaxAbsDifference(H_x, expected_H_x) <=
+				ScaledTolerance(InfinityNorm(H_x), 1024.0),
+				"V8 x Hessian disagrees with independently differentiated y oracle");
 
-	const Matrix3 C_x = Inverse3(H_x);
-	const Matrix3 transformed_C_y = Multiply(T, Multiply(C_x, Transpose(T)));
-	const Matrix3 direct_C_y = Inverse3(H_y);
-	const double inverse_error = MaxAbsDifference(transformed_C_y, direct_C_y);
-	Require(inverse_error <= ScaledTolerance(InfinityNorm(direct_C_y)),
-			"V8 inverse responses do not transform consistently");
+		const Matrix3 transformed_C_y = Multiply(
+			T, Multiply(Inverse3(H_x), Transpose(T)));
+		const Matrix3 expected_C_y = Inverse3(expected_H_y);
+		inverse_error = std::max(inverse_error,
+								 MaxAbsDifference(transformed_C_y, expected_C_y));
+		Require(MaxAbsDifference(transformed_C_y, expected_C_y) <=
+				ScaledTolerance(InfinityNorm(expected_C_y), 1024.0),
+				"V8 transformed response disagrees with inverse of independent y oracle");
+
+		const Matrix3 wrong_H_x = Multiply(
+			Transpose(identity), Multiply(expected_H_y, identity));
+		wrong_map_discrepancy = std::max(
+			wrong_map_discrepancy, MaxAbsDifference(H_x, wrong_H_x));
+	}
+	Require(wrong_map_discrepancy > 1.0,
+			"V8 wrong-map negative fixture did not distinguish identity from T");
 
 	// z=(n_B,Y_e,Y_mu): x=(z_B,z_B z_e,z_B z_mu).  Away from
-	// equilibrium, Hessian transformation includes g_i d2 x_i/dz_a dz_b.
+	// equilibrium, compare the complete chain rule with an independently
+	// differentiated transformed-energy Hessian.
+	const auto evaluation = provider.Evaluate({0.218, 0.049, 0.026});
+	const Matrix3 H_x = evaluation.hessian.value_MeV_fm3;
 	const auto &g = evaluation.conjugates.value_MeV;
 	const double n_B = evaluation.state.BaryonDensityFm3();
 	const double Y_e = evaluation.state.ElectronDensityFm3() / n_B;
@@ -519,15 +723,20 @@ void V8BasisEquivalence(const AnalyticChargeNeutralToyProvider &provider)
 	full[1][0] += g[1];
 	full[0][2] += g[2];
 	full[2][0] += g[2];
+	const Matrix3 expected_H_z = IndependentToyFractionHessian(n_B, Y_e, Y_mu);
+	const double nonlinear_error = MaxAbsDifference(full, expected_H_z);
+	const double naive_discrepancy = MaxAbsDifference(naive, expected_H_z);
 	Require(std::abs(g[1]) > 1.0e-3 && std::abs(g[2]) > 1.0e-3,
 			"V8 nonlinear chain-rule fixture accidentally lies at equilibrium");
-	RequireNear(full[0][1] - naive[0][1], g[1], ScaledTolerance(g[1]),
-				"V8 electron fraction-coordinate chain term is absent");
-	RequireNear(full[0][2] - naive[0][2], g[2], ScaledTolerance(g[2]),
-				"V8 muon fraction-coordinate chain term is absent");
+	Require(nonlinear_error <= ScaledTolerance(InfinityNorm(expected_H_z), 4096.0),
+			"V8 complete nonlinear transform disagrees with independent z oracle");
+	Require(naive_discrepancy > 1.0e-3,
+			"V8 naive J^T H J unexpectedly matches independent z oracle");
 	std::cout << "V8 PASS: max linear-basis H error=" << h_error
 			  << ", inverse error=" << inverse_error
-			  << "; nonlinear chain terms are nonzero.\n";
+			  << ", identity-map discrepancy=" << wrong_map_discrepancy
+			  << "; nonlinear full error=" << nonlinear_error
+			  << ", naive discrepancy=" << naive_discrepancy << ".\n";
 }
 
 Matrix4 CorrectedChargeProjectedSusceptibility()
@@ -572,6 +781,11 @@ Matrix4 ReducedResponseFromProviderHessian(const Matrix3 &hessian)
 
 void V9CorrectedProjection(const AnalyticChargeNeutralToyProvider &provider)
 {
+	// This fixture validates the correct single local charge-neutral reduction/
+	// projection, response amplitude, charge null, proton-row identity, and
+	// charge-sign convention.  Source inspection separately establishes that
+	// production contains no second projection; an identical idempotent projector
+	// cannot be universally detected by this fixture.
 	const auto provider_evaluation = provider.Evaluate(VectorAsCoordinates(kReferenceX));
 	const Matrix4 projected = CorrectedChargeProjectedSusceptibility();
 	const Matrix4 reduced = ReducedResponseFromProviderHessian(

@@ -191,3 +191,20 @@ state, or add weak reactions/heating/evolution. INV-09 and INV-11 remain unresol
 
 **NO APR, DS(CMF), STELLAR SUSCEPTIBILITY, Z/W, ROTOCHEMICAL EVOLUTION,
 SUPERFLUIDITY, OR BNV IMPLEMENTED IN PHASE 5A-2.**
+
+## 12. Post-review validation correction
+
+**Current status (2026-09-04): PHASE 5A-2 VALIDATION GAPS CORRECTED — READY FOR
+CANONICAL INTEGRATION.** The independent review's material F1-F3 validation
+findings were corrected without a permanent production diff. The load-bearing
+detectors, independent y/z and lepton-energy oracles, direct public Eta accessor
+checks, optional all-axis V5-V7 strengthening, artifact hashes, and final serial
+23/23 self-contained and 46/46 full suites are recorded in
+`docs/validation/PHASE5A2_LOCAL_THERMODYNAMIC_VALIDATION_CORRECTION.md`.
+
+The historical V9 wording above is narrowed by that correction: V9 validates
+the correct single local charge-neutral reduction/projection, response
+amplitude, charge null, proton-row identity, and charge-sign convention. Source
+inspection separately establishes that production contains no second
+projection; an identical idempotent projector cannot be universally detected
+by this fixture.
