@@ -1,16 +1,16 @@
 # CompactStar Modernization Roadmap
 
-> **Current Phase 5A state (2026-09-05): TRACK-R FREE-GAS LOCAL THERMODYNAMIC COVERAGE HUMAN-RATIFIED AND COMPLETE — WHOLE-STAR STRUCTURE REPRODUCTION READY.** Vacuum, smooth
-> p-e, value-only neutron appearance, smooth npe, value-only muon appearance, and smooth
-> npe-mu are explicitly typed through the pre-Sigma-minus source ceiling. PE-V1-PE-V13,
-> R1-V1-R1-V10, RFG1-RFG11, V1-V10, and both complete serial suites pass. This means only
-> that the local source model can support the next structure task; no free-gas star or FR2005
-> whole-star benchmark has been reproduced. No stellar susceptibility integration,
-> particle-number/sequence reduction, paper `B/Z/W`, reaction/evolution equation, APR/BPAL,
-> DS(CMF) off-equilibrium physics, superfluidity, or BNV is implemented. Evidence:
-> `docs/validation/PHASE5A5_TRACKR_PE_BRANCH.md:231-280`;
-> `docs/validation/PHASE5A5_TRACKR_PE_INDEPENDENT_REVIEW.md:771-828`;
-> `docs/validation/PHASE5A5_TRACKR_LOCAL_RATIFICATION.md:3-46`.
+> **Current Track-R Structure-1 state (2026-09-05): HUMAN-RATIFIED WITH QUALIFIED CLAIM —
+> STATIC FREE-GAS STRUCTURE AND COMMON-STATE FR2005 TABLE-1 NUMBERS VERIFIED.** At the
+> source's printed `rho_c = 1.10e15 g cm^-3`, one common central state reproduces the printed
+> `M`, `R`, and `R_infinity` bins with no source-bin widening, mass fitting, or EOS tuning and
+> with independent TOV validation. Level 1 and Level 2 are accepted. Level 3 is not ratified:
+> the source-qualified `M_max` selection semantics remain unresolved, and the independently
+> determined continuous sub-Sigma limit does not correspond to the published row. INV-09 and
+> INV-11 remain unresolved; no particle-number response, `Btilde/Z/W`, evolution, or BNV is
+> authorized. Evidence:
+> `docs/validation/TRACKR_FREEGAS_WHOLESTAR_STRUCTURE1_INDEPENDENT_REVIEW.md:799-827`;
+> `docs/validation/TRACKR_FREEGAS_WHOLESTAR_STRUCTURE1_RATIFICATION.md:1`.
 >
 > **Historical Phase 4E closeout (2026-09-04): PHASE 4 ROTATION CORRECTNESS COMPLETE —
 > PHASE-5 STRUCTURAL INTERFACE RATIFIED.** The existing normalized
@@ -609,13 +609,13 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
   interface, surface-tail and central-state comparison policy, and S1-S12 plan:
   `docs/validation/TRACKR_FREEGAS_WHOLESTAR_INTERFACE_AUDIT.md:1`.
 
-- **TRACK-R STRUCTURE-1 static implementation and validation complete — scientific candidate for human review.**
-  The predeclared rho midpoint passes the simultaneous FR2005 static Table-1 bins after
-  table/radial/tail convergence and an independent enthalpy TOV oracle. P-7 is resolved
-  for structure values; chemical-Hessian guards remain unchanged. Canonical TOV and
-  ADR-0009 are unchanged, and no new baseline or global response/evolution is added.
-  The high-density scan does not identify the authors' unpublished retained maximum.
-  Evidence: `docs/validation/TRACKR_FREEGAS_WHOLESTAR_STRUCTURE1.md:1`, sections 17–25.
+- **TRACK-R STRUCTURE-1 HUMAN-RATIFIED WITH QUALIFIED CLAIM.** The predeclared printed-rho
+  midpoint reproduces the common-state FR2005 static Table-1 numbers after table/radial/tail
+  convergence and independent TOV validation. P-7 is resolved for structure values;
+  chemical-Hessian guards remain unchanged. Canonical TOV and ADR-0009 are unchanged, and no
+  new baseline or global response/evolution is added. The source-qualified `M_max` selection
+  semantics remain unresolved; the continuous sub-Sigma supremum is not claimed as reproduced.
+  Evidence: `docs/validation/TRACKR_FREEGAS_WHOLESTAR_STRUCTURE1_RATIFICATION.md:1`.
 
 Later Phase-5 work, explicitly not the next increment:
 
