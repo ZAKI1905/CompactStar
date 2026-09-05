@@ -48,6 +48,19 @@ add_test(NAME eos_derivative_contract COMMAND eos_derivative_contract)
 set_tests_properties(eos_derivative_contract PROPERTIES LABELS "eos;derivative;contract")
 
 # ---------------------------------------------------------------------------
+#  Phase 5A-2 accepted ADR-0010 local cold charge-neutral thermodynamic
+#  contract. Self-contained analytic free leptons plus independent toy and
+#  projection fixtures; no external EOS data and no scientific baseline.
+# ---------------------------------------------------------------------------
+add_executable(rotochemical_local_thermodynamics
+    eos/rotochemical_local_thermodynamics.cpp)
+target_link_libraries(rotochemical_local_thermodynamics PRIVATE CompactStar)
+add_test(NAME rotochemical_local_thermodynamics
+         COMMAND rotochemical_local_thermodynamics)
+set_tests_properties(rotochemical_local_thermodynamics PROPERTIES
+    LABELS "rotochemical;thermodynamics;self-contained;scientific;contract")
+
+# ---------------------------------------------------------------------------
 #  Phase 4C-I1 governed O(Omega^2) monopole IMPLEMENTATION contract (ADR-0007).
 #  Self-contained. Protects contracts — fail-closed inputs, regular-centre start,
 #  provenance/staleness, seed invariance, materialization algebra, solve accounting.

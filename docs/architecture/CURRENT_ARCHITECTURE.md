@@ -1,6 +1,14 @@
 # CompactStar — Current Architecture
 
-> **Current Phase 4E closeout (2026-09-04): PHASE 4 ROTATION CORRECTNESS COMPLETE —
+> **Current Phase 5A-2 state (2026-09-04): local thermodynamic contract IMPLEMENTED AND
+> VERIFIED.** `CompactStar/EOS/LocalThermodynamics.*` implements the accepted ADR-0010 generic
+> cold charge-neutral boundary and analytic free electrons/muons. A test-only analytic toy and
+> independent full-intrinsic projection fixture pass V1-V10. The provider is not connected to a
+> star or evolution. No APR, DS(CMF) off-equilibrium provider, stellar susceptibility, paper
+> `Z/W`, evolution, superfluidity, or BNV is implemented. Evidence:
+> `docs/validation/PHASE5A2_LOCAL_THERMODYNAMIC_IMPLEMENTATION.md`.
+>
+> **Historical Phase 4E closeout (2026-09-04): PHASE 4 ROTATION CORRECTNESS COMPLETE —
 > PHASE-5 STRUCTURAL INTERFACE RATIFIED.** The existing normalized
 > `HartleFirstOrderResponse` + `HartleMonopoleResponse` are the supported structural inputs;
 > no wrapper, new physics or baseline change. INV-08 is CLOSED/VERIFIED only for ordinary
@@ -156,6 +164,14 @@ TimeSeriesObserver + DiagnosticsObserver            LIVE
 ---
 
 ## 2. Component status
+
+### EOS — Phase 5A local thermodynamics
+
+| Component | Status | Note |
+|---|---|---|
+| `ILocalThermodynamicProvider` and value types | **LIVE — ADR-0010 CONFORMED LOCALLY** | Independent cold charge-neutral `x=(n_B,n_e,n_mu)` interface returning validated species reconstruction, energy density, `g=(mu_n,-eta_npe,-eta_npmu)`, and `ChargeNeutralChemicalHessian H=partial g/partial x`. Metadata declares identity, composition, conventions, and smooth domain. No star dependency, intrinsic charged-potential requirement, projector, inverse, or paper-`B` API |
+| `ColdRelativisticFreeLepton` | **LIVE — ANALYTICALLY VALIDATED** | T=0 relativistic free electrons/muons using repository constant authority; returns total chemical potential and energy density, with analytic `dmu/dn` only for positive density. At zero density the value limit is explicit and the derivative is unavailable/fail-closed |
+| Phase 5A-2 analytic toy | **TEST-ONLY FIXTURE** | Positive stable charge-neutral potential with nonzero cross derivatives; validates V1-V10 and creates no scientific baseline. It is not APR, DS(CMF), BPAL, or a neutron-star EOS |
 
 ### Core
 
@@ -530,10 +546,12 @@ Re-authenticated at **`11ffe45`** after roadmap Phase 1. Full evidence and comma
 
 ### Automated tests
 
-**Current Phase 4D-BL inventory:** 45 full / 22 self-contained, all green without skips or exclusions;
-new `hartle_monopole_regression` is production regression, not an independent oracle.
-Eight current artifacts, prior seven unchanged: `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:224`, `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:250`.
-The dated Phase-3 inventory below is historical.
+**Current Phase 5A-2 inventory:** 46 full / 23 self-contained, all green without skips or
+exclusions in final serial runs (686.34 s / 91.14 s). The added
+`rotochemical_local_thermodynamics` test is a self-contained analytic validation fixture, not a
+scientific baseline. All eight governed artifacts are unchanged. Evidence:
+`docs/validation/PHASE5A2_LOCAL_THERMODYNAMIC_IMPLEMENTATION.md`. The dated Phase-3 inventory
+below is historical.
 
 - **CTest infrastructure exists.** `include(CTest)` at top level provides standard `BUILD_TESTING`
   and `enable_testing()`; `tests/` is added only when testing is on (`CMakeLists.txt:222-226`).
@@ -578,7 +596,9 @@ The dated Phase-3 inventory below is historical.
 
 ## 6. What this document does **not** claim
 
-- It does **not** claim the rotochemical pipeline is operational. **It is not compiled.**
+- It does **not** claim the rotochemical pipeline is operational. Only the independent local
+  ADR-0010 thermodynamic provider boundary and analytic free leptons are compiled; no star,
+  coefficient, reaction, heating, or evolution connection exists.
 - It does **not** claim second-order Hartle is validated. It is publicly callable, has zero
   repository callers, is unverified, and its equations are recorded as defective (INV-08;
   `docs/validation/PHASE4_ROTATION_ENTRY.md` §10–§12). Phase 4A left it byte-identical.

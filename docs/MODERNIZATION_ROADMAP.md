@@ -1,12 +1,13 @@
 # CompactStar Modernization Roadmap
 
-> **Current Phase 5A state (2026-09-04): PHASE 5A THERMODYNAMIC CONTRACT ACCEPTED —
-> IMPLEMENTATION NOT YET BEGUN.** ADR-0010 is ACCEPTED with the owner-ratified Q1-Q6 and the
-> Phase 5A-1A revisions R1-R7. The next governed task is implementation and validation of the
-> **local cold charge-neutral thermodynamic provider contract only**, beginning with analytic/toy
-> providers. No stellar susceptibility integration, particle-number/sequence reduction, paper
-> `Z/W`, reaction/evolution equation, superfluid extension, or BNV work is authorized by this
-> status (`docs/adr/ADR-0010-rotochemical-off-equilibrium-thermodynamic-contract.md:358-378`).
+> **Current Phase 5A state (2026-09-04): PHASE 5A-2 LOCAL THERMODYNAMIC CONTRACT IMPLEMENTED
+> AND VERIFIED — TRACK-R EOS REPRODUCTION PREREQUISITES READY.** The accepted ADR-0010 generic
+> cold charge-neutral provider, analytic free electrons/muons, and a test-only analytic toy EOS
+> now pass local V1-V10. Complete serial suites pass 23/23 self-contained (91.14 s) and 46/46 with the
+> authenticated external EOS root (686.34 s); all eight governed artifacts are unchanged. This does **not**
+> implement a realistic Track-R or Track-P EOS, stellar susceptibility integration,
+> particle-number/sequence reduction, paper `Z/W`, reaction/evolution equations, superfluidity,
+> or BNV. Evidence: `docs/validation/PHASE5A2_LOCAL_THERMODYNAMIC_IMPLEMENTATION.md`.
 >
 > **Historical Phase 4E closeout (2026-09-04): PHASE 4 ROTATION CORRECTNESS COMPLETE —
 > PHASE-5 STRUCTURAL INTERFACE RATIFIED.** The existing normalized
@@ -556,13 +557,14 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
 
 > **Species-semantics prerequisite: SATISFIED** (ADR-0001, 2026-08-31).
 > **Phase-4 structural-input gate: SATISFIED** (`docs/validation/PHASE4_CLOSEOUT.md:201`).
-> **Phase 5A-0 documentation audit complete; Phase-5 physics not begun.** The source-backed current
+> **Historical Phase 5A-0 state: documentation audit complete; Phase-5 physics not begun.** The source-backed current
 > EOS/thermodynamic capability and corrected 2006 rotochemical requirements are inventoried in
 > `docs/validation/PHASE5A0_EOS_THERMODYNAMIC_AUDIT.md`. The audit identifies a governed
 > arbitrary-composition thermodynamic EOS/data extension as necessary; it does not choose or
 > implement that extension, resolve chemical conventions or particle-number/sequence reduction,
 > or activate existing unverified candidate code.
-> **PHASE 5A THERMODYNAMIC CONTRACT ACCEPTED — IMPLEMENTATION NOT YET BEGUN.** Phase 5A-1
+> **Historical Phase 5A-1B state: PHASE 5A THERMODYNAMIC CONTRACT ACCEPTED — IMPLEMENTATION NOT
+> YET BEGUN.** Phase 5A-1
 > proposed ADR-0010; the Phase 5A-1A independent Astra adjudication required R1-R7; Phase 5A-1B
 > records the owner's acceptance of Q1-Q6 with those revisions
 > (`docs/adr/ADR-0010-rotochemical-off-equilibrium-thermodynamic-contract.md:358-395`;
@@ -570,10 +572,11 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
 > is cold-only, charge-neutral, and local. It does not implement any provider, derivative,
 > interpolation, matrix operation, global coefficient, rate, or evolution equation.
 
-- **NEXT — implement and validate only the accepted local thermodynamic provider contract.** Begin
-  with analytic free-lepton and toy charge-neutral providers and the local V1-V8 falsifiers. Do not
-  begin APR or DS(CMF), stellar integration, particle-number response, sequence reduction, paper
-  `Z/W`, or evolution until their respective gates are met.
+- **Phase 5A-2 COMPLETE — accepted local provider contract implemented and independently
+  validated with analytic fixtures.** The generic boundary, free leptons, and test-only
+  charge-neutral toy pass V1-V10, including exact basis transforms, nonlinear fraction-coordinate
+  chain terms, and independent corrected-2006 projection equivalence. Evidence:
+  `docs/validation/PHASE5A2_LOCAL_THERMODYNAMIC_IMPLEMENTATION.md`.
 
 Later Phase-5 work, explicitly not the next increment:
 
@@ -612,7 +615,7 @@ unauditable.
 
 ```
 0.5 governance ─► 1 build ─► 2A pre-baseline ─► 2B baseline ─► 3 consolidation ─► 4 rotation ─► 5 rotochemical ─► 6 BNV
-  ✅ RATIFIED    ✅ COMPLETE      ✅ COMPLETE      ◐ ACTIVE (gate met)   ✅ COMPLETE (merged df859b5)   ✅ 4 COMPLETE; 5A CONTRACT ACCEPTED, IMPLEMENTATION NOT BEGUN
+   ✅ RATIFIED    ✅ COMPLETE      ✅ COMPLETE      ◐ ACTIVE (gate met)   ✅ COMPLETE (merged df859b5)   ✅ 4 COMPLETE; 5A-2 LOCAL CONTRACT VERIFIED
                                     │                                 │                │              │
    ADR-0001 species semantics  ✅ ACCEPTED ──────────────────────────────────────────────────────────►│  (gate cleared)
    ADR-0002 heat capacity      ✅ ACCEPTED ─►│  (conformance is 2A work, not a gate)

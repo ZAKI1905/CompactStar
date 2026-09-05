@@ -4,6 +4,7 @@ set(CompactStar_EOS_headers
     CoulombLattice.hpp
     Fermi_Gas.hpp
     Lepton.hpp
+    LocalThermodynamics.hpp
     Model.hpp
     Particle.hpp
     Polytrope.hpp
@@ -25,6 +26,7 @@ set(CompactStar_EOS_sources
     CompactStar/EOS/src/CoulombLattice.cpp
     CompactStar/EOS/src/Fermi_Gas.cpp
     CompactStar/EOS/src/Lepton.cpp
+    CompactStar/EOS/src/LocalThermodynamics.cpp
     CompactStar/EOS/src/Model.cpp
     CompactStar/EOS/src/Particle.cpp
     CompactStar/EOS/src/Polytrope.cpp

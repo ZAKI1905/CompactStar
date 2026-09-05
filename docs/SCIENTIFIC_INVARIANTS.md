@@ -711,9 +711,11 @@ Evidence: `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:1`, `docs/validation/PHA
 
 ## INV-09 — Fixed-ε_c versus equilibrium-sequence derivatives — **INTENDED BUT UNVERIFIED**
 
-*Current Phase 5A-1B status:* ADR-0010 is **ACCEPTED** for the cold charge-neutral local
-thermodynamic provider contract (`docs/adr/ADR-0010-rotochemical-off-equilibrium-thermodynamic-contract.md:371-378`).
-That acceptance does **not** implement the provider and does **not** resolve INV-09. Still
+*Current Phase 5A-2 status:* ADR-0010 is **ACCEPTED**, and its cold charge-neutral local
+thermodynamic provider boundary plus analytic free leptons are now implemented and validated
+against self-contained V1-V10 analytic fixtures
+(`docs/validation/PHASE5A2_LOCAL_THERMODYNAMIC_IMPLEMENTATION.md`). This local implementation
+does **not** resolve INV-09. Still
 unresolved are the measure-complete particle-number/species response, composition measure
 `dn_i`, `A_i`, `B_i`, structural `Z_i`, baryon-conserving sequence reduction, and exact ownership
 of the homogeneous/sequence derivative. Global paper `Z/W` construction and evolution are also
@@ -825,7 +827,8 @@ Phase 5.
 
 ## INV-11 — Chemical-imbalance redshift convention — **UNRESOLVED**
 
-**Current Phase 5A-1B boundary.** ADR-0010 now governs the **local** cold neutral conjugates
+**Current Phase 5A-2 boundary.** ADR-0010 governs, and Phase 5A-2 implements and locally validates,
+the **local** cold neutral conjugates
 `g=(mu_n,-eta_npe,-eta_npmu)` in MeV, without electrostatic or GR-redshift terms
 (`docs/adr/ADR-0010-rotochemical-off-equilibrium-thermodynamic-contract.md:238-250`). It does not
 govern the evolved chemical-state ordering, redshift frame, storage units/interface, or the
@@ -1141,8 +1144,9 @@ conversion, under the in-code comment *"Convert fractions to number densities in
 
 **One unresolved invariant still blocks downstream chemical-state/evolution work:**
 
-- **INV-11** blocks the evolved η ordering/redshift contract and Layer-D evolution. ADR-0010
-  accepts only the local neutral-conjugate contract, whose implementation has not begun.
+- **INV-11** blocks the evolved η ordering/redshift contract and Layer-D evolution. ADR-0010 and
+  Phase 5A-2 cover only the implemented, locally validated neutral-conjugate provider contract;
+  they do not choose an evolved-state redshift convention.
 
 **INV-07 is fully resolved for first order.** ADR-0006 (ACCEPTED 2026-09-02) settled the
 contract, Phase 4A made the source conform, and **Phase 4B verified the normalized response
