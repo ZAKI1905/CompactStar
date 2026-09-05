@@ -711,11 +711,12 @@ Evidence: `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:1`, `docs/validation/PHA
 
 ## INV-09 — Fixed-ε_c versus equilibrium-sequence derivatives — **INTENDED BUT UNVERIFIED**
 
-*Current Phase 5A-4 local status:* R1 adds a separate `z=(n_B,n_e)` chart with
-`h=(mu_n,-eta_npe)` and a 2x2 active Hessian. Exact muon onset carries no smooth response;
-no 3x3 Hessian is fabricated at zero muon density. The lower p-e domain and neutron-appearance
-boundary remain an unimplemented local gate; whole-star local coverage is incomplete
-(`docs/validation/PHASE5A4_TRACKR_NPE_BRANCH.md:1`). INV-09 remains **INTENDED BUT UNVERIFIED**.
+*Current Phase 5A-5 local status:* the Track-R free-gas local ladder now covers
+vacuum, a 1D p-e chart, value-only neutron appearance, the 2D npe chart, value-only muon
+appearance, and the 3D npe-mu chart through the pre-Sigma-minus ceiling. Boundary Hessians are
+not fabricated, and near-neutron-onset npe responses fail closed under the documented N-1 rule.
+This is local structure readiness only; no star or global sequence response is constructed
+(`docs/validation/PHASE5A5_TRACKR_PE_BRANCH.md`). INV-09 remains **INTENDED BUT UNVERIFIED**.
 
 *Historical Phase 5A-3 status:* ADR-0010 is **ACCEPTED**; its generic boundary and corrected
 V1-V10 validation are integrated, and the Track-R cold ideal `n,p,e,mu` source-model local
@@ -834,10 +835,11 @@ Phase 5.
 
 ## INV-11 — Chemical-imbalance redshift convention — **UNRESOLVED**
 
-**Current Phase 5A-4 boundary.** Below muon onset the active conjugates are only
-`h=(mu_n,-eta_npe)`; `eta_npmu` is a separately named zero-density value diagnostic.
-This changes no evolved/redshifted-state convention. INV-11 remains **UNRESOLVED**
-(`docs/validation/PHASE5A4_TRACKR_NPE_BRANCH.md:1`).
+**Current Phase 5A-5 boundary.** The p-e branch adds only the local active conjugate
+`h_pe=mu_p+mu_e`; the inactive neutron condition is a separately named value diagnostic.
+The npe and npe-mu local conjugates retain their established meanings. This complete local
+active-set ladder changes no evolved/redshifted-state convention. INV-11 remains **UNRESOLVED**
+(`docs/validation/PHASE5A5_TRACKR_PE_BRANCH.md`).
 
 **Historical Phase 5A-3 boundary.** ADR-0010 governs the **local** cold neutral conjugates
 `g=(mu_n,-eta_npe,-eta_npmu)` in MeV, without electrostatic or GR-redshift terms

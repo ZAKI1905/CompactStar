@@ -80,6 +80,13 @@ add_test(NAME rotochemical_trackr_npe COMMAND rotochemical_trackr_npe)
 set_tests_properties(rotochemical_trackr_npe PROPERTIES
     LABELS "rotochemical;thermodynamics;track-r;free-gas;npe;self-contained;scientific;contract")
 
+# Phase 5A-5: vacuum, active pe chart, neutron threshold and pe/npe limit.
+add_executable(rotochemical_trackr_pe eos/rotochemical_trackr_pe.cpp)
+target_link_libraries(rotochemical_trackr_pe PRIVATE CompactStar)
+add_test(NAME rotochemical_trackr_pe COMMAND rotochemical_trackr_pe)
+set_tests_properties(rotochemical_trackr_pe PROPERTIES
+    LABELS "rotochemical;thermodynamics;track-r;free-gas;pe;self-contained;scientific;contract")
+
 # ---------------------------------------------------------------------------
 #  Phase 4C-I1 governed O(Omega^2) monopole IMPLEMENTATION contract (ADR-0007).
 #  Self-contained. Protects contracts — fail-closed inputs, regular-centre start,

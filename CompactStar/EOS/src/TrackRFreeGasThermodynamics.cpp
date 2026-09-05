@@ -81,16 +81,18 @@ TrackRFreeGasThermodynamicProvider::TrackRFreeGasThermodynamicProvider()
 		   << sigma_minus_onset_n_B_fm3_
 		   << " fm^-3; EvaluateNpe: n_n,n_p,n_e>0, n_mu=0, mu_e<m_mu, "
 		   << neutron_onset_n_B_fm3_ << "<n_B<" << muon_onset_n_B_fm3_
-		   << " fm^-3; EquilibriumAt/EquilibriumStateAt: " << neutron_onset_n_B_fm3_
-		   << "<n_B<" << sigma_minus_onset_n_B_fm3_
-		   << " fm^-3 (npe / value-only muon onset / npe-mu; p-e branch unavailable; "
-		   << "roundoff-unresolved interior solves fail closed; no threshold smoothing)";
+		   << " fm^-3; EvaluatePe: 0<n_B<" << neutron_onset_n_B_fm3_
+		   << " fm^-3; EquilibriumAt: n_B=0 vacuum / pe / value-only neutron onset / "
+		   << "npe / value-only muon onset / npe-mu for n_B<" << sigma_minus_onset_n_B_fm3_
+		   << " fm^-3; npe Hessian requires n_n>=2^30 downward n_B ULPs; "
+		   << "roundoff-unresolved interior responses fail closed; no threshold smoothing";
 	metadata_ = {
 		"track-r-fernandez-reisenegger-2005-free-gas-local",
-		"FR2005 noninteracting-Fermi-gas local model; CompactStar local-r2-npe; "
+		"FR2005 noninteracting-Fermi-gas local model; CompactStar local-r3-pe; "
 		"R2006 corrected charge-neutral response interpretation",
 		"neutrons, protons, electrons, muons (all cold ideal spin-1/2 fermions)",
-		"x=(n_B,n_e,n_mu) fm^-3; n_p=n_e+n_mu; n_n=n_B-n_p",
+		"full x=(n_B,n_e,n_mu), npe z=(n_B,n_e), pe z=(n_B), all fm^-3; "
+		"n_p=n_e+n_mu; n_n=n_B-n_p",
 		"T=0 only",
 		"total species energy including Zaki neutron/proton/electron/muon rest masses",
 		"provider owns analytic free electron and muon contributions exactly once",
@@ -228,9 +230,11 @@ double TrackRFreeGasThermodynamicProvider::ComputeNeutronOnsetBaryonDensityFm3()
 FreeGasEquilibriumDomain
 TrackRFreeGasThermodynamicProvider::EquilibriumDomainAt(double n_B_fm3) const
 {
-	if (!std::isfinite(n_B_fm3) || n_B_fm3 <= 0.0 ||
+	if (!std::isfinite(n_B_fm3) || n_B_fm3 < 0.0 ||
 		n_B_fm3 >= sigma_minus_onset_n_B_fm3_)
 		throw std::runtime_error("Track-R equilibrium density is outside the finite source domain.");
+	if (n_B_fm3 == 0.0)
+		return FreeGasEquilibriumDomain::Vacuum;
 	if (n_B_fm3 < neutron_onset_n_B_fm3_)
 		return FreeGasEquilibriumDomain::ProtonElectron;
 	if (n_B_fm3 == neutron_onset_n_B_fm3_)
@@ -301,17 +305,57 @@ TrackRFreeGasThermodynamicProvider::EquilibriumStateAt(double n_B_fm3) const
 {
 	switch (EquilibriumDomainAt(n_B_fm3))
 	{
+	case FreeGasEquilibriumDomain::Vacuum:
+		throw std::runtime_error(
+			"Vacuum has a distinct boundary-state type; use EquilibriumAt(0).");
+	case FreeGasEquilibriumDomain::ProtonElectron:
+		return MakeChargeNeutralCompositionState({n_B_fm3, n_B_fm3, 0.0});
+	case FreeGasEquilibriumDomain::NeutronOnset:
+		return EvaluateNeutronThreshold().state;
 	case FreeGasEquilibriumDomain::Npe:
 		return SolveNpeEquilibrium(n_B_fm3);
 	case FreeGasEquilibriumDomain::MuonOnset:
 		return EvaluateMuonThreshold().state;
 	case FreeGasEquilibriumDomain::NpeMuon:
 		return SolveActiveEquilibriumUnchecked(n_B_fm3);
-	case FreeGasEquilibriumDomain::ProtonElectron:
-	case FreeGasEquilibriumDomain::NeutronOnset:
-		throw std::runtime_error("Track-R p-e branch and neutron-appearance boundary are a separate unimplemented gate.");
 	}
 	throw std::runtime_error("Unknown Track-R equilibrium domain.");
+}
+
+VacuumBoundaryEvaluation
+TrackRFreeGasThermodynamicProvider::EvaluateVacuumBoundary() const
+{
+	const double h_limit = proton_.RestMassEnergyMeV() + electron_.RestMassEnergyMeV();
+	return {{}, 0.0, {{h_limit}}, neutron_.RestMassEnergyMeV() - h_limit};
+}
+
+PeThermodynamicEvaluation TrackRFreeGasThermodynamicProvider::EvaluatePe(
+	const PeCoordinates &coordinates) const
+{
+	if (!std::isfinite(coordinates.n_B_fm3) || coordinates.n_B_fm3 <= 0.0 ||
+		EquilibriumDomainAt(coordinates.n_B_fm3) != FreeGasEquilibriumDomain::ProtonElectron)
+		throw std::runtime_error("Pe response requires 0<n_B below neutron appearance.");
+	const auto state = MakeChargeNeutralCompositionState(
+		{coordinates.n_B_fm3, coordinates.n_B_fm3, 0.0});
+	const auto p = proton_.Evaluate(coordinates.n_B_fm3);
+	const auto e = electron_.Evaluate(coordinates.n_B_fm3);
+	const double h = p.chemical_potential_MeV + e.chemical_potential_MeV;
+	const PeChemicalHessian H{{{{*p.dchemical_potential_dn_MeV_fm3 +
+		*e.dchemical_potential_dn_MeV_fm3}}}};
+	return {state, p.energy_density_MeV_fm3 + e.energy_density_MeV_fm3,
+		{{h}}, H, neutron_.RestMassEnergyMeV() - h};
+}
+
+NeutronThresholdEvaluation
+TrackRFreeGasThermodynamicProvider::EvaluateNeutronThreshold() const
+{
+	const auto state = MakeChargeNeutralCompositionState(
+		{neutron_onset_n_B_fm3_, neutron_onset_n_B_fm3_, 0.0});
+	const auto p = proton_.Evaluate(neutron_onset_n_B_fm3_);
+	const auto e = electron_.Evaluate(neutron_onset_n_B_fm3_);
+	const double h = p.chemical_potential_MeV + e.chemical_potential_MeV;
+	return {state, p.energy_density_MeV_fm3 + e.energy_density_MeV_fm3,
+		{{h}}, neutron_.RestMassEnergyMeV() - h};
 }
 
 MuonThresholdEvaluation TrackRFreeGasThermodynamicProvider::EvaluateMuonThreshold() const
@@ -335,6 +379,18 @@ NpeThermodynamicEvaluation TrackRFreeGasThermodynamicProvider::EvaluateNpe(
 	if (EquilibriumDomainAt(coordinates.n_B_fm3) != FreeGasEquilibriumDomain::Npe ||
 		electron_.ChemicalPotentialMeV(coordinates.n_e_fm3) >= muon_.RestMassEnergyMeV())
 		throw std::runtime_error("Npe response requires the declared open sub-muon domain and mu_e<m_mu.");
+	// N-1: the state contract reconstructs n_n=n_B-n_e. Near neutron
+	// appearance that subtraction eventually loses the relative information
+	// needed by D_n. Classification remains Npe; only the smooth response is
+	// unavailable until n_n spans at least 2^30 local n_B ULPs. No density
+	// floor or neighboring active set is substituted.
+	const double n_B_ulp = coordinates.n_B_fm3 -
+		std::nextafter(coordinates.n_B_fm3, 0.0);
+	if (!(n_B_ulp > 0.0) ||
+		state.NeutronDensityFm3() < MinimumResolvedNpeNeutronUlps() * n_B_ulp)
+		throw EquilibriumResolutionError(
+			"Npe branch is physical, but n_n=n_B-n_e spans fewer than 2^30 local n_B ULPs; "
+			"the smooth neutron response is unavailable without a density floor.");
 	const auto n = neutron_.Evaluate(state.NeutronDensityFm3());
 	const auto p = proton_.Evaluate(state.ProtonDensityFm3());
 	const auto e = electron_.Evaluate(state.ElectronDensityFm3());
@@ -351,6 +407,9 @@ NpeThermodynamicEvaluation TrackRFreeGasThermodynamicProvider::EvaluateNpe(
 ActiveLocalThermodynamicEvaluation TrackRFreeGasThermodynamicProvider::EvaluateActive(
 	const ChargeNeutralCoordinates &coordinates) const
 {
+	if (coordinates.n_B_fm3 == 0.0 && coordinates.n_e_fm3 == 0.0 &&
+		coordinates.n_mu_fm3 == 0.0)
+		return EvaluateVacuumBoundary();
 	// Validate first; no negative/NaN muon density may select an inactive path.
 	const auto state = MakeChargeNeutralCompositionState(coordinates);
 	if (state.MuonDensityFm3() > 0.0)
@@ -358,12 +417,41 @@ ActiveLocalThermodynamicEvaluation TrackRFreeGasThermodynamicProvider::EvaluateA
 	if (coordinates.n_B_fm3 == muon_onset_n_B_fm3_ &&
 		coordinates.n_e_fm3 == electron_.NumberDensityForChemicalPotentialFm3(muon_.RestMassEnergyMeV()))
 		return EvaluateMuonThreshold();
+	if (state.NeutronDensityFm3() == 0.0 && state.MuonDensityFm3() == 0.0 &&
+		state.ElectronDensityFm3() == state.BaryonDensityFm3())
+	{
+		if (coordinates.n_B_fm3 == neutron_onset_n_B_fm3_)
+			return EvaluateNeutronThreshold();
+		if (coordinates.n_B_fm3 < neutron_onset_n_B_fm3_)
+			return EvaluatePe({coordinates.n_B_fm3});
+	}
 	return EvaluateNpe({coordinates.n_B_fm3, coordinates.n_e_fm3});
 }
 
 ActiveLocalThermodynamicEvaluation TrackRFreeGasThermodynamicProvider::EquilibriumAt(double n_B_fm3) const
 {
-	return EvaluateActive(EquilibriumStateAt(n_B_fm3).Coordinates());
+	switch (EquilibriumDomainAt(n_B_fm3))
+	{
+	case FreeGasEquilibriumDomain::Vacuum:
+		return EvaluateVacuumBoundary();
+	case FreeGasEquilibriumDomain::ProtonElectron:
+		return EvaluatePe({n_B_fm3});
+	case FreeGasEquilibriumDomain::NeutronOnset:
+		return EvaluateNeutronThreshold();
+	case FreeGasEquilibriumDomain::Npe:
+	{
+		const auto state = SolveNpeEquilibrium(n_B_fm3);
+		return EvaluateNpe({n_B_fm3, state.ElectronDensityFm3()});
+	}
+	case FreeGasEquilibriumDomain::MuonOnset:
+		return EvaluateMuonThreshold();
+	case FreeGasEquilibriumDomain::NpeMuon:
+	{
+		const auto state = SolveActiveEquilibriumUnchecked(n_B_fm3);
+		return Evaluate(state.Coordinates());
+	}
+	}
+	throw std::runtime_error("Unknown Track-R equilibrium domain.");
 }
 
 std::array<double, 4>

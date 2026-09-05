@@ -475,23 +475,26 @@ void V9(const TrackRFreeGasThermodynamicProvider &p)
 		const double pressure = b * (Mu(b, mp) + Mu(b, me)) - Energy(b, mp) - Energy(b, me);
 		Require(pressure > 0, "R1-V9 incorrectly placed zero-pressure surface");
 		Require(p.EquilibriumDomainAt(b) == FreeGasEquilibriumDomain::ProtonElectron &&
-					Throws([&] { (void)p.EquilibriumAt(b); }),
-				"R1-V9 p-e branch silently implemented as npe");
+					std::holds_alternative<PeThermodynamicEvaluation>(p.EquilibriumAt(b)),
+				"R1-V9 p-e branch did not use its explicit 1D response");
 	}
 	Require(p.EquilibriumDomainAt(at) == FreeGasEquilibriumDomain::NeutronOnset &&
-				Throws([&] { (void)p.EquilibriumAt(at); }),
-			"R1-V9 neutron onset must remain a distinct gate");
+				std::holds_alternative<NeutronThresholdEvaluation>(p.EquilibriumAt(at)),
+			"R1-V9 neutron onset must remain a distinct value-only gate");
 	Require(p.EquilibriumDomainAt(std::nextafter(at, 0.0)) ==
 					FreeGasEquilibriumDomain::ProtonElectron &&
+				std::holds_alternative<PeThermodynamicEvaluation>(
+					p.EquilibriumAt(std::nextafter(at, 0.0))) &&
 				p.EquilibriumDomainAt(std::nextafter(at, 1.0)) == FreeGasEquilibriumDomain::Npe,
 			"R1-V9 lower nextafter classification");
 	Require(
 		Throws<EquilibriumResolutionError>([&] { (void)p.EquilibriumAt(std::nextafter(at, 1.0)); }),
 		"R1-V9 unresolved neutron appearance fabricated");
 	const double pressure = at * (Mu(at, mp) + Mu(at, me)) - Energy(at, mp) - Energy(at, me);
+	Require(pressure > 0, "R1-V9 neutron-onset pressure is not positive");
 	std::cout << "R1-V9 PASS: neutron onset=" << at << " fm^-3; mu_e=" << Mu(at, me)
 			  << " MeV; pressure=" << pressure
-			  << " MeV fm^-3 >0; p-e to vacuum is an unimplemented gate\n";
+			  << " MeV fm^-3 >0; explicit p-e and neutron-threshold dispatch preserved\n";
 }
 void V10(const TrackRFreeGasThermodynamicProvider &p)
 {
@@ -515,7 +518,9 @@ void V10(const TrackRFreeGasThermodynamicProvider &p)
 											 {0.1, 0, 0}})
 		Require(Throws([&] { (void)g.EvaluateActive(x); }),
 				"R1-V10 invalid active coordinates accepted");
-	for (double b : {0.0, -1.0, std::numeric_limits<double>::infinity(),
+	Require(std::holds_alternative<VacuumBoundaryEvaluation>(g.EquilibriumAt(0.0)),
+			"R1-V10 vacuum boundary dispatch regression");
+	for (double b : {-1.0, std::numeric_limits<double>::infinity(),
 					 std::numeric_limits<double>::quiet_NaN(), p.SigmaMinusOnsetBaryonDensityFm3()})
 		Require(Throws([&] { (void)g.EquilibriumAt(b); }),
 				"R1-V10 invalid equilibrium domain accepted");

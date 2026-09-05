@@ -26,9 +26,10 @@
 namespace CompactStar
 {
 
-/// Physical equilibrium active-set inventory, including the unimplemented p-e gate.
+/// Physical equilibrium active-set inventory from vacuum through the source ceiling.
 enum class FreeGasEquilibriumDomain
 {
+	Vacuum,
 	ProtonElectron,
 	NeutronOnset,
 	Npe,
@@ -50,8 +51,8 @@ class EquilibriumResolutionError : public std::runtime_error
  * Evaluate() supports the smooth active-species domain n_n,n_p,n_e,n_mu>0
  * below the beta-equilibrated Sigma-minus onset.  It does not impose beta
  * equilibrium. EvaluateNpe() uses the separate z=(n_B,n_e) active chart.
- * EquilibriumAt() dispatches explicitly between npe, value-only muon onset,
- * and npe-mu. The lower p-e branch is identified but not implemented.
+ * EquilibriumAt() dispatches explicitly across vacuum, pe, the value-only
+ * neutron threshold, npe, the value-only muon threshold, and npe-mu.
  * AI-authored scientific candidate; see GOVERNANCE.md section 5.
  */
 class TrackRFreeGasThermodynamicProvider final : public ILocalThermodynamicProvider
@@ -65,6 +66,7 @@ class TrackRFreeGasThermodynamicProvider final : public ILocalThermodynamicProvi
 	[[nodiscard]] ChargeNeutralCompositionState
 	EquilibriumStateAt(double n_B_fm3) const override;
 
+	[[nodiscard]] PeThermodynamicEvaluation EvaluatePe(const PeCoordinates &coordinates) const;
 	[[nodiscard]] NpeThermodynamicEvaluation EvaluateNpe(const NpeCoordinates &coordinates) const;
 	[[nodiscard]] ActiveLocalThermodynamicEvaluation
 	EvaluateActive(const ChargeNeutralCoordinates &coordinates) const override;
@@ -83,6 +85,11 @@ class TrackRFreeGasThermodynamicProvider final : public ILocalThermodynamicProvi
 	{
 		return sigma_minus_onset_n_B_fm3_;
 	}
+	/// N-1 fail-closed rule: require this many local n_B ULPs in reconstructed n_n.
+	[[nodiscard]] static constexpr double MinimumResolvedNpeNeutronUlps() noexcept
+	{
+		return 1073741824.0; // 2^30
+	}
 
 	/// Optional source-specific species values in order (n,p,e,mu), all in MeV.
 	[[nodiscard]] std::array<double, 4>
@@ -90,6 +97,8 @@ class TrackRFreeGasThermodynamicProvider final : public ILocalThermodynamicProvi
 
   private:
 	[[nodiscard]] ChargeNeutralCompositionState SolveNpeEquilibrium(double n_B_fm3) const;
+	[[nodiscard]] VacuumBoundaryEvaluation EvaluateVacuumBoundary() const;
+	[[nodiscard]] NeutronThresholdEvaluation EvaluateNeutronThreshold() const;
 	[[nodiscard]] MuonThresholdEvaluation EvaluateMuonThreshold() const;
 	[[nodiscard]] double ComputeNeutronOnsetBaryonDensityFm3() const;
 	[[nodiscard]] ChargeNeutralCompositionState

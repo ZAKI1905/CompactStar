@@ -1,11 +1,11 @@
 # CompactStar — Current Architecture
 
-> **Current Phase 5A-4 state (2026-09-05): muon-free npe equilibrium and a distinct 2x2
-> active response implemented and analytically validated.** Generic active results distinguish
-> the existing full 3x3 response, the npe response, and value-only muon onset. The p-e branch
-> below neutron appearance is a separate unimplemented gate; whole-star local coverage is
-> incomplete. This is an **UNVERIFIED SCIENTIFIC CANDIDATE** pending human domain ratification
-> under `GOVERNANCE.md:152-170`. Evidence: `docs/validation/PHASE5A4_TRACKR_NPE_BRANCH.md:1`.
+> **Current Phase 5A-5 state (2026-09-05): TRACK-R FREE-GAS LOCAL THERMODYNAMIC COVERAGE COMPLETE — WHOLE-STAR STRUCTURE REPRODUCTION READY.** Typed active results cover
+> vacuum, smooth 1D p-e, value-only neutron onset, smooth 2D npe, value-only muon onset, and
+> smooth 3D npe-mu through the pre-Sigma-minus ceiling, with explicit numerical-resolution
+> failures. No whole-star structure or global response has been computed. This remains an
+> **UNVERIFIED SCIENTIFIC CANDIDATE** pending human domain ratification under
+> `GOVERNANCE.md:152-170`. Evidence: `docs/validation/PHASE5A5_TRACKR_PE_BRANCH.md`.
 >
 > **Historical Phase 5A-3 state (2026-09-04): Track-R cold free-gas LOCAL model implemented and
 > analytically validated.** `TrackRFreeGasThermodynamicProvider` supplies the source-model cold
@@ -184,9 +184,9 @@ TimeSeriesObserver + DiagnosticsObserver            LIVE
 | Component | Status | Note |
 |---|---|---|
 | `ILocalThermodynamicProvider` and value types | **LIVE — ADR-0010 CONFORMED LOCALLY** | Independent cold charge-neutral `x=(n_B,n_e,n_mu)` interface returning validated species reconstruction, energy density, `g=(mu_n,-eta_npe,-eta_npmu)`, and `ChargeNeutralChemicalHessian H=partial g/partial x`. Metadata declares identity, composition, conventions, and smooth domain. No star dependency, intrinsic charged-potential requirement, projector, inverse, or paper-`B` API |
-| `ActiveLocalThermodynamicEvaluation`, npe value types | **LIVE — LOCAL VALIDATION; SCIENTIFIC CANDIDATE** | Variant of full 3x3, explicit `z=(n_B,n_e)`/`h=(mu_n,-eta_npe)` 2x2, and muon-threshold values without a Hessian. Each alternative declares active particles, response dimension and smooth/threshold status. `Evaluate` retains its full-chart meaning; `EvaluateActive`/`EquilibriumAt` expose typed alternatives. `CompactStar/EOS/LocalThermodynamics.hpp:109`; `docs/validation/PHASE5A4_TRACKR_NPE_BRANCH.md:1` |
+| `ActiveLocalThermodynamicEvaluation`, active-chart and boundary value types | **LIVE — LOCAL VALIDATION; SCIENTIFIC CANDIDATE** | Variant of full 3x3, explicit npe 2x2, explicit p-e 1x1, value-only neutron/muon thresholds, and value-only vacuum. Each alternative declares active particles, response dimension, and smooth/threshold/vacuum status; boundary types have no Hessian. `Evaluate` retains its full-chart meaning; `EvaluateActive`/`EquilibriumAt` expose typed alternatives. `CompactStar/EOS/LocalThermodynamics.hpp`; `docs/validation/PHASE5A5_TRACKR_PE_BRANCH.md` |
 | `ColdRelativisticIdealFermion` | **LIVE — ANALYTICALLY VALIDATED; SCIENTIFIC CANDIDATE** | Source-independent n,p,e,mu spin-1/2 primitive; zero-density chemical potential is rest mass and derivative is unavailable. `CompactStar/EOS/src/LocalThermodynamics.cpp:104`; Phase 5A-3 RFG1-RFG11 |
-| `TrackRFreeGasThermodynamicProvider` | **LIVE — LOCAL VALIDATION; SCIENTIFIC CANDIDATE** | Cold ideal npe and npe-mu source model; separate active charts, exact muon-threshold values, numerical-resolution failures, neutron/muon/Sigma-minus domain markers. No p-e thermodynamics, whole-star coverage, or Layer-B embedding. `CompactStar/EOS/TrackRFreeGasThermodynamics.hpp:53`; `docs/validation/PHASE5A4_TRACKR_NPE_BRANCH.md:1` |
+| `TrackRFreeGasThermodynamicProvider` | **LIVE — WHOLE-STAR LOCAL COVERAGE; SCIENTIFIC CANDIDATE** | Cold ideal vacuum/p-e/npe/npe-mu source model; separate 1D/2D/3D active charts, value-only thresholds, explicit near-onset numerical failures, and the pre-Sigma-minus endpoint. Local coverage is ready for a separate structure task; no TOV star, FR2005 benchmark reproduction, or Layer-B/global response exists. `CompactStar/EOS/TrackRFreeGasThermodynamics.hpp`; `docs/validation/PHASE5A5_TRACKR_PE_BRANCH.md` |
 | `ColdRelativisticFreeLepton` | **LIVE — ANALYTICALLY VALIDATED** | T=0 relativistic free electrons/muons using repository constant authority; returns total chemical potential and energy density, with analytic `dmu/dn` only for positive density. At zero density the value limit is explicit and the derivative is unavailable/fail-closed |
 | Phase 5A-2 analytic toy | **TEST-ONLY FIXTURE** | Positive stable charge-neutral potential with nonzero cross derivatives; validates V1-V10 and creates no scientific baseline. It is not APR, DS(CMF), BPAL, or a neutron-star EOS |
 

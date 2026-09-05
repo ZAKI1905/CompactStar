@@ -106,7 +106,8 @@ struct ChargeNeutralChemicalHessian
 	}
 };
 
-/// Species present in a returned local state (not a mask over a larger matrix).
+/// Species active in the returned chart (not a mask over a larger matrix).
+/// A zero-density species at its appearance threshold is not yet active.
 struct ActiveParticleContent
 {
 	bool neutron;
@@ -118,7 +119,8 @@ struct ActiveParticleContent
 enum class LocalResponseDomainStatus
 {
 	SmoothInterior,
-	SpeciesThreshold
+	SpeciesThreshold,
+	VacuumBoundary
 };
 
 /// One complete smooth three-coordinate local evaluation.
@@ -176,6 +178,85 @@ struct NpeThermodynamicEvaluation
 	static constexpr auto domain_status = LocalResponseDomainStatus::SmoothInterior;
 };
 
+/// Explicit active chart z_pe=(n_B) in fm^-3; n_p=n_e=n_B and n_n=n_mu=0.
+struct PeCoordinates
+{
+	double n_B_fm3;
+};
+
+/// h_pe=d epsilon_pe/d n_B=mu_p+mu_e in MeV.
+struct PeConjugates
+{
+	std::array<double, 1> value_MeV{};
+	[[nodiscard]] double HPeMeV() const noexcept { return value_MeV[0]; }
+};
+
+/// d h_pe/d n_B in MeV fm^3. This is a genuine 1x1 active response.
+struct PeChemicalHessian
+{
+	using Matrix = std::array<std::array<double, 1>, 1>;
+	Matrix value_MeV_fm3{};
+	[[nodiscard]] double operator()(std::size_t row, std::size_t column) const
+	{
+		return value_MeV_fm3.at(row).at(column);
+	}
+};
+
+struct PeThermodynamicEvaluation
+{
+	ChargeNeutralCompositionState state;
+	double energy_density_MeV_fm3;
+	PeConjugates conjugates;
+	PeChemicalHessian hessian;
+	// Value diagnostic only: m_n-mu_p-mu_e while the neutron is inactive.
+	double eta_npe_threshold_diagnostic_MeV;
+
+	static constexpr ActiveParticleContent active_particles{false, true, true, false};
+	static constexpr std::size_t response_dimension = 1;
+	static constexpr auto domain_status = LocalResponseDomainStatus::SmoothInterior;
+};
+
+/// Value-only neutron appearance: p/e values exist, but the active chart changes 1D -> 2D.
+struct NeutronThresholdEvaluation
+{
+	ChargeNeutralCompositionState state;
+	double energy_density_MeV_fm3;
+	PeConjugates limiting_pe_conjugates;
+	double eta_npe_threshold_diagnostic_MeV;
+
+	static constexpr ActiveParticleContent active_particles{false, true, true, false};
+	// Zero means no smooth response returned, not a zero-dimensional matrix.
+	static constexpr std::size_t response_dimension = 0;
+	static constexpr auto domain_status = LocalResponseDomainStatus::SpeciesThreshold;
+};
+
+/// All-zero physical composition at the n_B=0 boundary.
+struct VacuumCompositionState
+{
+	[[nodiscard]] constexpr double BaryonDensityFm3() const noexcept { return 0.0; }
+	[[nodiscard]] constexpr double NeutronDensityFm3() const noexcept { return 0.0; }
+	[[nodiscard]] constexpr double ProtonDensityFm3() const noexcept { return 0.0; }
+	[[nodiscard]] constexpr double ElectronDensityFm3() const noexcept { return 0.0; }
+	[[nodiscard]] constexpr double MuonDensityFm3() const noexcept { return 0.0; }
+	[[nodiscard]] constexpr ChargeNeutralCoordinates Coordinates() const noexcept
+	{
+		return {0.0, 0.0, 0.0};
+	}
+};
+
+/// Value-only vacuum boundary. The one-sided pe conjugate limit is finite; its Hessian is not.
+struct VacuumBoundaryEvaluation
+{
+	VacuumCompositionState state;
+	double energy_density_MeV_fm3;
+	PeConjugates limiting_pe_conjugates;
+	double eta_npe_threshold_diagnostic_MeV;
+
+	static constexpr ActiveParticleContent active_particles{false, false, false, false};
+	static constexpr std::size_t response_dimension = 0;
+	static constexpr auto domain_status = LocalResponseDomainStatus::VacuumBoundary;
+};
+
 /// Value-only muon-appearance result: no smooth Hessian of either size.
 struct MuonThresholdEvaluation
 {
@@ -191,9 +272,10 @@ struct MuonThresholdEvaluation
 };
 
 /// A consumer must inspect the alternative before accessing a Hessian.
-/// There is no conversion from the npe or threshold alternative to the full one.
+/// There is no conversion from a lower-dimensional or boundary alternative to the full one.
 using ActiveLocalThermodynamicEvaluation = std::variant<
-	LocalThermodynamicEvaluation, NpeThermodynamicEvaluation, MuonThresholdEvaluation>;
+	LocalThermodynamicEvaluation, NpeThermodynamicEvaluation, MuonThresholdEvaluation,
+	PeThermodynamicEvaluation, NeutronThresholdEvaluation, VacuumBoundaryEvaluation>;
 
 /// Minimum provenance and domain description required of a local provider.
 struct LocalThermodynamicProviderMetadata

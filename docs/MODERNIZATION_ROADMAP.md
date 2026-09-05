@@ -1,16 +1,14 @@
 # CompactStar Modernization Roadmap
 
-> **Current Phase 5A state (2026-09-04): Phase 5A-3 Track-R cold free-gas local provider
-> implemented and analytically validated; whole-star reproduction not yet performed.** The
-> source-specific `TrackRFreeGasThermodynamicProvider` implements the local cold ideal
-> neutron/proton/electron/muon potential beneath the Fernandez--Reisenegger free-gas benchmark,
-> with independent RFG1-RFG11 checks, strict muon-threshold semantics, and a source-derived
-> `Sigma-minus` endpoint. Final serial regression evidence is recorded in
-> `docs/validation/PHASE5A3_TRACKR_FREEGAS_LOCAL_PROVIDER.md`. This does **not**
-> construct a free-gas star or implement a realistic Track-P EOS, stellar susceptibility integration,
-> particle-number/sequence reduction, paper `Z/W`, reaction/evolution equations, superfluidity,
-> or BNV. Evidence: `docs/validation/PHASE5A2_LOCAL_THERMODYNAMIC_VALIDATION_CORRECTION.md`;
-> implementation history: `docs/validation/PHASE5A2_LOCAL_THERMODYNAMIC_IMPLEMENTATION.md`.
+> **Current Phase 5A state (2026-09-05): TRACK-R FREE-GAS LOCAL THERMODYNAMIC COVERAGE COMPLETE — WHOLE-STAR STRUCTURE REPRODUCTION READY.** Vacuum, smooth
+> p-e, value-only neutron appearance, smooth npe, value-only muon appearance, and smooth
+> npe-mu are explicitly typed through the pre-Sigma-minus source ceiling. PE-V1-PE-V13,
+> R1-V1-R1-V10, RFG1-RFG11, V1-V10, and both complete serial suites pass. This means only
+> that the local source model can support the next structure task; no free-gas star or FR2005
+> whole-star benchmark has been reproduced. No stellar susceptibility integration,
+> particle-number/sequence reduction, paper `B/Z/W`, reaction/evolution equation, APR/BPAL,
+> DS(CMF) off-equilibrium physics, superfluidity, or BNV is implemented. Evidence:
+> `docs/validation/PHASE5A5_TRACKR_PE_BRANCH.md`.
 >
 > **Historical Phase 4E closeout (2026-09-04): PHASE 4 ROTATION CORRECTNESS COMPLETE —
 > PHASE-5 STRUCTURAL INTERFACE RATIFIED.** The existing normalized
@@ -592,8 +590,14 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
   precision failures are explicit. The p-e branch from vacuum to neutron appearance is not
   implemented, so whole-star local coverage is incomplete. Evidence:
   `docs/validation/PHASE5A4_TRACKR_NPE_BRANCH.md:1`.
-- **Next local gate: proton-electron matter and the neutron-appearance boundary.** No
-  whole-star reproduction or Layer-B work begins in Phase 5A-4.
+- **Historical Phase 5A-4 next local gate: proton-electron matter and the
+  neutron-appearance boundary.** It is completed by Phase 5A-5 below; no whole-star
+  reproduction or Layer-B work began in Phase 5A-4.
+- **Phase 5A-5 COMPLETE — Track-R whole-star LOCAL thermodynamic coverage is ready for
+  structure reproduction.** The final vacuum/p-e/neutron-appearance gate is implemented with
+  an exact 1D p-e response, value-only boundaries, the p-e/npe limiting identity, and an explicit
+  fail-closed N-1 accuracy rule. No TOV or global-response work is included. Evidence:
+  `docs/validation/PHASE5A5_TRACKR_PE_BRANCH.md`.
 
 Later Phase-5 work, explicitly not the next increment:
 
