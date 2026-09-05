@@ -452,3 +452,13 @@ if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
         "${COMPACTSTAR_EOS_DATA_ROOT}" --surface-dry-run)
     set_tests_properties(tov_surface_grid_cmf PROPERTIES LABELS "core;tov;surface;thermal;scientific;external-data" TIMEOUT 1200)
 endif()
+
+# Track-R Structure-1 candidate; all EOS data generated locally.
+add_executable(rotochemical_trackr_freegas_structure eos/rotochemical_trackr_freegas_structure.cpp)
+target_link_libraries(rotochemical_trackr_freegas_structure PRIVATE CompactStar)
+add_executable(rotochemical_trackr_freegas_barotrope eos/rotochemical_trackr_freegas_barotrope.cpp)
+target_link_libraries(rotochemical_trackr_freegas_barotrope PRIVATE CompactStar)
+add_test(NAME rotochemical_trackr_freegas_barotrope COMMAND rotochemical_trackr_freegas_barotrope)
+add_test(NAME rotochemical_trackr_freegas_structure COMMAND rotochemical_trackr_freegas_structure)
+set_tests_properties(rotochemical_trackr_freegas_barotrope rotochemical_trackr_freegas_structure
+    PROPERTIES LABELS "rotochemical;thermodynamics;track-r;free-gas;structure;self-contained;scientific")

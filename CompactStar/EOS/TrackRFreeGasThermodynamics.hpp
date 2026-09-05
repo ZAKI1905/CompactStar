@@ -45,6 +45,22 @@ class EquilibriumResolutionError : public std::runtime_error
 	using std::runtime_error::runtime_error;
 };
 
+/// Value-only equilibrium result. Fractions exist only for n_B>0. No H.
+/// Numerical failure is explicit; never a different active branch. The model metadata is owned by the provider.
+struct FreeGasBarotropePoint
+{
+	std::string model_id;
+	std::string model_revision;
+	double n_B_fm3 = 0;
+	double energy_density_MeV_fm3 = 0;
+	double pressure_MeV_fm3 = 0;
+	std::array<double,4> number_densities_fm3{}; // n,p,e,mu
+	FreeGasEquilibriumDomain domain = FreeGasEquilibriumDomain::Vacuum;
+	/// Returned values are finite. Numerically unresolved composition throws;
+	/// this status never implies chemical-Hessian availability.
+	bool values_resolved = false;
+};
+
 /**
  * @brief Fernandez--Reisenegger Track-R cold noninteracting npe-mu provider.
  *
@@ -72,6 +88,8 @@ class TrackRFreeGasThermodynamicProvider final : public ILocalThermodynamicProvi
 	EvaluateActive(const ChargeNeutralCoordinates &coordinates) const override;
 	[[nodiscard]] ActiveLocalThermodynamicEvaluation EquilibriumAt(double n_B_fm3) const override;
 	[[nodiscard]] FreeGasEquilibriumDomain EquilibriumDomainAt(double n_B_fm3) const;
+	/// Equilibrium structure values; does not call EquilibriumAt/EvaluateNpe/H.
+	[[nodiscard]] FreeGasBarotropePoint BarotropeAt(double n_B_fm3) const;
 	[[nodiscard]] double NeutronOnsetBaryonDensityFm3() const noexcept
 	{
 		return neutron_onset_n_B_fm3_;

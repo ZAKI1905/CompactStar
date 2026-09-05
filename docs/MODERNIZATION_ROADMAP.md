@@ -604,10 +604,18 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
   `docs/validation/PHASE5A5_TRACKR_PE_INDEPENDENT_REVIEW.md:682-726`;
   `docs/validation/PHASE5A5_TRACKR_LOCAL_RATIFICATION.md:3-46`, `:94-135`.
 
-- **TRACK-R STATIC WHOLE-STAR STRUCTURE INTERFACE AUDITED — IMPLEMENTATION NOT YET BEGUN.**
+- **Historical Structure-0: TRACK-R STATIC WHOLE-STAR STRUCTURE INTERFACE AUDITED.**
   FR2005 Table-1 targets, the value-only barotrope prerequisite, existing TOV table
   interface, surface-tail and central-state comparison policy, and S1-S12 plan:
   `docs/validation/TRACKR_FREEGAS_WHOLESTAR_INTERFACE_AUDIT.md:1`.
+
+- **TRACK-R STRUCTURE-1 static implementation and validation complete — scientific candidate for human review.**
+  The predeclared rho midpoint passes the simultaneous FR2005 static Table-1 bins after
+  table/radial/tail convergence and an independent enthalpy TOV oracle. P-7 is resolved
+  for structure values; chemical-Hessian guards remain unchanged. Canonical TOV and
+  ADR-0009 are unchanged, and no new baseline or global response/evolution is added.
+  The high-density scan does not identify the authors' unpublished retained maximum.
+  Evidence: `docs/validation/TRACKR_FREEGAS_WHOLESTAR_STRUCTURE1.md:1`, sections 17–25.
 
 Later Phase-5 work, explicitly not the next increment:
 

@@ -352,6 +352,14 @@ struct ColdIdealFermionEvaluation
 	std::optional<double> dchemical_potential_dn_MeV_fm3;
 };
 
+/// Total rest-energy and phase-space pressure, with no response request.
+struct ColdIdealFermionValues
+{
+	double energy_density_MeV_fm3 = 0.0;
+	double pressure_MeV_fm3 = 0.0;
+	double chemical_potential_MeV = 0.0;
+};
+
 /**
  * @brief Analytic T=0, spin-1/2, noninteracting relativistic fermion.
  *
@@ -372,6 +380,7 @@ class ColdRelativisticIdealFermion
 	[[nodiscard]] double HbarCMeVFm() const noexcept { return hbar_c_MeV_fm_; }
 
 	[[nodiscard]] ColdIdealFermionEvaluation Evaluate(double number_density_fm3) const;
+	[[nodiscard]] ColdIdealFermionValues Values(double number_density_fm3) const;
 	[[nodiscard]] double ChemicalPotentialMeV(double number_density_fm3) const;
 	[[nodiscard]] double EnergyDensityMeVFm3(double number_density_fm3) const;
 	[[nodiscard]] double ChemicalPotentialDerivativeMeVFm3(double number_density_fm3) const;

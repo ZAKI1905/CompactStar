@@ -322,6 +322,84 @@ TrackRFreeGasThermodynamicProvider::EquilibriumStateAt(double n_B_fm3) const
 	throw std::runtime_error("Unknown Track-R equilibrium domain.");
 }
 
+FreeGasBarotropePoint
+TrackRFreeGasThermodynamicProvider::BarotropeAt(double n_B_fm3) const
+{
+	FreeGasBarotropePoint result;
+	result.model_id = metadata_.model_id;
+	result.model_revision = metadata_.model_revision;
+	result.values_resolved = true;
+	result.domain = EquilibriumDomainAt(n_B_fm3);
+	result.n_B_fm3 = n_B_fm3;
+	if (n_B_fm3 == 0) return result;
+	if (result.domain == FreeGasEquilibriumDomain::Npe)
+	{
+		// Solve in delta=mu_n-m_n. Near appearance, neither n_B-n_e
+		// nor mu_n-m_n is a reliable way to recover the newborn species.
+		// For npe, mu_e(h)=(h^2-m_p^2+m_e^2)/(2h), h=mu_n.
+		// Evaluate its increment analytically relative to the stored onset.
+		const double mn=neutron_.RestMassEnergyMeV(), mp=proton_.RestMassEnergyMeV();
+		const double me=electron_.RestMassEnergyMeV(), b=neutron_.HbarCMeVFm();
+		const double t0=((mn-mp)*(mn+mp)+me*me)/(2*mn);
+		const double k02=(t0-me)*(t0+me), pi=std::acos(-1.0);
+		const auto densities = [&](double delta) {
+			const double dt=delta*0.5*(1+(mp-me)*(mp+me)/(mn*(mn+delta)));
+			const double excess_e=neutron_onset_n_B_fm3_ *
+				std::expm1(1.5*std::log1p(dt*(2*t0+dt)/k02));
+			const double nn=std::pow(delta*(2*mn+delta),1.5)/(3*pi*pi*b*b*b);
+			return std::array<double,2>{nn,excess_e};
+		};
+		const double k=b*std::cbrt(3*pi*pi*n_B_fm3);
+		double lo=0,hi=k*k/(std::hypot(mn,k)+mn);
+		for(int j=0;j<256;++j) {
+			const double mid=lo+(hi-lo)*0.5;
+			if(mid==lo||mid==hi)break;
+			const auto ns=densities(mid);
+			if(ns[0]+ns[1]<n_B_fm3-neutron_onset_n_B_fm3_)lo=mid;else hi=mid;
+		}
+		const auto ns=densities(lo+(hi-lo)*0.5);
+		const double ne=neutron_onset_n_B_fm3_+ns[1];
+		result.number_densities_fm3={ns[0],ne,ne,0};
+	}
+	else if (result.domain == FreeGasEquilibriumDomain::NpeMuon)
+	{
+		// Monotone density inversion of the common lepton potential. Unlike
+		// the response root, this does not subtract two baryon rest energies
+		// or require a resolved newborn-species Hessian.
+		const auto densities = [&](double t) {
+			const double ne=electron_.NumberDensityForChemicalPotentialFm3(t);
+			const double nm=muon_.NumberDensityForChemicalPotentialFm3(t), np=ne+nm;
+			const double hn=proton_.Values(np).chemical_potential_MeV+t;
+			return std::array<double,4>{neutron_.NumberDensityForChemicalPotentialFm3(hn),np,ne,nm};
+		};
+		double lo=muon_.RestMassEnergyMeV();
+		double hi=neutron_.Values(n_B_fm3).chemical_potential_MeV-proton_.RestMassEnergyMeV();
+		for(int j=0;j<256;++j) {
+			const double mid=lo+(hi-lo)*0.5;
+			if(mid==lo||mid==hi)break;
+			const auto ns=densities(mid);
+			if(ns[0]+ns[1]<n_B_fm3)lo=mid;else hi=mid;
+		}
+		const auto a=densities(lo), b=densities(hi);
+		result.number_densities_fm3=std::abs(a[0]+a[1]-n_B_fm3)<std::abs(b[0]+b[1]-n_B_fm3)?a:b;
+		if (result.number_densities_fm3[3]<=0)
+			throw EquilibriumResolutionError("Value-only common-mu root is not resolved above muon onset.");
+	}
+	else
+	{
+		const auto state = EquilibriumStateAt(n_B_fm3);
+		result.number_densities_fm3 = {state.NeutronDensityFm3(), state.ProtonDensityFm3(),
+			state.ElectronDensityFm3(), state.MuonDensityFm3()};
+	}
+	const std::array<ColdRelativisticIdealFermion,4> species = {neutron_,proton_,electron_,muon_};
+	for (size_t i=0; i<species.size(); ++i) {
+		const auto value = species[i].Values(result.number_densities_fm3[i]);
+		result.energy_density_MeV_fm3 += value.energy_density_MeV_fm3;
+		result.pressure_MeV_fm3 += value.pressure_MeV_fm3;
+	}
+	return result;
+}
+
 VacuumBoundaryEvaluation
 TrackRFreeGasThermodynamicProvider::EvaluateVacuumBoundary() const
 {

@@ -150,6 +150,35 @@ double ColdRelativisticIdealFermion::ChemicalPotentialMeV(double number_density_
 	return Evaluate(number_density_fm3).chemical_potential_MeV;
 }
 
+ColdIdealFermionValues ColdRelativisticIdealFermion::Values(double n) const
+{
+	RequireFiniteNonnegative(n, "Ideal-fermion number density");
+	const double m = rest_mass_energy_MeV_, b = hbar_c_MeV_fm_;
+	if (n == 0.0) return {0.0, 0.0, m};
+	const double pi = std::acos(-1.0), k = b * std::cbrt(3.0*pi*pi*n);
+	const double x = k/m, x2 = x*x, mu = std::hypot(m,k);
+	const double energy = m*m*m*m * DimensionlessEnergyBracket(x)/(8*pi*pi*b*b*b);
+	double pressure;
+	if (x < 0.1)
+	{
+		// Integrate q^4/sqrt(1+q^2) term by term. The convergent
+		// binomial series avoids cancellation of the leading x^5 term.
+		double sum = 1.0/5.0, coefficient = 1.0, power = 1.0;
+		for (int j=1; j<=12; ++j) {
+			coefficient *= -(2.0*j-1.0)/(2.0*j);
+			power *= x2;
+			sum += coefficient*power/(5.0+2.0*j);
+		}
+		pressure = n*k*k/m*sum;
+	}
+	else
+		pressure = m*m*m*m*(x*std::sqrt(1+x2)*(2*x2-3)+3*std::asinh(x)) /
+			(24*pi*pi*b*b*b);
+	if (!std::isfinite(energy) || !std::isfinite(pressure) || pressure <= 0)
+		throw std::runtime_error("Ideal-fermion values exceed floating-point resolution.");
+	return {energy, pressure, mu};
+}
+
 double ColdRelativisticIdealFermion::EnergyDensityMeVFm3(double number_density_fm3) const
 {
 	return Evaluate(number_density_fm3).energy_density_MeV_fm3;

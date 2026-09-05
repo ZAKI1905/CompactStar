@@ -711,6 +711,14 @@ Evidence: `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:1`, `docs/validation/PHA
 
 ## INV-09 — Fixed-ε_c versus equilibrium-sequence derivatives — **INTENDED BUT UNVERIFIED**
 
+*Structure-1 update (2026-09-05):* static free-gas structure is implemented and independently
+validated against the declared FR2005 Table-1 publication bins. The additive value-only
+barotrope resolves P-7 for structure without weakening local chemical-response guards.
+The central-density scan is a static diagnostic, not a particle-number spin-down response;
+INV-09 remains **INTENDED BUT UNVERIFIED**, and INV-11 remains **UNRESOLVED**.
+No global susceptibility, paper B/Z/W, evolution, or new baseline is supplied. Evidence:
+`docs/validation/TRACKR_FREEGAS_WHOLESTAR_STRUCTURE1.md:1`, sections 9, 18 and 22–26.
+
 *Current Phase 5A-5 local status:* the Track-R free-gas local ladder is human-ratified and covers
 vacuum, a 1D p-e chart, value-only neutron appearance, the 2D npe chart, value-only muon
 appearance, and the 3D npe-mu chart through the pre-Sigma-minus ceiling. Boundary Hessians are
