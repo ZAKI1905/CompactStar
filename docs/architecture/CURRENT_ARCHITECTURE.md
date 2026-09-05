@@ -1,5 +1,12 @@
 # CompactStar — Current Architecture
 
+> **Current Phase 5A-3 state (2026-09-04): Track-R cold free-gas LOCAL model implemented and
+> analytically validated.** `TrackRFreeGasThermodynamicProvider` supplies the source-model cold
+> ideal `n,p,e,mu` energy, neutral conjugates, constrained Hessian, active-branch equilibrium
+> recovery, muon onset, and the pre-`Sigma-minus` domain endpoint. It is not connected to a star,
+> rotation, global susceptibility, coefficient, rate, or evolution path. Evidence:
+> `docs/validation/PHASE5A3_TRACKR_FREEGAS_LOCAL_PROVIDER.md`.
+>
 > **Current Phase 5A-2 state (2026-09-04): local thermodynamic contract IMPLEMENTED AND
 > VERIFIED.** `CompactStar/EOS/LocalThermodynamics.*` implements the accepted ADR-0010 generic
 > cold charge-neutral boundary and analytic free electrons/muons. A test-only analytic toy and

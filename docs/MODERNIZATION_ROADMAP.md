@@ -1,12 +1,13 @@
 # CompactStar Modernization Roadmap
 
-> **Current Phase 5A state (2026-09-04): PHASE 5A-2 VALIDATION GAPS CORRECTED — READY FOR
-> CANONICAL INTEGRATION.** The accepted ADR-0010 generic cold charge-neutral provider, analytic
-> free electrons/muons, and test-only analytic toy EOS now pass corrected, load-bearing local
-> V1-V10. Complete serial suites pass 23/23 self-contained (91.38 s) and 46/46 with the
-> authenticated external EOS root (682.88 s); all eight governed artifacts are unchanged and the
-> correction has no permanent production diff. This does **not**
-> implement a realistic Track-R or Track-P EOS, stellar susceptibility integration,
+> **Current Phase 5A state (2026-09-04): Phase 5A-3 Track-R cold free-gas local provider
+> implemented and analytically validated; whole-star reproduction not yet performed.** The
+> source-specific `TrackRFreeGasThermodynamicProvider` implements the local cold ideal
+> neutron/proton/electron/muon potential beneath the Fernandez--Reisenegger free-gas benchmark,
+> with independent RFG1-RFG11 checks, strict muon-threshold semantics, and a source-derived
+> `Sigma-minus` endpoint. Final serial regression evidence is recorded in
+> `docs/validation/PHASE5A3_TRACKR_FREEGAS_LOCAL_PROVIDER.md`. This does **not**
+> construct a free-gas star or implement a realistic Track-P EOS, stellar susceptibility integration,
 > particle-number/sequence reduction, paper `Z/W`, reaction/evolution equations, superfluidity,
 > or BNV. Evidence: `docs/validation/PHASE5A2_LOCAL_THERMODYNAMIC_VALIDATION_CORRECTION.md`;
 > implementation history: `docs/validation/PHASE5A2_LOCAL_THERMODYNAMIC_IMPLEMENTATION.md`.
@@ -579,6 +580,11 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
   charge-neutral toy pass V1-V10, including exact basis transforms, nonlinear fraction-coordinate
   chain terms, and independent corrected-2006 projection equivalence. Evidence:
   `docs/validation/PHASE5A2_LOCAL_THERMODYNAMIC_IMPLEMENTATION.md`.
+- **Phase 5A-3 COMPLETE — Track-R source-model local cold free-gas provider implemented and
+  independently validated.** All ideal `n,p,e,mu` species, the neutral potential/conjugates/Hessian,
+  bracketed active-branch equilibrium recovery, muon onset, and the pre-`Sigma-minus` source
+  ceiling are covered by RFG1-RFG11. No star or global coefficient is constructed. Evidence:
+  `docs/validation/PHASE5A3_TRACKR_FREEGAS_LOCAL_PROVIDER.md`.
 
 Later Phase-5 work, explicitly not the next increment:
 

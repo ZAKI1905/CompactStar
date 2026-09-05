@@ -711,13 +711,12 @@ Evidence: `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:1`, `docs/validation/PHA
 
 ## INV-09 — Fixed-ε_c versus equilibrium-sequence derivatives — **INTENDED BUT UNVERIFIED**
 
-*Current Phase 5A-2 status:* ADR-0010 is **ACCEPTED**, and its cold charge-neutral local
-thermodynamic provider boundary plus analytic free leptons are now implemented and validated
-against corrected, load-bearing self-contained V1-V10 analytic fixtures, with no permanent
-production diff in the validation correction
-(`docs/validation/PHASE5A2_LOCAL_THERMODYNAMIC_VALIDATION_CORRECTION.md`; implementation history:
-`docs/validation/PHASE5A2_LOCAL_THERMODYNAMIC_IMPLEMENTATION.md`). This local implementation
-does **not** resolve INV-09. Still
+*Current Phase 5A-3 status:* ADR-0010 is **ACCEPTED**; its generic boundary and corrected
+V1-V10 validation are integrated, and the Track-R cold ideal `n,p,e,mu` source-model local
+provider now passes independent RFG1-RFG11 validation
+(`docs/validation/PHASE5A3_TRACKR_FREEGAS_LOCAL_PROVIDER.md`; generic history:
+`docs/validation/PHASE5A2_LOCAL_THERMODYNAMIC_IMPLEMENTATION.md`). No star or global response is
+constructed. This local implementation does **not** resolve INV-09. Still
 unresolved are the measure-complete particle-number/species response, composition measure
 `dn_i`, `A_i`, `B_i`, structural `Z_i`, baryon-conserving sequence reduction, and exact ownership
 of the homogeneous/sequence derivative. Global paper `Z/W` construction and evolution are also
@@ -829,10 +828,10 @@ Phase 5.
 
 ## INV-11 — Chemical-imbalance redshift convention — **UNRESOLVED**
 
-**Current Phase 5A-2 boundary.** ADR-0010 governs, and Phase 5A-2 implements and locally validates,
-the **local** cold neutral conjugates
+**Current Phase 5A-3 boundary.** ADR-0010 governs the **local** cold neutral conjugates
 `g=(mu_n,-eta_npe,-eta_npmu)` in MeV, without electrostatic or GR-redshift terms
-(`docs/adr/ADR-0010-rotochemical-off-equilibrium-thermodynamic-contract.md:238-250`). It does not
+(`docs/adr/ADR-0010-rotochemical-off-equilibrium-thermodynamic-contract.md:238-250`). Phase 5A-3
+implements those local quantities for the Track-R ideal `n,p,e,mu` source model and does not
 govern the evolved chemical-state ordering, redshift frame, storage units/interface, or the
 global paper `Z/W` and reaction/evolution equations. Those items remain **UNRESOLVED** and
 fail-closed. INV-11 therefore blocks later chemical-state and Layer-D evolution work, but not

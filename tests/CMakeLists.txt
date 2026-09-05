@@ -61,6 +61,19 @@ set_tests_properties(rotochemical_local_thermodynamics PROPERTIES
     LABELS "rotochemical;thermodynamics;self-contained;scientific;contract")
 
 # ---------------------------------------------------------------------------
+#  Phase 5A-3 source-faithful Track-R cold ideal npe-mu local provider.
+#  Self-contained analytic/numerical validation only: no star, external EOS
+#  data, electrostatic projection, or scientific baseline.
+# ---------------------------------------------------------------------------
+add_executable(rotochemical_trackr_freegas_local
+    eos/rotochemical_trackr_freegas_local.cpp)
+target_link_libraries(rotochemical_trackr_freegas_local PRIVATE CompactStar)
+add_test(NAME rotochemical_trackr_freegas_local
+         COMMAND rotochemical_trackr_freegas_local)
+set_tests_properties(rotochemical_trackr_freegas_local PROPERTIES
+    LABELS "rotochemical;thermodynamics;track-r;free-gas;self-contained;scientific;contract")
+
+# ---------------------------------------------------------------------------
 #  Phase 4C-I1 governed O(Omega^2) monopole IMPLEMENTATION contract (ADR-0007).
 #  Self-contained. Protects contracts — fail-closed inputs, regular-centre start,
 #  provenance/staleness, seed invariance, materialization algebra, solve accounting.

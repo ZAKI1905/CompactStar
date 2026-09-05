@@ -152,6 +152,68 @@ enum class ColdFreeLeptonKind
 	Muon
 };
 
+enum class ColdIdealFermionKind
+{
+	Neutron,
+	Proton,
+	Electron,
+	Muon
+};
+
+/**
+ * @brief Cold relativistic ideal spin-1/2 fermion result.
+ *
+ * The total energy density includes rest mass.  The derivative is deliberately
+ * unavailable at zero density, where the active-species Hessian is singular.
+ */
+struct ColdIdealFermionEvaluation
+{
+	double number_density_fm3 = 0.0;
+	double rest_mass_energy_MeV = 0.0;
+	double fermi_momentum_MeV = 0.0;
+	double chemical_potential_MeV = 0.0;
+	double energy_density_MeV_fm3 = 0.0;
+	std::optional<double> dchemical_potential_dn_MeV_fm3;
+};
+
+/**
+ * @brief Analytic T=0, spin-1/2, noninteracting relativistic fermion.
+ *
+ * The factories bind species masses and hbar-c to the repository's Zaki
+ * constant authority.  This primitive has no equilibrium or stellar policy.
+ */
+class ColdRelativisticIdealFermion
+{
+  public:
+	[[nodiscard]] static ColdRelativisticIdealFermion Neutron();
+	[[nodiscard]] static ColdRelativisticIdealFermion Proton();
+	[[nodiscard]] static ColdRelativisticIdealFermion Electron();
+	[[nodiscard]] static ColdRelativisticIdealFermion Muon();
+
+	[[nodiscard]] ColdIdealFermionKind Kind() const noexcept { return kind_; }
+	[[nodiscard]] const char *Name() const noexcept;
+	[[nodiscard]] double RestMassEnergyMeV() const noexcept { return rest_mass_energy_MeV_; }
+	[[nodiscard]] double HbarCMeVFm() const noexcept { return hbar_c_MeV_fm_; }
+
+	[[nodiscard]] ColdIdealFermionEvaluation Evaluate(double number_density_fm3) const;
+	[[nodiscard]] double ChemicalPotentialMeV(double number_density_fm3) const;
+	[[nodiscard]] double EnergyDensityMeVFm3(double number_density_fm3) const;
+	[[nodiscard]] double ChemicalPotentialDerivativeMeVFm3(double number_density_fm3) const;
+
+	/// Inverse of the positive-density chemical-potential relation; zero at mu=m.
+	[[nodiscard]] double NumberDensityForChemicalPotentialFm3(
+		double chemical_potential_MeV) const;
+
+  private:
+	ColdRelativisticIdealFermion(ColdIdealFermionKind kind,
+								 double rest_mass_energy_MeV,
+								 double hbar_c_MeV_fm) noexcept;
+
+	ColdIdealFermionKind kind_;
+	double rest_mass_energy_MeV_;
+	double hbar_c_MeV_fm_;
+};
+
 /**
  * @brief Cold relativistic free-Fermi lepton result.
  *
