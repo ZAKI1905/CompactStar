@@ -73,6 +73,13 @@ add_test(NAME rotochemical_trackr_freegas_local
 set_tests_properties(rotochemical_trackr_freegas_local PROPERTIES
     LABELS "rotochemical;thermodynamics;track-r;free-gas;self-contained;scientific;contract")
 
+# Phase 5A-4 R1: active npe chart and species boundaries; independent local oracles.
+add_executable(rotochemical_trackr_npe eos/rotochemical_trackr_npe.cpp)
+target_link_libraries(rotochemical_trackr_npe PRIVATE CompactStar)
+add_test(NAME rotochemical_trackr_npe COMMAND rotochemical_trackr_npe)
+set_tests_properties(rotochemical_trackr_npe PROPERTIES
+    LABELS "rotochemical;thermodynamics;track-r;free-gas;npe;self-contained;scientific;contract")
+
 # ---------------------------------------------------------------------------
 #  Phase 4C-I1 governed O(Omega^2) monopole IMPLEMENTATION contract (ADR-0007).
 #  Self-contained. Protects contracts — fail-closed inputs, regular-centre start,

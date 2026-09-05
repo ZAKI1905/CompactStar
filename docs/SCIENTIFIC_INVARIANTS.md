@@ -711,7 +711,13 @@ Evidence: `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:1`, `docs/validation/PHA
 
 ## INV-09 — Fixed-ε_c versus equilibrium-sequence derivatives — **INTENDED BUT UNVERIFIED**
 
-*Current Phase 5A-3 status:* ADR-0010 is **ACCEPTED**; its generic boundary and corrected
+*Current Phase 5A-4 local status:* R1 adds a separate `z=(n_B,n_e)` chart with
+`h=(mu_n,-eta_npe)` and a 2x2 active Hessian. Exact muon onset carries no smooth response;
+no 3x3 Hessian is fabricated at zero muon density. The lower p-e domain and neutron-appearance
+boundary remain an unimplemented local gate; whole-star local coverage is incomplete
+(`docs/validation/PHASE5A4_TRACKR_NPE_BRANCH.md:1`). INV-09 remains **INTENDED BUT UNVERIFIED**.
+
+*Historical Phase 5A-3 status:* ADR-0010 is **ACCEPTED**; its generic boundary and corrected
 V1-V10 validation are integrated, and the Track-R cold ideal `n,p,e,mu` source-model local
 provider now passes independent RFG1-RFG11 validation
 (`docs/validation/PHASE5A3_TRACKR_FREEGAS_LOCAL_PROVIDER.md`; generic history:
@@ -828,7 +834,12 @@ Phase 5.
 
 ## INV-11 — Chemical-imbalance redshift convention — **UNRESOLVED**
 
-**Current Phase 5A-3 boundary.** ADR-0010 governs the **local** cold neutral conjugates
+**Current Phase 5A-4 boundary.** Below muon onset the active conjugates are only
+`h=(mu_n,-eta_npe)`; `eta_npmu` is a separately named zero-density value diagnostic.
+This changes no evolved/redshifted-state convention. INV-11 remains **UNRESOLVED**
+(`docs/validation/PHASE5A4_TRACKR_NPE_BRANCH.md:1`).
+
+**Historical Phase 5A-3 boundary.** ADR-0010 governs the **local** cold neutral conjugates
 `g=(mu_n,-eta_npe,-eta_npmu)` in MeV, without electrostatic or GR-redshift terms
 (`docs/adr/ADR-0010-rotochemical-off-equilibrium-thermodynamic-contract.md:238-250`). Phase 5A-3
 implements those local quantities for the Track-R ideal `n,p,e,mu` source model and does not

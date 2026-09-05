@@ -27,6 +27,7 @@
 #include <cstddef>
 #include <optional>
 #include <string>
+#include <variant>
 
 namespace CompactStar
 {
@@ -105,14 +106,94 @@ struct ChargeNeutralChemicalHessian
 	}
 };
 
-/// One complete local evaluation.  Energy density includes the provider's declared rest masses.
+/// Species present in a returned local state (not a mask over a larger matrix).
+struct ActiveParticleContent
+{
+	bool neutron;
+	bool proton;
+	bool electron;
+	bool muon;
+};
+
+enum class LocalResponseDomainStatus
+{
+	SmoothInterior,
+	SpeciesThreshold
+};
+
+/// One complete smooth three-coordinate local evaluation.
+/// Energy density includes the provider's declared rest masses.
 struct LocalThermodynamicEvaluation
 {
 	ChargeNeutralCompositionState state;
 	double energy_density_MeV_fm3;
 	NeutralConjugates conjugates;
 	ChargeNeutralChemicalHessian hessian;
+
+	static constexpr ActiveParticleContent active_particles{true, true, true, true};
+	static constexpr std::size_t response_dimension = 3;
+	static constexpr auto domain_status = LocalResponseDomainStatus::SmoothInterior;
 };
+
+/// Explicit active chart z=(n_B,n_e) in fm^-3; n_mu is identically zero.
+struct NpeCoordinates
+{
+	double n_B_fm3;
+	double n_e_fm3;
+};
+
+/// h=(mu_n,-eta_npe) in MeV. No active muon conjugate exists in this chart.
+struct NpeConjugates
+{
+	std::array<double, 2> value_MeV{};
+	[[nodiscard]] double MuNMeV() const noexcept { return value_MeV[0]; }
+	[[nodiscard]] double EtaNpeMeV() const noexcept { return -value_MeV[1]; }
+};
+
+/// d h / d z, holding the other active coordinate fixed; units MeV fm^3.
+struct NpeChemicalHessian
+{
+	using Matrix = std::array<std::array<double, 2>, 2>;
+	Matrix value_MeV_fm3{};
+	[[nodiscard]] double operator()(std::size_t row, std::size_t column) const
+	{
+		return value_MeV_fm3.at(row).at(column);
+	}
+};
+
+struct NpeThermodynamicEvaluation
+{
+	ChargeNeutralCompositionState state;
+	double energy_density_MeV_fm3;
+	NpeConjugates conjugates;
+	NpeChemicalHessian hessian;
+	// Value diagnostic only: mu_n-mu_p-m_mu at zero muon density.
+	// It is deliberately outside the active conjugates and Hessian.
+	double eta_npmu_threshold_diagnostic_MeV;
+
+	static constexpr ActiveParticleContent active_particles{true, true, true, false};
+	static constexpr std::size_t response_dimension = 2;
+	static constexpr auto domain_status = LocalResponseDomainStatus::SmoothInterior;
+};
+
+/// Value-only muon-appearance result: no smooth Hessian of either size.
+struct MuonThresholdEvaluation
+{
+	ChargeNeutralCompositionState state;
+	double energy_density_MeV_fm3;
+	NpeConjugates limiting_npe_conjugates;
+	double eta_npmu_threshold_diagnostic_MeV;
+
+	static constexpr ActiveParticleContent active_particles{true, true, true, false};
+	// Zero means no smooth response returned, not a zero-dimensional matrix.
+	static constexpr std::size_t response_dimension = 0;
+	static constexpr auto domain_status = LocalResponseDomainStatus::SpeciesThreshold;
+};
+
+/// A consumer must inspect the alternative before accessing a Hessian.
+/// There is no conversion from the npe or threshold alternative to the full one.
+using ActiveLocalThermodynamicEvaluation = std::variant<
+	LocalThermodynamicEvaluation, NpeThermodynamicEvaluation, MuonThresholdEvaluation>;
 
 /// Minimum provenance and domain description required of a local provider.
 struct LocalThermodynamicProviderMetadata
@@ -144,6 +225,19 @@ class ILocalThermodynamicProvider
 	Evaluate(const ChargeNeutralCoordinates &coordinates) const = 0;
 	[[nodiscard]] virtual ChargeNeutralCompositionState
 	EquilibriumStateAt(double n_B_fm3) const = 0;
+
+	/// Generic active-response entry point; existing smooth providers keep their semantics.
+	[[nodiscard]] virtual ActiveLocalThermodynamicEvaluation
+	EvaluateActive(const ChargeNeutralCoordinates &coordinates) const
+	{
+		return Evaluate(coordinates);
+	}
+	/// Composition plus per-result active species, response dimension and domain status.
+	[[nodiscard]] virtual ActiveLocalThermodynamicEvaluation
+	EquilibriumAt(double n_B_fm3) const
+	{
+		return EvaluateActive(EquilibriumStateAt(n_B_fm3).Coordinates());
+	}
 };
 
 enum class ColdFreeLeptonKind

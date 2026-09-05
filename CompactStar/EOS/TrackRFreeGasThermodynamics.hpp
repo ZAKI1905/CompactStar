@@ -21,18 +21,38 @@
 #include "CompactStar/EOS/LocalThermodynamics.hpp"
 
 #include <array>
+#include <stdexcept>
 
 namespace CompactStar
 {
+
+/// Physical equilibrium active-set inventory, including the unimplemented p-e gate.
+enum class FreeGasEquilibriumDomain
+{
+	ProtonElectron,
+	NeutronOnset,
+	Npe,
+	MuonOnset,
+	NpeMuon
+};
+
+/// The requested physical branch exists, but finite precision cannot certify it.
+/// No nearby density or different active set is substituted.
+class EquilibriumResolutionError : public std::runtime_error
+{
+  public:
+	using std::runtime_error::runtime_error;
+};
 
 /**
  * @brief Fernandez--Reisenegger Track-R cold noninteracting npe-mu provider.
  *
  * Evaluate() supports the smooth active-species domain n_n,n_p,n_e,n_mu>0
  * below the beta-equilibrated Sigma-minus onset.  It does not impose beta
- * equilibrium.  EquilibriumStateAt() is intentionally narrower: it supports
- * only the strict active npe-mu equilibrium interval between muon and
- * Sigma-minus onset and fails closed on both boundaries.
+ * equilibrium. EvaluateNpe() uses the separate z=(n_B,n_e) active chart.
+ * EquilibriumAt() dispatches explicitly between npe, value-only muon onset,
+ * and npe-mu. The lower p-e branch is identified but not implemented.
+ * AI-authored scientific candidate; see GOVERNANCE.md section 5.
  */
 class TrackRFreeGasThermodynamicProvider final : public ILocalThermodynamicProvider
 {
@@ -44,6 +64,16 @@ class TrackRFreeGasThermodynamicProvider final : public ILocalThermodynamicProvi
 	Evaluate(const ChargeNeutralCoordinates &coordinates) const override;
 	[[nodiscard]] ChargeNeutralCompositionState
 	EquilibriumStateAt(double n_B_fm3) const override;
+
+	[[nodiscard]] NpeThermodynamicEvaluation EvaluateNpe(const NpeCoordinates &coordinates) const;
+	[[nodiscard]] ActiveLocalThermodynamicEvaluation
+	EvaluateActive(const ChargeNeutralCoordinates &coordinates) const override;
+	[[nodiscard]] ActiveLocalThermodynamicEvaluation EquilibriumAt(double n_B_fm3) const override;
+	[[nodiscard]] FreeGasEquilibriumDomain EquilibriumDomainAt(double n_B_fm3) const;
+	[[nodiscard]] double NeutronOnsetBaryonDensityFm3() const noexcept
+	{
+		return neutron_onset_n_B_fm3_;
+	}
 
 	[[nodiscard]] double MuonOnsetBaryonDensityFm3() const noexcept
 	{
@@ -59,6 +89,9 @@ class TrackRFreeGasThermodynamicProvider final : public ILocalThermodynamicProvi
 	IntrinsicChemicalPotentialsMeV(const ChargeNeutralCoordinates &coordinates) const;
 
   private:
+	[[nodiscard]] ChargeNeutralCompositionState SolveNpeEquilibrium(double n_B_fm3) const;
+	[[nodiscard]] MuonThresholdEvaluation EvaluateMuonThreshold() const;
+	[[nodiscard]] double ComputeNeutronOnsetBaryonDensityFm3() const;
 	[[nodiscard]] ChargeNeutralCompositionState
 	SolveActiveEquilibriumUnchecked(double n_B_fm3) const;
 	[[nodiscard]] double EquilibriumResidualAtCommonLeptonMu(
@@ -72,6 +105,7 @@ class TrackRFreeGasThermodynamicProvider final : public ILocalThermodynamicProvi
 	ColdRelativisticIdealFermion proton_;
 	ColdRelativisticIdealFermion electron_;
 	ColdRelativisticIdealFermion muon_;
+	double neutron_onset_n_B_fm3_;
 	double muon_onset_n_B_fm3_;
 	double sigma_minus_onset_n_B_fm3_;
 	LocalThermodynamicProviderMetadata metadata_;

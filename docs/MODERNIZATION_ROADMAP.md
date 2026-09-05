@@ -580,11 +580,20 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
   charge-neutral toy pass V1-V10, including exact basis transforms, nonlinear fraction-coordinate
   chain terms, and independent corrected-2006 projection equivalence. Evidence:
   `docs/validation/PHASE5A2_LOCAL_THERMODYNAMIC_IMPLEMENTATION.md`.
-- **Phase 5A-3 COMPLETE — Track-R source-model local cold free-gas provider implemented and
-  independently validated.** All ideal `n,p,e,mu` species, the neutral potential/conjugates/Hessian,
+- **Phase 5A-3 active npe-mu local increment implemented and independently validated;
+  whole-star readiness claim withdrawn following review R1.** All ideal `n,p,e,mu` species,
+  the neutral potential/conjugates/Hessian,
   bracketed active-branch equilibrium recovery, muon onset, and the pre-`Sigma-minus` source
   ceiling are covered by RFG1-RFG11. No star or global coefficient is constructed. Evidence:
   `docs/validation/PHASE5A3_TRACKR_FREEGAS_LOCAL_PROVIDER.md`.
+- **Phase 5A-4 R1 implemented and verified — additional low-density active-species gate
+  identified.** Muon-free npe equilibrium and its typed 2x2 response are available between
+  neutron and muon appearance. Exact muon onset returns state/values with no Hessian; numerical
+  precision failures are explicit. The p-e branch from vacuum to neutron appearance is not
+  implemented, so whole-star local coverage is incomplete. Evidence:
+  `docs/validation/PHASE5A4_TRACKR_NPE_BRANCH.md:1`.
+- **Next local gate: proton-electron matter and the neutron-appearance boundary.** No
+  whole-star reproduction or Layer-B work begins in Phase 5A-4.
 
 Later Phase-5 work, explicitly not the next increment:
 

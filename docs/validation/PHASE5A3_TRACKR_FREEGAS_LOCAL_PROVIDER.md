@@ -1,7 +1,15 @@
 # Phase 5A-3 — Track-R cold free-gas local provider
 
-> **Status (2026-09-04): PHASE 5A-3 TRACK-R FREE-GAS LOCAL PROVIDER IMPLEMENTED
-> AND VERIFIED — WHOLE-STAR FREE-GAS REPRODUCTION READY.**
+> **Status corrected by Phase 5A-4 (2026-09-05): PHASE 5A-3 ACTIVE NPE-MU LOCAL
+> PROVIDER IMPLEMENTED AND VERIFIED; WHOLE-STAR LOCAL COVERAGE INCOMPLETE.**
+>
+> R1's missing npe response is now implemented and validated in
+> `docs/validation/PHASE5A4_TRACKR_NPE_BRANCH.md:1`. The additional p-e branch
+> below neutron appearance remains the next local gate. The original readiness
+> claim was too strong, as established by the independent review's R1
+> (`docs/validation/PHASE5A3_TRACKR_FREEGAS_LOCAL_INDEPENDENT_REVIEW.md:581`).
+> Sections below preserve the Phase 5A-3 implementation and validation history;
+> their old equilibrium exclusions are superseded by the Phase 5A-4 record.
 >
 > **TRACK-R FREE-GAS LOCAL THERMODYNAMICS IMPLEMENTED;**
 > **WHOLE-STAR FREE-GAS REPRODUCTION NOT YET PERFORMED.**
@@ -213,7 +221,10 @@ states throw `std::runtime_error`.
 
 ## 7. Muon threshold and source ceiling
 
-Three equilibrium regions are distinguished:
+The historical Phase 5A-3 inventory distinguished three muon-related regions
+below. It was incomplete at low density: the npe branch ends at neutron
+appearance, below which p-e matter is required (Phase 5A-4 derivation:
+`docs/validation/PHASE5A4_TRACKR_NPE_BRANCH.md:1`).
 
 1. **Muon-free npe branch:** `n_mu=0`,
    `mu_n-mu_p=mu_e<M_mu`. It exists below onset but is not a regular 3-by-3

@@ -619,8 +619,7 @@ void RFG10ThresholdBehavior(const TrackRFreeGasThermodynamicProvider &provider)
 				2.0e-14, "RFG10 independent muon-onset mismatch");
 
 	// A: independently solve one beta-equilibrated npe state below threshold.
-	// The root has mu_e<m_mu and is intentionally not returned through the
-	// provider's fixed-dimension active npe-mu equilibrium operation.
+	// The root has mu_e<m_mu; Phase 5A-4 now exposes it in a separate active chart.
 	const double npe_n_B = 0.99 * independent_muon_onset;
 	auto npe_residual = [=](double n_p)
 	{
@@ -689,12 +688,13 @@ void RFG10ThresholdBehavior(const TrackRFreeGasThermodynamicProvider &provider)
 			metadata.lepton_ownership.find("exactly once") != std::string::npos &&
 			metadata.smooth_domain.find("no threshold smoothing") != std::string::npos,
 			"RFG10 provider metadata does not carry the required source/domain provenance");
-	Require(ThrowsRuntimeError([&provider, onset]
-							   { static_cast<void>(provider.EquilibriumStateAt(onset)); }),
-			"RFG10 equilibrium solver accepted the singular muon threshold");
-	Require(ThrowsRuntimeError([&provider, onset]
-							   { static_cast<void>(provider.EquilibriumStateAt(0.99 * onset)); }),
-			"RFG10 equilibrium solver accepted the muon-free branch");
+	Require(std::holds_alternative<CompactStar::MuonThresholdEvaluation>(provider.EquilibriumAt(onset)),
+			"RFG10 onset must return values without a full Hessian");
+	const auto npe = std::get<CompactStar::NpeThermodynamicEvaluation>(provider.EquilibriumAt(0.99 * onset));
+	Require(npe.state.MuonDensityFm3() == 0.0,
+			"RFG10 equilibrium solver inserted muons below onset");
+	RequireNear(npe.state.ElectronDensityFm3(), npe_n_p, 2.0e-14,
+			"RFG10 exposed npe branch disagrees with independent solve");
 	Require(provider.EquilibriumStateAt(onset * (1.0 + 1.0e-6)).MuonDensityFm3() > 0.0,
 			"RFG10 active equilibrium did not emerge above threshold");
 	Require(ThrowsRuntimeError([&provider, ceiling]
