@@ -1,6 +1,6 @@
 # CompactStar Modernization Roadmap
 
-> **Current Phase 5A state (2026-09-05): TRACK-R FREE-GAS LOCAL THERMODYNAMIC COVERAGE COMPLETE — WHOLE-STAR STRUCTURE REPRODUCTION READY.** Vacuum, smooth
+> **Current Phase 5A state (2026-09-05): TRACK-R FREE-GAS LOCAL THERMODYNAMIC COVERAGE HUMAN-RATIFIED AND COMPLETE — WHOLE-STAR STRUCTURE REPRODUCTION READY.** Vacuum, smooth
 > p-e, value-only neutron appearance, smooth npe, value-only muon appearance, and smooth
 > npe-mu are explicitly typed through the pre-Sigma-minus source ceiling. PE-V1-PE-V13,
 > R1-V1-R1-V10, RFG1-RFG11, V1-V10, and both complete serial suites pass. This means only
@@ -8,7 +8,9 @@
 > whole-star benchmark has been reproduced. No stellar susceptibility integration,
 > particle-number/sequence reduction, paper `B/Z/W`, reaction/evolution equation, APR/BPAL,
 > DS(CMF) off-equilibrium physics, superfluidity, or BNV is implemented. Evidence:
-> `docs/validation/PHASE5A5_TRACKR_PE_BRANCH.md`.
+> `docs/validation/PHASE5A5_TRACKR_PE_BRANCH.md:231-280`;
+> `docs/validation/PHASE5A5_TRACKR_PE_INDEPENDENT_REVIEW.md:771-828`;
+> `docs/validation/PHASE5A5_TRACKR_LOCAL_RATIFICATION.md:3-46`.
 >
 > **Historical Phase 4E closeout (2026-09-04): PHASE 4 ROTATION CORRECTNESS COMPLETE —
 > PHASE-5 STRUCTURAL INTERFACE RATIFIED.** The existing normalized
@@ -593,11 +595,14 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
 - **Historical Phase 5A-4 next local gate: proton-electron matter and the
   neutron-appearance boundary.** It is completed by Phase 5A-5 below; no whole-star
   reproduction or Layer-B work began in Phase 5A-4.
-- **Phase 5A-5 COMPLETE — Track-R whole-star LOCAL thermodynamic coverage is ready for
-  structure reproduction.** The final vacuum/p-e/neutron-appearance gate is implemented with
+- **Phase 5A-5 COMPLETE AND HUMAN-RATIFIED — Track-R whole-star LOCAL thermodynamic coverage is
+  ready for structure reproduction.** The final vacuum/p-e/neutron-appearance gate is implemented with
   an exact 1D p-e response, value-only boundaries, the p-e/npe limiting identity, and an explicit
-  fail-closed N-1 accuracy rule. No TOV or global-response work is included. Evidence:
-  `docs/validation/PHASE5A5_TRACKR_PE_BRANCH.md`.
+  fail-closed N-1 accuracy rule. No TOV or global-response work is included. P-7 must be carried
+  into the separate structure task because `epsilon` may be unavailable inside the narrow N-1
+  response-refusal window. Evidence: `docs/validation/PHASE5A5_TRACKR_PE_BRANCH.md:63-280`;
+  `docs/validation/PHASE5A5_TRACKR_PE_INDEPENDENT_REVIEW.md:682-726`;
+  `docs/validation/PHASE5A5_TRACKR_LOCAL_RATIFICATION.md:3-46`, `:94-135`.
 
 Later Phase-5 work, explicitly not the next increment:
 

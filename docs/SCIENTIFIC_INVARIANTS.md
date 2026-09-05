@@ -711,12 +711,14 @@ Evidence: `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:1`, `docs/validation/PHA
 
 ## INV-09 — Fixed-ε_c versus equilibrium-sequence derivatives — **INTENDED BUT UNVERIFIED**
 
-*Current Phase 5A-5 local status:* the Track-R free-gas local ladder now covers
+*Current Phase 5A-5 local status:* the Track-R free-gas local ladder is human-ratified and covers
 vacuum, a 1D p-e chart, value-only neutron appearance, the 2D npe chart, value-only muon
 appearance, and the 3D npe-mu chart through the pre-Sigma-minus ceiling. Boundary Hessians are
 not fabricated, and near-neutron-onset npe responses fail closed under the documented N-1 rule.
 This is local structure readiness only; no star or global sequence response is constructed
-(`docs/validation/PHASE5A5_TRACKR_PE_BRANCH.md`). INV-09 remains **INTENDED BUT UNVERIFIED**.
+(`docs/validation/PHASE5A5_TRACKR_PE_BRANCH.md:63-230`;
+`docs/validation/PHASE5A5_TRACKR_LOCAL_RATIFICATION.md:3-46`, `:94-108`). INV-09 remains
+**INTENDED BUT UNVERIFIED**.
 
 *Historical Phase 5A-3 status:* ADR-0010 is **ACCEPTED**; its generic boundary and corrected
 V1-V10 validation are integrated, and the Track-R cold ideal `n,p,e,mu` source-model local
@@ -835,11 +837,12 @@ Phase 5.
 
 ## INV-11 — Chemical-imbalance redshift convention — **UNRESOLVED**
 
-**Current Phase 5A-5 boundary.** The p-e branch adds only the local active conjugate
+**Current Phase 5A-5 boundary.** The human-ratified p-e branch adds only the local active conjugate
 `h_pe=mu_p+mu_e`; the inactive neutron condition is a separately named value diagnostic.
 The npe and npe-mu local conjugates retain their established meanings. This complete local
 active-set ladder changes no evolved/redshifted-state convention. INV-11 remains **UNRESOLVED**
-(`docs/validation/PHASE5A5_TRACKR_PE_BRANCH.md`).
+(`docs/validation/PHASE5A5_TRACKR_PE_BRANCH.md:82-123`;
+`docs/validation/PHASE5A5_TRACKR_LOCAL_RATIFICATION.md:94-108`).
 
 **Historical Phase 5A-3 boundary.** ADR-0010 governs the **local** cold neutral conjugates
 `g=(mu_n,-eta_npe,-eta_npmu)` in MeV, without electrostatic or GR-redshift terms
