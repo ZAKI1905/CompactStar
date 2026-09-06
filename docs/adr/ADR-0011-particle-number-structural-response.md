@@ -236,3 +236,29 @@ canonical master to identify and adjudicate one consistent GSL/Zaki geometric co
 TOVSolver -> NStar/StarProfile -> RotationSolver, quantify the minimal repair, and define the
 required static/Phase-4/Structure-1 revalidation before any Phase-5B production implementation.
 Do not begin it automatically.
+
+
+## Implementation-status addendum — Phase-5B-R candidate, 2026-09-06
+
+The accepted decision and original prerequisite/validation status above are preserved as
+history. After canonical ADR-0012 A1 integration at
+`a43d02227bf53c3242d3212f81dd71963804f3aa`, the owner explicitly authorized this implementation
+and resumption of its authenticated PB6 stop. PN1–PN8 are now implemented in the candidate;
+PB1–PB14 passed, including fresh PB7 and PB11–PB14. All 21 required mutations fired and all
+eight endpoint micro-falsifiers passed. The representation repair uses one stored endpoint at
+each continuous boundary; exact continuity, declared jumps and terminal atoms remain unchanged.
+
+Focused tests passed 8/8, complete data-free tests 38/38, and the complete external-data suite
+61/61 serially. Two independent generations of the structural candidate artifact are byte-identical.
+The original stop evidence and all governed historical baselines remain unchanged. This addendum
+changes no accepted formula, tolerance, domain boundary or scientific scope.
+
+**PHASE-5B GLOBAL PARTICLE-NUMBER RESPONSE IMPLEMENTED AND CANDIDATE VALIDATED —
+INDEPENDENT REVIEW REQUIRED.** Independent review and human ratification remain **PENDING**.
+INV-09 remains **INTENDED BUT UNVERIFIED**; INV-11 remains **UNRESOLVED**. No Btilde, chemical
+Z/W, eta evolution, weak-rate evolution, BNV or inferred free-gas core boundary is implemented.
+No governed structural baseline, human ratification or canonical integration is conferred here.
+
+Evidence: `docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_IMPLEMENTATION.md`,
+`docs/validation/phase5b_resume_evidence.json`, and the explicitly nongoverned
+`docs/validation/phase5b_structural_response_candidate.json`.

@@ -796,6 +796,8 @@ void RotationSolver::FindNMomInertia()
 
 		first_order_response_.I = mom_inertia;
 		first_order_response_.r_grid = nstar_ptr->Profile().GetRadius();
+		first_order_response_.source_profile = &nstar_ptr->Profile();
+		first_order_response_.source_version = nstar_ptr->Profile().Version();
 		first_order_response_.valid = true;
 	}
 

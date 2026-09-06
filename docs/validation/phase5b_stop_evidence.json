@@ -1,0 +1,63 @@
+{
+  "classification": "STOP evidence only; NOT a structural-response reference or scientific baseline",
+  "starting_sha": "a43d02227bf53c3242d3212f81dd71963804f3aa",
+  "branch": "physics/phase5b-global-particle-response",
+  "worktree": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5b-global-response",
+  "canonical_suite": {
+    "passed": 53,
+    "failed": 0,
+    "seconds": 678.45,
+    "last_test_log_sha256": "1b44794dfb3e5cb8279559ba9a21909378dac94a6792902e3302e87489355a3b"
+  },
+  "logs": {
+    "PB1": {
+      "sha256": "4c7db03bafe58a942caa1678c7c0bc6769b53f6b7667db15286bd76674168972",
+      "exit_code": 0,
+      "text": "\u001b[0Info in [RotationSolver.cpp:60]  \u001b[1Attaching NStar to RotationSolver class...\nPB1 PASS analytic_relative=1.2112533198660458e-13 raw_charge=-8.5070591730234616e+37\n\nA total of 0 errors, and 0 warnings were generated.\n"
+    },
+    "PB2": {
+      "sha256": "2501b555f4821d20e8452068eb333a0ace5c3a20a145818e6a5ca9734072dd45",
+      "exit_code": 0,
+      "text": "PB2 PASS lapse_cancellation; angular_average=0.33333333333333331 P2_average=0 IBP_relative=5.5511151231257827e-16\n"
+    },
+    "PB3": {
+      "sha256": "b9a7cbb9bfbf7e7aef30319ac3108e8678e6ff62a7ce01c828e68665cfad7861",
+      "exit_code": 0,
+      "text": "PB3 PASS jump=5.0000000000000004e+53 terminal=2.0000000000000002e+54 same_representation=4.1422421048764591e-13\n"
+    },
+    "PB4": {
+      "sha256": "316a00199c2cbd6dfea40bdf22fea3ced89e530477af7c3943a9c805907131ca",
+      "exit_code": 0,
+      "text": "PB4 PASS four independent analytic terms; finest_relative=3.0267983675003052e-09\n"
+    },
+    "PB5": {
+      "sha256": "f72f1ced0e815c04b956ac00d415aa4374ccaa82a3149decd8388d4ae721fa93",
+      "exit_code": 0,
+      "text": "PB5 q=0.001 quotient=13.976881016226628 error=0.0030768930592284249\nPB5 q=0.00050000000000000001 quotient=13.975342379524136 error=0.0015382563567367669\nPB5 q=0.00025000000000000001 quotient=13.974573203682894 error=0.00076908051549473555\nPB5 q=0.000125 quotient=13.974188651161512 error=0.00038452799411281546\nPB5 PASS independent nonlinear current and exact Omega convention\n"
+    },
+    "PB6": {
+      "sha256": "7b74b54b0cbaac72024e360c3dc8e5d84ddfe05b4e601d56b9d3c9d41e3eeaa6",
+      "exit_code": 1,
+      "text": "\u001b[0Info in [RotationSolver.cpp:74]  \u001b[1Attaching MixedStar to RotationSolver class...\n\u001b[0Info in [RotationSolver.cpp:60]  \u001b[1Attaching NStar to RotationSolver class...\n\u001b[0Info in [Directory.cpp:249]  \u001b[1Directory '/tmp/compactstar-phase5b-canonical-LjRRrF/PB6/radial-10000' created.\n\u001b[0Info in [Prog.cpp:267]  \u001b[1Work directory set to '/tmp/compactstar-phase5b-canonical-LjRRrF/PB6/radial-10000'.\n\u001b[0Info in [Directory.cpp:249]  \u001b[1Directory '/tmp/compactstar-phase5b-canonical-LjRRrF/PB6/radial-10000' created.\n\u001b[0Info in [Prog.cpp:267]  \u001b[1Work directory set to '/tmp/compactstar-phase5b-canonical-LjRRrF/PB6/radial-10000'.\n\u001b[0Info in [Directory.cpp:249]  \u001b[1Directory '/tmp/compactstar-phase5b-canonical-LjRRrF/PB6/radial-10000' created.\n\u001b[0Info in [DataSet.cpp:348]  \u001b[1Work directory set to '/tmp/compactstar-phase5b-canonical-LjRRrF/PB6/radial-10000'.\n\u001b[0Info in [Directory.cpp:249]  \u001b[1Directory '/tmp/compactstar-phase5b-canonical-LjRRrF/PB6/radial-10000' created.\n\u001b[0Info in [Prog.cpp:267]  \u001b[1Work directory set to '/tmp/compactstar-phase5b-canonical-LjRRrF/PB6/radial-10000'.\n\u001b[0Info in [Directory.cpp:249]  \u001b[1Directory '/tmp/compactstar-phase5b-canonical-LjRRrF/PB6/radial-10000' created.\n\u001b[0Info in [Prog.cpp:267]  \u001b[1Work directory set to '/tmp/compactstar-phase5b-canonical-LjRRrF/PB6/radial-10000'.\n\u001b[0Info in [Directory.cpp:249]  \u001b[1Directory '/tmp/compactstar-phase5b-canonical-LjRRrF/PB6/radial-10000' created.\n\u001b[0Info in [DataSet.cpp:348]  \u001b[1Work directory set to '/tmp/compactstar-phase5b-canonical-LjRRrF/PB6/radial-10000'.\n\u001b[0Info in [Directory.cpp:249]  \u001b[1Directory '/tmp/compactstar-phase5b-canonical-LjRRrF/PB6/radial-10000' created.\n\u001b[0Info in [DataSet.cpp:348]  \u001b[1Work directory set to '/tmp/compactstar-phase5b-canonical-LjRRrF/PB6/radial-10000'.\n\u001b[0Info in [Directory.cpp:249]  \u001b[1Directory '/tmp/compactstar-phase5b-canonical-LjRRrF/PB6/radial-10000' created.\n\u001b[0Info in [Prog.cpp:267]  \u001b[1Work directory set to '/tmp/compactstar-phase5b-canonical-LjRRrF/PB6/radial-10000'.\n[EOS:raw] line 0 has 7 fields.\n    [0] = 'eps(g/cm^3)'\n    [1] = 'pre(dyn/cm^2)'\n    [2] = 'rho(1/fm^3)'\n    [3] = '10'\n    [4] = '11'\n    [5] = '0'\n    [6] = '1'\n[EOS] headers: eps='eps(g/cm^3)', p='pre(dyn/cm^2)', rho='rho(1/fm^3)'\n[EOS] extra columns: 10 11 0 1 \n[EOS:raw] line 1 has 7 fields.\n    [0] = '16.735330431692272'\n    [1] = '1085028429471974.6'\n    [2] = '1e-14'\n    [3] = '0'\n    [4] = '1'\n    [5] = '1'\n    [6] = '0'\n[EOS:raw] line 2 has 7 fields.\n    [0] = '16.80032140640995'\n    [1] = '1092059621102232.9'\n    [2] = '1.003883459025769e-14'\n    [3] = '0'\n    [4] = '1'\n    [5] = '1'\n    [6] = '0'\n[EOS:raw] line 3 has 7 fields.\n    [0] = '16.865564770945475'\n    [1] = '1099136374460371.2'\n    [2] = '1.007781999305543e-14'\n    [3] = '0'\n    [4] = '1'\n    [5] = '1'\n    [6] = '0'\n[EOS:raw] line 4 has 7 fields.\n    [0] = '16.931061505444557'\n    [1] = '1106258984768050.9'\n    [2] = '1.011695679406754e-14'\n    [3] = '0'\n    [4] = '1'\n    [5] = '1'\n    [6] = '0'\n[EOS] imported rows (excluding header): 10375\n[EOS] eps.size() = 10375\n[EOS] pre.size() = 10375\n[EOS] rho.size() = 10375\n[EOS] rho_i[0].size() = 10375\n[EOS] rho_i[1].size() = 10375\n[EOS] rho_i[2].size() = 10375\n[EOS] rho_i[3].size() = 10375\n\u001b[0Info in [TOVSolver.cpp:657]  \u001b[1EOS data imported from: /tmp/compactstar-phase5b-canonical-LjRRrF/PB6/freegas.tsv.\n\u001b[0Info in [TOVSolver.cpp:685]  \u001b[1Initializing main splines for EOS with n = 10375\n\u001b[0Info in [TOVSolver.cpp:717]  \u001b[1Initializing the splines for energy density and pressure: done.\n\u001b[0Info in [RotationSolver.cpp:60]  \u001b[1Attaching NStar to RotationSolver class...\nSTOP unrepresented gap/jump in number measure\n\nA total of 0 errors, and 0 warnings were generated.\n"
+    }
+  },
+  "candidate_source_sha256": {
+    "CompactStar/CMakeLists.txt": "d85aedf8b70eef39c84a67c057a75bd9cb4e2e8851a87db069f111a3358fb0b2",
+    "CompactStar/Core/RotationSolver.hpp": "7d3dbfab42734c47a55c98877b855a37d14d37df71450966a8ecf514c557421d",
+    "CompactStar/Core/src/RotationSolver.cpp": "b3e4b8db36952f5d1cb60412947a071b30a22de9a755f77571a580f3f8856982",
+    "CompactStar/Core/src/NStar.cpp": "69a4b403370feeb6c1ba7d469082c2a6f5d824bf604abbae268f505204feb08e",
+    "tests/CMakeLists.txt": "b7410c1eba8907971521da86e3cf5ccaee3a88eb08951506ceeb176ee1eecd3d",
+    "CompactStar/Analysis/CMakeLists.txt": "87954ea4298ace41a483287c3dda212e36d87c560c79cbf816171c303ec12a3a",
+    "CompactStar/Analysis/ParticleNumberResponse.hpp": "7d575cda447453349430a677b3456bacccc72e273a7636b7f594dacc459790d5",
+    "CompactStar/Analysis/src/ParticleNumberResponse.cpp": "d585f149ff171ece129a639eca9c472f842bc598ded1881f5fce3183876fe750",
+    "tests/analysis/particle_number_homogeneous.hpp": "0753ed7ff4321bb6850e014218792e4d98e2ddac410a95d6260b7270a313d9f5",
+    "tests/analysis/particle_number_analytic.cpp": "7c61c6461f3ffbd3405b0549a5592815d280a8eb4e8e55a04c9dc5367932b466",
+    "tests/analysis/phase5b_freegas_validation.cpp": "8a5c6d496bdfdb93f015620a28104a78893c5795c089d502d604205714db46d1"
+  },
+  "PB6_table_sha256": "7cd44c92e1e7206e0e68e3fed7e3f0ca68e79ab4517d02b96ff78b9be23d3f1a",
+  "later_gates": "NOT RUN: mandatory stop at PB6",
+  "PHASE5B_SHA": null,
+  "committed": false,
+  "pushed": false,
+  "merged": false
+}

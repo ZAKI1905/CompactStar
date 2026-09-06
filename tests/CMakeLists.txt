@@ -11,6 +11,23 @@
 #  values belong here; those are roadmap Phase 2A/2B work.
 # ---------------------------------------------------------------------------
 
+# ADR-0011 candidate analytic particle-current oracles (PB1-PB5).
+add_executable(particle_number_analytic analysis/particle_number_analytic.cpp)
+target_link_libraries(particle_number_analytic PRIVATE CompactStar)
+add_test(NAME particle_number_analytic COMMAND particle_number_analytic)
+set_tests_properties(particle_number_analytic PROPERTIES
+    LABELS "analysis;particle-number;analytic;self-contained;scientific")
+add_executable(phase5b_freegas_validation analysis/phase5b_freegas_validation.cpp)
+target_link_libraries(phase5b_freegas_validation PRIVATE CompactStar)
+foreach(stage PB1 PB6 PB7 PB9-11 PB12 PB13 contracts)
+    add_test(NAME phase5b_${stage} COMMAND "${Python3_EXECUTABLE}"
+        "${CMAKE_CURRENT_SOURCE_DIR}/analysis/run_phase5b_validation.py"
+        $<TARGET_FILE:phase5b_freegas_validation> ${stage}
+        "${CMAKE_CURRENT_BINARY_DIR}/phase5b-evidence")
+    set_tests_properties(phase5b_${stage} PROPERTIES
+        LABELS "phase5b;scientific;self-contained" TIMEOUT 900 RUN_SERIAL TRUE)
+endforeach()
+
 add_executable(compactstar_library_smoke smoke/compactstar_library_smoke.cpp)
 
 target_link_libraries(compactstar_library_smoke PRIVATE CompactStar)

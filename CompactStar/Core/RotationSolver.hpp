@@ -159,6 +159,13 @@ struct PhysicalFirstOrderRotation
 /// To obtain a physical solution, supply an explicit `AngularVelocity` to `At()`.
 struct HartleFirstOrderResponse
 {
+	/// ADR-0011 consumer provenance; the non-owning source must outlive this response.
+	const void *source_profile = nullptr;
+	std::uint64_t source_version = 0;
+	[[nodiscard]] bool MatchesSource(const void *profile, std::uint64_t version) const noexcept
+	{
+		return valid && source_profile == profile && source_version == version;
+	}
 	/// Moment of inertia [km^3]. Scale-free; validated as such in Phase 2B-4B.
 	double I = 0.0;
 
@@ -347,6 +354,14 @@ struct RotationSolverTestSeam;
 //==============================================================
 class RotationSolver : public Prog
 {
+	friend class NStar;
+	// Construction computes first order inside a profile edit transaction. Seal its
+	// version only after that transaction commits; this changes no numerical value.
+	void SealFirstOrderProvenance_(const void *profile, std::uint64_t version)
+	{
+		if (first_order_response_.valid && first_order_response_.source_profile == profile)
+			first_order_response_.source_version = version;
+	}
 	//--------------------------------------------------------------
 	// This struct was added on Aug 6
 	struct OmegaPoint

@@ -738,6 +738,19 @@ Evidence: `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:1`, `docs/validation/PHA
 
 ## INV-09 — Fixed-ε_c versus equilibrium-sequence derivatives — **INTENDED BUT UNVERIFIED**
 
+> **Phase-5B-R candidate (2026-09-06): ADR-0011 IMPLEMENTED AND CANDIDATE VALIDATED — INDEPENDENT REVIEW REQUIRED.**
+> PN1–PN8 are implemented in the generic particle-number analysis module; PB1–PB14 passed,
+> all 21 required mutations fired, and the eight endpoint micro-falsifiers passed. The confirmed
+> PB6 shared-endpoint representation repair preserves exact continuity and atom semantics.
+> Focused tests passed 8/8, the complete data-free suite 38/38, and the serial external-data suite
+> 61/61. The structural candidate artifact repeats byte-for-byte; no historical baseline changed.
+> Independent review and human ratification remain PENDING. INV-09 remains INTENDED BUT
+> UNVERIFIED; INV-11 remains UNRESOLVED. No Btilde, chemical Z/W, eta/weak-rate evolution,
+> or BNV is implemented. No core boundary or source-qualified core I_Omega is inferred.
+> Evidence: `docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_IMPLEMENTATION.md` and
+> `docs/validation/phase5b_resume_evidence.json`. Earlier status entries below retain their
+> historical scope; this candidate record grants no canonical integration or invariant closure.
+
 *Unit-1I closeout (2026-09-06):* ordinary-`NStar` ADR-0012 A1 is accepted, implemented,
 independently reviewed, human-ratified, governed-baseline superseded, and post-supersession
 validated. Canonical integration closes the ADR-0011 Q4 relativistic-unit-boundary prerequisite

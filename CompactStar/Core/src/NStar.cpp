@@ -90,6 +90,7 @@ void NStar::BuildFromTOV(const std::vector<TOVPoint> &in_tov,
 	Reset(); // clears ds, B_integrand, sequence, rho_i_idx, prof_
 
 	// Batch all profile mutations in this build into ONE version bump.
+	{
 	auto edit = prof_.Edit();
 	// ============================================================
 	// 1) PROFILE-FIRST BUILD
@@ -390,6 +391,8 @@ void NStar::BuildFromTOV(const std::vector<TOVPoint> &in_tov,
 
 		surface_ready = true;
 	}
+	} // Commit the profile transaction before sealing first-order provenance.
+	rot_solver.SealFirstOrderProvenance_(&prof_, prof_.Version());
 }
 //--------------------------------------------------------------
 // Initializes the dataset from a TOV solver
@@ -580,6 +583,7 @@ void NStar::FinalizeSurface()
 	// ============================================================
 	if (!prof_.empty())
 	{
+		{
 		auto edit = prof_.Edit(); // batches all touches below into one bump
 		// --------------------------------------------------------
 		// 1.a) Build interpolants from profile columns
@@ -670,6 +674,8 @@ void NStar::FinalizeSurface()
 		seq.I = Find_MomInertia();
 
 		surface_ready = true;
+		} // Commit the profile transaction before sealing first-order provenance.
+		rot_solver.SealFirstOrderProvenance_(&prof_, prof_.Version());
 		return;
 	}
 }
