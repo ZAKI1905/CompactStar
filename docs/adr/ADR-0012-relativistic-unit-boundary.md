@@ -1,14 +1,14 @@
 # ADR-0012: relativistic unit boundary for canonical ordinary-star backgrounds
 
-**Status: ACCEPTED — 2026-09-05**
+**Status: ACCEPTED AND COMPLETE FOR ORDINARY-NSTAR A1 SCOPE — 2026-09-06**
 
-> **ADR-0012 ACCEPTED —**
-> **A1 RELATIVISTIC UNIT-BOUNDARY CORRECTION AUTHORIZED;**
-> **PRODUCTION CORRECTION AND REVALIDATION NOT YET PERFORMED.**
+> **ADR-0012 A1 ACCEPTED, IMPLEMENTED, INDEPENDENTLY REVIEWED, HUMAN-RATIFIED,
+> GOVERNED BASELINES SUPERSEDED, POST-SUPERSESSION VALIDATED, AND CANONICALLY INTEGRATED.**
 
-ADR-0011 remains **ACCEPTED**. Its Q4 prerequisite remains blocked until the A1 correction and
-revalidation are complete. INV-09 remains **INTENDED BUT UNVERIFIED**; INV-11 remains
-**UNRESOLVED**.
+ADR-0011 remains **ACCEPTED**. Canonical integration of this closeout closes only its Q4
+relativistic-unit-boundary prerequisite. PB7 remains **NOT COMPLETE** as a Phase-5B
+production-validation claim; INV-09 remains **INTENDED BUT UNVERIFIED / UNRESOLVED** and INV-11
+remains **UNRESOLVED**.
 
 ## Context and authority
 
@@ -277,13 +277,15 @@ Q1-Q5 history above. Full owner decision and caveats:
 | Production correction | **RATIFIED** |
 | U1-U14 candidate validation | **RATIFIED** |
 | Six successor candidates | **RATIFIED FOR GOVERNED SUPERSESSION** |
-| Governed baseline supersession | **NOT YET PERFORMED** |
-| Canonical integration | **NOT YET PERFORMED** |
-| ADR-0011 Q4 | **NUMERIC UNIT PREREQUISITE RATIFIED AS SATISFIED; CANONICAL CLOSURE PENDING SUPERSESSION/INTEGRATION** |
+| Governed baseline supersession | **COMPLETE — C1-C6 EXACTLY SUPERSEDED; H7/H8 RETAINED** |
+| Post-supersession validation | **30/30 DATA-FREE AND 53/53 COMPLETE-SUITE PASS** |
+| Canonical integration | **COMPLETE WHEN THIS CLOSEOUT PACKAGE IS PRESENT ON CANONICAL MASTER** |
+| ADR-0011 Q4 | **RELATIVISTIC-UNIT-BOUNDARY PREREQUISITE CLOSED ON CANONICAL INTEGRATION; Q4/PB7 NOT OTHERWISE COMPLETE** |
 | INV-09 | **UNRESOLVED — INTENDED BUT UNVERIFIED** |
 | INV-11 | **UNRESOLVED** |
 
 The B3c-prime and surface-coordinate test-semantics adjudications are human-ratified as part of
-Unit-1. C1-C6 are authorized successor contents for the next governed supersession task; H7/H8
-remain byte-identical and require no supersession. No baseline is replaced and master is not
-modified by this ratification.
+Unit-1. C1-C6 are now the governed baselines; H7/H8 remain byte-identical and were not
+superseded. The exact regeneration, six-file installation, post-supersession suite, and closeout
+boundary are recorded in
+`docs/validation/RELATIVISTIC_UNIT_BOUNDARY_BASELINE_SUPERSESSION.md`.

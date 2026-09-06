@@ -1,19 +1,19 @@
 # CompactStar Modernization Roadmap
 
-> **Unit-1RAT (2026-09-06): ADR-0012 A1 HUMAN-RATIFIED.** Independent review is
-> **COMPLETE — PASS WITH NONBLOCKING FINDINGS**; production correction and U1-U14 evidence are
-> ratified. C1-C6 are ratified successor contents for the **NEXT** governed supersession task;
-> H7/H8 remain byte-identical. Baseline supersession is NEXT. Canonical integration is NEXT only
-> after post-supersession validation. ADR-0011 Q4's numeric unit prerequisite is ratified as
-> satisfied but Q4 is not canonically closed; PB7 is incomplete. INV-09 remains INTENDED BUT
-> UNVERIFIED / unresolved and INV-11 remains UNRESOLVED. No Phase-5B production, Btilde, paper
-> Z/W, evolution, or BNV work begins. Evidence:
-> `docs/validation/RELATIVISTIC_UNIT_BOUNDARY_RATIFICATION.md:1`.
+> **Unit-1I (2026-09-06): ADR-0012 A1 COMPLETE FOR ORDINARY-NSTAR SCOPE.** The production
+> correction is accepted, implemented, independently reviewed, and human-ratified. C1-C6 were
+> freshly regenerated with exact ratified hashes and installed as the only six governed baseline
+> changes; H7/H8 were retained byte-identically. Post-supersession validation passed 30/30
+> data-free and 53/53 complete-suite tests with zero failures. Canonical integration closes only
+> the ADR-0011 Q4 relativistic-unit-boundary prerequisite. PB7 remains NOT COMPLETE; INV-09
+> remains INTENDED BUT UNVERIFIED / UNRESOLVED and INV-11 remains UNRESOLVED. Phase-5B
+> production, Btilde, paper Z/W, evolution, and BNV have not begun. Evidence:
+> `docs/validation/RELATIVISTIC_UNIT_BOUNDARY_BASELINE_SUPERSESSION.md`.
 >
 > **Durable follow-up debt:** audit and, if scientifically authorized, reconcile the `MixedStar`
 > relativistic unit boundary in a separate task. For future major validation campaigns, make
 > named focused selections durable in tracked test metadata or documentation. Neither debt item
-> is implemented by Unit-1RAT.
+> is implemented by Unit-1I.
 > Earlier entries below retain their historical scope.
 
 

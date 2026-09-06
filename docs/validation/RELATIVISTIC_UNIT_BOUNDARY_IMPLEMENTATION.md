@@ -1,9 +1,18 @@
 # Relativistic unit boundary — Unit-1D final candidate validation
 
-**UNIT-1RAT STATUS ADDENDUM — HUMAN-RATIFIED 2026-09-06**
+**UNIT-1I CLOSEOUT ADDENDUM — GOVERNED BASELINE SUPERSESSION AND POST-SUPERSESSION VALIDATION
+COMPLETE.** The fresh canonical producer outputs matched all six ratified successor hashes and
+were installed as exactly six baseline changes; H7/H8 remained byte-identical. The authenticated
+data-free suite passed 30/30 and the serial complete suite passed 53/53, with zero failures and
+return code zero. Canonical integration of this package completes ordinary-`NStar` ADR-0012 A1
+and closes only the ADR-0011 Q4 relativistic-unit-boundary prerequisite. PB7 remains NOT COMPLETE,
+INV-09 remains INTENDED BUT UNVERIFIED / UNRESOLVED, INV-11 and source-qualified `M_max`
+semantics remain UNRESOLVED, and `MixedStar` reconciliation remains nonblocking future debt.
+Evidence: `docs/validation/RELATIVISTIC_UNIT_BOUNDARY_BASELINE_SUPERSESSION.md`.
 
-Independent review is complete with disposition **PASS WITH NONBLOCKING FINDINGS**. The human
-owner ratifies ADR-0012 A1, the U1-U14 evidence below, both test-semantics adjudications, and
+**Historical Unit-1RAT state.** Independent review was complete with disposition **PASS WITH
+NONBLOCKING FINDINGS**. The human
+owner had ratified ADR-0012 A1, the U1-U14 evidence below, both test-semantics adjudications, and
 C1-C6 as successor contents for the next governed supersession task. H7/H8 remain byte-identical.
 Governed baselines and canonical master are unchanged. ADR-0011 Q4's numeric unit prerequisite
 is ratified as satisfied, but Q4 remains open pending governed supersession/integration; PB7 is
@@ -489,22 +498,22 @@ No production file changed relative to the authenticated starting candidate duri
 baseline hashes remain historical; `git diff -- tests/baselines/` is empty and `git diff --check`
 passes.
 
-Candidate identity is the commit containing this record, with entry parent
-`1d22dd1f5a0d1afa18c4cedebb36b28fdae49df4`; the resulting UNIT1_SHA and transport authentication
-are recorded in the external Unit-1D final report to avoid a self-referential commit hash.
-Canonical master must remain at the entry SHA. No merge, baseline supersession,
-Phase-5B implementation, Btilde, paper Z/W, new evolution implementation, or BNV work occurs.
-Existing passive-cooling validation is the authorized revalidation, not a new evolution implementation.
-ADR-0012 A1: IMPLEMENTED + CANDIDATE VALIDATED + HUMAN-RATIFIED.
-Independent review: COMPLETE — PASS WITH NONBLOCKING FINDINGS. Governed baseline supersession: PENDING.
-ADR-0011 Q4: NUMERIC UNIT PREREQUISITE SATISFIED IN CANDIDATE; NOT YET CLOSED.
-PB7 itself remains incomplete; INV-09 remains INTENDED BUT UNVERIFIED and INV-11 UNRESOLVED.
-The qualified FR2005 common-state row is preserved; source-qualified M_max remains unratified.
+**Historical Unit-1D boundary.** Candidate identity was the commit containing this record, with
+entry parent `1d22dd1f5a0d1afa18c4cedebb36b28fdae49df4`; the resulting UNIT1_SHA and transport
+authentication were recorded externally to avoid a self-referential commit hash. At that stage,
+canonical master remained at the entry SHA and no merge or baseline supersession occurred.
 
-## 15. Exactly one recommended next action — updated after ratification
+**Current Unit-1I closeout.** ADR-0012 A1 is implemented, candidate-validated, independently
+reviewed, human-ratified, governed-baseline superseded, and post-supersession validated. Canonical
+integration closes only the ADR-0011 Q4 relativistic-unit-boundary prerequisite. PB7 remains NOT
+COMPLETE; INV-09 remains INTENDED BUT UNVERIFIED / UNRESOLVED; INV-11 and source-qualified
+`M_max` semantics remain UNRESOLVED. Existing passive-cooling validation is not a new evolution
+implementation. Phase-5B implementation, Btilde, paper Z/W, new evolution implementation, and
+BNV have not begun.
 
-Perform a separate governed baseline-supersession and canonical-integration task: regenerate
-and install only C1-C6 through their canonical producers, preserve H7/H8, rerun the complete
-53-test suite expecting 53/53 PASS after supersession, independently authenticate all new
-governed hashes, then fast-forward master through UNIT1_SHA and RATIFICATION_SHA only if every
-post-supersession check passes. Do not begin that action automatically.
+## 15. Exactly one recommended next action — after canonical integration
+
+Open a fresh Phase-5B implementation branch/worktree from the new canonical master and implement
+the accepted ADR-0011 measure-complete global particle-number structural response, then execute
+PB1-PB14 and independent review before attempting to close INV-09. Do not begin that action
+automatically.

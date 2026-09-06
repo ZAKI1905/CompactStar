@@ -102,16 +102,16 @@ ADR-0001 Consequences.
 
 ## INV-02 — Unit boundaries: CGS inside TOV, geometric outside — **VERIFIED CURRENT BEHAVIOR**
 
-**Unit-1RAT (2026-09-06): ADR-0012 A1 HUMAN-RATIFIED.** Independent review is complete with
-PASS WITH NONBLOCKING FINDINGS. The ordinary-`NStar` representation correction and U1-U14
-candidate evidence are ratified; C1-C6 are authorized for the next governed supersession and
-H7/H8 remain byte-identical. Baselines and canonical master are unchanged. ADR-0011 Q4's
-numeric unit prerequisite is ratified as satisfied, but Q4 remains open pending governed
-supersession/integration and PB7 remains incomplete. INV-09 remains INTENDED BUT UNVERIFIED /
-unresolved; INV-11 remains UNRESOLVED. The metric identity in U3 is an internal representation
-check, not an independent falsifier; the mass, hydrostatic, `nuprime`, and pressure/`nuprime`
-identities are load-bearing. No Phase-5B production, Btilde, paper Z/W, evolution, or BNV work
-begins. Evidence: `docs/validation/RELATIVISTIC_UNIT_BOUNDARY_RATIFICATION.md:1`.
+**Unit-1I (2026-09-06): ADR-0012 A1 COMPLETE FOR ORDINARY-NSTAR SCOPE.** The correction is
+accepted, implemented, independently reviewed, human-ratified, governed-baseline superseded, and
+post-supersession validated. C1-C6 were exact fresh regenerations and are now governed; H7/H8
+remain byte-identical. Validation passed 30/30 data-free and 53/53 complete-suite tests.
+Canonical integration closes only ADR-0011 Q4's relativistic-unit-boundary prerequisite; PB7 is
+NOT COMPLETE. INV-09 remains INTENDED BUT UNVERIFIED / UNRESOLVED and INV-11 remains UNRESOLVED.
+The metric identity in U3 is an internal representation check, not an independent falsifier; the
+mass, hydrostatic, `nuprime`, and pressure/`nuprime` identities are load-bearing. No Phase-5B
+production, Btilde, paper Z/W, evolution, or BNV work begins. Evidence:
+`docs/validation/RELATIVISTIC_UNIT_BOUNDARY_BASELINE_SUPERSESSION.md`.
 Earlier entries below retain their historical scope.
 
 
@@ -737,6 +737,15 @@ Evidence: `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:1`, `docs/validation/PHA
 ---
 
 ## INV-09 — Fixed-ε_c versus equilibrium-sequence derivatives — **INTENDED BUT UNVERIFIED**
+
+*Unit-1I closeout (2026-09-06):* ordinary-`NStar` ADR-0012 A1 is accepted, implemented,
+independently reviewed, human-ratified, governed-baseline superseded, and post-supersession
+validated. Canonical integration closes the ADR-0011 Q4 relativistic-unit-boundary prerequisite
+only. PB7 is still **NOT COMPLETE** as a Phase-5B production-validation claim; INV-09 remains
+**INTENDED BUT UNVERIFIED / UNRESOLVED** and INV-11 remains **UNRESOLVED**. Source-qualified
+`M_max` selection semantics remain unresolved, and `MixedStar` unit reconciliation is
+nonblocking future debt. Phase-5B production, Btilde, paper Z/W, evolution, and BNV have not
+begun. Evidence: `docs/validation/RELATIVISTIC_UNIT_BOUNDARY_BASELINE_SUPERSESSION.md`.
 
 *Unit-0R owner ratification (2026-09-05):* **ADR-0012 ACCEPTED; A1 RELATIVISTIC
 UNIT-BOUNDARY CORRECTION AUTHORIZED; PRODUCTION CORRECTION AND REVALIDATION NOT YET

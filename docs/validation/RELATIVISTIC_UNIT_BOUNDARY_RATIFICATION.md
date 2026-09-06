@@ -4,6 +4,15 @@
 
 **THIS RATIFICATION DOES NOT ITSELF MODIFY GOVERNED BASELINES OR MASTER.**
 
+**UNIT-1I STATUS ADDENDUM — GOVERNED BASELINE SUPERSESSION AND POST-SUPERSESSION VALIDATION
+COMPLETE.** C1-C6 were freshly regenerated through their authenticated producers, matched the
+ratified hashes exactly, and were installed as the only six baseline changes; H7/H8 were retained
+byte-identically. The data-free suite passed 30/30 and the serial complete suite passed 53/53,
+both with zero failures and return code zero. Canonical integration of this closeout package
+completes ordinary-`NStar` ADR-0012 A1 and closes only the ADR-0011 Q4
+relativistic-unit-boundary prerequisite. Evidence:
+`docs/validation/RELATIVISTIC_UNIT_BOUNDARY_BASELINE_SUPERSESSION.md`.
+
 The human project owner ratifies the ordinary-star ADR-0012 A1 correction at
 `b3ce4f1303dbab68b68a82614c944c269cefebdc` (`fix: reconcile ordinary-star
 relativistic units`). The independent review disposition is:
@@ -246,23 +255,23 @@ the identity roles were distinguished before implementation in
 
 ## 10. Exact remaining boundaries
 
-- Governed baseline supersession: **NOT YET PERFORMED**.
-- Canonical integration: **NOT YET PERFORMED**.
-- ADR-0011 Q4: numeric unit prerequisite **RATIFIED AS SATISFIED**; canonical closure pending
-  governed supersession/integration.
-- PB7: **INCOMPLETE / NOT CLOSED**.
+- Governed baseline supersession: **COMPLETE — C1-C6; H7/H8 retained**.
+- Post-supersession validation: **30/30 data-free and 53/53 complete-suite PASS**.
+- Canonical integration: **COMPLETE WHEN THIS CLOSEOUT PACKAGE IS PRESENT ON CANONICAL MASTER**.
+- ADR-0011 Q4: **RELATIVISTIC-UNIT-BOUNDARY PREREQUISITE CLOSED ON CANONICAL INTEGRATION**;
+  Q4 and ADR-0011 are not otherwise complete.
+- PB7: **NOT COMPLETE** as a Phase-5B production-validation claim.
 - INV-09: **INTENDED BUT UNVERIFIED / unresolved**.
 - INV-11: **UNRESOLVED**.
 - FR2005 source-qualified `M_max`: **UNRESOLVED**.
 - Phase-5B, Btilde, paper Z/W, evolution, and BNV: **NOT BEGUN**.
-- `MixedStar` reconciliation: separate future audit; **NOT BEGUN**.
+- `MixedStar` reconciliation: **NONBLOCKING FUTURE DEBT** requiring separate authority.
 
 **THIS RATIFICATION DOES NOT ITSELF MODIFY GOVERNED BASELINES OR MASTER.**
 
 ## 11. Exactly one recommended next action
 
-Perform a separate governed baseline-supersession and canonical-integration task: regenerate
-and install only C1-C6 through their canonical producers, preserve H7/H8, rerun the complete
-53-test suite expecting 53/53 PASS after supersession, independently authenticate all new
-governed hashes, then fast-forward master through `UNIT1_SHA` and `RATIFICATION_SHA` only if
-every post-supersession check passes. Do not begin that action automatically.
+Open a fresh Phase-5B implementation branch/worktree from the new canonical master and implement
+the accepted ADR-0011 measure-complete global particle-number structural response, then execute
+PB1-PB14 and independent review before attempting to close INV-09. Do not begin that action
+automatically.
