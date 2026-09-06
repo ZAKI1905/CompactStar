@@ -32,15 +32,8 @@
  * CompactStar stores the stellar energy density in geometric units as eps [km^-2].
  * The envelope threshold rho_b is typically specified in cgs mass density units [g/cm^3].
  *
- * Conversion is performed using Zaki::Physics constants:
- *  - MEV_FM3_2_INV_KM2  : (MeV/fm^3) -> (km^-2)
- *  - MEV_FM3_2_G_CM3    : (MeV/fm^3) -> (g/cm^3)
- *
- * Therefore:
- *  - eps[km^-2] -> rho[g/cm^3] uses:
- *      rho = (eps / MEV_FM3_2_INV_KM2) * MEV_FM3_2_G_CM3
- *  - rho[g/cm^3] -> eps[km^-2] uses the inverse:
- *      eps = (rho / MEV_FM3_2_G_CM3) * MEV_FM3_2_INV_KM2
+ * Accepted ADR-0012 owns both directions in CompactStar/RelativityUnits.hpp:
+ * rho_b and profile epsilon use the same G,c as the canonical TOV solve.
  *
  * ## Algorithmic notes
  * FindTbIndex() assumes the stored energy density decreases monotonically with radius.
@@ -57,7 +50,7 @@
 #include "CompactStar/Physics/Evolution/GeometryCache.hpp"
 #include "CompactStar/Physics/Evolution/StarContext.hpp"
 
-#include "Zaki/Physics/Constants.hpp"
+#include "CompactStar/RelativityUnits.hpp"
 
 #include <cmath>
 #include <cstddef>
@@ -74,7 +67,7 @@ std::size_t FindTbIndex(const Evolution::StarContext &star, double rho_b)
 	const auto &r = star.Radius();
 
 	// Convert rho_b from g/cm^3 to km^-2
-	const double rho_b_km2 = (rho_b / Zaki::Physics::MEV_FM3_2_G_CM3) * Zaki::Physics::MEV_FM3_2_INV_KM2; // g/cm^3 to km^-2
+	const double rho_b_km2 = CompactStar::RelativityUnits::MassDensityGcm3ToEnergyKmMinus2(rho_b); // g/cm^3 to km^-2
 
 	if (rho->Size() == 0 || r->Size() == 0 || rho->Size() != r->Size())
 		throw std::runtime_error("FindTbIndex: missing or inconsistent R/Rho arrays.");

@@ -1,3 +1,4 @@
+#include "CompactStar/RelativityUnits.hpp"
 // -*- lsst-c++ -*-
 /**
  * @file StarContext.cpp
@@ -326,17 +327,13 @@ void StarContext::BuildMassDensityCache_() const
 		return;
 	}
 
-	// ---- Unit conversion factor ----
-	// eps is stored as (km^-2). Convert to rho [g/cm^3].
-	const double kKmMinus2_to_gcm3 = Zaki::Physics::MEV_FM3_2_G_CM3 /
-									 Zaki::Physics::MEV_FM3_2_INV_KM2;
-
+	// ADR-0012: invert the ordinary TOV profile convention.
 	// Build values
 	std::vector<double> rho(n);
 	for (std::size_t i = 0; i < n; ++i)
 	{
 		const double eps_km2 = (*m_eps)[i]; // adjust if DataColumn uses operator[]
-		rho[i] = eps_km2 * kKmMinus2_to_gcm3;
+		rho[i] = CompactStar::RelativityUnits::EnergyKmMinus2ToMassDensityGcm3(eps_km2);
 	}
 
 	// Construct column

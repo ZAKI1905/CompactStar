@@ -1,3 +1,4 @@
+#include "tests/relativity/fixture_units.hpp"
 // -*- lsst-c++ -*-
 /*
  * CompactStar
@@ -120,15 +121,15 @@ inline hartle_ref::Background TabulateUniform(const UniformStar &u, std::size_t 
 /// TOVPoint units: r [km], m [Msun], nu_der [1/cm], p [dyne/cm^2], e [g/cm^3].
 inline std::unique_ptr<NStar> UniformProductionStar(const UniformStar &u, std::size_t N)
 {
-	const double km2_to_gcm3 = Zaki::Physics::INV_FM4_2_G_CM3 / Zaki::Physics::INV_FM4_2_INV_KM2;
-	const double km2_to_dyn = Zaki::Physics::INV_FM4_2_Dyn_CM2 / Zaki::Physics::INV_FM4_2_INV_KM2;
+	const double km2_to_gcm3 = relativity_fixture::eps_to_rho;
+	const double km2_to_dyn = relativity_fixture::pressure_to_cgs;
 
 	std::vector<TOVPoint> pts;
 	pts.reserve(N);
 	for (std::size_t i = 0; i < N; ++i)
 	{
 		const double r = UniformGridR(u, i, N);
-		pts.emplace_back(r, u.m(r) / Zaki::Physics::SUN_M_KM, u.nuprime(r) / 1.0e5, 0.0,
+		pts.emplace_back(r, u.m(r) / relativity_fixture::solar_km, u.nuprime(r) / 1.0e5, 0.0,
 						 u.p(r) * km2_to_dyn, u.rho0 * km2_to_gcm3, 0.1, std::vector<double>{});
 	}
 	return std::make_unique<NStar>(pts);

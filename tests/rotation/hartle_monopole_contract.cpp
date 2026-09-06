@@ -1,3 +1,4 @@
+#include "tests/relativity/fixture_units.hpp"
 // -*- lsst-c++ -*-
 /*
  * CompactStar
@@ -166,9 +167,9 @@ static std::vector<TOVPoint> UniformPoints(const UniformStar &u, std::size_t N,
 										   bool supply_dedp)
 {
 	const double km2_to_gcm3 =
-		Zaki::Physics::INV_FM4_2_G_CM3 / Zaki::Physics::INV_FM4_2_INV_KM2;
+		relativity_fixture::eps_to_rho;
 	const double km2_to_dyn =
-		Zaki::Physics::INV_FM4_2_Dyn_CM2 / Zaki::Physics::INV_FM4_2_INV_KM2;
+		relativity_fixture::pressure_to_cgs;
 	const double r0 = 1.0e-5;
 
 	std::vector<TOVPoint> pts;
@@ -180,7 +181,7 @@ static std::vector<TOVPoint> UniformPoints(const UniformStar &u, std::size_t N,
 		// Incompressible matter: d(eps)/dp = 0 EXACTLY. Supplied explicitly through the
 		// Phase-4C-I0 mechanism, never reconstructed from the radial profile.
 		const double dedp = supply_dedp ? 0.0 : std::numeric_limits<double>::quiet_NaN();
-		pts.emplace_back(r, u.m(r) / Zaki::Physics::SUN_M_KM, u.nuprime(r) / 1.0e5, 0.0,
+		pts.emplace_back(r, u.m(r) / relativity_fixture::solar_km, u.nuprime(r) / 1.0e5, 0.0,
 						 u.p(r) * km2_to_dyn, u.rho0 * km2_to_gcm3, 0.1,
 						 std::vector<double>{}, dedp);
 	}

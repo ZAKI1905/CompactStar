@@ -1,5 +1,17 @@
 # CompactStar — Current Architecture
 
+> **Unit-1D candidate (2026-09-06): ADR-0012 A1 production correction IMPLEMENTED + CANDIDATE VALIDATED.**
+> Focused 42/42 and data-free 30/30 pass; full raw 50 PASS / 3 FAIL (rc=8),
+> classified A=50, B=3, C=0. Every Category-B output equals its validated successor exactly.
+> C1–C6 are repeatable successor candidates, not governed baselines; H7/H8 remain byte-identical.
+> Independent review: PENDING. Human ratification: PENDING. Governed baseline supersession: PENDING.
+> ADR-0011 Q4: NUMERIC UNIT PREREQUISITE SATISFIED IN CANDIDATE; NOT YET CLOSED; PB7 incomplete.
+> INV-09 remains INTENDED BUT UNVERIFIED (unresolved); INV-11 remains UNRESOLVED.
+> No Phase-5B production, Btilde, paper Z/W, evolution, or BNV work begins.
+> Evidence: `docs/validation/RELATIVISTIC_UNIT_BOUNDARY_IMPLEMENTATION.md:1`.
+> Earlier entries below retain their historical scope.
+
+
 > **Track-R Structure-1 (2026-09-05): HUMAN-RATIFIED WITH QUALIFIED CLAIM — STATIC FREE-GAS STRUCTURE AND COMMON-STATE FR2005 TABLE-1 NUMBERS VERIFIED.** At the source's printed `rho_c = 1.10e15 g cm^-3`, one common central state reproduces `M`, `R`, and `R_infinity` with no source-bin widening, mass fitting, or EOS tuning and with independent TOV validation. The source-qualified `M_max` selection semantics remain unresolved; the continuous pre-Sigma supremum is not claimed as reproduced. INV-09/INV-11 and global response/evolution scope are unchanged. Evidence: `docs/validation/TRACKR_FREEGAS_WHOLESTAR_STRUCTURE1_RATIFICATION.md:1`.
 
 > **Historical Phase 5A-5 state (2026-09-05): TRACK-R FREE-GAS LOCAL THERMODYNAMIC COVERAGE HUMAN-RATIFIED AND COMPLETE — WHOLE-STAR STRUCTURE REPRODUCTION READY.** Typed active results cover

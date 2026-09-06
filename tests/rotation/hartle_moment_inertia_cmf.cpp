@@ -1,3 +1,4 @@
+#include "tests/relativity/fixture_units.hpp"
 // -*- lsst-c++ -*-
 /*
  * CompactStar
@@ -51,19 +52,12 @@ using CompactStar::Core::TOVSolver;
 // ---------------------------------------------------------------------------
 //  Geometric <-> physical conversion.
 //
-//  A geometric moment of inertia has dimensions of length^3; I_phys = I_geom * c^2/G.
-//    c^2/G = (2.99792458e10 cm/s)^2 / 6.67430e-8 cgs = 1.346590922e28 g/cm
-//    I[g cm^2] = I[km^3] * 1e15 (cm^3/km^3) * 1.346590922e28 (g/cm)
-//
-//  NOTE, recorded rather than silently absorbed: the repository's own
-//  Zaki::Physics::SUN_M_KM = 1.476625038050 km corresponds to M_sun = 1.98835e33 g under
-//  this c^2/G, while GSL_CONST_CGSM_SOLAR_MASS = 1.98892e33 g. That is a pre-existing
-//  ~2.8e-4 inconsistency between two constants in the build. It affects ONLY the cgs
-//  number printed for reference; every validation comparison below is performed in
-//  consistent geometric units (km) and is untouched by it.
+//  A geometric moment of inertia has dimensions length^3. For this GSL-solved
+//  spacetime I_phys = I_geom * 1e15 * c_TOV^2/G_TOV (ADR-0012).
+//  Independent test-side literals; no production conversion helper is imported.
 // ---------------------------------------------------------------------------
-static const double kC2_over_G = 1.346590922e28;	   // g/cm
-static const double kKm3_to_gcm2 = 1.0e15 * kC2_over_G; // 1.346590922e43
+static const double kC2_over_G = 29979245800. * 29979245800. / 6.673e-8;
+static const double kKm3_to_gcm2 = 1.0e15 * kC2_over_G;
 
 static int g_fail = 0;
 static void Report(const std::string &id, bool ok, const std::string &d)
@@ -222,7 +216,7 @@ int main(int argc, char **argv)
 		w.d_prod_ref = Rel(w.I_prod, w.I_ref);
 		w.d_surf_vol = Rel(w.I_vol, w.I_ref);
 
-		const double M_km = w.M * Zaki::Physics::SUN_M_KM;
+		const double M_km = w.M * relativity_fixture::solar_km;
 		w.C = M_km / w.R;
 		w.I_over_MR2 = w.I_prod / (M_km * w.R * w.R);
 		w.Ibar = w.I_prod / (M_km * M_km * M_km);
@@ -360,20 +354,48 @@ int main(int argc, char **argv)
 			   errors.size() == 5 && errors[3] < errors[2] && errors[2] < errors[1],
 			   "own relative errors at 5000 -> 10000 -> 20000 contract; 40000 is reference");
 
-		double worst = 0, best = 1.0;
+		double worst = 0;
 		for (std::size_t i = 0; i < Ip_seq.size(); ++i)
 			if (Ir_seq[i] > 0)
 			{
 				const double d = Rel(Ip_seq[i], Ir_seq[i]);
 				worst = std::max(worst, d);
-				best = std::min(best, d);
 			}
 		Report("B3b production tracks the reference at every resolution", worst < 1e-3,
 			   "worst production/reference difference " + Sci(worst));
-		Report("B3c the production/reference agreement is resolution-INDEPENDENT, so the "
-			   "residual grid sensitivity belongs to the TOV background, not to Hartle",
-			   worst > 0.0 && worst / best < 3.0,
-			   "prod/ref difference stays in [" + Sci(best) + ", " + Sci(worst) + "]");
+
+		// ADR-0012 removes the historical resolution-independent mixed-unit offset. The
+		// independent-solver disagreement must now be subdominant to the production
+		// background-resolution scale, with the owner-accepted factor-of-two separation.
+		constexpr double kSubdominanceAlpha = 0.5;
+		constexpr std::size_t kResolutions[] = {2500, 5000, 10000, 20000, 40000};
+		bool envelope_ok = Ip_seq.size() == 5 && Ir_seq.size() == Ip_seq.size();
+		double max_res_over_scale = 0.0;
+		std::cout << "      B3c' resolution envelope: res_k  s_k  res_k/s_k\n";
+		if (envelope_ok)
+		{
+			const double finest = Ip_seq.back();
+			for (std::size_t i = 0; i < Ip_seq.size(); ++i)
+			{
+				const double residual = Rel(Ip_seq[i], Ir_seq[i]);
+				const double scale = i + 1 == Ip_seq.size()
+					? Rel(Ip_seq[i - 1], finest)
+					: Rel(Ip_seq[i], finest);
+				const double ratio = scale > 0.0 ? residual / scale : std::nan("");
+				std::cout << "      " << kResolutions[i] << "  " << Sci(residual, 8) << "  "
+						  << Sci(scale, 8) << "  " << Sci(ratio, 8) << "\n";
+				envelope_ok = envelope_ok && Ir_seq[i] > 0.0 && std::isfinite(residual) &&
+							  std::isfinite(scale) && scale > 0.0 && std::isfinite(ratio) &&
+							  residual <= kSubdominanceAlpha * scale;
+				if (std::isfinite(ratio))
+					max_res_over_scale = std::max(max_res_over_scale, ratio);
+			}
+		}
+		Report("B3c production/reference disagreement is subdominant to the "
+			   "background-resolution scale",
+			   envelope_ok,
+			   "max res_k/s_k " + Sci(max_res_over_scale, 8) +
+				   " with alpha " + Sci(kSubdominanceAlpha, 1));
 	}
 
 	// =======================================================================
@@ -402,8 +424,8 @@ int main(int argc, char **argv)
 	{
 		std::ofstream o(emit);
 		o << "# Phase 2B-4B — scale-free first-order Hartle I on DS(CMF)-1_with_crust\n"
-		  << "# I in geometric km^3; I_cgs = I_km3 * 1.346590922e43 g cm^2\n"
-		  << "# Ibar = I/M^3 and C = M/R in geometric units (SUN_M_KM = 1.476625038050 km)\n"
+		  << "# I in GSL-geometric km^3; I_cgs = I_km3 * 1e15 * c_TOV^2/G_TOV\n"
+		  << "# Ibar = I/M^3 and C = M/R in coherent GSL geometry (ADR-0012)\n"
 		  << "# Breu-Rezzolla and Lattimer-Schutz are SANITY FITS, not reference truth.\n"
 		  << "M_target\tM_achieved\tR_km\tcompactness\tepsilon_c\tradial_res\tN_profile"
 			 "\tI_production_km3\tI_reference_km3\tI_volume_km3\tprod_ref_rel\tsurf_vol_rel"

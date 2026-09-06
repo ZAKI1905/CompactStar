@@ -1,3 +1,4 @@
+#include "tests/relativity/fixture_units.hpp"
 // -*- lsst-c++ -*-
 /*
  * CompactStar
@@ -239,9 +240,9 @@ static SeqPt SequencePoint(const fs::path &cold, const fs::path &wrk, double ec,
 	o.complete = tov.LastSolveStatus() == TOVSolveStatus::SURFACE_REACHED && pts.back().p == tov.PressureCutoff();
 	if (!o.complete)
 		return o;
-	o.M_km = pts.back().m * Zaki::Physics::SUN_M_KM;
-	o.pc = pts.front().p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2;
-	o.ec = pts.front().e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3;
+	o.M_km = pts.back().m * relativity_fixture::solar_km;
+	o.pc = pts.front().p * relativity_fixture::pressure_to_geo;
+	o.ec = pts.front().e * relativity_fixture::rho_to_eps;
 	return o;
 }
 
@@ -464,7 +465,7 @@ int main(int argc, char **argv)
 	const eos_knots::Knots knots = eos_knots::Read(cold.string());
 	Report("K0 EOS-table knots read for the knot-refined measure partition", knots.ok,
 		   std::to_string(knots.rows) + " rows");
-	const double km2_to_gcm3 = Zaki::Physics::INV_FM4_2_G_CM3 / Zaki::Physics::INV_FM4_2_INV_KM2;
+	const double km2_to_gcm3 = relativity_fixture::eps_to_rho;
 
 	// =====================================================================
 	//  Z + G + F + C — four stars

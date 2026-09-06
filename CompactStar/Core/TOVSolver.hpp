@@ -316,7 +316,11 @@ struct EOSTable
 // Struct representing TOV solution points
 struct TOVPoint
 {
-	// [Nov 1, 2025] m is in solar mass units
+	// The canonical integrator holds raw mass in grams internally. Publication:
+	// r [km], m = m_grams/GSL_CONST_CGSM_SOLAR_MASS (literal public ratio),
+	// nu_der [cm^-1], p [dyn/cm^2], e [g/cm^3], rho [fm^-3].
+	// Ordinary NStar maps m,p,e,nu_der to one GSL spacetime via RelativityUnits
+	// (ADR-0012); m here is neither geometric km nor an IAU nominal GM ratio.
 	double r, m, nu_der, nu, p, e, rho;
 	std::vector<double> rho_i;
 

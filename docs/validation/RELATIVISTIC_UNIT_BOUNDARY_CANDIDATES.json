@@ -1,0 +1,1282 @@
+{
+  "status": "UNIT-1 A1 RELATIVISTIC UNIT CORRECTION IMPLEMENTED AND VALIDATED \u2014 INDEPENDENT REVIEW REQUIRED",
+  "artifacts": [
+    {
+      "filename": "baryon_number_dscmf1_reference.tsv",
+      "historical_sha256": "7b036942f2ae599ace3b2fc8b9a7d91f6d11b5899ab7e8a88d2bb4ee6686493b",
+      "candidate_sha256": "90d607519cbdf3c4a0bf6ef50cc8fd22a8526b5db0354dc319e96854da29041d",
+      "producer": [
+        "/tmp/unit1-a1/build-full/tests/baryon_number_cmf",
+        "/Users/keeper/Documents/CompactStar/data/compose",
+        "--emit",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-relativity-units-a1/build/unit1c/candidates-run1/baryon_number_dscmf1_reference.tsv"
+      ],
+      "repeatability": "PASS: two clean generations identical",
+      "validation": [
+        "U10 independent CGS/nodal/Gauss/analytic counts and whole-baryon semantics PASS",
+        "build/unit1c/baryon.json",
+        "build/unit1c/count-thermal-cmf.log"
+      ],
+      "expected_disposition": "SUPERSEDE only after completed validation, independent review and human ratification",
+      "candidate_path": "build/unit1c/candidates-run1/baryon_number_dscmf1_reference.tsv",
+      "repeatability_sha256": "90d607519cbdf3c4a0bf6ef50cc8fd22a8526b5db0354dc319e96854da29041d",
+      "numerical_delta": {
+        "B": {
+          "changed_rows": 4,
+          "max_absolute": 4.907973834036714e+52,
+          "max_absolute_relative": 1.787583333285529e-05,
+          "first_signed_relative": 6.054807186399444e-06
+        }
+      },
+      "package_status": "CANDIDATE VALIDATION COMPLETE; INDEPENDENT REVIEW AND HUMAN RATIFICATION PENDING",
+      "role": "Baryon number",
+      "historical_id": "H5",
+      "candidate_id": "C5",
+      "historical_path": "tests/baselines/baryon_number_dscmf1_reference.tsv",
+      "candidate_status": "VALIDATED SUCCESSOR CANDIDATE \u2014 NOT YET GOVERNED BASELINE",
+      "disposition": "PENDING independent review and human ratification before governed baseline supersession",
+      "full_suite": {
+        "test_name": "baryon_number_cmf",
+        "category": "B",
+        "raw_state": "***Failed",
+        "evidence": "build/unit1d/baryon_number_cmf.log",
+        "comparison_mode": "historical governed baseline comparator",
+        "byte_authentication": {
+          "name": "baryon_number_cmf",
+          "raw_state": "***Failed",
+          "category": "B",
+          "artifact": "baryon_number_dscmf1_reference.tsv",
+          "historical_path": "tests/baselines/baryon_number_dscmf1_reference.tsv",
+          "historical_sha256": "7b036942f2ae599ace3b2fc8b9a7d91f6d11b5899ab7e8a88d2bb4ee6686493b",
+          "actual_output_sha256": "90d607519cbdf3c4a0bf6ef50cc8fd22a8526b5db0354dc319e96854da29041d",
+          "expected_candidate_sha256": "90d607519cbdf3c4a0bf6ef50cc8fd22a8526b5db0354dc319e96854da29041d",
+          "exact_equality": true,
+          "sole_historical_comparison_failure": true,
+          "producer": "/tmp/unit1-a1/build-full/tests/baryon_number_cmf",
+          "authorization": "Accepted ADR-0012 Q5/U14; independently validated repeatable successor; governed baseline unchanged"
+        }
+      },
+      "independent_validation_evidence": [
+        "U10 independent CGS/nodal/Gauss/analytic counts and whole-baryon semantics PASS",
+        "build/unit1c/baryon.json",
+        "build/unit1c/count-thermal-cmf.log"
+      ],
+      "repeatability_result": "PASS: two clean generations identical",
+      "repeatability_paths": [
+        "build/unit1c/candidates-run1/baryon_number_dscmf1_reference.tsv",
+        "build/unit1c/candidates-run2/baryon_number_dscmf1_reference.tsv"
+      ]
+    },
+    {
+      "filename": "grid_convergence_cmf_1p6_debug.tsv",
+      "historical_sha256": "2c68e2f7e871192e00322bcc12b6d8b13eb7fdbda4a6d8d7050f26f0271ce5eb",
+      "candidate_sha256": "b48519c3e948e9979a385d19facee2777d15955eeb8711b4bdd46b81fef74741",
+      "producer": [
+        "/tmp/unit1-a1/build-full/tests/grid_convergence_cmf",
+        "/Users/keeper/Documents/CompactStar/data/compose",
+        "--emit-dir",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-relativity-units-a1/build/unit1c/grid-run1"
+      ],
+      "repeatability": "PASS: two clean generations identical",
+      "validation": [
+        "U7 canonical producer scientific checks PASS twice",
+        "build/unit1c/grid-generation.json",
+        "build/unit1c/thermal-accounting.json"
+      ],
+      "expected_disposition": "SUPERSEDE only after completed validation, independent review and human ratification",
+      "candidate_path": "build/unit1c/grid-run1/grid_convergence_cmf_1p6_debug.tsv",
+      "repeatability_sha256": "b48519c3e948e9979a385d19facee2777d15955eeb8711b4bdd46b81fef74741",
+      "numerical_delta": {
+        "B": {
+          "changed_rows": 14,
+          "max_absolute": 2.3652257000138065e+52,
+          "max_absolute_relative": 1.1130336499747405e-05,
+          "first_signed_relative": 1.1130336499747405e-05
+        },
+        "z_surf": {
+          "changed_rows": 14,
+          "max_absolute": 1.3432175799965584e-05,
+          "max_absolute_relative": 1.6669562925670114e-05,
+          "first_signed_relative": -1.666956280131051e-05
+        },
+        "Cstar_1e8": {
+          "changed_rows": 14,
+          "max_absolute": 7.044351200001928e+33,
+          "max_absolute_relative": 2.8975934553046993e-05,
+          "first_signed_relative": 2.8975934553046993e-05
+        },
+        "Lnu_1e8": {
+          "changed_rows": 14,
+          "max_absolute": 3.1480237000030844e+35,
+          "max_absolute_relative": 7.055533848451108e-05,
+          "first_signed_relative": 7.052228548143729e-05
+        },
+        "Lgamma_1e8": {
+          "changed_rows": 14,
+          "max_absolute": 7.43401539999244e+29,
+          "max_absolute_relative": 8.539714995891114e-05,
+          "first_signed_relative": 8.539714983505655e-05
+        },
+        "dlnT_dt_1e8": {
+          "changed_rows": 14,
+          "max_absolute": 7.641611900019518e-12,
+          "max_absolute_relative": 4.158503273824652e-05,
+          "first_signed_relative": 4.154517651985278e-05
+        }
+      },
+      "package_status": "CANDIDATE VALIDATION COMPLETE; INDEPENDENT REVIEW AND HUMAN RATIFICATION PENDING",
+      "role": "Grid convergence debug",
+      "historical_id": "H2",
+      "candidate_id": "C2",
+      "historical_path": "tests/baselines/grid_convergence_cmf_1p6_debug.tsv",
+      "candidate_status": "VALIDATED SUCCESSOR CANDIDATE \u2014 NOT YET GOVERNED BASELINE",
+      "disposition": "PENDING independent review and human ratification before governed baseline supersession",
+      "full_suite": {
+        "test_name": "grid_convergence_cmf",
+        "category": "A",
+        "raw_state": "Passed",
+        "evidence": "build/unit1d/grid_convergence_cmf.log",
+        "comparison_mode": "producer scientific assertions; preserved output bytes authenticated separately"
+      },
+      "independent_validation_evidence": [
+        "U7 canonical producer scientific checks PASS twice",
+        "build/unit1c/grid-generation.json",
+        "build/unit1c/thermal-accounting.json"
+      ],
+      "repeatability_result": "PASS: two clean generations identical",
+      "repeatability_paths": [
+        "build/unit1c/grid-run1/grid_convergence_cmf_1p6_debug.tsv",
+        "build/unit1c/grid-run2/grid_convergence_cmf_1p6_debug.tsv"
+      ]
+    },
+    {
+      "filename": "grid_convergence_cmf_1p6_trajectory.tsv",
+      "historical_sha256": "7c84557742ec0ec747756d118b2837fb54095a94c10194d4ccc2d0a778f5b04f",
+      "candidate_sha256": "d5b753932c0523e67a7f25b460c7494bec1a006a8d01c9e43124cb2e78f0720f",
+      "producer": [
+        "/tmp/unit1-a1/build-full/tests/grid_convergence_cmf",
+        "/Users/keeper/Documents/CompactStar/data/compose",
+        "--emit-dir",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-relativity-units-a1/build/unit1c/grid-run1"
+      ],
+      "repeatability": "PASS: two clean generations identical",
+      "validation": [
+        "U7 canonical producer scientific checks PASS twice",
+        "build/unit1c/grid-generation.json",
+        "build/unit1c/thermal-accounting.json"
+      ],
+      "expected_disposition": "SUPERSEDE only after completed validation, independent review and human ratification",
+      "candidate_path": "build/unit1c/grid-run1/grid_convergence_cmf_1p6_trajectory.tsv",
+      "repeatability_sha256": "d5b753932c0523e67a7f25b460c7494bec1a006a8d01c9e43124cb2e78f0720f",
+      "numerical_delta": {
+        "Tinf_K": {
+          "changed_rows": 56,
+          "max_absolute": 128.70746000111103,
+          "max_absolute_relative": 6.50819523971057e-05,
+          "first_signed_relative": -1.0518409627526784e-05
+        },
+        "L_nu_inf": {
+          "changed_rows": 63,
+          "max_absolute": 3.148053179995329e+41,
+          "max_absolute_relative": 0.0003199107989273397,
+          "first_signed_relative": 7.052252279003862e-05
+        },
+        "L_gamma_inf": {
+          "changed_rows": 63,
+          "max_absolute": 1.955345279999191e+32,
+          "max_absolute_relative": 8.539715027042719e-05,
+          "first_signed_relative": 8.539715005086528e-05
+        },
+        "C_star": {
+          "changed_rows": 63,
+          "max_absolute": 7.042475700011107e+34,
+          "max_absolute_relative": 3.748194635784362e-05,
+          "first_signed_relative": 2.8975934612037223e-05
+        }
+      },
+      "package_status": "CANDIDATE VALIDATION COMPLETE; INDEPENDENT REVIEW AND HUMAN RATIFICATION PENDING",
+      "role": "Grid convergence trajectory",
+      "historical_id": "H3",
+      "candidate_id": "C3",
+      "historical_path": "tests/baselines/grid_convergence_cmf_1p6_trajectory.tsv",
+      "candidate_status": "VALIDATED SUCCESSOR CANDIDATE \u2014 NOT YET GOVERNED BASELINE",
+      "disposition": "PENDING independent review and human ratification before governed baseline supersession",
+      "full_suite": {
+        "test_name": "grid_convergence_cmf",
+        "category": "A",
+        "raw_state": "Passed",
+        "evidence": "build/unit1d/grid_convergence_cmf.log",
+        "comparison_mode": "producer scientific assertions; preserved output bytes authenticated separately"
+      },
+      "independent_validation_evidence": [
+        "U7 canonical producer scientific checks PASS twice",
+        "build/unit1c/grid-generation.json",
+        "build/unit1c/thermal-accounting.json"
+      ],
+      "repeatability_result": "PASS: two clean generations identical",
+      "repeatability_paths": [
+        "build/unit1c/grid-run1/grid_convergence_cmf_1p6_trajectory.tsv",
+        "build/unit1c/grid-run2/grid_convergence_cmf_1p6_trajectory.tsv"
+      ]
+    },
+    {
+      "filename": "hartle_I_dscmf1_debug.tsv",
+      "historical_sha256": "a21d4c3f6d89322cb4cca7a073e0e142f180e529332d704b7b16a145eae741c9",
+      "candidate_sha256": "034ecddbd9bd847650429d7dc87d0331ec9e87aca3862ff87594e4bff5b707dd",
+      "producer": [
+        "/tmp/unit1-a1/build-full/tests/hartle_moment_inertia_cmf",
+        "/Users/keeper/Documents/CompactStar/data/compose",
+        "--emit",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-relativity-units-a1/build/unit1c/candidates-run1/hartle_I_dscmf1_debug.tsv"
+      ],
+      "repeatability": "PASS: two clean generations identical",
+      "validation": [
+        "Owner-approved B3c-prime; U8 6/6 tests and 97/97 assertions PASS",
+        "docs/validation/RELATIVISTIC_UNIT_BOUNDARY_B3C_ADJUDICATION.md",
+        "build/unit1c/u8.log"
+      ],
+      "expected_disposition": "SUPERSEDE only after completed validation, independent review and human ratification",
+      "candidate_path": "build/unit1c/candidates-run1/hartle_I_dscmf1_debug.tsv",
+      "repeatability_sha256": "034ecddbd9bd847650429d7dc87d0331ec9e87aca3862ff87594e4bff5b707dd",
+      "numerical_delta": {
+        "compactness": {
+          "changed_rows": 4,
+          "max_absolute": 1.4334751999994788e-05,
+          "max_absolute_relative": 6.172443238007447e-05,
+          "first_signed_relative": 6.172443180394371e-05
+        },
+        "I_production_km3": {
+          "changed_rows": 4,
+          "max_absolute": 0.02232932460000825,
+          "max_absolute_relative": 0.00016252123026391563,
+          "first_signed_relative": -0.00016252123026391563
+        },
+        "I_reference_km3": {
+          "changed_rows": 4,
+          "max_absolute": 0.01966316529998835,
+          "max_absolute_relative": 0.0001516397835671658,
+          "first_signed_relative": -0.0001516397835671658
+        },
+        "I_volume_km3": {
+          "changed_rows": 4,
+          "max_absolute": 0.019663148999995883,
+          "max_absolute_relative": 0.00015163977130569766,
+          "first_signed_relative": -0.00015163977130569766
+        },
+        "prod_ref_rel": {
+          "changed_rows": 4,
+          "max_absolute": 1.6706378083564e-05,
+          "max_absolute_relative": 0.8829331395480611,
+          "first_signed_relative": -0.6746003686213161
+        },
+        "surf_vol_rel": {
+          "changed_rows": 4,
+          "max_absolute": 2.8050588899975582e-11,
+          "max_absolute_relative": 3.483224877385683e-05,
+          "first_signed_relative": -1.8230758780019512e-05
+        },
+        "I_cgs": {
+          "changed_rows": 4,
+          "max_absolute": 2.0894219300019857e+41,
+          "max_absolute_relative": 8.009608001711453e-05,
+          "first_signed_relative": 3.2261662403219686e-05
+        },
+        "I_over_MR2": {
+          "changed_rows": 4,
+          "max_absolute": 7.509712859998796e-05,
+          "max_absolute_relative": 0.00022423182196024157,
+          "first_signed_relative": -0.00022423182196024157
+        },
+        "Ibar": {
+          "changed_rows": 4,
+          "max_absolute": 0.009392085340000023,
+          "max_absolute_relative": 0.0003476415790360515,
+          "first_signed_relative": -0.0003476415790360515
+        },
+        "Breu_Rezzolla": {
+          "changed_rows": 4,
+          "max_absolute": 0.0025842406099982895,
+          "max_absolute_relative": 0.00010215426883770824,
+          "first_signed_relative": -0.00010215426883770824
+        },
+        "Lattimer_Schutz_km3": {
+          "changed_rows": 4,
+          "max_absolute": 0.01198565959998632,
+          "max_absolute_relative": 6.172443237316458e-05,
+          "first_signed_relative": 6.17244321307788e-05
+        }
+      },
+      "package_status": "CANDIDATE VALIDATION COMPLETE; INDEPENDENT REVIEW AND HUMAN RATIFICATION PENDING",
+      "role": "First-order Hartle moment of inertia",
+      "historical_id": "H4",
+      "candidate_id": "C4",
+      "historical_path": "tests/baselines/hartle_I_dscmf1_debug.tsv",
+      "candidate_status": "VALIDATED SUCCESSOR CANDIDATE \u2014 NOT YET GOVERNED BASELINE",
+      "disposition": "PENDING independent review and human ratification before governed baseline supersession",
+      "full_suite": {
+        "test_name": "hartle_moment_inertia_cmf",
+        "category": "A",
+        "raw_state": "Passed",
+        "evidence": "build/unit1d/hartle_moment_inertia_cmf.log",
+        "comparison_mode": "producer scientific assertions; preserved output bytes authenticated separately"
+      },
+      "independent_validation_evidence": [
+        "Owner-approved B3c-prime; U8 6/6 tests and 97/97 assertions PASS",
+        "docs/validation/RELATIVISTIC_UNIT_BOUNDARY_B3C_ADJUDICATION.md",
+        "build/unit1c/u8.log"
+      ],
+      "repeatability_result": "PASS: two clean generations identical",
+      "repeatability_paths": [
+        "build/unit1c/candidates-run1/hartle_I_dscmf1_debug.tsv",
+        "build/unit1c/candidates-run2/hartle_I_dscmf1_debug.tsv"
+      ]
+    },
+    {
+      "filename": "hartle_monopole_dscmf1_debug.tsv",
+      "historical_sha256": "bd49e5a091ebcc59f7c4899422200181d4e71ecf552284840454d01aac4b8d52",
+      "candidate_sha256": "caaa0ac0d3219cda0a9fb518b27688afc23c6cdad1ec76a2bcd7359614a8d4e8",
+      "producer": [
+        "/tmp/unit1-a1/build-full/tests/hartle_monopole_regression",
+        "/Users/keeper/Documents/CompactStar/data/compose",
+        "--emit",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-relativity-units-a1/build/unit1c/candidates-run1/hartle_monopole_dscmf1_debug.tsv"
+      ],
+      "repeatability": "PASS: two clean generations identical",
+      "validation": [
+        "U9 independent CMF/analytic/measure/published controls and D-prime PASS",
+        "build/unit1c/dprime.log",
+        "build/unit1c/export-oracles.log",
+        "build/unit1c/focused.log"
+      ],
+      "expected_disposition": "SUPERSEDE only after completed validation, independent review and human ratification",
+      "candidate_path": "build/unit1c/candidates-run1/hartle_monopole_dscmf1_debug.tsv",
+      "repeatability_sha256": "caaa0ac0d3219cda0a9fb518b27688afc23c6cdad1ec76a2bcd7359614a8d4e8",
+      "numerical_delta": {
+        "I_km3": {
+          "changed_rows": 4,
+          "max_absolute": 0.022329324564196895,
+          "max_absolute_relative": 0.00016252123029299634,
+          "first_signed_relative": -0.00016252123029299634
+        },
+        "m0_surface_over_Omega2_km3": {
+          "changed_rows": 4,
+          "max_absolute": 0.08362276465391005,
+          "max_absolute_relative": 8.428595748348896e-05,
+          "first_signed_relative": -8.428595748348896e-05
+        },
+        "p0star_surface_over_Omega2_km2": {
+          "changed_rows": 4,
+          "max_absolute": 0.004335864720836469,
+          "max_absolute_relative": 0.00012723699565199173,
+          "first_signed_relative": 0.00012496131613480322
+        },
+        "delta_p0_surface_over_Omega2_dimensionless": {
+          "changed_rows": 4,
+          "max_absolute": 3.366273925870211e-13,
+          "max_absolute_relative": 0.00011415954956222212,
+          "first_signed_relative": -6.984000381026415e-05
+        },
+        "xi0_surface_over_Omega2_km3": {
+          "changed_rows": 4,
+          "max_absolute": 0.4129205232275126,
+          "max_absolute_relative": 0.0001272369956520959,
+          "first_signed_relative": 0.0001249613161347492
+        },
+        "surface_shell_mass_over_Omega2_km3": {
+          "changed_rows": 4,
+          "max_absolute": 6.441057214434838e-08,
+          "max_absolute_relative": 0.00011415954956206704,
+          "first_signed_relative": -6.984000381023714e-05
+        },
+        "I2_over_R3_km3": {
+          "changed_rows": 4,
+          "max_absolute": 0.004186120788816083,
+          "max_absolute_relative": 0.0003250160474356049,
+          "first_signed_relative": -0.0003250160474356049
+        },
+        "deltaM_over_Omega2_km3": {
+          "changed_rows": 4,
+          "max_absolute": 0.08463887496611733,
+          "max_absolute_relative": 8.504208532994736e-05,
+          "first_signed_relative": -8.504208532994736e-05
+        }
+      },
+      "package_status": "CANDIDATE VALIDATION COMPLETE; INDEPENDENT REVIEW AND HUMAN RATIFICATION PENDING",
+      "role": "Second-order Hartle monopole",
+      "historical_id": "H6",
+      "candidate_id": "C6",
+      "historical_path": "tests/baselines/hartle_monopole_dscmf1_debug.tsv",
+      "candidate_status": "VALIDATED SUCCESSOR CANDIDATE \u2014 NOT YET GOVERNED BASELINE",
+      "disposition": "PENDING independent review and human ratification before governed baseline supersession",
+      "full_suite": {
+        "test_name": "hartle_monopole_regression",
+        "category": "B",
+        "raw_state": "***Failed",
+        "evidence": "build/unit1d/hartle_monopole_regression.log",
+        "comparison_mode": "historical governed baseline comparator",
+        "byte_authentication": {
+          "name": "hartle_monopole_regression",
+          "raw_state": "***Failed",
+          "category": "B",
+          "artifact": "hartle_monopole_dscmf1_debug.tsv",
+          "historical_path": "tests/baselines/hartle_monopole_dscmf1_debug.tsv",
+          "historical_sha256": "bd49e5a091ebcc59f7c4899422200181d4e71ecf552284840454d01aac4b8d52",
+          "actual_output_sha256": "caaa0ac0d3219cda0a9fb518b27688afc23c6cdad1ec76a2bcd7359614a8d4e8",
+          "expected_candidate_sha256": "caaa0ac0d3219cda0a9fb518b27688afc23c6cdad1ec76a2bcd7359614a8d4e8",
+          "exact_equality": true,
+          "sole_historical_comparison_failure": true,
+          "producer": "/tmp/unit1-a1/build-full/tests/hartle_monopole_regression",
+          "authorization": "Accepted ADR-0012 Q5/U14; independently validated repeatable successor; governed baseline unchanged"
+        }
+      },
+      "independent_validation_evidence": [
+        "U9 independent CMF/analytic/measure/published controls and D-prime PASS",
+        "build/unit1c/dprime.log",
+        "build/unit1c/export-oracles.log",
+        "build/unit1c/focused.log"
+      ],
+      "repeatability_result": "PASS: two clean generations identical",
+      "repeatability_paths": [
+        "build/unit1c/candidates-run1/hartle_monopole_dscmf1_debug.tsv",
+        "build/unit1c/candidates-run2/hartle_monopole_dscmf1_debug.tsv"
+      ]
+    },
+    {
+      "filename": "passive_cooling_cmf_1p6_debug.tsv",
+      "historical_sha256": "afcad5d078fe458bdb441278ce56caa2d025becc6b489d00e9baad91a101c0de",
+      "candidate_sha256": "8fef2314673fceb939f859612f4befe94117115d6d6b3ad0dcc59d1faa68c9f9",
+      "producer": [
+        "/tmp/unit1-a1/build-full/tests/passive_cooling_regression",
+        "/Users/keeper/Documents/CompactStar/data/compose",
+        "--emit",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-relativity-units-a1/build/unit1c/candidates-run1/passive_cooling_cmf_1p6_debug.tsv"
+      ],
+      "repeatability": "PASS: two clean generations identical",
+      "validation": [
+        "U11 inverse/layer/accounting and thermal focused checks PASS; producer PASS twice",
+        "build/unit1c/thermal-accounting.json",
+        "build/unit1c/count-thermal-cmf.log",
+        "build/unit1c/focused.log"
+      ],
+      "expected_disposition": "SUPERSEDE only after completed validation, independent review and human ratification",
+      "candidate_path": "build/unit1c/candidates-run1/passive_cooling_cmf_1p6_debug.tsv",
+      "repeatability_sha256": "8fef2314673fceb939f859612f4befe94117115d6d6b3ad0dcc59d1faa68c9f9",
+      "numerical_delta": {
+        "Tinf_K": {
+          "changed_rows": 8,
+          "max_absolute": 125.50263999961317,
+          "max_absolute_relative": 6.501431964591969e-05,
+          "first_signed_relative": -1.0383606298582625e-05
+        },
+        "C_star_erg_K": {
+          "changed_rows": 9,
+          "max_absolute": 7.032008799985153e+34,
+          "max_absolute_relative": 3.7332445241294044e-05,
+          "first_signed_relative": 2.8969115792286804e-05
+        },
+        "L_nu_inf_erg_s": {
+          "changed_rows": 9,
+          "max_absolute": 3.141340149998594e+41,
+          "max_absolute_relative": 0.00031950085039360245,
+          "first_signed_relative": 7.054942226084797e-05
+        },
+        "L_nu_DU_inf_erg_s": {
+          "changed_rows": 9,
+          "max_absolute": 3.141310380003853e+41,
+          "max_absolute_relative": 0.0003195008503940872,
+          "first_signed_relative": 7.054918501707503e-05
+        },
+        "L_nu_MU_inf_erg_s": {
+          "changed_rows": 9,
+          "max_absolute": 2.9773001500009415e+36,
+          "max_absolute_relative": 0.00041068989380047753,
+          "first_signed_relative": 0.00010936319399177951
+        },
+        "L_gamma_inf_erg_s": {
+          "changed_rows": 9,
+          "max_absolute": 1.952903809998876e+32,
+          "max_absolute_relative": 8.539715007359612e-05,
+          "first_signed_relative": 8.539715007359612e-05
+        },
+        "Tsurf_K": {
+          "changed_rows": 9,
+          "max_absolute": 214.4235690003261,
+          "max_absolute_relative": 2.9683667405816658e-05,
+          "first_signed_relative": 2.9683667405816658e-05
+        },
+        "Tb_K": {
+          "changed_rows": 9,
+          "max_absolute": 20739.673000097275,
+          "max_absolute_relative": 4.8345562552908396e-05,
+          "first_signed_relative": 1.6669840533177384e-05
+        },
+        "dLnTinf_dt_1_s": {
+          "changed_rows": 9,
+          "max_absolute": 7.626977100013907e-08,
+          "max_absolute_relative": 4.157910191031336e-05,
+          "first_signed_relative": 4.157910191031336e-05
+        },
+        "Lnu_over_Lgamma": {
+          "changed_rows": 9,
+          "max_absolute": 28907.259999990463,
+          "max_absolute_relative": 0.00024757498602084123,
+          "first_signed_relative": -1.484645958618206e-05
+        }
+      },
+      "package_status": "CANDIDATE VALIDATION COMPLETE; INDEPENDENT REVIEW AND HUMAN RATIFICATION PENDING",
+      "role": "Passive cooling regression",
+      "historical_id": "H1",
+      "candidate_id": "C1",
+      "historical_path": "tests/baselines/passive_cooling_cmf_1p6_debug.tsv",
+      "candidate_status": "VALIDATED SUCCESSOR CANDIDATE \u2014 NOT YET GOVERNED BASELINE",
+      "disposition": "PENDING independent review and human ratification before governed baseline supersession",
+      "full_suite": {
+        "test_name": "passive_cooling_regression",
+        "category": "B",
+        "raw_state": "***Failed",
+        "evidence": "build/unit1d/passive_cooling_regression.log",
+        "comparison_mode": "historical governed baseline comparator",
+        "byte_authentication": {
+          "name": "passive_cooling_regression",
+          "raw_state": "***Failed",
+          "category": "B",
+          "artifact": "passive_cooling_cmf_1p6_debug.tsv",
+          "historical_path": "tests/baselines/passive_cooling_cmf_1p6_debug.tsv",
+          "historical_sha256": "afcad5d078fe458bdb441278ce56caa2d025becc6b489d00e9baad91a101c0de",
+          "actual_output_sha256": "8fef2314673fceb939f859612f4befe94117115d6d6b3ad0dcc59d1faa68c9f9",
+          "expected_candidate_sha256": "8fef2314673fceb939f859612f4befe94117115d6d6b3ad0dcc59d1faa68c9f9",
+          "exact_equality": true,
+          "sole_historical_comparison_failure": true,
+          "producer": "/tmp/unit1-a1/build-full/tests/passive_cooling_regression",
+          "authorization": "Accepted ADR-0012 Q5/U14; independently validated repeatable successor; governed baseline unchanged"
+        }
+      },
+      "independent_validation_evidence": [
+        "U11 inverse/layer/accounting and thermal focused checks PASS; producer PASS twice",
+        "build/unit1c/thermal-accounting.json",
+        "build/unit1c/count-thermal-cmf.log",
+        "build/unit1c/focused.log"
+      ],
+      "repeatability_result": "PASS: two clean generations identical",
+      "repeatability_paths": [
+        "build/unit1c/candidates-run1/passive_cooling_cmf_1p6_debug.tsv",
+        "build/unit1c/candidates-run2/passive_cooling_cmf_1p6_debug.tsv"
+      ]
+    },
+    {
+      "filename": "tov_dscmf1_reference.tsv",
+      "historical_sha256": "3d9af9129a6a4ffde9e0f8c5507a160f968a861c0cf9f3b089cceecab86b701a",
+      "candidate_sha256": "3d9af9129a6a4ffde9e0f8c5507a160f968a861c0cf9f3b089cceecab86b701a",
+      "producer": [
+        "/tmp/unit1-a1/build-full/tests/tov_reference_cmf",
+        "/Users/keeper/Documents/CompactStar/data/compose",
+        "--emit",
+        "/private/tmp/unit1-a1/candidates/tov_dscmf1_reference.tsv"
+      ],
+      "repeatability": "PASS: historical, pre-A1 and preserved A1 output byte-identical",
+      "validation": "U7 scientific test PASS; exact byte comparison PASS",
+      "expected_disposition": "RETAIN byte-identical after revalidation",
+      "candidate_path": "build/unit1-a1/candidates/tov_dscmf1_reference.tsv",
+      "repeatability_sha256": "3d9af9129a6a4ffde9e0f8c5507a160f968a861c0cf9f3b089cceecab86b701a",
+      "numerical_delta": {},
+      "package_status": "CANDIDATE VALIDATION COMPLETE; INDEPENDENT REVIEW AND HUMAN RATIFICATION PENDING",
+      "role": "TOV reference",
+      "historical_id": "H7",
+      "candidate_id": null,
+      "historical_path": "tests/baselines/tov_dscmf1_reference.tsv",
+      "candidate_status": "REVALIDATED \u2014 BYTE IDENTICAL; NO SUPERSESSION REQUIRED",
+      "disposition": "REVALIDATED \u2014 BYTE IDENTICAL; NO SUPERSESSION REQUIRED",
+      "full_suite": {
+        "test_name": "tov_reference_cmf",
+        "category": "A",
+        "raw_state": "Passed",
+        "evidence": "build/unit1d/tov_reference_cmf.log",
+        "comparison_mode": "producer scientific assertions; preserved output bytes authenticated separately"
+      },
+      "independent_validation_evidence": "U7 scientific test PASS; exact byte comparison PASS",
+      "repeatability_result": "PASS: historical, pre-A1 and preserved A1 output byte-identical",
+      "producer_evidence": "build/unit1-a1/u7-tov.log",
+      "exact_comparison_paths": [
+        "tests/baselines/tov_dscmf1_reference.tsv",
+        "build/unit1-a1/pre/tov_dscmf1_reference.tsv",
+        "build/unit1-a1/candidates/tov_dscmf1_reference.tsv"
+      ]
+    },
+    {
+      "filename": "tov_path_equivalence_dscmf1.tsv",
+      "historical_sha256": "5c0f4b3bdb70921f8f2a869af10edc4d8f5ae3963a9d150e11ef859d21e1c678",
+      "candidate_sha256": "5c0f4b3bdb70921f8f2a869af10edc4d8f5ae3963a9d150e11ef859d21e1c678",
+      "producer": [
+        "/tmp/unit1-a1/build-full/tests/tov_path_equivalence_cmf",
+        "/Users/keeper/Documents/CompactStar/data/compose",
+        "--emit",
+        "/private/tmp/unit1-a1/candidates/tov_path_equivalence_dscmf1.tsv"
+      ],
+      "repeatability": "PASS: historical, pre-A1 and preserved A1 output byte-identical",
+      "validation": "U7 scientific test PASS; exact byte comparison PASS",
+      "expected_disposition": "RETAIN byte-identical after revalidation",
+      "candidate_path": "build/unit1-a1/candidates/tov_path_equivalence_dscmf1.tsv",
+      "repeatability_sha256": "5c0f4b3bdb70921f8f2a869af10edc4d8f5ae3963a9d150e11ef859d21e1c678",
+      "numerical_delta": {},
+      "package_status": "CANDIDATE VALIDATION COMPLETE; INDEPENDENT REVIEW AND HUMAN RATIFICATION PENDING",
+      "role": "TOV path equivalence",
+      "historical_id": "H8",
+      "candidate_id": null,
+      "historical_path": "tests/baselines/tov_path_equivalence_dscmf1.tsv",
+      "candidate_status": "REVALIDATED \u2014 BYTE IDENTICAL; NO SUPERSESSION REQUIRED",
+      "disposition": "REVALIDATED \u2014 BYTE IDENTICAL; NO SUPERSESSION REQUIRED",
+      "full_suite": {
+        "test_name": "tov_path_equivalence_cmf",
+        "category": "A",
+        "raw_state": "Passed",
+        "evidence": "build/unit1d/tov_path_equivalence_cmf.log",
+        "comparison_mode": "producer scientific assertions; preserved output bytes authenticated separately"
+      },
+      "independent_validation_evidence": "U7 scientific test PASS; exact byte comparison PASS",
+      "repeatability_result": "PASS: historical, pre-A1 and preserved A1 output byte-identical",
+      "producer_evidence": "build/unit1-a1/u7-path.log",
+      "exact_comparison_paths": [
+        "tests/baselines/tov_path_equivalence_dscmf1.tsv",
+        "build/unit1-a1/pre/tov_path_equivalence_dscmf1.tsv",
+        "build/unit1-a1/candidates/tov_path_equivalence_dscmf1.tsv"
+      ]
+    }
+  ],
+  "starting_sha": "1d22dd1f5a0d1afa18c4cedebb36b28fdae49df4",
+  "authority": "Evidence only, not baseline authority; governed baselines untouched.",
+  "generation_records": [
+    "build/unit1c/grid-generation.json",
+    "build/unit1c/candidate-generation.json"
+  ],
+  "historical_stop_record": "build/unit1c/focused-result.json",
+  "historical_stop_record_scope": "Superseded focused stop; retained historical evidence only. Owner-adjudicated surface correction and 42/42 rerun precede this closure.",
+  "regression_closure": {
+    "entry_sha": "1d22dd1f5a0d1afa18c4cedebb36b28fdae49df4",
+    "new_production_or_test_semantics_changes": false,
+    "focused": {
+      "pass": 42,
+      "fail": 0,
+      "raw_returncode": 0,
+      "seconds": 503.92,
+      "log": "build/unit1d/focused-complete.log"
+    },
+    "data_free": {
+      "command": [
+        "ctest",
+        "--test-dir",
+        "/tmp/unit1c-datafree",
+        "-j",
+        "1",
+        "--stop-on-failure",
+        "-V",
+        "--output-junit",
+        "/var/folders/0p/w97v2c4j4xb6vl02nz_h58cr0000gn/T/compactstar-unit1d-7bei113r/datafree-junit.xml"
+      ],
+      "returncode": 0,
+      "seconds": 95.50890529179014,
+      "inventory_count": 30,
+      "results": [
+        {
+          "name": "compactstar_library_smoke",
+          "status": "run",
+          "time": "0.160107",
+          "failure": false
+        },
+        {
+          "name": "heat_capacity_v1",
+          "status": "run",
+          "time": "9.97085",
+          "failure": false
+        },
+        {
+          "name": "tov_reference_analytic",
+          "status": "run",
+          "time": "0.17023",
+          "failure": false
+        },
+        {
+          "name": "eos_derivative_contract",
+          "status": "run",
+          "time": "0.159301",
+          "failure": false
+        },
+        {
+          "name": "rotochemical_local_thermodynamics",
+          "status": "run",
+          "time": "0.151126",
+          "failure": false
+        },
+        {
+          "name": "rotochemical_trackr_freegas_local",
+          "status": "run",
+          "time": "0.151024",
+          "failure": false
+        },
+        {
+          "name": "rotochemical_trackr_npe",
+          "status": "run",
+          "time": "0.135235",
+          "failure": false
+        },
+        {
+          "name": "rotochemical_trackr_pe",
+          "status": "run",
+          "time": "0.13522",
+          "failure": false
+        },
+        {
+          "name": "hartle_monopole_contract",
+          "status": "run",
+          "time": "0.175688",
+          "failure": false
+        },
+        {
+          "name": "hartle_monopole_physics_analytic",
+          "status": "run",
+          "time": "1.99004",
+          "failure": false
+        },
+        {
+          "name": "hartle_monopole_measure_contract",
+          "status": "run",
+          "time": "3.19528",
+          "failure": false
+        },
+        {
+          "name": "hartle_monopole_published",
+          "status": "run",
+          "time": "20.9205",
+          "failure": false
+        },
+        {
+          "name": "cache_contract",
+          "status": "run",
+          "time": "0.168767",
+          "failure": false
+        },
+        {
+          "name": "cache_thermal_contract",
+          "status": "run",
+          "time": "1.9874",
+          "failure": false
+        },
+        {
+          "name": "hartle_moment_inertia_analytic",
+          "status": "run",
+          "time": "0.624701",
+          "failure": false
+        },
+        {
+          "name": "hartle_normalization_contract",
+          "status": "run",
+          "time": "0.2807",
+          "failure": false
+        },
+        {
+          "name": "hartle_first_order_physics_analytic",
+          "status": "run",
+          "time": "0.336406",
+          "failure": false
+        },
+        {
+          "name": "evolution_stepper_contract",
+          "status": "run",
+          "time": "0.162888",
+          "failure": false
+        },
+        {
+          "name": "photon_cooling_conformance",
+          "status": "run",
+          "time": "1.16791",
+          "failure": false
+        },
+        {
+          "name": "proper_volume_contract",
+          "status": "run",
+          "time": "0.161989",
+          "failure": false
+        },
+        {
+          "name": "geometry_cache_measure_contract",
+          "status": "run",
+          "time": "0.134699",
+          "failure": false
+        },
+        {
+          "name": "tov_surface_sweep_hw",
+          "status": "run",
+          "time": "37.1248",
+          "failure": false
+        },
+        {
+          "name": "tov_surface_audit_hw",
+          "status": "run",
+          "time": "1.03959",
+          "failure": false
+        },
+        {
+          "name": "tov_surface_derivatives_hw",
+          "status": "run",
+          "time": "8.69833",
+          "failure": false
+        },
+        {
+          "name": "tov_surface_consumers_hw",
+          "status": "run",
+          "time": "0.0915945",
+          "failure": false
+        },
+        {
+          "name": "tov_surface_contracts_hw",
+          "status": "run",
+          "time": "0.471753",
+          "failure": false
+        },
+        {
+          "name": "rotochemical_trackr_freegas_barotrope",
+          "status": "run",
+          "time": "0.562777",
+          "failure": false
+        },
+        {
+          "name": "rotochemical_trackr_freegas_structure",
+          "status": "run",
+          "time": "3.98245",
+          "failure": false
+        },
+        {
+          "name": "relativistic_unit_boundary",
+          "status": "run",
+          "time": "0.196955",
+          "failure": false
+        },
+        {
+          "name": "relativistic_unit_background",
+          "status": "run",
+          "time": "0.978705",
+          "failure": false
+        }
+      ]
+    },
+    "full_suite": {
+      "command": [
+        "ctest",
+        "--test-dir",
+        "/tmp/unit1-a1/build-full",
+        "-j",
+        "1",
+        "-V",
+        "--output-junit",
+        "/var/folders/0p/w97v2c4j4xb6vl02nz_h58cr0000gn/T/compactstar-unit1d-7bei113r/full-junit.xml"
+      ],
+      "returncode": 8,
+      "seconds": 678.6364207500592,
+      "inventory_count": 53,
+      "stopped_on_category_c": false,
+      "results": [
+        {
+          "name": "compactstar_library_smoke",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "heat_capacity_v1",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "tov_reference_analytic",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "eos_derivative_contract",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "rotochemical_local_thermodynamics",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "rotochemical_trackr_freegas_local",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "rotochemical_trackr_npe",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "rotochemical_trackr_pe",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "hartle_monopole_contract",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "hartle_monopole_physics_analytic",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "hartle_monopole_measure_contract",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "hartle_monopole_published",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "cache_contract",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "cache_thermal_contract",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "hartle_moment_inertia_analytic",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "hartle_normalization_contract",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "hartle_first_order_physics_analytic",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "evolution_stepper_contract",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "photon_cooling_conformance",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "proper_volume_contract",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "geometry_cache_measure_contract",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "heat_capacity_real_star",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "passive_cooling_regression",
+          "raw_state": "***Failed",
+          "category": "B",
+          "artifact": "passive_cooling_cmf_1p6_debug.tsv",
+          "historical_path": "tests/baselines/passive_cooling_cmf_1p6_debug.tsv",
+          "historical_sha256": "afcad5d078fe458bdb441278ce56caa2d025becc6b489d00e9baad91a101c0de",
+          "actual_output_sha256": "8fef2314673fceb939f859612f4befe94117115d6d6b3ad0dcc59d1faa68c9f9",
+          "expected_candidate_sha256": "8fef2314673fceb939f859612f4befe94117115d6d6b3ad0dcc59d1faa68c9f9",
+          "exact_equality": true,
+          "sole_historical_comparison_failure": true,
+          "producer": "/tmp/unit1-a1/build-full/tests/passive_cooling_regression",
+          "authorization": "Accepted ADR-0012 Q5/U14; independently validated repeatable successor; governed baseline unchanged"
+        },
+        {
+          "name": "tov_reference_cmf",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "grid_convergence_cmf",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "hartle_monopole_physics_cmf",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "hartle_monopole_regression",
+          "raw_state": "***Failed",
+          "category": "B",
+          "artifact": "hartle_monopole_dscmf1_debug.tsv",
+          "historical_path": "tests/baselines/hartle_monopole_dscmf1_debug.tsv",
+          "historical_sha256": "bd49e5a091ebcc59f7c4899422200181d4e71ecf552284840454d01aac4b8d52",
+          "actual_output_sha256": "caaa0ac0d3219cda0a9fb518b27688afc23c6cdad1ec76a2bcd7359614a8d4e8",
+          "expected_candidate_sha256": "caaa0ac0d3219cda0a9fb518b27688afc23c6cdad1ec76a2bcd7359614a8d4e8",
+          "exact_equality": true,
+          "sole_historical_comparison_failure": true,
+          "producer": "/tmp/unit1-a1/build-full/tests/hartle_monopole_regression",
+          "authorization": "Accepted ADR-0012 Q5/U14; independently validated repeatable successor; governed baseline unchanged"
+        },
+        {
+          "name": "hartle_monopole_cmf",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "eos_derivative_cmf",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "hartle_moment_inertia_cmf",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "hartle_normalization_cmf",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "hartle_first_order_physics_cmf",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "baryon_number_cmf",
+          "raw_state": "***Failed",
+          "category": "B",
+          "artifact": "baryon_number_dscmf1_reference.tsv",
+          "historical_path": "tests/baselines/baryon_number_dscmf1_reference.tsv",
+          "historical_sha256": "7b036942f2ae599ace3b2fc8b9a7d91f6d11b5899ab7e8a88d2bb4ee6686493b",
+          "actual_output_sha256": "90d607519cbdf3c4a0bf6ef50cc8fd22a8526b5db0354dc319e96854da29041d",
+          "expected_candidate_sha256": "90d607519cbdf3c4a0bf6ef50cc8fd22a8526b5db0354dc319e96854da29041d",
+          "exact_equality": true,
+          "sole_historical_comparison_failure": true,
+          "producer": "/tmp/unit1-a1/build-full/tests/baryon_number_cmf",
+          "authorization": "Accepted ADR-0012 Q5/U14; independently validated repeatable successor; governed baseline unchanged"
+        },
+        {
+          "name": "tov_path_equivalence_cmf",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "tov_sequence_workflow_cmf",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "tov_gen_test_sequence_cmf",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "tov_surface_sweep_hw",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "tov_surface_audit_hw",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "tov_surface_derivatives_hw",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "tov_surface_consumers_hw",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "tov_surface_contracts_hw",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "tov_surface_v7a_cmf",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "tov_surface_v7b_cmf",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "tov_surface_sweep_cmf",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "tov_surface_audit_cmf",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "tov_surface_derivatives_cmf",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "tov_surface_consumers_cmf",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "tov_surface_contracts_cmf",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "tov_surface_grid_cmf",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "rotochemical_trackr_freegas_barotrope",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "rotochemical_trackr_freegas_structure",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "relativistic_unit_boundary",
+          "raw_state": "Passed",
+          "category": "A"
+        },
+        {
+          "name": "relativistic_unit_background",
+          "raw_state": "Passed",
+          "category": "A"
+        }
+      ],
+      "counts": {
+        "A": 50,
+        "B": 3,
+        "C": 0
+      }
+    },
+    "full_raw_pass": 50,
+    "full_raw_fail": 3,
+    "all_historical_hashes_unchanged": true,
+    "governed_baseline_diff": "EMPTY",
+    "review": "PENDING",
+    "human_ratification": "PENDING",
+    "baseline_supersession": "PENDING",
+    "ADR0011_Q4": "NUMERIC UNIT PREREQUISITE SATISFIED IN CANDIDATE; NOT YET CLOSED",
+    "INV09": "UNRESOLVED (INTENDED BUT UNVERIFIED)",
+    "INV11": "UNRESOLVED",
+    "raw_full_ctest_is_pass": false,
+    "scientific_classification_accepted_as_candidate": true,
+    "evidence_hashes": {
+      "build/unit1d/baryon_number_cmf.log": "59d38deb523ba1b06bb5dfd43b87bd152772ca68786668751d368bcf24864e37",
+      "build/unit1d/cache_contract.log": "6495a8a474047e65669b1cafe26bf674ba68f31b0fb86353d3d82f66912215c9",
+      "build/unit1d/cache_thermal_contract.log": "c1027c094431ede6253e2169784c4ab26521673a76ae7304cbfb4e839697f95f",
+      "build/unit1d/candidate-file-groups.json": "c20e1b6e475ab9956b3279f836a923f997e35b9599120a92d136d4b7b5ead491",
+      "build/unit1d/compactstar_library_smoke.log": "315427cc3b943b8579bdd59b5825a64c8820f2202a85ff45bc50fde1f44c4422",
+      "build/unit1d/configure-historical-full.json": "0cfbd2f1214cca4806e5a59debceb602a1d8c42eaeba51fa5db64862141a4b46",
+      "build/unit1d/configure-historical-full.log": "8b76bd440e7319e24964fc8d606247ced77cf012edd369fa344ea57826d70260",
+      "build/unit1d/datafree-build-refresh.json": "49d40109f6afd51a087f0fa1271ae95d0d07b6a0ac138be3d1b8b1f65cf4f654",
+      "build/unit1d/datafree-build-refresh.log": "7604991e7c7fceec0d8f193740e4b98ad0b725cff67a8cb47fc7a48c92158d8f",
+      "build/unit1d/datafree-command.json": "76129504e476ca8827d1af717bc7e95f3e81f4ab332498ebc9f04c3b4837270f",
+      "build/unit1d/datafree-inventory.json": "1f7d4f474a1d1e3cfdc29588fa707d9f03e01eaf10eadedf60a53b1b20735691",
+      "build/unit1d/datafree-junit.xml": "a7a9fa356da198acccff2c59c6574e5c1b7f0474867f107949e3650413bef5d1",
+      "build/unit1d/datafree-names.txt": "6814140e139135b776aa28bff1714e61f53947f16505365c2f6cfacfc0a7429a",
+      "build/unit1d/datafree-result.json": "75e762eb986592b4fe33986faa426e07d57fff9471968a048adad27cb9e6febb",
+      "build/unit1d/datafree.log": "09fdf29cdf095e5c945b94df94cf390e93376c70191b5c66d59bc5823880cd30",
+      "build/unit1d/dirty-paths.txt": "b85485e9ee5e6ff0ee8fe7ce50523643a53e8757b24f455a15b8d6062527e354",
+      "build/unit1d/entry-artifact-hashes.json": "a743d53405c5d240b42fb021fe969e80983ec50f0946caa4e1e7dde778782104",
+      "build/unit1d/entry-file-hashes.json": "5fed736d33fe2970bc7d055418982bcab7cf12e63595cb325bbad2d3d5c1fd64",
+      "build/unit1d/eos_derivative_cmf.log": "827b1a927af7fa632851e0f0100ca391528e068048807be12faba98876a42aa6",
+      "build/unit1d/eos_derivative_contract.log": "6093c5574048343569bc99f50c4fcfa7b2c95134a12bc24464cff1b39b664133",
+      "build/unit1d/evolution_stepper_contract.log": "cb79a27a15e2b47b463bcc3c074d7af4a567e7993c80f356e4123792f52fc491",
+      "build/unit1d/execution-environment.json": "3ddf40c3a5a92233e0b58ec7abfe3478067c66d8dcd17d7a2de28675df51f9ba",
+      "build/unit1d/focused-complete.log": "f14029b1fa554fe9d38dad6e5872fef2c3cecc4e0c251b99e8cbb6ec86b3c633",
+      "build/unit1d/focused-inventory.json": "4881ead35c174c2f547290651fa6b190f8936b92f62414776ef584e404042b39",
+      "build/unit1d/full-build-refresh.json": "a2c41479c11081d981da290d7ecdc35ec3b05e90b4de5b118c2a5d9fd0a2cbb2",
+      "build/unit1d/full-build-refresh.log": "4a27d29c0536d1c3589249726a132a2caea8f19a6053dd98eb235cc181653e5e",
+      "build/unit1d/full-capture/baryon_number_dscmf1_reference.tsv": "90d607519cbdf3c4a0bf6ef50cc8fd22a8526b5db0354dc319e96854da29041d",
+      "build/unit1d/full-capture/hartle_monopole_dscmf1_debug.tsv": "caaa0ac0d3219cda0a9fb518b27688afc23c6cdad1ec76a2bcd7359614a8d4e8",
+      "build/unit1d/full-capture/passive_cooling_cmf_1p6_debug.tsv": "8fef2314673fceb939f859612f4befe94117115d6d6b3ad0dcc59d1faa68c9f9",
+      "build/unit1d/full-command.json": "9b4b032ac1a796ad2cc2c4d8811266e7f4307ad2029bbdfbe8f4bebd82c6eaa3",
+      "build/unit1d/full-inventory.json": "8a38c2c7e6219a0544a1917e5d5241c50e6a91591ed768187a8d32702dbfcce9",
+      "build/unit1d/full-junit.xml": "ba4135a89848188c5980a428e58631a20ee9790ed772633f3b572a4535ac6025",
+      "build/unit1d/full-names.txt": "7b2b3e555fa1565ece20ecef2d217b4f26d4569661fe261f0af3823c0a6b6882",
+      "build/unit1d/full-observed.json": "375cf48ca71c78c313ea698db36be55cb5535b4f12c8d6571b2cde459e88984e",
+      "build/unit1d/full-result.json": "6a355b8031b7d1ca02788e48de3ef8af6a7cee753561fe8a2a1015a904da6291",
+      "build/unit1d/full.log": "2d7f1b30af8e2d0fbbec6c6429e7fe8452c7ec0a5df106d26af28b1a324d8326",
+      "build/unit1d/geometry_cache_measure_contract.log": "426bd14f645c8f93bb6df5780a6b87f34ff01eef90a90565daad5de4bf19406d",
+      "build/unit1d/grid_convergence_cmf.log": "6480b13f9a581942def22be361b6813205296bc13fe6704cbb038e497cd6d6ad",
+      "build/unit1d/hartle_first_order_physics_analytic.log": "b8a92f2872e6379c1125ff89820270430b28e381ada24af14246ac6db52c8707",
+      "build/unit1d/hartle_first_order_physics_cmf.log": "58bf9d7d7f1d9b52fbcd0088f3ea599ab5d690bca13e58f2d1ddf28bcffef94d",
+      "build/unit1d/hartle_moment_inertia_analytic.log": "990cb82b7dd41ec5789fb99e0f47a4ae2fdf30c37769dcccdb931db920fd4ed5",
+      "build/unit1d/hartle_moment_inertia_cmf.log": "2188e7449f23b9d53c03ca0d983062866893b396ed4af89470526d12d07640db",
+      "build/unit1d/hartle_monopole_cmf.log": "935acf90ef7380a6f02b197fb5bbd7489a7a222d29840f484663f1ee16f6d506",
+      "build/unit1d/hartle_monopole_contract.log": "22a3c44268f3cdd89f6e68b9f11f87e7649df186fbeba0958f0777194ad84fb7",
+      "build/unit1d/hartle_monopole_measure_contract.log": "fc432fd7b9b751d56372154a83d0d8d3ec926bb7b7e5f59430002f4b9fbc413b",
+      "build/unit1d/hartle_monopole_physics_analytic.log": "b99117d42b9a526c1a37a9cc4b30d6bcef66e56dc67c60bcccf25318f489edf3",
+      "build/unit1d/hartle_monopole_physics_cmf.log": "fa1711654b3e232549c116b58914ce3e8619a1604c09384fecf71a837cf1536d",
+      "build/unit1d/hartle_monopole_published.log": "091c81e82920158fd0bfafcb216d2958968295cebc02669adecb619686bcef80",
+      "build/unit1d/hartle_monopole_regression.log": "142a619936be0ec461d9fdc6303f2d0bcb3f51ab45b52f12dbb8a35f426c8f04",
+      "build/unit1d/hartle_normalization_cmf.log": "b4b8c12538a2ca9abaac5717dfaf261482bb63f7b4457332470d98ea41358085",
+      "build/unit1d/hartle_normalization_contract.log": "5b51bd18ee48f54d6d3976bb60ee7ec300996588529f3bd4c7db7abe1e8cf35f",
+      "build/unit1d/heat_capacity_real_star.log": "7589bf96e434866d5795d14b3e01c1cdf69247fb5319287548b17cca5860b301",
+      "build/unit1d/heat_capacity_v1.log": "4f62c19ca6c663b3cca8cfd9cf14a95fbf6fa1e1d3542fb3c501607eba6847a1",
+      "build/unit1d/passive_cooling_regression.log": "17e0e700fe51f7a0f08a90d8f68b74b706647b67fb8ced4b2152796b4170315d",
+      "build/unit1d/photon_cooling_conformance.log": "38ad16538fda57072e23af21fbe17d30f9fb252755b1f8578e27dd91b0080821",
+      "build/unit1d/post-datafree-pre-full-authentication.json": "1a56e11102a8dd366586c3fc354d4195f73c1a46110ebf2b335c19a3261d066f",
+      "build/unit1d/pre-datafree-baseline.diff": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "build/unit1d/production-diff.patch": "45e06d5552f54e15003da067301837c6d03fced4ccd70901197964cf1a415d86",
+      "build/unit1d/production-diff.sha256": "82aa5c686854560bb40ada5412f1df6da8a5070ff1e6b39e9f33ad32b1e60d33",
+      "build/unit1d/proper_volume_contract.log": "e61cdae58da37e5a9d9c5c7a7b833d3a27564ad4d217769d753a9b90e7a69d94",
+      "build/unit1d/relativistic_unit_background.log": "a2047847023ba2ae1fb7d147c51f78d2b0515ba0e1761ce101b6410926897227",
+      "build/unit1d/relativistic_unit_boundary.log": "ae4e287a3dc8231d15360627242b56ec53ea6f93da533cca86040e327119e8d8",
+      "build/unit1d/retained-evidence-authentication.json": "60b2ea5428085ea2ce9ee0f752b438bfd1d651e28d28380e7e3999b633c77abb",
+      "build/unit1d/rotochemical_local_thermodynamics.log": "e0c1367828d456505a13a7339299479262f6f9a0aac337f911247cb23c93be39",
+      "build/unit1d/rotochemical_trackr_freegas_barotrope.log": "eceea1590e69e1854a130611baaad1ff45e44fb980a8e17d37a0b5fa15e24c72",
+      "build/unit1d/rotochemical_trackr_freegas_local.log": "307f8576abd448c96299e416278dbeb413d49c00c54a0ef604d3ab5c689aa2d9",
+      "build/unit1d/rotochemical_trackr_freegas_structure.log": "26f280ee24d38594372db3ead3b9fb33eaaadb5dce2fe12d9648a484de60f0f2",
+      "build/unit1d/rotochemical_trackr_npe.log": "6402600e1fff19424218fcdbe9a317328f34032f1c6e0651fb890906b416ade8",
+      "build/unit1d/rotochemical_trackr_pe.log": "d7bc545783b269653035984dabcd98f5f36d267354554b633372c8e23a4364d5",
+      "build/unit1d/status.txt": "2f3799d309463c22d3e0b9c1ecb7a62aa6fb7c9ea15ac7b5eaca1dd18afbe825",
+      "build/unit1d/tov_gen_test_sequence_cmf.log": "efb0d7578c8af3eb98696166090fb5ae0ec3d01ef7032f6fcbcfb3546af8f179",
+      "build/unit1d/tov_path_equivalence_cmf.log": "e37afa21cec59f97642aba39909a2220fdcacecf641495aa87face9154142ad1",
+      "build/unit1d/tov_reference_analytic.log": "47a298f3213d2084d9227cfdcdb5f7bac9c6e647178de756188e112fed3460f9",
+      "build/unit1d/tov_reference_cmf.log": "4c9ed8fed2f2ac42490c89f5da3f1a0953478b89e833fc0c48da2494dccbd66b",
+      "build/unit1d/tov_sequence_workflow_cmf.log": "2355b803fc000454a7d3a90d5a11cbbaad4fffc3f2fe1b95efa1eec59f6e49aa",
+      "build/unit1d/tov_surface_audit_cmf.log": "65e0fab13c09dda198f0c45a2a95f07af93dcda21e6ce8594ec96d5173dcca8e",
+      "build/unit1d/tov_surface_audit_hw.log": "8b382cc5aacc78c52081b613912d895daaad2aa05b5dae0012a4427b2eac0a4a",
+      "build/unit1d/tov_surface_consumers_cmf.log": "0948a508112469842583c11859fda61e639e992bd6ef425ede0148afc00bc231",
+      "build/unit1d/tov_surface_consumers_hw.log": "f0c2d70570aa92e30e027e02566baacaad30194533eccd8fecf6424e68b44d52",
+      "build/unit1d/tov_surface_contracts_cmf.log": "11ecc38b04492a7637a7e9976b829bc20b9096398d71f3cd5a9a8575072b2ec8",
+      "build/unit1d/tov_surface_contracts_hw.log": "97ae0777c33a059c97c85766c088e57a33790ba0bb6fc0748496fcd0b2eab6f6",
+      "build/unit1d/tov_surface_derivatives_cmf.log": "41552a626ab30c8324f7bd0d34e31e9c0aeb81520bb2bf278aa1015cd72d210c",
+      "build/unit1d/tov_surface_derivatives_hw.log": "674362adf13ec8c8c433e3fbdce4b9f65403eef0ff4dd7dcbf64f83074fe112e",
+      "build/unit1d/tov_surface_grid_cmf.log": "bcdca37ca506aa56f94486e3ef17f8e88f2f2ba13ba6cc9c37dece4c15f6fd8d",
+      "build/unit1d/tov_surface_sweep_cmf.log": "99b8c6aecfc07f466ae3f59ea6fed5cf78726ea87c9ecd52837a946ab1dfc905",
+      "build/unit1d/tov_surface_sweep_hw.log": "141b856b579eb04258e8488b02cf091b012efcbd4e418b8b5bdab5d34176bfec",
+      "build/unit1d/tov_surface_v7a_cmf.log": "76b514af682bf46ab9088d81f421c8605cddfbd9df301dfe2474bff2a7729c1b",
+      "build/unit1d/tov_surface_v7b_cmf.log": "9ae452f414a6ea3e5b5aa6b8f1e0e8800dad4f91325510c235ff9fa3a218d4ca",
+      "build/unit1d/tracked-diff.sha256": "2ceb836167cd83016bfd6b03c403739e5a7bb4bd4b8fe58ed2d60dcf6e77c681",
+      "build/unit1d/tracked.diff": "395625df38cbfdc97885468415a00008bd86cbf9daad5fd6200d298cb5122c30",
+      "build/unit1d/untracked.txt": "41de55757abb62506af8f2cca0b1553bc5f65fe037d3bbbc7787385db2cb2f79"
+    }
+  }
+}

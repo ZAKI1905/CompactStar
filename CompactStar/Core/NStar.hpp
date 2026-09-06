@@ -286,13 +286,13 @@ class NStar : public Prog
 	}
 
 	/**
-	 * @brief Get mass at star surface in M_sun units.
+	 * @brief Get surface mass as the literal m_grams / GSL solar-mass ratio (ADR-0012).
 	 */
 	[[nodiscard]] double MassSurface() const noexcept
 	{
-		if (!prof_.empty() && prof_.MassSurface() > 0.0)
-			return prof_.MassSurface() / Zaki::Physics::SUN_M_KM; // in M_Sun units
-		return GetSequence().m;									  // in M_Sun units
+		// Both TOV publication paths retain the physical public value separately.
+		// Profile().MassSurface() and GetMass(r) instead have geometric km units.
+		return GetSequence().m;
 	}
 
 	/**

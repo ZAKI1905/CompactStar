@@ -1,3 +1,4 @@
+#include "tests/relativity/fixture_units.hpp"
 // ADR-0009 validation. Diagnostic output only; never writes a governed baseline.
 #include "../rotation/hartle_thorne_1968_hw_eos.hpp"
 #include <CompactStar/Core/NStar.hpp>
@@ -220,7 +221,7 @@ void Sweep(Probe &s, std::ostream &o) {
 		auto add = [&](const Surface &v) {
 			rs.push_back(v.R);
 			ms.push_back(v.M);
-			double c = v.M * Zaki::Physics::SUN_M_KM / v.R;
+			double c = v.M * relativity_fixture::solar_km / v.R;
 			cs.push_back(c);
 			zs.push_back(std::sqrt(1 - 2 * c));
 		};
@@ -296,18 +297,18 @@ void Derivatives(Probe &s, std::ostream &o) {
 				double pa = s.GetInitPress();
 				auto b = Solve(s, ec * (1 + delta), res);
 				double pb = s.GetInitPress();
-				double d = (b.back().m - a.back().m) * Zaki::Physics::SUN_M_KM /
+				double d = (b.back().m - a.back().m) * relativity_fixture::solar_km /
 						   ((pb - pa) *
-							(Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2));
+							(relativity_fixture::pressure_to_geo));
 				ds.push_back(d);
 				o << ec << '\t' << delta << '\t' << res << '\t' << d << '\n';
 			}
 			for (double cm : {175., 700., 2800.}) {
 				auto a = Radial(s, ec * (1 - delta), 10000, cm),
 					 b = Radial(s, ec * (1 + delta), 10000, cm);
-				double d = (b.M - a.M) * Zaki::Physics::SUN_M_KM /
+				double d = (b.M - a.M) * relativity_fixture::solar_km /
 						   ((b.pc - a.pc) *
-							(Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2));
+							(relativity_fixture::pressure_to_geo));
 				ds.push_back(d);
 				o << ec << '\t' << delta << '\t' << cm << '\t' << d << '\n';
 			}
@@ -413,7 +414,7 @@ void FailureContracts(Probe &s, const std::string &eos, std::ostream &o, bool fo
 	  << std::endl;
 }
 void SurfaceConsumers(Probe &s, std::ostream &o) {
-	o << "label\tec\tM\tR\tcompactness_M_over_R\tlapse\tredshift\tarea_km2\tI_km3\tB\n";
+	o << "label\tec\tM\tR\tmass_relative_error\tcompactness_M_over_R\tlapse\tredshift\tarea_km2\tI_km3\tB\n";
 	for (size_t i = 0; i < 4; ++i) {
 		auto p = Solve(s, densities[i], 10000);
 		NStar ns(p, s.Labels());
@@ -421,14 +422,20 @@ void SurfaceConsumers(Probe &s, std::ostream &o) {
 		const double r = (*prof.GetRadius())[-1], m = (*prof.GetMass())[-1],
 					 nu = (*prof.GetMetricNu())[-1];
 		const double f = CompactStar::Geometry::MetricDenominator(r, m), z = prof.ExpNuSurface();
-		Require(r == p.back().r && m == p.back().m * Zaki::Physics::SUN_M_KM,
-				"surface profile coordinate");
+		Require(r == p.back().r,
+				"surface profile radius");
+		const double m_expect =
+			p.back().m * relativity_fixture::solar_km;
+		Require(std::fabs(m / m_expect - 1.0) <=
+					16.0 * std::numeric_limits<double>::epsilon(),
+				"surface profile geometric mass");
 		Require(std::fabs(nu - .5 * std::log(f)) <= 1e-13 &&
 					std::fabs(z / std::sqrt(f) - 1) <= 1e-13,
 				"surface lapse boundary");
 		Require(std::fabs(std::exp((*prof.GetMetricLambda())[-1]) * std::sqrt(f) - 1) <= 1e-13,
 				"surface metric lambda");
-		o << targets[i] << '\t' << densities[i] << '\t' << p.back().m << '\t' << r << '\t' << m / r
+		o << targets[i] << '\t' << densities[i] << '\t' << p.back().m << '\t' << r << '\t'
+		  << (m - m_expect) / m_expect << '\t' << m / r
 		  << '\t' << z << '\t' << 1 / z - 1 << '\t' << 4 * M_PI * r * r * z * z << '\t'
 		  << ns.GetSequence().I << '\t' << ns.GetSequence().b << '\n';
 	}

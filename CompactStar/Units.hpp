@@ -27,8 +27,9 @@
  *     divergent literals, `8.617333262145e-11` in the thermal drivers and `8.617333262e-11`
  *     in `CompOSE_Thermo`.) See docs/validation/PHASE3C_BOLTZMANN_AUTHORITY.md.
  *   - The solar-mass conversions (`Zaki::Physics::SUN_M_KM` vs `GSL_CONST_CGSM_SOLAR_MASS`).
- *     These disagree at ~6.2e-5 and choosing one is a scientific/unit authority decision
- *     requiring owner or ADR adjudication — explicitly deferred out of Phase 3.
+ *     Accepted ADR-0012 now governs the ordinary-TOV boundary in RelativityUnits.hpp:
+ *     coherent GSL geometry and the separate literal GSL public mass ratio. The nominal
+ *     IAU GM_sun length is not the conversion owner for that solved spacetime.
  *   - G, c and the other GSL physical constants; pressure/energy-density geometric conversions;
  *     fm^-3 <-> km^-3; year <-> second. None was a bit-identical duplicate.
  *

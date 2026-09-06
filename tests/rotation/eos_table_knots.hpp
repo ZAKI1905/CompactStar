@@ -1,3 +1,4 @@
+#include "tests/relativity/fixture_units.hpp"
 // -*- lsst-c++ -*-
 /*
  * CompactStar
@@ -45,8 +46,8 @@ inline Knots Read(const std::string &path)
 	std::ifstream in(path);
 	if (!in)
 		return k;
-	const double e_to_km2 = Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3;
-	const double p_to_km2 = Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2;
+	const double e_to_km2 = relativity_fixture::rho_to_eps;
+	const double p_to_km2 = relativity_fixture::pressure_to_geo;
 	std::string line;
 	bool first = true;
 	while (std::getline(in, line))

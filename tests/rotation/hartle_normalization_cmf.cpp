@@ -1,3 +1,4 @@
+#include "tests/relativity/fixture_units.hpp"
 // -*- lsst-c++ -*-
 /*
  * CompactStar
@@ -169,7 +170,7 @@ int main(int argc, char **argv)
 		w.R = ns->GetSequence().r;
 		w.I = resp.I;
 		// Keplerian scale in geometric units: Omega_K = sqrt(M/R^3), no G needed.
-		const double M_km = w.M * Zaki::Physics::SUN_M_KM;
+		const double M_km = w.M * relativity_fixture::solar_km;
 		w.Omega_K = std::sqrt(M_km / (w.R * w.R * w.R));
 
 		for (const auto &sp : spins)

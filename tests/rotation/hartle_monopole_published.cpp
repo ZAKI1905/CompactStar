@@ -1,3 +1,4 @@
+#include "tests/relativity/fixture_units.hpp"
 // -*- lsst-c++ -*-
 /*
  * CompactStar
@@ -145,14 +146,14 @@ static const std::vector<CMRow> kCM = {
 /// Exact constant-density interior on a uniform grid with the exact EOS derivative (= 0).
 static std::unique_ptr<NStar> HomogeneousStar(const UniformStar &u, std::size_t N)
 {
-	const double km2_to_gcm3 = Zaki::Physics::INV_FM4_2_G_CM3 / Zaki::Physics::INV_FM4_2_INV_KM2;
-	const double km2_to_dyn = Zaki::Physics::INV_FM4_2_Dyn_CM2 / Zaki::Physics::INV_FM4_2_INV_KM2;
+	const double km2_to_gcm3 = relativity_fixture::eps_to_rho;
+	const double km2_to_dyn = relativity_fixture::pressure_to_cgs;
 	std::vector<TOVPoint> pts;
 	pts.reserve(N);
 	for (std::size_t i = 0; i < N; ++i)
 	{
 		const double r = hartle_4b::UniformGridR(u, i, N);
-		pts.emplace_back(r, u.m(r) / Zaki::Physics::SUN_M_KM, u.nuprime(r) / 1.0e5, 0.0, u.p(r) * km2_to_dyn,
+		pts.emplace_back(r, u.m(r) / relativity_fixture::solar_km, u.nuprime(r) / 1.0e5, 0.0, u.p(r) * km2_to_dyn,
 						 u.rho0 * km2_to_gcm3, 0.1, std::vector<double>{}, 0.0);
 	}
 	auto ns = std::make_unique<NStar>(pts);
@@ -278,7 +279,7 @@ static void RunHartleThorne(const fs::path &wrk)
 		o.n = pts.size();
 		o.R = mono->R_surface;
 		o.M = pts.back().m; // Msun
-		const double Mkm = o.M * Zaki::Physics::SUN_M_KM;
+		const double Mkm = o.M * relativity_fixture::solar_km;
 		o.Rg_R = std::sqrt(mono->I / Mkm) / o.R;
 		o.Omega = std::sqrt(Mkm / (o.R * o.R * o.R)) * c_km_s;
 		o.ws = 1.0 - rot.omega_bar_over_Omega[last];

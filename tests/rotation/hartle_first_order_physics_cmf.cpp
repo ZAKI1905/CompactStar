@@ -1,3 +1,4 @@
+#include "tests/relativity/fixture_units.hpp"
 // -*- lsst-c++ -*-
 /*
  * CompactStar
@@ -186,7 +187,7 @@ int main(int argc, char **argv)
 		w.r_worst_sp = c.r_worst_sp;
 		w.drag_c = 1.0 - sP.front();
 		w.drag_R = 1.0 - sP.back();
-		w.Omega_K = std::sqrt(w.M * Zaki::Physics::SUN_M_KM / (w.R * w.R * w.R));
+		w.Omega_K = std::sqrt(w.M * relativity_fixture::solar_km / (w.R * w.R * w.R));
 
 		worst_profile_s = std::max(worst_profile_s, c.max_rel_s);
 		worst_profile_sp = std::max({worst_profile_sp, c.rel_to_scale_sp, c.max_rel_sp});

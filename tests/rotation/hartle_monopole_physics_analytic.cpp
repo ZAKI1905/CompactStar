@@ -1,3 +1,4 @@
+#include "tests/relativity/fixture_units.hpp"
 // -*- lsst-c++ -*-
 /*
  * CompactStar
@@ -165,12 +166,12 @@ static std::vector<double> FineCentreGrid(double r0, double h_fine, std::size_t 
 /// d(eps)/dp = 0 supplied through the governed mechanism (Phase 4C-I0).
 static std::vector<TOVPoint> PointsOnGrid(const UniformStar &u, const std::vector<double> &g)
 {
-	const double km2_to_gcm3 = Zaki::Physics::INV_FM4_2_G_CM3 / Zaki::Physics::INV_FM4_2_INV_KM2;
-	const double km2_to_dyn = Zaki::Physics::INV_FM4_2_Dyn_CM2 / Zaki::Physics::INV_FM4_2_INV_KM2;
+	const double km2_to_gcm3 = relativity_fixture::eps_to_rho;
+	const double km2_to_dyn = relativity_fixture::pressure_to_cgs;
 	std::vector<TOVPoint> pts;
 	pts.reserve(g.size());
 	for (double r : g)
-		pts.emplace_back(r, u.m(r) / Zaki::Physics::SUN_M_KM, u.nuprime(r) / 1.0e5, 0.0,
+		pts.emplace_back(r, u.m(r) / relativity_fixture::solar_km, u.nuprime(r) / 1.0e5, 0.0,
 						 u.p(r) * km2_to_dyn, u.rho0 * km2_to_gcm3, 0.1, std::vector<double>{},
 						 0.0);
 	return pts;

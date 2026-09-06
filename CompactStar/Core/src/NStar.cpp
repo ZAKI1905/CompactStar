@@ -10,6 +10,7 @@
 
 #include "CompactStar/Core/NStar.hpp"
 #include "CompactStar/Geometry.hpp"
+#include "CompactStar/RelativityUnits.hpp"
 #include "CompactStar/Core/RotationSolver.hpp"
 #include "CompactStar/Core/TOVSolver.hpp"
 
@@ -18,6 +19,7 @@
 #include <limits>
 
 using namespace CompactStar::Core;
+namespace RU = CompactStar::RelativityUnits;
 //==============================================================
 //               Conversion Factors
 //==============================================================
@@ -179,22 +181,20 @@ void NStar::BuildFromTOV(const std::vector<TOVPoint> &in_tov,
 			double r_km = tp.r;
 			radial[idx_r].PushBack(r_km);
 
-			double m_km = Zaki::Physics::SUN_M_KM * tp.m;
+			double m_km = RU::LiteralSolarMassToMassKm(tp.m);
 			// m (km): tp.m is in solar masses
 			radial[idx_m].PushBack(m_km);
 
 			// nu' (1/cm -> 1/km)
-			radial[idx_nup].PushBack(tp.nu_der * 1e5);
+			radial[idx_nup].PushBack(RU::NuPrimeCmInverseToKmInverse(tp.nu_der));
 
 			// p (→ km^-2)
 			radial[idx_p].PushBack(
-				tp.p * Zaki::Physics::INV_FM4_2_INV_KM2 /
-				Zaki::Physics::INV_FM4_2_Dyn_CM2);
+				RU::PressureDynCm2ToKmMinus2(tp.p));
 
 			// eps (→ km^-2)
 			radial[idx_eps].PushBack(
-				tp.e * Zaki::Physics::INV_FM4_2_INV_KM2 /
-				Zaki::Physics::INV_FM4_2_G_CM3);
+				RU::MassDensityGcm3ToEnergyKmMinus2(tp.e));
 
 			// nB (fm^-3)
 			radial[idx_nb].PushBack(tp.rho);
@@ -207,7 +207,7 @@ void NStar::BuildFromTOV(const std::vector<TOVPoint> &in_tov,
 			// ------------------------------------------------------------
 			// Compute the Schwarzschild-like factor:
 			// const double r_km = tp.r;
-			// const double m_km = Zaki::Physics::SUN_M_KM * tp.m;
+			// const double m_km = RU::LiteralSolarMassToMassKm(tp.m);
 
 			// ADR-0004: the metric factor has ONE mathematical owner,
 			// CompactStar/Geometry.hpp. This site no longer defines it.
@@ -341,9 +341,7 @@ void NStar::BuildFromTOV(const std::vector<TOVPoint> &in_tov,
 		auto &seq = prof_.SeqMutable();
 		seq.clear();
 		// central energy density
-		seq.ec = radial[idx_eps][0] *
-				 Zaki::Physics::INV_FM4_2_G_CM3 /
-				 Zaki::Physics::INV_FM4_2_INV_KM2; // g/cm^3
+		seq.ec = in_tov.front().e; // g/cm^3
 
 		// surface radius
 		// prof_.seq_point.r = radial[idx_r][-1]; // km
@@ -353,16 +351,14 @@ void NStar::BuildFromTOV(const std::vector<TOVPoint> &in_tov,
 
 		// surface mass (in both solar masses and km)
 		const double Msurf_km = radial[idx_m][-1];					  // km
-		const double Msurf_Msun = Msurf_km / Zaki::Physics::SUN_M_KM; // Msun
+		const double Msurf_Msun = in_tov.back().m; // Msun
 
 		// prof_.M = Msurf_km;				// km
 		// prof_.seq_point.m = Msurf_Msun; // Msun
 		seq.m = Msurf_Msun;
 
 		// central pressure
-		seq.pc = radial[idx_p][0] *
-				 Zaki::Physics::INV_FM4_2_Dyn_CM2 /
-				 Zaki::Physics::INV_FM4_2_INV_KM2; // dyne/cm^2
+		seq.pc = in_tov.front().p; // dyne/cm^2
 
 		// baryon number
 		seq.b = B_integrand.Integrate(1,
@@ -654,42 +650,10 @@ void NStar::FinalizeSurface()
 		// 1.d) Fill the sequence point from the profile
 		// --------------------------------------------------------
 		auto &seq = prof_.SeqMutable();
-		// energy density at center
-		if (prof_.HasColumn(StarProfile::Column::EnergyDensity))
-		{
-			const auto &eps0 = prof_.Radial()[prof_.GetColumnIndex(StarProfile::Column::EnergyDensity)][0];
-			seq.ec = eps0 * Zaki::Physics::INV_FM4_2_G_CM3 /
-					 Zaki::Physics::INV_FM4_2_INV_KM2; // g/cm^3
-		}
-		else
-		{
-			seq.ec = 0.0;
-		}
-
-		// mass and radius at surface
+		// ADR-0012: Append already carried ec, pc and literal public mass from
+		// physical TOVPoint values. Preserve those bits; geometry is a distinct
+		// representation and must never reconstruct public mass through SUN_M_KM.
 		seq.r = prof_.GetRadius()->operator[](-1); // km
-
-		if (prof_.HasColumn(StarProfile::Column::Mass))
-		{
-			const auto &m_last = prof_.GetMass()->operator[](-1);
-			seq.m = m_last / Zaki::Physics::SUN_M_KM; // M_sun
-		}
-		else
-		{
-			seq.m = 0.0; // M_sun
-		}
-
-		// central pressure
-		if (prof_.HasColumn(StarProfile::Column::Pressure))
-		{
-			const auto &p0 = prof_.GetPressure()->operator[](0);
-			seq.pc = p0 * Zaki::Physics::INV_FM4_2_Dyn_CM2 /
-					 Zaki::Physics::INV_FM4_2_INV_KM2; // dyne/cm^2
-		}
-		else
-		{
-			seq.pc = 0.0;
-		}
 
 		// total baryon number (visible) from integrand
 		if (B_integrand[0].Size() > 0)
@@ -720,18 +684,18 @@ void NStar::Append(const TOVPoint &in_tov)
 	// col(Col::R).PushBack(in_tov.r); // in km
 
 	// col(Col::M).PushBack(
-	// 	Zaki::Physics::SUN_M_KM * in_tov.m); // solar-mass → km
+	// 	RU::LiteralSolarMassToMassKm(in_tov.m)); // solar-mass → km
 
 	// col(Col::Rho).PushBack(
 	// 	in_tov.rho); // in fm^{-3}
 
 	// col(Col::Eps).PushBack(
-	// 	in_tov.e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3); // to km^{-2}
+	// 	RU::MassDensityGcm3ToEnergyKmMinus2(in_tov.e)); // to km^{-2}
 
 	// col(Col::P).PushBack(
-	// 	in_tov.p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2); // to km^{-2}
+	// 	RU::PressureDynCm2ToKmMinus2(in_tov.p)); // to km^{-2}
 
-	// col(Col::NuPrime).PushBack(in_tov.nu_der * 1e5); // 1/cm → 1/km
+	// col(Col::NuPrime).PushBack(RU::NuPrimeCmInverseToKmInverse(in_tov.nu_der)); // 1/cm → 1/km
 
 	// // per-species for legacy ds
 	// if (in_tov.rho_i.size() != rho_i_idx.size())
@@ -762,14 +726,14 @@ void NStar::Append(const TOVPoint &in_tov)
 	const int idx_nu = prof_.GetColumnIndex(StarProfile::Column::MetricNu);
 	const int idx_lam = prof_.GetColumnIndex(StarProfile::Column::MetricLambda);
 
-	// Now actually append the values (same unit conversions as legacy)
+	// ADR-0012: same solved GSL spacetime as BuildFromTOV.
 	radial[idx_r].PushBack(in_tov.r);
-	radial[idx_m].PushBack(Zaki::Physics::SUN_M_KM * in_tov.m); // solar-mass → km
-	radial[idx_nup].PushBack(in_tov.nu_der * 1e5);				// 1/cm→1/km
+	radial[idx_m].PushBack(RU::LiteralSolarMassToMassKm(in_tov.m)); // solar-mass → km
+	radial[idx_nup].PushBack(RU::NuPrimeCmInverseToKmInverse(in_tov.nu_der));				// 1/cm→1/km
 	radial[idx_p].PushBack(
-		in_tov.p * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_Dyn_CM2);
+		RU::PressureDynCm2ToKmMinus2(in_tov.p));
 	radial[idx_eps].PushBack(
-		in_tov.e * Zaki::Physics::INV_FM4_2_INV_KM2 / Zaki::Physics::INV_FM4_2_G_CM3);
+		RU::MassDensityGcm3ToEnergyKmMinus2(in_tov.e));
 	radial[idx_nb].PushBack(in_tov.rho);
 	// we do not set nu here — EvaluateNu() will overwrite this column later
 	radial[idx_nu].PushBack(0.0);
@@ -779,7 +743,7 @@ void NStar::Append(const TOVPoint &in_tov)
 	// ------------------------------------------------------------
 	// Compute the Schwarzschild-like factor:
 	const double r_km = in_tov.r;
-	const double m_km = Zaki::Physics::SUN_M_KM * in_tov.m;
+	const double m_km = RU::LiteralSolarMassToMassKm(in_tov.m);
 
 	// ADR-0004: the metric factor has ONE mathematical owner,
 	// CompactStar/Geometry.hpp. This Path-1 site no longer defines it.
@@ -830,8 +794,12 @@ void NStar::Append(const TOVPoint &in_tov)
 	// before finalization, we get something reasonable.
 	auto &seq = prof_.SeqMutable();
 	seq.r = in_tov.r; // km
-	seq.m = in_tov.m; // M_sun  ← in solar masses
-					  // pc, ec, B, I will be filled / fixed at finalize time
+	seq.m = in_tov.m; // literal m_grams / GSL solar mass (ADR-0012)
+	if (radial[idx_r].Size() == 1)
+	{
+		seq.ec = in_tov.e; // g/cm^3, preserve the physical central input
+		seq.pc = in_tov.p; // dyn/cm^2
+	} // B and I are filled at finalization.
 }
 
 //-------------------------------------------------------------- */

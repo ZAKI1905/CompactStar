@@ -61,8 +61,8 @@ Result star(Probe &s, EnthalpyOracle &oracle, double requested, size_t res, std:
 	require(q.r > 2 * mu, "tail bound metric domain");
 	double gu = (mu + 4 * M_PI * Rhi * Rhi * Rhi * sq.p * oracle.to_geo) / (q.r * (q.r - 2 * mu));
 	double Rlo = q.r + ref.Hs / gu, R0 = (Rlo + Rhi) / 2;
-	double z = lapse(q.m, q.r, Zaki::Physics::SUN_M_KM);
-	Result out{requested, p.front().e, arho, pc, cut, q.m, q.r, z, q.r / z, Rlo, Rhi, R0, R0 / lapse(q.m, R0, Zaki::Physics::SUN_M_KM), ref.M, ref.R};
+	double z = lapse(q.m, q.r, oracle.solar_length);
+	Result out{requested, p.front().e, arho, pc, cut, q.m, q.r, z, q.r / z, Rlo, Rhi, R0, R0 / lapse(q.m, R0, oracle.solar_length), ref.M, ref.R};
 	if (save)
 		*save = std::move(p);
 	return out;
@@ -98,7 +98,7 @@ int main(int argc, char **argv)
 			prev = q;
 		}
 		double nb = central_n(eos, 1.10e15);
-		summary << "midpoint_nB=" << nb << "\nmidpoint_eps=" << eos.BarotropeAt(nb).energy_density_MeV_fm3 << "\nG_cgs=" << oracle.G << "\nsolar_mass_g=" << GSL_CONST_CGSM_SOLAR_MASS << "\nraw_solar_length_km=" << oracle.solar_length << "\nprofile_solar_length_km=" << Zaki::Physics::SUN_M_KM << std::endl;
+		summary << "midpoint_nB=" << nb << "\nmidpoint_eps=" << eos.BarotropeAt(nb).energy_density_MeV_fm3 << "\nG_cgs=" << oracle.G << "\nsolar_mass_g=" << GSL_CONST_CGSM_SOLAR_MASS << "\nraw_solar_length_km=" << oracle.solar_length << "\nprofile_solar_length_km=" << oracle.solar_length << std::endl;
 		Result last{};
 		std::filesystem::path finest;
 		for (size_t grid : {1024, 2048, 4096, 8192})

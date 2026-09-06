@@ -1,3 +1,4 @@
+#include "tests/relativity/candidate_capture.hpp"
 // -*- lsst-c++ -*-
 /*
  * CompactStar
@@ -833,6 +834,8 @@ int main(int argc, char **argv)
 		}
 	if (fails)
 		return 4; // not baseline drift — a physics/accounting defect
+
+	unit_candidate_evidence::Capture("passive_cooling_cmf_1p6_debug.tsv", [&](const fs::path &p) { WriteBaseline(p, cks, si); });
 
 	if (mode == "--emit")
 	{

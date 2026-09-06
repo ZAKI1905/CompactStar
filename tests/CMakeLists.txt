@@ -248,6 +248,25 @@ set_tests_properties(geometry_cache_measure_contract PROPERTIES
     LABELS "evolution;geometry;cache;contract")
 
 # ---------------------------------------------------------------------------
+# Opt-in ADR-0012 scientific-candidate comparison. Default regression still reads
+# governed historical files. This redirects ONLY three comparisons whose artifacts
+# ADR-0012 explicitly adjudicates obsolete; all assertions/tolerances stay unchanged.
+set(COMPACTSTAR_ADR0012_CANDIDATE_DIR "" CACHE PATH
+    "External validated ADR-0012 candidate artifacts; does not supersede baselines")
+set(_adr0012_references "${CMAKE_CURRENT_SOURCE_DIR}/baselines")
+if(COMPACTSTAR_ADR0012_CANDIDATE_DIR)
+    get_filename_component(_adr0012_references "${COMPACTSTAR_ADR0012_CANDIDATE_DIR}" REALPATH)
+    if(_adr0012_references MATCHES "/tests/baselines($|/)")
+        message(FATAL_ERROR "ADR-0012 candidate directory must be outside governed baselines")
+    endif()
+    foreach(_artifact passive_cooling_cmf_1p6_debug.tsv baryon_number_dscmf1_reference.tsv hartle_monopole_dscmf1_debug.tsv)
+        if(NOT EXISTS "${_adr0012_references}/${_artifact}")
+            message(FATAL_ERROR "Missing ADR-0012 candidate: ${_artifact}")
+        endif()
+    endforeach()
+    message(STATUS "ADR-0012 candidate comparisons (not ratification): ${_adr0012_references}")
+endif()
+
 set(COMPACTSTAR_EOS_DATA_ROOT "" CACHE PATH
     "Path to authenticated official CompOSE tables; enables the Tier-B thermal test.")
 
@@ -265,7 +284,7 @@ if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
     add_test(NAME passive_cooling_regression
              COMMAND passive_cooling_regression "${COMPACTSTAR_EOS_DATA_ROOT}"
                      --compare
-                     "${CMAKE_CURRENT_SOURCE_DIR}/baselines/passive_cooling_cmf_1p6_debug.tsv")
+                     "${_adr0012_references}/passive_cooling_cmf_1p6_debug.tsv")
     set_tests_properties(passive_cooling_regression PROPERTIES
         LABELS "thermal;scientific;external-data;regression")
 
@@ -310,7 +329,8 @@ if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
     target_compile_definitions(hartle_monopole_regression PRIVATE
         COMPACTSTAR_BASELINE_DIR="${CMAKE_CURRENT_SOURCE_DIR}/baselines")
     add_test(NAME hartle_monopole_regression
-             COMMAND hartle_monopole_regression "${COMPACTSTAR_EOS_DATA_ROOT}")
+             COMMAND hartle_monopole_regression "${COMPACTSTAR_EOS_DATA_ROOT}"
+                --compare "${_adr0012_references}/hartle_monopole_dscmf1_debug.tsv")
     set_tests_properties(hartle_monopole_regression PROPERTIES
         LABELS "rotation;hartle;monopole;scientific;regression;external-data"
         TIMEOUT 900)
@@ -384,7 +404,7 @@ if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
     add_test(NAME baryon_number_cmf
              COMMAND baryon_number_cmf "${COMPACTSTAR_EOS_DATA_ROOT}"
                      --compare
-                     "${CMAKE_CURRENT_SOURCE_DIR}/baselines/baryon_number_dscmf1_reference.tsv")
+                     "${_adr0012_references}/baryon_number_dscmf1_reference.tsv")
     set_tests_properties(baryon_number_cmf PROPERTIES
         LABELS "core;tov;reference;external-data;scientific"
         TIMEOUT 900)
@@ -462,3 +482,15 @@ add_test(NAME rotochemical_trackr_freegas_barotrope COMMAND rotochemical_trackr_
 add_test(NAME rotochemical_trackr_freegas_structure COMMAND rotochemical_trackr_freegas_structure)
 set_tests_properties(rotochemical_trackr_freegas_barotrope rotochemical_trackr_freegas_structure
     PROPERTIES LABELS "rotochemical;thermodynamics;track-r;free-gas;structure;self-contained;scientific")
+
+# ADR-0012 candidate: independent algebra, analytic spacetime, inverse and mixed controls.
+add_executable(relativistic_unit_boundary relativity/relativistic_unit_boundary.cpp)
+target_link_libraries(relativistic_unit_boundary PRIVATE CompactStar)
+add_test(NAME relativistic_unit_boundary COMMAND relativistic_unit_boundary)
+set_tests_properties(relativistic_unit_boundary PROPERTIES
+    LABELS "relativity;units;scientific;self-contained")
+add_executable(relativistic_unit_background relativity/relativistic_unit_background.cpp)
+target_link_libraries(relativistic_unit_background PRIVATE CompactStar)
+add_test(NAME relativistic_unit_background COMMAND relativistic_unit_background)
+set_tests_properties(relativistic_unit_background PROPERTIES
+    LABELS "relativity;units;tov;scientific;self-contained" TIMEOUT 300)

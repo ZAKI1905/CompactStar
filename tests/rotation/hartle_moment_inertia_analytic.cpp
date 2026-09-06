@@ -1,3 +1,4 @@
+#include "tests/relativity/fixture_units.hpp"
 // -*- lsst-c++ -*-
 /*
  * CompactStar
@@ -132,9 +133,9 @@ static hartle_ref::Background TabulateAnalytic(const Uniform &u, std::size_t N)
 static std::unique_ptr<NStar> ProductionStar(const Uniform &u, std::size_t N)
 {
 	const double km2_to_gcm3 =
-		Zaki::Physics::INV_FM4_2_G_CM3 / Zaki::Physics::INV_FM4_2_INV_KM2;
+		relativity_fixture::eps_to_rho;
 	const double km2_to_dyn =
-		Zaki::Physics::INV_FM4_2_Dyn_CM2 / Zaki::Physics::INV_FM4_2_INV_KM2;
+		relativity_fixture::pressure_to_cgs;
 
 	std::vector<TOVPoint> pts;
 	pts.reserve(N);
@@ -142,7 +143,7 @@ static std::unique_ptr<NStar> ProductionStar(const Uniform &u, std::size_t N)
 	{
 		const double r = GridR(u, i, N);
 		pts.emplace_back(r,
-						 u.m(r) / Zaki::Physics::SUN_M_KM, // Msun
+						 u.m(r) / relativity_fixture::solar_km, // Msun
 						 u.nuprime(r) / 1.0e5,			   // 1/km -> 1/cm
 						 0.0,							   // nu: rebuilt by BuildFromTOV
 						 u.p(r) * km2_to_dyn,			   // dyne/cm^2

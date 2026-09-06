@@ -102,6 +102,18 @@ ADR-0001 Consequences.
 
 ## INV-02 — Unit boundaries: CGS inside TOV, geometric outside — **VERIFIED CURRENT BEHAVIOR**
 
+**Unit-1D candidate (2026-09-06): ADR-0012 A1 production correction IMPLEMENTED + CANDIDATE VALIDATED.**
+Focused 42/42 and data-free 30/30 pass; full raw 50 PASS / 3 FAIL (rc=8),
+classified A=50, B=3, C=0. Every Category-B output equals its validated successor exactly.
+C1–C6 are repeatable successor candidates, not governed baselines; H7/H8 remain byte-identical.
+Independent review: PENDING. Human ratification: PENDING. Governed baseline supersession: PENDING.
+ADR-0011 Q4: NUMERIC UNIT PREREQUISITE SATISFIED IN CANDIDATE; NOT YET CLOSED; PB7 incomplete.
+INV-09 remains INTENDED BUT UNVERIFIED (unresolved); INV-11 remains UNRESOLVED.
+No Phase-5B production, Btilde, paper Z/W, evolution, or BNV work begins.
+Evidence: `docs/validation/RELATIVISTIC_UNIT_BOUNDARY_IMPLEMENTATION.md:1`.
+Earlier entries below retain their historical scope.
+
+
 **Statement.** The TOV integrator works in CGS with explicit `G` and `c`. Conversion to
 geometric units happens once, at `NStar::Append`. All stored profile data is geometric:
 r, m in km; p, ε in km⁻²; ν′ in km⁻¹; baryon density in fm⁻³.

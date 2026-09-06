@@ -1,3 +1,4 @@
+#include "tests/relativity/candidate_capture.hpp"
 // -*- lsst-c++ -*-
 // Copyright (c) 2026 Mohammadreza Zakeri. MIT License — see LICENSE.
 /**
@@ -224,6 +225,9 @@ int main(int argc, char **argv)
         const auto cold = fs::path(argv[1]) / "DS-CMF-1-with-crust" / "DS(CMF)-1_with_crust.eos";
         Require(fs::is_regular_file(cold), "required EOS missing: " + cold.string());
         const std::string bytes = Serialize(Compute(cold));
+        unit_candidate_evidence::Capture("hartle_monopole_dscmf1_debug.tsv", [&](const fs::path &p) {
+            std::ofstream out(p, std::ios::binary); out.exceptions(std::ios::failbit | std::ios::badbit); out << bytes; out.close();
+        });
         if (emit)
         {
             std::ofstream out;

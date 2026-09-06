@@ -1,3 +1,4 @@
+#include "tests/relativity/candidate_capture.hpp"
 // -*- lsst-c++ -*-
 /*
  * CompactStar
@@ -201,6 +202,8 @@ int main(int argc, char **argv)
 		std::cerr << "solve failed: " << e.what() << "\n";
 		return 4;
 	}
+
+	unit_candidate_evidence::Capture("baryon_number_dscmf1_reference.tsv", [&](const fs::path &p) { Emit(p, rows); });
 
 	if (!emit.empty())
 	{
