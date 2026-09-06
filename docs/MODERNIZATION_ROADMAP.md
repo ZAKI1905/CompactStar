@@ -629,6 +629,13 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
   INV-11 remains **UNRESOLVED**. No production implementation, legacy-cache activation, Btilde,
   paper Z/W, evolution or BNV began.
 
+- **UNIT-0 RELATIVISTIC UNIT-BOUNDARY AUDIT COMPLETE — REPAIR CONTRACT READY FOR OWNER RATIFICATION.**
+  The full-star GSL/Zaki inconsistency, coherent scratch comparisons, affected-reference matrix,
+  minimum A1 boundary repair and U1–U14 revalidation plan are recorded in
+  `docs/validation/RELATIVISTIC_UNIT_BOUNDARY_AUDIT.md:1`. ADR-0012 is **PROPOSED**, not accepted
+  (`docs/adr/ADR-0012-relativistic-unit-boundary.md:1`). No production or baseline changed.
+  ADR-0011 Q4/PB7 and Phase-5B implementation remain blocked; INV-09/INV-11 remain unresolved.
+
 Later Phase-5 work, explicitly not the next increment:
 
 - **Correct `RotochemicalCache` for ADR-0001 conformance** — construct `n_i = Y_i · n_B` before

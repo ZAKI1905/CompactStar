@@ -133,6 +133,16 @@ are still re-derived locally. See INV-13.
 geometric-outside unit boundary, which is VERIFIED CURRENT BEHAVIOR and is not affected by the
 k_B authority change.
 
+**Unit-0 audit qualification:** the current GSL-solved / Zaki-converted profile does not
+satisfy one geometric TOV system: fresh full-star mass and nuprime identity residuals expose
+the mismatch. A coherent scratch re-expression preserves the physical solve and reduces the
+PB7 method discrepancy. Evidence and the proposed minimum A1 repair/U1–U14 plan:
+`docs/validation/RELATIVISTIC_UNIT_BOUNDARY_AUDIT.md:1`;
+`docs/adr/ADR-0012-relativistic-unit-boundary.md:1` (**PROPOSED**). This is a factual
+qualification of current behavior, not an accepted unit change. ADR-0011 remains ACCEPTED,
+its Q4/PB7 implementation block remains, and INV-09/INV-11 remain unresolved. No production,
+test or baseline was changed by the audit.
+
 **Angular quantities — a second governed boundary (Phase 4A, ADR-0006).** Rotation adds a
 *physical/geometric* boundary alongside the CGS/geometric one: the public first-order rotation
 API takes and returns a physical `Ω` in rad s⁻¹ while everything stored stays geometric
