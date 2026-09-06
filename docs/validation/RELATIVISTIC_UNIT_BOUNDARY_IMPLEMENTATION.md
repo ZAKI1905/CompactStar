@@ -1,11 +1,24 @@
 # Relativistic unit boundary — Unit-1D final candidate validation
 
-**UNIT-1 A1 RELATIVISTIC UNIT CORRECTION IMPLEMENTED AND VALIDATED — INDEPENDENT REVIEW REQUIRED**
+**UNIT-1RAT STATUS ADDENDUM — HUMAN-RATIFIED 2026-09-06**
 
-The authenticated existing A1 candidate has completed focused, data-free, and historical-reference
-full-suite regression closure. Independent review, human ratification, and governed-baseline
-supersession remain pending. This final increment changes documentation and the candidate manifest
-only; the production patch and scientific test semantics are unchanged from entry. The two
+Independent review is complete with disposition **PASS WITH NONBLOCKING FINDINGS**. The human
+owner ratifies ADR-0012 A1, the U1-U14 evidence below, both test-semantics adjudications, and
+C1-C6 as successor contents for the next governed supersession task. H7/H8 remain byte-identical.
+Governed baselines and canonical master are unchanged. ADR-0011 Q4's numeric unit prerequisite
+is ratified as satisfied, but Q4 remains open pending governed supersession/integration; PB7 is
+incomplete, INV-09 remains INTENDED BUT UNVERIFIED / unresolved, and INV-11 remains UNRESOLVED.
+Full decision, review caveats, and exact remaining boundaries:
+`docs/validation/RELATIVISTIC_UNIT_BOUNDARY_RATIFICATION.md:1`.
+
+**Historical Unit-1D disposition:** UNIT-1 A1 RELATIVISTIC UNIT CORRECTION IMPLEMENTED AND
+VALIDATED — INDEPENDENT REVIEW REQUIRED.
+
+At Unit-1D closeout, the authenticated existing A1 candidate had completed focused, data-free,
+and historical-reference full-suite regression closure; independent review, human ratification,
+and governed-baseline supersession were then pending. That final increment changed documentation
+and the candidate manifest only; the production patch and scientific test semantics were unchanged
+from entry. The two
 owner-adjudicated test contracts remain recorded in
 `docs/validation/RELATIVISTIC_UNIT_BOUNDARY_B3C_ADJUDICATION.md:1` and
 `docs/validation/RELATIVISTIC_UNIT_BOUNDARY_SURFACE_ASSERTION_ADJUDICATION.md:1`.
@@ -25,8 +38,9 @@ Authority: `GOVERNANCE.md:88` (§3.1), accepted ADR-0012 Q1–Q5 and U1–U14
 (`docs/adr/ADR-0012-relativistic-unit-boundary.md:38`), normative oracle matrix
 (`docs/validation/RELATIVISTIC_UNIT_BOUNDARY_AUDIT.md:823`). Old mixed output fails exact TOV
 identities and cannot govern the correction. Independent CGS, analytic, measure, sequence and
-thermal checks substitute for preserving that defect. **No baseline is established by Unit-1D**; six repeatable successors are prepared, with review and human ratification
-still required before supersession.
+thermal checks substitute for preserving that defect. **No baseline is established by Unit-1D**;
+six repeatable successors were prepared. Review and human ratification are now complete; governed
+supersession remains pending.
 
 Historical Unit-1C entry: the complete dirty-patch SHA matched the post-B3c snapshot:
 `064dec6933b033fab4ae4b417a4677d5234ca26ac783f4cbb58a35affbba39e7`.
@@ -68,7 +82,7 @@ existing scientific-semantic A1 candidate authority, not new scientific implemen
 | U11 | Candidate physical-density inverse, threshold indices and thermal focused checks PASS; cooling and grid candidates repeatable. |
 | U12 | Coherent numerical prerequisite satisfied in candidate only; PB7 not complete, Q4 not closed. |
 | U13 | PASS: full-star mass/energy/pressure/former-path negative controls discriminate; coherent path passes same identities. |
-| U14 | COMPLETE AS CANDIDATE PROVENANCE: focused/data-free/full classification complete; six repeatable validated successor candidates, H7/H8 byte-identical, zero Category C. Independent review, human ratification and governed supersession remain pending. |
+| U14 | COMPLETE AS CANDIDATE PROVENANCE: focused/data-free/full classification complete; six repeatable validated successor candidates, H7/H8 byte-identical, zero Category C. Independent review and human ratification are complete; governed supersession remains pending. |
 
 Retained U1/U2/U4/U5 evidence is in `build/unit1-a1/unit.log:1`, `background.log:1`,
 `pre/constants.txt:1`, `pre/dependency-hashes.json:1`; their hash verification precedes reuse.
@@ -242,7 +256,7 @@ No scratch target was fitted. Evidence: `build/unit1c/pb7.json:1`; source:
 
 **ADR-0011 Q4 UNIT PREREQUISITE NUMERICALLY SATISFIED
 IN UNIT-1 REVALIDATION CANDIDATE —
-PENDING INDEPENDENT REVIEW AND HUMAN RATIFICATION**
+HUMAN-RATIFIED AS SATISFIED**
 
 PB7 itself remains incomplete; Q4 is not closed and no production Phase-5B API exists here.
 
@@ -266,8 +280,8 @@ Canonical commands, actual generation logs, reasons, independent evidence and nu
 are in `docs/validation/RELATIVISTIC_UNIT_BOUNDARY_CANDIDATES.json:1` and
 `build/unit1c/{grid-generation,candidate-generation,artifact-deltas}.json`.
 This manifest is **evidence, not baseline authority**. No candidate was copied into
-`tests/baselines/`. The candidate validation package is complete. Independent review and human ratification remain
-required before governed baseline supersession.
+`tests/baselines/`. The candidate validation package is complete. Independent review and human
+ratification are complete; governed baseline supersession remains a separate next task.
 
 | Artifact | Historical SHA-256 | Candidate SHA-256 | Disposition |
 |---|---|---|---|
@@ -402,9 +416,10 @@ stars. The decision, high-precision oracle, tolerance derivation, and mutation t
 in `docs/validation/RELATIVISTIC_UNIT_BOUNDARY_SURFACE_ASSERTION_ADJUDICATION.md:1`.
 
 No TOVSolver, RotationSolver or Geometry numerical equation change has been made or shown
-necessary. Regression closure is complete as recorded in §12. Exact remaining scientific work:
-independent review of the complete candidate, followed by the separate human-ratification decision.
-Independent review/human ratification still precede any baseline supersession.
+necessary. Regression closure is complete as recorded in §12. At Unit-1D closeout, the exact
+remaining scientific work was independent review of the complete candidate followed by the
+separate human-ratification decision. Both are now complete and precede the still-pending baseline
+supersession.
 
 ## 14. Changed files and final preservation
 
@@ -477,19 +492,19 @@ passes.
 Candidate identity is the commit containing this record, with entry parent
 `1d22dd1f5a0d1afa18c4cedebb36b28fdae49df4`; the resulting UNIT1_SHA and transport authentication
 are recorded in the external Unit-1D final report to avoid a self-referential commit hash.
-Canonical master must remain at the entry SHA. No merge, human ratification, baseline supersession,
+Canonical master must remain at the entry SHA. No merge, baseline supersession,
 Phase-5B implementation, Btilde, paper Z/W, new evolution implementation, or BNV work occurs.
 Existing passive-cooling validation is the authorized revalidation, not a new evolution implementation.
-ADR-0012 A1: IMPLEMENTED + CANDIDATE VALIDATED. Independent review: PENDING.
-Human ratification: PENDING. Governed baseline supersession: PENDING.
+ADR-0012 A1: IMPLEMENTED + CANDIDATE VALIDATED + HUMAN-RATIFIED.
+Independent review: COMPLETE — PASS WITH NONBLOCKING FINDINGS. Governed baseline supersession: PENDING.
 ADR-0011 Q4: NUMERIC UNIT PREREQUISITE SATISFIED IN CANDIDATE; NOT YET CLOSED.
 PB7 itself remains incomplete; INV-09 remains INTENDED BUT UNVERIFIED and INV-11 UNRESOLVED.
 The qualified FR2005 common-state row is preserved; source-qualified M_max remains unratified.
 
-## 15. Exactly one recommended next action
+## 15. Exactly one recommended next action — updated after ratification
 
-Run an independent Claude Opus 5 XHIGH scientific/numerical review of UNIT1_SHA,
-including the complete ADR-0012 production diff, both governed test-semantics
-adjudications, U1-U14 evidence, focused/data-free/full-suite results, A/B/C
-classification, and C1-C6 successor candidates, before any human ratification,
-canonical merge, or baseline supersession. Do not begin that action automatically.
+Perform a separate governed baseline-supersession and canonical-integration task: regenerate
+and install only C1-C6 through their canonical producers, preserve H7/H8, rerun the complete
+53-test suite expecting 53/53 PASS after supersession, independently authenticate all new
+governed hashes, then fast-forward master through UNIT1_SHA and RATIFICATION_SHA only if every
+post-supersession check passes. Do not begin that action automatically.

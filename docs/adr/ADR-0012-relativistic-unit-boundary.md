@@ -258,3 +258,32 @@ UNVERIFIED**; INV-11 remains **UNRESOLVED**.
 canonical master, implement the bounded RelativityUnits conversion repair, execute U1–U14,
 independently revalidate affected static/rotation/count/thermal quantities, and prepare but do
 not automatically ratify or supersede affected baselines. Do not begin that action automatically.
+
+---
+
+## Ratification / status addendum — 2026-09-06
+
+**UNIT-1 A1 IMPLEMENTATION AND INDEPENDENT REVIEW HUMAN-RATIFIED — 2026-09-06**
+
+This dated addendum records later execution and review without rewriting the original accepted
+Q1-Q5 history above. Full owner decision and caveats:
+`docs/validation/RELATIVISTIC_UNIT_BOUNDARY_RATIFICATION.md:1`.
+
+| Item | Status |
+|---|---|
+| Candidate | `b3ce4f1303dbab68b68a82614c944c269cefebdc` |
+| Independent review disposition | **PASS WITH NONBLOCKING FINDINGS** |
+| Human owner disposition | **RATIFIED** |
+| Production correction | **RATIFIED** |
+| U1-U14 candidate validation | **RATIFIED** |
+| Six successor candidates | **RATIFIED FOR GOVERNED SUPERSESSION** |
+| Governed baseline supersession | **NOT YET PERFORMED** |
+| Canonical integration | **NOT YET PERFORMED** |
+| ADR-0011 Q4 | **NUMERIC UNIT PREREQUISITE RATIFIED AS SATISFIED; CANONICAL CLOSURE PENDING SUPERSESSION/INTEGRATION** |
+| INV-09 | **UNRESOLVED — INTENDED BUT UNVERIFIED** |
+| INV-11 | **UNRESOLVED** |
+
+The B3c-prime and surface-coordinate test-semantics adjudications are human-ratified as part of
+Unit-1. C1-C6 are authorized successor contents for the next governed supersession task; H7/H8
+remain byte-identical and require no supersession. No baseline is replaced and master is not
+modified by this ratification.

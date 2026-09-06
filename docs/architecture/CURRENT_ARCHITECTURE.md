@@ -1,14 +1,16 @@
 # CompactStar — Current Architecture
 
-> **Unit-1D candidate (2026-09-06): ADR-0012 A1 production correction IMPLEMENTED + CANDIDATE VALIDATED.**
-> Focused 42/42 and data-free 30/30 pass; full raw 50 PASS / 3 FAIL (rc=8),
-> classified A=50, B=3, C=0. Every Category-B output equals its validated successor exactly.
-> C1–C6 are repeatable successor candidates, not governed baselines; H7/H8 remain byte-identical.
-> Independent review: PENDING. Human ratification: PENDING. Governed baseline supersession: PENDING.
-> ADR-0011 Q4: NUMERIC UNIT PREREQUISITE SATISFIED IN CANDIDATE; NOT YET CLOSED; PB7 incomplete.
-> INV-09 remains INTENDED BUT UNVERIFIED (unresolved); INV-11 remains UNRESOLVED.
-> No Phase-5B production, Btilde, paper Z/W, evolution, or BNV work begins.
-> Evidence: `docs/validation/RELATIVISTIC_UNIT_BOUNDARY_IMPLEMENTATION.md:1`.
+> **Unit-1RAT (2026-09-06): ADR-0012 A1 HUMAN-RATIFIED.** Independent review is
+> **COMPLETE — PASS WITH NONBLOCKING FINDINGS**. The ordinary-`NStar` production correction and
+> U1-U14 candidate evidence are ratified. C1-C6 are authorized for the next governed baseline
+> supersession; H7/H8 remain byte-identical. No baseline or master integration occurs here.
+> ADR-0011 Q4's numeric unit prerequisite is ratified as satisfied, but Q4 remains open pending
+> supersession/integration; PB7 is incomplete. INV-09 remains INTENDED BUT UNVERIFIED / unresolved
+> and INV-11 remains UNRESOLVED. `MixedStar` was excluded by ADR-0012 and retains its historical
+> relativistic conversion behavior; its unit boundary requires a separate future audit and any
+> correction requires separate scientific authority. No Phase-5B production, Btilde, paper Z/W,
+> evolution, or BNV work begins. Evidence:
+> `docs/validation/RELATIVISTIC_UNIT_BOUNDARY_RATIFICATION.md:1`.
 > Earlier entries below retain their historical scope.
 
 
