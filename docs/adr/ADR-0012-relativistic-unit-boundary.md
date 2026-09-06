@@ -1,9 +1,14 @@
 # ADR-0012: relativistic unit boundary for canonical ordinary-star backgrounds
 
-**Status: PROPOSED — 2026-09-05**
+**Status: ACCEPTED — 2026-09-05**
 
-**Owner decisions pending. No production correction or baseline supersession is authorized
-by this PROPOSED record. ADR-0011 remains ACCEPTED and its Q4 implementation block remains.**
+> **ADR-0012 ACCEPTED —**
+> **A1 RELATIVISTIC UNIT-BOUNDARY CORRECTION AUTHORIZED;**
+> **PRODUCTION CORRECTION AND REVALIDATION NOT YET PERFORMED.**
+
+ADR-0011 remains **ACCEPTED**. Its Q4 prerequisite remains blocked until the A1 correction and
+revalidation are complete. INV-09 remains **INTENDED BUT UNVERIFIED**; INV-11 remains
+**UNRESOLVED**.
 
 ## Context and authority
 
@@ -13,8 +18,8 @@ energy with Zaki's modern-G factors, and carries the original GSL nuprime. The r
 background is internally inconsistent: the full-star mass identity has a systematic
 `2.56486e-4` relative residual and the nuprime identity up to `7.33756e-5`. Coherent conversion
 of the same solved state closes those algebraic identities to roundoff and reduces the leading
-homogeneous/complete-star particle derivative discrepancy from `9.1742e-4` to `1.3684e-6`.
-This is scratch evidence, not a production PB7 pass
+homogeneous/complete-star particle derivative discrepancy from approximately `9.17e-4` to
+approximately `1.37e-6`. This is pre-implementation scratch evidence, not a production PB7 pass
 (`docs/validation/RELATIVISTIC_UNIT_BOUNDARY_AUDIT.md:1`).
 
 Governing authority: `GOVERNANCE.md:15`, `:39`, `:65`, `:88`; accepted canonical numerical
@@ -26,112 +31,201 @@ contracts (`docs/adr/ADR-0006-hartle-first-order-physical-normalization.md:243`,
 `docs/adr/ADR-0009-tov-surface-event-and-termination.md:47`); unit prerequisite
 (`docs/adr/ADR-0011-particle-number-structural-response.md:92`).
 
-The eventual change is **scientific-semantic**, with a bounded architecture change and
+The authorized future change is **scientific-semantic**, with a bounded architecture change and
 independent numerical validation. A successful round trip or old baseline is not sufficient
-scientific authority for a conversion. This document does not adjudicate a chemical convention.
+scientific authority for a conversion. This decision does not adjudicate a chemical convention.
 
-## Five owner decisions
+## Owner decision
+
+The human project owner accepts Q1–Q5 below as normative.
 
 ### Q1 — actual solve convention
 
-**Proposed answer: retain the current canonical physical solve, GSL 2.7.1's
-G=6.673e-8 cm^3 g^-1 s^-2 and c=2.99792458e10 cm/s.** This selects the numerical convention of
-this calculation, not the ideal modern estimate of G for all future work. A later change to
-modern G requires a separately authorized physical re-solve/revalidation.
-
-Alternative: migrate canonical TOV to Zaki/CODATA G=6.67430e-8 CGS now, with a separately
-chosen public mass convention. The audit's independent enthalpy re-solve quantifies that
-alternative; it preserves the qualified printed Structure-1 bins but changes the physical
-star. It is not required to reconcile the existing solved spacetime
-(`docs/validation/RELATIVISTIC_UNIT_BOUNDARY_AUDIT.md:1`).
-
-### Q2 — authoritative geometric representation
-
-**Proposed answer: all ordinary StarProfile m,eps,p and nuprime must represent the same
-Q1 TOV solution, using one explicit conversion owner.** For CGS input and geometric km:
+Retain the current canonical ordinary-star TOV numerical solve convention:
 
 ```
-r_km = r_cm/1e5
-m_km = G_TOV*m_grams/c_TOV^2/1e5
-eps_km_minus2 = G_TOV*rho_cgs/c_TOV^2*1e10
-p_km_minus2 = G_TOV*p_cgs/c_TOV^4*1e10
-nuprime_km_inverse = nuprime_cm_inverse*1e5
+G_TOV = GSL 2.7.1 G = 6.673e-8 cm^3 g^-1 s^-2
+c_TOV = 2.99792458e10 cm/s
 ```
 
-The existing nu reconstruction matches to the corrected geometric surface mass. Geometry's
-formulas, RotationSolver equations, fixed-central-energy normalization, energy measure,
-finite-pressure surface and AngularVelocity c conversion are unchanged. All five TOV
-identities, not just lambda or pprime versus carried nuprime, must be validated.
-The derivation, current source paths and radial residuals are in
-`docs/validation/RELATIVISTIC_UNIT_BOUNDARY_AUDIT.md:1`.
+This is the numerical convention defining the existing canonical TOV calculation. It is not a
+declaration that this G value is the preferred modern physical constant for all future
+calculations. Changing canonical TOV to modern/CODATA G would constitute a separate physical
+re-solve and requires separate authorization.
 
-### Q3 — public solar mass and geometric mass transport
+### Q2 — authoritative geometric star representation
 
-**Proposed answer: keep current public `tp.m`, `SeqPoint::m` and NStar mass semantics as the
-literal ratio `m_grams/(1.98892e33 g)`, explicitly named/documented as the historical GSL
-normalization. Preserve it independently of the geometric mass in existing metadata.**
-Public central e,p remain physical CGS. Copy the physical public inputs where they already
-exist; otherwise use the matching inverse conversion. Do not reconstruct literal solar mass
-by dividing geometric mass by Zaki's nominal solar length.
+Every ordinary `StarProfile` geometric field derived from a canonical TOV star must represent
+that **same solved spacetime** using the same `G_TOV` and `c_TOV`. For CGS input and geometric km:
 
-Zaki `SUN_M_KM` denotes `(GM_sun)^N/c^2` from IAU 2015 B3; a nominal gravitational-parameter
-ratio is a different public convention. It may be useful as a future separately named output,
-but no silent relabelling or denominator substitution is accepted here. The existing
-`SeqPoint` and `StarProfile` fields suffice; no new TOVPoint schema is required for A1
-(`CompactStar/Core/TOVSolver.hpp:316`; `CompactStar/Core/StarProfile.hpp:353`, `:381`;
-`docs/validation/RELATIVISTIC_UNIT_BOUNDARY_AUDIT.md:1`).
+```
+r_km = r_cm / 1e5
+m_km = G_TOV * m_grams / c_TOV^2 / 1e5
+epsilon_km^-2 = G_TOV * rho_cgs / c_TOV^2 * 1e10
+p_km^-2 = G_TOV * p_cgs / c_TOV^4 * 1e10
+nuprime_km^-1 = nuprime_cm^-1 * 1e5
+```
+
+The corrected profile must satisfy one coherent geometric TOV system:
+
+```
+exp(-2 lambda) = 1 - 2m/r
+dm/dr = 4 pi r^2 epsilon
+dp/dr = -(epsilon+p)(m+4 pi r^3 p)/[r(r-2m)]
+nu' = (m+4 pi r^3 p)/[r(r-2m)]
+dp/dr = -(epsilon+p) nu'
+```
+
+No ordinary-star `StarProfile` tuple may mix constants from distinct relativistic conventions.
+The existing nu reconstruction matches to the corrected geometric surface mass. TOVSolver
+equations, Geometry equations, RotationSolver equations, fixed-central-energy normalization,
+the energy measure, the finite-pressure surface, and AngularVelocity c conversion do not require
+modification under A1.
+
+### Q3 — public solar-mass semantics
+
+Preserve the existing public ordinary-TOV mass-number semantics as the literal historical ratio:
+
+```
+M_public = m_grams / GSL_CONST_CGSM_SOLAR_MASS
+GSL_CONST_CGSM_SOLAR_MASS = 1.98892e33 g
+```
+
+This public mass ratio is distinct from geometric mass `m_km`. Do not reconstruct `M_public`
+from `m_km / Zaki::Physics::SUN_M_KM`. Zaki `SUN_M_KM` is based on the IAU nominal solar
+gravitational parameter and belongs to a different convention.
+
+The implementation must keep distinct (1) the physical/public literal mass ratio and (2) the
+geometric mass length belonging to the solved TOV spacetime. No silent conversion between them
+through a mismatched solar-length constant is permitted. Preserve public central e,p in physical
+CGS and copy the physical public inputs where they already exist; otherwise use the matching
+inverse conversion. The existing `SeqPoint` and `StarProfile` fields suffice. No new `TOVPoint`
+schema is required for the minimum A1 repair.
 
 ### Q4 — minimum migration
 
-**Proposed answer: Option A1, including the existing dual-metadata handling of Q3.**
-Introduce the small proposed top-level `CompactStar/RelativityUnits.hpp` boundary owner;
-update both NStar construction paths, FinalizeSurface/sequence and Mass accessor handling,
-plus StarContext's physical-density inverse and TbDefinition's physical-density threshold.
-Update only the necessary contract comments and independently built fixture adapters.
+Accept **Option A1**. Introduce one narrowly scoped relativistic conversion owner, conceptually
+`CompactStar/RelativityUnits.hpp`, for the ordinary canonical TOV-to-geometric-profile boundary.
+The repair updates only the places required to make forward, inverse, and public metadata
+conversions coherent:
 
-No canonical TOV numerical behavior, G/c, EOS, event, grid, search or derivative-policy change.
-No RotationSolver or Geometry equation changes. No MixedStar, BNV or chemical/evolution
-migration. Exact file-level MUST/MAY/MUST-NOT scope and U1–U14 are in
-`docs/validation/RELATIVISTIC_UNIT_BOUNDARY_AUDIT.md:1`.
+- both ordinary NStar construction paths;
+- sequence/finalization handling as required;
+- NStar mass/public access semantics where necessary;
+- StarContext physical-density inverse conversion;
+- TbDefinition physical-density threshold conversion; and
+- narrowly required unit-contract comments.
 
-A2 (additional authoritative geometric TOVPoint fields) is scientifically sound but larger;
-choose it only if multi-convention transport is required now. D (explicit convention tags)
-requires complete tuple consistency and fail-closed mixed-input handling; tags cannot make
-today's mixed background valid. A global C migration without additional scientific benefit
-is outside this minimum. These alternatives are not fallback behavior silently added to A1.
+No canonical TOV numerical behavior changes: no TOV G/c, EOS, event/surface, grid, search, or
+derivative-policy change. No RotationSolver equation, Geometry equation, AngularVelocity
+normalization, MixedStar, BNV, or chemistry/evolution migration is authorized. Option A2 is not
+selected. Option B is not selected. Option C is not selected. Option D is not selected.
 
-### Q5 — scientific correction, revalidation and reference supersession
+### Q5 — scientific correction, revalidation, and baseline supersession
 
-**Proposed answer: upon acceptance, explicitly adjudicate the current mixed tuple as internally
-inconsistent and authorize only Q1–Q4's correction under the requirements of GOVERNANCE §3.1,
-with U1–U14 and scoped independent review/owner ratification before reference supersession.**
-This is a correction with existing historical reference artifacts, not an assertion that no
-prior baseline exists. The exception substitutes independent evidence for agreement with the
-rejected behavior; it never waives validation or allows a baseline to precede validation.
+The current mixed-convention ordinary-`StarProfile` tuple is adjudicated as scientifically and
+internally inconsistent. The bounded A1 repair is authorized under `GOVERNANCE.md` §3.1. The
+existing affected numerical baselines are historical evidence, not authority for preserving the
+known defective representation.
 
-Required disposition after independent validation:
+Required chronology:
 
-- Supersede `passive_cooling_cmf_1p6_debug.tsv`, both `grid_convergence_cmf_1p6` artifacts,
-  `hartle_I_dscmf1_debug.tsv`, `baryon_number_dscmf1_reference.tsv`, and
-  `hartle_monopole_dscmf1_debug.tsv` through their canonical producers, with repeatable bytes
-  and explicit historical/new hashes. No hand editing or wider regression tolerance.
-- Revalidate `tov_dscmf1_reference.tsv` and `tov_path_equivalence_dscmf1.tsv`; preserve bytes
-  if, as expected under A1, their physical/relational expectations remain unchanged.
-- Preserve the old Phase-4/Structure-1/preflight records as historical evidence. Recheck the
-  qualified common-state Structure-1 claim without promoting its unresolved Mmax semantics.
-- Revalidate static identities first, then independent Hartle/measure/count/thermal results,
-  immediately establish their validated superseding baselines, and complete the coherent PB7
-  method comparison before declaring the separate ADR-0011 Q4 prerequisite complete.
+1. accepted ADR-0012;
+2. bounded A1 production correction;
+3. independent unit/static identity validation;
+4. qualified Structure-1 recheck;
+5. independent first-order Hartle revalidation;
+6. independent monopole/measure revalidation;
+7. baryon-number and relevant thermal validation;
+8. coherent homogeneous-vs-complete-star PB7 prerequisite check;
+9. independent review;
+10. human ratification; and
+11. only then supersede affected governed artifacts through canonical producers.
 
-The audit's baseline matrix, exact chronology, independent oracle definitions, pre-existing
-PB7 2e-4 target and tolerance-basis requirements are in
-`docs/validation/RELATIVISTIC_UNIT_BOUNDARY_AUDIT.md:1`. Successful Q4 prerequisite work does
-not itself close INV-09; accepted ADR-0011 PB1–PB14, independent review and human ratification
-remain necessary. INV-11 is not addressed.
+The six artifacts expected to require validated supersession are:
 
-## Proposed GOVERNANCE §3.1 record — inactive until acceptance
+- `passive_cooling_cmf_1p6_debug.tsv`;
+- `grid_convergence_cmf_1p6_debug.tsv`;
+- `grid_convergence_cmf_1p6_trajectory.tsv`;
+- `hartle_I_dscmf1_debug.tsv`;
+- `baryon_number_dscmf1_reference.tsv`; and
+- `hartle_monopole_dscmf1_debug.tsv`.
 
-1. **Named invalid behavior:** GSL-solved TOV mass/pressure/energy/nup represented with
+The following must be revalidated and retain their bytes if the A1 expectation is correct:
+
+- `tov_dscmf1_reference.tsv`; and
+- `tov_path_equivalence_dscmf1.tsv`.
+
+No baseline may be hand edited, and no tolerance may be widened merely to preserve old output.
+Old validation records and old artifact hashes remain preserved historically. Successful
+unit-boundary repair does not itself resolve INV-09.
+
+## Unit-authority boundary
+
+This decision chooses consistency with the numerical TOV solve for the representation of **that
+solved star**. It does not claim that GSL's historical G is more physically accurate than modern
+CODATA G, and it does not forbid a future intentional migration to modern constants. Such a
+migration would be a different scientific change requiring a new physical re-solve and
+validation.
+
+IAU nominal `GM_sun` remains valid as a reporting standard where explicitly named, but it must
+not be silently used to reconstruct the geometric mass of a star solved with another
+G/`M_sun` convention.
+
+## Structure-1 boundary
+
+Scratch coherent-A1 results preserve the human-ratified qualified Structure-1 claim. At the
+printed `rho_c = 1.10e15 g cm^-3`, the coherent representation remains approximately:
+
+```
+M_public = 0.6236355691
+R_0 = 12.7681549010 km
+R_infinity = 13.80244 km
+```
+
+These values remain inside the published FR2005 `0.62 / 12.77 / 13.80` rounding bins. This is
+**pre-implementation scratch evidence**. Structure-1 is not already revalidated under production
+A1, and source-qualified `M_max` semantics remain unresolved.
+
+## Phase-4 and PB7 boundary
+
+The audit found a leading-species PB7 method discrepancy of approximately `9.17e-4` under the
+current mixed convention and approximately `1.37e-6` under the coherent A1 scratch convention.
+This demonstrates that A1 is sufficient in principle to remove the identified unit-boundary
+blocker. It is not a production PB7 pass.
+
+First-order and monopole numerical outputs are expected to change. Historical Phase-4
+mathematical validation remains evidence for the equations, but the affected numerical baselines
+must be independently revalidated and superseded after the production correction. No
+RotationSolver equation change is authorized or required by this decision.
+
+## Accepted revalidation plan: U1–U14
+
+U1–U14 are the accepted plan for the eventual correction; they are **not fourteen completed
+tests**:
+
+- U1 constant/version authentication;
+- U2 cgs-to-geometric algebra and round-trip fixtures;
+- U3 geometric TOV identities;
+- U4 TOVPoint-to-NStar path consistency;
+- U5 analytic TOV oracle;
+- U6 qualified Structure-1 recheck;
+- U7 TOV/path/grid regressions;
+- U8 first-order Hartle independent validation;
+- U9 monopole independent validation;
+- U10 baryon-number revalidation;
+- U11 thermal impact/conversion validation;
+- U12 coherent PB7 comparison;
+- U13 negative mixed-convention refusal tests; and
+- U14 validated baseline supersession/provenance.
+
+The independent oracle definitions, error-budget requirements, negative controls, file-level
+scope, and baseline matrix are normative as recorded in
+`docs/validation/RELATIVISTIC_UNIT_BOUNDARY_AUDIT.md:1`. They are not executed by ratification.
+
+## GOVERNANCE §3.1 authorization record
+
+1. **Named invalid behavior:** GSL-solved TOV mass/pressure/energy/nuprime represented with
    unmatched nominal-mass and modern-G profile factors.
 2. **Why old output cannot govern the correction:** preserving it as physical truth enshrines
    failure of exact Einstein/TOV identities and the independent sequence derivative.
@@ -145,18 +239,22 @@ remain necessary. INV-11 is not addressed.
    and are identified as superseded only after validated correction. The two unaffected
    artifacts retain their role if revalidated. Full inventory is in the audit.
 7. **Immediate subsequent baseline:** U14 canonical-producer supersession follows independent
-   validation of the corrected quantities, with old/new hashes and exact repeatability.
+   validation, review, and human ratification of the corrected quantities, with old/new hashes
+   and exact repeatability.
 
-This PROPOSED record does not invoke the exception. No production modification, baseline
-replacement, Phase-5B implementation, Btilde, paper Z/W, evolution or BNV is implemented here.
+Acceptance activates this bounded authorization; it does not perform the correction or permit a
+baseline to precede validation. No production modification, baseline replacement, Phase-5B
+implementation, Btilde, paper Z/W, evolution, or BNV is implemented here.
 
-## Acceptance and completion boundaries
+## Consequences and completion boundary
 
-All five decisions above are pending owner ratification. No question is implicitly accepted
-by committing or pushing this document. No extension of historical validation scope is implied.
-The audit recommends one minimum correction; subsequent implementation and revalidation remain
-separate authorized work. ADR-0011 remains ACCEPTED; INV-09 remains INTENDED BUT UNVERIFIED;
-INV-11 remains UNRESOLVED.
+The unit convention and minimum repair contract are settled. Production correction,
+independent revalidation, review, owner ratification, and governed artifact supersession remain
+future work. ADR-0011 remains ACCEPTED, but its Q4 implementation prerequisite remains blocked
+until the A1 correction and revalidation are complete. INV-09 remains **INTENDED BUT
+UNVERIFIED**; INV-11 remains **UNRESOLVED**.
 
-**Exactly one recommended next action: owner review and ratification of this proposed A1
-repair/revalidation contract.** Do not begin implementation automatically.
+**Exactly one recommended next action:** open a fresh A1 implementation/revalidation branch from
+canonical master, implement the bounded RelativityUnits conversion repair, execute U1–U14,
+independently revalidate affected static/rotation/count/thermal quantities, and prepare but do
+not automatically ratify or supersede affected baselines. Do not begin that action automatically.

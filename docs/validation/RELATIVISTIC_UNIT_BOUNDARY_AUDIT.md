@@ -1,14 +1,16 @@
 # Relativistic unit-boundary audit — Unit-0
 
-**RELATIVISTIC UNIT-BOUNDARY AUDIT COMPLETE — REPAIR CONTRACT READY FOR OWNER RATIFICATION**
+**UNIT-0 AUDIT COMPLETE. ADR-0012 ACCEPTED. A1 UNIT-BOUNDARY CORRECTION AUTHORIZED.
+PRODUCTION CORRECTION NOT YET IMPLEMENTED.**
 
-**Candidate recommendation: Option A1**, with one named conversion owner and complete forward,
+**Owner-ratified decision: Option A1**, with one named conversion owner and complete forward,
 inverse and public-metadata handling. Preserve the GSL-integrated physical star; derive every
 ordinary-StarProfile geometric quantity from that solve's G and c. Preserve the existing public
 literal GSL solar-mass ratio separately in the already-existing sequence metadata. A new
 TOVPoint geometric payload is useful for a later multi-convention interface but is not necessary
-for this minimum correction. ADR-0012 is **PROPOSED**, not accepted. No implementation authority
-is inferred from this audit. ADR-0011 remains ACCEPTED; its Q4/PB7 block remains active
+for this minimum correction. ADR-0012 is **ACCEPTED** and authorizes the bounded A1 correction;
+the production correction and revalidation have not been performed. ADR-0011 remains ACCEPTED;
+its Q4/PB7 block remains active until A1 implementation and revalidation are complete
 (`docs/adr/ADR-0011-particle-number-structural-response.md:92`).
 
 NO UNIT-BOUNDARY PRODUCTION REPAIR, BASELINE REPLACEMENT,
@@ -144,7 +146,7 @@ claim is made that it is an IAU nominal mass or a current best estimate.
 It represents `(GM_sun)^N/c^2`, with `(GM_sun)^N=1.3271244e20 m^3 s^-2`.
 It is not `G_GSL * M_sun_GSL / c^2`. Literal mass ratio and nominal gravitational-parameter
 ratio are individually legitimate if named accurately. Combining one as input with the other's
-length conversion silently changes meaning. The proposed minimum preserves and explicitly
+length conversion silently changes meaning. The accepted minimum preserves and explicitly
 names the existing literal-GSL public convention; it does not select that historical solar
 mass as the ideal measurement standard for all future science.
 
@@ -427,7 +429,7 @@ Current `tp.m = mu/M_sun_GSL`, not `(Gmu)/(GM_sun)^N`
 `M_nom = m_geo/SUN_M_KM`. For the same GSL star these differ by `1/beta`, about +61.724 ppm.
 Multiplying the literal ratio by SUN_M_KM cannot yield the mass length that solved the star.
 
-Recommended public contract: retain the existing literal ratio, explicitly documented as
+Accepted public contract: retain the existing literal ratio, explicitly documented as
 `mu/(1.98892e33 g)`, while the geometric mass is `G_S mu/c_S^2`. Preserve `tp.m` into
 `SeqPoint::m` and the public NStar mass result, and store geometric mass independently in the
 existing profile column/surface scalar. This is scientifically justified by keeping reporting
@@ -774,7 +776,8 @@ must name the minimum correction, independent evidence, historical outputs and i
 post-validation baseline. ADR-0011 Q4 explicitly does not select the correction or authorize
 that exception (`docs/adr/ADR-0011-particle-number-structural-response.md:117`).
 
-ADR-0012 proposes that authorization but **cannot exercise it while PROPOSED**. This is a
+ADR-0012 accepts and activates that bounded authorization. The production correction,
+revalidation, review, ratification, and artifact supersession have not been performed. This is a
 scientific correction with existing baselines to supersede, not a claim that none exist.
 The same evidence principle applies: independent algebra, TOV identities, exact analytic
 stars, independent integrators, convergence, published dimensionless tests and homogeneous
@@ -784,35 +787,34 @@ as correct by widening its regression tolerance.
 
 Required chronology:
 
-1. Owner ratifies the explicit ADR-0012 decisions and correction/supersession authority.
-2. In a separately authorized task, implement the named minimum with unchanged canonical
-   physical TOV outputs; add independent unit/mixed-convention detectors.
-3. U1–U7 static conversion, identity, path, analytic and qualified Structure-1 revalidation.
-4. U8–U11 first-order, monopole, count and thermal revalidation; carry original tolerances and
-   accepted D-prime convergence logic. Obtain independent review and scoped owner ratification.
-5. Immediately after the relevant corrected quantities are independently validated, create
-   the six superseding reference artifacts from their canonical producers, with repeated
-   identical bytes and explicit prior/new hashes (U14). Preserve the other two when unchanged.
-6. U12 PB7 coherent homogeneous/complete-star comparison, including step/table/tail budgets,
-   and confirmation of U13 stale/mixed rejection. This completes the separate unit prerequisite
-   only after review/owner acceptance; it does not itself close INV-09.
-7. Only after accepted correction, revalidation, supersession and Q4 completion may a separately
-   authorized Phase-5B production task begin. PB1–PB14 remain required for INV-09 closure.
+1. Accepted ADR-0012.
+2. Bounded A1 production correction.
+3. Independent unit/static identity validation.
+4. Qualified Structure-1 recheck.
+5. Independent first-order Hartle revalidation.
+6. Independent monopole/measure revalidation.
+7. Baryon-number and relevant thermal validation.
+8. Coherent homogeneous-vs-complete-star PB7 prerequisite check.
+9. Independent review.
+10. Human ratification.
+11. Only then supersede the six affected governed artifacts through their canonical producers,
+    with repeated identical bytes and explicit prior/new hashes; preserve the other two when
+    revalidation confirms their expected byte stability.
 
 This respects `GOVERNANCE.md:109` rather than creating reference output before physics
-validation. U12 may be run diagnostically earlier, as here, but cannot waive steps 1–5.
+validation. U12 may be run diagnostically earlier, as here, but cannot waive the chronology.
 INV-09 remains **INTENDED BUT UNVERIFIED** and INV-11 **UNRESOLVED** throughout this audit.
 
-## 17. Proposed ADR-0012 and owner decisions
+## 17. Accepted ADR-0012 and owner decisions
 
-A new ADR is required: this selects the ordinary-profile relativistic convention and scopes
+A new ADR was required: it selects the ordinary-profile relativistic convention and scopes
 supersession of cross-layer numerical expectations. `docs/adr/ADR-0012-relativistic-unit-boundary.md:1`
-is **PROPOSED**. It contains five concrete owner decisions: preserve the GSL solve, use one
+is **ACCEPTED**. Its five normative owner decisions preserve the GSL solve, use one
 matched geometric mapping, retain explicitly named literal public mass separately, adopt A1
 with all inverse consumers, and authorize the staged six-artifact correction/supersession.
 Alternatives B/A2/D are genuine future choices, not implemented defaults.
-The recommendation is decisive for minimum repair; owner acceptance is still required by the
-scientific change procedure. No request to choose a G from a baseline's convenience is made.
+Acceptance authorizes the minimum repair but does not implement it or complete revalidation.
+No request to choose a G from a baseline's convenience is made.
 
 ## 18. U1–U14 eventual validation ladder
 
@@ -845,13 +847,13 @@ U3/U12. Do not convert test oracles to call the production helper they are inten
 
 ## 19. Exact future file-level implementation scope
 
-This scope is a proposed contract, not an edit list executed by this audit. A1 is restricted
+This scope is an accepted contract, not an edit list executed by this audit. A1 is restricted
 to ordinary NStar/StarProfile. Existing CGS TOV behavior is preserved, including GSL constants,
 ODE operation order, clamping, event, initial state, grid and mass search.
 
 | Class | File(s) | Exact permitted purpose |
 |---|---|---|
-| MUST CHANGE / add | CompactStar/RelativityUnits.hpp (new proposed file) | Small explicit named conversion owner wrapping the authenticated GSL solve convention; forward/inverse cgs and public-mass mappings, no model knowledge |
+| MUST CHANGE / add | CompactStar/RelativityUnits.hpp (new file) | Small explicit named conversion owner wrapping the authenticated GSL solve convention; forward/inverse cgs and public-mass mappings, no model knowledge |
 | MUST CHANGE | CompactStar/Core/src/NStar.cpp | BuildFromTOV and Append geometric m,p,eps; geometry uses corrected m; FinalizeSurface/sequence public metadata uses physical inputs or matching inverse; preserve nuprime and existing nu integration |
 | MUST CHANGE | CompactStar/Core/NStar.hpp | Mass() must return the preserved literal-GSL public value, not divide corrected geometry by nominal length; unit contract documentation |
 | MUST CHANGE | CompactStar/Physics/Evolution/src/StarContext.cpp | BuildMassDensityCache inverse from the same convention; no thermal law/cache-policy change |
@@ -921,25 +923,30 @@ replacement or source implementation is performed. Commit/push and live-remote a
 are recorded in the delivery response and external delivery record to avoid a self-referential
 commit hash in this document.
 
-## 21. Owner questions and exactly one next action
+## 21. Owner decision and exactly one next action
 
-All five recommended answers are concrete and reviewable in proposed ADR-0012. Ratification
-must explicitly accept preservation of the GSL physical solution, the matching geometric
-mapping, literal-public/physical separation, complete A1 scope, and staged supersession.
+The owner has accepted all five answers in ADR-0012: preservation of the GSL physical solution,
+the matching geometric mapping, literal-public/physical separation, complete A1 scope, and
+staged supersession.
 No additional unresolved source-domain question must be decided to make A1 internally
 correct; the free-gas Mmax/core-domain ambiguities remain outside this repair.
 
-**Exactly one recommended next action: owner review and ratification of PROPOSED ADR-0012
-and its A1 repair/revalidation contract.** Do not begin implementation automatically.
+**Exactly one recommended next action: open a fresh A1 implementation/revalidation branch from
+canonical master, implement the bounded RelativityUnits conversion repair, execute U1–U14,
+independently revalidate affected static/rotation/count/thermal quantities, and prepare but do
+not automatically ratify or supersede affected baselines.** Do not begin that action automatically.
 
 ## 22. Explicit non-goals and final status
 
-No production behavior, tests, baselines, data, literature, accepted ADR decisions or canonical
-master were changed. No Phase-5B particle-number production, Btilde, paper Z/W, weak-rate,
+No production behavior, tests, baselines, data, or literature was changed by the audit or this
+ratification. ADR-0012 alone moved from proposed to accepted. No Phase-5B
+particle-number production, Btilde, paper Z/W, weak-rate,
 evolution, BNV, realistic-EOS extension or two-fluid migration was begun. INV-09 remains
 INTENDED BUT UNVERIFIED; INV-11 remains UNRESOLVED. The existing Phase-4 and qualified
 Structure-1 records are retained with their original scope; corrected production must be
-independently revalidated and the affected reference outputs superseded under a new accepted
-contract. ADR-0012 remains PROPOSED.
+independently revalidated and the affected reference outputs superseded under the accepted
+contract. ADR-0011 remains ACCEPTED and its Q4 prerequisite remains blocked until A1
+implementation and revalidation are complete.
 
-**RELATIVISTIC UNIT-BOUNDARY AUDIT COMPLETE — REPAIR CONTRACT READY FOR OWNER RATIFICATION**
+**UNIT-0 AUDIT COMPLETE. ADR-0012 ACCEPTED. A1 UNIT-BOUNDARY CORRECTION AUTHORIZED.
+PRODUCTION CORRECTION NOT YET IMPLEMENTED.**

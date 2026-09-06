@@ -133,15 +133,19 @@ are still re-derived locally. See INV-13.
 geometric-outside unit boundary, which is VERIFIED CURRENT BEHAVIOR and is not affected by the
 k_B authority change.
 
-**Unit-0 audit qualification:** the current GSL-solved / Zaki-converted profile does not
+**Unit-0R owner-ratified qualification:** the current GSL-solved / Zaki-converted profile does not
 satisfy one geometric TOV system: fresh full-star mass and nuprime identity residuals expose
 the mismatch. A coherent scratch re-expression preserves the physical solve and reduces the
-PB7 method discrepancy. Evidence and the proposed minimum A1 repair/U1–U14 plan:
+PB7 method discrepancy. ADR-0012 is **ACCEPTED**: it preserves the canonical GSL 2.7.1 TOV
+numerical solve, requires one matched geometric representation, preserves the distinct literal
+public GSL solar-mass ratio, and authorizes the bounded A1 conversion correction under
+`GOVERNANCE.md` §3.1. Evidence and the accepted minimum A1 repair/U1–U14 plan:
 `docs/validation/RELATIVISTIC_UNIT_BOUNDARY_AUDIT.md:1`;
-`docs/adr/ADR-0012-relativistic-unit-boundary.md:1` (**PROPOSED**). This is a factual
-qualification of current behavior, not an accepted unit change. ADR-0011 remains ACCEPTED,
-its Q4/PB7 implementation block remains, and INV-09/INV-11 remain unresolved. No production,
-test or baseline was changed by the audit.
+`docs/adr/ADR-0012-relativistic-unit-boundary.md:1`. The production correction and revalidation
+have not been performed; U1–U14 are an accepted plan, not completed tests. ADR-0011 remains
+ACCEPTED, its Q4/PB7 implementation block remains until A1 implementation and revalidation are
+complete, INV-09 remains **INTENDED BUT UNVERIFIED**, and INV-11 remains **UNRESOLVED**. No
+production, test, baseline, or TOV numerical solve was changed by the audit or ratification.
 
 **Angular quantities — a second governed boundary (Phase 4A, ADR-0006).** Rotation adds a
 *physical/geometric* boundary alongside the CGS/geometric one: the public first-order rotation
@@ -720,6 +724,18 @@ Evidence: `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:1`, `docs/validation/PHA
 ---
 
 ## INV-09 — Fixed-ε_c versus equilibrium-sequence derivatives — **INTENDED BUT UNVERIFIED**
+
+*Unit-0R owner ratification (2026-09-05):* **ADR-0012 ACCEPTED; A1 RELATIVISTIC
+UNIT-BOUNDARY CORRECTION AUTHORIZED; PRODUCTION CORRECTION AND REVALIDATION NOT YET
+PERFORMED.** The accepted A1 contract preserves the existing canonical GSL TOV solve, repairs
+only the ordinary TOV-to-geometric-profile boundary and required inverse/public conversions,
+and accepts U1–U14 as the eventual revalidation plan. Scratch coherent-A1 evidence reduces the
+leading PB7 method discrepancy from approximately `9.17e-4` to approximately `1.37e-6`, but is
+not a production PB7 pass. ADR-0011 remains **ACCEPTED** and its Q4 prerequisite remains blocked
+until A1 implementation and revalidation are complete. INV-09 remains **INTENDED BUT
+UNVERIFIED**; INV-11 remains **UNRESOLVED**. No Phase-5B particle-number implementation,
+Btilde, paper Z/W, evolution, or BNV is authorized or begun by this ratification
+(`docs/adr/ADR-0012-relativistic-unit-boundary.md:1`).
 
 *Phase 5B-0 owner adjudication (2026-09-05):* **PREFLIGHT COMPLETE; ADR-0011 ACCEPTED;
 INV-09 IMPLEMENTATION CONTRACT DEFINED.** The source-backed particle-current/`dn_i` measure,

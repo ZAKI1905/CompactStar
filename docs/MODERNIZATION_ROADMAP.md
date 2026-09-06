@@ -1,5 +1,16 @@
 # CompactStar Modernization Roadmap
 
+> **UNIT-0 AUDIT COMPLETE. ADR-0012 ACCEPTED. A1 UNIT-BOUNDARY CORRECTION AUTHORIZED.
+> PRODUCTION CORRECTION NOT YET IMPLEMENTED.** The accepted A1 contract preserves the existing
+> GSL 2.7.1 TOV numerical solve while requiring every ordinary-star geometric profile field to
+> represent that same solved spacetime. U1–U14 are the accepted revalidation plan, not completed
+> tests. ADR-0011 remains ACCEPTED, but its Q4 prerequisite and Phase-5B production remain
+> blocked until A1 implementation and revalidation are complete. INV-09 remains **INTENDED BUT
+> UNVERIFIED**; INV-11 remains **UNRESOLVED**. No production correction, scientific rerun, or
+> baseline supersession has occurred. Authority:
+> `docs/adr/ADR-0012-relativistic-unit-boundary.md:1`;
+> `docs/validation/RELATIVISTIC_UNIT_BOUNDARY_AUDIT.md:1`.
+>
 > **Current Track-R Structure-1 state (2026-09-05): HUMAN-RATIFIED WITH QUALIFIED CLAIM —
 > STATIC FREE-GAS STRUCTURE AND COMMON-STATE FR2005 TABLE-1 NUMBERS VERIFIED.** At the
 > source's printed `rho_c = 1.10e15 g cm^-3`, one common central state reproduces the printed
@@ -629,12 +640,16 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
   INV-11 remains **UNRESOLVED**. No production implementation, legacy-cache activation, Btilde,
   paper Z/W, evolution or BNV began.
 
-- **UNIT-0 RELATIVISTIC UNIT-BOUNDARY AUDIT COMPLETE — REPAIR CONTRACT READY FOR OWNER RATIFICATION.**
-  The full-star GSL/Zaki inconsistency, coherent scratch comparisons, affected-reference matrix,
-  minimum A1 boundary repair and U1–U14 revalidation plan are recorded in
-  `docs/validation/RELATIVISTIC_UNIT_BOUNDARY_AUDIT.md:1`. ADR-0012 is **PROPOSED**, not accepted
-  (`docs/adr/ADR-0012-relativistic-unit-boundary.md:1`). No production or baseline changed.
-  ADR-0011 Q4/PB7 and Phase-5B implementation remain blocked; INV-09/INV-11 remain unresolved.
+- **UNIT-0 AUDIT COMPLETE. ADR-0012 ACCEPTED. A1 UNIT-BOUNDARY CORRECTION AUTHORIZED;
+  PRODUCTION CORRECTION NOT YET IMPLEMENTED.** The full-star GSL/Zaki inconsistency, coherent
+  scratch comparisons, affected-reference matrix, accepted minimum A1 boundary repair, and
+  accepted U1–U14 revalidation plan are recorded in
+  `docs/validation/RELATIVISTIC_UNIT_BOUNDARY_AUDIT.md:1` and
+  `docs/adr/ADR-0012-relativistic-unit-boundary.md:1`. The plan is not completed validation.
+  No production correction, test, suite rerun, or baseline supersession occurred. ADR-0011
+  remains ACCEPTED; its Q4/PB7 prerequisite and Phase-5B implementation remain blocked until
+  A1 implementation and revalidation are complete. INV-09 remains **INTENDED BUT UNVERIFIED**;
+  INV-11 remains **UNRESOLVED**.
 
 Later Phase-5 work, explicitly not the next increment:
 
