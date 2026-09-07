@@ -1,6 +1,21 @@
 # CompactStar Modernization Roadmap
 
-> **Phase-5B-RAT (2026-09-06): ADR-0011 STRUCTURAL IMPLEMENTATION HUMAN-RATIFIED — GOVERNED
+> **Phase-5B-I (2026-09-06): STRUCTURAL RESPONSE COMPLETE / CANONICALLY INTEGRATED.**
+> ADR-0011 PN1-PN8 are governed for the reviewed ordinary-`NStar` / Track-R structural scope;
+> the exact regression artifact is installed and fresh-regeneration protected. Post-installation
+> suites passed 9/9 focused, 39/39 data-free, and 62/62 complete. INV-09 is **VERIFIED /
+> RESOLVED**; INV-11 remains **UNRESOLVED**. The ratified evidence caveats remain controlling:
+> PB9 is tautological; mutation totals mix production-discriminating and local algebraic/null
+> checks; PB9/PB10 budgets are conservative, with PB10 independent `K` reconstruction, PB11
+> nonlinear closure, and achieved charge residual the strongest evidence; `B_B conditioning = 1`
+> is a cancellation ratio; PB8 may be floor-limited; generic declared physical jumps require
+> adapter metadata while ordinary Track-R onsets are continuous; PB13 is a conservative enclosure;
+> EOS/tail authority is adapter-owned; and PB6 is partition/refinement validation, not an
+> independent physics oracle. No source-qualified core `I_Omega` or `M_max` is claimed. The
+> corrected R2006 chemical-susceptibility layer is next but was not begun. Evidence:
+> `docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_INTEGRATION.md`.
+
+> **Historical Phase-5B-RAT (2026-09-06): ADR-0011 STRUCTURAL IMPLEMENTATION HUMAN-RATIFIED — GOVERNED
 > INTEGRATION NEXT.** Independent Opus scientific/numerical review is complete with explicit
 > claim-narrowing caveats. PN1-PN8 and the PB1-PB14 candidate package are human-ratified for the
 > reviewed ordinary-`NStar` / Track-R scope; the deterministic artifact is ratified for later
@@ -669,7 +684,7 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
   INV-11 remains **UNRESOLVED**. No production implementation, legacy-cache activation, Btilde,
   paper Z/W, evolution or BNV began.
 
-- **PHASE-5B STRUCTURAL RESPONSE HUMAN-RATIFIED — GOVERNED INTEGRATION NEXT.** Independent
+- **Historical Phase-5B-RAT: STRUCTURAL RESPONSE HUMAN-RATIFIED — GOVERNED INTEGRATION NEXT.** Independent
   review is complete. The exact implementation at
   `fe08c94ed5ae525a9cb78331c5dd69d9c617d591`, PN1-PN8, the PB1-PB14 candidate package with
   explicit evidentiary caveats, and the deterministic candidate artifact are human-ratified for
@@ -679,6 +694,15 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
   UNVERIFIED pending integration** and INV-11 remains **UNRESOLVED**. Source-qualified `M_max`
   remains unresolved; `MixedStar` debt is separate. Evidence:
   `docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_RATIFICATION.md:1`.
+
+- **PHASE-5B STRUCTURAL RESPONSE COMPLETE / CANONICALLY INTEGRATED.** The governed artifact at
+  `tests/baselines/phase5b_structural_response.json` is exact, independently regenerated, and
+  enforced by a non-tautological producer-to-baseline regression. Serial post-installation suites
+  passed 9/9 focused, 39/39 data-free, and 62/62 complete. INV-09 is **VERIFIED / RESOLVED** in
+  the ordinary-`NStar` structural scope; INV-11 remains **UNRESOLVED**. The full ratified caveat
+  set is retained in the integration record. The next physics layer is corrected R2006
+  susceptibility / chemical response, which is not begun here. Evidence:
+  `docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_INTEGRATION.md`.
 
 - **UNIT-0 AUDIT COMPLETE. ADR-0012 ACCEPTED. A1 UNIT-BOUNDARY CORRECTION AUTHORIZED;
   PRODUCTION CORRECTION NOT YET IMPLEMENTED.** The full-star GSL/Zaki inconsistency, coherent
@@ -691,7 +715,11 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
   A1 implementation and revalidation are complete. INV-09 remains **INTENDED BUT UNVERIFIED**;
   INV-11 remains **UNRESOLVED**.
 
-Later Phase-5 work, explicitly not the next increment:
+Later Phase-5 work, not implemented by this structural closeout:
+
+- **Next physics layer: corrected R2006 chemical susceptibility.** A fresh preflight must map
+  ADR-0010 local neutral-Hessian authority to the governed structural driver and adjudicate
+  corrected `Btilde` and reduced chemical `Z/W`; no implementation or evolution work began here.
 
 - **Correct `RotochemicalCache` for ADR-0001 conformance** — construct `n_i = Y_i · n_B` before
   the `N_i`, `A_i`, and `B_i` species number-density integrations

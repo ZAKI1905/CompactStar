@@ -1,6 +1,21 @@
 # CompactStar — Current Architecture
 
-> **Phase-5B-RAT (2026-09-06): ADR-0011 STRUCTURAL IMPLEMENTATION HUMAN-RATIFIED — GOVERNED
+> **Phase-5B-I (2026-09-06): STRUCTURAL RESPONSE COMPLETE / CANONICALLY INTEGRATED.** ADR-0011
+> PN1-PN8 are live and governed for the reviewed ordinary-`NStar` / Track-R structural scope.
+> The first structural baseline is installed with fresh-producer exact-byte regression; serial
+> validation passed 9/9 focused, 39/39 data-free, and 62/62 complete. INV-09 is **VERIFIED /
+> RESOLVED**; INV-11 remains **UNRESOLVED**. Review qualifications remain controlling: PB9 is
+> tautological; mutation totals mix production-discriminating and local algebraic/null checks;
+> PB9/PB10 budgets are conservative, with PB10 independent `K` reconstruction, PB11 nonlinear
+> closure, and achieved charge residual the strongest evidence; `B_B conditioning = 1` is a
+> cancellation ratio; PB8 can be floor-limited; generic declared physical jumps require
+> authenticated adapter metadata while ordinary Track-R onsets are continuous; PB13 is a
+> conservative enclosure; EOS/tail authority is adapter-owned; and PB6 is partition/refinement
+> validation, not an independent physics oracle. No source-qualified core `I_Omega` or `M_max` is
+> claimed. Corrected R2006 susceptibility / chemical response is the next layer but
+> is not begun. Evidence: `docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_INTEGRATION.md`.
+
+> **Historical Phase-5B-RAT (2026-09-06): ADR-0011 STRUCTURAL IMPLEMENTATION HUMAN-RATIFIED — GOVERNED
 > INTEGRATION NEXT.** Independent Opus scientific/numerical review is complete with explicit
 > claim-narrowing caveats. PN1-PN8 and the PB1-PB14 candidate package are human-ratified for the
 > reviewed ordinary-`NStar` / Track-R scope; the deterministic artifact is ratified for later
@@ -226,7 +241,7 @@ TimeSeriesObserver + DiagnosticsObserver            LIVE
 | `StarProfile` | **LIVE** | Canonical for `NStar`. Column enum + `m_version` + `EditScope` RAII |
 | `StarProfileView` | **COMPILED, UNEXERCISED** | `NStar::View()` has zero callers |
 | `NStar` | **LIVE** | Migration to `prof_` complete; legacy `ds` is commented out, not dual-live |
-| `CompactStar::Analysis` particle-number response | **LIVE ON RATIFIED CANDIDATE — GOVERNED INTEGRATION NEXT** | ADR-0011 PN1-PN8 structural response for ordinary `NStar`, including measure-complete `dn_i`, complete-star `B_i`, fixed-baryon `K_i`, domain-qualified mapping, provenance refusals, and explicit angular-frequency conversion. Independently reviewed and human-ratified at `fe08c94ed5ae525a9cb78331c5dd69d9c617d591`; PB1-PB14 carry the caveats in `docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_RATIFICATION.md:1`. No governed baseline or canonical integration yet; INV-09 remains INTENDED BUT UNVERIFIED and INV-11 UNRESOLVED |
+| `CompactStar::Analysis` particle-number response | **LIVE — GOVERNED / CANONICALLY INTEGRATED; INV-09 RESOLVED** | ADR-0011 PN1-PN8 structural response for ordinary `NStar`, including measure-complete `dn_i`, complete-star `B_i`, fixed-baryon `K_i`, domain-qualified mapping, provenance refusals, and explicit angular-frequency conversion. Independently reviewed and human-ratified at `fe08c94ed5ae525a9cb78331c5dd69d9c617d591`; the first governed structural artifact is fresh-regeneration protected. PB1-PB14 retain every qualification in `docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_INTEGRATION.md`. INV-09 is VERIFIED / RESOLVED only for this structural layer; INV-11 remains UNRESOLVED |
 | `MixedStar` | **COMPILED, UNEXERCISED** | No surviving `main/` uses it. Master-grid totals added by `3639d71` |
 | `TOVSolver` | **LIVE** | Two live integration paths — see §3 |
 | `TOVSolver_Thread` | **COMPILED, UNEXERCISED** | Bookkeeping subclass, 124 lines |
@@ -644,9 +659,9 @@ below is historical.
 ## 6. What this document does **not** claim
 
 - It does **not** claim the rotochemical pipeline is operational. The independent local ADR-0010
-  thermodynamic provider boundary and analytic free leptons are compiled. The ADR-0011
-  particle-number structural response is compiled on the human-ratified candidate but is not
-  canonically integrated; no chemical coefficient, reaction, heating, or evolution connection
+  thermodynamic provider boundary and analytic free leptons are compiled, and the ADR-0011
+  particle-number structural response is now governed and canonically integrated. No corrected
+  R2006 chemical susceptibility, chemical coefficient, reaction, heating, or evolution connection
   exists.
 - It does **not** claim second-order Hartle is validated. It is publicly callable, has zero
   repository callers, is unverified, and its equations are recorded as defective (INV-08;

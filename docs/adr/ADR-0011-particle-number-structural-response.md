@@ -301,3 +301,34 @@ authorized by this ratification.
 The controlling disposition, reviewed numerical evidence, PB6 shared-endpoint repair,
 measure-complete `dn_i` representation, caveats, domain limits, and exact next action are in
 `docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_RATIFICATION.md:1`.
+
+## Integration-status addendum — Phase-5B-I, 2026-09-06
+
+**PHASE-5B STRUCTURAL RESPONSE — GOVERNED INTEGRATION COMPLETE.**
+
+| Item | Integrated disposition |
+|---|---|
+| Implementation | `fe08c94ed5ae525a9cb78331c5dd69d9c617d591` |
+| Human ratification | `d67ac9be27677aa038a9ac7cdf5f262a32a008ef` |
+| Governed regression artifact | `tests/baselines/phase5b_structural_response.json` |
+| Artifact SHA-256 | `7588f0e9cd62f5b6be48bb725e4d0ba6e47b64f50d843117e70c17a78beeb5fa` |
+| Post-installation validation | **PASS — focused 9/9; data-free 39/39; complete 62/62** |
+| INV-09 | **VERIFIED / RESOLVED** |
+| INV-11 | **UNRESOLVED** |
+
+INV-09 closure is for the structural particle-number response only: ordinary `NStar`, the
+slow-rotation domain-qualified PN1-PN8 contract, whole-star fixed-baryon validation, the Track-R
+free-gas fixture, and explicit fixed-isobar mapping machinery. It does not close the later
+chemical-state/evolution invariant.
+
+All human-ratified qualifications remain controlling. In particular, PB9's baryon identity is
+tautological; mutation totals mix production-discriminating and local algebraic/null checks;
+PB9/PB10 budgets are conservative; `B_B conditioning = 1` is a cancellation ratio; PB8 can be
+floor-limited; generic jumps require adapter metadata while ordinary Track-R onsets are
+continuous; PB13 is an enclosure; EOS/tail authority is adapter-owned; and PB6 is a
+partition/refinement validation rather than an independent physics oracle. No authenticated
+free-gas core numerical `I_Omega` benchmark or source-qualified `M_max` is claimed.
+
+The installation, fresh-generation authentication, exact hashes, suite results, baseline
+immutability, and retained caveats are recorded in
+`docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_INTEGRATION.md`.

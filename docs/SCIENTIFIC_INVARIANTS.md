@@ -736,9 +736,28 @@ Evidence: `docs/validation/PHASE4D_MONOPOLE_BASELINE.md:1`, `docs/validation/PHA
 
 ---
 
-## INV-09 — Fixed-ε_c versus equilibrium-sequence derivatives — **INTENDED BUT UNVERIFIED**
+## INV-09 — Fixed-ε_c versus equilibrium-sequence derivatives — **VERIFIED / RESOLVED**
 
-> **Phase-5B-RAT (2026-09-06): ADR-0011 STRUCTURAL IMPLEMENTATION HUMAN-RATIFIED — GOVERNED
+> **Phase-5B-I (2026-09-06): STRUCTURAL PARTICLE-NUMBER RESPONSE CANONICALLY INTEGRATED.**
+> ADR-0011 PN1-PN8 are implemented, validated, independently reviewed, human-ratified,
+> regression-protected, and governed for ordinary `NStar`: slow-rotation structural response,
+> whole-star fixed-baryon validation, the Track-R free-gas fixture, and explicit fixed-isobar
+> mapping machinery. Fresh producer generations and the post-suite regeneration are exactly the
+> governed artifact, and serial validation passed 9/9 focused, 39/39 data-free, and 62/62
+> complete tests. **INV-09 is VERIFIED / RESOLVED within this structural scope. INV-11 remains
+> UNRESOLVED.** No authenticated free-gas core numerical `I_Omega` benchmark or source-qualified
+> `M_max` is claimed; EOS/tail authority remains adapter-owned and genuine EOS jumps require
+> authenticated metadata. Ratified caveats also remain: PB9 is tautological; mutation totals mix
+> production-discriminating and algebraic/null checks; PB9/PB10 budgets are conservative;
+> `B_B conditioning = 1` is a cancellation ratio; PB8 may be floor-limited; generic declared
+> physical jumps require authenticated adapter metadata while ordinary Track-R onsets are
+> continuous; PB13 is a conservative enclosure; EOS/tail authority is adapter-owned; and PB6 is
+> partition/refinement validation, not an independent physics oracle. The strongest evidence is
+> PB10 independent `K` reconstruction, PB11 nonlinear closure, and the achieved charge residual.
+> Evidence:
+> `docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_INTEGRATION.md`.
+
+> **Historical Phase-5B-RAT (2026-09-06): ADR-0011 STRUCTURAL IMPLEMENTATION HUMAN-RATIFIED — GOVERNED
 > INTEGRATION NEXT.** Independent Opus scientific/numerical review is complete with explicit
 > claim-narrowing caveats. PN1-PN8 and the PB1-PB14 candidate package are human-ratified for the
 > reviewed ordinary-`NStar` / Track-R scope; the deterministic artifact is ratified for later
@@ -1242,7 +1261,7 @@ conversion, under the in-code comment *"Convert fractions to number densities in
 |---|---|
 | **GOVERNED (ACCEPTED)** | **INV-01** — ADR-0001, accepted 2026-08-31 · **INV-15** — ADR-0002, accepted 2026-08-31 · **INV-07** — ADR-0006, accepted 2026-09-02, **first-order source conformed and physical response independently verified 2026-09-02** · **INV-08** — CLOSED / VERIFIED for ordinary-NStar fixed-ε_c l=0 O(Ω²) on ADR-0009 backgrounds; ADR-0007 + ADR-0008 GOVERNED / CONFORMED / independently physically verified / regression-protected; Phase-5 structural interface ratified (4E), `docs/validation/PHASE4_CLOSEOUT.md:158` |
 | VERIFIED CURRENT BEHAVIOR | INV-02, 03, 04, 05, 06, 10, 12, 13, 14, 16 |
-| INTENDED BUT UNVERIFIED | INV-09 |
+| VERIFIED / RESOLVED | **INV-09** — ADR-0011 structural particle-number response, ordinary-`NStar` / Track-R governed scope; integrated 2026-09-06 |
 | **UNRESOLVED (fail-closed)** | **INV-11** — and sub-items of INV-06, INV-16 |
 
 **One unresolved invariant still blocks downstream chemical-state/evolution work:**
