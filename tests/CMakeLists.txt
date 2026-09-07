@@ -11,6 +11,22 @@
 #  values belong here; those are roadmap Phase 2A/2B work.
 # ---------------------------------------------------------------------------
 
+# Phase-5C-1P TEST-ONLY numerical planning: no production G/Z/W path exists.
+add_executable(chemical_trackr_fixture analysis/chemical_trackr_fixture.cpp)
+target_link_libraries(chemical_trackr_fixture PRIVATE CompactStar)
+foreach(oracle exact_oracles curved_gc9)
+    add_test(NAME chemical_${oracle} COMMAND "${Python3_EXECUTABLE}"
+        "${CMAKE_CURRENT_SOURCE_DIR}/analysis/chemical_${oracle}.py")
+    set_tests_properties(chemical_${oracle} PROPERTIES
+        LABELS "phase5c;analytic;self-contained;scientific" TIMEOUT 120)
+endforeach()
+add_test(NAME chemical_trackr_budget COMMAND "${Python3_EXECUTABLE}"
+    "${CMAKE_CURRENT_SOURCE_DIR}/analysis/chemical_trackr_budget.py"
+    $<TARGET_FILE:chemical_trackr_fixture>
+    "${CMAKE_CURRENT_BINARY_DIR}/phase5c-evidence")
+set_tests_properties(chemical_trackr_budget PROPERTIES
+    LABELS "phase5c;track-r;self-contained;scientific" TIMEOUT 900 RUN_SERIAL TRUE)
+
 # ADR-0011 candidate analytic particle-current oracles (PB1-PB5).
 add_executable(particle_number_analytic analysis/particle_number_analytic.cpp)
 target_link_libraries(particle_number_analytic PRIVATE CompactStar)
