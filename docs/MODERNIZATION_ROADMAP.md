@@ -1,5 +1,15 @@
 # CompactStar Modernization Roadmap
 
+> **Phase-5C-2RAT (2026-09-07): CORRECTED CHEMICAL COEFFICIENTS HUMAN-RATIFIED
+> CANDIDATE / NOT YET CANONICALLY INTEGRATED.** Production `G_y`, derived `Q`, canonical `Z`, and
+> structural `W` are implemented, candidate-validated, independently reviewed, and human-ratified
+> for the governed generic/free-gas scope. GC1-GC12 and GC14 pass within their declared
+> classifications; GC13 remains **SOURCE-LIMITED / BLOCKED** and free gas does not substitute for
+> A18. The deterministic artifact remains an uninstalled candidate. INV-09 is **VERIFIED /
+> RESOLVED**; INV-11 is **UNRESOLVED**; no eta evolution, weak rates, heating/cooling, realistic
+> A18 closure, or BNV is authorized or begun. Evidence:
+> `docs/validation/PHASE5C2_CORRECTED_CHEMICAL_COEFFICIENT_RATIFICATION.md`.
+
 > **Phase-5C-0RAT (2026-09-06): ADR-0013 ACCEPTED — CORRECTED CHEMICAL-COEFFICIENT
 > CONTRACT HUMAN-RATIFIED / NOT IMPLEMENTED.** Independent Opus review passed with no blockers;
 > all four material and nine nonblocking findings are incorporated. The accepted contract fixes
@@ -728,19 +738,19 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
   A1 implementation and revalidation are complete. INV-09 remains **INTENDED BUT UNVERIFIED**;
   INV-11 remains **UNRESOLVED**.
 
-Later Phase-5 work, not implemented by this structural closeout:
+Later Phase-5 work following this structural closeout:
 
-- **PHASE-5C CORRECTED CHEMICAL-COEFFICIENT CONTRACT HUMAN-RATIFIED; ADR-0013 ACCEPTED;
-  PRODUCTION NOT IMPLEMENTED.** The owner accepted canonical source-basis `G_y`, global baryon
-  reduction after integration, one canonical chemical `Z` matrix, separate provenance-complete
-  `W`, explicit active branches, coefficient-level redshift semantics, and the revised
-  `GC1`–`GC14` plan after independent Opus review. The GC ladder extends rather than supersedes
-  ADR-0010 V1–V12; V12 stays a later evolution gate. Free gas must separate old from corrected
-  response but cannot replace A18. Realistic closure remains blocked on authenticated matching
-  A18 + delta-v + UIX* composition/response, crust/phase/core, and benchmark authority. INV-11
-  remains UNRESOLVED; no production `G_y/Z/W`, evolution, rates, heating/cooling, or BNV exists.
-  Evidence: `docs/adr/ADR-0013-corrected-rotochemical-chemical-coefficients.md`;
-  `docs/validation/PHASE5C0_CORRECTED_CHEMICAL_COEFFICIENT_RATIFICATION.md`.
+- **PHASE-5C CORRECTED CHEMICAL COEFFICIENTS IMPLEMENTED / CANDIDATE-VALIDATED /
+  INDEPENDENTLY REVIEWED / HUMAN-RATIFIED FOR GOVERNED GENERIC/FREE-GAS SCOPE; CANONICAL
+  INTEGRATION PENDING.** The candidate implements canonical source-basis `G_y`, post-integration
+  global baryon reduction, derived `Q`, canonical `Z`, and provenance-complete `W`. Its two-track
+  `numerical_error` and `validation_envelope` semantics remain distinct. GC1-GC12 and GC14 pass
+  within declared classifications; GC13 remains **SOURCE-LIMITED / BLOCKED**. Free gas proves
+  correction sensitivity but cannot replace authenticated matching A18 + delta-v + UIX*
+  composition/response, crust/phase/core, and benchmark authority. The artifact is not installed
+  as a governed baseline. INV-11 remains **UNRESOLVED**; no evolution, weak rates,
+  heating/cooling, realistic A18 closure, or BNV is authorized. Evidence:
+  `docs/validation/PHASE5C2_CORRECTED_CHEMICAL_COEFFICIENT_RATIFICATION.md`.
 
 - **Correct `RotochemicalCache` for ADR-0001 conformance** — construct `n_i = Y_i · n_B` before
   the `N_i`, `A_i`, and `B_i` species number-density integrations

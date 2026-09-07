@@ -574,3 +574,41 @@ At this ratification point **NO PRODUCTION `G_y`, `Z`, OR `W` RESULT EXISTS**. P
 tests, numerical-result generation, and baseline changes are outside this addendum. INV-11 remains
 **UNRESOLVED**; eta evolution, weak rates, heating/cooling, realistic A18 closure, and BNV remain
 outside the authorized scope.
+
+## 13. Phase-5C-2RAT implementation-ratification addendum — 2026-09-07
+
+**ADR-0013 remains ACCEPTED.** The production implementation candidate is commit
+`4d78bf4000848ddecc2127daa2f2840872f266f5`. Independent Opus review returned disposition B:
+**PASS WITH NONBLOCKING FINDINGS — candidate ready for human ratification with explicit
+caveats**, with 0 blocking and 0 material findings. The human owner ratifies the implementation
+with the explicit independent-review caveats recorded in
+`docs/validation/PHASE5C2_CORRECTED_CHEMICAL_COEFFICIENT_RATIFICATION.md`.
+
+For v1, the use of one `ImbalanceChannel` type for both `PaperZ` axes is accepted as a narrow
+typing concession because the current symmetric two-channel matrix has a one-to-one
+`Npe <-> Electron`, `NpMu <-> Muon` mapping and independent review found no numerical ambiguity.
+This does not weaken the v1 numerical result and is not a general API precedent. Before output
+and input spaces differ, the matrix can become nonsymmetric, species/channels are added, or the
+ordering ceases to be one-to-one, the API must use distinct semantic `BetaChannel` output and
+`LeptonInput` input types, or an equivalently strong typed representation. No API change is
+authorized by this addendum.
+
+`ChargeNeutralNumberSusceptibility::NumericalError()` is the local congruence,
+factorization, and solve arithmetic uncertainty for a supplied local thermodynamic response; it
+is not the total EOS/provider/background physical-model uncertainty. Provider and background
+characterization remains separate at global level, especially in `E_background`. Future prose
+must preserve that decomposition, and a realistic EOS provider must supply or separately govern
+nonzero provider uncertainty where available.
+
+The two-track UQ contract in sections 12.1-12.3 remains controlling: `numerical_error` and
+`validation_envelope` are distinct, both immutable componentwise W gates passed, and
+`V_W_validation` is not a certified bound, confidence interval, formal truncation error, error
+bar, or achieved-accuracy estimate. The review caveats concerning PB11 dominance, the immaterial
+PB7 transfer micro-difference, equivalent-but-not-literal M20 construction, current cellwise-linear
+refusal extrema, and the thin positive old-M tail margin are retained in the ratification record.
+
+GC13 remains **SOURCE-LIMITED / BLOCKED**; the generic/free-gas fixture is not realistic A18
+closure. INV-11 remains **UNRESOLVED** for evolved chemical-state ownership, storage, coefficient
+evolution, rates, and evolution coupling. This addendum authorizes no eta evolution, weak rates,
+neutrino/heating evolution, realistic A18 closure, superfluidity, or BNV. The human-ratified
+candidate still requires a separate governed canonical-integration task before Phase-5C closes.

@@ -417,3 +417,17 @@ closure is blocked. No ChemState, eta ODE, rates, Urca imbalance functions,
 heating/cooling, thermal coupling, spin-down ownership, time-dependent Z, A18 or
 BNV is added. Existing TOV, Geometry, RelativityUnits, rotation equations and
 Phase-5B structural mathematics are unchanged.
+
+## Phase-5C-2RAT status addendum — 2026-09-07
+
+The historical implementation evidence above is unchanged. Independent Opus review is complete
+with disposition B, **PASS WITH NONBLOCKING FINDINGS — candidate ready for human ratification
+with explicit caveats**, with 0 blocking and 0 material findings. Human-owner ratification is
+complete for the governed generic/free-gas candidate scope at implementation commit
+`4d78bf4000848ddecc2127daa2f2840872f266f5`, subject to every explicit caveat in
+`docs/validation/PHASE5C2_CORRECTED_CHEMICAL_COEFFICIENT_RATIFICATION.md`.
+
+Canonical integration remains pending. The deterministic candidate artifact is not installed as
+a governed baseline by this ratification; no production numerical evidence above is changed.
+GC13 remains **SOURCE-LIMITED / BLOCKED**, INV-11 remains **UNRESOLVED**, and no eta evolution,
+weak rates, heating/cooling, realistic A18 closure, or BNV is authorized or begun.
