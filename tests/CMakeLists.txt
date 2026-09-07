@@ -12,6 +12,8 @@
 # ---------------------------------------------------------------------------
 
 # Phase-5C-1P TEST-ONLY numerical planning: no production G/Z/W path exists.
+add_executable(chemical_structural_envelope analysis/chemical_structural_envelope.cpp)
+target_link_libraries(chemical_structural_envelope PRIVATE CompactStar)
 add_executable(chemical_trackr_fixture analysis/chemical_trackr_fixture.cpp)
 target_link_libraries(chemical_trackr_fixture PRIVATE CompactStar)
 foreach(oracle exact_oracles curved_gc9)
