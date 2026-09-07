@@ -1,17 +1,16 @@
 # CompactStar Modernization Roadmap
 
-> **Phase-5B-R candidate (2026-09-06): ADR-0011 IMPLEMENTED AND CANDIDATE VALIDATED — INDEPENDENT REVIEW REQUIRED.**
-> PN1–PN8 are implemented in the generic particle-number analysis module; PB1–PB14 passed,
-> all 21 required mutations fired, and the eight endpoint micro-falsifiers passed. The confirmed
-> PB6 shared-endpoint representation repair preserves exact continuity and atom semantics.
-> Focused tests passed 8/8, the complete data-free suite 38/38, and the serial external-data suite
-> 61/61. The structural candidate artifact repeats byte-for-byte; no historical baseline changed.
-> Independent review and human ratification remain PENDING. INV-09 remains INTENDED BUT
-> UNVERIFIED; INV-11 remains UNRESOLVED. No Btilde, chemical Z/W, eta/weak-rate evolution,
-> or BNV is implemented. No core boundary or source-qualified core I_Omega is inferred.
-> Evidence: `docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_IMPLEMENTATION.md` and
-> `docs/validation/phase5b_resume_evidence.json`. Earlier status entries below retain their
-> historical scope; this candidate record grants no canonical integration or invariant closure.
+> **Phase-5B-RAT (2026-09-06): ADR-0011 STRUCTURAL IMPLEMENTATION HUMAN-RATIFIED — GOVERNED
+> INTEGRATION NEXT.** Independent Opus scientific/numerical review is complete with explicit
+> claim-narrowing caveats. PN1-PN8 and the PB1-PB14 candidate package are human-ratified for the
+> reviewed ordinary-`NStar` / Track-R scope; the deterministic artifact is ratified for later
+> governed installation. No baseline is installed and no canonical integration is performed here.
+> INV-09 therefore remains **INTENDED BUT UNVERIFIED pending integration**; INV-11 remains
+> **UNRESOLVED**. Source-qualified `M_max` remains unresolved, and `MixedStar` remains separate
+> unit-boundary debt. No corrected R2006 `Btilde`, chemical `Z`/`W`, eta/weak-rate evolution, or
+> BNV is implemented or authorized. Evidence and caveats:
+> `docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_RATIFICATION.md:1`. Earlier entries below retain
+> their historical scope; this ratification grants no canonical integration or invariant closure.
 
 > **Unit-1I (2026-09-06): ADR-0012 A1 COMPLETE FOR ORDINARY-NSTAR SCOPE.** The production
 > correction is accepted, implemented, independently reviewed, and human-ratified. C1-C6 were
@@ -669,6 +668,17 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
   RECONCILIATION.** PB7 is blocked with it. INV-09 remains **INTENDED BUT UNVERIFIED** and
   INV-11 remains **UNRESOLVED**. No production implementation, legacy-cache activation, Btilde,
   paper Z/W, evolution or BNV began.
+
+- **PHASE-5B STRUCTURAL RESPONSE HUMAN-RATIFIED — GOVERNED INTEGRATION NEXT.** Independent
+  review is complete. The exact implementation at
+  `fe08c94ed5ae525a9cb78331c5dd69d9c617d591`, PN1-PN8, the PB1-PB14 candidate package with
+  explicit evidentiary caveats, and the deterministic candidate artifact are human-ratified for
+  the reviewed ordinary-`NStar` / Track-R scope. A separate governed task must install the first
+  structural regression artifact, rerun both complete suites, authenticate all baselines, and
+  integrate canonically before INV-09 may close. Until then INV-09 remains **INTENDED BUT
+  UNVERIFIED pending integration** and INV-11 remains **UNRESOLVED**. Source-qualified `M_max`
+  remains unresolved; `MixedStar` debt is separate. Evidence:
+  `docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_RATIFICATION.md:1`.
 
 - **UNIT-0 AUDIT COMPLETE. ADR-0012 ACCEPTED. A1 UNIT-BOUNDARY CORRECTION AUTHORIZED;
   PRODUCTION CORRECTION NOT YET IMPLEMENTED.** The full-star GSL/Zaki inconsistency, coherent

@@ -262,3 +262,42 @@ No governed structural baseline, human ratification or canonical integration is 
 Evidence: `docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_IMPLEMENTATION.md`,
 `docs/validation/phase5b_resume_evidence.json`, and the explicitly nongoverned
 `docs/validation/phase5b_structural_response_candidate.json`.
+
+## Human-ratification status addendum — Phase-5B-RAT, 2026-09-06
+
+**PHASE-5B IMPLEMENTATION AND INDEPENDENT REVIEW HUMAN-RATIFIED — 2026-09-06**
+
+| Item | Disposition |
+|---|---|
+| `PHASE5B_SHA` | `fe08c94ed5ae525a9cb78331c5dd69d9c617d591` |
+| Independent review | **PASS WITH EXPLICIT CLAIM-NARROWING CAVEATS** |
+| Human owner | **RATIFIED** |
+| PN1-PN8 | **RATIFIED** |
+| PB1-PB14 candidate package | **RATIFIED WITH EVIDENTIARY CAVEATS** |
+| Candidate structural artifact | **RATIFIED FOR GOVERNED INTEGRATION** |
+| Governed structural baseline | **NOT YET INSTALLED** |
+| Canonical integration | **NOT YET PERFORMED** |
+| INV-09 | **INTENDED BUT UNVERIFIED** |
+| INV-11 | **UNRESOLVED** |
+
+The accepted decision and the historical candidate status above remain unchanged as records of
+their respective decisions. Independent Opus scientific/numerical review of
+`fe08c94ed5ae525a9cb78331c5dd69d9c617d591` is now **COMPLETE: PASS WITH EXPLICIT
+CLAIM-NARROWING CAVEATS**, and the human owner has ratified that exact implementation.
+
+**PHASE-5B STRUCTURAL RESPONSE HUMAN-RATIFIED — GOVERNED INTEGRATION REQUIRED BEFORE
+INV-09 CLOSURE.** PN1-PN8 are human-ratified for the reviewed ordinary-`NStar` / Track-R scope.
+PB1-PB14 are human-ratified as the candidate validation package, subject to the evidentiary
+caveats in the ratification record. The deterministic candidate artifact is ratified as the
+authorized content for a later governed installation. This addendum installs no governed
+baseline and performs no canonical integration.
+
+Accordingly, governed integration is **NEXT**; INV-09 remains **INTENDED BUT UNVERIFIED pending
+integration**; INV-11 remains **UNRESOLVED**. Source-qualified `M_max` selection semantics and
+the separately recorded `MixedStar` unit-boundary debt remain unresolved. No corrected R2006
+`Btilde`, chemical `Z`/`W`, evolved `eta`, weak-rate or rotochemical evolution, or BNV work is
+authorized by this ratification.
+
+The controlling disposition, reviewed numerical evidence, PB6 shared-endpoint repair,
+measure-complete `dn_i` representation, caveats, domain limits, and exact next action are in
+`docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_RATIFICATION.md:1`.

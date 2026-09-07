@@ -1,8 +1,8 @@
 # Phase-5B INV-09 global particle-number structural response
 
-**PHASE-5B GLOBAL PARTICLE-NUMBER RESPONSE IMPLEMENTED AND CANDIDATE VALIDATED — INDEPENDENT REVIEW REQUIRED**
+**PHASE-5B STRUCTURAL RESPONSE HUMAN-RATIFIED — GOVERNED INTEGRATION REQUIRED BEFORE INV-09 CLOSURE**
 
-ADR-0011 structural contract: **IMPLEMENTED IN CANDIDATE**. PB1–PB14: **CANDIDATE PASS**. Independent review and human ratification: **PENDING**. INV-09 remains **INTENDED BUT UNVERIFIED**; INV-11 remains **UNRESOLVED**. This record and its reference artifact confer no human ratification, governed baseline installation, or canonical integration.
+ADR-0011 structural implementation: **HUMAN-RATIFIED**. PB1–PB14: **HUMAN-RATIFIED AS THE REVIEWED CANDIDATE PACKAGE, WITH EVIDENTIARY CAVEATS**. Independent review: **COMPLETE**. Governed integration: **NEXT**. INV-09 remains **INTENDED BUT UNVERIFIED pending integration**; INV-11 remains **UNRESOLVED**. The ratification installs no governed baseline and performs no canonical integration. The controlling post-review disposition is `docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_RATIFICATION.md:1`.
 
 ## Authentication, authority, and preserved history
 
@@ -165,10 +165,30 @@ Historical baseline diff: empty. TOVSolver, Geometry, RelativityUnits and Track-
 
 NO BTILDE, CHEMICAL Z/W, EVOLVED ETA, WEAK-RATE EVOLUTION, OR BNV IS IMPLEMENTED.
 
-## Remaining disposition and exact next action
+## Historical candidate disposition
 
 All required candidate gates, mutations, repeatability and regression suites passed. The commit containing this record is PHASE5B_SHA; its exact hash and post-push local/upstream/live equality are reported in the final handoff. No merge or human ratification is performed.
 
 Independent scientific/numerical review, human ratification and any governed baseline/integration remain separate. Source-qualified free-gas core I_Omega and Mmax are not claimed. Generic EOS adapters remain responsible for their declared domain/tail authority; the pe tail comparison here is specific to the validation adapter. INV-09 remains INTENDED BUT UNVERIFIED; INV-11 remains UNRESOLVED.
 
-Exactly one recommended next action after successful candidate completion: Run an independent Claude Opus 5 XHIGH scientific/numerical review of PHASE5B_SHA, including the confirmed PB6 representation repair, PN1-PN8, all PB1-PB14 evidence, finite-spin closure, sequence-derivative independence, measure-complete dn_i implementation, provenance/refusal behavior, mutation ladder, domain/source mapping, and the deterministic candidate structural artifact before any human ratification or INV-09 closure. Do not begin that action automatically.
+The candidate record's sole historical next action was to run an independent Claude Opus 5
+XHIGH scientific/numerical review of PHASE5B_SHA, including the confirmed PB6 representation
+repair, PN1-PN8, all PB1-PB14 evidence, finite-spin closure, sequence-derivative independence,
+measure-complete dn_i implementation, provenance/refusal behavior, mutation ladder,
+domain/source mapping, and the deterministic candidate structural artifact before human
+ratification or INV-09 closure. That historical action is now complete.
+
+## Current post-review and human-ratification disposition
+
+The preceding section is retained as the historical disposition at candidate commit
+`fe08c94ed5ae525a9cb78331c5dd69d9c617d591`; its independent-review action is complete.
+Independent Opus review returned **PASS WITH EXPLICIT CLAIM-NARROWING CAVEATS**, and the human
+owner ratified the exact implementation, PN1-PN8, the PB1-PB14 candidate package with those
+caveats, and the deterministic candidate artifact for later governed integration.
+
+The authoritative caveats and current exact next action are recorded in
+`docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_RATIFICATION.md:1`. No governed structural
+baseline is installed here and no canonical integration is performed. INV-09 therefore remains
+**INTENDED BUT UNVERIFIED pending integration**; INV-11 remains **UNRESOLVED**. Source-qualified
+free-gas core `I_Omega`, source-qualified `M_max`, and all chemical/evolution/BNV scope remain
+unclaimed.
