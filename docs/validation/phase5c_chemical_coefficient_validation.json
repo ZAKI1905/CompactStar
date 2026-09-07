@@ -1,0 +1,360 @@
+{
+  "A18_validated": false,
+  "BNV": false,
+  "GC13_realistic": false,
+  "GC_dispositions": {
+    "GC1": "PASS",
+    "GC10": "PASS",
+    "GC11": "PASS SOURCE TRACEABILITY ONLY",
+    "GC12": "PASS",
+    "GC13": "SOURCE-LIMITED / BLOCKED",
+    "GC14": "PASS",
+    "GC2": "PASS",
+    "GC3": "PASS",
+    "GC4": "PASS",
+    "GC5": "PASS",
+    "GC6": "PASS",
+    "GC7": "PASS",
+    "GC8": "PASS",
+    "GC9": "PASS",
+    "GC9b": "PASS"
+  },
+  "INV11_resolved": false,
+  "N_dispositions": {
+    "N1": "PASS",
+    "N2": "PASS",
+    "N3": "PASS",
+    "N4": "PASS",
+    "N5": "PASS",
+    "N6": "PASS",
+    "N7": "PASS",
+    "N8": "PASS",
+    "N9": "PASS"
+  },
+  "background_componentwise_spread": [
+    [
+      7.227959509883258e+49,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.1129341532648355e+46,
+      1.7512800061235465e+44
+    ],
+    [
+      0.0,
+      1.7512800061235465e+44,
+      1.594598090210967e+45
+    ]
+  ],
+  "byte_identical": true,
+  "candidate_artifact": "docs/validation/phase5c_chemical_coefficients_candidate.json",
+  "candidate_only": true,
+  "canonical_master": "49ab2b8c2881b6ef7b9309307d18cea51d557f72",
+  "earlier_failures_resolved": [
+    {
+      "raw_rc": 2,
+      "stage": "initial target invocation before CMake reconfiguration"
+    },
+    {
+      "raw_rc": 1,
+      "stage": "single-interval synthetic GC9 goal refusal; fixed by predeclared geometric refinement, goal unchanged"
+    },
+    {
+      "raw_rc": 1,
+      "stage": "exploratory artifact comparison while source edits remained active; excluded and replaced by sealed regeneration"
+    },
+    {
+      "raw_rc": 2,
+      "stage": "support-axis member-name compile typo; corrected before final tests"
+    }
+  ],
+  "external_data": {
+    "changed": [],
+    "count": 14,
+    "sha256": {
+      "DNS-CMF-Hadronic-with-electrons/README": "48af68b1b4f6727252ae0051fc35c6445240241d654566973a068d20e1f35222",
+      "DNS-CMF-Hadronic-with-electrons/eos.init": "412f6739c769df650b3238a6e4b6f0d0f2d7d4a5df43e7d16c80e913bcaddbfb",
+      "DNS-CMF-Hadronic-with-electrons/eos.nb": "3f79dbcc6f8b519696377f89ebc86464bc55cd61d9e2459f6e21e2d9e00f380d",
+      "DNS-CMF-Hadronic-with-electrons/eos.t": "2e4c6ec1feb85b16d0ee7036dce183782a9f681577e79c72315171069aa8513d",
+      "DNS-CMF-Hadronic-with-electrons/eos.thermo": "a456fb8595208ddf3119350a856fbf2b906c0a0e19bb7c716571748d0aa0724b",
+      "DNS-CMF-Hadronic-with-electrons/eos.yq": "d98fcd2f7752039c552c2ef2d04ab485b75db47a61f8ae1740875b54bf9824fd",
+      "DS-CMF-1-with-crust/DS(CMF)-1_with_crust.eos": "5747dd73256c0c28bc56be337cbb96d0918a54bc9ed9fc40984c5befd47ae5dd",
+      "DS-CMF-1-with-crust/README": "4e69b9193e0f075584239d818e1b459791da4d12427531914c86cdd209c898a8",
+      "DS-CMF-1-with-crust/eos.init": "8b4472405295655cf530572af7edd7448efd0393d0bf9ad86ead3e4c87228c90",
+      "DS-CMF-1-with-crust/eos.mr": "98e38994b4191b1024f5f5edbada0e6c1abe9e0cb6d81de94e47be08e3e8efa8",
+      "DS-CMF-1-with-crust/eos.nb": "d9c8e78c2fcf37fe770fecfc2d3a211d840a28299821a56c77e66f9ff74edef8",
+      "DS-CMF-1-with-crust/eos.t": "1a37b9563c40962b203e7bca1aa3b41e8c8b1427953df68095a51dd2cc17ff96",
+      "DS-CMF-1-with-crust/eos.thermo": "416444999ccac569e2c9b34808888949c36d759f30cce25dab0d42c13e900ce3",
+      "DS-CMF-1-with-crust/eos.yq": "1a37b9563c40962b203e7bca1aa3b41e8c8b1427953df68095a51dd2cc17ff96"
+    }
+  },
+  "final_suite_failures": 0,
+  "governed_baseline": false,
+  "historical_baselines": {
+    "changed": [],
+    "count": 9,
+    "sha256": {
+      "tests/baselines/baryon_number_dscmf1_reference.tsv": "90d607519cbdf3c4a0bf6ef50cc8fd22a8526b5db0354dc319e96854da29041d",
+      "tests/baselines/grid_convergence_cmf_1p6_debug.tsv": "b48519c3e948e9979a385d19facee2777d15955eeb8711b4bdd46b81fef74741",
+      "tests/baselines/grid_convergence_cmf_1p6_trajectory.tsv": "d5b753932c0523e67a7f25b460c7494bec1a006a8d01c9e43124cb2e78f0720f",
+      "tests/baselines/hartle_I_dscmf1_debug.tsv": "034ecddbd9bd847650429d7dc87d0331ec9e87aca3862ff87594e4bff5b707dd",
+      "tests/baselines/hartle_monopole_dscmf1_debug.tsv": "caaa0ac0d3219cda0a9fb518b27688afc23c6cdad1ec76a2bcd7359614a8d4e8",
+      "tests/baselines/passive_cooling_cmf_1p6_debug.tsv": "8fef2314673fceb939f859612f4befe94117115d6d6b3ad0dcc59d1faa68c9f9",
+      "tests/baselines/phase5b_structural_response.json": "7588f0e9cd62f5b6be48bb725e4d0ba6e47b64f50d843117e70c17a78beeb5fa",
+      "tests/baselines/tov_dscmf1_reference.tsv": "3d9af9129a6a4ffde9e0f8c5507a160f968a861c0cf9f3b089cceecab86b701a",
+      "tests/baselines/tov_path_equivalence_dscmf1.tsv": "5c0f4b3bdb70921f8f2a869af10edc4d8f5ae3963a9d150e11ef859d21e1c678"
+    }
+  },
+  "independent_candidate_sha256": [
+    "a6b430b2356987b54a7c82c87d0b00f3e1d9698f6f299c32c80efcc40c63833b",
+    "a6b430b2356987b54a7c82c87d0b00f3e1d9698f6f299c32c80efcc40c63833b",
+    "a6b430b2356987b54a7c82c87d0b00f3e1d9698f6f299c32c80efcc40c63833b"
+  ],
+  "independent_review_required": true,
+  "literature": {
+    "changed": [],
+    "count": 28,
+    "sha256": {
+      ".DS_Store": "3ac7fb388c4ddd51f9b7156cc48ed8ecfcf761a40ca7cf6f6afe8365784b6f42",
+      "README.md": "626f4ebecb112bcbf7671071ce17c6079c2e402c7bffdbc758a84f294ea43375",
+      "SHA256SUMS.txt": "567f21e661bc16dd4ca0dc188ce3188d2e1f8167077d02b2cb7b3a6327181d9d",
+      "_incoming/2000-Prakash-Review.pdf": "5552ece1e6f28aa6bbb0cab5ee775e5413482b95b099feb477b8d02f5a47eb76",
+      "_incoming/Refs.zip": "1f8d9be5bcd83a743d88266cdc1bace186995d2baa7c9ddb6f306e465c3fc82c",
+      "_incoming/Rotation.zip": "6f8cdefc4c2fea61c1881b63801b640b697a401d77be15dcdda68653e4844eeb",
+      "_incoming/Zakeri.zip": "ad0ca82e4e27767d6fd7ff68b84fc06b87539798a09650017b03a0bd31eecf6d",
+      "bnv/zakeri/2022-Berryman.pdf": "4446c3c28c09205f267d71fd67ce7d375499c997096f458c9a30b9ec6f66162d",
+      "bnv/zakeri/2024-Allahverdi.pdf": "f66470df4d217892f8efdc8fe7dd6cc1ea8300e3fe9d0924d219b21c05adae49",
+      "bnv/zakeri/2024-Gardner.pdf": "9611f56e18708db559eb6e868587edf0b7e578a20d38338b2248497f738c72ee",
+      "bnv/zakeri/2024-Zakeri.pdf": "ecd364655f04d5585c895183fa38259520bdb9e80a8de2e9f68680f0d24f1a55",
+      "catalog.tsv": "285040a9931bd3be20eedcc69900a0afd520ee702844c2d7771e140de12223f4",
+      "rotation/1967-Hartle-I.pdf": "ed263946e9bc13842399b5c9e9c2eae31823e7323bc81b456fb5174697cefc35",
+      "rotation/1968-Hartle-II.pdf": "4584cb2b299b84ed101fb8543abe9352be915ba9318d3d790837af54cbc7583e",
+      "rotation/1969-Hartle-III.pdf": "ed5218f81ba151f28d4fb2b3ec569cf9e2ddf834ff32c6cb7f850151f5a60674",
+      "rotation/1970-Hartle-IV.pdf": "2836d50173580f8923fb3b21c8e5005dfadfbc8bf0f6b22daeb1c4a92dde4cc7",
+      "rotation/1972-Hartle-VI.pdf": "8581e32e729fbcd8a07cb6a6afc5ddb62d301daf803bf12e17b7a5afb77da1c6",
+      "rotation/1974-Chandrasekhar-Miller.pdf": "508027b09f47c92cd646004d401446c7b256866be10632fd7ed193df5bbd0819",
+      "rotation/1975-Hartle-IIIA.pdf": "bb3f1a2e44bb335c0de761286f4e41c6d2004a4cdd09af429dbe8c892383507e",
+      "rotation/1975-Hartle-V.pdf": "1944d6bf523935ad399534e2a5c11fe3e938fc67ddf5e77d4753490755e4dda1",
+      "rotation/1975-Hartle-VIII.pdf": "8c6526a111bd934d4f5d8c5b5fea80ff2ad6e5a049e9381433caf584282ab1f2",
+      "rotochemical/1995-Reisenegger-Rotochemical-Heating.pdf": "9af85e37c7a52fd5b704c0ba07cc0ad89741d23b049df31cb6867d501d91d0ff",
+      "rotochemical/1997-Reisenegger-Constraining-Dense-Matter-Superfluidity-through-Thermal-Emission-from-Millisecond-Pulsars.pdf": "19a10133511aefc05ece33d7454cba60def03de85d9980c55fd7229058c2d08b",
+      "rotochemical/2005-Fernandez-Reisenegger-Formalism-NonSuperfluid.pdf": "f184d7d1d7030b61a021eb5c7ac14b1f1b30c7ea69e9d53473d153cfb069ea88",
+      "rotochemical/2006-Jofre-Reisenegger-Fernandez-Gravitochemical-Heating-Model.pdf": "2dd5444d19cebae12509fe4ecb7dac31957d332e2131813894a10cceac403109",
+      "rotochemical/2006-Reisenegger-Rotochemical-Heating-of-Neutron-Stars-Rigorous-Formalism-with-Electrostatic-Potential-Perturbations.pdf": "a286f15e083e52becd95b3000cbb5ec3ed97148681cf10a43f1a1cc5c4d23ae8",
+      "rotochemical/2020-Yanagi-NS-Therm-Thesis.pdf": "69590539c275fa679a5521a9c5abedd9fdc58718b1554827786c8f707bc618cc",
+      "thermal/2000-Prakash-Review.pdf": "5552ece1e6f28aa6bbb0cab5ee775e5413482b95b099feb477b8d02f5a47eb76"
+    }
+  },
+  "plan_sha": "09d1b3c935919ec85f3c629607797ae87c42d8e5",
+  "predeclaration_sha": "a87f0212c2bd7bfba92db91dfac82447a6561334",
+  "predeclaration_unchanged": true,
+  "preexisting_tracked_changes": [
+    "CompactStar/Analysis/CMakeLists.txt",
+    "tests/CMakeLists.txt",
+    "tests/analysis/chemical_curved_gc9.py",
+    "tests/analysis/chemical_exact_oracles.py"
+  ],
+  "production_table_profile_ladder": [
+    [
+      [
+        2.904625118623093e+55,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.2013804201285165e+53,
+        -1.0354115563245488e+51
+      ],
+      [
+        0.0,
+        -1.0354115563245488e+51,
+        9.746440619334927e+51
+      ]
+    ],
+    [
+      [
+        2.904625125510597e+55,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.201380414366304e+53,
+        -1.0354115110739597e+51
+      ],
+      [
+        0.0,
+        -1.0354115110739597e+51,
+        9.746440204171623e+51
+      ]
+    ],
+    [
+      [
+        2.904621518418346e+55,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.201380364481809e+53,
+        -1.0354115533873709e+51
+      ],
+      [
+        0.0,
+        -1.0354115533873709e+51,
+        9.746440586307364e+51
+      ]
+    ]
+  ],
+  "ratification_sha": "d3b102d2225c44bea581832b27cdc33eb5874e83",
+  "schema": "CompactStar.Phase5C2.CandidateValidation.v1",
+  "sealed_sources_unchanged": true,
+  "tests": [
+    {
+      "inventory": [
+        "chemical_production_contract",
+        "chemical_exact_oracles",
+        "chemical_curved_gc9",
+        "chemical_trackr_budget",
+        "chemical_production_validation"
+      ],
+      "passed": 5,
+      "raw_console_sha256": "a11949029ac5d34800f2740035bec558e582bf2f08b404c57bbf44cb4abdd423",
+      "raw_rc": 0,
+      "stage": "focused",
+      "total": 5
+    },
+    {
+      "inventory": [
+        "chemical_production_contract",
+        "chemical_exact_oracles",
+        "chemical_curved_gc9",
+        "chemical_trackr_budget",
+        "chemical_production_validation",
+        "particle_number_analytic",
+        "phase5b_PB1",
+        "phase5b_PB6",
+        "phase5b_PB7",
+        "phase5b_PB9-11",
+        "phase5b_PB12",
+        "phase5b_PB13",
+        "phase5b_contracts",
+        "phase5b_structural_response_regression",
+        "compactstar_library_smoke",
+        "heat_capacity_v1",
+        "tov_reference_analytic",
+        "eos_derivative_contract",
+        "rotochemical_local_thermodynamics",
+        "rotochemical_trackr_freegas_local",
+        "rotochemical_trackr_npe",
+        "rotochemical_trackr_pe",
+        "hartle_monopole_contract",
+        "hartle_monopole_physics_analytic",
+        "hartle_monopole_measure_contract",
+        "hartle_monopole_published",
+        "cache_contract",
+        "cache_thermal_contract",
+        "hartle_moment_inertia_analytic",
+        "hartle_normalization_contract",
+        "hartle_first_order_physics_analytic",
+        "evolution_stepper_contract",
+        "photon_cooling_conformance",
+        "proper_volume_contract",
+        "geometry_cache_measure_contract",
+        "tov_surface_sweep_hw",
+        "tov_surface_audit_hw",
+        "tov_surface_derivatives_hw",
+        "tov_surface_consumers_hw",
+        "tov_surface_contracts_hw",
+        "rotochemical_trackr_freegas_barotrope",
+        "rotochemical_trackr_freegas_structure",
+        "relativistic_unit_boundary",
+        "relativistic_unit_background"
+      ],
+      "passed": 44,
+      "raw_console_sha256": "f504966ae75ce58e0a46d7104d13730475d4daeb14ed579bda5f24d10c46c361",
+      "raw_rc": 0,
+      "stage": "datafree",
+      "total": 44
+    },
+    {
+      "inventory": [
+        "chemical_production_contract",
+        "chemical_exact_oracles",
+        "chemical_curved_gc9",
+        "chemical_trackr_budget",
+        "chemical_production_validation",
+        "particle_number_analytic",
+        "phase5b_PB1",
+        "phase5b_PB6",
+        "phase5b_PB7",
+        "phase5b_PB9-11",
+        "phase5b_PB12",
+        "phase5b_PB13",
+        "phase5b_contracts",
+        "phase5b_structural_response_regression",
+        "compactstar_library_smoke",
+        "heat_capacity_v1",
+        "tov_reference_analytic",
+        "eos_derivative_contract",
+        "rotochemical_local_thermodynamics",
+        "rotochemical_trackr_freegas_local",
+        "rotochemical_trackr_npe",
+        "rotochemical_trackr_pe",
+        "hartle_monopole_contract",
+        "hartle_monopole_physics_analytic",
+        "hartle_monopole_measure_contract",
+        "hartle_monopole_published",
+        "cache_contract",
+        "cache_thermal_contract",
+        "hartle_moment_inertia_analytic",
+        "hartle_normalization_contract",
+        "hartle_first_order_physics_analytic",
+        "evolution_stepper_contract",
+        "photon_cooling_conformance",
+        "proper_volume_contract",
+        "geometry_cache_measure_contract",
+        "heat_capacity_real_star",
+        "passive_cooling_regression",
+        "tov_reference_cmf",
+        "grid_convergence_cmf",
+        "hartle_monopole_physics_cmf",
+        "hartle_monopole_regression",
+        "hartle_monopole_cmf",
+        "eos_derivative_cmf",
+        "hartle_moment_inertia_cmf",
+        "hartle_normalization_cmf",
+        "hartle_first_order_physics_cmf",
+        "baryon_number_cmf",
+        "tov_path_equivalence_cmf",
+        "tov_sequence_workflow_cmf",
+        "tov_gen_test_sequence_cmf",
+        "tov_surface_sweep_hw",
+        "tov_surface_audit_hw",
+        "tov_surface_derivatives_hw",
+        "tov_surface_consumers_hw",
+        "tov_surface_contracts_hw",
+        "tov_surface_v7a_cmf",
+        "tov_surface_v7b_cmf",
+        "tov_surface_sweep_cmf",
+        "tov_surface_audit_cmf",
+        "tov_surface_derivatives_cmf",
+        "tov_surface_consumers_cmf",
+        "tov_surface_contracts_cmf",
+        "tov_surface_grid_cmf",
+        "rotochemical_trackr_freegas_barotrope",
+        "rotochemical_trackr_freegas_structure",
+        "relativistic_unit_boundary",
+        "relativistic_unit_background"
+      ],
+      "passed": 67,
+      "raw_console_sha256": "b46abb04fc8cc5ee98c6b62a1e3b42ae4e361b49b816ea5244d8a370edcd25ea",
+      "raw_rc": 0,
+      "stage": "full",
+      "total": 67
+    }
+  ]
+}

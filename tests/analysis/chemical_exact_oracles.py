@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""ADR-0013 TEST-ONLY precursors. Exact fixtures are not production validation.
+"""ADR-0013 independent rational expected fixtures, with production operations.
 
 GC3/6/10 use independently differentiated/derived rational answers. GC1/2/4/5/
-7/11/12 identities retain their contract classification. No chemical API exists.
+7/11/12 identities retain their contract classification. Candidate operations are checked through the production contract executable.
 """
 from fractions import Fraction as F
 import json
+import subprocess
+import sys
 
 
 def mat(rows):
@@ -154,10 +156,25 @@ def run():
         'swap_channels': mul(declared_z, mat([[20],[12]])),
     }
     assert all(v != action for v in mutants.values())
+    production = {}
+    if len(sys.argv)>1:
+        text = subprocess.check_output([sys.argv[1]], text=True)
+        for line in text.splitlines():
+            if line.startswith(('GC3_6_', 'GC10_', 'GC11_SOURCE_', 'N8_')):
+                key,*values=line.split();production[key]=list(map(float,values))
+        for key,expected_matrix in [('GC3_6_C',cy),('GC10_Q',global_q),('GC10_Z',z),('GC11_SOURCE_Z',source_z)]:
+            actual=production[key];expected_flat=[float(v) for row in expected_matrix for v in row]
+            assert len(actual)==len(expected_flat)
+            assert all(abs(a-b)<1e-12 for a,b in zip(actual,expected_flat)),(key,actual,expected_flat)
+        toy_inverse=mul(t,mul(mat([[1/F(1e-24),0,0],[0,1,0],[0,0,F(1,2)]]),transpose(t)))
+        assert all(abs(F(a)-b)<=F(e) for a,b,e in zip(production['N8_C'],[v for row in toy_inverse for v in row],production['N8_E']))
+        # Expected rational mathematics is not sourced from production helpers.
+        assert all(abs(a-float(b))<=e for a,b,e in zip(production['GC3_6_C'],[v for row in cy for v in row],production['GC3_6_E']))
+        assert any(abs(a-float(b))>1e-2 for a,b in zip(production['GC10_Q'],[v for row in local_sum for v in row]))
     return {'GC1-GC8':'PASS (precursors)', 'GC10':'PASS independent rational two-zone',
             'GC11':'PASS source traceability/contract', 'GC12':'PASS signed unit fixture',
             'GC12_mutants':list(mutants), 'arithmetic':'exact Fraction, zero tolerance',
-            'production_chemical_path_exercised':False}
+            'production_chemical_path_exercised':bool(production), 'production_values':production}
 
 
 if __name__ == '__main__':

@@ -11,14 +11,21 @@
 #  values belong here; those are roadmap Phase 2A/2B work.
 # ---------------------------------------------------------------------------
 
-# Phase-5C-1P TEST-ONLY numerical planning: no production G/Z/W path exists.
+# ADR-0013 Phase-5C planning oracles and production candidate gates.
 add_executable(chemical_structural_envelope analysis/chemical_structural_envelope.cpp)
 target_link_libraries(chemical_structural_envelope PRIVATE CompactStar)
+add_executable(chemical_production_contract analysis/chemical_production_contract.cpp)
+target_link_libraries(chemical_production_contract PRIVATE CompactStar)
+add_executable(chemical_production_fixture analysis/chemical_production_fixture.cpp)
+target_link_libraries(chemical_production_fixture PRIVATE CompactStar)
+add_test(NAME chemical_production_contract COMMAND chemical_production_contract)
+set_tests_properties(chemical_production_contract PROPERTIES LABELS "phase5c;self-contained;scientific")
 add_executable(chemical_trackr_fixture analysis/chemical_trackr_fixture.cpp)
 target_link_libraries(chemical_trackr_fixture PRIVATE CompactStar)
 foreach(oracle exact_oracles curved_gc9)
     add_test(NAME chemical_${oracle} COMMAND "${Python3_EXECUTABLE}"
-        "${CMAKE_CURRENT_SOURCE_DIR}/analysis/chemical_${oracle}.py")
+        "${CMAKE_CURRENT_SOURCE_DIR}/analysis/chemical_${oracle}.py"
+        $<TARGET_FILE:chemical_production_contract>)
     set_tests_properties(chemical_${oracle} PROPERTIES
         LABELS "phase5c;analytic;self-contained;scientific" TIMEOUT 120)
 endforeach()
@@ -28,6 +35,17 @@ add_test(NAME chemical_trackr_budget COMMAND "${Python3_EXECUTABLE}"
     "${CMAKE_CURRENT_BINARY_DIR}/phase5c-evidence")
 set_tests_properties(chemical_trackr_budget PROPERTIES
     LABELS "phase5c;track-r;self-contained;scientific" TIMEOUT 900 RUN_SERIAL TRUE)
+
+# The producer fixture is rerun by CTest, including focused production selection.
+set_tests_properties(chemical_trackr_budget PROPERTIES FIXTURES_SETUP chemical_characterization)
+add_test(NAME chemical_production_validation COMMAND "${Python3_EXECUTABLE}"
+    "${CMAKE_CURRENT_SOURCE_DIR}/analysis/chemical_production_validation.py"
+    $<TARGET_FILE:chemical_production_fixture>
+    "${CMAKE_CURRENT_BINARY_DIR}/phase5c-evidence"
+    "${CMAKE_CURRENT_BINARY_DIR}/phase5c-production")
+set_tests_properties(chemical_production_validation PROPERTIES
+    FIXTURES_REQUIRED chemical_characterization
+    LABELS "phase5c;track-r;self-contained;scientific" TIMEOUT 2400 RUN_SERIAL TRUE)
 
 # ADR-0011 candidate analytic particle-current oracles (PB1-PB5).
 add_executable(particle_number_analytic analysis/particle_number_analytic.cpp)
