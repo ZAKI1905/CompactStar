@@ -9,6 +9,16 @@
 **Worktree:** `/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-chemical-preflight`.
 **Companion:** `docs/adr/ADR-0013-corrected-rotochemical-chemical-coefficients.md`, **PROPOSED**.
 
+> **Post-preflight ratification addendum — 2026-09-06.** This document preserves the proposal
+> and scratch evidence as reviewed at
+> `54ec7abac38fa0a32c5fb3a82e424b496361966a`. Independent Opus review returned **PASS WITH
+> NONBLOCKING FINDINGS — READY FOR HUMAN RATIFICATION WITH EXPLICIT CAVEATS**: no blocker,
+> four material contract/documentation revisions, and nine nonblocking clarifications. The
+> owner incorporated those findings and accepted ADR-0013 in the separate ratification record
+> `docs/validation/PHASE5C0_CORRECTED_CHEMICAL_COEFFICIENT_RATIFICATION.md`. The proposal-time
+> `PROPOSED` and `PENDING` statements below remain historical. Production implementation,
+> tests, baselines, EOS/data, literature, evolution, and BNV remain unauthorized and unchanged.
+
 This derives a coherent proposed cold bulk coefficient contract. It does not implement or
 validate production chemical coefficients. All new numbers below are scratch diagnostics,
 not reference targets, baselines, source-core reproductions, or realistic-EOS claims.

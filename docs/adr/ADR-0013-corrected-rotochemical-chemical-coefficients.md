@@ -1,204 +1,422 @@
 # ADR-0013 — corrected rotochemical chemical coefficients
 
-**Status:** PROPOSED
-**Decision:** PENDING OWNER ADJUDICATION — no question is accepted by this draft.
+**Status:** ACCEPTED
+**Decision:** HUMAN-RATIFIED WITH EXPLICIT INDEPENDENT-REVIEW REVISIONS
 **Date:** 2026-09-06
 **Starting canonical SHA:** `49ab2b8c2881b6ef7b9309307d18cea51d557f72`
-**Change class:** scientific-semantic and architecture proposal; documentation only.
-**Evidence companion:** `docs/validation/PHASE5C0_CORRECTED_CHEMICAL_COEFFICIENT_PREFLIGHT.md`.
+**Preflight SHA:** `54ec7abac38fa0a32c5fb3a82e424b496361966a`
+**Change class:** scientific-semantic and structural/architecture decision; documentation-only
+ratification.
+**Evidence companions:**
+`docs/validation/PHASE5C0_CORRECTED_CHEMICAL_COEFFICIENT_PREFLIGHT.md` and
+`docs/validation/PHASE5C0_CORRECTED_CHEMICAL_COEFFICIENT_RATIFICATION.md`.
+**Implementation state:** no production `G_y`, `Z`, `W`, chemical evolution, weak rate,
+heating/cooling, superfluid, BNV, EOS, test, baseline, or source-data implementation is
+authorized or added by this decision.
 
-## Context and controlling authority
+> **PHASE-5C CORRECTED CHEMICAL-COEFFICIENT CONTRACT — HUMAN-RATIFIED;
+> PRODUCTION IMPLEMENTATION NOT YET AUTHORIZED.**
 
-ADR-0010 is ACCEPTED and governs cold local neutral H_x, active-species domains and the
-corrected R2006 interpretation. ADR-0011 is ACCEPTED and its structural particle-number
-response is canonically integrated: Phase-5B COMPLETE / GOVERNED and INV-09 VERIFIED /
-RESOLVED for ordinary NStar. INV-11 remains UNRESOLVED. This proposal concerns only the
-chemical-coefficient layer between those existing capabilities and future secular evolution
-(`docs/adr/ADR-0010-rotochemical-off-equilibrium-thermodynamic-contract.md:357`;
-`docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_INTEGRATION.md:100`;
-`docs/SCIENTIFIC_INVARIANTS.md:946`).
+## 1. Context, authority, and review disposition
 
-The governing primary source is
+ADR-0010 is ACCEPTED and governs the cold local charge-neutral Hessian, active-species domains,
+and the corrected R2006 interpretation. ADR-0011 is ACCEPTED and its ordinary-`NStar`
+structural particle-number response is canonically integrated; INV-09 is VERIFIED / RESOLVED
+within that structural scope. INV-11 remains UNRESOLVED. This ADR governs only the chemical
+coefficient layer between those capabilities and a future secular-evolution layer
+(`docs/adr/ADR-0010-rotochemical-off-equilibrium-thermodynamic-contract.md:5`,
+`docs/adr/ADR-0010-rotochemical-off-equilibrium-thermodynamic-contract.md:212`,
+`docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_INTEGRATION.md:127`,
+`docs/SCIENTIFIC_INVARIANTS.md:958`).
+
+The governing corrected primary source is
 `/Users/keeper/Documents/CompactStar/literature/rotochemical/2006-Reisenegger-Rotochemical-Heating-of-Neutron-Stars-Rigorous-Formalism-with-Electrostatic-Potential-Perturbations.pdf`,
 SHA-256 `a286f15e083e52becd95b3000cbb5ec3ed97148681cf10a43f1a1cc5c4d23ae8`,
-journal569–571 / PDF2–4, especially (10)–(19). F2005 supplies the retained non-superfluid
-framework and closing benchmark where not superseded; source hashes/pages, supersession and
-scope are in the companion record, section2. All literature remains read-only.
+journal pp. 569–571 / PDF pp. 2–4, especially eqs. (10)–(19). F2005 supplies the retained
+non-superfluid framework and closing benchmark where R2006 does not supersede it. Exact source
+hashes, pages, supersession boundaries, and scratch evidence are recorded in the preflight
+sections 2–15.
 
-This ADR does not amend the local EOS contract, structural PN1–PN8, or evolved state.
-It proposes the missing ownership and scientific semantics, not production implementation.
-The governing report/proposal boundary is `GOVERNANCE.md:64`; acceptance and validation are
-separate (`GOVERNANCE.md:159`).
+The independent Opus review examined the preflight commit in the read-only detached worktree
+`/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-preflight-review`; no review
+commit exists. Its disposition was:
 
-## Source mathematics proposed for adoption
+> **PHASE-5C PREFLIGHT INDEPENDENT REVIEW PASS WITH NONBLOCKING FINDINGS —
+> ADR-0013 READY FOR HUMAN RATIFICATION WITH EXPLICIT CAVEATS.**
 
-In species order `(n,p,e,mu)`, q=(0,1,-1,-1). R2006 has
-`mu^infinity=(mu+q psi)e^Phi`. In the chemical Cowling approximation, with intrinsic
-`chi=partial n/partial mu` and `u=e^-Phi delta mu^infinity`, neutrality implies
+The review reported no blocking finding, four material contract/documentation findings, and
+nine nonblocking clarifications or plan-strengthening findings. The owner ratifies this ADR only
+with the revisions recorded below. Proposal history is preserved in the preflight and in the
+revision ledger; acceptance is not implementation validation.
 
-```text
-delta psi=(q^T chi u)/(q^T chi q),
-C_projected=chi-chi q(q^T chi q)^-1 q^T chi.
-```
+## 2. Ratified scientific scope
 
-The printed (11) appears to omit e^-Phi when its numerator uses delta-mu-infinity.
-Classification is **INFERRED PRINTED/SOURCE OMISSION**; no authenticated erratum is asserted.
-The inference follows by substitution into (10) and agrees with (13). Beta-reaction charge
-cancellation is algebraic; it never licenses omitting electrostatics from the unconstrained
-density response. `C_projected q=0`, and the full integrated corrected matrix is singular.
-Its inverse is forbidden (companion sections3–5).
+The accepted contract covers:
 
-On the accepted neutral chart,
+- cold bulk npe-mu chemical-coefficient mathematics;
+- the corrected R2006 electrostatic response;
+- local neutral Hessian to susceptibility;
+- GR global integration and global baryon reduction;
+- chemical `Z` and spin-drive `W` semantics;
+- active-species branch embedding;
+- source, domain, redshift, provenance, conditioning, and refusal semantics; and
+- the future validation architecture.
 
-```text
-x=(n_B,n_e,n_mu), g_x=(mu_n,-eta_npe,-eta_npmu),
-y=(n_n,n_e,n_mu), g_y=(mu_n,mu_p+mu_e,mu_p+mu_mu),
-T=[[1,-1,-1],[0,1,0],[0,0,1]], y=T x,
-H_x=T^T H_y T,
-C_y=T H_x^-1 T^T=H_y^-1.
-```
+It does not cover production implementation, realistic A18 closure, reaction rates,
+eta-state storage/evolution, thermal or neutrino accounting, changing coefficients/backgrounds,
+superfluidity, or BNV. No production `Btilde/G/Z/W`, evolution equation, rate, baseline, EOS/data,
+or literature source is created or modified by this decision.
 
-For a valid intrinsic extension, constrained quadratic minimization proves
-`C_projected=S_x H_x^-1 S_x^T=S_y C_y S_y^T`, with the explicit species lifts in companion
-section4. The neutral provider already incorporates the correction. No public delta-psi,
-individual charged-potential reconstruction, or second projection is proposed.
+## 3. Ratified mathematical contract
 
-With `nu=Phi`, r,m in km, and local C in fm^-3 MeV^-1, define
+### 3.1 Local corrected response
+
+Use canonical local coordinates and conjugates
 
 ```text
-G_y = 10^54 integral_D 4 pi r^2 e^-nu C_y /sqrt(1-2m/r) dr,
-delta N_y = G_y delta g_y^infinity.
+x = (n_B,n_e,n_mu)^T,
+g_x = (mu_n,-eta_npe,-eta_npmu)^T,
+H_x = partial g_x / partial x.
 ```
 
-G_y is the reduced source Btilde in count/MeV; proper volume and one inverse lapse occur
-exactly once. D is a declared connected diffusive reservoir, not an implicit reaction mask.
-Use the canonical Geometry measure owner; chemistry owns its inverse lapse and count
-conversion (companion sections6,9; `CompactStar/Geometry.hpp:1`).
-
-For a globally baryon-conserving reservoir,
+Use the source basis
 
 ```text
-b=(1,1,1), b^T delta N_y=0,
-L=[[-1,-1],[1,0],[0,1]], delta N_y=L delta N_l,
-eta^infinity=-L^T delta g_y^infinity,
-Z=L^T G_y^-1 L,
-eta^infinity=-Z delta N_l.
+y = (n_n,n_e,n_mu)^T,
+T = [[1,-1,-1],
+     [0, 1, 0],
+     [0, 0, 1]],
+y = T x,
+H_x = T^T H_y T,
+C_x = H_x^-1,
+C_y = T C_x T^T = H_y^-1.
 ```
 
-In channel order `(npe,np-mu)`, the canonical matrix is
-`Z=[[Z_npe,Z_np],[Z_np,Z_npmu]]` in MeV/count. It is symmetric positive definite where G_y
-has supported stable modes. Equivalently, after integration transform to G_x and take its
-baryon Schur complement Q, then Z=Q^-1. **No local fixed-n_B reduction** is allowed; it
-changes the global physics. Global channel reduction must follow actual mode support, not
-fabricated absent-species rank (companion sections7,10).
+The inverses above are qualified solves on the declared active physical branch, not a padded
+full-species inverse. The accepted neutral-Hessian route already incorporates electrostatic
+elimination. No second projection is allowed.
 
-For the whole-star structural mapping,
+Only an independent validation fixture may construct a full intrinsic susceptibility `chi` and
+compare against
 
 ```text
-W=Z (I_phys,e,I_phys,mu)^T                 [MeV s^2],
-dot N_l^eq=+2 I_phys,l Omega Omega_dot,
-delta N_l=N_l-N_l^eq,
-dot eta^infinity=-Z R_l+2 W Omega Omega_dot  (frozen coefficients).
+q = (0,1,-1,-1)^T,
+C_projected = chi - chi q (q^T chi q)^-1 q^T chi.
 ```
 
-The last relation records the source sign, not an implemented evolution equation. R_l is
-positive for net beta decay producing lepton l. I_phys is consumed through the existing
-governed structural object; the chemical consumer never repeats the c^-2 conversion. The
-whole-star versus core distinction and boundary exchange must be preserved (companion
-sections8–9; `CompactStar/Analysis/src/ParticleNumberResponse.cpp:511`).
+The full corrected four-species response is singular in the charge/gauge direction. A full
+corrected paper-`B` inverse, a silent pseudoinverse, and a public charged-direction response are
+forbidden.
 
-## Pending owner questions
+### 3.2 Global number response
 
-Each recommendation is pending. Alternatives are genuine ownership/domain choices where
-compatible with the source; source-inconsistent full inverses or missing corrections are
-not presented as acceptable owner alternatives.
+For a declared connected diffusive chemical domain `D`, with `nu=Phi`, `r,m` in km and
+`C_y` in `fm^-3 MeV^-1`, the canonical global object is
 
-| ID | Owner decision | Recommendation | Alternative / consequence |
-|---|---|---|---|
-| Q1 | Canonical reduced global basis and object | Source y basis, `Analysis::GlobalChemicalNumberResponse`, with named axes and count/MeV G_y. | Canonical G_x with an exact y view is equivalent but adds source-mapping burden. A bare paper B class or full corrected inverse is not valid. |
-| Q2 | Baryon-reduction owner and supported-space policy | Stellar chemical layer reduces **after** integration; retains G_y and a separate Z result; explicit smaller supported channel set if required. | A single combined immutable G/Z result can own both stages, provided the global order and support proof remain explicit. Pointwise baryon closure is invalid. |
-| Q3 | Public chemical Z representation | One symmetric named matrix in `Analysis::ChemicalImbalanceResponse`; scalar paper accessors are derived views of that owner. | Three canonical named scalars with a derived matrix view are equivalent if there is still one authority and named orientation. Recommendation favors matrix action/provenance. |
-| Q4 | W ownership and structural coupling | Separate immutable `Analysis::RotochemicalSpinDrive`, dependent on Z and complete governed `FixedBaryonNumberResponse`; whole-star path calls `WholeStarIPhysical()`. | Combined coefficient bundle is possible but forces structural invalidation on purely chemical consumers. Baseline JSON runtime coupling is forbidden. |
-| Q5 | Chemical domains, active embeddings, thresholds and interfaces | First bounded whole-star Track-R coefficient implementation, with explicit 1D/2D/3D embeddings and certified finite-cut/onset handling; refuse ungoverned gaps/interfaces/core mapping. | Begin with an authenticated core model only after its reservoir, cutoff, boundary-flux and phase authority exist. No invented free-gas core cutoff or source-core claim. |
-| Q6 | Correction-sensitive Track-R closure gate | Preserve A18+delta-v+UIX* closing EOS, require corrected Figure1/author coefficient comparison with authenticated source product and extraction uncertainty. | Authenticated correction-sensitive transient may supplement or replace that comparison if full evolution and source configurations exist. Quasi-steady temperature alone cannot qualify. |
-| Q7 | Redshift facts versus evolved-state decisions | Fix coefficient eta-infinity semantics and e^-nu measure now; defer actual state layout, ordering/storage integration and INV-11 ratification. | Defer all chemical implementation until a broader evolution ADR, at the cost of coupling two otherwise separable contracts. No convenience-driven ChemState assignment. |
-| Q8 | Provenance and numerical refusal | Immutable, dependency-complete results with RequireCurrent-style refusal and condition/error-enclosure gates; numerical cutoffs only after predeclared convergence/threshold evidence. | Explicit recomputation on every access avoids cached stale data but still needs full dependency/domain authentication and fails on scientifically unresolved inputs. |
+```text
+G_y = 10^54 integral_D
+      4 pi r^2 e^-nu C_y(r) / sqrt(1-2m/r) dr.
+```
 
-## Recommended architecture and provenance details
+`G_y` is represented by `GlobalChemicalNumberResponse` in the reduced source basis
+`y=(N_n,N_e,N_mu)`, with named row and column axes and units `count / MeV`. It is the canonical
+unreduced authority. An x-basis transform may exist only as a derived diagnostic or accessor.
+A bare class named `B` is forbidden.
 
-Local provider ownership remains unchanged. Its proposed local adapter is
-`CompactStar::ChargeNeutralNumberSusceptibility`, which performs only qualified active H
-solves and basis embedding. Stellar G integration, global baryon reduction, and Z are in the
-Analysis coefficient layer. Phase-5B owns structural response. Future evolution consumes
-results and never recomputes local thermodynamics or structure implicitly (companion section16).
+Exactly one inverse lapse occurs in `G_y`; the proper-volume factor is
+`1/sqrt(1-2m/r)`. The positive lapse used for reaction-rate conversion is a different future
+operation and does not alter the coefficient integral.
 
-Recommended channel names are `BetaChannel::Npe` and `BetaChannel::NpMu`; G axes are
-`NeutralNumberCoordinate::{Neutron,Electron,Muon}`. Proposed accessors are
-`ResponseCountPerMeV(row,column)`, `ResponseMeVPerCount(output_channel,input_lepton)`,
-`DriveMeVSecondsSquared(channel)`, and paper views `PaperZnpe()`, `PaperZnp()`,
-`PaperZnpMu()`. They are proposed semantic names only, not current callable symbols.
-No unqualified B/Z/W/MatrixB object or duplicate scalar/matrix authority is recommended.
+### 3.3 Global baryon reduction and chemical response
 
-Provenance includes profile identity/version, metric normalization, provider identity/revision
-and bytes/constants, equilibrium match, source/basis/units, active branch support, reservoir,
-partitions, thresholds/interfaces, surface/tail policy, numerical conditioning and uncertainties.
-W adds every contributing structural source and its domain/spin normalization. RequireCurrent
-must reject stale sequence profiles and EOS bytes as well as the main star. Lifetimes must
-be owned or token-validated before dereference. A copied I array is not adequate runtime
-provenance (`CompactStar/Analysis/src/ParticleNumberResponse.cpp:247`; companion section16).
+Local charge neutrality is imposed locally. Global baryon conservation is imposed only after
+stellar integration:
 
-Active embeddings are full T, npe `[[1,-1],[0,1],[0,0]]`, pe `[[0],[1],[0]]`; vacuum and
-threshold objects never provide a fabricated H. Continuous onset limits are checked on C,
-not divergent H. Positive-width provider refusal windows require certified numerical handling
-or refusal. True phase/interface response requires separate authenticated metadata and a
-chemical-interface law; structural jump terms do not automatically supply it (companion section10).
+```text
+local charge-neutral susceptibility
+  -> integrate G_y
+  -> global baryon reduction
+  -> chemical imbalance response.
+```
 
-## Proposed validation and ratification gate
+Define
 
-The companion section17 predeclares **GC1–GC14**: units/signs, neutral reconstruction, H
-stability, analytic inverse, basis equivalence, independent intrinsic projection, charge-null
-and no-second-projection control, active embeddings, independent GR integration, global baryon
-reduction, source Z, structural W, correction-sensitive published comparison, and provenance/
-domain/mutation coverage. Each specifies oracle, independence boundary, defect, metric,
-tolerance source and negative controls. Section18 lists **M1–M18** with explicit detectors.
+```text
+b = (1,1,1)^T,
+L = [[-1,-1],
+     [ 1, 0],
+     [ 0, 1]],
+delta N_y = L delta N_l,
+eta^infinity = -L^T delta g_y^infinity,
+Z = L^T G_y^-1 L,
+eta^infinity = -Z delta N_l.
+```
 
-The exact coupled toy agrees by rational arithmetic and has the expected singular full
-matrix. Whole-star free-gas diagnostic matrices and independent local/GR checks are recorded
-in companion sections11–13. **These are not Z/W validation, production GC passes, or golden
-targets.** Production numerical tolerances remain unratified until onset-aware convergence,
-refusal-gap, provider/profile matching, conditioning and source-error evidence exists.
+Equivalently, after integration transform to
+`G_x=[[a,h^T],[h,D]]`, derive the conditioning/reduction object
 
-Two important detector qualifications are binding parts of the proposed validation claims:
-repeating the identical charge projector is idempotent, and transposing symmetric Z changes
-nothing. Numerical comparisons cannot detect those no-ops. Typed orientation/call-path audits
-must cover the forbidden operation/semantic mixup; do not inflate numerical mutation counts
-with equivalent mutants. Structural PB9/PB caveats are retained, not converted into new
-independent chemistry evidence (companion sections5,17–18).
+```text
+Q = D - h h^T/a,
+Z = Q^-1.
+```
 
-A18 arbitrary-composition, crust/core/phase authority and quantitative corrected benchmark
-remain missing. R06 Figure2's high-mass panel says2.14 M_sun while its caption says2.13;
-that benchmark choice needs source adjudication. Figure1 permits a coefficient benchmark
-without that mass ambiguity, once its EOS and extraction are authenticated (companion
-sections14–15). Missing realistic closure inputs do not authorize another EOS.
+`Q` is derived, not a second independently stored authority. No pointwise baryon constraint or
+local Schur reduction is allowed. A retained beta channel must be supported on positive measure,
+and its smallest eigenvalue must exceed its uncertainty enclosure before inversion. Otherwise a
+separately named lower-rank channel result is returned or the operation refuses.
 
-## Consequences, non-goals, and exact boundary
+`ChemicalImbalanceResponse` owns one immutable symmetric 2x2 matrix in named order
+`BetaChannel::Npe`, `BetaChannel::NpMu`:
 
-Accepting this ADR later would govern coefficient semantics and ownership; it would not
-itself certify numbers or implement the layer. Independent scientific review and owner
-ratification precede any separately authorized production implementation. An implementation
-must predeclare its numerical/error policy within the accepted contract and demonstrate the
-relevant GC gates; the realistic closing benchmark remains a separate required Track-R gate.
+```text
+Z = [[Z_npe, Z_np],
+     [Z_np,  Z_npmu]]       [MeV / count].
+```
 
-No production Btilde, Z, W, eta state/evolution, Urca rates, heating/cooling, superfluidity,
-BNV, EOS product, regression baseline, or source-data modification is authorized by this draft.
-There is no production or test code in this change and no scientific runtime output changes.
+The paper scalars are read-only accessors onto that matrix and are never independently stored.
+Typed row/output-channel and column/input-lepton orientation remains required even though the
+matrix is symmetric.
 
-INV-11 remains UNRESOLVED: evolved channel/storage representation, redshifted state units,
-reaction stoichiometry/net-rate sign, thermal/neutrino bookkeeping, coefficient variation and
-solver coupling require later governance. Phase6 must permit generic externally supplied
-particle-number sources separately from spin driving, retaining the unreduced neutral response
-and explicit baryon assumptions; baryon-changing sources cannot be forced into a fixed-baryon
-2-channel lift. No BNV equations or thermal assumptions are introduced (companion section19).
+### 3.4 Structural drive and coefficient redshift semantics
 
-**ADR-0013 remains PROPOSED. No owner answer, merge, ratification, or production implementation
-has occurred.**
+`RotochemicalSpinDrive` is a separate immutable result that depends on the complete governed
+`FixedBaryonNumberResponse`, not on a copied `I` vector:
+
+```text
+W = Z (I_phys,e,I_phys,mu)^T       [MeV s^2].
+```
+
+The initial whole-star implementation will consume `WholeStarIPhysical()` only after currency
+validation. Runtime coupling to a baseline JSON is forbidden. A core or other reservoir requires
+its own governed structural mapping and boundary/source semantics.
+
+At coefficient level,
+
+```text
+eta^infinity = e^nu eta_local,
+eta_npe = mu_n - mu_p - mu_e,
+eta_npmu = mu_n - mu_p - mu_mu,
+dot eta^infinity = -Z R + 2 W Omega Omega_dot
+```
+
+for frozen coefficients and the declared source sign. The last line fixes source sign semantics
+only; it is not a secular-evolution implementation contract. `W` is a spin-drive adapter, not a
+universal chemical source. Future externally supplied particle-number sources, including any
+baryon-changing source, require their own conservation/source mapping and must not be forced into
+the fixed-baryon lift `L`.
+
+## 4. Owner-ratified decisions Q1–Q8
+
+| ID | Ratified answer |
+|---|---|
+| **Q1 — canonical global chemical number response** | `GlobalChemicalNumberResponse` owns named-axis `G_y` in the reduced source basis `(N_n,N_e,N_mu)`, units `count / MeV`. `G_y` is retained as the source-aligned unreduced physical authority for later non-fixed-baryon sources. An x-basis view is derived only. No full corrected 4x4 inverse, pseudoinverse, or bare `B` class. |
+| **Q2 — global baryon-reduction ownership and supported-mode policy** | Integration produces unreduced `G_y` first; global baryon reduction occurs afterward. No pointwise baryon constraint. Retain `G_y`; derive `Q` rather than store a second authority. Supported channel rank is explicit; positive-measure support and an uncertainty-resolved smallest eigenvalue are required before inversion, otherwise return a named lower-rank result or refuse. This ordering was already fixed by ADR-0010 and R2006 footnote 4 and is not a free scientific choice. |
+| **Q3 — canonical corrected chemical Z** | `ChemicalImbalanceResponse` owns one immutable symmetric 2x2 named-channel matrix with canonical relation `eta^infinity=-Z delta N_l`, units `MeV / count`. `Z_npe`, `Z_np`, and `Z_npmu` are views only. Typed output-channel/input-lepton orientation is required. |
+| **Q4 — W ownership and structural coupling** | `RotochemicalSpinDrive` is separate and immutable, depends on `ChemicalImbalanceResponse` and the complete governed semantic `FixedBaryonNumberResponse`, and uses `WholeStarIPhysical()` for the initial whole-star path after currency validation. No copied `I` vector or runtime baseline JSON is sufficient provenance. Spin down is one source adapter, not the universal chemical source. |
+| **Q5 — domains, branches, thresholds, and interfaces** | Use explicit 3D npemu, 2D npe, 1D pe, and 0D/value-only vacuum branches, plus value-only `MuonThresholdEvaluation` and `NeutronThresholdEvaluation`. Form `C_y=E H_active^-1 E^T` using authenticated branch conjugates. No padded H, absent-species response, density floor, hidden extrapolation, or threshold inversion. Continuous onsets have no density-jump atom. A finite refusal window is bounded or handled by a validated limit adapter, otherwise refuse. A genuine first-order transition needs authenticated interface/phase metadata and a chemical interface-motion law; the Phase-5B structural jump formula is not automatically reusable. |
+| **Q6 — correction-sensitive Track-R benchmark instrument** | A18 + delta-v + UIX* remains the mandatory realistic Track-R closing model already fixed by ADR-0010 Q1; CMF, BPAL, and free gas do not substitute. The preferred coefficient benchmark is R2006 Figure 1 with authenticated matching A18 authority; authenticated author arrays are preferred, with governed figure extraction permitted if unavailable. A later transient may supplement, not replace, the coefficient benchmark; quasi-steady temperature alone is insufficient. Realistic closure remains blocked on missing authenticated A18 authority. |
+| **Q7 — coefficient redshift and source semantics** | Fix `eta^infinity=e^nu eta_local`, named beta signs, exactly one `e^-nu` in `G_y`, Z acting on redshifted imbalance, and W units/sign/source semantics now. This partially resolves INV-11(a) only for coefficient-object semantics. It does not choose an evolved layout, storage, rates, changing-coefficient treatment, thermal/neutrino accounting, or solver coupling. INV-11 remains UNRESOLVED. |
+| **Q8 — provenance, lifetime, and refusal** | Future results are immutable, dependency-complete, fail-closed values. Every scientific access validates currency. Raw pointers without guaranteed lifetime or a validated lifetime token are insufficient. No universal condition-number cutoff is accepted; stability/refusal is uncertainty-aware, and the smallest supported eigenvalue must exceed its error enclosure before inversion. |
+
+## 5. Active-branch and interface contract
+
+For each active chart `z`, form `C_y=E H_active^-1 E^T`:
+
+| Branch/result | Active dimension | Embedding into `(n_n,n_e,n_mu)` | Boundary rule |
+|---|---:|---|---|
+| npemu | 3D | full `T` | qualified smooth branch |
+| npe | 2D | `[[1,-1],[0,1],[0,0]]` | no fabricated muon response |
+| pe | 1D | `[[0],[1],[0]]` | active conjugate is `mu_p+mu_e` |
+| vacuum | 0D/value-only | none | no Hessian inversion |
+| `MuonThresholdEvaluation` | value-only | none | no Hessian inversion exactly at threshold |
+| `NeutronThresholdEvaluation` | value-only | none | no Hessian inversion exactly at threshold |
+
+Continuous onset uses the one-sided susceptibility limit and has no density-jump atom. Every
+positive-width response-refusal window crossing physical support requires an explicit
+response-measure bound or validated limit adapter; it may not be silently skipped. A genuine
+first-order phase boundary requires authenticated phase/interface metadata and a chemical
+interface-motion law. Structural interface terms from Phase 5B do not automatically define the
+chemical interface response.
+
+## 6. Provenance and lifetime contract
+
+Every future global chemical-response result retains:
+
+- `StarProfile` identity and version;
+- metric/redshift identity and normalization;
+- provider identity and revision;
+- exact provider/data bytes where applicable and component constants;
+- equilibrium anchor and active branch map;
+- source/result basis and named row/column orientation;
+- chemical domain/reservoir and interface/tail policy;
+- realized radial partition, quadrature-rule identity, onset split locations, and achieved
+  node count;
+- numerical method and version;
+- a structural-zero entry register;
+- matrix eigenspectrum, conditioning, and error budgets; and
+- the R2006 source convention.
+
+`RotochemicalSpinDrive` additionally retains all governed Phase-5B structural provenance. A
+changed dependency refuses before scientific access. No lazy stale science or reconstruction
+from labels is allowed. Lifetime safety is normative: a provenance object containing raw
+pointers without a guaranteed lifetime or validated lifetime token is insufficient. This ADR
+does not redesign the existing Phase-5B provenance implementation.
+
+## 7. Accepted validation architecture
+
+### 7.1 Validation ladder
+
+The future coefficient validation order is:
+
+1. exact analytic/toy corrected projection;
+2. Track-R free-gas whole-star coefficient mechanics;
+3. a free-gas old-F2005-versus-corrected-R2006 separation gate; and
+4. authenticated A18 + delta-v + UIX* R2006 Figure-1 or author-array coefficient comparison.
+
+Free gas can establish that the correction machinery is active; it cannot validate realistic
+nuclear interactions or replace the A18 benchmark. A later transient comparison belongs
+primarily to the evolution ladder and may supplement coefficient validation. Quasi-steady
+temperature alone does not validate the correction.
+
+The preflight's `GC1`–`GC14` ladder is accepted with these binding revisions:
+
+- `GC9a` checks the analytic/manufactured and independent curved-GR integral, including lapse,
+  proper volume, count conversion, center, and tail terms.
+- `GC9b` is a separate required convergence/numerical-budget subgate: radial refinement,
+  quadrature-rule comparison, onset-aware partition refinement, table/provider resolution where
+  applicable, and surface/tail remainder. One correct manufactured integral cannot by itself
+  make `GC9` pass.
+- `GC9` negative controls include `M19` and the companion proper-volume inversion control below.
+- `GC13` contains both the intermediate free-gas correction-separation requirement and the
+  separately mandatory realistic A18 source benchmark. Passing the former never discharges the
+  latter.
+- `GC14` includes lifetime-token/dangling-dependency refusal and the full numerical provenance
+  set in section 6.
+
+### 7.2 ADR-0010 V1–V12 to Phase-5C GC crosswalk
+
+`GC1`–`GC14` **extend and operationalize** the accepted ADR-0010 ladder; they do not supersede it.
+
+| ADR-0010 gate | Phase-5C discharge/carry-forward |
+|---|---|
+| **V1** units/rest-mass/index/sign | `GC1` |
+| **V2** exact neutral reconstruction | `GC2` |
+| **V3** beta equilibrium and threshold conditions | Existing validated Phase-5A provider gates, plus `GC8` when global branch support is consumed |
+| **V4** analytic lepton checks | Existing Phase-5A Track-R validation; inherited dependency, not re-credited as new Phase-5C validation |
+| **V5** analytic toy reduced Hessian/susceptibility | `GC3`–`GC6`, as applicable |
+| **V6** Hessian symmetry/integrability | `GC3` |
+| **V7** finite perturbation versus linear response | `GC3` and inherited local-provider validation |
+| **V8** x/y response equivalence | `GC5` |
+| **V9** full intrinsic electrostatic projection versus neutral route; charge null/rank/proton identity | `GC6` + `GC7` |
+| **V10** rank/support/stability/active-species handling | `GC8` plus conditioning portions of `GC10` |
+| **V11** corrected global Z/source response | `GC9` + `GC10` + `GC11` + `GC13` |
+| **V12** end-to-end published non-superfluid thermal benchmark | **Not discharged by Phase-5C coefficient implementation; remains a later evolution-layer gate** |
+
+### 7.3 Required negative controls added by review
+
+**M19 — sign-flipped coefficient lapse.** The wrong route is
+
+```text
+G_wrong = integral e^(+nu) C dV
+```
+
+instead of `G=integral e^(-nu) C dV`. The detector is an independent curved-GR exact-star
+oracle. The independent review found approximately `-35%` to `-38%` relative error for this
+wrong route. That separation is diagnostic evidence, not a production tolerance.
+
+**M20 — inverted proper-volume factor.** `GC9` must also detect use of
+`sqrt(1-2m/r)` instead of `1/sqrt(1-2m/r)`. This companion control may remain a `GC9`
+subcase rather than a separately scored top-level mutation, but it must be recorded and run.
+
+## 8. Review findings and accepted dispositions
+
+### 8.1 Material findings M1–M4
+
+| Finding | Accepted disposition |
+|---|---|
+| **M1 — V/GC crosswalk** | Section 7.2 explicitly preserves and maps ADR-0010 V1–V12. The GC ladder extends/operationalizes rather than replaces it; V12 remains future evolution validation. |
+| **M2 — Q2/Q6 not free scientific choices** | Q2 is reframed around ownership/support policy while retaining the already-fixed integrate-first/global-reduction order. Q6 ratifies the concrete correction-sensitive benchmark instrument while retaining the already-fixed A18 + delta-v + UIX* closing identity. |
+| **M3 — sign-flipped lapse route** | `M19` and the companion inverted proper-volume control are binding `GC9` negative controls, with the independent curved-GR exact-star oracle as detector. |
+| **M4 — free-gas correction sensitivity** | The explicit intermediate free-gas old-vs-corrected separation gate is required, while `GC13` still requires authenticated A18 realistic-source comparison. Free gas does not replace A18. |
+
+The review's free-gas diagnostics found approximate old-versus-corrected changes of `+1.55%`
+for `Z_npe`, `+82.8%` for `Z_np`, `+3.75%` for `Z_npmu`, and `3.6%` in matrix Frobenius norm.
+These values show detector separation only; they are not literature targets, golden data, or
+production tolerances.
+
+### 8.2 Nonblocking findings N1–N9
+
+| Finding | Accepted disposition |
+|---|---|
+| **N1 — quadrature diagnosis** | Independent review localized the approximately `1.9e-6` scratch difference mainly to trapezoidal quadrature on the realized profile partition. Two independent non-trapezoid routes agreed at approximately `1.8e-8` while each differed from the trapezoid diagnostic by approximately `1.9e-6`. This is diagnostic evidence only. Quadrature is the dominant characterized scratch error; production must choose and validate an onset-aware policy before acceptance budgets are set. |
+| **N2 — tolerance methodology** | Quadrature truncation is a first-class uncertainty. Record realized radial partition, onset splits, quadrature rule, achieved nodes, and structural-zero register. Use absolute budgets for analytically exact zeros such as free-gas `G_ne` and `G_nmu`; never relative error against zero. |
+| **N3 — provider refusal window** | The reviewed fixture gave `Delta G_nn/G_nn <=` approximately `1.7e-14` and induced relative Z effect `<=` approximately `9.8e-18`. These are not universal tolerances. The ratified rule is bound every finite response-refusal window crossing support or use a validated limit adapter; otherwise refuse. |
+| **N4 — chemical tail** | The reviewed Track-R fixture gave actual `Delta G_ee=2.685e45 count/MeV` within the proposed `3.682e45 count/MeV` bound, and `R_upper` agreed with the review's exact `P=0` radius to approximately `2e-10` relative. The shell-mass correction lies below independently demonstrated background reproducibility and is not dominant. The tail bound is not the full coefficient error budget. |
+| **N5 — Figure-1 mass selection** | Future governed extraction should predeclare masses approximately in the `1.0`–`1.2 M_sun` region, subject to authenticated evidence, because old/corrected identity and separation are clearer there; the review found overlaps/crossings around `1.4`–`1.6 M_sun` in a figure spanning roughly `1.0`–`2.0 M_sun`. No numerical curve value is frozen and visual estimates are not source data. |
+| **N6 — extraction protocol** | Require axis-calibration closure with residuals in uncertainty; a curve-identity rule and predeclared ambiguity-zone rejection near crossings; rasterization independence using separate resolutions and preferably renderers; and a source-text round-trip trend check before promotion to benchmark data. Independent extractors must not merely inspect the same raster. No digitization occurs here. |
+| **N7 — INV-11 boundary** | ADR-0013 partially resolves INV-11(a) only for coefficient-object semantics: redshifted eta, named beta channels, one inverse lapse in G, Z action, and W units/sign/source. Evolved ordering, representation, units/conversion boundary, stoichiometry, rate-sign ownership, changing coefficients/background, thermal/neutrino partition, and solver coupling remain unresolved. INV-11 is not marked resolved. |
+| **N8 — thresholds and lifetime** | `MuonThresholdEvaluation` and `NeutronThresholdEvaluation` are explicitly value-only; no threshold-object Hessian inversion occurs. Lifetime safety is normative for all dependency-complete result objects. Existing Phase-5B provenance is not redesigned here. |
+| **N9 — convergence/quadrature gate** | `GC9b` is an explicit required subgate. A manufactured-integral pass alone cannot establish production `GC9` success. |
+
+## 9. Source notes and realistic benchmark blocker
+
+### 9.1 R2006 equation (11)
+
+The owner ratifies ADR-0010's existing classification: printed R2006 eq. (11) appears to omit
+`e^(-Phi)` required by substitution into eq. (10) and consistent with eq. (13). Classification:
+**INFERRED PRINTED/SOURCE OMISSION**, not a published erratum. No source quotation is rewritten,
+and no Fable adjudication is required.
+
+### 9.2 R2006 Figure-2 mass label
+
+R2006 Figure 2's right panel says `2.14 M_sun`, while its caption says `2.13 M_sun`.
+Independent review verified both directly. F2005 gives `2.14 M_sun` specific physical
+significance as the highest causal model described there, which favors the panel label, but that
+is inference rather than an authenticated correction. This remains an unresolved **SOURCE NOTE**,
+not an ADR blocker. Neither value may be selected for quantitative Figure-2 benchmarking without
+later adjudication/source authority. Figure 1 can carry the coefficient-layer benchmark.
+
+### 9.3 Exact A18 blocker
+
+Track-R realistic closure is blocked until all matching A18 + delta-v + UIX* authority exists:
+
+- authenticated equilibrium EOS/composition and exact model/fit lineage;
+- arbitrary-composition nuclear energy/response with consistent lepton conventions;
+- authenticated crust, joins, core boundary, and phase/interface treatment;
+- matching mass/configuration and corrected Figure-1 author arrays or governed extraction; and
+- source-compatible uncertainty sufficient for the declared comparison.
+
+CMF, BPAL, a generic APR-labelled barotrope, and free gas do not substitute for that authority.
+
+## 10. INV-11 partial-resolution boundary
+
+Coefficient-object semantics now governed are:
+
+- `eta^infinity=e^nu eta_local`;
+- named `npe` and `np-mu` beta channels and signs;
+- exactly one `e^-nu` factor in `G_y`;
+- `Z` acting on redshifted imbalance;
+- `W` units `MeV s^2`; and
+- the frozen-coefficient source sign.
+
+Still unresolved for secular evolution are evolved-state ordering, representation, storage
+units and conversion boundary, reaction stoichiometry, net-rate sign ownership, changing
+coefficients/background, thermal/neutrino partition, and solver coupling. Therefore INV-11
+remains **UNRESOLVED** and continues to block chemical-state/evolution implementation.
+
+## 11. Decision and revision ledger
+
+**ACCEPTED — 2026-09-06.** The project owner ratifies Q1–Q8 and the mathematical, domain,
+provenance, validation, and source-boundary contract above. Acceptance governs semantics and
+ownership only. It does not certify scratch numbers, claim any `GC` pass, authorize production
+implementation, close realistic Track R, or resolve secular evolution.
+
+| Stage | Status and effect |
+|---|---|
+| Phase-5C-0 proposal, commit `54ec7abac38fa0a32c5fb3a82e424b496361966a` | ADR-0013 proposed; no owner answer, review disposition, or implementation authorization. |
+| Independent Opus review | PASS WITH NONBLOCKING FINDINGS; no blockers, M1–M4 and N1–N9 recorded; detached read-only review, no review commit. |
+| Phase-5C-0RAT owner revision and acceptance | Q1–Q8 ratified with Q2/Q6 reframed, V/GC crosswalk, `M19`/proper-volume control, free-gas separation rung, numerical/provenance strengthening, source notes, and INV-11 partial boundary. Documentation only. |
+
+Downstream prohibitions remain explicit: no production `G_y/Z/W`; no eta evolution; no weak
+rates; no heating/cooling; no superfluidity; no BNV; no tests, baselines, EOS/data, or literature
+changes; and no canonical merge under this decision.

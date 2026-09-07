@@ -12,6 +12,21 @@
 > INV-07 and INV-08 now cite current source lines; evidence in
 > `docs/validation/PHASE4_ROTATION_ENTRY.md`.
 
+> **Phase-5C-0RAT (2026-09-06): ADR-0013 ACCEPTED — CORRECTED CHEMICAL-COEFFICIENT
+> CONTRACT HUMAN-RATIFIED / NOT IMPLEMENTED.** The accepted contract fixes canonical source-basis
+> `G_y`, global-after-integration baryon reduction, one canonical chemical `Z` matrix, the
+> structurally provenance-complete `W` adapter, explicit active branches, coefficient-level
+> redshift/sign semantics, lifetime/refusal requirements, and the revised GC validation ladder.
+> Independent Opus review passed with no blockers and explicit findings incorporated. This
+> partially resolves INV-11(a) only for coefficient-object semantics; evolved ordering,
+> representation, storage units/conversion, reaction/rate ownership, changing coefficients,
+> thermal/neutrino accounting, and solver coupling remain open, so INV-11 stays **UNRESOLVED**.
+> Production `G_y/Z/W` is **NOT IMPLEMENTED**; realistic Track-R coefficient closure is **BLOCKED
+> ON AUTHENTICATED A18 + delta-v + UIX* AUTHORITY**; INV-09 remains **VERIFIED / RESOLVED** in
+> its governed structural scope; BNV is **NOT BEGUN**. Evidence:
+> `docs/adr/ADR-0013-corrected-rotochemical-chemical-coefficients.md` and
+> `docs/validation/PHASE5C0_CORRECTED_CHEMICAL_COEFFICIENT_RATIFICATION.md`.
+
 ## Status vocabulary
 
 | Status | Meaning |
@@ -942,6 +957,17 @@ Phase 5.
 
 ## INV-11 — Chemical-imbalance redshift convention — **UNRESOLVED**
 
+**Current Phase-5C-0RAT boundary.** ADR-0013 is **ACCEPTED** and partially resolves INV-11(a)
+only for coefficient-object semantics: `eta^infinity=e^nu eta_local`; named `npe` and `np-mu`
+channels; exactly one `e^-nu` in global `G_y`; `Z` acting on redshifted imbalance; and `W` units,
+source sign, and structural dependency. It does not define the evolved-state ordering or
+representation, storage units/conversion boundary, reaction stoichiometry, net-rate sign
+ownership, changing coefficients/background, thermal/neutrino partition, or solver coupling.
+No production coefficient or evolution object is implemented. INV-11 therefore remains
+**UNRESOLVED** and fail-closed for secular evolution
+(`docs/adr/ADR-0013-corrected-rotochemical-chemical-coefficients.md`,
+`docs/validation/PHASE5C0_CORRECTED_CHEMICAL_COEFFICIENT_RATIFICATION.md`).
+
 **Current Phase 5A-5 boundary.** The human-ratified p-e branch adds only the local active conjugate
 `h_pe=mu_p+mu_e`; the inactive neutron condition is a separately named value diagnostic.
 The npe and npe-mu local conjugates retain their established meanings. This complete local
@@ -1267,8 +1293,10 @@ conversion, under the in-code comment *"Convert fractions to number densities in
 **One unresolved invariant still blocks downstream chemical-state/evolution work:**
 
 - **INV-11** blocks the evolved η ordering/redshift contract and Layer-D evolution. ADR-0010 and
-  Phase 5A-2 cover only the implemented, locally validated neutral-conjugate provider contract;
-  they do not choose an evolved-state redshift convention.
+  Phase 5A-2 cover the implemented, locally validated neutral-conjugate provider contract;
+  accepted ADR-0013 additionally governs coefficient-object redshift/sign semantics and the
+  `G_y/Z/W` ownership contract. None chooses an evolved-state ordering, representation, storage
+  boundary, rate/stoichiometry ownership, thermal partition, or solver coupling.
 
 **INV-07 is fully resolved for first order.** ADR-0006 (ACCEPTED 2026-09-02) settled the
 contract, Phase 4A made the source conform, and **Phase 4B verified the normalized response

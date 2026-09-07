@@ -1,5 +1,18 @@
 # CompactStar — Current Architecture
 
+> **Phase-5C-0RAT (2026-09-06): ADR-0013 ACCEPTED — CORRECTED CHEMICAL-COEFFICIENT
+> CONTRACT HUMAN-RATIFIED / NOT IMPLEMENTED.** Independent Opus review passed with no blockers
+> and its four material plus nine nonblocking findings are incorporated. The contract governs
+> canonical unreduced `G_y`, global-after-integration baryon reduction, canonical chemical `Z`,
+> separate structurally provenance-complete `W`, explicit active branches, coefficient-level
+> redshift/sign semantics, lifetime/refusal semantics, and future validation. These are governed
+> ownership names and semantics, not current callable APIs. Production `G_y/Z/W` is **NOT
+> IMPLEMENTED**; Track-R realistic closure is **BLOCKED ON AUTHENTICATED A18 + delta-v + UIX*
+> AUTHORITY**; INV-09 remains **VERIFIED / RESOLVED** in its structural scope; INV-11 remains
+> **UNRESOLVED** for secular evolution; BNV is **NOT BEGUN**. Evidence:
+> `docs/adr/ADR-0013-corrected-rotochemical-chemical-coefficients.md`;
+> `docs/validation/PHASE5C0_CORRECTED_CHEMICAL_COEFFICIENT_RATIFICATION.md`.
+
 > **Phase-5B-I (2026-09-06): STRUCTURAL RESPONSE COMPLETE / CANONICALLY INTEGRATED.** ADR-0011
 > PN1-PN8 are live and governed for the reviewed ordinary-`NStar` / Track-R structural scope.
 > The first structural baseline is installed with fresh-producer exact-byte regression; serial
@@ -242,6 +255,7 @@ TimeSeriesObserver + DiagnosticsObserver            LIVE
 | `StarProfileView` | **COMPILED, UNEXERCISED** | `NStar::View()` has zero callers |
 | `NStar` | **LIVE** | Migration to `prof_` complete; legacy `ds` is commented out, not dual-live |
 | `CompactStar::Analysis` particle-number response | **LIVE — GOVERNED / CANONICALLY INTEGRATED; INV-09 RESOLVED** | ADR-0011 PN1-PN8 structural response for ordinary `NStar`, including measure-complete `dn_i`, complete-star `B_i`, fixed-baryon `K_i`, domain-qualified mapping, provenance refusals, and explicit angular-frequency conversion. Independently reviewed and human-ratified at `fe08c94ed5ae525a9cb78331c5dd69d9c617d591`; the first governed structural artifact is fresh-regeneration protected. PB1-PB14 retain every qualification in `docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_INTEGRATION.md`. INV-09 is VERIFIED / RESOLVED only for this structural layer; INV-11 remains UNRESOLVED |
+| ADR-0013 chemical coefficient layer (`GlobalChemicalNumberResponse`, `ChemicalImbalanceResponse`, `RotochemicalSpinDrive`) | **GOVERNED CONTRACT — NOT IMPLEMENTED** | Accepted semantic ownership only: canonical named-axis source-basis `G_y` in `count / MeV`; global baryon reduction after integration; one immutable named 2x2 `Z` in `MeV / count`; separate `W` in `MeV s^2` depending on the complete governed `FixedBaryonNumberResponse`; explicit lower-dimensional branches and fail-closed provenance/lifetime/conditioning. No current class, producer, test, baseline, or runtime result exists under these names. Free-gas correction separation is a future implementation gate and cannot replace the blocked authenticated A18 benchmark. INV-11 remains unresolved for evolution. `docs/adr/ADR-0013-corrected-rotochemical-chemical-coefficients.md` |
 | `MixedStar` | **COMPILED, UNEXERCISED** | No surviving `main/` uses it. Master-grid totals added by `3639d71` |
 | `TOVSolver` | **LIVE** | Two live integration paths — see §3 |
 | `TOVSolver_Thread` | **COMPILED, UNEXERCISED** | Bookkeeping subclass, 124 lines |
