@@ -420,3 +420,157 @@ implementation, close realistic Track R, or resolve secular evolution.
 Downstream prohibitions remain explicit: no production `G_y/Z/W`; no eta evolution; no weak
 rates; no heating/cooling; no superfluidity; no BNV; no tests, baselines, EOS/data, or literature
 changes; and no canonical merge under this decision.
+
+## 12. Owner-ratified two-track inherited structural uncertainty addendum — 2026-09-07
+
+**ADR-0013 remains ACCEPTED. Q1-Q8 are accepted unchanged.** The mathematics and ownership of
+`G_y`, `Q`, `Z`, and `W` are unchanged. In particular, `RotochemicalSpinDrive` still consumes
+only the electron and muon whole-star structural inputs,
+
+```text
+I_phys,i = K_i/c^2,
+W = Z (I_phys,e,I_phys,mu)^T,
+```
+
+through the existing governed unit owner and complete structural provenance
+(`docs/adr/ADR-0013-corrected-rotochemical-chemical-coefficients.md:182`,
+`docs/adr/ADR-0013-corrected-rotochemical-chemical-coefficients.md:215`). Neutron and proton
+responses remain necessary to construct and validate the fixed-baryon response, but they are not
+direct entries of the `W` vector. The large neutron cancellation amplification is therefore not
+itself the uncertainty amplification of `W`; it does not remove any neutron/proton evidence
+required to validate the construction.
+
+### 12.1 Ratified terminology
+
+The following terms are distinct and must not be interchanged:
+
+- **`numerical_error`** is propagated uncertainty associated with the declared discrete
+  representation/computation: arithmetic, quadrature on that representation, finite-difference
+  or stencil estimates, local solve residual, roundoff, and a proven remainder explicitly
+  included by the computation.
+- **`certified_bound`** is a mathematically demonstrated enclosure under explicitly stated
+  hypotheses. It is used only where such a proof exists. Neither `I_phys` nor `W` is assigned a
+  certified bound by this addendum.
+- **`validation_envelope`** is a conservative, predeclared envelope assembled from measured
+  discrepancies against independent numerical/analytic routes and controlled refinement or
+  representation variants. It is empirical validation evidence, not a probability distribution,
+  confidence interval, formal truncation remainder, or mathematically certified continuum bound.
+
+Phase-5B INV-09 closure remains **VERIFIED / RESOLVED** and retains all nine qualifications
+(`docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_INTEGRATION.md:99`,
+`docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_INTEGRATION.md:127`). Existing Phase-5B
+`K_error` is `numerical_error`, not `certified_bound`; the baseline itself already separates
+reported numerical errors from radial/EOS and independent-oracle evidence
+(`tests/baselines/phase5b_structural_response.json:82`). This narrows no accepted structural
+claim and changes no Phase-5B value, formula, or baseline.
+
+### 12.2 Two inherited structural quantities
+
+For each consumed species `i in {e,mu}`:
+
+```text
+E_I_numerical,i = K_error_i/c^2.
+```
+
+`E_I_numerical` is the Phase-5B `numerical_error` converted exactly once by the existing unit
+owner. Separately, `V_I_validation` is the componentwise `validation_envelope` assembled from
+predeclared end-to-end `K/I` evidence. It is publicly described as a validation envelope, never
+as an error bar, confidence interval, certified bound, or formal remainder. A complete separate
+componentwise `A/B` certified interval is not required because Phase-5C consumes `K/I`, although
+`A/B` evidence remains part of validating that construction.
+
+Before candidate acceptance, the `V_I_validation` evidence must include the existing stored K
+numerical error as a separately classified input, PB11 direct `q -> 0` K discrepancy, PB11
+fixed-baryon central-shift / `Delta N_B ~ q^2` evidence kept distinct from the Richardson K
+comparison, PB7 independent-background B discrepancy transferred into the consumed K direction
+with documented sensitivity/amplification, PB12 K-level EOS/table-resolution variation, a new
+direct K-level radial-resolution ladder, PB6 partition/knot variation transferred to K with a
+documented sensitivity factor where still A-level, raw per-species PB10 direct-K discrepancies,
+and any separately reviewed independent K comparison retained without duplicate counting. The
+Phase-5B records establish the distinct existing roles of PB6, PB7, PB10, PB11, and PB12
+(`docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_RATIFICATION.md:99`,
+`docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_RATIFICATION.md:225`).
+
+No direct K-level radial-resolution ladder currently exists; it is required as an
+implementation-time measurement before candidate acceptance, not before production code may be
+written. PB10 must durably record raw per-species direct-K discrepancies, which may be test-side
+and requires no Phase-5B production-source change. Neither measurement is performed by this
+documentation addendum.
+
+PB6 knot/profile shifts are raw representation sensitivity and
+`VALIDATION_ENVELOPE_INGREDIENT` evidence, not violations of a certified bound. Dividing the
+neutron/muon shifts by stored `A_error` does not create such a violation because `A_error` does
+not claim that reconstruction class. For p/e, the existing tail contribution may dominate the
+stored `A_error`, explaining why the same ratio may be below one. The variations must remain
+visible in durable evidence.
+
+### 12.3 Downstream propagation and dual acceptance
+
+The Phase-5C numerical propagation remains
+
+```text
+E_W_numerical
+  <= |Z| E_I_numerical
+   + E_Z |I|
+   + E_Z E_I_numerical
+   + E_W_arithmetic.
+```
+
+`E_W_numerical` is `numerical_error`; no validation-envelope quantity is included in it. The
+separate inherited structural stability envelope is
+
+```text
+V_W_validation <= |Z| V_I_validation.
+```
+
+`V_W_validation` is a `validation_envelope`. A future validation envelope for Z may contribute
+only after separate governance.
+
+For every required W component, candidate acceptance requires both
+
+```text
+E_W_numerical <= G_W_numerical
+V_W_validation <= G_W_validation.
+```
+
+Both goals are componentwise, absolute, derived from pre-production authority, and predeclared
+and immutable before the first production `G_y/Z/W` output. Failure of either causes refusal;
+the structural-envelope failure is separately classified as
+`StructuralValidationEnvelopeUnmet` (or an exactly equivalent repository-consistent name), not
+as `AccuracyGoalUnmet`. This addendum selects neither numerical goal.
+
+The clarification applies only to inherited Phase-5B structural representation stability. All
+required Phase-5C-owned numerical errors in `G_y`, `Q`, and `Z` remain measured/bounded and
+fail-closed under the accepted plan. An unmeasurable required owned numerical uncertainty causes
+refusal; the validation-envelope distinction is not an escape from owned numerical accounting.
+
+Ladder handling is also frozen before candidate results: use the finest measured discrepancy for
+a contracting ladder with no demonstrated asymptotic order; record a nonmonotone/sign-alternating
+numerical floor without inventing an order; refuse truly noncontracting or unbounded behavior;
+retain every raw variant; and fit no after-the-result safety factor. Already included Phase-5B
+`K_error`/tail terms are not added twice. Distinct PB11 K and fixed-baryon constraints may both be
+retained with dependence stated; potentially correlated PB7 B and central-shift effects are
+combined conservatively absent proved cancellation; PB6 radial/knot variants use a conservative
+max/envelope within one representation class; and one numerical route is never relabelled and
+counted twice.
+
+### 12.4 Regression, realistic-source, and status boundary
+
+A later governed Phase-5C regression artifact may be installed after acceptance under this
+two-track contract. It certifies reproducible regeneration of accepted deterministic candidate
+bytes, not a formally interval-certified continuum solution; this is the same reproducibility
+distinction recorded for Phase-5B (`docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_INTEGRATION.md:44`).
+
+The method separating `numerical_error` from `validation_envelope` transfers to realistic Track
+R, but the numerical free-gas envelope does not transfer to A18. A18 requires its own adapter,
+EOS/table and phase/interface evidence, radial evidence, correction-sensitive source benchmark,
+and validation envelope. GC13 remains **SOURCE-LIMITED / BLOCKED** on authenticated A18 authority
+(`docs/adr/ADR-0013-corrected-rotochemical-chemical-coefficients.md:379`). Publication claims may
+report a clearly labelled numerical error ledger and validation envelope, but may not call the
+latter a certified bound, confidence interval, or formal truncation error without separately
+establishing those semantics.
+
+At this ratification point **NO PRODUCTION `G_y`, `Z`, OR `W` RESULT EXISTS**. Production code,
+tests, numerical-result generation, and baseline changes are outside this addendum. INV-11 remains
+**UNRESOLVED**; eta evolution, weak rates, heating/cooling, realistic A18 closure, and BNV remain
+outside the authorized scope.

@@ -332,3 +332,41 @@ free-gas core numerical `I_Omega` benchmark or source-qualified `M_max` is claim
 The installation, fresh-generation authentication, exact hashes, suite results, baseline
 immutability, and retained caveats are recorded in
 `docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_INTEGRATION.md`.
+
+## Owner-ratified uncertainty-semantics clarification — Phase-5C-1R-UQ, 2026-09-07
+
+**ADR-0011 remains ACCEPTED. This is a semantic clarification, not a reopening of the
+decision or INV-09.** The Phase-5B implementation record already distinguishes the values
+reported by `Errors()` from the separately measured EOS/profile/refinement/oracle evidence:
+the former include the declared computation's quadrature/roundoff, tail, stencil, and propagated
+ingredient estimates, while PB1/PB6/PB7/PB12 characterize effects outside that universal claim
+(`docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_IMPLEMENTATION.md:114`).
+
+For the declared Phase-5B discrete representation and computation:
+
+- `NumberResult::Errors()`, including the governed `K_error`, is the propagated
+  **`numerical_error`**. It is not a claim that the exact continuum `K_i` lies within
+  `K_error_i`, and it is not a universal **`certified_bound`** on background or reconstruction
+  effects.
+- **`certified_bound`** is reserved for a mathematically demonstrated enclosure under stated
+  hypotheses, such as an individually established analytic surface/tail or refusal-window
+  majorant. The term is not applied to `K_i`, `I_phys,i`, or downstream `W` merely because an
+  error field exists.
+- A downstream consumer that requires stability against reconstruction, refinement, or
+  independent-route variation must carry that separately measured evidence as a
+  **`validation_envelope`**: a conservative predeclared empirical envelope, not a probability
+  distribution, confidence interval, formal truncation remainder, or certified continuum bound.
+
+Downstream Phase-5C consumes the whole-star physical response
+`I_phys,i=K_i/c^2` under the existing unit owner (`docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_IMPLEMENTATION.md:53`).
+The accepted downstream uncertainty requirement is therefore placed on the consumed `K/I`
+direction. It does not require a complete componentwise deterministic interval for `A_i` and
+`B_i` separately; such a requirement could discard correlated cancellation in
+`K_i=A_i-B_i A_B/B_B`. `A_i` and `B_i` remain scientifically meaningful parts of the
+Phase-5B construction and retain all of their validation evidence.
+
+This clarification changes no Phase-5B central value, formula, implementation, test, tolerance,
+baseline byte, or domain. Phase-5B INV-09 closure remains **VERIFIED / RESOLVED**, with all nine
+review qualifications retained (`docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_INTEGRATION.md:99`,
+`docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_INTEGRATION.md:127`). INV-11 remains
+**UNRESOLVED**.

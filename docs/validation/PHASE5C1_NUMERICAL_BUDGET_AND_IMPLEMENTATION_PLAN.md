@@ -866,3 +866,192 @@ plan, and whether the proposed GC1-GC14 budgets are sufficiently predeclared
 to authorize production G/Z/W implementation.
 
 That review is not started automatically.
+
+## 19. Post-independent-adjudication addendum — two-track structural uncertainty, 2026-09-07
+
+**Disposition:** the owner accepts the completed independent Phase-5B to Phase-5C uncertainty
+adjudication:
+
+> **END-TO-END K/I VALIDATION ENVELOPE IS SCIENTIFICALLY SUFFICIENT FOR PHASE-5C
+> GENERIC/FREE-GAS CANDIDATE IMPLEMENTATION — REVISE N3 SEMANTICS BEFORE PRODUCTION OUTPUT.**
+
+This addendum supersedes only the earlier interpretation that every inherited structural-I
+contribution must be a complete deterministic certified bound. It changes no accepted Q1-Q8
+mathematics, quadrature policy, `G_y/Q/Z/W` ownership, N1-N9 requirement, or Phase-5C-owned
+numerical fail-closed rule. It also changes no Phase-5B central value, formula, implementation,
+test, tolerance, or governed baseline. Phase-5B's implementation record already states that
+`Errors()` does not universally bound EOS/profile interpolation and that independent/refinement
+effects are recorded separately (`docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_IMPLEMENTATION.md:114`).
+
+### 19.1 Terminology and replacement ledger
+
+The terms below are binding and noninterchangeable:
+
+| Term | Ratified meaning |
+|---|---|
+| `numerical_error` | Propagated uncertainty of the declared discrete representation/computation, including arithmetic, quadrature on that representation, finite-difference/stencil estimate, local solve residual, roundoff, or a proved remainder explicitly included by the computation. |
+| `certified_bound` | A mathematically demonstrated enclosure under explicit hypotheses. Use only when such proof exists; do not infer it from an error field. |
+| `validation_envelope` | A conservative predeclared empirical envelope from independent numerical/analytic discrepancies and controlled refinement/representation variants. It is not a probability distribution, confidence interval, formal truncation remainder, or mathematically certified continuum bound. |
+
+The former single ledger row `E_structural_I` (`docs/validation/PHASE5C1_NUMERICAL_BUDGET_AND_IMPLEMENTATION_PLAN.md:557`)
+is replaced semantically by two separately stored and propagated quantities:
+
+| Component | Definition / role | Acceptance status |
+|---|---|---|
+| `E_I_numerical,i` | `K_error_i/c^2`, for `i in {e,mu}`, using the existing governed unit owner exactly once | Inherited Phase-5B `NUMERICAL_ERROR`; required for numerical W propagation |
+| `V_I_validation,i` | Componentwise end-to-end K/I `validation_envelope` assembled under sections 19.2-19.5 | Required and frozen before candidate acceptance; not interval certification |
+
+`RotochemicalSpinDrive` directly consumes only `(I_phys,e,I_phys,mu)`, with
+`I_phys,i=K_i/c^2` (`docs/adr/ADR-0013-corrected-rotochemical-chemical-coefficients.md:182`).
+Neutron and proton remain necessary construction/validation evidence but are not direct entries in
+`W=ZI`. A complete componentwise certified interval for `A_i` and `B_i` separately is not a
+downstream prerequisite; it could destroy correlated cancellation information in K. This does
+not reduce or discard A/B, neutron, or proton evidence.
+
+The sentence “unmeasured input error is not zero; inability to certify a needed term is refusal”
+(`docs/validation/PHASE5C1_NUMERICAL_BUDGET_AND_IMPLEMENTATION_PLAN.md:611`) is scoped as follows:
+
+- every required Phase-5C-owned `numerical_error` term for G, Q, or Z, and every explicitly
+  required `certified_bound`, remains measured/bounded and fail-closed; inability to measure a
+  required owned numerical term causes refusal;
+- every required inherited structural `validation_envelope` ingredient must be measured before
+  candidate acceptance, and a missing ingredient also causes refusal then, but no formal
+  deterministic interval certification is required for that empirical envelope.
+
+### 19.2 Required K/I evidence and classifications
+
+For consumed species e and mu, the future implementation task records the following durable raw
+evidence. Classifications are primary evidentiary roles; dependence and any corroborating role
+must also be documented.
+
+| Required evidence | Classification | Binding handling |
+|---|---|---|
+| Existing Phase-5B stored `K_error` | `NUMERICAL_ERROR` | Convert once to `E_I_numerical`; do not add again inside `V_I_validation` |
+| PB11 finite-q, `q -> 0` direct K discrepancy | `VALIDATION_ENVELOPE_INGREDIENT` | Retain raw per-species Richardson/direct comparison and its method dependence |
+| PB11 fixed-baryon central shift and `Delta N_B ~ q^2` | `FALSIFIER` | Keep distinct from the Richardson K comparison; retain both with dependence stated |
+| PB7 independent-background homogeneous/sensitivity B discrepancy | `VALIDATION_ENVELOPE_INGREDIENT` | Transfer into consumed K with explicit sensitivity/amplification; document correlation with central-shift/B_B effects |
+| PB12 K-level EOS/table-resolution variation | `VALIDATION_ENVELOPE_INGREDIENT` | Retain direct K variation at every declared setting |
+| M1 direct K-level radial-resolution ladder | `VALIDATION_ENVELOPE_INGREDIENT` | New required measurement under the governed fixture/semantics before candidate acceptance |
+| PB6 partition/knot variation | `VALIDATION_ENVELOPE_INGREDIENT` | Transfer A-level evidence to K with an explicit sensitivity factor; treat same-class radial/knot duplicates by a conservative max/envelope |
+| M2 PB10 raw per-species direct K discrepancies | `VALIDATION_ENVELOPE_INGREDIENT` | New durable test-side reporting requirement; PASS/FAIL alone is insufficient |
+| Separately reviewed independent K comparison | `FALSIFIER` | Corroboration; count as an envelope amount only if its numerical path is demonstrably distinct and its use is predeclared |
+| `W=ZI` algebra/sign/unit fixture alone | `CONSISTENCY_ONLY` | Retain as contract checking; it is not candidate structural validation |
+
+M1 records the adjudicated gap: PB6 primarily varies radial resolution at A level and PB12
+varies EOS/table resolution at K level, but no direct K-level radial-resolution ladder presently
+exists. The subsequent implementation task must measure K directly across a predeclared radial
+ladder using the same governed fixture and physical semantics. This is implementation-time
+validation, not new Phase-5B physics and not a prerequisite to begin writing candidate G/Z/W
+code. It is mandatory before candidate acceptance and is not run in this documentation task.
+The existing PB6 role is partition/refinement validation rather than an independent physics
+oracle (`docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_RATIFICATION.md:225`).
+
+M2 records that PB10 validates per-species K against the propagated budget but does not durably
+record every raw per-species discrepancy needed for the envelope. The implementation task must
+record each discrepancy, which may be done test-side without changing Phase-5B production source.
+PB10 is not modified in this documentation task. Its existing strongest evidentiary role is the
+independent reconstruction of all K values (`docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_RATIFICATION.md:103`).
+
+M3 classifies PB6 knot/profile shifts as raw representation sensitivity and
+`VALIDATION_ENVELOPE_INGREDIENT` evidence, not violations of a certified bound. Stored `A_error`
+does not claim to contain that reconstruction class. Therefore the large neutron/muon ratios to
+`A_error` are retained but not interpreted as a broken bound. For p/e, the existing tail term may
+dominate stored `A_error`, explaining a ratio below one. No variant is erased or hidden.
+
+### 19.3 Ladder, floor, and refusal policy
+
+1. For a contracting ladder with no demonstrated asymptotic order, use the measured finest-level
+   discrepancy/envelope contribution; do not Richardson extrapolate.
+2. For a nonmonotone or sign-alternating ladder consistent with a numerical floor, record that
+   floor as a validation-envelope ingredient and do not invent an order.
+3. Truly noncontracting or unbounded behavior with no stable envelope causes candidate refusal.
+4. Preserve every raw variant measurement in durable evidence, including inconvenient variants.
+5. No safety factor may be fitted after seeing candidate W.
+
+These rules complement the pre-existing plan's prohibition on inferring Richardson order from
+nonmonotone differences (`docs/validation/PHASE5C1_NUMERICAL_BUDGET_AND_IMPLEMENTATION_PLAN.md:93`).
+
+### 19.4 Double-counting policy
+
+- Phase-5B K-error/tail components already included in `K_error` are not added again as
+  independent validation-envelope terms.
+- PB11's Richardson/direct K comparison and fixed-baryon central-shift closure constrain distinct
+  aspects and may both be retained, with dependence stated.
+- PB7 B discrepancy and central-shift/B_B effects may be correlated. Absent proved covariance or
+  cancellation, combine conservatively and document possible overlap.
+- PB6 radial and knot variants within the same representation class use a conservative maximum or
+  envelope rule, not blind summation of duplicates.
+- An independent-review discrepancy may falsify or corroborate; the same numerical pathway is not
+  counted twice under different labels.
+
+### 19.5 W propagation and dual predeclared acceptance
+
+Retain the existing numerical propagation, with its inherited structural term renamed:
+
+```text
+E_W_numerical
+  <= |Z| E_I_numerical
+   + E_Z |I|
+   + E_Z E_I_numerical
+   + E_W_arithmetic.
+```
+
+`E_W_numerical` is `numerical_error` and contains no validation-envelope quantity. Separately,
+
+```text
+V_W_validation <= |Z| V_I_validation.
+```
+
+`V_W_validation` is the currently inherited structural `validation_envelope`. Any future
+validation envelope on Z requires separate governance before addition.
+
+For every required W component, candidate acceptance requires both
+
+```text
+E_W_numerical <= G_W_numerical
+V_W_validation <= G_W_validation.
+```
+
+Both goals are componentwise, absolute, derived from pre-production authority, predeclared before
+the first production G/Z/W output, and immutable afterward. Either failure causes refusal without
+relaxation. Use `AccuracyGoalUnmet` for the numerical goal and a separate classification such as
+`StructuralValidationEnvelopeUnmet` for the inherited structural gate. Neither numerical goal is
+selected by this documentation task.
+
+### 19.6 GC12 revision
+
+GC12 remains a candidate validation gate and now validates both:
+
+1. W numerical accuracy through `E_I_numerical`, `E_Z`, arithmetic, and the predeclared
+   `G_W_numerical`; and
+2. inherited structural validation stability through `V_I_validation`, including the new direct
+   K-level radial ladder and raw PB10 per-species K discrepancies, propagated to
+   `V_W_validation` and tested against `G_W_validation`.
+
+The existing exact `W=ZI` algebra/sign/unit fixture remains `CONTRACT / CONSISTENCY_ONLY`, not
+candidate validation (`docs/validation/PHASE5C1_NUMERICAL_BUDGET_AND_IMPLEMENTATION_PLAN.md:291`).
+GC12 cannot pass candidate acceptance until both tracks and both goals exist.
+
+### 19.7 Baseline, realistic Track R, and status boundary
+
+A later governed Phase-5C regression artifact may be installed under this two-track model after
+candidate acceptance. It certifies reproducible regeneration of accepted deterministic bytes,
+not a formal interval-certified continuum solution. Phase-5B's governed installation likewise
+distinguishes byte reproducibility from independent scientific review
+(`docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_INTEGRATION.md:44`).
+
+The separation method transfers to later realistic Track R; free-gas numerical envelope values
+do not. A18 needs its own adapter authority, EOS/table resolution, phase/interface evidence,
+radial resolution, correction-sensitive source benchmark, and validation envelope. GC13 remains
+`SOURCE-LIMITED / BLOCKED` on A18 authority
+(`docs/validation/PHASE5C1_NUMERICAL_BUDGET_AND_IMPLEMENTATION_PLAN.md:615`). Publication-level
+claims may report a clearly labelled numerical-error ledger and validation envelope, but may not
+call the envelope a certified bound, confidence interval, or formal truncation error without
+separate proof.
+
+At this ratification **NO PRODUCTION G_y/Z/W RESULT EXISTS**. The K-level radial ladder is
+**PREDECLARED / NOT YET RUN**; PB10 raw per-species envelope values are
+**PREDECLARED / NOT YET RECORDED**. INV-09 remains **VERIFIED / RESOLVED** with all nine
+qualifications; INV-11 remains **UNRESOLVED**; GC13/A18 remains blocked on source authority; BNV
+is not begun. No production code, test, baseline, EOS/data, literature, build file, or numerical
+result changes in this addendum.
