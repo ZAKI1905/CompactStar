@@ -1,0 +1,481 @@
+{
+  "INV09": "INTENDED BUT UNVERIFIED",
+  "INV11": "UNRESOLVED",
+  "coefficients": [
+    {
+      "A": 3.9647718619373394e+59,
+      "A_error": 5.764095574972338e+45,
+      "B": 1.6255270466118125e+59,
+      "B_error": 1.2066767284466718e+52,
+      "I_phys": 1.3122480530141585e+47,
+      "K": 1.1793897334337809e+58,
+      "K_error": 5.760213721014721e+52,
+      "N": 7.5683115419394785e+56,
+      "N_error": 1.100048670344201e+43,
+      "b": 1.0,
+      "charge": 0.0,
+      "label": "10",
+      "species": "n"
+    },
+    {
+      "A": 1.8404826326625264e+57,
+      "A_error": 1.3396216099131453e+50,
+      "B": 5.761376707019385e+57,
+      "B_error": 5.8536573150797844e+50,
+      "I_phys": -1.3122480530141607e+47,
+      "K": -1.179389733433783e+58,
+      "K_error": 2.5487178899023356e+51,
+      "N": 4.859497677941184e+54,
+      "N_error": 2.7616215305408396e+43,
+      "b": 1.0,
+      "charge": 1.0,
+      "label": "11",
+      "species": "p"
+    },
+    {
+      "A": 1.8292534582866583e+57,
+      "A_error": 1.3396216082854647e+50,
+      "B": 5.192854858061696e+57,
+      "B_error": 3.4233339087485317e+50,
+      "I_phys": -1.1637998545112904e+47,
+      "K": -1.0459711462551772e+58,
+      "K_error": 1.871991303390107e+51,
+      "N": 4.8119204549793175e+54,
+      "N_error": 2.7615527168814913e+43,
+      "b": 0.0,
+      "charge": -1.0,
+      "label": "0",
+      "species": "e"
+    },
+    {
+      "A": 1.1229174375868009e+55,
+      "A_error": 1.6326448526015593e+41,
+      "B": 5.685218489556692e+56,
+      "B_error": 3.239409982764419e+50,
+      "I_phys": -1.484481985023382e+46,
+      "K": -1.3341858717812756e+57,
+      "K_error": 8.681980762319852e+50,
+      "N": 4.7577222961866916e+52,
+      "N_error": 6.91876908185729e+38,
+      "b": 0.0,
+      "charge": -1.0,
+      "label": "1",
+      "species": "mu"
+    }
+  ],
+  "domain": "WholeStar P=0, canonical finite cut with bounded remainder; no core cutoff",
+  "fixture": {
+    "EOS_intervals": 8192,
+    "identity": "human-ratified Structure-1 midpoint; FR2005 common static state",
+    "published_I_Omega_target": false,
+    "radial_resolution": 80000,
+    "rho_c_g_cm3": 1100000000000000.0,
+    "source_qualified_Mmax": false
+  },
+  "non_goals": [
+    "Btilde",
+    "chemical Z/W",
+    "eta evolution",
+    "weak-rate evolution",
+    "BNV"
+  ],
+  "numerical_errors": "reported quadrature/roundoff, central-step and explicit tail budgets; radial/EOS and independent-oracle convergence are separately recorded in the validation evidence",
+  "provenance": {
+    "EOS_identity": "FR2005 equilibrium free gas, vacuum/pe/npe/npe-mu below Sigma ceiling",
+    "EOS_revision": "canonical-A1-structure1-table-v1",
+    "EOS_table_authority": "generator=structure1-candidate-v1\nsource_commit=f4ae22d971e25bdd74530aec184f3fe0c3440b95\nprovider_commit=933494d86daf2cf8965079ece49fabd66d9390e5\nmodel=track-r-fernandez-reisenegger-2005-free-gas-local\nresolution=8192\nrows=10375\nfloor_n=1e-14\nupper_n=0.61599999999999999\nneutron_onset=7.3567289037328318e-09\nmuon_onset=0.45698480541241987\nSigma_ceiling=0.61735520796653498\nMeV_fm3_to_erg_cm3=1.6021766339999999e+33\nc_cgs=29979245800\n",
+    "EOS_table_sha256": "7cd44c92e1e7206e0e68e3fed7e3f0ca68e79ab4517d02b96ff78b9be23d3f1a",
+    "Hartle_inputs": "each contributing star's own first-order and monopole response, matching profile identity/version",
+    "build": {
+      "architecture": "arm64",
+      "compiler": "Apple clang version 17.0.0 (clang-1700.6.4.2)",
+      "configuration": "Debug"
+    },
+    "contributors": [
+      {
+        "A_tail_error_e": 1.3396213421634935e+50,
+        "A_tail_error_mu": 0.0,
+        "A_tail_error_n": 0.0,
+        "A_tail_error_p": 1.3396213421634935e+50,
+        "N_tail_error_e": 2.7545531560385803e+43,
+        "N_tail_error_mu": 0.0,
+        "N_tail_error_n": 0.0,
+        "N_tail_error_p": 2.7545531560385803e+43,
+        "epsilon_c": 0.0008167185206450376,
+        "nodes": 20259.0,
+        "pressure_cut": 4.060874056475658e-20,
+        "profile_version": 2.0,
+        "role": "central"
+      },
+      {
+        "A_tail_error_e": 1.3414244772620435e+50,
+        "A_tail_error_mu": 0.0,
+        "A_tail_error_n": 0.0,
+        "A_tail_error_p": 1.3414244772620435e+50,
+        "N_tail_error_e": 2.7524364383702837e+43,
+        "N_tail_error_mu": 0.0,
+        "N_tail_error_n": 0.0,
+        "N_tail_error_p": 2.7524364383702837e+43,
+        "epsilon_c": 0.000815086715952375,
+        "nodes": 20266.0,
+        "pressure_cut": 4.048603180442868e-20,
+        "profile_version": 2.0,
+        "role": "sequence-0"
+      },
+      {
+        "A_tail_error_e": 1.3405225865440696e+50,
+        "A_tail_error_mu": 0.0,
+        "A_tail_error_n": 0.0,
+        "A_tail_error_p": 1.3405225865440696e+50,
+        "N_tail_error_e": 2.7534945766138437e+43,
+        "N_tail_error_mu": 0.0,
+        "N_tail_error_n": 0.0,
+        "N_tail_error_p": 2.7534945766138437e+43,
+        "epsilon_c": 0.000815902210347567,
+        "nodes": 20263.0,
+        "pressure_cut": 4.054734125786388e-20,
+        "profile_version": 2.0,
+        "role": "sequence-1"
+      },
+      {
+        "A_tail_error_e": 1.3396213421634935e+50,
+        "A_tail_error_mu": 0.0,
+        "A_tail_error_n": 0.0,
+        "A_tail_error_p": 1.3396213421634935e+50,
+        "N_tail_error_e": 2.7545531560385803e+43,
+        "N_tail_error_mu": 0.0,
+        "N_tail_error_n": 0.0,
+        "N_tail_error_p": 2.7545531560385803e+43,
+        "epsilon_c": 0.0008167185206450376,
+        "nodes": 20259.0,
+        "pressure_cut": 4.060874056475658e-20,
+        "profile_version": 2.0,
+        "role": "sequence-2"
+      },
+      {
+        "A_tail_error_e": 1.3387207397397097e+50,
+        "A_tail_error_mu": 0.0,
+        "A_tail_error_n": 0.0,
+        "A_tail_error_p": 1.3387207397397097e+50,
+        "N_tail_error_e": 2.7556121669290957e+43,
+        "N_tail_error_mu": 0.0,
+        "N_tail_error_n": 0.0,
+        "N_tail_error_p": 2.7556121669290957e+43,
+        "epsilon_c": 0.0008175356476610968,
+        "nodes": 20256.0,
+        "pressure_cut": 4.067022985416203e-20,
+        "profile_version": 2.0,
+        "role": "sequence-3"
+      },
+      {
+        "A_tail_error_e": 1.3378207843914151e+50,
+        "A_tail_error_mu": 0.0,
+        "A_tail_error_n": 0.0,
+        "A_tail_error_p": 1.3378207843914151e+50,
+        "N_tail_error_e": 2.7566716173160727e+43,
+        "N_tail_error_mu": 0.0,
+        "N_tail_error_n": 0.0,
+        "N_tail_error_p": 2.7566716173160727e+43,
+        "epsilon_c": 0.0008183535922128717,
+        "nodes": 20253.0,
+        "pressure_cut": 4.073180913801121e-20,
+        "profile_version": 2.0,
+        "role": "sequence-4"
+      },
+      {
+        "A_tail_error_e": 1.3405225865440696e+50,
+        "A_tail_error_mu": 0.0,
+        "A_tail_error_n": 0.0,
+        "A_tail_error_p": 1.3405225865440696e+50,
+        "N_tail_error_e": 2.7534945766138437e+43,
+        "N_tail_error_mu": 0.0,
+        "N_tail_error_n": 0.0,
+        "N_tail_error_p": 2.7534945766138437e+43,
+        "epsilon_c": 0.000815902210347567,
+        "nodes": 20263.0,
+        "pressure_cut": 4.054734125786388e-20,
+        "profile_version": 2.0,
+        "role": "sequence-5"
+      },
+      {
+        "A_tail_error_e": 1.3400718843451515e+50,
+        "A_tail_error_mu": 0.0,
+        "A_tail_error_n": 0.0,
+        "A_tail_error_p": 1.3400718843451515e+50,
+        "N_tail_error_e": 2.7540238126402534e+43,
+        "N_tail_error_mu": 0.0,
+        "N_tail_error_n": 0.0,
+        "N_tail_error_p": 2.7540238126402534e+43,
+        "epsilon_c": 0.0008163102634575173,
+        "nodes": 20261.0,
+        "pressure_cut": 4.0578029664291255e-20,
+        "profile_version": 2.0,
+        "role": "sequence-6"
+      },
+      {
+        "A_tail_error_e": 1.3396213421634935e+50,
+        "A_tail_error_mu": 0.0,
+        "A_tail_error_n": 0.0,
+        "A_tail_error_p": 1.3396213421634935e+50,
+        "N_tail_error_e": 2.7545531560385803e+43,
+        "N_tail_error_mu": 0.0,
+        "N_tail_error_n": 0.0,
+        "N_tail_error_p": 2.7545531560385803e+43,
+        "epsilon_c": 0.0008167185206450376,
+        "nodes": 20259.0,
+        "pressure_cut": 4.060874056475658e-20,
+        "profile_version": 2.0,
+        "role": "sequence-7"
+      },
+      {
+        "A_tail_error_e": 1.3391709604556666e+50,
+        "A_tail_error_mu": 0.0,
+        "A_tail_error_n": 0.0,
+        "A_tail_error_p": 1.3391709604556666e+50,
+        "N_tail_error_e": 2.7550826072823004e+43,
+        "N_tail_error_mu": 0.0,
+        "N_tail_error_n": 0.0,
+        "N_tail_error_p": 2.7550826072823004e+43,
+        "epsilon_c": 0.0008171269820121922,
+        "nodes": 20258.0,
+        "pressure_cut": 4.063947396086981e-20,
+        "profile_version": 2.0,
+        "role": "sequence-8"
+      },
+      {
+        "A_tail_error_e": 1.3387207397397097e+50,
+        "A_tail_error_mu": 0.0,
+        "A_tail_error_n": 0.0,
+        "A_tail_error_p": 1.3387207397397097e+50,
+        "N_tail_error_e": 2.7556121669290957e+43,
+        "N_tail_error_mu": 0.0,
+        "N_tail_error_n": 0.0,
+        "N_tail_error_p": 2.7556121669290957e+43,
+        "epsilon_c": 0.0008175356476610968,
+        "nodes": 20256.0,
+        "pressure_cut": 4.067022985416203e-20,
+        "profile_version": 2.0,
+        "role": "sequence-9"
+      },
+      {
+        "A_tail_error_e": 1.3400718843451515e+50,
+        "A_tail_error_mu": 0.0,
+        "A_tail_error_n": 0.0,
+        "A_tail_error_p": 1.3400718843451515e+50,
+        "N_tail_error_e": 2.7540238126402534e+43,
+        "N_tail_error_mu": 0.0,
+        "N_tail_error_n": 0.0,
+        "N_tail_error_p": 2.7540238126402534e+43,
+        "epsilon_c": 0.0008163102634575173,
+        "nodes": 20261.0,
+        "pressure_cut": 4.0578029664291255e-20,
+        "profile_version": 2.0,
+        "role": "sequence-10"
+      },
+      {
+        "A_tail_error_e": 1.3398465931677347e+50,
+        "A_tail_error_mu": 0.0,
+        "A_tail_error_n": 0.0,
+        "A_tail_error_p": 1.3398465931677347e+50,
+        "N_tail_error_e": 2.7542884708726963e+43,
+        "N_tail_error_mu": 0.0,
+        "N_tail_error_n": 0.0,
+        "N_tail_error_p": 2.7542884708726963e+43,
+        "epsilon_c": 0.0008165143665352034,
+        "nodes": 20260.0,
+        "pressure_cut": 4.05933823026667e-20,
+        "profile_version": 2.0,
+        "role": "sequence-11"
+      },
+      {
+        "A_tail_error_e": 1.3396213421634935e+50,
+        "A_tail_error_mu": 0.0,
+        "A_tail_error_n": 0.0,
+        "A_tail_error_p": 1.3396213421634935e+50,
+        "N_tail_error_e": 2.7545531560385803e+43,
+        "N_tail_error_mu": 0.0,
+        "N_tail_error_n": 0.0,
+        "N_tail_error_p": 2.7545531560385803e+43,
+        "epsilon_c": 0.0008167185206450376,
+        "nodes": 20259.0,
+        "pressure_cut": 4.060874056475658e-20,
+        "profile_version": 2.0,
+        "role": "sequence-12"
+      },
+      {
+        "A_tail_error_e": 1.339396131214248e+50,
+        "A_tail_error_mu": 0.0,
+        "A_tail_error_n": 0.0,
+        "A_tail_error_p": 1.339396131214248e+50,
+        "N_tail_error_e": 2.754817868112441e+43,
+        "N_tail_error_mu": 0.0,
+        "N_tail_error_n": 0.0,
+        "N_tail_error_p": 2.754817868112441e+43,
+        "epsilon_c": 0.0008169227257997796,
+        "nodes": 20259.0,
+        "pressure_cut": 4.0624104450759666e-20,
+        "profile_version": 2.0,
+        "role": "sequence-13"
+      },
+      {
+        "A_tail_error_e": 1.3391709604556666e+50,
+        "A_tail_error_mu": 0.0,
+        "A_tail_error_n": 0.0,
+        "A_tail_error_p": 1.3391709604556666e+50,
+        "N_tail_error_e": 2.7550826072823004e+43,
+        "N_tail_error_mu": 0.0,
+        "N_tail_error_n": 0.0,
+        "N_tail_error_p": 2.7550826072823004e+43,
+        "epsilon_c": 0.0008171269820121922,
+        "nodes": 20258.0,
+        "pressure_cut": 4.063947396086981e-20,
+        "profile_version": 2.0,
+        "role": "sequence-14"
+      }
+    ],
+    "profile_identity": "runtime owning profile address plus ProfileVersion; addresses are not persistent or serialized",
+    "roles": "central and sequence ordinals identify this execution's contributors only; they are not persistent object IDs",
+    "source_sha256": {
+      "CompactStar/Analysis/ParticleNumberResponse.hpp": "df5b55a1ee679428052c0ee5797c1cdc7a61a4ad35270ea13d470c722957378e",
+      "CompactStar/Analysis/src/ParticleNumberResponse.cpp": "0b03159c07c81ec35ada39f3fd5eabb410fe4e7c0c4cc46ab8133eb674c0f5fd",
+      "CompactStar/AngularVelocity.hpp": "aa32cf06f172ca36ed5061c19db66f72dafbea9056807b3334c52d8ad178db79",
+      "CompactStar/Core/NStar.hpp": "7aa71d70496f359c48f6a26b8dc17424a98b4e30e6c5f5c0627010d340504e2b",
+      "CompactStar/Core/RotationSolver.hpp": "7d3dbfab42734c47a55c98877b855a37d14d37df71450966a8ecf514c557421d",
+      "CompactStar/Core/StarProfile.hpp": "07c2fdb783d03b938ba0b7de9e3fb2cd6ca62a6ad6b9c430b4101e29d25f8237",
+      "CompactStar/Core/src/NStar.cpp": "69a4b403370feeb6c1ba7d469082c2a6f5d824bf604abbae268f505204feb08e",
+      "CompactStar/Core/src/RotationSolver.cpp": "b3e4b8db36952f5d1cb60412947a071b30a22de9a755f77571a580f3f8856982",
+      "CompactStar/Core/src/TOVSolver.cpp": "d5da96e512453ae9ce18d7e6b3334b82bf17dd1def3230dd24ad267bc1fc7ad8",
+      "CompactStar/EOS/src/TrackRFreeGasThermodynamics.cpp": "ae6c1c570e076b6462e0558592de39d8be922eeb5118cb40b0b296baba0800e8",
+      "CompactStar/Geometry.hpp": "cad68a4773f899006c037ee00116dbc2d01c4b239c06b8f6fac9d55f00e12167",
+      "CompactStar/RelativityUnits.hpp": "4277eb3caff0623f2615e8435a6632f954cf505a4be9aa9a7a1509b8488549fd",
+      "CompactStar/Units.hpp": "fbeb722e03d40ce7bf23680987e11a38da11566df292f8123d3aa16b0145c5b6",
+      "tests/analysis/particle_number_homogeneous.hpp": "333258fcabd537a003fba7ccabfe7909139da850106c399431e0c3fc0fd2a243",
+      "tests/analysis/phase5b_freegas_validation.cpp": "2bb980f1916f0498e626fd8601ba023e6f211f93d5b8655b40aa62283c613fa4",
+      "tests/analysis/produce_particle_number_reference.py": "194f2000bdac9260c55a35135a38ce6a9864fb115a3e309f6887d69e56c207c9",
+      "tests/eos/structure1/local_oracle.hpp": "d46d9ac1ef23df8754d32329e0df4497624d7da87d3f327704e0e0c81c2008ca",
+      "tests/eos/structure1/table.hpp": "cf164e22626cda08050461776a1e87195538b6913c24f6ec47fe41e57ef4e160",
+      "tests/eos/structure1/tov_oracle.hpp": "d36df7a0f818b73227920bb50e6f8e5c113679328921d0c560de549c04b62686"
+    }
+  },
+  "schema": "ADR-0011-structural-candidate-v1",
+  "sequence": {
+    "branch_rho_g_cm3": [
+      1095000000000000.0,
+      1105000000000000.0
+    ],
+    "coordinate": "ln(rho_c/rho_ref)",
+    "method": "five-point at achieved abscissae, compared with three-point",
+    "radial_resolution": 80000,
+    "stencils": [
+      {
+        "five_point": 1.6255263851662422e+59,
+        "species": "n",
+        "step": 0.001,
+        "three_point": 1.6255260249393089e+59
+      },
+      {
+        "five_point": 5.761375649854853e+57,
+        "species": "p",
+        "step": 0.001,
+        "three_point": 5.7613759814578915e+57
+      },
+      {
+        "five_point": 5.192854058230013e+57,
+        "species": "e",
+        "step": 0.001,
+        "three_point": 5.1928530428674836e+57
+      },
+      {
+        "five_point": 5.685215916241973e+56,
+        "species": "mu",
+        "step": 0.001,
+        "three_point": 5.685229385898909e+56
+      },
+      {
+        "five_point": 1.6255270001150872e+59,
+        "species": "n",
+        "step": 0.0005,
+        "three_point": 1.6255267563211425e+59
+      },
+      {
+        "five_point": 5.761376423542083e+57,
+        "species": "p",
+        "step": 0.0005,
+        "three_point": 5.761376313021036e+57
+      },
+      {
+        "five_point": 5.192854889452422e+57,
+        "species": "e",
+        "step": 0.0005,
+        "three_point": 5.192854427806188e+57
+      },
+      {
+        "five_point": 5.685215340894431e+56,
+        "species": "mu",
+        "step": 0.0005,
+        "three_point": 5.6852188521455515e+56
+      },
+      {
+        "five_point": 1.6255270466118125e+59,
+        "species": "n",
+        "step": 0.00025,
+        "three_point": 1.6255269740391447e+59
+      },
+      {
+        "five_point": 5.761376707019385e+57,
+        "species": "p",
+        "step": 0.00025,
+        "three_point": 5.7613766085197974e+57
+      },
+      {
+        "five_point": 5.192854858061696e+57,
+        "species": "e",
+        "step": 0.00025,
+        "three_point": 5.192854750497818e+57
+      },
+      {
+        "five_point": 5.685218489556692e+56,
+        "species": "mu",
+        "step": 0.00025,
+        "three_point": 5.685218580203907e+56
+      }
+    ],
+    "steps": [
+      0.001,
+      0.0005,
+      0.00025
+    ]
+  },
+  "starting_canonical_sha": "a43d02227bf53c3242d3212f81dd71963804f3aa",
+  "status": "CANDIDATE ONLY; independent review and human ratification pending; not a governed baseline",
+  "summary": {
+    "A_B": 3.9831766882639647e+59,
+    "B_B": 1.6831408136820063e+59,
+    "B_B_error": 1.2652133015974696e+52,
+    "baryon_budget": 6.015085510004955e+52,
+    "baryon_residual": -2.090694862362246e+43,
+    "central_epsilon_km_minus2": 0.0008167185206450376,
+    "charge_budget": 5.288907269524428e+51,
+    "charge_residual": -4.7821160485099105e+45,
+    "conditioning": 1.0,
+    "depsilon_dq": -2.3665142309456835,
+    "depsilon_dq_error": 1.7868631534267983e-07
+  },
+  "surface": {
+    "correction": "zero estimate plus explicit validated bound",
+    "policy": "positive-source monotone pe comparison inequalities",
+    "revision": "PB13-comparison-v1"
+  },
+  "units": {
+    "A": "count km^2",
+    "B": "count km^2, derivative with respect to epsilon_c in km^-2",
+    "I_geom": "K, conditional whole-star mapping",
+    "I_phys": "count s^2",
+    "K": "count km^2",
+    "N": "count",
+    "Omega_geom": "Omega_phys / c",
+    "c_km_s": 299792.458,
+    "equilibrium_rate": "2 I_phys Omega_phys Omega_dot_phys [count/s]",
+    "q": "Omega_geom^2 in km^-2"
+  }
+}

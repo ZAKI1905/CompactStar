@@ -28,6 +28,20 @@ foreach(stage PB1 PB6 PB7 PB9-11 PB12 PB13 contracts)
         LABELS "phase5b;scientific;self-contained" TIMEOUT 900 RUN_SERIAL TRUE)
 endforeach()
 
+# Governed Phase-5B structural-response regression. The comparator invokes the
+# canonical producer in a new isolated directory and compares exact bytes; it
+# never supplies the governed baseline as producer input.
+add_test(NAME phase5b_structural_response_regression COMMAND "${Python3_EXECUTABLE}"
+    "${CMAKE_CURRENT_SOURCE_DIR}/analysis/particle_number_response_regression.py"
+    --producer "${CMAKE_CURRENT_SOURCE_DIR}/analysis/produce_particle_number_reference.py"
+    --executable $<TARGET_FILE:phase5b_freegas_validation>
+    --source-root "${PROJECT_SOURCE_DIR}"
+    --baseline "${CMAKE_CURRENT_SOURCE_DIR}/baselines/phase5b_structural_response.json"
+    --output-root "${CMAKE_CURRENT_BINARY_DIR}/phase5b-regression-evidence")
+set_tests_properties(phase5b_structural_response_regression PROPERTIES
+    LABELS "phase5b;particle-number;scientific;self-contained;regression"
+    TIMEOUT 900 RUN_SERIAL TRUE)
+
 add_executable(compactstar_library_smoke smoke/compactstar_library_smoke.cpp)
 
 target_link_libraries(compactstar_library_smoke PRIVATE CompactStar)
