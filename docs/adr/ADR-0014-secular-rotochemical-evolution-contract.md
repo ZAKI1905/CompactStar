@@ -1,7 +1,8 @@
 # ADR-0014 — secular rotochemical evolution contract
 
 **Status:** PROPOSED
-**Decision:** NOT ACCEPTED — post-independent-review revision awaiting bounded re-review and owner ratification
+**Decision:** NOT ACCEPTED — post-Phase-5D-0RR material-closure revision awaiting final bounded
+re-review and owner ratification
 **Date:** 2026-09-07
 **Starting canonical SHA:** `49ab2b8c2881b6ef7b9309307d18cea51d557f72`
 **Branched from (Phase-5C human-ratified candidate):** `27727016856a6a25a46e447c70e380722ea8ddbf`
@@ -131,8 +132,10 @@ dV/dt = -2 sum_l eta_l R_l <= 0.
 Strict decrease is claimed only for a nonzero imbalance direction for which at least one
 physically active reaction channel has positive normalization and nonzero dissipative response.
 If every applicable channel coupled to an imbalance direction has zero normalization
-(`sum_{a in l} Ltilde_a = 0`), that component may freeze;
-the Lyapunov result is then negative-semidefinite/nonincreasing, not globally strict.
+(`sum_{a in l} Ltilde_a = 0`), an **uncoupled dead imbalance** may freeze; with nonzero `Z`
+cross-coupling, a dead individual reaction channel does not imply that its `eta` component remains
+at its initial value. The Lyapunov result is negative-semidefinite/nonincreasing, not globally
+strict.
 
 **Warning, normative:** the literature contains both signs. Y2020 fn. 3, p. 61, and R1995 fn. 3,
 p. 14, each record a sign opposite to cited references. Any future rate source must be re-anchored to
@@ -285,6 +288,11 @@ formula follows from `k_B^(erg) = C_(MeV->erg) k_B^(MeV)` and
 Whether and when to replace the existing placeholder normalization constants
 (`Q0_DU = 1e27`, `Q0_MU = 1e21`, `NeutrinoCooling_Details.cpp:101-103`) with a source-authoritative
 `S_a(n)` is a **separate governed change with baseline consequences** and is **not authorized here**.
+The existing historical placeholder `NeutrinoCooling` normalization is not the controlled
+benchmark's equilibrium coefficient. The controlled benchmark instantiates its equilibrium Urca
+contribution from the **same declared benchmark `Ltilde_a`** used for `F_*`, `H_*`, reaction rates,
+and heating. Source-authoritative replacement of the **default production normalization** is a
+later realistic-physics task; this documentation contract changes no historical baseline.
 
 ### 3.8 Thermal ODE in the evolved variable
 
@@ -320,22 +328,38 @@ boundary with its accepted refusal-window and tail treatment. No saturation-dens
 other arbitrary cutoff is introduced. Each channel has an explicit support/applicability subset
 `D_a subseteq D`.
 
-Kinematic triangle support and physical applicability are distinct. In the authenticated free-gas
-fixture, muon DU is kinematically closed throughout and electron DU is closed throughout the
-degenerate stellar interior relevant to the benchmark. A very-low-density electron-DU triangle
-sliver nevertheless exists near neutron onset, approximately
-`n_B = 7.36e-9 ... 6.67e-8 fm^-3`, where `E_F,n` is only of order keV. It is non-degenerate and
-outside the declared degenerate-Urca model. Therefore the **physical/applicable direct-Urca support
-domain is empty under the declared degeneracy/`StarContext` eligibility contract**; it is not empty
-because the triangle condition never fires. The existing `nB_min` is a numerical/semantic guard,
-not a DU threshold.
+The controlled free-gas Phase-5D architecture benchmark is intentionally configured
+**MODIFIED-URCA-ONLY**. Its static declared enabled-process set is `{Me, Mmu}` and excludes `{De,
+Dmu}`. Therefore, for this benchmark, `D_De = empty` and `D_Dmu = empty` by the benchmark
+process-configuration contract, not by inference from a triangle condition, a degeneracy threshold,
+or `nB_min`.
 
-Future support representation must be explicit rather than only a last index. The current
+Triangle support, declared benchmark process support, and general future physical DU applicability
+are three distinct concepts. In the authenticated fixture, the muon-DU triangle does not open where
+muons are present. The electron-DU triangle does open in a very-low-density outer sliver near neutron
+onset, approximately `n_B = 7.36e-9 ... 6.67e-8 fm^-3`, where `E_F,n` is only of order keV. That
+sliver is outside the intended source-validity regime used to motivate the controlled benchmark at
+early/high-temperature epochs, but its degeneracy status changes with temperature and is **not** the
+static exclusion rule for the complete evolution. The existing `nB_min` remains only a
+numerical/semantic guard: it is not a physical DU threshold, a degeneracy threshold, or the reason
+`D_De` is empty.
+
+Future realistic or source-authoritative evolution must obtain DU support from a governed
+applicability provider capable of representing kinematics, composition, degeneracy/model-validity
+requirements, and possibly disconnected support intervals. The controlled benchmark's disabled-DU
+configuration is not a universal physical rule and does not claim that DU is physically impossible
+everywhere.
+
+Future support representation must be explicit rather than only a last index. The low-density
+triangle-open electron sliver is a required **negative control**: a future implementation must show
+that triangle opening does not activate a DU channel when the process is disabled or outside its
+declared channel-support contract. The current
 `BuildDirectUrcaMaskCache_` scans for an allowed region while the luminosity integral consumes
 `[0,last]`; a future outer allowed shell could therefore sweep a closed inner region. This is
-nonblocking for the controlled fixture but is a required implementation negative control, together
-with an explicit innermost-first profile-order assertion. The absent muon criterion remains a second
-instance with `kF_mu` substituted. Frozen v1 support domains are static; `eta != 0` does not move
+nonblocking for the controlled fixture but remains a required disconnected-support negative
+control, together with an explicit innermost-first profile-order assertion. The absent muon
+criterion remains a second instance with `kF_mu` substituted. Frozen v1 benchmark process support
+is static; no temperature-dependent support predicate is introduced, and `eta != 0` does not move
 the equilibrium-background kinematic threshold.
 
 ### 3.11 Frozen coefficients (v1)
@@ -397,8 +421,9 @@ on rotochemical physics.
 
 Every evolution result retains: the `ChemicalImbalanceResponse` and `RotochemicalSpinDrive` identity
 and revision; the `Ltilde` coefficient identity and its normalization classification (source-authority
-vs declared benchmark input); the `StarProfile` and geometry identity; the spin-history identity; the
-channel order; the solver identity and tolerances; and initial conditions. A changed dependency
+vs declared benchmark input); the chemical/reaction domain `D` and channel support/applicability
+domain `D_a`; the `StarProfile` and geometry identity; the spin-history identity; the channel order;
+the solver identity and tolerances; and initial conditions. A changed dependency
 **refuses before scientific access**. This inherits ADR-0013 §6 verbatim and adds nothing weaker.
 
 ### 3.15 First implementation scope
@@ -406,14 +431,14 @@ channel order; the solver identity and tolerances; and initial conditions. A cha
 Objects (1)–(9) of preflight §33.1. Reused unchanged: `ThermalState`, `C_*(T_inf)`, `PhotonCooling`
 and envelopes, `SpinState`/`MagneticDipole`, the evolution core and `GSLIntegrator` with `RKF45`,
 `ChemState` storage, the `k_B` authority, and the Phase-5C `Z`/`W` objects. For the current fixture
-only, the authenticated empty applicable DU support result is reused. Before any nonempty or outer-
-shell DU adapter, the last-index representation must be replaced by explicit support and the
-ordering/applicability negative controls of §3.10 must pass.
+only, the static MODIFIED-URCA-ONLY benchmark configuration is reused. Before any enabled, nonempty,
+or outer-shell DU adapter, the last-index representation must be replaced by explicit support and
+the ordering/applicability negative controls of §3.10 must pass.
 
 **First benchmark:** the governed Track-R free-gas Structure-1 star
-(`rho_c = 1.10e15 g/cm^3`, `M = 0.6236 M_sun`), for which the declared degenerate-Urca
-support/applicability domain is empty as specified in §3.10 and **muons are present** in the
-interior — i.e. a modified-Urca, two-lepton-channel run. Run
+(`rho_c = 1.10e15 g/cm^3`, `M = 0.6236 M_sun`), whose static enabled-process set is `{Me, Mmu}` and
+therefore has `D_De = D_Dmu = empty` as specified in §3.10; **muons are present** in the interior.
+This is a modified-Urca, two-lepton-channel run. Run
 `T_inf(0) = 1e8 K`, `eta(0) = 0`, prescribed dipole spin history `B = 1e8 G`, `P_0 = 1 ms`, to
 `1e10 yr`. Observables B1–B10 of preflight §25.5.
 
@@ -422,7 +447,9 @@ source normalizations, and the same `Ltilde` values must feed equilibrium coolin
 correction, the `H` reaction rate, and chemical heating. Electron and muon channels remain distinct;
 no realistic astrophysical normalization claim is made. **This mathematical/architecture benchmark
 validates ODE wiring, signs, energy bookkeeping, quasi-steady scaling, spin coupling, and thermal
-coupling. It cannot validate the FR2005 absolute temperature/history.**
+coupling. Because it consumes declared `Ltilde` values, it does not by itself validate the stellar
+construction of `Ltilde` or the `GlobalUrcaChannelCoefficient` GR integrand. That layer is validated
+separately by RE10b. It cannot validate the FR2005 absolute temperature/history.**
 
 ### 3.16 Numerical contract
 
@@ -460,10 +487,13 @@ ADR-0012 or ADR-0013.
 
 ## 5. Validation ladder
 
-`RE1`–`RE18` as specified in `docs/validation/PHASE5D0_SECULAR_ROTOCHEMICAL_EVOLUTION_PREFLIGHT.md`
-§31, classified INDEPENDENT / SOURCE TRACEABILITY / CONTRACT / CONVERGENCE / SOURCE-LIMITED.
-**RE1–RE14 and RE16–RE18 are achievable with the free-gas fixture; RE15 (FR2005 source benchmark) is
-SOURCE-LIMITED and blocked.** The mutation inventory `M1`–`M32`, with its explicit list of algebraic
+`RE1`–`RE18` plus `RE10b` as specified in
+`docs/validation/PHASE5D0_SECULAR_ROTOCHEMICAL_EVOLUTION_PREFLIGHT.md` §31, classified INDEPENDENT /
+SOURCE TRACEABILITY / CONTRACT / CONVERGENCE / SOURCE-LIMITED. RE10b is the dedicated **INDEPENDENT
+ANALYTIC / NUMERICAL ORACLE** for the `GlobalUrcaChannelCoefficient` GR integrand and does not use an
+injected/precomputed `Ltilde` as its expected value. **RE1–RE14 (including RE10b) and RE16–RE18 are
+achievable with controlled fixtures; RE15 (FR2005 source benchmark) is SOURCE-LIMITED and blocked.**
+The mutation inventory `M1`–`M37`, with its explicit list of algebraic
 aliases that must not be counted as independent coverage, is preflight §32.
 
 ---
@@ -501,7 +531,7 @@ second derivatives.
 
 | Subpart | Would this ADR resolve it? |
 |---|---|
-| INV-11a coefficient redshift semantics | **Already resolved upstream** |
+| INV-11a redshift / coefficient semantics | **PARTIALLY RESOLVED UPSTREAM; PROPOSED COMPLETION / EXTENSION HERE.** ADR-0013 resolves coefficient-object semantics for `G_y`, `Z`, and `W` only; this ADR proposes their extension to evolved `eta`, `xi`, global reaction-rate and neutrino-luminosity integrals, and global heating coupling. |
 | INV-11b evolved `eta` state ownership | **Proposed resolution** |
 | INV-11c reaction-rate sign / index convention | **Proposed resolution** |
 | INV-11d thermal energy ledger / no double counting | **Proposed resolution** |
@@ -537,6 +567,8 @@ This ADR may be accepted only after an independent scientific review verifies, a
 1. the reaction-rate sign convention, unit boundary, and `eta DeltaGamma >= 0` dissipation claim
    with the qualified nonincrease/strictness statement (§3.3–§3.4);
 2. every global GR redshift factor in §3.5, derived rather than checked against this document;
+   RE10b must independently exercise the `GlobalUrcaChannelCoefficient` integrand rather than an
+   injected `Ltilde`;
 3. the four imbalance polynomials and the proposed `pi^8` correction, without claiming a published
    erratum (§3.6);
 4. the four sign-crossing roots **and their definitions** (§3.6);
@@ -544,8 +576,9 @@ This ADR may be accepted only after an independent scientific review verifies, a
 6. the same-coefficient equilibrium/no-double-counting identity, without using the historical
    placeholder baseline as an oracle;
 7. the frozen-coefficient semantics and the `+Zdot Z^-1 eta` term (§3.11);
-8. the free-gas benchmark contract, including the low-density non-degenerate electron-DU sliver,
-   empty applicable DU domain, explicit support representation hazards, and muon presence (§3.10,
+8. the free-gas benchmark contract, including its static MODIFIED-URCA-ONLY enabled-process set,
+   the temperature-dependent degeneracy status of the low-density electron-DU triangle sliver,
+   empty benchmark DU domains, explicit support representation hazards, and muon presence (§3.10,
    §3.15).
 
 **Do not begin BNV before the standard rotochemical evolution machinery is validated.**
@@ -577,5 +610,24 @@ variable, or unreduced `G_y` seam.
 | One proposed object owned microphysics and stellar integration | M-7 | Local normalization and global GR integration are separate normative layers |
 | Source/blocker ledger understated YKGH2001/APR discovery and overstated R1995 | M-8 | R1995 qualified; YKGH2001 sufficient in form with `alpha_n` unresolved; APR reconstruction feasibility confirmed in form, realistic closure still blocked |
 
-All eight findings are **CLOSED BY TEXT REVISION** in this PROPOSED ADR. Nothing becomes accepted
-until bounded independent re-review and human-owner ratification.
+At `PHASE5D0_REVISION_SHA`, this table recorded all eight findings as **CLOSED BY TEXT REVISION**.
+Phase-5D-0RR subsequently found M-2 only partially closed; that residual and the two additional
+material findings are closed by the bounded revision below. Nothing becomes accepted until final
+bounded independent re-review and human-owner ratification.
+
+---
+
+## 12. Post-Phase-5D-0RR material-closure revision — 2026-09-08
+
+The independent Phase-5D-0RR re-review returned zero blocking findings and three material findings.
+This bounded revision changes only their contract text and the directly adjacent clarifications
+identified by that review. It does not implement the future validation oracle and does not reopen
+the independently confirmed Phase-5D physics.
+
+| Item | Review defect | Corrected contract | Remaining future implementation obligation | Status |
+|---|---|---|---|---|
+| R1 — DU-support applicability | The low-density electron-DU triangle sliver was called non-degenerate unconditionally, making a temperature-dependent observation the purported static exclusion rule. | The controlled benchmark is statically MODIFIED-URCA-ONLY: `{Me, Mmu}` enabled, `{De, Dmu}` disabled, so `D_De = D_Dmu = empty`. Triangle support, benchmark process support, and future physical applicability are distinct; the sliver remains a temperature-aware factual observation and negative control, not the exclusion rule. | Implement a governed future applicability provider with kinematics, composition, degeneracy/model-validity, disconnected-domain support, and the sliver/outer-shell negative controls before any realistic DU evolution. | **CLOSED BY TEXT REVISION** |
+| R2 — global-`Ltilde` GR-factor detector | The declared-`Ltilde` architecture benchmark and its cited gates could not independently detect a wrong lapse power in stellar coefficient construction. | RE10b directly exercises `GlobalUrcaChannelCoefficient` against an independent analytic/high-precision quadrature value for `integral_{D_a} 4 pi r^2 e^lambda S_a(r) e^{(2-q_a)nu(r)} dr`, including declared unit prefactors and lapse, proper-volume, exponent, and domain mutants. | Implement RE10b independently of the production integration kernel; the present revision specifies but does not implement it. | **CLOSED BY TEXT REVISION** |
+| R3 — INV-11a governance status | INV-11a was incorrectly stated as already resolved upstream. | INV-11a is **PARTIALLY RESOLVED UPSTREAM; PROPOSED COMPLETION / EXTENSION HERE**. ADR-0013 governs only static `G_y`/`Z`/`W` coefficient-object semantics; ADR-0014 proposes the secular-evolution extension. Global INV-11 remains UNRESOLVED. | Final bounded review and human-owner ratification remain required; no global invariant closure or implementation is implied. | **CLOSED BY TEXT REVISION** |
+
+ADR-0014 remains **PROPOSED. NOT ACCEPTED. NOT IMPLEMENTED.**

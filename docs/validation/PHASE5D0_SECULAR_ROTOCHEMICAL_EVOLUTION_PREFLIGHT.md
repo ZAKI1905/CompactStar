@@ -3,10 +3,10 @@
 **Class:** documentation-only scientific preflight. No production source, test, baseline, EOS/data,
 CMake, literature byte, or accepted-ADR semantic change is made by this task.
 **Companion decision:** `docs/adr/ADR-0014-secular-rotochemical-evolution-contract.md` (PROPOSED).
-**Disposition:** post-independent-review revision; see §33.4 and §34.
+**Disposition:** post-Phase-5D-0RR material-closure revision; see §33.4–§35.
 
-> **PHASE-5D PREFLIGHT REVISION COMPLETE — ALL MATERIAL REVIEW FINDINGS CLOSED —
-> READY FOR BOUNDED INDEPENDENT RE-REVIEW.**
+> **PHASE-5D MATERIAL CLOSURE COMPLETE — R1/R2/R3 CLOSED —
+> READY FOR FINAL BOUNDED INDEPENDENT RE-REVIEW.**
 
 ---
 
@@ -103,9 +103,9 @@ Page numbers are FR2005 preprint page numbers as printed (`– n –`).
 | Sign convention `DeltaGamma = Gamma_{A->B} - Gamma_{B->A}`, `eta = delta mu(A) - delta mu(B)` | eqs. (39)–(40), p. 10 | — | — | eq. (4.8) | §7 below |
 | `Q_a^eq = S_a(n) T^q` | eq. (41), p. 10 | — | eqs. (33)–(34), p. 15 | eqs. (2.75)–(2.76) | `NeutrinoCoolingCachePayload` (placeholder `S`) |
 | `xi = eta/(kT) = eta^inf/(k T_inf)` | eq. (42), p. 11 | — | — | eq. (4.18) | *not implemented* |
-| `Ltilde_a = integral_Da 4 pi r^2 e^Lambda S_a e^{(2-q)Phi} dr` | eq. (43), p. 11 | — | — | — | `K_DU_erg_s_K6`, `K_MU_erg_s_K8` (same structure; canonical unit `erg s^-1 K^-q`) |
+| `Ltilde_a = integral_{D_a} 4 pi r^2 e^Lambda S_a e^{(2-q)Phi} dr` | eq. (43), p. 11 | — | — | — | `K_DU_erg_s_K6`, `K_MU_erg_s_K8` (same structure; canonical unit `erg s^-1 K^-q`) |
 | `L_a^inf = Ltilde_a F_*(xi) T_inf^q` | eq. (44), p. 11 | — | — | — | *not implemented* |
-| `integral_Da DeltaGamma_a e^Phi dV = [Ltilde_a/k_B^(erg)] H_*(xi) T_inf^{q-1}` | eq. (45), p. 11 | — | — | — | *not implemented* |
+| `integral_{D_a} DeltaGamma_a e^Phi dV = [Ltilde_a/k_B^(erg)] H_*(xi) T_inf^{q-1}` | eq. (45), p. 11 | — | — | — | *not implemented* |
 | `L_{H,a}^inf = Ltilde_a xi H_*(xi) T_inf^q` | eq. (46), p. 11 | — | — | — | *not implemented* |
 | `M_*(xi) = xi H_*(xi) - F_*(xi)` | eq. (47), p. 11 | — | p. 8 cooling eqs. | — | *not implemented* |
 | `L_H - L_nu = Ltilde M_*(xi) T_inf^q` | eq. (48), p. 11 | — | — | — | *not implemented* |
@@ -120,6 +120,12 @@ Page numbers are FR2005 preprint page numbers as printed (`– n –`).
 | Quasi-steady `eta_qs`, `L_gamma,qs` | eqs. (61)–(66), p. 14–15 | §3, p. 570 | §5 | §4.1 | §22 |
 | `tau_eq`, `A` | eqs. (79)–(83), p. 17 | — | — | — | §23, §24 |
 | Generic external source (`Gdot` analogue) | — | — | — | — | JRF2006 eqs. (5)–(8) → §28 |
+
+The source crosswalk fixes the physical integrand, but source traceability is not an executable
+detector for an implementation lapse-power error. Future gate RE10b therefore exercises
+`GlobalUrcaChannelCoefficient` directly against an independent analytic/high-precision quadrature
+of the displayed `Ltilde_a` integral; it does not reuse a precomputed or injected `Ltilde`. The
+global-integrand mutations M10/M11, M12, M30, and M33–M37 point to this executable future oracle.
 
 ---
 
@@ -415,16 +421,22 @@ dV/dt |_react  =  2 eta^T Z^-1 ( -Z R )  =  -2 eta . R  =  -2 sum_l eta_l R_l  <
 The derivative is nonpositive. Strict decrease requires that every nonzero imbalance direction
 being considered couple to at least one physically active channel with positive normalization and
 nonzero dissipative response. If all applicable channel normalizations for an uncoupled direction
-vanish (`sum_{a in l} Ltilde_a = 0`), that imbalance may freeze: `V` is then only nonincreasing and
-the reaction operator is negative-semidefinite. Tested at both signs of `eta` in §21 (limit F).
+vanish (`sum_{a in l} Ltilde_a = 0`), that **uncoupled dead imbalance** may freeze: `V` is then only
+nonincreasing and the reaction operator is negative-semidefinite. With nonzero `Z` cross-coupling,
+a dead individual reaction channel does not imply that its `eta` component remains at its initial
+value. Tested at both signs of `eta` in §21 (limit F).
 
 ### 7.4 Thermodynamic dissipation
 
 `eta_a DeltaGamma_a >= 0` pointwise. In the chosen mixed-unit contract,
-`C_(MeV->erg) eta_a[MeV] DeltaGamma_a = Q_a^eq[erg...] xi_a H_*(xi_a) >= 0`; the positive
-conversion does not change the sign. Numerically verified at `x = 0.3, 1, 5, 50` for both
-`H_D` and `H_M` (all strictly positive; `x H(x) = 0` only at `x = 0`). Hence
-In the source's single-energy-unit notation, `Q_H = sum_a DeltaGamma_a eta_a >= 0` (FR2005 eq. 38);
+```text
+C_(MeV->erg) eta_a[MeV] DeltaGamma_a[count cm^-3 s^-1]
+  = Q_a^eq[erg cm^-3 s^-1] xi_a H_*(xi_a) >= 0.
+```
+The positive conversion does not change the sign.
+Numerically verified at `x = 0.3, 1, 5, 50` for both `H_D` and `H_M` (all strictly positive;
+`x H(x) = 0` only at `x = 0`). In the source's single-energy-unit notation,
+`Q_H = sum_a DeltaGamma_a eta_a >= 0` (FR2005 eq. 38);
 the chosen implementation contract applies `C_(MeV->erg)` once at the global thermal boundary.
 Chemical heating can never be negative. Y2020 §4.1 gives the thermodynamic reason: in the isolated limit
 `T^inf dS = L_H^inf dt`, and the second law forces `L_H^inf >= 0`.
@@ -468,7 +480,7 @@ it is not a convenience, it is the structural reason the whole `Ltilde` factoriz
 ### 8.2 Units and constant ownership
 
 ```text
-xi_a  =  eta_a^inf [MeV] / ( k_B [MeV/K] * T_inf [K] )        (dimensionless)
+xi_a  =  eta_a^inf [MeV] / ( k_B^(MeV) [MeV/K] * T_inf [K] )  (dimensionless)
 k_B^(MeV) = Zaki::Physics::K_BOLTZ_EV * 1e-6                    MeV/K
 C_(MeV->erg) = Units::MEV_FM3_TO_ERG_CM3 / 10^39               erg/MeV
 k_B^(erg) = C_(MeV->erg) k_B^(MeV)                              erg/K
@@ -644,9 +656,9 @@ L_{nu,a,eq}^inf                 =  Ltilde_a                T_inf^q             (
 Derivation of eq. (45), reproduced because it is the load-bearing one:
 
 ```text
-integral_Da DeltaGamma_a e^Phi dV
-  = integral_Da dV e^Phi (1/(k_B^(erg) T_local)) S_a T_local^q H_*(xi_a)
-  = [1/k_B^(erg)] H_*(xi_a) T_inf^{q-1} integral_Da dV S_a e^{(2-q)Phi}
+integral_{D_a} DeltaGamma_a e^Phi dV
+  = integral_{D_a} dV e^Phi (1/(k_B^(erg) T_local)) S_a T_local^q H_*(xi_a)
+  = [1/k_B^(erg)] H_*(xi_a) T_inf^{q-1} integral_{D_a} dV S_a e^{(2-q)Phi}
   = [Ltilde_a/k_B^(erg)] H_*(xi_a) T_inf^{q-1}
 ```
 
@@ -710,7 +722,8 @@ dependence and no lepton resolution. They cannot be reused as a source-faithful 
 
 ```text
 S_a(n)  [erg cm^-3 s^-1 K^-q]  ==  Q_a^eq(n, T) / T^q
-Ltilde_a = int 4 pi r^2 e^Lambda S_a(n) e^{(2-q)nu} dr   (km^3 -> cm^3 once)
+Ltilde_a = integral_{D_a} 4 pi r^2 e^Lambda S_a(n) e^{(2-q)nu} dr
+             (declared reaction/chemical domain; km^3 -> cm^3 once)
 ```
 and then §10.1 supplies `DeltaGamma`, `L_nu(eta)`, and `L_H` with **no further microphysical input**.
 The only missing ingredient is `S_a(n)` itself, per channel.
@@ -771,7 +784,7 @@ Every factor below is derived from proper time, proper volume and energy redshif
 
 ```text
 P_H,chem^inf [MeV/s]
-        = sum_a eta_a^inf[MeV] integral_Da dV e^{Phi} DeltaGamma_a[local count/(volume time)]
+        = sum_a eta_a^inf[MeV] integral_{D_a} dV e^{Phi} DeltaGamma_a[local count/(volume time)]
         = sum_a eta_a^inf R_a .
 L_H^inf [erg/s] = C_(MeV->erg) P_H,chem^inf .
 ```
@@ -833,8 +846,11 @@ ledger is insensitive to the sign of the imbalance, as FR2005 p. 11 states of `M
 + L_{H,a}^inf   and   - DeltaL_{nu,a}^inf ,
 ```
 
-leaving the existing equilibrium `NeutrinoCooling` term intact for **all** channels, rotochemical or
-not. Justification in §13.
+leaving the equilibrium `NeutrinoCooling` path as the sole owner of the equilibrium term for **all**
+channels, rotochemical or not. In the controlled benchmark that path is instantiated from the same
+declared benchmark `Ltilde_a` used by the rotochemical extension, not from the historical placeholder
+normalization. The default production normalization and its historical baselines remain unchanged;
+source-authoritative replacement is a later realistic-physics task. Justification in §13.
 
 ---
 
@@ -887,10 +903,14 @@ set `{Ltilde_De, Ltilde_Dmu, Ltilde_Me, Ltilde_Mmu}`, with the existing driver c
 
 - is **required** by the chemical ODE independently (FR2005 eqs. 52–53 need separate `H_M(xi_npe)`
   and `H_M(xi_npmu)`);
-- **changes the numerical behaviour of existing equilibrium cooling** if the placeholder `Q0` values
-  are also replaced. That is a separate governed change with its own baseline consequences and is
-  **not** authorized by ADR-0014. ADR-0014 governs only that the coefficient set *become channel
-  resolved and be shared*; whether and when to replace the placeholder normalization is deferred.
+- requires the controlled benchmark to instantiate its equilibrium Urca term from the **same
+  declared benchmark `Ltilde_a`** used for `F_*`, `H_*`, rates, and heating. The existing historical
+  placeholder `NeutrinoCooling` normalization is not the controlled benchmark's equilibrium
+  coefficient;
+- **changes the numerical behaviour of default production equilibrium cooling** only if the
+  placeholder `Q0` values are replaced. That is a separate governed realistic-physics change with
+  its own baseline consequences and is **not** authorized by ADR-0014. This clarification changes no
+  historical baseline;
 - Channels with no rotochemical treatment (PBF and any future non-beta channel) stay entirely inside
   the equilibrium driver and receive no correction.
 
@@ -977,36 +997,48 @@ equilibrium with `m_n, m_p, m_e, m_mu, hbar c` taken from the Phase-5C provenanc
 | 1.00 | 1.87e15 | 0.02663 | 605.0 | 344.0 | no | 304.7 | no | yes |
 | 3.00 | 6.16e15 | 0.05680 | 863.5 | 617.1 | no | 596.2 | no | yes |
 
-Muon DU triangle support is closed throughout. Electron DU triangle support is closed throughout
-the degenerate stellar interior relevant to the benchmark, by a wide margin at the centre:
-`x_p <= 0.0157` against `1/9 = 0.111`. A very-low-density electron-DU kinematic sliver nevertheless
-exists near neutron onset, approximately `n_B ~ 7.36e-9` to `6.67e-8 fm^-3`. Its neutron Fermi
-energy is only of order keV, so the sliver is non-degenerate and outside the applicability of the
-degenerate-Urca formalism. **Muons are present** in the interior (`mu_e = 123.6 MeV` at the centre
-against `m_mu = 105.66 MeV`; onset near `n_B ~ 0.45 fm^-3`).
+Muon DU triangle support does not open where muons are present. Electron DU triangle support is
+closed through the dense stellar interior by a wide margin at the centre: `x_p <= 0.0157` against
+`1/9 = 0.111`. A very-low-density electron-DU kinematic sliver nevertheless exists near neutron
+onset, approximately `n_B ~ 7.36e-9` to `6.67e-8 fm^-3`, with neutron Fermi temperature near the
+upper edge `T_F,n ~ 3.5e7 K`. The sliver is outside the intended source-validity regime used to
+motivate the controlled benchmark at early/high-temperature epochs, but its degeneracy status
+changes as the benchmark cools and is **not** a static exclusion rule. **Muons are present** in the
+interior (`mu_e = 123.6 MeV` at the centre against `m_mu = 105.66 MeV`; onset near
+`n_B ~ 0.45 fm^-3`).
 
 Central state `n_B = 0.604925 fm^-3` at `rho_c = 1.10e15 g/cm^3`. A scoping TOV solve on this EOS
 gives `M = 0.62362 M_sun`, agreeing with the governed Structure-1 `M_cut ~= 0.623635569 M_sun`
 (`docs/validation/TRACKR_FREEGAS_WHOLESTAR_STRUCTURE1.md:371`) to five digits, and with FR2005
 Table 1's free-gas `M_max = 0.62 M_sun`.
 
-**Consequence.** The declared direct-Urca support/applicability domain is empty under the degeneracy/
-`StarContext` eligibility contract, **not** because the triangle condition never fires. The first
-free-gas benchmark is therefore a modified-Urca, two-lepton-channel run. A future negative control
-must prove that the low-density kinematic but non-degenerate sliver does not activate the kernel and
-that an outer allowed shell cannot make `[0,last]` integrate a closed core.
+**Controlled-benchmark consequence.** The free-gas Phase-5D architecture benchmark is statically
+configured **MODIFIED-URCA-ONLY**: its enabled-process set is `{Me, Mmu}` and excludes `{De, Dmu}`.
+Therefore `D_De = empty` and `D_Dmu = empty` for this benchmark by the declared benchmark
+process-configuration contract, not because the triangle condition never fires, not because of a
+temperature-dependent degeneracy predicate, and not because of `nB_min`. Triangle support, declared
+benchmark process support, and general future physical DU applicability are distinct. The
+low-density triangle-open sliver remains a negative control: a future implementation must prove
+that it does not activate DU when that process is disabled or outside the declared channel-support
+contract, and that an outer allowed shell cannot make `[0,last]` integrate a closed inner region.
+
+Future realistic or source-authoritative evolution must obtain DU support from a governed
+applicability provider capable of representing kinematics, composition, degeneracy/model-validity
+requirements, and possibly disconnected support intervals. The controlled benchmark's disabled-DU
+configuration is not a universal physical rule.
 
 ### 15.3 Moving thresholds in secular evolution
 
-For **frozen** v1 coefficients (§19) the background model is fixed, so the DU support domains are
-fixed. There is no moving-threshold term. Two future-only caveats, recorded so they cannot be
-introduced silently:
+For **frozen** v1 coefficients (§19) the background model and the benchmark's declared process set
+are fixed. No temperature-dependent support predicate is introduced and there is no moving-threshold
+term. Two future-only caveats, recorded so they cannot be introduced silently:
 
 1. If the background is ever allowed to evolve (`Z(t)`), the DU boundary radius becomes `r_DU(t)`
    and `d Ltilde_D/dt` acquires a boundary term. Out of scope.
 2. `eta != 0` shifts the *local* chemical potentials but **not** the DU kinematic threshold, which is
-   a Fermi-momentum condition on the equilibrium background. FR2005 applies static support domains
-   throughout. **Static DU support domains are correct for v1.**
+   a Fermi-momentum condition on the equilibrium background. Future physical applicability still
+   requires the governed provider specified in §15.2; the current benchmark configuration is not a
+   universal DU rule.
 
 ---
 
@@ -1028,7 +1060,7 @@ separate evolution channels: `Ltilde_Me = Ltilde_Me^{(n branch)} + Ltilde_Me^{(p
 |---|---|
 | Electron/muon channels separate | **Mandatory.** FR2005 eqs. (52)–(53) evaluate `H_M` at `xi_npe` and at `xi_npmu` separately. Collapsing them is mutation M5/M6 and destroys the two-channel physics. |
 | Neutron/proton branches separate as *evolution* channels | **Not required.** Both branches share the same `eta_l` and the same `xi_l`; they differ only in `S_a(n)` and in the proton-branch kinematic threshold `p_{F,l} + 3 p_{F,p} > p_{F,n}`. Summing them inside `Ltilde_{M,l}` is exactly what FR2005 does. |
-| Direct Urca channels | **Present in the contract, dormant in the free-gas v1** because the declared support/applicability domain is empty (§15.2). The `De`/`Dmu` slots and their `q = 6` exponent must exist, but the free-gas star exercises neither. |
+| Direct Urca channels | **Present in the contract, dormant in the free-gas v1** because the benchmark's static enabled-process set excludes `De` and `Dmu`, so their declared benchmark domains are empty (§15.2). The slots and their `q = 6` exponent must exist, but the free-gas star exercises neither. |
 
 **Minimum v1: four declared channels `{De, Dmu, Me, Mmu}`; two live (`Me`, `Mmu`) for the free-gas
 fixture; branch summation internal to each `Ltilde`.**
@@ -1089,11 +1121,12 @@ driver owns which term. Unit check: `[erg/s]/([K][erg/K]) = 1/s`. Correct for `d
 `PhotonCooling` declares `DependsOn = {Thermal}` only (`PhotonCooling.hpp:287-292`) and takes
 `T_inf -> T_s` through the envelope. **No chemical-imbalance correction to the envelope is
 introduced.** Authority: FR2005 §3.3 applies the Potekhin et al. (1997) envelope as a pure function
-of `T_inf` and surface gravity, with no `eta` dependence anywhere; the chemical imbalance is a
-**core** quantity and the envelope lies outside the core integration domain (FR2005 §3.5 integrates
-`B_ij` over the core only). Recorded as a v1 assumption: *photon cooling is affected by rotochemical
-heating only through `T_inf`.* Any future envelope `eta` dependence requires its own source
-authority and its own ADR.
+of `T_inf` and surface gravity, with no `eta` dependence anywhere; chemical/reaction quantities are
+integrated over the declared reaction/chemical domain `D` and channel subsets `D_a`, while the
+surface envelope is not part of those integrals. FR2005 §3.5's realistic model uses its own governed
+core domain, but that is not an implicit domain rule for the controlled free-gas fixture. Recorded
+as a v1 assumption: *photon cooling is affected by rotochemical heating only through `T_inf`.* Any
+future envelope `eta` dependence requires its own source authority and its own ADR.
 
 ---
 
@@ -1168,8 +1201,9 @@ dependent while keeping the v1 RHS is mutation M18 (§32).
 
 Because `Z`, `W`, `I_Omega` and `Ltilde` are all frozen, they are **inputs** to an evolution run and
 must be captured in the run provenance with their Phase-5C identity, exactly as ADR-0013 §6 requires.
-A run whose coefficients cannot be traced to a specific `ChemicalImbalanceResponse` /
-`RotochemicalSpinDrive` result must refuse.
+A global reaction coefficient must additionally retain its declared chemical/reaction domain `D`
+and channel support/applicability domain `D_a`. A run whose coefficients cannot be traced to a
+specific `ChemicalImbalanceResponse` / `RotochemicalSpinDrive` result must refuse.
 
 ---
 
@@ -1406,7 +1440,10 @@ thermal deposition) and must say explicitly which of the two differences it mean
 ### 25.1 Purpose
 
 Validate **architecture, signs, energy bookkeeping and ODE correctness** end to end. **This is not a
-source reproduction**, and no claim about realistic nuclear matter follows from it.
+source reproduction**, and no claim about realistic nuclear matter follows from it. Because the
+benchmark injects declared `Ltilde` values, it validates state evolution, reaction/heating algebra,
+thermal coupling, and spin coupling, but does **not** by itself validate the stellar construction of
+`Ltilde`; future gate RE10b validates that separate `GlobalUrcaChannelCoefficient` layer.
 
 ### 25.2 Fixture
 
@@ -1418,7 +1455,7 @@ source reproduction**, and no claim about realistic nuclear matter follows from 
 | `Z` | `[[4.5793031807026964e-54, 5.1725199102788050e-55], [5.1725199102788054e-55, 1.0268727975139168e-52]]` MeV/count | `phase5c_chemical_coefficients_candidate.json` (**candidate, not yet canonically integrated**) |
 | `W` | `[-5.4061775017047240e-07, -1.5845719480103649e-06]` MeV s^2 | same |
 | `I_Omega` | `[-1.1637998545112904e+47, -1.4844819850233820e+46]` count s^2 | same |
-| Active Urca channels | **modified Urca only, electron + muon**; declared direct-Urca support/applicability domain empty | §15.2 |
+| Active Urca channels | Static enabled-process set `{Me, Mmu}`; `{De, Dmu}` disabled, so `D_De = D_Dmu = empty` for this controlled benchmark | §15.2 |
 | Muon support | present for `n_B >~ 0.45 fm^-3` | §15.2 |
 | Heat capacity | `StarContext::HeatCapacityStar_Tinf` (ADR-0002) | existing |
 | Envelope | existing Potekhin model | existing |
@@ -1432,6 +1469,7 @@ source reproduction**, and no claim about realistic nuclear matter follows from 
 | Spin history | prescribed magnetic-dipole braking, `B = 1e8 G`, `P_0 = 1 ms`, `P(t) = sqrt(P_0^2 + 2 (P Pdot) t)`, `P Pdot = (B/3.2e19)^2` — supplied through `ISpinHistory`, **not** owned by the rotochemical module |
 | Duration | `0` to `1e10 yr` (quasi-steady is reached and tracked well before the end) |
 | Reaction normalization | Positive **declared mathematical/architecture benchmark coefficients**, provenance-recorded and explicitly not realistic source normalizations; the same values feed equilibrium cooling, `F`, `H`, and chemical heating (§10.4, §27) |
+| Process configuration | Static MODIFIED-URCA-ONLY; no temperature-dependent support predicate is introduced |
 
 ### 25.4 Expected qualitative behaviour (from the scoping integration)
 
@@ -1455,7 +1493,7 @@ conventionally; (ii) `xi` crosses the incremental sign-crossing roots — measur
 | ID | Observable | Oracle |
 |---|---|---|
 | B1 | `eta(t)` for `Ltilde = 0` | `eta_l(t) = W_l [Omega^2(t) - Omega_0^2]`, exact (§21 C) |
-| B2 | `eta(t)` for `Omegadot = 0`, `eta(0) != 0` | `eta^T Z^-1 eta` nonincreasing; strictly decreasing only for all-active dissipative directions; dead uncoupled channels may freeze (§21 B) |
+| B2 | `eta(t)` for `Omegadot = 0`, `eta(0) != 0` | `eta^T Z^-1 eta` nonincreasing; strictly decreasing only for all-active dissipative directions; an uncoupled dead imbalance may freeze, while `Z` cross-coupling can still move an `eta` component whose own reaction channel is dead (§21 B) |
 | B3 | thermal RHS at `eta = 0` | Exact same-coefficient channel identity: the extension reduces to its own `L_nu,eq=Ltilde T^q`; the historical placeholder baseline is not an oracle (§21 H) |
 | B4 | `L_H`, `DeltaL_nu` at every step | both `>= 0` (§24.2) |
 | B5 | `DeltaP_beta` sign change | at `xi = 4.90971` for the modified-Urca channel |
@@ -1464,6 +1502,9 @@ conventionally; (ii) `xi` crosses the incremental sign-crossing roots — measur
 | B8 | initial-condition independence | endpoint invariant under `eta(0) in {0, kT, 10kT, 20kT}` and `T_inf(0) in {1e7..1e9 K}` — FR2005 Fig. 5, **and this claim is EOS-independent, so the free gas can test it honestly** |
 | B9 | `xi` spatial invariance | `eta^inf/(k_B^(MeV) T_inf)` equals `eta_local(r)/(k_B^(MeV) T_local(r))` at every sampled radius |
 | B10 | `W = Z I_Omega` | recomputation matches the shipped artifact (already verified, §6.2) |
+
+These evolution observables consume the declared coefficients and therefore cannot substitute for
+RE10b's independent validation of the stellar `Ltilde` construction.
 
 ---
 
@@ -1545,7 +1586,7 @@ Two **disjoint** blocker sets. They must not be conflated.
 |---|---|---|---|
 | A1 | Per-channel equilibrium Urca normalization with an electron/muon split | **Not a blocker to the mathematical benchmark** | Use positive declared benchmark coefficients with recorded provenance, classified as not realistic source normalizations. The same coefficients must feed equilibrium cooling, `F`, `H`, and chemical heating. R1995 is historical/supporting only; YKGH2001 is sufficient in form but its `alpha_n` choice remains unresolved for realistic reproduction. |
 | A2 | Channel-resolved `Ltilde` does not exist in `NeutrinoCoolingCachePayload` | Implementation, not source | §13.3 |
-| A3 | Explicit DU applicability/support representation and muon criterion absent | Implementation, not source | §15 — not exercised by the benchmark because its declared applicable DU domain is empty; future tests must cover the non-degenerate sliver and outer-shell sweep hazard |
+| A3 | Explicit DU applicability/support representation and muon criterion absent | Implementation, not source | §15 — not exercised because the benchmark's static process set disables DU; future tests must cover the triangle-open sliver as a disabled/out-of-contract negative control and the disconnected outer-shell sweep hazard |
 | A4 | Phase-5C `Z`/`W` are a ratified **candidate**, not canonically integrated | Process | Canonical integration of Phase-5C is a prerequisite for a *production* benchmark, not for the contract |
 | A5 | `n_eta = 0` everywhere; no spin-history interface | Implementation | §4.2, §18 |
 
@@ -1638,11 +1679,14 @@ convention is correct, and its normalization is an acknowledged placeholder.**
 
 1. Extend `NeutrinoCoolingCachePayload` to hold `Ltilde_De, Ltilde_Dmu, Ltilde_Me, Ltilde_Mmu`
    (`erg s^-1 K^-6` and `erg s^-1 K^-8`), each built with the existing integrand structure
-   `integral_Da 4 pi r^2 e^Lambda S_a(n) e^{(2-q)nu} dr`, over the channel's declared
+   `integral_{D_a} 4 pi r^2 e^Lambda S_a(n) e^{(2-q)nu} dr`, over the channel's declared
    support/applicability subset `D_a subseteq D`.
 2. `NeutrinoCooling` computes `L_nu,eq = (Ltilde_De + Ltilde_Dmu) T_inf^6 + (Ltilde_Me + Ltilde_Mmu) T_inf^8`
    from the same declared channel coefficients used by the extension. `NeutrinoCooling` never sees
-   `eta`. The historical placeholder `K` values are not a source or validation oracle.
+   `eta`. The existing historical placeholder `NeutrinoCooling` normalization is not the controlled
+   benchmark's equilibrium coefficient or a validation oracle. Replacing the default production
+   normalization with source-authoritative values remains a later realistic-physics task and this
+   clarification changes no historical baseline.
 3. A new rotochemical thermal contribution reads the **same** payload plus `ChemState` and adds
    `sum_a Ltilde_a [xi_a H_*(xi_a) - F_*(xi_a) + 1] T_inf^{q_a} / (T_inf C_*)` to `dx/dt`.
 4. A new rotochemical chemical contribution reads the same payload and adds
@@ -1660,7 +1704,7 @@ convention is correct, and its normalization is an acknowledged placeholder.**
 
 | Subpart | Scope | Status before | Would ADR-0014 resolve it? |
 |---|---|---|---|
-| **INV-11a** — coefficient redshift semantics | `eta^inf = e^nu eta_local`; one `e^{-nu}` in `G_y`; `Z` acts on redshifted imbalance; `W` units/sign | Resolved by accepted upstream authority | **Already resolved upstream** |
+| **INV-11a** — redshift / coefficient semantics | ADR-0013 coefficient-object scope: `eta^inf = e^nu eta_local`; one `e^{-nu}` in `G_y`; `Z` acts on redshifted imbalance; `W` units/sign. Secular extension: evolved-`eta` ownership, `xi`, global reaction-rate and neutrino-luminosity integrals, and global heating coupling. | **PARTIALLY RESOLVED UPSTREAM** for static `G_y`/`Z`/`W` coefficient-object semantics only | **PROPOSED COMPLETION / EXTENSION HERE** for the secular-evolution layer; not globally resolved |
 | **INV-11b** — evolved `eta` state ownership | variable, units, ordering, storage, initial condition, domain | **UNRESOLVED** | **Proposed resolution** (§5) |
 | **INV-11c** — reaction sign/index convention | `DeltaGamma` direction, `H_*` parity, channel indices, `Z` orientation | **UNRESOLVED** | **Proposed resolution** (§7, §6.4) |
 | **INV-11d** — thermal energy ledger/no double counting | `L_H`, `L_nu(eta)`, `DeltaL_nu`, conversion boundary | **UNRESOLVED** | **Proposed resolution** (§12, §13, §24) |
@@ -1669,14 +1713,16 @@ convention is correct, and its normalization is an acknowledged placeholder.**
 
 **INV-11 must NOT be marked globally resolved.** ADR-0014 is PROPOSED, not accepted; nothing is
 implemented; INV-11e's time-dependent branch and INV-11f's stiff-solver branch remain open by
-design.
+design. ADR-0013's accepted scope does not itself govern evolved-state ownership, `xi` use in
+evolution, global reaction-rate integrals, global neutrino-luminosity integrals, or global heating
+coupling.
 
 ---
 
 ## 31. RE validation ladder
 
-Classification: **IND** = independent/analytic; **STR** = source traceability; **CON** = contract;
-**CNV** = convergence; **SL** = source-limited.
+Classification: **IND** = independent analytic/numerical oracle; **STR** = source traceability;
+**CON** = contract; **CNV** = convergence; **SL** = source-limited.
 
 | ID | Gate | Class | Oracle |
 |---|---|---|---|
@@ -1686,20 +1732,22 @@ Classification: **IND** = independent/analytic; **STR** = source traceability; *
 | **RE4** | Parity and normalization | IND | `F_*(0)=1`, `H_*(0)=0`, `F_*` even, `H_*` odd, `xi H_*(xi) >= 0`, `F_* >= 1` |
 | **RE5** | Small-`xi` limit | IND | `H_D -> 0.158300492605 xi`, `H_M -> 0.129192649689 xi`, `F -> 1 + O(xi^2)` with the §9.5 coefficients |
 | **RE6** | Large-`xi` asymptotics and sign-crossing roots | IND | Leading powers; `C_H = 24/(11513 pi^8)`, `C_M = 15/(11513 pi^8)`; heating fractions `1/2`, `5/8`; roots `4.7870134733369`, `4.90971002892413` (incremental) and `5.4585315948676`, `5.63371746764834` (full) |
-| **RE7** | Reaction sign, `eta·DeltaGamma >= 0`, and Lyapunov qualification | IND | Both signs of `eta`; for frozen SPD `Z`, `Vdot=-2 sum eta_l R_l<=0`; strict decrease requires an active positive-normalization dissipative channel in every nonzero direction; dead uncoupled channels may freeze |
+| **RE7** | Reaction sign, `eta·DeltaGamma >= 0`, and Lyapunov qualification | IND | Both signs of `eta`; for frozen SPD `Z`, `Vdot=-2 sum eta_l R_l<=0`; strict decrease requires an active positive-normalization dissipative channel in every nonzero direction; an uncoupled dead imbalance may freeze, while cross-coupling can move an `eta` component whose own reaction channel is dead |
 | **RE8** | Neutrino equilibrium limit | CON | `eta = 0 ⇒ DeltaL_nu = 0` and `L_H = 0` **identically** (structural zero, not tolerance-based) |
 | **RE9** | Same-coefficient equilibrium/no-double-counting identity | CON | For each channel using the same declared `Ltilde` for equilibrium and extension: `eta=0 => H=0, F=1, R=DeltaGamma=DeltaL_nu=L_H=0`, and the extended channel equals its own `L_nu,eq=Ltilde T^q`; historical placeholders are not the oracle; exactly one coefficient authority |
 | **RE10** | Spin-only analytic `eta` source | IND | `Ltilde = 0 ⇒ eta_l(t) = W_l [Omega^2(t) - Omega_0^2]` (FR2005 eq. 77) |
-| **RE11** | Reaction-only relaxation | IND | `Omegadot = 0 => V` nonincreasing; strict decay to zero only under the RE7 all-active qualification; dead uncoupled directions may freeze; small-`xi` active-channel rate matches RE5 |
-| **RE12** | Coupled toy analytic solution | IND | Linearized two-channel system with constant `T_inf`, using `k_B^(erg)` in the rate normalization and `k_B^(MeV)` in `xi`, including `Z_np` cross-coupling |
-| **RE13** | Free-gas end-to-end numerical evolution | CNV | §25.5 observables B1–B10; tolerance-convergent under `rtol`, `atol`, and profile refinement |
+| **RE10b** | **GLOBAL URCA COEFFICIENT GR-INTEGRAND ORACLE** | **IND** | Exercise `GlobalUrcaChannelCoefficient` itself on an explicit synthetic radial background with declared nonconstant `nu(r)`, `lambda(r)`, local `S_a(r)`, support domain `D_a`, and fixed `q_a`. The independent expected value is `Ltilde_a = integral_{D_a} 4 pi r^2 e^{lambda(r)} S_a(r) e^{(2-q_a)nu(r)} dr`, with `4 pi` and every ordinary unit prefactor declared, including the exact length-volume conversion when the fixture coordinate is not in cm. Compute it outside the production integration kernel by a closed-form fixture where practical and an independent high-precision quadrature. The gate must reject `e^{(1-q)nu}`, `e^{(3-q)nu}`, `e^{-(2-q)nu}`, omitted or inverted `e^lambda`, direct `q=8` / modified `q=6`, and a wrong `D_a`. A precomputed or injected `Ltilde` may not be the expected value. |
+| **RE11** | Reaction-only relaxation | IND | `Omegadot = 0 => V` nonincreasing; strict decay to zero only under the RE7 all-active qualification; an uncoupled dead imbalance may freeze; small-`xi` active-channel rate matches RE5 |
+| **RE12** | Coupled toy analytic solution | IND | Linearized two-channel system at two distinct constant `T_inf` values, using `k_B^(erg)` in the rate normalization and `k_B^(MeV)` in `xi`, including `Z_np` cross-coupling; the two-temperature comparison independently detects `T_inf^q` substituted for `T_inf^(q-1)` in `R_l` |
+| **RE13** | Free-gas end-to-end numerical evolution | CNV | §25.5 observables B1–B10; tolerance-convergent under `rtol`, `atol`, and profile refinement. Its declared-`Ltilde` input validates state evolution, reaction/heating algebra, thermal coupling, and spin coupling, but not stellar `Ltilde` construction; RE10b owns that layer. |
 | **RE14** | Quasi-steady asymptote | IND | FR2005 eqs. (64)–(65) with `Z` cancelling; scoping agreement 0.15% |
 | **RE15** | FR2005 source benchmark | **SL** | R2006 Fig. 1 coefficients; FR2005 Fig. 4/6 transients; FR2005 eqs. (67)–(69) brackets. **BLOCKED** on §27.2 |
-| **RE16** | Provenance and staleness | CON | Every evolution result carries `Z`/`W`/`Ltilde`/profile/spin-history identity; a changed dependency refuses before scientific access (ADR-0013 §6) |
-| **RE17** | Direct/modified support domains | CON | Triangle support alone is insufficient when degeneracy/applicability fails; the low-density electron-DU sliver must not activate the kernel; an outer allowed shell must not sweep a closed core; any ordering-dependent integration asserts the profile is innermost first; muon support is separately represented (§15.2) |
+| **RE16** | Provenance and staleness | CON | Every evolution result carries `Z`/`W`/`Ltilde`/profile/spin-history identity plus the chemical/reaction domain `D` and channel support/applicability domain `D_a`; a changed dependency refuses before scientific access (ADR-0013 §6) |
+| **RE17** | Direct/modified support domains | CON | Triangle support, declared benchmark process support, and future physical applicability are distinct. The low-density electron-DU triangle sliver must not activate the kernel when DU is disabled/outside the declared channel-support contract; an outer allowed shell must not sweep a closed inner region; any ordering-dependent integration asserts the profile is innermost first; muon support is separately represented (§15.2). No temperature-dependent support predicate is introduced into frozen v1. |
 | **RE18** | Frozen-coefficient contract | CON | `Z`, `W`, `Ltilde` byte-identical at every RHS evaluation of a run; time-dependent `Z` refuses |
 
-RE1–RE14 and RE16–RE18 are achievable with the free-gas fixture. **RE15 alone is source-limited.**
+RE1–RE14 (including RE10b, which uses its own synthetic coefficient fixture) and RE16–RE18 are
+achievable with controlled fixtures. **RE15 alone is source-limited.**
 
 ---
 
@@ -1708,6 +1756,9 @@ RE1–RE14 and RE16–RE18 are achievable with the free-gas fixture. **RE15 alon
 Mutations a future test suite must kill. Distinct mutations are separated from algebraic aliases.
 
 ### 32.1 Genuinely distinct mutations
+
+M11 is retained in §32.2 as the historical label for the same integrated lapse-power mutation as
+M10; it is deliberately not counted as an additional independent mutation.
 
 | ID | Mutation | Killed by |
 |---|---|---|
@@ -1720,9 +1771,8 @@ Mutations a future test suite must kill. Distinct mutations are separated from a
 | M7 | Drop the `Z_np` cross-coupling (diagonal `Z`) | RE12, RE13/B6 |
 | M8 | Use `eta_local` with `T_inf` in `xi` | RE2 (`xi` no longer spatially constant) |
 | M9 | Double or omit the redshift in `xi` (`e^{2nu}` or `e^{0}`) | RE2 |
-| M10 | Omit the `e^{+Phi}` time-dilation factor in the reaction integral | RE13/B10 vs an independent quadrature; RE14 (shifted asymptote) |
-| M11 | Omit the second `e^{+Phi}` energy-redshift factor in `L_nu`/`L_H` | RE1, RE14 |
-| M12 | Use `e^{-Phi}` (the `G_y` lapse) in the reaction integral | RE14; explicitly guarded by ADR-0013 §3.2 |
+| M10 | In the shared integrated-`Ltilde` construction, omit one of the two `e^{+nu}` factors, yielding `e^{(1-q)nu}` instead of `e^{(2-q)nu}` | RE10b direct `GlobalUrcaChannelCoefficient` oracle. M11 is the algebraically equivalent historical layer label and is not counted separately (§32.2). |
+| M12 | Substitute the `G_y` inverse-lapse route into the shared coefficient construction, yielding `e^{-q nu}` instead of `e^{(2-q)nu}` | RE10b; explicitly distinguished from `G_y` by ADR-0013 §3.2 |
 | M13 | Double-count equilibrium Urca (add full `L_nu(T,eta)` **and** keep the same-coefficient equilibrium channel) | RE8/RE9 (the declared equilibrium term appears twice) |
 | M14 | Subtract the **full** `L_nu(T,eta)` instead of `DeltaL_nu` in the incremental channel | RE9; also detected by the sign-crossing root moving from `4.910` to `5.634` (RE6) |
 | M15 | Omit chemical heating `L_H` entirely | RE6 (no sign crossing at all), RE14 (no quasi-steady) |
@@ -1739,10 +1789,15 @@ Mutations a future test suite must kill. Distinct mutations are separated from a
 | M26 | Omit `k_B^(erg)` from the rate normalization | RE1 dimensional check; RE12 |
 | M27 | Double `k_B^(erg)` in the rate normalization | RE12; RE14 |
 | M28 | Use the wrong Boltzmann energy unit: MeV/K against erg-normalized `Ltilde`, or erg/K against a MeV-normalized coefficient | RE1 dimensional/authority check; RE12 |
-| M29 | Use `T_inf^q` rather than `T_inf^(q-1)` in `R_l` | RE1 dimensional check; RE5/RE12 temperature scaling |
-| M30 | Integrate reaction `Ltilde` over a domain different from the associated `G_y`/declared chemical domain | RE16 domain-provenance identity; independent `integral_D` cross-check |
-| M31 | Activate the degenerate electron-DU kernel in the low-density triangle-allowed but non-degenerate sliver | RE17 applicability negative control |
+| M29 | Use `T_inf^q` rather than `T_inf^(q-1)` in `R_l` | RE12 independent two-temperature analytic solution |
+| M30 | Integrate reaction `Ltilde` over a domain different from the associated `G_y`/declared chemical domain | RE10b explicit `D_a` restriction and wrong-domain mutant |
+| M31 | Activate the electron-DU kernel in the low-density triangle-open sliver even though DU is disabled/outside the declared channel-support contract | RE17 applicability/process-configuration negative control |
 | M32 | Select an outer DU-allowed shell by last index and incorrectly integrate the closed inner region | RE17 explicit-support and innermost-first negative control |
+| M33 | Add one extra lapse factor in `GlobalUrcaChannelCoefficient`, using `e^{(3-q)nu}` | RE10b |
+| M34 | Use the wrong sign in the global coefficient lapse exponent, `e^{-(2-q)nu}` | RE10b |
+| M35 | Omit the proper-volume curvature factor `e^lambda` | RE10b |
+| M36 | Invert the proper-volume curvature factor, using `e^{-lambda}` | RE10b |
+| M37 | Use the wrong channel exponent in coefficient construction: direct with `q=8` or modified with `q=6` | RE10b |
 
 ### 32.2 Algebraic aliases — NOT independent mutations
 
@@ -1759,6 +1814,11 @@ Recorded so a future suite does not over-count its own coverage:
   asymmetric `Ltilde` and unequal `I_Omega` of the real fixture.
 - **M9 (`e^{0}`) ≡ M8** when the star is evaluated at a single radius. A multi-radius `xi` check is
   required.
+- **M10 ≡ M11** in the chosen shared, integrated single-`Ltilde` representation. Calling the missing
+  `e^{+nu}` factor “time dilation” (M10) or “the second energy-redshift factor” (M11) produces the
+  same mutated `GlobalUrcaChannelCoefficient` integrand `e^{(1-q)nu}`. They are one independent
+  mutation detection, killed by RE10b; M11 is retained as a historical label and does not receive
+  separate coverage credit.
 - **M26, M27, and M28 are distinct unit/normalization faults**, not algebraic duplicates: omitted,
   factor-two, and energy-unit mismatch failures require separate future controls. M28 groups its two
   reciprocal cross-unit directions to avoid inflating the mutation count with algebraic duplicates.
@@ -1771,10 +1831,10 @@ Recorded so a future suite does not over-count its own coverage:
 
 | # | Object | Responsibility |
 |---|---|---|
-| 1 | `ChemicalImbalanceState` (immutable value) | Two-channel `eta^inf` in MeV, named order `(Npe, NpMu)`, with `Xi(k_B, T_inf)` and `Local(nu)` accessors. Backed by `ChemState` storage in the ODE vector. |
+| 1 | `ChemicalImbalanceState` (immutable value) | Two-channel `eta^inf` in MeV, named order `(Npe, NpMu)`, with `Xi(k_B^(MeV), T_inf)` and `Local(nu)` accessors. Backed by `ChemState` storage in the ODE vector. |
 | 2 | `UrcaImbalanceFunctions` (pure, stateless) | `F_D, H_D, F_M, H_M, M_D, M_M` exactly as §9.2, plus the four root constants of §14.2 as named compile-time oracles. No stellar or state dependence. |
 | 3 | `UrcaChannelMicrophysics` / `UrcaChannelNormalization` | Process, lepton, nucleon branch, effective masses, matrix-element and alpha/beta factors, local equilibrium `S_a(r) [erg cm^-3 s^-1 K^-q_a]`, support/applicability metadata, and source provenance. No stellar integration. |
-| 4 | `GlobalUrcaChannelCoefficient` | Stellar GR integration of provider (3) over declared `D_a subseteq D` only, yielding channel-resolved `Ltilde_a [erg s^-1 K^-q_a]` with profile-versioned provenance. No F/H or eta. |
+| 4 | `GlobalUrcaChannelCoefficient` | Stellar GR integration of provider (3) over declared `D_a subseteq D` only, yielding channel-resolved `Ltilde_a [erg s^-1 K^-q_a]` with `D`/`D_a` and profile-versioned provenance. No F/H or eta. Its lapse, proper-volume, exponent, and domain semantics are independently validated by future gate RE10b. |
 | 5 | `RotochemicalReactionResponse` | Combines (2)+(4)+`T_inf`+`eta^inf` to provide `R_l`, `DeltaL_nu^inf`, and the MeV/s chemical-heating contribution with its one thermal-boundary conversion. |
 | 6 | `SecularEvolutionRHS` | Combines channels and adds `-Z R + 2 W Omega Omegadot` to `Chem` and the thermal contribution to `Thermal`; consumes `Z`, `W`, and `ISpinHistory`. |
 | 7 | `ISpinHistory` | `Omega(t, Y)`, `OmegaDot(t, Y)`. Prescribed and state-coupled implementations. |
@@ -1792,32 +1852,33 @@ the star; the global coefficient cannot choose microphysics or evaluate F/H; and
 `ThermalState`; `C_*(T_inf)` and ADR-0002; `PhotonCooling` and the envelope models; `SpinState` and
 `MagneticDipole`; `EvolutionSystem`, `RHSAccumulator`, `StateLayout`, `StatePacking`, `GSLIntegrator`
 with `RKF45`; `ChemState` storage; the `k_B` authority; `ChemicalImbalanceResponse`; and
-`RotochemicalSpinDrive` including `Evaluate(Omega, Omegadot)`. Only the current fixture's empty
-applicable DU result is reused. Any nonempty or outer-shell DU adapter first requires explicit
-support representation plus the §15/RE17 ordering and applicability controls.
+`RotochemicalSpinDrive` including `Evaluate(Omega, Omegadot)`. Only the current fixture's static
+MODIFIED-URCA-ONLY process configuration is reused. Any enabled, nonempty, or outer-shell DU adapter
+first requires explicit support representation plus the §15/RE17 ordering and applicability
+controls.
 
 ### 33.3 Explicitly excluded
 
 Superfluidity (**not included**); A18 implementation (**not begun**); BNV (**not begun**);
 time-dependent `Z`/`W`; envelope `eta` dependence; crustal processes; hyperons; solver replacement;
-replacement of the placeholder equilibrium normalization (a separate governed change);
+source-authoritative replacement of the default production placeholder equilibrium normalization
+(a separate governed realistic-physics change);
 any change to ADR-0002, ADR-0010, ADR-0011, ADR-0012 or ADR-0013 semantics.
 
 ### 33.4 Disposition
 
-> **PHASE-5D PREFLIGHT REVISION COMPLETE — ALL MATERIAL REVIEW FINDINGS CLOSED —
-> READY FOR BOUNDED INDEPENDENT RE-REVIEW.**
+> **PHASE-5D MATERIAL CLOSURE COMPLETE — R1/R2/R3 CLOSED —
+> READY FOR FINAL BOUNDED INDEPENDENT RE-REVIEW.**
 
-Disposition **A**. Every convention the task required to be fixed — evolved state, channel ordering,
-`eta` sign and redshift, reaction-rate sign, `xi`, the chemical ODE, every GR factor, the thermal
-ledger, the no-double-counting architecture, the imbalance polynomials and their roots, frozen
-coefficients, spin ownership, and initial conditions — is fixed by the proposal without an
-unresolved sign, redshift, ownership, or double-counting question. Declared benchmark coefficients
-close the mathematical free-gas scope without being presented as authenticated realistic source
-normalizations. The separately classified APR/YKGH discoveries do not close the realistic blockers.
+Disposition **A** for this bounded author revision. R1 now rests on the benchmark's static
+MODIFIED-URCA-ONLY process set; R2 now has a dedicated future `GlobalUrcaChannelCoefficient` oracle;
+and R3 restores INV-11a to partial upstream resolution with a proposed secular extension here.
+ADR-0014 remains PROPOSED, and this preflight is **REVIEWED / REVISED / AWAITING FINAL BOUNDED
+RE-REVIEW**. The separately classified APR/YKGH discoveries do not close the realistic blockers.
 
-No new unresolved scientific ambiguity was introduced. The FR2005 eq. (37) issue is classified as a
-confirmed printed typo/internal source inconsistency, with no published erratum located (§9.3).
+No new unresolved scientific ambiguity was introduced by this material-closure revision. The
+FR2005 eq. (37) issue remains classified as a confirmed printed typo/internal source inconsistency,
+with no published erratum located (§9.3).
 
 ### 33.5 Scratch evidence (not committed)
 
@@ -1835,13 +1896,15 @@ None is production code; none is committed; none is a validated numerical result
 The owner-supplied Phase-5D-0R Opus review returned prior disposition C,
 `PHASE-5D CONTRACT REVIEW BLOCKED — ADR-0014 REVISION REQUIRED BEFORE RATIFICATION`, with zero
 blocking scientific derivation failures and eight material documentation/contract findings. This
-revision does not reopen any independently confirmed load-bearing physics.
+revision does not reopen any independently confirmed load-bearing physics. The table below preserves
+the revision record as it stood at `PHASE5D0_REVISION_SHA`; Phase-5D-0RR later found the recorded
+M-2 closure partial, as corrected in §35.
 
 | Finding | Original defect | Revision | Remaining blocker | Status |
 |---|---|---|---|---|
 | M-1 | Reaction normalization mixed an MeV/K Boltzmann view with an unspecified luminosity energy unit | Canonical `Ltilde` is `erg s^-1 K^-q`; rates use derived `k_B^(erg)`; `eta R` is canonical MeV/s and converts once at the thermal boundary; dimensional proof and mutations added | None for text closure; implementation and validation remain future | **CLOSED BY TEXT REVISION** |
 | M-2 | “DU closed everywhere” conflated triangle support with model applicability | Low-density electron triangle sliver, keV-scale non-degeneracy, empty applicable support, `nB_min` semantics, explicit-support/outer-shell hazard, and negative controls recorded | None for controlled fixture; future adapter/test work remains | **CLOSED BY TEXT REVISION** |
-| M-3 | Unqualified global strict Lyapunov decay | `Vdot=-2 sum eta_l R_l<=0`; strictness now requires an active positive-normalization dissipative channel in every nonzero direction; dead directions may freeze | None for text closure | **CLOSED BY TEXT REVISION** |
+| M-3 | Unqualified global strict Lyapunov decay | `Vdot=-2 sum eta_l R_l<=0`; strictness now requires an active positive-normalization dissipative channel in every nonzero direction; an uncoupled dead imbalance may freeze | None for text closure | **CLOSED BY TEXT REVISION** |
 | M-4 | RE9 promised broad bit-for-bit agreement with historical passive cooling | RE9 is the exact same-coefficient identity; benchmark equilibrium cooling uses the same declared `Ltilde`; historical placeholders are not the oracle | None for text closure | **CLOSED BY TEXT REVISION** |
 | M-5 | Normative global integrals used implicit core/domain notation | All reaction/coefficient integrals use declared `D`/`D_a`, matched to `G_y` and support; free-gas whole-star domain is stated without arbitrary cutoff | Realistic core/support domain remains governed-source work | **CLOSED BY TEXT REVISION** |
 | M-6 | Printed `H_M` issue was called an authenticated erratum | Classified as confirmed printed typo/internal source inconsistency with no published erratum located; independent evidence listed; `pi^8` remains proposed normative | None for text closure | **CLOSED BY TEXT REVISION** |
@@ -1850,13 +1913,34 @@ revision does not reopen any independently confirmed load-bearing physics.
 
 The first controlled free-gas secular evolution remains possible as a mathematical/architecture
 benchmark using declared positive electron and muon coefficients. The same coefficients must feed
-equilibrium cooling, the `F` correction, the `H` rate, and chemical heating; DU remains disabled by
-the applicability contract. It can validate ODE wiring, signs, energy bookkeeping, quasi-steady
-scaling, spin coupling, and thermal coupling, but not the FR2005 absolute temperature/history.
+equilibrium cooling, the `F` correction, the `H` rate, and chemical heating. DU is dormant because
+the benchmark's static enabled-process set excludes `De` and `Dmu`, so `D_De = D_Dmu = empty`. It
+can validate ODE wiring, signs, energy bookkeeping, quasi-steady scaling, spin coupling, and thermal
+coupling, but not the stellar construction of `Ltilde` or the FR2005 absolute temperature/history.
 
 Realistic FR2005 reproduction remains separately blocked on authenticated APR journal authority and
 reconstruction, exact phase/crust construction, authenticated YKGH2001 normalization, the `alpha_n`
 decision, effective masses, direct/MU support authority, required Page/crust/envelope authority, and
-published benchmark arrays or governed digitization. Global INV-11 remains unresolved: only INV-11a
-is resolved upstream; INV-11b–e have proposed resolutions and INV-11f is partially proposed. Nothing
-becomes accepted until human-owner ratification.
+published benchmark arrays or governed digitization. Global INV-11 remains unresolved: INV-11a is
+only **PARTIALLY RESOLVED UPSTREAM** for coefficient-object semantics and ADR-0014 proposes its
+secular completion/extension; INV-11b–e have proposed resolutions and INV-11f is partially
+proposed. Nothing becomes accepted until human-owner ratification.
+
+---
+
+## 35. Post-Phase-5D-0RR material-closure revision — 2026-09-08
+
+The independent Phase-5D-0RR re-review returned zero blocking findings and three material findings.
+This bounded author revision changes only the contract and validation-plan text needed to close
+those findings, plus the directly adjacent enumerated cleanups. It does not implement the future
+oracle, alter production or tests, acquire a source, select `alpha_n` or realistic `Ltilde` values,
+begin A18 or BNV, or reopen independently confirmed physics.
+
+| Item | Review defect | Corrected contract | Remaining future implementation obligation | Status |
+|---|---|---|---|---|
+| R1 — DU-support applicability | The low-density electron-DU triangle sliver was called non-degenerate unconditionally, making a temperature-dependent observation the purported static exclusion rule. | The controlled benchmark is statically MODIFIED-URCA-ONLY: `{Me, Mmu}` enabled and `{De, Dmu}` disabled, so `D_De = D_Dmu = empty`. Triangle support, benchmark process support, and future physical applicability are distinct. `nB_min` is only a numerical/semantic guard. The sliver remains a temperature-aware factual observation and negative control. | Before realistic DU evolution, implement a governed applicability provider covering kinematics, composition, degeneracy/model validity, and possibly disconnected support intervals; exercise the sliver and outer-shell hazards. No temperature-dependent support predicate is introduced into frozen v1. | **CLOSED BY TEXT REVISION** |
+| R2 — global-`Ltilde` GR-factor detector | M11 pointed to gates that could not independently detect a wrong lapse power, while the declared-`Ltilde` benchmark did not exercise stellar coefficient construction. | RE10b directly exercises `GlobalUrcaChannelCoefficient` against an independent closed-form where practical plus high-precision quadrature value for `integral_{D_a} 4 pi r^2 e^lambda S_a(r) e^{(2-q_a)nu(r)} dr`, with all ordinary unit prefactors declared. It covers missing/extra/wrong-sign lapse powers, omitted/inverted proper volume, wrong `q`, and wrong domain. M10 and M11 are recorded as one algebraic mutation in the shared integrated-`Ltilde` representation. | Implement RE10b independently of the production integration kernel. The present revision declares but does not implement the oracle. | **CLOSED BY TEXT REVISION** |
+| R3 — INV-11a governance status | INV-11a was incorrectly marked already resolved upstream. | INV-11a is **PARTIALLY RESOLVED UPSTREAM; PROPOSED COMPLETION / EXTENSION HERE**. ADR-0013 covers static `G_y`/`Z`/`W` coefficient-object semantics only; ADR-0014 proposes evolved-`eta`, `xi`, global-rate, global-luminosity, and heating-coupling semantics. Global INV-11 remains UNRESOLVED. | Final bounded independent re-review and human-owner ratification remain required; no accepted ADR, invariant closure, or implementation is implied. | **CLOSED BY TEXT REVISION** |
+
+All three Phase-5D-0RR material findings are **CLOSED BY TEXT REVISION**. ADR-0014 remains
+**PROPOSED**, and this preflight remains **REVIEWED / REVISED / AWAITING FINAL BOUNDED RE-REVIEW**.
