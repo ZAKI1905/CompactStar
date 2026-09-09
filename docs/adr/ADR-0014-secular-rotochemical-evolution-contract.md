@@ -1,19 +1,21 @@
 # ADR-0014 — secular rotochemical evolution contract
 
-**Status:** PROPOSED
-**Decision:** NOT ACCEPTED — post-Phase-5D-0RR material-closure revision awaiting final bounded
-re-review and owner ratification
+**Status:** ACCEPTED / HUMAN-RATIFIED
+**Decision:** ACCEPTED WITH RETAINED FINAL INDEPENDENT-REVIEW CAVEATS
 **Date:** 2026-09-07
 **Starting canonical SHA:** `49ab2b8c2881b6ef7b9309307d18cea51d557f72`
 **Branched from (Phase-5C human-ratified candidate):** `27727016856a6a25a46e447c70e380722ea8ddbf`
-**Change class:** scientific-semantic and architectural contract; documentation-only proposal.
+**Change class:** scientific-semantic and architectural contract; documentation-only ratification.
 **Evidence companion:** `docs/validation/PHASE5D0_SECULAR_ROTOCHEMICAL_EVOLUTION_PREFLIGHT.md`
 **Implementation state:** no production evolution object, weak rate, imbalance function, chemical or
 thermal RHS term, superfluid treatment, A18 model, BNV source, test, baseline, EOS/data, or
-literature byte is created, modified, or authorized by this proposal.
+literature byte is created or modified by this ratification. Controlled non-superfluid v1
+implementation is authorized only in a separately governed task after Phase-5C canonical
+integration.
 
-> **PHASE-5D SECULAR ROTOCHEMICAL EVOLUTION CONTRACT — PROPOSED.
-> NOT RATIFIED. NOT IMPLEMENTED.**
+> **PHASE-5D SECULAR ROTOCHEMICAL EVOLUTION CONTRACT — SCIENTIFIC PREFLIGHT COMPLETE /
+> INDEPENDENTLY REVIEWED / HUMAN-RATIFIED FOR CONTROLLED NON-SUPERFLUID V1 SCOPE —
+> PRODUCTION IMPLEMENTATION NOT YET BEGUN.**
 
 ---
 
@@ -61,7 +63,7 @@ superfluidity; BNV; crustal processes; hyperons; envelope `eta` dependence; solv
 
 ---
 
-## 3. Proposed contract if later ratified
+## 3. Accepted contract
 
 ### 3.1 Evolved state
 
@@ -529,24 +531,24 @@ second derivatives.
 
 ## 7. INV-11 disposition
 
-| Subpart | Would this ADR resolve it? |
+| Subpart | Ratified disposition |
 |---|---|
-| INV-11a redshift / coefficient semantics | **PARTIALLY RESOLVED UPSTREAM; PROPOSED COMPLETION / EXTENSION HERE.** ADR-0013 resolves coefficient-object semantics for `G_y`, `Z`, and `W` only; this ADR proposes their extension to evolved `eta`, `xi`, global reaction-rate and neutrino-luminosity integrals, and global heating coupling. |
-| INV-11b evolved `eta` state ownership | **Proposed resolution** |
-| INV-11c reaction-rate sign / index convention | **Proposed resolution** |
-| INV-11d thermal energy ledger / no double counting | **Proposed resolution** |
-| INV-11e frozen coefficient lifetime / update policy | **Proposed resolution for frozen v1**; time-dependent branch recorded and forbidden |
-| INV-11f ODE / source coupling | **Partially proposed** — numerical solver implementation and validation remain future |
+| INV-11a redshift / coefficient semantics | **PARTIALLY RESOLVED UPSTREAM; ACCEPTED EXTENSION / CLARIFICATION HERE.** ADR-0013 resolves coefficient-object semantics for `G_y`, `Z`, and `W`; this ADR accepts their secular extension to evolved `eta`, `xi`, global reaction-rate and neutrino-luminosity integrals, and global heating coupling. |
+| INV-11b evolved `eta` state ownership | **CONTRACT RESOLVED / IMPLEMENTATION PENDING** |
+| INV-11c reaction-rate sign / index convention | **CONTRACT RESOLVED / IMPLEMENTATION PENDING** |
+| INV-11d thermal energy ledger / no double counting | **CONTRACT RESOLVED / IMPLEMENTATION PENDING** |
+| INV-11e frozen coefficient lifetime / update policy | **CONTRACT RESOLVED / IMPLEMENTATION PENDING**; time-dependent branch recorded and forbidden in v1 |
+| INV-11f ODE / source coupling | **UNRESOLVED / IMPLEMENTATION + VALIDATION PENDING** |
 
-**INV-11 is NOT marked resolved.** This ADR is PROPOSED, nothing is implemented, and INV-11e's
-time-dependent branch and INV-11f's solver branch remain open by design. INV-11 stays UNRESOLVED and
-fail-closed until this ADR is accepted **and** its implementation is validated.
+**INV-11 is NOT marked resolved.** The accepted contract resolves INV-11b–e at contract level only;
+nothing is implemented, and INV-11e's time-dependent branch and INV-11f's implementation/validation
+branch remain open by design. Global INV-11 stays UNRESOLVED.
 
 ---
 
 ## 8. Consequences
 
-**If accepted.** A future implementer has no remaining freedom on any sign, redshift factor,
+**Acceptance effect.** A future implementer has no remaining freedom on any sign, redshift factor,
 channel ordering, unit, ownership boundary, or double-counting question. The reusable production
 objects, their dependency direction, the validation ladder and the mutation inventory are fixed. The
 free-gas benchmark is executable without A18.
@@ -556,13 +558,15 @@ preflight record change.
 
 **Costs.** `NeutrinoCoolingCachePayload` must gain channel resolution, touching a currently-passing
 driver. `EvolutionConfig::n_eta` must become non-zero in the benchmark path. A spin-history interface
-must be added. None of these is authorized by this proposal.
+must be added. None of these is implemented by this ratification; implementation remains a
+separately governed task after the accepted Phase-5C coefficient history is canonically integrated.
 
 ---
 
-## 9. Acceptance requirements
+## 9. Satisfied acceptance requirements
 
-This ADR may be accepted only after an independent scientific review verifies, at minimum:
+The final bounded independent scientific review and human-owner disposition satisfy the requirement
+that review verify, at minimum:
 
 1. the reaction-rate sign convention, unit boundary, and `eta DeltaGamma >= 0` dissipation claim
    with the qualified nonincrease/strictness statement (§3.3–§3.4);
@@ -587,7 +591,7 @@ This ADR may be accepted only after an independent scientific review verifies, a
 
 ## 10. Status
 
-**PROPOSED. NOT ACCEPTED. NOT IMPLEMENTED.** Acceptance is not implementation validation.
+**ACCEPTED / HUMAN-RATIFIED. NOT IMPLEMENTED.** Acceptance is not implementation validation.
 
 ---
 
@@ -631,3 +635,28 @@ the independently confirmed Phase-5D physics.
 | R3 — INV-11a governance status | INV-11a was incorrectly stated as already resolved upstream. | INV-11a is **PARTIALLY RESOLVED UPSTREAM; PROPOSED COMPLETION / EXTENSION HERE**. ADR-0013 governs only static `G_y`/`Z`/`W` coefficient-object semantics; ADR-0014 proposes the secular-evolution extension. Global INV-11 remains UNRESOLVED. | Final bounded review and human-owner ratification remain required; no global invariant closure or implementation is implied. | **CLOSED BY TEXT REVISION** |
 
 ADR-0014 remains **PROPOSED. NOT ACCEPTED. NOT IMPLEMENTED.**
+
+---
+
+## 13. Human-owner ratification — 2026-09-09
+
+The bounded final independent re-review returned disposition B:
+
+> **PHASE-5D FINAL BOUNDED RE-REVIEW PASS WITH NONBLOCKING FINDINGS — R1/R2/R3 CLOSED —
+> ADR-0014 READY FOR HUMAN-OWNER RATIFICATION WITH EXPLICIT CAVEATS.**
+
+Review totals were **0 BLOCKING, 0 MATERIAL, 12 NONBLOCKING, and 7 NOTES**; Fable was not needed.
+The owner ratifies this ADR with the retained review caveats. The full authority, accepted contract,
+caveats, source blockers, and INV-11 subpart disposition are recorded in
+`docs/validation/PHASE5D0_SECULAR_ROTOCHEMICAL_EVOLUTION_RATIFICATION.md`.
+
+This ratification is based on the durable closure at
+`5f04b5ef7cefc7ceb0d73fb0b3927bfbb28508be` (`PHASE5D0_CLOSURE_SHA`) plus the owner-supplied final
+RR2 disposition. It does not reconstruct an unavailable external report. The historical proposal,
+review, and revision language in sections 11–12 remains as the ledger of those earlier states; it
+does not override the current accepted status in the document header and section 10.
+
+ADR-0014 is **ACCEPTED / HUMAN-RATIFIED** for the controlled non-superfluid v1 scope. Production
+implementation has not begun. Phase-5C canonical integration remains the next repository dependency;
+realistic FR2005/A18 closure remains source-limited and blocked; global INV-11 remains unresolved;
+and BNV has not begun.

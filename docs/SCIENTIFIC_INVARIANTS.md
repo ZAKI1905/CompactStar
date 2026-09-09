@@ -1,5 +1,17 @@
 # CompactStar Scientific Invariants
 
+> **Phase-5D-0RAT (2026-09-09): ADR-0014 ACCEPTED / HUMAN-RATIFIED; PRODUCTION
+> IMPLEMENTATION NOT YET BEGUN.** The controlled non-superfluid v1 contract now governs evolved
+> `(eta_npe^infinity, eta_npmu^infinity)` ownership/order/MeV units, reaction sign, the frozen
+> chemical ODE, rate/luminosity redshifts, the same-`Ltilde` RE9 ledger, declared `D`/`D_a`,
+> ownership separation, and the future independent RE10b oracle. INV-11b–e are contract-resolved
+> but implementation-pending; INV-11f remains unresolved pending implementation and validation;
+> global INV-11 remains **UNRESOLVED**. Phase-5C canonical integration is still required before
+> Phase-5D production work begins. No first rotochemical evolution, A18 implementation, or BNV has
+> begun. Evidence:
+> `docs/validation/PHASE5D0_SECULAR_ROTOCHEMICAL_EVOLUTION_RATIFICATION.md`;
+> `docs/adr/ADR-0014-secular-rotochemical-evolution-contract.md`.
+
 > **STATUS: RATIFIED — 2026-08-31.** Normative at authority rank 3 (`GOVERNANCE.md` §1, §7).
 > Ratified at commit `617bb0e`, subject to the status distinctions below: ratification
 > accepts **the register**, not the correctness of the code or physics it records. See
@@ -967,6 +979,16 @@ Phase 5.
 
 ## INV-11 — Chemical-imbalance redshift convention — **UNRESOLVED**
 
+**Current Phase-5D-0RAT boundary.** ADR-0014 is **ACCEPTED / HUMAN-RATIFIED** for the controlled
+non-superfluid v1 contract. INV-11a remains **PARTIALLY RESOLVED upstream**, with ADR-0014 accepting
+the secular extension/clarification. INV-11b (evolved state ownership), INV-11c (reaction sign/index),
+INV-11d (thermal ledger/no double counting), and INV-11e (frozen coefficient lifetime/update policy)
+are **CONTRACT RESOLVED / IMPLEMENTATION PENDING**. INV-11f is **UNRESOLVED / IMPLEMENTATION +
+VALIDATION PENDING**. Therefore global INV-11 remains **UNRESOLVED**. No production evolution object,
+A18 implementation, or BNV exists, and Phase-5C canonical integration remains a production
+prerequisite (`docs/validation/PHASE5D0_SECULAR_ROTOCHEMICAL_EVOLUTION_RATIFICATION.md:282`;
+`docs/adr/ADR-0014-secular-rotochemical-evolution-contract.md:532`).
+
 **Current Phase-5C-2RAT boundary.** ADR-0013 is **ACCEPTED** and partially resolves INV-11(a)
 only for coefficient-object semantics: `eta^infinity=e^nu eta_local`; named `npe` and `np-mu`
 channels; exactly one `e^-nu` in global `G_y`; `Z` acting on redshifted imbalance; and `W` units,
@@ -1301,13 +1323,12 @@ conversion, under the in-code comment *"Convert fractions to number densities in
 | VERIFIED / RESOLVED | **INV-09** — ADR-0011 structural particle-number response, ordinary-`NStar` / Track-R governed scope; integrated 2026-09-06 |
 | **UNRESOLVED (fail-closed)** | **INV-11** — and sub-items of INV-06, INV-16 |
 
-**One unresolved invariant still blocks downstream chemical-state/evolution work:**
+**One unresolved invariant still blocks completion of downstream chemical-state/evolution work:**
 
-- **INV-11** blocks the evolved η ordering/redshift contract and Layer-D evolution. ADR-0010 and
-  Phase 5A-2 cover the implemented, locally validated neutral-conjugate provider contract;
-  accepted ADR-0013 additionally governs coefficient-object redshift/sign semantics and the
-  `G_y/Z/W` ownership contract. None chooses an evolved-state ordering, representation, storage
-  boundary, rate/stoichiometry ownership, thermal partition, or solver coupling.
+- **INV-11** remains globally unresolved. Accepted ADR-0014 now governs evolved-state ordering,
+  representation, MeV storage, reaction sign/index, thermal partition, and frozen-v1 policy;
+  INV-11b–e are contract-resolved but implementation-pending. INV-11f remains unresolved pending
+  implementation and validation, so no production evolution is yet claimed.
 
 **INV-07 is fully resolved for first order.** ADR-0006 (ACCEPTED 2026-09-02) settled the
 contract, Phase 4A made the source conform, and **Phase 4B verified the normalized response

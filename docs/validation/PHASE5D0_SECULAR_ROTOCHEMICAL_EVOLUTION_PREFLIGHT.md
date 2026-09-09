@@ -2,11 +2,14 @@
 
 **Class:** documentation-only scientific preflight. No production source, test, baseline, EOS/data,
 CMake, literature byte, or accepted-ADR semantic change is made by this task.
-**Companion decision:** `docs/adr/ADR-0014-secular-rotochemical-evolution-contract.md` (PROPOSED).
-**Disposition:** post-Phase-5D-0RR material-closure revision; see §33.4–§35.
+**Companion decision:** `docs/adr/ADR-0014-secular-rotochemical-evolution-contract.md`
+(ACCEPTED / HUMAN-RATIFIED).
+**Disposition:** scientific preflight complete; independently reviewed and human-ratified with
+retained caveats; implementation not begun. See §33.4–§36.
 
-> **PHASE-5D MATERIAL CLOSURE COMPLETE — R1/R2/R3 CLOSED —
-> READY FOR FINAL BOUNDED INDEPENDENT RE-REVIEW.**
+> **PHASE-5D SECULAR ROTOCHEMICAL EVOLUTION CONTRACT — SCIENTIFIC PREFLIGHT COMPLETE /
+> INDEPENDENTLY REVIEWED / HUMAN-RATIFIED FOR CONTROLLED NON-SUPERFLUID V1 SCOPE —
+> PRODUCTION IMPLEMENTATION NOT YET BEGUN.**
 
 ---
 
@@ -1944,3 +1947,29 @@ begin A18 or BNV, or reopen independently confirmed physics.
 
 All three Phase-5D-0RR material findings are **CLOSED BY TEXT REVISION**. ADR-0014 remains
 **PROPOSED**, and this preflight remains **REVIEWED / REVISED / AWAITING FINAL BOUNDED RE-REVIEW**.
+
+---
+
+## 36. Human-owner ratification addendum — 2026-09-09
+
+Final bounded independent review is complete. Its owner-supplied disposition is **B — PASS WITH
+NONBLOCKING FINDINGS; R1/R2/R3 CLOSED; ADR-0014 ready for human-owner ratification with explicit
+caveats**. Totals are **0 BLOCKING, 0 MATERIAL, 12 NONBLOCKING, and 7 NOTES**; Fable was not needed.
+The owner ratifies ADR-0014 with the retained review caveats.
+
+The complete ratification record is
+`docs/validation/PHASE5D0_SECULAR_ROTOCHEMICAL_EVOLUTION_RATIFICATION.md`. It records the accepted
+state/sign/unit/domain/ledger/ownership contract, RE9 and RE10b, source blockers, the retained future
+implementation requirements, and the INV-11 subpart statuses without reconstructing unavailable
+review detail.
+
+Production implementation has **not begun**. Realistic FR2005/A18 closure remains source-limited
+and blocked. Global INV-11 remains **UNRESOLVED**: INV-11b–e are contract-resolved but
+implementation-pending, while INV-11f remains implementation- and validation-pending. BNV has not
+begun.
+
+Phase-5C corrected coefficients remain implemented, candidate-validated, independently reviewed,
+and human-ratified at `27727016856a6a25a46e447c70e380722ea8ddbf`, but are not canonically
+integrated. Their complete accepted history must be integrated through a separately governed task
+before Phase-5D production work begins on canonical `master`. This addendum performs no integration
+or merge.
