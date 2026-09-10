@@ -1,5 +1,17 @@
 # CompactStar Scientific Invariants
 
+> **Phase-5D-0INT (2026-09-10): ADR-0014 / SECULAR ROTOCHEMICAL-EVOLUTION CONTRACT
+> HUMAN-RATIFIED AND CANONICALLY INTEGRATED; PRODUCTION IMPLEMENTATION NOT YET BEGUN.** The
+> accepted controlled non-superfluid v1 contract governs evolved
+> `(eta_npe^infinity, eta_npmu^infinity)` ownership/order/MeV units, reaction sign, the frozen
+> chemical ODE, rate/luminosity redshifts, the same-`Ltilde` RE9 ledger, declared `D`/`D_a`,
+> ownership separation, and future independent RE10b. INV-11b-e are contract-resolved but
+> implementation-pending; INV-11f remains unresolved pending implementation and validation;
+> global INV-11 remains **UNRESOLVED**. Phase-5C remains canonically integrated, governed, and
+> closed for generic/free-gas coefficient scope. No eta evolution, weak rates, heating/cooling,
+> realistic A18 implementation, or BNV has begun. Evidence:
+> `docs/validation/PHASE5D0_SECULAR_ROTOCHEMICAL_EVOLUTION_INTEGRATION.md`.
+
 > **Phase-5C-2INT (2026-09-10): CORRECTED CHEMICAL COEFFICIENTS CANONICAL
 > INTEGRATION VALIDATED / GOVERNED REGRESSION INSTALLED / CLOSED FOR GENERIC/FREE-GAS
 > SCOPE.** The accepted `G_y`, `Q`, `Z`, `I_phys`, and `W` layer is protected by a fresh-producer
@@ -978,9 +990,19 @@ Phase 5.
 
 ## INV-11 — Chemical-imbalance redshift convention — **UNRESOLVED**
 
+**Current Phase-5D-0INT boundary.** ADR-0014 is **ACCEPTED / HUMAN-RATIFIED / CANONICALLY
+INTEGRATED** for the controlled non-superfluid v1 contract. INV-11a remains **PARTIALLY RESOLVED
+UPSTREAM**, with ADR-0014 extending and clarifying the accepted secular semantics. INV-11b
+(evolved state ownership), INV-11c (reaction sign/index), INV-11d (thermal ledger/no double
+counting), and INV-11e (frozen coefficient lifetime/update policy) are **CONTRACT RESOLVED /
+IMPLEMENTATION PENDING**. INV-11f is **UNRESOLVED / IMPLEMENTATION + VALIDATION PENDING**.
+Therefore global INV-11 remains **UNRESOLVED**. No production evolution object, A18 implementation,
+or BNV exists (`docs/validation/PHASE5D0_SECULAR_ROTOCHEMICAL_EVOLUTION_INTEGRATION.md`;
+`docs/adr/ADR-0014-secular-rotochemical-evolution-contract.md`).
+
 **Current Phase-5C-2INT boundary.** ADR-0013 is **ACCEPTED / IMPLEMENTED / INTEGRATED** and
-partially resolves INV-11(a)
-only for coefficient-object semantics: `eta^infinity=e^nu eta_local`; named `npe` and `np-mu`
+partially resolves INV-11(a) only for coefficient-object semantics:
+`eta^infinity=e^nu eta_local`; named `npe` and `np-mu`
 channels; exactly one `e^-nu` in global `G_y`; `Z` acting on redshifted imbalance; and `W` units,
 source sign, and structural dependency. It does not define the evolved-state ordering or
 representation, storage units/conversion boundary, reaction stoichiometry, net-rate sign
@@ -1313,13 +1335,12 @@ conversion, under the in-code comment *"Convert fractions to number densities in
 | VERIFIED / RESOLVED | **INV-09** — ADR-0011 structural particle-number response, ordinary-`NStar` / Track-R governed scope; integrated 2026-09-06 |
 | **UNRESOLVED (fail-closed)** | **INV-11** — and sub-items of INV-06, INV-16 |
 
-**One unresolved invariant still blocks downstream chemical-state/evolution work:**
+**One unresolved invariant still blocks completion of downstream chemical-state/evolution work:**
 
-- **INV-11** blocks the evolved η ordering/redshift contract and Layer-D evolution. ADR-0010 and
-  Phase 5A-2 cover the implemented, locally validated neutral-conjugate provider contract;
-  accepted ADR-0013 additionally governs coefficient-object redshift/sign semantics and the
-  `G_y/Z/W` ownership contract. None chooses an evolved-state ordering, representation, storage
-  boundary, rate/stoichiometry ownership, thermal partition, or solver coupling.
+- **INV-11** remains globally unresolved. Accepted ADR-0014 now governs evolved-state ordering,
+  representation, MeV storage, reaction sign/index, thermal partition, and frozen-v1 policy;
+  INV-11b–e are contract-resolved but implementation-pending. INV-11f remains unresolved pending
+  implementation and validation, so no production evolution is yet claimed.
 
 **INV-07 is fully resolved for first order.** ADR-0006 (ACCEPTED 2026-09-02) settled the
 contract, Phase 4A made the source conform, and **Phase 4B verified the normalized response

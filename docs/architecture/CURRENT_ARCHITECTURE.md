@@ -1,5 +1,16 @@
 # CompactStar — Current Architecture
 
+> **Phase-5D-0INT (2026-09-10): ADR-0014 / SECULAR ROTOCHEMICAL-EVOLUTION CONTRACT
+> HUMAN-RATIFIED AND CANONICALLY INTEGRATED; PRODUCTION IMPLEMENTATION NOT YET BEGUN.** The
+> accepted architecture separates channel microphysics/normalization, global `Ltilde` integration,
+> dimensionless imbalance functions, the reaction response, and the secular RHS. It governs the
+> evolved eta state, reaction sign and frozen chemical ODE, GR rate/luminosity factors,
+> same-coefficient RE9 ledger, `D`/`D_a`, and future independent RE10b. Phase-5C remains
+> canonically integrated, governed, and closed for generic/free-gas coefficient scope. Global
+> INV-11 remains **UNRESOLVED** because INV-11f still requires implementation and validation. No
+> eta evolution, weak rates, heating/cooling, realistic A18 implementation, or BNV has begun.
+> Evidence: `docs/validation/PHASE5D0_SECULAR_ROTOCHEMICAL_EVOLUTION_INTEGRATION.md`.
+
 > **Phase-5C-2INT (2026-09-10): CORRECTED CHEMICAL COEFFICIENTS CANONICALLY
 > INTEGRATED / GOVERNED / CLOSED FOR GENERIC/FREE-GAS SCOPE.**
 > `GlobalChemicalNumberResponse`, `ChemicalImbalanceResponse`, and `RotochemicalSpinDrive` are
@@ -691,11 +702,12 @@ below is historical.
 
 ## 6. What this document does **not** claim
 
-- It does **not** claim the rotochemical pipeline is operational. The independent local ADR-0010
-  thermodynamic provider boundary and analytic free leptons are compiled, and the ADR-0011
-  particle-number structural response is now governed and canonically integrated. No corrected
-  R2006 chemical susceptibility, chemical coefficient, reaction, heating, or evolution connection
-  exists.
+- It does **not** claim the rotochemical pipeline is operational. The ADR-0010 local thermodynamic
+  provider and ADR-0011 structural response are compiled; the latter is governed and canonically
+  integrated. The ADR-0013 corrected R2006 `G_y`/`Z`/`W` coefficient layer is a human-ratified live
+  candidate on this branch but is not canonically integrated. No production reaction response,
+  chemical/heating RHS, or evolution connection exists; ADR-0014 governs those future boundaries
+  without implementing them.
 - It does **not** claim second-order Hartle is validated. It is publicly callable, has zero
   repository callers, is unverified, and its equations are recorded as defective (INV-08;
   `docs/validation/PHASE4_ROTATION_ENTRY.md` §10–§12). Phase 4A left it byte-identical.

@@ -1,5 +1,16 @@
 # CompactStar Modernization Roadmap
 
+> **Phase-5D-0INT (2026-09-10): ADR-0014 / SECULAR ROTOCHEMICAL-EVOLUTION CONTRACT
+> HUMAN-RATIFIED AND CANONICALLY INTEGRATED; PRODUCTION IMPLEMENTATION NOT YET BEGUN.** The
+> controlled non-superfluid v1 contract and preflight are now present on canonical history. The
+> accepted contract fixes the evolved eta state, reaction sign and chemical ODE, GR
+> rate/luminosity factors, same-coefficient RE9 ledger, declared channel domains, ownership
+> separation, frozen-coefficient policy, and future RE10b. Phase-5C remains canonically integrated,
+> governed, and closed for generic/free-gas coefficient scope. Global INV-11 remains
+> **UNRESOLVED** because INV-11f still requires implementation and validation. No eta evolution,
+> weak rates, heating/cooling, realistic A18 implementation, or BNV has begun. Evidence:
+> `docs/validation/PHASE5D0_SECULAR_ROTOCHEMICAL_EVOLUTION_INTEGRATION.md`.
+
 > **Phase-5C-2INT (2026-09-10): CORRECTED CHEMICAL COEFFICIENTS CANONICAL
 > INTEGRATION VALIDATED / GOVERNED REGRESSION INSTALLED / CLOSED FOR GENERIC/FREE-GAS
 > SCOPE.** The fresh-producer regression governs the accepted `G_y`, `Q`, `Z`, `I_phys`, and `W`
@@ -643,8 +654,8 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
 ## Phase 5 — Standard non-superfluid rotochemical heating
 
 **Prerequisites:** Phase 4 COMPLETE ✅ · **ADR-0001 accepted ✅** · **ADR-0002 accepted ✅** ·
-**ADR-0010 local thermodynamic contract accepted ✅** · evolved η ordering/redshift convention ☐
-(blocks later chemical-state/evolution work, not the local Phase 5A provider).
+**ADR-0010 local thermodynamic contract accepted ✅** · **ADR-0014 evolved eta/secular contract
+accepted ✅** (production implementation pending; global INV-11 remains unresolved).
 
 > **Species-semantics prerequisite: SATISFIED** (ADR-0001, 2026-08-31).
 > **Phase-4 structural-input gate: SATISFIED** (`docs/validation/PHASE4_CLOSEOUT.md:201`).
@@ -750,6 +761,14 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
 
 Later Phase-5 work following this structural closeout:
 
+- **PHASE-5D SCIENTIFIC CONTRACT PREFLIGHT COMPLETE / INDEPENDENTLY REVIEWED /
+  HUMAN-RATIFIED / CANONICALLY INTEGRATED / NOT IMPLEMENTED.** ADR-0014 accepts the controlled
+  non-superfluid v1 contract with retained review caveats. Controlled free-gas production
+  implementation is authorized next but has not begun. Phase-5C is now canonically integrated and
+  governed; realistic FR2005/A18 remains source-limited and blocked; global INV-11 remains
+  unresolved; BNV has not begun. Evidence:
+  `docs/validation/PHASE5D0_SECULAR_ROTOCHEMICAL_EVOLUTION_INTEGRATION.md`.
+
 - **PHASE-5C CORRECTED CHEMICAL COEFFICIENTS IMPLEMENTED / VALIDATED / INDEPENDENTLY REVIEWED /
   HUMAN-RATIFIED / CANONICALLY INTEGRATED / GOVERNED BY FRESH-PRODUCER REGRESSION / CLOSED FOR
   GENERIC/FREE-GAS SCOPE.** The production layer implements canonical source-basis `G_y`, post-integration
@@ -768,7 +787,8 @@ Later Phase-5 work following this structural closeout:
   implemented there.*
 - Correct `A_i` (divide by Ω²) and `B_i` (geometry-consistent finite difference).
 - Confirm the `Z_i` reduction under the ratified species semantics.
-- Define chemical state: η_npe and η_npμ, ordering, redshift frame, units (INV-11).
+- Implement the ADR-0014 chemical state: `eta_npe^infinity`, `eta_npmu^infinity`, ordering,
+  redshift frame, and MeV units; the contract is resolved but implementation is pending.
 - **Implement out-of-equilibrium weak rates** — ΔΓ(η,T) and the F/H(ξ = η/k_BT) functions. *This
   is the terminal blocker; nothing downstream exists without it.*
 - `WeakRestoration` (currently a 0-byte file).
@@ -805,7 +825,7 @@ unauditable.
    ADR-0006 Hartle normalization  ✅ ACCEPTED 2026-09-02 ──────────────────────────────►│
    ADR-0007/0008 Hartle O(Ω²)   ✅ ACCEPTED / VERIFIED ─────────────────────────────────►│
    ADR-0010 local thermo        ✅ ACCEPTED 2026-09-04 ────────────────────────────────────────────────►│
-   evolved η state convention  ☐ open ────────────────────────────────────────────────────────────────►│
+   evolved eta/secular contract ✅ ADR-0014 accepted; implementation/validation pending ─────────────►│
 ```
 
 **The former Phase-2 / Phase-3 circularity is gone.** It ran:
@@ -818,9 +838,9 @@ ADR-0002 breaks it by deciding the physical ownership **now**, ahead of any base
 splitting the correction out of Phase 3 into **Phase 2A**, which precedes the baseline. Nothing in
 Phase 2A depends on a passive-cooling baseline: it is validated by independent physical checks.
 
-**INV-11 remains unresolved for the evolved chemical-state ordering/redshift convention.** It
-blocks later global chemical-state and Layer-D evolution work, but not implementation of the
-accepted local neutral-conjugate provider contract. **INV-07 is no longer a gate** — resolved by
+**INV-11 remains globally unresolved.** ADR-0014 resolves evolved-state ownership, reaction
+sign/index, thermal-ledger, and frozen-v1 policy at contract level, but implementation is pending and
+INV-11f still requires implementation and validation. **INV-07 is no longer a gate** — resolved by
 ADR-0006 and implemented/verified in Phase 4.
 
 **INV-01** (species semantics) is **no longer a gate** — resolved by ADR-0001. What remains from
