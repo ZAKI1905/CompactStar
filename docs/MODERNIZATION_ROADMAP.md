@@ -1,5 +1,15 @@
 # CompactStar Modernization Roadmap
 
+> **Phase-5C-2INT (2026-09-10): CORRECTED CHEMICAL COEFFICIENTS CANONICAL
+> INTEGRATION VALIDATED / GOVERNED REGRESSION INSTALLED / CLOSED FOR GENERIC/FREE-GAS
+> SCOPE.** The fresh-producer regression governs the accepted `G_y`, `Q`, `Z`, `I_phys`, and `W`
+> result. GC1-GC12, GC9b, and GC14 pass; GC13 remains **SOURCE-LIMITED / BLOCKED**. INV-09
+> remains **VERIFIED / RESOLVED** and global INV-11 remains **UNRESOLVED**. The narrow Phase-5B
+> and Phase-5C compiler portability rules retain truthful compiler execution provenance and exempt
+> no scientific or other provenance field. No eta evolution, weak rates, heating/cooling,
+> realistic A18 closure, or BNV is implemented. Evidence:
+> `docs/validation/PHASE5C2_CORRECTED_CHEMICAL_COEFFICIENT_INTEGRATION.md`.
+
 > **Phase-5C-2RAT (2026-09-07): CORRECTED CHEMICAL COEFFICIENTS HUMAN-RATIFIED
 > CANDIDATE / NOT YET CANONICALLY INTEGRATED.** Production `G_y`, derived `Q`, canonical `Z`, and
 > structural `W` are implemented, candidate-validated, independently reviewed, and human-ratified
@@ -740,17 +750,17 @@ thermal program. No claim is made that `l = 2` physics is itself validated — i
 
 Later Phase-5 work following this structural closeout:
 
-- **PHASE-5C CORRECTED CHEMICAL COEFFICIENTS IMPLEMENTED / CANDIDATE-VALIDATED /
-  INDEPENDENTLY REVIEWED / HUMAN-RATIFIED FOR GOVERNED GENERIC/FREE-GAS SCOPE; CANONICAL
-  INTEGRATION PENDING.** The candidate implements canonical source-basis `G_y`, post-integration
+- **PHASE-5C CORRECTED CHEMICAL COEFFICIENTS IMPLEMENTED / VALIDATED / INDEPENDENTLY REVIEWED /
+  HUMAN-RATIFIED / CANONICALLY INTEGRATED / GOVERNED BY FRESH-PRODUCER REGRESSION / CLOSED FOR
+  GENERIC/FREE-GAS SCOPE.** The production layer implements canonical source-basis `G_y`, post-integration
   global baryon reduction, derived `Q`, canonical `Z`, and provenance-complete `W`. Its two-track
   `numerical_error` and `validation_envelope` semantics remain distinct. GC1-GC12 and GC14 pass
   within declared classifications; GC13 remains **SOURCE-LIMITED / BLOCKED**. Free gas proves
   correction sensitivity but cannot replace authenticated matching A18 + delta-v + UIX*
-  composition/response, crust/phase/core, and benchmark authority. The artifact is not installed
-  as a governed baseline. INV-11 remains **UNRESOLVED**; no evolution, weak rates,
+  composition/response, crust/phase/core, and benchmark authority. The governed artifact is
+  installed and fresh-regeneration protected. INV-11 remains **UNRESOLVED**; no evolution, weak rates,
   heating/cooling, realistic A18 closure, or BNV is authorized. Evidence:
-  `docs/validation/PHASE5C2_CORRECTED_CHEMICAL_COEFFICIENT_RATIFICATION.md`.
+  `docs/validation/PHASE5C2_CORRECTED_CHEMICAL_COEFFICIENT_INTEGRATION.md`.
 
 - **Correct `RotochemicalCache` for ADR-0001 conformance** — construct `n_i = Y_i · n_B` before
   the `N_i`, `A_i`, and `B_i` species number-density integrations

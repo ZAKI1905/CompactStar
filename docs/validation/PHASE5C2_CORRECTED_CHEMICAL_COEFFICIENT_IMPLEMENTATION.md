@@ -431,3 +431,12 @@ Canonical integration remains pending. The deterministic candidate artifact is n
 a governed baseline by this ratification; no production numerical evidence above is changed.
 GC13 remains **SOURCE-LIMITED / BLOCKED**, INV-11 remains **UNRESOLVED**, and no eta evolution,
 weak rates, heating/cooling, realistic A18 closure, or BNV is authorized or begun.
+
+## Phase-5C-2INT integration cross-reference — 2026-09-10
+
+The historical implementation and ratification statements above describe their state at those
+gates and are not rewritten. Subsequent governed integration installed the separate baseline and
+fresh-producer regression without changing this candidate artifact or accepted physics. The
+generic/free-gas coefficient scope is now **CANONICALLY INTEGRATED / GOVERNED / CLOSED**; GC13
+remains **SOURCE-LIMITED / BLOCKED** and global INV-11 remains **UNRESOLVED**. See
+`docs/validation/PHASE5C2_CORRECTED_CHEMICAL_COEFFICIENT_INTEGRATION.md`.

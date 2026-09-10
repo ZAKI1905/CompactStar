@@ -637,3 +637,27 @@ tolerance and does not change `G`, `Q`, `Z`, `I`, `W`, numerical-error semantics
 validation-envelope semantics, support/rank semantics, or any acceptance goal. The detailed
 owner-ratified decision and required comparator controls are recorded in
 `docs/validation/PHASE5C2_GOVERNED_REGRESSION_PORTABILITY_RATIFICATION.md`.
+
+## 15. Phase-5C-2INT integration closeout — 2026-09-10
+
+ADR-0013 is **ACCEPTED / IMPLEMENTED / INTEGRATED** for its governed generic/free-gas
+coefficient scope. The human-ratified production result is installed separately from the
+byte-identical historical reviewed candidate at
+`tests/baselines/phase5c_chemical_coefficients.json` and protected by a fresh-producer regression.
+The governed artifact was reproduced byte-identically in three isolated generations, after its
+governed commit, and in final pre-master validation. Fresh suites passed 6/6 focused Phase-5C,
+45/45 data-free, and 68/68 authenticated complete tests, all with raw rc 0 and no failures or
+unexplained skips.
+
+The exact portable Phase-5C field remains `provenance.toolchain.compiler`; the exact portable
+Phase-5B field remains `provenance.build.compiler`. Both are mandatory, truthful execution
+provenance. No scientific field or other provenance field is excluded, and a compiler change plus
+any other difference fails. The historical Phase-5B baseline and all pre-existing baseline bytes
+remain unchanged; INV-09 remains **VERIFIED / RESOLVED**.
+
+GC1-GC12, GC9b, and GC14 are **PASS** under their ratified classifications. GC13 remains
+**SOURCE-LIMITED / BLOCKED**, and global INV-11 remains **UNRESOLVED**. This closeout changes no
+`G_y`, `Q`, `Z`, `I_phys`, `W`, error/envelope, support/rank, onset/refusal/tail, or lifetime
+semantics. It implements no eta evolution, weak rates, heating/cooling, realistic A18 closure,
+Phase-5D, superfluidity, or BNV. Full evidence and retained caveats are in
+`docs/validation/PHASE5C2_CORRECTED_CHEMICAL_COEFFICIENT_INTEGRATION.md`.

@@ -1,5 +1,14 @@
 # CompactStar — Current Architecture
 
+> **Phase-5C-2INT (2026-09-10): CORRECTED CHEMICAL COEFFICIENTS CANONICALLY
+> INTEGRATED / GOVERNED / CLOSED FOR GENERIC/FREE-GAS SCOPE.**
+> `GlobalChemicalNumberResponse`, `ChemicalImbalanceResponse`, and `RotochemicalSpinDrive` are
+> protected by a fresh-producer governed regression. GC1-GC12, GC9b, and GC14 pass under their
+> ratified classifications; GC13 remains **SOURCE-LIMITED / BLOCKED** on realistic A18 authority.
+> INV-09 remains **VERIFIED / RESOLVED**, global INV-11 remains **UNRESOLVED**, and no eta
+> evolution, weak rates, heating/cooling, A18 closure, or BNV is implemented. Evidence:
+> `docs/validation/PHASE5C2_CORRECTED_CHEMICAL_COEFFICIENT_INTEGRATION.md`.
+
 > **Phase-5C-2RAT (2026-09-07): CORRECTED CHEMICAL COEFFICIENTS HUMAN-RATIFIED
 > CANDIDATE / NOT YET CANONICALLY INTEGRATED.** `GlobalChemicalNumberResponse`,
 > `ChemicalImbalanceResponse`, and `RotochemicalSpinDrive` are implemented, candidate-validated,
@@ -265,7 +274,7 @@ TimeSeriesObserver + DiagnosticsObserver            LIVE
 | `StarProfileView` | **COMPILED, UNEXERCISED** | `NStar::View()` has zero callers |
 | `NStar` | **LIVE** | Migration to `prof_` complete; legacy `ds` is commented out, not dual-live |
 | `CompactStar::Analysis` particle-number response | **LIVE — GOVERNED / CANONICALLY INTEGRATED; INV-09 RESOLVED** | ADR-0011 PN1-PN8 structural response for ordinary `NStar`, including measure-complete `dn_i`, complete-star `B_i`, fixed-baryon `K_i`, domain-qualified mapping, provenance refusals, and explicit angular-frequency conversion. Independently reviewed and human-ratified at `fe08c94ed5ae525a9cb78331c5dd69d9c617d591`; the first governed structural artifact is fresh-regeneration protected. PB1-PB14 retain every qualification in `docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_INTEGRATION.md`. INV-09 is VERIFIED / RESOLVED only for this structural layer; INV-11 remains UNRESOLVED |
-| ADR-0013 chemical coefficient layer (`GlobalChemicalNumberResponse`, `ChemicalImbalanceResponse`, `RotochemicalSpinDrive`) | **LIVE CANDIDATE — HUMAN-RATIFIED / NOT YET CANONICALLY INTEGRATED** | The production candidate implements canonical named-axis source-basis `G_y` in `count / MeV`, global baryon reduction after integration, derived `Q`, immutable named 2x2 `Z` in `MeV / count`, and `W` in `MeV s^2` from the complete governed `FixedBaryonNumberResponse`, with explicit lower-dimensional branches and fail-closed provenance/lifetime/conditioning. GC1-GC12 and GC14 pass within their declared classifications. The deterministic artifact is not installed as a governed baseline; GC13 remains SOURCE-LIMITED / BLOCKED because free gas cannot replace authenticated A18; INV-11 remains unresolved for evolution. `docs/validation/PHASE5C2_CORRECTED_CHEMICAL_COEFFICIENT_RATIFICATION.md` |
+| ADR-0013 chemical coefficient layer (`GlobalChemicalNumberResponse`, `ChemicalImbalanceResponse`, `RotochemicalSpinDrive`) | **LIVE — GOVERNED / CANONICALLY INTEGRATED / CLOSED FOR GENERIC/FREE-GAS SCOPE** | The production layer implements canonical named-axis source-basis `G_y` in `count / MeV`, global baryon reduction after integration, derived `Q`, immutable named 2x2 `Z` in `MeV / count`, and `W` in `MeV s^2` from the complete governed `FixedBaryonNumberResponse`, with explicit lower-dimensional branches and fail-closed provenance/lifetime/conditioning. GC1-GC12, GC9b, and GC14 pass within their declared classifications. The governed artifact is installed and fresh-regeneration protected; GC13 remains SOURCE-LIMITED / BLOCKED because free gas cannot replace authenticated A18; INV-11 remains unresolved for evolution. `docs/validation/PHASE5C2_CORRECTED_CHEMICAL_COEFFICIENT_INTEGRATION.md` |
 | `MixedStar` | **COMPILED, UNEXERCISED** | No surviving `main/` uses it. Master-grid totals added by `3639d71` |
 | `TOVSolver` | **LIVE** | Two live integration paths — see §3 |
 | `TOVSolver_Thread` | **COMPILED, UNEXERCISED** | Bookkeeping subclass, 124 lines |

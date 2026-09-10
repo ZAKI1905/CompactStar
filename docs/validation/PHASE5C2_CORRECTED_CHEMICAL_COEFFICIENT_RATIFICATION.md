@@ -300,3 +300,13 @@ CANDIDATE-VALIDATED / INDEPENDENTLY REVIEWED / HUMAN-RATIFIED** for the governed
 scope and are **NOT YET CANONICALLY INTEGRATED**. GC13 remains **SOURCE-LIMITED / BLOCKED** and
 INV-11 remains **UNRESOLVED**. This record installs no baseline, performs no canonical merge, and
 authorizes no eta evolution, weak rates, heating/cooling, realistic A18 closure, or BNV.
+
+## 11. Subsequent canonical-integration status — 2026-09-10
+
+Section 10 remains the historical disposition of this ratification gate. Subsequent governed
+integration preserved this reviewed candidate byte-for-byte, installed a separately classified
+baseline, and added a fresh-producer regression. The generic/free-gas coefficient scope is now
+**CANONICALLY INTEGRATED / GOVERNED / CLOSED**, while every ratified caveat remains controlling.
+GC13 remains **SOURCE-LIMITED / BLOCKED**, global INV-11 remains **UNRESOLVED**, and no eta
+evolution, weak rates, heating/cooling, realistic A18 closure, Phase-5D, or BNV was implemented.
+See `docs/validation/PHASE5C2_CORRECTED_CHEMICAL_COEFFICIENT_INTEGRATION.md`.

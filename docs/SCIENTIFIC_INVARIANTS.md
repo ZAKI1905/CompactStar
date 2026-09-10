@@ -1,5 +1,16 @@
 # CompactStar Scientific Invariants
 
+> **Phase-5C-2INT (2026-09-10): CORRECTED CHEMICAL COEFFICIENTS CANONICAL
+> INTEGRATION VALIDATED / GOVERNED REGRESSION INSTALLED / CLOSED FOR GENERIC/FREE-GAS
+> SCOPE.** The accepted `G_y`, `Q`, `Z`, `I_phys`, and `W` layer is protected by a fresh-producer
+> governed regression. GC1-GC12, GC9b, and GC14 pass within their ratified classifications; GC13
+> remains **SOURCE-LIMITED / BLOCKED** on realistic A18 authority. The exact compiler fields in the
+> Phase-5B and Phase-5C artifacts remain mandatory execution provenance but are the sole portable
+> cross-compiler fields; every scientific and other provenance field remains equality-bearing.
+> INV-09 remains **VERIFIED / RESOLVED**, global INV-11 remains **UNRESOLVED**, and no eta
+> evolution, weak rates, heating/cooling, realistic A18 closure, or BNV is implemented. Evidence:
+> `docs/validation/PHASE5C2_CORRECTED_CHEMICAL_COEFFICIENT_INTEGRATION.md`.
+
 > **STATUS: RATIFIED — 2026-08-31.** Normative at authority rank 3 (`GOVERNANCE.md` §1, §7).
 > Ratified at commit `617bb0e`, subject to the status distinctions below: ratification
 > accepts **the register**, not the correctness of the code or physics it records. See
@@ -967,17 +978,18 @@ Phase 5.
 
 ## INV-11 — Chemical-imbalance redshift convention — **UNRESOLVED**
 
-**Current Phase-5C-2RAT boundary.** ADR-0013 is **ACCEPTED** and partially resolves INV-11(a)
+**Current Phase-5C-2INT boundary.** ADR-0013 is **ACCEPTED / IMPLEMENTED / INTEGRATED** and
+partially resolves INV-11(a)
 only for coefficient-object semantics: `eta^infinity=e^nu eta_local`; named `npe` and `np-mu`
 channels; exactly one `e^-nu` in global `G_y`; `Z` acting on redshifted imbalance; and `W` units,
 source sign, and structural dependency. It does not define the evolved-state ordering or
 representation, storage units/conversion boundary, reaction stoichiometry, net-rate sign
 ownership, changing coefficients/background, thermal/neutrino partition, or solver coupling.
-The coefficient objects are implemented, candidate-validated, independently reviewed, and
-human-ratified for generic/free-gas scope, but are not yet canonically integrated. No evolution
-object is implemented. INV-11 therefore remains **UNRESOLVED** and fail-closed for secular evolution
+The coefficient objects are canonically integrated and governed by fresh-producer regression for
+generic/free-gas scope. No evolution object is implemented. INV-11 therefore remains
+**UNRESOLVED** and fail-closed for secular evolution
 (`docs/adr/ADR-0013-corrected-rotochemical-chemical-coefficients.md`,
-`docs/validation/PHASE5C2_CORRECTED_CHEMICAL_COEFFICIENT_RATIFICATION.md`).
+`docs/validation/PHASE5C2_CORRECTED_CHEMICAL_COEFFICIENT_INTEGRATION.md`).
 
 **Current Phase 5A-5 boundary.** The human-ratified p-e branch adds only the local active conjugate
 `h_pe=mu_p+mu_e`; the inactive neutron condition is a separately named value diagnostic.
