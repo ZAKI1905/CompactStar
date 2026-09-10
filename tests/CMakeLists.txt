@@ -579,3 +579,10 @@ target_link_libraries(relativistic_unit_background PRIVATE CompactStar)
 add_test(NAME relativistic_unit_background COMMAND relativistic_unit_background)
 set_tests_properties(relativistic_unit_background PROPERTIES
     LABELS "relativity;units;tov;scientific;self-contained" TIMEOUT 300)
+
+# Phase-5D candidate analytic machinery; no governed time-series baseline.
+add_executable(phase5d_response rotochemical/response.cpp)
+target_link_libraries(phase5d_response PRIVATE CompactStar)
+add_test(NAME phase5d_response COMMAND phase5d_response)
+add_test(NAME phase5d_independent_oracles COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/rotochemical/oracles.py" $<TARGET_FILE:phase5d_response>)
+set_tests_properties(phase5d_response phase5d_independent_oracles PROPERTIES LABELS "phase5d;phase5d-analytic;scientific;self-contained" TIMEOUT 180)
