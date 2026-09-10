@@ -47,6 +47,24 @@ set_tests_properties(chemical_production_validation PROPERTIES
     FIXTURES_REQUIRED chemical_characterization
     LABELS "phase5c;track-r;self-contained;scientific" TIMEOUT 2400 RUN_SERIAL TRUE)
 
+# Governed Phase-5C corrected-coefficient regression. The producer completes a
+# fresh Structure-1 characterization and production G/Q/Z/I/W computation
+# before the comparator reads the baseline or reviewed candidate. The only
+# portable equality exclusion is provenance.toolchain.compiler; its actual
+# values are retained, validated and reported.
+add_test(NAME phase5c_chemical_coefficient_regression COMMAND "${Python3_EXECUTABLE}"
+    "${CMAKE_CURRENT_SOURCE_DIR}/analysis/chemical_coefficient_regression.py"
+    --producer "${CMAKE_CURRENT_SOURCE_DIR}/analysis/produce_chemical_coefficient_reference.py"
+    --characterization-executable $<TARGET_FILE:chemical_trackr_fixture>
+    --production-executable $<TARGET_FILE:chemical_production_fixture>
+    --source-root "${PROJECT_SOURCE_DIR}"
+    --baseline "${CMAKE_CURRENT_SOURCE_DIR}/baselines/phase5c_chemical_coefficients.json"
+    --reviewed-candidate "${PROJECT_SOURCE_DIR}/docs/validation/phase5c_chemical_coefficients_candidate.json"
+    --output-root "${CMAKE_CURRENT_BINARY_DIR}/phase5c-regression-evidence")
+set_tests_properties(phase5c_chemical_coefficient_regression PROPERTIES
+    LABELS "phase5c;track-r;self-contained;scientific;regression"
+    TIMEOUT 3600 RUN_SERIAL TRUE)
+
 # ADR-0011 candidate analytic particle-current oracles (PB1-PB5).
 add_executable(particle_number_analytic analysis/particle_number_analytic.cpp)
 target_link_libraries(particle_number_analytic PRIVATE CompactStar)
