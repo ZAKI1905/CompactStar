@@ -612,3 +612,28 @@ closure. INV-11 remains **UNRESOLVED** for evolved chemical-state ownership, sto
 evolution, rates, and evolution coupling. This addendum authorizes no eta evolution, weak rates,
 neutrino/heating evolution, realistic A18 closure, superfluidity, or BNV. The human-ratified
 candidate still requires a separate governed canonical-integration task before Phase-5C closes.
+
+## 14. Phase-5C-2INT-R portable regression provenance addendum — 2026-09-09
+
+**ADR-0013 remains ACCEPTED and the accepted Phase-5C physics is unchanged.** The human owner
+ratifies `provenance.toolchain.compiler` as mandatory execution provenance rather than a
+cross-toolchain scientific-identity equality field. Every fresh artifact must retain the actual,
+nonempty compiler identity/version emitted by its build; compiler provenance may not be
+normalized, fabricated, removed, or copied from an earlier artifact.
+
+The governed structured comparator may exclude from equality only the exact path
+`provenance.toolchain.compiler`, after retaining and reporting both values. Every scientific
+value, numerical error, validation envelope, certificate, source/provider identity, physical
+constant, method, basis, unit, domain, partition, support/onset/refusal/tail policy, accuracy
+goal, structural source, predeclaration identity, and every other toolchain or environment field
+remains equality-bearing. A compiler change does not excuse any scientific or numerical change;
+any additional difference is a regression failure. Another environment-field difference stops
+for separate adjudication rather than widening the allowlist.
+
+The authenticated Apple-LLVM-17 reviewed candidate and fresh Apple-LLVM-21 production artifact
+were identical in every equality-bearing field and differed only at the compiler path. This is
+positive portability evidence, not proof of compiler independence. It introduces no numerical
+tolerance and does not change `G`, `Q`, `Z`, `I`, `W`, numerical-error semantics,
+validation-envelope semantics, support/rank semantics, or any acceptance goal. The detailed
+owner-ratified decision and required comparator controls are recorded in
+`docs/validation/PHASE5C2_GOVERNED_REGRESSION_PORTABILITY_RATIFICATION.md`.
