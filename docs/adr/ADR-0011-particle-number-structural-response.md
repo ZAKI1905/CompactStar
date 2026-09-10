@@ -370,3 +370,25 @@ baseline byte, or domain. Phase-5B INV-09 closure remains **VERIFIED / RESOLVED*
 review qualifications retained (`docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_INTEGRATION.md:99`,
 `docs/validation/PHASE5B_INV09_GLOBAL_RESPONSE_INTEGRATION.md:127`). INV-11 remains
 **UNRESOLVED**.
+
+## Governed-regression compiler-portability addendum — 2026-09-10
+
+**ADR-0011 remains ACCEPTED and integrated; INV-09 is not reopened.** The human owner ratifies
+the exact field `provenance.build.compiler` as mandatory execution-environment provenance rather
+than a cross-compiler scientific-identity equality field. Every fresh Phase-5B artifact must record
+its actual, nonempty compiler string. That value may not be normalized, fabricated, removed, or
+copied from the historical baseline.
+
+When compiler strings are identical, the governed regression continues to require complete
+raw-byte identity. When they differ, the comparator may exempt only
+`provenance.build.compiler`, must retain and report both strings, and must require exact parsed
+equality everywhere else. No other `provenance.build.*` field is exempt. Any numerical,
+scientific, source, EOS, architecture, configuration, or other provenance difference remains a
+regression failure; no tolerance is widened.
+
+The historical Phase-5B governed baseline remains byte-identical. The authenticated
+Apple-LLVM-17 baseline and Apple-LLVM-21 regeneration agree in every equality-bearing field and
+differ only at the compiler path. This is positive portability evidence, not proof of compiler
+independence, and it changes no Phase-5B central value, error, formula, domain, physics, or INV-09
+status. The detailed decision and comparator controls are recorded in
+`docs/validation/PHASE5B_GOVERNED_REGRESSION_PORTABILITY_RATIFICATION.md`.
