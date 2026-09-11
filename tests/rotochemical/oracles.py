@@ -35,4 +35,5 @@ for line in subprocess.check_output([exe,'integrals'],text=True).splitlines():
         assert residual>m.mpf('1e-10'),('surviving mutation',q,mutant,residual)
         mutants+=1
     print('RE10b',q,mutant,'relative_residual',float(residual))
-print('PASS RE10b independent integrator oracle; transformed-input mutant cases',mutants,'(9 families, 2 q values)')
+assert mutants == 17
+print('PASS RE10b independent integrator oracle; distinct transformed-input mutant cases',mutants,'(9 families; q=6 wrong-q/extra-two-lapse alias counted once)')

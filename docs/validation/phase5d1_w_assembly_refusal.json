@@ -1,0 +1,49 @@
+{
+  "W_numerical_goals_MeV_s2": [
+    1e-12,
+    4e-12
+  ],
+  "canonical_entry": "d019ae390be4f5e3daba05039903485cb497e397",
+  "classification": "pre-result diagnostic refusal; not a governed baseline or validated coupled candidate",
+  "coupled_trajectory_generated": false,
+  "exception": "AccuracyGoalUnmet",
+  "independent_review": "read-only validation specialist confirmed unchanged assembly math and frozen-goal transport",
+  "logs": {
+    "build/phase5d-audit/assembly10000-bound.log": {
+      "sha256": "42e858e84167be06cad3d9026474370b5dc2368044bba82217799bc3ee1c5aa4"
+    },
+    "build/phase5d-audit/assembly10000-diagnostic.log": {
+      "sha256": "54faf9287c9d8f10bdce38ada88420af9e6d7cda21bbd6c1b04a4f59bb10cef6"
+    },
+    "build/phase5d-audit/assembly10000.log": {
+      "sha256": "559bfb432c61b8ea106ae8b239ea1068b86b13c22f8fb627dfda4641e8a8e103"
+    },
+    "build/phase5d-audit/certificate10000.txt": {
+      "sha256": "f45f822527bef5dfe1ec38bf7d827324c62035e915d8b2cf73c5bebf7b482b8e"
+    },
+    "build/phase5d-audit/certificates10000.json": {
+      "sha256": "29cf5814e45f4ac228e22b318e0d5900036a23dba4e170e2223b91fea4df0d10"
+    },
+    "build/phase5d-audit/prepare.py": {
+      "sha256": "d6b6743c754fd64a8422d0ac16326b7ed288b662e1862a5ae7e81c8e8be7ab09"
+    },
+    "build/phase5d-audit/upstream-only-refusal.log": {
+      "sha256": "d4736e48feaba695626b734e49cff766712d26d770cf55ba8ba22d9fad4ab8f1"
+    }
+  },
+  "positive_structural_terms_sum_MeV_s2": [
+    8.918515424724095e-12,
+    3.263850588763438e-11
+  ],
+  "predeclaration_sha": "697ec14610d63640866f3c0aed0a51d567cb037d",
+  "qualification_limit": "Background/provider/anchor characterization came from radial40000/80000, not radial10000; G/Z computational acceptance is not scientific qualification of the new background. No rejected W object was used.",
+  "radial_resolution": 10000,
+  "raw_rc": 1,
+  "response_sha": "14b74cba1a0c7b6faec591aedf6f5c9a76fa42d6",
+  "source_gate": "CompactStar/Analysis/src/ChemicalResponse.cpp:804",
+  "structural_terms_to_goal_ratio": [
+    8.918515424724095,
+    8.159626471908595
+  ],
+  "table_resolution": 8192
+}

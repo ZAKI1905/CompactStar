@@ -1,5 +1,7 @@
 # CompactStar Scientific Invariants
 
+> **Phase-5D-1 branch status (2026-09-10): RESPONSE MACHINERY IMPLEMENTED / FOCUSED ANALYTIC TESTS PASSED; COUPLED EVOLUTION PRE-RESULT BLOCKED.** The frozen radial-10000 assembly fails W numerical acceptance before any trajectory. The response commit adds typed eta/function/process/support/global-Ltilde/reaction-ledger objects; integrated evolution and full INV-11b-f closure remain pending. Global INV-11 remains **UNRESOLVED**. No completed evolution candidate, independent review, owner ratification, canonical integration, realistic A18 normalization or BNV is claimed. See `docs/validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_IMPLEMENTATION.md`. Earlier Phase-5D-0 statements below describe canonical entry and are historical for this branch.
+
 > **Phase-5D-0INT (2026-09-10): ADR-0014 / SECULAR ROTOCHEMICAL-EVOLUTION CONTRACT
 > HUMAN-RATIFIED AND CANONICALLY INTEGRATED; PRODUCTION IMPLEMENTATION NOT YET BEGUN.** The
 > accepted controlled non-superfluid v1 contract governs evolved

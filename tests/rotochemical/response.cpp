@@ -28,6 +28,9 @@ int main(int argc,char** argv)
             for(auto p:{UrcaProcess::De,UrcaProcess::Me}) for(int mutant=0;mutant<9;++mutant) {
                 auto r=urca_request();r.selection=UrcaProcessSelection{p};r.normalizations.clear();
                 const int q=TemperatureExponent(p);
+                // At q=6, changing q to 8 equals the extra-two-lapse mutant (3).
+                // It is one algebraic case, not an additional mutation credit.
+                if(q==6 && mutant==7) continue;
                 // Equivalent transformed-input mutants exercise the ACTUAL integrator.
                 // Lapse: remove all, missing one, G_y substitution, extra, sign-flipped.
                 r.metric=[mutant,q](double x){ double nu=-.4+.1*x*x,lambda=.2*x*x;
@@ -108,6 +111,6 @@ int main(int argc,char** argv)
         std::reverse(r.radial_partition_km.begin(),r.radial_partition_km.end());refuse([&]{GlobalUrcaChannelCoefficient::Compute(r);},"innermost-first");
         coefficients->ChemicalDomain()->Lifetime()->revision->domain+="changed";
         refuse([&]{response.Evaluate(1e7,state);},"Stale");
-        std::cout<<"PASS RE1-9 RE10b/RE12 response RE16-18 support/currency\n";return 0;
+        std::cout<<"PASS focused state/units/functions/rates/response-ledger/support/currentness checks; coupled RE ladder pending\n";return 0;
     } catch(const std::exception& e) {std::cerr<<"FAIL "<<e.what()<<'\n';return 1;}
 }
