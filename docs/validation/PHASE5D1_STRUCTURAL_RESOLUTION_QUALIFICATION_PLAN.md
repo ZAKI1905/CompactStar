@@ -77,10 +77,11 @@ scratch with its governed ladder:
 - EOS 8192 / radial 40000: lower radial/background characterization only;
 - EOS 8192 / radial 80000: the sole production background and finest characterization.
 
-The accepted Phase-5B structural radial characterization additionally uses
-radial 20000 and 40000 evidence where the governed PB6/producer method calls for
-the 20000/40000/80000 ladder. These are characterization runs only. The
-production `A/B/K/I` construction and W factory use radial 80000.
+The accepted Phase-5B structural radial characterization uses fresh, complete
+`A/B/K/I` constructions at radial 20000, 40000, and 80000 through the governed
+`chemical_structural_envelope` test-side instrument, plus fresh PB6, PB7,
+PB9--11, PB12, and PB13 evidence. The lower rungs are characterization runs
+only. The production `A/B/K/I` construction and W factory use radial 80000.
 
 ## 4. Fresh dependency reconstruction
 
@@ -99,19 +100,34 @@ calculation. In particular the qualification freshly reconstructs:
 - global `G`, every accepted G error component, support/rank/conditioning and
   partition diagnostics;
 - derived `Q`, `E_Q`, `Z`, `E_Z`, solve/arithmetic contributions;
+- a fresh structural validation envelope from the accepted M1/M2, PB6, PB7,
+  PB9--11, PB12, and PB13 construction, including every `V_K` term and the
+  resulting `V_I_validation`;
 - `W`, each numerical-error contribution, total `E_W`, and the separately
-  classified validation envelope; and
+  classified fresh validation envelope; and
 - compiler, architecture, build configuration, EOS/source hashes, provider and
   profile identities/versions, chemical domain, quadrature, tail policy,
   node/partition counts, currentness and lifetime/refusal evidence.
 
 Resolution-independent authorities may be reused only as immutable contracts,
 not numerical seeds: physical constants and unit definitions, the governed EOS
-source generator/model identity, source-code bytes, fixed absolute goals, the
-predeclared empirical `V_I_validation` envelope, and the accepted compiler-only
-portable-provenance comparison rule. Their source authority and classification
-will be recorded field by field. No radial-dependent cached evidence is
+source generator/model identity, source-code bytes, fixed absolute goals, and
+the accepted compiler-only portable-provenance comparison rule. Their source
+authority and classification will be recorded field by field. The stored
+`V_I_validation` in `phase5c2_preproduction_evidence.json` is resolution
+dependent and is therefore not an admissible input to this qualification; it
+must be freshly reconstructed. No radial-dependent cached evidence is
 authorized for reuse.
+
+The initial post-plan probe of the unmodified governed producer is explicitly
+excluded from qualification: its first invocation stopped before
+characterization because the shell-default Python lacked `mpmath`, and the
+second invocation was terminated when source inspection established that the
+unmodified producer transports the stored `V_I_validation`. The independent
+PB6 probe generated alongside it is also excluded. Both scratch attempts remain
+retained as preparation evidence. All admissible M1/M2, PB, chemical
+characterization, certificate, and production results will be generated again
+in new directories after this correction is committed.
 
 The final 80000 certificate must identify the production resolution, or the
 resolution-independence authority, for every field. A radial-dependent
