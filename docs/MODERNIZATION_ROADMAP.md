@@ -1,6 +1,6 @@
 # CompactStar Modernization Roadmap
 
-> **Phase-5D-1RAT branch status (2026-09-12): CONTROLLED NON-SUPERFLUID ROTOCHEMICAL EVOLUTION IMPLEMENTED / CANDIDATE-VALIDATED / INDEPENDENTLY REVIEWED / HUMAN-RATIFIED FOR CONTROLLED FROZEN-V1 SCOPE.** The scoped INV-11b-f controlled/frozen-v1 subparts are owner-resolved but not yet canonically integrated; global INV-11 remains **UNRESOLVED**. The candidate baseline is not installed, and canonical `master` at `d019ae390be4f5e3daba05039903485cb497e397` still lacks the Phase-5D implementation. The `P0=1 ms` trajectory remains a super-Kepler mathematical control with no physical pulsar interpretation, the actual envelope is FR2005 eq. (49) / PCY97 fully accreted rather than iron, and reproducibility-harness repair is mandatory before baseline promotion. Realistic FR2005/A18 remains **SOURCE-LIMITED / BLOCKED**; BNV **NOT BEGUN**. See [ratification](validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_RATIFICATION.md), [implementation evidence](validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_IMPLEMENTATION.md), and the [unchanged candidate artifact](validation/phase5d1_controlled_evolution_candidate.json). Earlier branch/canonical-entry statements below are historical and retain their original scope.
+> **Phase-5D-1G0 branch status (2026-09-12): CONTROLLED NON-SUPERFLUID ROTOCHEMICAL EVOLUTION HUMAN-RATIFIED; REPRODUCIBILITY HARNESS REPAIRED / FRESH-CONTEXT VALIDATED; PROMOTION CANDIDATE PREPARED / NOT YET GOVERNED.** Two detached no-build contexts regenerated every qualification, thermal, executable, oracle, and trajectory dependency and produced byte-identical scientific artifacts; complete validation passed 51/51 data-free and 74/74 authenticated. The scoped INV-11b-f controlled/frozen-v1 subparts are owner-resolved but not canonically integrated; global INV-11 remains **UNRESOLVED**. No Phase-5D baseline is installed, and canonical `master` at `d019ae390be4f5e3daba05039903485cb497e397` remains unchanged. The `P0=1 ms` trajectory remains a super-Kepler mathematical control with `physical_spin_interpretation=false`, and the corrected provenance is FR2005 eq. (49) / PCY97 fully accreted. Realistic FR2005/A18 remains **SOURCE-LIMITED / BLOCKED**; BNV **NOT BEGUN**. See [preparation record](validation/PHASE5D1_GOVERNED_ARTIFACT_PREPARATION.md), [historical candidate](validation/phase5d1_controlled_evolution_candidate.json), and [promotion candidate](validation/phase5d1_controlled_evolution_promotion_candidate.json). Earlier branch/canonical-entry statements below are historical and retain their original scope.
 
 > **Historical Phase-5D-1 branch status (2026-09-10): RESPONSE MACHINERY IMPLEMENTED / FOCUSED ANALYTIC TESTS PASSED; COUPLED EVOLUTION PRE-RESULT BLOCKED.** The frozen radial-10000 assembly fails W numerical acceptance before any trajectory. The response commit adds typed eta/function/process/support/global-Ltilde/reaction-ledger objects; integrated evolution and full INV-11b-f closure remain pending. Global INV-11 remains **UNRESOLVED**. No completed evolution candidate, independent review, owner ratification, canonical integration, realistic A18 normalization or BNV is claimed. See `docs/validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_IMPLEMENTATION.md`. Earlier Phase-5D-0 statements below describe canonical entry and are historical for this branch.
 
@@ -765,16 +765,17 @@ accepted ✅** (production implementation pending; global INV-11 remains unresol
 
 Later Phase-5 work following this structural closeout:
 
-- **PHASE-5D CONTROLLED NON-SUPERFLUID EVOLUTION IMPLEMENTED / CANDIDATE-VALIDATED /
-  INDEPENDENTLY REVIEWED / HUMAN-RATIFIED FOR CONTROLLED FROZEN-V1 SCOPE.**
+- **PHASE-5D CONTROLLED NON-SUPERFLUID EVOLUTION HUMAN-RATIFIED; REPRODUCIBILITY
+  HARNESS REPAIRED / FRESH-CONTEXT VALIDATED; PROMOTION CANDIDATE PREPARED / NOT GOVERNED.**
   ADR-0014 remains the accepted canonical contract. The provenance-preserving downstream
   frozen context, same-Ltilde ledger and scaled RKF45 candidate complete the controlled
   trajectory and frozen validation gates. The Opus independent review passed with retained
-  nonblocking caveats and the owner ratified the controlled scope. No governed Phase-5D
-  baseline or canonical merge occurred; the reproducibility harness must be repaired before
-  baseline promotion. Global INV-11 remains unresolved. Realistic FR2005/A18 remains
+  nonblocking caveats and the owner ratified the controlled scope. Two independent fresh
+  contexts now produce byte-identical scientific artifacts and complete validation passes.
+  No governed Phase-5D baseline or canonical merge occurred. Global INV-11 remains unresolved.
+  Realistic FR2005/A18 remains
   source-limited and blocked; BNV has not begun. Evidence:
-  `docs/validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_RATIFICATION.md`.
+  `docs/validation/PHASE5D1_GOVERNED_ARTIFACT_PREPARATION.md`.
 
 - **PHASE-5C CORRECTED CHEMICAL COEFFICIENTS IMPLEMENTED / VALIDATED / INDEPENDENTLY REVIEWED /
   HUMAN-RATIFIED / CANONICALLY INTEGRATED / GOVERNED BY FRESH-PRODUCER REGRESSION / CLOSED FOR
