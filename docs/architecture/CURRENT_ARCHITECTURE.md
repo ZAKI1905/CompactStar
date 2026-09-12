@@ -1,6 +1,6 @@
 # CompactStar — Current Architecture
 
-> **Phase-5D-1C2 branch status (2026-09-11): CONTROLLED NON-SUPERFLUID ROTOCHEMICAL EVOLUTION IMPLEMENTED / CANDIDATE-VALIDATED.** The first provenance-preserving coupled T/eta trajectory, refined convergence, analytic/ownership/mutation tests, frozen 1/7 criterion and complete authenticated suite pass. The exact 33-path governed source set is unchanged. INV-11b/c/d and INV-11e (frozen-v1) / INV-11f (controlled-v1) are **IMPLEMENTED / CANDIDATE-VALIDATED**; global INV-11 remains **UNRESOLVED / AWAITING INDEPENDENT REVIEW AND OWNER RATIFICATION**. This branch is not independently reviewed, human-ratified, canonically integrated or closed. Realistic FR2005/A18 remains **SOURCE-LIMITED / BLOCKED**; BNV **NOT BEGUN**. See [implementation evidence](../validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_IMPLEMENTATION.md) and [candidate artifact](../validation/phase5d1_controlled_evolution_candidate.json). Earlier branch/canonical-entry status statements below are historical and retain their original scope.
+> **Phase-5D-1RAT branch status (2026-09-12): CONTROLLED NON-SUPERFLUID ROTOCHEMICAL EVOLUTION IMPLEMENTED / CANDIDATE-VALIDATED / INDEPENDENTLY REVIEWED / HUMAN-RATIFIED FOR CONTROLLED FROZEN-V1 SCOPE.** The scoped INV-11b-f controlled/frozen-v1 subparts are owner-resolved but not yet canonically integrated; global INV-11 remains **UNRESOLVED**. The candidate baseline is not installed, and canonical `master` at `d019ae390be4f5e3daba05039903485cb497e397` does not contain this implementation. The `P0=1 ms` trajectory is a super-Kepler mathematical control with no permitted physical pulsar interpretation; the actual envelope is FR2005 eq. (49) / PCY97 fully accreted, not iron; scaled RKF45 is accepted only for this benchmark; and reproducibility-harness repair is mandatory before baseline promotion. Realistic FR2005/A18 remains **SOURCE-LIMITED / BLOCKED**; BNV **NOT BEGUN**. See [ratification](../validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_RATIFICATION.md), [implementation evidence](../validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_IMPLEMENTATION.md), and the [unchanged candidate artifact](../validation/phase5d1_controlled_evolution_candidate.json). Earlier branch/canonical-entry statements below are historical and retain their original scope.
 
 > **Historical Phase-5D-1 branch status (2026-09-10): RESPONSE MACHINERY IMPLEMENTED / FOCUSED ANALYTIC TESTS PASSED; COUPLED EVOLUTION PRE-RESULT BLOCKED.** The frozen radial-10000 assembly fails W numerical acceptance before any trajectory. The response commit adds typed eta/function/process/support/global-Ltilde/reaction-ledger objects; integrated evolution and full INV-11b-f closure remain pending. Global INV-11 remains **UNRESOLVED**. No completed evolution candidate, independent review, owner ratification, canonical integration, realistic A18 normalization or BNV is claimed. See `docs/validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_IMPLEMENTATION.md`. Earlier Phase-5D-0 statements below describe canonical entry and are historical for this branch.
 
@@ -316,6 +316,7 @@ TimeSeriesObserver + DiagnosticsObserver            LIVE
 | `ProfileVersionedCache` | **LIVE — one client** | Only `NeutrinoCooling`. Not used by DU mask, heat capacity, or rotochemical |
 | `UnitContract` / `UnitVocabulary` | **COMPILED, UNEXERCISED** | Plumbing real; every producer returns an empty contract |
 | `RotochemicalCache` | **NOT COMPILED · CANDIDATE** | Absent from `Physics/Evolution/CMakeLists.txt`; `Build()` has zero callers. **Known nonconformant with ADR-0001** — see below |
+| Phase-5D controlled pipeline (`FrozenRotochemicalRunContext`, `SecularEvolutionDriver`, `ScaledRKF45`) | **LIVE ON CANDIDATE BRANCH — HUMAN-RATIFIED FOR CONTROLLED FROZEN-V1 / NOT CANONICALLY INTEGRATED** | The Phase-5D-owned immutable context retains semantic G/Z/W/fixed-response and same-`Ltilde` authorities, thermal-source bytes, one prescribed-spin owner, and the typed `(ln(Tinf/1e8 K),eta_npe,eta_npmu)` layout. The controlled driver evolves the two-channel modified-Urca ledger on the fixed free-gas background. Opus independent review and owner ratification are complete with explicit caveats; no governed Phase-5D baseline exists, and canonical `master` does not contain these components. `docs/validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_RATIFICATION.md` |
 | `CheckpointObserver` | **EMPTY** | 0 bytes; not in any CMakeLists |
 
 ### Drivers
@@ -706,14 +707,17 @@ below is historical.
 
 ## 6. What this document does **not** claim
 
-- The controlled non-superfluid rotochemical pipeline is **IMPLEMENTED / CANDIDATE-VALIDATED**
-  on this branch. Phase-5D-owned `FrozenRotochemicalRunContext` retains semantic G/Z/W/fixed
+- The controlled non-superfluid rotochemical pipeline is **IMPLEMENTED / CANDIDATE-VALIDATED /
+  INDEPENDENTLY REVIEWED / HUMAN-RATIFIED FOR CONTROLLED FROZEN-V1 SCOPE** on this branch.
+  Phase-5D-owned `FrozenRotochemicalRunContext` retains semantic G/Z/W/fixed
   and Ltilde authorities, source bytes, shared spin and thermal owners; `SecularEvolutionDriver`
   and local `ScaledRKF45` evolve typed T/eta. The 33 governed sources and generic evolution,
   Analysis, EOS and Core code remain unchanged. Phase-5B/5C remain canonical governed
-  authorities. This controlled candidate is not independently reviewed, human-ratified or
-  canonically integrated; global INV-11 remains unresolved. Realistic FR2005/A18 remains
-  source-limited and blocked, and BNV is not begun.
+  authorities. This controlled candidate is not governed-baseline promoted or canonically
+  integrated; canonical `master` does not contain it, and global INV-11 remains unresolved.
+  The ratification does not claim realistic FR2005 thermal reproduction or a physically
+  admissible `P0=1 ms` trajectory. Realistic FR2005/A18 remains source-limited and blocked,
+  and BNV is not begun.
 
 - It does **not** claim second-order Hartle is validated. It is publicly callable, has zero
   repository callers, is unverified, and its equations are recorded as defective (INV-08;

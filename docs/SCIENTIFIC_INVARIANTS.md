@@ -1,6 +1,6 @@
 # CompactStar Scientific Invariants
 
-> **Phase-5D-1C2 branch status (2026-09-11): CONTROLLED NON-SUPERFLUID ROTOCHEMICAL EVOLUTION IMPLEMENTED / CANDIDATE-VALIDATED.** The first provenance-preserving coupled T/eta trajectory, refined convergence, analytic/ownership/mutation tests, frozen 1/7 criterion and complete authenticated suite pass. The exact 33-path governed source set is unchanged. INV-11b/c/d and INV-11e (frozen-v1) / INV-11f (controlled-v1) are **IMPLEMENTED / CANDIDATE-VALIDATED**; global INV-11 remains **UNRESOLVED / AWAITING INDEPENDENT REVIEW AND OWNER RATIFICATION**. This branch is not independently reviewed, human-ratified, canonically integrated or closed. Realistic FR2005/A18 remains **SOURCE-LIMITED / BLOCKED**; BNV **NOT BEGUN**. See [implementation evidence](validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_IMPLEMENTATION.md) and [candidate artifact](validation/phase5d1_controlled_evolution_candidate.json). Earlier branch/canonical-entry status statements below are historical and retain their original scope.
+> **Phase-5D-1RAT branch status (2026-09-12): CONTROLLED NON-SUPERFLUID ROTOCHEMICAL EVOLUTION IMPLEMENTED / CANDIDATE-VALIDATED / INDEPENDENTLY REVIEWED / HUMAN-RATIFIED FOR CONTROLLED FROZEN-V1 SCOPE.** INV-11b/c/d are owner-resolved for controlled frozen-v1, INV-11e for frozen-v1 coefficient semantics, and INV-11f for controlled frozen-v1 ODE/source coupling; all remain **NOT YET CANONICALLY INTEGRATED**. Global INV-11 remains **UNRESOLVED**. The candidate baseline is not installed, and canonical `master` at `d019ae390be4f5e3daba05039903485cb497e397` does not contain the Phase-5D implementation. The `P0=1 ms` history is a super-Kepler mathematical driver with no permitted physical pulsar interpretation; the actual envelope is FR2005 eq. (49) / PCY97 fully accreted, not iron; and reproducibility-harness repair is mandatory before baseline promotion. Realistic FR2005/A18 remains **SOURCE-LIMITED / BLOCKED**; BNV **NOT BEGUN**. See [ratification](validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_RATIFICATION.md), [implementation evidence](validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_IMPLEMENTATION.md), and [unchanged candidate artifact](validation/phase5d1_controlled_evolution_candidate.json). Earlier branch/canonical-entry statements below are historical and retain their original scope.
 
 > **Historical Phase-5D-1 branch status (2026-09-10): RESPONSE MACHINERY IMPLEMENTED / FOCUSED ANALYTIC TESTS PASSED; COUPLED EVOLUTION PRE-RESULT BLOCKED.** The frozen radial-10000 assembly fails W numerical acceptance before any trajectory. The response commit adds typed eta/function/process/support/global-Ltilde/reaction-ledger objects; integrated evolution and full INV-11b-f closure remain pending. Global INV-11 remains **UNRESOLVED**. No completed evolution candidate, independent review, owner ratification, canonical integration, realistic A18 normalization or BNV is claimed. See `docs/validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_IMPLEMENTATION.md`. Earlier Phase-5D-0 statements below describe canonical entry and are historical for this branch.
 
@@ -994,12 +994,16 @@ Phase 5.
 
 ## INV-11 — Chemical-imbalance redshift convention — **UNRESOLVED**
 
-**Current Phase-5D-1C2 branch boundary.** Controlled non-superfluid evolution is
-**IMPLEMENTED / CANDIDATE-VALIDATED**. INV-11b/c/d, INV-11e for frozen-v1 semantics,
-and INV-11f for controlled v1 have executable candidate evidence. Global INV-11
-remains **UNRESOLVED / AWAITING INDEPENDENT REVIEW AND OWNER RATIFICATION**.
-No independent scientific review, human ratification, canonical integration,
-realistic A18 closure, or BNV is claimed. See the Phase-5D-1C2 implementation record.
+**Current Phase-5D-1RAT branch boundary.** Controlled non-superfluid evolution is
+**IMPLEMENTED / CANDIDATE-VALIDATED / INDEPENDENTLY REVIEWED / HUMAN-RATIFIED FOR
+CONTROLLED FROZEN-V1 SCOPE**. INV-11b/c/d are **RESOLVED FOR CONTROLLED FROZEN-V1
+SCOPE / NOT YET CANONICALLY INTEGRATED**; INV-11e is **RESOLVED FOR FROZEN-V1
+COEFFICIENT SEMANTICS / NOT YET CANONICALLY INTEGRATED**; and INV-11f is
+**RESOLVED FOR CONTROLLED FROZEN-V1 ODE/SOURCE COUPLING / NOT YET CANONICALLY
+INTEGRATED**. Global INV-11 remains **UNRESOLVED** because canonical integration
+and broader realistic extensions remain open. No governed Phase-5D baseline,
+canonical implementation integration, realistic A18 closure, or BNV is claimed.
+See `docs/validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_RATIFICATION.md`.
 
 **Historical Phase-5D-0INT entry boundary.** ADR-0014 is **ACCEPTED / HUMAN-RATIFIED / CANONICALLY
 INTEGRATED** for the controlled non-superfluid v1 contract. INV-11a remains **PARTIALLY RESOLVED
@@ -1348,11 +1352,12 @@ conversion, under the in-code comment *"Convert fractions to number densities in
 
 **One unresolved invariant still blocks completion of downstream chemical-state/evolution work:**
 
-- **INV-11** remains globally unresolved. Accepted ADR-0014 now governs evolved-state ordering,
-  representation, MeV storage, reaction sign/index, thermal partition, and frozen-v1 policy;
-  INV-11b/c/d, INV-11e for frozen v1, and INV-11f for controlled v1 are implemented and
-  candidate-validated on this branch. Independent scientific/numerical review and owner
-  ratification remain required; global INV-11 is not closed.
+- **INV-11** remains globally unresolved. Accepted ADR-0014 governs evolved-state ordering,
+  representation, MeV storage, reaction sign/index, thermal partition, and frozen-v1 policy.
+  INV-11b/c/d, INV-11e for frozen v1, and INV-11f for controlled v1 are implemented,
+  candidate-validated, independently reviewed, and owner-resolved within their explicit
+  controlled frozen-v1 scopes, but are not yet canonically integrated. Broader realistic
+  extensions and canonical integration remain open; global INV-11 is not closed.
 
 **INV-07 is fully resolved for first order.** ADR-0006 (ACCEPTED 2026-09-02) settled the
 contract, Phase 4A made the source conform, and **Phase 4B verified the normalized response

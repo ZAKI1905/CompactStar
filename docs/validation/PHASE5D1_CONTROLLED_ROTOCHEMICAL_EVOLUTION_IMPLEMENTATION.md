@@ -1,5 +1,14 @@
 # Phase-5D-1 response implementation and pre-result blocker
 
+> **Current Phase-5D-1RAT disposition: A — CONTROLLED NON-SUPERFLUID EVOLUTION
+> IMPLEMENTED / CANDIDATE-VALIDATED / INDEPENDENTLY REVIEWED / HUMAN-RATIFIED
+> FOR CONTROLLED FROZEN-V1 SCOPE; NOT GOVERNED-BASELINE PROMOTED OR CANONICALLY
+> INTEGRATED.** Global INV-11 remains unresolved. The candidate baseline is not
+> installed; realistic FR2005/A18 remains source-limited/blocked; BNV has not
+> begun. See the ratification-status addendum and
+> [ratification record](PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_RATIFICATION.md).
+> The candidate and blocker sections below retain their historical status.
+
 > **Current Phase-5D-1C2 disposition: A — controlled non-superfluid evolution IMPLEMENTED / CANDIDATE-VALIDATED.** The first provenance-preserving coupled trajectory, refined convergence and complete validation pass. Global INV-11 awaits independent review and owner ratification; no canonical integration is claimed. See the clearly separated Phase-5D-1C2 section below and [130-field final report](PHASE5D1_PROVENANCE_PRESERVING_FINAL_REPORT.md). The original blocker sections that follow are retained historical records.
 
 **Disposition B: PHASE-5D RESPONSE MACHINERY VALIDATED — COUPLED SECULAR EVOLUTION BLOCKED ON NUMERICAL ARCHITECTURE.** Here the numerical blocker is the frozen upstream coefficient-acceptance budget, before ODE construction. This is not a finding that RKF45 is unsuitable, or that accepted ADR-0014 is inconsistent. There is no complete controlled-evolution candidate.
@@ -424,3 +433,32 @@ and [machine-readable candidate](phase5d1_controlled_evolution_candidate.json)
 record the final disposition and the single recommended next action. The candidate
 commit contains the final test-only coverage supplement and validation/status
 records; production coupling remains in `d3670f6d4e021def0483909b6d2fdeed1c6973a4`.
+
+## Human-owner ratification status (2026-09-12)
+
+Independent scientific review is complete. The Opus review returned
+**B — PASS WITH NONBLOCKING FINDINGS**, with 0 blocking, 0 material, 7
+nonblocking, and 12 notes; Fable was not needed. This review is distinct from
+the implementation-team specialist work recorded above. Independent
+regeneration authenticated the candidate artifact, reproduced all six
+trajectories and equality-bearing evidence, confirmed 33/33 protected sources
+unchanged, and passed the Phase-5B/5C regressions plus the 50/50 data-free and
+73/73 authenticated suites with no failures or skips.
+
+Human-owner ratification is complete for the explicitly declared controlled
+mathematical/architecture frozen-v1 scope. The exact disposition, complete
+retained caveat set, and scoped INV-11 resolution are recorded in
+[the ratification record](PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_RATIFICATION.md).
+The original response-layer blocker, provenance stop, and candidate history in
+this implementation record remain historical evidence and are not rewritten.
+
+The ratification does not claim realistic FR2005 thermal reproduction. It
+retains the super-Kepler `P0=1 ms` mathematical-driver limitation, identifies
+the actual envelope as the FR2005 eq. (49) / PCY97 fully accreted fit rather
+than iron, limits RKF45 acceptance to this controlled benchmark, and requires
+reproducibility-harness repair before any governed baseline promotion.
+
+**Current status:** implementation complete; candidate validation complete;
+independent review complete; owner ratification complete; governed baseline
+promotion pending; canonical integration pending. No candidate scientific
+evidence is changed by this addendum.

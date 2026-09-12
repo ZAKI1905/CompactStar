@@ -675,3 +675,40 @@ unchanged. Phase-5C remains implemented, governed-regression protected, and clos
 generic/free-gas coefficient scope. Phase-5B and Phase-5C compiler-portability semantics remain
 unchanged. Phase-5D production implementation has **NOT BEGUN**. Global INV-11 remains
 **UNRESOLVED**; realistic FR2005/A18 remains **SOURCE-LIMITED / BLOCKED**; BNV has **NOT BEGUN**.
+
+---
+
+## 15. Phase-5D-1 implementation-ratification addendum — 2026-09-12
+
+The accepted equations and ownership contract above are unchanged. The
+controlled non-superfluid implementation now exists on
+`physics/phase5d-controlled-rotochemical-evolution`, with implementation commit
+`d3670f6d4e021def0483909b6d2fdeed1c6973a4` and candidate evidence commit
+`3486b972f71f57e8351fa8320c1ffb250fcd5c42`. The Opus independent review returned
+**B — PASS WITH NONBLOCKING FINDINGS**, with 0 blocking, 0 material, 7
+nonblocking, and 12 notes; Fable was not needed. The human owner ratifies the
+implementation only for the controlled mathematical/architecture frozen-v1
+scope documented in
+`docs/validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_RATIFICATION.md`.
+
+The prescribed `P0=1 ms` spin history is super-Kepler / physically inadmissible
+for the approximately `0.624 Msun`, `12.77 km` free-gas fixture for roughly the
+first `~2 Gyr` under empirical mass-shedding estimates. It is accepted only as
+a mathematical frozen-`W` driver; no physical pulsar interpretation is
+permitted. The implemented envelope formula is FR2005 eq. (49) / PCY97's fully
+accreted-envelope fit even though historical implementation metadata labels it
+`iron Potekhin1997`; that label is not physically correct and must be repaired
+before governed baseline promotion without changing the ratified trajectory.
+
+Scaled RKF45 is accepted as adequate only for this controlled benchmark. The
+late evolution is stability-bound with `h|lambda|` approximately `3.5-3.7`, so
+solver strategy must be reconsidered before direct-Urca or superfluid
+extensions if needed. No general realistic-evolution adequacy claim follows.
+
+INV-11b/c/d are owner-resolved for controlled frozen-v1, INV-11e for frozen-v1
+coefficient semantics, and INV-11f for controlled frozen-v1 ODE/source
+coupling, all **not yet canonically integrated**. Global INV-11 remains
+**UNRESOLVED**. Realistic Fernández–Reisenegger/A18 reproduction and
+normalization remain **SOURCE-LIMITED / BLOCKED**; no realistic A18 work or BNV
+has begun. No governed Phase-5D baseline is installed, and canonical `master`
+does not yet contain this implementation.
