@@ -1,6 +1,8 @@
 # CompactStar — Current Architecture
 
-> **Phase-5D-1 branch status (2026-09-10): RESPONSE MACHINERY IMPLEMENTED / FOCUSED ANALYTIC TESTS PASSED; COUPLED EVOLUTION PRE-RESULT BLOCKED.** The frozen radial-10000 assembly fails W numerical acceptance before any trajectory. The response commit adds typed eta/function/process/support/global-Ltilde/reaction-ledger objects; integrated evolution and full INV-11b-f closure remain pending. Global INV-11 remains **UNRESOLVED**. No completed evolution candidate, independent review, owner ratification, canonical integration, realistic A18 normalization or BNV is claimed. See `docs/validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_IMPLEMENTATION.md`. Earlier Phase-5D-0 statements below describe canonical entry and are historical for this branch.
+> **Phase-5D-1C2 branch status (2026-09-11): CONTROLLED NON-SUPERFLUID ROTOCHEMICAL EVOLUTION IMPLEMENTED / CANDIDATE-VALIDATED.** The first provenance-preserving coupled T/eta trajectory, refined convergence, analytic/ownership/mutation tests, frozen 1/7 criterion and complete authenticated suite pass. The exact 33-path governed source set is unchanged. INV-11b/c/d and INV-11e (frozen-v1) / INV-11f (controlled-v1) are **IMPLEMENTED / CANDIDATE-VALIDATED**; global INV-11 remains **UNRESOLVED / AWAITING INDEPENDENT REVIEW AND OWNER RATIFICATION**. This branch is not independently reviewed, human-ratified, canonically integrated or closed. Realistic FR2005/A18 remains **SOURCE-LIMITED / BLOCKED**; BNV **NOT BEGUN**. See [implementation evidence](../validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_IMPLEMENTATION.md) and [candidate artifact](../validation/phase5d1_controlled_evolution_candidate.json). Earlier branch/canonical-entry status statements below are historical and retain their original scope.
+
+> **Historical Phase-5D-1 branch status (2026-09-10): RESPONSE MACHINERY IMPLEMENTED / FOCUSED ANALYTIC TESTS PASSED; COUPLED EVOLUTION PRE-RESULT BLOCKED.** The frozen radial-10000 assembly fails W numerical acceptance before any trajectory. The response commit adds typed eta/function/process/support/global-Ltilde/reaction-ledger objects; integrated evolution and full INV-11b-f closure remain pending. Global INV-11 remains **UNRESOLVED**. No completed evolution candidate, independent review, owner ratification, canonical integration, realistic A18 normalization or BNV is claimed. See `docs/validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_IMPLEMENTATION.md`. Earlier Phase-5D-0 statements below describe canonical entry and are historical for this branch.
 
 > **Phase-5D-0INT (2026-09-10): ADR-0014 / SECULAR ROTOCHEMICAL-EVOLUTION CONTRACT
 > HUMAN-RATIFIED AND CANONICALLY INTEGRATED; PRODUCTION IMPLEMENTATION NOT YET BEGUN.** The
@@ -704,12 +706,15 @@ below is historical.
 
 ## 6. What this document does **not** claim
 
-- It does **not** claim the rotochemical pipeline is operational. The ADR-0010 local thermodynamic
-  provider and ADR-0011 structural response are compiled; the latter is governed and canonically
-  integrated. The ADR-0013 corrected R2006 `G_y`/`Z`/`W` coefficient layer is a human-ratified live
-  candidate on this branch but is not canonically integrated. No production reaction response,
-  chemical/heating RHS, or evolution connection exists; ADR-0014 governs those future boundaries
-  without implementing them.
+- The controlled non-superfluid rotochemical pipeline is **IMPLEMENTED / CANDIDATE-VALIDATED**
+  on this branch. Phase-5D-owned `FrozenRotochemicalRunContext` retains semantic G/Z/W/fixed
+  and Ltilde authorities, source bytes, shared spin and thermal owners; `SecularEvolutionDriver`
+  and local `ScaledRKF45` evolve typed T/eta. The 33 governed sources and generic evolution,
+  Analysis, EOS and Core code remain unchanged. Phase-5B/5C remain canonical governed
+  authorities. This controlled candidate is not independently reviewed, human-ratified or
+  canonically integrated; global INV-11 remains unresolved. Realistic FR2005/A18 remains
+  source-limited and blocked, and BNV is not begun.
+
 - It does **not** claim second-order Hartle is validated. It is publicly callable, has zero
   repository callers, is unverified, and its equations are recorded as defective (INV-08;
   `docs/validation/PHASE4_ROTATION_ENTRY.md` §10–§12). Phase 4A left it byte-identical.

@@ -1,6 +1,8 @@
 # CompactStar Modernization Roadmap
 
-> **Phase-5D-1 branch status (2026-09-10): RESPONSE MACHINERY IMPLEMENTED / FOCUSED ANALYTIC TESTS PASSED; COUPLED EVOLUTION PRE-RESULT BLOCKED.** The frozen radial-10000 assembly fails W numerical acceptance before any trajectory. The response commit adds typed eta/function/process/support/global-Ltilde/reaction-ledger objects; integrated evolution and full INV-11b-f closure remain pending. Global INV-11 remains **UNRESOLVED**. No completed evolution candidate, independent review, owner ratification, canonical integration, realistic A18 normalization or BNV is claimed. See `docs/validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_IMPLEMENTATION.md`. Earlier Phase-5D-0 statements below describe canonical entry and are historical for this branch.
+> **Phase-5D-1C2 branch status (2026-09-11): CONTROLLED NON-SUPERFLUID ROTOCHEMICAL EVOLUTION IMPLEMENTED / CANDIDATE-VALIDATED.** The first provenance-preserving coupled T/eta trajectory, refined convergence, analytic/ownership/mutation tests, frozen 1/7 criterion and complete authenticated suite pass. The exact 33-path governed source set is unchanged. INV-11b/c/d and INV-11e (frozen-v1) / INV-11f (controlled-v1) are **IMPLEMENTED / CANDIDATE-VALIDATED**; global INV-11 remains **UNRESOLVED / AWAITING INDEPENDENT REVIEW AND OWNER RATIFICATION**. This branch is not independently reviewed, human-ratified, canonically integrated or closed. Realistic FR2005/A18 remains **SOURCE-LIMITED / BLOCKED**; BNV **NOT BEGUN**. See [implementation evidence](validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_IMPLEMENTATION.md) and [candidate artifact](validation/phase5d1_controlled_evolution_candidate.json). Earlier branch/canonical-entry status statements below are historical and retain their original scope.
+
+> **Historical Phase-5D-1 branch status (2026-09-10): RESPONSE MACHINERY IMPLEMENTED / FOCUSED ANALYTIC TESTS PASSED; COUPLED EVOLUTION PRE-RESULT BLOCKED.** The frozen radial-10000 assembly fails W numerical acceptance before any trajectory. The response commit adds typed eta/function/process/support/global-Ltilde/reaction-ledger objects; integrated evolution and full INV-11b-f closure remain pending. Global INV-11 remains **UNRESOLVED**. No completed evolution candidate, independent review, owner ratification, canonical integration, realistic A18 normalization or BNV is claimed. See `docs/validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_IMPLEMENTATION.md`. Earlier Phase-5D-0 statements below describe canonical entry and are historical for this branch.
 
 > **Phase-5D-0INT (2026-09-10): ADR-0014 / SECULAR ROTOCHEMICAL-EVOLUTION CONTRACT
 > HUMAN-RATIFIED AND CANONICALLY INTEGRATED; PRODUCTION IMPLEMENTATION NOT YET BEGUN.** The
@@ -763,13 +765,13 @@ accepted ✅** (production implementation pending; global INV-11 remains unresol
 
 Later Phase-5 work following this structural closeout:
 
-- **PHASE-5D SCIENTIFIC CONTRACT PREFLIGHT COMPLETE / INDEPENDENTLY REVIEWED /
-  HUMAN-RATIFIED / CANONICALLY INTEGRATED / NOT IMPLEMENTED.** ADR-0014 accepts the controlled
-  non-superfluid v1 contract with retained review caveats. Controlled free-gas production
-  implementation is authorized next but has not begun. Phase-5C is now canonically integrated and
-  governed; realistic FR2005/A18 remains source-limited and blocked; global INV-11 remains
-  unresolved; BNV has not begun. Evidence:
-  `docs/validation/PHASE5D0_SECULAR_ROTOCHEMICAL_EVOLUTION_INTEGRATION.md`.
+- **PHASE-5D CONTROLLED NON-SUPERFLUID EVOLUTION IMPLEMENTED / CANDIDATE-VALIDATED.**
+  ADR-0014 remains the accepted canonical contract. The provenance-preserving downstream
+  frozen context, same-Ltilde ledger and scaled RKF45 candidate complete the controlled
+  trajectory and frozen validation gates. Independent review and owner ratification remain
+  pending; no canonical merge or global INV-11 closure occurred. Realistic FR2005/A18 remains
+  source-limited and blocked; BNV has not begun. Evidence:
+  `docs/validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_IMPLEMENTATION.md`.
 
 - **PHASE-5C CORRECTED CHEMICAL COEFFICIENTS IMPLEMENTED / VALIDATED / INDEPENDENTLY REVIEWED /
   HUMAN-RATIFIED / CANONICALLY INTEGRATED / GOVERNED BY FRESH-PRODUCER REGRESSION / CLOSED FOR
@@ -789,17 +791,12 @@ Later Phase-5 work following this structural closeout:
   implemented there.*
 - Correct `A_i` (divide by Ω²) and `B_i` (geometry-consistent finite difference).
 - Confirm the `Z_i` reduction under the ratified species semantics.
-- Implement the ADR-0014 chemical state: `eta_npe^infinity`, `eta_npmu^infinity`, ordering,
-  redshift frame, and MeV units; the contract is resolved but implementation is pending.
-- **Implement out-of-equilibrium weak rates** — ΔΓ(η,T) and the F/H(ξ = η/k_BT) functions. *This
-  is the terminal blocker; nothing downstream exists without it.*
-- `WeakRestoration` (currently a 0-byte file).
-- Neutrino-rate modification for chemical disequilibrium.
-- `HeatingFromChem`, with **single-source Γ** so heating and neutrino losses cannot double count.
-  Its `+L_H,∞` term is subject to ADR-0002: it divides by the same governed `C_⋆(T∞)` as every
-  other channel.
-- Add both files to the build — they are still absent from every CMake source list.
-- Fernández–Reisenegger regression.
+- **Controlled v1 state, F/H rates and coupled chemical/thermal RHS are candidate-validated**
+  through the Phase-5D-owned `FrozenRotochemicalRunContext`, `SecularEvolutionDriver` and
+  `ScaledRKF45`. The historical `WeakRestoration`/`HeatingFromChem` filename plan was not used.
+  The controlled ledger uses one Ltilde authority and the governed heat-capacity convention.
+- **Independent controlled-candidate review and owner ratification remain pending.**
+- **Realistic Fernández–Reisenegger/A18 reference closure remains SOURCE-LIMITED / BLOCKED.**
 
 **Exit criteria.** Standard rotochemical heating reproduces published results.
 
@@ -827,7 +824,7 @@ unauditable.
    ADR-0006 Hartle normalization  ✅ ACCEPTED 2026-09-02 ──────────────────────────────►│
    ADR-0007/0008 Hartle O(Ω²)   ✅ ACCEPTED / VERIFIED ─────────────────────────────────►│
    ADR-0010 local thermo        ✅ ACCEPTED 2026-09-04 ────────────────────────────────────────────────►│
-   evolved eta/secular contract ✅ ADR-0014 accepted; implementation/validation pending ─────────────►│
+   evolved eta/secular contract ✅ ADR-0014 accepted; controlled candidate validated; review pending ─────────────►│
 ```
 
 **The former Phase-2 / Phase-3 circularity is gone.** It ran:
@@ -841,8 +838,8 @@ splitting the correction out of Phase 3 into **Phase 2A**, which precedes the ba
 Phase 2A depends on a passive-cooling baseline: it is validated by independent physical checks.
 
 **INV-11 remains globally unresolved.** ADR-0014 resolves evolved-state ownership, reaction
-sign/index, thermal-ledger, and frozen-v1 policy at contract level, but implementation is pending and
-INV-11f still requires implementation and validation. **INV-07 is no longer a gate** — resolved by
+sign/index, thermal-ledger, and frozen-v1 policy. The controlled implementation is now
+candidate-validated; independent review and owner ratification remain pending. **INV-07 is no longer a gate** — resolved by
 ADR-0006 and implemented/verified in Phase 4.
 
 **INV-01** (species semantics) is **no longer a gate** — resolved by ADR-0001. What remains from

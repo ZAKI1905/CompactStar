@@ -1,6 +1,8 @@
 # CompactStar Scientific Invariants
 
-> **Phase-5D-1 branch status (2026-09-10): RESPONSE MACHINERY IMPLEMENTED / FOCUSED ANALYTIC TESTS PASSED; COUPLED EVOLUTION PRE-RESULT BLOCKED.** The frozen radial-10000 assembly fails W numerical acceptance before any trajectory. The response commit adds typed eta/function/process/support/global-Ltilde/reaction-ledger objects; integrated evolution and full INV-11b-f closure remain pending. Global INV-11 remains **UNRESOLVED**. No completed evolution candidate, independent review, owner ratification, canonical integration, realistic A18 normalization or BNV is claimed. See `docs/validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_IMPLEMENTATION.md`. Earlier Phase-5D-0 statements below describe canonical entry and are historical for this branch.
+> **Phase-5D-1C2 branch status (2026-09-11): CONTROLLED NON-SUPERFLUID ROTOCHEMICAL EVOLUTION IMPLEMENTED / CANDIDATE-VALIDATED.** The first provenance-preserving coupled T/eta trajectory, refined convergence, analytic/ownership/mutation tests, frozen 1/7 criterion and complete authenticated suite pass. The exact 33-path governed source set is unchanged. INV-11b/c/d and INV-11e (frozen-v1) / INV-11f (controlled-v1) are **IMPLEMENTED / CANDIDATE-VALIDATED**; global INV-11 remains **UNRESOLVED / AWAITING INDEPENDENT REVIEW AND OWNER RATIFICATION**. This branch is not independently reviewed, human-ratified, canonically integrated or closed. Realistic FR2005/A18 remains **SOURCE-LIMITED / BLOCKED**; BNV **NOT BEGUN**. See [implementation evidence](validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_IMPLEMENTATION.md) and [candidate artifact](validation/phase5d1_controlled_evolution_candidate.json). Earlier branch/canonical-entry status statements below are historical and retain their original scope.
+
+> **Historical Phase-5D-1 branch status (2026-09-10): RESPONSE MACHINERY IMPLEMENTED / FOCUSED ANALYTIC TESTS PASSED; COUPLED EVOLUTION PRE-RESULT BLOCKED.** The frozen radial-10000 assembly fails W numerical acceptance before any trajectory. The response commit adds typed eta/function/process/support/global-Ltilde/reaction-ledger objects; integrated evolution and full INV-11b-f closure remain pending. Global INV-11 remains **UNRESOLVED**. No completed evolution candidate, independent review, owner ratification, canonical integration, realistic A18 normalization or BNV is claimed. See `docs/validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_IMPLEMENTATION.md`. Earlier Phase-5D-0 statements below describe canonical entry and are historical for this branch.
 
 > **Phase-5D-0INT (2026-09-10): ADR-0014 / SECULAR ROTOCHEMICAL-EVOLUTION CONTRACT
 > HUMAN-RATIFIED AND CANONICALLY INTEGRATED; PRODUCTION IMPLEMENTATION NOT YET BEGUN.** The
@@ -992,7 +994,14 @@ Phase 5.
 
 ## INV-11 — Chemical-imbalance redshift convention — **UNRESOLVED**
 
-**Current Phase-5D-0INT boundary.** ADR-0014 is **ACCEPTED / HUMAN-RATIFIED / CANONICALLY
+**Current Phase-5D-1C2 branch boundary.** Controlled non-superfluid evolution is
+**IMPLEMENTED / CANDIDATE-VALIDATED**. INV-11b/c/d, INV-11e for frozen-v1 semantics,
+and INV-11f for controlled v1 have executable candidate evidence. Global INV-11
+remains **UNRESOLVED / AWAITING INDEPENDENT REVIEW AND OWNER RATIFICATION**.
+No independent scientific review, human ratification, canonical integration,
+realistic A18 closure, or BNV is claimed. See the Phase-5D-1C2 implementation record.
+
+**Historical Phase-5D-0INT entry boundary.** ADR-0014 is **ACCEPTED / HUMAN-RATIFIED / CANONICALLY
 INTEGRATED** for the controlled non-superfluid v1 contract. INV-11a remains **PARTIALLY RESOLVED
 UPSTREAM**, with ADR-0014 extending and clarifying the accepted secular semantics. INV-11b
 (evolved state ownership), INV-11c (reaction sign/index), INV-11d (thermal ledger/no double
@@ -1341,8 +1350,9 @@ conversion, under the in-code comment *"Convert fractions to number densities in
 
 - **INV-11** remains globally unresolved. Accepted ADR-0014 now governs evolved-state ordering,
   representation, MeV storage, reaction sign/index, thermal partition, and frozen-v1 policy;
-  INV-11b–e are contract-resolved but implementation-pending. INV-11f remains unresolved pending
-  implementation and validation, so no production evolution is yet claimed.
+  INV-11b/c/d, INV-11e for frozen v1, and INV-11f for controlled v1 are implemented and
+  candidate-validated on this branch. Independent scientific/numerical review and owner
+  ratification remain required; global INV-11 is not closed.
 
 **INV-07 is fully resolved for first order.** ADR-0006 (ACCEPTED 2026-09-02) settled the
 contract, Phase 4A made the source conform, and **Phase 4B verified the normalized response
