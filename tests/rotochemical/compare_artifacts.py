@@ -70,7 +70,7 @@ def strip_keys(value, keys):
     return value
 
 
-def validate_promotion(artifact):
+def validate_artifact(artifact, expected_state):
     if set(artifact) != TOP_LEVEL:
         raise RuntimeError("promotion top-level schema differs")
     if artifact["schema"] != {
@@ -87,14 +87,17 @@ def validate_promotion(artifact):
     }
     if set(artifact["suite_results"]) != expected_suites:
         raise RuntimeError("suite result inventory differs")
+    if expected_state not in {"promotion_candidate", "governed"}:
+        raise RuntimeError("unknown expected artifact state: " + expected_state)
     expected_classification = {
-        "classification": "promotion_candidate", "candidate_only": True,
-        "governed_baseline": False,
+        "classification": expected_state,
+        "candidate_only": expected_state == "promotion_candidate",
+        "governed_baseline": expected_state == "governed",
         "benchmark_scope": "CONTROLLED_MATHEMATICAL_ARCHITECTURE",
         "physical_spin_interpretation": False, "super_kepler": True,
     }
     if artifact["classification"] != expected_classification:
-        raise RuntimeError("promotion classification differs")
+        raise RuntimeError(expected_state + " classification differs")
     if artifact["thermal_authority"]["envelope_provenance"] != ENVELOPE:
         raise RuntimeError("future envelope provenance not corrected")
     if artifact["thermal_authority"]["formula_changed"] is not False:
@@ -112,6 +115,49 @@ def validate_promotion(artifact):
             raise RuntimeError("nonzero suite result: " + name)
         if receipt.get("failures", 0) != 0 or receipt.get("unexplained_skips", 0) != 0:
             raise RuntimeError("suite failures/skips: " + name)
+
+
+def validate_promotion(artifact):
+    validate_artifact(artifact, "promotion_candidate")
+
+
+def validate_governed(artifact):
+    validate_artifact(artifact, "governed")
+
+
+def difference_inventory(left, right):
+    differences = []
+
+    def visit(a, b, path=()):
+        if type(a) is not type(b):
+            differences.append({"path": list(path), "left": a, "right": b})
+        elif isinstance(a, dict):
+            for key in sorted(set(a) | set(b)):
+                if key not in a:
+                    differences.append({
+                        "path": list(path + (key,)), "left_missing": True,
+                        "right": b[key],
+                    })
+                elif key not in b:
+                    differences.append({
+                        "path": list(path + (key,)), "left": a[key],
+                        "right_missing": True,
+                    })
+                else:
+                    visit(a[key], b[key], path + (key,))
+        elif isinstance(a, list):
+            if len(a) != len(b):
+                differences.append({
+                    "path": list(path + ("<length>",)),
+                    "left": len(a), "right": len(b),
+                })
+            for index, (a_value, b_value) in enumerate(zip(a, b)):
+                visit(a_value, b_value, path + (index,))
+        elif a != b:
+            differences.append({"path": list(path), "left": a, "right": b})
+
+    visit(left, right)
+    return differences
 
 
 def _historical_payload(historical):
@@ -300,6 +346,7 @@ def compare_historical(historical, promotion):
 
 def compare_baseline(candidate, baseline):
     validate_promotion(candidate)
+    validate_governed(baseline)
     candidate_copy = copy.deepcopy(candidate)
     baseline_copy = copy.deepcopy(baseline)
     for key, transition in BASELINE_TRANSITIONS.items():
@@ -308,15 +355,30 @@ def compare_baseline(candidate, baseline):
             raise RuntimeError("unauthorized baseline classification transition: " + key)
     if candidate_copy != baseline_copy:
         raise RuntimeError("candidate-to-baseline changed nonclassification content")
+    return difference_inventory(candidate, baseline)
+
+
+def compare_governed(left, right):
+    validate_governed(left)
+    validate_governed(right)
+    differences = difference_inventory(left, right)
+    if differences:
+        raise RuntimeError(
+            "governed artifact differs at: "
+            + ".".join(str(value) for value in differences[0]["path"])
+        )
+    return differences
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("mode", choices=["historical-promotion", "determinism",
-                                         "candidate-baseline"])
+                                         "candidate-baseline", "governed-baseline"])
     parser.add_argument("left", type=Path)
     parser.add_argument("right", type=Path)
+    parser.add_argument("--difference-output", type=Path)
     args = parser.parse_args()
+    inventory = []
     if args.mode == "determinism":
         if args.left.read_bytes() != args.right.read_bytes():
             raise RuntimeError("producer-authoritative artifact bytes differ")
@@ -325,8 +387,20 @@ def main():
         right = json.loads(args.right.read_text())
         if args.mode == "historical-promotion":
             compare_historical(left, right)
+        elif args.mode == "governed-baseline":
+            inventory = compare_governed(left, right)
         else:
-            compare_baseline(left, right)
+            inventory = compare_baseline(left, right)
+    if args.difference_output:
+        output = args.difference_output.resolve()
+        if output.exists():
+            raise RuntimeError("difference inventory output must be fresh")
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(json.dumps({
+            "mode": args.mode,
+            "differences": inventory,
+            "unexpected_differences": [],
+        }, indent=2, sort_keys=True) + "\n")
     print("PASS", args.mode)
 
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Complete fresh-context Phase-5D promotion-candidate producer."""
+"""Complete fresh-context Phase-5D scientific-artifact producer."""
 
 import argparse
 import hashlib
@@ -70,6 +70,10 @@ def main():
                         help="negative-control only: permit an explicitly absent comparison file")
     parser.add_argument("--artifact-output", type=Path,
                         help="optional generated copy; destination must not exist")
+    parser.add_argument("--artifact-state",
+                        choices=["promotion_candidate", "governed"],
+                        default="promotion_candidate",
+                        help="emit the predeclared promotion or governed classification")
     args = parser.parse_args()
     source_root = args.source_root.resolve()
     scratch_root = args.scratch_root.resolve()
@@ -187,9 +191,14 @@ def main():
     }
     raw = json.loads((trajectory / "candidate.json").read_text())
     artifact = build_artifact(
-        raw, trajectory, qualification, entry, oracles, suite_results
+        raw, trajectory, qualification, entry, oracles, suite_results,
+        args.artifact_state,
     )
-    artifact_path = scratch_root / "promotion-candidate.json"
+    artifact_path = scratch_root / (
+        "promotion-candidate.json"
+        if args.artifact_state == "promotion_candidate"
+        else "governed-artifact.json"
+    )
     write_artifact(artifact, artifact_path)
     if args.artifact_output:
         target = args.artifact_output.resolve()
@@ -200,8 +209,11 @@ def main():
     cache = (build_dir / "CMakeCache.txt").read_text()
     compiler = next(
         (line.split("=", 1)[1] for line in cache.splitlines()
-         if line.startswith("CMAKE_CXX_COMPILER:FILEPATH=")), "UNKNOWN"
+         if line.startswith("CMAKE_CXX_COMPILER:")
+         and not line.startswith("CMAKE_CXX_COMPILER-")), None
     )
+    if not compiler:
+        raise RuntimeError("configured C++ compiler provenance is absent")
     sidecar = {
         "schema": "phase5d-execution-sidecar-v1",
         "source_root": str(source_root),
@@ -220,6 +232,7 @@ def main():
         "suite_results": suite_results,
         "artifact_path": str(artifact_path),
         "artifact_sha256": digest(artifact_path),
+        "artifact_state": args.artifact_state,
     }
     (scratch_root / "execution-sidecar.json").write_text(
         json.dumps(sidecar, indent=2, sort_keys=True) + "\n"

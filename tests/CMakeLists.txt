@@ -580,14 +580,14 @@ add_test(NAME relativistic_unit_background COMMAND relativistic_unit_background)
 set_tests_properties(relativistic_unit_background PROPERTIES
     LABELS "relativity;units;tov;scientific;self-contained" TIMEOUT 300)
 
-# Phase-5D candidate analytic machinery; no governed time-series baseline.
+# Phase-5D controlled-evolution analytic machinery.
 add_executable(phase5d_response rotochemical/response.cpp)
 target_link_libraries(phase5d_response PRIVATE CompactStar)
 add_test(NAME phase5d_response COMMAND phase5d_response)
 add_test(NAME phase5d_independent_oracles COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/rotochemical/oracles.py" $<TARGET_FILE:phase5d_response>)
 set_tests_properties(phase5d_response phase5d_independent_oracles PROPERTIES LABELS "phase5d;phase5d-analytic;scientific;self-contained" TIMEOUT 180)
 
-# Phase-5D downstream provenance-preserving candidate; no baseline installation.
+# Phase-5D downstream provenance-preserving controlled evolution.
 add_executable(phase5d_evolution rotochemical/evolution.cpp)
 target_link_libraries(phase5d_evolution PRIVATE CompactStar)
 add_executable(phase5d_component_tolerances rotochemical/component_tolerances.cpp)
@@ -618,3 +618,20 @@ add_test(NAME phase5d_coupled_oracles COMMAND "${Python3_EXECUTABLE}"
 set_tests_properties(phase5d_coupled_oracles PROPERTIES
     LABELS "phase5d;phase5d-coupled;scientific;fresh-context"
     RUN_SERIAL TRUE TIMEOUT 7200)
+
+# Expensive governed Phase-5D regression. It configures and builds in a new
+# empty scratch root, regenerates every qualification/thermal/oracle/trajectory
+# dependency, and reads the baseline only after scientific generation closes.
+if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
+    add_test(NAME phase5d1_controlled_evolution_regression
+        COMMAND "${Python3_EXECUTABLE}"
+        "${CMAKE_CURRENT_SOURCE_DIR}/rotochemical/phase5d1_controlled_evolution_regression.py"
+        --producer "${CMAKE_CURRENT_SOURCE_DIR}/rotochemical/fresh_context.py"
+        --source-root "${PROJECT_SOURCE_DIR}"
+        --eos-data-root "${COMPACTSTAR_EOS_DATA_ROOT}"
+        --baseline "${CMAKE_CURRENT_SOURCE_DIR}/baselines/phase5d1_controlled_evolution.json"
+        --output-root "${CMAKE_CURRENT_BINARY_DIR}/phase5d1-regression-evidence")
+    set_tests_properties(phase5d1_controlled_evolution_regression PROPERTIES
+        LABELS "phase5d;phase5d-coupled;scientific;fresh-context;regression;expensive;external-data"
+        RUN_SERIAL TRUE TIMEOUT 14400)
+endif()

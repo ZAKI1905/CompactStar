@@ -67,7 +67,9 @@ def _without(value, excluded):
 
 
 def build_artifact(raw, trajectory_root, qualification_root, entry_manifest,
-                   oracle_root, suite_results):
+                   oracle_root, suite_results, artifact_state="promotion_candidate"):
+    if artifact_state not in {"promotion_candidate", "governed"}:
+        raise RuntimeError("unknown Phase-5D artifact state: " + artifact_state)
     trajectory_root = Path(trajectory_root)
     qualification_root = Path(qualification_root)
     entry_manifest = Path(entry_manifest)
@@ -123,9 +125,9 @@ def build_artifact(raw, trajectory_root, qualification_root, entry_manifest,
             "producer_contract": "fresh-context-v1",
         },
         "classification": {
-            "classification": "promotion_candidate",
-            "candidate_only": True,
-            "governed_baseline": False,
+            "classification": artifact_state,
+            "candidate_only": artifact_state == "promotion_candidate",
+            "governed_baseline": artifact_state == "governed",
             "benchmark_scope": "CONTROLLED_MATHEMATICAL_ARCHITECTURE",
             "physical_spin_interpretation": False,
             "super_kepler": True,
