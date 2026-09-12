@@ -635,3 +635,32 @@ if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
         LABELS "phase5d;phase5d-coupled;scientific;fresh-context;regression;expensive;external-data"
         RUN_SERIAL TRUE TIMEOUT 14400)
 endif()
+
+# Validation scripts execute from the build tree but import sibling modules
+# from their source directories.  Bytecode caching has no scientific value in
+# CTest and must not contaminate the authenticated source checkout.
+set(_compactstar_python_tests
+    chemical_exact_oracles
+    chemical_curved_gc9
+    chemical_trackr_budget
+    chemical_production_validation
+    phase5c_chemical_coefficient_regression
+    phase5b_PB1
+    phase5b_PB6
+    phase5b_PB7
+    phase5b_PB9-11
+    phase5b_PB12
+    phase5b_PB13
+    phase5b_contracts
+    phase5b_structural_response_regression
+    phase5d_independent_oracles
+    phase5d_protected_manifest
+    phase5d_harness_controls
+    phase5d_coupled_oracles)
+if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
+    list(APPEND _compactstar_python_tests
+        phase5d1_controlled_evolution_regression)
+endif()
+set_tests_properties(${_compactstar_python_tests} PROPERTIES
+    ENVIRONMENT "PYTHONDONTWRITEBYTECODE=1")
+unset(_compactstar_python_tests)
