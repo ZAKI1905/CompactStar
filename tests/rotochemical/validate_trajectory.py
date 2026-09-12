@@ -94,7 +94,11 @@ def validate(out):
     check(len(jacobian)==3 and np.allclose([j['time_yr'] for j in jacobian],[1e6,1e8,1e10],rtol=1e-10),'missing preselected stiffness epochs')
     metrics={}
     for name in ['trajectory','refined']:
-        lines=(out/(name+'.tsv.steps')).read_text().splitlines();v=list(map(float,lines[1].split()));late=np.loadtxt(lines[3:]);metrics[name]=dict(zip(lines[0].split(),v));metrics[name]['late_outputs']=late[-10:].tolist();metrics[name]['rejection_fraction']=float(v[1]/(v[0]+v[1]));metrics[name]['RHS_definition']='all derivative evaluations, including accepted-endpoint validation'
+        lines=(out/(name+'.tsv.steps')).read_text().splitlines();v=list(map(float,lines[1].split()));late=np.atleast_2d(np.loadtxt(lines[3:]));metrics[name]=dict(zip(lines[0].split(),v));metrics[name]['late_outputs']=late[-10:].tolist();metrics[name]['rejection_fraction']=float(v[1]/(v[0]+v[1]));metrics[name]['RHS_definition']='all derivative evaluations, including accepted-endpoint validation'
+        increments=np.diff(np.r_[0,late[:,1]])
+        check(np.all(increments>=0) and np.all(increments==increments.astype(int)),'invalid cumulative accepted-step table')
+        metrics[name]['maximum_accepted_steps_per_checkpoint']=int(np.max(increments))
+        metrics[name]['last10_accepted_steps_per_checkpoint']=increments[-10:].astype(int).tolist()
     result={'classification':'CONTROLLED MATHEMATICAL / ARCHITECTURE BENCHMARK; CANDIDATE ONLY; NOT GOVERNED BASELINE','canonical':CANONICAL,'frozen_context_plan_sha':ENTRY,'candidate_only':True,'governed_baseline':False,'branch':'physics/phase5d-controlled-rotochemical-evolution','fixture':{'radial_resolution':80000,'EOS_resolution':8192,'rho_c_g_cm3':1.10e15},'normalizations':{'SMe':1e-51,'SMmu':2e-51,'units':'erg cm^-3 s^-1 K^-8','enabled':['Me','Mmu'],'disabled':['De','Dmu']},'initial':{'Tinf_K':1e8,'eta_MeV':[0,0]},'spin':{'B_G':1e8,'P0_s':.001,'PPdot':(1e8/3.2e19)**2},'solver':{'name':'GSL RKF45','rtol':1e-7,'atol':[1e-12,1e-18,1e-18],'refined_rtol':1e-9,'refined_atol':[1e-14,1e-20,1e-20],'control_mapping':{'eps_abs':1,'eps_rel':'rtol','a_y':1,'a_dydt':0,'scale_abs':'component_atol','error_level':'atol_i + rtol*abs(y_i)'}},'Ltilde':coeff,'semantic_W_I':vectors,'checkpoints':[plain(row) for row in base],'final':plain(base[-1]),'ranges':{n:[float(min(base[n])),float(max(base[n]))] for n in base.dtype.names},'ODE_convergence':comparison,'initial_condition_convergence':initial,'quasi_steady':qs,'incremental_root_crossings':crossings(base,4.909710028924132),'full_root_crossings':crossings(base,5.633717467648343),'stiffness':{'step_statistics':metrics,'jacobians':jacobian},'protected_baseline_installed':False}
     root=Path(__file__).resolve().parents[2]
     result['source_hashes']={str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for directory in ['CompactStar/Physics/Rotochemical','CompactStar/Physics/Evolution','CompactStar/Physics/Driver/Thermal','CompactStar/Analysis','tests/rotochemical'] for p in (root/directory).rglob('*') if p.is_file() and '__pycache__' not in str(p)}
@@ -115,6 +119,13 @@ def validate(out):
         timescales.append({'time_yr':float(row['t_s']/YEAR),'thermal_T_over_abs_Tdot_s':ratio(1,row['x_dot']),'spin_Omega_over_abs_OmegaDot_s':ratio(row['Omega'],row['Omega_dot']),'reaction_eta_over_abs_ZR_s':[ratio(row['eta_e_MeV'],reaction[0]),ratio(row['eta_mu_MeV'],reaction[1])],'definition':'instantaneous magnitude scales; reaction excludes compensating spin drive; null denotes zero denominator'})
     result['stiffness']['physical_timescales']=timescales
     result['power_convergence_absolute']={n:float(np.max(np.abs(base[n]-ref[n]))) for n in ['LH','DeltaLnu','DeltaPbeta']}
+    aggregate=[]
+    for i in np.flatnonzero(base['DeltaPbeta'][:-1]*base['DeltaPbeta'][1:]<0):
+        fraction=float(-base['DeltaPbeta'][i]/(base['DeltaPbeta'][i+1]-base['DeltaPbeta'][i]))
+        aggregate.append({'time_bracket_yr':[float(base['t_s'][i]/YEAR),float(base['t_s'][i+1]/YEAR)],'power_bracket_erg_s':[float(base['DeltaPbeta'][i]),float(base['DeltaPbeta'][i+1])],'estimated_time_yr_log_interpolation':float(np.exp((1-fraction)*np.log(base['t_s'][i])+fraction*np.log(base['t_s'][i+1]))/YEAR),'xi_e_bracket':[float(base['xi_e'][i]),float(base['xi_e'][i+1])],'xi_mu_bracket':[float(base['xi_mu'][i]),float(base['xi_mu'][i+1])]})
+    result['aggregate_incremental_power_crossings']=aggregate
+    relative=np.abs(base['Pnet']-ref['Pnet'])/np.maximum(np.abs(ref['Pnet']),1e-300);index=int(np.argmax(relative));absolute=float(abs(base['Pnet'][index]-ref['Pnet'][index]));gross=float(base['LH'][index]+base['DeltaLnu'][index]+base['Lnu_eq'][index]+base['Lgamma'][index]+base['Lother_neutrino'][index])
+    result['net_power_cancellation_diagnostic']={'time_yr':float(base['t_s'][index]/YEAR),'maximum_relative_residual_difference':float(relative[index]),'absolute_difference_at_that_checkpoint_erg_s':absolute,'difference_over_gross_ledger_power':absolute/gross,'maximum_absolute_Pnet_difference_all_checkpoints_erg_s':float(np.max(np.abs(base['Pnet']-ref['Pnet'])))}
     print('CONTROLLED TRAJECTORY VALIDATION COMPLETED',json.dumps({'final':result['final'],'ODE':comparison,'quasi_steady':qs}),flush=True)
     return result
 

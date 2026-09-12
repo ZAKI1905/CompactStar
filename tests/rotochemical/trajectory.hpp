@@ -26,5 +26,5 @@ void FixtureReport(const RC::FrozenRotochemicalRunContext& context){
  std::cout<<"RESULT W 2 "<<context.W(RC::BetaChannel::Npe)<<' '<<context.W(RC::BetaChannel::NpMu)<<"\nRESULT I 2 "<<context.I(RC::BetaChannel::Npe)<<' '<<context.I(RC::BetaChannel::NpMu)<<'\n';
  for(auto p:{RC::UrcaProcess::Me,RC::UrcaProcess::Mmu}){const auto&e=context.ChannelEntry(p);std::cout<<"FROZEN_LTILDE "<<RC::ProcessIndex(p)<<' '<<e.luminosity_erg_s_Kq<<" erg s^-1 K^-8 "<<e.normalization_identity;for(auto s:e.support)std::cout<<" support_km "<<s.left_km<<' '<<s.right_km;std::cout<<'\n';}
  for(const auto&s:context.ThermalSource().Sources())std::cout<<"THERMAL_SOURCE "<<s.sha256<<' '<<s.path<<'\n';
- std::cout<<"SPIN_AUTHORITY "<<context.SpinOwner()->Identity()<<"\nTHERMAL_AUTHORITY StarContext::HeatCapacityStar_Tinf; 160 log-T cache; PhotonCooling iron Potekhin1997 rho_b=1e10; non-controlled NeutrinoCooling DU/MU/PBF=false\n";
+ std::cout<<"SPIN_AUTHORITY "<<context.SpinOwner()->Identity()<<"\nTHERMAL_AUTHORITY StarContext::HeatCapacityStar_Tinf; 160 log-T cache; PhotonCooling FR2005 equation (49) / PCY97 fully accreted envelope rho_b=1e10; non-controlled NeutrinoCooling DU/MU/PBF=false\n";
 }

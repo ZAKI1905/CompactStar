@@ -594,8 +594,27 @@ add_executable(phase5d_component_tolerances rotochemical/component_tolerances.cp
 target_link_libraries(phase5d_component_tolerances PRIVATE CompactStar)
 add_test(NAME phase5d_component_tolerances COMMAND phase5d_component_tolerances)
 set_tests_properties(phase5d_component_tolerances PROPERTIES LABELS "phase5d;phase5d-coupled;scientific;self-contained")
-add_test(NAME phase5d_protected_manifest COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/rotochemical/protected_manifest.py")
-set_tests_properties(phase5d_protected_manifest PROPERTIES LABELS "phase5d;phase5d-coupled;scientific;self-contained")
-set(COMPACTSTAR_PHASE5D_QUALIFICATION_ROOT "${CMAKE_BINARY_DIR}/phase5d-audit/qualification-fresh-80000" CACHE PATH "Authenticated Phase-5D radial80000 qualification evidence")
-add_test(NAME phase5d_coupled_oracles COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/rotochemical/qualified_suite.py" $<TARGET_FILE:phase5d_evolution> oracles --qualification "${COMPACTSTAR_PHASE5D_QUALIFICATION_ROOT}")
-set_tests_properties(phase5d_coupled_oracles PROPERTIES LABELS "phase5d;phase5d-coupled;scientific;self-contained" RUN_SERIAL TRUE TIMEOUT 3600)
+set(COMPACTSTAR_PHASE5D_SCRATCH_ROOT "${CMAKE_BINARY_DIR}/phase5d-fresh-context" CACHE PATH "Run-local Phase-5D reproducibility scratch parent")
+add_test(NAME phase5d_protected_manifest COMMAND "${Python3_EXECUTABLE}"
+    "${CMAKE_CURRENT_SOURCE_DIR}/rotochemical/protected_manifest.py"
+    --source-root "${PROJECT_SOURCE_DIR}"
+    --scratch-root "${COMPACTSTAR_PHASE5D_SCRATCH_ROOT}")
+set_tests_properties(phase5d_protected_manifest PROPERTIES
+    LABELS "phase5d;phase5d-coupled;scientific;fresh-context")
+add_test(NAME phase5d_harness_controls COMMAND "${Python3_EXECUTABLE}"
+    "${CMAKE_CURRENT_SOURCE_DIR}/rotochemical/harness_controls.py")
+set_tests_properties(phase5d_harness_controls PROPERTIES
+    LABELS "phase5d;phase5d-coupled;governance;fresh-context")
+add_test(NAME phase5d_coupled_oracles COMMAND "${Python3_EXECUTABLE}"
+    "${CMAKE_CURRENT_SOURCE_DIR}/rotochemical/fresh_coupled_oracles.py"
+    --source-root "${PROJECT_SOURCE_DIR}"
+    --build-dir "${CMAKE_BINARY_DIR}"
+    --scratch-root "${COMPACTSTAR_PHASE5D_SCRATCH_ROOT}"
+    --evolution-executable $<TARGET_FILE:phase5d_evolution>
+    --trackr-executable $<TARGET_FILE:chemical_trackr_fixture>
+    --structural-executable $<TARGET_FILE:chemical_structural_envelope>
+    --phase5b-executable $<TARGET_FILE:phase5b_freegas_validation>
+    --production-executable $<TARGET_FILE:chemical_production_fixture>)
+set_tests_properties(phase5d_coupled_oracles PROPERTIES
+    LABELS "phase5d;phase5d-coupled;scientific;fresh-context"
+    RUN_SERIAL TRUE TIMEOUT 7200)
