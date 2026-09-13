@@ -236,3 +236,15 @@ begun.
 The promotion candidate is **PREPARED / NOT YET GOVERNED** and the reproducibility
 harness is **REPAIRED / FRESH-CONTEXT VALIDATED**. Canonical integration remains
 pending.
+
+---
+
+## Integration follow-up — 2026-09-12
+
+The later governed-promotion task installed the producer-generated baseline
+without changing this promotion candidate or its science. A complete-suite
+Python bytecode-isolation defect was repaired at CTest launch level, outside
+the protected scripts and scientific source identity. The restarted suites
+passed 51/51 data-free and 75/75 authenticated tests; the immediate no-cleanup
+Phase-5D regression reproduced the governed artifact exactly. See
+`docs/validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_INTEGRATION.md`.

@@ -7,6 +7,9 @@
 **Branched from (Phase-5C human-ratified candidate):** `27727016856a6a25a46e447c70e380722ea8ddbf`
 **Change class:** scientific-semantic and architectural contract; documentation-only ratification.
 **Evidence companion:** `docs/validation/PHASE5D0_SECULAR_ROTOCHEMICAL_EVOLUTION_PREFLIGHT.md`
+**Current implementation status:** controlled frozen-v1 is governed, completely validated, and
+ready for canonical integration; see
+`docs/validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_INTEGRATION.md`.
 **Implementation state:** no production evolution object, weak rate, imbalance function, chemical or
 thermal RHS term, superfluid treatment, A18 model, BNV source, test, baseline, EOS/data, or
 literature byte is created or modified by this ratification. Phase-5C canonical integration is now
@@ -712,3 +715,32 @@ coupling, all **not yet canonically integrated**. Global INV-11 remains
 normalization remain **SOURCE-LIMITED / BLOCKED**; no realistic A18 work or BNV
 has begun. No governed Phase-5D baseline is installed, and canonical `master`
 does not yet contain this implementation.
+
+---
+
+## 16. Phase-5D-1 governed integration-ready addendum — 2026-09-12
+
+The ratified controlled frozen-v1 trajectory is now installed as the governed
+baseline `tests/baselines/phase5d1_controlled_evolution.json`, SHA-256
+`2606916915b2da5c051b1a06637c0a371a74751c6e77b2775bc629a63bc9f6dd`.
+The fresh producer and non-self-comparison regression reproduce it from an
+empty scratch root without reading any Phase-5D candidate or baseline as
+generation input. Complete validation passed 51/51 data-free and 75/75
+authenticated tests. A launch-level `PYTHONDONTWRITEBYTECODE=1` CTest property
+prevents Python validation imports from dirtying authenticated source; no
+protected script or scientific source changed. Full evidence is in
+`docs/validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_INTEGRATION.md`.
+
+This addendum does not change any equation, source authority, tolerance,
+trajectory, or comparator policy. The P0=1 ms history remains a super-Kepler
+mathematical/architecture control with `physical_spin_interpretation=false`.
+Its envelope authority is correctly described as FR2005 Eq. (49) / PCY97 fully
+accreted, with zero numerical change.
+
+The branch is **GOVERNED / VALIDATED / HUMAN-RATIFIED / CANONICAL
+INTEGRATION-READY / CLOSED FOR DECLARED CONTROLLED FROZEN-V1 SCOPE**. Upon the
+authorized fast-forward, INV-11b/c/d are resolved for controlled frozen-v1,
+INV-11e for frozen-v1 coefficient semantics, and INV-11f for controlled
+frozen-v1 ODE/source coupling. Global INV-11 remains **UNRESOLVED** for the
+broader extensions. Realistic FR2005/A18 remains **SOURCE-LIMITED / BLOCKED**;
+BNV is **NOT BEGUN**.

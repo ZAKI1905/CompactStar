@@ -1,6 +1,6 @@
 # CompactStar Modernization Roadmap
 
-> **Phase-5D-1G0 branch status (2026-09-12): CONTROLLED NON-SUPERFLUID ROTOCHEMICAL EVOLUTION HUMAN-RATIFIED; REPRODUCIBILITY HARNESS REPAIRED / FRESH-CONTEXT VALIDATED; PROMOTION CANDIDATE PREPARED / NOT YET GOVERNED.** Two detached no-build contexts regenerated every qualification, thermal, executable, oracle, and trajectory dependency and produced byte-identical scientific artifacts; complete validation passed 51/51 data-free and 74/74 authenticated. The scoped INV-11b-f controlled/frozen-v1 subparts are owner-resolved but not canonically integrated; global INV-11 remains **UNRESOLVED**. No Phase-5D baseline is installed, and canonical `master` at `d019ae390be4f5e3daba05039903485cb497e397` remains unchanged. The `P0=1 ms` trajectory remains a super-Kepler mathematical control with `physical_spin_interpretation=false`, and the corrected provenance is FR2005 eq. (49) / PCY97 fully accreted. Realistic FR2005/A18 remains **SOURCE-LIMITED / BLOCKED**; BNV **NOT BEGUN**. See [preparation record](validation/PHASE5D1_GOVERNED_ARTIFACT_PREPARATION.md), [historical candidate](validation/phase5d1_controlled_evolution_candidate.json), and [promotion candidate](validation/phase5d1_controlled_evolution_promotion_candidate.json). Earlier branch/canonical-entry statements below are historical and retain their original scope.
+> **Phase-5D-1INT branch status (2026-09-12): CONTROLLED NON-SUPERFLUID ROTOCHEMICAL EVOLUTION GOVERNED / COMPLETE VALIDATION PASS / CANONICAL INTEGRATION-READY / CLOSED FOR DECLARED CONTROLLED FROZEN-V1 SCOPE.** The eleventh governed baseline is fresh-producer regression protected at SHA-256 `2606916915b2da5c051b1a06637c0a371a74751c6e77b2775bc629a63bc9f6dd`. Complete validation passed 51/51 data-free and 75/75 authenticated tests, and an immediate no-cleanup Phase-5D regeneration matched exactly. The scoped INV-11b-f controlled/frozen-v1 subparts become resolved upon canonical fast-forward; global INV-11 remains **UNRESOLVED** for broader extensions. The `P0=1 ms` trajectory remains a super-Kepler mathematical control with `physical_spin_interpretation=false`, and provenance is FR2005 Eq. (49) / PCY97 fully accreted with zero numerical change. Realistic FR2005/A18 remains **SOURCE-LIMITED / BLOCKED**; BNV **NOT BEGUN**. See [integration record](validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_INTEGRATION.md), [preparation record](validation/PHASE5D1_GOVERNED_ARTIFACT_PREPARATION.md), and [ratification](validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_RATIFICATION.md). Earlier branch/canonical-entry statements below are historical and retain their original scope.
 
 > **Historical Phase-5D-1 branch status (2026-09-10): RESPONSE MACHINERY IMPLEMENTED / FOCUSED ANALYTIC TESTS PASSED; COUPLED EVOLUTION PRE-RESULT BLOCKED.** The frozen radial-10000 assembly fails W numerical acceptance before any trajectory. The response commit adds typed eta/function/process/support/global-Ltilde/reaction-ledger objects; integrated evolution and full INV-11b-f closure remain pending. Global INV-11 remains **UNRESOLVED**. No completed evolution candidate, independent review, owner ratification, canonical integration, realistic A18 normalization or BNV is claimed. See `docs/validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_IMPLEMENTATION.md`. Earlier Phase-5D-0 statements below describe canonical entry and are historical for this branch.
 
@@ -765,17 +765,18 @@ accepted ✅** (production implementation pending; global INV-11 remains unresol
 
 Later Phase-5 work following this structural closeout:
 
-- **PHASE-5D CONTROLLED NON-SUPERFLUID EVOLUTION HUMAN-RATIFIED; REPRODUCIBILITY
-  HARNESS REPAIRED / FRESH-CONTEXT VALIDATED; PROMOTION CANDIDATE PREPARED / NOT GOVERNED.**
+- **PHASE-5D CONTROLLED NON-SUPERFLUID EVOLUTION GOVERNED / COMPLETE VALIDATION PASS /
+  CANONICAL INTEGRATION-READY / CLOSED FOR DECLARED CONTROLLED FROZEN-V1 SCOPE.**
   ADR-0014 remains the accepted canonical contract. The provenance-preserving downstream
   frozen context, same-Ltilde ledger and scaled RKF45 candidate complete the controlled
   trajectory and frozen validation gates. The Opus independent review passed with retained
-  nonblocking caveats and the owner ratified the controlled scope. Two independent fresh
-  contexts now produce byte-identical scientific artifacts and complete validation passes.
-  No governed Phase-5D baseline or canonical merge occurred. Global INV-11 remains unresolved.
+  nonblocking caveats and the owner ratified the controlled scope. Independent fresh contexts
+  produced byte-identical governed artifacts; the expensive regression reproduces the eleventh
+  governed baseline from an empty scratch root. Complete validation passes 51/51 data-free and
+  75/75 authenticated tests. Global INV-11 remains unresolved for broader extensions.
   Realistic FR2005/A18 remains
   source-limited and blocked; BNV has not begun. Evidence:
-  `docs/validation/PHASE5D1_GOVERNED_ARTIFACT_PREPARATION.md`.
+  `docs/validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_INTEGRATION.md`.
 
 - **PHASE-5C CORRECTED CHEMICAL COEFFICIENTS IMPLEMENTED / VALIDATED / INDEPENDENTLY REVIEWED /
   HUMAN-RATIFIED / CANONICALLY INTEGRATED / GOVERNED BY FRESH-PRODUCER REGRESSION / CLOSED FOR
@@ -795,13 +796,13 @@ Later Phase-5 work following this structural closeout:
   implemented there.*
 - Correct `A_i` (divide by Ω²) and `B_i` (geometry-consistent finite difference).
 - Confirm the `Z_i` reduction under the ratified species semantics.
-- **Controlled v1 state, F/H rates and coupled chemical/thermal RHS are candidate-validated**
+- **Controlled v1 state, F/H rates and coupled chemical/thermal RHS are governed and completely validated**
   through the Phase-5D-owned `FrozenRotochemicalRunContext`, `SecularEvolutionDriver` and
   `ScaledRKF45`. The historical `WeakRestoration`/`HeatingFromChem` filename plan was not used.
   The controlled ledger uses one Ltilde authority and the governed heat-capacity convention.
-- **Independent controlled-candidate review and owner ratification are complete for controlled
-  frozen-v1 scope.** Governed reproducibility-harness repair, baseline promotion, and canonical
-  integration remain pending.
+- **Independent review, owner ratification, reproducibility repair, baseline promotion, and
+  complete validation are finished for controlled frozen-v1 scope.** Canonical fast-forward is
+  the sole remaining integration action for this branch.
 - **Realistic Fernández–Reisenegger/A18 reference closure remains SOURCE-LIMITED / BLOCKED.**
 
 **Exit criteria.** Standard rotochemical heating reproduces published results.
@@ -830,7 +831,7 @@ unauditable.
    ADR-0006 Hartle normalization  ✅ ACCEPTED 2026-09-02 ──────────────────────────────►│
    ADR-0007/0008 Hartle O(Ω²)   ✅ ACCEPTED / VERIFIED ─────────────────────────────────►│
    ADR-0010 local thermo        ✅ ACCEPTED 2026-09-04 ────────────────────────────────────────────────►│
-   evolved eta/secular contract ✅ ADR-0014 accepted; controlled candidate human-ratified; integration pending ──►│
+   evolved eta/secular contract ✅ ADR-0014 accepted; controlled frozen-v1 governed; canonical fast-forward ready ─►│
 ```
 
 **The former Phase-2 / Phase-3 circularity is gone.** It ran:
@@ -844,9 +845,9 @@ splitting the correction out of Phase 3 into **Phase 2A**, which precedes the ba
 Phase 2A depends on a passive-cooling baseline: it is validated by independent physical checks.
 
 **INV-11 remains globally unresolved.** ADR-0014 resolves evolved-state ownership, reaction
-sign/index, thermal-ledger, and frozen-v1 policy. The controlled implementation is now
-candidate-validated, independently reviewed, and human-ratified for frozen-v1; its scoped
-subparts remain pending canonical integration and the broader realistic extensions remain open.
+sign/index, thermal-ledger, and frozen-v1 policy. The controlled implementation is now governed,
+completely validated, independently reviewed, and human-ratified for frozen-v1; its scoped
+subparts resolve on canonical fast-forward, while the broader realistic extensions remain open.
 **INV-07 is no longer a gate** — resolved by
 ADR-0006 and implemented/verified in Phase 4.
 

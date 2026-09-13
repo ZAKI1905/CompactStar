@@ -355,3 +355,16 @@ mathematical/super-Kepler control. Do not begin realistic A18 closure or BNV
 during that repair task.
 
 That next action is not begun by this record.
+
+---
+
+## 14. Governed integration follow-up — 2026-09-12
+
+The separately authorized promotion installed the unchanged controlled
+trajectory as a fresh-producer governed baseline. After a launch-level Python
+CTest isolation repair outside all protected source identity, complete
+validation passed 51/51 data-free and 75/75 authenticated tests, followed by a
+no-cleanup governed Phase-5D regeneration. The branch is ready for canonical
+fast-forward. This follow-up does not revise the ratification or its scientific
+caveats. See
+`docs/validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_INTEGRATION.md`.
