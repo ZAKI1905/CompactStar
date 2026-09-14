@@ -1,240 +1,318 @@
-# ADR-0015: BNV open-system thermal ledger and unreduced chemical response
+# ADR-0015: Moving-equilibrium BNV thermal first-law contract
 
-**Status: PROPOSED — NOT ACCEPTED.**
-**Date:** 2026-09-13.
-**Owner ratification:** NOT REQUESTED OR CLAIMED by this document.
-**Canonical entry:** `0a7418aecb7314cfa472a78f1faf477be8456a94`.
-**Scope:** proposed physics/semantic architecture only; no production BNV implementation,
-rate, test, baseline, EOS, A18 reconstruction or change to governed Phase-5 machinery.
-**Scientific disposition:** D, source-limited for the complete requested authority audit.
+## 1. Status, scope and non-scope
 
-## Context and authority
+**PROPOSED — NOT ACCEPTED — NOT OWNER-RATIFIED — NOT CANONICALLY INTEGRATED.**
+Date:2026-09-13. Phase-6A-0: **SCIENTIFICALLY HARDENED DRAFT / READY FOR FINAL INDEPENDENT REVIEW.**
+Canonical master `0a7418aecb7314cfa472a78f1faf477be8456a94`; draft entry
+`5a6bf7cb9455d684ddb6fccb22ad2b9fec940b3a`. This is a docs-only scientific contract proposal,
+not BNV production implementation, physical-rate selection, trajectory, EOS or A18 work.
 
-The governed standard problem uses a charge-neutral unreduced susceptibility G_y, beta
-reduction Z, spin forcing W, signed beta reactions, chemical dissipation and enhanced neutrino
-loss. Baryon-changing sources generally leave the fixed-baryon beta subspace; using only Z
-would erase necessary information. A thermal source cannot be inferred from the particle
-loss rate alone. These premises are authenticated and derived in the companion
-[Phase-6A-0 preflight](../validation/PHASE6A0_BNV_THERMAL_FIRST_LAW_PREFLIGHT.md), sections1-12.
-The source hierarchy is `GOVERNANCE.md:19`; governed definitions remain
-`docs/adr/ADR-0013-corrected-rotochemical-chemical-coefficients.md:136` and
-`docs/adr/ADR-0014-secular-rotochemical-evolution-contract.md:188`.
+The first controlled scope is spin OFF, whole-star diffusive non-superfluid free gas, cold
+chemical response, frozen standard coefficients and an abstract charge-consistent source.
+Phase-5B/C/D remain unchanged. Phase-5C is correct for its declared R2006/Cowling contract;
+this ADR does not supersede it or its baseline. Global INV-11 and realistic A18 retain their
+separate limits (`docs/SCIENTIFIC_INVARIANTS.md:1004`).
 
-Phase-5D controlled frozen-v1 is canonically integrated and closed for its declared scope at
-entry. Its baseline hash is
-`2606916915b2da5c051b1a06637c0a371a74751c6e77b2775bc629a63bc9f6dd`, with eleven governed
-baselines total. Global INV-11 remains unresolved and realistic A18/FR2005 remains
-source-limited. This proposal does not reopen, supersede or modify those contracts.
+## 2. Evidence hierarchy
 
-**Evidence classes are separate:** published source claims; author working notes/hypotheses
-(non-authoritative, not published); independent preflight derivation. The author reports
-additional unfinished unpublished BNV thermal work. The published corpus is not the complete
-intended theory, and omission is never evidence of intent to exclude a term. The preflight's
-section17 audits available local planning fragments separately and records the unavailable
-working manuscript. If notes become available, audit them against the completed proposed
-ledger before independent Opus review / owner ratification. No note can override the first law.
+GOVERNANCE (`GOVERNANCE.md:14`) and accepted ADR-0011/0013/0014 remain project authority.
+Catalog role defines published authority. Incoming local PDFs are supporting material, not
+catalog-promoted sources. Author notes are unpublished/non-authoritative. The initial Opus
+consultation is working history; the owner-supplied five-agent consolidated hardening is
+independent evidence, not a governed contract. This proposal derives and checks its claims.
 
-## Proposed decision
+The [R1 preflight](../validation/PHASE6A0_BNV_THERMAL_FIRST_LAW_PREFLIGHT.md) contains exact
+hashes, G1-G20 derivations, published and author-note audits, R0 corrections, scope restrictions
+and validation. The [Cowling diagnostic](../validation/PHASE6A0_COWLING_BARYON_DIRECTION_DIAGNOSTIC.md)
+is non-governed scientific evidence. Published omissions never establish the author's intent;
+the supplied notes do not necessarily exhaust the author's intended theory.
 
-### 1. Fix the matter boundary, signs and energy zero
+## 3. Species, source and energy conventions
 
-Use metric (-,+,+,+), including rest energy in epsilon and mu. Define ordinary particle
-creation positive, `nabla_mu(n_i u^mu)=Gamma_i`. For
-`nabla_mu T_matter^{mu nu}=Q^nu`, define **total** local matter-energy transfer
-`q_E=-u_nu Q^nu`, positive into matter. Do not call q_E a nonchemical thermal source.
-Contracting the perfect-fluid equation and combining Gibbs/Euler gives
+Metric(-,+,+,+), c=1 in contractions; rho and mu include rest energy with one consistent zero.
+D=u.grad is proper-time derivative; dots are infinity-coordinate time. Gamma_i is positive
+creation per proper volume/time; q_E=-u.Q is total energy INTO the ordinary thermal fluid.
+Local power density is erg cm^-3 proper-s^-1, global power erg/s.
 
-```text
-D epsilon+(epsilon+p)theta=q_E
-D n_i+n_i theta=Gamma_i
-T nabla_mu(s u^mu)=q_E-sum_i mu_i Gamma_i.             (A1)
-```
+Use governed y=(N_n,N_e,N_mu), N_p=N_e+N_mu, g_y=(mu_n,mu_p+mu_e,mu_p+mu_mu),
+b=(1,1,1), L=[[-1,-1],[1,0],[0,1]], P selecting e/mu. Eta=-L^Tg_infinity in MeV, R positive
+for neutron decay/lepton creation in count/s. Z has MeV/count, t count/count, sigma count/s.
+Convert chemical MeV to erg exactly once using the existing C_M; equations below suppress C_M
+when all energy terms use common units. Basis/code authority:
+`CompactStar/Analysis/ChemicalResponse.hpp:16`, `CompactStar/Analysis/src/ChemicalResponse.cpp:705`.
 
-A1 is an open-matter entropy balance, not a demand that the matter entropy source be
-nonnegative. Escape can remove entropy. At fixed volume the exact finite-T temperature law
-instead has `c_V D T=q_E-sum_i[mu_i+T s_,ni]Gamma_i`. Equating the A1 entropy-energy residual
-to the controlled frozen thermal RHS is an explicitly declared cold/degenerate approximation;
-its neglected composition-entropy correction must be bounded near a cancelling residual.
-Independent derivation: preflight P1-P5, including assumptions and units.
+## 4. Local open-system first law
 
-### 2. Keep event rate and energy partition separate
-
-For directed channel a, `Gamma_i^a=nu_ia R_a`, R_a nonnegative per local proper volume/time.
-With external input E_in, actual escaping E_esc and a separately retained nonthermal transfer
-J_X, the prompt controlled residual is
+The proposed law is derived by contracting the perfect-fluid stress equation and applying
+Gibbs/Euler (preflight R1-R4):
 
 ```text
-q_direct^a=[E_in,a-E_esc,a-J_X,a-sum_i mu_i nu_ia] R_a. (A2)
+nabla_mu(n_i u^mu)=Gamma_i
+D rho+(rho+p)theta=q_E
+T nabla_mu(su^mu)=q_E-sum_i mu_i Gamma_i
+T n_B D s_b=q_E-sum_i mu_i Gamma_i-T s_b Gamma_B
+c_V DT=q_E-sum_i[mu_i+T(partial s/partial n_i)_T]Gamma_i
+       -T[s-sum_i n_i(partial s/partial n_i)_T]theta.          (A1)
 ```
 
-Delayed reservoir release is counted once at release. For one-particle disappearance,
-`q_direct=(mu-E_occ+E_dep)R=(mu+E_in-E_esc-J_X)R` only if the event partition satisfies
-`E_occ+E_in=E_dep+E_esc+J_X`. E_dep is actual returned product energy in the first expression.
-If it instead names the entire residual, adding it to the second expression repeats energy.
+Compression work cancels from the entropy equation. Reversible PdV, gravitational/hydrostatic
+readjustment and binding-energy changes are not extra heat. The s_b denominator term is not
+an independent flow. Exact finite-T temperature evolution differs from the entropy-energy
+residual by composition/adiabatic terms; representative free-gas corrections are eV/event
+at 10^8K, versus MeV direct energy. Controlled frozen-v1 omits them with a declared sign floor.
 
-A microscopic `(mu-E_occ)R` rearrangement term partially represents A2; its sum with true
-product deposition is the same complete residual. Never add another hole term on top of A2.
-The chemical term `-mu Gamma` alone is not universally the microscopic hole energy: the
-occupied-state removal energy and matter boundary must also be translated. No standalone
-named hole formula was found in the four authenticated BNV papers, and no published duplicate
-thermal addend was established. Exact additional-primary attribution remains SOURCE-LIMITED.
-See preflight sections5-6 and17, not an inference about unpublished author work.
+For static/quasistatic slices, source counts use `int e^Phi Gamma dV`, power uses
+`int e^(2Phi)q dV`. One lapse is time dilation; the second is energy redshift. Thorne's
+Gamma_B=0 thermal balance and FR05/ADR-0014 beta energy balance follow explicitly in preflight
+section 4. Arbitrary rotating metrics require the corresponding Killing-energy/current treatment.
 
-### 3. Preserve local-to-infinity measures
+## 5. Direct-event energy ledger
 
-For a static normalized lapse, `d tau=e^nu dt`, `E_infinity=e^nu E_local`:
+Each directed channel declares Gamma_i=nu_ia R_a, R_a>=0. E_esc,fluid means energy leaving the
+**ordinary thermal fluid**, not necessarily the star. Without external input,
 
 ```text
-dot N_y^BNV=int e^nu Gamma_y dV_proper
-P_direct^infinity=int e^(2nu) q_direct dV_proper
-L_esc^infinity=int e^(2nu) sum_a E_esc,a R_a dV_proper. (A3)
+q_dir,a=[-sum_i nu_ia mu_i-E_esc,fluid,a]R_a
+q_dir,neutron=(mu_n,actual-E_esc,fluid)R.                      (A2)
 ```
 
-The escape expression assumes truly escaping energy emitted locally, after retention and
-transport have been resolved. Energy deposited at another radius uses that deposition site's
-clock/frame. Rotating emission requires the appropriate Killing-energy/angular-momentum
-ledger, not an unqualified static substitution. A global number vector alone cannot determine
-radially varying energy loss. Preflight P9-P11.
+External input, if independently supplied, is a distinct owner. Split fluid exit into actual
+star escape and retained-X transfer; later X release is counted once. For a neutron occupied
+state E_n=E_dep+E_esc,fluid, `mu_n-E_esc,fluid=(mu_n-E_n)+E_dep`.
+**Fermi-hole heating is not an additional independent term.** Supporting MPR21 three-piece
+collision decomposition reduces to the same residual (preflight section 5).
 
-### 4. Require the exact governed beta limit
+Exactly one representation: R-a {chemical term,total matter-energy transfer}; R-b {partial
+hole, independently defined deposition}; R-c {complete mu-E_esc}. No hole or deposition addend
+on top of an inclusive residual. n->chi gamma is illustrative only: absorbed photon gives
+mu_n-E_chi; both products leave gives mu_n-E_n; partial deposition is accounted by actual
+remaining fluid-exit energy. No rate or RMF kinematics is ratified.
 
-For positive neutron decay, `Gamma_n=-DeltaGamma_l`, `Gamma_p=Gamma_l=+DeltaGamma_l`.
-Then `-sum mu Gamma=eta_l DeltaGamma_l`. Beta neutrino escape has `q_E,beta=-Q_nu,beta`;
-“no external source” does not mean that escaping neutrino energy vanishes. Consequently
+For the declared cold spontaneous neutron-removal conditions, E_n<=mu_n, E_dep>=0 imply
+0<=Q_dir and the rate-weighted hole lower bound. Actual mu supplies the general upper budget;
+`P_dir<=|Eeq_dot|-L_esc,rest` additionally requires equilibrium or the demonstrated neutron-sink
+sign delta mu_n<=0. Here L_esc,rest=sum_a int e^Phi R_a(sum_truly_escaped m_j c^2)dV
+uses one lapse for event counts and the minimum Killing energy at infinity; it is not a
+two-lapse integral of local rest mass. Uniform nonrelativistic occupation gives2E_F,kin/5; no universal positive
+lower bound exists for an arbitrarily Fermi-surface-tuned process. Invisible is not generally
+zero heat. The full conditions and relativistic average are preflight R9-R10.
+
+## 6. Moving-equilibrium chemical response
+
+The primary chemical variables and proposed evolution are
 
 ```text
-L_H^infinity=C_M sum_l eta_l^infinity R_l
-DeltaP_beta=L_H-DeltaLnu
-DeltaLnu=sum_a Ltilde_a [F_a(xi)-1] T^q.              (A4)
+delta N_y=N_y-N_y^eq(B,Omega)=L ell,  eta=-Z ell
+S_y=int e^Phi Gamma_y^BNV dV,  Bdot=b^T S_y
+ t=(partial N_y^eq/partial B)_Omega,  b^Tt=1
+sigma=P(S_y-t Bdot),  S_y-t Bdot=L sigma
+ell_dot=R+sigma-2I_Omega Omega dotOmega
+eta_dot=-Z(R+sigma)+2W Omega dotOmega+Zdot Z^-1eta,
+W=Z I_Omega.                                                (A3)
 ```
 
-Use the existing unit conversion C_M and the same governed Ltilde for rates/emissivity.
-This recovers the Phase-5D sign and normalization exactly within its controlled assumptions.
-The incremental beta term can cool, including the established small-imbalance modified-Urca
-limit. A proposed BNV path that fails this reduction must stop. Preflight section8; governed
-`CompactStar/Physics/Rotochemical/RotochemicalReactionResponse.hpp:1` and ADR-0014.
+I_Omega here has two lepton components; L I_Omega is the three-axis target spin tangent.
+Zdot=0 in the first toy. The future positive Zdot sign is already governed by
+`docs/adr/ADR-0014-secular-rotochemical-evolution-contract.md:380`.
+S=0 recovers Phase-5D. S=t Bdot, zero initial eta and no spin forcing gives eta=0 identically:
+this is the **physical sliding null**. Baryon-neutrality is derived from the moving target,
+not imposed by projecting raw baryon loss through a fixed-metric inverse.
 
-### 5. Use the full neutral susceptibility before reduction
+## 7. t, k, G_y and Z ownership
 
-Authenticate and retain
+At spin OFF, t_i=B_i/B_B uses the existing Phase-5B structural derivative owner, with identical
+neighboring-star/domain/surface policy, denominator qualification, errors and currency.
+It is a newly derived proposed view, not a previously governed BNV object.
+Required b^Tt=1 and t_p=t_e+t_mu; t approximately(0.965770,0.0308522,0.00337774).
+The propagated numerical budgets and chart extensions are preflight section 6.
+
+Cowling k=G_yb/(b^TG_yb) approximately(0.992218,0.00748454,0.000297569) is diagnostic only;
+t_e/k_e approximately 4.12, t_mu/k_mu approximately 11.35. G_y builds governed Z and diagnostic k;
+it MUST NOT map raw BNV S to physical eta_dot or reconstruct actual changing-B individual mu.
+The rejected route equals -Z(S_l-k_l Bdot), not A3. Its old -3.442789339881122e-56 MeV/count
+both-channel value is a **COWLING k-ROUTE NEGATIVE ORACLE**.
+
+Physical neutron-only S=(Bdot,0,0), Bdot<0 gives sigma=t_l|Bdot| and
+eta_dot/|Bdot| approximately(-1.4303e-55,-3.6281e-55) MeV/count. Both eta<0 imply capture R<0,
+eta_lR_l>=0. The rejected route spuriously drives a physical slide by
+(+1.086e-55,+3.284e-55)|Bdot|. Z+t suffice after moving-reference subtraction.
+True-response findings remain non-governed diagnostic evidence; no Phase-5 coefficient changes.
+
+## 8. Chemical free-energy reservoir and individual potentials
+
+At fixed current B, `E_chem=ell^TZell/2=eta^TZ^-1eta/2>=0`, a state reservoir, not heat.
+For spin-off first-order departures,
 
 ```text
-y=(N_n,N_e,N_mu), N_p=N_e+N_mu
-g_y=(mu_n,mu_p+mu_e,mu_p+mu_mu)
-b=(1,1,1), L=[[-1,-1],[1,0],[0,1]]
-z=N_y-N_y,ref=G_y delta g_y^infinity
-eta^infinity=-L^T delta g_y^infinity
-D_BNV=-L^T G_y^-1,  eta_dot|BNV=D_BNV S_BNV
-Z=L^T G_y^-1 L,  D_BNV L=-Z.                         (A5)
+delta g^infinity=-(I-bt^T)P^Teta+O(eta^2)
+delta mu_n^infinity=eta^Tt_l+O(eta^2).                        (A4)
 ```
 
-D has shape 2 by 3, units MeV/count, ordered eta_e/eta_mu by n/e/mu; it has no symmetry
-property. Store G and provenance; D is a derived solve/view, never an independently fitted
-coefficient. Actual number balance is `Ndot=L R+S_BNV+boundary_sources`. Reference/structural
-forcing enters zdot as `-Ndot_ref`, not as fictitious particle production.
+These follow from differentiating E_eq(B)+ell^TZell/2 at the moving reference. In the frozen
+quadratic model they are exact; varying Z(B) adds b ell^TZ_,B ell/2 at quadratic order.
 
-Since `range L=ker b^T`, S=(-R,0,0) has nonzero baryon loss and cannot be Lr. Z alone cannot
-recover generic D. Free-gas neutron removal lowers mu_n and immediately drives both eta
-components negative; the authenticated numeric oracle gives each derivative/R equal to
-`-3.442789339881122e-56 MeV/count`. A neutral paired proton/electron removal gives both
-positive in that oracle. Neither is a realistic rate model. Charge-changing processes must
-close the ordinary/product/field currents before entering this neutral chart.
-A mathematical null source is `S=G b dot N_B/(b^T G b)`; it changes baryon number with D S=0,
-not necessarily along a physical hydrostatic sequence. Preflight sections9-10 and16.
-
-### 6. Keep stored energy out of the thermal source
-
-For frozen symmetric positive G, with a fixed cold tangent/reference,
+The correct derivative, including future coefficient variation, has two equivalent forms:
 
 ```text
-E_2=1/2 z^T G^-1 z
-alpha=b^T z, a=b^T G b
-E_2=alpha^2/(2a)+E_beta
-E_beta=1/2 eta^T Z^-1 eta
-E_2dot|beta=-eta^T R
-E_2dot|BNV=delta g^T S_BNV.                           (A6)
+Echem_dot=eta^TZ^-1eta_dot-(1/2)eta^TZ^-1Zdot Z^-1eta
+        =-eta^T(R+sigma)+2Omega dotOmega eta^T I_Omega
+         +(1/2)eta^TZ^-1Zdot Z^-1eta.                        (A5)
 ```
 
-E_2 is tangent-subtracted quadratic storage; only E_beta is beta-relaxable at fixed baryon
-number. Absolute cold energy also has a linear reference term. Storage is not heat. For
-changing G/reference, retain all derivative and parameter-work terms, notably
-`eta_dot_extra=L^T G^-1 Gdot G^-1 z`, and in a fixed-baryon Z representation
-`eta_dot_extra=Zdot Z^-1 eta`. The storage derivative includes the corresponding negative
-half quadratic metric derivative. Frozen scope requires measured depletion/coefficient and
-absolute residual error bounds; no numerical tolerance is set here. Preflight sections10-11.
+The hardening report's negative half **after substitution** is corrected here: A3 supplies
+another positive full term. The negative half is valid in the first chain-rule line only.
+Preflight R17 includes independent finite-difference counterexamples. Frozen coefficients
+remove both metric terms and preserve the requested spin-filling sign. Old fixed-reference
+alpha/a/alpha^2/(2a), E_2 and free F_ref constructions are rejected as primary physical storage.
 
-### 7. Compare to a matched no-BNV trajectory
+## 9. Controlled thermal equation and global closure
 
-Use the same initial star, T, eta, spin history, standard microphysics, photon/neutrino model,
-solver and tolerances, disabling only BNV sources in the control. Define Delta as BNV minus
-control at equal coordinate time. Direct BNV source is A2 integrated by A3; beta-mediated
-response is `Delta[L_H-DeltaLnu]`. Total thermal response also contains changed equilibrium
-neutrino cooling, other cooling, photon feedback and separately owned reservoir/work terms.
-Define Delta T, Delta Lgamma and Delta U with the same frozen U(T)=int C(T)dT. Neither
-instantaneous thermal power nor integrated energy difference is a positive efficiency.
-
-The controlled conservation target is preflight P27/P28. For constant g_0,G and
-`zdot=L R+S+F`, it retains the cold tangent reservoir and reference-forcing work:
+Using actual potentials, P_dir=-g_actual^TS-L_out,fluid. The equilibrium decomposition satisfies
 
 ```text
-Delta U+Delta E_2
- =int [P_in-L_esc-g_0^T S+Delta(delta g^T F)
-       -Delta Lnu_full-Delta Lgamma-Delta Lother]dt.   (A7)
+P_dir(actual)=P_dir(eq)+eta^Tsigma,
+P_dir(eq)=-mu_B^infinity Bdot-L_out,fluid
+C_* T_infinity_dot=P_dir(actual)+eta^TR-Lnu_eq-DeltaLnu-Lgamma-Lother.
+                                                               (A6)
 ```
 
-F acts on the deviation; it is not a particle source. Common F does not cancel its work.
-Full neutrino difference includes both equilibrium-temperature feedback and disequilibrium
-enhancement. This is a frozen-fixture identity, not a full evolving-star ADM closure.
+For the neutron sink the plus sign follows directly from mu_n,actual=mu_B+eta^Tt_l.
+At spin OFF/frozen coefficients, A5+A6 give
+`Eeq_dot+Echem_dot+Udot=-L_out,fluid-Lnu_full-Lgamma-Lother`.
+Add an explicit X reservoir to convert fluid-exit accounting to star-escape accounting.
+There is no free reference-work addend, no dot E_chem heat, no generic PdV heat.
+Changing coefficients/thermal structure or imposed spin requires its real state derivatives/
+Omega dot J work; the spin-off identity cannot silently claim all-orders rotating ADM closure.
 
-### 8. Separate structural and rotational work from heat
+The static neutral stellar first law is independently derived by the TOV variation kernel in
+preflight R23-R24; the cold limit gives d(M_eq c^2)/dB=mu_B^infinity with surface-work qualification.
+Uniform-rotation extension is conditional on the stationary variational problem and proper
+Killing conjugates. General quotable theorem authority remains source-limited, not a blocker
+for the explicitly derived spin-off contract.
 
-No source-backed irreversible structural dissipation mechanism was found for the audited
-quasistatic BNV scope. Reversible PdV/gravitational readjustment changes background/equilibrium
-coefficients; it is not an installed heating term. H67/H70 support restricted first-integral
-and fixed-baryon/entropy variational results. The independently derived cold static zero-
-surface-pressure limit is `delta(Mc^2)=mu_B^infinity delta N_B`; the general finite-entropy,
-multispecies rotating stellar first-law authority remains source-limited. Surface-cutoff work,
-rotation and changing structure cannot be hidden in a heat residual. Preflight section14.
+## 10. Beta-mediated thermal response
 
-## Proposed architecture, invariants and verification
+Retain governed `L_H=C_M sum eta_lR_l`, `DeltaLnu=sum Ltilde_a(F_a-1)T^q`,
+`DeltaP_beta=L_H-DeltaLnu` with the same coefficients and signed rates. This is the actual-
+potential decomposition. Relative to P_dir(eq), spin-off/frozen correction is
+`-Echem_dot-DeltaLnu`, nonpositive while storage fills, exactly -DeltaLnu in reached QSS.
+Do not confuse these decompositions or assert storage always fills.
 
-Adopt the ten proposed owners in preflight section18: process identity, local particle source,
-energy partition, global integration, full-G response, storage diagnostics, standard beta
-coupling, thermal ledger, matched comparison, and sign diagnostics. Candidate BNV-1 through
-BNV-13 there form part of this proposal, not ratified additions to SCIENTIFIC_INVARIANTS.
-Generic execution must have no reaction-specific hardcoded exceptions.
+For0<|xi|<4.9097100289 (M) or4.7870134733 (D), the incremental process power is negative.
+Instantaneous cooling magnitudes are bounded by0.467659 Lnu_eq,M and0.527775 Lnu_eq,D;
+DeltaP_beta/L_H lies in[-1/2,5/8] (pure D upper1/2). Preflight R21 proves these from the
+polynomials. The approximately 0.724 keV/baryon source-driven cooling scale at 10^8K additionally
+requires the capture/filling history assumptions stated there. It is not a bound on arbitrary
+initial stored imbalance. Ordinary10-30 MeV direct sources dominate that scale.
 
-Future analytic oracles are predeclared in preflight section16: zero source exact standard
-trajectory; nonzero source/zero direct residual; escape equals chemical release; complete
-retention; no weak reactions; restored-beta Lyapunov decrease; null-eta baryon direction;
-charge closure; matrix/storage/redshift identities; energy conservation; variable coefficients;
-finite-T near-cancellation uncertainty. They are not implemented now.
+QSS R=-sigma is Z-independent but requires reachability. R0 estimates3.4e12/9e9/3e6 yr at
+abstract1e-17/1e-14/1e-10 yr^-1; these are attributed examples, not chosen physical rates.
+Use eta=eta0-Z int sigma dt when reactions are negligible. QSS and thermal asymptotic formulas
+must not be claimed for an unreached state.
 
-The future sign map separates direct, beta-mediated and total effects over source direction,
-energy partition, eta_e/kT, eta_mu/kT, T, depth and weak regime. Report NET COOLING, NET HEATING,
-NEAR ZERO, with an uncertainty overlay when the sign cannot be resolved. No scan was run.
+## 11. Generic versus process-dependent inputs
 
-## Alternatives rejected by derivation
+Class A: total baryon loss plus sequence; B: ordinary stoichiometry/source; C: energy partition;
+D: product fate; E: hidden-sector interactions/accumulated state. Sequence and chemistry are
+generic conditional on A+B. Absolute thermal predictions require C-E. A single rate API must
+not encode a hidden energy efficiency. Event identity links particle and energy owners.
 
-- Adding an unconditional positive Fermi-hole efficiency to an inclusive first-law residual.
-- Passing arbitrary BNV sources through Z without their unreduced baryon component.
-- Counting E_2dot as a thermal source in addition to the first-law terms.
-- Treating emitted energy, equilibrium-sequence mass change or rotational work as heat.
-- Calling q_E-mu Gamma an exact finite-T temperature RHS without entropy-composition terms.
-- Inferring the author's unpublished intended theory from the published corpus's omissions.
+## 12. Regime-I validity
 
-## Source limits, consequences and acceptance gate
+Every terminal species must satisfy negligible production blocking/accumulation feedback,
+stress/EOS and chemical-equilibrium influence, heat capacity, radiation/conduction/opacity,
+and declared coefficient-drift budgets. N_X/B<<1 alone is insufficient. Near zero source,
+eta or direct power use absolute tolerances, not impossible relative inequalities.
+Frozen scope additionally bounds variations of Z,W,Ltilde,C_*,t,surface gravity,I and support.
+No universal tolerance is chosen. Explicit testable criteria are preflight section 12.
 
-The exact authenticated manifest, four-paper/145-page audit and equation-level evidence are
-in preflight sections2 and17. The prospective double-count rule is resolved. Additional named-
-hole primary attribution and general stellar-first-law authority remain source-limited.
-A24 Appendix E prints escape-frame and rate-normalization ambiguities; resolve these before
-using its energy/escape prescription, without claiming its numerical results are wrong.
-The additional unpublished thermal notes were not available/audited; supplied notes require
-a separate non-authoritative hypothesis audit before review/ratification when available.
+## 13. Regime-II boundary
 
-This proposal is therefore **NOT ACCEPTED** and does not declare source closure or owner
-ratification. Next obtain/authenticate the missing authority and complete the specific
-crosscheck, then independent scientific review and explicit owner ratification before any
-implementation. Do not begin that next task automatically. No BNV rate, realistic A18, new EOS,
-production trajectory or canonical merge is authorized by this ADR.
+Mandatory fate flags: PROMPT_ESCAPE, SM_THERMALIZATION, BOUND_INERT, BOUND_INTERACTING,
+including mixed branches and terminal products. Failure of X thermal/mechanical/chemical
+conditions triggers the corresponding Regime II. Pure ordinary coefficient drift exits the
+frozen contract but can lead to evolving ordinary Regime I, not necessarily hidden-sector II.
+Conditional linear accumulation gives a rate-independent L_X/P_dir monitor; it is not universal.
+
+Proposed progression: ordinary star -> MixedStar-lite test fluid with N_X/T_X ledger -> full
+two-fluid state(B,B_X,J,S,S_X). Slaved T_X requires rapid relaxation and P_exchange=L_X,rad.
+Goldman supports qualitative transfer through a mechanically dilute accumulated sector, with
+quantitative source limitations. Cooling relative to Regime-I prediction differs from cooling
+relative to passive control; constant positive deposition and a loss vanishing at zero T imply
+a positive temperature floor. No Regime-II implementation or rate is authorized.
+
+## 14. Matched control and sign classification
+
+Match initial star/T/eta, standard microphysics, photon/neutrino models, spin, solver and
+tolerances; remove only BNV source/product sector. First toy holds corresponding frozen B0.
+Report DeltaT, DeltaT_s, DeltaLgamma, integrated direct/incremental powers and DeltaU;
+`d DeltaU/dt=DeltaP_total` includes changed equilibrium neutrinos and photon feedback.
+
+Report NET HEATING/NET COOLING/NEAR ZERO with SIGN UNRESOLVED when error spans zero. R0's
+provisional1e-4 relative temperature floor must be remeasured for future runs and combined with
+eV/event finite-T, partition, coefficient and t/Z errors. Thermal lag is C_*T/(a_cool L).
+Generic Regime-I cooling cannot be claimed; a tuned small-direct-energy corner and applicable
+history are required. No positive heating efficiency or arbitrary-history sign theorem.
+
+## 15. First controlled toy proposal
+
+Spin OFF, whole-star governed free gas, uniform abstract proper neutron sink; t from qualified
+Phase-5B inputs, governed Z unchanged. P0: E_esc=actual current mu_n, artificial cold zero-direct
+entropy oracle, not physical n->chi gamma; P1: E_esc=E_n, uniform-sea hole diagnostic; P2:
+E_esc=0 maximal retention. P1gamma kinematics may follow only after source clarification.
+
+R0 two-tier design examples are mathematical fixtures only: P1/P2 around 1e-17 yr^-1, P0 around
+1e-13-1e-12 yr^-1 for 1e7-1e8 yr or transient analytic tests. This task selects no physical
+BNV rate, implements no rate/trajectory and chooses no microscopic constraints/couplings.
+
+## 16. Required validation oracles
+
+Zero-source Phase-5D bit identity; physical sliding null; k-route refusal; t sum rules and
+currency; physical neutron/capture signs; transient source-only solution; reached QSS balance;
+actual/eq and R-a/b/c energy equality; chemical state never heat; variable-Z chain-rule check;
+beta roots/B1/conditional B2; P0 actual-potential and P1 sea average; charge/fate closure;
+controlled finite-interval conservation; matched-control sign/lag floors. G1-G20 proof/status
+checklist is in preflight section 14. Tests are proposed, not implemented.
+
+## 17. Source-limited items and author notes
+
+The preflight preserves the four-paper published audit and separate Thermo_BNV/whiteboard
+classifications. It includes MPR Eq 8 possible prefactor typo; Goldman quantitative transport/
+normalization limitations; A24 AppendixE ambiguities; new author-note dimensional defects;
+and corrections to unsupported R0 Goldman-volume claims. No source or note is edited/promoted.
+
+Missing primary general first-law/transport/RMF sources are not claimed read. Static derived
+closure stands; the general rotating theorem, realistic-EOS response, detailed escape/rates,
+Regime-II transport, superfluidity and complete G_true numeric reproduction remain future
+source-qualified work. A note's title/omission is not author intent or proof of false physics.
+
+## 18. Consequences and implementation ownership
+
+Candidate BNV-14 through BNV-25 in preflight section 15 are part of this proposal, not ratified
+invariants. They cover the cold bracket, moving reference/t, diagnostic-only raw-G route,
+individual-potential/state-energy identity, once-only event representation, product regimes,
+beta bounds/QSS, actual-mu P0, Cowling scope and matched-control floors.
+
+Separate future owners: process/charge source, energy partition, fate/X state, global integration,
+structural t, governed Z/sigma, chemical storage, standard beta, thermal ledger and matched
+comparison. Reuse generic Phase-5D machinery; no reaction-specific generic-driver branches.
+No production source, tests, coefficients, baselines, EOS or data change under this ADR.
+
+## 19. Rejected alternatives and double-count refusals
+
+Rejected primary physics: raw D_BNV S; physical null k Bdot; old equal-channel sink oracle;
+fixed-reference alpha^2/(2a)/E_2; free F_ref/Delta(delta g^T F) as physical thermal flow;
+separate hole over complete mu-E_esc; dot E_chem or dot M_eff as heat; generic PdV/gravity heat;
+duplicate weak bulk dissipation/radiation; bound-product positive heat counted twice;
+P0 based on equilibrium mu in a disequilibrated star; generic Regime-I cooling; QSS without
+reachability. Historical occurrences are negative tests only. The exact H1-H10 refusals are
+preflight section 18, with boundary/energy-zero qualifications.
+
+## 20. Ratification requirements
+
+This is a scientifically hardened **proposal**, including explicit R1 corrections to the
+independent report. Obtain a fresh-context final independent Opus scientific review of the
+preflight, this ADR and the diagnostic, then explicit owner ratification before implementation.
+The exact requested next-action text is in preflight section 19. Do not initiate it automatically.
+No canonical merge, owner ratification, BNV rate, production trajectory or A18 work is authorized.
