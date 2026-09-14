@@ -1,10 +1,10 @@
 # Phase-6A-0 Cowling baryon-direction diagnostic
 
 **DERIVED / NUMERICALLY SUPPORTED / NOT RATIFIED AS PRODUCTION PHYSICS.**
-**Date:**2026-09-13. **Scope:** non-governed Phase-6 scientific note; no coefficient replacement.
+**Date:** 2026-09-13; R3 precision/scope clarification 2026-09-14. **Scope:** non-governed Phase-6 scientific note; no coefficient replacement.
 Canonical master `0a7418aecb7314cfa472a78f1faf477be8456a94`; draft entry
 `5a6bf7cb9455d684ddb6fccb22ad2b9fec940b3a`.
-Companions: [R1 preflight](PHASE6A0_BNV_THERMAL_FIRST_LAW_PREFLIGHT.md) and
+Companions: [preflight with R3 corrections](PHASE6A0_BNV_THERMAL_FIRST_LAW_PREFLIGHT.md) and
 [PROPOSED ADR-0015](../adr/ADR-0015-bnv-open-system-thermal-ledger.md).
 
 ## 1. What this note establishes
@@ -12,7 +12,10 @@ Companions: [R1 preflight](PHASE6A0_BNV_THERMAL_FIRST_LAW_PREFLIGHT.md) and
 Phase-5C is correct and governed for its declared R2006/Cowling contract. The new Phase-6
 question is how total baryon loss moves the equilibrium star. A fixed-metric chemical response
 cannot determine that hydrostatic baryon direction. This does not invalidate the governed
-fixed-baryon beta machinery or authorize rewriting Phase-5C.
+fixed-baryon beta machinery or authorize rewriting Phase-5C. R2006 Appendix/footnote 4's
+Cowling justification concerns baryon-conserving perturbations. The baryon-direction mismatch
+is PHYSICAL-MODEL uncertainty/scope, not `numerical_error`; PROPOSED ADR-0015 section 7 explicitly
+narrows only ADR-0013 Q1 / ADR-0014 section 3.17's forward-looking BNV seam.
 
 Evidence owners: ADR-0013 defines G_y/Z; ADR-0011 defines structural response; R1 independently
 extracts t and negative oracles from unchanged governed baselines. The supplied independent
@@ -29,14 +32,18 @@ The physical tangent is `t=(partial N_eq/partial B)_Omega`, b^Tt=1. At spin OFF,
 `t_i=B_i/B_B` from independent neighboring-star structural derivatives. The Cowling direction
 is `k=G_y b/(b^T G_y b)`; it changes redshifted baryon potential at fixed metric.
 
-| Quantity | Reproduced R1 result |
+ON THE STRUCTURE-1 FREE-GAS FIXTURE, the long digits below are arithmetic-reproducibility
+oracles on governed bytes, NOT physical precision. Drive coefficients are eta_dot/abs(Bdot)
+in MeV/count; multiplying by abs(Bdot) in count/s gives MeV/s. Ratios are fixture-specific.
+
+| Quantity | R1 governed-byte arithmetic oracle |
 |---|---|
 | t | (0.9657700849496014,0.030852171225661786,0.0033777438247248118) |
 | k | (0.9922178920029234,0.007484539490838682,0.0002975685062378332) |
 | t_e/k_e; t_mu/k_mu | approximately 4.12;11.35 |
 | Physical neutron-sink eta_dot/abs(Bdot) | (-1.4302859054e-55,-3.6280967205e-55) MeV/count |
-| REJECTED raw-G neutron-sink value | (-3.442789339881122e-56,-3.442789339881122e-56) MeV/count |
-| REJECTED raw-G response on physical slide | (+1.0860069714e-55,+3.2838177865e-55) abs(Bdot) MeV/s |
+| REJECTED raw-G neutron-sink eta_dot/abs(Bdot) | (-3.442789339881122e-56,-3.442789339881122e-56) MeV/count |
+| REJECTED raw-G physical-slide eta_dot/abs(Bdot) | (+1.0860069714e-55,+3.2838177865e-55) MeV/count |
 
 The physical slide is S=t Bdot, giving sigma=P(S-t Bdot)=0. For baryon-changing S, the
 rejected raw route `-L^T G_y^-1 S=-Z(S_l-k_l Bdot)` agrees with the physical route only if
@@ -49,7 +56,11 @@ ADR-0011 sections 3-4; Phase-5B baseline hash
 G/Z owner: `CompactStar/Analysis/src/ChemicalResponse.cpp:705`; Phase-5C baseline hash
 `7027aa6179fe9111d76586d467d007c4223ec9d26ece0fee773327973c77bfe7`.
 Conservative ratio numerical budgets are(1.443e-7,4.353e-9,2.179e-9), not certified intervals;
-sum-rule residuals are approximately 1.2e-14. See preflight section 6 for the propagation formula.
+relative t budgets approximately (1.5e-7,1.4e-7,6.5e-7), supporting about 6–7 significant
+digits. Drive budgets must also propagate governed Z errors, with Cowling model uncertainty
+separate. The fixture's d ln N_mu^eq/d ln B approximately 54 (R2 E-9) requires an explicit
+muon population/t_mu/Z_npmu sensitivity budget for depletion; it is not a universal EOS value.
+Sum-rule residuals are approximately 1.2e-14. See preflight section 6 for the propagation formula.
 
 ## 3. Projection identity, valid also for an indefinite global response
 
@@ -62,7 +73,8 @@ Z^-1=P[G-Gbb^TG/(b^TGb)]P^T.                                 (D1)
 ```
 
 R1 verifies D1 on governed G to relative residual approximately 2e-16. It is an algebraic
-identity, not a proof that any G supplies the physical equilibrium direction.
+identity, not a proof that any G supplies the physical equilibrium direction. D1 is the
+ADR-0013 section 3.3 Q identity; symmetry is not needed for D1 but is needed for D2 below.
 For a true equilibrium response, g_eq=mu_B b gives
 `G_true b=(dB/dmu_B)t`. Therefore
 
@@ -86,13 +98,15 @@ redshifted potentials and differentiation of their global species counts:
 | Eigenvalues | approximately(-4.1e54,+9.9e51,+2.5e53) count/MeV |
 | b^T G_true b | approximately-4.66e54 count/MeV |
 | dmu_B/dB | approximately-2.147e-55 MeV/count |
-| G_true b/(b^T G_true b) | approximately(0.965778,0.030851,0.003370), near structural t |
+| G_true b/(b^T G_true b) | approximately(0.965778,0.030851,0.003370), near structural t, not within-budget agreement |
 | Fixed-metric contribution to t | reported -6.28k, with metric/volume remainder +7.28 in the baryon sum |
 | Cowling Z diagonal error | approximately 1.9% npe,0.9% npmu |
 | Off-diagonal | Z_true approximately 2.34e-55 vs Cowling5.17e-55 MeV/count, ratio about 0.45 |
 | Impact on the reported BNV drive/W | only a few percent, despite much larger relative off-diagonal error |
 | Projection explanation | about 93% of off-diagonal discrepancy attributed to total-baryon projection; hybrid true projection approximately reproduces Z_true |
 
+The displayed muon direction differs from structural t_mu by about 0.24%, much larger than
+the Phase-5B propagated budget; "near" must not be read as precision agreement.
 These reported values have limited displayed precision and no newly established R1 convergence
 certificate. A final reviewer should obtain the full R0 scratch/matrix or independently solve
 the off-equilibrium TOV problem before accepting quantitative error claims. They are not
