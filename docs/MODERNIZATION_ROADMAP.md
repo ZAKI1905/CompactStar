@@ -1,5 +1,13 @@
 # CompactStar Modernization Roadmap
 
+> **Phase-6A-0RAT status (2026-09-18): ADR-0015 ACCEPTED / HUMAN-RATIFIED;
+> BNV OPEN-SYSTEM THERMAL CONTRACT GOVERNED FOR THE DECLARED CONTROLLED ABSTRACT-SOURCE
+> REGIME-I SCOPE.** Phase-6A-0 is **PREFLIGHT COMPLETE / INDEPENDENTLY REVIEWED /
+> HUMAN-RATIFIED**. Production implementation is **NOT BEGUN**; no physical BNV rate is selected;
+> `n->chi-gamma`, realistic A18, Regime-II, and MixedStar thermal evolution are **NOT IMPLEMENTED /
+> NOT BEGUN**. No numerical Phase-6 baseline exists. Evidence: [ADR-0015](adr/ADR-0015-bnv-open-system-thermal-ledger.md)
+> and the [ratification record](validation/PHASE6A0_BNV_THERMAL_FIRST_LAW_RATIFICATION.md).
+
 > **Phase-5D-1INT branch status (2026-09-12): CONTROLLED NON-SUPERFLUID ROTOCHEMICAL EVOLUTION GOVERNED / COMPLETE VALIDATION PASS / CANONICAL INTEGRATION-READY / CLOSED FOR DECLARED CONTROLLED FROZEN-V1 SCOPE.** The eleventh governed baseline is fresh-producer regression protected at SHA-256 `2606916915b2da5c051b1a06637c0a371a74751c6e77b2775bc629a63bc9f6dd`. Complete validation passed 51/51 data-free and 75/75 authenticated tests, and an immediate no-cleanup Phase-5D regeneration matched exactly. The scoped INV-11b-f controlled/frozen-v1 subparts become resolved upon canonical fast-forward; global INV-11 remains **UNRESOLVED** for broader extensions. The `P0=1 ms` trajectory remains a super-Kepler mathematical control with `physical_spin_interpretation=false`, and provenance is FR2005 Eq. (49) / PCY97 fully accreted with zero numerical change. Realistic FR2005/A18 remains **SOURCE-LIMITED / BLOCKED**; BNV **NOT BEGUN**. See [integration record](validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_INTEGRATION.md), [preparation record](validation/PHASE5D1_GOVERNED_ARTIFACT_PREPARATION.md), and [ratification](validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_RATIFICATION.md). Earlier branch/canonical-entry statements below are historical and retain their original scope.
 
 > **Historical Phase-5D-1 branch status (2026-09-10): RESPONSE MACHINERY IMPLEMENTED / FOCUSED ANALYTIC TESTS PASSED; COUPLED EVOLUTION PRE-RESULT BLOCKED.** The frozen radial-10000 assembly fails W numerical acceptance before any trajectory. The response commit adds typed eta/function/process/support/global-Ltilde/reaction-ledger objects; integrated evolution and full INV-11b-f closure remain pending. Global INV-11 remains **UNRESOLVED**. No completed evolution candidate, independent review, owner ratification, canonical integration, realistic A18 normalization or BNV is claimed. See `docs/validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_IMPLEMENTATION.md`. Earlier Phase-5D-0 statements below describe canonical entry and are historical for this branch.
@@ -817,6 +825,14 @@ BNV generalizes the rotochemical relation. It requires a governed, validated sta
 generalize *from*. Beginning BNV work earlier would extend an unvalidated formalism and make both
 unauditable.
 
+**Phase-6A-0 status:** **COMPLETE — PREFLIGHT COMPLETE / INDEPENDENTLY REVIEWED /
+HUMAN-RATIFIED.** ADR-0015 is **ACCEPTED / HUMAN-RATIFIED** and governs the local open-system
+first law, the once-only direct-energy ledger, the moving-reference source
+`S_y - t Bdot = L sigma`, and the physical BNV seam `{Bdot, sigma}` with governed `Z` for the
+declared controlled abstract-source Regime-I scope. This is a contract milestone only: production
+implementation, a physical BNV rate, `n->chi-gamma`, realistic A18, Regime-II transport, MixedStar
+thermal evolution, trajectories, and a Phase-6 numerical baseline have **NOT BEGUN**.
+
 ---
 
 ## Dependency summary
@@ -832,6 +848,7 @@ unauditable.
    ADR-0007/0008 Hartle O(Ω²)   ✅ ACCEPTED / VERIFIED ─────────────────────────────────►│
    ADR-0010 local thermo        ✅ ACCEPTED 2026-09-04 ────────────────────────────────────────────────►│
    evolved eta/secular contract ✅ ADR-0014 accepted; controlled frozen-v1 governed; canonical fast-forward ready ─►│
+   BNV thermal contract         ✅ ADR-0015 accepted / human-ratified; production implementation not begun ─►│
 ```
 
 **The former Phase-2 / Phase-3 circularity is gone.** It ran:

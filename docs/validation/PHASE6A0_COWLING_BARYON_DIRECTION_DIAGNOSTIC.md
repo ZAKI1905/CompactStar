@@ -4,8 +4,8 @@
 **Date:** 2026-09-13; R3 precision/scope clarification 2026-09-14. **Scope:** non-governed Phase-6 scientific note; no coefficient replacement.
 Canonical master `0a7418aecb7314cfa472a78f1faf477be8456a94`; draft entry
 `5a6bf7cb9455d684ddb6fccb22ad2b9fec940b3a`.
-Companions: [preflight with R3 corrections](PHASE6A0_BNV_THERMAL_FIRST_LAW_PREFLIGHT.md) and
-[PROPOSED ADR-0015](../adr/ADR-0015-bnv-open-system-thermal-ledger.md).
+Companions: [human-ratified preflight](PHASE6A0_BNV_THERMAL_FIRST_LAW_PREFLIGHT.md) and
+[ACCEPTED ADR-0015](../adr/ADR-0015-bnv-open-system-thermal-ledger.md).
 
 ## 1. What this note establishes
 
@@ -14,8 +14,8 @@ question is how total baryon loss moves the equilibrium star. A fixed-metric che
 cannot determine that hydrostatic baryon direction. This does not invalidate the governed
 fixed-baryon beta machinery or authorize rewriting Phase-5C. R2006 Appendix/footnote 4's
 Cowling justification concerns baryon-conserving perturbations. The baryon-direction mismatch
-is PHYSICAL-MODEL uncertainty/scope, not `numerical_error`; PROPOSED ADR-0015 section 7 explicitly
-narrows only ADR-0013 Q1 / ADR-0014 section 3.17's forward-looking BNV seam.
+is PHYSICAL-MODEL uncertainty/scope, not `numerical_error`; ACCEPTED / HUMAN-RATIFIED ADR-0015
+section 7 explicitly narrows only ADR-0013 Q1 / ADR-0014 section 3.17's forward-looking BNV seam.
 
 Evidence owners: ADR-0013 defines G_y/Z; ADR-0011 defines structural response; R1 independently
 extracts t and negative oracles from unchanged governed baselines. The supplied independent
@@ -128,7 +128,8 @@ contract. The true sequence curvature lives in E_eq(B). Retain only
 `E_chem=eta^TZ^-1eta/2` for fixed-current-B disequilibrium, with the R1 variable-Z chain-rule
 correction in the preflight section 8.
 
-Proposed future oracles: t sum rules/currentness; physical sliding null; raw-k negative values;
+Required future implementation oracles under ADR-0015: t sum rules/currentness; physical sliding
+null; raw-k negative values;
 D1/D2 projection; independently converged off-equilibrium star derivatives; derivative symmetry;
 fixed-B positive beta curvature versus unrestricted baryon curvature; actual-potential ledger
 closure. None is implemented here. Phase-5B/C/D code, governed baselines, historical candidates,

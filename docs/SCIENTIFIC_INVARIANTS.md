@@ -1,5 +1,16 @@
 # CompactStar Scientific Invariants
 
+> **Phase-6A-0RAT status (2026-09-18): ADR-0015 ACCEPTED / HUMAN-RATIFIED;
+> BNV OPEN-SYSTEM THERMAL CONTRACT GOVERNED FOR THE DECLARED CONTROLLED ABSTRACT-SOURCE
+> REGIME-I SCOPE.** Phase-6A-0 is **PREFLIGHT COMPLETE / INDEPENDENTLY REVIEWED /
+> HUMAN-RATIFIED**. BNV-14 through BNV-25 are accepted ADR-0015 contract requirements, not
+> separately numbered invariant-register entries and not implementation claims. BNV production
+> implementation is **NOT BEGUN**; no physical BNV rate is selected; `n->chi-gamma`, realistic
+> A18, Regime-II, and MixedStar thermal evolution are **NOT IMPLEMENTED / NOT BEGUN**. No
+> Phase-5 coefficient mathematics, Q/Z/W ownership, or governed baseline changes. Evidence:
+> [ADR-0015](adr/ADR-0015-bnv-open-system-thermal-ledger.md) and the
+> [ratification record](validation/PHASE6A0_BNV_THERMAL_FIRST_LAW_RATIFICATION.md).
+
 > **Phase-5D-1INT branch status (2026-09-12): CONTROLLED NON-SUPERFLUID ROTOCHEMICAL EVOLUTION GOVERNED / COMPLETE VALIDATION PASS / CANONICAL INTEGRATION-READY / CLOSED FOR DECLARED CONTROLLED FROZEN-V1 SCOPE.** The governed baseline at `tests/baselines/phase5d1_controlled_evolution.json` has SHA-256 `2606916915b2da5c051b1a06637c0a371a74751c6e77b2775bc629a63bc9f6dd` and is reproduced by an empty-scratch producer regression. Python CTest launch isolation prevents source-tree bytecode contamination without changing protected scripts. Complete validation passed 51/51 data-free and 75/75 authenticated tests, followed without cleanup by another exact Phase-5D regeneration. Upon canonical fast-forward, INV-11b/c/d are **RESOLVED FOR CONTROLLED FROZEN-V1 SCOPE**, INV-11e is **RESOLVED FOR FROZEN-V1 COEFFICIENT SEMANTICS**, and INV-11f is **RESOLVED FOR CONTROLLED FROZEN-V1 ODE/SOURCE COUPLING**. Global INV-11 remains **UNRESOLVED** for broader extensions. The `P0=1 ms` history remains a super-Kepler mathematical driver with `physical_spin_interpretation=false`; envelope provenance is FR2005 Eq. (49) / PCY97 fully accreted with zero numerical change. Realistic FR2005/A18 remains **SOURCE-LIMITED / BLOCKED**; BNV **NOT BEGUN**. See [integration record](validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_INTEGRATION.md), [preparation record](validation/PHASE5D1_GOVERNED_ARTIFACT_PREPARATION.md), and [ratification](validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_RATIFICATION.md). Earlier branch/canonical-entry statements below are historical and retain their original scope.
 
 > **Historical Phase-5D-1 branch status (2026-09-10): RESPONSE MACHINERY IMPLEMENTED / FOCUSED ANALYTIC TESTS PASSED; COUPLED EVOLUTION PRE-RESULT BLOCKED.** The frozen radial-10000 assembly fails W numerical acceptance before any trajectory. The response commit adds typed eta/function/process/support/global-Ltilde/reaction-ledger objects; integrated evolution and full INV-11b-f closure remain pending. Global INV-11 remains **UNRESOLVED**. No completed evolution candidate, independent review, owner ratification, canonical integration, realistic A18 normalization or BNV is claimed. See `docs/validation/PHASE5D1_CONTROLLED_ROTOCHEMICAL_EVOLUTION_IMPLEMENTATION.md`. Earlier Phase-5D-0 statements below describe canonical entry and are historical for this branch.

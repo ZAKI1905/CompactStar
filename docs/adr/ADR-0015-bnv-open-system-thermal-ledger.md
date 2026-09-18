@@ -2,12 +2,13 @@
 
 ## 1. Status, scope and non-scope
 
-**Status:** PROPOSED — NOT ACCEPTED — NOT OWNER-RATIFIED — NOT CANONICALLY INTEGRATED.
-Date: 2026-09-14. Phase-6A-0R3: **FINAL-REVIEW CORRECTIONS APPLIED /
-READY FOR BOUNDED INDEPENDENT RE-REVIEW.**
+**Status:** ACCEPTED / HUMAN-RATIFIED.
+Date accepted: 2026-09-18. Phase-6A-0: **PREFLIGHT COMPLETE / INDEPENDENTLY REVIEWED /
+HUMAN-RATIFIED. CONTRACT ACCEPTED; PRODUCTION IMPLEMENTATION NOT BEGUN.**
 Canonical master `0a7418aecb7314cfa472a78f1faf477be8456a94`; draft entry
 `5a6bf7cb9455d684ddb6fccb22ad2b9fec940b3a`. R3 entry / PHASE6A0_R2_REVIEWED_SHA:
-`7a31862f1e8a5cf046316882e05d76e4924e27d9`. This is a docs-only scientific contract proposal,
+`7a31862f1e8a5cf046316882e05d76e4924e27d9`; final correction / reviewed branch SHA
+`58b375631d6948ed254809567bd29050f9735089`. This is a docs-only accepted scientific contract,
 not BNV production implementation, physical-rate selection, trajectory, EOS or A18 work.
 
 The first controlled scope is spin OFF, whole-star diffusive non-superfluid free gas, cold
@@ -16,7 +17,7 @@ Phase-5B/C/D remain unchanged. Phase-5C is correct for its declared R2006/Cowlin
 this ADR does not supersede ADR-0013/0014 coefficient mathematics, Q/Z/W ownership, governed
 baselines, the Cowling source contract inside the declared fixed-baryon scope, or standard
 rotochemical physics. It DOES narrow their forward-looking BNV-seam designation as explicitly
-stated in section 7, subject to owner ratification. Global INV-11 and realistic A18 retain their
+owner-ratified in section 7. Global INV-11 and realistic A18 retain their
 separate limits (`docs/SCIENTIFIC_INVARIANTS.md:1004`).
 
 ## 2. Evidence hierarchy
@@ -57,7 +58,7 @@ Basis/code authority:
 
 ## 4. Local open-system first law
 
-The proposed law is derived by contracting the perfect-fluid stress equation and applying
+The accepted law is derived by contracting the perfect-fluid stress equation and applying
 Gibbs/Euler (preflight R1-R4):
 
 ```text
@@ -135,7 +136,7 @@ zero heat. The full conditions and relativistic average are preflight R9-R10.
 
 ## 6. Moving-equilibrium chemical response
 
-The primary chemical variables and proposed evolution are
+The primary chemical variables and accepted contract evolution are
 
 ```text
 delta N_y=N_y-N_y^eq(B,Omega)=L ell,  eta=-Z ell
@@ -156,13 +157,13 @@ not imposed by projecting raw baryon loss through a fixed-metric inverse.
 
 ## 7. t, k, G_y and Z ownership
 
-### Proposed normative reconciliation of the forward BNV seam (R2 E-1)
+### Normative reconciliation of the forward BNV seam (R2 E-1)
 
 ADR-0013 Q1's designation of G_y as physical authority for later non-fixed-baryon sources
 (`docs/adr/ADR-0013-corrected-rotochemical-chemical-coefficients.md:212`) and ADR-0014
 section 3.17's forward-looking BNV seam description
 (`docs/adr/ADR-0014-secular-rotochemical-evolution-contract.md:472`–`:478`) are narrowed by
-this ADR, upon explicit owner ratification. The coefficient mathematics, Q/Z/W ownership,
+this explicitly owner-ratified ADR. The coefficient mathematics, Q/Z/W ownership,
 Cowling contract inside its declared Phase-5 scope, governed baselines and all Phase-5 results
 remain unchanged. G_y remains the governed unreduced authority used to build Z, the owner
 of that Cowling response, and the source of diagnostic k. It is NOT the physical raw-S_y
@@ -173,14 +174,14 @@ space applies to the RAW source S_y. The physically relevant moving-reference so
 Sigma_y=S_y-t Bdot: b^T Sigma_y=0 by identity, so Sigma_y=L sigma for every charge-consistent
 source, with sigma=P(S_y-t Bdot). The physical BNV seam is therefore {Bdot, sigma}, with
 qualified structural t and eta_dot=-Z(R+sigma)+2W Omega dotOmega
-[+Zdot Z^-1eta when applicable], not the raw-G_y source map. This is an explicit proposed
-forward-contract refinement, not a change to accepted ADR-0013/0014 text or Phase-5 numbers.
-The future owner-ratification request MUST explicitly include acknowledgment of this narrowing.
-No ratification is performed by this correction pass.
+[+Zdot Z^-1eta when applicable], not the raw-G_y source map. This is an explicit accepted
+forward-contract narrowing, not a change to accepted ADR-0013/0014 coefficient mathematics or
+Phase-5 numbers. The owner explicitly acknowledged and approved this narrowing on 2026-09-18.
 
 At spin OFF, t_i=B_i/B_B uses the existing Phase-5B structural derivative owner, with identical
 neighboring-star/domain/surface policy, denominator qualification, errors and currency.
-It is a newly derived proposed view, not a previously governed BNV object.
+It is the accepted primary structural object for this contract; no production BNV object is
+implemented.
 Required identities are b^Tt=1 and t_p=t_e+t_mu. On the Structure-1 free-gas fixture,
 t approximately (0.965770,0.0308522,0.00337774).
 The propagated numerical budgets and chart extensions are preflight section 6.
@@ -356,7 +357,7 @@ genuine thermal changes when interpreting DeltaT_s.
 Generic Regime-I cooling cannot be claimed; a tuned small-direct-energy corner and applicable
 history are required. No positive heating efficiency or arbitrary-history sign theorem.
 
-## 15. First controlled toy proposal
+## 15. First controlled toy contract requirement
 
 Spin OFF, whole-star governed free gas, uniform abstract proper neutron sink; t from qualified
 Phase-5B inputs, governed Z unchanged. P0: E_esc,fluid=actual current local mu_n, artificial cold zero-direct
@@ -395,8 +396,9 @@ source-qualified work. A note's title/omission is not author intent or proof of 
 
 ## 18. Consequences and implementation ownership
 
-Candidate BNV-14 through BNV-25 in preflight section 15 are part of this proposal, not ratified
-invariants. They cover the cold bracket, moving reference/t, diagnostic-only raw-G route,
+BNV-14 through BNV-25 in preflight section 15 are accepted contract requirements under this ADR;
+they are not separately numbered entries in the scientific-invariant register and are not an
+implementation claim. They cover the cold bracket, moving reference/t, diagnostic-only raw-G route,
 individual-potential/state-energy identity, once-only event representation, product regimes,
 beta bounds/QSS, actual-mu P0, Cowling scope and matched-control floors.
 
@@ -416,12 +418,20 @@ P0 based on equilibrium mu in a disequilibrated star; generic Regime-I cooling; 
 reachability. Historical occurrences are negative tests only. The exact H1-H10 refusals are
 preflight section 18, with boundary/energy-zero qualifications.
 
-## 20. Ratification requirements
+## 20. Ratification record
 
-This remains a **proposal** after the R2 final-review corrections. First obtain the bounded
-fresh-context re-review specified in preflight section 19. If it returns zero BLOCKING/MATERIAL
-findings, request explicit owner ratification, including explicit acknowledgment that ratification
-narrows ADR-0013 Q1 / ADR-0014 section 3.17's forward-looking BNV seam as stated in section 7.
-A future authorized ratification task must reconcile roadmap/architecture/invariant status banners
-while preserving implementation NOT BEGUN. Do not initiate re-review or ratification automatically.
-No canonical merge, owner ratification, BNV rate, production trajectory or A18 work is authorized.
+The full R2 independent review found **0 BLOCKING / 1 MATERIAL / 26 NONBLOCKING / 21 NOTE**.
+The sole material issue was the previously implicit forward-contract narrowing now stated in
+section 7. Correction commit `58b375631d6948ed254809567bd29050f9735089` applied E-1 through
+E-27 without changing load-bearing physics. The bounded R4 re-review found
+**0 BLOCKING / 0 MATERIAL / 0 NONBLOCKING / 3 NOTE** and concluded that this ADR was ready for
+explicit owner ratification. Fable was not needed.
+
+On 2026-09-18 the human owner explicitly ratified this ADR for the declared controlled
+abstract-source Regime-I BNV thermal contract and knowingly approved the narrowing in section 7.
+The complete owner decision, review provenance, exclusions, and status synchronization are recorded
+in [the Phase-6A-0 ratification record](../validation/PHASE6A0_BNV_THERMAL_FIRST_LAW_RATIFICATION.md).
+
+Acceptance governs the contract only. No physical BNV rate is selected; no `n->chi-gamma`,
+realistic `E_esc`, realistic A18, superfluid, Regime-II, MixedStar thermal-evolution, production
+source, test, trajectory, or numerical baseline is implemented or authorized by this ratification.

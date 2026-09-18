@@ -1,15 +1,15 @@
 # Phase-6A-0 BNV thermal first-law contract preflight — R3 review reconciliation
 
-**Status: FINAL-REVIEW CORRECTIONS APPLIED / READY FOR BOUNDED INDEPENDENT RE-REVIEW.**
-**ADR-0015: PROPOSED / NOT ACCEPTED / NOT OWNER-RATIFIED / NOT CANONICALLY INTEGRATED.**
-**Date:** 2026-09-14 (R3); R1 derivation record dated 2026-09-13. **Change class:** documentation of proposed scientific-semantic and
+**Current status (2026-09-18): PREFLIGHT COMPLETE / INDEPENDENTLY REVIEWED / HUMAN-RATIFIED.**
+**ADR-0015: ACCEPTED / HUMAN-RATIFIED; CONTRACT ACCEPTED; PRODUCTION IMPLEMENTATION NOT BEGUN.**
+**Historical date:** 2026-09-14 (R3); R1 derivation record dated 2026-09-13. **Change class:** documentation of scientific-semantic and
 architecture contracts; no numerical behavior or implementation changes.
 **Canonical master:** `0a7418aecb7314cfa472a78f1faf477be8456a94`.
 **PHASE6A0_DRAFT_ENTRY_SHA:** `5a6bf7cb9455d684ddb6fccb22ad2b9fec940b3a`.
 **PHASE6A0_R2_REVIEWED_SHA (R3 entry):** `7a31862f1e8a5cf046316882e05d76e4924e27d9`.
 **Branch:** `analysis/phase6a0-bnv-thermal-first-law-preflight`.
 **Worktree:** `/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a0-bnv-thermal-preflight`.
-**Companions:** [PROPOSED ADR-0015](../adr/ADR-0015-bnv-open-system-thermal-ledger.md) and
+**Companions:** [ACCEPTED ADR-0015](../adr/ADR-0015-bnv-open-system-thermal-ledger.md) and
 [non-governed Cowling diagnostic](PHASE6A0_COWLING_BARYON_DIRECTION_DIAGNOSTIC.md).
 
 ## 1. Entry, evidence hierarchy and rewrite boundary
@@ -479,14 +479,14 @@ use k as the physical null, or reconstruct actual individual changing-B potentia
 The forward-looking BNV-seam language in ADR-0013 Q1
 (`docs/adr/ADR-0013-corrected-rotochemical-chemical-coefficients.md:212`) and ADR-0014 section 3.17
 (`docs/adr/ADR-0014-secular-rotochemical-evolution-contract.md:472`–`:478`) is explicitly narrowed
-by PROPOSED ADR-0015 section 7, subject to owner ratification. "Cannot be represented in the
+by ACCEPTED / HUMAN-RATIFIED ADR-0015 section 7. "Cannot be represented in the
 fixed-baryon two-channel space" applies to RAW S_y. The moving-reference source
 Sigma_y=S_y-t Bdot obeys b^T Sigma_y=0 and Sigma_y=L sigma identically for every charge-consistent
 source. The physical seam is {Bdot,sigma}, sigma=P(S_y-t Bdot), using qualified t and governed Z;
 the raw-G_y map is rejected. G_y retains its unreduced coefficient/Cowling ownership and k
 diagnostic role. Phase-5 coefficient mathematics, Q/Z/W ownership, governed baselines and all
-Phase-5 results remain intact. The future owner request must explicitly acknowledge this
-narrowing; this document neither edits nor ratifies the accepted ADRs.
+Phase-5 results remain intact. The owner explicitly acknowledged and approved this narrowing on
+2026-09-18; this document does not edit ADR-0013/0014 or change their Phase-5 mathematics.
 
 For invertible symmetric G, nonzero a_G=b^TGb and invertible Z, set
 H_proj=G-Gbb^TG/a_G. It annihilates b, so H_proj=L C L^T with C=P H_proj P^T.
@@ -898,9 +898,9 @@ source radius/support, weak regime, finite-T threshold/thermal-tail weighting, N
 fate and coupling/age. A thermal-tail channel can cool without violating the cold theorem. Separate direct,
 beta-mediated and total signs. No numerical sign scan was run.
 
-## 14. Proposed first toy and G1-G20 oracle coverage
+## 14. First controlled toy contract and G1-G20 oracle coverage
 
-Propose only: governed Phase-5D free-gas fixture, spin OFF, whole-star diffusive domain, uniform
+Contract requirement only: governed Phase-5D free-gas fixture, spin OFF, whole-star diffusive domain, uniform
 abstract neutron sink per local proper time (`Gamma_n=-gamma n_n`, S_n=int e^Phi Gamma_n dV).
 Use t from the qualified Phase-5B owner and Z from Phase-5C. Coordinate total-loss fraction
 |dot B|/B is not automatically the local gamma; normalize and record the lapse/particle fraction.
@@ -955,7 +955,7 @@ representations; chemical storage excluded from thermal RHS; P0 current-potentia
 analytic average; finite-interval R20/R26 residuals; variable-Z scalar counterexample; product
 fate/charge closure refusals. No test code or governed baseline is created in R1.
 
-## 15. Proposed architecture and invariant ownership
+## 15. Accepted contract requirements and future architecture ownership
 
 Future layers: process identity/charge-closed stoichiometry; state-dependent local particle
 source; external inflow of energy/charges/angular momentum; separate
@@ -967,15 +967,16 @@ For the BNV response, G_y builds Z and optional k diagnostics; its Phase-5 scope
 ownership is intact. No raw-G baryon drive or individual potential
 reconstruction. No new production class is claimed to exist.
 
-Candidate BNV-14 through BNV-25 replace incompatible old draft BNV-2/BNV-3 architecture clauses;
-none is added to SCIENTIFIC_INVARIANTS or marked accepted:
+BNV-14 through BNV-25 replace incompatible old draft BNV-2/BNV-3 architecture clauses and are
+accepted as contract requirements under ADR-0015. They are not separately numbered invariant-register
+entries and do not assert production implementation:
 
-| Candidate | Proposed statement |
+| Requirement | Accepted statement |
 |---|---|
 | BNV-14 | Cold direct bracket uses actual potentials and stated event/fate assumptions; equilibrium upper bound conditional; each physical channel redeclares its finite-T weighting floor (smooth-toy eV is not universal), including omitted state-derivative terms |
 | BNV-15 | Moving-reference delta N is baryon-neutral; physical forcing S-t dot B; physical sliding null |
 | BNV-16 | t derives from the qualified equilibrium-sequence owner on the SAME declared domain D as its paired G_y/Z/reaction quantities, with chart/error/currentness and sum rules; long digits are governed-byte arithmetic oracles, not physical precision |
-| BNV-17 | Explicitly narrows ADR-0013 Q1 (`docs/adr/ADR-0013-corrected-rotochemical-chemical-coefficients.md:212`) and ADR-0014 section 3.17 (`docs/adr/ADR-0014-secular-rotochemical-evolution-contract.md:472`–`:478`) upon owner ratification as proposed in ADR-0015 section 7: raw S_y is not two-channel, but Sigma_y=S_y-t Bdot=L sigma identically; physical seam {Bdot,sigma}; G_y retains Phase-5 coefficient/Cowling ownership and k diagnostics, never the physical raw-BNV map; Phase-5 mathematics/baselines intact |
+| BNV-17 | Explicitly narrows ADR-0013 Q1 (`docs/adr/ADR-0013-corrected-rotochemical-chemical-coefficients.md:212`) and ADR-0014 section 3.17 (`docs/adr/ADR-0014-secular-rotochemical-evolution-contract.md:472`–`:478`) as accepted in ADR-0015 section 7: raw S_y is not two-channel, but Sigma_y=S_y-t Bdot=L sigma identically; physical seam {Bdot,sigma}; G_y retains Phase-5 coefficient/Cowling ownership and k diagnostics, never the physical raw-BNV map; Phase-5 mathematics/baselines intact |
 | BNV-18 | First-order individual-potential identity R16; controlled ledger has no free reference-work input; higher-order state derivatives explicit |
 | BNV-19 | E_chem is state storage; R17a/R17b are equivalent; never a heat addend |
 | BNV-20 | Exactly one direct-energy representation; no duplicated hole/deposit/storage/mechanical/reaction-viscous/product energy |
@@ -1158,15 +1159,15 @@ variational proof; changing-background second-order potentials, heat capacity an
 Regime-II dynamics; whole-star rate-weighted hole energy. R0's G_true full matrix/scratch is
 not supplied, so its numerical diagnostic is attributed rather than regenerated/ratified.
 
-**R3 disposition A:** PHASE-6A-0 FINAL-REVIEW CORRECTIONS APPLIED — MATERIAL GOVERNANCE
+**Historical R3 disposition A:** PHASE-6A-0 FINAL-REVIEW CORRECTIONS APPLIED — MATERIAL GOVERNANCE
 CONFLICT EXPLICITLY RECONCILED — READY FOR BOUNDED FRESH-CONTEXT RE-REVIEW.
-ADR-0015 remains PROPOSED / NOT ACCEPTED / NOT OWNER-RATIFIED / NOT CANONICALLY INTEGRATED.
+At R3, ADR-0015 remained PROPOSED / NOT ACCEPTED / NOT OWNER-RATIFIED / NOT CANONICALLY INTEGRATED.
 BNV implementation is NOT BEGUN. The R2 review passed the load-bearing physics; this correction
 pass does not itself certify a clean independent re-review. No BNV rate, trajectory, n->chi gamma
 implementation, Regime-II/MixedStar implementation, realistic A18 work or canonical merge.
 
-Exact next action, **not executed** (the commit alias is reported with its resolved hash outside
-this document to avoid a self-referential commit):
+Historical next action, later executed by R4 and the owner-ratification task (the commit alias is
+reported with its resolved hash outside this document to avoid a self-referential commit):
 
 > Run a BOUNDED fresh-context Claude Opus 5 XHIGH re-review of ONLY the delta from
 > 7a31862f1e8a5cf046316882e05d76e4924e27d9 to
@@ -1193,7 +1194,7 @@ this document to avoid a self-referential commit):
 
 ## 20. R1 validation record
 
-Permanent allowlist: this preflight, PROPOSED ADR-0015, and the dedicated Cowling diagnostic.
+Permanent R1 allowlist: this preflight, ADR-0015, and the dedicated Cowling diagnostic.
 No status-link changes were needed. Entry hashes cover 2898 tracked paths (including the two
 old drafts), all 43 literature files and external/author inputs identified above. All11 governed
 baselines,33 protected Phase-5 source paths, historical candidate artifacts and EOS/data remain
@@ -1328,3 +1329,18 @@ The correction commit uses
 `docs: reconcile bnv thermal preflight review`, a new descendant of PHASE6A0_R2_REVIEWED_SHA.
 Resulting PHASE6A0_R3_CORRECTION_SHA, push/fetch equality and canonical parity are reported
 outside the commit; no amend, squash, force push or merge is authorized.
+
+## 22. R4 re-review and human-owner ratification closeout
+
+Correction commit `58b375631d6948ed254809567bd29050f9735089` received the bounded R4
+fresh-context re-review required by section 19. R4 found **0 BLOCKING / 0 MATERIAL /
+0 NONBLOCKING / 3 NOTE**, confirmed that load-bearing equations were unchanged, and returned
+**PROPOSED ADR-0015 READY FOR EXPLICIT OWNER RATIFICATION**. Fable was not needed. The notes were
+symbol/citation/label observations and did not require correction before ratification.
+
+On 2026-09-18 the human owner explicitly ratified ADR-0015, including the forward-contract
+narrowing in section 7 and BNV-17. Phase-6A-0 is therefore **PREFLIGHT COMPLETE / INDEPENDENTLY
+REVIEWED / HUMAN-RATIFIED**. The complete decision and exclusions are recorded in
+`docs/validation/PHASE6A0_BNV_THERMAL_FIRST_LAW_RATIFICATION.md`. This status change creates no
+BNV rate, `n->chi-gamma` implementation, A18 work, Regime-II/MixedStar work, production source,
+test, trajectory, or numerical baseline.
