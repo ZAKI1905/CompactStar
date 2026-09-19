@@ -1,6 +1,7 @@
 # Phase-6A-1 controlled abstract BNV implementation campaign
 
-Status: **PREDECLARED / NO TRAJECTORY GENERATED**
+Status: **CONTROLLED TRAJECTORY / NUMERICAL VALIDATION FAILED — CANDIDATE NOT
+ACCEPTABLE**
 
 Classification: **CONTROLLED MATHEMATICAL / ARCHITECTURE BNV CAMPAIGN; NOT A
 PHYSICAL BNV MODEL; NOT A GOVERNED NUMERICAL BASELINE**.
@@ -287,3 +288,29 @@ Any retained artifact is only:
 `docs/validation/phase6a1_controlled_bnv_candidate.json`, visibly classified
 `CONTROLLED MATHEMATICAL / ARCHITECTURE BNV CANDIDATE; NOT PHYSICAL BNV MODEL; NOT
 GOVERNED BASELINE; NOT OWNER-RATIFIED NUMERICAL RESULT`.
+
+## 11. Post-run disposition
+
+The initial form of this record was committed at
+`PHASE6A1I_PREDECLARATION_SHA=6a3c3e8653f407ba9734968bb7a1802cb78a5549`
+before any BNV trajectory. The immutable cards, grids and tolerances above were not
+changed afterward. The durable pretrajectory gate is
+`docs/validation/PHASE6A1_CONTROLLED_BNV_PRETRAJECTORY.md` at commit
+`460ca713a6bd2633b4afbf3926e959b751cea0c6`.
+
+All four declared cards and their matched controls completed at both tolerance
+levels with the exact declared row counts. Independent BA12 comparison then found
+a maximum component-scaled difference of `1.7255917120989046` in `x_state` for
+`CPL-P2-LINEAR-QSS-v1`, at `t=23113476562.5 s = 732.421875 yr`. The baseline and
+refined values were `0.051132258160285306` and `0.05113226698535251`. The immutable
+BA12 limit is one. An independent compiled comparator reproduced the refusal.
+
+Therefore the campaign stopped with disposition:
+
+**CONTROLLED TRAJECTORY / NUMERICAL VALIDATION FAILED — CANDIDATE NOT
+ACCEPTABLE**.
+
+No tolerance was loosened, no drive was retuned, and no success-labelled candidate
+or governed baseline was created. BA16 and trajectory BA17 were not run after the
+mandatory BA12 stop. Complete failure evidence is in
+`docs/validation/PHASE6A1_CONTROLLED_BNV_NUMERICAL_FAILURE.md`.

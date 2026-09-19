@@ -1,5 +1,15 @@
 # CompactStar Scientific Invariants
 
+> **Phase-6A-1I branch status (2026-09-19): CONTROLLED IMPLEMENTATION PRESENT /
+> BA12 NUMERICAL FAILURE / NO CANDIDATE / NO INVARIANT PROMOTION.** The bounded
+> implementation passed BA1-BA10b and detected M1-M21 before trajectory. The exact
+> predeclared P2 run failed the immutable ODE-refinement criterion with component-scaled
+> `x_state=1.7255917120989046 > 1`, so validation stopped. No physical BNV rate/model,
+> governed baseline, owner-ratified numerical result, canonical integration or new
+> resolved invariant is claimed. Evidence:
+> [failure record](validation/PHASE6A1_CONTROLLED_BNV_NUMERICAL_FAILURE.md).
+> Earlier Phase-6A-1 “not yet begun” statements below are historical entry status.
+
 > **Phase-6A-1A status (2026-09-18): CONTROLLED BNV IMPLEMENTATION PLAN
 > OWNER-ACCEPTED / READY FOR BOUNDED CONTROLLED IMPLEMENTATION.** Implementation is
 > **AUTHORIZED / NOT YET BEGUN**. ADR-0015 remains unchanged and governed. No physical

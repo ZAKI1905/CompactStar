@@ -1,5 +1,14 @@
 # CompactStar Modernization Roadmap
 
+> **Phase-6A-1I branch status (2026-09-19): CONTROLLED IMPLEMENTATION PRESENT /
+> NUMERICAL VALIDATION FAILED / CANDIDATE NOT ACCEPTABLE.** BA1-BA10b and the
+> M1-M21 pretrajectory matrix passed, but the exact predeclared P2 run failed BA12:
+> component-scaled `x_state=1.7255917120989046` exceeds the immutable limit one.
+> No candidate artifact or baseline was created, and no physical BNV model/rate was
+> selected. Return the convergence conflict to the owner; do not retune this campaign
+> in place. Evidence: [numerical failure record](validation/PHASE6A1_CONTROLLED_BNV_NUMERICAL_FAILURE.md).
+> Earlier Phase-6A-1 “not yet begun” statements below are historical entry status.
+
 > **Phase-6A-1A status (2026-09-18): CONTROLLED BNV IMPLEMENTATION PLAN
 > OWNER-ACCEPTED / READY FOR BOUNDED CONTROLLED IMPLEMENTATION.** Implementation is
 > **AUTHORIZED / NOT YET BEGUN**. ADR-0015 remains unchanged and governed. No physical
@@ -843,14 +852,13 @@ declared controlled abstract-source Regime-I scope. This is a contract milestone
 implementation, a physical BNV rate, `n->chi-gamma`, realistic A18, Regime-II transport, MixedStar
 thermal evolution, trajectories, and a Phase-6 numerical baseline have **NOT BEGUN**.
 
-**Phase-6A-1 status:** **OWNER-ACCEPTED / READY FOR BOUNDED CONTROLLED
-IMPLEMENTATION.** The accepted plan authorizes the first controlled abstract Regime-I
-neutron-sink implementation with the governed moving-reference seam, actual-potential
-direct-energy ledger, P0/P1/P2 fixtures, frozen-background budget, matched controls,
-BA1-BA17 validation ladder, and M1-M21 falsifier suite. Implementation is **AUTHORIZED /
-NOT YET BEGUN**. No physical BNV rate/model or numerical BNV baseline exists. The first
-numerical result remains candidate-only, and every exclusion recorded in the owner-acceptance
-record remains binding.
+**Phase-6A-1 status:** **BOUNDED BRANCH IMPLEMENTATION PRESENT / PRETRAJECTORY
+PASS / BA12 NUMERICAL FAILURE / NO CANDIDATE.** The accepted abstract Regime-I
+implementation and declared P0/P1/P2 runs exist on the implementation branch. BA1-BA10b
+passed and M1-M21 fired; the P2 baseline/refined `x_state` comparison failed the immutable
+norm-one acceptance at `1.7255917120989046`. No candidate artifact, governed baseline,
+physical BNV rate/model, owner acceptance or canonical integration follows. Every exclusion
+in the owner-acceptance record remains binding.
 
 ---
 
