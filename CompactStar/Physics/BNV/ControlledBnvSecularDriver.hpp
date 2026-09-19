@@ -9,7 +9,7 @@ namespace CompactStar::Physics::BNV
 class ControlledBnvSecularDriver final:public IDriver
 {
   public:
-    enum class Mode { Coupled, ChemicalOnly };
+    enum class Mode { Coupled, ChemicalOnly, ReactionFreeControl };
     explicit ControlledBnvSecularDriver(std::shared_ptr<const FrozenControlledBnvRunContext>,Mode=Mode::Coupled);
     std::string Name() const override {return "Phase6A1ControlledBnvSecularEvolution";}
     const std::vector<State::StateTag>& DependsOn() const override;

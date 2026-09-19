@@ -9,7 +9,21 @@ ControlledBnvSecularDriver::ControlledBnvSecularDriver(std::shared_ptr<const Fro
 const std::vector<State::StateTag>& ControlledBnvSecularDriver::DependsOn() const
 {static const std::vector<State::StateTag> tags{State::StateTag::Thermal,State::StateTag::Chem};return tags;}
 ControlledBnvEvaluation ControlledBnvSecularDriver::Evaluate(double t,const Evolution::StateVector& s,const Evolution::DriverContext& c) const
-{return context_->Evaluate(t,s,c);}
+{
+    auto out=mode_==Mode::ReactionFreeControl?context_->EvaluateReactionFree(t,s,c):context_->Evaluate(t,s,c);
+    if(mode_==Mode::ReactionFreeControl)
+    {
+        out.ordinary.reaction={};out.ordinary.beta={};out.ordinary.eta_dot_MeV_s={};
+        out.eta_dot_MeV_s=out.diagnostics.eta_dot_from_sigma_MeV_s;out.x_dot_s=0;
+        auto& d=out.diagnostics;
+        d.R_count_s={};d.eta_dot_from_beta_MeV_s={};
+        d.Echem_dot_reaction_MeV_s=0;d.Echem_dot_total_MeV_s=d.Echem_dot_source_MeV_s;
+        d.LH_erg_s=0;d.DeltaLnu_erg_s=0;d.DeltaPbeta_erg_s=0;
+        d.Lnu_eq_erg_s=0;d.Lnu_full_erg_s=0;
+        d.Pnet_erg_s=d.P_dir_actual_erg_s;
+    }
+    return out;
+}
 void ControlledBnvSecularDriver::AccumulateRHS(double t,const Evolution::StateVector& state,Evolution::RHSAccumulator& rhs,const Evolution::DriverContext& ctx) const
 {
     context_->RequireCheapCurrent();

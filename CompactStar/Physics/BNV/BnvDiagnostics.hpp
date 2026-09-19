@@ -32,7 +32,7 @@ struct BnvDiagnostics
     double finite_T_omitted_floor_erg_s=0;
     double LH_erg_s=0,DeltaLnu_erg_s=0,DeltaPbeta_erg_s=0;
     double Lnu_eq_erg_s=0,Lnu_full_erg_s=0,Lgamma_erg_s=0,Lother_erg_s=0,Pnet_erg_s=0;
-    double Tinf_K=0,Tsurface_inf_K=0;
+    double Cstar_erg_K=0,Tinf_K=0,Tsurface_inf_K=0;
     double DeltaTinf_K=0,DeltaTsurface_inf_K=0,DeltaLgamma_erg_s=0,DeltaU_th_erg=0;
     double R20_residual_erg=0,N_R20_erg=0,R20_normalized=0;
     std::array<double,2> tau_relax_s{},qss_evolution_time_s{},qss_balance_ratio{};

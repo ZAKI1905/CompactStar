@@ -74,6 +74,8 @@ EquilibriumBaryonTangent EquilibriumBaryonTangent::Compute(
     out.star_identity_=std::move(star_identity);
     out.domain_identity_=std::move(source_domain_identity);
     out.sequence_identity_=SequenceIdentity(m);
+    for(const auto& s:m.sources)
+        out.cheap_sources_.push_back({s.profile,s.star,s.first_order,s.monopole,s.eos,s.eos_snapshot,s.profile_version});
     out.B_B_=v[n]+v[p];
     out.B_B_error_=e[n]+e[p];
     if (!(out.B_B_>out.B_B_error_) || !std::isfinite(out.B_B_))
@@ -119,6 +121,29 @@ void EquilibriumBaryonTangent::RequireCurrent() const
         throw std::runtime_error("stale equilibrium tangent identity");
 }
 
+void EquilibriumBaryonTangent::RequireCheapCurrent() const
+{
+    if(!sequence_||sequence_->metadata.sources.size()!=cheap_sources_.size())
+        throw std::runtime_error("missing equilibrium tangent source");
+    if(SerializeDomain(sequence_->metadata.domain)!=domain_identity_||
+       SequenceIdentity(sequence_->metadata)!=sequence_identity_)
+        throw std::runtime_error("stale equilibrium tangent identity");
+    for(std::size_t i=0;i<cheap_sources_.size();++i)
+    {
+        const auto& now=sequence_->metadata.sources[i];const auto& saved=cheap_sources_[i];
+        if(now.profile!=saved.profile||now.star!=saved.star||now.first_order!=saved.first_order||
+           now.monopole!=saved.monopole||now.eos!=saved.eos||!now.profile||!now.star||
+           &now.star->Profile()!=now.profile||now.profile->Version()!=saved.profile_version||!now.eos||
+           now.eos->identity!=saved.eos_snapshot.identity||now.eos->revision!=saved.eos_snapshot.revision||
+           now.eos->physical_domain!=saved.eos_snapshot.physical_domain||now.eos->table_path!=saved.eos_snapshot.table_path)
+            throw std::runtime_error("stale equilibrium tangent source");
+        if(now.first_order&&!now.first_order->MatchesSource(now.profile,saved.profile_version))
+            throw std::runtime_error("stale equilibrium tangent first-order source");
+        if(now.monopole&&!now.monopole->MatchesSource(now.profile,saved.profile_version))
+            throw std::runtime_error("stale equilibrium tangent monopole source");
+    }
+}
+
 const TangentComponent& EquilibriumBaryonTangent::Component(OrdinaryMatterAxis a) const
 {
     RequireCurrent();
@@ -140,6 +165,16 @@ std::array<double,3> EquilibriumBaryonTangent::NumericalErrors() const
 ValidatedTangentSnapshot EquilibriumBaryonTangent::Snapshot() const
 {
     RequireCurrent();ValidatedTangentSnapshot out;
+    out.closed={components_[0].closed,components_[1].closed,components_[2].closed};
+    out.numerical_error={components_[0].numerical_error,components_[1].numerical_error,components_[2].numerical_error};
+    out.B0_count=B0_count_;out.closure_budget=closure_budget_;out.star_identity=star_identity_;
+    out.domain_identity=domain_identity_;out.sequence_state_identity=sequence_identity_;return out;
+}
+
+
+ValidatedTangentSnapshot EquilibriumBaryonTangent::SnapshotCheap() const
+{
+    RequireCheapCurrent();ValidatedTangentSnapshot out;
     out.closed={components_[0].closed,components_[1].closed,components_[2].closed};
     out.numerical_error={components_[0].numerical_error,components_[1].numerical_error,components_[2].numerical_error};
     out.B0_count=B0_count_;out.closure_budget=closure_budget_;out.star_identity=star_identity_;

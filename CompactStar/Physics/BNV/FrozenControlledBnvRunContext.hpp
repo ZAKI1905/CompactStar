@@ -5,6 +5,7 @@
 #include <CompactStar/Physics/BNV/MovingReferenceSource.hpp>
 #include <CompactStar/Physics/BNV/StaticZeroSpinHistory.hpp>
 #include <CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp>
+#include <optional>
 
 namespace CompactStar::Physics::BNV
 {
@@ -38,12 +39,14 @@ class FrozenControlledBnvRunContext final
     void RequireCheapCurrent() const;
     Evolution::DriverContext DriverContext() const {RequireCheapCurrent();return ordinary_->DriverContext();}
     ControlledBnvEvaluation Evaluate(double,const Evolution::StateVector&,const Evolution::DriverContext&) const;
+    ControlledBnvEvaluation EvaluateReactionFree(double,const Evolution::StateVector&,const Evolution::DriverContext&) const;
     const std::shared_ptr<const Rotochemical::FrozenRotochemicalRunContext>& OrdinaryContext() const{return ordinary_;}
     const std::shared_ptr<const Rotochemical::PrescribedSpinHistory>& SpinOwner() const{return spin_;}
     const std::shared_ptr<const Analysis::EquilibriumBaryonTangent>& Tangent() const{return tangent_;}
     const std::string& RunCardIdentity() const{return run_card_identity_;}
   private:
     static void Need(bool,const char*);
+    ControlledBnvEvaluation EvaluateImpl(double,const Evolution::StateVector&,const Evolution::DriverContext&,bool) const;
     std::shared_ptr<const Rotochemical::FrozenRotochemicalRunContext> ordinary_;
     std::shared_ptr<const Analysis::EquilibriumBaryonTangent> tangent_;
     std::shared_ptr<const OrdinaryMatterBnvHistory> history_;
@@ -55,6 +58,8 @@ class FrozenControlledBnvRunContext final
     double mu_B_inf_MeV_=0;
     bool spin_on_zero_source_regression_=false;
     std::string potential_provenance_,run_card_identity_,history_identity_,partition_identity_,spin_identity_;
+    mutable std::optional<Rotochemical::SecularEvaluation> reaction_free_reference_;
+    mutable double reaction_free_reference_Tinf_K_=0;
 };
 
 } // namespace CompactStar::Physics::BNV

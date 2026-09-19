@@ -77,7 +77,12 @@ FrozenControlledBnvRunContext::FrozenControlledBnvRunContext(
 void FrozenControlledBnvRunContext::RequireCheapCurrent() const
 {
     ordinary_->RequireCheapCurrent();history_->RequireCurrent();partition_->RequireCurrent();
-    validity_->Certificate()->RequireCurrent();channels_->RequireCurrent();spin_->RequireCurrent();
+    // The immutable channel coefficients are already bound into ordinary_, whose
+    // cheap currentness check covers their chemical lifetime and source owners.
+    // Full channel byte-currentness remains a construction/integration-boundary
+    // gate through RequireFullCurrent(); do not reread the response artifact for
+    // every RKF45 trial evaluation.
+    tangent_->RequireCheapCurrent();validity_->Certificate()->RequireCurrent();spin_->RequireCurrent();
     Need(history_->Identity()==history_identity_&&partition_->Identity()==partition_identity_&&spin_->Identity()==spin_identity_,
          "changed controlled BNV identity");
 }
@@ -86,9 +91,17 @@ void FrozenControlledBnvRunContext::RequireFullCurrent() const
 
 ControlledBnvEvaluation FrozenControlledBnvRunContext::Evaluate(
     double epoch,const Evolution::StateVector& state,const Evolution::DriverContext& ctx) const
+{return EvaluateImpl(epoch,state,ctx,false);}
+
+ControlledBnvEvaluation FrozenControlledBnvRunContext::EvaluateReactionFree(
+    double epoch,const Evolution::StateVector& state,const Evolution::DriverContext& ctx) const
+{return EvaluateImpl(epoch,state,ctx,true);}
+
+ControlledBnvEvaluation FrozenControlledBnvRunContext::EvaluateImpl(
+    double epoch,const Evolution::StateVector& state,const Evolution::DriverContext& ctx,bool reaction_free) const
 {
     RequireCheapCurrent();
-    const auto tangent=tangent_->Snapshot();
+    const auto tangent=tangent_->SnapshotCheap();
     ControlledBnvEvaluation out;
     const auto source=history_->Sample(epoch);source.Validate();
     Need(source.source_identity==history_identity_,"source/history identity mismatch");
@@ -100,7 +113,16 @@ ControlledBnvEvaluation FrozenControlledBnvRunContext::Evaluate(
     }
     out.diagnostics.frozen=validity_->RequireValid(source.B_count); // trial-state/time gate before any RHS publication
     out.moving=MovingReferenceSource::Project(source,tangent);
-    out.ordinary=ordinary_->Evaluate(epoch,state,ctx,spin_.get());
+    if(reaction_free)
+    {
+        const double T=state.GetThermal().Tinf();
+        if(!reaction_free_reference_)
+        {reaction_free_reference_=ordinary_->Evaluate(epoch,state,ctx,spin_.get());reaction_free_reference_Tinf_K_=T;}
+        Need(T==reaction_free_reference_Tinf_K_,"reaction-free control thermal state changed");
+        out.ordinary=*reaction_free_reference_;out.ordinary.reaction={};out.ordinary.beta={};
+        out.ordinary.eta_dot_MeV_s={};out.ordinary.x_dot_s=0;out.ordinary.equilibrium_x_dot_s=0;
+    }
+    else out.ordinary=ordinary_->Evaluate(epoch,state,ctx,spin_.get());
     const auto eta=RC::ChemicalImbalanceState::Read(state.GetChem());
     out.direct.potential=BnvDirectEnergyLedger::ActualPotential(mu_B_inf_MeV_,eta,tangent,potential_provenance_);
     const auto energies=partition_->Evaluate(source,out.direct.potential);
@@ -119,7 +141,7 @@ ControlledBnvEvaluation FrozenControlledBnvRunContext::Evaluate(
     d.revision_identity=source.revision_identity;d.partition_identity=partition_identity_;d.product_fate_identity=fate_.Identity();
     for(const auto& branch:fate_.Branches()){d.terminal_fate_branch_ids.push_back(branch.terminal_id);d.terminal_fate_channel_ids.push_back(branch.channel_id);d.terminal_fate_branch_weights.push_back(branch.weight);}
     d.actual_potential_provenance=potential_provenance_;d.finite_T_weighting_class=partition_->FiniteTemperatureWeightingClass();
-    d.t_s=epoch;d.B_count=source.B_count;d.Bdot_count_s=source.Bdot_count_s;d.DeltaB_over_B0=(source.B_count-tangent_->B0Count())/tangent_->B0Count();
+    d.t_s=epoch;d.B_count=source.B_count;d.Bdot_count_s=source.Bdot_count_s;d.DeltaB_over_B0=(source.B_count-tangent.B0_count)/tangent.B0_count;
     d.S_count_s=source.source_count_s;d.t=tangent.closed;d.t_error=tangent.numerical_error;d.sigma_count_s=out.moving.sigma_count_s;
     d.bSigma_residual_count_s=out.moving.baryon_residual_count_s;d.lift_residual_count_s=out.moving.lift_residual_count_s;
     d.eta_MeV={ee,em};d.xi={eta.Xi(RC::BetaChannel::Npe,T),eta.Xi(RC::BetaChannel::NpMu,T)};
@@ -155,7 +177,7 @@ ControlledBnvEvaluation FrozenControlledBnvRunContext::Evaluate(
     d.DeltaPbeta_erg_s=out.ordinary.beta.incremental_beta_erg_s;d.Lnu_eq_erg_s=out.ordinary.reaction.EquilibriumErgPerSecond();
     d.Lnu_full_erg_s=d.Lnu_eq_erg_s+d.DeltaLnu_erg_s;d.Lgamma_erg_s=out.ordinary.Lgamma_erg_s;d.Lother_erg_s=out.ordinary.Lother_neutrino_erg_s;
     d.Pnet_erg_s=d.P_dir_actual_erg_s+d.DeltaPbeta_erg_s-d.Lnu_eq_erg_s-d.Lgamma_erg_s-d.Lother_erg_s;
-    d.Tinf_K=T;d.Tsurface_inf_K=out.ordinary.Tsurface_infinity_K;d.valid_through_sample=true;
+    d.Cstar_erg_K=out.ordinary.Cstar_erg_K;d.Tinf_K=T;d.Tsurface_inf_K=out.ordinary.Tsurface_infinity_K;d.valid_through_sample=true;
     for(double v:{out.eta_dot_MeV_s[0],out.eta_dot_MeV_s[1],out.x_dot_s,d.Echem_MeV,d.Pnet_erg_s,d.R18_residual_erg_s})
         Need(std::isfinite(v),"nonfinite controlled BNV evaluation");
     RequireCheapCurrent();

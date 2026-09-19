@@ -37,11 +37,13 @@ class EquilibriumBaryonTangent final
     static std::string SerializeDomainIdentity(const NumberDomain&);
 
     void RequireCurrent() const;
+    void RequireCheapCurrent() const;
     const TangentComponent& Component(OrdinaryMatterAxis) const;
     std::array<double,3> ClosedValues() const;
     std::array<double,3> RawValues() const;
     std::array<double,3> NumericalErrors() const;
     ValidatedTangentSnapshot Snapshot() const;
+    ValidatedTangentSnapshot SnapshotCheap() const;
     double B0Count() const { RequireCurrent(); return B0_count_; }
     double CanonicalBaryonDerivative() const { RequireCurrent(); return B_B_; }
     double CanonicalBaryonDerivativeError() const { RequireCurrent(); return B_B_error_; }
@@ -54,11 +56,22 @@ class EquilibriumBaryonTangent final
     { RequireCurrent(); return sequence_; }
 
   private:
+    struct CheapSourceSnapshot
+    {
+        const Core::StarProfile* profile=nullptr;
+        const Core::NStar* star=nullptr;
+        const Core::HartleFirstOrderResponse* first_order=nullptr;
+        const Core::HartleMonopoleResponse* monopole=nullptr;
+        std::shared_ptr<const NumberEosSource> eos;
+        NumberEosSource eos_snapshot;
+        std::uint64_t profile_version=0;
+    };
     std::shared_ptr<const EquilibriumSequenceNumberDerivative> sequence_;
     std::array<TangentComponent,3> components_{};
     double B0_count_ = 0, B_B_ = 0, B_B_error_ = 0;
     double raw_closure_residual_ = 0, closure_budget_ = 0;
     std::string star_identity_, domain_identity_, sequence_identity_;
+    std::vector<CheapSourceSnapshot> cheap_sources_;
 };
 
 } // namespace CompactStar::Analysis
