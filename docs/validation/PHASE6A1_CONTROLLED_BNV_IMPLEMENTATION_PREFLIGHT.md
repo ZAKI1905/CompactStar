@@ -390,18 +390,19 @@ The production seam is generic. For an ordinary-matter event with signed count
 change `Delta y_event`, the rest-mass-inclusive infinity-frame event ledger is
 
 ```text
-Q_dir,event
+Q_dir,event^infinity
   = -Delta y_event^T g_actual^infinity
     - E_esc,fluid^infinity
     + E_in,explicit^infinity.
 ```
 
-`E_in,explicit` exists only when an independently owned external-inflow object is
-present. For neutron disappearance, `Delta y_event=(-1,0,0)` and, without inflow,
+`E_in,explicit^infinity` exists only when an independently owned external-inflow
+object is present. For neutron disappearance, `Delta y_event=(-1,0,0)` and, without inflow,
 
 ```text
-Q_dir,event = mu_n,actual^infinity - E_esc,fluid^infinity,
-E_esc,fluid = E_esc,star + E_X.
+Q_dir,event^infinity
+  = mu_n,actual^infinity - E_esc,fluid^infinity,
+E_esc,fluid^infinity = E_esc,star^infinity + E_X^infinity.
 ```
 
 All terms include rest mass and use one common energy zero. The product-fate
@@ -411,13 +412,20 @@ and `BOUND_INTERACTING`; branch weights are finite, nonnegative, sum to one with
 are separate weighted branches. Intermediate particles cannot be booked as a
 second terminal fate.
 
-If `dR_event^infinity=e^Phi Gamma_event dV` is the coordinate-time event measure,
-the global power at infinity is
+For a static event at radius `r`, the local and infinity-frame event energies obey
+
+```text
+Q_dir,event^infinity = e^Phi Q_dir,event^local.
+```
+
+If `dR_event^infinity=e^Phi Gamma_event^local dV` is the coordinate-time event
+measure, the global power at infinity is
 
 ```text
 P_dir,infinity [MeV/s]
-  = integral e^Phi Q_dir,event,local dR_event^infinity
-  = integral e^(2Phi) Gamma_event Q_dir,event,local dV.
+  = integral Q_dir,event^infinity dR_event^infinity
+  = integral e^Phi Q_dir,event^local dR_event^infinity
+  = integral e^(2Phi) Gamma_event^local Q_dir,event^local dV.
 ```
 
 The event measure independently integrates to the ordinary `S_y` sample. There
@@ -432,8 +440,11 @@ Each individual quantity crosses MeV-to-erg exactly once, using
 `Rotochemical::MeVToErg` from `ChemicalImbalanceState.hpp:14`. What is forbidden
 is omitted or double conversion of the same quantity. Partition implementations
 return MeV/event only; sources return count/s only; no lower direct-energy layer
-may return erg/s. The direct output is typed `DirectPowerErgPerSecond`
-(`CompactStar/Physics/Rotochemical/RotochemicalReactionResponse.hpp:42`-`:47`).
+may return erg/s. The existing beta chemical-power conversion boundary is
+authenticated at `RotochemicalThermalPower::From`
+(`CompactStar/Physics/Rotochemical/RotochemicalReactionResponse.hpp:48`-`:54`).
+`DirectPowerErgPerSecond` is a **proposed Phase-6 production type and semantic
+boundary** for the direct output; it does not yet exist in current source.
 
 The ledger exposes both equilibrium and actual direct power and must satisfy at
 nonzero `eta`
@@ -551,7 +562,8 @@ The first decisive BNV experiment is spin off. Current Phase-5D qualification do
 not permit that through `RunPurpose::ControlledTrajectory`: production construction
 requires `PrescribedDipoleHistory`. Existing zero-spin analytic tests instead use
 `RunPurpose::AnalyticControl`, which omits several literal production-qualification
-checks (`CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:45`-`:103`;
+checks (`CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:42`-`:51`,
+`:74`-`:86`, `:100`-`:104`;
 `tests/rotochemical/coupled_oracles.hpp:53`-`:67`, `:93`-`:94`).
 
 The future implementation therefore adds an identity-bearing
@@ -578,7 +590,7 @@ closed unless it re-imposes these omitted qualifications at its own boundary:
    `"predeclared mathematical benchmark SMmu=2e-51 erg cm^-3 s^-1 K^-8"`.
 
 Those literals are the strings production compares today
-(`CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:84`-`:103`;
+(`CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:100`-`:104`;
 `tests/rotochemical/coupled.hpp:11`-`:17`). The underlying context is intentionally
 entered through `AnalyticControl` to permit zero spin. Every relevant production
 qualification omitted by that purpose is transferred and re-imposed explicitly by
@@ -654,13 +666,22 @@ For every target, both the final bracket width and target residual must satisfy
 ```text
 |B_solved-B_target| <= tau_B,target,
 DeltaB_bracket <= tau_B,target,
-tau_B,target = max(u_B,solved,
-                   64 epsilon_machine max(|B_target|,|B_solved|)).
+DeltaB_grid = 5.0e-8 B0,
+epsilon_B,cert = 1.0e-6,
+tau_B,target
+  = min(1.0e-3 DeltaB_grid,
+        1.0e-4 B0 epsilon_B,cert)
+  = 5.0e-11 B0.
 ```
 
-`u_B,solved` is the propagated Phase-5B whole-baryon numerical error for that
-solved star. This rule is fixed before the certificate is produced and cannot be
-tuned to obtain a desired sensitivity result.
+Here `epsilon_B,cert` is the fixed fractional certificate/depletion span. The
+resulting tolerance is one thousandth of the certificate-grid spacing and twenty
+thousand times smaller than the `1e-6 B0` depletion ceiling, while avoiding a
+meaningless machine-roundoff-scale targeting demand. The achieved `B_solved`
+values, not the nominal targets, are the actual regression abscissae. The
+propagated Phase-5B whole-baryon numerical errors remain explicit response
+uncertainties in the certificate. This rule is fixed before the certificate is
+produced and cannot be tuned to obtain a desired sensitivity result.
 At every point it recomputes each quantity through its governed owner. The resulting
 `FrozenSensitivityCertificate` retains all source bytes, star/profile revisions,
 domain identities, numerical errors and the complete sample table.
@@ -761,19 +782,42 @@ controlled closed fixture it is absent. The acceptance is fixed before any
 trajectory:
 
 ```text
-|R20_[ti,tf]| /
+N_R20 =
 max(1 erg,
-    |Delta E_eq|,
-    |C_(MeV->erg) Delta E_chem|,
     |Delta U_th|,
-    integral dt sum |terminal luminosity components|)
-<= 2e-4,
+    |C_(MeV->erg) Delta E_chem|,
+    integral_ti^tf dt [
+      |L_nu,full^infinity|
+      + |L_gamma^infinity|
+      + |L_other^infinity| ]),
+
+|R20_[ti,tf]| / N_R20 <= 2e-4,
 ```
 
-with the independently predeclared quadrature error and omitted finite-temperature
-floor also reported; neither may be tuned after the run. `Echem_dot` remains a
-reservoir diagnostic and is never inserted as a thermal source
+where neither `|Delta E_eq|` nor the integrated magnitude of
+`L_out,fluid^infinity` enters `N_R20`; both remain in the conservation identity
+above. The raw residual, normalizer, independently predeclared quadrature error,
+finite-temperature omission floor and endpoint-state error are reported
+separately. Any nonfinite or missing term, or a normalized residual above the
+threshold, fails closed. No error or tolerance may be tuned after the run.
+`Echem_dot` remains a reservoir diagnostic and is never inserted as a thermal source
 (`docs/validation/PHASE6A0_BNV_THERMAL_FIRST_LAW_PREFLIGHT.md:554`-`:603`).
+
+Before O16 is evaluated, each channel declares a reaction-rate resolution
+
+```text
+eta_resolution,l = atol_eta,l + rtol_eta |eta_l|,
+R_resolution,l
+  = |dR_l/deta_l| eta_resolution,l.
+```
+
+The absolute and relative state tolerances are the predeclared ODE tolerances for
+that run card. The derivative is evaluated at the named checkpoint from the same
+governed non-superfluid modified-Urca response used by
+`RotochemicalReactionResponse`; its analytic `H_M` polynomial is governed by
+ADR-0014 section 3.6 (`docs/adr/ADR-0014-secular-rotochemical-evolution-contract.md:215`-`:227`).
+The derivative and state tolerance are recorded before observing the QSS residual;
+no result-dependent resolution tuning is permitted.
 
 | Oracle | Input | Required result and tolerance |
 |---|---|---|
@@ -791,7 +835,7 @@ reservoir diagnostic and is never inserted as a thermal source
 | **O12 UNIT BOUNDARY** | known MeV/s fixture and omitted/doubled conversion faults | Nominal erg/s divided by MeV/s equals `MeVToErg` within 8 ulps; both faults are detected. |
 | **O13 R18 ACTUAL/EQUILIBRIUM** | P2 at synthetic nonzero two-channel `eta`, plus a second non-neutron stoichiometric event; common source/fate | `P_dir(actual)-P_dir(eq)-C_(MeV->erg)eta^T sigma=0` within the sum of direct quadrature, `t/Z/source` and 64-ulp arithmetic budgets. A zero-`eta` fixture does not count. |
 | **O14 R-a/R-b/R-c EQUIVALENCE** | one neutron event with a nonzero hole and independently deposited component, plus product-fate branch | all three representations agree within `max(64 ulps,10 times independent quadrature error)` under the same event/rate/energy zero/fate; adding R-b pieces to R-c is detected. |
-| **O15 R20 FINITE-INTERVAL CLOSURE** | independently reconstructed BA11 primitive outputs | the normalized residual defined above is `<=2e-4`, and remains inside the declared quadrature plus finite-T omission budget. |
+| **O15 R20 FINITE-INTERVAL CLOSURE** | independently reconstructed BA11 primitive outputs | the normalized residual defined above is `<=2e-4`; the quadrature, finite-T omission and endpoint-state error bounds are separately reported, and every missing/nonfinite term or threshold violation fails closed. |
 | **O16 REACHED LINEAR QSS** | spin off, frozen coefficients, owner-accepted mathematical drive within the depletion ceiling | componentwise `abs(R_l+sigma_l)/max(abs(sigma_l),R_resolution_l)<=0.05` over the named terminal interval and measured `tau_relax<=0.10` times its elapsed forcing duration. Otherwise classify as transient/freeze-out, not QSS. |
 | **O17 B1 NON-SUPERFLUID BOUND** | each enabled modified-Urca process at fixed `T`, both eta signs and independent polynomial extrema | `-DeltaP_beta,l <= 0.467659 Lnu_eq,M,l` with violation allowance no larger than `1e-10 max(Lnu_eq,M,l,1 erg/s)`. This is not a superfluid claim; separately qualified DU would use its governed bound. |
 
@@ -920,7 +964,7 @@ the governed subjects rather than permitting BA11 to precede the static BA13 gat
 | **BA9 — double-count/unit/product-fate mutations** | every forbidden extra term/energy/fate/unit/actual-potential mutation | nominal output passes; every M8-M16/M21 changes or refuses beyond BA7/BA8 budget; zero aliases are tested at nonzero discriminating fixtures | fault-injection adapter outside production | stop; no coupled run |
 | **BA10a — governed spin-on zero-BNV regression** | `ControlledTrajectory`, governed `PrescribedDipoleHistory`, zero BNV source, same governed Phase-5D inputs | new-wrapper/driver RHS identity where expected; exact state order and same `Z/W/Ltilde` and thermal ledger; repeat bytes identical and scaled state difference from governed Phase-5D trajectory `<=1` | untouched `SecularEvolutionDriver` and governed Phase-5D baseline producer on the same spin history | stop; Phase-6 wrapper perturbs ordinary Phase-5D behavior |
 | **BA10b — spin-off zero-BNV matched control** | `AnalyticControl`, same `StaticZeroSpinHistory`, exact transferred process/metric/normalization gates; source/direct bundle OFF versus ON | wrapper construction refuses every relaxed-gate mutation; zero-BNV RHS equals untouched `SecularEvolutionDriver` under the same zero-spin owner; target/control differ only in BNV bundle | untouched Phase-5D driver on the same analytic context; identity/provenance mutations independent of BNV source | stop; zero-spin qualification or matched-control isolation failed; M11/M12 also exercised |
-| **BA11 — coupled spin-off BNV+beta and R20 closure** | owner-accepted predeclared mathematical run card, spin-off target plus BA10b control, primitive ledger outputs | completes without refusal; all prerequisite identities hold at every output/RHS check; no frozen utilization exceeds one; sign labels include observable/window/error; explicit O15 R20 normalized residual `<=2e-4` with all terms and omitted floors reported | independently reconstructed `[E_eq+C Echem+U_th]` endpoints, terminal-luminosity quadrature and matched-control differences from primitive columns | stop; discard candidate; do not tune drive or residual after seeing result; M9-M12/M21 must fire |
+| **BA11 — coupled spin-off BNV+beta and R20 closure** | owner-accepted predeclared mathematical run card, spin-off target plus BA10b control, primitive ledger outputs | completes without refusal; all prerequisite identities hold at every output/RHS check; no frozen utilization exceeds one; sign labels include observable/window/error; explicit O15 R20 normalized residual `<=2e-4` with all terms and omitted floors reported | independently reconstructed `[E_eq+C Echem+U_th]` endpoints, terminal-luminosity quadrature and matched-control differences from primitive columns | stop; discard candidate; do not tune drive or residual after seeing result; R20 mutation credit is supplementary and requires a predeclared discrimination bound |
 | **BA12 — ODE refinement** | identical BA11 run with baseline Phase-5D tolerances `(rtol=1e-7,atol=(1e-12,1e-18,1e-18))` and refined `(1e-9,(1e-14,1e-20,1e-20))` | at every common output and for each state, `abs(y_base-y_refined)/(atol_base+rtol_base max(abs(y_base),abs(y_refined)))<=1`; ledger residual still `<=2e-4`; no step-collapse trend in final decade | refined run and exact shared checkpoints | stop; no candidate artifact |
 | **BA13 — depletion/frozen budget** | 21-star certificate with target-`B` bracket evidence, then forced histories ending just below and above each stop | target brackets meet `tau_B,target`; uncertainty-weighted outer-half fits meet `3u_res+0.10T_X`; full monotone envelopes remain within thresholds; first trial/checkpoint over-limit refuses before serialization; runtime max utilization `<=1` | independently parsed sample/error/covariance table, independent refit and forced-threshold test | stop; M20 must fire; do not reduce or retune evidence window after a trajectory |
 | **BA14 — output/diagnostics** | one RHS snapshot, matched pair and eligible trajectory | all required fields, units, identities, error/utilization fields and sign metadata present; serializer values equal owner snapshot bit for bit; independent recomputation passes BA8/BA11 budgets | schema validator and direct recomputation from primitive columns | stop; artifact incomplete or unauditable |
@@ -939,7 +983,7 @@ Each mutation is implemented outside production against a nonzero discriminating
 fixture. A mutation “fires” only when the named test fails or explicitly refuses for
 the intended reason.
 
-| Mutation | Required detector(s) |
+| Mutation | Primary guaranteed detector; supplementary closure check |
 |---|---|
 | **M1 raw `G_y S_y` route** | `BA5_sliding_null_raw_G_refusal`: physical sliding source becomes nonzero under the mutant. |
 | **M2 `k` substituted for `t`** | `BA2_t_oracle` and `BA5_sliding_null_k_refusal`; accepted fixture `t_e/k_e` and `t_mu/k_mu` distinctions are load-bearing. |
@@ -951,8 +995,8 @@ the intended reason.
 | **M8 Fermi-hole added twice** | BA7 P0/P1 identities, BA8 R-a/R-b/R-c equivalence and `BA9_double_hole`; event/partition ID duplicate refuses. |
 | **M9 `Echem_dot` added as heat** | BA8 independent `Pnet` and `BA9_echem_heat`. |
 | **M10 PdV/gravity added as heat** | construction refusal plus `BA9_pdv_heat`. |
-| **M11 `DeltaLnu` omitted** | BA8 root/ledger, BA10b nonzero-eta matched control and BA11 R20 closure. |
-| **M12 equilibrium neutrinos double counted** | BA8 full ledger, O1/BA10a/BA10b zero-source reductions and BA11 R20 closure. |
+| **M11 `DeltaLnu` omitted** | **Primary:** BA8 beta/thermal-ledger identity and BA10b nonzero-eta matched-control ledger. **Supplementary:** BA11/O15 R20 only when a predeclared signal bound exceeds the R20 tolerance. |
+| **M12 equilibrium neutrinos double counted** | **Primary:** BA8 full thermal ledger and O1/BA10a/BA10b zero-source reductions. **Supplementary:** BA11/O15 R20 only when a predeclared signal bound proves discrimination. |
 | **M13 MeV-to-erg omitted** | O12 known-unit fixture and BA7 global power. |
 | **M14 MeV-to-erg doubled** | O12 and BA8 `Pnet`; mutant ratio differs by `MeVToErg`. |
 | **M15 `E_esc,fluid` confused with `E_esc,star`** | BA7 branch with nonzero retained `E_X`; closure `Efluid=Estar+EX` fails. |
@@ -961,7 +1005,7 @@ the intended reason.
 | **M18 source/`t` domain mismatch** | BA3 constructor refusal before any sigma publication. |
 | **M19 `Bdot != b^T S_y`** | BA1 atomic sample refusal and BA3 no-call assertion. |
 | **M20 ignored frozen-budget violation** | BA13 forced just-over-threshold history; absence of pre-serialization refusal fails the test. |
-| **M21 equilibrium `mu_n` used at nonzero `eta`** | BA7/O13 nonzero-eta R18 identity and BA11/O15 finite-interval R20 closure. A zero-eta fixture is forbidden as its sole detector. |
+| **M21 equilibrium `mu_n` used at nonzero `eta`** | **Primary:** BA7/O13 nonzero-eta R18 actual-versus-equilibrium direct-power identity. **Supplementary/possible:** BA11/O15 R20 closure; it is not a guaranteed detector on the first fixture absent a predeclared discrimination bound. A zero-eta fixture is forbidden as its sole detector. |
 
 In addition, a source dependency scan must show that the production BNV subtree has
 no include or member dependency on `GlobalChemicalNumberResponse::Values()` or any
