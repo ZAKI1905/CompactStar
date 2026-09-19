@@ -201,6 +201,14 @@ a required rejection.
 The frozen certificate uses 21 independent stars at
 `DeltaB/B0=0,-5e-8,...,-1e-6`. Both target residual and final bracket width obey
 `tau_B,target=5e-11 B0`. Achieved `B_solved` values are regression abscissae.
+At every star, `Cstar(Tinf)` and `Tsurface_inf(Tinf)` are evaluated on the exact
+13-knot grid `log10(Tinf/K)=6.00,6.25,...,9.00`. The same knots are used for all
+stars. The free-gas thermal source is linear in temperature, so this grid also
+checks the temperature-independent `Cstar/Tinf` coefficient; the envelope result
+is retained separately at every knot. A later controlled checkpoint outside
+`1e6 K <= Tinf <= 1e9 K` invalidates the frozen certificate and causes STOP rather
+than extrapolation. This grid completion was recorded before any BNV trajectory;
+it changes no run-card drive or acceptance tolerance.
 Uncertainty-weighted fits use the outer half `[-1e-6,-5e-7]`; every fit residual
 must obey `abs(residual)<=3u_res+0.10T_X`, with full monotone drift, numerical and
 nonlinearity envelopes still below the accepted threshold. Runtime validity is
