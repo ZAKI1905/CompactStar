@@ -587,6 +587,25 @@ add_test(NAME phase5d_response COMMAND phase5d_response)
 add_test(NAME phase5d_independent_oracles COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/rotochemical/oracles.py" $<TARGET_FILE:phase5d_response>)
 set_tests_properties(phase5d_response phase5d_independent_oracles PROPERTIES LABELS "phase5d;phase5d-analytic;scientific;self-contained" TIMEOUT 180)
 
+# Phase-6A-1 controlled abstract BNV pretrajectory semantic oracles.  The
+# authenticated Structure-1 tangent executable is invoked by the fresh-context
+# harness after qualification; the remaining ledgers are self-contained.
+add_executable(phase6a1_source_projection bnv/source_projection.cpp)
+target_link_libraries(phase6a1_source_projection PRIVATE CompactStar)
+add_executable(phase6a1_direct_energy bnv/direct_energy.cpp)
+target_link_libraries(phase6a1_direct_energy PRIVATE CompactStar)
+add_executable(phase6a1_thermal_ledger bnv/thermal_ledger.cpp)
+target_link_libraries(phase6a1_thermal_ledger PRIVATE CompactStar)
+add_executable(phase6a1_frozen_monitor bnv/frozen_sensitivity.cpp)
+target_link_libraries(phase6a1_frozen_monitor PRIVATE CompactStar)
+add_executable(phase6a1_matched_control bnv/matched_control.cpp)
+target_link_libraries(phase6a1_matched_control PRIVATE CompactStar)
+foreach(test direct_energy thermal_ledger frozen_monitor)
+    add_test(NAME phase6a1_${test} COMMAND phase6a1_${test})
+    set_tests_properties(phase6a1_${test} PROPERTIES
+        LABELS "phase6a1;bnv;controlled;mathematical;self-contained;scientific")
+endforeach()
+
 # Phase-5D downstream provenance-preserving controlled evolution.
 add_executable(phase5d_evolution rotochemical/evolution.cpp)
 target_link_libraries(phase5d_evolution PRIVATE CompactStar)
