@@ -4,8 +4,14 @@ Classification: **CONTROLLED MATHEMATICAL / ARCHITECTURE BNV FAILURE EVIDENCE;
 NOT A PHYSICAL BNV MODEL; NOT A GOVERNED BASELINE; NOT AN OWNER-RATIFIED
 NUMERICAL RESULT**.
 
-Disposition: **C. CONTROLLED TRAJECTORY / NUMERICAL VALIDATION FAILED —
-CANDIDATE NOT ACCEPTABLE**.
+Final disposition: **D. IMPLEMENTATION EXPOSED A MATERIAL SCIENTIFIC /
+ARCHITECTURE CONFLICT — RETURN TO OWNER**.
+
+The earlier trajectory disposition remains **C. CONTROLLED TRAJECTORY /
+NUMERICAL VALIDATION FAILED — CANDIDATE NOT ACCEPTABLE** because BA12 failed.
+Final governed-regression validation subsequently exposed the additional
+architectural conflict recorded below; disposition D is the single final campaign
+disposition.
 
 ## Authority and immutable inputs
 
@@ -83,12 +89,54 @@ trajectory form of BA17 were not continued after the stop. No file named
   failed numerical experiment.
 - BA14: raw owner serializer/schema checks completed; no candidate artifact was
   eligible for final BA14 acceptance.
-- BA15: repository protection/regression evidence is recorded separately in the
-  final campaign report; it cannot cure BA12.
+- BA15: **FAIL** for the governed Phase-5D controlled-evolution regression, as
+  detailed below; repository bytes themselves remained protected.
 - BA16: NOT RUN after BA12 STOP; no QSS label.
 - BA17: pretrajectory mathematical bound PASS; trajectory diagnostic NOT RUN
   after BA12 STOP.
 
 No candidate numerical result is retained or interpreted. The exact recommended
-next action is to return the BA12 convergence conflict to the owner for a new,
-separately accepted numerical plan; do not retune this campaign in place.
+next action is to return both the BA12 convergence conflict and the exact Phase-5D
+provenance-ownership conflict to the owner for a corrected, separately accepted
+implementation/numerical plan; do not retune or repair this campaign in place.
+
+## Final regression conflict
+
+The complete fresh data-free Debug suite passed `53/53`; its log SHA-256 is
+`bbb513ec98fe1b6d9d98e5c2336ac2ab6f5f28ed6d960a00392ea64c439c656b`.
+
+The EOS-authenticated Debug inventory was completed transparently in two segments
+after the first invocation was externally interrupted with 64 passing identities
+and no test failure. The exact 13 uncompleted identities were rerun, with the
+required fixture setup added automatically by CTest. Across the 77 unique test
+identities, 76 passed and one failed. The partial-suite log SHA-256 is
+`82b04c534875a82d4749a2150e0c8dd48e1b7d0d9f09cb591cfad2118ea0abeb`;
+the 14-test tail log SHA-256 is
+`18ce4ea93a24fe0119b405947c86c2b9de234ec787764f50e64e36bbc1fb4daf`.
+
+The sole failure was `phase5d1_controlled_evolution_regression`. Fresh scientific
+generation completed, including its negative missing-baseline control, but the
+governed comparison stopped at:
+
+```text
+source_provenance.scientific_production_source_hashes.
+CompactStar/Analysis/EquilibriumBaryonTangent.hpp
+```
+
+The owner-accepted exact implementation map requires the new production paths
+`CompactStar/Analysis/EquilibriumBaryonTangent.hpp/.cpp`. The governed Phase-5D
+producer in `tests/rotochemical/validate_trajectory.py` recursively hashes every
+file below `CompactStar/Analysis` into its scientific-production provenance. The
+fresh artifact therefore has 93 entries instead of the governed baseline's 91,
+with exactly these additions and no removed or changed existing entry:
+
+| added path | SHA-256 |
+|---|---|
+| `CompactStar/Analysis/EquilibriumBaryonTangent.hpp` | `7218b1b337037ed11697dca7c321f595be201679fa8683a21c03bcd5c2931771` |
+| `CompactStar/Analysis/src/EquilibriumBaryonTangent.cpp` | `a26b6e45f6c3e42a49e42d2d84293b9cf3bbc5657ab114ee274940772aa2d265` |
+
+Passing this regression would require moving the exact accepted owner or changing
+the governed Phase-5D producer/comparator or baseline. None is authorized. No such
+change was made. Independent final checks still find all 11 governed baselines,
+33 protected Phase-5D paths, 14 Phase-5 authority/candidate artifacts, nine
+EOS/data inputs and 22 literature-manifest entries byte-identical to entry.

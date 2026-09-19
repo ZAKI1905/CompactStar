@@ -305,7 +305,7 @@ a maximum component-scaled difference of `1.7255917120989046` in `x_state` for
 refined values were `0.051132258160285306` and `0.05113226698535251`. The immutable
 BA12 limit is one. An independent compiled comparator reproduced the refusal.
 
-Therefore the campaign stopped with disposition:
+The trajectory campaign stopped with disposition:
 
 **CONTROLLED TRAJECTORY / NUMERICAL VALIDATION FAILED — CANDIDATE NOT
 ACCEPTABLE**.
@@ -314,3 +314,13 @@ No tolerance was loosened, no drive was retuned, and no success-labelled candida
 or governed baseline was created. BA16 and trajectory BA17 were not run after the
 mandatory BA12 stop. Complete failure evidence is in
 `docs/validation/PHASE6A1_CONTROLLED_BNV_NUMERICAL_FAILURE.md`.
+
+Final governed regression then exposed a second, material architectural conflict:
+the accepted exact `CompactStar/Analysis/EquilibriumBaryonTangent.hpp/.cpp` paths
+necessarily enter Phase-5D's recursive `CompactStar/Analysis` scientific-source
+provenance, so the fresh Phase-5D artifact cannot equal its governed baseline.
+Changing that path, producer, comparator or baseline is outside this authority.
+The single final disposition is therefore:
+
+**IMPLEMENTATION EXPOSED A MATERIAL SCIENTIFIC / ARCHITECTURE CONFLICT — RETURN
+TO OWNER**.

@@ -1,12 +1,15 @@
 # CompactStar Scientific Invariants
 
 > **Phase-6A-1I branch status (2026-09-19): CONTROLLED IMPLEMENTATION PRESENT /
-> BA12 NUMERICAL FAILURE / NO CANDIDATE / NO INVARIANT PROMOTION.** The bounded
+> BA12 FAILURE / BA15 ARCHITECTURE CONFLICT / NO CANDIDATE / NO INVARIANT
+> PROMOTION.** The bounded
 > implementation passed BA1-BA10b and detected M1-M21 before trajectory. The exact
 > predeclared P2 run failed the immutable ODE-refinement criterion with component-scaled
 > `x_state=1.7255917120989046 > 1`, so validation stopped. No physical BNV rate/model,
 > governed baseline, owner-ratified numerical result, canonical integration or new
-> resolved invariant is claimed. Evidence:
+> resolved invariant is claimed. Final regression also proved that the accepted new
+> `Analysis` tangent paths necessarily alter governed Phase-5D scientific-source
+> provenance, which this campaign may not change. Evidence:
 > [failure record](validation/PHASE6A1_CONTROLLED_BNV_NUMERICAL_FAILURE.md).
 > Earlier Phase-6A-1 “not yet begun” statements below are historical entry status.
 
