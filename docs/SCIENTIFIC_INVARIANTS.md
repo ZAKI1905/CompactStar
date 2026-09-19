@@ -1,5 +1,15 @@
 # CompactStar Scientific Invariants
 
+> **Phase-6A-1A status (2026-09-18): CONTROLLED BNV IMPLEMENTATION PLAN
+> OWNER-ACCEPTED / READY FOR BOUNDED CONTROLLED IMPLEMENTATION.** Implementation is
+> **AUTHORIZED / NOT YET BEGUN**. ADR-0015 remains unchanged and governed. No physical
+> BNV model/rate or numerical BNV baseline exists; the first numerical result remains
+> candidate-only. `n -> chi + gamma`, realistic A18, superfluidity, Regime-II/MixedStar,
+> variable-`Z`/sliding-background evolution, and depletion beyond
+> `|DeltaB|/B0 <= 1e-6` remain excluded. Evidence: the
+> [accepted plan](validation/PHASE6A1_CONTROLLED_BNV_IMPLEMENTATION_PREFLIGHT.md) and
+> [owner-acceptance record](validation/PHASE6A1_CONTROLLED_BNV_IMPLEMENTATION_ACCEPTANCE.md).
+
 > **Phase-6A-0RAT status (2026-09-18): ADR-0015 ACCEPTED / HUMAN-RATIFIED;
 > BNV OPEN-SYSTEM THERMAL CONTRACT GOVERNED FOR THE DECLARED CONTROLLED ABSTRACT-SOURCE
 > REGIME-I SCOPE.** Phase-6A-0 is **PREFLIGHT COMPLETE / INDEPENDENTLY REVIEWED /

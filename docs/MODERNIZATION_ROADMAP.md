@@ -1,5 +1,15 @@
 # CompactStar Modernization Roadmap
 
+> **Phase-6A-1A status (2026-09-18): CONTROLLED BNV IMPLEMENTATION PLAN
+> OWNER-ACCEPTED / READY FOR BOUNDED CONTROLLED IMPLEMENTATION.** Implementation is
+> **AUTHORIZED / NOT YET BEGUN**. ADR-0015 remains unchanged and governed. No physical
+> BNV model/rate or numerical BNV baseline exists; the first numerical result remains
+> candidate-only. The accepted exclusions include `n -> chi + gamma`, realistic A18,
+> superfluidity, Regime-II/MixedStar, variable-`Z`/sliding-background evolution, and
+> depletion beyond `|DeltaB|/B0 <= 1e-6`. Evidence: the
+> [accepted plan](validation/PHASE6A1_CONTROLLED_BNV_IMPLEMENTATION_PREFLIGHT.md) and
+> [owner-acceptance record](validation/PHASE6A1_CONTROLLED_BNV_IMPLEMENTATION_ACCEPTANCE.md).
+
 > **Phase-6A-0RAT status (2026-09-18): ADR-0015 ACCEPTED / HUMAN-RATIFIED;
 > BNV OPEN-SYSTEM THERMAL CONTRACT GOVERNED FOR THE DECLARED CONTROLLED ABSTRACT-SOURCE
 > REGIME-I SCOPE.** Phase-6A-0 is **PREFLIGHT COMPLETE / INDEPENDENTLY REVIEWED /
@@ -832,6 +842,15 @@ first law, the once-only direct-energy ledger, the moving-reference source
 declared controlled abstract-source Regime-I scope. This is a contract milestone only: production
 implementation, a physical BNV rate, `n->chi-gamma`, realistic A18, Regime-II transport, MixedStar
 thermal evolution, trajectories, and a Phase-6 numerical baseline have **NOT BEGUN**.
+
+**Phase-6A-1 status:** **OWNER-ACCEPTED / READY FOR BOUNDED CONTROLLED
+IMPLEMENTATION.** The accepted plan authorizes the first controlled abstract Regime-I
+neutron-sink implementation with the governed moving-reference seam, actual-potential
+direct-energy ledger, P0/P1/P2 fixtures, frozen-background budget, matched controls,
+BA1-BA17 validation ladder, and M1-M21 falsifier suite. Implementation is **AUTHORIZED /
+NOT YET BEGUN**. No physical BNV rate/model or numerical BNV baseline exists. The first
+numerical result remains candidate-only, and every exclusion recorded in the owner-acceptance
+record remains binding.
 
 ---
 

@@ -1,21 +1,26 @@
 # Phase-6A-1 controlled abstract-BNV implementation preflight
 
-**Status:** CANDIDATE IMPLEMENTATION CONTRACT / DOCUMENTATION ONLY / NO BNV
-IMPLEMENTATION / NO BNV TRAJECTORY / NO BNV BASELINE.
+**Status:** **OWNER-ACCEPTED IMPLEMENTATION PLAN / READY FOR BOUNDED CONTROLLED
+IMPLEMENTATION / NOT YET IMPLEMENTED / NOT A GOVERNED NUMERICAL BNV BASELINE.**
 
-**Review correction status:** **PHASE-6A-1 REVIEW CORRECTIONS APPLIED —
-ACTUAL-POTENTIAL LEDGER AND ZERO-SPIN QUALIFICATION CLOSED — CANDIDATE READY
-FOR BOUNDED INDEPENDENT RE-REVIEW.** The independent review of
+**Review and acceptance status:** **PHASE-6A-1 REVIEW CORRECTIONS APPLIED —
+ACTUAL-POTENTIAL LEDGER AND ZERO-SPIN QUALIFICATION CLOSED — BOUNDED RE-REVIEW
+PASSED — OWNER-ACCEPTED AT
+`76ee0277f412be412f856e5fc0c83c58b63c86e0`.** The independent review of
 `f9b9029600bab47c61a527672da45516bbe218a6` found **0 BLOCKING / 2 MATERIAL /
-5 NONBLOCKING / 7 NOTE**. This document remains a candidate implementation
-preflight: it is not owner-accepted, canonically integrated, or implementation
-authority.
+5 NONBLOCKING / 7 NOTE**; the final one-hunk confirmation found **0 BLOCKING /
+0 MATERIAL / 0 NONBLOCKING / 0 NOTE**. The human owner explicitly accepted this
+bounded plan on 2026-09-18. The durable acceptance scope and exclusions are recorded
+in `docs/validation/PHASE6A1_CONTROLLED_BNV_IMPLEMENTATION_ACCEPTANCE.md`.
 
-This plan governs the first abstract ordinary-neutron-disappearance experiment on
+This accepted plan governs the first abstract ordinary-neutron-disappearance experiment on
 the already-governed Structure-1 / Phase-5D free-gas machinery. It does not select
-a physical BNV rate, model `n -> chi gamma`, begin A18, add superfluidity, add
-Regime-II or MixedStar thermal physics, or authorize a trajectory. Every numerical
-trajectory remains blocked by the pretrajectory gates in section 15.
+a physical BNV rate, model `n -> chi + gamma`, begin A18, add superfluidity, add
+Regime-II or MixedStar thermal physics, implement variable-`Z`/sliding-background
+evolution, or widen the frozen-background domain beyond `|DeltaB|/B0 <= 1e-6`.
+Implementation is authorized but has **NOT YET BEGUN**. Every numerical trajectory
+remains blocked by the pretrajectory gates in section 15, and the first numerical
+result remains a candidate until independently validated and separately accepted.
 
 ## 1. Authenticated entry and change boundary
 
@@ -1142,18 +1147,10 @@ deliberately unresolved but nonblocking:
 - realistic A18, superfluidity, Regime-II/MixedStar thermal evolution and any
   physical BNV specialization.
 
-There is no present blocker to bounded re-review. ADR-0015 is sufficient;
-ADR-0016 is not needed. This document does not authorize implementation until the
-bounded re-review passes and the owner explicitly accepts the plan.
+The bounded re-review and one-hunk confirmation have passed. ADR-0015 remains
+unchanged and sufficient; ADR-0016 is not needed. The human owner accepted this
+implementation plan at `76ee0277f412be412f856e5fc0c83c58b63c86e0`.
 
-**Exact recommended next action:** Run a BOUNDED fresh-context Claude Opus 5 XHIGH
-re-review of ONLY the delta from
-`f9b9029600bab47c61a527672da45516bbe218a6` to
-`PHASE6A1_CORRECTION_SHA`, plus the immediately surrounding paragraphs governing
-actual versus equilibrium chemical potentials; R18 direct-power identity;
-R-a/R-b/R-c; R20 finite-interval closure; zero-spin `RunPurpose` and transferred
-qualification gates; BA10a/BA10b; depletion certificate; P1 convention; and the
-QSS/B1 additions. The reviewer should not redo the entire ADR-0015 derivation.
-Required pass condition: **0 BLOCKING / 0 MATERIAL** before return to the owner for
-explicit acceptance of the Phase-6A-1 implementation plan. Do not begin that
-re-review automatically.
+**Exact recommended next action:** Create a fresh implementation branch/worktree
+from the canonical Phase-6A-1 acceptance commit and execute this owner-accepted
+controlled BNV implementation plan. Do not begin implementation automatically.
