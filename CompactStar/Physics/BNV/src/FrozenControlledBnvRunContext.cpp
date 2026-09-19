@@ -150,6 +150,7 @@ ControlledBnvEvaluation FrozenControlledBnvRunContext::Evaluate(
     d.L_out_fluid_inf_erg_s=RC::MeVToErg*d.Eesc_fluid_inf_MeV_s;d.L_esc_star_inf_erg_s=RC::MeVToErg*d.Eesc_star_inf_MeV_s;d.J_X_inf_erg_s=RC::MeVToErg*d.EX_inf_MeV_s;
     d.finite_T_omitted_floor_erg_s=partition_->OmittedFiniteTemperaturePowerErgPerSecond(source,T);
     d.frozen_drift_bound=d.frozen.drift_bound;d.frozen_threshold=d.frozen.threshold;
+    d.DeltaN_over_N=d.frozen.DeltaN_over_N;
     d.LH_erg_s=out.ordinary.beta.heating_erg_s;d.DeltaLnu_erg_s=out.ordinary.beta.neutrino_increment_erg_s;
     d.DeltaPbeta_erg_s=out.ordinary.beta.incremental_beta_erg_s;d.Lnu_eq_erg_s=out.ordinary.reaction.EquilibriumErgPerSecond();
     d.Lnu_full_erg_s=d.Lnu_eq_erg_s+d.DeltaLnu_erg_s;d.Lgamma_erg_s=out.ordinary.Lgamma_erg_s;d.Lother_erg_s=out.ordinary.Lother_neutrino_erg_s;

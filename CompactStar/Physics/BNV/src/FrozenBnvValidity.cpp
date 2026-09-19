@@ -36,6 +36,10 @@ FrozenSensitivityCertificate::FrozenSensitivityCertificate(double B0,std::string
         if(!(s.B_solved_count>0)||!std::isfinite(s.B_solved_count)||
            std::abs((s.B_solved_count-target)-s.B_target_residual_count)>consistency)
             throw std::runtime_error("frozen certificate achieved-B identity failed");
+        for(double value:s.DeltaN_over_N)if(!std::isfinite(value)||std::abs(value)>1e-4)
+            throw std::runtime_error("frozen certificate particle-number history failed");
+        if(i==0&&s.DeltaN_over_N!=std::array<double,3>{0,0,0})
+            throw std::runtime_error("frozen certificate initial particle-number history nonzero");
         for(const auto& name:Required){const auto it=s.utilization.find(name),d=s.drift_bound.find(name),t=s.threshold.find(name);
           if(it==s.utilization.end()||d==s.drift_bound.end()||t==s.threshold.end()||!(d->second>=0)||!(t->second>0)||
              !std::isfinite(d->second)||!std::isfinite(t->second)||!(it->second>=0)||!std::isfinite(it->second)||it->second>1||
@@ -68,6 +72,7 @@ FrozenValidityResult FrozenBnvValidityMonitor::Evaluate(double B) const
     const double dlo=-(v[lo].B_solved_count-certificate_->B0Count())/certificate_->B0Count();
     const double dhi=-(v[hi].B_solved_count-certificate_->B0Count())/certificate_->B0Count();
     const double a=hi==lo?0:std::clamp((depletion-dlo)/(dhi-dlo),0.0,1.0);
+    for(std::size_t i=0;i<3;++i)out.DeltaN_over_N[i]=(1-a)*v[lo].DeltaN_over_N[i]+a*v[hi].DeltaN_over_N[i];
     for(const auto& name:Required)
     {
         const double x=(1-a)*v[lo].utilization.at(name)+a*v[hi].utilization.at(name);

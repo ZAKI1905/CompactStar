@@ -13,6 +13,7 @@ struct FrozenValiditySample
 {
     double fractional_depletion=0;
     double B_solved_count=0,B_target_residual_count=0,final_bracket_width_count=0;
+    std::array<double,3> DeltaN_over_N{};
     std::map<std::string,double> drift_bound,threshold,utilization;
 };
 
@@ -39,6 +40,7 @@ class FrozenSensitivityCertificate final
 struct FrozenValidityResult
 {
     double fractional_depletion=0,max_utilization=0;
+    std::array<double,3> DeltaN_over_N{};
     std::string limiting_quantity;
     std::map<std::string,double> drift_bound,threshold,utilization;
     bool valid=false;
