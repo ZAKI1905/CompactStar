@@ -1,15 +1,16 @@
 # CompactStar Modernization Roadmap
 
 > **Phase-6A-1 recovery-governance status (2026-09-19): RECOVERY PLAN
-> OWNER-ACCEPTED / ADR-0016 PROPOSED / RECOVERY IMPLEMENTATION NOT RESUMED.** The
+> OWNER-ACCEPTED / ADR-0016 ACCEPTED AND HUMAN-RATIFIED / RECOVERY IMPLEMENTATION
+> AUTHORIZED BUT NOT YET RESUMED.** The
 > original Phase-6A-1 implementation is **FAILED / NOT CANONICAL**; BA12 and BA15 remain
 > historical failures. The accepted recovery fixes REFINED as nominal and ULTRA as witness
 > if BA12R passes, permits only the P2 source/control ULTRA pair, and preserves all Phase-5
-> authorities. ADR-0016 requires explicit owner ratification before R0. Canonical BNV
-> candidate: **NONE**. Governed BNV baseline: **NONE**. Evidence: the byte-identical
+> authorities. R0 is authorized only after canonical integration and has not begun. Canonical
+> BNV candidate: **NONE**. Governed BNV baseline: **NONE**. Evidence: the byte-identical
 > [recovery plan](validation/PHASE6A1_CONTROLLED_BNV_RECOVERY_PREFLIGHT.md),
 > [owner-acceptance record](validation/PHASE6A1_CONTROLLED_BNV_RECOVERY_ACCEPTANCE.md),
-> and [proposed ADR-0016](adr/ADR-0016-phase6-bnv-tangent-adapter-ownership.md).
+> and [ratified ADR-0016](adr/ADR-0016-phase6-bnv-tangent-adapter-ownership.md).
 
 > **Phase-6A-1A status (2026-09-18): CONTROLLED BNV IMPLEMENTATION PLAN
 > OWNER-ACCEPTED / READY FOR BOUNDED CONTROLLED IMPLEMENTATION.** Implementation is

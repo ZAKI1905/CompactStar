@@ -2,19 +2,45 @@
 
 ## 1. Status and scope
 
-**Status:** PROPOSED — OWNER RATIFICATION REQUIRED.
+**Status:** ACCEPTED / HUMAN-RATIFIED.
 
 **Date proposed:** 2026-09-19.
+**Date ratified:** 2026-09-19.
+**Ratified governance SHA:** `69b999a062636fb0c03212eca83c77d124ac6f86`.
 
-This is a deliberately narrow architecture/ownership proposal. The human owner has accepted
-the recovery plan and authorized the relocation concept, but has not ratified this exact ADR
-text. No production relocation, R0 recovery step, trajectory, or numerical requalification
-may begin from this proposal alone. The acceptance record is
+This is a deliberately narrow, human-ratified architecture/ownership decision. Ratification
+authorizes the bounded R0 structural relocation only after this governance package is
+canonically integrated; it does not itself perform or resume R0. The acceptance record is
 `docs/validation/PHASE6A1_CONTROLLED_BNV_RECOVERY_ACCEPTANCE.md`.
 
 This ADR changes no scientific equation. ADR-0015 physics, the Phase-5B structural-response
 authority, Phase-5C/D mathematics, every existing Phase-5 source byte, the Phase-5D
 provenance producer/comparator, and the governed Phase-5D baseline remain unchanged.
+
+### 1.1 Human-owner ratification
+
+The human owner ratified this ADR at governance SHA
+`69b999a062636fb0c03212eca83c77d124ac6f86` and accepted the exact ownership decision:
+
+```text
+CompactStar/Physics/BNV/EquilibriumBaryonTangent.hpp
+CompactStar/Physics/BNV/src/EquilibriumBaryonTangent.cpp
+CompactStar::Physics::BNV::EquilibriumBaryonTangent
+```
+
+The owner ratified the adapter only as a typed Phase-6 consumer of the governed Phase-5B
+`Analysis::EquilibriumSequenceNumberDerivative`, not as a new structural-response authority.
+The ratification preserves
+`t = (partial N_y^eq / partial B)_Omega` and, at zero spin,
+`t_i = B_i / (B_n + B_p)`. It authorizes no change to the Phase-5B derivative authority,
+Phase-5D producer, comparator, provenance rules, governed baseline, or existing Phase-5 source
+bytes; no substitution of `k` for `t`; no raw-`G_y S_y` changing-baryon response; and no
+independent recomputation of `t`.
+
+The existing tangent values, propagated errors, closure/currentness semantics, BA2-BA5
+behavior, and M2/M17/M18 falsifiers must be preserved. Fresh Phase-5D provenance and governed-
+artifact identity must be restored exactly before any new BNV trajectory. ADR-0015 physics and
+the separately owner-accepted recovery plan, including BA12R, remain unchanged.
 
 ## 2. Context
 
@@ -111,8 +137,8 @@ without a generic ignore-path escape
 
 ## 6. Proof obligations before any recovered trajectory
 
-After owner ratification and during a separately authorized recovery implementation, all of
-the following are mandatory before any recovered trajectory:
+After canonical integration and during a separately authorized recovery implementation, all
+of the following are mandatory before any recovered trajectory:
 
 1. Remove only the two failed-branch `CompactStar/Analysis` adapter files.
 2. Create the semantically equivalent Phase-6 BNV-owned adapter at the paths in section 3.
@@ -158,12 +184,12 @@ remain in the accepted recovery plan
 
 ## 9. Consequences and ratification gate
 
-If ratified, ADR-0016 permits only the future R0 ownership relocation under the accepted
-recovery plan. It does not accept the failed implementation, authorize a trajectory, select a
-physical BNV rate/model, create a candidate artifact, or promote a governed baseline.
+ADR-0016 permits only the future R0 ownership relocation under the accepted recovery plan,
+and that authority becomes operative only after canonical integration of this ratification.
+It does not accept the failed implementation, authorize a trajectory, select a physical BNV
+rate/model, create a candidate artifact, or promote a governed baseline.
 
-Until the human owner explicitly ratifies this exact ADR text:
-
-- ADR-0016 remains **PROPOSED**;
-- recovery implementation remains **NOT RESUMED**; and
-- R0 must not begin.
+- ADR-0016 is **ACCEPTED / HUMAN-RATIFIED**.
+- Recovery implementation remains **AUTHORIZED BUT NOT YET RESUMED**.
+- R0 must occur on a fresh bounded recovery branch/worktree and must satisfy section 6 before
+  any recovered trajectory.

@@ -1,15 +1,18 @@
 # CompactStar — Current Architecture
 
 > **Phase-6A-1 recovery-governance status (2026-09-19): RECOVERY PLAN
-> OWNER-ACCEPTED / ADR-0016 PROPOSED / RECOVERY IMPLEMENTATION NOT RESUMED.** The
+> OWNER-ACCEPTED / ADR-0016 ACCEPTED AND HUMAN-RATIFIED / RECOVERY IMPLEMENTATION
+> AUTHORIZED BUT NOT YET RESUMED.** The
 > original implementation is **FAILED / NOT CANONICAL** and its BA12/BA15 failures retain
-> their historical meaning. Proposed ADR-0016 places the typed tangent adapter under the
+> their historical meaning. Ratified ADR-0016 assigns the typed tangent adapter to the
 > Phase-6 BNV module solely as a consumer/view of governed Phase-5B authority; no production
 > relocation has occurred. Phase-5D provenance machinery/baseline and ADR-0015 physics remain
-> unchanged. Canonical BNV candidate: **NONE**. Governed BNV baseline: **NONE**. Evidence:
+> unchanged. Historical BA12 remains FAIL; BA12R is the accepted future requalification.
+> R0 is authorized only after canonical integration and has not begun. Canonical BNV candidate:
+> **NONE**. Governed BNV baseline: **NONE**. Evidence:
 > the byte-identical [recovery plan](../validation/PHASE6A1_CONTROLLED_BNV_RECOVERY_PREFLIGHT.md),
 > [owner-acceptance record](../validation/PHASE6A1_CONTROLLED_BNV_RECOVERY_ACCEPTANCE.md),
-> and [proposed ADR-0016](../adr/ADR-0016-phase6-bnv-tangent-adapter-ownership.md).
+> and [ratified ADR-0016](../adr/ADR-0016-phase6-bnv-tangent-adapter-ownership.md).
 
 > **Phase-6A-1A status (2026-09-18): CONTROLLED BNV IMPLEMENTATION PLAN
 > OWNER-ACCEPTED / READY FOR BOUNDED CONTROLLED IMPLEMENTATION.** Implementation is

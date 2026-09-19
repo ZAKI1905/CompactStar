@@ -2,9 +2,11 @@
 
 > **OWNER-ACCEPTED RECOVERY PLAN**
 >
-> **IMPLEMENTATION NOT YET RESUMED**
+> **ADR-0016 HUMAN-RATIFIED**
 >
-> **ADR-0016 REQUIRED BEFORE R0**
+> **R0 STRUCTURAL RECOVERY AUTHORIZED AFTER CANONICAL INTEGRATION**
+>
+> **RECOVERY IMPLEMENTATION NOT YET RESUMED**
 
 **Date:** 2026-09-19
 
@@ -61,9 +63,36 @@ notation:
 > 10. Every accepted stop condition remains binding; no post-result retuning is
 >     authorized.
 
-This acceptance authorizes the bounded recovery plan. It is not acceptance of the failed
-implementation, ratification of ADR-0016 text, authority to begin R0, or acceptance of any
-numerical candidate.
+This acceptance authorizes the bounded recovery plan. The owner has now separately ratified
+ADR-0016; R0 structural recovery is authorized only after canonical integration of that
+ratification. This remains neither acceptance of the failed implementation nor acceptance of
+any numerical candidate, and recovery implementation has not resumed.
+
+### 1.1 ADR-0016 human ratification
+
+The human owner explicitly ratified ADR-0016, **Phase-6 BNV Tangent Adapter Ownership**, at
+governance SHA `69b999a062636fb0c03212eca83c77d124ac6f86`.
+
+The ratified owner and paths are exactly:
+
+```text
+CompactStar/Physics/BNV/EquilibriumBaryonTangent.hpp
+CompactStar/Physics/BNV/src/EquilibriumBaryonTangent.cpp
+CompactStar::Physics::BNV::EquilibriumBaryonTangent
+```
+
+The ratification preserves the adapter solely as a typed Phase-6 consumer of the governed
+Phase-5B `Analysis::EquilibriumSequenceNumberDerivative`, not an independent structural-
+response authority. It preserves
+`t = (partial N_y^eq / partial B)_Omega`, zero-spin
+`t_i = B_i / (B_n + B_p)`, the existing tangent values and propagated errors,
+closure/currentness semantics, BA2-BA5 behavior, and M2/M17/M18 falsifiers.
+
+It authorizes no change to the Phase-5B derivative authority, existing Phase-5 source bytes,
+Phase-5D producer, comparator, provenance rules, or governed baseline; no `k` substitution;
+no raw-`G_y S_y` changing-baryon response; and no independent recomputation of `t`. Fresh
+Phase-5D provenance and governed-artifact identity remain mandatory before any new BNV
+trajectory. ADR-0015 physics and the accepted recovery plan, including BA12R, are unchanged.
 
 ## 2. Failures remain historical failures
 
@@ -162,11 +191,13 @@ card, drive, duration, grid, boundary, or budget may be changed in response to a
 - Recovery plan: **OWNER-ACCEPTED**.
 - Historical Phase-6A-1 implementation: **FAILED / NOT CANONICAL**.
 - Historical BA12 and BA15: **FAIL**.
-- ADR-0016 text: **PROPOSED / OWNER RATIFICATION REQUIRED**.
-- Recovery implementation: **NOT RESUMED**.
+- ADR-0016: **ACCEPTED / HUMAN-RATIFIED**.
+- R0 structural recovery: **AUTHORIZED AFTER CANONICAL INTEGRATION**.
+- Recovery implementation: **AUTHORIZED BUT NOT YET RESUMED**.
 - Canonical BNV candidate: **NONE**.
 - Governed BNV baseline: **NONE**.
 - Physical BNV rate/model: **NONE**.
 
-The exact next action is human-owner review and explicit ratification of ADR-0016. Do not
-begin R0 automatically.
+After canonical integration, the exact next action is to create a fresh bounded recovery
+implementation branch/worktree with explicit read-only access to the failed implementation as
+source evidence, without importing its ancestry. Do not begin R0 automatically.
