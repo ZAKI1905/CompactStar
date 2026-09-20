@@ -246,3 +246,152 @@ unauthorized or repeated; the 956 cap would be exceeded; a repeat differs; any
 identity, currentness or validity field differs; R20 needs another quadrature;
 or a tolerance, method, subset or budget would need adjustment. Main trajectory
 integrations: 0. New integrations executed at this declaration: 0.
+
+## Execution result
+
+Appended after execution. The immutable pre-run declaration above is the
+version committed at `35292e5f69c535a138fa1d7bcf5ccf430f109814` and was not
+amended. The harness binding correction was committed separately at
+`a8ab1eeeb13035c54fec5a345f0453a5cb23d653` before any candidate integration.
+Classification is unchanged: **PHASE-6 CHECKPOINT-RECONSTRUCTION RECOVERY
+VALIDATION EVIDENCE; NOT BNV CANDIDATE; NOT GOVERNED BASELINE; NOT PHYSICAL
+RESULT**. Historical BA12 FAIL, BA12R FAIL, passive scheduling PASS and oracle
+self-qualification PASS are not rewritten.
+
+### Disposition
+
+**C — NO CHECKPOINT RECONSTRUCTION METHOD QUALIFIED — RETURN TO OWNER.**
+No single method and no hybrid satisfied the complete predeclared budget. No
+tolerance, method, subset, budget or observation set was adjusted; no further
+numerical execution is authorized by this record.
+
+### Binding correction and authorities
+
+- Root cause confirmed exactly as declared: the historical harness bound the
+  positional `argv[3]` (passed as the passive trajectory TSV) to the
+  EOS/profile directory consumed by `Fixture`, `Campaign::Tangent` and
+  `Campaign::Qualification`; the child terminated inside EOS import of
+  `<trajectory.tsv>/freegas.tsv` before any exception path.
+- Correction confined to `tests/bnv/checkpoint_reconstruction_validate.cpp`
+  (source SHA `adc2ce2bf2143809506622b6f66de83044490fa5cc5aed7dd7b5da6ff155f8de`):
+  named arguments; `ValidateProfileRoot` refusing a regular file and requiring
+  the three authenticated byte hashes; per-solve authorization against the
+  frozen 956 solve IDs (`300022427e5f9efae258e830b1381ea2cd39ddebae72c6f503e995afacfd3298`)
+  with an append-only execution ledger; one method per fresh child process;
+  oracle stages refused. `Integrate`, `EvaluateMethod`, `BuildContext`,
+  `ReadMatrix`, `WriteMeta` and `Callback` unchanged.
+- `tests/bnv/checkpoint_reconstruction_verify.py` unchanged
+  (`0a76c1bb48ee75d55082bd4a4f877c2e7c004104647c7fad5a3d9f244ba56a42`); its
+  `oracle` and `final` subcommands were the sole scientific adjudicators.
+- Production sources (`CompactStar/`, `EOS/`, `data/`, `literature/`,
+  `tests/baselines/`, `CMakeLists.txt`) untouched: forbidden-path diff against
+  the preflight base `93e93c7f91a3cd8fced2f7a0961eda9c469c43fe` is empty.
+- Harness binary `aae834374615815246087befdd5d1dbb00708cede7471b14aeb82724540887a4`,
+  linked against the byte-identical `libCompactStar.a`
+  `b9b767dbc0114563e1d556e296b6d7fc9d680a9d90e8deae9b44357010dd6499` used by
+  the failed harness and the reused oracle.
+
+### Solve matrix, oracle reuse and accounting
+
+- Matrix SHA `32f3277cdf3984318fe2323da825de1d5e337778bb05106725fb0fcfa0529616`
+  authenticated before and after; strata A=237, B=3 (82, 117, 228), C=0, D=1
+  (240), strict interior 239, deep interior 81.
+- Reused oracle evidence: root tree
+  `21f1ff9eaf23b078f86aa2b10ec45be55f84a98b9aedc4b94f4a7c4bf999f866`
+  (oracle1 `89bc3cb0bde7e58f60e1e44fdee9332e920ae163870213fe79d7bb81ba65ecf9`,
+  oracle2 `f0bf0fb4e1e0acef58da1d770c0a71d87c4021264017f75cbfa8aa9da1a0af2d`;
+  ledgers 239/239). Oracle self-qualification recomputed from stored bytes by
+  the unchanged verifier: result SHA
+  `f27304bd6f85b6b7be20537978ef37777104ff10c4baf25c9ab007e3675d99a0`
+  reproduced byte-for-byte; maxima 0.5794839113173227 (state) and
+  0.5793505315921852 (obs 117, x_state, stratum B); Pnet diagnostic
+  0.17336139714051704 (obs 117). The oracle was not rerun.
+- New integrations executed: **956** = Replay-1 239 + Replay-2 239 +
+  Replay-1 repeat 239 + Replay-2 repeat 239, exactly the authorized set
+  (956 unique solve IDs, set equality with the frozen list, no unauthorized or
+  repeated ID, no retry). Verifier campaign count 1434 = 478 reused + 956
+  new; `solve_count_pass` true. Main trajectory integrations: 0. Oracle
+  integrations: 0. BA12/BA12R integrations: 0.
+- Execution ledger (`51125b384eef5cb64ec9ed5f38af96b63736087a253146595b27bf0c32885efd`)
+  shows one pid per replay stage (836, 2559, 4527, 6297), disjoint stage time
+  intervals in the declared order, i.e. process concurrency 1. The unchanged
+  verifier's `final` output carries a hard-coded label
+  `process_concurrency: 2` inherited from the historical two-process design;
+  it is a verifier literal, not a measurement, and is superseded by the ledger.
+
+### Dry run and determinism
+
+- Dry run (no ODE solve) at observations 1, 82, 117, 228, 37 and 240: PASS;
+  all identity, currentness and validity fields equal to the reused oracle
+  context; the exact endpoint (obs 240) reproduces the Arm E final state.
+- Endpoint RHS determinism (isolated disposable contexts): 478 evaluations,
+  203 unique endpoints, 0 mismatches — PASS.
+- Algebraic repeats: linear and Hermite byte-identical 241/241; their solve
+  ledgers are empty (no integration).
+- Replay repeats: Replay-1 and Replay-2 byte-identical 241/241, 0 unequal
+  results, max state difference 0, identical step counts and ledger result
+  hashes — PASS.
+
+### Adjudication (unchanged `final`)
+
+| Method | Failures | Max state util | Max ledger util | Worst util | R20 normalized | Verdict |
+|---|---|---|---|---|---|---|
+| Linear | 239 (236 A + 3 B) | 2.0648e8 | 1.149e6 (Pnet, obs 204) | 2.0648e8 | 0.010367 (pass) | FAIL |
+| Hermite | 226 (223 A + 3 B) | 2131.3 (p95 380, median 33.2) | 111.85 (Pnet, obs 228) | 2131.3 | 0.002613 (pass) | FAIL |
+| Replay-2 | 2 (B: obs 82, 228) | 6.7056 (obs 82, x_state) | 3.4813 (Pnet, obs 228) | 20.24 (replay witness) | 0.002613 (pass) | FAIL |
+
+- Replay-2 stratum detail: A (no knot) max state 0.096283, max ledger
+  0.08013, p95 state 0.0857, median 0.0799; E (deep interior) max 0.096283;
+  D (exact endpoint) utilization 0; B: obs 82 state 6.7056 / ledger 1.1546,
+  obs 117 state 0.6023 / ledger 0.1803 (pass), obs 228 state 3.9564 /
+  ledger 3.4813. Replay witness `|R2−R1|/F` maximum 20.239777365061528 at
+  obs 228, x_state (stratum B) — witness FAIL.
+- R20: all three methods pass; endpoint-propagation, luminosity-difference
+  and thermal-difference utilizations 5.1e-5 / 0.519 / 5.1e-5 (linear),
+  5e-9 / 2.1e-6 / 5e-9 (Hermite), 9e-11 / 1.1e-8 / 9e-11 (Replay-2). No
+  additional quadrature was required.
+- Hybrid: ineligible — Hermite fails at 223 stratum-A observations, not
+  exclusively at knots; Replay-2 itself fails at knots 82 and 228.
+- Selection: none (`selected_method: null`, "no method satisfied the complete
+  predeclared budget"). No factor-four comfortable pass exists.
+
+### Performance (measurement only; no scheduling claim)
+
+956 replay solves: wall sum 1.8254 s, CPU 1.8222 s, median 0.0015 s, p95
+0.0041 s, max 0.0121 s, 523.7 solves per wall-second. Per-tier 8191-point
+solve-only extrapolation: Replay-1 12.6 s, Replay-2 18.6 s. Stage wall
+times (context construction dominated, concurrency 1): linear 289 s,
+linear-repeat 288 s, Hermite 287 s, Hermite-repeat 287 s, Replay-1 301 s,
+Replay-2 306 s, Replay-1 repeat 304 s, Replay-2 repeat 305 s; dry run 292 s.
+
+### Immutability before and after
+
+Pre-run (`pre-run-authentication.json`) and post-run
+(`post-run-authentication.json`, `019550cfe506d4d49aac1d76095d0aebd6e686497d7a0c1f9df2cb917fca9db6`)
+records agree on every hash field: passive trajectory, steps, internal steps,
+accepted states, brackets, schedule, library, matrix, profile root tree
+`233114862a2ab6826151519114e4bcb74a01f6a8e739bac0502ee62884688d72`,
+certificate, thermal, frozen certificate, coefficients, entry manifest,
+pretrajectory, oracle root tree, oracle result SHA and platform. Only the
+recorded repository `head` differs (`8b783dbe…` → `a8ab1eee…`). The reused
+oracle root was not written.
+
+### Artifacts (untracked build root, not committed)
+
+`build/phase6a1-checkpoint-reconstruction-recovery/`: harness binary,
+`oracle-qualified.flag`, `candidate/{dryrun,linear,linear-repeat,hermite,
+hermite-repeat,replay1,replay2,replay1-repeat,replay2-repeat}`,
+`assembly/` (authorized solve IDs, execution ledger, authentication records,
+oracle requalification `f27304bd…`, dry-run and stage logs, stage checks,
+stage timeline, determinism records, `final-result.json`
+`95a370f248c55e075d6e29389cadb0e68ca0b819a08767cedf114a3cb3838899`,
+`recovery-summary.json`
+`66c5dc33b827f222c0901a86b53a932218c05645f46ca5203b42b31d76d5c314`).
+
+### Boundaries preserved
+
+No oracle rerun; no main trajectory; no BA12/BA12R rerun; no tolerance,
+observation, method or budget change; `ScaledRKF45`, `Cstar`, Phase-5D and all
+production sources unmodified; no BNV candidate; no production ADR; no
+cluster use; not merged. Recommended next action: return to owner; no further
+numerical execution under this declaration.

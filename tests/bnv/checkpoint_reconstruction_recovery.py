@@ -192,14 +192,17 @@ def method_batch_audit(root: Path, method: str, matrix: list[dict], integrate: b
         problems.append("method error file present")
     names = sorted(item.name for item in method_root.iterdir()) if method_root.exists() else []
     expected_names = sorted([f"obs-{i:03d}.tsv" for i in range(241)] + [f"obs-{i:03d}.meta.tsv" for i in range(241)]
-                            + ["COMPLETE"] + (["solve_ledger.tsv"] if integrate else []))
+                            + ["COMPLETE", "solve_ledger.tsv"])
     if names != expected_names:
         problems.append("method output manifest differs from the expected 241 result + 241 meta files")
     ledger_rows: list[dict[str, str]] = []
     ledger_hash = None
-    if integrate and (method_root / "solve_ledger.tsv").exists():
+    if (method_root / "solve_ledger.tsv").exists():
         ledger_rows = rows(method_root / "solve_ledger.tsv")
         ledger_hash = sha256(method_root / "solve_ledger.tsv")
+    if not integrate and ledger_rows:
+        problems.append("algebraic method recorded an integration in its solve ledger")
+    if integrate and (method_root / "solve_ledger.tsv").exists():
         ids = [row["solve_id"] for row in ledger_rows]
         if len(ids) != 239 or len(set(ids)) != 239:
             problems.append(f"ledger has {len(ids)} rows / {len(set(ids))} unique ids, expected 239")
@@ -444,6 +447,41 @@ def determinism(args) -> None:
         raise SystemExit(2)
 
 
+def endpoint_rhs(args) -> None:
+    """Endpoint RHS determinism: hermite versus its fresh-process repeat, and equal RHS at shared endpoints."""
+    matrix = read_matrix(args.matrix)
+    root = Path(args.candidate_root)
+    values: dict[tuple[int, str], tuple[bytes, ...]] = {}
+    endpoints = []
+    mismatches = []
+    for row in matrix:
+        if not row["strict"]:
+            continue
+        index = row["observation"]
+        a = rows(root / "hermite" / f"obs-{index:03d}.meta.tsv")[0]
+        b = rows(root / "hermite-repeat" / f"obs-{index:03d}.meta.tsv")[0]
+        for side, key in (("L", row["left_index"]), ("R", row["right_index"])):
+            names = tuple(f"f{side}_{component}" for component in ("x", "eta_e", "eta_mu"))
+            va = tuple(bits(a[name]) for name in names)
+            vb = tuple(bits(b[name]) for name in names)
+            digest = hashlib.sha256(b"".join(va)).hexdigest()
+            digest_repeat = hashlib.sha256(b"".join(vb)).hexdigest()
+            endpoints.append({"observation": index, "side": side, "endpoint_index": key, "rhs_sha256": digest,
+                              "repeat_sha256": digest_repeat, "equal": va == vb})
+            if va != vb:
+                mismatches.append({"observation": index, "side": side, "reason": "fresh-process repeat differs"})
+            previous = values.setdefault((key, "any"), va)
+            if previous != va:
+                mismatches.append({"observation": index, "side": side, "reason": "same accepted endpoint gave a different RHS"})
+    unique = len({(item["endpoint_index"]) for item in endpoints})
+    result = {"classification": "ENDPOINT RHS DETERMINISM (isolated disposable contexts; no ODE solve)",
+              "evaluations": len(endpoints), "unique_endpoints": unique, "mismatches": mismatches,
+              "endpoints": endpoints, "pass": not mismatches}
+    write_json(Path(args.output), result)
+    if mismatches:
+        raise SystemExit(2)
+
+
 def category_maxima(final: dict, matrix: list[dict], method: str) -> dict:
     observations = final["methods"][method]["observations"]
     out = {}
@@ -551,6 +589,12 @@ p.add_argument("--oracle-root", dest="oracle_root", type=Path, required=True)
 p.add_argument("--execution-ledger", dest="execution_ledger", type=Path, required=True)
 p.add_argument("--output", type=Path, required=True)
 p.set_defaults(function=stage_check)
+
+p = sub.add_parser("endpoint-rhs")
+p.add_argument("--matrix", type=Path, required=True)
+p.add_argument("--candidate-root", dest="candidate_root", type=Path, required=True)
+p.add_argument("--output", type=Path, required=True)
+p.set_defaults(function=endpoint_rhs)
 
 p = sub.add_parser("determinism")
 p.add_argument("--matrix", type=Path, required=True)
