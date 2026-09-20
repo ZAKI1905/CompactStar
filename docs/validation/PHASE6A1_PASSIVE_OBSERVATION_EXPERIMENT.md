@@ -176,7 +176,153 @@ oracle before adoption.
 
 ## Execution result
 
-Not yet executed. The predeclaration commit SHA, implementation, machine-readable
-single-variable proof, one-run evidence, qualification result, and final
-disposition will be appended after execution without changing the immutable
-pre-run declaration above.
+Status: **PASSIVE OBSERVATION ARCHITECTURE QUALIFIED FOR SCHEDULING
+PASSIVITY ONLY**
+
+Disposition: **A. PASSIVE OBSERVATION SCHEDULING PASS — FINAL STATE AND
+ADAPTIVE STEP HISTORY EXACTLY MATCH ARM E — READY FOR SEPARATE
+CHECKPOINT-RECONSTRUCTION DESIGN**
+
+The immutable declaration above was committed before implementation or
+execution as
+`926ea4a2317fb6779d7ba41ba2a045393f0798ee` (`docs: predeclare passive
+observation proof`). It was not changed after the run; this result section is
+the separately appended execution record.
+
+### Implementation and structural evidence
+
+The implementation is wholly test/validation owned:
+
+- `tests/bnv/passive_observation_probe.cpp` implements the schedule-only
+  bracket observer and endpoint-only audit adapter. The observer receives only
+  accepted-step times and ordinal and records no state
+  (`tests/bnv/passive_observation_probe.cpp:111-154`).
+- `tests/bnv/passive_observation_verify.py` authenticates the pre-run
+  single-variable proof and evaluates the frozen P1-P6 result gates.
+- `docs/validation/PHASE6A1_PASSIVE_OBSERVATION_EXPERIMENT.md` is the only
+  documentation change.
+
+The observer executes after the accepted-state validation and diagnostic RHS
+evaluation (`tests/bnv/passive_observation_probe.cpp:246-266`). The sole GSL
+advance call receives `final_time_s`, never a schedule element
+(`tests/bnv/passive_observation_probe.cpp:239-247`). The runtime target audit
+requires one distinct target and zero matches among indices 1...239
+(`tests/bnv/passive_observation_probe.cpp:156-188`).
+
+Production code changed: **NO**. `ScaledRKF45` changed: **NO**. Cstar changed:
+**NO**. Phase-5D changed: **NO**. No build registration was needed; the probe
+was compiled directly with the exact diagnostic flags and the exact same
+authenticated `libCompactStar.a`.
+
+Implementation commit:
+`3900d394f7f9e75a6ef749c755d0ad1841c30c95` (`test: add passive phase6
+observation probe`).
+
+### Platform and single-variable proof
+
+The pre-run machine-readable proof is
+`build/phase6a1-passive-observation-proof/preflight.json`, SHA-256
+`9595df5cb04ed1d61ebd941a9664dad388ccd0e03b56dfb37ac93c88ef231f69`.
+It passed before the integration.
+
+| Property | Arm E / new probe result |
+| --- | --- |
+| OS / architecture | macOS 26.6.2 build 25G83; Darwin 25.6.0; arm64 — exact match |
+| compiler / target | Apple clang 21.0.0 (`clang-2100.3.34.2`); `arm64-apple-darwin25.6.0` — exact match |
+| GSL | 2.7.1; same GSL and GSL CBLAS dylibs — exact match |
+| build | Debug; `-g -std=c++17 -arch arm64 -pthread -Xclang -fopenmp` — exact match |
+| production library | same file; SHA-256 `b9b767dbc0114563e1d556e296b6d7fc9d680a9d90e8deae9b44357010dd6499` |
+| scientific inputs | same exact profile, certificate, thermal source, entry manifest, frozen certificate, coefficients, and pretrajectory bytes |
+| source/card through final time | all values in the predeclared identity table matched exactly |
+| only intended difference | metadata-only schedule attached after accepted steps |
+| added GSL ceiling | none |
+
+The reference trajectory, checkpoint-step, internal-step, diagnostic source,
+and diagnostic executable hashes all reauthenticated before the run. The
+schedule reauthenticated as 241 ordered rows with SHA-256
+`43ec23ada72bfa59c4e89672ae2987e9927164db765f05afb7b45c924cc0c67e`.
+
+### Exactly one execution
+
+Exactly one new source integration was executed. It used source ON,
+`CPL-P2-LINEAR-QSS-v1`, P2, spin OFF, Me/Mmu ON, De/Dmu OFF,
+`Bdot = -2.4136520263641375e37 count/s`, initial state `(0,0,0)`, GSL RKF45,
+`rtol=1e-11`, `atol=(1e-16,1e-22,1e-22)`, initial `h=1 s`, start `0 s`, and
+final time `462269531250 s`.
+
+The process exited zero. No control, second source integration, other
+trajectory, retry, BASELINE/REFINED run, full P2 run, BA12R rerun, `rk8pd`
+run, cluster job, full suite, candidate creation, or merge occurred.
+
+Timing and performance:
+
+| Quantity | Result |
+| --- | ---: |
+| wall time | `301.84 s` |
+| CPU user / system | `300.42 s / 0.91 s` |
+| CPU user + system | `301.33 s` |
+| accepted / rejected | `232 / 60` |
+| RHS evaluations | `1985` |
+| observer callbacks | `232` |
+| requested observations | `241` |
+| positive-time bracket assignments | `240` |
+| minimum / median / maximum accepted step (s) | `1 / 2212334854.861145 / 2883572725.0536194` |
+
+The execution log is
+`build/phase6a1-passive-observation-proof/passive.log`, SHA-256
+`f2c50091d6d76648c07b1af6e0b7d33705e394592e375ce6db24251af10ea8dc`.
+
+### Exact qualification results
+
+The machine-readable result is
+`build/phase6a1-passive-observation-proof/result.json`, SHA-256
+`cd5db1b7085b7f06ae11e0925d817f9b6bfba2c4aff44f3f9c641fcf9b844eca`.
+It reports P1-P6 all true (`build/phase6a1-passive-observation-proof/result.json:24-30`).
+
+| Gate | Exact result | Disposition |
+| --- | --- | --- |
+| P1 final state | `x=0.49240008824076903`, `eta_e=-2.5123474256442210e-7 MeV`, `eta_mu=-4.7906773046561003e-7 MeV`; 0 unequal components | PASS |
+| P2 step counts | reference/new accepted `232/232`; rejected `60/60` | PASS |
+| P3 accepted history | 232 records compared; 0 unequal; reference/new SHA-256 both `fe9afd8c1ddfc7abefca3f1e57a76c62345be1026d7042f41692650f531742c8` | PASS |
+| P4 source/currentness/validity | complete trajectory byte-identical; maximum frozen utilization `0.007921712322551693`; maximum `|DeltaB|/B0=1.46484375124617e-08`, both exact | PASS |
+| P5 schedule coverage | 241 records; 240 positive brackets; missing `0`; duplicate `0`; out of order `0`; bracket failures `0` | PASS |
+| P6 GSL targets | 232 advance calls; 1 distinct positive `t1`; exact value `462269531250 s`; intermediate matches `0` | PASS |
+
+Raw new-run hashes:
+
+| Artifact | SHA-256 |
+| --- | --- |
+| trajectory | `8c9531c87b53d8bd189e50802f3d1dd526db6f9b0d256b120c4d635e1e31a98c` |
+| checkpoint steps | `912b0e6300c745f02d733da91fb1072e927aadcd4616b944cc8d02c8a26b2ecb` |
+| normalized internal steps | `fe9afd8c1ddfc7abefca3f1e57a76c62345be1026d7042f41692650f531742c8` |
+| all new accepted endpoint states | `7f968f6c2fcbf43f442285b48d3b825fa9cf241604f9dbbd88c52c25b96ff459` |
+| passive observation brackets | `0428c176a2d9233add816621a53cc795063480462458d195f3af88d965998b3d` |
+| GSL/observer audit | `4c747a8f663a9e5cfa5e7bf5a9338e32e3941a064777d533aba95897fd9c5eab` |
+
+The trajectory, checkpoint-step summary, and normalized internal-step files
+are each byte-identical to authenticated Arm E. The new accepted-state table
+records all three state components at every one of the 232 endpoints and
+cross-checks exactly against every field shared with the archived projection;
+its final three components are bit-identical to Arm E. The historical Arm E
+internal projection did not archive per-step chemical components, so no
+independent historical per-step `eta_e/eta_mu` comparison can be formed. This
+is a nonblocking evidence limitation, not a reconstructed or inferred state.
+
+### Scope and final disposition
+
+- Historical BA12: **FAIL**.
+- Historical BA12R: **FAIL**.
+- Segmentation diagnostic: **CONFIRMED NUMERICAL EFFECT**.
+- Checkpoint reconstruction implemented or evaluated: **NO**.
+- Scientific impact: no production result or governed baseline changed; this
+  validates scheduling passivity only.
+- Blockers: **none**.
+- Nonblocking finding: the archived normalized Arm E internal history contains
+  thermal state but not per-step chemical state, as recorded above.
+
+The exact next action is to return to the owner with a separate
+checkpoint-reconstruction design problem: determine how states at arbitrary
+requested scientific observation times can be reconstructed from uninterrupted
+adaptive RKF45 steps without perturbing the accepted integration. Candidate
+methods must be compared against an independent numerical oracle before any is
+adopted. Do not rerun BA12R and do not begin that design automatically.
