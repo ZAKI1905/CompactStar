@@ -295,3 +295,107 @@ candidate diagnostic, or oracle value has been evaluated. No production,
 test, CMake, baseline, EOS/data, or literature byte has yet changed on this
 validation branch. The only new files are this declaration and its tracked
 solve matrix.
+
+## Execution result
+
+**Disposition:** SIDE-EFFECT / CURRENTNESS / PROVENANCE FAILURE — RETURN TO
+OWNER.
+
+**Classification:** PHASE-6 CHECKPOINT-RECONSTRUCTION NUMERICAL VALIDATION
+EVIDENCE — NOT BNV CANDIDATE — NOT GOVERNED BASELINE — NOT PHYSICAL RESULT.
+
+The frozen pre-run declaration was committed as
+`94788a2f0941eb9f9510ffb810c7f89b9e3ae26d`. The test-only validation harness
+was then committed as `6aefb3833177b54d1165782f6fe7347d73ca4d1e` at:
+
+- `tests/bnv/checkpoint_reconstruction_validate.cpp`;
+- `tests/bnv/checkpoint_reconstruction_verify.py`.
+
+The harness was compiled directly against the authenticated Phase-6 recovery
+library; no CMake or production source was changed. Its executable SHA-256 was
+`82eea47fba62f1440a1b87abec95dc4ac6287756ad44b990564794b9cf703044`.
+The exact solve-matrix SHA-256 remained
+`32f3277cdf3984318fe2323da825de1d5e337778bb05106725fb0fcfa0529616`.
+
+### Oracle execution and qualification
+
+Oracle-1 and Oracle-2 ran first with the frozen configurations and maximum
+process concurrency 2. Every one of the 239 strict-interior observations was
+integrated independently at both tiers. The exact endpoint consumed no solve.
+The two atomic solve ledgers therefore contain **478 unique successful local
+integrations**. No main trajectory was run.
+
+The two-level oracle passed every state, diagnostic, identity and currentness
+self-qualification gate. The comparison artifact
+`oracle-result.json` has SHA-256
+`f27304bd6f85b6b7be20537978ef37777104ff10c4baf25c9ab007e3675d99a0`.
+The exact maxima were:
+
+- `max(d_O/D_O1) = 0.5794839113173227`, at observation 117,
+  `x_state`, category B (one Cstar knot), not deep interior;
+- `max(U_O/(0.20 F_i)) = 0.5793505315921852`, at observation 117,
+  `x_state`, category B, not deep interior;
+- maximum diagnostic oracle utilization `= 0.17336139714051704`, at
+  observation 117 for `Pnet`, category B, not deep interior.
+
+Oracle-1 accumulated 246 accepted and 13 rejected local steps, 3606 RHS
+evaluations, `0.8088575 s` summed local-solve wall time,
+`0.8085089999998445 s` user CPU and `0.00014300000000044832 s` system CPU.
+Its median/p95/maximum solve wall times were respectively
+`0.003145417 s`, `0.0031900920000000003 s`, and `0.026010459 s`.
+
+Oracle-2 accumulated 249 accepted and 25 rejected local steps, 3801 RHS
+evaluations, `0.847701083 s` summed local-solve wall time,
+`0.84699500000022 s` user CPU and `0.0003089999999985604 s` system CPU.
+Its median/p95/maximum solve wall times were respectively
+`0.003123334 s`, `0.003195542 s`, and `0.045704834 s`.
+
+A solve-only linear extrapolation to 8191 strict-interior points is
+`27.721137165271966 s` for Oracle-1 and `29.052383141644352 s` for Oracle-2
+before context-construction, serialization, scheduling, and diagnostic
+overheads. This extrapolation is operational only and is not scientific
+evidence.
+
+### Candidate-phase stop
+
+After oracle qualification, an initial launcher authentication attempt used a
+nonqualifying historical evidence path. It stopped before `RunPhase`, created
+no candidate output/work root, and executed zero integrations. The intended
+immutable historical PRETRAJECTORY record was then authenticated at failed
+implementation SHA `e56e6e50040dbcd9dcbee1acecf58843f3dddf1c`, with SHA-256
+`1d4e77780fde474f24782879d6ac43fb5bd6d01f3919c359437c0c5f01d327a6`.
+
+The candidate launcher subsequently passed that gate, created isolated
+`linear` and `linear-repeat` scratch roots, and began their context
+construction. It then failed before producing any observation result because
+the supplied profile argument was a trajectory TSV rather than the required
+EOS/profile directory. Both child processes failed during EOS import; no
+candidate solve ledger or result row exists, and **zero candidate local
+integrations** were executed. The launcher reported method failure and the
+committed harness makes such a method-batch failure non-retriable. Consistent
+with the frozen no-repair/no-hidden-retry rule, the candidate phase was not
+restarted and no path, code, tolerance, budget, or method was changed after
+the failure.
+
+Consequently linear, Hermite, Replay-1, Replay-2 and the conditional hybrid
+were **not adjudicated**. There are no candidate state utilizations, ledger
+utilizations, R20 reconstruction utilizations, deterministic endpoint-RHS
+result, or selected method. The remaining **956** authorized replay
+integrations were skipped. Total executed local integrations are **478**,
+within the hard maximum 1434.
+
+### Immutability and status
+
+The passive artifacts remained byte-identical after execution:
+
+- trajectory: `8c9531c87b53d8bd189e50802f3d1dd526db6f9b0d256b120c4d635e1e31a98c`;
+- accepted endpoints: `7f968f6c2fcbf43f442285b48d3b825fa9cf241604f9dbbd88c52c25b96ff459`;
+- observation brackets: `0428c176a2d9233add816621a53cc795063480462458d195f3af88d965998b3d`;
+- internal steps: `fe9afd8c1ddfc7abefca3f1e57a76c62345be1026d7042f41692650f531742c8`;
+- step summary: `912b0e6300c745f02d733da91fb1072e927aadcd4616b944cc8d02c8a26b2ecb`.
+
+No production, `ScaledRKF45`, Cstar, Phase-5D, baseline, EOS/data, literature,
+or passive-main byte changed. Main trajectory integrations remained zero.
+Historical BA12 remains **FAIL**, BA12R remains **FAIL**, and passive
+scheduling remains **PASS**. No BNV candidate, physical rate/model,
+production ADR, full-suite run, cluster job, or merge was created or performed.
