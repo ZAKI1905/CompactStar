@@ -17,7 +17,13 @@ struct ComponentTolerances
     void Validate()const{if(!(relative>0)||!std::isfinite(relative))throw std::runtime_error("invalid relative tolerance");for(double a:absolute)if(!(a>0)||!std::isfinite(a))throw std::runtime_error("invalid component tolerance");}
     gsl_odeiv2_control* Allocate()const{Validate();auto* p=gsl_odeiv2_control_scaled_new(1,relative,1,0,absolute.data(),3);if(!p)throw std::bad_alloc();return p;}
 };
-struct StepOutput {double time_s;size_t accepted,rejected;double last_step_s;};
+struct StepOutput
+{
+    double time_s;
+    size_t accepted,rejected;
+    double last_step_s;
+    double minimum_step_since_previous_output_s;
+};
 struct IntegrationStatistics
 {
     size_t accepted_steps=0,rejected_steps=0,rhs_evaluations=0;
@@ -45,8 +51,8 @@ class ScaledRKF45 final
         std::unique_ptr<gsl_odeiv2_control,decltype(&gsl_odeiv2_control_free)> control(tolerances_.Allocate(),gsl_odeiv2_control_free);
         std::unique_ptr<gsl_odeiv2_evolve,decltype(&gsl_odeiv2_evolve_free)> evolve(gsl_odeiv2_evolve_alloc(3),gsl_odeiv2_evolve_free);
         if(!step||!evolve)throw std::bad_alloc();gsl_odeiv2_system sys{Callback,nullptr,3,this};double t=start,h=std::min(1.,(checkpoints.front()-start)*1e-3),last=0;
-        try{ValidateAccepted(y,enforce_thermal_domain);system_.NotifyStart(start,checkpoints.back(),y);for(size_t i=0;i<checkpoints.size();++i){size_t count=0;while(t<checkpoints[i]){if(++count>100000)throw std::runtime_error("RKF45 internal step budget exceeded");context_->RequireCheapCurrent();double before=t;int rc=gsl_odeiv2_evolve_apply(evolve.get(),control.get(),step.get(),&sys,&t,checkpoints[i],&h,y);stats.rejected_steps=evolve->failed_steps;if(failure_)std::rethrow_exception(failure_);if(rc!=GSL_SUCCESS)throw std::runtime_error(std::string("RKF45 failure: ")+gsl_strerror(rc));last=t-before;if(!(last>0)||!std::isfinite(last))throw std::runtime_error("RKF45 failed progress");++stats.accepted_steps;stats.minimum_step_s=std::min(stats.minimum_step_s,last);stats.maximum_step_s=std::max(stats.maximum_step_s,last);ValidateAccepted(y,enforce_thermal_domain);std::array<double,3> endpoint;Derivative(t,y,endpoint.data());}
-          stats.outputs.push_back({t,stats.accepted_steps,stats.rejected_steps,last});system_.NotifySample(t,y,i);
+        try{ValidateAccepted(y,enforce_thermal_domain);system_.NotifyStart(start,checkpoints.back(),y);for(size_t i=0;i<checkpoints.size();++i){size_t count=0;double interval_minimum_step=std::numeric_limits<double>::infinity();while(t<checkpoints[i]){if(++count>100000)throw std::runtime_error("RKF45 internal step budget exceeded");context_->RequireCheapCurrent();double before=t;int rc=gsl_odeiv2_evolve_apply(evolve.get(),control.get(),step.get(),&sys,&t,checkpoints[i],&h,y);stats.rejected_steps=evolve->failed_steps;if(failure_)std::rethrow_exception(failure_);if(rc!=GSL_SUCCESS)throw std::runtime_error(std::string("RKF45 failure: ")+gsl_strerror(rc));last=t-before;if(!(last>0)||!std::isfinite(last))throw std::runtime_error("RKF45 failed progress");++stats.accepted_steps;stats.minimum_step_s=std::min(stats.minimum_step_s,last);stats.maximum_step_s=std::max(stats.maximum_step_s,last);interval_minimum_step=std::min(interval_minimum_step,last);ValidateAccepted(y,enforce_thermal_domain);std::array<double,3> endpoint;Derivative(t,y,endpoint.data());}
+          stats.outputs.push_back({t,stats.accepted_steps,stats.rejected_steps,last,interval_minimum_step});system_.NotifySample(t,y,i);
         }system_.NotifyFinish(t,y,true);}catch(...){auto original=std::current_exception();stats_=nullptr;try{system_.NotifyFinish(t,y,false);}catch(...){}std::rethrow_exception(original);}stats_=nullptr;
     }
   private:

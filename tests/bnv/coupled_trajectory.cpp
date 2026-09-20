@@ -92,12 +92,12 @@ struct RunSummary
 
 RunSummary Run(const std::shared_ptr<const BNV::FrozenControlledBnvRunContext>& context,
     BNV::ControlledBnvSecularDriver::Mode mode,const Campaign::RunCard& card,
-    const std::filesystem::path& path,bool refined)
+    const std::filesystem::path& path,const RC::ComponentTolerances& tolerances)
 {
     RunState state(context->OrdinaryContext());state.thermal.SetTinf(1e8);RC::ChemicalImbalanceState(0,0).Store(state.chem);
     auto y=state.Pack();auto driver=std::make_shared<BNV::ControlledBnvSecularDriver>(context,mode);
     EV::EvolutionSystem system(state.ctx,state.state,state.rhs,state.layout,{driver});auto capture=std::make_shared<Capture>(path,*driver);system.AddObserver(capture);
-    RC::ScaledRKF45 solver(system,state.layout,context->OrdinaryContext(),refined?RC::ComponentTolerances::Refined():RC::ComponentTolerances{});
+    RC::ScaledRKF45 solver(system,state.layout,context->OrdinaryContext(),tolerances);
     std::vector<double> checkpoints;checkpoints.reserve(card.checkpoints-1);const double end=card.duration_year*Year;
     for(std::size_t i=1;i<card.checkpoints;++i)checkpoints.push_back(end*static_cast<double>(i)/static_cast<double>(card.checkpoints-1));
     RunSummary total;double start=0;
@@ -110,11 +110,12 @@ RunSummary Run(const std::shared_ptr<const BNV::FrozenControlledBnvRunContext>& 
         const std::size_t accepted_offset=total.accepted-stats.accepted_steps;
         const std::size_t rejected_offset=total.rejected-stats.rejected_steps;
         for(const auto& sample:stats.outputs)total.outputs.push_back({sample.time_s,
-          accepted_offset+sample.accepted,rejected_offset+sample.rejected,sample.last_step_s});
+          accepted_offset+sample.accepted,rejected_offset+sample.rejected,sample.last_step_s,
+          sample.minimum_step_since_previous_output_s});
     }
     total.rows=capture->rows;if(total.rows!=card.checkpoints)throw std::runtime_error("trajectory checkpoint count changed");
-    std::ofstream steps(path.string()+".steps");steps<<std::setprecision(17)<<"accepted\trejected\trhs\tminimum_step_s\tmaximum_step_s\trows\n"<<total.accepted<<'\t'<<total.rejected<<'\t'<<total.rhs<<'\t'<<total.min_step<<'\t'<<total.max_step<<'\t'<<total.rows<<"\nt_s\tcumulative_accepted\tcumulative_rejected\tlast_step_s\n";
-    for(const auto& sample:total.outputs)steps<<sample.time_s<<'\t'<<sample.accepted<<'\t'<<sample.rejected<<'\t'<<sample.last_step_s<<'\n';
+    std::ofstream steps(path.string()+".steps");steps<<std::setprecision(17)<<"accepted\trejected\trhs\tminimum_step_s\tmaximum_step_s\trows\n"<<total.accepted<<'\t'<<total.rejected<<'\t'<<total.rhs<<'\t'<<total.min_step<<'\t'<<total.max_step<<'\t'<<total.rows<<"\nt_s\tcumulative_accepted\tcumulative_rejected\tlast_step_s\tminimum_step_since_previous_output_s\n";
+    for(const auto& sample:total.outputs)steps<<sample.time_s<<'\t'<<sample.accepted<<'\t'<<sample.rejected<<'\t'<<sample.last_step_s<<'\t'<<sample.minimum_step_since_previous_output_s<<'\n';
     return total;
 }
 
@@ -127,6 +128,7 @@ std::shared_ptr<const BNV::IDirectBnvEnergyPartition> Partition(const Campaign::
     throw std::runtime_error("unknown run-card partition");
 }
 
+#ifndef PHASE6A1_BA12R_ULTRA_SUPPORT_ONLY
 int main(int argc,char** argv)
 {
  try
@@ -160,8 +162,9 @@ int main(int argc,char** argv)
         for(bool refined:{false,true})
         {
             const std::string level=refined?"refined":"baseline";
-            const auto a=Run(context,mode,card,output/(card.identity+"."+level+".tsv"),refined);
-            const auto b=Run(control,mode,card,output/(card.identity+".control."+level+".tsv"),refined);
+            const auto tolerance=refined?RC::ComponentTolerances::Refined():RC::ComponentTolerances{};
+            const auto a=Run(context,mode,card,output/(card.identity+"."+level+".tsv"),tolerance);
+            const auto b=Run(control,mode,card,output/(card.identity+".control."+level+".tsv"),tolerance);
             std::cout<<"TRAJECTORY PASS "<<card.identity<<' '<<level<<" source_rows "<<a.rows<<" control_rows "<<b.rows<<" accepted "<<a.accepted<<" control_accepted "<<b.accepted<<'\n';
         }
     }
@@ -170,3 +173,4 @@ int main(int argc,char** argv)
  }
  catch(const std::exception& e){std::cerr<<"STOP "<<e.what()<<'\n';return 1;}
 }
+#endif
