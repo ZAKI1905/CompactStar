@@ -53,7 +53,9 @@ struct MethodResult
 
 struct Inputs
 {
-    std::filesystem::path matrix,profile,certificate,thermal,work,entry,frozen,coefficients,output,predeclaration;
+    // profile_root is the EOS/profile DIRECTORY (freegas.tsv, model.txt, profile.tsv); it is never a trajectory TSV.
+    std::filesystem::path matrix,profile_root,certificate,thermal,work,entry,frozen,coefficients,output,predeclaration,
+      pretrajectory,oracle_flag,authorized_solves,execution_ledger;
 };
 
 std::vector<std::string> Split(const std::string& line)
@@ -117,6 +119,24 @@ void AtomicWrite(const std::filesystem::path& path,const std::string& contents)
     const auto temporary=path.string()+".tmp."+std::to_string(getpid());
     {std::ofstream out(temporary);if(!out)throw std::runtime_error("cannot create temporary output");out<<contents;if(!out)throw std::runtime_error("output write failed");}
     std::filesystem::rename(temporary,path);
+}
+
+// Recovery correction: the profile/EOS root is a typed directory argument authenticated by the same
+// byte hashes production qualification enforces (FrozenRotochemicalRunContext.hpp:89-92). A trajectory
+// TSV, any regular file, a missing file, or a hash mismatch refuses before any context is built.
+void ValidateProfileRoot(const std::filesystem::path& root)
+{
+    if(std::filesystem::is_regular_file(root))throw std::runtime_error("profile root must be the EOS/profile directory, not a trajectory/TSV file: "+root.string());
+    if(!std::filesystem::is_directory(root))throw std::runtime_error("profile root is not a directory: "+root.string());
+    const std::array<std::pair<const char*,const char*>,3> expected{{
+      {"profile.tsv","e9cd03b0b8449806f6c9883d75de1d3dff0cf1481675efc45a56519655d40890"},
+      {"model.txt","3ea70de79e15b70c5a6d68f48335d18047ff80e60b55a9acdb78084e9be4d6d4"},
+      {"freegas.tsv","7cd44c92e1e7206e0e68e3fed7e3f0ca68e79ab4517d02b96ff78b9be23d3f1a"}}};
+    for(const auto& [name,hash]:expected)
+    {
+        const auto file=root/name;if(!std::filesystem::is_regular_file(file))throw std::runtime_error(std::string("profile root lacks ")+name);
+        if(Sha256(file)!=hash)throw std::runtime_error(std::string("profile root ")+name+" differs from the authenticated Structure-1 qualification bytes");
+    }
 }
 
 struct EvaluationEnvironment
@@ -212,14 +232,14 @@ std::shared_ptr<const BNV::FrozenControlledBnvRunContext> BuildContext(const Inp
     const auto& card=Campaign::RunCards().back();
     require(card.identity=="CPL-P2-LINEAR-QSS-v1"&&card.partition=="P2"&&card.fractional_drive_per_year==-1.0e-12&&
       card.duration_year==5.0e5&&card.checkpoints==8193&&!card.reaction_free,"immutable reconstruction P2 card changed");
-    auto fixture=Fixture(inputs.profile,inputs.certificate.string(),method_work/"owning-star",80000);auto channels=Channels(fixture);
+    auto fixture=Fixture(inputs.profile_root,inputs.certificate.string(),method_work/"owning-star",80000);auto channels=Channels(fixture);
     EOS::CompOSE_Thermo::Options options;options.Tmin_for_derivative_MeV=0;options.clamp_to_domain=false;
     auto thermal=std::make_shared<const RC::FrozenThermalSource>(inputs.thermal,options,
       "controlled mathematical fixed-background free-gas entropy; qualified radial80000");
-    auto tangent=Campaign::Tangent(fixture,inputs.profile,method_work);auto bnv_token=std::make_shared<BNV::BnvDependencyToken>();
+    auto tangent=Campaign::Tangent(fixture,inputs.profile_root,method_work);auto bnv_token=std::make_shared<BNV::BnvDependencyToken>();
     auto monitor=Phase6A1Test::LoadFrozenMonitor(inputs.frozen,tangent,bnv_token);auto run_token=std::make_shared<RC::RunDependencyToken>();
     auto spin=std::make_shared<const BNV::StaticZeroSpinHistory>(run_token);
-    auto ordinary=Context(fixture,channels,thermal,spin,Campaign::Qualification(inputs.profile,inputs.certificate,inputs.entry),run_token);
+    auto ordinary=Context(fixture,channels,thermal,spin,Campaign::Qualification(inputs.profile_root,inputs.certificate,inputs.entry),run_token);
     const double mu_B=Campaign::Column(inputs.coefficients,"mu_B_inf");
     const std::string potential="frozen Structure-1 B0 equilibrium mu_B plus governed moving-reference actual-potential correction";
     const double Bdot=card.fractional_drive_per_year*tangent->B0Count()/Year;require(Bdot==-2.4136520263641375e37,"immutable reconstruction Bdot changed");
@@ -249,6 +269,37 @@ void WriteMeta(const std::filesystem::path& path,const std::string& method,const
     out<<'\t'<<getpid()<<'\n';AtomicWrite(path,out.str());
 }
 
+constexpr std::size_t AuthorizedNewIntegrations=956;
+
+std::vector<std::string> ReadLines(const std::filesystem::path& path)
+{
+    std::vector<std::string> lines;std::ifstream in(path);std::string line;while(std::getline(in,line))if(!line.empty())lines.push_back(line);return lines;
+}
+
+// Atomic execution accounting: a solve runs only if its ID is in the frozen authorization list and absent
+// from the global ledger, and only while fewer than 956 new integrations exist. Retries would collide.
+void AuthorizeSolve(const Inputs& inputs,const std::string& solve_id)
+{
+    const auto authorized=ReadLines(inputs.authorized_solves);
+    if(authorized.size()!=AuthorizedNewIntegrations)throw std::runtime_error("authorized solve list is not the frozen 956-entry list");
+    if(std::find(authorized.begin(),authorized.end(),solve_id)==authorized.end())throw std::runtime_error("solve not authorized: "+solve_id);
+    std::size_t executed=0;
+    for(const auto& line:ReadLines(inputs.execution_ledger))
+    {
+        if(StartsWith(line,"solve_id\t"))continue;++executed;
+        if(line.substr(0,line.find('\t'))==solve_id)throw std::runtime_error("solve already executed in this recovery: "+solve_id);
+    }
+    if(executed>=AuthorizedNewIntegrations)throw std::runtime_error("956-integration authorization exhausted");
+}
+
+void RecordSolve(const Inputs& inputs,const std::string& line)
+{
+    const bool fresh=!std::filesystem::exists(inputs.execution_ledger);
+    std::ofstream ledger(inputs.execution_ledger,std::ios::app);if(!ledger)throw std::runtime_error("cannot open execution ledger");
+    if(fresh)ledger<<"solve_id\tmethod\tobservation_index\tpid\tstart_unix_ns\tend_unix_ns\tresult_sha256\tmeta_sha256\n";
+    ledger<<line;ledger.flush();if(!ledger)throw std::runtime_error("execution ledger write failure");
+}
+
 void RunMethodBatch(const Inputs& inputs,const std::vector<MatrixRow>& positive,const std::string& method)
 {
     const auto method_output=inputs.output/method;if(std::filesystem::exists(method_output))throw std::runtime_error("fresh method output root required");
@@ -262,60 +313,96 @@ void RunMethodBatch(const Inputs& inputs,const std::vector<MatrixRow>& positive,
         const auto result_path=method_output/(stem+".tsv");
         const auto meta_path=method_output/(stem+".meta.tsv");
         if(std::filesystem::exists(result_path)||std::filesystem::exists(meta_path))throw std::runtime_error("hidden retry/output collision");
+        const bool integration=row.strict&&IsIntegration(method);const std::string solve_id=method+"-"+stem;
+        if(integration)AuthorizeSolve(inputs,solve_id);
         const auto unix_start=std::chrono::system_clock::now().time_since_epoch();const auto wall_start=std::chrono::steady_clock::now();rusage before{},after{};getrusage(RUSAGE_SELF,&before);
         EvaluationEnvironment environment(context);const auto result=EvaluateMethod(environment,row,method);environment.Save(row.t_obs,result.state,result_path.string()+".tmp");
         std::filesystem::rename(result_path.string()+".tmp",result_path);getrusage(RUSAGE_SELF,&after);
         const double wall=std::chrono::duration<double>(std::chrono::steady_clock::now()-wall_start).count();
         WriteMeta(meta_path,method,row,result,wall,CpuSeconds(after.ru_utime)-CpuSeconds(before.ru_utime),CpuSeconds(after.ru_stime)-CpuSeconds(before.ru_stime));
         const auto unix_end=std::chrono::system_clock::now().time_since_epoch();
-        if(row.strict&&IsIntegration(method))
+        if(integration)
         {
-            const std::string solve_id=method+"-"+ObservationName(row.observation);
             ledger<<solve_id<<'\t'<<row.observation<<'\t'<<method<<'\t'<<row.left_index<<'\t'<<std::setprecision(17)<<row.t_left<<'\t'<<row.t_obs<<'\t'
               <<getpid()<<'\t'<<std::chrono::duration_cast<std::chrono::nanoseconds>(unix_start).count()<<'\t'
               <<std::chrono::duration_cast<std::chrono::nanoseconds>(unix_end).count()<<"\t0\t"<<Sha256(result_path)<<'\t'<<Sha256(meta_path)<<'\n';
             ledger.flush();if(!ledger)throw std::runtime_error("solve-ledger write failure");
+            std::ostringstream line;line<<solve_id<<'\t'<<method<<'\t'<<row.observation<<'\t'<<getpid()<<'\t'
+              <<std::chrono::duration_cast<std::chrono::nanoseconds>(unix_start).count()<<'\t'
+              <<std::chrono::duration_cast<std::chrono::nanoseconds>(unix_end).count()<<'\t'<<Sha256(result_path)<<'\t'<<Sha256(meta_path)<<'\n';
+            RecordSolve(inputs,line.str());
         }
     }
     AtomicWrite(method_output/"COMPLETE",method+"\n");
 }
 
-std::vector<std::string> Methods(const std::string& phase)
+const std::vector<std::string>& CandidateStages()
 {
-    if(phase=="oracle")return {"oracle1","oracle2"};
-    if(phase=="candidate")return {"linear","linear-repeat","hermite","hermite-repeat","replay1","replay1-repeat","replay2","replay2-repeat"};
-    throw std::runtime_error("phase must be oracle or candidate");
+    static const std::vector<std::string> stages{"linear","linear-repeat","hermite","hermite-repeat","replay1","replay2","replay1-repeat","replay2-repeat"};
+    return stages;
 }
 
-void RunPhase(const Inputs& inputs,const std::vector<MatrixRow>& rows,const std::string& phase)
+// One stage = one candidate method in one fresh child process (concurrency 1). No retry on failure.
+void RunStage(const Inputs& inputs,const std::vector<MatrixRow>& rows,const std::string& method)
 {
-    if(std::filesystem::exists(inputs.output))throw std::runtime_error("fresh phase output root required");
-    if(std::filesystem::exists(inputs.work))throw std::runtime_error("fresh phase work root required");
+    const auto& stages=CandidateStages();if(std::find(stages.begin(),stages.end(),method)==stages.end())throw std::runtime_error("stage must be a candidate method; oracle rerun is not authorized");
+    if(std::filesystem::exists(inputs.output/method)||std::filesystem::exists(inputs.work/method))throw std::runtime_error("fresh stage output/work root required");
     std::filesystem::create_directories(inputs.output);std::filesystem::create_directories(inputs.work);
-    const auto methods=Methods(phase);std::map<pid_t,std::string> active;std::size_t next=0;bool failure=false;
-    while(next<methods.size()||!active.empty())
+    const pid_t pid=fork();if(pid<0)throw std::runtime_error("fork failed");
+    if(pid==0)
     {
-        while(!failure&&next<methods.size()&&active.size()<2)
-        {
-            const std::string method=methods[next++];const pid_t pid=fork();if(pid<0)throw std::runtime_error("fork failed");
-            if(pid==0)
-            {
-                try{RunMethodBatch(inputs,rows,method);_exit(0);}catch(const std::exception& error){std::ofstream out(inputs.output/(method+".error"));out<<error.what()<<'\n';_exit(2);}
-            }
-            active.emplace(pid,method);
-        }
-        int status=0;const pid_t done=wait(&status);if(done<0)throw std::runtime_error("wait failed");const auto found=active.find(done);if(found==active.end())throw std::runtime_error("unknown child process");
-        if(!WIFEXITED(status)||WEXITSTATUS(status)!=0){failure=true;std::cerr<<"METHOD FAIL "<<found->second<<" status "<<status<<'\n';}
-        else std::cout<<"METHOD PASS "<<found->second<<'\n';active.erase(found);
+        try{RunMethodBatch(inputs,rows,method);_exit(0);}catch(const std::exception& error){std::ofstream out(inputs.output/(method+".error"));out<<error.what()<<'\n';_exit(2);}
     }
-    if(failure)throw std::runtime_error("method batch failed; no retry authorized");
-    AtomicWrite(inputs.output/"PHASE_COMPLETE",phase+"\n");
+    int status=0;if(waitpid(pid,&status,0)!=pid)throw std::runtime_error("wait failed");
+    if(!WIFEXITED(status)||WEXITSTATUS(status)!=0)throw std::runtime_error("stage "+method+" failed; no retry authorized");
+    if(!std::filesystem::exists(inputs.output/method/"COMPLETE"))throw std::runtime_error("stage completed without COMPLETE marker");
+    std::cout<<"STAGE PASS "<<method<<'\n';
 }
 
-Inputs ParseInputs(int argc,char** argv)
+// Pre-integration dry run: build the corrected context, evaluate diagnostics/RHS at authenticated accepted
+// endpoints for representative observations, and check RHS repeatability. No ODE solve is performed.
+void DryRun(const Inputs& inputs,const std::vector<MatrixRow>& positive,const std::vector<std::size_t>& observations)
 {
-    require(argc==13,"phase matrix profile certificate thermal work entry frozen coefficients output predeclaration pretrajectory");
-    return {argv[2],argv[3],argv[4],argv[5],argv[6],argv[7],argv[8],argv[9],argv[10],argv[11]};
+    const std::string method="dryrun";const auto output=inputs.output/method;
+    if(std::filesystem::exists(output)||std::filesystem::exists(inputs.work/method))throw std::runtime_error("fresh dry-run root required");
+    std::filesystem::create_directories(output);auto context=BuildContext(inputs,method);
+    std::ofstream summary(output/"dryrun.tsv");summary<<std::setprecision(17)<<"observation_index\tcategory\tdeep\texact\tstrict\tt_left_s\tt_right_s\tfL_x\tfL_eta_e\tfL_eta_mu\tfL_repeat_identical\tfR_x\tfR_eta_e\tfR_eta_mu\tfR_repeat_identical\n";
+    for(const std::size_t index:observations)
+    {
+        if(index<1||index>positive.size())throw std::runtime_error("dry-run observation outside 1..240");
+        const auto& row=positive[index-1];const auto stem=ObservationName(row.observation);
+        std::array<double,3> fl{},fr{};bool same_l=false,same_r=false;
+        {EvaluationEnvironment environment(context);fl=environment.Derivative(row.t_left,row.left);}
+        {EvaluationEnvironment environment(context);same_l=environment.Derivative(row.t_left,row.left)==fl;}
+        {EvaluationEnvironment environment(context);fr=environment.Derivative(row.t_right,row.right);}
+        {EvaluationEnvironment environment(context);same_r=environment.Derivative(row.t_right,row.right)==fr;}
+        {EvaluationEnvironment environment(context);environment.Save(row.t_left,row.left,output/(stem+".left.tsv"));}
+        {EvaluationEnvironment environment(context);environment.Save(row.t_right,row.right,output/(stem+".right.tsv"));}
+        summary<<row.observation<<'\t'<<row.category<<'\t'<<row.deep<<'\t'<<row.exact<<'\t'<<row.strict<<'\t'<<row.t_left<<'\t'<<row.t_right;
+        for(double v:fl)summary<<'\t'<<v;summary<<'\t'<<same_l;for(double v:fr)summary<<'\t'<<v;summary<<'\t'<<same_r<<'\n';
+        if(!same_l||!same_r)throw std::runtime_error("endpoint RHS not repeatable in dry run");
+    }
+    if(!summary)throw std::runtime_error("dry-run summary write failure");AtomicWrite(output/"COMPLETE",method+"\n");
+}
+
+Inputs ParseInputs(int argc,char** argv,int first)
+{
+    std::map<std::string,std::filesystem::path> values;
+    for(int i=first;i+1<argc;i+=2)
+    {
+        const std::string key=argv[i];if(!StartsWith(key,"--"))throw std::runtime_error("expected --name value pairs");
+        if(!values.emplace(key.substr(2),argv[i+1]).second)throw std::runtime_error("duplicate argument "+key);
+    }
+    if((argc-first)%2!=0)throw std::runtime_error("dangling argument");
+    const std::vector<std::string> required{"matrix","profile-root","certificate","thermal","work-root","entry-manifest","frozen-certificate",
+      "coefficients","output-root","predeclaration","pretrajectory","oracle-qualified-flag","authorized-solves","execution-ledger"};
+    for(const auto& key:required)if(!values.count(key))throw std::runtime_error("missing required argument --"+key);
+    for(const auto& [key,value]:values)if(std::find(required.begin(),required.end(),key)==required.end())throw std::runtime_error("unknown argument --"+key);
+    Inputs inputs{values["matrix"],values["profile-root"],values["certificate"],values["thermal"],values["work-root"],values["entry-manifest"],
+      values["frozen-certificate"],values["coefficients"],values["output-root"],values["predeclaration"],values["pretrajectory"],
+      values["oracle-qualified-flag"],values["authorized-solves"],values["execution-ledger"]};
+    ValidateProfileRoot(inputs.profile_root);
+    return inputs;
 }
 }
 
@@ -328,14 +415,26 @@ int main(int argc,char** argv)
     {
         const auto rows=ReadMatrix(argv[2]);std::cout<<"SOLVE_MATRIX PASS rows "<<rows.size()<<" strict "<<ExpectedStrictInterior<<" total "<<ExpectedTotalSolves<<'\n';return 0;
     }
-    const std::string phase=argc>1?argv[1]:"";const auto inputs=ParseInputs(argc,argv);const auto rows=ReadMatrix(inputs.matrix);
+    const std::string mode=argc>1?argv[1]:"";
+    if(mode!="dry-run"&&mode!="stage")throw std::runtime_error("mode must be matrix-check, dry-run or stage <method>");
+    const int first=mode=="stage"?3:2;if(argc<first)throw std::runtime_error("stage requires a method name");
+    const auto inputs=ParseInputs(argc,argv,first);const auto rows=ReadMatrix(inputs.matrix);
     {std::ifstream in(inputs.predeclaration);std::string text((std::istreambuf_iterator<char>(in)),{});require(
       text.find("32f3277cdf3984318fe2323da825de1d5e337778bb05106725fb0fcfa0529616")!=std::string::npos&&
       text.find("TOTAL AUTHORIZED LOCAL INTEGRATIONS")!=std::string::npos,"committed reconstruction predeclaration missing");}
-    {std::ifstream in(inputs.predeclaration);require(bool(in),"missing committed predeclaration");}
-    {std::ifstream in(inputs.output.parent_path()/"oracle-qualified.flag");if(phase=="candidate")require(bool(in),"candidate phase requires independently verified oracle pass");}
-    {std::ifstream in(argv[12]);std::string text((std::istreambuf_iterator<char>(in)),{});require(text.find("PRETRAJECTORY PASS")!=std::string::npos&&text.find("no BNV trajectory had been generated")!=std::string::npos,"committed historical pretrajectory evidence missing");}
-    RunPhase(inputs,rows,phase);std::cout<<"RECONSTRUCTION_PHASE PASS "<<phase<<'\n';return 0;
+    {std::ifstream in(inputs.pretrajectory);std::string text((std::istreambuf_iterator<char>(in)),{});require(text.find("PRETRAJECTORY PASS")!=std::string::npos&&text.find("no BNV trajectory had been generated")!=std::string::npos,"committed historical pretrajectory evidence missing");}
+    {std::ifstream in(inputs.oracle_flag);std::string text((std::istreambuf_iterator<char>(in)),{});require(text.find("ORACLE QUALIFIED")!=std::string::npos,"independently verified oracle qualification flag missing");}
+    if(mode=="dry-run")
+    {
+        std::vector<std::size_t> observations;
+        // Representative set: a no-knot interior observation, each one-knot observation, the deepest-interior observation, the exact endpoint.
+        std::size_t deepest=0;double best=0;for(const auto& row:rows){if(!row.strict)continue;const double s=(row.t_obs-row.t_left)/(row.t_right-row.t_left);const double score=std::min(s,1-s)*(row.t_right-row.t_left);if(score>best){best=score;deepest=row.observation;}}
+        for(const auto& row:rows)if(row.category=='A'&&row.strict&&!row.deep){observations.push_back(row.observation);break;}
+        for(const auto& row:rows)if(row.category=='B')observations.push_back(row.observation);
+        observations.push_back(deepest);for(const auto& row:rows)if(row.exact)observations.push_back(row.observation);
+        DryRun(inputs,rows,observations);std::cout<<"DRY_RUN PASS observations";for(auto o:observations)std::cout<<' '<<o;std::cout<<'\n';return 0;
+    }
+    RunStage(inputs,rows,argv[2]);return 0;
  }
  catch(const std::exception& error){std::cerr<<"STOP "<<error.what()<<'\n';return 1;}
 }
