@@ -1,18 +1,19 @@
 # CompactStar — Current Architecture
 
-> **Phase-6A-1 recovery-governance status (2026-09-19): RECOVERY PLAN
-> OWNER-ACCEPTED / ADR-0016 ACCEPTED AND HUMAN-RATIFIED / RECOVERY IMPLEMENTATION
-> AUTHORIZED BUT NOT YET RESUMED.** The
-> original implementation is **FAILED / NOT CANONICAL** and its BA12/BA15 failures retain
-> their historical meaning. Ratified ADR-0016 assigns the typed tangent adapter to the
-> Phase-6 BNV module solely as a consumer/view of governed Phase-5B authority; no production
-> relocation has occurred. Phase-5D provenance machinery/baseline and ADR-0015 physics remain
-> unchanged. Historical BA12 remains FAIL; BA12R is the accepted future requalification.
-> R0 is authorized only after canonical integration and has not begun. Canonical BNV candidate:
-> **NONE**. Governed BNV baseline: **NONE**. Evidence:
+> **Phase-6A-1 recovery status (2026-09-19): R0-R3 RECOVERY PASS ON THE
+> RECOVERY BRANCH / NOT MERGED.** The historical implementation remains **FAILED / NOT
+> CANONICAL**, is source evidence only, and is not an ancestor of the recovery branch. Ratified
+> ADR-0016 ownership is implemented at `CompactStar/Physics/BNV` solely as a typed consumer/view
+> of the unchanged Phase-5B `Analysis::EquilibriumSequenceNumberDerivative`. Focused semantic
+> checks pass; fresh Phase-5D scientific provenance is restored exactly at 91 entries and the
+> governed artifact reproduces SHA-256
+> `2606916915b2da5c051b1a06637c0a371a74751c6e77b2775bc629a63bc9f6dd`. Historical BA12
+> remains FAIL; no ULTRA, BA12R, BNV trajectory, candidate, full suite, or merge was performed.
+> Canonical BNV candidate: **NONE**. Governed BNV baseline: **NONE**. Evidence:
 > the byte-identical [recovery plan](../validation/PHASE6A1_CONTROLLED_BNV_RECOVERY_PREFLIGHT.md),
 > [owner-acceptance record](../validation/PHASE6A1_CONTROLLED_BNV_RECOVERY_ACCEPTANCE.md),
-> and [ratified ADR-0016](../adr/ADR-0016-phase6-bnv-tangent-adapter-ownership.md).
+> [ratified ADR-0016](../adr/ADR-0016-phase6-bnv-tangent-adapter-ownership.md), and the
+> [R0-R3 implementation record](../validation/PHASE6A1_CONTROLLED_BNV_RECOVERY_IMPLEMENTATION.md).
 
 > **Phase-6A-1A status (2026-09-18): CONTROLLED BNV IMPLEMENTATION PLAN
 > OWNER-ACCEPTED / READY FOR BOUNDED CONTROLLED IMPLEMENTATION.** Implementation is
