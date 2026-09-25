@@ -1,17 +1,19 @@
 # CompactStar Scientific Invariants
 
-> **Phase-6A-1 recovery-governance status (2026-09-19): RECOVERY PLAN
-> OWNER-ACCEPTED / ADR-0016 ACCEPTED AND HUMAN-RATIFIED / RECOVERY IMPLEMENTATION
-> AUTHORIZED BUT NOT YET RESUMED.** The
-> original implementation on `physics/phase6a1-controlled-bnv-implementation` is
-> **FAILED / NOT CANONICAL**: historical BA12 and BA15 remain FAIL. The accepted recovery
-> preserves ADR-0015 and every Phase-5 authority; ADR-0016 accepts only Phase-6 ownership
-> for the typed tangent adapter. Historical BA12 remains FAIL and BA12R is the accepted future
-> requalification. R0 is authorized only after canonical integration; it has not begun.
-> Canonical BNV candidate: **NONE**. Governed BNV baseline: **NONE**. Evidence: the byte-identical
-> [recovery plan](validation/PHASE6A1_CONTROLLED_BNV_RECOVERY_PREFLIGHT.md),
-> [owner-acceptance record](validation/PHASE6A1_CONTROLLED_BNV_RECOVERY_ACCEPTANCE.md),
-> and [ratified ADR-0016](adr/ADR-0016-phase6-bnv-tangent-adapter-ownership.md).
+> **Phase-6A-1 numerical-output governance status (2026-09-24): ADR-0015 ACCEPTED /
+> ADR-0016 ACCEPTED / ADR-0017 PROPOSED — OWNER RATIFICATION REQUIRED.** Historical BA12 and
+> BA12R remain **FAIL**. Passive scheduling is **VALIDATED**: changing only the requested
+> observation schedule did not change the final main state, accepted/rejected counts, or
+> accepted-step history (`validation/PHASE6A1_PASSIVE_OBSERVATION_EXPERIMENT.md:275-318`). The
+> original checkpoint candidate comparison remains **NO CHECKPOINT RECONSTRUCTION METHOD
+> QUALIFIED**: Linear, Hermite, Replay-2, and the conditional hybrid were rejected and no method
+> was selected (`validation/PHASE6A1_CHECKPOINT_RECONSTRUCTION_CANDIDATE_RECOVERY.md:335-356`).
+> Two-level local rk8pd is a **SELF-QUALIFIED NUMERICAL ORACLE** and is proposed by ADR-0017 as
+> the Phase-6 production reconstruction method; it is **NOT YET ACCEPTED** and is not production
+> authority (`validation/PHASE6A1_CHECKPOINT_RECONSTRUCTION_VALIDATION.md:320-357`,
+> `adr/ADR-0017-phase6-passive-checkpoint-reconstruction.md:1-12`). Canonical Phase-6 numerical BNV
+> candidate: **NONE**. Governed BNV baseline: **NONE**. No production reconstruction has begun.
+> Phase-5D, `ScaledRKF45`, Cstar, and ADR-0015 physics remain unchanged.
 
 > **Phase-6A-1A status (2026-09-18): CONTROLLED BNV IMPLEMENTATION PLAN
 > OWNER-ACCEPTED / READY FOR BOUNDED CONTROLLED IMPLEMENTATION.** Implementation is

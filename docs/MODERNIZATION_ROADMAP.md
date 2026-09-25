@@ -1,16 +1,17 @@
 # CompactStar Modernization Roadmap
 
-> **Phase-6A-1 recovery-governance status (2026-09-19): RECOVERY PLAN
-> OWNER-ACCEPTED / ADR-0016 ACCEPTED AND HUMAN-RATIFIED / RECOVERY IMPLEMENTATION
-> AUTHORIZED BUT NOT YET RESUMED.** The
-> original Phase-6A-1 implementation is **FAILED / NOT CANONICAL**; BA12 and BA15 remain
-> historical failures. The accepted recovery fixes REFINED as nominal and ULTRA as witness
-> if BA12R passes, permits only the P2 source/control ULTRA pair, and preserves all Phase-5
-> authorities. R0 is authorized only after canonical integration and has not begun. Canonical
-> BNV candidate: **NONE**. Governed BNV baseline: **NONE**. Evidence: the byte-identical
-> [recovery plan](validation/PHASE6A1_CONTROLLED_BNV_RECOVERY_PREFLIGHT.md),
-> [owner-acceptance record](validation/PHASE6A1_CONTROLLED_BNV_RECOVERY_ACCEPTANCE.md),
-> and [ratified ADR-0016](adr/ADR-0016-phase6-bnv-tangent-adapter-ownership.md).
+> **Phase-6A-1 numerical-output governance status (2026-09-24): ADR-0015 ACCEPTED /
+> ADR-0016 ACCEPTED / ADR-0017 PROPOSED — OWNER RATIFICATION REQUIRED.** Historical BA12 and
+> BA12R remain **FAIL**. Passive scheduling is **VALIDATED**
+> (`validation/PHASE6A1_PASSIVE_OBSERVATION_EXPERIMENT.md:275-318`). The original checkpoint
+> comparison remains **NO CHECKPOINT RECONSTRUCTION METHOD QUALIFIED** and selected no method
+> (`validation/PHASE6A1_CHECKPOINT_RECONSTRUCTION_CANDIDATE_RECOVERY.md:335-356`). Two-level
+> local rk8pd is a **SELF-QUALIFIED NUMERICAL ORACLE** and is proposed by ADR-0017 as the
+> Phase-6 production reconstruction method; it is **NOT YET ACCEPTED**
+> (`validation/PHASE6A1_CHECKPOINT_RECONSTRUCTION_VALIDATION.md:320-357`,
+> `adr/ADR-0017-phase6-passive-checkpoint-reconstruction.md:1-12`). Canonical Phase-6 numerical BNV
+> candidate: **NONE**. Governed BNV baseline: **NONE**. No production reconstruction has begun.
+> Phase-5D, `ScaledRKF45`, Cstar, and ADR-0015 physics remain unchanged.
 
 > **Phase-6A-1A status (2026-09-18): CONTROLLED BNV IMPLEMENTATION PLAN
 > OWNER-ACCEPTED / READY FOR BOUNDED CONTROLLED IMPLEMENTATION.** Implementation is
@@ -855,14 +856,17 @@ declared controlled abstract-source Regime-I scope. This is a contract milestone
 implementation, a physical BNV rate, `n->chi-gamma`, realistic A18, Regime-II transport, MixedStar
 thermal evolution, trajectories, and a Phase-6 numerical baseline have **NOT BEGUN**.
 
-**Phase-6A-1 status:** **OWNER-ACCEPTED / READY FOR BOUNDED CONTROLLED
-IMPLEMENTATION.** The accepted plan authorizes the first controlled abstract Regime-I
-neutron-sink implementation with the governed moving-reference seam, actual-potential
-direct-energy ledger, P0/P1/P2 fixtures, frozen-background budget, matched controls,
-BA1-BA17 validation ladder, and M1-M21 falsifier suite. Implementation is **AUTHORIZED /
-NOT YET BEGUN**. No physical BNV rate/model or numerical BNV baseline exists. The first
-numerical result remains candidate-only, and every exclusion recorded in the owner-acceptance
-record remains binding.
+**Phase-6A-1 status (2026-09-24):** **ADR-0015 ACCEPTED / ADR-0016 ACCEPTED / ADR-0017
+PROPOSED — OWNER RATIFICATION REQUIRED.** Historical BA12 and BA12R remain **FAIL**. Passive
+observation scheduling is **VALIDATED** (`docs/validation/PHASE6A1_PASSIVE_OBSERVATION_EXPERIMENT.md:275-318`).
+The original checkpoint comparison remains **NO CHECKPOINT RECONSTRUCTION METHOD QUALIFIED**
+and selected no method (`docs/validation/PHASE6A1_CHECKPOINT_RECONSTRUCTION_CANDIDATE_RECOVERY.md:335-356`).
+Two-level local rk8pd is a **SELF-QUALIFIED NUMERICAL ORACLE** and is proposed by ADR-0017 as
+the Phase-6 production reconstruction method; it is **NOT YET ACCEPTED**
+(`docs/validation/PHASE6A1_CHECKPOINT_RECONSTRUCTION_VALIDATION.md:320-357`,
+`docs/adr/ADR-0017-phase6-passive-checkpoint-reconstruction.md:1-12`). Canonical Phase-6 numerical
+BNV candidate: **NONE**. No production reconstruction, clean BASELINE/REFINED/ULTRA rerun, or
+candidate creation is authorized. Phase-5D, `ScaledRKF45`, Cstar, and BNV physics are unchanged.
 
 ---
 
