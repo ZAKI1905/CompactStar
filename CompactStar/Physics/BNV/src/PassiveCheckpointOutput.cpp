@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <chrono>
 #include <cmath>
+#include <ctime>
 #include <limits>
 #include <set>
 #include <stdexcept>
@@ -25,6 +26,11 @@ void Need(bool condition,const char* message)
 double WallSeconds(const Clock::time_point& begin)
 {
     return std::chrono::duration<double>(Clock::now()-begin).count();
+}
+
+double CpuSeconds(std::clock_t begin)
+{
+    return static_cast<double>(std::clock()-begin)/static_cast<double>(CLOCKS_PER_SEC);
 }
 
 int CstarCell(double x)
@@ -279,7 +285,7 @@ MainTrajectoryResult UninterruptedBnvTrajectory::Integrate(
     gsl_odeiv2_system gsl_system{Callback,nullptr,3,this};
     double t=start,h=configuration_.initial_step_s;
     auto y=initial_state;
-    const auto wall_begin=Clock::now();
+    const auto wall_begin=Clock::now();const auto cpu_begin=std::clock();
     try
     {
         ValidateAccepted(y.data(),enforce_thermal_domain);
@@ -328,6 +334,7 @@ MainTrajectoryResult UninterruptedBnvTrajectory::Integrate(
         throw;
     }
     statistics.wall_seconds=WallSeconds(wall_begin);
+    statistics.cpu_seconds=CpuSeconds(cpu_begin);
     statistics_=nullptr;
     result.final_state=y;
     return result;
@@ -348,9 +355,10 @@ Rk8pdCheckpointReconstructor::SolveResult Rk8pdCheckpointReconstructor::Integrat
     Need(target>start&&std::isfinite(start)&&std::isfinite(target),"invalid strict-interior interval");
     Need(static_cast<bool>(context_factory),"missing reconstruction context factory");
     SolveResult result;
-    auto begin=Clock::now();
+    auto begin=Clock::now();auto cpu_begin=std::clock();
     auto context=context_factory();
     result.context_wall_seconds=WallSeconds(begin);
+    result.context_cpu_seconds=CpuSeconds(cpu_begin);
     Need(context!=nullptr,"reconstruction factory returned null");
     context->RequireFullCurrent();
     result.context_identity=context->Identity();
@@ -367,7 +375,7 @@ Rk8pdCheckpointReconstructor::SolveResult Rk8pdCheckpointReconstructor::Integrat
     gsl_odeiv2_system system{LocalRk8pdCallback::Call,nullptr,3,&callback};
     double t=start,h=target-start;
     auto y=initial;
-    begin=Clock::now();
+    begin=Clock::now();cpu_begin=std::clock();
     std::size_t calls=0;
     while(t<target)
     {
@@ -379,6 +387,7 @@ Rk8pdCheckpointReconstructor::SolveResult Rk8pdCheckpointReconstructor::Integrat
         for(double value:y)Need(std::isfinite(value),"nonfinite rk8pd reconstructed state");
     }
     result.solve_wall_seconds=WallSeconds(begin);
+    result.solve_cpu_seconds=CpuSeconds(cpu_begin);
     context->RequireFullCurrent();
     result.state=y;
     return result;
@@ -453,9 +462,13 @@ CheckpointOutput Rk8pdCheckpointReconstructor::Reconstruct(
     ++output.provenance.rk8pd_invocations;
     output.O1_state=O1.state;output.O2_state=O2.state;
     output.performance.O1_context_wall_seconds=O1.context_wall_seconds;
+    output.performance.O1_context_cpu_seconds=O1.context_cpu_seconds;
     output.performance.O1_solve_wall_seconds=O1.solve_wall_seconds;
+    output.performance.O1_solve_cpu_seconds=O1.solve_cpu_seconds;
     output.performance.O2_context_wall_seconds=O2.context_wall_seconds;
+    output.performance.O2_context_cpu_seconds=O2.context_cpu_seconds;
     output.performance.O2_solve_wall_seconds=O2.solve_wall_seconds;
+    output.performance.O2_solve_cpu_seconds=O2.solve_cpu_seconds;
     output.provenance.context_identity_O1=O1.context_identity;
     output.provenance.context_identity_O2=O2.context_identity;
     output.qualification=Qualify(step,O1.state,O2.state,O1_,O2_);
@@ -476,26 +489,32 @@ void Rk8pdCheckpointReconstructor::EvaluateDiagnostics(
     Need(static_cast<bool>(context_factory),"missing diagnostic context factory");
     if(output.source==CheckpointSource::MainEndpoint)
     {
-        auto begin=Clock::now();auto context=context_factory();
+        auto begin=Clock::now();auto cpu_begin=std::clock();auto context=context_factory();
         output.performance.diagnostic_context_wall_seconds=WallSeconds(begin);
+        output.performance.diagnostic_context_cpu_seconds=CpuSeconds(cpu_begin);
         Need(context!=nullptr,"diagnostic factory returned null");context->RequireFullCurrent();
-        begin=Clock::now();output.diagnostics=context->EvaluateDiagnostics(output.t_observation_s,output.state);
+        begin=Clock::now();cpu_begin=std::clock();output.diagnostics=context->EvaluateDiagnostics(output.t_observation_s,output.state);
         output.performance.diagnostic_evaluation_wall_seconds=WallSeconds(begin);
+        output.performance.diagnostic_evaluation_cpu_seconds=CpuSeconds(cpu_begin);
         context->RequireFullCurrent();
         output.O1_diagnostics=output.diagnostics;output.O2_diagnostics=output.diagnostics;
         output.diagnostics_evaluated=true;output.diagnostic_self_qualified=true;
         return;
     }
-    auto begin=Clock::now();auto context1=context_factory();
+    auto begin=Clock::now();auto cpu_begin=std::clock();auto context1=context_factory();
     output.performance.diagnostic_context_wall_seconds=WallSeconds(begin);
+    output.performance.diagnostic_context_cpu_seconds=CpuSeconds(cpu_begin);
     Need(context1!=nullptr,"O1 diagnostic factory returned null");context1->RequireFullCurrent();
-    begin=Clock::now();output.O1_diagnostics=context1->EvaluateDiagnostics(output.t_observation_s,output.O1_state);
-    output.performance.diagnostic_evaluation_wall_seconds=WallSeconds(begin);context1->RequireFullCurrent();
-    begin=Clock::now();auto context2=context_factory();
+    begin=Clock::now();cpu_begin=std::clock();output.O1_diagnostics=context1->EvaluateDiagnostics(output.t_observation_s,output.O1_state);
+    output.performance.diagnostic_evaluation_wall_seconds=WallSeconds(begin);
+    output.performance.diagnostic_evaluation_cpu_seconds=CpuSeconds(cpu_begin);context1->RequireFullCurrent();
+    begin=Clock::now();cpu_begin=std::clock();auto context2=context_factory();
     output.performance.diagnostic_context_wall_seconds+=WallSeconds(begin);
+    output.performance.diagnostic_context_cpu_seconds+=CpuSeconds(cpu_begin);
     Need(context2!=nullptr,"O2 diagnostic factory returned null");context2->RequireFullCurrent();
-    begin=Clock::now();output.O2_diagnostics=context2->EvaluateDiagnostics(output.t_observation_s,output.O2_state);
-    output.performance.diagnostic_evaluation_wall_seconds+=WallSeconds(begin);context2->RequireFullCurrent();
+    begin=Clock::now();cpu_begin=std::clock();output.O2_diagnostics=context2->EvaluateDiagnostics(output.t_observation_s,output.O2_state);
+    output.performance.diagnostic_evaluation_wall_seconds+=WallSeconds(begin);
+    output.performance.diagnostic_evaluation_cpu_seconds+=CpuSeconds(cpu_begin);context2->RequireFullCurrent();
     output.diagnostics=output.O2_diagnostics;
     const auto values1=DiagnosticValues(output.O1_diagnostics),values2=DiagnosticValues(output.O2_diagnostics);
     const double G=DiagnosticScale(output.O1_diagnostics,output.O2_diagnostics);

@@ -104,6 +104,18 @@ target_link_libraries(compactstar_library_smoke PRIVATE CompactStar)
 add_test(NAME compactstar_library_smoke COMMAND compactstar_library_smoke)
 
 # ---------------------------------------------------------------------------
+
+# ADR-0017 Phase-6 passive checkpoint-output production contracts. Synthetic,
+# self-contained, and required before any bounded actual-fixture integration.
+add_executable(passive_checkpoint_output_contract bnv/passive_checkpoint_output_contract.cpp)
+target_link_libraries(passive_checkpoint_output_contract PRIVATE CompactStar)
+add_test(NAME passive_checkpoint_output_contract COMMAND passive_checkpoint_output_contract)
+set_tests_properties(passive_checkpoint_output_contract PROPERTIES
+    LABELS "phase6;bnv;adr0017;self-contained;contract")
+add_executable(adr0017_production_qualification bnv/adr0017_production_qualification.cpp)
+target_link_libraries(adr0017_production_qualification PRIVATE CompactStar)
+
+# ---------------------------------------------------------------------------
 #  Thermal verification (roadmap Phase 2A-1, ADR-0002 §V1 Tier A).
 #
 #  Self-contained: builds its own synthetic CompOSE fixture in a temp directory

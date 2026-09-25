@@ -103,6 +103,7 @@ struct MainIntegrationStatistics
     double minimum_step_s=0;
     double maximum_step_s=0;
     double wall_seconds=0;
+    double cpu_seconds=0;
 };
 
 struct MainTrajectoryResult
@@ -186,11 +187,17 @@ struct CheckpointProvenance
 struct CheckpointPerformance
 {
     double O1_context_wall_seconds=0;
+    double O1_context_cpu_seconds=0;
     double O1_solve_wall_seconds=0;
+    double O1_solve_cpu_seconds=0;
     double O2_context_wall_seconds=0;
+    double O2_context_cpu_seconds=0;
     double O2_solve_wall_seconds=0;
+    double O2_solve_cpu_seconds=0;
     double diagnostic_context_wall_seconds=0;
+    double diagnostic_context_cpu_seconds=0;
     double diagnostic_evaluation_wall_seconds=0;
+    double diagnostic_evaluation_cpu_seconds=0;
 };
 
 struct CheckpointOutput
@@ -232,7 +239,9 @@ class Rk8pdCheckpointReconstructor final
         CheckpointState state{};
         std::string context_identity;
         double context_wall_seconds=0;
+        double context_cpu_seconds=0;
         double solve_wall_seconds=0;
+        double solve_cpu_seconds=0;
     };
     static SolveResult Integrate(
       double,const CheckpointState&,double,const Rk8pdConfiguration&,
