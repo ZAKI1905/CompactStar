@@ -61,7 +61,7 @@ canonical ancestry.  Production code remains Phase-6-owned.
 | reconstruction provenance and uncertainty | same files: `CheckpointProvenance`, per-component `d_O`, `U_O`, and `F_i` |
 | unchanged scientific-grid composite-trapezoid R20 | same files: `ComputeCheckpointR20` |
 | production build registration | `CompactStar/Physics/CMakeLists.txt`, `CompactStar/Physics/BNV/CMakeLists.txt` |
-| architecture documentation | `docs/CURRENT_ARCHITECTURE.md` |
+| architecture documentation | `docs/architecture/CURRENT_ARCHITECTURE.md` |
 | P1--P10 contract tests | `tests/bnv/passive_checkpoint_output_contract.cpp` |
 | bounded actual-fixture qualification harness and verifier | `tests/bnv/adr0017_production_qualification.cpp`, `tests/bnv/adr0017_production_verify.py` |
 
@@ -330,10 +330,14 @@ numerical candidate or BNV baseline.
 | Phase-6 production implementation | `dee330df5b8231ff55beb4adb75824272056db21` |
 | focused tests and bounded qualification machinery | `a0679f01e2ffe259a4a03081721a892b2cf8bee4` |
 
-The pre-run declaration was not amended after results.  Its implementation-map
-row says `docs/CURRENT_ARCHITECTURE.md`; the repository path is actually
-`docs/architecture/CURRENT_ARCHITECTURE.md`.  This frozen documentation typo
-does not alter an owner, numerical gate, or result.
+After qualification, the human owner explicitly authorized correction of the
+implementation-map path from `docs/CURRENT_ARCHITECTURE.md` to
+`docs/architecture/CURRENT_ARCHITECTURE.md`.  The correction is typographical
+and path-only.  It changes no equation, numerical requirement, implementation
+behavior, run card, tolerance, qualification gate, expected hash, scope
+exclusion, evidence, or result.  The historical predeclaration commit remains
+unchanged; the correction occurs only in its owner-authorized acceptance
+descendant.
 
 ### Stop-gate execution
 
@@ -503,3 +507,25 @@ Only after owner acceptance and canonical integration should a separate
 EKU-cluster production-qualification task be considered; only after that
 separate qualification may the owner be asked to authorize the six-run clean
 BA12R campaign.
+
+## Postqualification owner acceptance
+
+**Status:** QUALIFICATION PASS / OWNER-ACCEPTED / CANONICAL INTEGRATION
+AUTHORIZED.
+
+On 2026-09-25, the human owner explicitly accepted the qualified ADR-0017
+production implementation at
+`47a24317c604d73a7a8eece720823231036c765f`, including production commit
+`dee330df5b8231ff55beb4adb75824272056db21` and test/validation commits
+`a0679f01e2ffe259a4a03081721a892b2cf8bee4` and
+`47a24317c604d73a7a8eece720823231036c765f`.  The detailed acceptance record is
+`docs/validation/PHASE6_ADR0017_PRODUCTION_ACCEPTANCE.md`.
+
+This acceptance authorizes fast-forward-only canonical integration of the
+qualified implementation plus the documentation-only acceptance descendant.
+It does not create a Phase-6 numerical BNV candidate or governed BNV baseline,
+authorize a clean BA12R campaign, qualify the EKU cluster, select a physical
+BNV rate/model, or authorize any additional numerical execution.  Historical
+BA12 and BA12R remain permanently **FAIL**.  The exact next task after
+successful canonical integration is a fresh documentation/planning task for
+EKU-cluster numerical-platform qualification; it may not submit cluster jobs.
