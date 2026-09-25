@@ -2,20 +2,23 @@
 
 ## 1. Status, scope, and authority
 
-**Status:** PROPOSED — OWNER RATIFICATION REQUIRED.
+**Status:** ACCEPTED / HUMAN-RATIFIED.
 
 **Date proposed:** 2026-09-24.
+**Date accepted:** 2026-09-25.
+**Human-ratified governance SHA:**
+`a45f45b3a45f9e82d096ab97ff116c27c4f36d64`.
 
-This is a narrow Phase-6 numerical-output architecture proposal. It establishes no
-production authority unless and until the human owner explicitly ratifies this exact ADR.
-It does not implement checkpoint reconstruction, run or rerun a trajectory, create a BNV
-candidate, qualify a production method, or merge any noncanonical validation ancestry.
+This is a narrow Phase-6 numerical-output architecture decision. Human ratification authorizes
+a future separately bounded production implementation task; it does not itself implement
+checkpoint reconstruction, run or rerun a trajectory, create a BNV candidate, qualify a
+production implementation, or merge any noncanonical validation ancestry.
 
 The change class is **numerical-method + structural/architecture + documentation**. A
 production reconstruction method would change numerical output and create a new Phase-6
 checkpoint-output owner; governance therefore requires numerical rationale, an ADR, and a
 same-change current-architecture description (`GOVERNANCE.md:36-57`). Accepted ADR-0015 and
-ADR-0016 remain higher authority. This proposal changes neither one's physics or ownership
+ADR-0016 remain higher authority. This decision changes neither one's physics or ownership
 decision (`docs/adr/ADR-0015-bnv-open-system-thermal-ledger.md:1-21`,
 `docs/adr/ADR-0016-phase6-bnv-tangent-adapter-ownership.md:1-28`).
 
@@ -24,7 +27,7 @@ The canonical entry is
 source is the noncanonical branch head
 `ae0d5607fe8889cec70604747dfe3bfea7e5fd97`. The governance branch was created directly
 from the canonical entry; no failed or noncanonical implementation or validation head is an
-ancestor of this proposal.
+ancestor of the human-ratified governance SHA.
 
 ## 2. Clean-ancestry evidence import
 
@@ -87,13 +90,13 @@ overheads and are not acceptance criteria
 (`docs/validation/PHASE6A1_CHECKPOINT_RECONSTRUCTION_VALIDATION.md:341-357`). They support a
 uniform high-accuracy local method instead of a more complex knot-specific hybrid.
 
-The rk8pd result is **SELF-QUALIFIED NUMERICAL ORACLE EVIDENCE**. It is not a qualified
-production method. This ADR proposes it for future production reconstruction subject to
-human ratification and a separately authorized implementation/validation task.
+The rk8pd result is **SELF-QUALIFIED NUMERICAL EVIDENCE SUPPORTING ADR-0017**. It does not
+qualify a production implementation. This accepted ADR governs it for future production
+reconstruction subject to a separately authorized implementation/validation task.
 
-## 4. Proposed decision: main integration and passive scheduling
+## 4. Decision: main integration and passive scheduling
 
-If ratified, a Phase-6 controlled BNV trajectory uses one uninterrupted adaptive RKF45 main
+A Phase-6 controlled BNV trajectory uses one uninterrupted adaptive RKF45 main
 integration from its authorized initial state to its authorized terminal time. Requested
 scientific output/checkpoint times are passive metadata. They must not:
 
@@ -124,7 +127,7 @@ schedule must not alter:
 This makes the already validated passive-observer invariant mandatory
 (`docs/validation/PHASE6A1_CHECKPOINT_RECONSTRUCTION_PREFLIGHT.md:457-474`).
 
-## 5. Proposed decision: checkpoint reconstruction
+## 5. Decision: checkpoint reconstruction
 
 ### 5.1 Exact accepted endpoint
 
@@ -144,7 +147,7 @@ main step and must not modify the authoritative main trajectory
 
 ### 5.3 Two-level self-qualification
 
-The proposed witness level is the already validated Oracle-1 configuration:
+The witness level is the already validated Oracle-1 configuration:
 
 ```text
 GSL method = rk8pd
@@ -152,7 +155,7 @@ rtol       = 1e-12
 atol       = (1e-17, 1e-23, 1e-23)
 ```
 
-The proposed reported-state level is the already validated Oracle-2 configuration:
+The reported-state level is the already validated Oracle-2 configuration:
 
 ```text
 GSL method = rk8pd
@@ -288,7 +291,7 @@ to shared numerical machinery requires separate governance and regression
 ### 9.3 Cstar
 
 This ADR does not authorize changing Cstar interpolation, smoothing, knot locations, or cache
-resolution. The proposed local reconstruction must tolerate the current piecewise-smooth RHS.
+resolution. The local reconstruction must tolerate the current piecewise-smooth RHS.
 
 ### 9.4 BNV science
 
@@ -312,12 +315,47 @@ unchanged. No physical BNV model or rate is selected.
 - **Redesign R20 around adaptive stages:** rejected as unnecessary new numerical ownership.
 - **Modify shared Phase-5 machinery:** rejected as outside Phase-6 ownership and this ADR.
 
-## 11. Ratification and future implementation gates
+## 11. Ratification record and future implementation gates
 
-This ADR is **PROPOSED — OWNER RATIFICATION REQUIRED**. It provides no immediate production
-authority. Before any production change, the owner must explicitly ratify the exact decision.
-A later separately authorized task must then implement only the Phase-6 owner, validate every
-rule above, and return for acceptance before any BASELINE/REFINED/ULTRA rerun.
+The human owner ratified this ADR on 2026-09-25 at the exact governance SHA
+`a45f45b3a45f9e82d096ab97ff116c27c4f36d64`. The ratified decision is:
+
+- one uninterrupted adaptive RKF45 main integration to the authorized terminal time, with
+  requested scientific observation times passive and never intermediate GSL `t1` ceilings;
+- exact use of an accepted main-integration endpoint state when `t_obs` coincides with it;
+- for `t_L < t_obs < t_R`, isolated local GSL rk8pd reconstruction from the exact accepted
+  left endpoint `(t_L,y_L)`, with the same physical RHS and immutable Phase-6 context semantics
+  but fresh disposable numerical and context state;
+- witness tolerances `rtol=1e-12`, `atol=(1e-17,1e-23,1e-23)` and reported-state tolerances
+  `rtol=1e-13`, `atol=(1e-18,1e-24,1e-24)`;
+- componentwise self-qualification with `d_O=|y_O2-y_O1|`, `d_O <= D_O1`, and
+  `U_O=2 max(d_O,F_O) <= 0.20 F_i`, failing closed on any unresolved component, with no local
+  retuning, tolerance change, fallback method, averaging, or knot-specific method switch;
+- `y_O2` as the reported checkpoint state after qualification, with Oracle-1 retained only as
+  the numerical witness;
+- the same reconstruction rule on smooth intervals and across Cstar-knot crossings, with no
+  Hermite or RKF45-replay fallback;
+- governed diagnostics evaluated only after state reconstruction in isolated immutable
+  contexts, with no independently interpolated luminosity or power;
+- unchanged R20 scientific observation-grid and composite-trapezoid semantics, with
+  reconstruction uncertainty propagated separately; and
+- after separately validated production implementation, fresh uninterrupted
+  BASELINE/REFINED/ULTRA source trajectories and fresh uninterrupted matched controls at all
+  three tiers before any future clean BA12R campaign.
+
+The ratification authorizes a future bounded production implementation task only. It does not
+execute or validate that implementation. That later task must implement only the Phase-6 owner,
+validate every rule above, and return for acceptance before any BASELINE/REFINED/ULTRA rerun.
+It must first demonstrate:
+
+1. an uninterrupted Phase-6 main RKF45 path;
+2. observation-schedule invariance of accepted-step history;
+3. direct use of exact accepted endpoints;
+4. isolated two-level rk8pd Oracle-1/Oracle-2 strict-interior reconstruction;
+5. enforcement of the componentwise self-qualification equations;
+6. diagnostics evaluated from reconstructed immutable state;
+7. unchanged R20 observation-grid and composite-trapezoid semantics; and
+8. no change to Phase-5D, `ScaledRKF45`, or Cstar.
 
 Until those gates are complete:
 
@@ -328,5 +366,6 @@ Until those gates are complete:
 - do not modify Phase-5D, `ScaledRKF45`, Cstar, or BNV physics; and
 - do not merge noncanonical validation ancestry.
 
-The exact next action is human-owner review and explicit ratification or rejection of this
-ADR. No implementation follows automatically.
+The exact next action is to open a fresh implementation branch/worktree from the canonical
+ratification SHA and perform only the bounded production implementation and qualification above.
+No implementation follows automatically, and no six-trajectory BA12R campaign is authorized.

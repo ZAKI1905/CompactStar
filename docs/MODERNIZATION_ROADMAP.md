@@ -1,17 +1,22 @@
 # CompactStar Modernization Roadmap
 
-> **Phase-6A-1 numerical-output governance status (2026-09-24): ADR-0015 ACCEPTED /
-> ADR-0016 ACCEPTED / ADR-0017 PROPOSED — OWNER RATIFICATION REQUIRED.** Historical BA12 and
+> **Phase-6A-1 numerical-output governance status (2026-09-25): ADR-0015 ACCEPTED /
+> ADR-0016 ACCEPTED / ADR-0017 ACCEPTED / HUMAN-RATIFIED.** Historical BA12 and
 > BA12R remain **FAIL**. Passive scheduling is **VALIDATED**
 > (`validation/PHASE6A1_PASSIVE_OBSERVATION_EXPERIMENT.md:275-318`). The original checkpoint
 > comparison remains **NO CHECKPOINT RECONSTRUCTION METHOD QUALIFIED** and selected no method
 > (`validation/PHASE6A1_CHECKPOINT_RECONSTRUCTION_CANDIDATE_RECOVERY.md:335-356`). Two-level
-> local rk8pd is a **SELF-QUALIFIED NUMERICAL ORACLE** and is proposed by ADR-0017 as the
-> Phase-6 production reconstruction method; it is **NOT YET ACCEPTED**
+> local rk8pd is **SELF-QUALIFIED NUMERICAL EVIDENCE SUPPORTING ADR-0017**. The ratified
+> Phase-6 main architecture is **UNINTERRUPTED RKF45 / RATIFIED, NOT YET IMPLEMENTED IN
+> PRODUCTION**; observation scheduling is **PASSIVE / RATIFIED**; exact accepted endpoints are
+> used directly; and strict-interior reconstruction is **TWO-LEVEL ISOLATED rk8pd / RATIFIED,
+> NOT YET PRODUCTION-IMPLEMENTED**
 > (`validation/PHASE6A1_CHECKPOINT_RECONSTRUCTION_VALIDATION.md:320-357`,
 > `adr/ADR-0017-phase6-passive-checkpoint-reconstruction.md:1-12`). Canonical Phase-6 numerical BNV
 > candidate: **NONE**. Governed BNV baseline: **NONE**. No production reconstruction has begun.
-> Phase-5D, `ScaledRKF45`, Cstar, and ADR-0015 physics remain unchanged.
+> A future clean BA12R requires fresh uninterrupted BASELINE/REFINED/ULTRA source and matched
+> control trajectories after separate production qualification; none is authorized here.
+> Phase-5D, `ScaledRKF45`, Cstar, R20 quadrature, and ADR-0015/0016 meaning remain unchanged.
 
 > **Phase-6A-1A status (2026-09-18): CONTROLLED BNV IMPLEMENTATION PLAN
 > OWNER-ACCEPTED / READY FOR BOUNDED CONTROLLED IMPLEMENTATION.** Implementation is
@@ -856,17 +861,23 @@ declared controlled abstract-source Regime-I scope. This is a contract milestone
 implementation, a physical BNV rate, `n->chi-gamma`, realistic A18, Regime-II transport, MixedStar
 thermal evolution, trajectories, and a Phase-6 numerical baseline have **NOT BEGUN**.
 
-**Phase-6A-1 status (2026-09-24):** **ADR-0015 ACCEPTED / ADR-0016 ACCEPTED / ADR-0017
-PROPOSED — OWNER RATIFICATION REQUIRED.** Historical BA12 and BA12R remain **FAIL**. Passive
-observation scheduling is **VALIDATED** (`docs/validation/PHASE6A1_PASSIVE_OBSERVATION_EXPERIMENT.md:275-318`).
+**Phase-6A-1 status (2026-09-25):** **ADR-0015 ACCEPTED / ADR-0016 ACCEPTED / ADR-0017
+ACCEPTED / HUMAN-RATIFIED.** Historical BA12 and BA12R remain **FAIL**. Passive observation
+scheduling is **VALIDATED / RATIFIED** (`docs/validation/PHASE6A1_PASSIVE_OBSERVATION_EXPERIMENT.md:275-318`).
 The original checkpoint comparison remains **NO CHECKPOINT RECONSTRUCTION METHOD QUALIFIED**
 and selected no method (`docs/validation/PHASE6A1_CHECKPOINT_RECONSTRUCTION_CANDIDATE_RECOVERY.md:335-356`).
-Two-level local rk8pd is a **SELF-QUALIFIED NUMERICAL ORACLE** and is proposed by ADR-0017 as
-the Phase-6 production reconstruction method; it is **NOT YET ACCEPTED**
+Two-level local rk8pd is **SELF-QUALIFIED NUMERICAL EVIDENCE SUPPORTING ADR-0017**. The Phase-6
+main architecture is **UNINTERRUPTED RKF45 / RATIFIED, NOT YET IMPLEMENTED IN PRODUCTION**;
+observation scheduling is **PASSIVE / RATIFIED**; exact accepted endpoints are used directly;
+and strict-interior reconstruction is **TWO-LEVEL ISOLATED rk8pd / RATIFIED, NOT YET
+PRODUCTION-IMPLEMENTED**
 (`docs/validation/PHASE6A1_CHECKPOINT_RECONSTRUCTION_VALIDATION.md:320-357`,
 `docs/adr/ADR-0017-phase6-passive-checkpoint-reconstruction.md:1-12`). Canonical Phase-6 numerical
-BNV candidate: **NONE**. No production reconstruction, clean BASELINE/REFINED/ULTRA rerun, or
-candidate creation is authorized. Phase-5D, `ScaledRKF45`, Cstar, and BNV physics are unchanged.
+BNV candidate: **NONE**. Governed BNV baseline: **NONE**. After separate production
+qualification, a future clean BA12R requires fresh uninterrupted BASELINE/REFINED/ULTRA source
+and matched control trajectories. No production implementation, clean rerun, or candidate
+creation occurs in this governance task. Phase-5D, `ScaledRKF45`, Cstar, R20 quadrature, and BNV
+physics are unchanged.
 
 ---
 
