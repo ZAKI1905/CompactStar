@@ -20,4 +20,3 @@ class StaticZeroSpinHistory final:public Rotochemical::PrescribedSpinHistory
 };
 
 } // namespace CompactStar::Physics::BNV
-

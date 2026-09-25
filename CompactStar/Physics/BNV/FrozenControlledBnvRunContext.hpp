@@ -63,4 +63,3 @@ class FrozenControlledBnvRunContext final
 };
 
 } // namespace CompactStar::Physics::BNV
-

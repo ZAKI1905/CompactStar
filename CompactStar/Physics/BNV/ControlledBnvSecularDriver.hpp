@@ -22,4 +22,3 @@ class ControlledBnvSecularDriver final:public IDriver
 };
 
 } // namespace CompactStar::Physics::BNV
-

@@ -38,7 +38,6 @@ inline std::vector<BNV::FrozenValiditySample> ReadFrozenCertificateRows(
     for(auto count:counts)if(count!=22)throw std::runtime_error("incomplete frozen certificate quantity set");
     return samples;
 }
-
 inline std::shared_ptr<const BNV::FrozenBnvValidityMonitor> LoadFrozenMonitor(
     const std::filesystem::path& certificate_tsv,
     const std::shared_ptr<const BNV::EquilibriumBaryonTangent>& tangent,
@@ -52,4 +51,3 @@ inline std::shared_ptr<const BNV::FrozenBnvValidityMonitor> LoadFrozenMonitor(
     return std::make_shared<const BNV::FrozenBnvValidityMonitor>(certificate);
 }
 }
-

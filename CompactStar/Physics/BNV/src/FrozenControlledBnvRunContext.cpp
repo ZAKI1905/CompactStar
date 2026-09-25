@@ -185,4 +185,3 @@ ControlledBnvEvaluation FrozenControlledBnvRunContext::EvaluateImpl(
 }
 
 } // namespace CompactStar::Physics::BNV
-

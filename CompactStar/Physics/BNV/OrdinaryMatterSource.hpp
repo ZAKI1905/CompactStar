@@ -79,4 +79,3 @@ class OrdinaryMatterBnvHistory
 };
 
 } // namespace CompactStar::Physics::BNV
-

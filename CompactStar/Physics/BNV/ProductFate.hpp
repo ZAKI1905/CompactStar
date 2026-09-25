@@ -51,4 +51,3 @@ class ProductFateLedger final
 };
 
 } // namespace CompactStar::Physics::BNV
-

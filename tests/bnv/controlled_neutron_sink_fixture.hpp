@@ -101,4 +101,3 @@ inline BNV::OrdinaryMatterBnvHistorySample GenericSample(
 }
 
 } // namespace Phase6A1Test
-

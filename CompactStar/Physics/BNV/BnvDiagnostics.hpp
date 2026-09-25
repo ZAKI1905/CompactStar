@@ -46,4 +46,3 @@ struct BnvDiagnostics
 };
 
 } // namespace CompactStar::Physics::BNV
-

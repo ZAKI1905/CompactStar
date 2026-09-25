@@ -90,4 +90,3 @@ DirectEnergyResult BnvDirectEnergyLedger::Evaluate(
 }
 
 } // namespace CompactStar::Physics::BNV
-

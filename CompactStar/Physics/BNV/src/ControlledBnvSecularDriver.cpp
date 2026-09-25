@@ -38,4 +38,3 @@ void ControlledBnvSecularDriver::AccumulateRHS(double t,const Evolution::StateVe
     for(std::size_t i=0;i<2;++i)rhs.AddTo(State::StateTag::Chem,i,out.eta_dot_MeV_s[i]);
 }
 } // namespace CompactStar::Physics::BNV
-

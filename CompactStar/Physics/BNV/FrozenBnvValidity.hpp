@@ -58,4 +58,3 @@ class FrozenBnvValidityMonitor final
 };
 
 } // namespace CompactStar::Physics::BNV
-

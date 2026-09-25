@@ -74,4 +74,3 @@ class BnvDirectEnergyLedger final
 };
 
 } // namespace CompactStar::Physics::BNV
-

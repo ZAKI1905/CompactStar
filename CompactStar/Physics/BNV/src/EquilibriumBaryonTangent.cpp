@@ -182,4 +182,3 @@ ValidatedTangentSnapshot EquilibriumBaryonTangent::SnapshotCheap() const
 }
 
 } // namespace CompactStar::Physics::BNV
-

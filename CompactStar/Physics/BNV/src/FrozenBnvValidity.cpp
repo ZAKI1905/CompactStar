@@ -88,4 +88,3 @@ FrozenValidityResult FrozenBnvValidityMonitor::RequireValid(double B) const
 {auto r=Evaluate(B);if(!r.valid)throw std::runtime_error("frozen BNV validity failed: "+r.limiting_quantity);return r;}
 
 } // namespace CompactStar::Physics::BNV
-

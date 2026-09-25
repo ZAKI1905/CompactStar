@@ -317,4 +317,189 @@ amended.
 
 ## Qualification results
 
-Pending implementation and gated execution.
+**Final branch status:** PRODUCTION IMPLEMENTATION CANDIDATE — bounded
+qualification PASS; awaiting explicit owner review and acceptance.  This is
+not a governed/canonical implementation and does not create a Phase-6
+numerical candidate or BNV baseline.
+
+### Immutable implementation commits
+
+| Purpose | Commit |
+|---|---|
+| pre-run declaration | `0c25df48a871403e716f1926390d2fec41c15c05` |
+| Phase-6 production implementation | `dee330df5b8231ff55beb4adb75824272056db21` |
+| focused tests and bounded qualification machinery | `a0679f01e2ffe259a4a03081721a892b2cf8bee4` |
+
+The pre-run declaration was not amended after results.  Its implementation-map
+row says `docs/CURRENT_ARCHITECTURE.md`; the repository path is actually
+`docs/architecture/CURRENT_ARCHITECTURE.md`.  This frozen documentation typo
+does not alter an owner, numerical gate, or result.
+
+### Stop-gate execution
+
+| Gate | Result |
+|---|---|
+| exact local platform/toolchain | PASS |
+| P1--P10 focused contract suite before actual-fixture integration | PASS, 10/10 |
+| historical oracle authentication | PASS: 478 existing results and both ledgers authenticated; zero oracle reruns |
+| bounded main Arm-E equivalence | PASS before reconstruction |
+| passive scheduling invariance | PASS by two schedules replayed over the same retained history; no second main ODE |
+| exact positive endpoint shortcut | PASS |
+| 239 strict-interior O1/O2 pairs | PASS, zero unresolved |
+| reconstructed diagnostics and R20 | PASS |
+| final protected-byte checks | PASS |
+
+Two verifier-preflight attempts stopped before numerical integration: the
+first resolved the solve matrix to its authenticated historical worktree path;
+the second bound the hash audit to the preserved ledger's actual tier-specific
+file naming.  Both used fresh output roots.  They performed no ODE or rk8pd
+solve.  The final authentication root passed before the sole bounded main run.
+
+### Production owners and isolation audit
+
+`UninterruptedBnvTrajectory` owns one persistent RKF45 step/control/evolve
+state, persistent `h`, immutable accepted-step records, and exactly one
+positive terminal `t1`.  `PassiveObservationSchedule` owns only ordered
+requested times and accepted-step brackets.  It neither calls the RHS nor
+reconstructs/evaluates a checkpoint.  `Rk8pdCheckpointReconstructor` owns the
+exact-endpoint shortcut, two fresh strict-interior rk8pd solves, the ratified
+self-qualification rule, fail-closed output status, post-selection diagnostic
+evaluation, and separate reconstruction uncertainty.
+
+The shared frozen Phase-6 physics fixture is immutable in coupled mode.  Every
+O1, O2, and diagnostic evaluation receives a fresh wrapper with its own
+`RunState`, `EvolutionSystem`, controlled driver, and GSL objects.  The only
+mutable reference-only cache in `FrozenControlledBnvRunContext` is not used by
+the coupled path.  The main trajectory, its integrator, and all other
+checkpoint wrappers remain inaccessible to a reconstruction worker.  P7 also
+mutates an isolated synthetic context and confirms no cross-context or main
+state effect.  Actual-fixture accounting created 958 distinct wrappers.
+
+No shared Phase-5 solver or governed Phase-5 code was changed.  In particular,
+`CompactStar/Physics/Rotochemical/ScaledRKF45.hpp` and all Cstar interpolation
+and cache owners are byte-identical to entry.
+
+### Main integration and passive scheduling
+
+Exactly one new bounded source main integration ran.  It used
+`CPL-P2-LINEAR-QSS-v1`, source ON, P2, spin OFF, Me/Mmu ON, De/Dmu OFF, and the
+predeclared ULTRA RKF45 settings from `0` to `462269531250 s`.
+
+| Evidence | Production result | Arm-E comparison |
+|---|---:|---|
+| final `x` | `0.49240008824076903` | exact binary64 |
+| final `eta_e` | `-2.5123474256442210e-7` | exact binary64 |
+| final `eta_mu` | `-4.7906773046561003e-7` | exact binary64 |
+| accepted / rejected | `232 / 60` | exact |
+| distinct positive GSL `t1` targets | `1` (`462269531250 s`) | exact |
+| schedule SHA-256 | `43ec23ada72bfa59c4e89672ae2987e9927164db765f05afb7b45c924cc0c67e` | exact |
+| accepted-state SHA-256 | `7f968f6c2fcbf43f442285b48d3b825fa9cf241604f9dbbd88c52c25b96ff459` | exact |
+| bracket SHA-256 | `0428c176a2d9233add816621a53cc795063480462458d195f3af88d965998b3d` | exact |
+| internal-step SHA-256 | `fe9afd8c1ddfc7abefca3f1e57a76c62345be1026d7042f41692650f531742c8` | exact |
+| trajectory SHA-256 | `8c9531c87b53d8bd189e50802f3d1dd526db6f9b0d256b120c4d635e1e31a98c` | exact |
+| step-summary SHA-256 | `912b0e6300c745f02d733da91fb1072e927aadcd4616b944cc8d02c8a26b2ecb` | exact |
+
+The second schedule was pure postprocessing of those retained accepted-step
+bytes.  It did not invoke the main RHS or GSL integration and therefore could
+not change main history.
+
+### Endpoint, reconstruction, diagnostics, and knots
+
+The initial observation uses the stored initial main state.  The sole positive
+observation coincident with an accepted endpoint is observation 240 at
+`462269531250 s`; it returned the exact final main state above with zero rk8pd
+invocations, zero RHS replay, and no numerical tolerance.
+
+All 239 strict-interior observations launched exactly O1 and O2.  All passed
+the uniform componentwise requirements `d_O<=D_O1` and
+`2 max(d_O,F_O)<=0.20 F_i`; there were zero unresolved checkpoints, no retry,
+no fallback, and no tolerance change.  The maxima were both at observation
+117, component `x`:
+
+- maximum `d_O/D_O1 = 0.5794839113173227`;
+- maximum `U_O/(0.20 F_i) = 0.5793505315921852`.
+
+The three one-knot observations 82, 117, and 228 all self-qualified under the
+same path and tolerances.  No knot-special code or tolerance exists.
+
+Parsed production O1 and O2 binary64 values are bit-identical to all 478
+authenticated historical oracle results.  Reconstructed diagnostic values are
+also bit-identical at all 241 checkpoints for `P_dir_eq`, `P_dir_actual`,
+`L_H`, `DeltaLnu`, `DeltaPbeta`, `Lnu_eq`, `Lnu_full`, `Lgamma`, `Lother`,
+`Pnet`, `mu_B`, `mu_n_actual`, both `sigma` components, `Echem`, Cstar,
+temperature, and baryon count.  Source/domain/revision/partition/product-fate
+identities are exact.  Diagnostics were evaluated from O1/O2 checkpoint states
+through the existing Phase-6 owner; no diagnostic was independently
+interpolated.
+
+### R20 and reconstruction uncertainty
+
+The production result retained the exact 241-point grid, diagnostic-state
+inputs, composite-trapezoid quadrature, normalizer, and existing thresholds:
+
+| Quantity | Result |
+|---|---:|
+| `R20_residual_erg` | `5.7186274768377777e39` |
+| `N_R20_erg` | `1.0940924194731047e46` |
+| `R20_normalized` | `5.2268230499136139e-7` |
+| separate reconstruction uncertainty | `7.0988433612780846e31 erg` |
+
+R20, its normalizer, and its normalized value are bit-identical to the
+Oracle-2 evaluation.  The uncertainty is reported separately and is below the
+predeclared `5e-6 N_R20` subsidiary bound.  R20 semantics and thresholds were
+not changed; adaptive-step quadrature was not introduced.
+
+### Performance evidence
+
+Actual reconstruction concurrency was one process.  No scientific local solve
+was multithreaded.
+
+| Stage | Wall (s) | CPU (s) |
+|---|---:|---:|
+| shared frozen physics-fixture construction | `264.32115375000001` | `264.22510299999999` |
+| one bounded main RKF45 integration | `23.151261792` | `23.147572` |
+| 239 O1 solves | `0.79458454400000011` | `0.79248000000000041` |
+| 239 O2 solves | `0.83425795600000019` | `0.83415400000000051` |
+| 958 disposable wrapper constructions | `0.03927129900000001` | `0.039194000000000034` |
+| reconstructed diagnostic evaluations | `0.14473092599999998` | `0.14456300000000008` |
+| total checkpoint-output overhead | `1.8128447250000002` | `1.8103910000000010` |
+
+Linear checkpoint-only extrapolation to 8192 observations is
+`62.129753734205025 s` serial.  Simple ideal two-process scaling is
+`31.064876867102512 s`; it was not executed and is not claimed as a measured
+or guaranteed parallel runtime.  The one-time fixture construction and main
+integration are separate from those checkpoint-only estimates.
+
+Retained untracked build evidence has SHA-256
+`a182f07affea4ff38aff827ac7000d3ae831a3f8dcb4f827fffc51b07c815171`
+for `checkpoints.tsv` and
+`1274ad3a2cdb868b47611d9333ffb249a1f1da082bb051abd42f0dbcb6a46fa5`
+for `performance.tsv`.
+
+### Final protection and scope accounting
+
+Final rehashing passed for all 11 governed baselines, all 33 protected
+Phase-5D paths, 15 tracked Phase-5B/C/D/ADR/imported-evidence authorities, the
+authenticated EOS/profile/thermal/frozen inputs, both oracle trees and
+ledgers, and every literature-manifest entry.  Changed-path inspection found
+no Phase-5D, `ScaledRKF45`, Cstar, EOS/data, baseline, or literature change.
+
+The focused ADR-0017 contract test passed after implementation.  The full
+77-test campaign was not run.  BA12 and BA12R were not rerun; no full
+BASELINE/REFINED/ULTRA trajectory or matched control ran; the future six-run
+campaign did not run.  No BNV candidate or baseline was created, no physical
+BNV rate/model was selected, and A18, superfluidity, Regime-II/MixedStar, and
+cluster work were not begun.
+
+### Disposition
+
+**ADR-0017 PRODUCTION IMPLEMENTATION QUALIFICATION PASS — UNINTERRUPTED MAIN
+INTEGRATION, PASSIVE SCHEDULING AND SELF-QUALIFIED rk8pd CHECKPOINT OUTPUT MATCH
+VALIDATED NUMERICAL AUTHORITY — READY FOR OWNER ACCEPTANCE.**
+
+Recommended next action: return this noncanonical branch to the owner for
+explicit acceptance.  Do not run the six clean source/control trajectories.
+Only after owner acceptance and canonical integration should a separate
+EKU-cluster production-qualification task be considered; only after that
+separate qualification may the owner be asked to authorize the six-run clean
+BA12R campaign.

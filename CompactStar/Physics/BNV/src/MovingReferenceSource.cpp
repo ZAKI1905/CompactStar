@@ -53,4 +53,3 @@ MovingReferenceSample MovingReferenceSource::Project(
 }
 
 } // namespace CompactStar::Physics::BNV
-

@@ -75,4 +75,3 @@ class EquilibriumBaryonTangent final
 };
 
 } // namespace CompactStar::Physics::BNV
-

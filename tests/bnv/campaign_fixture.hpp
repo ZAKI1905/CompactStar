@@ -97,4 +97,3 @@ inline const std::array<RunCard,4>& RunCards()
 }
 
 } // namespace Phase6A1Campaign
-

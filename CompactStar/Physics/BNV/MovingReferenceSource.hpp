@@ -26,4 +26,3 @@ class MovingReferenceSource final
 };
 
 } // namespace CompactStar::Physics::BNV
-
