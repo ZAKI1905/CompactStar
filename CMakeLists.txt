@@ -89,16 +89,113 @@ message(STATUS "Python3 version: ${Python3_VERSION}")
 set(DEP_LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/dependencies/lib)
 set(DEP_INC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/dependencies/include)
 
-set(ZAKI_LIB ${DEP_LIB_DIR}/Zaki/${CMAKE_SYSTEM_NAME}/${CMAKE_HOST_SYSTEM_PROCESSOR}/libZaki.a)
-set(CONFIND_LIB ${DEP_LIB_DIR}/Confind/${CMAKE_SYSTEM_NAME}/${CMAKE_HOST_SYSTEM_PROCESSOR}/libConfind.a)
+set(COMPACTSTAR_ZAKI_LIBRARY "" CACHE FILEPATH
+    "Explicit authenticated Zaki static archive (all four dependency overrides are required together)")
+set(COMPACTSTAR_ZAKI_INCLUDE_DIR "" CACHE PATH
+    "Explicit authenticated include root containing Zaki/")
+set(COMPACTSTAR_CONFIND_LIBRARY "" CACHE FILEPATH
+    "Explicit authenticated CONFIND static archive (all four dependency overrides are required together)")
+set(COMPACTSTAR_CONFIND_INCLUDE_DIR "" CACHE PATH
+    "Explicit authenticated include root containing Confind/")
 
-if(NOT EXISTS "${ZAKI_LIB}")
-    message(FATAL_ERROR "Missing Zaki static library: ${ZAKI_LIB}")
+set(_compactstar_dependency_override_count 0)
+foreach(_compactstar_dependency_override
+        COMPACTSTAR_ZAKI_LIBRARY
+        COMPACTSTAR_ZAKI_INCLUDE_DIR
+        COMPACTSTAR_CONFIND_LIBRARY
+        COMPACTSTAR_CONFIND_INCLUDE_DIR)
+    if(NOT "${${_compactstar_dependency_override}}" STREQUAL "")
+        math(EXPR _compactstar_dependency_override_count
+            "${_compactstar_dependency_override_count} + 1")
+    endif()
+endforeach()
+
+if(_compactstar_dependency_override_count EQUAL 0)
+    if(NOT APPLE OR NOT CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+        message(FATAL_ERROR
+            "Non-Darwin builds require all four explicit authenticated dependency overrides: "
+            "COMPACTSTAR_ZAKI_LIBRARY, COMPACTSTAR_ZAKI_INCLUDE_DIR, "
+            "COMPACTSTAR_CONFIND_LIBRARY, and COMPACTSTAR_CONFIND_INCLUDE_DIR")
+    endif()
+    set(COMPACTSTAR_DEPENDENCY_MODE "DARWIN_VENDORED_DEFAULT")
+    set(ZAKI_LIB
+        "${DEP_LIB_DIR}/Zaki/${CMAKE_SYSTEM_NAME}/${CMAKE_HOST_SYSTEM_PROCESSOR}/libZaki.a")
+    set(ZAKI_INCLUDE_DIR "${DEP_INC_DIR}")
+    set(CONFIND_LIB
+        "${DEP_LIB_DIR}/Confind/${CMAKE_SYSTEM_NAME}/${CMAKE_HOST_SYSTEM_PROCESSOR}/libConfind.a")
+    set(CONFIND_INCLUDE_DIR "${DEP_INC_DIR}")
+elseif(_compactstar_dependency_override_count EQUAL 4)
+    set(COMPACTSTAR_DEPENDENCY_MODE "EXPLICIT_AUTHENTICATED_OVERRIDE")
+    set(ZAKI_LIB "${COMPACTSTAR_ZAKI_LIBRARY}")
+    set(ZAKI_INCLUDE_DIR "${COMPACTSTAR_ZAKI_INCLUDE_DIR}")
+    set(CONFIND_LIB "${COMPACTSTAR_CONFIND_LIBRARY}")
+    set(CONFIND_INCLUDE_DIR "${COMPACTSTAR_CONFIND_INCLUDE_DIR}")
+else()
+    message(FATAL_ERROR
+        "Partial CompactStar dependency override is forbidden; set all four of "
+        "COMPACTSTAR_ZAKI_LIBRARY, COMPACTSTAR_ZAKI_INCLUDE_DIR, "
+        "COMPACTSTAR_CONFIND_LIBRARY, and COMPACTSTAR_CONFIND_INCLUDE_DIR, or none on Darwin")
 endif()
 
-if(NOT EXISTS "${CONFIND_LIB}")
-    message(FATAL_ERROR "Missing Confind static library: ${CONFIND_LIB}")
+foreach(_compactstar_dependency_library ZAKI_LIB CONFIND_LIB)
+    if(NOT IS_ABSOLUTE "${${_compactstar_dependency_library}}")
+        message(FATAL_ERROR
+            "${_compactstar_dependency_library} must resolve to an absolute path: "
+            "${${_compactstar_dependency_library}}")
+    endif()
+    if(NOT EXISTS "${${_compactstar_dependency_library}}"
+       OR IS_DIRECTORY "${${_compactstar_dependency_library}}")
+        message(FATAL_ERROR
+            "Missing dependency static archive ${_compactstar_dependency_library}: "
+            "${${_compactstar_dependency_library}}")
+    endif()
+    if(NOT "${${_compactstar_dependency_library}}" MATCHES "\\.a$")
+        message(FATAL_ERROR
+            "Dependency must be a static .a archive (${_compactstar_dependency_library}): "
+            "${${_compactstar_dependency_library}}")
+    endif()
+    execute_process(
+        COMMAND "${CMAKE_AR}" -t "${${_compactstar_dependency_library}}"
+        RESULT_VARIABLE _compactstar_archive_status
+        OUTPUT_QUIET
+        ERROR_QUIET
+    )
+    if(NOT _compactstar_archive_status EQUAL 0)
+        message(FATAL_ERROR
+            "Invalid dependency static archive ${_compactstar_dependency_library}: "
+            "${${_compactstar_dependency_library}}")
+    endif()
+endforeach()
+
+foreach(_compactstar_dependency_include ZAKI_INCLUDE_DIR CONFIND_INCLUDE_DIR)
+    if(NOT IS_ABSOLUTE "${${_compactstar_dependency_include}}"
+       OR NOT IS_DIRECTORY "${${_compactstar_dependency_include}}")
+        message(FATAL_ERROR
+            "${_compactstar_dependency_include} must resolve to an existing absolute directory: "
+            "${${_compactstar_dependency_include}}")
+    endif()
+endforeach()
+
+if(NOT EXISTS "${ZAKI_INCLUDE_DIR}/Zaki/Physics/Constants.hpp")
+    message(FATAL_ERROR
+        "Zaki include root lacks required sentinel Zaki/Physics/Constants.hpp: ${ZAKI_INCLUDE_DIR}")
 endif()
+if(NOT EXISTS "${CONFIND_INCLUDE_DIR}/Confind/ContourFinder.hpp")
+    message(FATAL_ERROR
+        "CONFIND include root lacks required sentinel Confind/ContourFinder.hpp: ${CONFIND_INCLUDE_DIR}")
+endif()
+
+message(STATUS "CompactStar dependency mode: ${COMPACTSTAR_DEPENDENCY_MODE}")
+message(STATUS "CompactStar Zaki include: ${ZAKI_INCLUDE_DIR}")
+message(STATUS "CompactStar Zaki archive: ${ZAKI_LIB}")
+message(STATUS "CompactStar CONFIND include: ${CONFIND_INCLUDE_DIR}")
+message(STATUS "CompactStar CONFIND archive: ${CONFIND_LIB}")
+
+unset(_compactstar_archive_status)
+unset(_compactstar_dependency_include)
+unset(_compactstar_dependency_library)
+unset(_compactstar_dependency_override)
+unset(_compactstar_dependency_override_count)
 
 # -----------------------------
 # Configure headers
@@ -146,7 +243,8 @@ target_include_directories(CompactStar
 target_include_directories(CompactStar
     SYSTEM PUBLIC
     ${GSL_INCLUDE_DIRS}
-    ${DEP_INC_DIR}
+    ${ZAKI_INCLUDE_DIR}
+    ${CONFIND_INCLUDE_DIR}
 )
 
 # -----------------------------
