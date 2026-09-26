@@ -1,5 +1,16 @@
 # CompactStar Scientific Invariants
 
+> **ADR-0018 status (2026-09-26): ACCEPTED / HUMAN-RATIFIED; MAC SOURCE-BUILD
+> EQUIVALENCE AUTHORIZED / NOT YET RUN.** Existing vendored Darwin Zaki/CONFIND archives remain
+> the dependency authority for governed Mac evidence. Zaki
+> `b9ddebaded24962468954846f47238aec2726fd4` and CONFIND manifest
+> `ed76163c22e0a1f8ba3f71f62f5a56527528850650bbf7127da9c0c908d14083` are
+> **SOURCE-EQUIVALENCE CANDIDATES ONLY**. The cluster is **DISCOVERED / NOT QUALIFIED**; CQ0 is
+> **BLOCKED**; cluster bootstrap and clean BA12R are **NOT AUTHORIZED**. Historical BA12 and
+> BA12R remain **FAIL**. This status changes no scientific invariant, baseline, or numerical
+> authority. Evidence: [ADR-0018](adr/ADR-0018-cross-platform-external-dependency-resolution.md)
+> and [owner acceptance](validation/PHASE6_ADR0018_ACCEPTANCE.md).
+
 > **Phase-6A-1 numerical-output status (2026-09-25): ADR-0015 ACCEPTED /
 > ADR-0016 ACCEPTED / ADR-0017 ACCEPTED / HUMAN-RATIFIED; ADR-0017 PRODUCTION
 > IMPLEMENTATION QUALIFIED / OWNER-ACCEPTED / CANONICAL INTEGRATION AUTHORIZED.** Historical

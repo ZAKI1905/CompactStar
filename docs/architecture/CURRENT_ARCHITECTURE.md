@@ -1,5 +1,15 @@
 # CompactStar — Current Architecture
 
+> **ADR-0018 status (2026-09-26): ACCEPTED / HUMAN-RATIFIED; IMPLEMENTATION EXPERIMENT
+> AUTHORIZED / NOT YET RUN.** The accepted architecture is external authenticated static Zaki
+> and CONFIND libraries supplied through explicit fail-closed include/archive overrides, with
+> no implicit search or build-time network. Existing Darwin vendored paths remain the default
+> and authoritative inputs for governed Mac evidence. Zaki
+> `b9ddebaded24962468954846f47238aec2726fd4` and CONFIND manifest
+> `ed76163c22e0a1f8ba3f71f62f5a56527528850650bbf7127da9c0c908d14083` are
+> **SOURCE-EQUIVALENCE CANDIDATES ONLY**. Cluster state remains **DISCOVERED / NOT QUALIFIED**;
+> CQ0 and clean BA12R remain blocked and unauthorized.
+
 > **Phase-6A-1 numerical-output status (2026-09-25): ADR-0015 ACCEPTED /
 > ADR-0016 ACCEPTED / ADR-0017 ACCEPTED / HUMAN-RATIFIED; ADR-0017 PRODUCTION
 > IMPLEMENTATION QUALIFIED / OWNER-ACCEPTED / CANONICAL INTEGRATION AUTHORIZED.** Historical
@@ -662,19 +672,18 @@ Re-authenticated at **`11ffe45`** after roadmap Phase 1. Full evidence and comma
   `CompactStar/Core/CompactStarConfig 2.h`. Both are inert for the build — the binary-tree copy
   wins — and neither was removed; retiring them is a generated-artifact decision.
 
-### Platform support — unchanged
+### Platform support — ADR-0018 accepted; implementation not yet integrated
 
 - **macOS is still the only authenticated development platform.** This repository ships Zaki and
   Confind as prebuilt static archives for `Darwin/{arm64,x86_64}` only
   (`dependencies/lib/{Zaki,Confind}/Darwin/…`), and `CMakeLists.txt:95-101` hard-fails when the
   archive for the host platform is absent. Configuration therefore still fails on other platforms.
-- **Dependency source exists externally but is not integrated here.** Per project-owner authority,
-  ZakiLib (private) and CONFIND (public) exist as external version-controlled repositories. That
-  is **not** the same as authenticated binary equivalence or cross-platform support: their current
-  source revisions have **not** been shown to reproduce the archives CompactStar consumes, and
-  their build contracts have not been authenticated. This repository contains no dependency
-  source, no submodule, no `FetchContent`, and no package-manager integration.
-  **Cross-platform status is unchanged.**
+- **ADR-0018 is accepted, but dependency source equivalence and Linux support are not yet
+  qualified.** The exact Zaki SHA and recovered CONFIND source manifest named above are candidates
+  only. The repository still contains no dependency source, submodule, `FetchContent`, or
+  package-manager integration. A bounded experiment may add only the accepted explicit
+  fail-closed path overrides on a noncanonical branch; the candidate archives may not replace
+  the vendored Darwin authority. **Cross-platform execution remains blocked pending that gate.**
 
 ### Build configuration, warnings, diagnostics
 

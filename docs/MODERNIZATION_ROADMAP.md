@@ -1,5 +1,15 @@
 # CompactStar Modernization Roadmap
 
+> **ADR-0018 status (2026-09-26): ACCEPTED / HUMAN-RATIFIED; MAC SOURCE-BUILD
+> EQUIVALENCE AUTHORIZED / NOT YET RUN.** Zaki
+> `b9ddebaded24962468954846f47238aec2726fd4` and CONFIND manifest
+> `ed76163c22e0a1f8ba3f71f62f5a56527528850650bbf7127da9c0c908d14083` are
+> **SOURCE-EQUIVALENCE CANDIDATES ONLY**. The vendored Darwin archives remain authoritative and
+> unchanged. The EKU environment is **DISCOVERED / NOT QUALIFIED**; CQ0 is **BLOCKED**; cluster
+> bootstrap, transfer, Slurm, and clean BA12R are **NOT AUTHORIZED**. Historical BA12/BA12R
+> remain **FAIL**. The next bounded work is the owner-authorized Mac equivalence experiment;
+> passing it would return the candidates for a separate source-authority decision.
+
 > **Phase-6A-1 numerical-output status (2026-09-25): ADR-0015 ACCEPTED /
 > ADR-0016 ACCEPTED / ADR-0017 ACCEPTED / HUMAN-RATIFIED; ADR-0017 PRODUCTION
 > IMPLEMENTATION QUALIFIED / OWNER-ACCEPTED / CANONICAL INTEGRATION AUTHORIZED.** Historical

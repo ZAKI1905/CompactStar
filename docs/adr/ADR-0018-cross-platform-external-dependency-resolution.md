@@ -2,17 +2,21 @@
 
 ## 1. Status, scope, and authority
 
-**Status:** PROPOSED — OWNER RATIFICATION REQUIRED.
+**Status:** ACCEPTED / HUMAN-RATIFIED.
 
 **Date proposed:** 2026-09-26.
+
+**Date accepted:** 2026-09-26.
 
 **Change class:** dependency/build + structural architecture.
 
 **Blocks:** Linux dependency bootstrap LB1-LB10 and cluster qualification CQ0-CQ7.
 
-This proposal has no authority until the human owner ratifies it. It does not change CMake,
-build a dependency, select a Linux artifact, replace a Darwin archive, start source-equivalence
-testing, or authorize cluster work.
+The human owner ratified this decision and separately authorized the bounded Mac-only
+source-build equivalence experiment recorded in
+`docs/validation/PHASE6_ADR0018_ACCEPTANCE.md`. Acceptance does not itself change CMake, build a
+dependency, select a Linux artifact, replace a Darwin archive, grant dependency source authority,
+or authorize cluster work.
 
 The decision is deliberately limited to resolution and provenance of ZakiLib and CONFIND.
 It changes no scientific equation, numerical method, Phase-5 baseline, Phase-5 ownership,
@@ -46,9 +50,9 @@ that the present hard-coded dependency layout blocks a Linux configure. That evi
 historical and immutable in
 `docs/validation/PHASE6_EKU_CLUSTER_QUALIFICATION_PREFLIGHT.md:142-190`.
 
-## 3. Proposed decision
+## 3. Accepted decision
 
-If ratified, the owner accepts all of the following as one narrow decision.
+The owner accepts all of the following as one narrow decision.
 
 1. The existing authenticated Darwin `libZaki.a` and `libConfind.a` remain unchanged and remain
    the default Mac dependency artifacts. No source-built replacement is implied.
@@ -157,7 +161,7 @@ and toolchain authority easier to lose. Rejected.
 This reduces configuration arguments but permits accidental ABI/version fallback and weakens
 reproducibility. Rejected and explicitly forbidden by the proposed decision.
 
-## 7. Consequences if accepted
+## 7. Consequences
 
 - A later bounded implementation may change only the dependency-resolution portion of CMake
   and its build documentation/tests; this ADR itself implements nothing.
@@ -198,7 +202,7 @@ ADR-0018 does not:
 - change an equation, tolerance, baseline, test inventory, or scientific input;
 - authorize direct Mac-to-cluster SSH, source transfer, Slurm, CQ0-CQ7, or a merge.
 
-## 10. Provenance and owner action
+## 10. Ratification record and next gate
 
 This proposal was drafted from the authenticated canonical source, two read-only local external
 repositories, the authenticated Darwin artifacts, and the byte-identically imported cluster
@@ -206,7 +210,18 @@ preflight. A later local-only forensic task recovered a matching non-Git CONFIND
 recorded it in `docs/validation/PHASE6_CONFIND_SOURCE_RECOVERY.md`; the snapshot is not accepted
 source authority unless the owner preserves and authorizes it.
 
-Only the human owner may change the status to ACCEPTED. Ratification should state whether the
-four exact cache-variable names and all eleven decision clauses are accepted. A subsequent
-Mac-only task may preserve the recovered CONFIND snapshot and prepare the bounded
-source-equivalence experiment. Ratification alone does not authorize that experiment.
+On 2026-09-26 the human owner explicitly accepted the four cache-variable names and all eleven
+decision clauses in section 3. The owner also accepted, strictly as **SOURCE-EQUIVALENCE
+CANDIDATE ONLY**:
+
+- Zaki Git SHA `b9ddebaded24962468954846f47238aec2726fd4`; and
+- CONFIND immutable source-manifest SHA-256
+  `ed76163c22e0a1f8ba3f71f62f5a56527528850650bbf7127da9c0c908d14083`.
+
+The complete acceptance record is `docs/validation/PHASE6_ADR0018_ACCEPTANCE.md`. The owner
+separately authorized a bounded Mac-only source-build equivalence experiment after canonical
+integration of this acceptance. Neither candidate is thereby accepted as a governed Linux or
+cluster dependency source authority. Compilation alone is insufficient; the same-Mac gate in
+section 5 must pass and a later explicit owner decision must grant source authority. Cluster
+bootstrap, transfer, CQ0-CQ7, Slurm, clean BA12R, vendored-archive replacement, C++ standard
+change, and scientific-model change remain unauthorized.
