@@ -65,16 +65,19 @@ If ratified, the owner accepts all of the following as one narrow decision.
 6. CompactStar and its scientific build must perform no `FetchContent`, submodule update,
    package download, or other build-time network access for these dependencies.
 7. External dependency binaries are built separately, outside CompactStar Git, from exact
-   human-ratified source SHAs. Cluster artifacts live under versioned toolchain storage and are
-   consumed read-only.
-8. Qualification provenance includes the dependency source SHA and source manifest, every
+   human-ratified source identities: a Git commit SHA when available, or an immutable complete
+   source-manifest SHA-256 when no defensible Git revision exists. Cluster artifacts live under
+   versioned toolchain storage and are consumed read-only.
+8. Qualification provenance includes the dependency Git SHA or complete source-manifest
+   SHA-256, every
    consumed/installed header hash, archive hash and member/symbol inventory, compiler and
    version, language standard, flags, build system/version, link closure, and resolved absolute
    paths.
-9. Any dependency source revision, consumed-header byte, archive byte, compiler/toolchain key,
+9. Any dependency source identity or member byte, consumed-header byte, archive byte,
+   compiler/toolchain key,
    or declared link-closure change invalidates the applicable platform qualification until
    requalified.
-10. Before a source revision can become Linux cluster authority, it must pass the separately
+10. Before a source identity can become Linux cluster authority, it must pass the separately
     predeclared same-Mac source-build equivalence gate against CompactStar using the current
     authenticated vendored Darwin archives.
 11. Replacing, rebuilding, or re-ratifying the current Darwin vendored archives is explicitly
@@ -87,18 +90,22 @@ bind the printed paths to authenticated hashes before a build may qualify.
 ## 4. Source-authority gate
 
 ADR-0018 governs how an accepted dependency is resolved. It does not decide which source
-revision is scientifically acceptable.
+identity is scientifically acceptable.
 
 - Zaki `b9ddebaded24962468954846f47238aec2726fd4` is a **candidate only** for Mac
   equivalence because all consumed headers are byte-identical. It is not asserted to be the
   historical archive source.
 - CONFIND `89c5d9b731534e4289d9f686549d9f0ac178e567` is **not a candidate**. Its public interface
-  materially diverges from the current CompactStar dependency contract. A matching source
-  snapshot and exact SHA must be recovered before equivalence testing can be authorized.
+  materially diverges from the current CompactStar dependency contract. Source for the matching
+  interface has since been recovered as a composite non-Git snapshot identified by complete
+  source-manifest SHA-256
+  `ed76163c22e0a1f8ba3f71f62f5a56527528850650bbf7127da9c0c908d14083`; recovery evidence and
+  limitations are in `docs/validation/PHASE6_CONFIND_SOURCE_RECOVERY.md`. It remains a candidate
+  only and requires owner preservation and authorization before equivalence testing.
 
-The owner must separately approve both exact candidate SHAs for the Mac experiment and, only
-after they pass, separately accept them as cluster authority. Source existence, build success,
-or current repository HEAD is never ratification.
+The owner must separately approve each exact candidate source identity for the Mac experiment
+and, only after it passes, separately accept it as cluster authority. Source existence, build
+success, a manifest, or current repository HEAD is never ratification.
 
 ## 5. Same-Mac equivalence requirement
 
@@ -160,7 +167,8 @@ reproducibility. Rejected and explicitly forbidden by the proposed decision.
 - Dependency builds, GSL/Python environments, source acquisition, and network behavior remain
   outside the CompactStar scientific configure/build.
 - A source or toolchain change is a new qualification key, not an in-place update.
-- Model B becomes the prescribed boundary, but CONFIND source recovery remains a prerequisite.
+- Model B becomes the prescribed boundary, but owner preservation and acceptance of the
+  recovered CONFIND snapshot remain prerequisites.
 - Cluster CQ0-CQ7 remain blocked until LB0-LB9 are completed and their evidence is accepted.
 
 ## 8. Validation required before implementation and use
@@ -183,7 +191,7 @@ header, archive, and source provenance. No CQ stage may compensate for a skipped
 ADR-0018 does not:
 
 - replace the Darwin archives or choose new Mac authority;
-- ratify any Zaki or CONFIND source SHA;
+- ratify any Zaki or CONFIND source identity;
 - redesign Zaki/CONFIND APIs or move visualization to Python;
 - change the C++ standard or repair `using enum`;
 - install GSL/Python or build any dependency;
@@ -194,9 +202,11 @@ ADR-0018 does not:
 
 This proposal was drafted from the authenticated canonical source, two read-only local external
 repositories, the authenticated Darwin artifacts, and the byte-identically imported cluster
-preflight. The agent recommends Model B but records CONFIND source authority as blocked.
+preflight. A later local-only forensic task recovered a matching non-Git CONFIND snapshot and
+recorded it in `docs/validation/PHASE6_CONFIND_SOURCE_RECOVERY.md`; the snapshot is not accepted
+source authority unless the owner preserves and authorizes it.
 
 Only the human owner may change the status to ACCEPTED. Ratification should state whether the
 four exact cache-variable names and all eleven decision clauses are accepted. A subsequent
-Mac-only task may then recover/authenticate matching CONFIND source and prepare the bounded
+Mac-only task may preserve the recovered CONFIND snapshot and prepare the bounded
 source-equivalence experiment. Ratification alone does not authorize that experiment.
