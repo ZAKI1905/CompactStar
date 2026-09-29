@@ -1124,3 +1124,23 @@ or final qualification is claimed. No post-hoc provider exception or tolerance
 was introduced. See [stop report](PHASE6_EXTERNAL_DEPS_MIGRATION_STOP.md) and its
 complete 101-field accounting. Original predeclared criteria remain unchanged.
 Disposition D — PACKAGE / LINK / IDENTITY AUTHORITY FAILED — RETURN TO OWNER.
+
+## 35. Owner resume authorization — scientific/functional authority
+
+On 2026-09-29 the owner explicitly authorized resumption from stop record
+`87e1537a1c2d42371d64c65c78609ef5170633fa`. Scientific and functional equivalence
+now controls. Provider ownership, object bytes, EH layout and non-scientific
+bookkeeping FMA are diagnostic evidence, not automatic rejection. This supersedes
+G4's blanket provider/instruction equality requirement and G9's hard performance
+stop, without rewriting their historical text. The specific VecSaver compressed
+buffer sizing difference is not by itself a failure. Assess numerical values,
+branching, selection, ordering, solver inputs, serialized output and memory safety.
+
+Exact same-mode T1/T2 scientific outputs and existing governed regression rules
+remain controlling. Benign infrastructure issues may be repaired autonomously.
+Production/CMake/tests/examples/utilities may receive migration-related changes.
+Retain exact Zaki e263a6e and CONFIND b0cbd510, historical oracles, one-thread T1/T2,
+Debug/Release qualification and the no-merge/no-tag/local-Mac-only boundary.
+Finish the candidate and perform one combined independent review afterward.
+The historical stop remains valid under its then-controlling rule; it no longer
+blocks implementation. No scientific tolerance is introduced by this amendment.
