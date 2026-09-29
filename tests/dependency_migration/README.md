@@ -33,3 +33,8 @@ uses deterministic mtime=0. Python runs tests but is never linked into C++.
 The candidate's earlier qualification and the integrated replay provide the
 non-vacuous unpatched-Zaki control; fixtures must never be regenerated from
 NEW to make a mismatch pass.
+
+T1, the observer and replay run from committed fixtures without external EOS
+data. T2 is registered only when the DS(CMF)-1 EOS exists under the configured
+COMPACTSTAR_EOS_DATA_ROOT; qualified migration runs provide and authenticate
+that file and must include T2. An absent EOS is announced during configure.

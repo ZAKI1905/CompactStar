@@ -35,9 +35,10 @@ def main():
         else:
             record = json.loads((fixtures / f'{a.build_mode}-{a.mode}.json').read_text())
             (root / 'EOS').mkdir(parents=True)
-            if hashlib.sha256(a.eos.read_bytes()).hexdigest() != '5747dd73256c0c28bc56be337cbb96d0918a54bc9ed9fc40984c5befd47ae5dd':
-                raise RuntimeError('EOS identity mismatch')
-            shutil.copyfile(a.eos, root / 'EOS/DS(CMF)-1_with_crust.eos')
+            if a.mode == 'T2':
+                if not a.eos or hashlib.sha256(a.eos.read_bytes()).hexdigest() != '5747dd73256c0c28bc56be337cbb96d0918a54bc9ed9fc40984c5befd47ae5dd':
+                    raise RuntimeError('EOS identity mismatch')
+                shutil.copyfile(a.eos, root / 'EOS/DS(CMF)-1_with_crust.eos')
             if a.mode == 'T1':
                 for rel in ['NStar/Dark_Core/0.8/0.8_19x19_Sequence.tsv', 'EOS/Fermi_Gas_0.8mn.eos']:
                     dest = root / rel
