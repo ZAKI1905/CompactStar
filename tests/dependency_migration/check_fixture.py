@@ -62,6 +62,19 @@ def main():
         result = dict(mode=a.mode, build_mode=a.build_mode, count=count,
                       differing_files=differences, wall_seconds=time.monotonic() - start,
                       retained_run=str(parent) if differences else None)
+        result['executable_sha256'] = hashlib.sha256(a.exe.read_bytes()).hexdigest()
+        if a.mode != 'replay':
+            result['artifact_sha256'] = actual
+        if a.mode == 'T2':
+            lifetime_root = 'NStar/Dark_Core/0.8/B_conts/2.01/BNV_tau/'
+            result['bnv_lifetime_sha256'] = {
+                species: actual[lifetime_root + f'BNV_tau_{species}.tsv']
+                for species in ('neutron', 'lambda', 'sigmam')
+            }
+        if a.observe:
+            observed = (parent / 'observations.tsv').read_bytes()
+            result['observation_records'] = len(observed.splitlines())
+            result['observations_sha256'] = hashlib.sha256(observed).hexdigest()
         a.report.parent.mkdir(parents=True, exist_ok=True)
         a.report.write_text(json.dumps(result, indent=2) + '\n')
         print(json.dumps(result))
