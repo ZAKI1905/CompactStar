@@ -47,6 +47,14 @@ alternatives, and may recommend — but must not mark one accepted.
 | [ADR-0009](ADR-0009-tov-surface-event-and-termination.md) | Ordinary-star TOV surface event and integration-termination contract | **ACCEPTED — SOURCE CONFORMED / NUMERICALLY VALIDATED / ARTIFACT MIGRATION COMPLETE** | 2026-09-03 — accepted Q1–Q14 unchanged; V7a fixed-εc impact and V7b target-mass contract clarified separately. Exact candidate restored; both-EOS sweeps, independent locator, derivatives, downstream checks and mutation detectors pass. Prior stops and owner migration-envelope adjudication retained. Seven artifacts promoted with exact producer reproduction; 41/41 and 20/20 serial tests pass. Corrected Phase-4D independent revalidation is ready, not run; first monopole baseline still requires it. Current hashes and evidence: `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:889`, `docs/validation/TOV_SURFACE_ARTIFACT_MIGRATION.md:960`. **Phase 4E (2026-09-04): COMPLETE; existing normalized structural interface ratified; Phase 5 not begun** (`docs/validation/PHASE4_CLOSEOUT.md:1`). |
 | [ADR-0010](ADR-0010-rotochemical-off-equilibrium-thermodynamic-contract.md) | Cold charge-neutral off-equilibrium npe-mu thermodynamic contract for rotochemical heating | **ACCEPTED** | 2026-09-04 — owner-ratified Q1-Q6 with Phase 5A-1A revisions R1-R7; local provider implementation and all global coefficients/evolution remain unimplemented |
 
+## External dependency migration candidate (2026-09-29)
+
+[ADR-0019](ADR-0019-canonical-source-built-dependency-authority.md) records the
+owner-authorized source-built Mac dependency architecture. Its decision is
+accepted for this migration candidate under OD3; canonical integration awaits
+one combined independent review and subsequent owner acceptance. ADR-0018
+remains unchanged as historical evidence.
+
 ## Phase-4 closeout and baseline chronology
 
 GOVERNANCE §3.1 condition 7, deferred by ADR-0008, is discharged by Phase 4D-BL after independent VERIFIED authority.
