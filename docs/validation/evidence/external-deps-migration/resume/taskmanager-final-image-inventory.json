@@ -1,0 +1,34 @@
+[
+  {
+    "mode": "Debug",
+    "taskmanager_executables": [
+      "tests/dependency_migration/taskmanager_migration",
+      "tests/dependency_migration/taskmanager_observed"
+    ],
+    "coord3d": {
+      "tests/dependency_migration/taskmanager_migration": [
+        "0000000100069dd0 (__TEXT,__text) weak external __ZNK4Zaki7Physics7Coord3D7XYDist2ERKS1_",
+        "000000010006fafc (__TEXT,__text) weak external __ZNK4Zaki7Physics7Coord3DeqERKS1_",
+        "000000010006e658 (__TEXT,__text) weak external __ZNK4Zaki7Physics7Coord3DltERKS1_"
+      ],
+      "tests/dependency_migration/taskmanager_observed": [
+        "000000010006a848 (__TEXT,__text) weak external __ZNK4Zaki7Physics7Coord3D7XYDist2ERKS1_",
+        "0000000100070574 (__TEXT,__text) weak external __ZNK4Zaki7Physics7Coord3DeqERKS1_",
+        "000000010006f0d0 (__TEXT,__text) weak external __ZNK4Zaki7Physics7Coord3DltERKS1_"
+      ]
+    },
+    "consumer_comparator_definitions": []
+  },
+  {
+    "mode": "Release",
+    "taskmanager_executables": [
+      "tests/dependency_migration/taskmanager_migration",
+      "tests/dependency_migration/taskmanager_observed"
+    ],
+    "coord3d": {
+      "tests/dependency_migration/taskmanager_migration": [],
+      "tests/dependency_migration/taskmanager_observed": []
+    },
+    "consumer_comparator_definitions": []
+  }
+]

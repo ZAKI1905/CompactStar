@@ -1,0 +1,238 @@
+[
+  {
+    "mode": "Debug",
+    "records": 1510,
+    "differences": 22,
+    "details": [
+      {
+        "record": 94,
+        "old": "intersection_x\t94\t0x1.ea77b974e98d8p+50\t431ea77b974e98d8",
+        "unpatched": "intersection_x\t94\t0x1.ea77b974e98dep+50\t431ea77b974e98de"
+      },
+      {
+        "record": 95,
+        "old": "intersection_y\t95\t0x1.2bd8b7c0749f2p+49\t4302bd8b7c0749f2",
+        "unpatched": "intersection_y\t95\t0x1.2bd8b7c074a4ep+49\t4302bd8b7c074a4e"
+      },
+      {
+        "record": 107,
+        "old": "intersection_x\t107\t0x1.f507b83947b0fp+50\t431f507b83947b0f",
+        "unpatched": "intersection_x\t107\t0x1.f507b83947b04p+50\t431f507b83947b04"
+      },
+      {
+        "record": 108,
+        "old": "intersection_y\t108\t0x1.6e0baeb4eae5ep+49\t4306e0baeb4eae5e",
+        "unpatched": "intersection_y\t108\t0x1.6e0baeb4eaep+49\t4306e0baeb4eae00"
+      },
+      {
+        "record": 251,
+        "old": "intersection_x\t251\t0x1.f40396fa65bcp+50\t431f40396fa65bc0",
+        "unpatched": "intersection_x\t251\t0x1.f40396fa65bcap+50\t431f40396fa65bca"
+      },
+      {
+        "record": 252,
+        "old": "intersection_y\t252\t0x1.655b723de27cep+49\t430655b723de27ce",
+        "unpatched": "intersection_y\t252\t0x1.655b723de2823p+49\t430655b723de2823"
+      },
+      {
+        "record": 395,
+        "old": "intersection_x\t395\t0x1.f2f755b6084dbp+50\t431f2f755b6084db",
+        "unpatched": "intersection_x\t395\t0x1.f2f755b6084eap+50\t431f2f755b6084ea"
+      },
+      {
+        "record": 396,
+        "old": "intersection_y\t396\t0x1.5d31e804879d7p+49\t4305d31e804879d7",
+        "unpatched": "intersection_y\t396\t0x1.5d31e80487a24p+49\t4305d31e80487a24"
+      },
+      {
+        "record": 539,
+        "old": "intersection_x\t539\t0x1.f1834ed57c6bep+50\t431f1834ed57c6be",
+        "unpatched": "intersection_x\t539\t0x1.f1834ed57c6cep+50\t431f1834ed57c6ce"
+      },
+      {
+        "record": 540,
+        "old": "intersection_y\t540\t0x1.55b7a2eb59e06p+49\t43055b7a2eb59e06",
+        "unpatched": "intersection_y\t540\t0x1.55b7a2eb59e58p+49\t43055b7a2eb59e58"
+      },
+      {
+        "record": 681,
+        "old": "intersection_x\t681\t0x1.f0129b1e97645p+50\t431f0129b1e97645",
+        "unpatched": "intersection_x\t681\t0x1.f0129b1e97633p+50\t431f0129b1e97633"
+      },
+      {
+        "record": 682,
+        "old": "intersection_y\t682\t0x1.4e4e797ddef4p+49\t4304e4e797ddef40",
+        "unpatched": "intersection_y\t682\t0x1.4e4e797ddeee4p+49\t4304e4e797ddeee4"
+      },
+      {
+        "record": 825,
+        "old": "intersection_x\t825\t0x1.ee7466849a703p+50\t431ee7466849a703",
+        "unpatched": "intersection_x\t825\t0x1.ee7466849a70bp+50\t431ee7466849a70b"
+      },
+      {
+        "record": 826,
+        "old": "intersection_y\t826\t0x1.46b03841d2ce2p+49\t43046b03841d2ce2",
+        "unpatched": "intersection_y\t826\t0x1.46b03841d2d05p+49\t43046b03841d2d05"
+      },
+      {
+        "record": 967,
+        "old": "intersection_x\t967\t0x1.ecc54a1b59303p+50\t431ecc54a1b59303",
+        "unpatched": "intersection_x\t967\t0x1.ecc54a1b592fdp+50\t431ecc54a1b592fd"
+      },
+      {
+        "record": 968,
+        "old": "intersection_y\t968\t0x1.3f36987e45dadp+49\t4303f36987e45dad",
+        "unpatched": "intersection_y\t968\t0x1.3f36987e45d92p+49\t4303f36987e45d92"
+      },
+      {
+        "record": 1109,
+        "old": "intersection_x\t1109\t0x1.eb41f5ead3771p+50\t431eb41f5ead3771",
+        "unpatched": "intersection_x\t1109\t0x1.eb41f5ead378bp+50\t431eb41f5ead378b"
+      },
+      {
+        "record": 1110,
+        "old": "intersection_y\t1110\t0x1.37f8c925adbp+49\t43037f8c925adb00",
+        "unpatched": "intersection_y\t1110\t0x1.37f8c925adc8fp+49\t43037f8c925adc8f"
+      },
+      {
+        "record": 1251,
+        "old": "intersection_x\t1251\t0x1.ead2bdf4c103ep+50\t431ead2bdf4c103e",
+        "unpatched": "intersection_x\t1251\t0x1.ead2bdf4c102ap+50\t431ead2bdf4c102a"
+      },
+      {
+        "record": 1252,
+        "old": "intersection_y\t1252\t0x1.314db8c51aa76p+49\t430314db8c51aa76",
+        "unpatched": "intersection_y\t1252\t0x1.314db8c51a943p+49\t430314db8c51a943"
+      },
+      {
+        "record": 1381,
+        "old": "intersection_x\t1381\t0x1.ea65abf1c3872p+50\t431ea65abf1c3872",
+        "unpatched": "intersection_x\t1381\t0x1.ea65abf1c386ep+50\t431ea65abf1c386e"
+      },
+      {
+        "record": 1382,
+        "old": "intersection_y\t1382\t0x1.2ac7521b55e84p+49\t4302ac7521b55e84",
+        "unpatched": "intersection_y\t1382\t0x1.2ac7521b55e61p+49\t4302ac7521b55e61"
+      }
+    ],
+    "executable_sha256": "9c512fa212ecaa10e9c8357721aaa0c615bde78ce62ab1d5c225206b06e4db8e"
+  },
+  {
+    "mode": "Release",
+    "records": 1510,
+    "differences": 22,
+    "details": [
+      {
+        "record": 94,
+        "old": "intersection_x\t94\t0x1.ea77b974e98d8p+50\t431ea77b974e98d8",
+        "unpatched": "intersection_x\t94\t0x1.ea77b974e98dep+50\t431ea77b974e98de"
+      },
+      {
+        "record": 95,
+        "old": "intersection_y\t95\t0x1.2bd8b7c0749f2p+49\t4302bd8b7c0749f2",
+        "unpatched": "intersection_y\t95\t0x1.2bd8b7c074a4ep+49\t4302bd8b7c074a4e"
+      },
+      {
+        "record": 107,
+        "old": "intersection_x\t107\t0x1.f507b83947b0fp+50\t431f507b83947b0f",
+        "unpatched": "intersection_x\t107\t0x1.f507b83947b04p+50\t431f507b83947b04"
+      },
+      {
+        "record": 108,
+        "old": "intersection_y\t108\t0x1.6e0baeb4eae5ep+49\t4306e0baeb4eae5e",
+        "unpatched": "intersection_y\t108\t0x1.6e0baeb4eaep+49\t4306e0baeb4eae00"
+      },
+      {
+        "record": 251,
+        "old": "intersection_x\t251\t0x1.f40396fa65bcp+50\t431f40396fa65bc0",
+        "unpatched": "intersection_x\t251\t0x1.f40396fa65bcap+50\t431f40396fa65bca"
+      },
+      {
+        "record": 252,
+        "old": "intersection_y\t252\t0x1.655b723de27cep+49\t430655b723de27ce",
+        "unpatched": "intersection_y\t252\t0x1.655b723de2823p+49\t430655b723de2823"
+      },
+      {
+        "record": 395,
+        "old": "intersection_x\t395\t0x1.f2f755b6084dbp+50\t431f2f755b6084db",
+        "unpatched": "intersection_x\t395\t0x1.f2f755b6084eap+50\t431f2f755b6084ea"
+      },
+      {
+        "record": 396,
+        "old": "intersection_y\t396\t0x1.5d31e804879d7p+49\t4305d31e804879d7",
+        "unpatched": "intersection_y\t396\t0x1.5d31e80487a24p+49\t4305d31e80487a24"
+      },
+      {
+        "record": 539,
+        "old": "intersection_x\t539\t0x1.f1834ed57c6bep+50\t431f1834ed57c6be",
+        "unpatched": "intersection_x\t539\t0x1.f1834ed57c6cep+50\t431f1834ed57c6ce"
+      },
+      {
+        "record": 540,
+        "old": "intersection_y\t540\t0x1.55b7a2eb59e06p+49\t43055b7a2eb59e06",
+        "unpatched": "intersection_y\t540\t0x1.55b7a2eb59e58p+49\t43055b7a2eb59e58"
+      },
+      {
+        "record": 681,
+        "old": "intersection_x\t681\t0x1.f0129b1e97645p+50\t431f0129b1e97645",
+        "unpatched": "intersection_x\t681\t0x1.f0129b1e97633p+50\t431f0129b1e97633"
+      },
+      {
+        "record": 682,
+        "old": "intersection_y\t682\t0x1.4e4e797ddef4p+49\t4304e4e797ddef40",
+        "unpatched": "intersection_y\t682\t0x1.4e4e797ddeee4p+49\t4304e4e797ddeee4"
+      },
+      {
+        "record": 825,
+        "old": "intersection_x\t825\t0x1.ee7466849a703p+50\t431ee7466849a703",
+        "unpatched": "intersection_x\t825\t0x1.ee7466849a70bp+50\t431ee7466849a70b"
+      },
+      {
+        "record": 826,
+        "old": "intersection_y\t826\t0x1.46b03841d2ce2p+49\t43046b03841d2ce2",
+        "unpatched": "intersection_y\t826\t0x1.46b03841d2d05p+49\t43046b03841d2d05"
+      },
+      {
+        "record": 967,
+        "old": "intersection_x\t967\t0x1.ecc54a1b59303p+50\t431ecc54a1b59303",
+        "unpatched": "intersection_x\t967\t0x1.ecc54a1b592fdp+50\t431ecc54a1b592fd"
+      },
+      {
+        "record": 968,
+        "old": "intersection_y\t968\t0x1.3f36987e45dadp+49\t4303f36987e45dad",
+        "unpatched": "intersection_y\t968\t0x1.3f36987e45d92p+49\t4303f36987e45d92"
+      },
+      {
+        "record": 1109,
+        "old": "intersection_x\t1109\t0x1.eb41f5ead3771p+50\t431eb41f5ead3771",
+        "unpatched": "intersection_x\t1109\t0x1.eb41f5ead378bp+50\t431eb41f5ead378b"
+      },
+      {
+        "record": 1110,
+        "old": "intersection_y\t1110\t0x1.37f8c925adbp+49\t43037f8c925adb00",
+        "unpatched": "intersection_y\t1110\t0x1.37f8c925adc8fp+49\t43037f8c925adc8f"
+      },
+      {
+        "record": 1251,
+        "old": "intersection_x\t1251\t0x1.ead2bdf4c103ep+50\t431ead2bdf4c103e",
+        "unpatched": "intersection_x\t1251\t0x1.ead2bdf4c102ap+50\t431ead2bdf4c102a"
+      },
+      {
+        "record": 1252,
+        "old": "intersection_y\t1252\t0x1.314db8c51aa76p+49\t430314db8c51aa76",
+        "unpatched": "intersection_y\t1252\t0x1.314db8c51a943p+49\t430314db8c51a943"
+      },
+      {
+        "record": 1381,
+        "old": "intersection_x\t1381\t0x1.ea65abf1c3872p+50\t431ea65abf1c3872",
+        "unpatched": "intersection_x\t1381\t0x1.ea65abf1c386ep+50\t431ea65abf1c386e"
+      },
+      {
+        "record": 1382,
+        "old": "intersection_y\t1382\t0x1.2ac7521b55e84p+49\t4302ac7521b55e84",
+        "unpatched": "intersection_y\t1382\t0x1.2ac7521b55e61p+49\t4302ac7521b55e61"
+      }
+    ],
+    "executable_sha256": "826549ea6947ae2f4f51b7a5a481bc1b88e0c46dc391446fb944ec95077ebe3a"
+  }
+]

@@ -1,0 +1,115 @@
+{
+  "runs": [
+    {
+      "stack": "old",
+      "target": "tov_reference_cmf",
+      "command": [
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/old-Release/tests/tov_reference_cmf",
+        "/Users/keeper/Documents/CompactStar/data/compose",
+        "--emit",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/old-Release-emitted/tov_dscmf1_reference.tsv"
+      ],
+      "returncode": 0,
+      "wall_seconds": 1.1889611668884754
+    },
+    {
+      "stack": "old",
+      "target": "hartle_moment_inertia_cmf",
+      "command": [
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/old-Release/tests/hartle_moment_inertia_cmf",
+        "/Users/keeper/Documents/CompactStar/data/compose",
+        "--emit",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/old-Release-emitted/hartle_I_dscmf1_debug.tsv"
+      ],
+      "returncode": 0,
+      "wall_seconds": 1.71434083301574
+    },
+    {
+      "stack": "old",
+      "target": "tov_path_equivalence_cmf",
+      "command": [
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/old-Release/tests/tov_path_equivalence_cmf",
+        "/Users/keeper/Documents/CompactStar/data/compose",
+        "--emit",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/old-Release-emitted/tov_path_equivalence_dscmf1.tsv"
+      ],
+      "returncode": 0,
+      "wall_seconds": 1.180231416132301
+    },
+    {
+      "stack": "old",
+      "target": "grid_convergence_cmf",
+      "command": [
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/old-Release/tests/grid_convergence_cmf",
+        "/Users/keeper/Documents/CompactStar/data/compose",
+        "--emit-dir",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/old-Release-emitted"
+      ],
+      "returncode": 0,
+      "wall_seconds": 18.614522624993697
+    },
+    {
+      "stack": "new",
+      "target": "tov_reference_cmf",
+      "command": [
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release/tests/tov_reference_cmf",
+        "/Users/keeper/Documents/CompactStar/data/compose",
+        "--emit",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release-emitted/tov_dscmf1_reference.tsv"
+      ],
+      "returncode": 0,
+      "wall_seconds": 1.0045049160253257
+    },
+    {
+      "stack": "new",
+      "target": "hartle_moment_inertia_cmf",
+      "command": [
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release/tests/hartle_moment_inertia_cmf",
+        "/Users/keeper/Documents/CompactStar/data/compose",
+        "--emit",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release-emitted/hartle_I_dscmf1_debug.tsv"
+      ],
+      "returncode": 0,
+      "wall_seconds": 1.4716533329337835
+    },
+    {
+      "stack": "new",
+      "target": "tov_path_equivalence_cmf",
+      "command": [
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release/tests/tov_path_equivalence_cmf",
+        "/Users/keeper/Documents/CompactStar/data/compose",
+        "--emit",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release-emitted/tov_path_equivalence_dscmf1.tsv"
+      ],
+      "returncode": 0,
+      "wall_seconds": 0.39184250007383525
+    },
+    {
+      "stack": "new",
+      "target": "grid_convergence_cmf",
+      "command": [
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release/tests/grid_convergence_cmf",
+        "/Users/keeper/Documents/CompactStar/data/compose",
+        "--emit-dir",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release-emitted"
+      ],
+      "returncode": 0,
+      "wall_seconds": 17.117570374859497
+    }
+  ],
+  "old": {
+    "hartle_I_dscmf1_debug.tsv": "5904e567f3f8a5807d1140a68129309c70c921071f14264d28edaf0c5c8e5971",
+    "tov_path_equivalence_dscmf1.tsv": "5c0f4b3bdb70921f8f2a869af10edc4d8f5ae3963a9d150e11ef859d21e1c678",
+    "tov_dscmf1_reference.tsv": "3d9af9129a6a4ffde9e0f8c5507a160f968a861c0cf9f3b089cceecab86b701a",
+    "grid_convergence_cmf_1p6_trajectory.tsv": "d26bfe99cbda7192553e2f4f134fe969290c4da55edec47720cf0ab68ab7565e",
+    "grid_convergence_cmf_1p6_debug.tsv": "90ffeb9c9c7218c49add20090c7269de1585aa049b1f8212c45f8f75ed1da387"
+  },
+  "new": {
+    "hartle_I_dscmf1_debug.tsv": "5904e567f3f8a5807d1140a68129309c70c921071f14264d28edaf0c5c8e5971",
+    "tov_path_equivalence_dscmf1.tsv": "5c0f4b3bdb70921f8f2a869af10edc4d8f5ae3963a9d150e11ef859d21e1c678",
+    "tov_dscmf1_reference.tsv": "3d9af9129a6a4ffde9e0f8c5507a160f968a861c0cf9f3b089cceecab86b701a",
+    "grid_convergence_cmf_1p6_trajectory.tsv": "d26bfe99cbda7192553e2f4f134fe969290c4da55edec47720cf0ab68ab7565e",
+    "grid_convergence_cmf_1p6_debug.tsv": "90ffeb9c9c7218c49add20090c7269de1585aa049b1f8212c45f8f75ed1da387"
+  },
+  "differences": []
+}

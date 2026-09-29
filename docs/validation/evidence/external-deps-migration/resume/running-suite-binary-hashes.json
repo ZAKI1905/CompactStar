@@ -1,0 +1,16 @@
+{
+  "Debug": {
+    "new-Debug/libCompactStar.a": "9d55f2e12a9c26bd8c08ab658b1727019d3646ae3705d12ce3c3ec3eef220f0a",
+    "new-Debug/tests/adr0017_production_qualification": "4e9bb2ba71923419820f96ead8e880ddd372aa0790e0f4a669ef273e0f74d6a1",
+    "new-Debug/tests/dependency_migration/taskmanager_selection_replay": "74d872610878f7981ad95578db46aafdc768b31d7bf617af10f6841e09e4d3c1",
+    "new-Debug/tests/dependency_migration/taskmanager_observed": "5a5d9ba0a2fce51b33627d0b8552e494d331cfc4bfd1d43a11ec06cb8195f297",
+    "new-Debug/tests/dependency_migration/taskmanager_migration": "f8124fac93ba007411afdaaaafd6f166ed10a0f70bcb0b3a3cda3880f896a272"
+  },
+  "Release": {
+    "new-Release/libCompactStar.a": "311bbbecb9b7d8b5e7308587ac3202fccc56f3c90e75dfe3f6d4d55254bea846",
+    "new-Release/tests/adr0017_production_qualification": "8433117bd87d7156dfe962b1481c46dda6369fa18888703170fb1cb5f896f856",
+    "new-Release/tests/dependency_migration/taskmanager_selection_replay": "18097314af4a3e402c822fc4bb54c661851fe7fdd55c6843d0cb32fcc1227b70",
+    "new-Release/tests/dependency_migration/taskmanager_observed": "379706ff37968a4fe27b2946fe7d3cb4e325fe96588f9ce0624b989504857aba",
+    "new-Release/tests/dependency_migration/taskmanager_migration": "35c917dcbe2118dd29efe88d2e15c9379c2064bd9933173e55ec63d3b9f0b8a5"
+  }
+}
