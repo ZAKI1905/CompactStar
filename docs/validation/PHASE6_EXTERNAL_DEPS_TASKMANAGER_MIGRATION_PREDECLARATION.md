@@ -1056,3 +1056,55 @@ return this record
 to the owner for OD1–OD9; on OD1 = patch, open a separately predeclared ZakiLib 2.0.1
 numerical-preservation task (Z1) whose oracle is the vendored arm64 `libZaki.a`; CompactStar M0/M1
 may proceed in parallel only after owner acceptance of this record.
+
+
+---
+
+## 33. Owner implementation authorization — 2026-09-29
+
+The owner explicitly authorizes this implementation pass on the existing
+`physics/external-deps-taskmanager-migration` branch, from predeclaration commit
+`6ab1783b8003295224dcf2d720d500a174f9ef9e`. The original body above is preserved.
+This section records the owner's current decisions; historical prerequisites
+and recommendations above retain their original chronological meaning.
+
+| Decision | Authorized implementation contract |
+|---|---|
+| OD1 | Consume exact clean Zaki 2.0.1 candidate `e263a6e180c5c417198e7778bd21fc9c0a32dc33`, provisionally authorized for this migration candidate. Do not substitute master, another SHA, or a system package. |
+| OD2 | Require OLD Debug == NEW Debug and OLD Release == NEW Release, exactly. |
+| OD3 | Write ADR-0019 as the owner-authorized successor for active dependency resolution; preserve ADR-0018 historically. Candidate Mac authority only until later acceptance/integration. |
+| OD4 | Preserve historical vendored archives and headers permanently as immutable oracles, at their current paths; remove them from active include/link/install resolution. |
+| OD5 | Accept DS(CMF)-1, dark mass 0.8 neutron masses, 20 by 20 logarithmic grid, M=2.01, TaskManager(1), absolute working root <=100 characters, through Precision_Task and FindLimits. |
+| OD6 | Release need not equal Debug. Same-mode OLD-versus-NEW is the authority. |
+| OD7 | Multi-threaded TaskManager is outside governed migration authority; preserve its implementation and use one thread. Record deferred work only. |
+| OD8 | Delete visualization when numerical data already exists/exported. Preserve useful otherwise unavailable numerical data through deterministic export, without one export per plot or a new plotting layer. |
+| OD9 | Historical arm64 semantics govern TaskManager plotting removal; historical arm64 CONFIND Plot is a proven no-op. |
+
+One combined independent review occurs AFTER the complete implementation and
+qualification, covering exact Zaki candidate e263a6e and the final CompactStar
+candidate together. No intermediate or separate Zaki independent review is
+required. Neither repository is merged or tagged here. Canonical CompactStar
+remains `812463ac9ed374f64ac9cadd500066ab723d3a6c`; canonical CONFIND remains
+`b0cbd510fd3fd0c772fa50499cd749287cb39e7b`. Dependency sources are read-only.
+Local Mac only; no Linux or cluster authority or access.
+
+No post-hoc tolerance, baseline rewrite, numerical-semantic repair, or
+TaskManager threading redesign is allowed. Existing G0–G9 exact numerical,
+provider, provenance and baseline gates remain controlling. OD1 authorizes the
+actual bounded Zaki candidate, including its documented formatting-only
+Quantity exp10 site; the historical proposed archive-wide no-exp10 design is
+not a requirement to alter that candidate. Frozen numerical pow paths must
+remain exact, and no other provider/arithmetic exception is introduced.
+
+Entry authentication: canonical CompactStar and CONFIND local/origin/live
+master identities match the SHAs above; all relevant trees are clean. The
+migration branch contains only the original documentation predeclaration over
+canonical master. Zaki's registered candidate worktree is
+`/Users/keeper/Documents/CompactStar/worktrees/ZakiLib-2.0.1-fp-preservation`,
+clean at the exact authorized SHA. Historical arm64 SHA-256 values match:
+Zaki `3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef`;
+CONFIND `09ed1a7c43a83b42f64ee8e0bda3b879af970126ee75159a802179a4d0a49eb2`.
+AppleClang is 21.0.0 (`clang-2100.3.34.2`), macOS 26.6.2 build 25G83,
+CMake 4.2.1, historical GSL `/opt/local` 2.7.1. Build-time network is forbidden;
+read-only live-ref authentication and the final non-force migration push are
+separate owner-authorized repository operations.
