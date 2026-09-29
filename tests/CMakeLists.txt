@@ -676,3 +676,6 @@ endif()
 set_tests_properties(${_compactstar_python_tests} PROPERTIES
     ENVIRONMENT "PYTHONDONTWRITEBYTECODE=1")
 unset(_compactstar_python_tests)
+
+# Exact same-mode Mac dependency migration fixtures.
+add_subdirectory(dependency_migration)
