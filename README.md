@@ -371,31 +371,28 @@ For additional detail, see the comments in
 
 # Building
 
-```
-mkdir build
-cd build
-cmake ..
-make -j
+Use the [qualified local Mac build instructions](docs/build/EXTERNAL_PACKAGES_MAC.md)
+for the exact package prefixes, GSL identity and Python test interpreter.
+Both external package prefixes are required; configuration does not download
+dependencies or fall back to a system installation.
+
+```sh
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug \
+  -DCOMPACTSTAR_ZAKI_PREFIX=/absolute/path/to/qualified/Debug/Zaki \
+  -DCOMPACTSTAR_CONFIND_PREFIX=/absolute/path/to/qualified/Debug/CONFIND
+cmake --build build -j6
+ctest --test-dir build --output-on-failure
 ```
 
-Optional flags:
-
-- `-DUSE_OPENMP=ON`
-- `-DUSE_PYTHON=ON`
-- `-DCS_ENABLE_PROFILING=ON`
+The historical `USE_OPENMP`/`USE_PYTHON` plotting options are not part of the
+active build. Python scripts remain available for validation and external visualization.
 
 ---
 
 # Documentation
 
-CompactStar uses **Doxygen** documentation.  
-To build:
-
-```
-mkdir build && cd build
-cmake .. -DBUILD_DOCS=ON
-make docs
-```
+CompactStar uses Doxygen. The existing `GEN_DOCS=ON` CMake option invokes
+Doxygen during configuration; use it with the same authenticated build configuration.
 
 ---
 

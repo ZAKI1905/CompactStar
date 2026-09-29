@@ -21,7 +21,7 @@
 
 | Layer | Intent | Status |
 |---|---|---|
-| Data primitives (Zaki) | DataColumn / DataSet / Constants | **IMPLEMENTED** (vendored binary; see roadmap Phase 1) |
+| Data primitives (Zaki) | DataColumn / DataSet / Constants | **IMPLEMENTED** (authenticated source-built package in the ADR-0019 Mac candidate; historical vendored oracle retained) |
 | EOS | Model hierarchy, CompOSE ingestion, RMF composition solvers | **IMPLEMENTED** |
 | Core structure | TOV, profiles, rotation, sequences | **PARTIAL** — see §2 |
 | Physics state | Spin / Thermal / Chem / BNV as ODE states | **PARTIAL** — Chem and BNV unexercised |

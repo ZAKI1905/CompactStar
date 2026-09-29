@@ -1,5 +1,18 @@
 # CompactStar — Current Architecture
 
+> **ADR-0019 migration candidate (2026-09-29):** active builds now require
+> authenticated source-built Zaki 2.0.1 (`e263a6e`) and CONFIND 2.0 (`b0cbd510`)
+> CONFIG packages through explicit prefixes. Historical vendored archives and
+> headers are preserved as oracles and excluded from active build/install inputs.
+> The C++ plotting bridge, Python/NumPy linkage and unused OpenMP linkage are
+> removed; Python Interpreter, direct GSL, transitive zlib and Threads remain.
+> Separate Debug/Release builds are required. This supersedes the active-build
+> statements in the dated ADR-0018/Phase-1 entries below, which remain historical.
+> See [ADR-0019](../adr/ADR-0019-canonical-source-built-dependency-authority.md) and
+> [current Mac build instructions](../build/EXTERNAL_PACKAGES_MAC.md). Canonical
+> integration awaits one combined independent review and owner acceptance.
+> Linux and cluster qualification remain separate.
+
 > **ADR-0018 status (2026-09-26): ACCEPTED / HUMAN-RATIFIED; IMPLEMENTATION EXPERIMENT
 > AUTHORIZED / NOT YET RUN.** The accepted architecture is external authenticated static Zaki
 > and CONFIND libraries supplied through explicit fail-closed include/archive overrides, with
@@ -644,7 +657,10 @@ was demonstrated for any of them.
 
 ---
 
-## 5. Build reality
+## 5. Historical Phase-1 build reality
+
+Dependency statements in this dated section are superseded for the ADR-0019
+migration candidate by the update above and the current Mac build instructions.
 
 Re-authenticated at **`11ffe45`** after roadmap Phase 1. Full evidence and commands:
 [`docs/build/MACOS_BUILD.md`](../build/MACOS_BUILD.md).
