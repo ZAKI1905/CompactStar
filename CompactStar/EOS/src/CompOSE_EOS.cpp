@@ -323,7 +323,6 @@ void CompactStar::CompOSE_EOS::ImportThermo(
 	if (gen_plots)
 	{
 
-
 		eos.SetWrkDir(file_dir.ThisFileDir());
 
 	}
@@ -425,23 +424,6 @@ void CompactStar::CompOSE_EOS::ImportCompo(
 	eos.SetWrkDir(file_dir.ThisFileDir());
 	eos.Export(name_ + ".eos");
 
-	if (gen_plots)
-	{
-		std::vector<std::pair<int, std::string>> tmp_plt_idx;
-
-		for (int i = therm_size; i < comp_size + therm_size; i++)
-		{
-			// Making the plot more legible by removing unimportant contributions
-			if (eos[i].Max() < 1e-4)
-			{
-				continue;
-			}
-
-			tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(eos[i].Label().c_str())).name_);
-		}
-
-
-	}
 }
 //--------------------------------------------------------------
 // Imports the ".micro" file
@@ -707,80 +689,6 @@ void CompactStar::CompOSE_EOS::ImportMicro(
 	}
 	// ...........................
 
-	if (gen_plots)
-	{
-
-		std::vector<std::pair<int, std::string>> tmp_plt_idx;
-
-
-		// .................................................
-		//                  Plotting M_eff
-		// .................................................
-		if (m_eff_col_set.size() != 0)
-		{
-
-			for (int i = 1; i < m_eff.Dim().size(); i++)
-			{
-				// Making the plot more legible by removing unimportant contributions
-				// Remove the ones with almost constant masses
-				if ((m_eff[i].Max() - m_eff[i].Min()) / m_eff[i].Max() < 0.05)
-				{
-					continue;
-				}
-
-				tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(m_eff[i].Label().c_str())).name_);
-			}
-
-
-		}
-		// .................................................
-
-		// .................................................
-		//                  Plotting V_eff
-		// .................................................
-		if (V_eff_col_set.size() != 0)
-		{
-			tmp_plt_idx.clear();
-
-			for (int i = 1; i < V_eff.Dim().size(); i++)
-			{
-				// Making the plot more legible by removing unimportant contributions
-				// Remove the ones that are zero (e.g., leptons)
-				if (V_eff[i].Max() == 0)
-				{
-					continue;
-				}
-
-				tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(V_eff[i].Label().c_str())).name_);
-			}
-
-
-		}
-		// .................................................
-
-		// .................................................
-		//                  Plotting U
-		// .................................................
-		if (U_col_set.size() != 0)
-		{
-			tmp_plt_idx.clear();
-
-			for (int i = 1; i < U.Dim().size(); i++)
-			{
-				// Making the plot more legible by removing unimportant contributions
-				// Remove the ones that are zero (e.g., leptons)
-				if (U[i].Max() == 0)
-				{
-					continue;
-				}
-
-				tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(U[i].Label().c_str())).name_);
-			}
-
-
-		}
-		// .................................................
-	}
 }
 //--------------------------------------------------------------
 // Extends the M_eff file to the crust region by
@@ -855,29 +763,6 @@ void CompactStar::CompOSE_EOS::ExtendMeffToCrust(
 	m_eff.SetWrkDir(wrk_dir_);
 	m_eff.Export(name_ + "_m_eff.micro");
 
-	if (gen_plots)
-	{
-		std::vector<std::pair<int, std::string>> tmp_plt_idx;
-
-
-		// .................................................
-		//                  Plotting M_eff
-		// .................................................
-		for (int i = 1; i < m_eff.Dim().size(); i++)
-		{
-			// Making the plot more legible by removing unimportant contributions
-			// Remove the ones with almost constant masses
-			if ((m_eff[i].Max() - m_eff[i].Min()) / m_eff[i].Max() < 0.05)
-			{
-				continue;
-			}
-
-			tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(m_eff[i].Label().c_str())).name_);
-		}
-
-
-		// .................................................
-	}
 }
 
 //--------------------------------------------------------------
@@ -946,29 +831,6 @@ void CompactStar::CompOSE_EOS::ExtendVeffToCrust(
 	V_eff.SetWrkDir(wrk_dir_);
 	V_eff.Export(name_ + "_V.micro");
 
-	if (gen_plots)
-	{
-		std::vector<std::pair<int, std::string>> tmp_plt_idx;
-
-
-		// .................................................
-		//                  Plotting V_eff
-		// .................................................
-		for (int i = 1; i < V_eff.Dim().size(); i++)
-		{
-			// Making the plot more legible by removing unimportant contributions
-			// Remove the ones that are zero (e.g., leptons)
-			if (V_eff[i].Max() == 0)
-			{
-				continue;
-			}
-
-			tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(V_eff[i].Label().c_str())).name_);
-		}
-
-
-		// .................................................
-	}
 }
 
 //--------------------------------------------------------------
@@ -1037,32 +899,6 @@ void CompactStar::CompOSE_EOS::ExtendUeffToCrust(
 	U.SetWrkDir(wrk_dir_);
 	U.Export(name_ + "_U.micro");
 
-	if (gen_plots)
-	{
-		std::vector<std::pair<int, std::string>> tmp_plt_idx;
-
-
-		// .................................................
-		//                  Plotting U
-		// .................................................
-		// if(U_col_set.size() != 0)
-		// {
-		for (int i = 1; i < U.Dim().size(); i++)
-		{
-			// Making the plot more legible by removing unimportant contributions
-			// Remove the ones that are zero (e.g., leptons)
-			if (U[i].Max() == 0)
-			{
-				continue;
-			}
-
-			tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(U[i].Label().c_str())).name_);
-		}
-
-
-		// }
-		// .................................................
-	}
 }
 
 //--------------------------------------------------------------
@@ -1170,7 +1006,7 @@ void CompactStar::CompOSE_EOS::ImportEOS(
 }
 
 //--------------------------------------------------------------
-// Plots the Fermi energy of particles as a function of density
+// Retained API spelling: exports Fermi energies for external visualization.
 // The input directory should by default an absolute path.
 void CompactStar::CompOSE_EOS::PlotFermiE(
 	const Zaki::String::Directory &in_dir,

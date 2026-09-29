@@ -51,7 +51,7 @@ namespace CompactStar::Physics::Spin
  * @brief Characteristic age \(\tau_c = P/(2\dot{P})\).
  * @ingroup Physics
  * @param s Spin state (uses P and Pdot).
- * @return \(\tau_c\) in seconds.
+ * @throws std::logic_error This declared diagnostic is not yet implemented/qualified.
  */
 double CharacteristicAge(const State::SpinState &s);
 
@@ -64,7 +64,7 @@ double CharacteristicAge(const State::SpinState &s);
  *
  * @param s    Spin state.
  * @param view Structural profile (for I(M,R) if we include it).
- * @return Estimated equatorial surface field [G].
+ * @throws std::logic_error The normalization is not yet specified/qualified.
  */
 double DipoleFieldEstimate(const State::SpinState &s, Core::StarProfileView view);
 

@@ -97,3 +97,9 @@ outputs remain the visualization inputs. Historical vendored headers are preserv
 | `CompactStar/EOS/src/CompOSE_EOS.cpp:1279` | `CompactStar::CompOSE_EOS::PlotFermiE` | `fermi_ds.SemiLogXPlot` | B / DELETE | Existing eos/micro exports and ExportFermiE; PlotFermiE delegates to the existing numerical exporter.  |
 
 Numerical side-effect assessment for every row: no numerical mutation in the removed call; subsequent arithmetic preserved. Exact TaskManager and governed-suite results are recorded in the migration qualification report. Unexercised legacy presentation paths have source-level rather than runtime evidence.
+
+The final cleanup also removes five CompOSE legend-selection branches whose
+only result was the deleted plot-index vector. Their Max/Min tests filtered
+legend entries only and never wrote EOS data. The historical ImportThermo
+working-directory assignment is retained. Existing public boolean arguments
+and method names remain source-compatible; they do not recreate plotting.
