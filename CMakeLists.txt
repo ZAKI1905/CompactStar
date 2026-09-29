@@ -95,7 +95,10 @@ configure_file(
 # -----------------------------
 # Subdirectories / sources
 # -----------------------------
-add_subdirectory(CompactStar)
+# These subdirectories export source lists and define no targets. Keep their
+# historical install recipes out of the parent install; some are themselves
+# frozen in scientific provenance. The library and headers are installed here.
+add_subdirectory(CompactStar EXCLUDE_FROM_ALL)
 
 # Build the CompactStar static library from sources exported by the subdir
 add_library(CompactStar STATIC ${CompactStar_SRC_Files})
@@ -157,6 +160,13 @@ target_link_libraries(CompactStar
 # Install rules
 # -----------------------------
 install(TARGETS CompactStar DESTINATION lib)
+install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/CompactStar/"
+    DESTINATION include/CompactStar
+    FILES_MATCHING PATTERN "*.hpp" PATTERN "*.h"
+    PATTERN "CompactStarConfig.h" EXCLUDE
+    PATTERN "CompactStarConfig 2.h" EXCLUDE)
+install(FILES "${CompactStar_GENERATED_INCLUDE_DIR}/CompactStar/Core/CompactStarConfig.h"
+    DESTINATION include/CompactStar/Core)
 
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/License.txt" DESTINATION Docs)
 
