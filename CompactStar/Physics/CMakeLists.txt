@@ -5,6 +5,7 @@ add_subdirectory(Rotochemical)
 add_subdirectory(BNV)
 
 set(CompactStar_Physics_sources
+    ${CMAKE_CURRENT_SOURCE_DIR}/Spin.cpp
 
     ${CompactStar_Physics_Driver_sources}
     ${CompactStar_Physics_State_sources}
