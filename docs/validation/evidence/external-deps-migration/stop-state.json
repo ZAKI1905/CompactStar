@@ -1,0 +1,46 @@
+{
+  "repo/CompactStar": {
+    "head": "812463ac9ed374f64ac9cadd500066ab723d3a6c",
+    "branch": "master",
+    "status": "",
+    "master_origin_live": [
+      "812463ac9ed374f64ac9cadd500066ab723d3a6c",
+      "812463ac9ed374f64ac9cadd500066ab723d3a6c",
+      "812463ac9ed374f64ac9cadd500066ab723d3a6c"
+    ]
+  },
+  "worktrees/CompactStar-external-deps-taskmanager-migration": {
+    "head": "8be1b6a083e1adac1dba7d64c75aa437533ab69a",
+    "branch": "physics/external-deps-taskmanager-migration",
+    "status": "?? docs/validation/evidence/"
+  },
+  "worktrees/ZakiLib-2.0.1-fp-preservation": {
+    "head": "e263a6e180c5c417198e7778bd21fc9c0a32dc33",
+    "branch": "modernize/zaki-2.0.1-fp-preservation",
+    "status": ""
+  },
+  "external/CONFIND": {
+    "head": "b0cbd510fd3fd0c772fa50499cd749287cb39e7b",
+    "branch": "master",
+    "status": "",
+    "master_origin_live": [
+      "b0cbd510fd3fd0c772fa50499cd749287cb39e7b",
+      "b0cbd510fd3fd0c772fa50499cd749287cb39e7b",
+      "b0cbd510fd3fd0c772fa50499cd749287cb39e7b"
+    ]
+  },
+  "Zaki_historical_archive_sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef",
+  "Confind_historical_archive_sha256": "09ed1a7c43a83b42f64ee8e0bda3b879af970126ee75159a802179a4d0a49eb2",
+  "/opt/local/lib/libgsl.dylib": {
+    "resolved": "/opt/local/lib/libgsl.27.dylib",
+    "sha256": "9667d3f90d26c5cfb5229472adf455c0bf6406f946764ad165ec5d4b2121543b"
+  },
+  "/opt/local/lib/libgslcblas.dylib": {
+    "resolved": "/opt/local/lib/libgslcblas.0.dylib",
+    "sha256": "d23286fa19ad863e8a3b1601fbd435c8cf0da8db617b9f55bc303ce1a6a09402"
+  },
+  "VecSaver_header": {
+    "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-external-deps-taskmanager-migration/dependencies/include/Zaki/File/VecSaver.hpp": "8f6ef4e30716917ce043746dd3b9968ca6d76adc0674d7b7907d76ea193f3461",
+    "/Users/keeper/Documents/CompactStar/worktrees/ZakiLib-2.0.1-fp-preservation/Zaki/File/VecSaver.hpp": "8f6ef4e30716917ce043746dd3b9968ca6d76adc0674d7b7907d76ea193f3461"
+  }
+}

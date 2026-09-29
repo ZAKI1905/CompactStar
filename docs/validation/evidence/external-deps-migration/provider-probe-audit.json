@@ -1,0 +1,156 @@
+{
+  "Debug": {
+    "common": 1581,
+    "changes": [
+      {
+        "symbol": "__ZN4Zaki6String9DirectoryC1EOS1_",
+        "old": {
+          "class": "Zaki",
+          "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Zaki/Darwin/arm64/libZaki.a(Directory.cpp.o)"
+        },
+        "new": {
+          "class": "CONFIND",
+          "provider": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/Debug/CONFIND/lib/libCONFIND.a(ContourFinder.cpp.o)"
+        },
+        "old_fp": [],
+        "old_instructions": 13,
+        "new_fp": [],
+        "new_instructions": 13
+      },
+      {
+        "symbol": "__ZN4Zaki6String9DirectoryC2EOS1_",
+        "old": {
+          "class": "Zaki",
+          "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Zaki/Darwin/arm64/libZaki.a(Directory.cpp.o)"
+        },
+        "new": {
+          "class": "CONFIND",
+          "provider": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/Debug/CONFIND/lib/libCONFIND.a(ContourFinder.cpp.o)"
+        },
+        "old_fp": [],
+        "old_instructions": 13,
+        "new_fp": [],
+        "new_instructions": 13
+      },
+      {
+        "symbol": "__ZNSt3__16vectorIN4Zaki4Math7Coord2DENS_9allocatorIS3_EEE12emplace_backIJRKS3_EEERS3_DpOT_",
+        "old": {
+          "class": "CONFIND",
+          "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a(Cont2D.cpp.o)"
+        },
+        "new": {
+          "class": "consumer",
+          "provider": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/provider-Debug/libCompactStar.a(TaskManager.cpp.o)"
+        },
+        "old_fp": [],
+        "old_instructions": 32,
+        "new_fp": [],
+        "new_instructions": 35
+      },
+      {
+        "symbol": "__ZNSt3__16vectorIN4Zaki4Math7Coord2DENS_9allocatorIS3_EEE26__swap_out_circular_bufferERNS_14__split_bufferIS3_RS5_EE",
+        "old": {
+          "class": "Zaki",
+          "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Zaki/Darwin/arm64/libZaki.a(Math_Core.cpp.o)"
+        },
+        "new": {
+          "class": "consumer",
+          "provider": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/provider-Debug/libCompactStar.a(TaskManager.cpp.o)"
+        },
+        "old_fp": [],
+        "old_instructions": 47,
+        "new_fp": [],
+        "new_instructions": 66
+      }
+    ]
+  },
+  "Release": {
+    "common": 784,
+    "changes": [
+      {
+        "symbol": "__ZN4Zaki4File6CSVRowD1Ev",
+        "old": {
+          "class": "Zaki",
+          "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Zaki/Darwin/arm64/libZaki.a(CSVIterator.cpp.o)"
+        },
+        "new": {
+          "class": "consumer",
+          "provider": "linker synthesized"
+        },
+        "old_fp": [],
+        "old_instructions": 11,
+        "new_fp": [],
+        "new_instructions": 28
+      },
+      {
+        "symbol": "__ZN4Zaki4File8VecSaver8Export1DINS_4Math7Coord2DEEEvRKNSt3__16vectorIT_NS5_9allocatorIS7_EEEE",
+        "old": {
+          "class": "Zaki",
+          "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Zaki/Darwin/arm64/libZaki.a(Math_Core.cpp.o)"
+        },
+        "new": {
+          "class": "consumer",
+          "provider": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/provider-Release/libCompactStar.a(TaskManager.cpp.o)"
+        },
+        "old_fp": [
+          "000000010009235c\tucvtf\td0, d0",
+          "0000000100092368\tfmul\td0, d0, d1",
+          "0000000100092370\tfadd\td0, d0, d1",
+          "0000000100092374\tfcvtzu\tx8, d0"
+        ],
+        "old_instructions": 502,
+        "new_fp": [
+          "00000001000207f0\tucvtf\td0, x22",
+          "0000000100020808\tfmadd\td0, d0, d1, d2",
+          "000000010002080c\tfcvtzu\tx0, d0"
+        ],
+        "new_instructions": 647
+      },
+      {
+        "symbol": "__ZN4Zaki6Vector10DataColumnaSERKS1_",
+        "old": {
+          "class": "Zaki",
+          "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Zaki/Darwin/arm64/libZaki.a(DataColumn.cpp.o)"
+        },
+        "new": {
+          "class": "consumer",
+          "provider": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/provider-Release/libCompactStar.a(RotationSolver.cpp.o)"
+        },
+        "old_fp": [],
+        "old_instructions": 18,
+        "new_fp": [],
+        "new_instructions": 17
+      },
+      {
+        "symbol": "__ZN4Zaki7Physics8GEICoordD1Ev",
+        "old": {
+          "class": "Zaki",
+          "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Zaki/Darwin/arm64/libZaki.a(Coordinate.cpp.o)"
+        },
+        "new": {
+          "class": "consumer",
+          "provider": "linker synthesized"
+        },
+        "old_fp": [],
+        "old_instructions": 0,
+        "new_fp": [],
+        "new_instructions": 0
+      },
+      {
+        "symbol": "l_switch.table._ZN4Zaki4File8VecSaver8Export1DINS_4Math7Coord2DEEEvRKNSt3__16vectorIT_NS5_9allocatorIS7_EEEE",
+        "old": {
+          "class": "consumer",
+          "provider": "../libCompactStar.a(TaskManager.cpp.o)"
+        },
+        "new": {
+          "class": "Zaki",
+          "provider": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/Release/Zaki/lib/libZaki.a(Math_Core.cpp.o)"
+        },
+        "old_fp": [],
+        "old_instructions": 0,
+        "new_fp": [],
+        "new_instructions": 0
+      }
+    ]
+  }
+}

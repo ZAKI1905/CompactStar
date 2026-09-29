@@ -1,0 +1,14 @@
+{
+  "name": "Zaki",
+  "mode": "Release",
+  "source": "/Users/keeper/Documents/CompactStar/worktrees/ZakiLib-2.0.1-fp-preservation",
+  "source_sha": "e263a6e180c5c417198e7778bd21fc9c0a32dc33",
+  "dirty": false,
+  "prefix": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/Release/Zaki",
+  "archive_sha256": "3b7f375ff789cd2c0edf58f97274c06fa047e4f477bf327214f9406461baad9d",
+  "headers_sha256": "51931f9eac6823cc21609741c7f60485d0dbfab8d815d0a541e897cbcc2528a2",
+  "configs_sha256": "8f1643012d7b651d4eccfa3a827b0aee9410ac15f8345253780e2c29560fc235",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "cmake": "cmake version 4.2.1\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake).\n",
+  "cache_sha256": "56a81fac7c733a149cd93286ac92313bb7050e1a9fd7ef39cef7f45829aadbda"
+}

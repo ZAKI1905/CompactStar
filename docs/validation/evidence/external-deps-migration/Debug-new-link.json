@@ -1,0 +1,19 @@
+[
+  "/usr/bin/clang++",
+  "-std=c++17",
+  "-arch",
+  "arm64",
+  "-pthread",
+  "-g",
+  "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/provider-Debug/new-driver.o",
+  "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/provider-Debug/libCompactStar.a",
+  "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/Debug/Zaki/lib/libZaki.a",
+  "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/Debug/CONFIND/lib/libCONFIND.a",
+  "/opt/local/lib/libgsl.dylib",
+  "/opt/local/lib/libgslcblas.dylib",
+  "/opt/local/lib/libomp/libomp.dylib",
+  "-lz",
+  "-Wl,-map,/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/provider-Debug/new.map",
+  "-o",
+  "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/provider-Debug/new-taskmanager"
+]

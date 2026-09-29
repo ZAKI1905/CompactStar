@@ -1,0 +1,63 @@
+Test project /Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/build-CONFIND-Debug
+      Start  1: historical_serial
+ 1/29 Test  #1: historical_serial ................   Passed    0.33 sec
+      Start  2: historical_export
+ 2/29 Test  #2: historical_export ................   Passed    0.25 sec
+      Start  3: historical_samples_workers_1
+ 3/29 Test  #3: historical_samples_workers_1 .....   Passed    0.10 sec
+      Start  4: historical_samples_workers_2
+ 4/29 Test  #4: historical_samples_workers_2 .....   Passed    0.09 sec
+      Start  5: historical_samples_workers_3
+ 5/29 Test  #5: historical_samples_workers_3 .....   Passed    0.09 sec
+      Start  6: historical_samples_workers_4
+ 6/29 Test  #6: historical_samples_workers_4 .....   Passed    0.10 sec
+      Start  7: historical_samples_workers_6
+ 7/29 Test  #7: historical_samples_workers_6 .....   Passed    0.10 sec
+      Start  8: historical_samples_workers_8
+ 8/29 Test  #8: historical_samples_workers_8 .....   Passed    0.10 sec
+      Start  9: ownership_inputs_exceptions
+ 9/29 Test  #9: ownership_inputs_exceptions ......   Passed    0.24 sec
+      Start 10: scheduler_stress_120_runs
+10/29 Test #10: scheduler_stress_120_runs ........   Passed   10.54 sec
+      Start 11: installed_package_consumer
+11/29 Test #11: installed_package_consumer .......   Passed    1.66 sec
+      Start 12: m1_historical_small
+12/29 Test #12: m1_historical_small ..............   Passed    0.22 sec
+      Start 13: m1_historical_stellar
+13/29 Test #13: m1_historical_stellar ............   Passed    5.36 sec
+      Start 14: m1_randomized_log_600
+14/29 Test #14: m1_randomized_log_600 ............   Passed   13.97 sec
+      Start 15: m1_randomized_linear_600
+15/29 Test #15: m1_randomized_linear_600 .........   Passed   12.96 sec
+      Start 16: threading_discrimination
+16/29 Test #16: threading_discrimination .........   Passed    0.26 sec
+      Start 17: m1_small_workers_1
+17/29 Test #17: m1_small_workers_1 ...............   Passed    0.02 sec
+      Start 18: m1_stellar_workers_1
+18/29 Test #18: m1_stellar_workers_1 .............   Passed    5.50 sec
+      Start 19: m1_small_workers_2
+19/29 Test #19: m1_small_workers_2 ...............   Passed    0.03 sec
+      Start 20: m1_stellar_workers_2
+20/29 Test #20: m1_stellar_workers_2 .............   Passed    5.51 sec
+      Start 21: m1_small_workers_3
+21/29 Test #21: m1_small_workers_3 ...............   Passed    0.02 sec
+      Start 22: m1_stellar_workers_3
+22/29 Test #22: m1_stellar_workers_3 .............   Passed    5.57 sec
+      Start 23: m1_small_workers_4
+23/29 Test #23: m1_small_workers_4 ...............   Passed    0.02 sec
+      Start 24: m1_stellar_workers_4
+24/29 Test #24: m1_stellar_workers_4 .............   Passed    5.52 sec
+      Start 25: m1_small_workers_6
+25/29 Test #25: m1_small_workers_6 ...............   Passed    0.02 sec
+      Start 26: m1_stellar_workers_6
+26/29 Test #26: m1_stellar_workers_6 .............   Passed    5.52 sec
+      Start 27: m1_small_workers_8
+27/29 Test #27: m1_small_workers_8 ...............   Passed    0.03 sec
+      Start 28: m1_stellar_workers_8
+28/29 Test #28: m1_stellar_workers_8 .............   Passed    5.55 sec
+      Start 29: m1_scheduler_stress_120_runs
+29/29 Test #29: m1_scheduler_stress_120_runs .....   Passed    0.66 sec
+
+100% tests passed, 0 tests failed out of 29
+
+Total Test time (real) =  80.38 sec

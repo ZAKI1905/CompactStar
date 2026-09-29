@@ -1,0 +1,121 @@
+{
+  "Debug": {
+    "old": [
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3D7XYDist2ERKS1_",
+        "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3DltERKS1_",
+        "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3DeqERKS1_",
+        "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3D7XYDist2ERKS1_.stub",
+        "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3DeqERKS1_.stub",
+        "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3DltERKS1_.stub",
+        "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3D7XYDist2ERKS1_.got",
+        "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3DeqERKS1_.got",
+        "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3DltERKS1_.got",
+        "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a(Cont2D.cpp.o)"
+      }
+    ],
+    "new": [
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3D7XYDist2ERKS1_",
+        "provider": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/Debug/CONFIND/lib/libCONFIND.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3DltERKS1_",
+        "provider": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/Debug/CONFIND/lib/libCONFIND.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3DeqERKS1_",
+        "provider": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/Debug/CONFIND/lib/libCONFIND.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3D7XYDist2ERKS1_.stub",
+        "provider": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/Debug/CONFIND/lib/libCONFIND.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3DeqERKS1_.stub",
+        "provider": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/Debug/CONFIND/lib/libCONFIND.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3DltERKS1_.stub",
+        "provider": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/Debug/CONFIND/lib/libCONFIND.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3D7XYDist2ERKS1_.got",
+        "provider": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/Debug/CONFIND/lib/libCONFIND.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3DeqERKS1_.got",
+        "provider": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/Debug/CONFIND/lib/libCONFIND.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3DltERKS1_.got",
+        "provider": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/Debug/CONFIND/lib/libCONFIND.a(Cont2D.cpp.o)"
+      }
+    ]
+  },
+  "Release": {
+    "old": [
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3D7XYDist2ERKS1_",
+        "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3DltERKS1_",
+        "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3DeqERKS1_",
+        "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3D7XYDist2ERKS1_.stub",
+        "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3DeqERKS1_.stub",
+        "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3DltERKS1_.stub",
+        "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3D7XYDist2ERKS1_.got",
+        "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3DeqERKS1_.got",
+        "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a(Cont2D.cpp.o)"
+      },
+      {
+        "symbol": "__ZNK4Zaki7Physics7Coord3DltERKS1_.got",
+        "provider": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Confind/Darwin/arm64/libConfind.a(Cont2D.cpp.o)"
+      }
+    ],
+    "new": []
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "schema": 1,
+  "compactstar_sha": "812463ac9ed374f64ac9cadd500066ab723d3a6c",
+  "patch_sha256": "3e82a276d5425f68529ef7648c5a7900337fff84edeea685eab2fe5105884b52",
+  "numerical_side_effect_present": 0,
+  "files": [
+    {
+      "file": "CompactStar/Core/src/TaskManager.cpp",
+      "original_sha256": "0e9786126bd797c264731742201df70cc80192b089ccbd3b9ee6c7e6a051df62",
+      "modified_sha256": "86f06afcfefea4afdf698d58d67a559d3611ca9d1db5934edbe80722863f845d",
+      "statements": [
+        {
+          "first_line": 342,
+          "last_line": 342,
+          "api": "CONFIND::SetPlotConnected",
+          "classification": "PLOT_SETUP_ONLY",
+          "text": "\tcon.SetPlotConnected();\n"
+        },
+        {
+          "first_line": 347,
+          "last_line": 348,
+          "api": "CONFIND::Plot",
+          "classification": "PLOT_CALL_ONLY",
+          "text": "\tcon.Plot(\"NStar/Dark_Core/\" + std::string(tmp) +\n\t\t\t \"/B_vis_conts\");\n"
+        },
+        {
+          "first_line": 415,
+          "last_line": 416,
+          "api": "Curve2D::Plot",
+          "classification": "PLOT_CALL_ONLY",
+          "text": "\tcritical_curve.Plot(wrk_dir_ + \"/NStar/Dark_Core/\" + std::string(tmp) +\n\t\t\t\t\t\t\"/Crit_curve_smooth.pdf\");\n"
+        },
+        {
+          "first_line": 518,
+          "last_line": 518,
+          "api": "CONFIND::SetPlotConnected",
+          "classification": "PLOT_SETUP_ONLY",
+          "text": "\tcon.SetPlotConnected();\n"
+        },
+        {
+          "first_line": 519,
+          "last_line": 522,
+          "api": "CONFIND::Plot",
+          "classification": "PLOT_CALL_ONLY",
+          "text": "\tcon.Plot(\"NStar/Dark_Core/\" + chi_str +\n\t\t\t\t \"/M_tot_\" + std::string(tmp),\n\t\t\t (\"M_tot = \" + std::string(tmp)).c_str(),\n\t\t\t \"eps_v\", \"eps_d\");\n"
+        },
+        {
+          "first_line": 623,
+          "last_line": 625,
+          "api": "Curve2D::Plot",
+          "classification": "PLOT_CALL_ONLY",
+          "text": "\tZaki::Math::Curve2D::Plot(B_curv_stable, wrk_dir_ + \"/NStar/Dark_Core/\" +\n\t\t\t\t\t\t\t\t\t\t\t\t chi_str + \"/B_conts/\" +\n\t\t\t\t\t\t\t\t\t\t\t\t m_str + \"/B_tot_bisected.pdf\");\n"
+        },
+        {
+          "first_line": 627,
+          "last_line": 627,
+          "api": "CONFIND::SetPlotConnected",
+          "classification": "PLOT_SETUP_ONLY",
+          "text": "\tcon.SetPlotConnected();\n"
+        },
+        {
+          "first_line": 628,
+          "last_line": 629,
+          "api": "CONFIND::Plot",
+          "classification": "PLOT_CALL_ONLY",
+          "text": "\tcon.Plot(\"NStar/Dark_Core/\" + chi_str + \"/B_conts/\" + m_str + \"/B_tot_\" + m_str,\n\t\t\t \"B_tot\", \"eps_v\", \"eps_d\");\n"
+        }
+      ]
+    },
+    {
+      "file": "CompactStar/Extensions/MixedStar/src/DarkCore_Analysis.cpp",
+      "original_sha256": "65c35d86afb8b9cfb2484461c7e7b71caf7728d4460cb4ff052cbcbf6660a1ef",
+      "modified_sha256": "a7b8b60f7a389fac20e0b3d5a77af8852047839faa383b3ee092989504bbb6d1",
+      "statements": [
+        {
+          "first_line": 373,
+          "last_line": 373,
+          "api": "DataSet::Plot",
+          "classification": "PLOT_CALL_ONLY",
+          "text": "\tneutron_out.Plot(0, 7, \"BNV_neutron_age_death_ratio.pdf\");\n"
+        },
+        {
+          "first_line": 374,
+          "last_line": 374,
+          "api": "DataSet::Plot",
+          "classification": "PLOT_CALL_ONLY",
+          "text": "\tneutron_out.Plot(0, {3, 5}, \"BNV_neutron_age_death.pdf\", \"Age & Death\");\n"
+        },
+        {
+          "first_line": 382,
+          "last_line": 382,
+          "api": "DataSet::Plot",
+          "classification": "PLOT_CALL_ONLY",
+          "text": "\tn_gamma.Plot(0, 1, \"BNV_neutron_gamma_age.pdf\", \"Age = 2.6 Gyr\");\n"
+        },
+        {
+          "first_line": 383,
+          "last_line": 383,
+          "api": "DataSet::Plot",
+          "classification": "PLOT_CALL_ONLY",
+          "text": "\tn_gamma.Plot(0, 2, \"BNV_neutron_gamma_death.pdf\", \"Death = 10 Gyr\");\n"
+        },
+        {
+          "first_line": 384,
+          "last_line": 384,
+          "api": "DataSet::Plot",
+          "classification": "PLOT_CALL_ONLY",
+          "text": "\tn_gamma.Plot(-1, 2, \"BNV_neutron_gamma_death_ratio.pdf\", \"Death = 10 Gyr\");\n"
+        },
+        {
+          "first_line": 386,
+          "last_line": 386,
+          "api": "DataSet::SemiLogYPlot",
+          "classification": "PLOT_CALL_ONLY",
+          "text": "\tn_gamma.SemiLogYPlot(0, {1, 2}, \"BNV_neutron_gamma.pdf\", \"Age = 2.6 Gyr, Death = 10 Gyr\");\n"
+        },
+        {
+          "first_line": 395,
+          "last_line": 395,
+          "api": "DataSet::Plot",
+          "classification": "PLOT_CALL_ONLY",
+          "text": "\tlambda_out.Plot(0, 7, \"BNV_lambda_age_death_ratio.pdf\");\n"
+        },
+        {
+          "first_line": 396,
+          "last_line": 396,
+          "api": "DataSet::Plot",
+          "classification": "PLOT_CALL_ONLY",
+          "text": "\tlambda_out.Plot(0, {3, 5}, \"BNV_lambda_age_death.pdf\", \"Age & Death\");\n"
+        },
+        {
+          "first_line": 402,
+          "last_line": 402,
+          "api": "DataSet::Plot",
+          "classification": "PLOT_CALL_ONLY",
+          "text": "\tlambda_gamma.Plot(0, 1, \"BNV_lambda_gamma_age.pdf\", \"Age = 2.6 Gyr\");\n"
+        },
+        {
+          "first_line": 403,
+          "last_line": 403,
+          "api": "DataSet::Plot",
+          "classification": "PLOT_CALL_ONLY",
+          "text": "\tlambda_gamma.Plot(0, 2, \"BNV_lambda_gamma_death.pdf\", \"Death = 10 Gyr\");\n"
+        },
+        {
+          "first_line": 404,
+          "last_line": 404,
+          "api": "DataSet::Plot",
+          "classification": "PLOT_CALL_ONLY",
+          "text": "\tlambda_gamma.Plot(-1, 2, \"BNV_lambda_gamma_death_ratio.pdf\", \"Death = 10 Gyr\");\n"
+        },
+        {
+          "first_line": 406,
+          "last_line": 406,
+          "api": "DataSet::SemiLogYPlot",
+          "classification": "PLOT_CALL_ONLY",
+          "text": "\tlambda_gamma.SemiLogYPlot(0, {1, 2}, \"BNV_lambda_gamma.pdf\", \"Age = 2.6 Gyr, Death = 10 Gyr\");\n"
+        },
+        {
+          "first_line": 415,
+          "last_line": 415,
+          "api": "DataSet::Plot",
+          "classification": "PLOT_CALL_ONLY",
+          "text": "\tsigmam_out.Plot(0, 7, \"BNV_sigmam_age_death_ratio.pdf\");\n"
+        },
+        {
+          "first_line": 416,
+          "last_line": 416,
+          "api": "DataSet::Plot",
+          "classification": "PLOT_CALL_ONLY",
+          "text": "\tsigmam_out.Plot(0, {3, 5}, \"BNV_sigmam_age_death.pdf\", \"Age & Death\");\n"
+        },
+        {
+          "first_line": 422,
+          "last_line": 422,
+          "api": "DataSet::Plot",
+          "classification": "PLOT_CALL_ONLY",
+          "text": "\tsigmam_gamma.Plot(0, 1, \"BNV_sigma-_gamma_age.pdf\", \"Age = 2.6 Gyr\");\n"
+        },
+        {
+          "first_line": 423,
+          "last_line": 423,
+          "api": "DataSet::Plot",
+          "classification": "PLOT_CALL_ONLY",
+          "text": "\tsigmam_gamma.Plot(0, 2, \"BNV_sigma-_gamma_death.pdf\", \"Death = 10 Gyr\");\n"
+        },
+        {
+          "first_line": 424,
+          "last_line": 424,
+          "api": "DataSet::Plot",
+          "classification": "PLOT_CALL_ONLY",
+          "text": "\tsigmam_gamma.Plot(-1, 2, \"BNV_sigma-_gamma_death_ratio.pdf\", \"Death = 10 Gyr\");\n"
+        },
+        {
+          "first_line": 426,
+          "last_line": 426,
+          "api": "DataSet::SemiLogYPlot",
+          "classification": "PLOT_CALL_ONLY",
+          "text": "\tsigmam_gamma.SemiLogYPlot(0, {1, 2}, \"BNV_sigma-_gamma.pdf\", \"Age = 2.6 Gyr, Death = 10 Gyr\");\n"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "CONFIND",
+  "mode": "Release",
+  "source": "/Users/keeper/Documents/CompactStar/external/CONFIND",
+  "source_sha": "b0cbd510fd3fd0c772fa50499cd749287cb39e7b",
+  "dirty": false,
+  "prefix": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/Release/CONFIND",
+  "archive_sha256": "4cee9b8361fec75023d74b8a68bf7efae54f69cf1464e478173bcfb5d38b524d",
+  "headers_sha256": "0e02d55747cfa7bce70fdc9c660a4b95ec540dd4ce0c9bd94fbb68bccd5fd99b",
+  "configs_sha256": "ab72334b769fe04819978ded164546fba83231844190d7735dcfadfea3bf2b6d",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "cmake": "cmake version 4.2.1\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake).\n",
+  "cache_sha256": "1fc268262fea40ed21ca2657388e35a4f156febfd9fd3db9f18be60730f106ae"
+}

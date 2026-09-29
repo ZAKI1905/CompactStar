@@ -1,0 +1,29 @@
+Test project /Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/build-Zaki-Debug
+      Start  1: zaki_constants_characterization
+ 1/12 Test  #1: zaki_constants_characterization .........   Passed    0.35 sec
+      Start  2: zaki_axis_grid_characterization
+ 2/12 Test  #2: zaki_axis_grid_characterization .........   Passed    0.19 sec
+      Start  3: zaki_datacolumn_characterization
+ 3/12 Test  #3: zaki_datacolumn_characterization ........   Passed    0.18 sec
+      Start  4: zaki_dataset_access_characterization
+ 4/12 Test  #4: zaki_dataset_access_characterization ....   Passed    0.18 sec
+      Start  5: zaki_dataset_interp_characterization
+ 5/12 Test  #5: zaki_dataset_interp_characterization ....   Passed    0.19 sec
+      Start  6: zaki_integrate_trapz_characterization
+ 6/12 Test  #6: zaki_integrate_trapz_characterization ...   Passed    0.21 sec
+      Start  7: zaki_gridvals2d_characterization
+ 7/12 Test  #7: zaki_gridvals2d_characterization ........   Passed    0.18 sec
+      Start  8: zaki_geometry_characterization
+ 8/12 Test  #8: zaki_geometry_characterization ..........   Passed    0.18 sec
+      Start  9: zaki_safety_fixes
+ 9/12 Test  #9: zaki_safety_fixes .......................   Passed    0.18 sec
+      Start 10: zaki_zlib_link_smoke
+10/12 Test #10: zaki_zlib_link_smoke ....................   Passed    0.18 sec
+      Start 11: zaki_dataset_io_characterization
+11/12 Test #11: zaki_dataset_io_characterization ........   Passed    0.18 sec
+      Start 12: zaki_characterization_hash
+12/12 Test #12: zaki_characterization_hash ..............   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 12
+
+Total Test time (real) =   2.24 sec

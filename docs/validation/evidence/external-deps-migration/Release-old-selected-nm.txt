@@ -1,0 +1,4 @@
+0000000100091e34 (__TEXT,__text) weak external __ZN4Zaki4File8VecSaver8Export1DINS_4Math7Coord2DEEEvRKNSt3__16vectorIT_NS5_9allocatorIS7_EEEE
+00000001000c9840 (__TEXT,__text) weak external __ZNK4Zaki7Physics7Coord3D7XYDist2ERKS1_
+00000001000cb438 (__TEXT,__text) weak external __ZNK4Zaki7Physics7Coord3DeqERKS1_
+00000001000ca858 (__TEXT,__text) weak external __ZNK4Zaki7Physics7Coord3DltERKS1_
