@@ -683,26 +683,13 @@ void MicroBNVCh::BNV_B_Chi_Photon::hidden_Plot_Thermal_Hole_E_Rate_vs_Density(
 	snprintf(file_ch, 200, "Thermal_Hole_Rate_vs_n_%s_%.0f.pdf", B.label.c_str(), m_chi);
 	std::string title_str = "\n PSR" + pulsar.GetName() + "$\\qquad$" + "[ " + model + " ]";
 
-	Zaki::Vector::DataSet::PlotParam plt_pars;
-	plt_pars.SetGrid();
-	plt_pars.SetXAxisLabel("$n\\, ({\\rm fm}^{-3})$");
-	plt_pars.SetYAxisLabel("$Q_{H} (" + GetSpecificProcess(B).TeX + ")\\, \\left({\\rm MeV}\\, s^{-1}/{\\rm fm}^3\\right)$");
 
-	if (cgs_units)
-	{
-		plt_pars.SetYAxisLabel("$Q_{H} (" + GetSpecificProcess(B).TeX + ")\\, \\left({\\rm erg}\\, {\\rm cm}^{-3}\\, {\rm s}^{-1}\\right)$");
-	}
 
 	double rate_max = ds->operator[](1).Max();
 	double rate_min = ds->operator[](1).Min();
 
-	if (rate_min < 1e-4 * rate_max)
-	{
-		plt_pars.SetYAxis({1e-4 * rate_max, 2 * rate_max});
-	}
 
-	ds->SetPlotPars(plt_pars);
-	ds->SemiLogYPlot(0, 1, std::string(file_ch), title_str);
+
 }
 
 //--------------------------------------------------------------
@@ -791,50 +778,29 @@ void MicroBNVCh::BNV_B_Chi_Photon::Thermal_Hole_E_Rate_vs_R(const std::vector<do
 	snprintf(file_ch, 200, "Thermal_Hole_Rate_vs_R_%s.pdf", B.label.c_str());
 	std::string title_str = "\n PSR" + pulsar.GetName() + "$\\qquad$" + "[ " + model + "]";
 
-	Zaki::Vector::DataSet::PlotParam plt_pars;
-	plt_pars.SetGrid();
-	plt_pars.SetXAxisLabel("$R\\, ({\\rm km})$");
-	plt_pars.SetYAxisLabel("$Q_H (" + GetSpecificProcess(B).TeX + ")\\,\\, \\left({\\rm MeV}\\, s^{-1}/{\\rm fm}^3\\right)$");
 
-	if (cgs_units)
-	{
-		plt_pars.SetYAxisLabel("$Q_H (" + GetSpecificProcess(B).TeX + ")\\,\\, \\left({\\rm erg}\\, {\\rm cm}^{-3}\\, s^{-1}\\right)$");
-	}
 
 	// if (rate_min < 1e-4 * rate_max)
 	// {
-	//   plt_pars.SetYAxis({1e6 * rate_min, 2 * rate_max}) ;
 	// }
-	plt_pars.SetLegend({"lower right", 1.0, 0.0});
-	// plt_pars.SetXAxis({0, rate_vs_r[0].Max()}) ;
-	plt_pars.SetXAxis({0, 14});
+
 
 	if (B.label == "10")
 	{
-		if (cgs_units)
-		{
-			plt_pars.SetYAxis({1e12, 1e21});
-		}
 		else
 		{
-			plt_pars.SetYAxis({1e-21, 3e-13});
+
 		}
 	}
 
 	if (B.label == "100")
 	{
-		if (cgs_units)
-		{
-			plt_pars.SetYAxis({1e13, 2e18});
-		}
 		else
 		{
-			plt_pars.SetYAxis({1e-20, 1e-15});
+
 		}
 	}
 
-	rate_vs_r.SetPlotPars(plt_pars);
-	rate_vs_r.SemiLogYPlot(0, labels, std::string(file_ch), title_str);
 
 	// ------------------------------------
 	//        Exporting the dataset
@@ -872,41 +838,19 @@ void MicroBNVCh::BNV_B_Chi_Photon::hidden_Plot_Thermal_Hole_E_Rate_vs_R(
 	snprintf(file_ch, 200, "Thermal_Hole_Rate_vs_R_%s_%.0f.pdf", B.label.c_str(), m_chi);
 	std::string title_str = "\n PSR" + pulsar.GetName() + "$\\qquad$" + "[ " + model + "]";
 
-	Zaki::Vector::DataSet::PlotParam plt_pars;
-	plt_pars.SetGrid();
-	plt_pars.SetXAxisLabel("$R\\, ({\\rm km})$");
-	// plt_pars.SetYAxisLabel("$\\frac{dE}{d\\tau\\, dV} ("+ GetSpecificProcess(B).TeX
-	//                       + ")\\,\\, \\left({\\rm MeV} \\, s^{-1}/{\\rm fm}^3\\right)$") ;
 
-	plt_pars.SetYAxisLabel("$Q_H (" + GetSpecificProcess(B).TeX + ")\\,\\, \\left({\\rm MeV} \\, s^{-1}/{\\rm fm}^3\\right)$");
-
-	if (cgs_units)
-	{
-		plt_pars.SetYAxisLabel("$Q_H (" + GetSpecificProcess(B).TeX + ")\\,\\, \\left({\\rm erg}\\, {\\rm cm}^-3 \\, {\\rm s}^{-1}\\right)$");
-	}
 
 	double rate_max = ds->operator[](1).Max();
 	double rate_min = ds->operator[](1).Min();
 
 	// if (rate_min < 1e-4 * rate_max)
 	// {
-	//   plt_pars.SetYAxis({1e-4 * rate_max, 2 * rate_max}) ;
 	// }
 
-	plt_pars.SetXAxis({0, 14});
 
-	if (B.label == "10")
-	{
-		plt_pars.SetYAxis({1e-21, 3e-13});
-	}
 
-	if (B.label == "100")
-	{
-		plt_pars.SetYAxis({1e-21, 1.1e-18});
-	}
 
-	ds->SetPlotPars(plt_pars);
-	ds->SemiLogYPlot(0, 1, std::string(file_ch), title_str);
+
 }
 
 //--------------------------------------------------------------
@@ -922,41 +866,19 @@ void MicroBNVCh::BNV_B_Chi_Photon::hidden_Plot_Thermal_Photon_E_Rate_vs_R(
 	snprintf(file_ch, 200, "Thermal_Photon_Rate_vs_R_%s_%.0f.pdf", B.label.c_str(), m_chi);
 	std::string title_str = "\n PSR" + pulsar.GetName() + "$\\qquad$" + "[ " + model + "]";
 
-	Zaki::Vector::DataSet::PlotParam plt_pars;
-	plt_pars.SetGrid();
-	plt_pars.SetXAxisLabel("$R\\, ({\\rm km})$");
-	// plt_pars.SetYAxisLabel("$\\frac{dE}{d\\tau\\, dV} ("+ GetSpecificProcess(B).TeX
-	//                       + ")\\,\\, \\left({\\rm MeV} \\, s^{-1}/{\\rm fm}^3\\right)$") ;
 
-	plt_pars.SetYAxisLabel("$Q_{\\gamma} (" + GetSpecificProcess(B).TeX + ")\\,\\, \\left({\\rm MeV} \\, s^{-1}/{\\rm fm}^3\\right)$");
-
-	if (cgs_units)
-	{
-		plt_pars.SetYAxisLabel("$Q_{\\gamma} (" + GetSpecificProcess(B).TeX + ")\\,\\, \\left({\\rm erg}\\, {\\rm cm}^-3 \\, {\\rm s}^{-1}\\right)$");
-	}
 
 	double rate_max = ds->operator[](1).Max();
 	double rate_min = ds->operator[](1).Min();
 
 	// if (rate_min < 1e-4 * rate_max)
 	// {
-	//   plt_pars.SetYAxis({1e-4 * rate_max, 2 * rate_max}) ;
 	// }
 
-	plt_pars.SetXAxis({0, 14});
 
-	if (B.label == "10")
-	{
-		plt_pars.SetYAxis({1e-21, 3e-13});
-	}
 
-	if (B.label == "100")
-	{
-		plt_pars.SetYAxis({1e-21, 1.1e-18});
-	}
 
-	ds->SetPlotPars(plt_pars);
-	ds->SemiLogYPlot(0, 1, std::string(file_ch), title_str);
+
 }
 
 //--------------------------------------------------------------
@@ -972,26 +894,13 @@ void MicroBNVCh::BNV_B_Chi_Photon::hidden_Plot_Thermal_Photon_E_Rate_vs_Density(
 	snprintf(file_ch, 200, "Thermal_Photon_Rate_vs_n_%s_%.0f.pdf", B.label.c_str(), m_chi);
 	std::string title_str = "\n PSR" + pulsar.GetName() + "$\\qquad$" + "[ " + model + " ]";
 
-	Zaki::Vector::DataSet::PlotParam plt_pars;
-	plt_pars.SetGrid();
-	plt_pars.SetXAxisLabel("$n\\, ({\\rm fm}^{-3})$");
-	plt_pars.SetYAxisLabel("$Q_{\\gamma} (" + GetSpecificProcess(B).TeX + ")\\, \\left({\\rm MeV}\\, s^{-1}/{\\rm fm}^3\\right)$");
 
-	if (cgs_units)
-	{
-		plt_pars.SetYAxisLabel("$Q_{\\gamma} (" + GetSpecificProcess(B).TeX + ")\\, \\left({\\rm erg}\\, {\\rm cm}^{-3}\\, {\rm s}^{-1}\\right)$");
-	}
 
 	double rate_max = ds->operator[](1).Max();
 	double rate_min = ds->operator[](1).Min();
 
-	if (rate_min < 1e-4 * rate_max)
-	{
-		plt_pars.SetYAxis({1e-4 * rate_max, 2 * rate_max});
-	}
 
-	ds->SetPlotPars(plt_pars);
-	ds->SemiLogYPlot(0, 1, std::string(file_ch), title_str);
+
 }
 
 //--------------------------------------------------------------
@@ -1123,50 +1032,29 @@ void MicroBNVCh::BNV_B_Chi_Photon::Thermal_Photon_E_Rate_vs_R(const std::vector<
 	snprintf(file_ch, 200, "Thermal_Photon_Rate_vs_R_%s.pdf", B.label.c_str());
 	std::string title_str = "\n PSR" + pulsar.GetName() + "$\\qquad$" + "[ " + model + "]";
 
-	Zaki::Vector::DataSet::PlotParam plt_pars;
-	plt_pars.SetGrid();
-	plt_pars.SetXAxisLabel("$R\\, ({\\rm km})$");
-	plt_pars.SetYAxisLabel("$Q_{\\gamma} (" + GetSpecificProcess(B).TeX + ")\\,\\, \\left({\\rm MeV}\\, s^{-1}/{\\rm fm}^3\\right)$");
 
-	if (cgs_units)
-	{
-		plt_pars.SetYAxisLabel("$Q_{\\gamma} (" + GetSpecificProcess(B).TeX + ")\\,\\, \\left({\\rm erg}\\, {\\rm cm}^{-3}\\, s^{-1}\\right)$");
-	}
 
 	// if (rate_min < 1e-4 * rate_max)
 	// {
-	//   plt_pars.SetYAxis({1e6 * rate_min, 2 * rate_max}) ;
 	// }
-	plt_pars.SetLegend({"lower right", 1.0, 0.0});
-	// plt_pars.SetXAxis({0, rate_vs_r[0].Max()}) ;
-	plt_pars.SetXAxis({0, 14});
+
 
 	if (B.label == "10")
 	{
-		if (cgs_units)
-		{
-			plt_pars.SetYAxis({1e12, 1e21});
-		}
 		else
 		{
-			plt_pars.SetYAxis({1e-21, 3e-13});
+
 		}
 	}
 
 	if (B.label == "100")
 	{
-		if (cgs_units)
-		{
-			plt_pars.SetYAxis({1e13, 2e18});
-		}
 		else
 		{
-			plt_pars.SetYAxis({1e-20, 1e-15});
+
 		}
 	}
 
-	rate_vs_r.SetPlotPars(plt_pars);
-	rate_vs_r.SemiLogYPlot(0, labels, std::string(file_ch), title_str);
 
 	// ------------------------------------
 	//        Exporting the dataset
@@ -1249,9 +1137,6 @@ void MicroBNVCh::BNV_B_Chi_Photon::Plot_Thermal_Photon_E_Rate()
 		rate.AppendRow({m_chi, rate_n, rate_lam});
 	}
 
-	Zaki::Vector::DataSet::PlotParam plt_par;
-	plt_par.SetLegend({"lower left", 0.0, 0.0});
-	plt_par.SetGrid();
 
 	rate.SetWrkDir(wrk_dir_ + model + "/" + pulsar.GetName() + "/" + process.name);
 	std::string f_name_suff = model + "_" + pulsar.GetName() + ".pdf";
@@ -1263,19 +1148,14 @@ void MicroBNVCh::BNV_B_Chi_Photon::Plot_Thermal_Photon_E_Rate()
 	if (cgs_units)
 	{
 		unit_str = "erg/s";
-		plt_par.SetYAxisLabel("$L_{\\gamma} \\, \\left({\\rm erg}\\, s^{-1}\\right)$");
+
 	}
 	else
 	{
-		plt_par.SetYAxisLabel("$L_{\\gamma} \\, \\left({\\rm MeV}\\, s^{-1}\\right)$");
+
 	}
 
-	plt_par.SetXAxis({0, 1400});
-	plt_par.SetXAxisLabel("$m_{\\chi}\\, ( {\\rm MeV} ) $");
-	// plt_par.SetYAxis({1e-1, 3e7}) ; // For Combo
-	rate.SetPlotPars(plt_par);
-	rate.SemiLogYPlot(0, {{1, "$n$"}, {2, "$\\Lambda$"}},
-					  "Thermal_Photon_Rate_" + f_name_suff, title_str);
+
 	// ...........................................
 
 	rate[0].SetLabel("m_chi [MeV]");
@@ -1319,21 +1199,14 @@ void MicroBNVCh::BNV_B_Chi_Photon::Plot_Limited_Thermal_E_Rate() const
 	default_rate[1] *= (eps_limits[3] / default_eps).pow(2);
 	default_rate[2] *= (eps_limits[4] / default_eps).pow(2);
 
-	Zaki::Vector::DataSet::PlotParam plt_par;
-	plt_par.SetLegend({"lower left", 0.0, 0.0});
-	plt_par.SetGrid();
 
 	// rate.SetWrkDir(wrk_dir_ + model + "/" + pulsar.GetName()
 	//                   + "/" + process.name) ;
 	std::string out_f_name_suff = model + "_" + pulsar.GetName() + ".pdf";
 
 	std::string title_str = "\n PSR" + pulsar.GetName() + "$\\qquad$" + "[ " + model + " ]";
-	plt_par.SetYAxisLabel("$\\frac{dE}{dt} \\, \\left({\\rm MeV}\\, s^{-1}\\right)$");
-	plt_par.SetXAxis({0, 1400});
-	plt_par.SetXAxisLabel("$m_{\\chi}\\, ( {\\rm MeV} ) $");
-	default_rate.SetPlotPars(plt_par);
-	default_rate.SemiLogYPlot(0, {{1, "$n$"}, {2, "$\\Lambda$"}},
-							  "Limited_Thermal_Rate_" + out_f_name_suff, title_str);
+
+
 	// ...........................................
 	default_rate[0].SetLabel("m_chi [MeV]");
 	default_rate[1].SetLabel("Gamma_E_n [MeV/s]");
@@ -1628,9 +1501,6 @@ Zaki::Vector::DataSet MicroBNVCh::BNV_B_Chi_Photon::Rate_vs_Density(
 		// snprintf(tmp_char, sizeof(tmp_char), "%.0f", m_chi) ;
 
 		// tmp_plot.SetWrkDir(wrk_dir_ + "/BNV_2022/results/B_Chi_Photon_Decay/"+model) ;
-		// tmp_plot.Plot(0, 1, "Decay_per_V_vs_n/" + in_B.label +"_Decay_per_V_vs_n/" +
-		//                     in_B.label+"_decay_per_V_vs_n_"+std::string(tmp_char)+".pdf",
-		//                     "$\\varepsilon = 10^{-10}\\, {\\rm MeV}$") ;
 	}
 
 	return rate;
@@ -1773,50 +1643,29 @@ void MicroBNVCh::BNV_B_Chi_Photon::Thermal_Total_E_Rate_vs_R(
 	snprintf(file_ch, 200, "Thermal_Total_Rate_vs_R_%s.pdf", B.label.c_str());
 	std::string title_str = "\n PSR" + pulsar.GetName() + "$\\qquad$" + "[ " + model + "]";
 
-	Zaki::Vector::DataSet::PlotParam plt_pars;
-	plt_pars.SetGrid();
-	plt_pars.SetXAxisLabel("$R\\, ({\\rm km})$");
-	plt_pars.SetYAxisLabel("$Q_T (" + GetSpecificProcess(B).TeX + ")\\,\\, \\left({\\rm MeV}\\, s^{-1}/{\\rm fm}^3\\right)$");
 
-	if (cgs_units)
-	{
-		plt_pars.SetYAxisLabel("$Q_T (" + GetSpecificProcess(B).TeX + ")\\,\\, \\left({\\rm erg}\\, {\\rm cm}^{-3}\\, s^{-1}\\right)$");
-	}
 
 	// if (rate_min < 1e-4 * rate_max)
 	// {
-	//   plt_pars.SetYAxis({1e6 * rate_min, 2 * rate_max}) ;
 	// }
-	plt_pars.SetLegend({"lower right", 1.0, 0.0});
-	// plt_pars.SetXAxis({0, rate_vs_r[0].Max()}) ;
-	plt_pars.SetXAxis({0, 14});
+
 
 	if (B.label == "10")
 	{
-		if (cgs_units)
-		{
-			plt_pars.SetYAxis({1e12, 1e21});
-		}
 		else
 		{
-			plt_pars.SetYAxis({1e-21, 3e-13});
+
 		}
 	}
 
 	if (B.label == "100")
 	{
-		if (cgs_units)
-		{
-			plt_pars.SetYAxis({1e13, 2e18});
-		}
 		else
 		{
-			plt_pars.SetYAxis({1e-20, 1e-15});
+
 		}
 	}
 
-	rate_vs_r.SetPlotPars(plt_pars);
-	rate_vs_r.SemiLogYPlot(0, labels, std::string(file_ch), title_str);
 
 	// ------------------------------------
 	//        Exporting the dataset
@@ -1898,9 +1747,6 @@ void MicroBNVCh::BNV_B_Chi_Photon::Plot_Thermal_Total_E_Rate()
 		rate.AppendRow({m_chi, rate_n, rate_lam});
 	}
 
-	Zaki::Vector::DataSet::PlotParam plt_par;
-	plt_par.SetLegend({"lower left", 0.0, 0.0});
-	plt_par.SetGrid();
 
 	rate.SetWrkDir(wrk_dir_ + model + "/" + pulsar.GetName() + "/" + process.name);
 	std::string f_name_suff = model + "_" + pulsar.GetName() + ".pdf";
@@ -1912,19 +1758,14 @@ void MicroBNVCh::BNV_B_Chi_Photon::Plot_Thermal_Total_E_Rate()
 	if (cgs_units)
 	{
 		unit_str = "erg/s";
-		plt_par.SetYAxisLabel("$L_{\\rm BNV} \\, \\left({\\rm erg}\\, s^{-1}\\right)$");
+
 	}
 	else
 	{
-		plt_par.SetYAxisLabel("$L_{\\rm BNV} \\, \\left({\\rm MeV}\\, s^{-1}\\right)$");
+
 	}
 
-	plt_par.SetXAxis({0, 1400});
-	plt_par.SetXAxisLabel("$m_{\\chi}\\, ( {\\rm MeV} ) $");
-	// plt_par.SetYAxis({1e-1, 3e7}) ; // For Combo
-	rate.SetPlotPars(plt_par);
-	rate.SemiLogYPlot(0, {{1, "$n$"}, {2, "$\\Lambda$"}},
-					  "Thermal_Total_Rate_" + f_name_suff, title_str);
+
 	// ...........................................
 	rate[0].SetLabel("m_chi [MeV]");
 	rate[1].SetLabel("Gamma_E_n [" + unit_str + "]");
@@ -1989,23 +1830,13 @@ void MicroBNVCh::BNV_B_Chi_Photon::Limit_eps_From_Heating(const double &T_core)
 	// 	limits.AppendRow({m_chi, eps_n_scaled, eps_lam_scaled});
 	// }
 
-	// Zaki::Vector::DataSet::PlotParam plt_par;
-	// plt_par.SetLegend({"lower left", 0.0, 0.0});
-	// plt_par.SetGrid();
 
 	// limits.SetWrkDir(wrk_dir_ + model + "/" + pulsar.GetName() + "/" + process.name);
 	// std::string f_name_suff = model + "_" + pulsar.GetName() + ".pdf";
 
 	// std::string title_str = "\n PSR" + pulsar.GetName() + "$\\qquad$" + "[ " + model + " ]";
 
-	// plt_par.SetYAxisLabel("$\\varepsilon_{\\cal B} \\, \\left({\\rm MeV}\\right)$");
 
-	// plt_par.SetXAxis({0, 1400});
-	// plt_par.SetXAxisLabel("$m_{\\chi}\\, ( {\\rm MeV} ) $");
-	// plt_par.SetYAxis({1e-27, 1e-4});
-	// limits.SetPlotPars(plt_par);
-	// limits.SemiLogYPlot(0, {{1, "$n$"}, {2, "$\\Lambda$"}},
-	// 					"Limi_eps_thermal_" + f_name_suff, title_str);
 	// // ...........................................
 	// limits[0].label = "m_chi [MeV]";
 	// limits[1].label = "eps_n [MeV]";
@@ -2080,27 +1911,16 @@ void MicroBNVCh::BNV_B_Chi_Photon::Limit_eps_From_Slowness(const double &T_core)
 	// 	limits.AppendRow({m_chi, eps_n_scaled, eps_lam_scaled});
 	// }
 
-	// Zaki::Vector::DataSet::PlotParam plt_par;
-	// plt_par.SetLegend({"lower left", 0.0, 0.0});
-	// plt_par.SetGrid();
 
 	// limits.SetWrkDir(wrk_dir_ + model + "/" + pulsar.GetName() + "/" + process.name);
 	// std::string f_name_suff = model + "_" + pulsar.GetName() + ".pdf";
 
 	// std::string title_str = "\n PSR" + pulsar.GetName() + "$\\qquad$" + "[ " + model + " ]";
 
-	// plt_par.SetYAxisLabel("$\\varepsilon_{\\cal B} \\, \\left({\\rm MeV}\\right)$");
-
-	// plt_par.SetXAxis({0, 1400});
-	// plt_par.SetXAxisLabel("$m_{\\chi}\\, ( {\\rm MeV} ) $");
-	// plt_par.SetYAxis({1e-27, 1e-4});
-	// limits.SetPlotPars(plt_par);
 
 	// char T_core_fname_str[50];
 	// snprintf(T_core_fname_str, 50, "%.1e", T_core);
 
-	// limits.SemiLogYPlot(0, {{1, "$n$"}, {2, "$\\Lambda$"}},
-	// 					"Limi_eps_slow_" + std::string(T_core_fname_str) + "_" + f_name_suff, title_str);
 	// // ...........................................
 	// limits[0].label = "m_chi [MeV]";
 	// limits[1].label = "eps_n [MeV]";

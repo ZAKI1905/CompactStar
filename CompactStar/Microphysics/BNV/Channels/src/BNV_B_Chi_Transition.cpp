@@ -421,26 +421,12 @@ void MicroBNVCh::BNV_B_Chi_Transition::PlotTransCond(const double &m_chi,
 	snprintf(m_chi_ch, 50, "%.0f", m_chi);
 	std::string m_chi_str(m_chi_ch);
 
-	Zaki::Vector::DataSet::PlotParam plt_par_0;
-	plt_par_0.SetLegend({"upper left", 0.0, 1.0});
-	plt_par_0.SetXAxis({0, 3});
 
-	ds_Cond_a.SetPlotPars(plt_par_0);
-	ds_Cond_a.Plot(0, {{1, "$\\Sigma^0$"}, {2, "$m_{\\chi} - m_B^*$"}, {3, "$\\Sigma^-$"}},
-				   model + "/" + process.name + "/Transit_Lim_a_" + model + "_" + B.short_name + "_" + m_chi_str + ".pdf",
-				   "Transition limits (a) \n for $" + B.TeX_name + " \\to \\chi$ in " + model + " EoS. ($m_{\\chi} = " + m_chi_str + "$ MeV)");
+	ds_Cond_a.Export(model + "/" + process.name + "/Transit_Lim_a_" + model + "_" + B.short_name + "_" + m_chi_str + ".tsv");
 
 	// Zaki::Vector::DataSet ds_Cond_b({n_B[0], V_eff.Abs(), m_eff + m_chi,
 	//                                 SigmaPlus(m_chi, B)}) ;
 	// ds_Cond_b.SetWrkDir(wrk_dir_) ;
-	// // plt_par_0.SetLegend({"upper left", 0.0, 1.0}) ;
-	// ds_Cond_b.SetPlotPars(plt_par_0) ;
-	// ds_Cond_b.Plot(0, {{1, "$\\Sigma^0$"}, {2, "$m_B + m_{\\chi}$"}, {3, "$\\Sigma^+$"}},
-	//                       model + "/" + process.name + "/Transit_Lim_b_"
-	//                       + model+"_" + B.short_name + "_" + m_chi_str + ".pdf",
-	//                     "Transition limits (b)\n for $" + B.TeX_name
-	//                     + " \\to \\chi$ in "+ model + " EoS. ($m_{\\chi} = "
-	//                     + m_chi_str + "$ MeV)") ;
 }
 
 //--------------------------------------------------------------
@@ -497,15 +483,8 @@ void MicroBNVCh::BNV_B_Chi_Transition::PlotTransBand(const Baryon &B)
 	}
 	// ds_trans_range.MakeSmooth(3) ;
 
-	Zaki::Vector::DataSet::PlotParam plt_par;
-	plt_par.SetXAxis({0, 2500});
-	plt_par.SetYAxis({0, 3});
-	plt_par.SetLegend({"lower right", 1.0, 0.0});
-	ds_trans_range.SetPlotPars(plt_par);
 
-	ds_trans_range.Plot(0, {1, 2},
-						model + "/" + process.name + "/Transit_Den_Ranges_" + model + "_" + B.short_name + ".pdf",
-						"Transition Density Ranges\n for $" + B.TeX_name + " \\to \\chi$ in " + model + " EoS.");
+	ds_trans_range.Export(model + "/" + process.name + "/Transit_Den_Ranges_" + model + "_" + B.short_name + ".tsv");
 }
 //--------------------------------------------------------------
 // Plots the transition band as a function of m_chi

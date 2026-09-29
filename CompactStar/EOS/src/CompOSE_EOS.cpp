@@ -8,7 +8,6 @@
 //  states from the CompOSE website:
 //        compose.obspm.fr
 // -------------------------------------------------------------
-// #include <matplotlibcpp.hpp>
 
 #include <Zaki/Physics/Constants.hpp>
 // #include <Zaki/String/String_Basic.hpp>
@@ -323,13 +322,10 @@ void CompactStar::CompOSE_EOS::ImportThermo(
 
 	if (gen_plots)
 	{
-		Zaki::Vector::DataSet::PlotParam plt_par;
-		plt_par.SetGrid();
-		plt_par.SetXAxisLabel("$\\varepsilon\\, (\\, g \\cdot {\\rm cm}^{-3}\\, )$");
-		plt_par.SetYAxisLabel("$p\\, (\\, {\\rm dyne } \\cdot {\\rm cm}^{-2}\\, )$");
-		eos.SetPlotPars(plt_par);
+
+
 		eos.SetWrkDir(file_dir.ThisFileDir());
-		eos.LogLogPlot((int)EOS_Idx::e, (int)EOS_Idx::p, "Pressure_vs_Energy.pdf", name_);
+
 	}
 }
 //--------------------------------------------------------------
@@ -444,18 +440,7 @@ void CompactStar::CompOSE_EOS::ImportCompo(
 			tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(eos[i].Label().c_str())).name_);
 		}
 
-		// eos.ResetPlotPars() ;
-		Zaki::Vector::DataSet::PlotParam plt_par;
-		plt_par.SetGrid();
-		plt_par.SetXAxisLabel("$n\\, ( {\\rm fm}^{-3} )$");
-		plt_par.SetYAxisLabel("$f_i$");
-		plt_par.SetLegend({"upper left", 0.0, 1.0});
-		// plt_par.SetXAxis({1e-3, 2}) ;
-		plt_par.SetYAxis({1e-3, 1});
 
-		eos.SetPlotPars(plt_par);
-
-		eos.LogLogPlot((int)EOS_Idx::n, tmp_plt_idx, "Composition_vs_Density.pdf", name_);
 	}
 }
 //--------------------------------------------------------------
@@ -726,10 +711,8 @@ void CompactStar::CompOSE_EOS::ImportMicro(
 	{
 
 		std::vector<std::pair<int, std::string>> tmp_plt_idx;
-		Zaki::Vector::DataSet::PlotParam plt_par;
 
-		plt_par.SetGrid();
-		plt_par.SetXAxisLabel("$n\\,\\, ( {\\rm fm}^{-3} )$");
+
 		// .................................................
 		//                  Plotting M_eff
 		// .................................................
@@ -748,13 +731,7 @@ void CompactStar::CompOSE_EOS::ImportMicro(
 				tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(m_eff[i].Label().c_str())).name_);
 			}
 
-			plt_par.SetYAxisLabel("$m_B^* \\,\\, ( {\\rm MeV} )$");
-			plt_par.SetLegend({"lower left", 0.95, 0.0});
-			// plt_par.SetXAxis({1e-3, 2}) ;
-			// plt_par.SetYAxis({200, 1200}) ;
 
-			m_eff.SetPlotPars(plt_par);
-			m_eff.Plot(0, tmp_plt_idx, "Meff_vs_Density.pdf", name_);
 		}
 		// .................................................
 
@@ -777,13 +754,7 @@ void CompactStar::CompOSE_EOS::ImportMicro(
 				tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(V_eff[i].Label().c_str())).name_);
 			}
 
-			plt_par.SetYAxisLabel("$\\Sigma^0_B\\,\\, ( {\\rm MeV} )$");
-			plt_par.SetLegend({"lower right", 1.0, 0.0});
-			// plt_par.SetXAxis({1e-3, 2}) ;
-			// plt_par.SetYAxis({200, 1200}) ;
 
-			V_eff.SetPlotPars(plt_par);
-			V_eff.LogLogPlot(0, tmp_plt_idx, "V_vs_Density.pdf", name_);
 		}
 		// .................................................
 
@@ -806,13 +777,7 @@ void CompactStar::CompOSE_EOS::ImportMicro(
 				tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(U[i].Label().c_str())).name_);
 			}
 
-			plt_par.SetYAxisLabel("$U_B\\,\\, ( {\\rm MeV} )$");
-			plt_par.SetLegend({"lower right", 1.0, 0.0});
-			// plt_par.SetXAxis({1e-3, 2}) ;
-			// plt_par.SetYAxis({200, 1200}) ;
 
-			U.SetPlotPars(plt_par);
-			U.Plot(0, tmp_plt_idx, "U_vs_Density.pdf", name_);
 		}
 		// .................................................
 	}
@@ -893,10 +858,8 @@ void CompactStar::CompOSE_EOS::ExtendMeffToCrust(
 	if (gen_plots)
 	{
 		std::vector<std::pair<int, std::string>> tmp_plt_idx;
-		Zaki::Vector::DataSet::PlotParam plt_par;
 
-		plt_par.SetGrid();
-		plt_par.SetXAxisLabel("$n\\,\\, ( {\\rm fm}^{-3} )$");
+
 		// .................................................
 		//                  Plotting M_eff
 		// .................................................
@@ -912,13 +875,7 @@ void CompactStar::CompOSE_EOS::ExtendMeffToCrust(
 			tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(m_eff[i].Label().c_str())).name_);
 		}
 
-		plt_par.SetYAxisLabel("$m_B^* \\,\\, ( {\\rm MeV} )$");
-		plt_par.SetLegend({"lower left", 0.95, 0.0});
-		// plt_par.SetXAxis({1e-3, 2}) ;
-		// plt_par.SetYAxis({200, 1200}) ;
 
-		m_eff.SetPlotPars(plt_par);
-		m_eff.Plot(0, tmp_plt_idx, "Meff_vs_Density.pdf", name_);
 		// .................................................
 	}
 }
@@ -992,10 +949,8 @@ void CompactStar::CompOSE_EOS::ExtendVeffToCrust(
 	if (gen_plots)
 	{
 		std::vector<std::pair<int, std::string>> tmp_plt_idx;
-		Zaki::Vector::DataSet::PlotParam plt_par;
 
-		plt_par.SetGrid();
-		plt_par.SetXAxisLabel("$n\\,\\, ( {\\rm fm}^{-3} )$");
+
 		// .................................................
 		//                  Plotting V_eff
 		// .................................................
@@ -1011,13 +966,7 @@ void CompactStar::CompOSE_EOS::ExtendVeffToCrust(
 			tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(V_eff[i].Label().c_str())).name_);
 		}
 
-		plt_par.SetYAxisLabel("$\\Sigma^0_B\\,\\, ( {\\rm MeV} )$");
-		plt_par.SetLegend({"lower right", 1.0, 0.0});
-		// plt_par.SetXAxis({1e-3, 2}) ;
-		// plt_par.SetYAxis({200, 1200}) ;
 
-		V_eff.SetPlotPars(plt_par);
-		V_eff.Plot(0, tmp_plt_idx, "V_vs_Density.pdf", name_);
 		// .................................................
 	}
 }
@@ -1091,10 +1040,7 @@ void CompactStar::CompOSE_EOS::ExtendUeffToCrust(
 	if (gen_plots)
 	{
 		std::vector<std::pair<int, std::string>> tmp_plt_idx;
-		Zaki::Vector::DataSet::PlotParam plt_par;
 
-		plt_par.SetGrid();
-		plt_par.SetXAxisLabel("$n\\,\\, ( {\\rm fm}^{-3} )$");
 
 		// .................................................
 		//                  Plotting U
@@ -1113,13 +1059,7 @@ void CompactStar::CompOSE_EOS::ExtendUeffToCrust(
 			tmp_plt_idx.emplace_back(i, Compose_Dict.at(std::stoi(U[i].Label().c_str())).name_);
 		}
 
-		plt_par.SetYAxisLabel("$U_B\\,\\, ( {\\rm MeV} )$");
-		plt_par.SetLegend({"lower right", 1.0, 0.0});
-		// plt_par.SetXAxis({1e-3, 2}) ;
-		// plt_par.SetYAxis({200, 1200}) ;
 
-		U.SetPlotPars(plt_par);
-		U.Plot(0, tmp_plt_idx, "U_vs_Density.pdf", name_);
 		// }
 		// .................................................
 	}
@@ -1236,48 +1176,7 @@ void CompactStar::CompOSE_EOS::PlotFermiE(
 	const Zaki::String::Directory &in_dir,
 	const Dir_Type in_dir_type) const
 {
-	// ------------------------------------
-	//        Finding Fermi Energy
-	// ------------------------------------
-	Zaki::Vector::DataColumn fermi_electron = (pow(Zaki::Physics::ELECTRON_M_FM, 2) + (3 * M_PI * M_PI * eos["0"] * eos[(int)EOS_Idx::n]).pow(2. / 3.)).sqrt() / Zaki::Physics::MEV_2_INV_FM;
-
-	Zaki::Vector::DataColumn fermi_muon = (pow(Zaki::Physics::MUON_M_FM, 2) + (3 * M_PI * M_PI * eos["1"] * eos[(int)EOS_Idx::n]).pow(2. / 3.)).sqrt() / Zaki::Physics::MEV_2_INV_FM;
-
-	Zaki::Vector::DataColumn fermi_neutron = (m_eff["10"].pow(2) + (3 * M_PI * M_PI * eos["10"] * eos[(int)EOS_Idx::n]).pow(2. / 3.) / pow(Zaki::Physics::MEV_2_INV_FM, 2)).sqrt() + V_eff["10"];
-
-	Zaki::Vector::DataColumn fermi_lambda = (m_eff["100"].pow(2) + (3 * M_PI * M_PI * eos["100"] * eos[(int)EOS_Idx::n]).pow(2. / 3.) / pow(Zaki::Physics::MEV_2_INV_FM, 2)).sqrt() + V_eff["100"];
-
-	Zaki::Vector::DataSet fermi_ds({eos[(int)EOS_Idx::n],
-									fermi_electron, fermi_muon,
-									fermi_neutron, fermi_lambda});
-
-	// ------------------------------------
-	//              Plotting
-	// ------------------------------------
-	Zaki::Vector::DataSet::PlotParam plt_par;
-
-	plt_par.SetGrid();
-	plt_par.SetXAxisLabel("$n\\,\\, ( {\\rm fm}^{-3} )$");
-	plt_par.SetYAxisLabel("$E_F\\,\\, ( {\\rm MeV} )$");
-	plt_par.SetLegend({"upper left", 0.0, 1});
-	plt_par.AddAxVLine(6.691204387571e-01, {{"label", "J0348"}}); // J0348
-	plt_par.AddAxVLine(5.519991401615e-01, {{"ls", "--"}});		  // J1614
-	plt_par.AddAxVLine(3.302221541395e-01, {{"ls", "-."}});		  // J0737A
-	plt_par.AddAxVLine(3.102358492014e-01, {{"ls", ":"}});		  // J0737B
-
-	fermi_ds.SetPlotPars(plt_par);
-
-	Zaki::String::Directory file_dir = in_dir;
-	if (in_dir_type == Dir_Type::relative)
-	{
-		file_dir = wrk_dir_ + "/" + in_dir;
-	}
-
-	// std::cout << "\n\t" << file_dir + "/E_Fermi.pdf\n" ;
-	// fermi_ds.SemiLogXPlot(0, {{1, "$e^-$"}, {2, "$\\mu^-$"}, {3, "$n$"}, {4, "$\\Lambda$"}},
-	//                          file_dir + "/" + name_ + "_E_Fermi.pdf", name_) ;
-	fermi_ds.SemiLogXPlot(0, {{1, "$e^-$"}},
-						  file_dir + "/" + name_ + "_e_E_Fermi.pdf", name_);
+	ExportFermiE(in_dir, in_dir_type);
 }
 
 //--------------------------------------------------------------

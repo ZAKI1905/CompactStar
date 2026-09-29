@@ -514,16 +514,6 @@ void MicroBNVInt::BNV_Chi::Plot_Meff_Radius()
 	double Y_max = std::max({ds_meff_r[1].Max(), ds_meff_r[2].Max(),
 							 ds_meff_r[3].Max(), ds_meff_r[4].Max()});
 
-	Zaki::Vector::DataSet::PlotParam plt_par;
-	// plt_par.SetXAxis({ds_meff_r[0].Min()*0.99, ds_meff_r[0].Max()*1.01}) ;
-	plt_par.SetXAxis({0, 14});
-
-	// plt_par.SetYAxis({ds_meff_r[1].Min()*0.98, ds_meff_r[2].Max()*1.02}) ;
-	plt_par.SetYAxis({Y_min * 0.98, Y_max * 1.02});
-	plt_par.SetXAxisLabel("$R\\, [\\, {\\rm km}\\,]$");
-	plt_par.SetYAxisLabel("$m_B^*\\, [\\, {\\rm MeV}\\,]$");
-	plt_par.SetGrid();
-	plt_par.SetLegend({"upper left", 0.0, 1.0});
 
 	// This is for setting Y-axis ticks
 	int min_tick = Y_min * 0.98 - fmod(Y_min * 0.98, 50);
@@ -534,13 +524,8 @@ void MicroBNVInt::BNV_Chi::Plot_Meff_Radius()
 		y_tick_set.emplace_back(i);
 	}
 
-	// plt_par.SetYTicks({{900, 950, 1000, 1050, 1100, 1150, 1200, 1250, 1300, 1350}}) ;
-	plt_par.SetYTicks({y_tick_set});
 
-	ds_meff_r.SetPlotPars(plt_par);
-
-	ds_meff_r.Plot(0, {{1, "$m^*_n$"}, {2, "$m^*_{\\Lambda}$"}, {3, "$m^*_{p}$"}, {4, "$m^*_{\\Sigma}$"}},
-				   pulsar.GetName() + "_m_vs_R.pdf", pulsar.GetName() + "\n" + model);
+	ds_meff_r.Export(pulsar.GetName() + "_m_vs_R.tsv");
 }
 
 //--------------------------------------------------------------
@@ -613,11 +598,9 @@ void MicroBNVInt::BNV_Chi::Plot_RestEnergy_Radius()
 
 	ds_E_r.SetWrkDir(pulsar.GetWrkDir() + "/" + pulsar.GetName());
 
-	Zaki::Vector::DataSet::PlotParam plt_par;
 
 	// Setting the boundaries
-	// plt_par.SetXAxis({ds_E_r[0].Min(), ds_E_r[0].Max()}) ;
-	plt_par.SetXAxis({0, 14});
+
 
 	auto non_zero_cond = [](double v)
 	{ return v > 0; };
@@ -630,7 +613,6 @@ void MicroBNVInt::BNV_Chi::Plot_RestEnergy_Radius()
 	double Y_max = std::max({ds_E_r[1].Max(), ds_E_r[2].Max(),
 							 ds_E_r[3].Max(), ds_E_r[4].Max()});
 
-	plt_par.SetYAxis({Y_min * 0.98, Y_max * 1.02});
 
 	// This is for setting Y-axis ticks
 	int min_tick = Y_min * 0.98 - fmod(Y_min * 0.98, 50);
@@ -641,22 +623,8 @@ void MicroBNVInt::BNV_Chi::Plot_RestEnergy_Radius()
 		y_tick_set.emplace_back(i);
 	}
 
-	// plt_par.SetYTicks({{900, 950, 1000, 1050, 1100, 1150, 1200, 1250, 1300, 1350}}) ;
-	plt_par.SetYTicks({y_tick_set});
 
-	plt_par.SetXAxisLabel("$R\\, (\\, {\\rm km}\\,)$");
-	plt_par.SetYAxisLabel("$E_B^0\\, (\\, {\\rm MeV}\\,)$");
-	plt_par.SetLegend({"upper right", 1.0, 1.0});
-	plt_par.SetGrid();
-	plt_par.AddAxHLine(neutron.mass, {{"c", "blue"}, {"linestyle", "--"}});
-	// plt_par.AddAxHLine(proton.mass) ;
-	plt_par.AddAxHLine(lambda.mass, {{"c", "orange"}, {"linestyle", "--"}});
-	plt_par.AddAxHLine(sigma_m.mass, {{"c", "red"}, {"linestyle", "--"}});
-
-	ds_E_r.SetPlotPars(plt_par);
-
-	ds_E_r.Plot(0, {1, 3, 2, 4}, pulsar.GetName() + "_E_vs_R.pdf",
-				pulsar.GetName() + "\n" + model);
+	ds_E_r.Export(pulsar.GetName() + "_E_vs_R.tsv");
 }
 
 //--------------------------------------------------------------
@@ -754,11 +722,9 @@ void MicroBNVInt::BNV_Chi::Plot_EF_Radius()
 
 	ds_EF_r.SetWrkDir(pulsar.GetWrkDir() + "/" + pulsar.GetName());
 
-	Zaki::Vector::DataSet::PlotParam plt_par;
 
 	// Setting the boundaries
-	// plt_par.SetXAxis({ds_E_r[0].Min(), ds_E_r[0].Max()}) ;
-	plt_par.SetXAxis({0, 14});
+
 
 	auto non_zero_cond = [](double v)
 	{ return v > 0; };
@@ -773,8 +739,6 @@ void MicroBNVInt::BNV_Chi::Plot_EF_Radius()
 							 ds_EF_r[3].Max(), ds_EF_r[4].Max(),
 							 ds_EF_r[5].Max()});
 
-	// plt_par.SetYAxis({Y_min*0.98, Y_max*1.02}) ;
-	plt_par.SetYAxis({0, 1400});
 
 	// This is for setting Y-axis ticks
 	int min_tick = Y_min * 0.98 - fmod(Y_min * 0.98, 50);
@@ -787,22 +751,8 @@ void MicroBNVInt::BNV_Chi::Plot_EF_Radius()
 		y_tick_set.emplace_back(i);
 	}
 
-	// plt_par.SetYTicks({{900, 950, 1000, 1050, 1100, 1150, 1200, 1250, 1300, 1350}}) ;
-	plt_par.SetYTicks({y_tick_set});
 
-	plt_par.SetXAxisLabel("$R\\, (\\, {\\rm km}\\,)$");
-	plt_par.SetYAxisLabel("$E_F\\, (\\, {\\rm MeV}\\,)$");
-	plt_par.SetLegend({"upper right", 1.0, 1.0});
-	plt_par.SetGrid();
-	// plt_par.AddAxHLine(neutron.mass, {{"c", "blue"}, {"linestyle", "--"}}) ;
-	// plt_par.AddAxHLine(proton.mass) ;
-	// plt_par.AddAxHLine(lambda.mass, {{"c", "orange"}, {"linestyle", "--"}}) ;
-	// plt_par.AddAxHLine(sigma_m.mass, {{"c", "red"}, {"linestyle", "--"}}) ;
-
-	ds_EF_r.SetPlotPars(plt_par);
-
-	ds_EF_r.Plot(0, {1, 2, 3, 4, 5}, pulsar.GetName() + "_EF_vs_R.pdf",
-				 pulsar.GetName() + "\n" + model);
+	ds_EF_r.Export(pulsar.GetName() + "_EF_vs_R.tsv");
 }
 
 //--------------------------------------------------------------
@@ -852,32 +802,16 @@ void MicroBNVInt::BNV_Chi::Plot_Estar_Radius(const Baryon &B)
 
 	ds_E0_EF_r.SetWrkDir(pulsar.GetWrkDir() + "/" + pulsar.GetName());
 
-	Zaki::Vector::DataSet::PlotParam plt_par;
 
 	// Setting the boundaries
-	// plt_par.SetXAxis({ds_E_r[0].Min(), ds_E_r[0].Max()}) ;
-	plt_par.SetXAxis({0, 14});
+
 
 	// auto non_zero_cond = [](const double& v){ return v > 0 ;} ;
 
-	// plt_par.SetYAxis({800, 1325}) ; // proton
-	plt_par.SetYAxis({200, 1000}); // neutron
+	 // neutron
 
-	plt_par.SetXAxisLabel("$R\\, (\\, {\\rm km}\\,)$");
-	plt_par.SetYAxisLabel("$E\\, (\\, {\\rm MeV}\\,)$");
-	plt_par.SetLegend({"upper right", 1.0, 1.0});
-	plt_par.SetGrid();
-	// plt_par.AddAxHLine(neutron.mass, {{"c", "blue"}, {"linestyle", "--"}}) ;
-	// plt_par.AddAxHLine(B.mass, {{"linestyle", "--"}}) ;
-	// plt_par.AddAxHLine(1078, {{"linestyle", "--"}, {"color", "red"}}) ;
 
-	// plt_par.AddAxHLine(lambda.mass, {{"c", "orange"}, {"linestyle", "--"}}) ;
-	// plt_par.AddAxHLine(sigma_m.mass, {{"c", "red"}, {"linestyle", "--"}}) ;
-
-	ds_E0_EF_r.SetPlotPars(plt_par);
-
-	ds_E0_EF_r.Plot(0, {1, 2}, pulsar.GetName() + "_Estar_vs_R_" + B.short_name + ".pdf",
-					pulsar.GetName() + "\n" + model);
+	ds_E0_EF_r.Export(pulsar.GetName() + "_Estar_vs_R_" + B.short_name + ".tsv");
 }
 
 //--------------------------------------------------------------
@@ -945,35 +879,14 @@ void MicroBNVInt::BNV_Chi::Plot_CM_E_Radius(const Baryon &B)
 
 	ds_E0_EF_r.SetWrkDir(pulsar.GetWrkDir() + "/" + pulsar.GetName());
 
-	Zaki::Vector::DataSet::PlotParam plt_par;
 
 	// Setting the boundaries
-	// plt_par.SetXAxis({ds_E_r[0].Min(), ds_E_r[0].Max()}) ;
-	plt_par.SetXAxis({0, 14});
+
 
 	// auto non_zero_cond = [](const double& v){ return v > 0 ;} ;
 
-	// plt_par.SetYAxis({800, 1325}) ; // proton
-	plt_par.SetYAxis({800, 1450}); // neutron
+	 // neutron
 
-	plt_par.SetXAxisLabel("$R\\, (\\, {\\rm km}\\,)$");
-	plt_par.SetYAxisLabel("$E\\, (\\, {\\rm MeV}\\,)$");
-	plt_par.SetLegend({"upper right", 1.0, 1.0});
-	plt_par.SetGrid();
-	// plt_par.AddAxHLine(neutron.mass, {{"c", "blue"}, {"linestyle", "--"}}) ;
-	plt_par.AddAxHLine(B.mass, {{"linestyle", "--"}});
-	// plt_par.AddAxHLine(1078, {{"linestyle", "--"}, {"color", "red"}}) ;
-	plt_par.AddAxHLine(500 + 140, {{"linestyle", "--"}, {"color", "red"}});
-	plt_par.AddAxHLine(1000 + 140, {{"linestyle", "--"}, {"color", "red"}});
-	plt_par.AddAxHLine(1200 + 140, {{"linestyle", "--"}, {"color", "red"}});
-
-	// plt_par.AddAxHLine(lambda.mass, {{"c", "orange"}, {"linestyle", "--"}}) ;
-	// plt_par.AddAxHLine(sigma_m.mass, {{"c", "red"}, {"linestyle", "--"}}) ;
-
-	ds_E0_EF_r.SetPlotPars(plt_par);
-
-	ds_E0_EF_r.Plot(0, {1, 2}, pulsar.GetName() + "_ECM_vs_R_" + B.short_name + ".pdf",
-					pulsar.GetName() + "\n" + model);
 
 	ds_E0_EF_r.Export(pulsar.GetName() + "_ECM_vs_R_" + B.short_name + ".tsv");
 }
@@ -1046,11 +959,9 @@ void MicroBNVInt::BNV_Chi::Plot_RestE_EF_Radius(const Baryon &B)
 
 	ds_E0_EF_r.SetWrkDir(pulsar.GetWrkDir() + "/" + pulsar.GetName());
 
-	Zaki::Vector::DataSet::PlotParam plt_par;
 
 	// Setting the boundaries
-	// plt_par.SetXAxis({ds_E_r[0].Min(), ds_E_r[0].Max()}) ;
-	plt_par.SetXAxis({0, 14});
+
 
 	auto non_zero_cond = [](const double &v)
 	{ return v > 0; };
@@ -1071,8 +982,6 @@ void MicroBNVInt::BNV_Chi::Plot_RestE_EF_Radius(const Baryon &B)
 	//                           ds_EF_r[7].Max(), ds_EF_r[8].Max(),
 	//                           ds_EF_r[9].Max()}) ;
 
-	// plt_par.SetYAxis({Y_min*0.98, Y_max*1.02}) ;
-	plt_par.SetYAxis({800, 1325});
 
 	// This is for setting Y-axis ticks
 	// int min_tick = Y_min*0.98 - fmod(Y_min*0.98, 50) ;
@@ -1085,22 +994,8 @@ void MicroBNVInt::BNV_Chi::Plot_RestE_EF_Radius(const Baryon &B)
 	//   y_tick_set.emplace_back(i) ;
 	// }
 
-	// plt_par.SetYTicks({{900, 950, 1000, 1050, 1100, 1150, 1200, 1250, 1300, 1350}}) ;
-	// plt_par.SetYTicks({y_tick_set}) ;
 
-	plt_par.SetXAxisLabel("$R\\, (\\, {\\rm km}\\,)$");
-	plt_par.SetYAxisLabel("$E\\, (\\, {\\rm MeV}\\,)$");
-	plt_par.SetLegend({"upper right", 1.0, 1.0});
-	plt_par.SetGrid();
-	// plt_par.AddAxHLine(neutron.mass, {{"c", "blue"}, {"linestyle", "--"}}) ;
-	plt_par.AddAxHLine(B.mass, {{"linestyle", "--"}});
-	// plt_par.AddAxHLine(lambda.mass, {{"c", "orange"}, {"linestyle", "--"}}) ;
-	// plt_par.AddAxHLine(sigma_m.mass, {{"c", "red"}, {"linestyle", "--"}}) ;
-
-	ds_E0_EF_r.SetPlotPars(plt_par);
-
-	ds_E0_EF_r.Plot(0, {1, 2}, pulsar.GetName() + "_EBand_vs_R_" + B.short_name + ".pdf",
-					pulsar.GetName() + "\n" + model);
+	ds_E0_EF_r.Export(pulsar.GetName() + "_EBand_vs_R_" + B.short_name + ".tsv");
 }
 
 //--------------------------------------------------------------
@@ -1143,9 +1038,6 @@ void MicroBNVInt::BNV_Chi::Plot_RestE_EF_Radius(const Baryon &B)
 //     char tmp_char[50] ;
 //     snprintf(tmp_char, sizeof(tmp_char), "%.0f", m_chi) ;
 //     ds_B_chi_photon_rate_r.SetWrkDir(wrk_dir_ + "/BNV_2022/results/B_Chi_Transition/"+model) ;
-//     ds_B_chi_photon_rate_r.Plot(0, 1, "Decay_per_V_vs_R/" + in_B.label +"_Decay_per_V_vs_R/" +
-//                         in_B.label+"_decay_per_V_vs_R_"+std::string(tmp_char)+".pdf",
-//                         "$\\varepsilon = 10^{-10}\\, {\\rm MeV}$") ;
 //   }
 //   //----------------------------------------------------------------------
 
@@ -1215,19 +1107,9 @@ void MicroBNVInt::BNV_Chi::PlotVacuumBrLim(const Baryon &B)
 	dec_lim_ds.SetWrkDir(wrk_dir_ + model + "/" + pulsar.GetName() + "/" + process.name);
 
 	// Changing the plot parameters
-	Zaki::Vector::DataSet::PlotParam plt_par;
 
-	plt_par.SetXAxis({0, 1.05 * B.mass});
-	// plt_par.SetYAxis({1e-16, 1e-14}) ;
-	// plt_par.SetXTicks({{100, 200, 300, 400, 500, 600, 700, 800, 900}}) ;
-	plt_par.SetYAxisLabel("${\\rm Br} \\, \\left( " + B.TeX_name + " \\to \\chi \\gamma \\, \\right)$");
-	plt_par.SetGrid();
-	// plt_par.SetLegend({"center", 0.5, 0.92}) ;
 
-	dec_lim_ds.SetPlotPars(plt_par);
-
-	dec_lim_ds.SemiLogYPlot(0, 1, "Br(" + B.short_name + ")_vs_m_chi.pdf",
-							"Inferred from $" + GetSpecificProcess(B).TeX + "$\n" + pulsar.GetName() + "$\\qquad$" + model);
+	dec_lim_ds.Export("Br(" + B.short_name + ")_vs_m_chi.tsv");
 }
 
 //--------------------------------------------------------------
@@ -1264,7 +1146,6 @@ void MicroBNVInt::BNV_Chi::PlotVacuumBrLim()
 //   Zaki::Vector::DataSet plt_ds({m_B_ds[0],
 //       m_B_ds[1], V_self_E_ds[1], m_B_ds[2], V_self_E_ds[2], m_B_ds[3], V_self_E_ds[3]}) ;
 //   plt_ds.SetWrkDir(wrk_dir_) ;
-//   plt_ds.Plot(0, {1,2,3,4,5,6}, "m_V.pdf", pulsar.GetName() + "\n" + model) ;
 // }
 
 //--------------------------------------------------------------
@@ -1295,27 +1176,12 @@ void MicroBNVInt::BNV_Chi::PlotRate_Eps(const Baryon &B)
 		}
 	}
 
-	Zaki::Vector::DataSet::PlotParam plt_par;
-	plt_par.SetLegend({"upper left", 0.0, 0.0});
-	plt_par.SetGrid();
 
 	rate.SetWrkDir(wrk_dir_ + model + "/" + pulsar.GetName() + "/" + process.name);
 	std::string f_name_suff = model + "_" + pulsar.GetName() + "_" + B.short_name + ".pdf";
 
 	std::string title_str = "\n PSR" + pulsar.GetName() + "$\\qquad$" + "[ " + model + " ]";
-	plt_par.SetYAxisLabel("$\\Gamma (" + GetSpecificProcess(B).TeX + ")\\, \\left({\\rm yr}^{-1}\\right)$");
-	plt_par.SetXAxis({0, 1600});
-	plt_par.SetXAxisLabel("$m_{\\chi}\\, ( {\\rm MeV} ) $");
-	plt_par.SetYAxis({1e-9, 1e-4});
-	rate.SetPlotPars(plt_par);
-	rate.SemiLogYPlot(0, {{1, B.TeX_name}}, "Rate_" + f_name_suff, title_str);
 
-	plt_par.SetLegend({"upper left", 0.0, 0.8});
-	plt_par.SetYAxisLabel("$\\varepsilon\\, ( {\\rm MeV} ) $");
-	plt_par.SetXAxis({1, 1600});
-	plt_par.SetYAxis({1e-19, 1e-13});
-	rate.SetPlotPars(plt_par);
-	rate.SemiLogYPlot(0, {{2, B.TeX_name}}, "Eps_" + f_name_suff, title_str);
 
 	// ...........................................
 	rate[0].SetLabel("m_chi [MeV]");
@@ -1374,33 +1240,16 @@ void MicroBNVInt::BNV_Chi::PlotRate_Eps()
 		}
 	}
 
-	Zaki::Vector::DataSet::PlotParam plt_par;
-	plt_par.SetLegend({"lower left", 0.0, 0.0});
-	plt_par.SetGrid();
 
 	rate.SetWrkDir(wrk_dir_ + model + "/" + pulsar.GetName() + "/" + process.name);
 	std::string f_name_suff = model + "_" + pulsar.GetName() + ".pdf";
 
 	std::string title_str = "\n PSR" + pulsar.GetName() + "$\\qquad$" + "[ " + model + " ]";
-	plt_par.SetYAxisLabel("$\\Gamma \\, \\left({\\rm yr}^{-1}\\right)$");
-	plt_par.SetXAxis({0, 1600});
-	plt_par.SetXAxisLabel("$m_{\\chi}\\, ( {\\rm MeV} ) $");
-	// plt_par.SetYAxis({4e-1, 3e7}) ; // For Combo
-	plt_par.SetYAxis({1e-15, 1e-8});
 
-	rate.SetPlotPars(plt_par);
-	rate.SemiLogYPlot(0, {{1, "$n$"}, {2, "$\\Lambda$"}},
-					  "Rate_" + f_name_suff, title_str);
 
-	plt_par.SetLegend({"upper left", 0.0, 0.8});
-	plt_par.SetYAxisLabel("$\\varepsilon\\, ( {\\rm MeV} ) $");
-	plt_par.SetXAxis({1, 1400});
-	// plt_par.SetYAxis({1e-27, 1e-4}) ; // For eps_max results
-	plt_par.SetYAxis({1e-19, 1e-13}); // For eps_max results
-	// plt_par.SetYAxis({2e-19, 3e-15}) ; // For Combo
-	rate.SetPlotPars(plt_par);
-	rate.SemiLogYPlot(0, {{3, "$n$"}, {4, "$\\Lambda$"}},
-					  "Eps_" + f_name_suff, title_str);
+	 // For eps_max results
+
+
 	// ...........................................
 	rate[0].SetLabel("m_chi [MeV]");
 	rate[1].SetLabel("Gamma_n [1/s]");
@@ -1496,7 +1345,6 @@ void MicroBNVInt::BNV_Chi::PlotRate_Eps()
 //     rate.SetWrkDir(out_dir) ;
 //     char m_chi_ch[100] ;
 //     sprintf(m_chi_ch, "Rate_vs_R_%s_%.0f.pdf", B.label.c_str(), m_chi) ;
-//     rate.Plot(0, 1, std::string(m_chi_ch)) ;
 //   }
 
 //   return  rate ;
@@ -1549,32 +1397,14 @@ void MicroBNVInt::BNV_Chi::Rate_vs_R(const std::vector<double> &m_chi, const Bar
 	snprintf(file_ch, 200, "Rate_vs_R_%s.pdf", B.label.c_str());
 	std::string title_str = "\n PSR" + pulsar.GetName() + "$\\qquad$" + "[ " + model + "]";
 
-	Zaki::Vector::DataSet::PlotParam plt_pars;
-	plt_pars.SetGrid();
-	plt_pars.SetXAxisLabel("$R\\, ({\\rm km})$");
-	plt_pars.SetYAxisLabel("$\\Gamma (" + GetSpecificProcess(B).TeX + ")\\,\\, \\left(s^{-1}/{\\rm fm}^3\\right)$");
 
-	// plt_pars.SetXAxis({0, rate_vs_r[0].Max()}) ;
 	// if (rate_min < 1e-4 * rate_max)
 	// {
-	//   plt_pars.SetYAxis({1e6 * rate_min, 2 * rate_max}) ;
 	// }
 
-	plt_pars.SetXAxis({0, 14});
 
-	if (B.label == "10")
-	{
-		plt_pars.SetYAxis({1e-21, 5e-16});
-	}
 
-	if (B.label == "100")
-	{
-		plt_pars.SetYAxis({1e-21, 1.1e-18});
-	}
 
-	plt_pars.SetLegend({"lower right", 1.0, 0.0});
-	rate_vs_r.SetPlotPars(plt_pars);
-	rate_vs_r.SemiLogYPlot(0, labels, std::string(file_ch), title_str);
 
 	// ------------------------------------
 	//        Exporting the dataset
@@ -1647,33 +1477,20 @@ void MicroBNVInt::BNV_Chi::Rate_vs_R(const std::vector<double> &m_chi,
 	// std::string title_str ="\n PSR" + pulsar.GetName() + "$\\qquad$"
 	//                         + "[ " + model + "]" ;
 
-	// Zaki::Vector::DataSet::PlotParam plt_pars ;
-	// plt_pars.SetGrid() ;
-	// plt_pars.SetXAxisLabel("$R\\, ({\\rm km})$") ;
-	// plt_pars.SetYAxisLabel("$\\Gamma ("+ GetSpecificProcess(B).TeX
-	//                       + ")\\,\\, \\left(s^{-1}/{\\rm fm}^3\\right)$") ;
 
-	// // plt_pars.SetXAxis({0, rate_vs_r[0].Max()}) ;
 	// // if (rate_min < 1e-4 * rate_max)
 	// // {
-	// //   plt_pars.SetYAxis({1e6 * rate_min, 2 * rate_max}) ;
 	// // }
 
-	// plt_pars.SetXAxis({0, 14}) ;
 
 	// if (B.label == "10")
 	// {
-	//   plt_pars.SetYAxis({1e-21, 5e-16}) ;
 	// }
 
 	// if (B.label == "100")
 	// {
-	//   plt_pars.SetYAxis({1e-21, 1.1e-18}) ;
 	// }
 
-	// plt_pars.SetLegend({"lower right", 1.0, 0.0}) ;
-	// rate_vs_r.SetPlotPars(plt_pars) ;
-	// rate_vs_r.SemiLogYPlot(0, labels, std::string(file_ch), title_str) ;
 
 	// // ------------------------------------
 	// //        Exporting the dataset
@@ -1729,28 +1546,17 @@ void MicroBNVInt::BNV_Chi::hidden_Plot_Rate_vs_R(const Baryon &B,
 	snprintf(file_ch, 200, "Rate_vs_R_%s_%.0f.pdf", B.label.c_str(), m_chi);
 	std::string title_str = "\n PSR" + pulsar.GetName() + "$\\qquad$" + "[ " + model + "]";
 
-	Zaki::Vector::DataSet::PlotParam plt_pars;
-	plt_pars.SetGrid();
-	plt_pars.SetXAxisLabel("$R\\, ({\\rm km})$");
-	plt_pars.SetYAxisLabel("$\\Gamma (" + GetSpecificProcess(B).TeX + ")\\,\\, \\left(s^{-1}/{\\rm fm}^3\\right)$");
 
 	// double rate_max = ds->operator[](1).Max() ;
 	// double rate_min = ds->operator[](1).Min() ;
 
 	// if (rate_min < 1e-4 * rate_max)
 	// {
-	//   plt_pars.SetYAxis({1e-4 * rate_max, 2 * rate_max}) ;
 	// }
 
-	plt_pars.SetXAxis({0, 14});
 
-	if (B.label == "10")
-	{
-		plt_pars.SetYAxis({1e-21, 5e-16});
-	}
 
-	ds->SetPlotPars(plt_pars);
-	ds->SemiLogYPlot(0, 1, std::string(file_ch), title_str);
+
 }
 
 //--------------------------------------------------------------
@@ -1766,21 +1572,12 @@ void MicroBNVInt::BNV_Chi::hidden_Plot_Rate_vs_Density(const Baryon &B,
 	snprintf(file_ch, 200, "Rate_vs_n_%s_%.0f.pdf", B.label.c_str(), m_chi);
 	std::string title_str = "\n PSR" + pulsar.GetName() + "$\\qquad$" + "[ " + model + " ]";
 
-	Zaki::Vector::DataSet::PlotParam plt_pars;
-	plt_pars.SetGrid();
-	plt_pars.SetXAxisLabel("$n\\, ({\\rm fm}^{-3})$");
-	plt_pars.SetYAxisLabel("$\\Gamma (" + GetSpecificProcess(B).TeX + ")\\, \\left(s^{-1}/{\\rm fm}^3\\right)$");
 
 	double rate_max = ds->operator[](1).Max();
 	double rate_min = ds->operator[](1).Min();
 
-	if (rate_min < 1e-4 * rate_max)
-	{
-		plt_pars.SetYAxis({1e-4 * rate_max, 2 * rate_max});
-	}
 
-	ds->SetPlotPars(plt_pars);
-	ds->SemiLogYPlot(0, 1, std::string(file_ch), title_str);
+
 }
 
 //--------------------------------------------------------------
@@ -1845,7 +1642,6 @@ void MicroBNVInt::BNV_Chi::hidden_Plot_Rate_vs_Density(const Baryon &B,
 //     rate.SetWrkDir(out_dir) ;
 //     char m_chi_ch[100] ;
 //     sprintf(m_chi_ch, "Rate_vs_n_%s_%.0f.pdf", B.label.c_str(), m_chi) ;
-//     rate.Plot(0, 1, std::string(m_chi_ch)) ;
 //   }
 
 //   return  rate ;

@@ -339,13 +339,11 @@ void TaskManager::FindCriticalCurve()
 	// con.SetContVal({2.01-0.04}) ;
 	// con.SetGridVals(&B_dar_grid) ;
 	// con.SetGridVals(&M_tot_grid) ;
-	con.SetPlotConnected();
+
 
 	char tmp[100];
 	snprintf(tmp, sizeof(tmp), "%.1f", m_chi);
 
-	con.Plot("NStar/Dark_Core/" + std::string(tmp) +
-			 "/B_vis_conts");
 
 	M_tot_grid.Interpolate({v_ax, d_ax});
 
@@ -397,14 +395,8 @@ void TaskManager::FindCriticalCurve()
 		}
 	}
 
-	// critical_pt_set.Plot(0,1, "B_vis_critical_" + rad_res
-	//                           + "_" + std::to_string(divisions)
-	//                           + ".pdf",
-	//                           "Critical values on B_vis contours") ;
 
 	// std::cout << " critical_curve.size() = " << critical_curve.Size() << "\n" ;
-	// critical_curve.Plot(wrk_dir_ + "/NStar/Dark_Core/testing/No crust/" +
-	//                           rad_res + "K_Adaptive/Crit_curve.pdf") ;
 	// critical_curve = Moving_Ave(critical_curve, 10) ;
 	critical_curve.MakeSmooth(10);
 
@@ -412,8 +404,7 @@ void TaskManager::FindCriticalCurve()
 	size_t m_max_v_idx = sequence_grid[3].MaxIdx();
 	critical_curve.Append({sequence_grid[2][m_max_v_idx], sequence_grid[8][m_max_v_idx]});
 
-	critical_curve.Plot(wrk_dir_ + "/NStar/Dark_Core/" + std::string(tmp) +
-						"/Crit_curve_smooth.pdf");
+
 	critical_curve.Export(wrk_dir_ + "/NStar/Dark_Core/" + std::string(tmp) +
 						  "/Crit_curve_smooth.tsv");
 
@@ -439,7 +430,7 @@ void TaskManager::FindCriticalCurve()
       // {
       //   continue ; 
       // }
-      
+
       double tmp_mass_tot = M_tot_grid.Evaluate(con_set[c][p].x, con_set[c][p].y) ;
       if (tmp_mass_tot > tmp_max_mass_tot)
       {
@@ -452,8 +443,7 @@ void TaskManager::FindCriticalCurve()
     }
   }
 
-  critical_pt_set.Plot(0,1, "B_vis_critical_" + rad_res + ".pdf", 
-                            "Critical values on B_vis contours") ;
+
   // critical_pt_set.Export("B_vis_critical.tsv") ;
 #endif
 
@@ -466,20 +456,12 @@ void TaskManager::FindCriticalCurve()
 	//..............................................................
 	// Generating plot using Root
 	// File name, plot name, x-axis label, y-axis label
-	// con.SetPlotConnected() ;
 
 	// If choosing "user" option make sure to set the coordinates!
 	// con.MakeLegend(true, "Contours", "user") ;
 	// con.GetLegend()->SetX1(0.75) ; con.GetLegend()->SetY1(0.75) ;
 	// con.GetLegend()->SetX2(0.90) ; con.GetLegend()->SetY2(0.90) ;
 	// con.GetLegend()->SetTextSize(0.025) ;
-	// con.Plot("Dark Core/B_tot_conts/B_tot_100", "B_tot (100x100)", "eps_v", "eps_d") ;
-	// con.Plot("NStar/Dark_Core/Linear_50x50/B_vis_50", "B_vis (50x50)", "eps_v", "eps_d") ;
-	// con.Plot("NStar/Dark_Core/Linear_256x256/B_vis_256", "B_vis (256x256)", "eps_v", "eps_d") ;
-	// con.Plot("NStar/Dark_Core/testing/No crust/10000_linear_20km/B_vis_96", "B_vis (96x96)", "eps_v", "eps_d") ;
-	// con.Plot("NStar/Dark_Core/testing/No crust/10000_linear_20km/B_tot_50", "B_tot (50x50)", "eps_v", "eps_d") ;
-	// con.Plot("NStar/Dark_Core/testing/No crust/" + rad_res
-	//           + "K_Adaptive/B_vis_" + rad_res, ("B_vis (96x96, "+rad_res+")").c_str(), "eps_v", "eps_d") ;
 	//..............................................................
 }
 
@@ -515,11 +497,7 @@ void TaskManager::FindMtotContour(const double &in_mass)
 	char tmp[50];
 	snprintf(tmp, sizeof(tmp), "%.2f", in_mass);
 
-	con.SetPlotConnected();
-	con.Plot("NStar/Dark_Core/" + chi_str +
-				 "/M_tot_" + std::string(tmp),
-			 ("M_tot = " + std::string(tmp)).c_str(),
-			 "eps_v", "eps_d");
+
 	con.ExportContour("NStar/Dark_Core/" + chi_str +
 						  "/M_tot_" + std::string(tmp),
 					  Zaki::File::FileMode::Write);
@@ -620,13 +598,7 @@ void TaskManager::FindBtotContour(const double &in_mass,
 													   m_str + "/B_tot_" + m_str + "_" + std::to_string(i) + ".tsv");
 	}
 
-	Zaki::Math::Curve2D::Plot(B_curv_stable, wrk_dir_ + "/NStar/Dark_Core/" +
-												 chi_str + "/B_conts/" +
-												 m_str + "/B_tot_bisected.pdf");
 
-	con.SetPlotConnected();
-	con.Plot("NStar/Dark_Core/" + chi_str + "/B_conts/" + m_str + "/B_tot_" + m_str,
-			 "B_tot", "eps_v", "eps_d");
 }
 
 //--------------------------------------------------------------

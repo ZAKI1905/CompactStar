@@ -426,20 +426,14 @@ void MicroBNVAna::BNV_Sequence::Find_b_factors()
 		b_o_ds[8].PushBack(b_M);	  // 8-b_M
 	}
 
-	Zaki::Vector::DataSet::PlotParam plt_par;
-	plt_par.SetGrid(true);
-	plt_par.SetYAxisLabel("$b (O)$");
-	plt_par.SetYAxis({-100, 3});
-	plt_par.SetLegend({"lower right", 1.0, 0.0});
 
 	// Adding error bars
 	// b_o_ds[3] = b_o_ds[1] + b_o_ds[2] ;
 	// b_o_ds[4] = b_o_ds[1] - b_o_ds[2] ;
 
-	b_o_ds.SetPlotPars(plt_par);
+
 	b_o_ds.SetWrkDir(GetWrkDir());
-	b_o_ds.Plot(1, {{5, "$b (R)$"}, {6, "$b (I)$"}, {7, "$b (\\beta(I))$"}},
-				"b_O_vs_eps_CDM.pdf", "");
+
 
 	b_o_ds[0].SetLabel("ec(g/cm^3)");
 	b_o_ds[1].SetLabel("M");
@@ -620,26 +614,14 @@ void MicroBNVAna::BNV_Sequence::Plot_Dimless_O() const
 	// Scaled_O[3].label = "$B / 2\\times 10^{57} $" ;
 	// Scaled_O[4].label = "$I / 120 km^3$" ;
 
-	Zaki::Vector::DataSet::PlotParam plt_par;
-	plt_par.SetGrid(true);
-	plt_par.SetYAxisLabel("$\\frac{O}{O^*}$");
-	plt_par.SetYAxis({0, 3});
-	plt_par.SetLegend({"lower right", 1.0, 0.0});
 
 	// Scaled_O.MakeSmooth(10) ;
 	Scaled_O.SetWrkDir(GetWrkDir());
 
-	plt_par.SetXAxis({2e+14, 2e+15});
-	Scaled_O.SetPlotPars(plt_par);
-	Scaled_O.SemiLogXPlot(0, {{1, "$M\\,/\\,1.4\\, M_{s}$"}, {2, "$R\\, /\\, 12\\, km$"}, {3, "$B\\, /\\, 10^{57}$"}, {4, "$I\\, /\\, 70 \\, M_{s} \\, km^2$"}},
-						  "O_vs_ec.pdf", "");
 
-	plt_par.SetXAxis({0.1, 2.1});
-	Scaled_O.SetPlotPars(plt_par);
 	Scaled_O[1] *= 1.4;
 	Scaled_O[1].SetLabel("M");
-	Scaled_O.Plot(1, {{2, "$R\\, /\\, 12\\, km$"}, {3, "$B\\, /\\, 10^{57}$"}, {4, "$I \\,/\\, 70 \\, M_{s} \\, km^2$"}},
-				  "O_vs_M.pdf", "");
+	Scaled_O.Export("Dimensionless_Observables.tsv");
 }
 
 // ------------------------------------------------------------
@@ -673,12 +655,7 @@ void MicroBNVAna::BNV_Sequence::EvalBeta()
 	//         seq.Derivative(5)[1] / seq.Derivative(4)[1],   // 7-beta(I)
 	//         seq[4] / 1.4e57
 	//         } ;
-	Zaki::Vector::DataSet::PlotParam plt_par;
-	plt_par.SetGrid(true);
-	plt_par.SetLegend({"lower left", 0.0, 0.0});
-	plt_par.SetXAxis({0.5, 2.06});
-	plt_par.SetYAxis({5e-3, 1.5});
-	// plt_par.SetYAxis({-1.5, 1.5}) ;
+
 
 	Zaki::Vector::DataSet tmp_ds({beta[1], beta[8], beta[5], beta[6],
 								  beta[6] * beta[7],
@@ -686,31 +663,16 @@ void MicroBNVAna::BNV_Sequence::EvalBeta()
 								  beta[5] * (1 + beta[7] - 6 * beta[6])});
 
 	tmp_ds.SetWrkDir(GetWrkDir());
-	tmp_ds.SetPlotPars(plt_par);
-	tmp_ds.SemiLogYPlot(0, {{1, "$b(M)$"}, {2, "$b(R)$"}, {3, "$b(I)$"}, {4, "$b(I) b(\\beta(I))$"}, {5, "$b(I) + 6 b(R)$"}, {6, "$b(I) [1 + b(\\beta(I)) - 6 b(R) ]$"}}, "B_Factors.pdf", "");
+
+	tmp_ds.Export("Derived_B_Factors.tsv");
 
 	// beta.Interpolate(0, beta_idx.B) ;
-	// Zaki::Vector::DataSet::PlotParam plt_par ;
-	// plt_par.SetGrid(true) ;
-	// plt_par.SetYAxisLabel("$\\beta(O)$") ;
-	// plt_par.SetLegend({"lower left", 0.0, 0.0}) ;
-	// beta.SetPlotPars(plt_par) ;
 	// // beta.MakeSmooth(20) ; // Change back to 50 for a smoother result!!
 	// beta.SetWrkDir( GetWrkDir() ) ;
-	// beta.Plot(1, {{5, "$\\beta(M)$"}, {6, "$\\beta(R)$"}, {7, "$\\beta(I)$"}}, "Beta_O.pdf", "") ;
-	// plt_par.SetYAxisLabel("$\\beta(M)$") ;
-	// beta.SetPlotPars(plt_par) ;
-	// beta.Plot(1, {{5, "$\\beta(M)$"}}, "Beta_M.pdf", "") ;
-	// plt_par.SetYAxisLabel("$\\mathcal{O}$") ;
-	// beta.SetPlotPars(plt_par) ;
-	// beta.Plot(0, {{1, "$M$"}, {8, "$B/1.4\\times 10^{57}$"}}, "M_vs_ec.pdf", "") ;
 
 	// Zaki::Vector::DataSet tmp_ds({seq[0], 5e15 * seq.Derivative(1)[1], 5e15*seq.Derivative(4)[1]/1.4e+57,
 	//                                 seq[4] * seq.Derivative(1)[1] / (0.8 * seq.Derivative(4)[1] * seq[1]) }) ;
 	// tmp_ds.SetWrkDir(GetWrkDir()) ;
-	// plt_par.SetYAxisLabel("$d\\mathcal{O} / d\\varepsilon$") ;
-	// tmp_ds.SetPlotPars(plt_par) ;
-	// tmp_ds.Plot(0, {{1, "$M'$"}, {2, "$B'/1.4\\times 10^{57}$"}, {3, "$b_M$"}}, "M'_vs_ec.pdf", "") ;
 }
 // ------------------------------------------------------------
 // Input in yr^-1
@@ -1473,17 +1435,10 @@ void MicroBNVAna::BNV_Sequence::Solve(const double t_0, const double t_f)
 	//---------------------------------------------------
 	//            Plotting Data
 	//---------------------------------------------------
-	Zaki::Vector::DataSet::PlotParam plt_pars;
-	plt_pars.SetGrid();
-	plt_pars.SetLegend({"upper left", 0.0, 1.0});
-	plt_pars.SetXAxis({(1e-3 / gamma_bnv) / Zaki::Physics::YR_2_SEC, (10 / gamma_bnv) / Zaki::Physics::YR_2_SEC});
-	// plt_pars.SetXAxis({5e-4, 1e1}) ;
-	// plt_pars.SetYAxis({1e-50, 1e-12}) ;
-	// plt_pars.SetYAxis({0.75, 1.25}) ;
+
 
 	// for (size_t i = 0; i < init_omega_set.size(); i++)
 	// {
-	//   plt_pars.AddAxHLine(ExtremumOmega(0) / init_omega_set[i].first, {{"ls", "--"}}) ;
 	// }
 
 	// std::cout << "\n\n\t ExtremumOmega (t=0) = " << ExtremumOmega(0) << " per second." ;
@@ -1497,35 +1452,17 @@ void MicroBNVAna::BNV_Sequence::Solve(const double t_0, const double t_f)
 	// snprintf(omega_ds_fname, sizeof(omega_ds_fname), omega_t_evol_f_name + "_G=%.1e_H=%.1e_M_i=%.2f_Mc=%.1f.pdf",
 	//         gamma_bnv*Zaki::Physics::YR_2_SEC, mag_field, M()[init_idx], bnv_cuttoff_mass ) ;
 
-	omega_ds.SetPlotPars(plt_pars);
-	omega_ds.SemiLogXPlot(0, omega_ds_plt_labels, omega_t_evol_f_name + file_stamps_str + ".pdf");
+
+	omega_ds.Export(omega_t_evol_f_name + file_stamps_str + ".tsv");
 
 	// char br_idx_ds_fname[100] ;
 	// snprintf(br_idx_ds_fname, sizeof(br_idx_ds_fname), br_idx_evol_f_name + "_G=%.1e_H=%.1e_M_i=%.2f_Mc=%.1f.pdf",
 	//         gamma_bnv*Zaki::Physics::YR_2_SEC, mag_field, M()[init_idx], bnv_cuttoff_mass ) ;
 
-	// plt_pars.SetYAxis({0, 6}) ;
-	plt_pars.SetYAxis({-10, 100});
-	plt_pars.SetXAxis({(1e-3 / gamma_bnv) / Zaki::Physics::YR_2_SEC, (10 / gamma_bnv) / Zaki::Physics::YR_2_SEC});
-	plt_pars.SetYAxisLabel("$n$");
-	// plt_pars.AddAxHLine(3, {{"c", "red"}, {"ls", "-."}}) ;
-	plt_pars.SetLegend({"lower left", 0.0, 0.0});
-	br_idx_ds.SetPlotPars(plt_pars);
 
 	// br_idx_ds.MakeSmooth(5) ;
-	br_idx_ds.SemiLogXPlot(0, br_idx_ds_plt_labels, br_idx_evol_f_name + file_stamps_str + ".pdf");
-	// br_idx_ds.LogLogPlot(0, br_idx_ds_plt_labels, br_idx_ds_fname) ;
+	br_idx_ds.Export(br_idx_evol_f_name + file_stamps_str + ".tsv");
 
-	plt_pars.Reset();
-	plt_pars.SetGrid();
-	plt_pars.SetXAxis({(1e-3 / gamma_bnv) / Zaki::Physics::YR_2_SEC, (10 / gamma_bnv) / Zaki::Physics::YR_2_SEC});
-	plt_pars.SetYAxis({1e6, 1e11});
-	// plt_pars.SetYAxis({4.5e9, 5.1e9}) ;
-	// plt_pars.SetYAxis({4e9, 1.2e10}) ;
-	plt_pars.SetYAxisLabel("$P / 2\\dot{P}$");
-	plt_pars.SetXAxisLabel("$t\\, [ yr ]$");
-	plt_pars.SetLegend({"lower left", 0.0, 0.0});
-	P_Pdot_ds.SetPlotPars(plt_pars);
 
 	P_Pdot_ds.MakeSmooth(5);
 
@@ -1533,7 +1470,6 @@ void MicroBNVAna::BNV_Sequence::Solve(const double t_0, const double t_f)
 	// snprintf(P_Pdot_ds_fname, sizeof(P_Pdot_ds_fname), age_t_evol_f_name + "_G=%.1e_H=%.1e_M_i=%.2f_Mc=%.1f.pdf",
 	//           gamma_bnv*Zaki::Physics::YR_2_SEC, mag_field, M()[init_idx], bnv_cuttoff_mass ) ;
 
-	P_Pdot_ds.LogLogPlot(0, P_Pdot_ds_plt_labels, age_t_evol_f_name + file_stamps_str + ".pdf");
 
 	// snprintf(P_Pdot_ds_fname, sizeof(P_Pdot_ds_fname), age_t_evol_f_name + "_G=%.1e_H=%.1e_M_i=%.2f_Mc=%.1f.tsv",
 	//           gamma_bnv*Zaki::Physics::YR_2_SEC, mag_field, M()[init_idx], bnv_cuttoff_mass ) ;
@@ -1541,32 +1477,16 @@ void MicroBNVAna::BNV_Sequence::Solve(const double t_0, const double t_f)
 	// --------------------
 	//      M_Omega
 	// --------------------
-	plt_pars.Reset();
-	plt_pars.SetGrid();
-	plt_pars.SetXAxis({0.05, 2.1});
-	if (mag_field == 1e8 || mag_field == 1e9)
-		plt_pars.SetYAxis({5, 2e4}); // M_Omega Evol: H = {1e8, 1e9}
-	else
-		plt_pars.SetYAxis({1, 2e3}); // M_Omega Evol: H = {1e10, 1e11}
-	// plt_pars.SetYAxis({10, 1e3}) ; // Schematic
-	plt_pars.SetYAxisLabel("$\\Omega\\, [1/s]$");
-	plt_pars.SetXAxisLabel("$M\\, [ M_{\\rm sun} ]$");
-	plt_pars.SetLegend({"lower left", 0.0, 0.0});
 
-	for (size_t i = 0; i < time_mass_stamps.size(); i++)
-	{
-		plt_pars.AddAxVLine(time_mass_stamps[i], {{"ls", "-."}});
-	}
+
 
 	// Adding M_TOV guideline
-	plt_pars.AddAxVLine(M().Max(), {{"ls", ":"}});
 
-	M_Omega_ds.SetPlotPars(plt_pars);
+
 	// char M_Omega_ds_fname[150] ;
 	// snprintf(M_Omega_ds_fname, sizeof(M_Omega_ds_fname), omega_m_evol_f_name + "_G=%.1e_H=%.1e_M_i=%.2f_Mc=%.1f.pdf",
 	//           gamma_bnv*Zaki::Physics::YR_2_SEC, mag_field, M()[init_idx], bnv_cuttoff_mass ) ;
 
-	M_Omega_ds.SemiLogYPlot(1, M_Omega_ds_plt_labels, omega_m_evol_f_name + file_stamps_str + ".pdf");
 
 	// snprintf(M_Omega_ds_fname, sizeof(M_Omega_ds_fname), omega_m_evol_f_name + "_G=%.1e_H=%.1e_M_i=%.2f_Mc=%.1f.tsv",
 	//           gamma_bnv*Zaki::Physics::YR_2_SEC, mag_field, M()[init_idx], bnv_cuttoff_mass ) ;

@@ -370,8 +370,6 @@ void DarkCore_Analysis::ExportBNV(const Zaki::String::Directory &in_dir)
 	neutron_out.SetWrkDir(in_dir + "/BNV_tau");
 	neutron_out.Export("BNV_tau_neutron.tsv");
 
-	neutron_out.Plot(0, 7, "BNV_neutron_age_death_ratio.pdf");
-	neutron_out.Plot(0, {3, 5}, "BNV_neutron_age_death.pdf", "Age & Death");
 
 	// Zaki::Vector::DataColumn Gamm_BNV =  1e-10*neutron_out[3]/1e7 ;
 
@@ -379,11 +377,8 @@ void DarkCore_Analysis::ExportBNV(const Zaki::String::Directory &in_dir)
 	n_gamma[1].SetLabel("Gamma_age");
 	n_gamma[2].SetLabel("Gamma_death");
 	n_gamma.SetWrkDir(in_dir + "/BNV_tau");
-	n_gamma.Plot(0, 1, "BNV_neutron_gamma_age.pdf", "Age = 2.6 Gyr");
-	n_gamma.Plot(0, 2, "BNV_neutron_gamma_death.pdf", "Death = 10 Gyr");
-	n_gamma.Plot(-1, 2, "BNV_neutron_gamma_death_ratio.pdf", "Death = 10 Gyr");
 
-	n_gamma.SemiLogYPlot(0, {1, 2}, "BNV_neutron_gamma.pdf", "Age = 2.6 Gyr, Death = 10 Gyr");
+
 	// ---------------------------------------------
 
 	// ---------------------------------------------
@@ -392,18 +387,13 @@ void DarkCore_Analysis::ExportBNV(const Zaki::String::Directory &in_dir)
 	lambda_out.SetWrkDir(in_dir + "/BNV_tau");
 	lambda_out.Export("BNV_tau_lambda.tsv");
 
-	lambda_out.Plot(0, 7, "BNV_lambda_age_death_ratio.pdf");
-	lambda_out.Plot(0, {3, 5}, "BNV_lambda_age_death.pdf", "Age & Death");
 
 	Zaki::Vector::DataSet lambda_gamma({lambda_out[0], 1e-10 * lambda_out[3] / 2.6e9, 1e-10 * lambda_out[5] / 1e10, lambda_out[-2]});
 	lambda_gamma[1].SetLabel("Gamma_age");
 	lambda_gamma[2].SetLabel("Gamma_death");
 	lambda_gamma.SetWrkDir(in_dir + "/BNV_tau");
-	lambda_gamma.Plot(0, 1, "BNV_lambda_gamma_age.pdf", "Age = 2.6 Gyr");
-	lambda_gamma.Plot(0, 2, "BNV_lambda_gamma_death.pdf", "Death = 10 Gyr");
-	lambda_gamma.Plot(-1, 2, "BNV_lambda_gamma_death_ratio.pdf", "Death = 10 Gyr");
 
-	lambda_gamma.SemiLogYPlot(0, {1, 2}, "BNV_lambda_gamma.pdf", "Age = 2.6 Gyr, Death = 10 Gyr");
+
 	// ---------------------------------------------
 
 	// ---------------------------------------------
@@ -412,18 +402,13 @@ void DarkCore_Analysis::ExportBNV(const Zaki::String::Directory &in_dir)
 	sigmam_out.SetWrkDir(in_dir + "/BNV_tau");
 	sigmam_out.Export("BNV_tau_sigmam.tsv");
 
-	sigmam_out.Plot(0, 7, "BNV_sigmam_age_death_ratio.pdf");
-	sigmam_out.Plot(0, {3, 5}, "BNV_sigmam_age_death.pdf", "Age & Death");
 
 	Zaki::Vector::DataSet sigmam_gamma({sigmam_out[0], 1e-10 * sigmam_out[3] / 2.6e9, 1e-10 * sigmam_out[5] / 1e10, sigmam_out[-2]});
 	sigmam_gamma[1].SetLabel("Gamma_age");
 	sigmam_gamma[2].SetLabel("Gamma_death");
 	sigmam_gamma.SetWrkDir(in_dir + "/BNV_tau");
-	sigmam_gamma.Plot(0, 1, "BNV_sigma-_gamma_age.pdf", "Age = 2.6 Gyr");
-	sigmam_gamma.Plot(0, 2, "BNV_sigma-_gamma_death.pdf", "Death = 10 Gyr");
-	sigmam_gamma.Plot(-1, 2, "BNV_sigma-_gamma_death_ratio.pdf", "Death = 10 Gyr");
 
-	sigmam_gamma.SemiLogYPlot(0, {1, 2}, "BNV_sigma-_gamma.pdf", "Age = 2.6 Gyr, Death = 10 Gyr");
+
 	// ---------------------------------------------
 	//                Combinations
 	// ---------------------------------------------

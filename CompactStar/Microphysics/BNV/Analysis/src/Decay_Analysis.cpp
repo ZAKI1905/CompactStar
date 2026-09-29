@@ -157,7 +157,6 @@ void MicroBNVAna::Decay_Analysis::ImportEffMass(const std::string &f_name,
 	m_eff_ds[2].SetLabel("$m_{\\Lambda}$");
 	m_eff_ds[3].SetLabel("$m_{\\Sigma^{-}}$");
 
-	m_eff_ds.Plot(0, {1, 2, 3}, "M_eff.pdf");
 
 	// Converting MeV to fm^-1
 	for (size_t i = 1; i < m_eff_ds.Dim().size(); i++)
@@ -183,7 +182,6 @@ void MicroBNVAna::Decay_Analysis::ImportVSelfEnergy(const std::string &f_name,
 	V_self_E_ds[2].SetLabel("$V_{\\Lambda}$");
 	V_self_E_ds[3].SetLabel("$V_{\\Sigma^{-}}$");
 
-	V_self_E_ds.Plot(0, {1, 2, 3}, "V_Self_E.pdf");
 
 	// Converting MeV to fm^-1
 	for (size_t i = 1; i < V_self_E_ds.Dim().size(); i++)
@@ -221,7 +219,6 @@ void MicroBNVAna::Decay_Analysis::ImportVSelfEnergy(const std::string &f_name,
 // 	std::cout << " * --------------------------------------------------- * \n";
 
 // 	plt_ds.SetWrkDir(wrk_dir_);
-// 	plt_ds.Plot(0, {1, 2, 3}, "Rest_E.pdf");
 // }
 
 // //--------------------------------------------------------------
@@ -352,18 +349,12 @@ void MicroBNVAna::Decay_Analysis::ImportVSelfEnergy(const std::string &f_name,
 
 // 	Zaki::Vector::DataSet lam_plt_pt({m_chi_set, lam_vac_br_set, eps_lam_lim_set});
 // 	lam_plt_pt.SetWrkDir(wrk_dir_);
-// 	lam_plt_pt.Plot(0, 1, "Lambda_Br.pdf",
-// 					"Limit on Br$\\left(\\Lambda \\to \\chi + \\gamma\\right)$ \n from PSR J0348+0432 spin-down.");
 
-// 	lam_plt_pt.SemiLogYPlot(0, 2, "Eps_Lambda.pdf", "Limit on $\\varepsilon_{\\Lambda} (GeV)$ \n from PSR J0348+0432 spin-down.");
 // 	lam_plt_pt.Export("Lambda Plot Points.tsv");
 
 // 	Zaki::Vector::DataSet neu_plt_pt({m_chi_set, neu_vac_br_set, eps_n_lim_set});
 // 	neu_plt_pt.SetWrkDir(wrk_dir_);
-// 	neu_plt_pt.Plot(0, 1, "n_Br.pdf",
-// 					"Limit on Br$\\left(n \\to \\chi + \\gamma\\right)$ \n from PSR J0348+0432 spin-down.");
 
-// 	neu_plt_pt.SemiLogYPlot(0, 2, "Eps_n.pdf", "Limit on $\\varepsilon_{n} (GeV)$ \n from PSR J0348+0432 spin-down.");
 // 	neu_plt_pt.Export("Neutron Plot Points.tsv");
 // }
 
@@ -547,18 +538,14 @@ void MicroBNVAna::Decay_Analysis::AttachPulsar(Core::Pulsar *puls)
 	// plotting section stays basically the same
 	Zaki::Vector::DataSet lam_plt_pt({m_chi_set, lam_vac_br_set, eps_lam_lim_set});
 	lam_plt_pt.SetWrkDir(wrk_dir_);
-	lam_plt_pt.Plot(0, 1, "Lambda_Br.pdf",
-					"Limit on Br$\\left(\\Lambda \\to \\chi + \\gamma\\right)$ \n from PSR J0348+0432 spin-down.");
-	lam_plt_pt.SemiLogYPlot(0, 2, "Eps_Lambda.pdf",
-							"Limit on $\\varepsilon_{\\Lambda} (GeV)$ \n from PSR J0348+0432 spin-down.");
+
+
 	lam_plt_pt.Export("Lambda Plot Points.tsv");
 
 	Zaki::Vector::DataSet neu_plt_pt({m_chi_set, neu_vac_br_set, eps_n_lim_set});
 	neu_plt_pt.SetWrkDir(wrk_dir_);
-	neu_plt_pt.Plot(0, 1, "n_Br.pdf",
-					"Limit on Br$\\left(n \\to \\chi + \\gamma\\right)$ \n from PSR J0348+0432 spin-down.");
-	neu_plt_pt.SemiLogYPlot(0, 2, "Eps_n.pdf",
-							"Limit on $\\varepsilon_{n} (GeV)$ \n from PSR J0348+0432 spin-down.");
+
+
 	neu_plt_pt.Export("Neutron Plot Points.tsv");
 }
 
@@ -683,13 +670,7 @@ void MicroBNVAna::Decay_Analysis::Export(const Zaki::String::Directory &in_dir)
 //   Zaki::Vector::DataSet n_out({t_n_set, eps_n_set, M_n_set}) ;
 //   n_out.SetWrkDir(in_dir.ThisFileDir()) ;
 
-//   Zaki::Vector::DataSet::PlotParam plt_par ;
-//   plt_par.SetXAxis({1e5, 1e13 }) ;
-//   plt_par.SetYAxis({1, 2.1}) ;
 
-//   n_out.SetPlotPars(plt_par) ;
-
-//   n_out.SemiLogXPlot(0, 2, "n_evolution.pdf") ;
 //   n_out.Export("n_evolution.tsv") ;
 //   // ---------------------------------------------
 
@@ -733,8 +714,6 @@ void MicroBNVAna::Decay_Analysis::Export(const Zaki::String::Directory &in_dir)
 
 //   Zaki::Vector::DataSet lam_out({t_lam_set, eps_lam_set, M_lam_set}) ;
 //   lam_out.SetWrkDir(in_dir.ThisFileDir()) ;
-//   lam_out.SetPlotPars(plt_par) ;
-//   lam_out.SemiLogXPlot(0, 2, "Lambda_evolution.pdf") ;
 //   lam_out.Export("Lambda_evolution.tsv") ;
 //   // ---------------------------------------------
 
@@ -778,8 +757,6 @@ void MicroBNVAna::Decay_Analysis::Export(const Zaki::String::Directory &in_dir)
 
 //   Zaki::Vector::DataSet sig_out({t_sig_set, eps_sig_set, M_sig_set}) ;
 //   sig_out.SetWrkDir(in_dir.ThisFileDir()) ;
-//   sig_out.SetPlotPars(plt_par) ;
-//   sig_out.SemiLogXPlot(0, 2, "Sigma_evolution.pdf") ;
 //   sig_out.Export("sigma_evolution.tsv") ;
 //   // ---------------------------------------------
 
