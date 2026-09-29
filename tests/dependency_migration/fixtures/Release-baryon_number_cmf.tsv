@@ -1,0 +1,19 @@
+# CompactStar — integrated baryon number on the authenticated DS(CMF)-1_with_crust sequence
+# Canonical reference values. B = INT 4 pi r^2 n_B (1-2m/r)^-1/2 dr * 1e54  (INV-14).
+# Proper-volume measure owned by CompactStar/Geometry.hpp per ADR-0004 (ACCEPTED 2026-09-01).
+#
+# Migration provenance. Before Phase 3D the metric factor was applied inline in
+# NStar::BuildFromTOV as `/= (1 - 2m/r).sqrt()`. ADR-0004 SS7.2 measured the change to
+# the canonical `w_V * n_B * 1e54` composition at <= 1.64e-16 relative (1 ULP), against
+# a bound of 1.0e-15 predeclared in SS7.1 before implementation. Pre-3D values were:
+#   1.0 Msun  1.27388873109354535e+57
+#   1.4 Msun  1.83218336257875150e+57
+#   1.6 Msun  2.12457569547972117e+57
+#   2.0 Msun  2.74576306114479063e+57
+#
+# Values are printed with %.17g and round-trip exactly.
+target_M_Msun	achieved_M_Msun	R_km	ec_km^-2	B
+1	1.0000438097285529	13.427522155127425	454550405078491.75	1.2738964445584018e+57
+1.3999999999999999	1.4000217832812112	13.546350432305879	616488270506054.5	1.8322001170409744e+57
+1.6000000000000001	1.5999758353006375	13.473358192465311	731253342677476.12	2.1245993414018298e+57
+2	1.9999985861663834	12.716477748371577	1297985389788764.5	2.7456407076335587e+57

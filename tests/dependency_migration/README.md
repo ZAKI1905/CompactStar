@@ -38,3 +38,10 @@ T1, the observer and replay run from committed fixtures without external EOS
 data. T2 is registered only when the DS(CMF)-1 EOS exists under the configured
 COMPACTSTAR_EOS_DATA_ROOT; qualified migration runs provide and authenticate
 that file and must include T2. An absent EOS is announced during configure.
+
+The two `Release-*.tsv` structural references were emitted by canonical OLD
+Release for the existing Hartle-monopole and baryon-number comparisons. Both
+NEW emissions match them byte-for-byte. Their provenance JSON identifies the
+authority. Existing Debug baselines and explicit ADR-0012 candidate overrides
+remain unchanged; no comparator tolerance is changed. These are same-mode
+migration references pending the combined review, not a new physics ratification.

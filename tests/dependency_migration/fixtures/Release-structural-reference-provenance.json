@@ -1,0 +1,13 @@
+{
+  "authority": "Owner same-mode OLD Release versus NEW Release migration authority; candidate reference, not replacement of existing Debug baselines",
+  "source_sha": "812463ac9ed374f64ac9cadd500066ab723d3a6c",
+  "compiler": "AppleClang 21.0.0 clang-2100.3.34.2",
+  "mode": "Release",
+  "GSL": "/opt/local 2.7.1",
+  "old_Zaki_sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef",
+  "old_CONFIND_sha256": "09ed1a7c43a83b42f64ee8e0bda3b879af970126ee75159a802179a4d0a49eb2",
+  "files": {
+    "Release-hartle_monopole_regression.tsv": "0d525ae19f82fa07262bd7ceb13cc50a93437ff2afa32e8d647cbce85e4cd27a",
+    "Release-baryon_number_cmf.tsv": "f6e1bc089c619f1de2a6045b2a36243a5001f6605fef7c792cf979845d46c83a"
+  }
+}

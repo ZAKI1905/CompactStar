@@ -368,6 +368,16 @@ if(COMPACTSTAR_ADR0012_CANDIDATE_DIR)
     message(STATUS "ADR-0012 candidate comparisons (not ratification): ${_adr0012_references}")
 endif()
 
+# These two C++ comparisons support a same-mode Release reference. Preserve
+# the existing Debug authority and any explicit ADR-0012 candidate override.
+set(_monopole_reference "${_adr0012_references}/hartle_monopole_dscmf1_debug.tsv")
+set(_baryon_reference "${_adr0012_references}/baryon_number_dscmf1_reference.tsv")
+if(CMAKE_BUILD_TYPE STREQUAL "Release" AND NOT COMPACTSTAR_ADR0012_CANDIDATE_DIR)
+    set(_monopole_reference "${CMAKE_CURRENT_SOURCE_DIR}/dependency_migration/fixtures/Release-hartle_monopole_regression.tsv")
+    set(_baryon_reference "${CMAKE_CURRENT_SOURCE_DIR}/dependency_migration/fixtures/Release-baryon_number_cmf.tsv")
+    message(STATUS "Structural comparisons use frozen canonical OLD Release migration references")
+endif()
+
 set(COMPACTSTAR_EOS_DATA_ROOT "" CACHE PATH
     "Path to authenticated official CompOSE tables; enables the Tier-B thermal test.")
 
@@ -431,7 +441,7 @@ if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
         COMPACTSTAR_BASELINE_DIR="${CMAKE_CURRENT_SOURCE_DIR}/baselines")
     add_test(NAME hartle_monopole_regression
              COMMAND hartle_monopole_regression "${COMPACTSTAR_EOS_DATA_ROOT}"
-                --compare "${_adr0012_references}/hartle_monopole_dscmf1_debug.tsv")
+                --compare "${_monopole_reference}")
     set_tests_properties(hartle_monopole_regression PROPERTIES
         LABELS "rotation;hartle;monopole;scientific;regression;external-data"
         TIMEOUT 900)
@@ -505,7 +515,7 @@ if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
     add_test(NAME baryon_number_cmf
              COMMAND baryon_number_cmf "${COMPACTSTAR_EOS_DATA_ROOT}"
                      --compare
-                     "${_adr0012_references}/baryon_number_dscmf1_reference.tsv")
+                     "${_baryon_reference}")
     set_tests_properties(baryon_number_cmf PROPERTIES
         LABELS "core;tov;reference;external-data;scientific"
         TIMEOUT 900)
