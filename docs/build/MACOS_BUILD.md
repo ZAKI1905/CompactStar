@@ -1,5 +1,9 @@
 # CompactStar — macOS Build Notes
 
+> **Migration candidate update (2026-09-29):** the commands below are preserved
+> as historical Phase-1 evidence. Active candidate builds use the authenticated
+> external packages described in [EXTERNAL_PACKAGES_MAC.md](EXTERNAL_PACKAGES_MAC.md).
+
 > **STATUS: PHASE-1 EVIDENCE, not final user documentation.**
 > This records what was *observed to work* on one machine during roadmap Phase 1A. The commands
 > below are canonical for macOS development today; they are not a supported installation guide and

@@ -1,5 +1,9 @@
 # CompactStar
 
+Local Mac dependency migration candidate: see the
+[authenticated package build instructions](docs/build/EXTERNAL_PACKAGES_MAC.md).
+Canonical integration awaits the combined independent review described in ADR-0019.
+
 **CompactStar** is a high-performance, modular C++ framework for modeling the microphysics, structure, and evolution of compact stars—neutron stars, hybrid stars, and dark–visible admixed configurations.
 
 Originally designed for dense-matter astrophysics research, the codebase has expanded into a full computational platform with:
