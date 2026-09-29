@@ -785,21 +785,7 @@ void MicroBNVCh::BNV_B_Chi_Photon::Thermal_Hole_E_Rate_vs_R(const std::vector<do
 	// }
 
 
-	if (B.label == "10")
-	{
-		else
-		{
 
-		}
-	}
-
-	if (B.label == "100")
-	{
-		else
-		{
-
-		}
-	}
 
 
 	// ------------------------------------
@@ -1039,21 +1025,7 @@ void MicroBNVCh::BNV_B_Chi_Photon::Thermal_Photon_E_Rate_vs_R(const std::vector<
 	// }
 
 
-	if (B.label == "10")
-	{
-		else
-		{
 
-		}
-	}
-
-	if (B.label == "100")
-	{
-		else
-		{
-
-		}
-	}
 
 
 	// ------------------------------------
@@ -1650,21 +1622,7 @@ void MicroBNVCh::BNV_B_Chi_Photon::Thermal_Total_E_Rate_vs_R(
 	// }
 
 
-	if (B.label == "10")
-	{
-		else
-		{
 
-		}
-	}
-
-	if (B.label == "100")
-	{
-		else
-		{
-
-		}
-	}
 
 
 	// ------------------------------------
