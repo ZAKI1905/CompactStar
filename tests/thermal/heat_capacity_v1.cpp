@@ -31,12 +31,14 @@
  * part of this executable. See docs/validation/HEAT_CAPACITY_V1.md.
  */
 
+#include <chrono>
 #include <cmath>
 #include <cstdio>
 #include <filesystem>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
+#include <stdexcept>
 #include <string>
 #include <vector>
 
@@ -270,8 +272,21 @@ int main()
 	std::cout << std::scientific << std::setprecision(6);
 	std::cout << "ADR-0002 V1 Tier-A verification (synthetic fixture; NOT a scientific baseline)\n\n";
 
-	const fs::path root = fs::temp_directory_path() / "compactstar_hcv1_fixture";
-	fs::remove_all(root);
+	// Separate invocations/build modes must not remove one another's fixture.
+	const auto stamp = std::chrono::steady_clock::now().time_since_epoch().count();
+	fs::path root;
+	for (int attempt = 0; attempt < 100; ++attempt)
+	{
+		auto candidate = fs::temp_directory_path() /
+			("compactstar_hcv1_" + std::to_string(stamp) + "_" + std::to_string(attempt));
+		if (fs::create_directory(candidate))
+		{
+			root = std::move(candidate);
+			break;
+		}
+	}
+	if (root.empty())
+		throw std::runtime_error("could not create a unique heat-capacity fixture directory");
 	WriteSyntheticThermo(root / "linear", kFixtureSlope);
 	WriteSyntheticThermo(root / "linear2x", 2.0 * kFixtureSlope);
 
