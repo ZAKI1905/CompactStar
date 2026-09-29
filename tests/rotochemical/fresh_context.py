@@ -43,10 +43,26 @@ def ctest(source_root, build_dir, output_root, label, expression):
 
 def configure_and_build(source_root, build_dir, output_root, python, eos_data_root):
     receipts = []
+    # Nested governed qualification is always Debug, including when launched
+    # from a Release test build. Forward explicit authenticated package roots.
+    dependency_args = []
+    for name in ('ZAKI', 'CONFIND'):
+        prefix = os.environ.get(f'COMPACTSTAR_QUALIFICATION_DEBUG_{name}_PREFIX')
+        if prefix:
+            dependency_args.append(f'-DCOMPACTSTAR_{name}_PREFIX={prefix}')
+    gsl_prefix = os.environ.get('COMPACTSTAR_QUALIFICATION_GSL_PREFIX')
+    if gsl_prefix:
+        dependency_args.extend([
+            f'-DGSL_ROOT_DIR={gsl_prefix}',
+            f'-DGSL_CONFIG_EXECUTABLE={gsl_prefix}/bin/gsl-config',
+            f'-DGSL_INCLUDE_DIR={gsl_prefix}/include',
+            f'-DGSL_LIBRARY={gsl_prefix}/lib/libgsl.dylib',
+            f'-DGSL_CBLAS_LIBRARY={gsl_prefix}/lib/libgslcblas.dylib',
+        ])
     receipts.append(run_command(
         ["cmake", "-S", source_root, "-B", build_dir, "-DBUILD_TESTING=ON",
          "-DCMAKE_BUILD_TYPE=Debug", f"-DPython3_EXECUTABLE={python}",
-         f"-DCOMPACTSTAR_EOS_DATA_ROOT={eos_data_root}"],
+         f"-DCOMPACTSTAR_EOS_DATA_ROOT={eos_data_root}", *dependency_args],
         output_root / "configure.log", source_root,
     ))
     receipts.append(run_command(

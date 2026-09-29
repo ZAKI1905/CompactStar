@@ -15,7 +15,6 @@ foreach(src ${CompactStar_main_Test_SRC_Files})
 	target_include_directories(${src} PUBLIC
 		${CMAKE_CURRENT_SOURCE_DIR}/include
 		${GSL_INCLUDE_DIRS}
-		${DEP_INC_DIR}
 	)
 
 	install(FILES "${src}.cpp" DESTINATION main/Test)
