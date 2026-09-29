@@ -3,7 +3,8 @@
 The migration candidate uses explicit, authenticated Zaki 2.0.1 and CONFIND
 2.0.0 packages. Historical `dependencies/` archives and headers are retained
 as scientific oracles and are not build or install inputs. See ADR-0019 and
-the migration qualification report for authority and exact artifact hashes.
+[the migration qualification report](../validation/COMPACTSTAR_EXTERNAL_DEPENDENCY_MIGRATION_QUALIFICATION.md)
+for authority and exact artifact hashes.
 
 CMake 3.18 or later is required. The qualified machine uses AppleClang 21,
 CMake 4.2.1, `/opt/local` GSL 2.7.1 and the macOS SDK's zlib. Python 3.12.10
@@ -50,7 +51,10 @@ structural-response regression, Phase-5C coefficient regression, and
 Phase-5D coupled-oracle certificate. They run in Debug. The Phase-5D1
 regression constructs its own fresh Debug build even when invoked from a
 Release build. The migration report additionally compares same-mode Release
-artifacts exactly; it never treats Release as required to equal Debug.
+artifacts exactly; it never treats Release as required to equal Debug. The
+existing Hartle-monopole and baryon-number tests use separately frozen OLD
+Release migration references in Release; their Debug baselines and explicit
+ADR-0012 reference overrides remain unchanged.
 
 Use `ctest -R '^taskmanager_'` for the fast sequence/observer/replay checks
 and the real stellar T2 test. T2 requires the authenticated external EOS.

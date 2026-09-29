@@ -1144,3 +1144,45 @@ Debug/Release qualification and the no-merge/no-tag/local-Mac-only boundary.
 Finish the candidate and perform one combined independent review afterward.
 The historical stop remains valid under its then-controlling rule; it no longer
 blocks implementation. No scientific tolerance is introduced by this amendment.
+
+
+## 36. Implementation completion — append only
+
+The owner-authorized resumed migration is complete as a local Mac candidate.
+Qualification evidence commit: `293a396470f343138bf61f289df9ebebf0028898`. ADR-0019 was recorded separately in
+`164e214413d5a272b1792f815ab9d7d18aa62bf8`. Full results and provenance are in
+[the migration qualification report](COMPACTSTAR_EXTERNAL_DEPENDENCY_MIGRATION_QUALIFICATION.md).
+
+G0–G9 pass under the appended resume authority. OLD Debug passes 76/76;
+NEW Debug passes 81/81. Applicable Release coverage is 73/73 OLD and 78/78 NEW,
+including complete fresh Phase-5D1 runs. Final rebuilt affected tests pass
+39/39 per mode. T1 is 13/13 exact, with 53,484 exact observer records; T2 is
+38/38 exact per mode. All neutron/Lambda/Sigma- lifetime tables are exact.
+Zaki characterization and the near-tie replay have zero differing records;
+unpatched Zaki's negative control differs in 22 records per mode.
+
+Fresh OLD and NEW bounded ADR-0017 reproduce the accepted historical science:
+232/60 main accepted/rejected steps, 239 qualified strict interiors, 478 exact
+O1/O2 state/diagnostic records, unchanged R20 and reconstruction uncertainty.
+BA12/BA12R remain FAIL and were not rerun. No scientific tolerance changed.
+
+Documented implementation adjustments are the diagnostic treatment of benign
+provider/codegen differences; three tests restricted to their existing Debug
+authority; two separately frozen OLD Release structural references; unique
+heat-capacity test directories; root-owned installation preserving frozen
+CMake hashes; and explicit exceptions for previously undefined spin diagnostics.
+Plot removal outside the governed T1/T2 paths has source/build assessment,
+without claiming runtime execution of every legacy analysis entry point.
+All initial failed Release attempts and repaired results remain in evidence.
+
+Historical archives/headers, ADR-0018, all existing governed baseline bytes and
+protected scientific source hashes remain unchanged. TaskManager still uses
+its original threading implementation and one thread governs T1/T2. Canonical
+CompactStar remains `812463ac9ed374f64ac9cadd500066ab723d3a6c`; exact dependency
+sources remain Zaki e263a6e and CONFIND b0cbd510, unchanged. No merge, release
+tag, Linux qualification or cluster access occurred.
+
+Disposition B — MIGRATION COMPLETE WITH NONBLOCKING CAVEATS — READY FOR ONE
+INDEPENDENT REVIEW. The next and only next step is one combined review of the
+exact Zaki candidate, canonical CONFIND dependency and complete CompactStar
+candidate. Integration requires the owner's subsequent acceptance.
