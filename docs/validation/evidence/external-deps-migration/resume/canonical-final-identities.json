@@ -1,0 +1,29 @@
+{
+  "observed_at": "2026-09-29T11:43:01.348555-04:00",
+  "records": [
+    {
+      "name": "CompactStar",
+      "path": "/Users/keeper/Documents/CompactStar/repo/CompactStar",
+      "head": "812463ac9ed374f64ac9cadd500066ab723d3a6c",
+      "dirty": "",
+      "master": "812463ac9ed374f64ac9cadd500066ab723d3a6c",
+      "origin_master": "812463ac9ed374f64ac9cadd500066ab723d3a6c",
+      "live_master": "812463ac9ed374f64ac9cadd500066ab723d3a6c"
+    },
+    {
+      "name": "CONFIND",
+      "path": "/Users/keeper/Documents/CompactStar/external/CONFIND",
+      "head": "b0cbd510fd3fd0c772fa50499cd749287cb39e7b",
+      "dirty": "",
+      "master": "b0cbd510fd3fd0c772fa50499cd749287cb39e7b",
+      "origin_master": "b0cbd510fd3fd0c772fa50499cd749287cb39e7b",
+      "live_master": "b0cbd510fd3fd0c772fa50499cd749287cb39e7b"
+    },
+    {
+      "name": "Zaki candidate",
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/ZakiLib-2.0.1-fp-preservation",
+      "head": "e263a6e180c5c417198e7778bd21fc9c0a32dc33",
+      "dirty": ""
+    }
+  ]
+}

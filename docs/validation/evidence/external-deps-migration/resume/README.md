@@ -25,3 +25,11 @@ and full output hashes; the large TSVs stay in the external execution root.
 Maps, symbols and disassembly are compressed text, not generated binary trees.
 The raw build/install logs and package trees remain in that same external root.
 A SHA256SUMS file authenticates the compact committed evidence.
+
+The initial Release suite logs intentionally retain failed cross-mode Debug
+reference checks and the repaired infrastructure/provenance failures. The
+final applicable suite and separate complete Phase-5D1 rerun are authoritative;
+see the report for their exact inventory. OLD/NEW Debug complete-suite logs
+include every long test. Phase-5D1 receipts authenticate byte-identical
+governed artifacts and ten fail-closed controls per run. ADR-0017 files retain
+whole output tables, with timing fields explicitly separated from science.

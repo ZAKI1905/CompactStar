@@ -1,0 +1,13 @@
+{
+  "authorization": "8be1b6a083e1adac1dba7d64c75aa437533ab69a",
+  "resume_authority": "a7c4934fc6cea7e2b58b7d3437dcd910ab2e873c",
+  "historical_references": "d8d4604009c93a51b8f6657284d56b5df9e13659",
+  "plotting_removal": "02db887979ae333798543e9ebde2c75a935c41d1",
+  "package_python_openmp_migration": "a940e09aba3831803ad154cf77539be1c9cce54f",
+  "explicit_unavailable_spin": "fa359772abd83e2b0ef676885aaed485bb4bbbc7",
+  "taskmanager_regressions": "d26e29b8e78b2df0101034103e1cb4b381af5a18",
+  "ADR0019": "164e214413d5a272b1792f815ab9d7d18aa62bf8",
+  "protected_install_repair": "d75e8fffff7e6fbabdba0238272ce99d8c0449b6",
+  "Release_same_mode_references": "865c96eb0a55c5d5e4d424681bc076e2a336d549",
+  "heat_capacity_fixture_isolation": "cb2aa04b1ef3daf92963bb61f7fabe50880ed17c"
+}

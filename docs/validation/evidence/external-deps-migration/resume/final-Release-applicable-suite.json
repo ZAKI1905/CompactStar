@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/opt/homebrew/bin/ctest",
+    "--test-dir",
+    "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release",
+    "--output-on-failure",
+    "-j",
+    "4",
+    "-E",
+    "^phase5d1_controlled_evolution_regression$"
+  ],
+  "returncode": 0,
+  "wall_seconds": 275.4507312080823,
+  "exclusion_reason": "Phase-5D1 independently rerun in full after restoring protected install CMake files; retain new-Release-phase5d1-repaired.log."
+}

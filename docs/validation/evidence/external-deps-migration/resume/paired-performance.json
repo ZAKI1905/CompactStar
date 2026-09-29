@@ -1,0 +1,189 @@
+{
+  "load_note": "Back-to-back OLD/NEW measurements; existing long governed tests continue on this Mac. Not an idle-machine benchmark.",
+  "runs": [
+    {
+      "stack": "old",
+      "mode": "T1",
+      "build_mode": "Debug",
+      "count": 13,
+      "differing_files": [],
+      "wall_seconds": 15.740052458131686,
+      "retained_run": null,
+      "command": [
+        "/Users/keeper/miniforge3/bin/python3",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-external-deps-taskmanager-migration/tests/dependency_migration/check_fixture.py",
+        "--exe",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/provider-Debug/old-taskmanager",
+        "--build-mode",
+        "Debug",
+        "--mode",
+        "T1",
+        "--eos",
+        "/Users/keeper/Documents/CompactStar/data/compose/DS-CMF-1-with-crust/DS(CMF)-1_with_crust.eos",
+        "--report",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/evidence/performance-old-Debug-T1.json"
+      ]
+    },
+    {
+      "stack": "new",
+      "mode": "T1",
+      "build_mode": "Debug",
+      "count": 13,
+      "differing_files": [],
+      "wall_seconds": 0.05719145806506276,
+      "retained_run": null,
+      "command": [
+        "/Users/keeper/miniforge3/bin/python3",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-external-deps-taskmanager-migration/tests/dependency_migration/check_fixture.py",
+        "--exe",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Debug/tests/dependency_migration/taskmanager_migration",
+        "--build-mode",
+        "Debug",
+        "--mode",
+        "T1",
+        "--eos",
+        "/Users/keeper/Documents/CompactStar/data/compose/DS-CMF-1-with-crust/DS(CMF)-1_with_crust.eos",
+        "--report",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/evidence/performance-new-Debug-T1.json"
+      ]
+    },
+    {
+      "stack": "old",
+      "mode": "T2",
+      "build_mode": "Debug",
+      "count": 38,
+      "differing_files": [],
+      "wall_seconds": 87.72870037495159,
+      "retained_run": null,
+      "command": [
+        "/Users/keeper/miniforge3/bin/python3",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-external-deps-taskmanager-migration/tests/dependency_migration/check_fixture.py",
+        "--exe",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/provider-Debug/old-taskmanager",
+        "--build-mode",
+        "Debug",
+        "--mode",
+        "T2",
+        "--eos",
+        "/Users/keeper/Documents/CompactStar/data/compose/DS-CMF-1-with-crust/DS(CMF)-1_with_crust.eos",
+        "--report",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/evidence/performance-old-Debug-T2.json"
+      ]
+    },
+    {
+      "stack": "new",
+      "mode": "T2",
+      "build_mode": "Debug",
+      "count": 38,
+      "differing_files": [],
+      "wall_seconds": 69.75914900004864,
+      "retained_run": null,
+      "command": [
+        "/Users/keeper/miniforge3/bin/python3",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-external-deps-taskmanager-migration/tests/dependency_migration/check_fixture.py",
+        "--exe",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Debug/tests/dependency_migration/taskmanager_migration",
+        "--build-mode",
+        "Debug",
+        "--mode",
+        "T2",
+        "--eos",
+        "/Users/keeper/Documents/CompactStar/data/compose/DS-CMF-1-with-crust/DS(CMF)-1_with_crust.eos",
+        "--report",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/evidence/performance-new-Debug-T2.json"
+      ]
+    },
+    {
+      "stack": "old",
+      "mode": "T1",
+      "build_mode": "Release",
+      "count": 13,
+      "differing_files": [],
+      "wall_seconds": 16.241538000060245,
+      "retained_run": null,
+      "command": [
+        "/Users/keeper/miniforge3/bin/python3",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-external-deps-taskmanager-migration/tests/dependency_migration/check_fixture.py",
+        "--exe",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/provider-Release/old-taskmanager",
+        "--build-mode",
+        "Release",
+        "--mode",
+        "T1",
+        "--eos",
+        "/Users/keeper/Documents/CompactStar/data/compose/DS-CMF-1-with-crust/DS(CMF)-1_with_crust.eos",
+        "--report",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/evidence/performance-old-Release-T1.json"
+      ]
+    },
+    {
+      "stack": "new",
+      "mode": "T1",
+      "build_mode": "Release",
+      "count": 13,
+      "differing_files": [],
+      "wall_seconds": 0.019108416978269815,
+      "retained_run": null,
+      "command": [
+        "/Users/keeper/miniforge3/bin/python3",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-external-deps-taskmanager-migration/tests/dependency_migration/check_fixture.py",
+        "--exe",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release/tests/dependency_migration/taskmanager_migration",
+        "--build-mode",
+        "Release",
+        "--mode",
+        "T1",
+        "--eos",
+        "/Users/keeper/Documents/CompactStar/data/compose/DS-CMF-1-with-crust/DS(CMF)-1_with_crust.eos",
+        "--report",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/evidence/performance-new-Release-T1.json"
+      ]
+    },
+    {
+      "stack": "old",
+      "mode": "T2",
+      "build_mode": "Release",
+      "count": 38,
+      "differing_files": [],
+      "wall_seconds": 55.60875091585331,
+      "retained_run": null,
+      "command": [
+        "/Users/keeper/miniforge3/bin/python3",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-external-deps-taskmanager-migration/tests/dependency_migration/check_fixture.py",
+        "--exe",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/provider-Release/old-taskmanager",
+        "--build-mode",
+        "Release",
+        "--mode",
+        "T2",
+        "--eos",
+        "/Users/keeper/Documents/CompactStar/data/compose/DS-CMF-1-with-crust/DS(CMF)-1_with_crust.eos",
+        "--report",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/evidence/performance-old-Release-T2.json"
+      ]
+    },
+    {
+      "stack": "new",
+      "mode": "T2",
+      "build_mode": "Release",
+      "count": 38,
+      "differing_files": [],
+      "wall_seconds": 30.130327916005626,
+      "retained_run": null,
+      "command": [
+        "/Users/keeper/miniforge3/bin/python3",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-external-deps-taskmanager-migration/tests/dependency_migration/check_fixture.py",
+        "--exe",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release/tests/dependency_migration/taskmanager_migration",
+        "--build-mode",
+        "Release",
+        "--mode",
+        "T2",
+        "--eos",
+        "/Users/keeper/Documents/CompactStar/data/compose/DS-CMF-1-with-crust/DS(CMF)-1_with_crust.eos",
+        "--report",
+        "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/evidence/performance-new-Release-T2.json"
+      ]
+    }
+  ]
+}

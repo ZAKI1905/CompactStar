@@ -1,0 +1,1590 @@
+{
+  "Debug": [
+    {
+      "file": "main/Examples/Fermi_gas_many",
+      "sha256": "4e29a62344f0da61a7bed8a146914335edfa66c147cd224478bf18a22bd5f63f",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "main/Examples/sig_omega_rho_nstar",
+      "sha256": "a86c8dec0b2782a26d41bb9f63db57d0d3706bbbc814624d64135514730fc82b",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "main/Test/compose_thermo_main",
+      "sha256": "96ea56de90ac947471e86a5028d117eb3460dfb00f558a60bdd6f9d7a13f950e",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "main/Test/ns_build_main",
+      "sha256": "afa745d97d51ec694b6bf50201489ae183d3a7e93c62df0b092d39c7c27b6426",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "main/Test/psr_debug_main",
+      "sha256": "160a4e6579979fa023f9209cb5957715460230443c5bd9bf8bf74b7b5b12b679",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "main/Test/spin_evol_2_main",
+      "sha256": "ff1b1e432f51c5fdfe9c6128b835612b6b7bb63c494b2368b43530106996cc7f",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "main/Test/spin_evol_main",
+      "sha256": "2bca02dcebbbfa4bf9262fcfa8776f72c51d4417db0d953c09b0ffd4b2dddf42",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "main/Test/spin_therm_evol_2_main",
+      "sha256": "7bc3a18abf02188e88905b1d356920f9484d1f03c85b5544d0714cd55d55373a",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "main/Test/spin_therm_evol_main",
+      "sha256": "048c04bb5e963b45712d791b051550b74f228dfca8d804be5d36b6a3e3551f1f",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "main/Test/tov_debug_main",
+      "sha256": "875041f7a9c874e91b04c574b8258e0ec0b15f37421d86ea659e5bd4de5feb55",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/adr0017_production_qualification",
+      "sha256": "4e9bb2ba71923419820f96ead8e880ddd372aa0790e0f4a669ef273e0f74d6a1",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/baryon_number_cmf",
+      "sha256": "b1f5d1f0e49bcd16c50df5f2d2d2220112e0e5a11388a1c08782e02167e31ac5",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/cache_contract",
+      "sha256": "da46a27fe6b033ec9847c8a68b8733058aa3bc929821fd5a5fee91fac63c4de5",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/cache_thermal_contract",
+      "sha256": "46cc2ebeae105529d0d8f2363e0b6f336b3ecf421efcb9ade670e66574c2171b",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/chemical_production_contract",
+      "sha256": "ca816b110d308d48c7bbce7e8c0ffdda347f77eb51e4a0afee39c4a011be9c8b",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/chemical_production_fixture",
+      "sha256": "94f75635313d3bd9e3c2ef2db0f88d579ab9c125a6927f30b7d155bbc7332356",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/chemical_structural_envelope",
+      "sha256": "b0beb52e3997889bdd221aa6c835c1e0813a176109c35f0f31b8e804743f7eb6",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/chemical_trackr_fixture",
+      "sha256": "7760a857a5b04d434c81b2442135bc4a32bb34b4ae5d2ac3b1441182257b9d0e",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/compactstar_library_smoke",
+      "sha256": "023f6b73bc2eca06128d6b690df1cd58491c8f1156e1ecf28ca05ff9dea4018d",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/eos_derivative_cmf",
+      "sha256": "d4e5931d8c19aed13773f386273afea771739ab20ec4400b31eb40bced1e9d4b",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/eos_derivative_contract",
+      "sha256": "2a68e161be7f50649a762a7fd3674dfef7c83902a4d94a4a80de79f85d4dcfa1",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/evolution_stepper_contract",
+      "sha256": "02216e9e3606243ad2b4e3dce200be415d7927643f52ca112836a56b4c9ee944",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/geometry_cache_measure_contract",
+      "sha256": "97fb18bbb629d4447e91e7ac85d8a224f3806ba3617bb8819331250241aac262",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/grid_convergence_cmf",
+      "sha256": "9006320bded28f5730d0a67e46ddad853ab3b95c86a054a8ed1b060fb74c879b",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_first_order_physics_analytic",
+      "sha256": "72cf08d1304b96f36cdb91d791683b22b01f8ec8ff6f83419578e82023264af1",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_first_order_physics_cmf",
+      "sha256": "0b4184a0d25d14c0b5018502ccc14ba09feb3df2c504baf3590884bfcfb92b8a",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_moment_inertia_analytic",
+      "sha256": "c5ad3d3a2c0428651b1b0215797f8a3403e2d10552bbf0d87d2d3f1f4e60bcea",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_moment_inertia_cmf",
+      "sha256": "93611f1b872b1cd2b0045b1d95253a67a72be6218e865c6cb036bcbab0d5f80e",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_monopole_cmf",
+      "sha256": "81ff6df6d37faa43a04024122dd17d2d18f86cdd84a779f134a10d1b86b8abf0",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_monopole_contract",
+      "sha256": "040d6c65c554113104a030504002c2460f51f34bcd46831d2120a5762e09405b",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_monopole_measure_contract",
+      "sha256": "c267e74abb357c5f78e610f3d39c894698d9d5aa4dd9b05ab2e8f1dd901072dc",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_monopole_physics_analytic",
+      "sha256": "94800d80a4aac164fa6baf56a72547400b35ebfdbec68e667c1d896afc78403b",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_monopole_physics_cmf",
+      "sha256": "f667e9ba60bfcca96b89367e9ab027474b88a913990433a36f0e771426bec924",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_monopole_published",
+      "sha256": "d10e1c8a866d87ecd00d288ce3b8947cc702c85bb65f75b92555ad647582946f",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_monopole_regression",
+      "sha256": "1df4bb0ea75e21b0d840431d8ef2396057c48deaee34740654d8abf2ab0d2e96",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_normalization_cmf",
+      "sha256": "fd337c516f22fd6b325e85a1cedff4174e740a0678b17df1f7065c5f904b9387",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_normalization_contract",
+      "sha256": "2507e775e43a214c0fd245a5e71ca47ca8d67890d3d16b376c368f8686502b06",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/heat_capacity_real_star",
+      "sha256": "8042e3c66098ebae42bea55d5d6087fb1e5dcd43dc22661c29028991217d6869",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/heat_capacity_v1",
+      "sha256": "08ff5fb82eeaa750deade62987e6cf5a5103ef1290068daca01f2c12a37c8f84",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/particle_number_analytic",
+      "sha256": "8b2b11a2421924ed7967ce6c043ad3ed836b222de996dd4f61645973dbb203e7",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/passive_checkpoint_output_contract",
+      "sha256": "ab49640d898e131689ea2e5376d625df39c9d41378a7cbef7ee5afb5f5c82f18",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/passive_cooling_regression",
+      "sha256": "fee6e8849f444d5f50111498e8c63d2629402e36fa00fa9eeffd505760a3b780",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/phase5b_freegas_validation",
+      "sha256": "f9b6c996f4655c3eaed94394b4a771432b9672f3ef94fea9742259f2a7448c26",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/phase5d_component_tolerances",
+      "sha256": "2a6656931b0a156f1f46705ce7743785f275a767b6ce79fb28861d7e13c92311",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/phase5d_evolution",
+      "sha256": "6053b356fede4d0d2211ea001703de33278e21dbee94cc5b683961ae62515740",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/phase5d_response",
+      "sha256": "ba2ee65a17a99801688d6fe1d7528ed8a7833e04b936a272007f8ab84e44b540",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/photon_cooling_conformance",
+      "sha256": "1b684dd329682cc9348bf83177e632e94314aad61d30335ff567c904b9f4d25d",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/proper_volume_contract",
+      "sha256": "4cefe479884acbf95bed1cb0da53a4bd5c243721f44af4ba77debbf7a7a3e115",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/relativistic_unit_background",
+      "sha256": "afb4d623391765c4397690e640affec2737497980820154f1d2c898dbf237937",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/relativistic_unit_boundary",
+      "sha256": "df29e862dd0833b513ccb3ab999dcbd8510404e074abcd214073abbed6340ebd",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/rotochemical_local_thermodynamics",
+      "sha256": "cdf876aef57f55cda2ff32ed4b59eaa089663f03f9da9850e32d17fa0fbcbfb2",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/rotochemical_trackr_freegas_barotrope",
+      "sha256": "f05e89c64d4db297a00f0058b8ef849502514792ba561ff17fa47070c48237ad",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/rotochemical_trackr_freegas_local",
+      "sha256": "b76a388b6e651b68ede053b2a003e2cb2609f66c03663398b39d2a5a145ef2cb",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/rotochemical_trackr_freegas_structure",
+      "sha256": "7ff8aa3f976fad4bc451a677c948b0eadc82cb2ffeb9932b7770145485fd56ee",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/rotochemical_trackr_npe",
+      "sha256": "d0f1b0ec5842d32531c0600029350c60b9024009b98bdc72ce2c1eb8ff97f5bf",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/rotochemical_trackr_pe",
+      "sha256": "bf33de1f733f2e828510c2826716030db9ead92ea8801058d7b19d298483bc96",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/tov_gen_test_sequence_cmf",
+      "sha256": "8bed99243053a6eb36efd1d9261db750eea4d12ee5441ee64798160007c818b3",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/tov_path_equivalence_cmf",
+      "sha256": "073dfeebc820752c8c4b525fe5a1dae02ddffe6221d14e7c27e8b5c97a61f5b4",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/tov_reference_analytic",
+      "sha256": "c9706ba1b36635377a298dc2f9974222064aa68b55e81457ccfa7b183fbdd1ac",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/tov_reference_cmf",
+      "sha256": "89851e4af33870bc918219b7df1287899c1266979a7f98090e9d7af084f1d017",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/tov_sequence_workflow_cmf",
+      "sha256": "18492644a5ba824092a9c7208098823270349cb45863637c2973919a189b799e",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/tov_surface_contract",
+      "sha256": "e4274c12c0916ce12fe289d322a43a8a39273e1d52e86cca9740f5b6c311f42c",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/dependency_migration/taskmanager_migration",
+      "sha256": "f8124fac93ba007411afdaaaafd6f166ed10a0f70bcb0b3a3cda3880f896a272",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/dependency_migration/taskmanager_observed",
+      "sha256": "5a5d9ba0a2fce51b33627d0b8552e494d331cfc4bfd1d43a11ec06cb8195f297",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/dependency_migration/taskmanager_selection_replay",
+      "sha256": "74d872610878f7981ad95578db46aafdc768b31d7bf617af10f6841e09e4d3c1",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/dependency_migration/unavailable_spin_diagnostics",
+      "sha256": "5bed45756cb0dc6c09fbdb29d77d37023d4dd5b58162c516d8beeea19fde9dd6",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    }
+  ],
+  "Release": [
+    {
+      "file": "main/Examples/Fermi_gas_many",
+      "sha256": "3cbc55343937eec82f175831a36b2cf8318804fed64f8c83781aef8b9f2e3007",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "main/Examples/sig_omega_rho_nstar",
+      "sha256": "16fd39f104f93f94c141313bda9dff22da78c3d21fcc5c87af60bf2a4ac302bb",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "main/Test/compose_thermo_main",
+      "sha256": "82ee7dc536c49d6423c5dd08cf9dcbb352a2040ff16caecb1c953c32b86f97fa",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "main/Test/ns_build_main",
+      "sha256": "7fd8b4d011badfd5e73a0a71027c35e1c31e9614523eebfbe0288469eff7a782",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "main/Test/psr_debug_main",
+      "sha256": "bc620f62d344d66c086f9a6498db61ab519db31f1bf9dc739efcb11270e069f4",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "main/Test/spin_evol_2_main",
+      "sha256": "0f67b2c4ef33e96179008e17956ca73274370c389ab67afe998d63b6bad57729",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "main/Test/spin_evol_main",
+      "sha256": "ef9b35183442ca5498be60d000d65fde45f57adc574c2fc4d1117b933dfcbc5e",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "main/Test/spin_therm_evol_2_main",
+      "sha256": "1c199609f516d67494d912aa9cea0fb60520ff8140ddc1ac56fa59fb0385b719",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "main/Test/spin_therm_evol_main",
+      "sha256": "7fcd61932453f1c7f5c133529caf33716650e1ba5a98efbf2f92bfdbc34fef7a",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "main/Test/tov_debug_main",
+      "sha256": "33dfbc5d2945accc8ece47aa67d6ae021e1f02d9741071202dd74cfe7ad31c1b",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/adr0017_production_qualification",
+      "sha256": "8433117bd87d7156dfe962b1481c46dda6369fa18888703170fb1cb5f896f856",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/baryon_number_cmf",
+      "sha256": "e4b8c54fdd22b3c8e5f0f5cd2c131d5dc07686042abe9ea947c5b24b32310fee",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/cache_contract",
+      "sha256": "2ddcb8efa8e24cf06a95291cccf163a36c66e0b0f82b391cdc4550e55c482c51",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/cache_thermal_contract",
+      "sha256": "168220accf96d428d93a9ad2a7663ceaaa7cee6c5e66d46b973245a348285dda",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/chemical_production_contract",
+      "sha256": "d9abefee0b69bd699145e7c1709c93365dac3dd6eb09336602e945cb45566409",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/chemical_production_fixture",
+      "sha256": "2ac853328b86766c9f940e1546d984eba83e160d8cf64be1d788a3295212aa4d",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/chemical_structural_envelope",
+      "sha256": "fa1c929e308b3151bc77642a562457455794df09ed635fdacaa3c666f87d3091",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/chemical_trackr_fixture",
+      "sha256": "df4b5b5a4fb7825e77b14316e852caa8d084cfe4d19bbfc0266102a84f071987",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/compactstar_library_smoke",
+      "sha256": "48fb532ddddd6b88bbf32285a4e3b2202cbe8f8dbababd8a09b2a04f8f950008",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/eos_derivative_cmf",
+      "sha256": "1323db8a7ce84c02ed098cebd9b066261b8b89e2a316f73fcf16dd4e4b2a5dd0",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/eos_derivative_contract",
+      "sha256": "a28f84dec41d7956a934a2b35ff1560d21c39fc1f34f1aaca980722300b6db2c",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/evolution_stepper_contract",
+      "sha256": "cf574d367bbd01a1d477439a83fc76fc9db827d22253e084da237ab274d154da",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/geometry_cache_measure_contract",
+      "sha256": "96fe36a503fe1de8c636c9875aeb4954011bf009eaf3a0604dc434bd08086dd2",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/grid_convergence_cmf",
+      "sha256": "9c322592c91ac64f12017493b3c14b268164e40166a470fcf1dd6312cb5a86c2",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_first_order_physics_analytic",
+      "sha256": "ab806e1e73528928469d785221d93f39d706fd4a2c8030301d58afad5a69b273",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_first_order_physics_cmf",
+      "sha256": "3602000d92c9dc9d32ab0b0a45f2d7003b31444f6132b28369b16eebd1ff4ed0",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_moment_inertia_analytic",
+      "sha256": "a7a976587401fd76799873e4ff493bdbe1abd68e598ffeac5fd7943a40b0fd7d",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_moment_inertia_cmf",
+      "sha256": "8924f7f655abaf9dfa7479a62ba37c4d3c832c851821f98589632daa96ee11a6",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_monopole_cmf",
+      "sha256": "c06a55719de32298316875b22f5469c792d7749961ef1aab6a0d96fa1c8d1e25",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_monopole_contract",
+      "sha256": "988da19426aa1f40b918e788457ae7480b23601cc48a59f42e600ace523b3e39",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_monopole_measure_contract",
+      "sha256": "c4d7d8f86e122cccee08b916afb800765bbb16b2d344f27cfcb4671ff664f926",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_monopole_physics_analytic",
+      "sha256": "5a7a51bb30f78bf54209c6391dc942526e31b47a8b637628806ea369ae87fa1c",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_monopole_physics_cmf",
+      "sha256": "895489fc6e55eace8cd77c7a11b32f7c487db75829290d548416130d1f5aa46d",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_monopole_published",
+      "sha256": "dc5e18f004378edb7c28a319df7963be3805d3d94f9e3e5b160a7fc28175e300",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_monopole_regression",
+      "sha256": "2cce73d6b20a95657a927f1eb7aeb013fa5d4ca65241edcb8e2a0a7d3c97c36b",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_normalization_cmf",
+      "sha256": "7da9d50c21043fb838dd11ec497a52402764098f6dbe5647fa612387e8af1554",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/hartle_normalization_contract",
+      "sha256": "8a6ed8f30affb871b57a83dafaa5b89bd43f42d9a4018a9a03475cec3b5fc8d9",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/heat_capacity_real_star",
+      "sha256": "8fb6d9a9d848ecf4a28192a32178bfe90f20740aa87c452754f80d08de20c360",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/heat_capacity_v1",
+      "sha256": "e0cb1d94843f2cd2636c50884f0a654393b459f0fd22feea6e1963cbb7292ea0",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/particle_number_analytic",
+      "sha256": "94a1d3eebfa082fe163f03b3f5a80614a7e014c3c39127131f8e88afc1941267",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/passive_checkpoint_output_contract",
+      "sha256": "da0ba67da4ac3634f238db2e54dd2bcf9ea7de260dcda95deeb0937fa54a0d17",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/passive_cooling_regression",
+      "sha256": "b3b0011aae9243a9826a1a67407814db492a4386e9d2dae36616e1178ea855cf",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/phase5b_freegas_validation",
+      "sha256": "4c9a79502c96a4785c07d151ae59de4cb33782f80c9422128a5733af1281ae0e",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/phase5d_component_tolerances",
+      "sha256": "07b16e927e9334ca787104f0e2f2bfac087139acd9691fb3002f6b1038893165",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/phase5d_evolution",
+      "sha256": "7c90a70750b0625390c68b5bdacf3c752bdf9ed1bd5be4ddb2c0baa2f39e1d62",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/phase5d_response",
+      "sha256": "26c8b51d0380b063f547e4b20f6ab82632c977febfbeb47f6a4ec96f5da7693a",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/photon_cooling_conformance",
+      "sha256": "c9ddec039bd45f67a01c69b7b203ea26b1e6a607cbbc79cc09ed3d43f8b7bc13",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/proper_volume_contract",
+      "sha256": "2c8f8914eb62030c046e6d8348f34de4f24d9ae7b36b39785d7d10532e66088b",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/relativistic_unit_background",
+      "sha256": "01131c30c270c6e40a3190660a2f83c11b2895500d946095aa3dcfa84358cecc",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/relativistic_unit_boundary",
+      "sha256": "d79a575f39ce79870b9b24d18fb5d97af808744a8c60a48cc360666ea6d624b3",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/rotochemical_local_thermodynamics",
+      "sha256": "5f32e1ae18b3e8f00d93fdb4589498e3a3b663e354fe113b66ce5ac52c038438",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/rotochemical_trackr_freegas_barotrope",
+      "sha256": "c0e48879186950e423920928921757ca6389dd1dbc678b08cadeadd8b83a612f",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/rotochemical_trackr_freegas_local",
+      "sha256": "044b3fe3253f45bd7d747a83ffe2002d688103b5cef9e3a5d660c4cc91aa4205",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/rotochemical_trackr_freegas_structure",
+      "sha256": "7799f74e0c89f54f97c450b561c3a4ad5f9f273aa0f9e3af1030f09e75d53068",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/rotochemical_trackr_npe",
+      "sha256": "a4325043077e8510f1e96512e7408e14116c7755039c9f5011a4369aa5649877",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/rotochemical_trackr_pe",
+      "sha256": "9615224f5f7a6a4226b084dac7e5e1e8473c71f532346a665773676f9658efcb",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/tov_gen_test_sequence_cmf",
+      "sha256": "9bb7c54ffd17ca08e0f2569039b76ca45246b2b492d225a8bdc545e5707dd82d",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/tov_path_equivalence_cmf",
+      "sha256": "9457c5e736dd4c2978062df76681a535296e561201237de3ae4291fa5cbe57da",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/tov_reference_analytic",
+      "sha256": "fa831ef3ba1f8d0a26d54fa834f2cfd7e5f9c4fd0d33bf185d93ef36b19ad402",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/tov_reference_cmf",
+      "sha256": "5aac5e93c8843ef12632727ca19c16a1902686226b0a5fab9a5a0b1e2c3409fb",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/tov_sequence_workflow_cmf",
+      "sha256": "9bfc80c935d393c9f03976eecf2ff95120ef690ade603c12e34a6726f3c3aad6",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/tov_surface_contract",
+      "sha256": "b0768217a70c2a93f48815a182d14d00fb5129a0664789f029fcd6c7bfb1fc4e",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/dependency_migration/taskmanager_migration",
+      "sha256": "35c917dcbe2118dd29efe88d2e15c9379c2064bd9933173e55ec63d3b9f0b8a5",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/dependency_migration/taskmanager_observed",
+      "sha256": "379706ff37968a4fe27b2946fe7d3cb4e325fe96588f9ce0624b989504857aba",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/dependency_migration/taskmanager_selection_replay",
+      "sha256": "18097314af4a3e402c822fc4bb54c661851fe7fdd55c6843d0cb32fcc1227b70",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    },
+    {
+      "file": "tests/dependency_migration/unavailable_spin_diagnostics",
+      "sha256": "b6244ba7fde8e57b9f563d32f6c338d2b1bfc75576fc66a53630ed1cb5acc5d1",
+      "forbidden_symbols_or_dylibs": [],
+      "dylibs": [
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)",
+        "\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+      ]
+    }
+  ]
+}

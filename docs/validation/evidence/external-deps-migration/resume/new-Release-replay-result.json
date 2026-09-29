@@ -3,6 +3,7 @@
   "build_mode": "Release",
   "count": 1510,
   "differing_files": [],
-  "wall_seconds": 0.17728595808148384,
-  "retained_run": null
+  "wall_seconds": 0.008811624953523278,
+  "retained_run": null,
+  "executable_sha256": "18097314af4a3e402c822fc4bb54c661851fe7fdd55c6843d0cb32fcc1227b70"
 }

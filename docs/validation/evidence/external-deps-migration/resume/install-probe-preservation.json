@@ -1,0 +1,5 @@
+{
+  "previous_probe": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/install-Debug",
+  "preserved_as": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/install-Debug-earlier-probe",
+  "reason": "Preserve earlier install probe while ensuring final Debug install prefix begins empty."
+}

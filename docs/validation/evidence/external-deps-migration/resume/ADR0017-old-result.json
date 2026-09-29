@@ -1,0 +1,69 @@
+{
+  "BA12R_rerun": false,
+  "BA12_rerun": false,
+  "R20": {
+    "N_R20_erg": 1.0940924194731047e+46,
+    "R20_normalized": 5.226823049913614e-07,
+    "R20_residual_erg": 5.718627476837778e+39
+  },
+  "R20_oracle_bit_identity": true,
+  "R20_reconstruction_uncertainty_erg": 7.098843361278085e+31,
+  "classification": "ADR-0017 PRODUCTION IMPLEMENTATION BOUNDED QUALIFICATION",
+  "exact_endpoint_observations": 1,
+  "future_six_run_campaign": false,
+  "main_accepted": 232,
+  "main_final_state_exact": true,
+  "main_hashes": {
+    "accepted": "7f968f6c2fcbf43f442285b48d3b825fa9cf241604f9dbbd88c52c25b96ff459",
+    "brackets": "0428c176a2d9233add816621a53cc795063480462458d195f3af88d965998b3d",
+    "internal": "fe9afd8c1ddfc7abefca3f1e57a76c62345be1026d7042f41692650f531742c8",
+    "schedule": "43ec23ada72bfa59c4e89672ae2987e9927164db765f05afb7b45c924cc0c67e",
+    "steps": "912b0e6300c745f02d733da91fb1072e927aadcd4616b944cc8d02c8a26b2ecb",
+    "trajectory": "8c9531c87b53d8bd189e50802f3d1dd526db6f9b0d256b120c4d635e1e31a98c"
+  },
+  "main_rejected": 60,
+  "max_U_O_over_0p20F": {
+    "component": "x",
+    "observation": 117,
+    "value": 0.5793505315921852
+  },
+  "max_d_O_over_D_O1": {
+    "component": "x",
+    "observation": 117,
+    "value": 0.5794839113173227
+  },
+  "new_main_integrations": 1,
+  "new_rk8pd_integrations": 478,
+  "one_knot_qualified": 3,
+  "pass": true,
+  "performance": {
+    "8192_process_parallel_2_wall_estimate_s": 31.749964790037662,
+    "8192_serial_wall_estimate_s": 63.499929580075325,
+    "N_R20_erg": 1.0940924194731047e+46,
+    "O1_cpu_s": 0.8226729999999998,
+    "O1_wall_s": 0.8278737950000004,
+    "O2_cpu_s": 0.8664379999999996,
+    "O2_wall_s": 0.8706795790000001,
+    "R20_normalized": 5.226823049913614e-07,
+    "R20_reconstruction_uncertainty_erg": 7.098843361278085e+31,
+    "R20_residual_erg": 5.718627476837778e+39,
+    "checkpoint_output_wall_s": 1.8528242180000003,
+    "context_count": 958.0,
+    "context_cpu_s": 0.02971099999999997,
+    "context_wall_s": 0.029779646,
+    "diagnostic_cpu_s": 0.12399699999999998,
+    "diagnostic_wall_s": 0.12449119799999996,
+    "main_cpu_s": 24.31105,
+    "main_run_count": 1.0,
+    "main_wall_s": 24.322793792,
+    "physics_context_cpu_s": 278.976104,
+    "physics_context_wall_s": 279.691316917,
+    "process_concurrency": 1.0,
+    "strict_interior": 239.0
+  },
+  "positive_gsl_t1_targets": 1,
+  "production_oracle_diagnostic_bit_identity": true,
+  "production_oracle_state_bit_identity": true,
+  "strict_interior_failures": 0,
+  "strict_interior_qualified": 239
+}

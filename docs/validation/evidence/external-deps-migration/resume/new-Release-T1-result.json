@@ -3,6 +3,22 @@
   "build_mode": "Release",
   "count": 13,
   "differing_files": [],
-  "wall_seconds": 0.20290545909665525,
-  "retained_run": null
+  "wall_seconds": 0.015810833778232336,
+  "retained_run": null,
+  "executable_sha256": "35c917dcbe2118dd29efe88d2e15c9379c2064bd9933173e55ec63d3b9f0b8a5",
+  "artifact_sha256": {
+    "NStar/Dark_Core/0.8/Intersection_2.01.tsv": "194593776797fdc5b32153bf77c925a705cf9db7edc1b0d91c28c62310d7d55a",
+    "NStar/Dark_Core/0.8/Crit_curve_smooth.tsv": "7ed8ee6a9948ea5f1cd33b2b4fe303a8da8c5994d696a0470393aff87717bbaa",
+    "NStar/Dark_Core/0.8/M_tot_2.01_2.01e+00.tsv": "b6a4e712f6ba8b171ff1d86b3a2987f686fba0d4fa47db947abc02adeb43a7c3",
+    "NStar/Dark_Core/0.8/B_conts/2.01/B_tot_2.01_4.tsv": "99383931bc3eddeb6d35a40418277e5161bbd9cffca040fe87d979c1ba7869ec",
+    "NStar/Dark_Core/0.8/B_conts/2.01/B_tot_2.01_5.tsv": "b29e9cdd478d55fd0bb71d308d6e005c0c3b148769e7f435080d32fdd8a3ddcb",
+    "NStar/Dark_Core/0.8/B_conts/2.01/B_tot_2.01_7.tsv": "5372c3640618481a61ea416b61577a152b96d003d044e4c6a1ee36217c7804e7",
+    "NStar/Dark_Core/0.8/B_conts/2.01/B_tot_2.01_6.tsv": "71a5e5bcd3578b8dd3bfa18cfb73e5ec0e7d4e0d3f8d2a3c94235fe4015cf6eb",
+    "NStar/Dark_Core/0.8/B_conts/2.01/B_tot_2.01_2.tsv": "c252fd7aa99fe16e5dfd39fd66bb023e4f5a8667ddcf13e8b1d6fb24156f1900",
+    "NStar/Dark_Core/0.8/B_conts/2.01/B_tot_2.01_3.tsv": "ee65fee45b655d48d234a0ad87a203de467ad7bb666f7f79456a5f233f82e51f",
+    "NStar/Dark_Core/0.8/B_conts/2.01/B_tot_2.01_1.tsv": "fb397f51cadca26b2fcff10cda292a5b31d013a7b3f510bebec664f64c816746",
+    "NStar/Dark_Core/0.8/B_conts/2.01/B_tot_2.01_0.tsv": "42e219d57fb932eb175c3d7b946fa21209f5aa02b67777364385262957cfe8fb",
+    "NStar/Dark_Core/0.8/B_conts/2.01/B_tot_2.01_8.tsv": "8b293c34fd3ef68aa212d1b6357bd8be46561e0e5334891e572c89aced12adb9",
+    "NStar/Dark_Core/0.8/B_conts/2.01/B_tot_2.01_9.tsv": "33b22fa8290ea9453f6ae426652664fec3c932acb84ae7c9273468e1f4ecab5a"
+  }
 }

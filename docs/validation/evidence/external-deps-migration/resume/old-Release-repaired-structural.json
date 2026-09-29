@@ -1,0 +1,22 @@
+[
+  {
+    "command": [
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/old-Release/tests/hartle_monopole_regression",
+      "/Users/keeper/Documents/CompactStar/data/compose",
+      "--compare",
+      "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-external-deps-taskmanager-migration/tests/dependency_migration/fixtures/Release-hartle_monopole_regression.tsv"
+    ],
+    "returncode": 0,
+    "wall_seconds": 1.2891562080476433
+  },
+  {
+    "command": [
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/old-Release/tests/baryon_number_cmf",
+      "/Users/keeper/Documents/CompactStar/data/compose",
+      "--compare",
+      "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-external-deps-taskmanager-migration/tests/dependency_migration/fixtures/Release-baryon_number_cmf.tsv"
+    ],
+    "returncode": 0,
+    "wall_seconds": 1.000125708989799
+  }
+]

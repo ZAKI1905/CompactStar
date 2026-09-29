@@ -1,0 +1,44 @@
+{
+  "Debug": {
+    "member_count": 85,
+    "differences": [
+      {
+        "build": {
+          "name": "__.SYMDEF",
+          "sha256": "77ea9b62d56321f16d9894d614dcf6ce6c25a8e3273cd7a0689fa55520f32c31",
+          "size": 3354800,
+          "date": "1790691415",
+          "metadata": "#1/20           1790691415  501   20    100644  3354820   `\n"
+        },
+        "installed": {
+          "name": "__.SYMDEF",
+          "sha256": "77ea9b62d56321f16d9894d614dcf6ce6c25a8e3273cd7a0689fa55520f32c31",
+          "size": 3354800,
+          "date": "1790695445",
+          "metadata": "#1/20           1790695445  501   20    100644  3354820   `\n"
+        }
+      }
+    ]
+  },
+  "Release": {
+    "member_count": 85,
+    "differences": [
+      {
+        "build": {
+          "name": "__.SYMDEF",
+          "sha256": "82a9efbf0dc51571f5cd42efd672d358718375ab56b754c97b712db025132873",
+          "size": 300720,
+          "date": "1790691415",
+          "metadata": "#1/20           1790691415  501   20    100644  300740    `\n"
+        },
+        "installed": {
+          "name": "__.SYMDEF",
+          "sha256": "82a9efbf0dc51571f5cd42efd672d358718375ab56b754c97b712db025132873",
+          "size": 300720,
+          "date": "1790695797",
+          "metadata": "#1/20           1790695797  501   20    100644  300740    `\n"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "new": {
+    "execution_wall_seconds": 8623.444371334044,
+    "verification_wall_seconds": 0.19102937495335937
+  },
+  "scope": "Whole qualification executable, including repeated full provenance checks; authentication is separate. Component timing inside result.json excludes most currentness overhead.",
+  "old": {
+    "execution_wall_seconds": 8181.157345875166,
+    "verification_wall_seconds": 0.16728804190643132
+  },
+  "new_over_old_execution_ratio": 1.0540616696098473
+}

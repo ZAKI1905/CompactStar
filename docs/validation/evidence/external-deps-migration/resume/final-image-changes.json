@@ -1,0 +1,26 @@
+{
+  "Debug": [
+    {
+      "file": "main/Test/psr_debug_main",
+      "old": "549eeb3482d092a3db260242ae7618ab5fc761160c356ce7982a41c643d803fe",
+      "new": "160a4e6579979fa023f9209cb5957715460230443c5bd9bf8bf74b7b5b12b679"
+    },
+    {
+      "file": "tests/heat_capacity_v1",
+      "old": "66de156bc9c26a5274cf82b5c7a8f2755f3942edc2e78580972c94c28c831298",
+      "new": "08ff5fb82eeaa750deade62987e6cf5a5103ef1290068daca01f2c12a37c8f84"
+    },
+    {
+      "file": "tests/dependency_migration/unavailable_spin_diagnostics",
+      "old": "70116cb1f868f98a0819efb779c95c77e1b212e361cae33bf7d1dd52cefb2c91",
+      "new": "5bed45756cb0dc6c09fbdb29d77d37023d4dd5b58162c516d8beeea19fde9dd6"
+    }
+  ],
+  "Release": [
+    {
+      "file": "tests/heat_capacity_v1",
+      "old": "cff47018b45dfd45964a2c5b4dcbcb95b4fb7f37f96d9eb6b983da83c1266353",
+      "new": "e0cb1d94843f2cd2636c50884f0a654393b459f0fd22feea6e1963cbb7292ea0"
+    }
+  ]
+}

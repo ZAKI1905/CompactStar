@@ -3,6 +3,7 @@
   "build_mode": "Debug",
   "count": 1510,
   "differing_files": [],
-  "wall_seconds": 0.40659654210321605,
-  "retained_run": null
+  "wall_seconds": 0.21730545908212662,
+  "retained_run": null,
+  "executable_sha256": "74d872610878f7981ad95578db46aafdc768b31d7bf617af10f6841e09e4d3c1"
 }

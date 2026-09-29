@@ -1,0 +1,38 @@
+[
+  {
+    "mode": "Debug",
+    "instance": 0,
+    "returncode": 0,
+    "wall_seconds": 10.943622708087787,
+    "command": [
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Debug/tests/heat_capacity_v1"
+    ]
+  },
+  {
+    "mode": "Debug",
+    "instance": 1,
+    "returncode": 0,
+    "wall_seconds": 10.94273866689764,
+    "command": [
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Debug/tests/heat_capacity_v1"
+    ]
+  },
+  {
+    "mode": "Release",
+    "instance": 0,
+    "returncode": 0,
+    "wall_seconds": 1.0199635410681367,
+    "command": [
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release/tests/heat_capacity_v1"
+    ]
+  },
+  {
+    "mode": "Release",
+    "instance": 1,
+    "returncode": 0,
+    "wall_seconds": 1.0358146661892533,
+    "command": [
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release/tests/heat_capacity_v1"
+    ]
+  }
+]

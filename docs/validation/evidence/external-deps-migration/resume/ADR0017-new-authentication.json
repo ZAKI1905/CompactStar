@@ -1,0 +1,32 @@
+{
+  "hashes": {
+    "certificate": "7fc892b50bfbcdd2c5d963e0ff866777f3628f40fc282e1ce5a0b0364200a453",
+    "coefficients": "3efa060d99a7a92266679aadb31885abbed9c940404247f1d3009cafa94832d6",
+    "entry": "5cfbf4b1d623b58fa2a94101631dce20c602950eec8eb514dc1fcd3c7a04620d",
+    "freegas.tsv": "7cd44c92e1e7206e0e68e3fed7e3f0ca68e79ab4517d02b96ff78b9be23d3f1a",
+    "frozen": "9217e278eb0a4b06b193a2a02f4d59f285d74e4033427b87ccd51181c3f7beab",
+    "matrix": "32f3277cdf3984318fe2323da825de1d5e337778bb05106725fb0fcfa0529616",
+    "model.txt": "3ea70de79e15b70c5a6d68f48335d18047ff80e60b55a9acdb78084e9be4d6d4",
+    "oracle1_ledger": "0fec6717e153ce19ecafda0fe0ed5c01d1be3934342ac9776f05ad2da769fbcc",
+    "oracle1_tree": "89bc3cb0bde7e58f60e1e44fdee9332e920ae163870213fe79d7bb81ba65ecf9",
+    "oracle2_ledger": "b1bc3feb6bce96b7e4f1feecf2660b1f88781941d66d25ae832e4103a3248f74",
+    "oracle2_tree": "f0bf0fb4e1e0acef58da1d770c0a71d87c4021264017f75cbfa8aa9da1a0af2d",
+    "oracle_result": "f27304bd6f85b6b7be20537978ef37777104ff10c4baf25c9ab007e3675d99a0",
+    "oracle_root": "21f1ff9eaf23b078f86aa2b10ec45be55f84a98b9aedc4b94f4a7c4bf999f866",
+    "profile.tsv": "e9cd03b0b8449806f6c9883d75de1d3dff0cf1481675efc45a56519655d40890",
+    "profile_tree": "233114862a2ab6826151519114e4bcb74a01f6a8e739bac0502ee62884688d72",
+    "thermal": "1cdb98507958b50fbd1e1eff3eb3bfa4f48c790fef86a8740855884fc43b9d94"
+  },
+  "new_integrations": 0,
+  "oracle_integrations_reused": 478,
+  "pass": true,
+  "platform": {
+    "architecture": "arm64",
+    "build": "25G83",
+    "cmake": "4.2.1",
+    "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+    "darwin": "25.6.0",
+    "gsl": "2.7.1",
+    "macos": "26.6.2"
+  }
+}

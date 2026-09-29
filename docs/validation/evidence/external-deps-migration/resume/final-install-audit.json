@@ -1,0 +1,24 @@
+{
+  "Debug": {
+    "build_library_sha256": "9c91aa3c9392985867f21d992921b222c634a8c2ccc07a3f38a1bfee948a31a9",
+    "archive_member_count": 85,
+    "archive_difference": "Only the __.SYMDEF timestamp refreshed by CMake install ranlib; every member payload and all other bytes are exact.",
+    "library_sha256": "9da0423763da28cef230ab8b328cf439c066c629f67b55f6dfe828bba12b819e",
+    "installed_header_count": 127,
+    "installed_header_manifest_sha256": "c0885084bb266e4db3e5d91b3f814b78ed155e057ee94f52fa883d7d801f52b0",
+    "all_public_headers_match": true,
+    "historical_headers_installed": false,
+    "prefix": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/install-Debug"
+  },
+  "Release": {
+    "build_library_sha256": "1446f2c1662236d25ce6f7254827a845066568b874e661d90a73436d78924348",
+    "archive_member_count": 85,
+    "archive_difference": "Only the __.SYMDEF timestamp refreshed by CMake install ranlib; every member payload and all other bytes are exact.",
+    "library_sha256": "c48cbe080f66ef59458cde553008e513c184c5453df1d7c86c59d16245017351",
+    "installed_header_count": 127,
+    "installed_header_manifest_sha256": "c0885084bb266e4db3e5d91b3f814b78ed155e057ee94f52fa883d7d801f52b0",
+    "all_public_headers_match": true,
+    "historical_headers_installed": false,
+    "prefix": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/install-Release"
+  }
+}

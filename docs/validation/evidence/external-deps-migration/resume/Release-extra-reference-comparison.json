@@ -1,0 +1,54 @@
+[
+  {
+    "target": "hartle_monopole_regression",
+    "stack": "old",
+    "source": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/old-Release-emitted/hartle_monopole_regression.tsv",
+    "sha256": "0d525ae19f82fa07262bd7ceb13cc50a93437ff2afa32e8d647cbce85e4cd27a",
+    "wall_seconds": 1.2868594590108842,
+    "command": [
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/old-Release/tests/hartle_monopole_regression",
+      "/Users/keeper/Documents/CompactStar/data/compose",
+      "--emit",
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/old-Release-emitted/hartle_monopole_regression.tsv"
+    ]
+  },
+  {
+    "target": "hartle_monopole_regression",
+    "stack": "new",
+    "source": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release-emitted/hartle_monopole_regression.tsv",
+    "sha256": "0d525ae19f82fa07262bd7ceb13cc50a93437ff2afa32e8d647cbce85e4cd27a",
+    "wall_seconds": 1.0215198330115527,
+    "command": [
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release/tests/hartle_monopole_regression",
+      "/Users/keeper/Documents/CompactStar/data/compose",
+      "--emit",
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release-emitted/hartle_monopole_regression.tsv"
+    ]
+  },
+  {
+    "target": "baryon_number_cmf",
+    "stack": "old",
+    "source": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/old-Release-emitted/baryon_number_cmf.tsv",
+    "sha256": "f6e1bc089c619f1de2a6045b2a36243a5001f6605fef7c792cf979845d46c83a",
+    "wall_seconds": 1.0210120829287916,
+    "command": [
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/old-Release/tests/baryon_number_cmf",
+      "/Users/keeper/Documents/CompactStar/data/compose",
+      "--emit",
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/old-Release-emitted/baryon_number_cmf.tsv"
+    ]
+  },
+  {
+    "target": "baryon_number_cmf",
+    "stack": "new",
+    "source": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release-emitted/baryon_number_cmf.tsv",
+    "sha256": "f6e1bc089c619f1de2a6045b2a36243a5001f6605fef7c792cf979845d46c83a",
+    "wall_seconds": 0.9029110420960933,
+    "command": [
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release/tests/baryon_number_cmf",
+      "/Users/keeper/Documents/CompactStar/data/compose",
+      "--emit",
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release-emitted/baryon_number_cmf.tsv"
+    ]
+  }
+]

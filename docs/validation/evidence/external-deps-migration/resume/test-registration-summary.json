@@ -1,0 +1,99 @@
+{
+  "old-Debug": {
+    "total": 76,
+    "python_driven": [
+      "chemical_exact_oracles",
+      "chemical_curved_gc9",
+      "chemical_trackr_budget",
+      "chemical_production_validation",
+      "phase5c_chemical_coefficient_regression",
+      "phase5b_PB1",
+      "phase5b_PB6",
+      "phase5b_PB7",
+      "phase5b_PB9-11",
+      "phase5b_PB12",
+      "phase5b_PB13",
+      "phase5b_contracts",
+      "phase5b_structural_response_regression",
+      "phase5d_independent_oracles",
+      "phase5d_protected_manifest",
+      "phase5d_harness_controls",
+      "phase5d_coupled_oracles",
+      "phase5d1_controlled_evolution_regression"
+    ]
+  },
+  "old-Release": {
+    "total": 76,
+    "python_driven": [
+      "chemical_exact_oracles",
+      "chemical_curved_gc9",
+      "chemical_trackr_budget",
+      "chemical_production_validation",
+      "phase5c_chemical_coefficient_regression",
+      "phase5b_PB1",
+      "phase5b_PB6",
+      "phase5b_PB7",
+      "phase5b_PB9-11",
+      "phase5b_PB12",
+      "phase5b_PB13",
+      "phase5b_contracts",
+      "phase5b_structural_response_regression",
+      "phase5d_independent_oracles",
+      "phase5d_protected_manifest",
+      "phase5d_harness_controls",
+      "phase5d_coupled_oracles",
+      "phase5d1_controlled_evolution_regression"
+    ]
+  },
+  "new-Debug": {
+    "total": 81,
+    "python_driven": [
+      "chemical_exact_oracles",
+      "chemical_curved_gc9",
+      "chemical_trackr_budget",
+      "chemical_production_validation",
+      "phase5c_chemical_coefficient_regression",
+      "phase5b_PB1",
+      "phase5b_PB6",
+      "phase5b_PB7",
+      "phase5b_PB9-11",
+      "phase5b_PB12",
+      "phase5b_PB13",
+      "phase5b_contracts",
+      "phase5b_structural_response_regression",
+      "phase5d_independent_oracles",
+      "phase5d_protected_manifest",
+      "phase5d_harness_controls",
+      "phase5d_coupled_oracles",
+      "phase5d1_controlled_evolution_regression",
+      "taskmanager_T1",
+      "taskmanager_T2",
+      "taskmanager_replay",
+      "taskmanager_observations"
+    ]
+  },
+  "new-Release": {
+    "total": 78,
+    "python_driven": [
+      "chemical_exact_oracles",
+      "chemical_curved_gc9",
+      "chemical_trackr_budget",
+      "chemical_production_validation",
+      "phase5b_PB1",
+      "phase5b_PB6",
+      "phase5b_PB7",
+      "phase5b_PB9-11",
+      "phase5b_PB12",
+      "phase5b_PB13",
+      "phase5b_contracts",
+      "phase5d_independent_oracles",
+      "phase5d_protected_manifest",
+      "phase5d_harness_controls",
+      "phase5d1_controlled_evolution_regression",
+      "taskmanager_T1",
+      "taskmanager_T2",
+      "taskmanager_replay",
+      "taskmanager_observations"
+    ]
+  }
+}

@@ -1,0 +1,132 @@
+[
+  {
+    "command": [
+      "/opt/homebrew/bin/cmake",
+      "-S",
+      "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-external-deps-taskmanager-migration",
+      "-B",
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Debug"
+    ],
+    "returncode": 0,
+    "wall_seconds": 0.7539901668205857,
+    "log": "final-Debug-configure.log"
+  },
+  {
+    "command": [
+      "/opt/homebrew/bin/cmake",
+      "--build",
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Debug",
+      "--parallel",
+      "4"
+    ],
+    "returncode": 0,
+    "wall_seconds": 4.489827583078295,
+    "log": "final-Debug-build.log"
+  },
+  {
+    "command": [
+      "/opt/homebrew/bin/cmake",
+      "--install",
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Debug",
+      "--prefix",
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/install-Debug"
+    ],
+    "returncode": 0,
+    "wall_seconds": 0.18653891701251268,
+    "log": "final-Debug-install.log"
+  },
+  {
+    "command": [
+      "/opt/homebrew/bin/ctest",
+      "--test-dir",
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Debug",
+      "--output-on-failure",
+      "-j",
+      "2",
+      "-R",
+      "taskmanager_|unavailable_spin|smoke|tov_|hartle_|grid_convergence|rotochemical_local"
+    ],
+    "returncode": 0,
+    "wall_seconds": 346.8661281669047,
+    "log": "final-Debug-affected-tests.log"
+  },
+  {
+    "command": [
+      "/opt/homebrew/bin/cmake",
+      "-S",
+      "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-external-deps-taskmanager-migration",
+      "-B",
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release"
+    ],
+    "returncode": 0,
+    "wall_seconds": 0.7562154580373317,
+    "log": "final-Release-configure.log"
+  },
+  {
+    "command": [
+      "/opt/homebrew/bin/cmake",
+      "--build",
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release",
+      "--parallel",
+      "4"
+    ],
+    "returncode": 0,
+    "wall_seconds": 3.937338042072952,
+    "log": "final-Release-build.log"
+  },
+  {
+    "command": [
+      "/opt/homebrew/bin/cmake",
+      "--install",
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release",
+      "--prefix",
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/install-Release"
+    ],
+    "returncode": 0,
+    "wall_seconds": 0.09619875019416213,
+    "log": "final-Release-install.log"
+  },
+  {
+    "command": [
+      "/opt/homebrew/bin/ctest",
+      "--test-dir",
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release",
+      "--output-on-failure",
+      "-j",
+      "2",
+      "-R",
+      "taskmanager_|unavailable_spin|smoke|tov_|hartle_|grid_convergence|rotochemical_local"
+    ],
+    "returncode": 0,
+    "wall_seconds": 82.25953883398324,
+    "log": "final-Release-affected-tests.log"
+  },
+  {
+    "command": [
+      "/Users/keeper/miniforge3/bin/python3",
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/audit_images.py",
+      "final"
+    ],
+    "returncode": 0,
+    "wall_seconds": 7.716830458957702,
+    "log": "final-all-images-console.log"
+  },
+  {
+    "command": [
+      "/Users/keeper/miniforge3/bin/python3",
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/audit_final_links.py"
+    ],
+    "returncode": 0,
+    "wall_seconds": 1.8065336251165718,
+    "log": "final-links-console.log"
+  },
+  {
+    "command": [
+      "/Users/keeper/miniforge3/bin/python3",
+      "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/audit_final_providers.py"
+    ],
+    "returncode": 0,
+    "wall_seconds": 0.3520197079051286,
+    "log": "final-providers-console.log"
+  }
+]

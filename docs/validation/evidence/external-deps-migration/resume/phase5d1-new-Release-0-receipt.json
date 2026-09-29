@@ -1,0 +1,19 @@
+{
+  "baseline_sha256": "2606916915b2da5c051b1a06637c0a371a74751c6e77b2775bc629a63bc9f6dd",
+  "controls": {
+    "Ltilde": "PASS",
+    "Z_or_W": "PASS",
+    "baseline_missing_after_generation": "PASS",
+    "classification_transition": "PASS",
+    "envelope_label": "PASS",
+    "fixture_metadata": "PASS",
+    "numeric_trajectory": "PASS",
+    "physical_spin_interpretation": "PASS",
+    "solver_tolerance": "PASS",
+    "source_provenance": "PASS"
+  },
+  "execution_sidecar": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release/tests/phase5d1-regression-evidence/regression-iz9ur85y/fresh-governed/execution-sidecar.json",
+  "generated_sha256": "2606916915b2da5c051b1a06637c0a371a74751c6e77b2775bc629a63bc9f6dd",
+  "producer_raw_rc": 0,
+  "scratch_root": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release/tests/phase5d1-regression-evidence/regression-iz9ur85y/fresh-governed"
+}

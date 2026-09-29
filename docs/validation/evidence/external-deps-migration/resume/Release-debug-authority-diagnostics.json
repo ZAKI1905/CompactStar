@@ -1,0 +1,29 @@
+[
+  {
+    "phase": "Phase5B",
+    "file": "structural-response.json",
+    "old_path": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/old-Release/tests/phase5b-regression-evidence/regression-1tq0cm_w/generated/structural-response.json",
+    "new_path": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release/tests/phase5b-regression-evidence/regression-qkgz9qzq/generated/structural-response.json",
+    "old_sha256": "c2ca138b953cc384712665c13edf02baf1c4a9cd4c89a5455fc18c5be1cd83fc",
+    "new_sha256": "c2ca138b953cc384712665c13edf02baf1c4a9cd4c89a5455fc18c5be1cd83fc",
+    "bytes_equal": true
+  },
+  {
+    "phase": "Phase5C",
+    "file": "phase5c_chemical_coefficients.json",
+    "old_path": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/old-Release/tests/phase5c-regression-evidence/regression-gske34ui/generated/phase5c_chemical_coefficients.json",
+    "new_path": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release/tests/phase5c-regression-evidence/regression-ry4r108j/generated/phase5c_chemical_coefficients.json",
+    "old_sha256": "1d1c28ac9802cbd49dcac19baed70fe38f6dd529701fc2a7327547bd1fc1d094",
+    "new_sha256": "1d1c28ac9802cbd49dcac19baed70fe38f6dd529701fc2a7327547bd1fc1d094",
+    "bytes_equal": true
+  },
+  {
+    "phase": "Phase5C",
+    "file": "producer-report.json",
+    "old_path": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/old-Release/tests/phase5c-regression-evidence/regression-gske34ui/generated/producer-report.json",
+    "new_path": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/new-Release/tests/phase5c-regression-evidence/regression-ry4r108j/generated/producer-report.json",
+    "old_sha256": "86dc3ca3ed6b15ec0e732bbe49a0542a8a39478dc4f20a53b4b927ff310252f9",
+    "new_sha256": "86dc3ca3ed6b15ec0e732bbe49a0542a8a39478dc4f20a53b4b927ff310252f9",
+    "bytes_equal": true
+  }
+]

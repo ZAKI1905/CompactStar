@@ -1,0 +1,56 @@
+{
+  "initial_complete_runs": [
+    {
+      "stack": "old",
+      "mode": "Debug",
+      "log": "old-Debug-full-suite.log",
+      "total": 76,
+      "passed": 76,
+      "failed": 0,
+      "wall_seconds": 6070.05
+    },
+    {
+      "stack": "old",
+      "mode": "Release",
+      "log": "old-Release-full-suite.log",
+      "total": 76,
+      "passed": 70,
+      "failed": 6,
+      "wall_seconds": 3461.12
+    },
+    {
+      "stack": "new",
+      "mode": "Debug",
+      "log": "new-Debug-full-suite.log",
+      "total": 81,
+      "passed": 81,
+      "failed": 0,
+      "wall_seconds": 6076.96
+    },
+    {
+      "stack": "new",
+      "mode": "Release",
+      "log": "new-Release-full-suite.log",
+      "total": 81,
+      "passed": 75,
+      "failed": 6,
+      "wall_seconds": 3331.08
+    }
+  ],
+  "debug_authority_only": [
+    "phase5b_structural_response_regression",
+    "phase5c_chemical_coefficient_regression",
+    "phase5d_coupled_oracles"
+  ],
+  "old_Release_applicable": {
+    "passed": 73,
+    "total": 73,
+    "accounting": "70 initial passes plus two same-mode structural comparisons and one serial heat-capacity rerun; three Debug-authority tests pass separately in OLD Debug."
+  },
+  "new_Release_applicable": {
+    "passed": 78,
+    "total": 78,
+    "accounting": "77/77 final applicable suite plus independently complete repaired Phase-5D1 fresh run; the three Debug-authority tests pass in NEW Debug."
+  },
+  "no_comparator_tolerance_changed": true
+}

@@ -5,6 +5,7 @@ reports=[]
 for mode in ['Debug','Release']:
  b=q/f'new-{mode}';bad=[];links=[];task=[]
  for p in sorted(b.rglob('link.txt')):
+  if 'phase5d1-regression-evidence' in p.parts:continue
   text=p.read_text();links.append(dict(file=str(p.relative_to(b)),sha256=hashlib.sha256(p.read_bytes()).hexdigest(),line=text.strip()))
   if re.search(r'libpython|dynamic_lookup|libomp|dependencies/(?:lib|include)|Python3::',text):bad.append(str(p))
  commands=json.loads((b/'compile_commands.json').read_text())

@@ -1,0 +1,7 @@
+{
+  "zlib_runtime_library": "/usr/lib/libz.1.dylib",
+  "zlib_runtime_version": "1.2.12",
+  "GSL_runtime_library": "/opt/local/lib/libgsl.27.dylib",
+  "GSL_runtime_version": "2.7.1",
+  "GSL_dylib_sha256": "9667d3f90d26c5cfb5229472adf455c0bf6406f946764ad165ec5d4b2121543b"
+}
