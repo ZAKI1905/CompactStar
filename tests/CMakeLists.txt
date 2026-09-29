@@ -52,18 +52,20 @@ set_tests_properties(chemical_production_validation PROPERTIES
 # before the comparator reads the baseline or reviewed candidate. The only
 # portable equality exclusion is provenance.toolchain.compiler; its actual
 # values are retained, validated and reported.
-add_test(NAME phase5c_chemical_coefficient_regression COMMAND "${Python3_EXECUTABLE}"
-    "${CMAKE_CURRENT_SOURCE_DIR}/analysis/chemical_coefficient_regression.py"
-    --producer "${CMAKE_CURRENT_SOURCE_DIR}/analysis/produce_chemical_coefficient_reference.py"
-    --characterization-executable $<TARGET_FILE:chemical_trackr_fixture>
-    --production-executable $<TARGET_FILE:chemical_production_fixture>
-    --source-root "${PROJECT_SOURCE_DIR}"
-    --baseline "${CMAKE_CURRENT_SOURCE_DIR}/baselines/phase5c_chemical_coefficients.json"
-    --reviewed-candidate "${PROJECT_SOURCE_DIR}/docs/validation/phase5c_chemical_coefficients_candidate.json"
-    --output-root "${CMAKE_CURRENT_BINARY_DIR}/phase5c-regression-evidence")
-set_tests_properties(phase5c_chemical_coefficient_regression PROPERTIES
-    LABELS "phase5c;track-r;self-contained;scientific;regression"
-    TIMEOUT 3600 RUN_SERIAL TRUE)
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    add_test(NAME phase5c_chemical_coefficient_regression COMMAND "${Python3_EXECUTABLE}"
+        "${CMAKE_CURRENT_SOURCE_DIR}/analysis/chemical_coefficient_regression.py"
+        --producer "${CMAKE_CURRENT_SOURCE_DIR}/analysis/produce_chemical_coefficient_reference.py"
+        --characterization-executable $<TARGET_FILE:chemical_trackr_fixture>
+        --production-executable $<TARGET_FILE:chemical_production_fixture>
+        --source-root "${PROJECT_SOURCE_DIR}"
+        --baseline "${CMAKE_CURRENT_SOURCE_DIR}/baselines/phase5c_chemical_coefficients.json"
+        --reviewed-candidate "${PROJECT_SOURCE_DIR}/docs/validation/phase5c_chemical_coefficients_candidate.json"
+        --output-root "${CMAKE_CURRENT_BINARY_DIR}/phase5c-regression-evidence")
+    set_tests_properties(phase5c_chemical_coefficient_regression PROPERTIES
+        LABELS "phase5c;track-r;self-contained;scientific;regression"
+        TIMEOUT 3600 RUN_SERIAL TRUE)
+endif()
 
 # ADR-0011 candidate analytic particle-current oracles (PB1-PB5).
 add_executable(particle_number_analytic analysis/particle_number_analytic.cpp)
@@ -85,16 +87,18 @@ endforeach()
 # Governed Phase-5B structural-response regression. The comparator invokes the
 # canonical producer in a new isolated directory and compares exact bytes; it
 # never supplies the governed baseline as producer input.
-add_test(NAME phase5b_structural_response_regression COMMAND "${Python3_EXECUTABLE}"
-    "${CMAKE_CURRENT_SOURCE_DIR}/analysis/particle_number_response_regression.py"
-    --producer "${CMAKE_CURRENT_SOURCE_DIR}/analysis/produce_particle_number_reference.py"
-    --executable $<TARGET_FILE:phase5b_freegas_validation>
-    --source-root "${PROJECT_SOURCE_DIR}"
-    --baseline "${CMAKE_CURRENT_SOURCE_DIR}/baselines/phase5b_structural_response.json"
-    --output-root "${CMAKE_CURRENT_BINARY_DIR}/phase5b-regression-evidence")
-set_tests_properties(phase5b_structural_response_regression PROPERTIES
-    LABELS "phase5b;particle-number;scientific;self-contained;regression"
-    TIMEOUT 900 RUN_SERIAL TRUE)
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    add_test(NAME phase5b_structural_response_regression COMMAND "${Python3_EXECUTABLE}"
+        "${CMAKE_CURRENT_SOURCE_DIR}/analysis/particle_number_response_regression.py"
+        --producer "${CMAKE_CURRENT_SOURCE_DIR}/analysis/produce_particle_number_reference.py"
+        --executable $<TARGET_FILE:phase5b_freegas_validation>
+        --source-root "${PROJECT_SOURCE_DIR}"
+        --baseline "${CMAKE_CURRENT_SOURCE_DIR}/baselines/phase5b_structural_response.json"
+        --output-root "${CMAKE_CURRENT_BINARY_DIR}/phase5b-regression-evidence")
+    set_tests_properties(phase5b_structural_response_regression PROPERTIES
+        LABELS "phase5b;particle-number;scientific;self-contained;regression"
+        TIMEOUT 900 RUN_SERIAL TRUE)
+endif()
 
 add_executable(compactstar_library_smoke smoke/compactstar_library_smoke.cpp)
 
@@ -617,19 +621,21 @@ add_test(NAME phase5d_harness_controls COMMAND "${Python3_EXECUTABLE}"
     "${CMAKE_CURRENT_SOURCE_DIR}/rotochemical/harness_controls.py")
 set_tests_properties(phase5d_harness_controls PROPERTIES
     LABELS "phase5d;phase5d-coupled;governance;fresh-context")
-add_test(NAME phase5d_coupled_oracles COMMAND "${Python3_EXECUTABLE}"
-    "${CMAKE_CURRENT_SOURCE_DIR}/rotochemical/fresh_coupled_oracles.py"
-    --source-root "${PROJECT_SOURCE_DIR}"
-    --build-dir "${CMAKE_BINARY_DIR}"
-    --scratch-root "${COMPACTSTAR_PHASE5D_SCRATCH_ROOT}"
-    --evolution-executable $<TARGET_FILE:phase5d_evolution>
-    --trackr-executable $<TARGET_FILE:chemical_trackr_fixture>
-    --structural-executable $<TARGET_FILE:chemical_structural_envelope>
-    --phase5b-executable $<TARGET_FILE:phase5b_freegas_validation>
-    --production-executable $<TARGET_FILE:chemical_production_fixture>)
-set_tests_properties(phase5d_coupled_oracles PROPERTIES
-    LABELS "phase5d;phase5d-coupled;scientific;fresh-context"
-    RUN_SERIAL TRUE TIMEOUT 7200)
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    add_test(NAME phase5d_coupled_oracles COMMAND "${Python3_EXECUTABLE}"
+        "${CMAKE_CURRENT_SOURCE_DIR}/rotochemical/fresh_coupled_oracles.py"
+        --source-root "${PROJECT_SOURCE_DIR}"
+        --build-dir "${CMAKE_BINARY_DIR}"
+        --scratch-root "${COMPACTSTAR_PHASE5D_SCRATCH_ROOT}"
+        --evolution-executable $<TARGET_FILE:phase5d_evolution>
+        --trackr-executable $<TARGET_FILE:chemical_trackr_fixture>
+        --structural-executable $<TARGET_FILE:chemical_structural_envelope>
+        --phase5b-executable $<TARGET_FILE:phase5b_freegas_validation>
+        --production-executable $<TARGET_FILE:chemical_production_fixture>)
+    set_tests_properties(phase5d_coupled_oracles PROPERTIES
+        LABELS "phase5d;phase5d-coupled;scientific;fresh-context"
+        RUN_SERIAL TRUE TIMEOUT 7200)
+endif()
 
 # Expensive governed Phase-5D regression. It configures and builds in a new
 # empty scratch root, regenerates every qualification/thermal/oracle/trajectory
@@ -656,7 +662,6 @@ set(_compactstar_python_tests
     chemical_curved_gc9
     chemical_trackr_budget
     chemical_production_validation
-    phase5c_chemical_coefficient_regression
     phase5b_PB1
     phase5b_PB6
     phase5b_PB7
@@ -664,14 +669,22 @@ set(_compactstar_python_tests
     phase5b_PB12
     phase5b_PB13
     phase5b_contracts
-    phase5b_structural_response_regression
     phase5d_independent_oracles
     phase5d_protected_manifest
     phase5d_harness_controls
-    phase5d_coupled_oracles)
+    )
 if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
     list(APPEND _compactstar_python_tests
         phase5d1_controlled_evolution_regression)
+endif()
+# These byte-frozen scientific artifacts were qualified in asserts-enabled Debug.
+# Release is compared against OLD Release in the dependency migration evidence;
+# it is not required to reproduce Debug certificates or Debug provenance.
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    list(APPEND _compactstar_python_tests phase5c_chemical_coefficient_regression
+        phase5b_structural_response_regression phase5d_coupled_oracles)
+else()
+    message(STATUS "Phase-5B/5C governed baselines and Phase-5D coupled certificate require the separate Debug qualification")
 endif()
 set_tests_properties(${_compactstar_python_tests} PROPERTIES
     ENVIRONMENT "PYTHONDONTWRITEBYTECODE=1")

@@ -3,7 +3,7 @@ set(CompactStar_Physics_Evolution_Diagnostics_headers
 	DiagnosticPacket.hpp
 	UnitContract.hpp
 	DiagnosticCatalog.hpp
-	DiagnosticsCatalogJson
+	DiagnosticsCatalogJson.hpp
 )
 
 install(FILES ${CompactStar_Physics_Evolution_Diagnostics_headers} DESTINATION include/CompactStar/Physics/Evolution/Diagnostics)

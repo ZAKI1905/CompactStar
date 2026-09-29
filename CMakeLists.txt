@@ -158,7 +158,7 @@ target_link_libraries(CompactStar
 # -----------------------------
 install(TARGETS CompactStar DESTINATION lib)
 
-install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/License" DESTINATION Docs)
+install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/License.txt" DESTINATION Docs)
 
 # -----------------------------
 # Optional docs

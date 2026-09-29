@@ -4,7 +4,7 @@ set(CompactStar_Physics_Evolution_Observer_headers
 	TimeSeriesObserver.hpp
 )
 
-install(FILES ${CompactStar_Physics_Evolution_Observer_headers} DESTINATION include/CompactStar/Physics/Evolution/Observer)
+install(FILES ${CompactStar_Physics_Evolution_Observer_headers} DESTINATION include/CompactStar/Physics/Evolution/Observers)
 
 set(CompactStar_Physics_Evolution_Observer_sources
 	CompactStar/Physics/Evolution/Observers/src/IObserver.cpp
