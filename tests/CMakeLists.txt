@@ -126,6 +126,10 @@ foreach(test direct_energy thermal_ledger)
     set_tests_properties(phase6a1_${test} PROPERTIES LABELS "phase6;bnv;self-contained;scientific")
 endforeach()
 
+# Explicit manual-only bounded local forensics; never registered as a campaign CTest.
+add_executable(phase6a1_obs32_forensics bnv/obs32_forensics.cpp)
+target_link_libraries(phase6a1_obs32_forensics PRIVATE CompactStar)
+
 add_executable(phase6a1_controlled_campaign bnv/controlled_campaign.cpp)
 target_link_libraries(phase6a1_controlled_campaign PRIVATE CompactStar)
 add_executable(adr0017_production_qualification bnv/adr0017_production_qualification.cpp)
