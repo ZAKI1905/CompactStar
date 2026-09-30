@@ -1,0 +1,106 @@
+{
+  "direct_energy.log": {
+    "raw_sha256": "f6f18f5e5ecf81bad2f02ca09dfe4d6c0b215f73e4e8926eac6b0f9dbfd11702",
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/resume-evidence/direct_energy.log",
+    "result_lines": [
+      "DIRECT_ENERGY PASS inclusive event local/infinity and conversion",
+      "MUTATION M13 DETECTED unit oracle",
+      "MUTATION M14 DETECTED unit oracle",
+      "MUTATION M15 DETECTED fate-energy closure",
+      "MUTATION M16 DETECTED terminal duplicate"
+    ]
+  },
+  "frozen_monitor.log": {
+    "raw_sha256": "442a12b2c4c79f0848d504c6d848fc8bbb1bd56915c587ac1fdec60ef5e7a69d",
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/resume-evidence/frozen_monitor.log",
+    "result_lines": [
+      "BA13_RUNTIME_MONITOR PASS just_inside_fraction -9.9999997155751408e-07 just_outside_fraction -1.0000000283979203e-06",
+      "MUTATION M20 DETECTED pre-RHS frozen validity refusal"
+    ]
+  },
+  "matched_control.log": {
+    "raw_sha256": "87b8858758b2a86f4bdc3a2717e52fb7c0bdead18f921e9732f34b312ccefaa1",
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/resume-evidence/matched_control.log",
+    "result_lines": [
+      "BA10a PASS governed spin-on zero-BNV RHS bit identity",
+      "REFUSAL BA10b relaxed process selection : controlled BNV process selection mismatch",
+      "BA10b PASS spin-off matched control and transferred qualification",
+      "MUTATION M11 DETECTED named nonzero-eta thermal ledger",
+      "MUTATION M12 DETECTED named zero-source reduction"
+    ]
+  },
+  "passive_contract.log": {
+    "raw_sha256": "7b069f1391e332cc343eb18eb4883aefe4ace33d981c2421e33553da175c2a3f",
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/resume-evidence/passive_contract.log",
+    "result_lines": [
+      "P1 PASS",
+      "P2 PASS",
+      "P3 PASS",
+      "P4 PASS",
+      "P5 PASS",
+      "P6 PASS",
+      "P7 PASS",
+      "P8 PASS",
+      "P9 PASS",
+      "P10 PASS"
+    ]
+  },
+  "prerequisite-refusal.log": {
+    "raw_sha256": "ad86c24bef4e712137eea4891800ffb009d1a9deb6f0ce4f93e20dcab18297f4",
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/resume-evidence/prerequisite-refusal.log",
+    "result_lines": [
+      "STOP [Errno 2] No such file or directory: 'build/bnv-resume/resume-evidence/deliberately-absent-regression.json'"
+    ]
+  },
+  "source_projection.log": {
+    "raw_sha256": "186180d639e681dfaa330b6b27267929ce9e86db9274bd5bf4966ed845adc2d2",
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/resume-evidence/source_projection.log",
+    "result_lines": [
+      "BA2 PASS t 0.96577008494961347 0.030852171225661786 0.0033777438247248118 tau 1.5082028542937021e-07",
+      "REFUSAL M19 Bdot mismatch : Bdot differs from b^T S_y",
+      "REFUSAL BA1 charge mismatch : ordinary charge closure failed",
+      "REFUSAL M16 duplicate event : malformed or duplicate source event",
+      "REFUSAL BA1 nonfinite source epoch : invalid analytic source epoch",
+      "REFUSAL BA1 stale source : stale analytic source",
+      "BA1 PASS source atomicity provenance charge Bdot event and refusal gates",
+      "BA3 PASS 100 cases worst_b 4.2064129956997931e-12 worst_lift 4.0927261579781771e-12",
+      "BA4 PASS drive -1.4302859054377826e-55 -3.6280967205205911e-55",
+      "MUTATION M1 DETECTED raw-G sliding route nonzero",
+      "MUTATION M2 DETECTED k differs from t",
+      "MUTATION M3 DETECTED wrong sign breaks baryon neutrality",
+      "MUTATION M4 DETECTED omitted tBdot breaks sliding null",
+      "MUTATION M5 DETECTED omitted sigma channel breaks exact lift",
+      "BA5 PASS physical sliding null and negative routes",
+      "MUTATION M6 DETECTED asymmetric cross-Z oracle",
+      "MUTATION M7 DETECTED named asymmetric channel oracle",
+      "BA6 PASS analytic reaction-free positive/negative transients -1.7656879502629427e-21 -4.4788854014826687e-21",
+      "BA7 PASS P0/P1/P2 R10 NR R18 residual -20548825889.525021",
+      "MUTATION M21 DETECTED nonzero-eta R18 primary",
+      "BA8 PASS R-a/R-b/R-c generic R18 -1.4108007606527171 budget 1639.3180435981362",
+      "MUTATION M8 DETECTED double hole",
+      "MUTATION M13 DETECTED missing MeV-to-erg",
+      "MUTATION M14 DETECTED double MeV-to-erg",
+      "MUTATION M15 DETECTED fluid/star/X closure",
+      "REFUSAL M18 source/t domain mismatch : source/t domain mismatch",
+      "REFUSAL M17 stale tangent : stale profile provenance",
+      "MUTATION M17 DETECTED stale t",
+      "MUTATION M18 DETECTED source/t domain mismatch",
+      "MUTATION M19 DETECTED Bdot closure",
+      "PRETRAJECTORY_SOURCE_PROJECTION PASS BA1-BA8 applicable"
+    ]
+  },
+  "thermal_ledger.log": {
+    "raw_sha256": "dfbdb0b297992ec86d85dc6ceb749f58a3b3e56718efa41727b7e1d313370a84",
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/resume-evidence/thermal_ledger.log",
+    "result_lines": [
+      "BA8 PASS DeltaPbeta Pnet Echem reservoir",
+      "BA9 PASS forbidden heat/unit/double-count mutants",
+      "BA17 PASS worst_ratio 0.467659 xi -3.6125",
+      "MUTATION M8 DETECTED R-a/b/c double-count fixture",
+      "MUTATION M9 DETECTED Echem reservoir is not heat",
+      "MUTATION M10 DETECTED no PdV/gravity production input",
+      "MUTATION M11 DETECTED omitted DeltaLnu",
+      "MUTATION M12 DETECTED doubled equilibrium neutrinos"
+    ]
+  }
+}

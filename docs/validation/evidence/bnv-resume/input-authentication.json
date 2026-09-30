@@ -1,0 +1,19 @@
+{
+  "pass": true,
+  "paths": {
+    "profile_tree": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-fresh-qualification/chemical-characterization/run-dhp6aivf/t8192-r80000",
+    "certificate": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-fresh-qualification/certificate-t8192-r80000.txt",
+    "thermal": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-final/chemical-profiles/target-0/thermal",
+    "frozen": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-final/certificate.tsv",
+    "coefficients": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-final/coefficients.tsv",
+    "entry": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/docs/validation/phase6a1_controlled_bnv_entry_hashes.json"
+  },
+  "hashes": {
+    "profile_tree": "233114862a2ab6826151519114e4bcb74a01f6a8e739bac0502ee62884688d72",
+    "certificate": "7fc892b50bfbcdd2c5d963e0ff866777f3628f40fc282e1ce5a0b0364200a453",
+    "thermal": "1cdb98507958b50fbd1e1eff3eb3bfa4f48c790fef86a8740855884fc43b9d94",
+    "frozen": "9217e278eb0a4b06b193a2a02f4d59f285d74e4033427b87ccd51181c3f7beab",
+    "coefficients": "3efa060d99a7a92266679aadb31885abbed9c940404247f1d3009cafa94832d6",
+    "entry": "5cfbf4b1d623b58fa2a94101631dce20c602950eec8eb514dc1fcd3c7a04620d"
+  }
+}

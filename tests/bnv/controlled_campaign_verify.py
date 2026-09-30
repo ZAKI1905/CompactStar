@@ -220,6 +220,10 @@ def main() -> int:
         grids = [[row["t_s"] for row in levels[mode][level]] for level in ("baseline", "refined", "ultra")]
         if not grids[0] == grids[1] == grids[2]:
             raise RuntimeError(f"{mode}: output grid mismatch")
+        terminal = 5e5 * 365.25 * 86400
+        expected_grid = [terminal*i/(EXPECTED_ROWS-1) for i in range(EXPECTED_ROWS)]
+        if [float(t) for t in grids[0]] != expected_grid:
+            raise RuntimeError(f"{mode}: fixed scientific schedule changed")
         for level, sequence in levels[mode].items():
             expected_identity = CARD + ("-MATCHED-CONTROL" if mode == "control" else "")
             for index, row in enumerate(sequence):

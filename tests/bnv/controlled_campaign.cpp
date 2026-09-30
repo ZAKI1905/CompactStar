@@ -116,13 +116,16 @@ int main(int argc,char** argv)
         std::vector<double> times;for(std::size_t i=0;i<card.checkpoints;++i)
             times.push_back(end*double(i)/double(card.checkpoints-1));
         BNV::PassiveObservationSchedule schedule(times,"CPL-P2-8193-uniform-passive-v1");
-        BNV::MainIntegrationProvenance provenance{physics->RunCardIdentity(),mode,
+        BNV::MainIntegrationProvenance provenance{physics->RunCardIdentity(),
+          mode=="source"?"Phase-6A-1 controlled abstract uniform proper neutron sink v1":
+                         "Phase-6A-1 exact zero BNV source for matched controls",
           "full-boundary-cheap-per-RHS-frozen-validity",schedule.Identity()};
         BNV::UninterruptedBnvTrajectory solver(system,state.layout,physics->OrdinaryContext(),config,provenance);
         // No observers evaluate diagnostics on the authoritative evolving context.
         const auto main=solver.Integrate(0,end,{{0,0,0}},schedule,true);
         require(main.statistics.distinct_positive_t1_targets==1,"multiple main ceilings");
         WriteMainEvidence(inputs.output,main,schedule,0);
+        WriteCampaignSummary(inputs,main,{},assembly_wall,assembly_cpu,0,0,tier,mode,false);
         std::cout<<"MAIN_COMPLETE "<<mode<<' '<<tier<<" accepted "<<main.statistics.accepted_steps
           <<" rejected "<<main.statistics.rejected_steps<<'\n';
         auto count=std::make_shared<std::size_t>(0);

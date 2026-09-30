@@ -1,0 +1,22 @@
+{
+  "CompactStar/Physics/BNV/BnvDiagnostics.hpp": "3fdda08e04e51bf1edb4a1b8c976138a9039262bf95aec2e9d74ab929d0808b8",
+  "CompactStar/Physics/BNV/CMakeLists.txt": "6f227d57e125f1fb0940cc8f8db6dc2b5f2a9abb708e3d2c557602113f925699",
+  "CompactStar/Physics/BNV/ControlledBnvSecularDriver.hpp": "b668b90029f80a47563ccabda01aa0dd891a449db7784923e0072aa99ca7d32c",
+  "CompactStar/Physics/BNV/DirectEnergyLedger.hpp": "0a20dd65c0a15d5c614e0efa903abce6782143dbb8c16f439fc6a2293590d0cc",
+  "CompactStar/Physics/BNV/EquilibriumBaryonTangent.hpp": "202ca840e48782398424eda76aea6c563a7dc5d119e465d00c3a88e86d00eced",
+  "CompactStar/Physics/BNV/FrozenBnvValidity.hpp": "d74d1b6e2537077adeebc01a35f0fd7cf22ac92ad7069b7f65da270398bda0c4",
+  "CompactStar/Physics/BNV/FrozenControlledBnvRunContext.hpp": "d9644edcc315597c00cf0923745ae08eabfcf6c520f2e693bb6f6dd910be151c",
+  "CompactStar/Physics/BNV/MovingReferenceSource.hpp": "ae754809660cd82aec256d7d249c55e31ce29d42566045f499aa1aebcce52ef0",
+  "CompactStar/Physics/BNV/OrdinaryMatterSource.hpp": "58a4dc71e59aac30e30a3dea7ef8eccd0f544c9b27aadf517a8c8361ecd6cb1e",
+  "CompactStar/Physics/BNV/PassiveCheckpointOutput.hpp": "efeccc0127b3816a9c2d620032fe1435619f629800ec89c10dc46a52c22f44ed",
+  "CompactStar/Physics/BNV/ProductFate.hpp": "20fe2e12e225764c4ef03ac855925dca1b80ddcffcfa9594af8de8940331875a",
+  "CompactStar/Physics/BNV/StaticZeroSpinHistory.hpp": "4dddab4cd66df82476fbd3a64ac78d6f626448c6bf51f739f1d31d28f0b55f2d",
+  "CompactStar/Physics/BNV/src/ControlledBnvSecularDriver.cpp": "2abe4754badbcebf33201008dc2a364dfd3e1bd8f2ba5eac9890ace92c637abc",
+  "CompactStar/Physics/BNV/src/DirectEnergyLedger.cpp": "4edbc2c7d692e2f73b2bf55c7c95f8de061d2c98ba4643ab90330918171734af",
+  "CompactStar/Physics/BNV/src/EquilibriumBaryonTangent.cpp": "388b7576617312704ffb9cd312129c95cfed1b4d9512a2dbf90e72ab25de8f1b",
+  "CompactStar/Physics/BNV/src/FrozenBnvValidity.cpp": "cd31381eea59d9cc6bedf5e099d547850f30647a756b20d68d444acf559f6654",
+  "CompactStar/Physics/BNV/src/FrozenControlledBnvRunContext.cpp": "56b63e9d8e8e3b0349191404843edf2d82856532e87838d09b1939e24b4c5468",
+  "CompactStar/Physics/BNV/src/MovingReferenceSource.cpp": "1751e03f0171fbdafefe57caa17d1903aaebce8f4fd8d11bd401f7ba6cc84f25",
+  "CompactStar/Physics/BNV/src/PassiveCheckpointOutput.cpp": "b62d6b19576f1a8e24cac76785219aca30b069f3245efa97fb6ecb8228908340",
+  "CompactStar/Physics/BNV/src/StaticZeroSpinHistory.cpp": "9b96e95cf17e88b595975e23d1c4b10c9ecffec98992b6e3e105eb3d0249dba6"
+}

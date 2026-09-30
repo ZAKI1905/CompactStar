@@ -1,0 +1,53 @@
+{
+  "source_projection": {
+    "command": [
+      "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase6a1_source_projection",
+      "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-fresh-qualification/chemical-characterization/run-dhp6aivf/t8192-r80000",
+      "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/resume-evidence/source-projection-context"
+    ],
+    "exit_code": 0,
+    "wall_s": 197.13175441580825
+  },
+  "matched_control": {
+    "command": [
+      "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase6a1_matched_control",
+      "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-fresh-qualification/chemical-characterization/run-dhp6aivf/t8192-r80000",
+      "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-fresh-qualification/certificate-t8192-r80000.txt",
+      "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-final/chemical-profiles/target-0/thermal",
+      "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/resume-evidence/matched-control-context",
+      "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/docs/validation/phase6a1_controlled_bnv_entry_hashes.json",
+      "both"
+    ],
+    "exit_code": 0,
+    "wall_s": 385.70546645880677
+  },
+  "frozen_monitor": {
+    "command": [
+      "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase6a1_frozen_monitor",
+      "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-final/certificate.tsv"
+    ],
+    "exit_code": 0,
+    "wall_s": 0.2839996658731252
+  },
+  "direct_energy": {
+    "command": [
+      "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase6a1_direct_energy"
+    ],
+    "exit_code": 0,
+    "wall_s": 0.22488466696813703
+  },
+  "thermal_ledger": {
+    "command": [
+      "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase6a1_thermal_ledger"
+    ],
+    "exit_code": 0,
+    "wall_s": 0.18016254203394055
+  },
+  "passive_contract": {
+    "command": [
+      "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/passive_checkpoint_output_contract"
+    ],
+    "exit_code": 0,
+    "wall_s": 0.23682604101486504
+  }
+}

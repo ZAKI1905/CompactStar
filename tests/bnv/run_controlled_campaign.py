@@ -19,7 +19,8 @@ def run(args):
     evidence = args.prerequisites.resolve()
     authentication = json.loads((evidence / "input-authentication.json").read_text())
     inputs = {k: Path(v) for k, v in authentication["paths"].items()}
-    assert authentication["pass"]
+    if not authentication["pass"]:
+        raise RuntimeError("input authentication failed")
     for key, path in inputs.items():
         if tree_sha256(path) != EXPECTED[key]:
             raise RuntimeError("input bytes changed: " + key)
