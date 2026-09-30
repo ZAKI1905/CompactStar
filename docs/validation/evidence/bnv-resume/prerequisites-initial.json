@@ -14,13 +14,12 @@
       "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-fresh-qualification/chemical-characterization/run-dhp6aivf/t8192-r80000",
       "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-fresh-qualification/certificate-t8192-r80000.txt",
       "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-final/chemical-profiles/target-0/thermal",
-      "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/resume-evidence/matched-control-temperature-context",
+      "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/resume-evidence/matched-control-context",
       "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/docs/validation/phase6a1_controlled_bnv_entry_hashes.json",
       "both"
     ],
     "exit_code": 0,
-    "wall_s": 379.8461467921734,
-    "executable_sha256": "b0604ee665015f259db89c21421c60209cf23ac9f24dee218e339eecfefd5601"
+    "wall_s": 385.70546645880677
   },
   "frozen_monitor": {
     "command": [

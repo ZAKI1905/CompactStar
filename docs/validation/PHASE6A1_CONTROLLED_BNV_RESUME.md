@@ -131,3 +131,37 @@ tolerance change. Valid-domain arithmetic is untouched. Add lower/upper refusal
 tests at `5e5` and `2e9 K`, both within the ordinary cache but outside the BNV
 certificate; require the specific certificate refusal. Rerun the affected
 BA10a/b wrapper tests before releasing the campaign. Phase-5 paths remain unchanged.
+
+### Gate inventory at entry
+
+The gate numbers below denote scientific subjects, not authorization to execute
+them out of dependency order. Historical successes are evidence with their
+recorded scope, not an already-qualified complete candidate.
+
+| Gate | Entry implementation/evidence and remaining obligation |
+|---|---|
+| BA1 | Atomic ordinary-source/event owner is present; source-history, charge, rate and event-ownership checks are in restored `source_projection.cpp`. |
+| BA2 | BNV-local `EquilibriumBaryonTangent` consumes the Phase-5B derivative, uses `B_n+B_p`, propagates errors, closes the neutron component, and retains full/cheap currentness; `src/EquilibriumBaryonTangent.cpp:46`. |
+| BA3 | Production computes `S-t Bdot`, tests baryon neutrality and exact lift; `src/MovingReferenceSource.cpp:33`. |
+| BA4 | Production adds `-Z sigma` to the ordinary beta RHS; both governed neutron-sink signs are checked by the restored fixture; `src/FrozenControlledBnvRunContext.cpp:138`. |
+| BA5 | Sliding-null and raw-G/k negative controls exist in source evidence and restored tests; no physical raw-G route is present. |
+| BA6 | Historical reaction-free integration/analytic evidence exists. The restored algebraic check is not represented as a new integrated reaction-free trajectory. |
+| BA7 | Actual-potential reconstruction and generic event ledger are present; nonzero-eta neutron and generic R18 checks are restored; `src/DirectEnergyLedger.cpp:20`. |
+| BA8 | Named beta/thermal decomposition and chemical reservoir are present; no extra Echem, hole, PdV or gravity heat is added; `src/FrozenControlledBnvRunContext.cpp:159`. |
+| BA9 | Historical M8-M16/M21 ledger/fate/unit detector evidence is retained; restored focused tests rerun applicable detectors. |
+| BA10a | Spin-on zero-source wrapper path exists. Focused RHS identity and fresh governed Phase-5D regression are separate checks. |
+| BA10b | StaticZeroSpinHistory/AnalyticControl and exact zero-source/partition bundle are present; fresh matched controls remain required. |
+| BA11 | Primitive ledger and production composite-trapezoid R20 exist. Full qualified campaign closure remains unfinished. |
+| BA12 | Historical segmented FAIL is immutable. The current successor is a clean six-trajectory BA12R hierarchy under ADR-0017, not a rerun of the obsolete segmented driver. |
+| BA13 | Retained 21-star certificate, depletion/currentness enforcement and M20 exist. Missing certificate-temperature enforcement is repaired above before execution. |
+| BA14 | Raw owner diagnostics and serializer exist. Several final matched/QSS/sign fields are default placeholders; complete candidate schema validation/production is unfinished. |
+| BA15 | R0-R3 restored historical exact provenance; current protected hashes authenticate. Fresh pretrajectory regression and eventual full final suites are distinct obligations. |
+| BA16 | Reached-QSS classification remains unfinished; production diagnostic defaults are NOT_CLASSIFIED, not evidence of QSS. |
+| BA17 | Static MU bound evidence exists; qualified trajectory bound diagnostics remain unfinished. |
+
+Production paths in this table are relative to `CompactStar/Physics/BNV`.
+Gate authority: implementation preflight sections 15-18; historical completion
+and deferral authority: recovery preflight sections 8-9; current output architecture:
+ADR-0017 sections 5-8 and production acceptance. The five restored test files
+initially matched R0-R3 blobs exactly; `matched_control.cpp` subsequently gains only
+the explicitly recorded temperature-boundary tests.

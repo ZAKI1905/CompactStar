@@ -102,5 +102,17 @@
       "MUTATION M11 DETECTED omitted DeltaLnu",
       "MUTATION M12 DETECTED doubled equilibrium neutrinos"
     ]
+  },
+  "matched_control_temperature.log": {
+    "raw_sha256": "26876d6ae4b7ffb401ba7988256c39fe7ed3796323ae5a1a51c6cef795224794",
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/resume-evidence/matched_control_temperature.log",
+    "result_lines": [
+      "BA10a PASS governed spin-on zero-BNV RHS bit identity",
+      "BA13_TEMPERATURE PASS lower/upper certificate limits before RHS publication",
+      "REFUSAL BA10b relaxed process selection : controlled BNV process selection mismatch",
+      "BA10b PASS spin-off matched control and transferred qualification",
+      "MUTATION M11 DETECTED named nonzero-eta thermal ledger",
+      "MUTATION M12 DETECTED named zero-source reduction"
+    ]
   }
 }
