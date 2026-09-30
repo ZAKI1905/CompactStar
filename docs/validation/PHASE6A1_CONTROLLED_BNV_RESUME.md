@@ -111,3 +111,23 @@ variable-Z/sliding background, cluster work, merge, or baseline promotion.
 ## Execution record
 
 Pending. Results are appended without rewriting this pre-execution declaration.
+
+### Pretrajectory engineering correction
+
+Source inspection found that the BNV wrapper checked depletion/currentness but
+did not enforce the temperature span of its frozen certificate. The accepted
+fixture certificate covers only `1e6 <= Tinf/K <= 1e9`; the ordinary thermal
+cache covers a wider interval. The original committed campaign declaration
+explicitly requires refusal outside the certificate temperature span
+(`e56e6e50040dbcd9dcbee1acecf58843f3dddf1c:docs/validation/PHASE6A1_CONTROLLED_BNV_IMPLEMENTATION.md:203`).
+The canonical implementation preflight likewise requires the measured Cstar and
+envelope certificate at trajectory temperatures
+(`PHASE6A1_CONTROLLED_BNV_IMPLEMENTATION_PREFLIGHT.md:721`).
+
+Before any new BNV trajectory, add the missing fail-closed temperature check in
+the Phase-6 controlled wrapper, before ordinary evaluation. This is a governed
+validity enforcement repair, not an equation, coefficient, interpolation, or
+tolerance change. Valid-domain arithmetic is untouched. Add lower/upper refusal
+tests at `5e5` and `2e9 K`, both within the ordinary cache but outside the BNV
+certificate; require the specific certificate refusal. Rerun the affected
+BA10a/b wrapper tests before releasing the campaign. Phase-5 paths remain unchanged.

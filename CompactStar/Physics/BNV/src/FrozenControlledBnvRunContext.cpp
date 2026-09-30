@@ -101,6 +101,12 @@ ControlledBnvEvaluation FrozenControlledBnvRunContext::EvaluateImpl(
     double epoch,const Evolution::StateVector& state,const Evolution::DriverContext& ctx,bool reaction_free) const
 {
     RequireCheapCurrent();
+    // The accepted Structure-1 certificate samples Cstar and the envelope only
+    // on 1e6--1e9 K. The wider ordinary thermal cache is not BNV certification.
+    // Enforce this before evaluating any trial RHS or checkpoint diagnostic.
+    const double T=state.GetThermal().Tinf();
+    Need(std::isfinite(T)&&T>=1.0e6&&T<=1.0e9,
+         "controlled BNV temperature outside frozen certificate");
     const auto tangent=tangent_->SnapshotCheap();
     ControlledBnvEvaluation out;
     const auto source=history_->Sample(epoch);source.Validate();
@@ -127,7 +133,6 @@ ControlledBnvEvaluation FrozenControlledBnvRunContext::EvaluateImpl(
     out.direct.potential=BnvDirectEnergyLedger::ActualPotential(mu_B_inf_MeV_,eta,tangent,potential_provenance_);
     const auto energies=partition_->Evaluate(source,out.direct.potential);
     out.direct=BnvDirectEnergyLedger::Evaluate(source,out.direct.potential,energies,fate_);
-    const double T=state.GetThermal().Tinf();
     const double ee=eta.InfinityMeV(RC::BetaChannel::Npe),em=eta.InfinityMeV(RC::BetaChannel::NpMu);
     for(std::size_t i=0;i<2;++i)
     {

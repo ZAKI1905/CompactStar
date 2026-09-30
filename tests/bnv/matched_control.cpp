@@ -109,6 +109,16 @@ int main(int argc,char** argv){try{
    auto ordinary=Context(f,channels,thermal,spin,Qualification(profile,certificate,entry,RC::RunPurpose::AnalyticControl),token);
    auto wrapped=std::make_shared<const BNV::FrozenControlledBnvRunContext>(ordinary,tangent,history,partition,fate,monitor,channels,900,"zero-source unused reference potential","BA10b-SPIN-OFF-ZERO-BNV-v1");
    CompareRhs(ordinary,wrapped,"BA10b matched-control RHS mismatch");
+   // Both temperatures lie inside the ordinary cache but outside the BNV
+   // certificate. A cache-domain refusal alone cannot satisfy this detector.
+   for(double temperature:{5e5,2e9}){
+     RunState probe(ordinary);probe.thermal.SetTinf(temperature);
+     bool refused=false;
+     try{wrapped->Evaluate(0,probe.state,probe.ctx);}
+     catch(const std::runtime_error& e){refused=std::string(e.what())=="controlled BNV temperature outside frozen certificate";}
+     require(refused,"BA13 certificate temperature boundary survived");
+   }
+   std::cout<<"BA13_TEMPERATURE PASS lower/upper certificate limits before RHS publication\n";
    auto bad=Channels(f,16,false,RC::UrcaProcessSelection{RC::UrcaProcess::Me});
    MustRefuse([&]{BNV::FrozenControlledBnvRunContext x(ordinary,tangent,history,partition,fate,monitor,bad,900,"unused","bad-selection");},"BA10b relaxed process selection");
    const auto z=spin->Sample(1e30);require(z.omega_rad_s==0&&z.omega_dot_rad_s2==0,"StaticZeroSpinHistory nonzero");
