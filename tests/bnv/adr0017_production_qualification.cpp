@@ -120,7 +120,7 @@ class ActualCheckpointContext final:public BNV::ICheckpointEvaluationContext
         return driver_->Evaluate(t,state_.state,state_.ctx).diagnostics;
     }
     std::string Identity() const override
-    {return "CPL-P2-LINEAR-QSS-v1:isolated-production-context:"+std::to_string(identity_);}
+    {return context_->RunCardIdentity()+":isolated-production-context:"+std::to_string(identity_);}
   private:
     std::shared_ptr<const BNV::FrozenControlledBnvRunContext> context_;
     RunState state_;
@@ -166,7 +166,7 @@ void WriteMainEvidence(const std::filesystem::path& root,const BNV::MainTrajecto
     std::ofstream internal(root/"main.internal_steps.tsv");internal<<std::setprecision(17)
       <<"sequence\tarchived_checkpoint_index\tceiling_s\tt_before_s\tt_after_s\tstep_s\tsuggested_next_h_s"
       <<"\tcumulative_rejected\tx_before\tx_after\tcstar_cell_before\tcstar_cell_after\tcstar_knots_crossed\n";
-    for(const auto& step:main.accepted_steps)internal<<step.ordinal<<"\t240\t"<<main.final_time_s<<'\t'
+    for(const auto& step:main.accepted_steps)internal<<step.ordinal<<'\t'<<schedule.RequestedTimes().size()-1<<'\t'<<main.final_time_s<<'\t'
       <<step.t_left_s<<'\t'<<step.t_right_s<<'\t'<<step.accepted_step_s<<'\t'<<step.suggested_next_h_s<<'\t'
       <<step.cumulative_rejected<<'\t'<<step.y_left[0]<<'\t'<<step.y_right[0]<<'\t'
       <<step.cstar_cell_left<<'\t'<<step.cstar_cell_right<<'\t'<<step.cstar_knots_crossed<<'\n';
@@ -276,6 +276,7 @@ void WriteSummary(const std::filesystem::path& path,const BNV::MainTrajectoryRes
 }
 }
 
+#ifndef PHASE6A1_CAMPAIGN_SUPPORT_ONLY
 int main(int argc,char** argv)
 {
     try
@@ -348,3 +349,5 @@ int main(int argc,char** argv)
         std::cerr<<"STOP "<<error.what()<<'\n';return 1;
     }
 }
+
+#endif

@@ -126,6 +126,8 @@ foreach(test direct_energy thermal_ledger)
     set_tests_properties(phase6a1_${test} PROPERTIES LABELS "phase6;bnv;self-contained;scientific")
 endforeach()
 
+add_executable(phase6a1_controlled_campaign bnv/controlled_campaign.cpp)
+target_link_libraries(phase6a1_controlled_campaign PRIVATE CompactStar)
 add_executable(adr0017_production_qualification bnv/adr0017_production_qualification.cpp)
 target_link_libraries(adr0017_production_qualification PRIVATE CompactStar)
 

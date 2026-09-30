@@ -49,9 +49,14 @@ struct Capture final:EV::Observers::IObserver
     }
     void Save(double t,const EV::StateVector& state,const EV::DriverContext& context)
     {
-        const auto value=driver.Evaluate(t,state,context);const auto& d=value.diagnostics;
+        const auto value=driver.Evaluate(t,state,context);
+        SaveSnapshot(state.GetThermal().LnTinfOverTref(),value.diagnostics);
+    }
+    // Serialize an already-qualified owner snapshot without evaluating the RHS again.
+    void SaveSnapshot(double x_state,const BNV::BnvDiagnostics& d)
+    {
         const std::array<double,58> numbers{{
-          d.t_s,state.GetThermal().LnTinfOverTref(),d.B_count,d.Bdot_count_s,d.DeltaB_over_B0,
+          d.t_s,x_state,d.B_count,d.Bdot_count_s,d.DeltaB_over_B0,
           d.S_count_s[0],d.S_count_s[1],d.S_count_s[2],d.t[0],d.t[1],d.t[2],d.t_error[0],d.t_error[1],d.t_error[2],
           d.sigma_count_s[0],d.sigma_count_s[1],d.eta_MeV[0],d.eta_MeV[1],d.xi[0],d.xi[1],d.R_count_s[0],d.R_count_s[1],
           d.eta_dot_from_sigma_MeV_s[0],d.eta_dot_from_sigma_MeV_s[1],d.eta_dot_from_beta_MeV_s[0],d.eta_dot_from_beta_MeV_s[1],
