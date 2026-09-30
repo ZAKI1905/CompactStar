@@ -59,6 +59,7 @@ struct Lab {
 void StateLine(std::ostream&f,const State&y){for(double v:y)f<<'\t'<<v;}
 }
 
+#ifndef OBS32_SUPPORT_ONLY
 int main(int argc,char**argv){try{
  using namespace Probe;gsl_set_error_handler_off();std::cout<<std::setprecision(17)<<std::unitbuf;
  require(argc==10,"profile certificate thermal work entry frozen coefficients cases output");Inputs in;in.profile=argv[1];in.certificate=argv[2];in.thermal=argv[3];in.work=argv[4];in.entry=argv[5];in.frozen=argv[6];in.coefficients=argv[7];in.output=argv[9];require(!std::filesystem::exists(in.work)&&!std::filesystem::exists(in.output),"fresh local context/output required");std::filesystem::create_directories(in.output);
@@ -105,3 +106,5 @@ int main(int argc,char**argv){try{
  physics->RequireFullCurrent();std::ofstream done(in.output/"completion.tsv");done<<std::setprecision(17)<<"key\tvalue\nlocal_solver_invocations\t"<<lab.solve_count+2<<"\nfull_trajectories\t0\nproduction_reproduction\tEXACT_FAIL\nwall_s\t"<<std::chrono::duration<double>(Clock::now()-begin).count()<<"\ngsl\t"<<gsl_version<<'\n';std::cout<<"BOUNDED_FORENSICS_COMPLETE local_solves "<<lab.solve_count+2<<'\n';
  return 0;
  }catch(const std::exception&e){std::cerr<<"STOP "<<e.what()<<'\n';return 1;}}
+
+#endif

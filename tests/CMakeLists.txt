@@ -129,6 +129,8 @@ endforeach()
 # Explicit manual-only bounded local forensics; never registered as a campaign CTest.
 add_executable(phase6a1_obs32_forensics bnv/obs32_forensics.cpp)
 target_link_libraries(phase6a1_obs32_forensics PRIVATE CompactStar)
+add_executable(phase6a1_obs32_boundary_audit bnv/obs32_boundary_audit.cpp)
+target_link_libraries(phase6a1_obs32_boundary_audit PRIVATE CompactStar)
 
 add_executable(phase6a1_controlled_campaign bnv/controlled_campaign.cpp)
 target_link_libraries(phase6a1_controlled_campaign PRIVATE CompactStar)

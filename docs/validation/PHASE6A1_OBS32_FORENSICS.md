@@ -65,3 +65,16 @@ and independently cold-rebuilt cache payload. This limitation is explicit.
 Results follow below after execution. No candidate, campaign restart, physical
 BNV model/rate, A18, superfluidity, Regime-II/MixedStar, or sliding background is
 authorized. Any remedy changing ADR-0017's uniform rule requires owner acceptance.
+
+### Supplemental diagnostic declaration (before execution)
+
+After exact reproduction and the initial split comparisons, two targeted checks
+will complete the requested boundary/main-crossing audit. In a second freshly
+assembled context, evaluate the complete RHS at the nearest representable packed
+states below/at/above the exact knot, warmed from both directions; report if no
+packed state represents the knot exactly. Extend each already-computed O3 split
+left leg from its own event state to the preserved `t_R`, once with rk8pd and once
+with independent RKF45. These are **two local legs inside the same saved bracket**,
+not main trajectory reruns. They quantify the saved BASELINE main step's local
+endpoint discrepancy. No original result is replaced, and no production fix is
+made. Primary O3 event states are authenticated inputs to these extensions.
