@@ -116,6 +116,16 @@ target_link_libraries(passive_checkpoint_output_contract PRIVATE CompactStar)
 add_test(NAME passive_checkpoint_output_contract COMMAND passive_checkpoint_output_contract)
 set_tests_properties(passive_checkpoint_output_contract PROPERTIES
     LABELS "phase6;bnv;adr0017;self-contained;contract")
+# Phase-6 resumed campaign: recovered independent physics and refusal checks.
+foreach(test source_projection direct_energy thermal_ledger matched_control frozen_monitor)
+    add_executable(phase6a1_${test} bnv/${test}.cpp)
+    target_link_libraries(phase6a1_${test} PRIVATE CompactStar)
+endforeach()
+foreach(test direct_energy thermal_ledger)
+    add_test(NAME phase6a1_${test} COMMAND phase6a1_${test})
+    set_tests_properties(phase6a1_${test} PROPERTIES LABELS "phase6;bnv;self-contained;scientific")
+endforeach()
+
 add_executable(adr0017_production_qualification bnv/adr0017_production_qualification.cpp)
 target_link_libraries(adr0017_production_qualification PRIVATE CompactStar)
 

@@ -1,0 +1,23 @@
+{
+  "canonical_entry": "9a5c1eca40758e4c39f9f80db7324e12ad23e505",
+  "source_evidence_ancestry": {
+    "232565a32303a4953f3f516d1d5286b6663f8f99": true,
+    "d2822656aae8e264f4985f0d2f7228b90320a577": false,
+    "e56e6e50040dbcd9dcbee1acecf58843f3dddf1c": false,
+    "971b2bac47c320bd262d8686841e679f703e5ccb": false
+  },
+  "baseline_hashes": {
+    "tests/baselines/baryon_number_dscmf1_reference.tsv": "90d607519cbdf3c4a0bf6ef50cc8fd22a8526b5db0354dc319e96854da29041d",
+    "tests/baselines/grid_convergence_cmf_1p6_debug.tsv": "b48519c3e948e9979a385d19facee2777d15955eeb8711b4bdd46b81fef74741",
+    "tests/baselines/grid_convergence_cmf_1p6_trajectory.tsv": "d5b753932c0523e67a7f25b460c7494bec1a006a8d01c9e43124cb2e78f0720f",
+    "tests/baselines/hartle_I_dscmf1_debug.tsv": "034ecddbd9bd847650429d7dc87d0331ec9e87aca3862ff87594e4bff5b707dd",
+    "tests/baselines/hartle_monopole_dscmf1_debug.tsv": "caaa0ac0d3219cda0a9fb518b27688afc23c6cdad1ec76a2bcd7359614a8d4e8",
+    "tests/baselines/passive_cooling_cmf_1p6_debug.tsv": "8fef2314673fceb939f859612f4befe94117115d6d6b3ad0dcc59d1faa68c9f9",
+    "tests/baselines/phase5b_structural_response.json": "7588f0e9cd62f5b6be48bb725e4d0ba6e47b64f50d843117e70c17a78beeb5fa",
+    "tests/baselines/phase5c_chemical_coefficients.json": "7027aa6179fe9111d76586d467d007c4223ec9d26ece0fee773327973c77bfe7",
+    "tests/baselines/phase5d1_controlled_evolution.json": "2606916915b2da5c051b1a06637c0a371a74751c6e77b2775bc629a63bc9f6dd",
+    "tests/baselines/tov_dscmf1_reference.tsv": "3d9af9129a6a4ffde9e0f8c5507a160f968a861c0cf9f3b089cceecab86b701a",
+    "tests/baselines/tov_path_equivalence_dscmf1.tsv": "5c0f4b3bdb70921f8f2a869af10edc4d8f5ae3963a9d150e11ef859d21e1c678"
+  },
+  "production_delta_from_accepted_adr0017": []
+}

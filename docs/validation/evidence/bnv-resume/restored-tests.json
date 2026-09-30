@@ -1,0 +1,22 @@
+{
+  "tests/bnv/source_projection.cpp": {
+    "source_commit": "d2822656aae8e264f4985f0d2f7228b90320a577",
+    "sha256": "be932fdcce5d74bfaf7b5dc42e4eae4a14e800e4a178650851235d82f16ff3c7"
+  },
+  "tests/bnv/direct_energy.cpp": {
+    "source_commit": "d2822656aae8e264f4985f0d2f7228b90320a577",
+    "sha256": "6c4b54482952d6021e396a2cef6e07d4fca290ba5f3ded1959fdf3f13ff9a481"
+  },
+  "tests/bnv/thermal_ledger.cpp": {
+    "source_commit": "d2822656aae8e264f4985f0d2f7228b90320a577",
+    "sha256": "e3ecc6363bc8ada634cf1336dcc8ab02678d7e2a74303d06cc6480bf2e5f9e62"
+  },
+  "tests/bnv/matched_control.cpp": {
+    "source_commit": "d2822656aae8e264f4985f0d2f7228b90320a577",
+    "sha256": "6d1b5b85cc7131a003b441d14c51784e14ccdfc66812298d486fe765425227df"
+  },
+  "tests/bnv/frozen_monitor.cpp": {
+    "source_commit": "d2822656aae8e264f4985f0d2f7228b90320a577",
+    "sha256": "cef2b184969cfc69a21c608f80f89372d68eb2200833ae57435e946ae92e84fe"
+  }
+}
