@@ -1,0 +1,19 @@
+{
+  "production_files_unchanged": 241,
+  "original_archive_and_raw_files_unchanged": 22,
+  "original_manifest_sha256": "79c1ee93b767f4a55313499a5a6a56678381acf66c879b9d3e41523f43d6a855",
+  "input_trees_unchanged": 6,
+  "protected": {
+    "baselines": 10,
+    "protected": 33,
+    "special": 3
+  },
+  "package_artifacts_unchanged": 5,
+  "diagnostic_archives": 71,
+  "local_solver_invocations": 80,
+  "full_trajectories": 0,
+  "matched_campaign_controls": 0,
+  "production_changes": 0,
+  "historical_status": "FAIL preserved",
+  "candidate_created": false
+}

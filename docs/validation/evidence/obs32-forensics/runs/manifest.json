@@ -1,0 +1,499 @@
+{
+  "primary/console.log": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/console.log.gz",
+    "archive_sha256": "57d0d07497ec83c58fa6132aed3636e0f7182ae99146791d41341246fa22dba4",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/console.log",
+    "raw_bytes": 117525,
+    "raw_sha256": "c174e12a6823916b991e1bddbf1d1064beb339c9a38ba97dc53c09e2fec0080f"
+  },
+  "primary/execution.json": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/execution.json.gz",
+    "archive_sha256": "6df6c19dbda1daa74906405bb8172998b1a62cbb5007581f1357019b860aa8eb",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/execution.json",
+    "raw_bytes": 1989,
+    "raw_sha256": "323b13d7a6156c3de8aaef01cf70a3811537897f42cb0402453d991053919485"
+  },
+  "primary/output/cell-ownership.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/cell-ownership.tsv.gz",
+    "archive_sha256": "2c5dfa5859c6da12ed50dfe256c175f9f5430266f23003730823148e28ae3afb",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/cell-ownership.tsv",
+    "raw_bytes": 386,
+    "raw_sha256": "33ace9d17587a41f45138ba1356830c987cb0bdb14b8e95b454588f88b838da8"
+  },
+  "primary/output/completion.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/completion.tsv.gz",
+    "archive_sha256": "cbc9e31f7a7d28ec5e1bae5351d965348a3af4b71f3ec7b6d53600811fcc8554",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/completion.tsv",
+    "raw_bytes": 129,
+    "raw_sha256": "f9cb8fc7b70f3facbc071f379403e23d74dbcc5d30c0ce3fe04902384b2c776e"
+  },
+  "primary/output/context-route.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/context-route.tsv.gz",
+    "archive_sha256": "56da61c9ea49a0a6f425f66eb8cd2b3d9b449188a13bd8f7077ffbae41c893f9",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/context-route.tsv",
+    "raw_bytes": 1168,
+    "raw_sha256": "606903e4dd20fde10bad0ca774b58144529282068d6d3945651e008f9fb13778"
+  },
+  "primary/output/cstar-cache.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/cstar-cache.tsv.gz",
+    "archive_sha256": "b6f08ebe97b4f2440e1817d57a384c82d2723a0d7bf69641501a0324a25e420c",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/cstar-cache.tsv",
+    "raw_bytes": 17772,
+    "raw_sha256": "81a781b95e2115f2b79bf7570d648a4b9bc896e11408fe751469712f718a6c94"
+  },
+  "primary/output/event-root.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/event-root.tsv.gz",
+    "archive_sha256": "2d92869534791109fe37c81dca1323eed67f471ecd4158c2eac53c7a7d532887",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/event-root.tsv",
+    "raw_bytes": 4125,
+    "raw_sha256": "0b06d49510183d9a31fa1301cba2fbf8b43f03ca24c16c3765252ce3e05f24c4"
+  },
+  "primary/output/event.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/event.tsv.gz",
+    "archive_sha256": "7ca70854d9977371fa4b34e084fd0675bdb73d03c747d019e0c9fbdcc57ddba7",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/event.tsv",
+    "raw_bytes": 141,
+    "raw_sha256": "3452364f67cb4e4af3ac454a4a05b20ad7701e15951ea8264690dc9fdc61bf4b"
+  },
+  "primary/output/independent-left-O2.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/independent-left-O2.rhs.tsv.gz",
+    "archive_sha256": "f4d77f5b0222a4d09d76b4f3688d03e605efc146798ff37347d7a450e0666e49",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/independent-left-O2.rhs.tsv",
+    "raw_bytes": 4741,
+    "raw_sha256": "9c24b4c0d16970890fbf2660772e2958d1404bb334f92fdc2409a625fab01c91"
+  },
+  "primary/output/independent-left-O2.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/independent-left-O2.steps.tsv.gz",
+    "archive_sha256": "dbfd047ebc3be10e503a0224a41a570951afa60edbf83ef0b084e01a11a868e3",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/independent-left-O2.steps.tsv",
+    "raw_bytes": 1114,
+    "raw_sha256": "63b94cd19554ed5159e9d8c2b089375a6e74d3b28e6ebda760e222312194c75d"
+  },
+  "primary/output/independent-left-O3.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/independent-left-O3.rhs.tsv.gz",
+    "archive_sha256": "e1e20dd0969a1270a3f72e1212098d960c9fd1cf2cd1d998d9e901e2d235b59a",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/independent-left-O3.rhs.tsv",
+    "raw_bytes": 8121,
+    "raw_sha256": "a40a661603278308e18e3011ca08276ffabb47df6a03c5a1e8175d15b7429f36"
+  },
+  "primary/output/independent-left-O3.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/independent-left-O3.steps.tsv.gz",
+    "archive_sha256": "e6567e432ffb07432b38dfecc245ce09773cba3ff92c179fb9128a675b83f4cc",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/independent-left-O3.steps.tsv",
+    "raw_bytes": 1863,
+    "raw_sha256": "8799cfa56eece109f168538a18ed1833fef353348ca55e39de414794acc7d3e2"
+  },
+  "primary/output/independent-right-O2.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/independent-right-O2.rhs.tsv.gz",
+    "archive_sha256": "65134bc24b9e8722a12d45d5ffb3369ba3b66c0bccadf6e0893d54dcbed8d816",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/independent-right-O2.rhs.tsv",
+    "raw_bytes": 4715,
+    "raw_sha256": "7790595a59cae660632f122e5ae0800470035efd2e3824f5f8be41ecf7a8415c"
+  },
+  "primary/output/independent-right-O2.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/independent-right-O2.steps.tsv.gz",
+    "archive_sha256": "e0d6db1a524096b7759858322c292be9ce28c8d68128b27670bd88af7caac88f",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/independent-right-O2.steps.tsv",
+    "raw_bytes": 1117,
+    "raw_sha256": "2a34add70365f902dc3e9f56e73cb4f9eb0f06baef85da0b325562fbd8cd5b19"
+  },
+  "primary/output/independent-right-O3.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/independent-right-O3.rhs.tsv.gz",
+    "archive_sha256": "5e8b3a96338b70b3d60586bfc5943165e7095a134b71c3176c8271fba218d4d5",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/independent-right-O3.rhs.tsv",
+    "raw_bytes": 5846,
+    "raw_sha256": "25d1a0fce55eac6544c0547520ba82c6aa57f5c67d2d530f01c2c60a8c185345"
+  },
+  "primary/output/independent-right-O3.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/independent-right-O3.steps.tsv.gz",
+    "archive_sha256": "2731f7b05521c9e812870e4e6ddb809a85bc31f1ef1a0f6c1d93133112d638c2",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/independent-right-O3.steps.tsv",
+    "raw_bytes": 1365,
+    "raw_sha256": "950305590f12ecc1e1dd844f8a2bae807edb9a917201aba58eb78a3dd7e50acb"
+  },
+  "primary/output/independent-unsplit-O2.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/independent-unsplit-O2.rhs.tsv.gz",
+    "archive_sha256": "8c4704b9b905e0804ff7c7d477a0174bc09758ea81a8591368d40e8637285510",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/independent-unsplit-O2.rhs.tsv",
+    "raw_bytes": 23885,
+    "raw_sha256": "fb662c4dd26864c0355930b2ad74dba9cd6ef4774ff41fbcef139e465897f349"
+  },
+  "primary/output/independent-unsplit-O2.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/independent-unsplit-O2.steps.tsv.gz",
+    "archive_sha256": "c6b42bb894c875d3e36f1f08fe8cf3d6db137f396cfe0ad64ab7176308d03f85",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/independent-unsplit-O2.steps.tsv",
+    "raw_bytes": 5330,
+    "raw_sha256": "2f4ffa21c0a5b6f471e42b81598f760990e90c737b47dc648bd088f16f0f2b0c"
+  },
+  "primary/output/independent-unsplit-O3.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/independent-unsplit-O3.rhs.tsv.gz",
+    "archive_sha256": "e8b51242c70f56df5847d5e5161a71cff6594b32dac2cf6c758aed47fc518bb9",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/independent-unsplit-O3.rhs.tsv",
+    "raw_bytes": 39679,
+    "raw_sha256": "56f759b8c07ca711c5415014979ce04e8c8f8c87b898b52de5bd74add86825de"
+  },
+  "primary/output/independent-unsplit-O3.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/independent-unsplit-O3.steps.tsv.gz",
+    "archive_sha256": "d813ee291de43f653a067d53be8ab94cbd5560cd1b23db792fe8f8b4106a57c2",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/independent-unsplit-O3.steps.tsv",
+    "raw_bytes": 8765,
+    "raw_sha256": "971464648c0bdaf7cdaf57045776ce133fd42e0f384a19674a055275af060937"
+  },
+  "primary/output/reproduction.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/reproduction.tsv.gz",
+    "archive_sha256": "577c2d1910c9ff341775d4a3dcb8549567e741eb5ba2e955a5ff8aca28d836df",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/reproduction.tsv",
+    "raw_bytes": 593,
+    "raw_sha256": "e5a5c33864bfac7248f977a16f9b601365af0db3bfe3c56138fd92b768248c0d"
+  },
+  "primary/output/rhs-continuity.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/rhs-continuity.tsv.gz",
+    "archive_sha256": "6c65b03902772105af673bea86aa2b621b5b2b93dbaa16173e539fdcb1b68d76",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/rhs-continuity.tsv",
+    "raw_bytes": 5447,
+    "raw_sha256": "b82c037a061d628c035d3580eea7f381c95625e346f9934170adc1128b9a6b9e"
+  },
+  "primary/output/smooth-18-O1.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/smooth-18-O1.rhs.tsv.gz",
+    "archive_sha256": "73a7c10b576d382e51981252a90f4aec2d8212a52dddf4c158cfd4c3ec4aac3c",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/smooth-18-O1.rhs.tsv",
+    "raw_bytes": 2687,
+    "raw_sha256": "ed59914d3f8e3745a342039e823f2acfc6602ac8c1f8c869eb9a9e4e484eaa2a"
+  },
+  "primary/output/smooth-18-O1.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/smooth-18-O1.steps.tsv.gz",
+    "archive_sha256": "af321603598cbc087af1a766faa20d64318ae70c5ee53cbe29fd1e785b55c35a",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/smooth-18-O1.steps.tsv",
+    "raw_bytes": 371,
+    "raw_sha256": "a453b9e082f278240b97475f28f1ef68bc7159dac130aba65b720a679fc73c01"
+  },
+  "primary/output/smooth-18-O2.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/smooth-18-O2.rhs.tsv.gz",
+    "archive_sha256": "596899035ec1f12f7f4e816de8045425d5c6c59d049ac41c0cc43271e184f41d",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/smooth-18-O2.rhs.tsv",
+    "raw_bytes": 2687,
+    "raw_sha256": "c6ecdd835dbf2c759fe226ac7554702e2a62a5445487c74a983c4fa235a55702"
+  },
+  "primary/output/smooth-18-O2.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/smooth-18-O2.steps.tsv.gz",
+    "archive_sha256": "af321603598cbc087af1a766faa20d64318ae70c5ee53cbe29fd1e785b55c35a",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/smooth-18-O2.steps.tsv",
+    "raw_bytes": 371,
+    "raw_sha256": "a453b9e082f278240b97475f28f1ef68bc7159dac130aba65b720a679fc73c01"
+  },
+  "primary/output/smooth-18-O3.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/smooth-18-O3.rhs.tsv.gz",
+    "archive_sha256": "596899035ec1f12f7f4e816de8045425d5c6c59d049ac41c0cc43271e184f41d",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/smooth-18-O3.rhs.tsv",
+    "raw_bytes": 2687,
+    "raw_sha256": "c6ecdd835dbf2c759fe226ac7554702e2a62a5445487c74a983c4fa235a55702"
+  },
+  "primary/output/smooth-18-O3.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/smooth-18-O3.steps.tsv.gz",
+    "archive_sha256": "af321603598cbc087af1a766faa20d64318ae70c5ee53cbe29fd1e785b55c35a",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/smooth-18-O3.steps.tsv",
+    "raw_bytes": 371,
+    "raw_sha256": "a453b9e082f278240b97475f28f1ef68bc7159dac130aba65b720a679fc73c01"
+  },
+  "primary/output/smooth-26-O1.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/smooth-26-O1.rhs.tsv.gz",
+    "archive_sha256": "97f4c0a58c7e3a0871b51fa37f3e0f2f1b7b9673be9fc288b2418e587b22b452",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/smooth-26-O1.rhs.tsv",
+    "raw_bytes": 2690,
+    "raw_sha256": "3d42a4b30a561fbcbdfeb78b97b69c62b1469c348e88f4c986699caec25583a7"
+  },
+  "primary/output/smooth-26-O1.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/smooth-26-O1.steps.tsv.gz",
+    "archive_sha256": "a660c1ea81e7be1f51dc3bc580467bed9fcd44b7e9084ffa25f2e7a0c98aca56",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/smooth-26-O1.steps.tsv",
+    "raw_bytes": 372,
+    "raw_sha256": "378fb4fb45332801bf577bd232b550972f67e90bd0810b656c8a515730c51ad7"
+  },
+  "primary/output/smooth-26-O2.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/smooth-26-O2.rhs.tsv.gz",
+    "archive_sha256": "3daab172493f3e28d4791ff5cf7ef8c163ae4fbd001ff3aad8f39661ac0794db",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/smooth-26-O2.rhs.tsv",
+    "raw_bytes": 2690,
+    "raw_sha256": "448659d8290d492cf7333530d316fe934c3a39f907be527fc8fcb97a44f4cb97"
+  },
+  "primary/output/smooth-26-O2.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/smooth-26-O2.steps.tsv.gz",
+    "archive_sha256": "a660c1ea81e7be1f51dc3bc580467bed9fcd44b7e9084ffa25f2e7a0c98aca56",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/smooth-26-O2.steps.tsv",
+    "raw_bytes": 372,
+    "raw_sha256": "378fb4fb45332801bf577bd232b550972f67e90bd0810b656c8a515730c51ad7"
+  },
+  "primary/output/smooth-26-O3.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/smooth-26-O3.rhs.tsv.gz",
+    "archive_sha256": "a276eadccfcbc39590d00943b9a864e4eb3c4616677260dbc780cc14aa928553",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/smooth-26-O3.rhs.tsv",
+    "raw_bytes": 7547,
+    "raw_sha256": "3293e90a468492b07ca4b2fd3e01a4dc642a9a129297b039852273d2187edb74"
+  },
+  "primary/output/smooth-26-O3.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/smooth-26-O3.steps.tsv.gz",
+    "archive_sha256": "09259343e9bd776bd6dbfa524c93ffa93fa327a2b261018950df649ad49fb8c7",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/smooth-26-O3.steps.tsv",
+    "raw_bytes": 874,
+    "raw_sha256": "59446851f8ed043ba2ff2e8ec04948672ff37f360c9db2a90ebb817f679459c7"
+  },
+  "primary/output/smooth-36-O1.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/smooth-36-O1.rhs.tsv.gz",
+    "archive_sha256": "cc9b9b0382762b48965a149aaa23263984d3f362515791119b65e805acc7fd1c",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/smooth-36-O1.rhs.tsv",
+    "raw_bytes": 2672,
+    "raw_sha256": "95c2d23f2cb1da4bca90f9be29c1aa26f0f74cc382b0b98e578816123c5000cb"
+  },
+  "primary/output/smooth-36-O1.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/smooth-36-O1.steps.tsv.gz",
+    "archive_sha256": "86762e2900655b064ed3f87b6b84a31bc1a8328efd4ac13a75c3001910b5933a",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/smooth-36-O1.steps.tsv",
+    "raw_bytes": 371,
+    "raw_sha256": "2d7383c99239047da4094312ae543e27b6870e8297001ed3bb2844248a2bdeeb"
+  },
+  "primary/output/smooth-36-O2.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/smooth-36-O2.rhs.tsv.gz",
+    "archive_sha256": "e205fdf44f71ec1f04db04084459100fe241635035cccca09336cead6269871e",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/smooth-36-O2.rhs.tsv",
+    "raw_bytes": 2672,
+    "raw_sha256": "e025ea038182da53b9fdc68f97155d8779b0d34e6c3623065a1c07760a333183"
+  },
+  "primary/output/smooth-36-O2.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/smooth-36-O2.steps.tsv.gz",
+    "archive_sha256": "86762e2900655b064ed3f87b6b84a31bc1a8328efd4ac13a75c3001910b5933a",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/smooth-36-O2.steps.tsv",
+    "raw_bytes": 371,
+    "raw_sha256": "2d7383c99239047da4094312ae543e27b6870e8297001ed3bb2844248a2bdeeb"
+  },
+  "primary/output/smooth-36-O3.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/smooth-36-O3.rhs.tsv.gz",
+    "archive_sha256": "e205fdf44f71ec1f04db04084459100fe241635035cccca09336cead6269871e",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/smooth-36-O3.rhs.tsv",
+    "raw_bytes": 2672,
+    "raw_sha256": "e025ea038182da53b9fdc68f97155d8779b0d34e6c3623065a1c07760a333183"
+  },
+  "primary/output/smooth-36-O3.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/smooth-36-O3.steps.tsv.gz",
+    "archive_sha256": "86762e2900655b064ed3f87b6b84a31bc1a8328efd4ac13a75c3001910b5933a",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/smooth-36-O3.steps.tsv",
+    "raw_bytes": 371,
+    "raw_sha256": "2d7383c99239047da4094312ae543e27b6870e8297001ed3bb2844248a2bdeeb"
+  },
+  "primary/output/solutions.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/solutions.tsv.gz",
+    "archive_sha256": "e40185762105becab60e7531781c10fc267f77d11a901471d40c5067793dd249",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/solutions.tsv",
+    "raw_bytes": 11614,
+    "raw_sha256": "ada4b05bf3d639a1445f86a6415a4b9daf9f9a91449a77e4baab6fa4990d42b2"
+  },
+  "primary/output/split-left-O1.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/split-left-O1.rhs.tsv.gz",
+    "archive_sha256": "db5a4ed09711686772397ad069e5845decc6346c7b0395e229625acddda948fe",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/split-left-O1.rhs.tsv",
+    "raw_bytes": 2678,
+    "raw_sha256": "eb22a900afd345c43d27700f37a851dfaf6d7b8a52f048eb64f17eb1aeb26431"
+  },
+  "primary/output/split-left-O1.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/split-left-O1.steps.tsv.gz",
+    "archive_sha256": "ff0edac71daa7ef5fe9e04ff0f4911733fc74458fab2a88479473dab29ea9636",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/split-left-O1.steps.tsv",
+    "raw_bytes": 345,
+    "raw_sha256": "422b9fa0b38e1495cca67158a56152781487104d6f679664a85f0d0f00c7fee1"
+  },
+  "primary/output/split-left-O2.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/split-left-O2.rhs.tsv.gz",
+    "archive_sha256": "db5a4ed09711686772397ad069e5845decc6346c7b0395e229625acddda948fe",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/split-left-O2.rhs.tsv",
+    "raw_bytes": 2678,
+    "raw_sha256": "eb22a900afd345c43d27700f37a851dfaf6d7b8a52f048eb64f17eb1aeb26431"
+  },
+  "primary/output/split-left-O2.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/split-left-O2.steps.tsv.gz",
+    "archive_sha256": "ff0edac71daa7ef5fe9e04ff0f4911733fc74458fab2a88479473dab29ea9636",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/split-left-O2.steps.tsv",
+    "raw_bytes": 345,
+    "raw_sha256": "422b9fa0b38e1495cca67158a56152781487104d6f679664a85f0d0f00c7fee1"
+  },
+  "primary/output/split-left-O3.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/split-left-O3.rhs.tsv.gz",
+    "archive_sha256": "db5a4ed09711686772397ad069e5845decc6346c7b0395e229625acddda948fe",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/split-left-O3.rhs.tsv",
+    "raw_bytes": 2678,
+    "raw_sha256": "eb22a900afd345c43d27700f37a851dfaf6d7b8a52f048eb64f17eb1aeb26431"
+  },
+  "primary/output/split-left-O3.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/split-left-O3.steps.tsv.gz",
+    "archive_sha256": "ff0edac71daa7ef5fe9e04ff0f4911733fc74458fab2a88479473dab29ea9636",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/split-left-O3.steps.tsv",
+    "raw_bytes": 345,
+    "raw_sha256": "422b9fa0b38e1495cca67158a56152781487104d6f679664a85f0d0f00c7fee1"
+  },
+  "primary/output/split-right-O1.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/split-right-O1.rhs.tsv.gz",
+    "archive_sha256": "8083df63e3a7b513d18639283227aecfd017d2de117d4a0101d7bda4a444ca65",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/split-right-O1.rhs.tsv",
+    "raw_bytes": 2666,
+    "raw_sha256": "b387fe4d7b484754141b97f762ff31527321ae90b9b0f3c0ada9cc75b78a40fd"
+  },
+  "primary/output/split-right-O1.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/split-right-O1.steps.tsv.gz",
+    "archive_sha256": "72bec39b24654a11f1c0d599ff5b6ae64fe72dcdde96e722d8a33861909d6102",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/split-right-O1.steps.tsv",
+    "raw_bytes": 367,
+    "raw_sha256": "a23eb828a8cb89b933c7d5d619e4eb7f729997746dc43d1bbe61d68de55739f4"
+  },
+  "primary/output/split-right-O2.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/split-right-O2.rhs.tsv.gz",
+    "archive_sha256": "8083df63e3a7b513d18639283227aecfd017d2de117d4a0101d7bda4a444ca65",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/split-right-O2.rhs.tsv",
+    "raw_bytes": 2666,
+    "raw_sha256": "b387fe4d7b484754141b97f762ff31527321ae90b9b0f3c0ada9cc75b78a40fd"
+  },
+  "primary/output/split-right-O2.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/split-right-O2.steps.tsv.gz",
+    "archive_sha256": "72bec39b24654a11f1c0d599ff5b6ae64fe72dcdde96e722d8a33861909d6102",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/split-right-O2.steps.tsv",
+    "raw_bytes": 367,
+    "raw_sha256": "a23eb828a8cb89b933c7d5d619e4eb7f729997746dc43d1bbe61d68de55739f4"
+  },
+  "primary/output/split-right-O3.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/split-right-O3.rhs.tsv.gz",
+    "archive_sha256": "8083df63e3a7b513d18639283227aecfd017d2de117d4a0101d7bda4a444ca65",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/split-right-O3.rhs.tsv",
+    "raw_bytes": 2666,
+    "raw_sha256": "b387fe4d7b484754141b97f762ff31527321ae90b9b0f3c0ada9cc75b78a40fd"
+  },
+  "primary/output/split-right-O3.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/split-right-O3.steps.tsv.gz",
+    "archive_sha256": "72bec39b24654a11f1c0d599ff5b6ae64fe72dcdde96e722d8a33861909d6102",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/split-right-O3.steps.tsv",
+    "raw_bytes": 367,
+    "raw_sha256": "a23eb828a8cb89b933c7d5d619e4eb7f729997746dc43d1bbe61d68de55739f4"
+  },
+  "primary/output/unsplit-O1.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/unsplit-O1.rhs.tsv.gz",
+    "archive_sha256": "3cf7e094cfeda61c3df6cada16fc8d604cddba9bd03c1a5bb72c85efe7e90ab3",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/unsplit-O1.rhs.tsv",
+    "raw_bytes": 63684,
+    "raw_sha256": "b6ecf9ed47571827b91f279abdec8b3f822e4de1bb7ba0ee1f795ef2ea2b2561"
+  },
+  "primary/output/unsplit-O1.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/unsplit-O1.steps.tsv.gz",
+    "archive_sha256": "49fdf14831663464e21be28a2373f31e9442bdf7e847307bfe66da93c16fb75e",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/unsplit-O1.steps.tsv",
+    "raw_bytes": 6554,
+    "raw_sha256": "a3ff1863e0bdebd3cbacc06fba6724c1fb17345e0e2895602a0c4c5dffecf753"
+  },
+  "primary/output/unsplit-O2.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/unsplit-O2.rhs.tsv.gz",
+    "archive_sha256": "daa89925c5dcaa86f92e9bdb1319689f8e746d38cbe000645db047f69d0efdc8",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/unsplit-O2.rhs.tsv",
+    "raw_bytes": 93032,
+    "raw_sha256": "485b2ce702432f4e2c5697e80caf856de8880fc6a342c60d2c37269052b8fee5"
+  },
+  "primary/output/unsplit-O2.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/unsplit-O2.steps.tsv.gz",
+    "archive_sha256": "5ccf40a555c67d92e81092de8927764f264eb574c67434af62c21c4a434f2e13",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/unsplit-O2.steps.tsv",
+    "raw_bytes": 9535,
+    "raw_sha256": "005c4b3e423f216d37cc8478a0c9bb4664287e535d9f19acb7ead5f358feca13"
+  },
+  "primary/output/unsplit-O3.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/unsplit-O3.rhs.tsv.gz",
+    "archive_sha256": "5d6b7cd2791b4e70ac62daaf4b8928cc2c3245aae72fa0c8fe110b74e7f35bac",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/unsplit-O3.rhs.tsv",
+    "raw_bytes": 95447,
+    "raw_sha256": "b9694bc727741fe8b6f0f345444fb79b9ca5bec53024e1df7baace65cb39683c"
+  },
+  "primary/output/unsplit-O3.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/unsplit-O3.steps.tsv.gz",
+    "archive_sha256": "34e34860b9668faeafa56396c4e13872d9f62edcf71d31a077ad47eae27e5598",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/unsplit-O3.steps.tsv",
+    "raw_bytes": 9804,
+    "raw_sha256": "4ff4439cb935ff19c827e188b690a5cabf3b0aa859b7c8b7d0cbe109dc9c5bfe"
+  },
+  "primary/output/unsplit-O4.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/unsplit-O4.rhs.tsv.gz",
+    "archive_sha256": "12fb3d0ff2875dda3bf4664aa0be7cf02dfb251d9df07e02e12c74097c3b3be2",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/unsplit-O4.rhs.tsv",
+    "raw_bytes": 97886,
+    "raw_sha256": "ab0ef01ad5649def86fa5f0d623106830aa6e5f7897c54f0bb7f84f18b42e113"
+  },
+  "primary/output/unsplit-O4.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/primary/output/unsplit-O4.steps.tsv.gz",
+    "archive_sha256": "956b5c73cbdb4eedec5db2791f58fee1effb114c6e6cadade6c071176a613b72",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/run-1/output/unsplit-O4.steps.tsv",
+    "raw_bytes": 9937,
+    "raw_sha256": "21cb96546aee641a543c82d6f58043ae47603d2d771b89acf1c64663c6dbe76b"
+  },
+  "supplement/console.log": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/supplement/console.log.gz",
+    "archive_sha256": "bd8f643da58db62369e143fdbdb880c43a1b666fbaee9475eb802a2df8e56c79",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/boundary-1/console.log",
+    "raw_bytes": 116951,
+    "raw_sha256": "05f1884fcf4a01238ea51012a554000e8e1e182c5570d8109e8da6b10fc483ef"
+  },
+  "supplement/execution.json": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/supplement/execution.json.gz",
+    "archive_sha256": "43625615fe5f5c6227d1a20ce313a4af8bc2ed638d5e445c7f3de506b6285e3c",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/boundary-1/execution.json",
+    "raw_bytes": 2232,
+    "raw_sha256": "cd226c65659fc8b8008989dee18d4c3f301ae2ff14dc9d6320d5ffcee1cda58b"
+  },
+  "supplement/output/adjacent-rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/supplement/output/adjacent-rhs.tsv.gz",
+    "archive_sha256": "e6e067fd3056a71459cfd663079aa314e692a5d60d1f4c602cf8e09d2f983495",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/boundary-1/output/adjacent-rhs.tsv",
+    "raw_bytes": 2688,
+    "raw_sha256": "e1b8427c70ea32e1602650456093a4ac75548ed1846b09a4ac7b1176ea0c7b81"
+  },
+  "supplement/output/completion.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/supplement/output/completion.tsv.gz",
+    "archive_sha256": "5b679ae4cc0eaea6ccc9a2fade61ce4ea942dc103b085b38a26fd6d2f204ad82",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/boundary-1/output/completion.tsv",
+    "raw_bytes": 73,
+    "raw_sha256": "274567f89f2ce930ce0cbf22e0cffbc4c591d41afed3a11c8333edc240fb967f"
+  },
+  "supplement/output/main-step-comparison.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/supplement/output/main-step-comparison.tsv.gz",
+    "archive_sha256": "28544cdefa5c5ebe1ec1c041ef02b75ea40ce56af64bf149939089917dfdb4cf",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/boundary-1/output/main-step-comparison.tsv",
+    "raw_bytes": 429,
+    "raw_sha256": "26a186b3e605fb02a141528e8da3c976ad7d4e7da4a6f707997957cf182437b0"
+  },
+  "supplement/output/right-endpoint-rk8pd-O3.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/supplement/output/right-endpoint-rk8pd-O3.rhs.tsv.gz",
+    "archive_sha256": "cff274c092f871229bade37bc584d01e3e57493452d39e3602f431d4bb4654d7",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/boundary-1/output/right-endpoint-rk8pd-O3.rhs.tsv",
+    "raw_bytes": 2687,
+    "raw_sha256": "8c5805b5cfeaad634449613323c8206b96aea35c6fdd12341c6dcb7e87ae3fd8"
+  },
+  "supplement/output/right-endpoint-rk8pd-O3.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/supplement/output/right-endpoint-rk8pd-O3.steps.tsv.gz",
+    "archive_sha256": "d8ae9ea52e94286bd6d41f4e28ff1d09b03424470995923864092d8a66ab03ce",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/boundary-1/output/right-endpoint-rk8pd-O3.steps.tsv",
+    "raw_bytes": 370,
+    "raw_sha256": "91b4242b05c026acdfe23e973c5446875eb65267b80900df5aa57a84b8cddb41"
+  },
+  "supplement/output/right-endpoint-rkf45-O3.rhs.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/supplement/output/right-endpoint-rkf45-O3.rhs.tsv.gz",
+    "archive_sha256": "1e28925de39c6f9491b61794688191d20ab526863dda21512261b0be9232a570",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/boundary-1/output/right-endpoint-rkf45-O3.rhs.tsv",
+    "raw_bytes": 11484,
+    "raw_sha256": "bc2ba2fcd3d43a3d8199e797d9f932cd2eb1a100a4e1555dfa42af394eff9673"
+  },
+  "supplement/output/right-endpoint-rkf45-O3.steps.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/supplement/output/right-endpoint-rkf45-O3.steps.tsv.gz",
+    "archive_sha256": "1e8b17bbb392334297f0642d2bda55591d7dcc6ce9c6d9c84b3f843e9850a65d",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/boundary-1/output/right-endpoint-rkf45-O3.steps.tsv",
+    "raw_bytes": 2612,
+    "raw_sha256": "a2af4c2d39bab195df3f6f1d62a6f27f6e4816edf7d90311f3f40e0b4d20b219"
+  },
+  "supplement/output/solutions.tsv": {
+    "archive_path": "docs/validation/evidence/obs32-forensics/runs/supplement/output/solutions.tsv.gz",
+    "archive_sha256": "ef2f3a7d0c2f3e247f585df936d562a91a22cec4fd7ed70c6eb75be7b81a5d9e",
+    "original_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/build/obs32/boundary-1/output/solutions.tsv",
+    "raw_bytes": 416,
+    "raw_sha256": "8432070668dfa2778e7313cb92788e031ab4d637508afea4834c34ea519b03b0"
+  }
+}
