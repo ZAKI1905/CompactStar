@@ -118,7 +118,8 @@ The new 71-file deterministic-gzip run manifest is
 `71cb3e84039d683a4da0be3f643c9b8530bcdb199fbe79a73ff0ff10dac6f271`.
 It binds every trial/RHS trace, root evaluation, result, console log and execution
 receipt. The receipts include commands, executable hashes and source commits.
-The absent original full cache dump remains the authentication limitation stated
+Original failure-report hashes, verified against exact entry Git blobs, are also
+in `exit-verification.json`. The absent original full cache dump remains the authentication limitation stated
 above; all 32 original Cstar samples and all six O1/O2 values reproduce exactly,
 and the new independent cold cache rebuild matches all 160 entries bit for bit.
 
@@ -401,7 +402,8 @@ ledger, Cstar table values, source, grid and physics remain unchanged.
 | F | Not the primary classification. Exact-IVP event-error certification and general production qualification remain unresolved implementation prerequisites, not an unexplained failure reproduction. |
 
 The clean prototype is a uniform, event-aware piecewise-smooth local reconstructor.
-It must be proposed separately; accepted ADR-0017 is untouched. A common O3 root
+The separate [PROPOSED amendment](PHASE6A1_PIECEWISE_RECONSTRUCTION_PROPOSAL.md)
+records its contract and alternatives; accepted ADR-0017 is untouched. A common O3 root
 used by both tiers can hide common error, so identical split O1/O2 is not sufficient
 production evidence. Event error propagation, multiple/nonmonotone crossings,
 endpoint ownership, schedule passivity and broad regression are future requirements.

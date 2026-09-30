@@ -15,5 +15,13 @@
   "matched_campaign_controls": 0,
   "production_changes": 0,
   "historical_status": "FAIL preserved",
-  "candidate_created": false
+  "candidate_created": false,
+  "original_failure_report_hashes": {
+    "docs/validation/PHASE6A1_CONTROLLED_BNV_RESUME.md": "4fb0ac7e95dc384bb1639ac5adacece0747903bd74b42ffe5a08bd22a68c9e21",
+    "docs/validation/evidence/bnv-resume/failure-audit.json": "bc9879d6364ee5df40cc08450359c39e685099c417bd1447ca2956d85c043105",
+    "docs/validation/evidence/bnv-resume/clean-campaign/manifest.json": "79c1ee93b767f4a55313499a5a6a56678381acf66c879b9d3e41523f43d6a855"
+  },
+  "live_master_at_exit_verification": "9a5c1eca40758e4c39f9f80db7324e12ad23e505",
+  "live_evidence_branch_at_exit_verification": "7d2777561a17b56b466fb024ef13104da6c0e86a",
+  "canonical_and_dependencies_clean": true
 }
