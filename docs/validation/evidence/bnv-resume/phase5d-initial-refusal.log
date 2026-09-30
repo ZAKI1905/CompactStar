@@ -1,0 +1,27 @@
+Test project /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume
+    Start 78: phase5d1_controlled_evolution_regression
+1/1 Test #78: phase5d1_controlled_evolution_regression ...***Failed    0.70 sec
+Traceback (most recent call last):
+  File "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/tests/rotochemical/phase5d1_controlled_evolution_regression.py", line 230, in <module>
+    main()
+  File "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/tests/rotochemical/phase5d1_controlled_evolution_regression.py", line 194, in main
+    raise RuntimeError("fresh governed producer failed: " + str(run_root))
+RuntimeError: fresh governed producer failed: /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-97yfjjse
+
+
+0% tests passed, 1 tests failed out of 1
+
+Label Time Summary:
+expensive          =   0.70 sec*proc (1 test)
+external-data      =   0.70 sec*proc (1 test)
+fresh-context      =   0.70 sec*proc (1 test)
+phase5d            =   0.70 sec*proc (1 test)
+phase5d-coupled    =   0.70 sec*proc (1 test)
+regression         =   0.70 sec*proc (1 test)
+scientific         =   0.70 sec*proc (1 test)
+
+Total Test time (real) =   0.70 sec
+
+The following tests FAILED:
+	 78 - phase5d1_controlled_evolution_regression (Failed) expensive external-data fresh-context phase5d phase5d-coupled regression scientific
+Errors while running CTest

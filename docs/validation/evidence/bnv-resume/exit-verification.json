@@ -1,0 +1,9 @@
+{
+  "protected_paths": 33,
+  "canonical_baselines": 11,
+  "special_artifacts": 3,
+  "archive_files": 22,
+  "all_hashes_match": true,
+  "negative_audit": "PASS altered d_x refused",
+  "new_ODE_runs": 0
+}

@@ -1,0 +1,156 @@
+{
+  "control-baseline.log": {
+    "archive_path": "docs/validation/evidence/bnv-resume/clean-campaign/control-baseline.log.gz",
+    "archive_sha256": "5d64fcab76f92227131b425e8b7309679cbba7174b701433e0ec25f4592c1e9a",
+    "raw_bytes": 116898,
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/clean-campaign/control-baseline.log",
+    "raw_sha256": "354092fa650126f35977554489c4ffeb7a7ad93517928d0a323c2e2c6bff762d"
+  },
+  "control-baseline/main.accepted_states.tsv": {
+    "archive_path": "docs/validation/evidence/bnv-resume/clean-campaign/control-baseline/main.accepted_states.tsv.gz",
+    "archive_sha256": "0ad2c6a9cb4c47a36946539c474523f307e3e3e500a68e851ebc5f3d18d0f7ba",
+    "raw_bytes": 7157,
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/clean-campaign/control-baseline/main.accepted_states.tsv",
+    "raw_sha256": "2986089eaff34105deac6fb28eb12e9e2a88bcf37b9ca51ab2feff57b2778ba3"
+  },
+  "control-baseline/main.audit.tsv": {
+    "archive_path": "docs/validation/evidence/bnv-resume/clean-campaign/control-baseline/main.audit.tsv.gz",
+    "archive_sha256": "7789730892b5cd05fef274ac5f99c8666c6a1b72012028f7a1b4465483de9e18",
+    "raw_bytes": 204,
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/clean-campaign/control-baseline/main.audit.tsv",
+    "raw_sha256": "84258de69213b6de24682fd31f9e6fdd0f918b846717875e578ee3c36338dc40"
+  },
+  "control-baseline/main.internal_steps.tsv": {
+    "archive_path": "docs/validation/evidence/bnv-resume/clean-campaign/control-baseline/main.internal_steps.tsv.gz",
+    "archive_sha256": "a1ea110908639e2b3cc7fc3f0f3f8aaa6692820665140a1571b72f99ab8614ee",
+    "raw_bytes": 10246,
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/clean-campaign/control-baseline/main.internal_steps.tsv",
+    "raw_sha256": "1d4934fc8ba56b6f386ca0b7b9907c4dee283bbd388b992c444c085bdc366c8d"
+  },
+  "control-baseline/main.observations.tsv": {
+    "archive_path": "docs/validation/evidence/bnv-resume/clean-campaign/control-baseline/main.observations.tsv.gz",
+    "archive_sha256": "2f28b710eb948dc596813bae16a5019216f3f1a050f5cdaaf1d0818b830f3b03",
+    "raw_bytes": 604501,
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/clean-campaign/control-baseline/main.observations.tsv",
+    "raw_sha256": "f5c771b525365299b79e123669a6acc7d091e077b91c6faa654536d47362c36e"
+  },
+  "control-baseline/main.steps": {
+    "archive_path": "docs/validation/evidence/bnv-resume/clean-campaign/control-baseline/main.steps.gz",
+    "archive_sha256": "77397d1701448618bdaadb891add9bcb69d9c38eb129beba12b3662611460108",
+    "raw_bytes": 225,
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/clean-campaign/control-baseline/main.steps",
+    "raw_sha256": "1ab257d69eb30eeaa6df3314db0da8c40602874cdf89a544de4695cb8b4341de"
+  },
+  "control-baseline/performance.tsv": {
+    "archive_path": "docs/validation/evidence/bnv-resume/clean-campaign/control-baseline/performance.tsv.gz",
+    "archive_sha256": "e41ed60d13437e4f8362d842e9dec7a5fb22bcf15dd4b34ebd76943f4475a50a",
+    "raw_bytes": 532,
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/clean-campaign/control-baseline/performance.tsv",
+    "raw_sha256": "5e1e5b0c7742abb3413802feac7db6e3fa2ac75f3fa1c68c9d5437127d5f484f"
+  },
+  "control-baseline/schedule.tsv": {
+    "archive_path": "docs/validation/evidence/bnv-resume/clean-campaign/control-baseline/schedule.tsv.gz",
+    "archive_sha256": "04df3df317d1572c34c9b54b98528c6ac58bdbbc64f83239def524b8b6472021",
+    "raw_bytes": 181557,
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/clean-campaign/control-baseline/schedule.tsv",
+    "raw_sha256": "340c5968eb3cd3d1024dfea32f2f3f2deeadafd4c4173e7b7ba21e4841c8d114"
+  },
+  "control-baseline/trajectory.tsv": {
+    "archive_path": "docs/validation/evidence/bnv-resume/clean-campaign/control-baseline/trajectory.tsv.gz",
+    "archive_sha256": "21249df8d39e557a656d90668800131bf5db124c1b21d62d52c4cac364daeca1",
+    "raw_bytes": 73728,
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/clean-campaign/control-baseline/trajectory.tsv",
+    "raw_sha256": "35ac2cb655ad0f98dfd595ad5670a85887ae6857c4e1b9d3afaeab3e3c4f6499"
+  },
+  "execution.json": {
+    "archive_path": "docs/validation/evidence/bnv-resume/clean-campaign/execution.json.gz",
+    "archive_sha256": "c65a8da13a92b56c68ec8841ffba20f12261d24458eae990c4a4d352119e6924",
+    "raw_bytes": 5062,
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/clean-campaign/execution.json",
+    "raw_sha256": "25ad89a502e6357e300fe72a410a347492f62ac6314e822bb9d242e01118b85c"
+  },
+  "failure-audit.json": {
+    "archive_path": "docs/validation/evidence/bnv-resume/clean-campaign/failure-audit.json.gz",
+    "archive_sha256": "56bc553c97c89e5aa65c8173637ac3f76c81e8a1c815f8ff85f2a1cb094c0872",
+    "raw_bytes": 3204,
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/clean-campaign/failure-audit.json",
+    "raw_sha256": "bc9879d6364ee5df40cc08450359c39e685099c417bd1447ca2956d85c043105"
+  },
+  "prerequisites.flag": {
+    "archive_path": "docs/validation/evidence/bnv-resume/clean-campaign/prerequisites.flag.gz",
+    "archive_sha256": "757687e1224234a63448d45ddb0ce5ea6dc317781d3bb4378a4cc4ff8e7d4887",
+    "raw_bytes": 30,
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/clean-campaign/prerequisites.flag",
+    "raw_sha256": "a6fa5fcb1eb1be7dac8c41a893839075597d13c451d3e671779c8d06d7aafe63"
+  },
+  "source-baseline.log": {
+    "archive_path": "docs/validation/evidence/bnv-resume/clean-campaign/source-baseline.log.gz",
+    "archive_sha256": "b4366a661f9f53112167cd05ffa798cf7065bd82d6050472a5680be43e656e0d",
+    "raw_bytes": 117063,
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/clean-campaign/source-baseline.log",
+    "raw_sha256": "01594e37f3893374b9d6489d30a880bcbd2637fa9739325c4859293d5b82b58d"
+  },
+  "source-baseline/checkpoints.tsv": {
+    "archive_path": "docs/validation/evidence/bnv-resume/clean-campaign/source-baseline/checkpoints.tsv.gz",
+    "archive_sha256": "f1b14a6aff3847930e26a73f401a7c9cfca4f324fe11871b7208dfb1438cb0da",
+    "raw_bytes": 55051,
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/clean-campaign/source-baseline/checkpoints.tsv",
+    "raw_sha256": "cac6498b5661dc9806d4281eb872b62e3699781956ec0f427fe0846e11e91ea7"
+  },
+  "source-baseline/main.accepted_states.tsv": {
+    "archive_path": "docs/validation/evidence/bnv-resume/clean-campaign/source-baseline/main.accepted_states.tsv.gz",
+    "archive_sha256": "a2d74dd258d1ad455430b944ffe3c0a2a3a8e68f41ce2e136aaf8c15a729d30d",
+    "raw_bytes": 38071,
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/clean-campaign/source-baseline/main.accepted_states.tsv",
+    "raw_sha256": "6ca76109b8bb68361313976ba7847a223e67c49a8d49856a39c94f11543e4df6"
+  },
+  "source-baseline/main.audit.tsv": {
+    "archive_path": "docs/validation/evidence/bnv-resume/clean-campaign/source-baseline/main.audit.tsv.gz",
+    "archive_sha256": "742c99ea3535d355b76d240e0492a0eb3aeb4378eafb5c335968ded2bfd3a1be",
+    "raw_bytes": 206,
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/clean-campaign/source-baseline/main.audit.tsv",
+    "raw_sha256": "196b096e0192d3a01c8c28dc75e30f02bb246b74ec783050beebf002a0c12fb6"
+  },
+  "source-baseline/main.internal_steps.tsv": {
+    "archive_path": "docs/validation/evidence/bnv-resume/clean-campaign/source-baseline/main.internal_steps.tsv.gz",
+    "archive_sha256": "65597d84be91de98ffe544ed071c8e18b470d5fd0d80c7aa76ee245d2f6d2edb",
+    "raw_bytes": 38624,
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/clean-campaign/source-baseline/main.internal_steps.tsv",
+    "raw_sha256": "72d8b900a27842c47ddf1f0cd5d85da913b0abce0296ceb482ae924c80d0a278"
+  },
+  "source-baseline/main.observations.tsv": {
+    "archive_path": "docs/validation/evidence/bnv-resume/clean-campaign/source-baseline/main.observations.tsv.gz",
+    "archive_sha256": "d69ea8eb1d497c5a8bb38bb8f193002b8eb1c2aa571062ec918a1e5dc65463c9",
+    "raw_bytes": 620546,
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/clean-campaign/source-baseline/main.observations.tsv",
+    "raw_sha256": "fe354b79c50ab9e8fa512a08d9048a1fbffe073aa30a380e403051b46feaadf1"
+  },
+  "source-baseline/main.steps": {
+    "archive_path": "docs/validation/evidence/bnv-resume/clean-campaign/source-baseline/main.steps.gz",
+    "archive_sha256": "330d7ebe37c5b007903d2e36f128ea4a013d1d18ca9483e403f897b33c8ab710",
+    "raw_bytes": 228,
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/clean-campaign/source-baseline/main.steps",
+    "raw_sha256": "f5d024c15aad23b0103e4931ce8fda4c5a19e4c58b87c2116a5de0b65e1b325b"
+  },
+  "source-baseline/performance.tsv": {
+    "archive_path": "docs/validation/evidence/bnv-resume/clean-campaign/source-baseline/performance.tsv.gz",
+    "archive_sha256": "4fc1656952682c14da021314707075611b78aa22e201fc45ca7c87adbe7edd5f",
+    "raw_bytes": 623,
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/clean-campaign/source-baseline/performance.tsv",
+    "raw_sha256": "5b6a04bcb71843e3f50d034b5cd3bad2f0aee20514f72ef8ecfb5bf7097f3c85"
+  },
+  "source-baseline/schedule.tsv": {
+    "archive_path": "docs/validation/evidence/bnv-resume/clean-campaign/source-baseline/schedule.tsv.gz",
+    "archive_sha256": "04df3df317d1572c34c9b54b98528c6ac58bdbbc64f83239def524b8b6472021",
+    "raw_bytes": 181557,
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/clean-campaign/source-baseline/schedule.tsv",
+    "raw_sha256": "340c5968eb3cd3d1024dfea32f2f3f2deeadafd4c4173e7b7ba21e4841c8d114"
+  },
+  "source-baseline/trajectory.tsv": {
+    "archive_path": "docs/validation/evidence/bnv-resume/clean-campaign/source-baseline/trajectory.tsv.gz",
+    "archive_sha256": "3efafaad89e534d85e7fe6dd6e4d557cc5f75d88bf398d65a867eb632e3ad82a",
+    "raw_bytes": 98508,
+    "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/clean-campaign/source-baseline/trajectory.tsv",
+    "raw_sha256": "1d01b5322d2c030d7548105eb17a5dc7417805a9caa2e792a8b26d26c58252a2"
+  }
+}

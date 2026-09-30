@@ -1,5 +1,15 @@
 # CompactStar Modernization Roadmap
 
+> **Phase-6A-1 controlled continuation (2026-09-30; branch evidence):** the owner
+> authorized a clean local Mac campaign from canonical `9a5c1eca`. The fresh
+> BASELINE source and matched-control main solves completed with passive output,
+> but source observation 32 at 1953.125 yr failed ADR-0017 thermal-coordinate
+> self-qualification in a one-Cstar-knot bracket. Dependent work stopped; no
+> REFINED/ULTRA runs or numerical candidate were produced. Historical BA12/BA12R
+> remain FAIL. This supersedes only the older clean-campaign authorization status
+> below; bounded ADR-0017 acceptance and the scientific equations are unchanged.
+> See the [execution and failure record](validation/PHASE6A1_CONTROLLED_BNV_RESUME.md). Canonical master is unchanged.
+
 > **ADR-0018 status (2026-09-26): ACCEPTED / HUMAN-RATIFIED; MAC SOURCE-BUILD
 > EQUIVALENCE AUTHORIZED / NOT YET RUN.** Zaki
 > `b9ddebaded24962468954846f47238aec2726fd4` and CONFIND manifest
