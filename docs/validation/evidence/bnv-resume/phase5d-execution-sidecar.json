@@ -1,0 +1,167 @@
+{
+  "artifact_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/governed-artifact.json",
+  "artifact_sha256": "2606916915b2da5c051b1a06637c0a371a74751c6e77b2775bc629a63bc9f6dd",
+  "artifact_state": "governed",
+  "build_dir": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/build",
+  "commands": [
+    {
+      "command": [
+        "cmake",
+        "-S",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume",
+        "-B",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/build",
+        "-DBUILD_TESTING=ON",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DPython3_EXECUTABLE=/Users/keeper/miniforge3/bin/python3.12",
+        "-DCOMPACTSTAR_EOS_DATA_ROOT=/Users/keeper/Documents/CompactStar/data/compose",
+        "-DCOMPACTSTAR_ZAKI_PREFIX=/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/Debug/Zaki",
+        "-DCOMPACTSTAR_CONFIND_PREFIX=/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/Debug/CONFIND",
+        "-DGSL_ROOT_DIR=/opt/local",
+        "-DGSL_CONFIG_EXECUTABLE=/opt/local/bin/gsl-config",
+        "-DGSL_INCLUDE_DIR=/opt/local/include",
+        "-DGSL_LIBRARY=/opt/local/lib/libgsl.dylib",
+        "-DGSL_CBLAS_LIBRARY=/opt/local/lib/libgslcblas.dylib"
+      ],
+      "log": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/configure.log",
+      "raw_rc": 0
+    },
+    {
+      "command": [
+        "cmake",
+        "--build",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/build",
+        "--target",
+        "chemical_trackr_fixture",
+        "chemical_structural_envelope",
+        "chemical_production_fixture",
+        "phase5b_freegas_validation",
+        "phase5d_response",
+        "phase5d_component_tolerances",
+        "phase5d_evolution"
+      ],
+      "log": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/build.log",
+      "raw_rc": 0
+    },
+    {
+      "command": [
+        "/Users/keeper/miniforge3/bin/python3.12",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/tests/rotochemical/produce_qualification.py",
+        "--source-root",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume",
+        "--trackr-executable",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/build/tests/chemical_trackr_fixture",
+        "--structural-executable",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/build/tests/chemical_structural_envelope",
+        "--phase5b-executable",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/build/tests/phase5b_freegas_validation",
+        "--production-executable",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/build/tests/chemical_production_fixture",
+        "--output",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/qualification"
+      ],
+      "log": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/qualification.log",
+      "raw_rc": 0
+    },
+    {
+      "command": [
+        "/Users/keeper/miniforge3/bin/python3.12",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/tests/rotochemical/qualified_suite.py",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/build/tests/phase5d_evolution",
+        "oracles",
+        "--source-root",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume",
+        "--build-dir",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/build",
+        "--entry-manifest",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/entry-hashes.json",
+        "--qualification",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/qualification",
+        "--output",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/oracles"
+      ],
+      "log": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/coupled-oracles.log",
+      "raw_rc": 0
+    },
+    {
+      "command": [
+        "/Users/keeper/miniforge3/bin/python3.12",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/tests/rotochemical/qualified_suite.py",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/build/tests/phase5d_evolution",
+        "trajectory",
+        "--source-root",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume",
+        "--build-dir",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/build",
+        "--entry-manifest",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/entry-hashes.json",
+        "--qualification",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/qualification",
+        "--oracle-executable-sha256",
+        "e8a051f4e969d1b8f73785a00bd3bf36c6b68eaccdec140eef99c319bd9ee7ec",
+        "--output",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/trajectory"
+      ],
+      "log": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/trajectory.log",
+      "raw_rc": 0
+    },
+    {
+      "command": [
+        "/Users/keeper/miniforge3/bin/python3.12",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/tests/rotochemical/validate_trajectory.py",
+        "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/trajectory"
+      ],
+      "log": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/validator.log",
+      "raw_rc": 0
+    }
+  ],
+  "compiler": "/usr/bin/clang++",
+  "entry_manifest_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/entry-hashes.json",
+  "entry_manifest_sha256": "bf97ea64eb238d7d8276f4b707b1293e9ac6fba6ea45c8f63a3daff2129027f9",
+  "eos_data_root": "/Users/keeper/Documents/CompactStar/data/compose",
+  "executable_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/build/tests/phase5d_evolution",
+  "executable_sha256": "e8a051f4e969d1b8f73785a00bd3bf36c6b68eaccdec140eef99c319bd9ee7ec",
+  "qualification_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/qualification",
+  "schema": "phase5d-execution-sidecar-v1",
+  "scratch_root": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed",
+  "source_head": "66dcfd48f06714a122da6b85e8915d57509d40f8",
+  "source_root": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume",
+  "suite_results": {
+    "component_tolerances": {
+      "failures": 0,
+      "raw_rc": 0,
+      "unexplained_skips": 0
+    },
+    "coupled_oracles": {
+      "failures": 0,
+      "raw_rc": 0,
+      "unexplained_skips": 0
+    },
+    "phase5b_regression": {
+      "failures": 0,
+      "raw_rc": 0,
+      "unexplained_skips": 0
+    },
+    "phase5c_regression": {
+      "failures": 0,
+      "raw_rc": 0,
+      "unexplained_skips": 0
+    },
+    "response": {
+      "failures": 0,
+      "raw_rc": 0,
+      "unexplained_skips": 0
+    },
+    "trajectory": {
+      "failures": 0,
+      "raw_rc": 0,
+      "unexplained_skips": 0
+    },
+    "validator": {
+      "failures": 0,
+      "raw_rc": 0,
+      "unexplained_skips": 0
+    }
+  },
+  "trajectory_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/trajectory"
+}

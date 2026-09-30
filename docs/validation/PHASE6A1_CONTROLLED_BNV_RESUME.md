@@ -165,3 +165,29 @@ and deferral authority: recovery preflight sections 8-9; current output architec
 ADR-0017 sections 5-8 and production acceptance. The five restored test files
 initially matched R0-R3 blobs exactly; `matched_control.cpp` subsequently gains only
 the explicitly recorded temperature-boundary tests.
+
+### Fresh prerequisites completed
+
+The restored focused prerequisites passed: source projection/tangent/ledger,
+matched zero-source wrapper, frozen monitor, direct event energy, thermal ledger,
+and P1-P10 passive reconstruction contracts. Their output reports M1-M21
+applicable detectors; this is focused detector coverage, not a new integrated
+reaction-free campaign or full candidate certification. The temperature repair's
+affected wrapper rerun also passed both boundary refusals and BA10a/b.
+`evidence/bnv-resume/prerequisites-initial.json` retains the initial receipts;
+`prerequisites.json` replaces only the affected matched-control receipt.
+
+Fresh `phase5d1_controlled_evolution_regression` passed in 2477.78 s wall time.
+The independently generated artifact matches the immutable baseline SHA256
+`2606916915b2da5c051b1a06637c0a371a74751c6e77b2775bc629a63bc9f6dd` exactly;
+all ten comparator controls passed. Its live pretrajectory Phase-5B and Phase-5C
+regressions passed in 54.19 s and 343.26 s, respectively, with all 33 protected
+paths equal to entry. The earlier dirty-worktree invocation refused before
+numerical generation and is not counted as a numerical run or scientific failure.
+The producer was launched at branch commit `66dcfd4`; later changes are confined
+to BNV/validation paths and do not alter its protected scientific source map.
+Receipts, execution sidecar, timing, and a deterministic compressed copy of the
+fresh governed artifact are retained under `evidence/bnv-resume/phase5d-*`.
+
+This completes the fresh pretrajectory provenance gate. It does not by itself
+claim the final post-campaign BA15 suite or any BNV candidate pass.

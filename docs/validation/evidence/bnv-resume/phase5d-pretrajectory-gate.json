@@ -1,0 +1,9 @@
+{
+  "all_equal_entry": true,
+  "entry_manifest_sha256": "bf97ea64eb238d7d8276f4b707b1293e9ac6fba6ea45c8f63a3daff2129027f9",
+  "protected_count": 33,
+  "regression_rc": {
+    "phase5b_structural_response_regression": 0,
+    "phase5c_chemical_coefficient_regression": 0
+  }
+}

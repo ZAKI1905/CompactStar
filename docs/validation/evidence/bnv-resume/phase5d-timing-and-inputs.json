@@ -1,0 +1,24 @@
+{
+  "wall_s": 2477.78,
+  "test_s": 2477.77,
+  "phase5b_pretrajectory_wall_s": 54.19,
+  "phase5c_pretrajectory_wall_s": 343.26,
+  "files": {
+    "phase5d-regression.json": {
+      "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/regression-evidence.json",
+      "sha256": "8a5d78065ef4f4aa35609b31d555a1c1a34de280c21885e0d7a23ca099e7f7fb"
+    },
+    "phase5d-execution-sidecar.json": {
+      "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/execution-sidecar.json",
+      "sha256": "d9a94cb0eb9db7e10e3d6cb2bddf87c4403dc38e5ddbd26b92c6ca74da55bb7a"
+    },
+    "phase5d-pretrajectory-gate.json": {
+      "raw_path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume/tests/phase5d1-regression-evidence/regression-wbv52c58/fresh-governed/trajectory/pretrajectory-gate.json",
+      "sha256": "9f9c790478afc69553419276d9b5c48dfad050961953d124d17b85d8ef7bbc07"
+    },
+    "phase5d-regression.log": {
+      "raw_path": "/private/tmp/bnv-resume-phase5d-committed.log",
+      "sha256": "83eecfea960e5f6065f73ff0f67938f8e1788c1a0594102aedb88d7077383801"
+    }
+  }
+}

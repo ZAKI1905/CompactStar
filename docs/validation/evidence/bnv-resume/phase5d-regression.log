@@ -1,0 +1,16 @@
+Test project /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/build/bnv-resume
+    Start 78: phase5d1_controlled_evolution_regression
+1/1 Test #78: phase5d1_controlled_evolution_regression ...   Passed  2477.77 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Label Time Summary:
+expensive          = 2477.77 sec*proc (1 test)
+external-data      = 2477.77 sec*proc (1 test)
+fresh-context      = 2477.77 sec*proc (1 test)
+phase5d            = 2477.77 sec*proc (1 test)
+phase5d-coupled    = 2477.77 sec*proc (1 test)
+regression         = 2477.77 sec*proc (1 test)
+scientific         = 2477.77 sec*proc (1 test)
+
+Total Test time (real) = 2477.78 sec
