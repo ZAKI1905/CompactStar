@@ -1,120 +1,59 @@
-# PROPOSED ADR-0017 amendment: event-aware local reconstruction
+# ADR-0017 Amendment 1 candidate: breakpoint-aware Phase-6 evolution
 
-Status: **PROPOSED — NOT ACCEPTED; NO IMPLEMENTATION OR CAMPAIGN AUTHORITY**.
-Date: 2026-09-30. Classes: numerical-method and reconstruction architecture.
-This document does not edit or supersede accepted ADR-0017. It records a concrete
-option for owner decision after one independent scientific/numerical review.
+Status: **PROPOSED, NOT RATIFIED**. Owner instruction of 2026-10-03 authorizes
+candidate implementation and bounded qualification before ratification. The full
+campaign remains stopped. Historical BA12, BA12R and obs-32 FAIL records stand.
+This replaces the prior reconstruction-only proposal; accepted ADR-0017 is unchanged.
+Classes: numerical-method, architecture, engineering, documentation.
 
-## Problem and evidence
+## Candidate contract
 
-The [bounded observation-32 report](PHASE6A1_OBS32_FORENSICS.md) and diagnostic
-commit `86c8978` preserve exact reproduction of the archived unresolved O1/O2
-checkpoint. Cstar is continuous and linear in log(T); its dC/dT jumps by 7.5094%
-at the crossed cache knot. The complete thermal RHS is continuous but its
-x-derivative has the predicted kink. There is no demonstrated context, lookup or
-budget defect. Tight unsplit rk8pd converges toward the split result. Three nearby
-smooth controls pass, and split RKF45 O3 agrees within 3.19e-16 in x.
+Amend ADR-0017 sections 4, 5.2-5.4, 7, 10 and 11 prospectively. Both Phase-6
+main RKF45 and local rk8pd use the actual Cstar cache boundaries. An immutable
+snapshot exposes exact temperatures, capacities and cache cell-selection semantics.
+No table, interpolation law, source, ledger or Phase-5 solver changes are authorized.
+The Phase-5 knot issue is a separate upstream numerical follow-up.
 
-The prototype's split O1/O2/O3 equality uses one common O3 event time. That is good
-local evidence but **cannot bound common event-location error**. Its root bracket
-is a floating-point numerical-IVP bracket, not a certified exact-IVP bracket.
-No production acceptance can be inferred from this prototype alone.
+Each segment uses its active cell's smooth expression for all RK stages, including
+excursions. Within that cell it retains the original RHS. Crossings are located on
+each solve's own trajectory. Discarded trials restore time and all components and
+reset both GSL evolve and step state. Step proposals carry across boundaries.
+No state projection onto a knot is permitted. Event residuals, finite time spacing,
+work and state uncertainty are recorded. Unresolvable direction or event identity
+fails closed. A sampled monotonicity check is a numerical diagnostic, not a theorem
+excluding every possible unsampled reversal; qualification is bounded to the tested
+RHS and domains and requires independent step subdivision.
 
-## Exact proposed semantic change
+Scientific observations remain passive; exact accepted endpoints return stored
+states. Boundary endpoints do not enter the scientific R20 quadrature grid.
+Historical reproduction uses an explicitly selected historical path, never a fallback.
 
-Replace the uniform *unsplit* strict-interior rk8pd replay with a uniform
-*event-partitioned* strict-interior rk8pd replay. Apply it prospectively to every
-checkpoint, regardless of whether the old rule would fail. There is no failure
-trigger, retry, knot-specific alternate solver, result selection, or tolerance
-retuning. A no-crossing interval has one segment and uses the same rule.
+## Proposed uncertainty rule
 
-1. Known interpolation interfaces are numerical metadata supplied by the frozen
-   RHS owner. Cstar interfaces are the actual authenticated cache temperatures,
-   not a separately regenerated approximate logarithmic index. Expose immutable
-   metadata through an explicit interface; the diagnostic private-member accessor
-   is not a proposed production API. Do not alter tables or interpolation values.
-2. For each disposable O1 and O2 context, start at the exact saved accepted left
-   state and solve to the requested observation. Use the unchanged governed
-   rk8pd tolerance vectors on each smooth segment. Retain the accepted
-   main-state bypass when an observation exactly matches an accepted endpoint.
-3. Find each encountered interface from the condition `Tinf(t)=T_knot` using a
-   bounded event solve. Preserve the full physical state continuously; do not
-   project x, eta or energy onto the interface. Reset local numerical solver
-   state between segments. Internal boundaries affect only the disposable replay,
-   never the persistent authoritative main solve or scientific schedule.
-4. Event discovery must account for direction, repeated crossings and endpoints.
-   Endpoint temperatures alone do not prove the absence of an interior crossing.
-   A validated monotonic segment certificate or equivalent safeguarded event
-   search must exclude missed crossings. If that cannot be established within
-   fixed work limits, return unresolved. No extrapolation or silent continuation.
-5. Localization error is part of reconstruction uncertainty. Preserve
-   `d=abs(O2-O1)`, `D_O1`, `F_O`, and `F_i` exactly as currently defined. Let
-   `U_RK=2 max(d,F_O)`. Add a componentwise conservative propagated event-error
-   bound `U_event`, covering all crossings and endpoint effects, and require
-   **both** `d<=D_O1` and `U_RK+U_event<=0.20 F_i`. Report O2 only on success.
-   Thus event handling consumes the existing budget; it does not enlarge it.
-   This additive accounting is a proposed change, not the current ADR rule.
-6. A shared root alone must not qualify `U_event`. Independently resolve event
-   location and endpoint propagation using tighter numerical evidence plus a
-   justified bound on localization and sensitivity, including binary64 floors.
-   Propagate bracket uncertainty through both adjoining segments. A small root
-   residual or identical tier results alone is insufficient. The concrete bound
-   must be predeclared and independently reviewed before implementation is called
-   qualified; the present experiments do not supply that proof.
-7. Preserve full/cheap currentness contracts, immutable owners and isolated
-   evolving/GSL state. A cache hint may be shared only where lookup invariance is
-   established; it cannot become event identity or provenance authority.
-8. Diagnostics are evaluated from the qualified reconstructed state. Their error
-   qualification must include event uncertainty. R18, R20's unchanged scientific
-   grid/composite trapezoid and uncertainty allocation, source/ledger equations,
-   frozen ceiling and candidate gate chain all remain binding. Internal knot
-   endpoints are not extra R20 grid points or extra thermal heat terms.
-9. Export event metadata, localization brackets, residuals, directions, solver
-   states/counts and componentwise uncertainty contributions. Any missing event,
-   ambiguous ownership, unbounded uncertainty, GSL pathology or currentness
-   failure is unresolved and halts the campaign under the same fail-closed rule.
+Keep d_O, D_O1, F_O, F_i and U_O from ADR-0017. Require d_O <= D_O1 and
+U_O + U_event <= 0.20 F_i for every component (x dimensionless, eta in MeV).
+Do not adopt the review's scalar kappa/beta formula as a universal coupled bound.
+Candidate numerical evidence instead compares separately located events and full
+coupled endpoints under step subdivision and an independent RK method; reference
+uncertainty includes further refinement and roundoff. A componentwise full-path
+difference envelope is conservative relative to assigning all error only to x,
+but is an empirical bounded-domain validation rule, not a rigorous global bound.
+No identical one-step witness can qualify a crossing by itself.
 
-This is an architectural contract for a proposed implementation, not finished
-production code. In particular, item6 is a required numerical design/validation
-obligation; acceptance of a direction must not be represented as proof of it.
+Diagnostics must include the state envelope in all three components. R20 propagates
+absolute thermal/outgoing/chemical endpoint uncertainty on its existing grid, without
+cancellation between O1/O2. Main uncertainty belongs to the main accuracy assessment.
+A missing justified envelope or failed reconstruction allocation is unresolved.
 
-## Alternatives requiring an owner choice
+## Proposed successor accuracy assessment
 
-| Alternative | Evidence / tradeoff |
-|---|---|
-| Retain ADR-0017 unchanged and keep the campaign stopped | Correct current disposition; provides no new eligible checkpoint. |
-| Uniformly tighten unsplit reconstruction | O3/O4 support this bracket's local value; O4 is near binary64 limits. Must qualify all required smooth/knot cases and costs, rather than infer general sufficiency from one bracket. |
-| Uniform event-partitioned rk8pd (proposed option above) | Strong bounded split evidence; requires event discovery/error accounting and explicit ADR amendment. |
-| Another uniformly qualified local method | Possible, but independent unsplit RKF45 here is nonmonotonic; no replacement method is selected or qualified by this investigation. |
+See PHASE6_BREAKPOINT_VALIDATION_SPEC.md. Report original BA12R state, ledger and
+solver-trend gates alongside the successor outcome. Never rename a failed original
+gate PASS. Breakpoint-limited status is determined from accepted/event records before
+scoring differences. Where steps really refine, report contraction; where they do
+not, require independent accuracy evidence including reference uncertainty.
+Equilibrium-tail rejection is assessed as stability/cost/progress evidence, with no
+raised legacy threshold. Local windows do not establish campaign-global accuracy.
 
-Changing Cstar interpolation/physics, relaxing the 0.20 budget, special-casing
-observation32 or choosing a passing result after failure are excluded alternatives.
-
-## Required evidence before production adoption
-
-Predeclare a separate bounded qualification covering smooth intervals, exact
-accepted endpoints, exact/adjacent knot temperatures in both directions, multiple
-interfaces, rejected stage crossings, endpoint knots, nonmonotone/unsupported
-searches and fail-closed work limits. Verify independent event-error accounting,
-method comparison, diagnostic uncertainty and invariance to valid cache histories.
-Use analytic piecewise-smooth test IVPs and the preserved production bracket.
-Reauthenticate unchanged source/physics inputs and demonstrate main-history
-passivity under changed observation schedules. None of these new ODE experiments
-is authorized by this proposal alone.
-
-The saved BASELINE main knot-spanning step differs at its right endpoint from two
-agreeing local O3 methods by 2.38e-7 in x. The review must explicitly disposition
-this finding and the distinct roles of main hierarchy error and reconstruction
-error; successful local reconstruction cannot certify a coarse main trajectory.
-No main-method change is proposed or authorized here. The deferred fresh
-BASELINE/REFINED/ULTRA and matched-control hierarchy remains a later, separately
-authorized campaign, after architecture acceptance and implementation qualification.
-
-## Decision boundary
-
-Recommended next action: one independent scientific/numerical review of the exact
-reproduction, root/cell/RHS evidence, proposed event-error contract and main-step
-finding; then an explicit owner decision among the alternatives. Do not implement
-this amendment or resume the campaign automatically. Historical BA12, BA12R and
-the observation32 STOP remain immutable FAIL. No candidate, physical BNV model or
-rate, A18, superfluidity, Regime-II/MixedStar or variable-Z evolution is authorized.
+One independent review and subsequent owner acceptance remain required. No merge,
+full campaign, physical rate/model, cluster, superfluidity, A18 or Regime-II work.
