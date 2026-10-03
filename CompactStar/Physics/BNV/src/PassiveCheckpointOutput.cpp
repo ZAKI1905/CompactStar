@@ -392,6 +392,8 @@ Rk8pdCheckpointReconstructor::SolveResult Rk8pdCheckpointReconstructor::Integrat
     Need(context!=nullptr,"reconstruction factory returned null");
     context->RequireFullCurrent();
     result.context_identity=context->Identity();
+    result.exact_zero_chemical_subspace=breakpoint_aware&&initial[1]==0&&initial[2]==0
+      &&context->HasExactZeroChemicalSolution();
     Need(!result.context_identity.empty(),"missing reconstruction context identity");
     std::unique_ptr<gsl_odeiv2_step,decltype(&gsl_odeiv2_step_free)> step(
       gsl_odeiv2_step_alloc(gsl_odeiv2_step_rk8pd,3),gsl_odeiv2_step_free);
@@ -410,7 +412,9 @@ Rk8pdCheckpointReconstructor::SolveResult Rk8pdCheckpointReconstructor::Integrat
     if(breakpoint_aware)
     {
         BreakpointStepper solver([&](double time,const CheckpointState& in,CheckpointState& out,int cell)
-          {context->SmoothDerivative(time,in,out,cell);},context->Breakpoints(),
+          {context->SmoothDerivative(time,in,out,cell);
+           if(result.exact_zero_chemical_subspace)
+             Need(in[1]==0&&in[2]==0&&out[1]==0&&out[2]==0,"exact chemical subspace certificate violated");},context->Breakpoints(),
           independent?gsl_odeiv2_step_rkf45:gsl_odeiv2_step_rk8pd,
           configuration.relative,configuration.absolute,(target-start)/subdivisions);
         while(t<target){Need(++calls<=100000,"local breakpoint work exhausted");solver.Advance(t,y,h,target);}
@@ -523,6 +527,11 @@ CheckpointOutput Rk8pdCheckpointReconstructor::Reconstruct(
           reference,context_factory,true,4,true);
         output.provenance.refinement_events=half.events;
         output.provenance.independent_events=independent.events;
+        Need(O1.exact_zero_chemical_subspace==O2.exact_zero_chemical_subspace
+          &&O2.exact_zero_chemical_subspace==half.exact_zero_chemical_subspace
+          &&half.exact_zero_chemical_subspace==independent.exact_zero_chemical_subspace,
+          "inconsistent exact chemical subspace certificates");
+        output.provenance.exact_zero_chemical_subspace=O2.exact_zero_chemical_subspace;
         output.qualification.discriminating_witness=true;
         output.provenance.refinement_invocations=1;
         output.provenance.independent_method_invocations=1;
@@ -537,6 +546,14 @@ CheckpointOutput Rk8pdCheckpointReconstructor::Reconstruct(
     }
     output.reconstruction_error_contribution=output.qualification.U_O;
     for(int i=0;i<3;++i)output.reconstruction_error_contribution[i]+=output.qualification.U_event[i];
+    // The allocation floors above remain unchanged. An owner-certified exact
+    // solution has zero chemical error, not uncertainty equal to an atol floor.
+    if(output.provenance.exact_zero_chemical_subspace)
+    {
+        Need(O1.state[1]==0&&O1.state[2]==0&&O2.state[1]==0&&O2.state[2]==0,
+          "exact chemical endpoint certificate violated");
+        output.reconstruction_error_contribution[1]=output.reconstruction_error_contribution[2]=0;
+    }
     if(output.qualification.self_qualified)
     {
         output.status=CheckpointStatus::Qualified;
@@ -576,6 +593,8 @@ void Rk8pdCheckpointReconstructor::EvaluateDiagnostics(
     output.performance.diagnostic_context_wall_seconds+=WallSeconds(begin);
     output.performance.diagnostic_context_cpu_seconds+=CpuSeconds(cpu_begin);
     Need(context2!=nullptr,"O2 diagnostic factory returned null");context2->RequireFullCurrent();
+    if(output.provenance.exact_zero_chemical_subspace)
+        Need(context2->HasExactZeroChemicalSolution(),"diagnostic chemical certificate mismatch");
     begin=Clock::now();cpu_begin=std::clock();output.O2_diagnostics=context2->EvaluateDiagnostics(output.t_observation_s,output.O2_state);
     output.performance.diagnostic_evaluation_wall_seconds+=WallSeconds(begin);
     output.performance.diagnostic_evaluation_cpu_seconds+=CpuSeconds(cpu_begin);context2->RequireFullCurrent();

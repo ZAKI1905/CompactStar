@@ -157,6 +157,7 @@ class ICheckpointEvaluationContext
     virtual void Derivative(double,const CheckpointState&,CheckpointState&)=0;
     virtual BnvDiagnostics EvaluateDiagnostics(double,const CheckpointState&)=0;
     virtual std::string Identity() const=0;
+    virtual bool HasExactZeroChemicalSolution() const {return false;}
     virtual std::vector<double> Breakpoints() const {return {};}
     virtual void SmoothDerivative(double t,const CheckpointState& y,CheckpointState& d,int cell)
     {if(cell!=-1)throw std::runtime_error("missing smooth-cell RHS");Derivative(t,y,d);}
@@ -196,6 +197,7 @@ struct CheckpointProvenance
     std::string context_identity_O1;
     std::string context_identity_O2;
     std::vector<BreakpointStepper::Event> O1_events,O2_events,refinement_events,independent_events;
+    bool exact_zero_chemical_subspace=false;
 };
 
 struct CheckpointPerformance
@@ -251,6 +253,7 @@ class Rk8pdCheckpointReconstructor final
   private:
     struct SolveResult
     {
+        bool exact_zero_chemical_subspace=false;
         CheckpointState state{};
         std::vector<BreakpointStepper::Event> events;
         std::string context_identity;

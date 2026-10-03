@@ -59,3 +59,30 @@ raised legacy threshold. Local windows do not establish campaign-global accuracy
 
 One independent review and subsequent owner acceptance remain required. No merge,
 full campaign, physical rate/model, cluster, superfluidity, A18 or Regime-II work.
+
+## Exact matched-control subspace
+
+The first candidate's generic state box exposed a diagnostic refusal at exact
+chemical equilibrium: the unchanged 2e-24 MeV chemical tolerance floor generates
+an Echem box of about 9.2e5 MeV, against the unchanged zero-energy diagnostic
+allocation of 2e-12 MeV. This is retained as a failed development result, not
+rescored as success. No accuracy budget or reconstruction tolerance is changed.
+
+The correction is an explicit mathematical constraint, not a zero inferred from
+coincident numerical outputs. `OrdinaryMatterBnvHistory` may certify identically
+zero sources over its whole history (default false). The frozen BNV owner also
+requires `StaticZeroSpinHistory`; its constructor already fixes the governed Urca
+processes. `UrcaImbalanceFunctions::HM(0)=HD(0)=0` exactly, and zero moving-reference
+source and spin imply eta_dot=0 for every valid temperature. With both initial
+etas exactly zero, the chemical solution and its numerical error are exactly zero.
+Each of O1, O2, the subdivided rk8pd and independent RKF45 contexts must certify
+the same identity, and every local RHS call checks zero chemical stage state and
+derivative. The diagnostic owner must retain the certificate. Nonzero initial
+etas, unknown histories and spin-on contexts receive no exemption.
+
+Keep U_O, U_event and the combined allocation test unchanged. Only the propagated
+chemical error components become zero under this checked identity; x keeps its
+full envelope. Echem and all diagnostic/R20 budgets remain unchanged. Record the
+constraint in checkpoint provenance. A false certificate and an uncertified
+zero-output witness are regression refusals. This narrow constraint adds no
+physical source model and changes neither a state value nor a main step.

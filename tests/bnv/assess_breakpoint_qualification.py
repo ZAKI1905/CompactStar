@@ -51,10 +51,10 @@ def assess(root):
         # Boundaries are classified from records, before using outcome differences.
         clips=[float(x['boundary_limited_fraction']) for x in st]
         limits=[int(x['events']) for x in st]
-        envelopes=rows(root/(name+'-envelopes.tsv'));assert envelopes
-        envelope_max=max(float(x['bound_ratio']) for x in envelopes)
+        envelopes=rows(root/(name+'-envelopes.tsv'))
+        envelope_max=max((float(x['bound_ratio']) for x in envelopes),default=None)
         classification=boundary_classification(rows(root/(name+'-history.tsv')))
-        successor={'uncertainty_envelope':math.isfinite(envelope_max) and envelope_max<=1, 'state_accuracy':float(s['max_accuracy_ratio'])<=1,
+        successor={'uncertainty_envelope':envelope_max is not None and math.isfinite(envelope_max) and envelope_max<=1, 'state_accuracy':float(s['max_accuracy_ratio'])<=1,
           'reference_uncertainty':float(s['max_reference_uncertainty_over_DU'])<=.05,
           'ledger_accuracy':float(l['max_accuracy_ratio'])<=1,
           'reconstruction':int(s['unresolved_checkpoints'])==0,

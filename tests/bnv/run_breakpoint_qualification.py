@@ -32,6 +32,7 @@ def validate_output(root,mode):
         required+=['crossings.tsv']
         with (root/'crossings.tsv').open() as f:r=list(csv.DictReader(f,delimiter='\t'))
         assert len(r)==333 and len({(x['run'],x['step']) for x in r})==37, 'crossing completeness'
+    if mode=='probe':required+=['diagnostic-probe.tsv']
     if mode=='supplement':
         required+=['source-run4-comparison.tsv','control-run4-comparison.tsv','tail-jacobian.tsv','tail-stability.tsv']
         for name,n in [('source',490),('control',1277)]:
@@ -43,7 +44,7 @@ def validate_output(root,mode):
         r=list(csv.reader(content.decode().splitlines(),delimiter='\t'));assert all(len(row)==len(r[0]) for row in r), 'schema corruption'
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--root',type=pathlib.Path,required=True);ap.add_argument('--mode',default='all',choices=['all','source','control','bounded','crossings','tail','events','supplement']);a=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--root',type=pathlib.Path,required=True);ap.add_argument('--mode',default='all',choices=['all','source','control','bounded','crossings','tail','events','supplement','probe']);a=ap.parse_args()
     repo=pathlib.Path(__file__).resolve().parents[2];auth=json.loads((repo/'docs/validation/evidence/obs32-forensics/authentication.json').read_text())
     assert not a.root.exists(),'fresh root required';assert shutil.disk_usage(repo).free>3*1024**3,'insufficient output/build headroom'
     p={k:pathlib.Path(v) for k,v in auth['input_paths'].items()}

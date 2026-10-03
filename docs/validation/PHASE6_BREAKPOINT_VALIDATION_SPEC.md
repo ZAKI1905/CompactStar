@@ -73,3 +73,10 @@ this classification even if every accuracy gate passes. It does not alter the
 legacy gate or select points by their observed error. Verify the empirical state
 and diagnostic envelopes against tighter eighth-step rk8pd and sixteenth-step
 RKF45 from each saved main left state; include their disagreement in the check.
+
+Diagnostic repair after the first scored control refusal: retain every budget and
+all state values; apply the mathematically certified exact-zero chemical subspace
+described in the amendment. Record the earlier refusal separately. Validate both
+positive ownership and false-certificate/nonzero-initial-state refusals. All other
+contexts retain the full three-component uncertainty box. This is a constrained
+error propagation correction, not retrospective relaxation of an acceptance scale.

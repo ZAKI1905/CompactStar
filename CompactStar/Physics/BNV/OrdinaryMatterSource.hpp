@@ -76,6 +76,9 @@ class OrdinaryMatterBnvHistory
     virtual OrdinaryMatterBnvHistorySample Sample(double epoch_s) const=0;
     virtual void RequireCurrent() const=0;
     virtual const std::string& Identity() const=0;
+    // Mathematical identity over the entire history, not a sampled zero.
+    // True certifies Bdot, all species sources and the event list identically zero.
+    virtual bool CertifiesIdenticallyZeroSource() const {return false;}
 };
 
 } // namespace CompactStar::Physics::BNV

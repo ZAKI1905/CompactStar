@@ -44,6 +44,15 @@ class FrozenControlledBnvRunContext final
     const std::shared_ptr<const Rotochemical::PrescribedSpinHistory>& SpinOwner() const{return spin_;}
     const std::shared_ptr<const EquilibriumBaryonTangent>& Tangent() const{return tangent_;}
     const std::string& RunCardIdentity() const{return run_card_identity_;}
+    bool HasExactZeroChemicalSolution() const
+    {
+        RequireCheapCurrent();
+        // This owner's governed Urca H functions vanish exactly at eta=0.
+        // With identically zero BNV and static spin, both chemical RHSs vanish
+        // for every valid temperature. This says nothing about nonzero initial eta.
+        return history_->CertifiesIdenticallyZeroSource()
+          && dynamic_cast<const StaticZeroSpinHistory*>(spin_.get())!=nullptr;
+    }
   private:
     static void Need(bool,const char*);
     ControlledBnvEvaluation EvaluateImpl(double,const Evolution::StateVector&,const Evolution::DriverContext&,bool) const;

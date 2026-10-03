@@ -52,6 +52,7 @@ inline double Column(const std::filesystem::path& path,const std::string& name)
 class ExactZeroHistory final:public BNV::OrdinaryMatterBnvHistory
 {
   public:
+    bool CertifiesIdenticallyZeroSource() const override{RequireCurrent();return true;}
     ExactZeroHistory(double B,std::string domain,std::string star,std::string sequence,
       std::shared_ptr<const BNV::BnvDependencyToken> token)
       :B_(B),domain_(std::move(domain)),star_(std::move(star)),sequence_(std::move(sequence)),token_(std::move(token)),generation_(token_?token_->generation:0){RequireCurrent();}

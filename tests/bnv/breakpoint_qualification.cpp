@@ -61,7 +61,8 @@ void window(const std::string& name,Ctx p,double a,State y,double b,double h,con
     auto ref=integrate(p,a,y,b,h,tight,gsl_odeiv2_step_rk8pd,cap);
     auto fine=integrate(p,a,y,b,h,tighter,gsl_odeiv2_step_rk8pd,cap/2);
     auto independent=integrate(p,a,y,b,h,tighter,gsl_odeiv2_step_rkf45,cap/2);
-    std::ostringstream rows,stats,events,history,uncertainty,envelopes;
+    std::ostringstream rows,stats,events,history,uncertainty,envelopes,constraints;
+    constraints<<std::setprecision(17)<<"tier\tobservation\texact_zero_chemistry\teta_e_error\teta_mu_error\n";
     envelopes<<std::setprecision(17)<<"tier\tobservation\tquantity\tbound_ratio\treference_uncertainty\n";std::size_t envelope_rows=0;
     history<<std::setprecision(17)<<"tier\tordinal\tt_left\tt_right\th_next\tcell\tboundary_knot\tx\te\tm\trejected\n";
     uncertainty<<std::setprecision(17)<<"tier\tobservation\tcomponent\tU_O\tU_event\tF_i\td_O\tD_O1\n";
@@ -92,7 +93,8 @@ void window(const std::string& name,Ctx p,double a,State y,double b,double h,con
           const auto local=integrate(p,left.t_left_s,left.y_left,bracket.t_observation_s,span,tighter,gsl_odeiv2_step_rk8pd,span/8).y;
           const auto other_local=integrate(p,left.t_left_s,left.y_left,bracket.t_observation_s,span,tighter,gsl_odeiv2_step_rkf45,span/16).y;
           for(int i=0;i<3;++i){const double u=2*std::abs(local[i]-other_local[i]);
-            const double ratio=(std::abs(q.O2_state[i]-local[i])+u)/q.reconstruction_error_contribution[i];
+            const double error=std::abs(q.O2_state[i]-local[i])+u,bound=q.reconstruction_error_contribution[i];
+            const double ratio=bound>0?error/bound:(error==0?0:INFINITY);
             envelopes<<tier<<'\t'<<bracket.observation_index<<"\tstate"<<i<<'\t'<<ratio<<'\t'<<u<<'\n';++envelope_rows;}
           ActualCheckpointContext local_context(p,1);
           const auto lv=DiagnosticValues(local_context.EvaluateDiagnostics(bracket.t_observation_s,local));
@@ -113,6 +115,7 @@ void window(const std::string& name,Ctx p,double a,State y,double b,double h,con
           double ratio=(std::abs(state[i]-reference[i])+uncertainty)/(tiers[tier].a[i]+tiers[tier].r*std::max(std::abs(state[i]),std::abs(reference[i])));
           rows<<'\t'<<ratio;max_accuracy=std::max(max_accuracy,ratio);}
         for(int i=0;i<3;++i)uncertainty<<tier<<'\t'<<bracket.observation_index<<'\t'<<i<<'\t'<<q.qualification.U_O[i]<<'\t'<<q.qualification.U_event[i]<<'\t'<<q.qualification.F_i[i]<<'\t'<<q.qualification.d_O[i]<<'\t'<<q.qualification.D_O1[i]<<'\n';
+        constraints<<tier<<'\t'<<bracket.observation_index<<'\t'<<q.provenance.exact_zero_chemical_subspace<<'\t'<<q.reconstruction_error_contribution[1]<<'\t'<<q.reconstruction_error_contribution[2]<<'\n';
         const bool ok=q.status==BNV::CheckpointStatus::Qualified&&q.diagnostics_evaluated;
         rows<<'\t'<<ok<<'\t'<<(ok?q.diagnostics.R18_residual_erg_s:0)<<'\n';failed+=!ok;
         observed[tier].push_back(state);all_outputs[tier].push_back(q);
@@ -164,6 +167,7 @@ void window(const std::string& name,Ctx p,double a,State y,double b,double h,con
       r20<<tier<<'\t'<<result.R20_normalized<<'\t'<<result.reconstruction_uncertainty_erg/result.N_R20_erg<<'\t'<<all_outputs[tier].size()<<'\n';}
       PublishTsv(out/(name+"-r20.tsv"),r20.str(),4,3);}
     std::ostringstream summary;summary<<std::setprecision(17)<<"max_accuracy_ratio\tunresolved_checkpoints\tlegacy_c1\tlegacy_c2\tlegacy_c3\tmax_contraction\tschedule_invariant\tmax_reference_uncertainty_over_DU\n"<<max_accuracy<<'\t'<<failed<<'\t'<<c1<<'\t'<<c2<<'\t'<<c3<<'\t'<<contraction<<"\t1\t"<<max_reference_uncertainty<<'\n';
+    PublishTsv(out/(name+"-constraints.tsv"),constraints.str(),5,3*(n+1));
     PublishTsv(out/(name+"-envelopes.tsv"),envelopes.str(),5,envelope_rows);
     PublishTsv(out/(name+"-history.tsv"),history.str(),11,history_rows);
     PublishTsv(out/(name+"-uncertainty.tsv"),uncertainty.str(),8,9*(n+1));
@@ -230,6 +234,7 @@ int main(int argc,char** argv)
     Inputs in;in.profile=argv[1];in.certificate=argv[2];in.thermal=argv[3];in.work=argv[4];in.entry=argv[5];in.frozen=argv[6];in.coefficients=argv[7];in.output=argv[9];
     require(!std::filesystem::exists(in.work)&&!std::filesystem::exists(in.output),"fresh qualification output required");std::filesystem::create_directories(in.output);
     auto p=BuildBoth(in);
+    require(!p.source->HasExactZeroChemicalSolution()&&p.control->HasExactZeroChemicalSolution(),"source/control exact chemical authority mismatch");
     {const auto dc=p.source->OrdinaryContext()->DriverContext();const auto cells=dc.star->ReadHeatCapacityCells(*dc.thermo,dc.geo);
       for(std::size_t i=1;i+1<cells.temperature_MeV.size();++i)for(int side:{-1,1}){
         const std::size_t hint=side<0?i-1:i;
@@ -273,6 +278,20 @@ auto source=ReadAccepted(std::filesystem::path(argv[8])/"source-accepted.tsv");a
       std::cout<<"HISTORICAL Arm E exact 232/60; obs32 old states exact; smooth intervals exact\n";
     }
 
+    if(mode=="probe"){
+      const auto left=control[48];const double b=9e12,t=left.t1+(b-left.t1)/64;
+      const auto m=main_run(p.control,left.t1,left.y,b,left.hnext,tiers[0],{left.t1,t,b});
+      BNV::PassiveObservationSchedule schedule({left.t1,t,b},"probe");schedule.Replay(left.y,m.accepted_steps);
+      BNV::CheckpointContextFactory factory=[&]{return std::make_unique<ActualCheckpointContext>(p.control,1);};
+      BNV::Rk8pdCheckpointReconstructor reconstruction;
+      auto q=reconstruction.Reconstruct(schedule.Brackets().at(1),m.accepted_steps,factory);
+      std::cout<<"PROBE state qualified "<<(q.status==BNV::CheckpointStatus::Qualified)<<'\n';
+      reconstruction.EvaluateDiagnostics(q,factory);
+      const auto values=DiagnosticValues(q.diagnostics);std::ostringstream out;
+      out<<std::setprecision(17)<<"name\tvalue\tU\tF\tratio\n";
+      for(const auto& [name,value]:values)out<<name<<'\t'<<value<<'\t'<<q.diagnostic_U_O.at(name)<<'\t'<<q.diagnostic_F_P.at(name)<<'\t'<<q.diagnostic_U_O.at(name)/(.2*q.diagnostic_F_P.at(name))<<'\n';
+      PublishTsv(in.output/"diagnostic-probe.tsv",out.str(),5,values.size());
+    }
     if(mode=="supplement"){
       archive_comparison("source",p.source,source[19],argv[8],in.output);
       archive_comparison("control",p.control,control[48],argv[8],in.output);

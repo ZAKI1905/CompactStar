@@ -111,6 +111,7 @@ class ActualCheckpointContext final:public BNV::ICheckpointEvaluationContext
        driver_(std::make_shared<BNV::ControlledBnvSecularDriver>(context_,BNV::ControlledBnvSecularDriver::Mode::Coupled)),
        system_(state_.ctx,state_.state,state_.rhs,state_.layout,{driver_}),identity_(identity){}
     void RequireFullCurrent() const override{context_->RequireFullCurrent();}
+    bool HasExactZeroChemicalSolution() const override{return context_->HasExactZeroChemicalSolution();}
     void Derivative(double t,const BNV::CheckpointState& state,BNV::CheckpointState& output) override
     {
         if(system_(t,state.data(),output.data())!=0)throw std::runtime_error("production checkpoint RHS failure");

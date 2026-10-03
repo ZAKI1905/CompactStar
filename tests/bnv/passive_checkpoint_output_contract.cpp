@@ -30,6 +30,8 @@ struct FactoryAudit
     std::vector<std::size_t> live_ids;
     BNV::CheckpointState derivative{{0,0,0}};
     bool varying_derivative=false;
+    bool exact_zero_chemistry=false;
+    bool equilibrium_energy_test=false;
     BNV::CheckpointState last_diagnostic_state{};
     std::size_t diagnostic_calls=0;
 };
@@ -40,6 +42,7 @@ class SyntheticContext final:public BNV::ICheckpointEvaluationContext
     SyntheticContext(std::shared_ptr<FactoryAudit> audit,std::size_t id)
       :audit_(std::move(audit)),id_(id){audit_->live_ids.push_back(id_);}
     void RequireFullCurrent() const override{}
+    bool HasExactZeroChemicalSolution() const override{return audit_->exact_zero_chemistry;}
     void Derivative(double,const BNV::CheckpointState&,BNV::CheckpointState& out) override
     {
         out=audit_->derivative;
@@ -50,7 +53,7 @@ class SyntheticContext final:public BNV::ICheckpointEvaluationContext
         ++audit_->diagnostic_calls;audit_->last_diagnostic_state=state;
         BNV::BnvDiagnostics d;
         d.t_s=t;d.B_count=10.0-t;d.mu_B_inf_MeV=2;d.mu_n_actual_inf_MeV=3+state[1];
-        d.sigma_count_s={{state[1],state[2]}};d.Echem_MeV=1+state[1]*state[1]+state[2]*state[2];
+        d.sigma_count_s={{state[1],state[2]}};d.Echem_MeV=audit_->equilibrium_energy_test?1e54*(state[1]*state[1]+state[2]*state[2]):1+state[1]*state[1]+state[2]*state[2];
         d.P_dir_eq_erg_s=10+state[0];d.P_dir_actual_erg_s=11+state[0];
         d.LH_erg_s=2+state[0];d.DeltaLnu_erg_s=3+state[0];d.DeltaPbeta_erg_s=4+state[0];
         d.Lnu_eq_erg_s=5+state[0];d.Lnu_full_erg_s=8+2*state[0];
@@ -90,6 +93,27 @@ BNV::ObservationBracket Interior()
 BNV::ObservationBracket Endpoint()
 {
     return {2,1.0,0,1,0,1,false};
+}
+
+void ExactChemicalConstraint()
+{
+    auto audit=std::make_shared<FactoryAudit>();audit->exact_zero_chemistry=true;audit->equilibrium_energy_test=true;
+    audit->derivative={{1,0,0}};BNV::Rk8pdCheckpointReconstructor solver;
+    auto q=solver.Reconstruct(Interior(),{Step()},Factory(audit));
+    Require(q.provenance.exact_zero_chemical_subspace,"missing exact constraint");
+    Require(q.qualification.U_O[1]>0&&q.qualification.U_O[2]>0,"allocation floors changed");
+    Require(q.reconstruction_error_contribution[1]==0&&q.reconstruction_error_contribution[2]==0,"exact error not zero");
+    solver.EvaluateDiagnostics(q,Factory(audit));
+    Require(q.diagnostics_evaluated,"exact equilibrium energy diagnostic refused");
+    audit->exact_zero_chemistry=false;
+    auto unconstrained=solver.Reconstruct(Interior(),{Step()},Factory(audit));solver.EvaluateDiagnostics(unconstrained,Factory(audit));
+    Require(!unconstrained.diagnostics_evaluated,"unjustified zero uncertainty accepted");
+    audit->exact_zero_chemistry=true;
+    auto step=Step();step.y_left[1]=step.y_right[1]=1e-6;
+    auto nonzero=solver.Reconstruct(Interior(),{step},Factory(audit));
+    Require(!nonzero.provenance.exact_zero_chemical_subspace&&nonzero.reconstruction_error_contribution[1]>0,"nonzero state falsely constrained");
+    audit->derivative[1]=1e-12;
+    Require(Throws([&]{solver.Reconstruct(Interior(),{Step()},Factory(audit));}),"false exact certificate accepted");
 }
 
 void P1PassiveAuthority()
@@ -232,6 +256,7 @@ int main()
 {
     try
     {
+        ExactChemicalConstraint();
         P1PassiveAuthority();std::cout<<"P1 PASS\n";
         P2ExactEndpointBypass();std::cout<<"P2 PASS\n";
         P3StrictInteriorExactlyTwoLevels();std::cout<<"P3 PASS\n";
