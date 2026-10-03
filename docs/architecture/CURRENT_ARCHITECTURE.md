@@ -1,5 +1,16 @@
 # CompactStar — Current Architecture
 
+> **Phase-6 breakpoint candidate (2026-10-03; candidate branch only): bounded
+> validation PASS / UNVERIFIED SCIENTIFIC CANDIDATE / NOT RATIFIED.** Main RKF45
+> and local rk8pd now use actual Cstar-cell segmentation; scientific observations
+> remain passive. All four bounded windows meet the separately proposed accuracy
+> criteria. Original contraction/rejection failures remain recorded, and tail
+> stability limits campaign readiness. The full campaign remains stopped pending
+> one independent review and owner acceptance. See the
+> [qualification report](../validation/PHASE6_BREAKPOINT_QUALIFICATION.md) and
+> [amendment candidate](../validation/PHASE6A1_PIECEWISE_RECONSTRUCTION_PROPOSAL.md).
+> The dated accepted/historical descriptions below retain their original scope.
+
 > **Phase-6A-1 controlled continuation (2026-09-30; branch evidence):** the owner
 > authorized a clean local Mac campaign from canonical `9a5c1eca`. The fresh
 > BASELINE source and matched-control main solves completed with passive output,

@@ -1,0 +1,325 @@
+{
+  "status": "PROPOSED successor, not ratified",
+  "campaign": "STOPPED",
+  "windows": {
+    "source": {
+      "original_BA12R": {
+        "state": true,
+        "ledger": true,
+        "rejection_fraction_le_0p10": true
+      },
+      "successor": {
+        "uncertainty_envelope": true,
+        "state_accuracy": true,
+        "reference_uncertainty": true,
+        "ledger_accuracy": true,
+        "reconstruction": true,
+        "R18": true,
+        "R20": true,
+        "R20_reconstruction": true,
+        "schedule_invariance": true,
+        "progress": true
+      },
+      "successor_pass": true,
+      "max_state_accuracy_ratio": 0.9296360493746259,
+      "max_ledger_accuracy_ratio": 0.0034748043343589947,
+      "rejection_fraction": [
+        0.05405405405405406,
+        0.03550295857988166,
+        0.022058823529411766
+      ],
+      "boundary_clips": [
+        7,
+        7,
+        7
+      ],
+      "boundary_limited_fractions": [
+        0.1,
+        0.04294478527607362,
+        0.017543859649122806
+      ],
+      "uncertainty_envelope_max_ratio": 0.03494172535901501,
+      "boundary_classification": {
+        "matching_event_sequence": true,
+        "boundary_limited_cell_intervals": [
+          {
+            "knot": 95,
+            "direction": 1,
+            "steps": [
+              1,
+              1,
+              1
+            ],
+            "duration_s": [
+              2714687940.415283,
+              2714687940.415283,
+              2714687940.415283
+            ]
+          }
+        ],
+        "counts_by_tier": [
+          7,
+          7,
+          7
+        ]
+      },
+      "R20_records": [
+        {
+          "tier": "0",
+          "R20_normalized": "-1.2872346232267271e-05",
+          "reconstruction_over_N": "4.8839191928053351e-11",
+          "quadrature_grid_points": "65"
+        },
+        {
+          "tier": "1",
+          "R20_normalized": "-1.287297551689127e-05",
+          "reconstruction_over_N": "4.8796716552919898e-11",
+          "quadrature_grid_points": "65"
+        },
+        {
+          "tier": "2",
+          "R20_normalized": "-1.2872983057647104e-05",
+          "reconstruction_over_N": "4.8781629992170796e-11",
+          "quadrature_grid_points": "65"
+        }
+      ],
+      "scope": "common-time local window; no full-campaign global accuracy claim"
+    },
+    "control": {
+      "original_BA12R": {
+        "state": false,
+        "ledger": false,
+        "rejection_fraction_le_0p10": false
+      },
+      "successor": {
+        "uncertainty_envelope": true,
+        "state_accuracy": true,
+        "reference_uncertainty": true,
+        "ledger_accuracy": true,
+        "reconstruction": true,
+        "R18": true,
+        "R20": true,
+        "R20_reconstruction": true,
+        "schedule_invariance": true,
+        "progress": true
+      },
+      "successor_pass": true,
+      "max_state_accuracy_ratio": 0.2765990191393169,
+      "max_ledger_accuracy_ratio": 0.9360513612502944,
+      "rejection_fraction": [
+        0.0,
+        0.16666666666666666,
+        0.125
+      ],
+      "boundary_clips": [
+        5,
+        5,
+        5
+      ],
+      "boundary_limited_fractions": [
+        0.8333333333333334,
+        0.5,
+        0.35714285714285715
+      ],
+      "uncertainty_envelope_max_ratio": 0.012053120804256969,
+      "boundary_classification": {
+        "matching_event_sequence": true,
+        "boundary_limited_cell_intervals": [
+          {
+            "knot": 78,
+            "direction": -1,
+            "steps": [
+              1,
+              1,
+              1
+            ],
+            "duration_s": [
+              55579606472.37598,
+              55579606472.37598,
+              55579606472.37598
+            ]
+          }
+        ],
+        "counts_by_tier": [
+          5,
+          5,
+          5
+        ]
+      },
+      "R20_records": [
+        {
+          "tier": "0",
+          "R20_normalized": "1.2490099033877967e-05",
+          "reconstruction_over_N": "2.1640447625490023e-10",
+          "quadrature_grid_points": "65"
+        },
+        {
+          "tier": "1",
+          "R20_normalized": "1.2489258323988955e-05",
+          "reconstruction_over_N": "2.1633081061270652e-10",
+          "quadrature_grid_points": "65"
+        },
+        {
+          "tier": "2",
+          "R20_normalized": "1.2488016409674522e-05",
+          "reconstruction_over_N": "2.1585627139073253e-10",
+          "quadrature_grid_points": "65"
+        }
+      ],
+      "scope": "common-time local window; no full-campaign global accuracy claim"
+    },
+    "bounded": {
+      "original_BA12R": {
+        "state": false,
+        "ledger": true,
+        "rejection_fraction_le_0p10": true
+      },
+      "successor": {
+        "uncertainty_envelope": true,
+        "state_accuracy": true,
+        "reference_uncertainty": true,
+        "ledger_accuracy": true,
+        "reconstruction": true,
+        "R18": true,
+        "R20": true,
+        "R20_reconstruction": true,
+        "schedule_invariance": true,
+        "progress": true
+      },
+      "successor_pass": true,
+      "max_state_accuracy_ratio": 0.9115091970538326,
+      "max_ledger_accuracy_ratio": 0.003982055367092584,
+      "rejection_fraction": [
+        0.05660377358490566,
+        0.04081632653061224,
+        0.01932367149758454
+      ],
+      "boundary_clips": [
+        7,
+        7,
+        7
+      ],
+      "boundary_limited_fractions": [
+        0.14,
+        0.07446808510638298,
+        0.034482758620689655
+      ],
+      "uncertainty_envelope_max_ratio": 0.04430379746835443,
+      "boundary_classification": {
+        "matching_event_sequence": true,
+        "boundary_limited_cell_intervals": [],
+        "counts_by_tier": [
+          7,
+          7,
+          7
+        ]
+      },
+      "R20_records": [
+        {
+          "tier": "0",
+          "R20_normalized": "5.2507556024457402e-07",
+          "reconstruction_over_N": "1.6081578945915396e-10",
+          "quadrature_grid_points": "241"
+        },
+        {
+          "tier": "1",
+          "R20_normalized": "5.2415957593613033e-07",
+          "reconstruction_over_N": "1.6066611509670022e-10",
+          "quadrature_grid_points": "241"
+        },
+        {
+          "tier": "2",
+          "R20_normalized": "5.2414842393170267e-07",
+          "reconstruction_over_N": "1.6056586407309564e-10",
+          "quadrature_grid_points": "241"
+        }
+      ],
+      "scope": "common-time local window; no full-campaign global accuracy claim"
+    },
+    "tail": {
+      "original_BA12R": {
+        "state": false,
+        "ledger": true,
+        "rejection_fraction_le_0p10": false
+      },
+      "successor": {
+        "uncertainty_envelope": true,
+        "state_accuracy": true,
+        "reference_uncertainty": true,
+        "ledger_accuracy": true,
+        "reconstruction": true,
+        "R18": true,
+        "R20": true,
+        "R20_reconstruction": true,
+        "schedule_invariance": true,
+        "progress": true
+      },
+      "successor_pass": true,
+      "max_state_accuracy_ratio": 0.34504792638171117,
+      "max_ledger_accuracy_ratio": 2.1103531911496941e-13,
+      "rejection_fraction": [
+        0.14285714285714285,
+        0.2222222222222222,
+        0.15384615384615385
+      ],
+      "boundary_clips": [
+        0,
+        0,
+        0
+      ],
+      "boundary_limited_fractions": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "uncertainty_envelope_max_ratio": 0.09201243824642144,
+      "boundary_classification": {
+        "matching_event_sequence": true,
+        "boundary_limited_cell_intervals": [],
+        "counts_by_tier": [
+          0,
+          0,
+          0
+        ]
+      },
+      "R20_records": [
+        {
+          "tier": "0",
+          "R20_normalized": "8.7472861402385643e-10",
+          "reconstruction_over_N": "4.11185502113212e-11",
+          "quadrature_grid_points": "33"
+        },
+        {
+          "tier": "1",
+          "R20_normalized": "8.7472861402385643e-10",
+          "reconstruction_over_N": "4.11185502113212e-11",
+          "quadrature_grid_points": "33"
+        },
+        {
+          "tier": "2",
+          "R20_normalized": "8.7472861402385643e-10",
+          "reconstruction_over_N": "4.11185502113212e-11",
+          "quadrature_grid_points": "33"
+        }
+      ],
+      "scope": "common-time local window; no full-campaign global accuracy claim"
+    }
+  },
+  "crossings": {
+    "rows": 333,
+    "count": 37,
+    "max_accuracy_ratio": 0.13080651981070002,
+    "max_event_accuracy_ratio": 0.0725445436123587,
+    "max_reference_uncertainty_over_DU": 0.002180143437001142,
+    "max_event_reference_uncertainty_over_DU": 0.001728120079970239,
+    "all_events_found": true,
+    "source": "/Users/keeper/Documents/CompactStar/data/phase6-breakpoint-candidate/crossings08/output"
+  },
+  "historical_reproduction": {
+    "exact_Arm_E_and_obs32_assertions": "PASS in completed harness",
+    "max_candidate_envelope_ratio": 0.01267009582008377,
+    "all_candidate_reconstructions_qualified": true,
+    "smooth_bitwise": true
+  },
+  "pass": true
+}

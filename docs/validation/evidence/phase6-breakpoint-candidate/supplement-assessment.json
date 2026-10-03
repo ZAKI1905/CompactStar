@@ -1,0 +1,171 @@
+{
+  "status": "PROPOSED successor evidence, not campaign qualification",
+  "run4": {
+    "source": {
+      "archive_difference_over_DU": 0.0020625186940448825,
+      "new_reference_uncertainty_over_DU": 0.007655474792310734,
+      "BASELINE_accuracy": 0.8747731932697773,
+      "REFINED_accuracy": 0.9017241022512681,
+      "ULTRA_accuracy": 0.934929869318459,
+      "observations": 490,
+      "pass": true
+    },
+    "control": {
+      "archive_difference_over_DU": 0.003570134108918422,
+      "new_reference_uncertainty_over_DU": 0.007605776697204474,
+      "BASELINE_accuracy": 0.004728315325081507,
+      "REFINED_accuracy": 0.27779313065918965,
+      "ULTRA_accuracy": 0.25401506404353524,
+      "observations": 1277,
+      "pass": true
+    }
+  },
+  "tail_stability": [
+    {
+      "endpoint": 0,
+      "refinement": 0,
+      "eigenvalues_per_s": [
+        [
+          -4.76859656517866e-12,
+          0.0
+        ],
+        [
+          -3.860824326588394e-11,
+          0.0
+        ],
+        [
+          -3.1506919671431274e-11,
+          0.0
+        ]
+      ],
+      "amplification": [
+        {
+          "h_factor": 0.5,
+          "h_s": 73307164414.59961,
+          "spectral_radius": 0.70498801869742
+        },
+        {
+          "h_factor": 1.0,
+          "h_s": 146614328829.19922,
+          "spectral_radius": 8.70423135275989
+        },
+        {
+          "h_factor": 2.0,
+          "h_s": 293228657658.39844,
+          "spectral_radius": 55.36870306181161
+        }
+      ],
+      "jacobian_refinement_relative_change": 3.9394373537944913e-10
+    },
+    {
+      "endpoint": 0,
+      "refinement": 1,
+      "eigenvalues_per_s": [
+        [
+          -4.768596563661637e-12,
+          0.0
+        ],
+        [
+          -3.8608243265805905e-11,
+          0.0
+        ],
+        [
+          -3.150691967146311e-11,
+          0.0
+        ]
+      ],
+      "amplification": [
+        {
+          "h_factor": 0.5,
+          "h_s": 73307164414.59961,
+          "spectral_radius": 0.704988018775824
+        },
+        {
+          "h_factor": 1.0,
+          "h_s": 146614328829.19922,
+          "spectral_radius": 8.704231352678132
+        },
+        {
+          "h_factor": 2.0,
+          "h_s": 293228657658.39844,
+          "spectral_radius": 55.36870306192749
+        }
+      ],
+      "jacobian_refinement_relative_change": 3.9394373537944913e-10
+    },
+    {
+      "endpoint": 1,
+      "refinement": 0,
+      "eigenvalues_per_s": [
+        [
+          -4.768596565178654e-12,
+          0.0
+        ],
+        [
+          -3.860824326588184e-11,
+          0.0
+        ],
+        [
+          -3.1506919671433374e-11,
+          0.0
+        ]
+      ],
+      "amplification": [
+        {
+          "h_factor": 0.5,
+          "h_s": 73307164414.59961,
+          "spectral_radius": 0.70498801869742
+        },
+        {
+          "h_factor": 1.0,
+          "h_s": 146614328829.19922,
+          "spectral_radius": 8.704231352757668
+        },
+        {
+          "h_factor": 2.0,
+          "h_s": 293228657658.39844,
+          "spectral_radius": 55.36870306181929
+        }
+      ],
+      "jacobian_refinement_relative_change": 4.019529375687414e-10
+    },
+    {
+      "endpoint": 1,
+      "refinement": 1,
+      "eigenvalues_per_s": [
+        [
+          -4.768596563661637e-12,
+          0.0
+        ],
+        [
+          -3.8608243265958914e-11,
+          0.0
+        ],
+        [
+          -3.150691967154124e-11,
+          0.0
+        ]
+      ],
+      "amplification": [
+        {
+          "h_factor": 0.5,
+          "h_s": 73307164414.59961,
+          "spectral_radius": 0.704988018775824
+        },
+        {
+          "h_factor": 1.0,
+          "h_s": 146614328829.19922,
+          "spectral_radius": 8.704231352838383
+        },
+        {
+          "h_factor": 2.0,
+          "h_s": 293228657658.39844,
+          "spectral_radius": 55.36870306221167
+        }
+      ],
+      "jacobian_refinement_relative_change": 4.019529375687414e-10
+    }
+  ],
+  "units": "x dimensionless; eta in MeV; raw Jacobian entry J_ij has units (state_i/state_j)/s; derivative_per_s is only literally per second for equal-unit components. Eigenvalues are per second. Amplification matrix entries use the corresponding component ratio.",
+  "pass": true
+}

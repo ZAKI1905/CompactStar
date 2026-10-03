@@ -1,0 +1,1068 @@
+{
+  "schema": 1,
+  "status": "BOUNDED QUALIFICATION PASSED; UNRATIFIED SCIENTIFIC CANDIDATE; FULL CAMPAIGN STOPPED",
+  "canonical": "9a5c1eca40758e4c39f9f80db7324e12ad23e505",
+  "forensics_base": "669898c6741883ecacdc7e2fa2599cfa3df92918",
+  "implementation_sha": "fa01369654f93a3ae473e6f51fe2a480d0bdfc26",
+  "qualification_harness_sha": "8f5376a7aea4ed2896e15ca9e89221f8c6e0e082",
+  "primary": "final07",
+  "crossings": "crossings08",
+  "archive_comparison_and_stability": "supplement01",
+  "runs": {
+    "final07": {
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08",
+      "returncode": 0,
+      "published": true,
+      "source_head": "fa01369654f93a3ae473e6f51fe2a480d0bdfc26"
+    },
+    "crossings08": {
+      "role": "qualified all 37 crossings, all tiers/components, endpoint/event reference uncertainty and roundoff explicit",
+      "returncode": 0,
+      "published": true,
+      "source_head": "8f5376a7aea4ed2896e15ca9e89221f8c6e0e082"
+    },
+    "supplement01": {
+      "role": "qualified complete run4 common-time comparison and local tail stability probe; numerical integration identical to final implementation",
+      "returncode": 0,
+      "published": true,
+      "source_head": "0f8e7463f994944d3db8cf0d2dbcae8167dbe487"
+    },
+    "control06": {
+      "role": "exact-zero chemical constraint regression; unchanged main history, states and allocation fields",
+      "returncode": 0,
+      "published": true,
+      "source_head": "fa01369654f93a3ae473e6f51fe2a480d0bdfc26"
+    },
+    "events06": {
+      "role": "final implementation exact historical reproduction and smooth non-regression; crossing uncertainty detail superseded by crossings08",
+      "returncode": 0,
+      "published": true,
+      "source_head": "fa01369654f93a3ae473e6f51fe2a480d0bdfc26"
+    },
+    "run05": {
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification",
+      "returncode": 0,
+      "published": true,
+      "source_head": "0f8e7463f994944d3db8cf0d2dbcae8167dbe487"
+    },
+    "diagnostic-probe": {
+      "role": "complete reproduction of the old zero-control Echem uncertainty refusal; diagnostic evidence only",
+      "returncode": 0,
+      "published": true,
+      "source_head": "3ab8b6a6c3c24f50ad3a066bcf02a6b0117dce3c"
+    },
+    "run04": {
+      "role": "FAILED one-ULP right-adjacent event progress test; excluded from qualification",
+      "returncode": 1,
+      "published": false,
+      "source_head": "d222b60bb9bcab069ac5a6275eb5012dbdd276e1"
+    },
+    "run03": {
+      "role": "terminated performance development run; excluded from qualification",
+      "returncode": -15,
+      "published": false,
+      "source_head": "a8a43e96978d9cd0d2dbccf46cc4a9cbdd37851a"
+    },
+    "run02": {
+      "role": "terminated performance development run; excluded from qualification",
+      "returncode": -15,
+      "published": false,
+      "source_head": null
+    },
+    "run01": {
+      "role": "terminated performance development run; excluded from qualification",
+      "returncode": -15,
+      "published": false,
+      "source_head": null
+    },
+    "event-audit": {
+      "role": "terminated performance development run; excluded from qualification",
+      "returncode": -15,
+      "published": false,
+      "source_head": null
+    }
+  },
+  "files": [
+    {
+      "path": "runs/final07/console.log.gz",
+      "sha256": "6d466470171c65a8bcb20ceda6f4ac887493878a2a5d3809bac0aa5c024b277a",
+      "uncompressed_sha256": "63ce9267bd7d4f1dd5a9264758744bd66d7c4ad2d1792f6b29b0b8b083decdee",
+      "bytes": 120538,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/execution.json.gz",
+      "sha256": "1f1c7d012215a06af7523e9a67f8acd44e12c2eab77fadd6d541e4e0829234a8",
+      "uncompressed_sha256": "2f7ea59dcc64249870e6e961509a07e305c58608a3124c47924f5879ef017d75",
+      "bytes": 12888,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/assessment.json.gz",
+      "sha256": "8727d5725336d8b8ca6d510454b2ee2297fd38f7f0c5101e21c6eae247abd28d",
+      "uncompressed_sha256": "b0b9c58244cf4b1d37fc7a20d5ddedc145714790a1b65032c7809eff923fb644",
+      "bytes": 9045,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/bounded-constraints.tsv.gz",
+      "sha256": "a73a76cbec4365a9dea1a02da1d3d6fe0cf556efaa9d0ea9e0b1fd536816c396",
+      "uncompressed_sha256": "6529bc12b9a26e6a4927265d402ba79c884922dde4f03a3af14ab05486e365d2",
+      "bytes": 38364,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/bounded-envelopes.tsv.gz",
+      "sha256": "330f4f0903460d37d316aeef04567a3ba30ba4909a4ec9eeeb718557ce645ea7",
+      "uncompressed_sha256": "76a3bf3668ce90456bf727d55803cca339f2eeba5d4c9c1f827397da39c068aa",
+      "bytes": 481165,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/bounded-events.tsv.gz",
+      "sha256": "c6dc71bb425bab0bd652fb28d2d49488c4a178c686f88c2b7bb3b692186eec94",
+      "uncompressed_sha256": "d78a0e180c0ae9bc8d65a2c21b09e06dd6ae1ca2e9b6b59d82d90d12a593da05",
+      "bytes": 1881,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/bounded-history.tsv.gz",
+      "sha256": "3529bcc52cb6bbc7f54a42f607e712aa12b4ac4a359452939cb7833e1da78fee",
+      "uncompressed_sha256": "bb4a6699c6eef5f4ada645619eed1142b396bdb551d2b336154c5dbb4c5885ac",
+      "bytes": 47854,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/bounded-ledger.tsv.gz",
+      "sha256": "2f6a642dc0e3e21bf22bab2f618c6b9a6b0f24ff5d96639808b250217e436d8d",
+      "uncompressed_sha256": "69df15083fc147b6bbee219a9e1a18a8bec525af1d5fa64e995b3e3bfc44925b",
+      "bytes": 118,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/bounded-observations.tsv.gz",
+      "sha256": "2333caea8ab1e99617e0db189055a8c8530c2363972d0ac87bd9231ec2b493a1",
+      "uncompressed_sha256": "e1061348ee7d6f4b787b666d0f5ba506178e1506d98b890a7173b50cfd322eb9",
+      "bytes": 124449,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/bounded-r20.tsv.gz",
+      "sha256": "384c697ceb53dd33c6e2cccdf4ed202de0ddfa65fd8e6a4f0877e3f7ee4354d2",
+      "uncompressed_sha256": "358f5773ff91bad912786b38a5e757996dfce828ffec265acff526da3d8a6b4f",
+      "bytes": 221,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/bounded-statistics.tsv.gz",
+      "sha256": "192325f48ea7b8f993fd375a39e7c7b1ca5ef657f967dea6b61bba71f9883e79",
+      "uncompressed_sha256": "aaab8229d968ab998ca6fc802a940a117c3a8f066367121b56fa4487b20462e5",
+      "bytes": 354,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/bounded-summary.tsv.gz",
+      "sha256": "3731b6c199b11d4cdcf0c46560a93a4e7a990391e16a8e435e8f8113c3b07325",
+      "uncompressed_sha256": "f6d0a3979c52fe41cc0bec8ec03aadba52b3d9372f0e35b6ccb35c7dcf2a70a6",
+      "bytes": 211,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/bounded-uncertainty.tsv.gz",
+      "sha256": "f51c505dc4a5898a5e63696e6d103f7dfef8a3224874b86bd77c4edcc501999b",
+      "uncompressed_sha256": "b9fb483a881f5f5400bdc363e37d5721e1709a70ded97990f05e2ece61c107ad",
+      "bytes": 219051,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/control-constraints.tsv.gz",
+      "sha256": "7c17e138d5339fdfb38a26f9ea90417a7e4c031e997a0b4d4e8539debe2e05fc",
+      "uncompressed_sha256": "613e58d4f2aa2f19cd763a87b3c6a455288101e5e04370e8c5bfeb7f90a7e43d",
+      "bytes": 2178,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/control-envelopes.tsv.gz",
+      "sha256": "10b6952eb197da2719633e2bde134b7db03fbf58ffae46ed9a16f3c4da2fc17f",
+      "uncompressed_sha256": "881e8a610af3e553a934929ad23e3cd6d2233af9ff6e3644419e0ab342ef4194",
+      "bytes": 103183,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/control-events.tsv.gz",
+      "sha256": "c5052729abc2065d70fb7a5ea4ef29dfcfa2621b6d664f287bf5259d4f30a4c0",
+      "uncompressed_sha256": "c4ef89407c8c4a8c3be8a6e4190706cc8a5e59a59b2c9fe08479a966d6f40739",
+      "bytes": 1331,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/control-history.tsv.gz",
+      "sha256": "52d001be57628713de488d3daa29e20da029b8d1e35eb9be14f460187a912a84",
+      "uncompressed_sha256": "4a56f1545372cf0e13f321244b0e438d973088878507b92af11f1d49a48ebd74",
+      "bytes": 2829,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/control-ledger.tsv.gz",
+      "sha256": "32b193d58ffc48ad0f27fa06cef50f804651a883d354e27c0dba0cce9453f739",
+      "uncompressed_sha256": "e7cab567da4ab67cfcd846020fc0079b0b4f62b2631d2f60fdbccf50800eaacf",
+      "bytes": 97,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/control-observations.tsv.gz",
+      "sha256": "a2b1b27e6ae51d5355621e08b95666e94fe3745d85286eccb5874dd18874b2d9",
+      "uncompressed_sha256": "61a88c6523ac2af233da368186a64293b5d76a19532fd2134fba085ed827666b",
+      "bytes": 23044,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/control-r20.tsv.gz",
+      "sha256": "6c11770892c31c37a64075b682a51e3ab5c432f655811dd7d3aa340c1bb6bd86",
+      "uncompressed_sha256": "4207542c39e5f61766ebc724dc4deeb972db7c37d800b0f9641fbdd263bde4bf",
+      "bytes": 218,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/control-statistics.tsv.gz",
+      "sha256": "d3a586470cacc94ef0bc8b11ec58562b1ebc09a699ba7be49eb99b0db06d5098",
+      "uncompressed_sha256": "7b2f2f79d874e17de8322addfb6c15f0b660bbcf9f53ddd0de31de66b34c7929",
+      "bytes": 383,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/control-summary.tsv.gz",
+      "sha256": "cb2c5b3900a71de2c12431db387d99bd0b71a8ac427f62d52c17010554967467",
+      "uncompressed_sha256": "9f214a81dbf780bd311791fbe27d50d49a3e916e2090f89721e17c15189038bd",
+      "bytes": 214,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/control-uncertainty.tsv.gz",
+      "sha256": "d3e78502d6890e46060587aa8cedec8da9181bf26770b204954609dc3ca99d31",
+      "uncompressed_sha256": "487999953e444db1a5b9c69449ee3153781eda95ace149ec6f590d8ac40ad06b",
+      "bytes": 51448,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/crossings.tsv.gz",
+      "sha256": "bbc4d9fca6fe6cc5cad31c9cd9e56413a6b3d44c47d4151c5a0d0740383067b8",
+      "uncompressed_sha256": "057a792c5f2c5ead76f3d1709d0798bd3975fd1350618752039401ee79ee34b5",
+      "bytes": 13124,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/historical-reproduction.tsv.gz",
+      "sha256": "3bda71f7f156cfaff1217be72c538a26625084d86243223e8f66336f8805fb81",
+      "uncompressed_sha256": "c9ed78ad30ee53c6eb3ebddc4efb7ff5de06d6433d54a69d4f803e2e845cdf3e",
+      "bytes": 318,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/reconstruction-events.tsv.gz",
+      "sha256": "9d5c82a05a31083ad3192b59e9c395ca6375bb5c69a2d2341f1424de175c2f06",
+      "uncompressed_sha256": "f29947bd0d6b24260f870603d47385d1714528a8dae86d94d25ae0e5bb4b48db",
+      "bytes": 535,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/source-constraints.tsv.gz",
+      "sha256": "e115bed66bc1e33b237826ec8f609c626cca6bb0230eaeb560a97cc65b279fcb",
+      "uncompressed_sha256": "4c86cc6deded7923c1d020738c5aa3f1338a08d16cba1b14ea8f8f81363642d3",
+      "bytes": 10074,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/source-envelopes.tsv.gz",
+      "sha256": "a058f4e0585de24b64288599e00589f1038ea873acdba1b0e0f1b27c604f2715",
+      "uncompressed_sha256": "a9c8e7ca5c322bd2ef2801070fd37f06018adca9662ea7c7a324d0d86b304901",
+      "bytes": 129337,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/source-events.tsv.gz",
+      "sha256": "206b73e1bd62e5db6d57bb8cc100f6cc15e520ebe58e88c5af6cae8b84f91c11",
+      "uncompressed_sha256": "2f922b469576d7a8957fc8cda238151c80d93ef45908174ece4978b3367e734e",
+      "bytes": 1887,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/source-history.tsv.gz",
+      "sha256": "5e49d1768316e7c61ed6d627c6158bedb87ae88fcd549c99c665eec8228d300d",
+      "uncompressed_sha256": "7f01a3d8bafb69c3fbc97d22833be9eba8d83a9490f5db8a05ca00711beeff33",
+      "bytes": 87559,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/source-ledger.tsv.gz",
+      "sha256": "cb59e8fa5eaff67ba2f0e095bacd5b647a204b5eed83d0e3856b4c7af90210dc",
+      "uncompressed_sha256": "4410007b66b64031c5010cfc637ac3d25a404a68f2cd99a94ae1c15519008c7e",
+      "bytes": 118,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/source-observations.tsv.gz",
+      "sha256": "194f8b81d43eb13084025ac2b0620635a6338d44a148b1c63c3b09e23b5deb0e",
+      "uncompressed_sha256": "3a3c4ffae052212d4e0bc8c7956304a1eb7d13bbfb59cc417a5985368db24d99",
+      "bytes": 34313,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/source-r20.tsv.gz",
+      "sha256": "b9cc92d500ee17d2095cecb10c1970012b694d7ff60e01c4d498ef945d1e96d9",
+      "uncompressed_sha256": "b8d64c4d60c6e470d095d88c887ce2fd0e5456c9c459aa27ac61a50a2282febd",
+      "bytes": 220,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/source-statistics.tsv.gz",
+      "sha256": "d58f3ba6116aa576cdc2871a941af5e112359fef374c78841e4b44623f77a282",
+      "uncompressed_sha256": "63e2a0cd0477c31a8e3561942d6df963ac79f85c3e2575587eb54a73405856d5",
+      "bytes": 415,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/source-summary.tsv.gz",
+      "sha256": "2e6e2b33af0f8b8e2475a8aaec433d8a49fded5e749c3ecac3c722c08acd5e4f",
+      "uncompressed_sha256": "b77b144e45b8d8d55f0717fa87c2f0f3e855b2211adeaf974e3d613caa9454d3",
+      "bytes": 214,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/source-uncertainty.tsv.gz",
+      "sha256": "ed1504038119d8901cbe262d6273e16b63a502f8dae6383844f21f6c55d714d1",
+      "uncompressed_sha256": "0b7baeff1fdcdeb0799a9a156a26ea64bc1aa458421ea679cd7bee5a0951789d",
+      "bytes": 58070,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/tail-constraints.tsv.gz",
+      "sha256": "dc4120e7e1abf90e13ba2844c6af180d5645c3da101ff8039b9bdae710927931",
+      "uncompressed_sha256": "4142a1253cd23deae1656186ae042c97274528e6d874d1f73891e96345a19f0f",
+      "bytes": 5008,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/tail-envelopes.tsv.gz",
+      "sha256": "7f2ebaeba7fb5b5beb5127d741d70d1a44dd74b2463424dc8df4f9b150981453",
+      "uncompressed_sha256": "a8dbeddd1d0f408b4513c2aa08355e3df8ec3f0cf5339b52634bd5d4dfc808f7",
+      "bytes": 47068,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/tail-events.tsv.gz",
+      "sha256": "470e35d01b0442f5bd6a1e80617df19daa12095bac4d334d3dcb23d4168c38d1",
+      "uncompressed_sha256": "42d4b2c6528147bd68a692a1a547da4321606083dd0dfe52285dd40cafad6fbb",
+      "bytes": 67,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/tail-history.tsv.gz",
+      "sha256": "ef33105c0076166922fe7ac2d090b9977c3af7a8e03c1a52b25d468c503f596c",
+      "uncompressed_sha256": "2563e3beaf253fc146a13067aa5b8f8a49f7a2e8fad5b7decc365646f31df3e4",
+      "bytes": 3364,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/tail-ledger.tsv.gz",
+      "sha256": "25d6baad4b2c37d6e55c214cce495578aef22df7a58afa6c82742416cb267e01",
+      "uncompressed_sha256": "28f1a367c2e09379037b8cd0118fd1595556b3d8d57d5f67dd6bc29fe0f41c85",
+      "bytes": 120,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/tail-observations.tsv.gz",
+      "sha256": "036836437ae8debbbb6b9d734128e9b368e0d8e4692d3bdde6d2c84097dc2c4c",
+      "uncompressed_sha256": "fa0e406f197b069a2f6e89e56c6b40d73270c9543cf1f4d14389805a0e466295",
+      "bytes": 17967,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/tail-r20.tsv.gz",
+      "sha256": "5f4e6a182c7eb2e6bb99ef099310b9672a656130099729db8f35b95c14a197a3",
+      "uncompressed_sha256": "33a5e80be0050fd97f795eb6183b3b1163f8d862e12f8c180ff803c6ad663702",
+      "bytes": 212,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/tail-statistics.tsv.gz",
+      "sha256": "73af5d38ecada0e3683df415fbbba64eee8edba5d5382c0d95781994a186a55f",
+      "uncompressed_sha256": "219b601c3017c95e6143a0623c3ec51ae7ba463cd55a8a9303fc2046eb44e208",
+      "bytes": 357,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/tail-summary.tsv.gz",
+      "sha256": "8cd381f7c223d726de24bfa93eda592beacb47089de8f7c71eac1f2b76db36ce",
+      "uncompressed_sha256": "e730a6e8747e84270f73e583090a525999602b2b1785c018cdf4d4e6b55f01e0",
+      "bytes": 213,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/final07/output/tail-uncertainty.tsv.gz",
+      "sha256": "3828b40c985cd5e55aea972907cd6bb9d57534b40b27f4c52a12cf5c635b2fa2",
+      "uncompressed_sha256": "d5c07c1b26eb3130cccb6f7e3864a0d54e7b593d9aa03f4a5ca68eea52808a44",
+      "bytes": 29545,
+      "role": "complete final implementation bounded windows and historical reproduction; crossing totals superseded only by explicit-reference-uncertainty crossings08"
+    },
+    {
+      "path": "runs/crossings08/console.log.gz",
+      "sha256": "93273f02ebf4f021563c9a72287df13a1aae712c071558bf8fd5bca55d90d660",
+      "uncompressed_sha256": "78d642ed5920c6233c2fd4ad8cbd70c0bf0d466d05ff83311f6d5d59d631aa7a",
+      "bytes": 117002,
+      "role": "qualified all 37 crossings, all tiers/components, endpoint/event reference uncertainty and roundoff explicit"
+    },
+    {
+      "path": "runs/crossings08/execution.json.gz",
+      "sha256": "594de91c3695486024e06089490fa1a37cd10b48cf08ae8a1436dde54ef381c8",
+      "uncompressed_sha256": "38ef4acf41f580d2d33e02a4fb2a41305ee6baba786cf07d7ed1048eb370d569",
+      "bytes": 8894,
+      "role": "qualified all 37 crossings, all tiers/components, endpoint/event reference uncertainty and roundoff explicit"
+    },
+    {
+      "path": "runs/crossings08/output/crossings.tsv.gz",
+      "sha256": "6bd36d66193112df76604ed3ad4d1570bcb5362adbfd102852016f25348d51a4",
+      "uncompressed_sha256": "3d1b8b75055e6d454053e978a7badae5a0607cd469933e4296dfbc9ea2fce19c",
+      "bytes": 36545,
+      "role": "qualified all 37 crossings, all tiers/components, endpoint/event reference uncertainty and roundoff explicit"
+    },
+    {
+      "path": "runs/supplement01/console.log.gz",
+      "sha256": "cb62ca5632a74ce06314316682053587e8a7919f8bccd03fa22eacf0eaefb670",
+      "uncompressed_sha256": "ba14a04baf832816c0197d7e65227bad0a8064bf78b1847775aff0903e64114e",
+      "bytes": 117137,
+      "role": "qualified complete run4 common-time comparison and local tail stability probe; numerical integration identical to final implementation"
+    },
+    {
+      "path": "runs/supplement01/execution.json.gz",
+      "sha256": "c38fc35588fc90f3ad19c8486f1cb7ba08ac3c9cbffd8a8c9d60bf669cbed14e",
+      "uncompressed_sha256": "0de8990ff32ce06d014ad128b5744ad97a7df72ba78e957b6a7e1de2a2b3f7ca",
+      "bytes": 9084,
+      "role": "qualified complete run4 common-time comparison and local tail stability probe; numerical integration identical to final implementation"
+    },
+    {
+      "path": "runs/supplement01/output/assessment.json.gz",
+      "sha256": "bab16c8935fe4c9c390b54a001b0a5369bcb865455c4f1e7f3661d4160d91869",
+      "uncompressed_sha256": "ae0341c0db3c0c8c5dfbd1c59ee4f0ccc2bcf354800abc4719aa1e1a40a21608",
+      "bytes": 4249,
+      "role": "qualified complete run4 common-time comparison and local tail stability probe; numerical integration identical to final implementation"
+    },
+    {
+      "path": "runs/supplement01/output/control-run4-comparison.tsv.gz",
+      "sha256": "6132ac6aa0ebc16d8b0193ad20c517edf1c9b5ccd987796a4ee6ce042c5b6da2",
+      "uncompressed_sha256": "f240da222b017fedd8d278eba1d79645ee718c207d972e252bb95394aa3cb50f",
+      "bytes": 537022,
+      "role": "qualified complete run4 common-time comparison and local tail stability probe; numerical integration identical to final implementation"
+    },
+    {
+      "path": "runs/supplement01/output/source-run4-comparison.tsv.gz",
+      "sha256": "4ca4cc885b39082a51dd28efaf96b3ad4d6237297c201ed06fe2a4f99ce24910",
+      "uncompressed_sha256": "19033ffade0ac62fc679d63c2e80ceb2630158a636da92c97e40c9b69319ac1c",
+      "bytes": 254126,
+      "role": "qualified complete run4 common-time comparison and local tail stability probe; numerical integration identical to final implementation"
+    },
+    {
+      "path": "runs/supplement01/output/tail-jacobian.tsv.gz",
+      "sha256": "911319de104e8e5a6a935462d939a1422b345a693371d041a4dafc7b38621d49",
+      "uncompressed_sha256": "d648d41422b9a91c10ff45ccbd06cc78b61194784a9ac85d8b949a41e0230b9a",
+      "bytes": 1097,
+      "role": "qualified complete run4 common-time comparison and local tail stability probe; numerical integration identical to final implementation"
+    },
+    {
+      "path": "runs/supplement01/output/tail-stability.tsv.gz",
+      "sha256": "cc10cb7e24d21aaa555e7d98793274b00eec8c96eba8b953bff36fb94dbd9172",
+      "uncompressed_sha256": "4a53c639a059bfaf446357dec745fc593e9e312082d38f6083f84a5f5e37340f",
+      "bytes": 5593,
+      "role": "qualified complete run4 common-time comparison and local tail stability probe; numerical integration identical to final implementation"
+    },
+    {
+      "path": "runs/control06/console.log.gz",
+      "sha256": "96780c7be06c6fc69fac911e51dbeaa37b176d749ceee9f5bc125c98f4cae69e",
+      "uncompressed_sha256": "74118570b7dd9531eb1fce13d3d78eaaea81bf1d5ed51adc6eaffc2b742b54bb",
+      "bytes": 117595,
+      "role": "exact-zero chemical constraint regression; unchanged main history, states and allocation fields"
+    },
+    {
+      "path": "runs/control06/execution.json.gz",
+      "sha256": "bc7fe0b8d7856bddca10abbf22d6c3570c7dcfd07b3ae924d53f1eba098d0708",
+      "uncompressed_sha256": "1335916bf120c8fba34def9dbd43a155b70c2fb5e3ef04d4ea4714dc6df7c2c6",
+      "bytes": 9757,
+      "role": "exact-zero chemical constraint regression; unchanged main history, states and allocation fields"
+    },
+    {
+      "path": "runs/control06/output/control-constraints.tsv.gz",
+      "sha256": "7c17e138d5339fdfb38a26f9ea90417a7e4c031e997a0b4d4e8539debe2e05fc",
+      "uncompressed_sha256": "613e58d4f2aa2f19cd763a87b3c6a455288101e5e04370e8c5bfeb7f90a7e43d",
+      "bytes": 2178,
+      "role": "exact-zero chemical constraint regression; unchanged main history, states and allocation fields"
+    },
+    {
+      "path": "runs/control06/output/control-envelopes.tsv.gz",
+      "sha256": "10b6952eb197da2719633e2bde134b7db03fbf58ffae46ed9a16f3c4da2fc17f",
+      "uncompressed_sha256": "881e8a610af3e553a934929ad23e3cd6d2233af9ff6e3644419e0ab342ef4194",
+      "bytes": 103183,
+      "role": "exact-zero chemical constraint regression; unchanged main history, states and allocation fields"
+    },
+    {
+      "path": "runs/control06/output/control-events.tsv.gz",
+      "sha256": "c5052729abc2065d70fb7a5ea4ef29dfcfa2621b6d664f287bf5259d4f30a4c0",
+      "uncompressed_sha256": "c4ef89407c8c4a8c3be8a6e4190706cc8a5e59a59b2c9fe08479a966d6f40739",
+      "bytes": 1331,
+      "role": "exact-zero chemical constraint regression; unchanged main history, states and allocation fields"
+    },
+    {
+      "path": "runs/control06/output/control-history.tsv.gz",
+      "sha256": "52d001be57628713de488d3daa29e20da029b8d1e35eb9be14f460187a912a84",
+      "uncompressed_sha256": "4a56f1545372cf0e13f321244b0e438d973088878507b92af11f1d49a48ebd74",
+      "bytes": 2829,
+      "role": "exact-zero chemical constraint regression; unchanged main history, states and allocation fields"
+    },
+    {
+      "path": "runs/control06/output/control-ledger.tsv.gz",
+      "sha256": "32b193d58ffc48ad0f27fa06cef50f804651a883d354e27c0dba0cce9453f739",
+      "uncompressed_sha256": "e7cab567da4ab67cfcd846020fc0079b0b4f62b2631d2f60fdbccf50800eaacf",
+      "bytes": 97,
+      "role": "exact-zero chemical constraint regression; unchanged main history, states and allocation fields"
+    },
+    {
+      "path": "runs/control06/output/control-observations.tsv.gz",
+      "sha256": "a2b1b27e6ae51d5355621e08b95666e94fe3745d85286eccb5874dd18874b2d9",
+      "uncompressed_sha256": "61a88c6523ac2af233da368186a64293b5d76a19532fd2134fba085ed827666b",
+      "bytes": 23044,
+      "role": "exact-zero chemical constraint regression; unchanged main history, states and allocation fields"
+    },
+    {
+      "path": "runs/control06/output/control-r20.tsv.gz",
+      "sha256": "6c11770892c31c37a64075b682a51e3ab5c432f655811dd7d3aa340c1bb6bd86",
+      "uncompressed_sha256": "4207542c39e5f61766ebc724dc4deeb972db7c37d800b0f9641fbdd263bde4bf",
+      "bytes": 218,
+      "role": "exact-zero chemical constraint regression; unchanged main history, states and allocation fields"
+    },
+    {
+      "path": "runs/control06/output/control-statistics.tsv.gz",
+      "sha256": "50f7be0942be408d6707b003335e235351c320ec50ea8c75c7f6497cbeca4e9c",
+      "uncompressed_sha256": "2e45f627c3e67886f41aeb8f873f4d2b4ddd1ff015b1bd28a90b8e745c0fe5c6",
+      "bytes": 381,
+      "role": "exact-zero chemical constraint regression; unchanged main history, states and allocation fields"
+    },
+    {
+      "path": "runs/control06/output/control-summary.tsv.gz",
+      "sha256": "cb2c5b3900a71de2c12431db387d99bd0b71a8ac427f62d52c17010554967467",
+      "uncompressed_sha256": "9f214a81dbf780bd311791fbe27d50d49a3e916e2090f89721e17c15189038bd",
+      "bytes": 214,
+      "role": "exact-zero chemical constraint regression; unchanged main history, states and allocation fields"
+    },
+    {
+      "path": "runs/control06/output/control-uncertainty.tsv.gz",
+      "sha256": "d3e78502d6890e46060587aa8cedec8da9181bf26770b204954609dc3ca99d31",
+      "uncompressed_sha256": "487999953e444db1a5b9c69449ee3153781eda95ace149ec6f590d8ac40ad06b",
+      "bytes": 51448,
+      "role": "exact-zero chemical constraint regression; unchanged main history, states and allocation fields"
+    },
+    {
+      "path": "runs/events06/console.log.gz",
+      "sha256": "d0db718729863aaed163895be28550066c1b3b8e8030776a109c901912bbfb1f",
+      "uncompressed_sha256": "978b230bd913e2572ed86a7bb700de943a584e825124cfe0bf390591a7caccf1",
+      "bytes": 117080,
+      "role": "final implementation exact historical reproduction and smooth non-regression; crossing uncertainty detail superseded by crossings08"
+    },
+    {
+      "path": "runs/events06/execution.json.gz",
+      "sha256": "09ee568b232aca2844a8942f8c9c6d6aa160e3cfb7f43f2c1778a7aaf164c630",
+      "uncompressed_sha256": "799c67fb119197470452087ac1f269c6515aa1202c3c5b88dabc8a6847d8ac15",
+      "bytes": 9086,
+      "role": "final implementation exact historical reproduction and smooth non-regression; crossing uncertainty detail superseded by crossings08"
+    },
+    {
+      "path": "runs/events06/output/crossings.tsv.gz",
+      "sha256": "bbc4d9fca6fe6cc5cad31c9cd9e56413a6b3d44c47d4151c5a0d0740383067b8",
+      "uncompressed_sha256": "057a792c5f2c5ead76f3d1709d0798bd3975fd1350618752039401ee79ee34b5",
+      "bytes": 13124,
+      "role": "final implementation exact historical reproduction and smooth non-regression; crossing uncertainty detail superseded by crossings08"
+    },
+    {
+      "path": "runs/events06/output/historical-reproduction.tsv.gz",
+      "sha256": "3bda71f7f156cfaff1217be72c538a26625084d86243223e8f66336f8805fb81",
+      "uncompressed_sha256": "c9ed78ad30ee53c6eb3ebddc4efb7ff5de06d6433d54a69d4f803e2e845cdf3e",
+      "bytes": 318,
+      "role": "final implementation exact historical reproduction and smooth non-regression; crossing uncertainty detail superseded by crossings08"
+    },
+    {
+      "path": "runs/events06/output/reconstruction-events.tsv.gz",
+      "sha256": "9d5c82a05a31083ad3192b59e9c395ca6375bb5c69a2d2341f1424de175c2f06",
+      "uncompressed_sha256": "f29947bd0d6b24260f870603d47385d1714528a8dae86d94d25ae0e5bb4b48db",
+      "bytes": 535,
+      "role": "final implementation exact historical reproduction and smooth non-regression; crossing uncertainty detail superseded by crossings08"
+    },
+    {
+      "path": "runs/run05/console.log.gz",
+      "sha256": "6674848a60019d876628f77715e4f5a1379fe57a18c1d5fd3423afbcc9a70ccf",
+      "uncompressed_sha256": "e7a98aff8b93b664f395b5d3541df47f5e5fb4299cda1f6be147633043a33fb7",
+      "bytes": 120541,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/execution.json.gz",
+      "sha256": "2367649481456ea77aa950fff8c145d1d1f9c9d421bf3abc520b087df4193071",
+      "uncompressed_sha256": "03eb81512b3c6d6c80f3250bc1f73a8e6b431c98ea1a9748b69d8b3e12ca1757",
+      "bytes": 12282,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/assessment.json.gz",
+      "sha256": "c86b1bd240458c6370e15857a4b65684cb65d5b0b7e9dba510a2fa008c3c3e80",
+      "uncompressed_sha256": "2704c6267813269eb9252e93c471ee587b9a9d1aa5097aae784b13f112c3605c",
+      "bytes": 8163,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/bounded-envelopes.tsv.gz",
+      "sha256": "330f4f0903460d37d316aeef04567a3ba30ba4909a4ec9eeeb718557ce645ea7",
+      "uncompressed_sha256": "76a3bf3668ce90456bf727d55803cca339f2eeba5d4c9c1f827397da39c068aa",
+      "bytes": 481165,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/bounded-events.tsv.gz",
+      "sha256": "c6dc71bb425bab0bd652fb28d2d49488c4a178c686f88c2b7bb3b692186eec94",
+      "uncompressed_sha256": "d78a0e180c0ae9bc8d65a2c21b09e06dd6ae1ca2e9b6b59d82d90d12a593da05",
+      "bytes": 1881,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/bounded-history.tsv.gz",
+      "sha256": "3529bcc52cb6bbc7f54a42f607e712aa12b4ac4a359452939cb7833e1da78fee",
+      "uncompressed_sha256": "bb4a6699c6eef5f4ada645619eed1142b396bdb551d2b336154c5dbb4c5885ac",
+      "bytes": 47854,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/bounded-ledger.tsv.gz",
+      "sha256": "2f6a642dc0e3e21bf22bab2f618c6b9a6b0f24ff5d96639808b250217e436d8d",
+      "uncompressed_sha256": "69df15083fc147b6bbee219a9e1a18a8bec525af1d5fa64e995b3e3bfc44925b",
+      "bytes": 118,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/bounded-observations.tsv.gz",
+      "sha256": "2333caea8ab1e99617e0db189055a8c8530c2363972d0ac87bd9231ec2b493a1",
+      "uncompressed_sha256": "e1061348ee7d6f4b787b666d0f5ba506178e1506d98b890a7173b50cfd322eb9",
+      "bytes": 124449,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/bounded-r20.tsv.gz",
+      "sha256": "384c697ceb53dd33c6e2cccdf4ed202de0ddfa65fd8e6a4f0877e3f7ee4354d2",
+      "uncompressed_sha256": "358f5773ff91bad912786b38a5e757996dfce828ffec265acff526da3d8a6b4f",
+      "bytes": 221,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/bounded-statistics.tsv.gz",
+      "sha256": "f093b338c274482512fc75aa8ebc9081a7b6d39cc62b20b9b4ae78d3f93f0a67",
+      "uncompressed_sha256": "a98eb2ded66292184fc9964abbcae141d837257f3b71fc4f4d7ba4cb940c0f97",
+      "bytes": 354,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/bounded-summary.tsv.gz",
+      "sha256": "3731b6c199b11d4cdcf0c46560a93a4e7a990391e16a8e435e8f8113c3b07325",
+      "uncompressed_sha256": "f6d0a3979c52fe41cc0bec8ec03aadba52b3d9372f0e35b6ccb35c7dcf2a70a6",
+      "bytes": 211,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/bounded-uncertainty.tsv.gz",
+      "sha256": "f51c505dc4a5898a5e63696e6d103f7dfef8a3224874b86bd77c4edcc501999b",
+      "uncompressed_sha256": "b9fb483a881f5f5400bdc363e37d5721e1709a70ded97990f05e2ece61c107ad",
+      "bytes": 219051,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/control-envelopes.tsv.gz",
+      "sha256": "843a1353198c95373aeb7b0a86a12ae82d149407abe1059dcb00ec4aa56cfc59",
+      "uncompressed_sha256": "a0344be04ce9911a983f0f1700ddbb95203fba9667b11c6018bd60db466c1e70",
+      "bytes": 60,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/control-events.tsv.gz",
+      "sha256": "c5052729abc2065d70fb7a5ea4ef29dfcfa2621b6d664f287bf5259d4f30a4c0",
+      "uncompressed_sha256": "c4ef89407c8c4a8c3be8a6e4190706cc8a5e59a59b2c9fe08479a966d6f40739",
+      "bytes": 1331,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/control-history.tsv.gz",
+      "sha256": "52d001be57628713de488d3daa29e20da029b8d1e35eb9be14f460187a912a84",
+      "uncompressed_sha256": "4a56f1545372cf0e13f321244b0e438d973088878507b92af11f1d49a48ebd74",
+      "bytes": 2829,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/control-ledger.tsv.gz",
+      "sha256": "32b193d58ffc48ad0f27fa06cef50f804651a883d354e27c0dba0cce9453f739",
+      "uncompressed_sha256": "e7cab567da4ab67cfcd846020fc0079b0b4f62b2631d2f60fdbccf50800eaacf",
+      "bytes": 97,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/control-observations.tsv.gz",
+      "sha256": "8a2bb57663c687e9d6528db6c11f99876354dfef0a79783b45914db2c69245b9",
+      "uncompressed_sha256": "4a316900d44c50f041cbeb29866dedf89bc92edffbbe8c4fd91f41c5e7aa953d",
+      "bytes": 23044,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/control-statistics.tsv.gz",
+      "sha256": "e33a7480cd9876ec030c21a466e044af2313405d23fefee5be3ea00ef5475778",
+      "uncompressed_sha256": "fd4fc7da5acabdd2fbcb6c4ae2940f85b5ad0270039b66eaed03d93a51fd39a0",
+      "bytes": 380,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/control-summary.tsv.gz",
+      "sha256": "1baf0fadb01b45d10d2152781d4fa6c31cee31d81d2e340d3901545bf08fe638",
+      "uncompressed_sha256": "33671499ac87a2f987610567d49ea11f984cfb778c4754f2af1f8920503f2bd7",
+      "bytes": 216,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/control-uncertainty.tsv.gz",
+      "sha256": "d3e78502d6890e46060587aa8cedec8da9181bf26770b204954609dc3ca99d31",
+      "uncompressed_sha256": "487999953e444db1a5b9c69449ee3153781eda95ace149ec6f590d8ac40ad06b",
+      "bytes": 51448,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/crossings.tsv.gz",
+      "sha256": "bbc4d9fca6fe6cc5cad31c9cd9e56413a6b3d44c47d4151c5a0d0740383067b8",
+      "uncompressed_sha256": "057a792c5f2c5ead76f3d1709d0798bd3975fd1350618752039401ee79ee34b5",
+      "bytes": 13124,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/historical-reproduction.tsv.gz",
+      "sha256": "3bda71f7f156cfaff1217be72c538a26625084d86243223e8f66336f8805fb81",
+      "uncompressed_sha256": "c9ed78ad30ee53c6eb3ebddc4efb7ff5de06d6433d54a69d4f803e2e845cdf3e",
+      "bytes": 318,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/reconstruction-events.tsv.gz",
+      "sha256": "9d5c82a05a31083ad3192b59e9c395ca6375bb5c69a2d2341f1424de175c2f06",
+      "uncompressed_sha256": "f29947bd0d6b24260f870603d47385d1714528a8dae86d94d25ae0e5bb4b48db",
+      "bytes": 535,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/source-envelopes.tsv.gz",
+      "sha256": "a058f4e0585de24b64288599e00589f1038ea873acdba1b0e0f1b27c604f2715",
+      "uncompressed_sha256": "a9c8e7ca5c322bd2ef2801070fd37f06018adca9662ea7c7a324d0d86b304901",
+      "bytes": 129337,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/source-events.tsv.gz",
+      "sha256": "206b73e1bd62e5db6d57bb8cc100f6cc15e520ebe58e88c5af6cae8b84f91c11",
+      "uncompressed_sha256": "2f922b469576d7a8957fc8cda238151c80d93ef45908174ece4978b3367e734e",
+      "bytes": 1887,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/source-history.tsv.gz",
+      "sha256": "5e49d1768316e7c61ed6d627c6158bedb87ae88fcd549c99c665eec8228d300d",
+      "uncompressed_sha256": "7f01a3d8bafb69c3fbc97d22833be9eba8d83a9490f5db8a05ca00711beeff33",
+      "bytes": 87559,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/source-ledger.tsv.gz",
+      "sha256": "cb59e8fa5eaff67ba2f0e095bacd5b647a204b5eed83d0e3856b4c7af90210dc",
+      "uncompressed_sha256": "4410007b66b64031c5010cfc637ac3d25a404a68f2cd99a94ae1c15519008c7e",
+      "bytes": 118,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/source-observations.tsv.gz",
+      "sha256": "194f8b81d43eb13084025ac2b0620635a6338d44a148b1c63c3b09e23b5deb0e",
+      "uncompressed_sha256": "3a3c4ffae052212d4e0bc8c7956304a1eb7d13bbfb59cc417a5985368db24d99",
+      "bytes": 34313,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/source-r20.tsv.gz",
+      "sha256": "b9cc92d500ee17d2095cecb10c1970012b694d7ff60e01c4d498ef945d1e96d9",
+      "uncompressed_sha256": "b8d64c4d60c6e470d095d88c887ce2fd0e5456c9c459aa27ac61a50a2282febd",
+      "bytes": 220,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/source-statistics.tsv.gz",
+      "sha256": "92a1c7f34c8a11bcee113646d30c854870fb7dae80613d501b2083830e3d38db",
+      "uncompressed_sha256": "602c78852c0f59677fbc36c4f7df478e1869ec4296f78445deca630780efd548",
+      "bytes": 397,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/source-summary.tsv.gz",
+      "sha256": "2e6e2b33af0f8b8e2475a8aaec433d8a49fded5e749c3ecac3c722c08acd5e4f",
+      "uncompressed_sha256": "b77b144e45b8d8d55f0717fa87c2f0f3e855b2211adeaf974e3d613caa9454d3",
+      "bytes": 214,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/source-uncertainty.tsv.gz",
+      "sha256": "ed1504038119d8901cbe262d6273e16b63a502f8dae6383844f21f6c55d714d1",
+      "uncompressed_sha256": "0b7baeff1fdcdeb0799a9a156a26ea64bc1aa458421ea679cd7bee5a0951789d",
+      "bytes": 58070,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/tail-envelopes.tsv.gz",
+      "sha256": "7f2ebaeba7fb5b5beb5127d741d70d1a44dd74b2463424dc8df4f9b150981453",
+      "uncompressed_sha256": "a8dbeddd1d0f408b4513c2aa08355e3df8ec3f0cf5339b52634bd5d4dfc808f7",
+      "bytes": 47068,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/tail-events.tsv.gz",
+      "sha256": "470e35d01b0442f5bd6a1e80617df19daa12095bac4d334d3dcb23d4168c38d1",
+      "uncompressed_sha256": "42d4b2c6528147bd68a692a1a547da4321606083dd0dfe52285dd40cafad6fbb",
+      "bytes": 67,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/tail-history.tsv.gz",
+      "sha256": "ef33105c0076166922fe7ac2d090b9977c3af7a8e03c1a52b25d468c503f596c",
+      "uncompressed_sha256": "2563e3beaf253fc146a13067aa5b8f8a49f7a2e8fad5b7decc365646f31df3e4",
+      "bytes": 3364,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/tail-ledger.tsv.gz",
+      "sha256": "25d6baad4b2c37d6e55c214cce495578aef22df7a58afa6c82742416cb267e01",
+      "uncompressed_sha256": "28f1a367c2e09379037b8cd0118fd1595556b3d8d57d5f67dd6bc29fe0f41c85",
+      "bytes": 120,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/tail-observations.tsv.gz",
+      "sha256": "036836437ae8debbbb6b9d734128e9b368e0d8e4692d3bdde6d2c84097dc2c4c",
+      "uncompressed_sha256": "fa0e406f197b069a2f6e89e56c6b40d73270c9543cf1f4d14389805a0e466295",
+      "bytes": 17967,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/tail-r20.tsv.gz",
+      "sha256": "5f4e6a182c7eb2e6bb99ef099310b9672a656130099729db8f35b95c14a197a3",
+      "uncompressed_sha256": "33a5e80be0050fd97f795eb6183b3b1163f8d862e12f8c180ff803c6ad663702",
+      "bytes": 212,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/tail-statistics.tsv.gz",
+      "sha256": "20e1c0334f8ee421bac5ab80c326b2d1f91cc7288203dbebdf8779bbfed0a7ea",
+      "uncompressed_sha256": "8c41845013fb6b68f52214b0536dc896cf1f21952e348d5dc4f985621e0966b2",
+      "bytes": 357,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/tail-summary.tsv.gz",
+      "sha256": "8cd381f7c223d726de24bfa93eda592beacb47089de8f7c71eac1f2b76db36ce",
+      "uncompressed_sha256": "e730a6e8747e84270f73e583090a525999602b2b1785c018cdf4d4e6b55f01e0",
+      "bytes": 213,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/run05/output/tail-uncertainty.tsv.gz",
+      "sha256": "3828b40c985cd5e55aea972907cd6bb9d57534b40b27f4c52a12cf5c635b2fa2",
+      "uncompressed_sha256": "d5c07c1b26eb3130cccb6f7e3864a0d54e7b593d9aa03f4a5ca68eea52808a44",
+      "bytes": 29545,
+      "role": "completed development calculation; FAIL control diagnostic propagation before exact-subspace repair; not final qualification"
+    },
+    {
+      "path": "runs/diagnostic-probe/console.log.gz",
+      "sha256": "51fc378408d38b0a6b18d5140a8605157655abc0c9486aa2ef32731182d563a9",
+      "uncompressed_sha256": "e3c0c07572023431f5c09a8007ee6b2f0a66d80bc3724493ce049a1fcbb0ae53",
+      "bytes": 116980,
+      "role": "complete reproduction of the old zero-control Echem uncertainty refusal; diagnostic evidence only"
+    },
+    {
+      "path": "runs/diagnostic-probe/execution.json.gz",
+      "sha256": "40f43a01a0b4d3e8e72c10ea5bf10e70e2784969be45c9bf2cb046990028c758",
+      "uncompressed_sha256": "e91f2787dcf64009200c126f22afdaa44980ea5825ac37981150c8e80973fd8a",
+      "bytes": 8912,
+      "role": "complete reproduction of the old zero-control Echem uncertainty refusal; diagnostic evidence only"
+    },
+    {
+      "path": "runs/diagnostic-probe/output/diagnostic-probe.tsv.gz",
+      "sha256": "6c77868e882be1ca7e5e108fadcda6a31f885f2e1849c33e92d1b08922533706",
+      "uncompressed_sha256": "6d7bbf0bc38a382a03059837770df50b1a1126d59b04527c203a0de822cfe43a",
+      "bytes": 1518,
+      "role": "complete reproduction of the old zero-control Echem uncertainty refusal; diagnostic evidence only"
+    },
+    {
+      "path": "runs/run04/console.log.gz",
+      "sha256": "7a7ad8ea68a99f6377206f91522628559b638d2bf40be240bd69cb6ff86fdd84",
+      "uncompressed_sha256": "a431460b3512174bb4132a8cf2b0f71997d3bee1369b917f832502ba9e7828f4",
+      "bytes": 117634,
+      "role": "FAILED one-ULP right-adjacent event progress test; excluded from qualification"
+    },
+    {
+      "path": "runs/run04/execution.json.gz",
+      "sha256": "86c8d10758e9006980f16bacb42df70aa9793f64c0adc6e1f4f0c481155a8e11",
+      "uncompressed_sha256": "ea46612d7f0a8b83c112125611073fe278d2420eeae0bfdce86ead3953431fd0",
+      "bytes": 8645,
+      "role": "FAILED one-ULP right-adjacent event progress test; excluded from qualification"
+    },
+    {
+      "path": "runs/run04/output.partial/historical-reproduction.tsv.gz",
+      "sha256": "1e122e30b186fe00e5cbde026b94dbb4c8c3402390fb1d8d4b72e9b3e7469700",
+      "uncompressed_sha256": "a5b70e10f586360167ffe25548816db8c31d9ed8773400ab6241ce5b720fa900",
+      "bytes": 206,
+      "role": "FAILED one-ULP right-adjacent event progress test; excluded from qualification"
+    },
+    {
+      "path": "runs/run04/output.partial/reconstruction-events.tsv.gz",
+      "sha256": "9d5c82a05a31083ad3192b59e9c395ca6375bb5c69a2d2341f1424de175c2f06",
+      "uncompressed_sha256": "f29947bd0d6b24260f870603d47385d1714528a8dae86d94d25ae0e5bb4b48db",
+      "bytes": 535,
+      "role": "FAILED one-ULP right-adjacent event progress test; excluded from qualification"
+    },
+    {
+      "path": "runs/run03/console.log.gz",
+      "sha256": "4cd37ecd38e9141ce928b1d143feb0d8aa992e71a2bf2f24c24c2d104fe58026",
+      "uncompressed_sha256": "202f1109ef7f0d479db87f34f66c32bab00ebcf9c7296d27f46df526d0bd9f2c",
+      "bytes": 117434,
+      "role": "terminated performance development run; excluded from qualification"
+    },
+    {
+      "path": "runs/run03/execution.json.gz",
+      "sha256": "959e3b3aa1695bc030d45060f88b10d2bf5d519ffb2c58cf1c774ac5fb57c4a2",
+      "uncompressed_sha256": "7ab437bbc02d7961dc271f37f5ab583effcff63ac7c05fe252c6aa175b0106a7",
+      "bytes": 8526,
+      "role": "terminated performance development run; excluded from qualification"
+    },
+    {
+      "path": "runs/run03/DEVELOPMENT_RUN.txt.gz",
+      "sha256": "8e71172e88653f524f1bb92edd1274dceffb1440f4c29d05316dcda2b947d195",
+      "uncompressed_sha256": "73de32f92b5d5ba64143831b98bc2cf8b2a860f3519dc211e88827ec05ef6978",
+      "bytes": 388,
+      "role": "terminated performance development run; excluded from qualification"
+    },
+    {
+      "path": "runs/run02/console.log.gz",
+      "sha256": "44cdf532cfc5e74b51620b7cb9fcb0e4aacf6ef94e389d004faca7f9d8a58f60",
+      "uncompressed_sha256": "cd40c82587ccca0fba910d28bbb07474e8316b94791203560fe42050e0559b14",
+      "bytes": 117062,
+      "role": "terminated performance development run; excluded from qualification"
+    },
+    {
+      "path": "runs/run02/execution.json.gz",
+      "sha256": "d5c8ea3b397901fa888f07d9115dfa184ecaaf08a758dd9106e5ea93ea4e9d7c",
+      "uncompressed_sha256": "9a7df2b311fb66382b10927b644e43c25a15991e921c850ad534d833807b7b8c",
+      "bytes": 8285,
+      "role": "terminated performance development run; excluded from qualification"
+    },
+    {
+      "path": "runs/run02/DEVELOPMENT_RUN.txt.gz",
+      "sha256": "86e3349fc24b9fb9046f415f9413097af3582f8f5796c34adcc18b294c263ed9",
+      "uncompressed_sha256": "5409de1c401113698e9cde5e331b74480140f045a957e4619370fab63e9cc4d6",
+      "bytes": 604,
+      "role": "terminated performance development run; excluded from qualification"
+    },
+    {
+      "path": "runs/run01/console.log.gz",
+      "sha256": "004169bf9fe06aee642280726f11a3dc131a071496bcd27ffddc290ea7694c3f",
+      "uncompressed_sha256": "365c0e6e4087b4a3484650695852b8860e0628d13b90a20b292080681f5f8892",
+      "bytes": 116878,
+      "role": "terminated performance development run; excluded from qualification"
+    },
+    {
+      "path": "runs/run01/execution.json.gz",
+      "sha256": "a84775082ec0b172607edf209811fa9fea0e6ffe00136cadd15f482a733a7950",
+      "uncompressed_sha256": "705019f249df52b4c809727e7c335bca1ee6824635382f41fc81bc9798ef9e9d",
+      "bytes": 2395,
+      "role": "terminated performance development run; excluded from qualification"
+    },
+    {
+      "path": "runs/run01/DEVELOPMENT_RUN.txt.gz",
+      "sha256": "ea5c31bcc78b91f8d646e3e8fe58f8f11a2a533f6adbd66f4281295c185b80bf",
+      "uncompressed_sha256": "f468c62d1e04a611ebbc96e8918dcad3e0f6dfd1aab55ef0ef25aec42303167f",
+      "bytes": 466,
+      "role": "terminated performance development run; excluded from qualification"
+    },
+    {
+      "path": "runs/event-audit/console.log.gz",
+      "sha256": "8aa372e894a22329b1b15d86069d2f665cb97811b6a09bfceecbbf85ec2db42e",
+      "uncompressed_sha256": "da36ed111ba3aa33571ca345d742d6225205f6b6ac3d8dbe5480d26cccb81a0d",
+      "bytes": 116830,
+      "role": "terminated performance development run; excluded from qualification"
+    },
+    {
+      "path": "runs/event-audit/execution.json.gz",
+      "sha256": "0f95d62ccf8b3f2e67d085467e58459144ad261ed21e37407e4fd978e54d146d",
+      "uncompressed_sha256": "0b9de8c268249c9f75499f360c83deb82270c55f62a443b19461ede5104a3f83",
+      "bytes": 8307,
+      "role": "terminated performance development run; excluded from qualification"
+    },
+    {
+      "path": "runs/event-audit/DEVELOPMENT_RUN.txt.gz",
+      "sha256": "86e3349fc24b9fb9046f415f9413097af3582f8f5796c34adcc18b294c263ed9",
+      "uncompressed_sha256": "5409de1c401113698e9cde5e331b74480140f045a957e4619370fab63e9cc4d6",
+      "bytes": 604,
+      "role": "terminated performance development run; excluded from qualification"
+    },
+    {
+      "path": "checks/final-constraint-build.log.gz",
+      "sha256": "a4bfdde405e5c9e2d29d50892da48e11b2a910cd5a36e3cd2b9b0583c624c478",
+      "uncompressed_sha256": "298a9d328756bc0773993397ee26be619b86dd64ea06326c43df3eda88cece72",
+      "bytes": 4724,
+      "role": "checked regression/provenance record"
+    },
+    {
+      "path": "checks/final-constraint-regressions.log.gz",
+      "sha256": "b035ffe695fd25aeca062d442a7c569e56b5db4e76085a09ca366961b38783bd",
+      "uncompressed_sha256": "eb2dee2eb0001475925d832307f36cb5b4941f5cb9158766bafd6db143c8f5bd",
+      "bytes": 2527,
+      "role": "checked regression/provenance record"
+    },
+    {
+      "path": "checks/finite-time-tests.log.gz",
+      "sha256": "bdaaaea3371dde2c5c7e7fbce43bf9f1fcb3085ed44f5bd00565cd6a1fbffed8",
+      "uncompressed_sha256": "e8758cac225d9f2bacdeddd8d32a293ee114db4fae98cf4fbb82fb1198338c50",
+      "bytes": 692,
+      "role": "checked regression/provenance record"
+    },
+    {
+      "path": "checks/exact-subspace-tests.log.gz",
+      "sha256": "d2f1315d2a0b73c11f85034bcc27d0d794d3e398457f5d2cc76c33d4f7d0d4a9",
+      "uncompressed_sha256": "a4b50d725868b591941f516dc16e065f3f0b7783b418d213cb0a4ce2a0962ad4",
+      "bytes": 692,
+      "role": "checked regression/provenance record"
+    },
+    {
+      "path": "checks/chemical-read-tests.log.gz",
+      "sha256": "43b3e849a47e69f579e68bcb7795d6cd25ed28a1097fa1f628fb7d9f2c750e78",
+      "uncompressed_sha256": "74a217e902846aab5ab226cbdba026c74299815708a6ab2175832a5aa13e186b",
+      "bytes": 1102,
+      "role": "checked regression/provenance record"
+    },
+    {
+      "path": "checks/control-constraint-verification.json.gz",
+      "sha256": "d43ea54b4a373a1860e38232539c959049065d36e4478a68e1693519b93e84f9",
+      "uncompressed_sha256": "fff15ddce2c15b82eff75e1ba374b7a1e7974a81c6ee152cdf5c3c34ba16a638",
+      "bytes": 430,
+      "role": "checked regression/provenance record"
+    },
+    {
+      "path": "checks/scope-audit-final.json.gz",
+      "sha256": "442ecac516b9c983edb8992c78606b545711518a65963cba814ddcb583d815a6",
+      "uncompressed_sha256": "4f279828c46425d3386b7fc1a74bf011e9976e1e092fe77437f7ccea9aca5437",
+      "bytes": 1098,
+      "role": "checked regression/provenance record"
+    }
+  ],
+  "review_archive_sha256": "5ba87000f94f4b91743c91f62ac024f459bb22922c962aa47d899571c8763b4e"
+}

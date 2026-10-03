@@ -86,3 +86,14 @@ full envelope. Echem and all diagnostic/R20 budgets remain unchanged. Record the
 constraint in checkpoint provenance. A false certificate and an uncertified
 zero-output witness are regression refusals. This narrow constraint adds no
 physical source model and changes neither a state value nor a main step.
+
+## Bounded candidate result
+
+The final implementation passed the declared bounded successor accuracy, coupled
+uncertainty, reconstructed diagnostics, R18/R20, passive-schedule and regression
+checks. Original BA12R-form contraction and rejection failures remain failures.
+See [qualification evidence and limitations](PHASE6_BREAKPOINT_QUALIFICATION.md).
+The equilibrium-tail stability probe limits extrapolation. This outcome makes the
+candidate ready for one independent review; it does not ratify this amendment or
+authorize a campaign retry. The [Phase-5 knot issue](PHASE5_CSTAR_KNOT_FOLLOWUP.md)
+is a separate unimplemented follow-up.
