@@ -149,19 +149,24 @@ int main(int argc,char** argv)
       std::cout<<"CACHE exact interior/knots/adjacent values and both hint directions PASS\n";}
 auto source=ReadAccepted(std::filesystem::path(argv[8])/"source-accepted.tsv");auto control=ReadAccepted(std::filesystem::path(argv[8])/"control-accepted.tsv");
     const std::string mode=argv[10];
-    if(mode=="all"){
+    if(mode=="all"||mode=="events"){
       auto historical=main_run(p.source,0,{{0,0,0}},462269531250.,1,tiers[2],{0,462269531250.},true);
       require(historical.final_state==State{{0.49240008824076903,-2.5123474256442210e-7,-4.7906773046561003e-7}}
         &&historical.statistics.accepted_steps==232&&historical.statistics.rejected_steps==60,"old Arm E failed exact reproduction");
       std::ifstream cases("docs/validation/evidence/obs32-forensics/cases.tsv");std::string line;std::getline(cases,line);
       std::ostringstream reproduction;reproduction<<std::setprecision(17)<<"observation\told_d_over_D\told_U_over_budget\tnew_qualified\tsmooth_bitwise\n";
-      std::size_t count=0;BNV::Rk8pdCheckpointReconstructor old(false),candidate;std::size_t id=0;
+      std::size_t count=0,event_rows=0;BNV::Rk8pdCheckpointReconstructor old(false),candidate;std::size_t id=0;
+      std::ostringstream event_evidence;event_evidence<<std::setprecision(17)<<"observation\tlevel\tknot\ttime\tresidual\ttime_ulp\tx\te\tm\n";
       BNV::CheckpointContextFactory factory=[&]{return std::make_unique<ActualCheckpointContext>(p.source,++id);};
       while(std::getline(cases,line)){auto v=Split(line);require(v.size()==13,"forensic case schema");
         BNV::AcceptedStepRecord step;step.ordinal=1;step.t_left_s=std::stod(v[1]);step.t_right_s=std::stod(v[3]);
         step.y_left={{std::stod(v[4]),std::stod(v[5]),std::stod(v[6])}};step.y_right={{std::stod(v[7]),std::stod(v[8]),std::stod(v[9])}};
         BNV::ObservationBracket bracket{0,std::stod(v[2]),0,1,step.t_left_s,step.t_right_s,false};
         auto a=old.Reconstruct(bracket,{step},factory),b=candidate.Reconstruct(bracket,{step},factory);
+        const std::vector<std::pair<std::string,std::vector<Stepper::Event>>> levels={
+          {"O1",b.provenance.O1_events},{"O2",b.provenance.O2_events},
+          {"half-rk8pd",b.provenance.refinement_events},{"quarter-rkf45",b.provenance.independent_events}};
+        for(const auto& level:levels)for(const auto& ev:level.second){event_evidence<<v[0]<<'\t'<<level.first<<'\t'<<ev.knot<<'\t'<<ev.time<<'\t'<<ev.residual<<'\t'<<ev.time_ulp<<'\t'<<values(ev.state)<<'\n';++event_rows;}
         if(std::stoi(v[0])==32){require(a.O1_state==State{{0.12472490938574241,-2.0287605965623057e-7,-5.0871537810150439e-7}}
           &&a.O2_state==State{{0.12472490938614615,-2.0287605965622805e-7,-5.0871537810149634e-7}}
           &&a.status==BNV::CheckpointStatus::NumericallyUnresolved,"obs32 failure reproduction changed");}
@@ -169,6 +174,7 @@ auto source=ReadAccepted(std::filesystem::path(argv[8])/"source-accepted.tsv");a
         reproduction<<v[0]<<'\t'<<a.qualification.d_O[0]/a.qualification.D_O1[0]<<'\t'<<a.qualification.U_O[0]/(.2*a.qualification.F_i[0])<<'\t'<<(b.status==BNV::CheckpointStatus::Qualified)<<'\t'<<(a.O1_state==b.O1_state&&a.O2_state==b.O2_state)<<'\n';++count;
       }
       PublishTsv(in.output/"historical-reproduction.tsv",reproduction.str(),5,count);
+      PublishTsv(in.output/"reconstruction-events.tsv",event_evidence.str(),9,event_rows);
       std::cout<<"HISTORICAL Arm E exact 232/60; obs32 old states exact; smooth intervals exact\n";
     }
 
@@ -178,9 +184,9 @@ auto source=ReadAccepted(std::filesystem::path(argv[8])/"source-accepted.tsv");a
     if(mode=="tail"||mode=="all"){
       const auto i=std::find_if(source.begin(),source.end(),[](const Archived& a){return a.t1>1.3e13;});require(i!=source.end(),"missing tail state");
       window("tail",p.source,i->t1,i->y,std::min(i->t1+5e11,source.back().t1),i->hnext,in.output,32);}
-    if(mode=="crossings"||mode=="all"){
+    if(mode=="crossings"||mode=="all"||mode=="events"){
       std::ifstream input(std::filesystem::path(argv[8])/"steps.tsv");std::string line;std::getline(input,line);std::ostringstream out;
-      out<<std::setprecision(17)<<"run\tstep\ttier\tcomponent\taccuracy_ratio\tevents\n";std::size_t count=0,crossings=0;double max=0;
+      out<<std::setprecision(17)<<"run\tstep\ttier\tcomponent\taccuracy_ratio\tevents\tevent_accuracy_ratio\n";std::size_t count=0,crossings=0;double max=0;
       while(std::getline(input,line)){auto v=Split(line);require(v.size()==12,"archived crossing schema");if(v[11]!="crossing")continue;++crossings;
         auto ctx=v[0]=="source"?p.source:p.control;double a=std::stod(v[2]),b=std::stod(v[7]),h=std::stod(v[6]);State y{{std::stod(v[3]),std::stod(v[4]),std::stod(v[5])}};
         auto ref=integrate(ctx,a,y,b,h,tight,gsl_odeiv2_step_rk8pd,(b-a)/16);
@@ -189,9 +195,14 @@ auto source=ReadAccepted(std::filesystem::path(argv[8])/"source-accepted.tsv");a
         for(int tier=0;tier<3;++tier){auto candidate=integrate(ctx,a,y,b,h,tiers[tier],gsl_odeiv2_step_rkf45);
           for(int i=0;i<3;++i){double uncertainty=2*std::max(std::abs(ref.y[i]-fine.y[i]),std::abs(other.y[i]-fine.y[i]));
             double ratio=(std::abs(candidate.y[i]-fine.y[i])+uncertainty)/(tiers[tier].a[i]+tiers[tier].r*std::max(std::abs(candidate.y[i]),std::abs(fine.y[i])));
-            max=std::max(max,ratio);out<<v[0]<<'\t'<<v[1]<<'\t'<<tier<<'\t'<<i<<'\t'<<ratio<<'\t'<<candidate.stats.discarded<<'\n';++count;}}
+            double event_ratio=0;
+            for(const auto& segment:candidate.steps)if(segment.event.knot>=0){
+              const auto er=observe(ctx,fine,segment.right),ec=observe(ctx,ref,segment.right),ei=observe(ctx,other,segment.right);
+              const double eu=2*std::max(std::abs(er[i]-ec[i]),std::abs(er[i]-ei[i]));
+              event_ratio=std::max(event_ratio,(std::abs(segment.after[i]-er[i])+eu)/(tiers[tier].a[i]+tiers[tier].r*std::max(std::abs(segment.after[i]),std::abs(er[i]))));}
+            max=std::max(max,ratio);out<<v[0]<<'\t'<<v[1]<<'\t'<<tier<<'\t'<<i<<'\t'<<ratio<<'\t'<<candidate.stats.discarded<<'\t'<<event_ratio<<'\n';++count;}}
       }
-      require(crossings==37,"archived crossing count");PublishTsv(in.output/"crossings.tsv",out.str(),6,count);std::cout<<"CROSSINGS "<<crossings<<" max_accuracy "<<max<<'\n';
+      require(crossings==37,"archived crossing count");PublishTsv(in.output/"crossings.tsv",out.str(),7,count);std::cout<<"CROSSINGS "<<crossings<<" max_accuracy "<<max<<'\n';
     }
     return 0;
  }catch(const std::exception&e){std::cerr<<"UNRESOLVED "<<e.what()<<'\n';return 1;}

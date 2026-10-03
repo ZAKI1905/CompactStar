@@ -53,7 +53,7 @@ void WriteCampaignSummary(const Inputs& inputs,const BNV::MainTrajectoryResult& 
   const std::vector<BNV::CheckpointOutput>& outputs,double assembly_wall,double assembly_cpu,
   double output_wall,std::size_t contexts,const std::string& tier,const std::string& mode,bool pass)
 {
-    std::ofstream out(inputs.output/"performance.tsv");out<<std::setprecision(17)<<"key\tvalue\n"
+    std::ostringstream out;out<<std::setprecision(17)<<"key\tvalue\n"
       <<"mode\t"<<mode<<"\ntier\t"<<tier<<"\npass\t"<<pass
       <<"\nphysics_context_wall_s\t"<<assembly_wall<<"\nphysics_context_cpu_s\t"<<assembly_cpu
       <<"\nmain_wall_s\t"<<main.statistics.wall_seconds<<"\nmain_cpu_s\t"<<main.statistics.cpu_seconds
@@ -84,6 +84,8 @@ void WriteCampaignSummary(const Inputs& inputs,const BNV::MainTrajectoryResult& 
         out<<"R20_residual_erg\t"<<r.R20_residual_erg<<"\nN_R20_erg\t"<<r.N_R20_erg
           <<"\nR20_normalized\t"<<r.R20_normalized<<"\nR20_reconstruction_uncertainty_erg\t"<<r.reconstruction_uncertainty_erg<<'\n';
     }
+    const auto bytes=out.str();PublishReplacingTable(inputs.output/"performance.tsv",bytes,
+      std::count(bytes.begin(),bytes.end(),'\n')-1);
 }
 }
 

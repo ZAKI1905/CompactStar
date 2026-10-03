@@ -14,7 +14,7 @@ def tree(p):
         n=f.relative_to(p).as_posix().encode();h.update(len(n).to_bytes(8,'big'));h.update(n);h.update(bytes.fromhex(digest(f)))
     return h.hexdigest()
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--root',type=pathlib.Path,required=True);ap.add_argument('--mode',default='all',choices=['all','source','control','bounded','crossings','tail']);a=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--root',type=pathlib.Path,required=True);ap.add_argument('--mode',default='all',choices=['all','source','control','bounded','crossings','tail','events']);a=ap.parse_args()
     repo=pathlib.Path(__file__).resolve().parents[2];auth=json.loads((repo/'docs/validation/evidence/obs32-forensics/authentication.json').read_text())
     assert not a.root.exists(),'fresh root required';assert shutil.disk_usage(repo).free>3*1024**3,'insufficient output/build headroom'
     p={k:pathlib.Path(v) for k,v in auth['input_paths'].items()}

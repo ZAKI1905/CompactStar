@@ -494,7 +494,7 @@ CheckpointOutput Rk8pdCheckpointReconstructor::Reconstruct(
     Need(bracket.t_observation_s>step.t_left_s&&bracket.t_observation_s<step.t_right_s,
          "checkpoint is neither exact endpoint nor strict interior");
     output.source=CheckpointSource::Rk8pdReconstructed;
-    output.provenance.method="rk8pd-two-level";
+    output.provenance.method=breakpoint_aware_?"breakpoint-rk8pd-with-independent-witness":"rk8pd-two-level";
     const auto O1=Integrate(step.t_left_s,step.y_left,bracket.t_observation_s,O1_,context_factory,breakpoint_aware_);
     ++output.provenance.rk8pd_invocations;
     const auto O2=Integrate(step.t_left_s,step.y_left,bracket.t_observation_s,O2_,context_factory,breakpoint_aware_);
@@ -510,6 +510,7 @@ CheckpointOutput Rk8pdCheckpointReconstructor::Reconstruct(
     output.performance.O2_solve_cpu_seconds=O2.solve_cpu_seconds;
     output.provenance.context_identity_O1=O1.context_identity;
     output.provenance.context_identity_O2=O2.context_identity;
+    output.provenance.O1_events=O1.events;output.provenance.O2_events=O2.events;
     output.qualification=Qualify(step,O1.state,O2.state,O1_,O2_);
     if(breakpoint_aware_)
     {
@@ -520,6 +521,8 @@ CheckpointOutput Rk8pdCheckpointReconstructor::Reconstruct(
           reference,context_factory,true,2);
         const auto independent=Integrate(step.t_left_s,step.y_left,bracket.t_observation_s,
           reference,context_factory,true,4,true);
+        output.provenance.refinement_events=half.events;
+        output.provenance.independent_events=independent.events;
         output.qualification.discriminating_witness=true;
         output.provenance.refinement_invocations=1;
         output.provenance.independent_method_invocations=1;

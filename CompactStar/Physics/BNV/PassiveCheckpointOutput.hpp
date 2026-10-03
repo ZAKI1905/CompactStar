@@ -195,6 +195,7 @@ struct CheckpointProvenance
     std::size_t independent_method_invocations=0;
     std::string context_identity_O1;
     std::string context_identity_O2;
+    std::vector<BreakpointStepper::Event> O1_events,O2_events,refinement_events,independent_events;
 };
 
 struct CheckpointPerformance

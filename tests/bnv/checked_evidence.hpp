@@ -53,3 +53,12 @@ inline void PublishTable(const std::filesystem::path& path,const std::string& by
     const auto columns=1+std::count(bytes.begin(),bytes.begin()+newline,'\t');
     PublishTsv(path,bytes,columns,rows,time_column);
 }
+
+inline void PublishReplacingTable(const std::filesystem::path& path,const std::string& bytes,
+                                  std::size_t rows)
+{
+    const std::filesystem::path staged=path.string()+".replacement";
+    PublishTable(staged,bytes,rows);
+    // Same-directory rename replaces the old complete snapshot only after validation.
+    std::filesystem::rename(staged,path);
+}

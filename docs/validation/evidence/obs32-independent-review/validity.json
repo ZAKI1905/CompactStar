@@ -46,5 +46,546 @@
       "path": "harness/*",
       "use": "historical code and diagnostics; not production qualification or executable installation"
     }
+  ],
+  "files": [
+    {
+      "path": "REVIEW_REPORT.md",
+      "sha256": "85403e6b13ef8cbfc8e71a9a40eba662c6e2d456270a785bd069a171fd72c0f3",
+      "bytes": 15964,
+      "status": "preserved_source",
+      "permitted_use": "bundle documentation or harness, not new candidate qualification"
+    },
+    {
+      "path": "README.md",
+      "sha256": "8cc328950fb6a5df7c4cce06025bcf85dde5945d6b6e4b1ef70a92fd84934424",
+      "bytes": 7867,
+      "status": "preserved_source",
+      "permitted_use": "bundle documentation or harness, not new candidate qualification"
+    },
+    {
+      "path": "harness/review_followups.py",
+      "sha256": "f0122a7e2b7548c31f8974d4b0438e2f046328bdbbd57e75a6857aa2f2654448",
+      "bytes": 4965,
+      "status": "preserved_source",
+      "permitted_use": "bundle documentation or harness, not new candidate qualification"
+    },
+    {
+      "path": "harness/review_obs32_v1.cpp",
+      "sha256": "5a771f24e4e746afaf67a6d7fd8045a493b067fc007c91655d53a9f8b92401a3",
+      "bytes": 28828,
+      "status": "preserved_source",
+      "permitted_use": "bundle documentation or harness, not new candidate qualification"
+    },
+    {
+      "path": "harness/review_obs32_v3.cpp",
+      "sha256": "40dcdbf334ae9b26cbc7d166b662e0f956b7535ceb5810220538bfaeb99bb074",
+      "bytes": 32555,
+      "status": "preserved_source",
+      "permitted_use": "bundle documentation or harness, not new candidate qualification"
+    },
+    {
+      "path": "harness/gsl_reuse.out",
+      "sha256": "53a7628d6b56f816da5f37ee89dc133c19afa52a3e8b57dfc94a15d57ff99c84",
+      "bytes": 346,
+      "status": "preserved_source",
+      "permitted_use": "bundle documentation or harness, not new candidate qualification"
+    },
+    {
+      "path": "harness/review_obs32_v2.cpp",
+      "sha256": "78b60cebd99a6bad15985d39044c607ad32cf32131c8dc93cfc5f49dc08fcc1a",
+      "bytes": 29412,
+      "status": "preserved_source",
+      "permitted_use": "bundle documentation or harness, not new candidate qualification"
+    },
+    {
+      "path": "harness/review_followups.out",
+      "sha256": "d4980f24d8dd292eff92ebb8149d3a720b63660ee0f7a1ced6ccc776f3e5e52f",
+      "bytes": 2360,
+      "status": "preserved_source",
+      "permitted_use": "bundle documentation or harness, not new candidate qualification"
+    },
+    {
+      "path": "harness/prep_steps.py",
+      "sha256": "b7bcd9ad3e7820c08f561cb0d4ae74570f5928c33c596e3f1852ef4ee89ad645",
+      "bytes": 1978,
+      "status": "preserved_source",
+      "permitted_use": "bundle documentation or harness, not new candidate qualification"
+    },
+    {
+      "path": "harness/analyze_run.py",
+      "sha256": "7046e848ae96742e3415f9947f8824b9e9e048774d5f5ee70d2c2fee1aa37e23",
+      "bytes": 3060,
+      "status": "preserved_source",
+      "permitted_use": "bundle documentation or harness, not new candidate qualification"
+    },
+    {
+      "path": "harness/gsl_reuse.c",
+      "sha256": "d6a9d996bd32d3249ceb633c64515603c6b2abcb124315c97048f7ba406d56eb",
+      "bytes": 1617,
+      "status": "preserved_source",
+      "permitted_use": "bundle documentation or harness, not new candidate qualification"
+    },
+    {
+      "path": "harness/review_metadata.py",
+      "sha256": "5127410df27687978ec6c12cd09c8951fa7de2f20d748c7b46268ff3238ccd20",
+      "bytes": 10471,
+      "status": "preserved_source",
+      "permitted_use": "bundle documentation or harness, not new candidate qualification"
+    },
+    {
+      "path": "harness/gsl_order.out",
+      "sha256": "eed1039300af7472f9e0c1f1cda5ab582379669ada3940626dfdebf179508fa4",
+      "bytes": 1008,
+      "status": "preserved_source",
+      "permitted_use": "bundle documentation or harness, not new candidate qualification"
+    },
+    {
+      "path": "harness/gsl_order.c",
+      "sha256": "d02b6ad73f6b35ffae5d40c5a63632392aa73807869bee264573f38b3b75f62a",
+      "bytes": 1299,
+      "status": "preserved_source",
+      "permitted_use": "bundle documentation or harness, not new candidate qualification"
+    },
+    {
+      "path": "SHA256SUMS",
+      "sha256": "c2c2403220875aaaa93bf736afc5c979554f69c694075d5968c7388143ba923f",
+      "bytes": 7768,
+      "status": "preserved_source",
+      "permitted_use": "bundle documentation or harness, not new candidate qualification"
+    },
+    {
+      "path": "runs/run3-corrected-split/M-source-steps.tsv",
+      "sha256": "0f807eb63ff5c31858fc0a85b5224e03b999a6f8570986749baf796467da7a96",
+      "bytes": 193858,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run3-corrected-split/M-source-true-error.tsv",
+      "sha256": "7ad287d8483a491dfe3b553f235293b765a6937844f9fb4ed98ee74ace164234",
+      "bytes": 688,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run3-corrected-split/M-control-runs.tsv",
+      "sha256": "00710c65ad5cc505b4765baa478c8b2e7f04030feb7cb39ae7117202ccaec294",
+      "bytes": 1051,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run3-corrected-split/P-persistence.tsv",
+      "sha256": "0fe22887af04a02d100ab23d81530715d0c67ac53a7d43340d59fb9dfb6beb94",
+      "bytes": 1410,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run3-corrected-split/run3.log",
+      "sha256": "7e3d9d363a44b39fe6fbbab567d675b62cd08cef745e96b80575e55524b4177c",
+      "bytes": 117263,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run3-corrected-split/M-source-runs.tsv",
+      "sha256": "5ed069f40bd35aa8b525ab6e67b411069e0ad5f11c73253dbd48b2b40fbf5cf0",
+      "bytes": 1291,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run3-corrected-split/M-control-events.tsv",
+      "sha256": "1798bd05ebc9f1bdacbba4e8c1dde8d532303c07bcf5ff7c59cde579812ee739",
+      "bytes": 1337,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run3-corrected-split/M-control-observations.tsv",
+      "sha256": "40616951e27c28a112818ee39c4d06dac622582af3fc172824b3a5a9486e1851",
+      "bytes": 114687,
+      "status": "excluded",
+      "permitted_use": "entire file rejected as input; corruption starts data row 599; no repair or reconstructed rows"
+    },
+    {
+      "path": "runs/run3-corrected-split/M-source-gate.tsv",
+      "sha256": "3633fecc207b9131a684c7ad02c9f2171164ef7b5bc096142fa7c011d3bcc1e5",
+      "bytes": 259,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run3-corrected-split/knots.tsv",
+      "sha256": "3294a73118fa9f6ba4736c1756556064ad167807a8ab30cd904417503b69509d",
+      "bytes": 7656,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run3-corrected-split/M-source-events.tsv",
+      "sha256": "8a5fe7611532a55131075c238d91eb3e5b37f6656870e1ee5d7f4f1635509b2d",
+      "bytes": 1933,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run3-corrected-split/M-control-gate.tsv",
+      "sha256": "fbc137a8acd709466a5970de88168f1c2729e79fba897cad4b9c223d7e7667ad",
+      "bytes": 261,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "complete in-memory summaries over 1277 observations according to bundled README; not evidence that observation file is valid"
+    },
+    {
+      "path": "runs/run3-corrected-split/M-control-steps.tsv",
+      "sha256": "962b50132e8ce6a0bf58654fab77ae1cbb38318a284bb214c163320f0f3cf7f6",
+      "bytes": 14027,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run3-corrected-split/M-source-observations.tsv",
+      "sha256": "8f00720b58e9ac13aa603ef10fce880e82a00341efb356409d77dfc38df7794b",
+      "bytes": 240147,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run3-corrected-split/M-control-true-error.tsv",
+      "sha256": "cb3e68c5642deda389c8bdc826f4c2a55aa8257b86e573ee9dc951aa7fdd1443",
+      "bytes": 482,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "complete in-memory summaries over 1277 observations according to bundled README; not evidence that observation file is valid"
+    },
+    {
+      "path": "runs/run3-corrected-split/completion.tsv",
+      "sha256": "dfca27365f7dc924f67b138273c2edb549d6e9fdf043cf6d3f20239d422a17db",
+      "bytes": 66,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run4-frozen-cell/M-source-steps.tsv",
+      "sha256": "510b7b71b051fd506e0b2e5fee1759946e56bd81322163fd94ff335fadb30fb1",
+      "bytes": 286560,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "complete corrected comparisons; use these observations in place of run3 corrupted file"
+    },
+    {
+      "path": "runs/run4-frozen-cell/run4.log",
+      "sha256": "7ea8a18f760418778d72ca32015c3a59f8ef1bb822bd8a919df0f099e8af9562",
+      "bytes": 117310,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "complete corrected comparisons; use these observations in place of run3 corrupted file"
+    },
+    {
+      "path": "runs/run4-frozen-cell/M-source-true-error.tsv",
+      "sha256": "cdfcf69c4bdbcd81de0616855a74daae4290d899c24233b2c093187181cf3d14",
+      "bytes": 1022,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "complete corrected comparisons; use these observations in place of run3 corrupted file"
+    },
+    {
+      "path": "runs/run4-frozen-cell/M-control-runs.tsv",
+      "sha256": "8058a2cb39ef610380c34664703791729c59e06a80c708c379e22b4430b5dba7",
+      "bytes": 1877,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "complete corrected comparisons; use these observations in place of run3 corrupted file"
+    },
+    {
+      "path": "runs/run4-frozen-cell/P-persistence.tsv",
+      "sha256": "0fe22887af04a02d100ab23d81530715d0c67ac53a7d43340d59fb9dfb6beb94",
+      "bytes": 1410,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "complete corrected comparisons; use these observations in place of run3 corrupted file"
+    },
+    {
+      "path": "runs/run4-frozen-cell/D4F-frozen.tsv",
+      "sha256": "8ac952355f8eb7e311f8cb1a29655452e7f34dc086f903639376cb7b86bc4744",
+      "bytes": 2600,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "complete corrected comparisons; use these observations in place of run3 corrupted file"
+    },
+    {
+      "path": "runs/run4-frozen-cell/M-source-runs.tsv",
+      "sha256": "90282d91f1eec32f1946f037c855bb8873bd6143001db7b7ae84dd4449697c62",
+      "bytes": 2311,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "complete corrected comparisons; use these observations in place of run3 corrupted file"
+    },
+    {
+      "path": "runs/run4-frozen-cell/M-control-events.tsv",
+      "sha256": "4b66c9ea06626a7c8ee74f6020c38ddad0d0dec479683d8bf137099cb9551651",
+      "bytes": 2772,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "complete corrected comparisons; use these observations in place of run3 corrupted file"
+    },
+    {
+      "path": "runs/run4-frozen-cell/M-control-observations.tsv",
+      "sha256": "3552b81180cf0f492ce3217405e3f9fa445333791d231e972634b805d19629f8",
+      "bytes": 327135,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "complete corrected comparisons; use these observations in place of run3 corrupted file"
+    },
+    {
+      "path": "runs/run4-frozen-cell/M-source-gate.tsv",
+      "sha256": "a09874ecafa556b00bb393e8784539841e48bfb94c5d7c98e3ab2d56603ca750",
+      "bytes": 337,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "complete corrected comparisons; use these observations in place of run3 corrupted file"
+    },
+    {
+      "path": "runs/run4-frozen-cell/knots.tsv",
+      "sha256": "3294a73118fa9f6ba4736c1756556064ad167807a8ab30cd904417503b69509d",
+      "bytes": 7656,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "complete corrected comparisons; use these observations in place of run3 corrupted file"
+    },
+    {
+      "path": "runs/run4-frozen-cell/M-source-events.tsv",
+      "sha256": "68ddf1777ec2dab32a7987e31b3eac8ad75186c7f8151813b14eb323721b783f",
+      "bytes": 3799,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "complete corrected comparisons; use these observations in place of run3 corrupted file"
+    },
+    {
+      "path": "runs/run4-frozen-cell/M-control-gate.tsv",
+      "sha256": "fe50db585bd7f3d665382174c6eb6e2ecb11353a254a83b415635222ef160604",
+      "bytes": 341,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "complete corrected comparisons; use these observations in place of run3 corrupted file"
+    },
+    {
+      "path": "runs/run4-frozen-cell/M-control-steps.tsv",
+      "sha256": "183a9771d4edefd148d895b4e3f25c7300350340c8797d6aadc83d4f3dfc9769",
+      "bytes": 17080,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "complete corrected comparisons; use these observations in place of run3 corrupted file"
+    },
+    {
+      "path": "runs/run4-frozen-cell/M-source-observations.tsv",
+      "sha256": "3f9d440832eb3562d853c7f0742dbc8674c667e33652b496704b8bc113cf9b1c",
+      "bytes": 339744,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "complete corrected comparisons; use these observations in place of run3 corrupted file"
+    },
+    {
+      "path": "runs/run4-frozen-cell/M-control-true-error.tsv",
+      "sha256": "77988d5313b2081a1f5de2924b3a1566c3ece468b7116ccf8927a12b66d1e248",
+      "bytes": 706,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "complete corrected comparisons; use these observations in place of run3 corrupted file"
+    },
+    {
+      "path": "runs/run4-frozen-cell/completion.tsv",
+      "sha256": "0c6765d1c18149cfb9f78b009b9712ecfebabdec5f72c4cc5923ad247d83f3df",
+      "bytes": 66,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "complete corrected comparisons; use these observations in place of run3 corrupted file"
+    },
+    {
+      "path": "runs/run2-primary/M-source-steps.tsv",
+      "sha256": "2c43f8a5406aa41892eef40242486e82feed09e1a584a564558a3cddbb5ef1ec",
+      "bytes": 210755,
+      "status": "partial_exclusion",
+      "permitted_use": "unsplit rows/columns only; exclude all split-main rows/columns due stale derivative after rollback"
+    },
+    {
+      "path": "runs/run2-primary/M-source-true-error.tsv",
+      "sha256": "c0348bf250de1202086ecb7da0f7a310155c7443d25916e259fc0ea8a725cbf6",
+      "bytes": 677,
+      "status": "partial_exclusion",
+      "permitted_use": "unsplit rows/columns only; exclude all split-main rows/columns due stale derivative after rollback"
+    },
+    {
+      "path": "runs/run2-primary/M-control-runs.tsv",
+      "sha256": "bd0df3c8f202ef500ecc77a07ea627616cacd039f0b67c4ca9c40a862111e616",
+      "bytes": 452,
+      "status": "partial_exclusion",
+      "permitted_use": "unsplit rows/columns only; exclude all split-main rows/columns due stale derivative after rollback"
+    },
+    {
+      "path": "runs/run2-primary/P-persistence.tsv",
+      "sha256": "0fe22887af04a02d100ab23d81530715d0c67ac53a7d43340d59fb9dfb6beb94",
+      "bytes": 1410,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run2-primary/run2.log",
+      "sha256": "4e3382100f982bcc1c475b02a44fbbcdb392a7ab0858c371194573256c6f8464",
+      "bytes": 122487,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run2-primary/D4-fixed-step.tsv",
+      "sha256": "44206695eb38afc54fd0e5d8313d9f89b932d591b893aaa29431790ca3dd8fc9",
+      "bytes": 5769,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run2-primary/D0-reproduction.tsv",
+      "sha256": "59e08d0daf23134b68007e0972bc90089463284925cd6b524ef609397409e117",
+      "bytes": 657,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run2-primary/D-obs32.tsv",
+      "sha256": "44e84d34d87f2d00a98cf1cff27b3459f23b33e0de74bfac74c90e074fe1747b",
+      "bytes": 3206,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run2-primary/M-source-runs.tsv",
+      "sha256": "c00b0573bc0f70a3e56d19898304e29937fc24a70f3b93e53ccc4ea911ce40c6",
+      "bytes": 465,
+      "status": "partial_exclusion",
+      "permitted_use": "unsplit rows/columns only; exclude all split-main rows/columns due stale derivative after rollback"
+    },
+    {
+      "path": "runs/run2-primary/M-control-events.tsv",
+      "sha256": "0c286423a5bb6ea0e6ce6f0866a62b9a2b7716afd71293a69ce11aa2410d0c15",
+      "bytes": 1341,
+      "status": "partial_exclusion",
+      "permitted_use": "unsplit rows/columns only; exclude all split-main rows/columns due stale derivative after rollback"
+    },
+    {
+      "path": "runs/run2-primary/K-attempts.tsv",
+      "sha256": "e3c60f1ebf3dd767b7359575cf7496eb4fc3d95a95d0ff2d6e2952ad13213a9e",
+      "bytes": 23414,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run2-primary/D6-smooth-controls.tsv",
+      "sha256": "530253b424355906d69b199911cfa58e014d533e1fe584ec69a6ae5a3e9de9df",
+      "bytes": 792,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run2-primary/M-control-observations.tsv",
+      "sha256": "beed1c58faf7148bcee5a9520622a99e69fcac8138fbf2971e95cf699ce97c0e",
+      "bytes": 235534,
+      "status": "partial_exclusion",
+      "permitted_use": "unsplit rows/columns only; exclude all split-main rows/columns due stale derivative after rollback"
+    },
+    {
+      "path": "runs/run2-primary/M-source-gate.tsv",
+      "sha256": "aab71c18030468bb941d58ee757187a557643386f31f607ab6565c12fd2a38a2",
+      "bytes": 242,
+      "status": "partial_exclusion",
+      "permitted_use": "unsplit rows/columns only; exclude all split-main rows/columns due stale derivative after rollback"
+    },
+    {
+      "path": "runs/run2-primary/knots.tsv",
+      "sha256": "3294a73118fa9f6ba4736c1756556064ad167807a8ab30cd904417503b69509d",
+      "bytes": 7656,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run2-primary/K-replays.tsv",
+      "sha256": "11283fed5445fc632acc933321bb9c816c036d1237f193676c6f41fe0c38df13",
+      "bytes": 13297,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run2-primary/M-source-events.tsv",
+      "sha256": "6d4cc0e959aa008a803ddbea8ceade4863e4e064e9edc7ae0591e5577d2ce74d",
+      "bytes": 1913,
+      "status": "partial_exclusion",
+      "permitted_use": "unsplit rows/columns only; exclude all split-main rows/columns due stale derivative after rollback"
+    },
+    {
+      "path": "runs/run2-primary/analysis.json",
+      "sha256": "d37d8325a717ab65e652b3f51af60e0c2e7dbb251c0f582363adf49bc63441ba",
+      "bytes": 87612,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run2-primary/M-control-gate.tsv",
+      "sha256": "4f6bfccb8da43ae288094ef6492bd7c8734ea0efca84702b2a5731de99d0b2db",
+      "bytes": 243,
+      "status": "partial_exclusion",
+      "permitted_use": "unsplit rows/columns only; exclude all split-main rows/columns due stale derivative after rollback"
+    },
+    {
+      "path": "runs/run2-primary/M-control-steps.tsv",
+      "sha256": "94a92ca127ecce800bf9a3ca847be2a5a9b223860b7fb98bbfac78807c33fbf2",
+      "bytes": 19409,
+      "status": "partial_exclusion",
+      "permitted_use": "unsplit rows/columns only; exclude all split-main rows/columns due stale derivative after rollback"
+    },
+    {
+      "path": "runs/run2-primary/M-source-observations.tsv",
+      "sha256": "9f109edf7a85b628adfb8369b6171ecd73ba271c4c8983478a3129b74f454f03",
+      "bytes": 240230,
+      "status": "partial_exclusion",
+      "permitted_use": "unsplit rows/columns only; exclude all split-main rows/columns due stale derivative after rollback"
+    },
+    {
+      "path": "runs/run2-primary/M-control-true-error.tsv",
+      "sha256": "f573643defd8fbb3e3152a10f67ba6b81efe065c6f43cb2f2f69dfb87c885265",
+      "bytes": 476,
+      "status": "partial_exclusion",
+      "permitted_use": "unsplit rows/columns only; exclude all split-main rows/columns due stale derivative after rollback"
+    },
+    {
+      "path": "runs/run2-primary/completion.tsv",
+      "sha256": "7c896a8573d9b00694d13a8ab0816927b9ebeacf89d0affe66a2cbee9ba2cf92",
+      "bytes": 66,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run2-primary/D5-event-perturbation.tsv",
+      "sha256": "4a9ef20df4ee581e13d9ad727150d721ddc6043379d7d53e1491e13fac329d7a",
+      "bytes": 3184,
+      "status": "valid_historical_diagnostic",
+      "permitted_use": "bounded independent review evidence"
+    },
+    {
+      "path": "runs/run1-failed-cwd/run1.log",
+      "sha256": "1bce753b43b8cf8f238f0b43afd55b1b5663e727f7c205f3465265a229d94925",
+      "bytes": 60525,
+      "status": "excluded",
+      "permitted_use": "failed context/CWD setup, no numerical validation"
+    },
+    {
+      "path": "metadata/metadata.json",
+      "sha256": "a8c3338973231c5f626383721d27ce93e733235dc082fae5608a844ad0a034f9",
+      "bytes": 28850,
+      "status": "partial_exclusion",
+      "permitted_use": "exclude control predicted signs; use runs/run2-primary/analysis.json; metadata and magnitudes remain usable"
+    },
+    {
+      "path": "inputs/steps.tsv",
+      "sha256": "721939b1cc9e47b1314d15e1f57e329deb038b83624821bdccea10421d4e65a8",
+      "bytes": 9383,
+      "status": "preserved_source",
+      "permitted_use": "bundle documentation or harness, not new candidate qualification"
+    },
+    {
+      "path": "inputs/control-accepted.tsv",
+      "sha256": "2dcd622751fb2263776898d0bd3e94fcca35bc78853cc4bb4ddba26f0ba151f8",
+      "bytes": 5828,
+      "status": "preserved_source",
+      "permitted_use": "bundle documentation or harness, not new candidate qualification"
+    },
+    {
+      "path": "inputs/source-accepted.tsv",
+      "sha256": "2efb7ed971455615f657fdfc17161266dc0db09609982c74e7122abdacf83f15",
+      "bytes": 33236,
+      "status": "preserved_source",
+      "permitted_use": "bundle documentation or harness, not new candidate qualification"
+    }
   ]
 }

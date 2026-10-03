@@ -19,6 +19,8 @@ B::State solve(int direction,double maxstep,const gsl_odeiv2_step_type* method,d
       need(std::abs(e.residual)<1e-14,"event residual");}
     return y;
 }
+// Direct stale-cache demonstration promoted from the authenticated review
+// harness/gsl_reuse.c, now with assertions and complete GSL object cleanup.
 void rollback()
 {
     gsl_odeiv2_system sys{[](double,const double*y,double*d,void*) -> int {d[0]=.1*y[0]*y[0]+y[0];return GSL_SUCCESS;},nullptr,1,nullptr};
