@@ -65,3 +65,11 @@ exception to source-byte non-change in shared Analysis code; all Phase-5 mathema
 solver behavior and historical baselines remain unchanged. Historical Arm E and
 obs-32 must reproduce exactly after this change. It does not address the deferred
 Phase-5 knot-integration issue or weaken currentness to metadata checks.
+
+Boundary classification detail (fixed before new result scoring): match ordered
+knot/direction identities across all three tiers. A boundary-limited cell interval
+has one accepted segment at each tier and durations within 0.1 percent. Publish
+this classification even if every accuracy gate passes. It does not alter the
+legacy gate or select points by their observed error. Verify the empirical state
+and diagnostic envelopes against tighter eighth-step rk8pd and sixteenth-step
+RKF45 from each saved main left state; include their disagreement in the check.

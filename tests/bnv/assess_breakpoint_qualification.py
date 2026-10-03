@@ -1,9 +1,34 @@
 #!/usr/bin/env python3
 """Report original and proposed successor criteria separately; never ratify."""
-import argparse,csv,json,pathlib,math
+import argparse,csv,json,pathlib,math,os
 
 def rows(p):
     with p.open() as f:return list(csv.DictReader(f,delimiter='\t'))
+def boundary_classification(history):
+    # Only accepted step/event records enter this classification, never errors.
+    episodes=[]
+    for tier in range(3):
+        groups=[];count=0;start=None
+        for r in history:
+            if r['tier']!=str(tier):continue
+            if start is None:start=float(r['t_left'])
+            count+=1
+            if int(r['boundary_knot'])>=0:
+                direction=1 if int(r['boundary_knot'])==int(r['cell'])+1 else -1
+                groups.append((int(r['boundary_knot']),direction,count,float(r['t_right'])-start))
+                count=0;start=None
+        episodes.append(groups)
+    matching=all([(r[0],r[1]) for r in x]==[(r[0],r[1]) for r in episodes[0]] for x in episodes)
+    limited=[]
+    if matching:
+        for j in range(len(episodes[0])):
+            group=[e[j] for e in episodes]
+            # One whole cell in one accepted segment at every tolerance and
+            # durations agreeing within 0.1 percent, selected before scoring.
+            if all(r[2]==1 for r in group) and max(r[3] for r in group)<=1.001*min(r[3] for r in group):
+                limited.append({'knot':group[0][0],'direction':group[0][1],'steps':[r[2] for r in group],'duration_s':[r[3] for r in group]})
+    return {'matching_event_sequence':matching,'boundary_limited_cell_intervals':limited,'counts_by_tier':[len(e) for e in episodes]}
+
 def assess(root):
     result={'status':'PROPOSED successor, not ratified','campaign':'STOPPED','windows':{}}
     for name in ['source','control','bounded','tail']:
@@ -26,7 +51,10 @@ def assess(root):
         # Boundaries are classified from records, before using outcome differences.
         clips=[float(x['boundary_limited_fraction']) for x in st]
         limits=[int(x['events']) for x in st]
-        successor={'state_accuracy':float(s['max_accuracy_ratio'])<=1,
+        envelopes=rows(root/(name+'-envelopes.tsv'));assert envelopes
+        envelope_max=max(float(x['bound_ratio']) for x in envelopes)
+        classification=boundary_classification(rows(root/(name+'-history.tsv')))
+        successor={'uncertainty_envelope':math.isfinite(envelope_max) and envelope_max<=1, 'state_accuracy':float(s['max_accuracy_ratio'])<=1,
           'reference_uncertainty':float(s['max_reference_uncertainty_over_DU'])<=.05,
           'ledger_accuracy':float(l['max_accuracy_ratio'])<=1,
           'reconstruction':int(s['unresolved_checkpoints'])==0,
@@ -38,11 +66,16 @@ def assess(root):
         result['windows'][name]={'original_BA12R':original,'successor':successor,'successor_pass':all(successor.values()),
           'max_state_accuracy_ratio':float(s['max_accuracy_ratio']),'max_ledger_accuracy_ratio':float(l['max_accuracy_ratio']),
           'rejection_fraction':rejection,'boundary_clips':limits,'boundary_limited_fractions':clips,
+          'uncertainty_envelope_max_ratio':envelope_max,'boundary_classification':classification,'R20_records':r20,
           'scope':'common-time local window; no full-campaign global accuracy claim'}
     cross=rows(root/'crossings.tsv');result['crossings']={'rows':len(cross),'count':len({(x['run'],x['step']) for x in cross}),
-        'max_accuracy_ratio':max(float(x['accuracy_ratio']) for x in cross)}
-    result['pass']=all(x['successor_pass'] for x in result['windows'].values()) and result['crossings']['count']==37 and result['crossings']['max_accuracy_ratio']<=1
+        'max_accuracy_ratio':max(float(x['accuracy_ratio']) for x in cross),'max_event_accuracy_ratio':max(float(x['event_accuracy_ratio']) for x in cross)}
+    result['pass']=all(x['successor_pass'] for x in result['windows'].values()) and result['crossings']['count']==37 and result['crossings']['max_accuracy_ratio']<=1 and result['crossings']['max_event_accuracy_ratio']<=1
     return result
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('root',type=pathlib.Path);a=p.parse_args();r=assess(a.root)
-    out=a.root/'assessment.json';assert not out.exists();out.write_text(json.dumps(r,indent=2)+'\n');print(out.read_text())
+    out=a.root/'assessment.json';assert not out.exists();temp=out.with_suffix('.json.partial');assert not temp.exists()
+    content=json.dumps(r,indent=2,allow_nan=False)+'\n'
+    with temp.open('w') as f:f.write(content);f.flush();os.fsync(f.fileno())
+    assert temp.read_text()==content and json.loads(temp.read_text())==r
+    temp.rename(out);print(content)

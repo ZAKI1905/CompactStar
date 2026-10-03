@@ -4,6 +4,13 @@
 #include <cstring>
 using B=CompactStar::Physics::BNV::BreakpointStepper;
 void need(bool x,const char* m){if(!x)throw std::runtime_error(m);}
+B::State analytic(B::State y,double duration,double slope,int direction)
+{
+    const double k=direction*slope,amplitude=y[0]+1/slope;
+    return {{amplitude*std::exp(k*duration)-1/slope,
+      y[1]+amplitude*std::expm1(k*duration)/k-duration/slope,
+      y[2]+y[1]*duration+amplitude*(std::expm1(k*duration)-k*duration)/(k*k)-duration*duration/(2*slope)}};
+}
 B::State solve(int direction,double maxstep,const gsl_odeiv2_step_type* method,double start=-.2)
 {
     B solver([=](double,const B::State& y,B::State& d,int cell){
@@ -17,7 +24,31 @@ B::State solve(int direction,double maxstep,const gsl_odeiv2_step_type* method,d
       double exact=direction>0?-std::log(1+.5*start)/.5:std::log(1-2*start)/2;
       need(std::abs(e.time-exact)<1e-11,"analytic event location");
       need(std::abs(e.residual)<1e-14,"event residual");}
+    const double first=direction>0?.5:2.,second=direction>0?2.:.5;
+    B::State initial{{direction>0?start:-start,0,0}};
+    const double event_time=start==0?0:-std::log(1+first*initial[0])/(direction*first);
+    const auto at_event=analytic(initial,event_time,first,direction);
+    const auto exact=analytic(at_event,.5-event_time,second,direction);
+    for(int i=0;i<3;++i){
+      need(std::abs(y[i]-exact[i])<1e-11,"analytic coupled endpoint");
+      if(start!=0)need(std::abs(solver.Events()[0].state[i]-at_event[i])<1e-11,"analytic coupled event state");}
     return y;
+}
+void shared_event_cancellation()
+{
+    const auto forced=[](const gsl_odeiv2_step_type* method){
+      B::State y{{-.2,0,0}};double t=0,h=.01;
+      const double wrong_time=-2*std::log(.9)+.02;
+      for(int cell=0;cell<2;++cell){const double slope=cell==0?.5:2.;
+        B solver([=](double,const B::State& y,B::State& d,int){d={{1+slope*y[0],y[0],y[1]}};},
+          {},method,1e-13,{{1e-15,1e-15,1e-15}},.01);
+        const double end=cell==0?wrong_time:.5;while(t<end)solver.Advance(t,y,h,end);}
+      return y;
+    };
+    const auto a=forced(gsl_odeiv2_step_rk8pd),b=forced(gsl_odeiv2_step_rkf45);
+    const auto own=solve(1,.005,gsl_odeiv2_step_rk8pd);
+    for(int i=0;i<3;++i){need(std::abs(a[i]-b[i])<1e-11,"shared-event pair not identical enough");
+      need(std::abs(a[i]-own[i])>1e-7,"shared-event error cancellation witness not discriminating");}
 }
 void stage_overshoot()
 {
@@ -59,7 +90,7 @@ void rollback()
     gsl_odeiv2_evolve_free(e);gsl_odeiv2_evolve_free(fresh);gsl_odeiv2_control_free(c);gsl_odeiv2_step_free(s);
 }
 int main(){try{
-    gsl_set_error_handler_off();rollback();stage_overshoot();
+    gsl_set_error_handler_off();rollback();stage_overshoot();shared_event_cancellation();
     const auto out=std::filesystem::temp_directory_path()/"compactstar-controlled-write-failure.tsv";
     need(!std::filesystem::exists(out),"test output collision");bool failed=false;
     try{PublishTsv(out,"t\tx\n0\t1\n1\t2\n",2,2,0,7);}catch(const std::exception&){failed=true;}
