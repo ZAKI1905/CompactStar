@@ -18,6 +18,8 @@ Each segment uses its active cell's smooth expression for all RK stages, includi
 excursions. Within that cell it retains the original RHS. Crossings are located on
 each solve's own trajectory. Discarded trials restore time and all components and
 reset both GSL evolve and step state. Step proposals carry across boundaries.
+If a crossing bracket spans adjacent representable times, retain its integrated
+right endpoint and the full time bracket; there is no representable interior root.
 No state projection onto a knot is permitted. Event residuals, finite time spacing,
 work and state uncertainty are recorded. Unresolvable direction or event identity
 fails closed. A sampled monotonicity check is a numerical diagnostic, not a theorem

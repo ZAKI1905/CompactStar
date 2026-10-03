@@ -68,6 +68,9 @@ public:
         ResetStageAudit();
         Apply(t,y,h,std::min(target,std::max(t+max_step_,std::nextafter(t,INFINITY))));
         const double trial_time=t;
+        const State trial_state=y;
+        State trial_error{};
+        for(int i=0;i<3;++i)trial_error[i]=std::abs(evolve_->yerr[i]);
         const int direction=y[0]>initial[0]?1:y[0]<initial[0]?-1:0;
         int knot=-1;
         if(cell_>=0)
@@ -96,7 +99,15 @@ public:
                 State dy{};rhs_(root_t,root,dy,cell_);
                 double next=root_t+(boundary-root[0])/dy[0];
                 if(!std::isfinite(next)||!(next>low&&next<high))next=low+(high-low)/2;
-                if(!(next>low&&next<high))break;
+                if(!(next>low&&next<high))
+                {
+                    // A nextafter-adjacent observation can leave no representable
+                    // event time strictly inside the bracket. Retain the integrated
+                    // right endpoint and its entire bracket; never snap its state.
+                    if(root_t==before)
+                    {root=trial_state;root_t=trial_time;error=trial_error;}
+                    break;
+                }
                 candidate=next;double tt=before,hh=std::min(proposal,candidate-before);State yy=initial;
                 Reset();ResetStageAudit();
                 std::size_t work=0;

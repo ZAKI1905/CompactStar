@@ -171,6 +171,57 @@ void window(const std::string& name,Ctx p,double a,State y,double b,double h,con
     PublishTsv(out/(name+"-events.tsv"),events.str(),9,event_count);PublishTsv(out/(name+"-summary.tsv"),summary.str(),8,1);
     std::cout<<"RESULT "<<name<<" accuracy "<<max_accuracy<<" unresolved "<<failed<<" old "<<c1<<' '<<c2<<' '<<c3<<'\n';
 }
+void archive_comparison(const std::string& name,Ctx p,const Archived& left,const std::filesystem::path& inputs,const std::filesystem::path& output)
+{
+    std::ifstream f(inputs.parent_path()/"runs/run4-frozen-cell"/("M-"+name+"-observations.tsv"));
+    require(bool(f),"missing complete run4 observations");std::string line;std::getline(f,line);
+    std::vector<double> times{left.t1};std::vector<State> historical;
+    while(std::getline(f,line)){auto v=Split(line);require(v.size()==31,"run4 observation schema");
+      double t=std::stod(v[0]);require(t>times.back(),"corrupt run4 time order");times.push_back(t);
+      historical.push_back({{std::stod(v[1]),std::stod(v[2]),std::stod(v[3])}});}
+    require(historical.size()==(name=="source"?490u:1277u),"run4 observation completeness");
+    double b=times.back(),cap=(b-left.t1)/512;
+    const auto reference=integrate(p,left.t1,left.y,b,left.hnext,tight,gsl_odeiv2_step_rk8pd,cap);
+    const auto fine=integrate(p,left.t1,left.y,b,left.hnext,tighter,gsl_odeiv2_step_rk8pd,cap/2);
+    const auto other=integrate(p,left.t1,left.y,b,left.hnext,tighter,gsl_odeiv2_step_rkf45,cap/2);
+    std::array<Solution,3> candidate;
+    for(int tier=0;tier<3;++tier)candidate[tier]=integrate(p,left.t1,left.y,b,left.hnext,tiers[tier],gsl_odeiv2_step_rkf45);
+    std::ostringstream rows;rows<<std::setprecision(17)<<"observation\ttime\tcomponent\tarchived_reference\tnew_reference\tarchive_difference_over_DU\tnew_reference_uncertainty_over_DU\tBASELINE_accuracy\tREFINED_accuracy\tULTRA_accuracy\n";
+    for(std::size_t j=0;j<historical.size();++j){const double t=times[j+1];
+      const auto r=observe(p,fine,t),c=observe(p,reference,t),i=observe(p,other,t);
+      std::array<State,3> main;for(int tier=0;tier<3;++tier)main[tier]=observe(p,candidate[tier],t);
+      for(int k=0;k<3;++k){double U=2*std::max(std::abs(r[k]-c[k]),std::abs(r[k]-i[k]))+64*(std::nextafter(std::abs(r[k]),INFINITY)-std::abs(r[k]));
+        double DU=tiers[2].a[k]+tiers[2].r*std::abs(r[k]);
+        rows<<j<<'\t'<<t<<'\t'<<k<<'\t'<<historical[j][k]<<'\t'<<r[k]<<'\t'<<std::abs(historical[j][k]-r[k])/DU<<'\t'<<U/DU;
+        for(int tier=0;tier<3;++tier)rows<<'\t'<<(std::abs(main[tier][k]-r[k])+U)/(tiers[tier].a[k]+tiers[tier].r*std::max(std::abs(main[tier][k]),std::abs(r[k])));
+        rows<<'\n';}
+    }
+    PublishTsv(output/(name+"-run4-comparison.tsv"),rows.str(),10,historical.size()*3);
+    std::cout<<"RUN4 "<<name<<' '<<historical.size()<<" complete common-time observations\n";
+}
+void tail_stability(Ctx p,const Archived& left,const std::filesystem::path& output)
+{
+    const double b=left.t1+5e11;auto fine=integrate(p,left.t1,left.y,b,left.hnext,tighter,gsl_odeiv2_step_rk8pd,5e11/512);
+    const auto candidate=integrate(p,left.t1,left.y,b,left.hnext,tiers[2],gsl_odeiv2_step_rkf45);
+    double h=0;for(const auto& s:candidate.steps)h=std::max(h,s.right-s.left);
+    ActualCheckpointContext context(p,1);std::ostringstream jac,amplification;
+    jac<<std::setprecision(17)<<"endpoint\trefinement\trow\tcolumn\tderivative_per_s\n";
+    amplification<<std::setprecision(17)<<"endpoint\trefinement\th_factor\th_s\trow\tcolumn\tRKF45_amplification\n";
+    for(int endpoint=0;endpoint<2;++endpoint)for(int refinement=0;refinement<2;++refinement){
+      State state=endpoint?fine.y:left.y;double t=endpoint?b:left.t1;std::array<State,3> J{};
+      for(int col=0;col<3;++col){double delta=(col==0?1e-5:1e-11)/(refinement+1);State lo=state,hi=state,dl{},dh{};
+        lo[col]-=delta;hi[col]+=delta;context.Derivative(t,lo,dl);context.Derivative(t,hi,dh);
+        for(int row=0;row<3;++row){J[row][col]=(dh[row]-dl[row])/(2*delta);jac<<endpoint<<'\t'<<refinement<<'\t'<<row<<'\t'<<col<<'\t'<<J[row][col]<<'\n';}}
+      gsl_odeiv2_system linear{[](double,const double*y,double*d,void* p)->int{
+        const auto& J=*static_cast<std::array<State,3>*>(p);for(int i=0;i<3;++i){d[i]=0;for(int j=0;j<3;++j)d[i]+=J[i][j]*y[j];}return GSL_SUCCESS;},nullptr,3,&J};
+      for(double factor:{.5,1.,2.})for(int col=0;col<3;++col){
+        auto* step=gsl_odeiv2_step_alloc(gsl_odeiv2_step_rkf45,3);State y{},error{};y[col]=1;
+        require(gsl_odeiv2_step_apply(step,0,h*factor,y.data(),error.data(),nullptr,nullptr,&linear)==GSL_SUCCESS,"linear stability probe");gsl_odeiv2_step_free(step);
+        for(int row=0;row<3;++row)amplification<<endpoint<<'\t'<<refinement<<'\t'<<factor<<'\t'<<h*factor<<'\t'<<row<<'\t'<<col<<'\t'<<y[row]<<'\n';}
+    }
+    PublishTsv(output/"tail-jacobian.tsv",jac.str(),5,36);PublishTsv(output/"tail-stability.tsv",amplification.str(),7,108);
+    std::cout<<"TAIL finite-difference Jacobian refinement and direct GSL amplification probes\n";
+}
 int main(int argc,char** argv)
 {
  try{
@@ -193,7 +244,7 @@ auto source=ReadAccepted(std::filesystem::path(argv[8])/"source-accepted.tsv");a
       require(historical.final_state==State{{0.49240008824076903,-2.5123474256442210e-7,-4.7906773046561003e-7}}
         &&historical.statistics.accepted_steps==232&&historical.statistics.rejected_steps==60,"old Arm E failed exact reproduction");
       std::ifstream cases("docs/validation/evidence/obs32-forensics/cases.tsv");std::string line;std::getline(cases,line);
-      std::ostringstream reproduction;reproduction<<std::setprecision(17)<<"observation\told_d_over_D\told_U_over_budget\tnew_qualified\tsmooth_bitwise\n";
+      std::ostringstream reproduction;reproduction<<std::setprecision(17)<<"observation\told_d_over_D\told_U_over_budget\tnew_qualified\tsmooth_bitwise\tcandidate_envelope_ratio\n";
       std::size_t count=0,event_rows=0;BNV::Rk8pdCheckpointReconstructor old(false),candidate;std::size_t id=0;
       std::ostringstream event_evidence;event_evidence<<std::setprecision(17)<<"observation\tlevel\tknot\ttime\tresidual\ttime_ulp\tx\te\tm\n";
       BNV::CheckpointContextFactory factory=[&]{return std::make_unique<ActualCheckpointContext>(p.source,++id);};
@@ -210,13 +261,24 @@ auto source=ReadAccepted(std::filesystem::path(argv[8])/"source-accepted.tsv");a
           &&a.O2_state==State{{0.12472490938614615,-2.0287605965622805e-7,-5.0871537810149634e-7}}
           &&a.status==BNV::CheckpointStatus::NumericallyUnresolved,"obs32 failure reproduction changed");}
         else require(a.O1_state==b.O1_state&&a.O2_state==b.O2_state,"smooth interval changed");
-        reproduction<<v[0]<<'\t'<<a.qualification.d_O[0]/a.qualification.D_O1[0]<<'\t'<<a.qualification.U_O[0]/(.2*a.qualification.F_i[0])<<'\t'<<(b.status==BNV::CheckpointStatus::Qualified)<<'\t'<<(a.O1_state==b.O1_state&&a.O2_state==b.O2_state)<<'\n';++count;
+        const double span=bracket.t_observation_s-step.t_left_s;
+        const auto local=integrate(p.source,step.t_left_s,step.y_left,bracket.t_observation_s,span,tighter,gsl_odeiv2_step_rk8pd,span/8).y;
+        const auto independent_local=integrate(p.source,step.t_left_s,step.y_left,bracket.t_observation_s,span,tighter,gsl_odeiv2_step_rkf45,span/16).y;
+        double envelope_ratio=0;
+        for(int i=0;i<3;++i)envelope_ratio=std::max(envelope_ratio,(std::abs(b.O2_state[i]-local[i])+2*std::abs(local[i]-independent_local[i]))/b.reconstruction_error_contribution[i]);
+        reproduction<<v[0]<<'\t'<<a.qualification.d_O[0]/a.qualification.D_O1[0]<<'\t'<<a.qualification.U_O[0]/(.2*a.qualification.F_i[0])<<'\t'<<(b.status==BNV::CheckpointStatus::Qualified)<<'\t'<<(a.O1_state==b.O1_state&&a.O2_state==b.O2_state)<<'\t'<<envelope_ratio<<'\n';++count;
       }
-      PublishTsv(in.output/"historical-reproduction.tsv",reproduction.str(),5,count);
+      PublishTsv(in.output/"historical-reproduction.tsv",reproduction.str(),6,count);
       PublishTsv(in.output/"reconstruction-events.tsv",event_evidence.str(),9,event_rows);
       std::cout<<"HISTORICAL Arm E exact 232/60; obs32 old states exact; smooth intervals exact\n";
     }
 
+    if(mode=="supplement"){
+      archive_comparison("source",p.source,source[19],argv[8],in.output);
+      archive_comparison("control",p.control,control[48],argv[8],in.output);
+      const auto i=std::find_if(source.begin(),source.end(),[](const Archived& a){return a.t1>1.3e13;});
+      require(i!=source.end(),"missing tail state");tail_stability(p.source,*i,in.output);
+    }
     if(mode=="source"||mode=="all")window("source",p.source,source[19].t1,source[19].y,1e12,source[19].hnext,in.output,64);
     if(mode=="control"||mode=="all")window("control",p.control,control[48].t1,control[48].y,9e12,control[48].hnext,in.output,64);
     if(mode=="bounded"||mode=="all")window("bounded",p.source,0,{{0,0,0}},462269531250.,1,in.output,240);

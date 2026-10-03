@@ -91,6 +91,16 @@ void rollback()
 }
 int main(){try{
     gsl_set_error_handler_off();rollback();stage_overshoot();shared_event_cancellation();
+    {
+      B one_ulp([](double,const B::State&,B::State& d,int){d={{1e-12,2e-15,-3e-15}};},
+        {-2,0,2},gsl_odeiv2_step_rk8pd,1e-12,{{1e-14,1e-18,1e-18}});
+      double t=1e12,h=1;const double begin=t,end=std::nextafter(t,INFINITY);B::State y{{-1e-17,0,0}};
+      const auto step=one_ulp.Advance(t,y,h,end);
+      need(t==end&&step.event.time_low==begin&&step.event.time_high==end,"one-ulp event bracket lost");
+      need(y[0]!=0&&step.event.residual==y[0],"one-ulp event state was snapped");
+      one_ulp.Advance(t,y,h,std::nextafter(t,INFINITY));
+      need(one_ulp.Events().size()==1,"repeated zero-length event");
+    }
     const auto out=std::filesystem::temp_directory_path()/"compactstar-controlled-write-failure.tsv";
     need(!std::filesystem::exists(out),"test output collision");bool failed=false;
     try{PublishTsv(out,"t\tx\n0\t1\n1\t2\n",2,2,0,7);}catch(const std::exception&){failed=true;}
