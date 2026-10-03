@@ -1,4 +1,5 @@
 #include "campaign_fixture.hpp"
+#include "checked_evidence.hpp"
 #include <CompactStar/Physics/Evolution/Observers/IObserver.hpp>
 #include <CompactStar/Physics/Evolution/StatePacking.hpp>
 #include <CompactStar/Physics/Rotochemical/ScaledRKF45.hpp>
@@ -29,11 +30,12 @@ struct Capture final:EV::Observers::IObserver
     {
         std::ostringstream out;out<<std::setprecision(17);for(std::size_t i=0;i<values.size();++i){if(i)out<<';';out<<values[i];}return out.str();
     }
-    std::ofstream out;
+    std::ostringstream out;
+    std::filesystem::path output_path;
     const BNV::ControlledBnvSecularDriver& driver;
     bool started=false;
     std::size_t rows=0;
-    explicit Capture(const std::filesystem::path& path,const BNV::ControlledBnvSecularDriver& d):out(path),driver(d)
+    explicit Capture(const std::filesystem::path& path,const BNV::ControlledBnvSecularDriver& d):output_path(path),driver(d)
     {
         if(!out)throw std::runtime_error("cannot create trajectory output");
         out<<"t_s\tx_state\tB_count\tBdot_count_s\tDeltaB_over_B0\tS_n_count_s\tS_e_count_s\tS_mu_count_s\tt_n\tt_e\tt_mu\tt_error_n\tt_error_e\tt_error_mu\tsigma_e_count_s\tsigma_mu_count_s\teta_e_MeV\teta_mu_MeV\txi_e\txi_mu\tR_e_count_s\tR_mu_count_s\teta_dot_from_sigma_e_MeV_s\teta_dot_from_sigma_mu_MeV_s\teta_dot_from_beta_e_MeV_s\teta_dot_from_beta_mu_MeV_s\tmu_B_inf_MeV\tmu_n_actual_inf_MeV\tEchem_MeV\tEchem_dot_reaction_MeV_s\tEchem_dot_source_MeV_s\tEchem_dot_total_MeV_s\tP_dir_eq_erg_s\tP_dir_actual_erg_s\tLH_erg_s\tDeltaLnu_erg_s\tDeltaPbeta_erg_s\tLnu_eq_erg_s\tLnu_full_erg_s\tL_out_fluid_inf_erg_s\tL_esc_star_inf_erg_s\tJ_X_inf_erg_s\tLgamma_erg_s\tLother_erg_s\tPnet_erg_s\tCstar_erg_K\tTinf_K\tTsurface_inf_K\tR18_residual_erg_s\tRa_Rb_residual_erg_s\tRb_Rc_residual_erg_s\tfinite_T_omitted_floor_erg_s\tbSigma_residual_count_s\tlift_residual_count_s\tDeltaN_n_over_N_n\tDeltaN_e_over_N_e\tDeltaN_mu_over_N_mu\tmax_frozen_utilization\tfrozen_limiting_quantity\tvalid_through_sample\trun_card_identity\tpartition_identity\tsource_identity\tdomain_identity\trevision_identity\tproduct_fate_identity\tactual_potential_provenance\tfinite_T_weighting_class"
@@ -82,6 +84,7 @@ struct Capture final:EV::Observers::IObserver
         out<<'\n';
         if(!out)throw std::runtime_error("trajectory serialization failure");++rows;
     }
+    void Publish(){PublishTable(output_path,out.str(),rows,0);}
     void OnStart(const EV::Observers::RunInfo&,const EV::StateVector& state,const EV::DriverContext& context)override
     {if(!started){Save(0,state,context);started=true;}}
     void OnSample(const EV::Observers::SampleInfo& sample,const EV::StateVector& state,const EV::DriverContext& context)override
@@ -117,6 +120,7 @@ RunSummary Run(const std::shared_ptr<const BNV::FrozenControlledBnvRunContext>& 
         for(const auto& sample:stats.outputs)total.outputs.push_back({sample.time_s,
           accepted_offset+sample.accepted,rejected_offset+sample.rejected,sample.last_step_s});
     }
+    capture->Publish();
     total.rows=capture->rows;if(total.rows!=card.checkpoints)throw std::runtime_error("trajectory checkpoint count changed");
     std::ofstream steps(path.string()+".steps");steps<<std::setprecision(17)<<"accepted\trejected\trhs\tminimum_step_s\tmaximum_step_s\trows\n"<<total.accepted<<'\t'<<total.rejected<<'\t'<<total.rhs<<'\t'<<total.min_step<<'\t'<<total.max_step<<'\t'<<total.rows<<"\nt_s\tcumulative_accepted\tcumulative_rejected\tlast_step_s\n";
     for(const auto& sample:total.outputs)steps<<sample.time_s<<'\t'<<sample.accepted<<'\t'<<sample.rejected<<'\t'<<sample.last_step_s<<'\n';

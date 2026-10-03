@@ -39,3 +39,18 @@ Authority: owner's bounded implementation instruction; ADR-0017 Amendment 1 cand
 The empirically tested propagation envelope applies only to these bounded intervals,
 fixture/domain and methods. It is not a universal event theorem or campaign approval.
 Any failed budget must remain visible; ordinary code/build/test repairs are authorized.
+
+Implementation detail predeclared before ledger scoring: the retained BA12R ledger
+accuracy scale is 1e-9 G_P for REFINED/ULTRA, with original 1e-11 G_P floor and
+0.10 contraction reported separately. Successor comparison to a qualified reference
+uses the same 1e-9 G_P accuracy scale; state accuracy retains each tier's own scale.
+The independent reference uncertainty must fit 0.05 D_ULTRA. U_event_i is the
+full coupled endpoint envelope 2 max(|O2_i-H_i|, |H_i-I_i|)+64 ulp(|O2_i|), where H
+is tighter half-step rk8pd and I tighter quarter-step RKF45, each with independent
+event solves. Units are dimensionless for x and MeV for each eta. Since differences
+are measured at the observation, the endpoint propagation factor is one; intermediate
+coupling is integrated explicitly, not approximated by a scalar thermal decay.
+This empirical envelope is tested against further step refinement and independent
+endpoint/reference errors in the declared domain. Diagnostic propagation evaluates
+all eight corners of the coupled state uncertainty box with a factor-two margin;
+it must agree conservatively with independent diagnostics in the bounded tests.

@@ -852,3 +852,22 @@ below is historical.
   that `Debug` and `Release` agree numerically.
 - It does **not** claim the external ZakiLib/CONFIND repositories constitute cross-platform
   support. Their revisions have not been shown to reproduce the archives consumed here.
+
+
+### Phase-6 breakpoint candidate (unratified, 2026-10-03)
+
+On the candidate branch, `BNV/BreakpointStepper.hpp` owns scalar Cstar-cell event
+segmentation for both `UninterruptedBnvTrajectory` and checkpoint reconstruction.
+`StarContext::ReadHeatCapacityCells` exports a provenance-bearing copy of actual
+cache data and the existing cell lookup/smooth expression; Phase-5 callers and
+interpolation remain unchanged. `BNV/CstarSegments.hpp` extends only the active
+cell for temporary RK stages. Discarded trials reset GSL evolve and step state,
+and boundary continuation retains all physical state components without projection.
+Scientific observations remain passive and exact endpoints remain stored-state
+bypasses. Explicit historical modes exist solely for regression reproduction.
+
+This is an **UNVERIFIED SCIENTIFIC CANDIDATE**, governed for bounded work by the
+owner's instruction and the proposed ADR-0017 amendment in
+`docs/validation/PHASE6A1_PIECEWISE_RECONSTRUCTION_PROPOSAL.md`. Implementation is
+not amendment ratification or campaign authority. Qualification results and limits
+are recorded separately. Phase-5's upstream Cstar crossing issue remains a follow-up.

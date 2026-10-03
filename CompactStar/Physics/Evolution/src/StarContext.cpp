@@ -802,6 +802,28 @@ double StarContext::HeatCapacityStar_Tinf(double Tinf_MeV,
 }
 
 //--------------------------------------------------------------
+std::size_t StarContext::HeatCapacityCells::Cell(double temperature, std::size_t hint) const
+{
+    return Bracket(temperature_MeV, temperature, hint);
+}
+
+double StarContext::HeatCapacityCells::SmoothCapacity(double temperature, std::size_t cell) const
+{
+    if (!(temperature > 0) || cell+1 >= temperature_MeV.size())
+        throw std::runtime_error("invalid heat-capacity smooth cell");
+    const double w=(std::log(temperature)-std::log(temperature_MeV[cell])) /
+        (std::log(temperature_MeV[cell+1])-std::log(temperature_MeV[cell]));
+    return Lerp(capacity_erg_K.at(cell),capacity_erg_K.at(cell+1),w);
+}
+
+StarContext::HeatCapacityCells StarContext::ReadHeatCapacityCells(
+    const CompactStar::EOS::CompOSE_Thermo& thermo,const GeometryCache* geo) const
+{
+    // Reuse the production currentness/build checks, never generate a second grid.
+    HeatCapacityStar_Tinf(1.0e-3,thermo,geo);
+    return {m_cv_cache.Tinf_MeV,m_cv_cache.C_star,Provenance()};
+}
+
 // Builds the cache using CvDensity in cgs units: erg cm^-3 K^-1
 // outputs in erg K^-1
 void StarContext::BuildHeatCapacityCache_(const CompactStar::EOS::CompOSE_Thermo &thermo,

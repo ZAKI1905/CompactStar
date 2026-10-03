@@ -149,6 +149,18 @@ class StarContext
 	 * @param thermo   CompOSE thermodynamics table interface (used for cV).
 	 * @param geo	   Pointer to GeometryCache
 	 */
+    // Immutable numerical metadata copied from the authenticated, current cache.
+    // Cell() retains the production inclusive-hint/upper_bound semantics.
+    struct HeatCapacityCells
+    {
+        std::vector<double> temperature_MeV, capacity_erg_K;
+        ProfileProvenance provenance;
+        std::size_t Cell(double temperature, std::size_t hint=0) const;
+        double SmoothCapacity(double temperature, std::size_t cell) const;
+    };
+    HeatCapacityCells ReadHeatCapacityCells(const CompactStar::EOS::CompOSE_Thermo&,
+        const GeometryCache*) const;
+
 	double HeatCapacityStar_Tinf(double Tinf_MeV,
 								 const CompactStar::EOS::CompOSE_Thermo &thermo,
 								 const GeometryCache *geo = nullptr) const;

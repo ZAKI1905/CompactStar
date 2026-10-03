@@ -105,7 +105,7 @@ void P1PassiveAuthority()
 void P2ExactEndpointBypass()
 {
     auto audit=std::make_shared<FactoryAudit>();
-    BNV::Rk8pdCheckpointReconstructor reconstruction;
+    BNV::Rk8pdCheckpointReconstructor reconstruction(false);
     const auto result=reconstruction.Reconstruct(Endpoint(),{Step()},Factory(audit));
     Require(result.source==BNV::CheckpointSource::MainEndpoint,"P2 source");
     Require(result.status==BNV::CheckpointStatus::Qualified,"P2 status");
@@ -116,7 +116,7 @@ void P2ExactEndpointBypass()
 void P3StrictInteriorExactlyTwoLevels()
 {
     auto audit=std::make_shared<FactoryAudit>();audit->derivative={{1,0,0}};
-    BNV::Rk8pdCheckpointReconstructor reconstruction;
+    BNV::Rk8pdCheckpointReconstructor reconstruction(false);
     const auto result=reconstruction.Reconstruct(Interior(),{Step()},Factory(audit));
     Require(result.provenance.rk8pd_invocations==2&&audit->constructions==2,"P3 not exactly O1/O2");
     Require(result.provenance.context_identity_O1!=result.provenance.context_identity_O2,"P3 contexts shared");
@@ -125,7 +125,7 @@ void P3StrictInteriorExactlyTwoLevels()
 void P4SelfQualificationPass()
 {
     auto audit=std::make_shared<FactoryAudit>();audit->derivative={{1,0,0}};
-    BNV::Rk8pdCheckpointReconstructor reconstruction;
+    BNV::Rk8pdCheckpointReconstructor reconstruction(false);
     const auto result=reconstruction.Reconstruct(Interior(),{Step()},Factory(audit));
     Require(result.qualification.self_qualified&&result.status==BNV::CheckpointStatus::Qualified,"P4 pass refused");
     Require(result.state==result.O2_state,"P4 did not select O2");
@@ -135,18 +135,33 @@ void P5FailClosedSynthetic()
 {
     auto audit=std::make_shared<FactoryAudit>();audit->derivative={{1.0e-4,1.0e-4,1.0e-4}};
     audit->varying_derivative=true;
-    BNV::Rk8pdCheckpointReconstructor reconstruction;
+    BNV::Rk8pdCheckpointReconstructor reconstruction(false);
     auto result=reconstruction.Reconstruct(Interior(),{Step()},Factory(audit));
     Require(!result.qualification.self_qualified,"P5 synthetic failure passed");
     Require(result.status==BNV::CheckpointStatus::NumericallyUnresolved,"P5 did not fail closed");
     Require(Throws([&]{reconstruction.EvaluateDiagnostics(result,Factory(audit));}),"P5 downstream did not refuse");
 }
 
+// Two artificially identical primary witnesses must not defeat the successor check.
+void IndependentWitnessFalsifier()
+{
+    auto audit=std::make_shared<FactoryAudit>();
+    BNV::CheckpointContextFactory factory=[audit]() {
+        ++audit->constructions;
+        audit->derivative=audit->constructions<=2?BNV::CheckpointState{{0,0,0}}:BNV::CheckpointState{{1,1,1}};
+        return std::make_unique<SyntheticContext>(audit,audit->constructions);
+    };
+    BNV::Rk8pdCheckpointReconstructor candidate;
+    auto q=candidate.Reconstruct(Interior(),{Step()},factory);
+    Require(q.O1_state==q.O2_state,"falsifier did not create identical witnesses");
+    Require(q.status==BNV::CheckpointStatus::NumericallyUnresolved,"identical witnesses incorrectly qualified");
+}
+
 void P6NoFallbackOrRetuning()
 {
     auto audit=std::make_shared<FactoryAudit>();audit->derivative={{1.0e-4,1.0e-4,1.0e-4}};
     audit->varying_derivative=true;
-    BNV::Rk8pdCheckpointReconstructor reconstruction;
+    BNV::Rk8pdCheckpointReconstructor reconstruction(false);
     const auto O1=reconstruction.O1(),O2=reconstruction.O2();
     const auto result=reconstruction.Reconstruct(Interior(),{Step()},Factory(audit));
     Require(result.provenance.rk8pd_invocations==2&&result.provenance.fallback_invocations==0,"P6 fallback/retry");
@@ -157,7 +172,7 @@ void P6NoFallbackOrRetuning()
 void P7ContextIsolation()
 {
     auto audit=std::make_shared<FactoryAudit>();audit->derivative={{1,0,0}};
-    BNV::Rk8pdCheckpointReconstructor reconstruction;
+    BNV::Rk8pdCheckpointReconstructor reconstruction(false);
     const auto result=reconstruction.Reconstruct(Interior(),{Step()},Factory(audit));
     Require(audit->live_ids.size()==2&&audit->live_ids[0]!=audit->live_ids[1],"P7 context reuse");
     Require(result.O1_state==result.O2_state,"P7 isolated deterministic contexts disagree");
@@ -166,7 +181,7 @@ void P7ContextIsolation()
 void P8DiagnosticsUseReconstructedState()
 {
     auto audit=std::make_shared<FactoryAudit>();audit->derivative={{1,0,0}};
-    BNV::Rk8pdCheckpointReconstructor reconstruction;
+    BNV::Rk8pdCheckpointReconstructor reconstruction(false);
     auto result=reconstruction.Reconstruct(Interior(),{Step()},Factory(audit));
     reconstruction.EvaluateDiagnostics(result,Factory(audit));
     Require(result.diagnostics_evaluated&&result.diagnostic_self_qualified,"P8 diagnostic qualification");
@@ -222,7 +237,7 @@ int main()
         P3StrictInteriorExactlyTwoLevels();std::cout<<"P3 PASS\n";
         P4SelfQualificationPass();std::cout<<"P4 PASS\n";
         P5FailClosedSynthetic();std::cout<<"P5 PASS\n";
-        P6NoFallbackOrRetuning();std::cout<<"P6 PASS\n";
+        IndependentWitnessFalsifier();P6NoFallbackOrRetuning();std::cout<<"P6 PASS\n";
         P7ContextIsolation();std::cout<<"P7 PASS\n";
         P8DiagnosticsUseReconstructedState();std::cout<<"P8 PASS\n";
         P9R20CheckpointDiagnostics();std::cout<<"P9 PASS\n";

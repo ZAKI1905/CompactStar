@@ -2,6 +2,8 @@
 #include "coupled_trajectory.cpp"
 
 #include <CompactStar/Physics/BNV/PassiveCheckpointOutput.hpp>
+#include <CompactStar/Physics/BNV/CstarSegments.hpp>
+#include "checked_evidence.hpp"
 
 #include <algorithm>
 #include <array>
@@ -119,6 +121,14 @@ class ActualCheckpointContext final:public BNV::ICheckpointEvaluationContext
         EV::UnpackStateVector(state_.state,state_.layout,packed.data());
         return driver_->Evaluate(t,state_.state,state_.ctx).diagnostics;
     }
+    std::vector<double> Breakpoints() const override
+    {return BNV::CstarSegments(context_->OrdinaryContext()->DriverContext()).Knots();}
+    void SmoothDerivative(double t,const BNV::CheckpointState& y,BNV::CheckpointState& d,int cell) override
+    {
+        Derivative(t,y,d);
+        if(!segments_)segments_=std::make_unique<BNV::CstarSegments>(context_->OrdinaryContext()->DriverContext());
+        segments_->Extend(y[0],cell,d[0]);
+    }
     std::string Identity() const override
     {return context_->RunCardIdentity()+":isolated-production-context:"+std::to_string(identity_);}
   private:
@@ -127,6 +137,7 @@ class ActualCheckpointContext final:public BNV::ICheckpointEvaluationContext
     std::shared_ptr<BNV::ControlledBnvSecularDriver> driver_;
     EV::EvolutionSystem system_;
     std::size_t identity_;
+    std::unique_ptr<BNV::CstarSegments> segments_;
 };
 
 void ValidateAgainstMatrix(const BNV::MainTrajectoryResult& main,
@@ -155,46 +166,55 @@ void ValidateAgainstMatrix(const BNV::MainTrajectoryResult& main,
 void WriteMainEvidence(const std::filesystem::path& root,const BNV::MainTrajectoryResult& main,
   const BNV::PassiveObservationSchedule& schedule,std::size_t trajectory_rows)
 {
-    std::ofstream schedule_out(root/"schedule.tsv");schedule_out<<std::setprecision(17)<<"index\tt_s\n";
+    std::ostringstream schedule_out;schedule_out<<std::setprecision(17)<<"index\tt_s\n";
     for(std::size_t i=0;i<schedule.RequestedTimes().size();++i)
         schedule_out<<i<<'\t'<<schedule.RequestedTimes()[i]<<'\n';
-    std::ofstream accepted(root/"main.accepted_states.tsv");accepted<<std::setprecision(17)
+    std::ostringstream accepted;accepted<<std::setprecision(17)
       <<"sequence\tt_before_s\tt_after_s\tstep_s\tsuggested_next_h_s\tcumulative_rejected\tx_state\teta_e_MeV\teta_mu_MeV\n";
     for(const auto& step:main.accepted_steps)accepted<<step.ordinal<<'\t'<<step.t_left_s<<'\t'<<step.t_right_s<<'\t'
       <<step.accepted_step_s<<'\t'<<step.suggested_next_h_s<<'\t'<<step.cumulative_rejected<<'\t'
       <<step.y_right[0]<<'\t'<<step.y_right[1]<<'\t'<<step.y_right[2]<<'\n';
-    std::ofstream internal(root/"main.internal_steps.tsv");internal<<std::setprecision(17)
+    std::ostringstream internal;internal<<std::setprecision(17)
       <<"sequence\tarchived_checkpoint_index\tceiling_s\tt_before_s\tt_after_s\tstep_s\tsuggested_next_h_s"
       <<"\tcumulative_rejected\tx_before\tx_after\tcstar_cell_before\tcstar_cell_after\tcstar_knots_crossed\n";
     for(const auto& step:main.accepted_steps)internal<<step.ordinal<<'\t'<<schedule.RequestedTimes().size()-1<<'\t'<<main.final_time_s<<'\t'
       <<step.t_left_s<<'\t'<<step.t_right_s<<'\t'<<step.accepted_step_s<<'\t'<<step.suggested_next_h_s<<'\t'
       <<step.cumulative_rejected<<'\t'<<step.y_left[0]<<'\t'<<step.y_right[0]<<'\t'
       <<step.cstar_cell_left<<'\t'<<step.cstar_cell_right<<'\t'<<step.cstar_knots_crossed<<'\n';
-    std::ofstream observations(root/"main.observations.tsv");observations<<std::setprecision(17)
+    std::ostringstream observations;observations<<std::setprecision(17)
       <<"observation_index\trequested_t_s\tprevious_accepted_step\tnew_accepted_step\tt_previous_s\tt_new_s\tkind\n";
     for(const auto& bracket:schedule.Brackets())observations<<bracket.observation_index<<'\t'
       <<bracket.t_observation_s<<'\t'<<bracket.left_accepted_ordinal<<'\t'<<bracket.right_accepted_ordinal<<'\t'
       <<bracket.t_left_s<<'\t'<<bracket.t_right_s<<'\t'<<(bracket.initial?"initial":"bracket")<<'\n';
     const auto& stats=main.statistics;const auto& last=main.accepted_steps.back();
-    std::ofstream steps(root/"main.steps");steps<<std::setprecision(17)
+    std::ofstream steps;steps.exceptions(std::ios::failbit|std::ios::badbit);steps.open(root/"main.steps.partial");steps<<std::setprecision(17)
       <<"accepted\trejected\trhs\tminimum_step_s\tmaximum_step_s\trows\n"
       <<stats.accepted_steps<<'\t'<<stats.rejected_steps<<'\t'<<stats.rhs_evaluations<<'\t'
       <<stats.minimum_step_s<<'\t'<<stats.maximum_step_s<<'\t'<<trajectory_rows
       <<"\nt_s\tcumulative_accepted\tcumulative_rejected\tlast_step_s\tminimum_step_since_previous_output_s\n"
       <<main.final_time_s<<'\t'<<stats.accepted_steps<<'\t'<<stats.rejected_steps<<'\t'
       <<last.accepted_step_s<<'\t'<<stats.minimum_step_s<<'\n';
-    std::ofstream audit(root/"main.audit.tsv");audit<<std::setprecision(17)
+    std::ostringstream audit;audit<<std::setprecision(17)
       <<"gsl_apply_calls\tunique_positive_t1_targets\tt1_s\tintermediate_observation_t1_matches"
       <<"\tobserver_callbacks\trequested_observations\tobservation_records\tpositive_brackets\n"
       <<stats.gsl_apply_calls<<'\t'<<stats.distinct_positive_t1_targets<<'\t'<<stats.positive_t1_s
       <<"\t0\t"<<schedule.AcceptedCallbacks()<<'\t'<<schedule.RequestedTimes().size()<<'\t'
       <<schedule.Brackets().size()<<'\t'<<schedule.Brackets().size()-1<<'\n';
+    PublishTable(root/"schedule.tsv",schedule_out.str(),schedule.RequestedTimes().size(),1);
+    PublishTable(root/"main.accepted_states.tsv",accepted.str(),main.accepted_steps.size(),2);
+    PublishTable(root/"main.internal_steps.tsv",internal.str(),main.accepted_steps.size(),4);
+    PublishTable(root/"main.observations.tsv",observations.str(),schedule.Brackets().size(),1);
+    PublishTable(root/"main.audit.tsv",audit.str(),1);
+    steps.flush();steps.close();
+    {std::ifstream verify(root/"main.steps.partial");std::string line;std::size_t n=0;while(std::getline(verify,line))++n;
+     require(verify.eof()&&n==4,"main steps readback failure");}
+    std::filesystem::rename(root/"main.steps.partial",root/"main.steps");
 }
 
 void WriteCheckpointEvidence(const std::filesystem::path& path,
   const std::vector<BNV::CheckpointOutput>& outputs,const std::vector<MatrixRow>& rows)
 {
-    std::ofstream out(path);require(bool(out),"cannot create checkpoint evidence");out<<std::setprecision(17);
+    std::ostringstream out;out<<std::setprecision(17);
     out<<"observation_index\tt_obs_s\tcategory\tknots\tsource\tstatus\trk8pd_invocations\tself_qualified"
       <<"\tx_O1\teta_e_O1\teta_mu_O1\tx_O2\teta_e_O2\teta_mu_O2"
       <<"\td_x\td_eta_e\td_eta_mu\tD_O1_x\tD_O1_eta_e\tD_O1_eta_mu"
@@ -240,6 +260,7 @@ void WriteCheckpointEvidence(const std::filesystem::path& path,
           <<'\t'<<p.diagnostic_context_wall_seconds<<'\t'<<p.diagnostic_context_cpu_seconds
           <<'\t'<<p.diagnostic_evaluation_wall_seconds<<'\t'<<p.diagnostic_evaluation_cpu_seconds<<'\n';
     }
+    PublishTable(path,out.str(),outputs.size(),1);
 }
 
 void WriteSummary(const std::filesystem::path& path,const BNV::MainTrajectoryResult& main,
@@ -259,7 +280,7 @@ void WriteSummary(const std::filesystem::path& path,const BNV::MainTrajectoryRes
         diagnostic_cpu+=q.performance.diagnostic_evaluation_cpu_seconds;
     }
     const double checkpoint_wall=O1_wall+O2_wall+context_wall+diagnostic_wall;
-    std::ofstream out(path);out<<std::setprecision(17)<<"key\tvalue\n"
+    std::ostringstream out;out<<std::setprecision(17)<<"key\tvalue\n"
       <<"main_wall_s\t"<<main.statistics.wall_seconds<<"\nmain_cpu_s\t"<<main.statistics.cpu_seconds
       <<"\nphysics_context_wall_s\t"<<physics_context_wall<<"\nphysics_context_cpu_s\t"<<physics_context_cpu
       <<"\nO1_wall_s\t"<<O1_wall<<"\nO1_cpu_s\t"<<O1_cpu
@@ -273,6 +294,7 @@ void WriteSummary(const std::filesystem::path& path,const BNV::MainTrajectoryRes
       <<"\nR20_reconstruction_uncertainty_erg\t"<<R20.reconstruction_uncertainty_erg
       <<"\n8192_serial_wall_estimate_s\t"<<checkpoint_wall*8191.0/239.0
       <<"\n8192_process_parallel_2_wall_estimate_s\t"<<checkpoint_wall*8191.0/(239.0*2.0)<<'\n';
+    const auto bytes=out.str();PublishTable(path,bytes,std::count(bytes.begin(),bytes.end(),'\n')-1);
 }
 }
 
@@ -307,8 +329,10 @@ int main(int argc,char** argv)
           "Phase-6A-1 controlled abstract uniform proper neutron sink v1",
           "phase6a1-frozen-currentness:full-before-and-after;cheap-per-step",
           schedule.Identity()};
-        BNV::UninterruptedBnvTrajectory integrator(system,main_state.layout,physics->OrdinaryContext(),{},provenance);
+        BNV::Rkf45Configuration historical;historical.breakpoint_aware=false;
+        BNV::UninterruptedBnvTrajectory integrator(system,main_state.layout,physics->OrdinaryContext(),historical,provenance);
         const auto main=integrator.Integrate(0,462269531250.0,{{0,0,0}},schedule,true);
+        capture->Publish();
         require(capture->rows==2,"bounded main trajectory did not emit start/final only");
         ValidateAgainstMatrix(main,schedule,rows);
         BNV::PassiveObservationSchedule alternate({0,times[1],times[120],times.back()},"alternate-postprocess-only");
@@ -319,7 +343,7 @@ int main(int argc,char** argv)
         auto context_count=std::make_shared<std::size_t>(0);
         BNV::CheckpointContextFactory factory=[physics,context_count]
         {return std::make_unique<ActualCheckpointContext>(physics,++*context_count);};
-        BNV::Rk8pdCheckpointReconstructor reconstructor;
+        BNV::Rk8pdCheckpointReconstructor reconstructor(false);
         std::vector<BNV::CheckpointOutput> outputs;outputs.reserve(schedule.Brackets().size());
         for(const auto& bracket:schedule.Brackets())
         {

@@ -720,3 +720,10 @@ unset(_compactstar_python_tests)
 
 # Exact same-mode Mac dependency migration fixtures.
 add_subdirectory(dependency_migration)
+
+add_executable(phase6_breakpoint_contract bnv/breakpoint_contract.cpp)
+target_link_libraries(phase6_breakpoint_contract PRIVATE CompactStar)
+add_test(NAME phase6_breakpoint_contract COMMAND phase6_breakpoint_contract)
+set_tests_properties(phase6_breakpoint_contract PROPERTIES LABELS "phase6;bnv;self-contained;contract")
+add_executable(phase6_breakpoint_qualification bnv/breakpoint_qualification.cpp)
+target_link_libraries(phase6_breakpoint_qualification PRIVATE CompactStar)

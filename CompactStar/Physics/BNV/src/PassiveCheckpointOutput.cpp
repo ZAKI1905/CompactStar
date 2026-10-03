@@ -1,5 +1,6 @@
 #include <CompactStar/Physics/BNV/PassiveCheckpointOutput.hpp>
 
+#include <CompactStar/Physics/BNV/CstarSegments.hpp>
 #include <gsl/gsl_errno.h>
 #include <gsl/gsl_odeiv2.h>
 
@@ -95,7 +96,8 @@ std::map<std::string,double> DiagnosticValues(const BnvDiagnostics& d)
       {"Lnu_eq",d.Lnu_eq_erg_s},{"Lnu_full",d.Lnu_full_erg_s},{"Lgamma",d.Lgamma_erg_s},
       {"Lother",d.Lother_erg_s},{"Pnet",d.Pnet_erg_s},{"mu_B",d.mu_B_inf_MeV},
       {"mu_n_actual",d.mu_n_actual_inf_MeV},{"sigma_e",d.sigma_count_s[0]},
-      {"sigma_mu",d.sigma_count_s[1]},{"Echem",d.Echem_MeV}
+      {"sigma_mu",d.sigma_count_s[1]},{"Echem",d.Echem_MeV},
+      {"Cstar",d.Cstar_erg_K},{"Tinf",d.Tinf_K},{"Lout",d.L_out_fluid_inf_erg_s}
     };
 }
 
@@ -170,7 +172,7 @@ void PassiveObservationSchedule::NotifyInitial(const CheckpointState& initial_st
 {
     Reset();
     for(double value:initial_state)Need(std::isfinite(value),"nonfinite initial observation state");
-    Need(requested_times_s_.front()==0.0,"observation schedule must begin at the main initial time");
+    // The main interval validates its own initial time, including bounded late windows.
     brackets_.push_back({0,requested_times_s_.front(),0,0,requested_times_s_.front(),requested_times_s_.front(),true});
     next_=1;
 }
@@ -285,6 +287,17 @@ MainTrajectoryResult UninterruptedBnvTrajectory::Integrate(
     gsl_odeiv2_system gsl_system{Callback,nullptr,3,this};
     double t=start,h=configuration_.initial_step_s;
     auto y=initial_state;
+    std::unique_ptr<CstarSegments> segments;
+    std::unique_ptr<BreakpointStepper> breakpoint;
+    if(configuration_.breakpoint_aware)
+    {
+        segments=std::make_unique<CstarSegments>(currentness_owner_->DriverContext());
+        breakpoint=std::make_unique<BreakpointStepper>(
+          [&](double time,const CheckpointState& in,CheckpointState& out,int cell)
+          {Derivative(time,in.data(),out.data());segments->Extend(in[0],cell,out[0]);},
+          segments->Knots(),gsl_odeiv2_step_rkf45,configuration_.relative,configuration_.absolute,
+          configuration_.maximum_step_s);
+    }
     const auto wall_begin=Clock::now();const auto cpu_begin=std::clock();
     try
     {
@@ -296,12 +309,24 @@ MainTrajectoryResult UninterruptedBnvTrajectory::Integrate(
             currentness_owner_->RequireCheapCurrent();
             const double before=t;
             const CheckpointState y_before=y;
-            ++statistics.gsl_apply_calls;
-            const int rc=gsl_odeiv2_evolve_apply(evolve.get(),control.get(),step.get(),
-              &gsl_system,&t,final_time,&h,y.data());
-            statistics.rejected_steps=evolve->failed_steps;
-            if(failure_)std::rethrow_exception(failure_);
-            Need(rc==GSL_SUCCESS,"main RKF45 GSL failure");
+            BreakpointStepper::Step piece;
+            if(breakpoint)
+            {
+                piece=breakpoint->Advance(t,y,h,final_time);
+                statistics.breakpoint=breakpoint->Stats();
+                statistics.distinct_positive_t1_targets=breakpoint->TargetCount();
+                statistics.gsl_apply_calls=statistics.breakpoint.applies;
+                statistics.rejected_steps=statistics.breakpoint.rejected-statistics.breakpoint.event_rejected;
+            }
+            else
+            {
+                ++statistics.gsl_apply_calls;
+                const int rc=gsl_odeiv2_evolve_apply(evolve.get(),control.get(),step.get(),
+                    &gsl_system,&t,final_time,&h,y.data());
+                statistics.rejected_steps=evolve->failed_steps;
+                if(failure_)std::rethrow_exception(failure_);
+                Need(rc==GSL_SUCCESS,"main RKF45 GSL failure");
+            }
             const double accepted_step=t-before;
             Need(accepted_step>0&&std::isfinite(accepted_step),"main RKF45 failed progress");
             ++statistics.accepted_steps;
@@ -319,6 +344,11 @@ MainTrajectoryResult UninterruptedBnvTrajectory::Integrate(
             record.currentness_identity=provenance_.currentness_identity;
             record.cstar_cell_left=left_cell;record.cstar_cell_right=right_cell;
             record.cstar_knots_crossed=std::abs(right_cell-left_cell);
+            if(breakpoint)
+            {
+                record.cstar_cell_left=piece.cell;record.cstar_cell_right=piece.cell;
+                record.cstar_knots_crossed=0;record.event=piece.event;record.local_rk_error=piece.rk_error;
+            }
             result.accepted_steps.push_back(record);
             observation_schedule.NotifyAccepted(result.accepted_steps.back());
         }
@@ -340,8 +370,8 @@ MainTrajectoryResult UninterruptedBnvTrajectory::Integrate(
     return result;
 }
 
-Rk8pdCheckpointReconstructor::Rk8pdCheckpointReconstructor()
-  :O1_{"O1",1.0e-12,{{1.0e-17,1.0e-23,1.0e-23}}},
+Rk8pdCheckpointReconstructor::Rk8pdCheckpointReconstructor(bool breakpoint_aware)
+  :breakpoint_aware_(breakpoint_aware),O1_{"O1",1.0e-12,{{1.0e-17,1.0e-23,1.0e-23}}},
    O2_{"O2",1.0e-13,{{1.0e-18,1.0e-24,1.0e-24}}}
 {
     O1_.Validate();O2_.Validate();
@@ -349,7 +379,7 @@ Rk8pdCheckpointReconstructor::Rk8pdCheckpointReconstructor()
 
 Rk8pdCheckpointReconstructor::SolveResult Rk8pdCheckpointReconstructor::Integrate(
   double start,const CheckpointState& initial,double target,const Rk8pdConfiguration& configuration,
-  const CheckpointContextFactory& context_factory)
+  const CheckpointContextFactory& context_factory,bool breakpoint_aware,double subdivisions,bool independent)
 {
     configuration.Validate();
     Need(target>start&&std::isfinite(start)&&std::isfinite(target),"invalid strict-interior interval");
@@ -377,7 +407,16 @@ Rk8pdCheckpointReconstructor::SolveResult Rk8pdCheckpointReconstructor::Integrat
     auto y=initial;
     begin=Clock::now();cpu_begin=std::clock();
     std::size_t calls=0;
-    while(t<target)
+    if(breakpoint_aware)
+    {
+        BreakpointStepper solver([&](double time,const CheckpointState& in,CheckpointState& out,int cell)
+          {context->SmoothDerivative(time,in,out,cell);},context->Breakpoints(),
+          independent?gsl_odeiv2_step_rkf45:gsl_odeiv2_step_rk8pd,
+          configuration.relative,configuration.absolute,(target-start)/subdivisions);
+        while(t<target){Need(++calls<=100000,"local breakpoint work exhausted");solver.Advance(t,y,h,target);}
+        result.events=solver.Events();
+    }
+    else while(t<target)
     {
         Need(++calls<=100000,"rk8pd local step budget exceeded");
         const int rc=gsl_odeiv2_evolve_apply(evolve.get(),control.get(),step.get(),
@@ -456,9 +495,9 @@ CheckpointOutput Rk8pdCheckpointReconstructor::Reconstruct(
          "checkpoint is neither exact endpoint nor strict interior");
     output.source=CheckpointSource::Rk8pdReconstructed;
     output.provenance.method="rk8pd-two-level";
-    const auto O1=Integrate(step.t_left_s,step.y_left,bracket.t_observation_s,O1_,context_factory);
+    const auto O1=Integrate(step.t_left_s,step.y_left,bracket.t_observation_s,O1_,context_factory,breakpoint_aware_);
     ++output.provenance.rk8pd_invocations;
-    const auto O2=Integrate(step.t_left_s,step.y_left,bracket.t_observation_s,O2_,context_factory);
+    const auto O2=Integrate(step.t_left_s,step.y_left,bracket.t_observation_s,O2_,context_factory,breakpoint_aware_);
     ++output.provenance.rk8pd_invocations;
     output.O1_state=O1.state;output.O2_state=O2.state;
     output.performance.O1_context_wall_seconds=O1.context_wall_seconds;
@@ -472,7 +511,29 @@ CheckpointOutput Rk8pdCheckpointReconstructor::Reconstruct(
     output.provenance.context_identity_O1=O1.context_identity;
     output.provenance.context_identity_O2=O2.context_identity;
     output.qualification=Qualify(step,O1.state,O2.state,O1_,O2_);
+    if(breakpoint_aware_)
+    {
+        // Predeclared discriminating witnesses: explicit half-step rk8pd and
+        // independent RKF45, tighter with quarter-step ceiling. Each owns its roots.
+        const Rk8pdConfiguration reference{"reference",1e-14,{{1e-19,1e-25,1e-25}}};
+        const auto half=Integrate(step.t_left_s,step.y_left,bracket.t_observation_s,
+          reference,context_factory,true,2);
+        const auto independent=Integrate(step.t_left_s,step.y_left,bracket.t_observation_s,
+          reference,context_factory,true,4,true);
+        output.qualification.discriminating_witness=true;
+        output.provenance.refinement_invocations=1;
+        output.provenance.independent_method_invocations=1;
+        for(int i=0;i<3;++i)
+        {
+            const double discrepancy=std::max(std::abs(half.state[i]-O2.state[i]),
+                                              std::abs(half.state[i]-independent.state[i]));
+            output.qualification.U_event[i]=2*discrepancy+64*Ulp(std::abs(O2.state[i]));
+            if(output.qualification.U_O[i]+output.qualification.U_event[i]>.20*output.qualification.F_i[i])
+                output.qualification.self_qualified=false;
+        }
+    }
     output.reconstruction_error_contribution=output.qualification.U_O;
+    for(int i=0;i<3;++i)output.reconstruction_error_contribution[i]+=output.qualification.U_event[i];
     if(output.qualification.self_qualified)
     {
         output.status=CheckpointStatus::Qualified;
@@ -519,6 +580,23 @@ void Rk8pdCheckpointReconstructor::EvaluateDiagnostics(
     const auto values1=DiagnosticValues(output.O1_diagnostics),values2=DiagnosticValues(output.O2_diagnostics);
     const double G=DiagnosticScale(output.O1_diagnostics,output.O2_diagnostics);
     output.diagnostic_self_qualified=true;
+    if(breakpoint_aware_)
+    {
+        // Full coupled state envelope, evaluated on all eight corners. The
+        // bounded qualification verifies this empirical sensitivity envelope;
+        // it is not asserted to be a global interval-arithmetic theorem.
+        for(int corner=0;corner<8;++corner)
+        {
+            auto perturbed=output.O2_state;
+            for(int i=0;i<3;++i)perturbed[i]+=(corner&(1<<i)?1:-1)*output.reconstruction_error_contribution[i];
+            const auto diagnostic=context2->EvaluateDiagnostics(output.t_observation_s,perturbed);
+            const auto values=DiagnosticValues(diagnostic);
+            for(const auto& [name,value]:values)
+                output.propagated_state_uncertainty[name]=std::max(output.propagated_state_uncertainty[name],
+                    2*std::abs(value-values2.at(name)));
+        }
+        context2->RequireFullCurrent();
+    }
     for(const auto& [name,value1]:values1)
     {
         const double value2=values2.at(name),magnitude=std::max(std::abs(value1),std::abs(value2));
@@ -527,7 +605,7 @@ void Rk8pdCheckpointReconstructor::EvaluateDiagnostics(
         const double F=name=="P_dir_eq"||name=="P_dir_actual"||name=="LH"||name=="DeltaLnu"
           ||name=="DeltaPbeta"||name=="Lnu_eq"||name=="Lnu_full"||name=="Lgamma"
           ||name=="Lother"||name=="Pnet"?std::max(1.0e-11*G,floor):floor;
-        const double U=2.0*std::max(d,64.0*Ulp(magnitude));
+        const double U=2.0*std::max(d,64.0*Ulp(magnitude))+output.propagated_state_uncertainty[name];
         output.diagnostic_d_O[name]=d;output.diagnostic_F_P[name]=F;output.diagnostic_U_O[name]=U;
         if(!(U<=0.20*F))output.diagnostic_self_qualified=false;
     }
@@ -554,6 +632,21 @@ CheckpointR20Result ComputeCheckpointR20(const std::vector<CheckpointOutput>& ch
     result.R20_normalized=O2.residual/O2.normalizer;
     const double magnitude=std::max(std::abs(O1.residual),std::abs(O2.residual));
     result.reconstruction_uncertainty_erg=2.0*std::max(std::abs(O2.residual-O1.residual),64.0*Ulp(magnitude));
+    // Absolute propagation prevents cancellation of local state/event errors.
+    const auto u=[](const CheckpointOutput& c,const std::string& name)
+    {auto it=c.propagated_state_uncertainty.find(name);return it==c.propagated_state_uncertainty.end()?0.:it->second;};
+    double propagated=Rotochemical::MeVToErg*(u(checkpoints.front(),"Echem")+u(checkpoints.back(),"Echem"));
+    for(std::size_t i=1;i<checkpoints.size();++i)
+    {
+        const auto& ca=checkpoints[i-1];const auto& cb=checkpoints[i];
+        const auto& a=ca.diagnostics;const auto& b=cb.diagnostics;
+        const double dt=cb.t_observation_s-ca.t_observation_s;
+        const double uC=u(ca,"Cstar")+u(cb,"Cstar"),uT=u(ca,"Tinf")+u(cb,"Tinf");
+        propagated+=.5*(std::abs(b.Tinf_K-a.Tinf_K)*uC+(a.Cstar_erg_K+b.Cstar_erg_K)*uT+uC*uT);
+        for(const auto* name:{"Lout","Lnu_full","Lgamma","Lother"})
+            propagated+=.5*dt*(u(ca,name)+u(cb,name));
+    }
+    result.reconstruction_uncertainty_erg+=propagated;
     return result;
 }
 

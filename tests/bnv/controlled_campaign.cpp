@@ -123,7 +123,7 @@ int main(int argc,char** argv)
         BNV::UninterruptedBnvTrajectory solver(system,state.layout,physics->OrdinaryContext(),config,provenance);
         // No observers evaluate diagnostics on the authoritative evolving context.
         const auto main=solver.Integrate(0,end,{{0,0,0}},schedule,true);
-        require(main.statistics.distinct_positive_t1_targets==1,"multiple main ceilings");
+        require(main.statistics.breakpoint.initializations==1,"main breakpoint solver not initialized");
         WriteMainEvidence(inputs.output,main,schedule,0);
         WriteCampaignSummary(inputs,main,{},assembly_wall,assembly_cpu,0,0,tier,mode,false);
         std::cout<<"MAIN_COMPLETE "<<mode<<' '<<tier<<" accepted "<<main.statistics.accepted_steps
@@ -146,6 +146,7 @@ int main(int argc,char** argv)
             capture.SaveSnapshot(outputs.back().state[0],outputs.back().diagnostics);
             if(bracket.observation_index%1024==0)std::cout<<"CHECKPOINT "<<bracket.observation_index<<'\n';
         }
+        capture.Publish();
         WriteCheckpointEvidence(inputs.output/"checkpoints.tsv",outputs,rows);
         WriteCampaignSummary(inputs,main,outputs,assembly_wall,assembly_cpu,
           std::chrono::duration<double>(Clock::now()-output_begin).count(),*count,tier,mode,pass);

@@ -5,6 +5,7 @@
 #include <CompactStar/Physics/Evolution/StateLayout.hpp>
 #include <CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp>
 
+#include <CompactStar/Physics/BNV/BreakpointStepper.hpp>
 #include <array>
 #include <cstddef>
 #include <exception>
@@ -24,6 +25,8 @@ struct Rkf45Configuration
     double relative=1.0e-11;
     CheckpointState absolute{{1.0e-16,1.0e-22,1.0e-22}};
     double initial_step_s=1.0;
+    bool breakpoint_aware=true; // false only for explicit historical reproduction
+    double maximum_step_s=INFINITY;
     void Validate() const;
 };
 
@@ -58,6 +61,8 @@ struct AcceptedStepRecord
     int cstar_cell_left=0;
     int cstar_cell_right=0;
     int cstar_knots_crossed=0;
+    BreakpointStepper::Event event;
+    CheckpointState local_rk_error{};
 };
 
 struct ObservationBracket
@@ -94,6 +99,7 @@ class PassiveObservationSchedule final
 
 struct MainIntegrationStatistics
 {
+    BreakpointStepper::Statistics breakpoint;
     std::size_t accepted_steps=0;
     std::size_t rejected_steps=0;
     std::size_t rhs_evaluations=0;
@@ -151,6 +157,9 @@ class ICheckpointEvaluationContext
     virtual void Derivative(double,const CheckpointState&,CheckpointState&)=0;
     virtual BnvDiagnostics EvaluateDiagnostics(double,const CheckpointState&)=0;
     virtual std::string Identity() const=0;
+    virtual std::vector<double> Breakpoints() const {return {};}
+    virtual void SmoothDerivative(double t,const CheckpointState& y,CheckpointState& d,int cell)
+    {if(cell!=-1)throw std::runtime_error("missing smooth-cell RHS");Derivative(t,y,d);}
 };
 
 using CheckpointContextFactory=std::function<std::unique_ptr<ICheckpointEvaluationContext>()>;
@@ -165,6 +174,8 @@ struct ReconstructionQualification
     CheckpointState F_O{};
     CheckpointState F_i{};
     CheckpointState U_O{};
+    CheckpointState U_event{};
+    bool discriminating_witness=false;
     bool self_qualified=false;
 };
 
@@ -180,6 +191,8 @@ struct CheckpointProvenance
     Rk8pdConfiguration O2;
     std::size_t rk8pd_invocations=0;
     std::size_t fallback_invocations=0;
+    std::size_t refinement_invocations=0;
+    std::size_t independent_method_invocations=0;
     std::string context_identity_O1;
     std::string context_identity_O2;
 };
@@ -220,13 +233,14 @@ struct CheckpointOutput
     std::map<std::string,double> diagnostic_d_O;
     std::map<std::string,double> diagnostic_U_O;
     std::map<std::string,double> diagnostic_F_P;
+    std::map<std::string,double> propagated_state_uncertainty;
     CheckpointState reconstruction_error_contribution{};
 };
 
 class Rk8pdCheckpointReconstructor final
 {
   public:
-    Rk8pdCheckpointReconstructor();
+    explicit Rk8pdCheckpointReconstructor(bool breakpoint_aware=true);
     CheckpointOutput Reconstruct(
       const ObservationBracket& bracket,const std::vector<AcceptedStepRecord>& history,
       const CheckpointContextFactory& context_factory) const;
@@ -237,6 +251,7 @@ class Rk8pdCheckpointReconstructor final
     struct SolveResult
     {
         CheckpointState state{};
+        std::vector<BreakpointStepper::Event> events;
         std::string context_identity;
         double context_wall_seconds=0;
         double context_cpu_seconds=0;
@@ -245,10 +260,11 @@ class Rk8pdCheckpointReconstructor final
     };
     static SolveResult Integrate(
       double,const CheckpointState&,double,const Rk8pdConfiguration&,
-      const CheckpointContextFactory&);
+      const CheckpointContextFactory&,bool breakpoint_aware=false,double subdivisions=1, bool independent=false);
     static ReconstructionQualification Qualify(
       const AcceptedStepRecord&,const CheckpointState&,const CheckpointState&,
       const Rk8pdConfiguration&,const Rk8pdConfiguration&);
+    bool breakpoint_aware_=true;
     Rk8pdConfiguration O1_;
     Rk8pdConfiguration O2_;
 };

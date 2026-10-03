@@ -68,7 +68,7 @@ int main(int argc,char**argv){try{
  // Production reconstruction first. A mismatch prevents every further experiment.
  BNV::AcceptedStepRecord record;record.ordinal=1;record.t_left_s=c.left;record.t_right_s=c.right;record.y_left=c.yl;record.y_right=c.yr;record.cstar_knots_crossed=1;
  BNV::ObservationBracket bracket{32,c.obs,0,1,c.left,c.right,false};
- BNV::Rk8pdCheckpointReconstructor recon;std::size_t id=0;
+ BNV::Rk8pdCheckpointReconstructor recon(false);std::size_t id=0;
  auto q=recon.Reconstruct(bracket,{record},[&]{return std::make_unique<ActualCheckpointContext>(physics,++id);});
  const State expected1{{0.12472490938574241,-2.0287605965623057e-7,-5.0871537810150439e-7}},expected2{{0.12472490938614615,-2.0287605965622805e-7,-5.0871537810149634e-7}};
  require(q.O1_state==expected1&&q.O2_state==expected2&&q.status==BNV::CheckpointStatus::NumericallyUnresolved,"archived failure did not reproduce; stop provenance investigation");
