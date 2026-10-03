@@ -29,7 +29,7 @@ def boundary_classification(history):
                 limited.append({'knot':group[0][0],'direction':group[0][1],'steps':[r[2] for r in group],'duration_s':[r[3] for r in group]})
     return {'matching_event_sequence':matching,'boundary_limited_cell_intervals':limited,'counts_by_tier':[len(e) for e in episodes]}
 
-def assess(root):
+def assess(root,crossings_root=None):
     result={'status':'PROPOSED successor, not ratified','campaign':'STOPPED','windows':{}}
     for name in ['source','control','bounded','tail']:
         observations=rows(root/(name+'-observations.tsv'))
@@ -68,18 +68,24 @@ def assess(root):
           'rejection_fraction':rejection,'boundary_clips':limits,'boundary_limited_fractions':clips,
           'uncertainty_envelope_max_ratio':envelope_max,'boundary_classification':classification,'R20_records':r20,
           'scope':'common-time local window; no full-campaign global accuracy claim'}
-    cross=rows(root/'crossings.tsv');result['crossings']={'rows':len(cross),'count':len({(x['run'],x['step']) for x in cross}),
-        'max_accuracy_ratio':max(float(x['accuracy_ratio']) for x in cross),'max_event_accuracy_ratio':max(float(x['event_accuracy_ratio']) for x in cross)}
+    cross_root=crossings_root or root
+    cross=rows(cross_root/'crossings.tsv');
+    assert len(cross)==333 and len({(x['run'],x['step'],x['tier'],x['component']) for x in cross})==333
+    result['crossings']={'rows':len(cross),'count':len({(x['run'],x['step']) for x in cross}),
+        'max_accuracy_ratio':max(float(x['accuracy_ratio']) for x in cross),'max_event_accuracy_ratio':max(float(x['event_accuracy_ratio']) for x in cross),
+        'max_reference_uncertainty_over_DU':max(float(x['reference_uncertainty_over_DU']) for x in cross),
+        'max_event_reference_uncertainty_over_DU':max(float(x['event_reference_uncertainty_over_DU']) for x in cross),
+        'all_events_found':all(int(x['events'])>0 for x in cross),'source':str(cross_root)}
     historical=rows(root/'historical-reproduction.tsv');assert len(historical)==4
     result['historical_reproduction']={'exact_Arm_E_and_obs32_assertions':'PASS in completed harness',
       'max_candidate_envelope_ratio':max(float(x['candidate_envelope_ratio']) for x in historical),
       'all_candidate_reconstructions_qualified':all(x['new_qualified']=='1' for x in historical),
       'smooth_bitwise':all(x['smooth_bitwise']=='1' for x in historical if x['observation']!='32')}
     h=result['historical_reproduction'];historical_ok=h['max_candidate_envelope_ratio']<=1 and h['all_candidate_reconstructions_qualified'] and h['smooth_bitwise']
-    result['pass']=historical_ok and all(x['successor_pass'] for x in result['windows'].values()) and result['crossings']['count']==37 and result['crossings']['max_accuracy_ratio']<=1 and result['crossings']['max_event_accuracy_ratio']<=1
+    result['pass']=historical_ok and all(x['successor_pass'] for x in result['windows'].values()) and result['crossings']['count']==37 and result['crossings']['max_accuracy_ratio']<=1 and result['crossings']['max_event_accuracy_ratio']<=1 and result['crossings']['max_reference_uncertainty_over_DU']<=.05 and result['crossings']['max_event_reference_uncertainty_over_DU']<=.05 and result['crossings']['all_events_found']
     return result
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('root',type=pathlib.Path);a=p.parse_args();r=assess(a.root)
+    p=argparse.ArgumentParser();p.add_argument('root',type=pathlib.Path);p.add_argument('--crossings-root',type=pathlib.Path);a=p.parse_args();r=assess(a.root,a.crossings_root)
     out=a.root/'assessment.json';assert not out.exists();temp=out.with_suffix('.json.partial');assert not temp.exists()
     content=json.dumps(r,indent=2,allow_nan=False)+'\n'
     with temp.open('w') as f:f.write(content);f.flush();os.fsync(f.fileno())

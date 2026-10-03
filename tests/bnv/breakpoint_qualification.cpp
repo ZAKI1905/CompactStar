@@ -306,23 +306,26 @@ auto source=ReadAccepted(std::filesystem::path(argv[8])/"source-accepted.tsv");a
       window("tail",p.source,i->t1,i->y,std::min(i->t1+5e11,source.back().t1),i->hnext,in.output,32);}
     if(mode=="crossings"||mode=="all"||mode=="events"){
       std::ifstream input(std::filesystem::path(argv[8])/"steps.tsv");std::string line;std::getline(input,line);std::ostringstream out;
-      out<<std::setprecision(17)<<"run\tstep\ttier\tcomponent\taccuracy_ratio\tevents\tevent_accuracy_ratio\n";std::size_t count=0,crossings=0;double max=0;
+      out<<std::setprecision(17)<<"run\tstep\ttier\tcomponent\taccuracy_ratio\tevents\tevent_accuracy_ratio\treference_uncertainty_over_DU\tevent_reference_uncertainty_over_DU\n";std::size_t count=0,crossings=0;double max=0;
       while(std::getline(input,line)){auto v=Split(line);require(v.size()==12,"archived crossing schema");if(v[11]!="crossing")continue;++crossings;
         auto ctx=v[0]=="source"?p.source:p.control;double a=std::stod(v[2]),b=std::stod(v[7]),h=std::stod(v[6]);State y{{std::stod(v[3]),std::stod(v[4]),std::stod(v[5])}};
         auto ref=integrate(ctx,a,y,b,h,tight,gsl_odeiv2_step_rk8pd,(b-a)/16);
         auto fine=integrate(ctx,a,y,b,h,tighter,gsl_odeiv2_step_rk8pd,(b-a)/32);
         auto other=integrate(ctx,a,y,b,h,tighter,gsl_odeiv2_step_rkf45,(b-a)/32);
         for(int tier=0;tier<3;++tier){auto candidate=integrate(ctx,a,y,b,h,tiers[tier],gsl_odeiv2_step_rkf45);
-          for(int i=0;i<3;++i){double uncertainty=2*std::max(std::abs(ref.y[i]-fine.y[i]),std::abs(other.y[i]-fine.y[i]));
+          require(!candidate.steps.empty()&&candidate.stats.discarded>0,"missing archived crossing");
+          for(int i=0;i<3;++i){double uncertainty=2*std::max(std::abs(ref.y[i]-fine.y[i]),std::abs(other.y[i]-fine.y[i]))+64*(std::nextafter(std::abs(fine.y[i]),INFINITY)-std::abs(fine.y[i]));
+            const double reference_ratio=uncertainty/(tiers[2].a[i]+tiers[2].r*std::abs(fine.y[i]));
             double ratio=(std::abs(candidate.y[i]-fine.y[i])+uncertainty)/(tiers[tier].a[i]+tiers[tier].r*std::max(std::abs(candidate.y[i]),std::abs(fine.y[i])));
-            double event_ratio=0;
+            double event_ratio=0,event_reference_ratio=0;
             for(const auto& segment:candidate.steps)if(segment.event.knot>=0){
               const auto er=observe(ctx,fine,segment.right),ec=observe(ctx,ref,segment.right),ei=observe(ctx,other,segment.right);
-              const double eu=2*std::max(std::abs(er[i]-ec[i]),std::abs(er[i]-ei[i]));
+              const double eu=2*std::max(std::abs(er[i]-ec[i]),std::abs(er[i]-ei[i]))+64*(std::nextafter(std::abs(er[i]),INFINITY)-std::abs(er[i]));
+              event_reference_ratio=std::max(event_reference_ratio,eu/(tiers[2].a[i]+tiers[2].r*std::abs(er[i])));
               event_ratio=std::max(event_ratio,(std::abs(segment.after[i]-er[i])+eu)/(tiers[tier].a[i]+tiers[tier].r*std::max(std::abs(segment.after[i]),std::abs(er[i]))));}
-            max=std::max(max,ratio);out<<v[0]<<'\t'<<v[1]<<'\t'<<tier<<'\t'<<i<<'\t'<<ratio<<'\t'<<candidate.stats.discarded<<'\t'<<event_ratio<<'\n';++count;}}
+            max=std::max(max,ratio);out<<v[0]<<'\t'<<v[1]<<'\t'<<tier<<'\t'<<i<<'\t'<<ratio<<'\t'<<candidate.stats.discarded<<'\t'<<event_ratio<<'\t'<<reference_ratio<<'\t'<<event_reference_ratio<<'\n';++count;}}
       }
-      require(crossings==37,"archived crossing count");PublishTsv(in.output/"crossings.tsv",out.str(),7,count);std::cout<<"CROSSINGS "<<crossings<<" max_accuracy "<<max<<'\n';
+      require(crossings==37,"archived crossing count");PublishTsv(in.output/"crossings.tsv",out.str(),9,count);std::cout<<"CROSSINGS "<<crossings<<" max_accuracy "<<max<<'\n';
     }
     return 0;
  }catch(const std::exception&e){std::cerr<<"UNRESOLVED "<<e.what()<<'\n';return 1;}
