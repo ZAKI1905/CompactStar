@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "status": "preserved independent review; amendment NOT ratified",
+  "reviewed_sha": "669898c6741883ecacdc7e2fa2599cfa3df92918",
+  "canonical_sha": "9a5c1eca40758e4c39f9f80db7324e12ad23e505",
+  "external_sha256": {
+    "REVIEW_REPORT.md": "85403e6b13ef8cbfc8e71a9a40eba662c6e2d456270a785bd069a171fd72c0f3",
+    "obs32-review-evidence.tar.gz": "5ba87000f94f4b91743c91f62ac024f459bb22922c962aa47d899571c8763b4e"
+  },
+  "internal_sha256_entries_verified": 76,
+  "standalone_equals_bundled": true,
+  "validity": [
+    {
+      "path": "runs/run1-failed-cwd/*",
+      "use": "excluded",
+      "reason": "failed context/CWD setup before calculation"
+    },
+    {
+      "path": "runs/run2-primary/M-*",
+      "use": "unsplit rows/columns only",
+      "excluded": "all split rows/columns; stale GSL derivative after rollback"
+    },
+    {
+      "path": "runs/run2-primary/{D0-reproduction,D-obs32,D4-fixed-step,D5-event-perturbation,D6-smooth-controls,K-replays,K-attempts,knots,P-persistence,analysis.json}*",
+      "use": "valid independent diagnostic evidence"
+    },
+    {
+      "path": "runs/run3-corrected-split/M-control-observations.tsv",
+      "use": "excluded entire input",
+      "reason": "corrupted from data row 599 onward; repeated earlier rows and incomplete final row; never repair or reconstruct"
+    },
+    {
+      "path": "runs/run3-corrected-split/{M-control-gate,M-control-true-error}.tsv",
+      "use": "complete in-memory summaries for 1277 observations, per bundled README; not reconstructed rows"
+    },
+    {
+      "path": "runs/run4-frozen-cell/*",
+      "use": "complete corrected comparisons and observations"
+    },
+    {
+      "path": "metadata/metadata.json",
+      "use": "metadata and prediction magnitudes only",
+      "excluded": "incorrect control prediction sign; use runs/run2-primary/analysis.json"
+    },
+    {
+      "path": "harness/*",
+      "use": "historical code and diagnostics; not production qualification or executable installation"
+    }
+  ]
+}
