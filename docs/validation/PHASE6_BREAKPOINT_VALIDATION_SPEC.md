@@ -56,8 +56,9 @@ all eight corners of the coupled state uncertainty box with a factor-two margin;
 it must agree conservatively with independent diagnostics in the bounded tests.
 
 Engineering runtime correction: profiling the retained full-currentness calls
-identified character-by-character copying in ParticleNumberResponse.cpp::contents.
-Replace only that file-reading loop with checked block reads. Every call still reads
+identified character-by-character copying in ParticleNumberResponse.cpp::contents
+and ChemicalResponse.cpp::bytes. Replace only these file-reading loops with checked
+block reads. Every call still reads
 and compares all bytes. Empty/binary files, exact/adjacent block lengths, content
 mutation and missing-file refusal are tested. This is an explicit engineering
 exception to source-byte non-change in shared Analysis code; all Phase-5 mathematics,

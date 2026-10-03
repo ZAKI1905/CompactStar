@@ -7,6 +7,16 @@ def rows(p):
 def assess(root):
     result={'status':'PROPOSED successor, not ratified','campaign':'STOPPED','windows':{}}
     for name in ['source','control','bounded','tail']:
+        observations=rows(root/(name+'-observations.tsv'))
+        expected={'source':65,'control':65,'bounded':241,'tail':33}[name]
+        schedules=[]
+        for tier in range(3):
+            group=[x for x in observations if x['tier']==str(tier)]
+            assert len(group)==expected, (name,tier,'incomplete observations')
+            times=[float(x['time']) for x in group]
+            assert all(math.isfinite(t) for t in times) and all(a<b for a,b in zip(times,times[1:])), (name,tier,'corrupt time order')
+            schedules.append(times)
+        assert schedules[0]==schedules[1]==schedules[2], 'tier schedules differ'
         s=rows(root/(name+'-summary.tsv'))[0];l=rows(root/(name+'-ledger.tsv'))[0];st=rows(root/(name+'-statistics.tsv'))
         rejection=[int(x['rejected'])/(int(x['accepted'])+int(x['rejected'])) for x in st]
         r20=rows(root/(name+'-r20.tsv')) if (root/(name+'-r20.tsv')).exists() else []

@@ -2,6 +2,7 @@
 #include <CompactStar/AngularVelocity.hpp>
 #include <CompactStar/Geometry.hpp>
 #include <algorithm>
+#include <array>
 #include <cmath>
 #include <fstream>
 #include <gsl/gsl_eigen.h>
@@ -258,10 +259,16 @@ std::string bytes(const std::string &p)
 {
 	std::ifstream in(p, std::ios::binary);
 	need(bool(in), "SourceBytesUnavailable");
-	std::ostringstream contents;
-	contents << in.rdbuf();
-	need(!in.bad(), "SourceReadFailure");
-	return contents.str();
+	// Preserve full-byte currentness without per-character streambuf copying.
+	std::string contents;
+	std::array<char, 65536> block{};
+	while (in)
+	{
+		in.read(block.data(), static_cast<std::streamsize>(block.size()));
+		contents.append(block.data(), static_cast<std::size_t>(in.gcount()));
+	}
+	need(in.eof() && !in.bad(), "SourceReadFailure");
+	return contents;
 }
 std::string provider_text(const ILocalThermodynamicProvider &p)
 {

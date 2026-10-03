@@ -24,7 +24,7 @@ def main():
     shutil.copy2(repo/'build/obs32/tests/phase6_breakpoint_qualification',executable)
     executable_hash=digest(executable)
     source_hashes={str(f.relative_to(repo)):digest(f) for base in ['CompactStar/Physics/BNV','tests/bnv'] for f in (repo/base).rglob('*') if f.is_file() and f.suffix in ['.hpp','.cpp','.py']}
-    source_hashes.update({str(f.relative_to(repo)):digest(f) for f in [repo/'CompactStar/Physics/Evolution/StarContext.hpp',repo/'CompactStar/Physics/Evolution/src/StarContext.cpp',repo/'CompactStar/Analysis/src/ParticleNumberResponse.cpp']})
+    source_hashes.update({str(f.relative_to(repo)):digest(f) for f in [repo/'CompactStar/Physics/Evolution/StarContext.hpp',repo/'CompactStar/Physics/Evolution/src/StarContext.cpp',repo/'CompactStar/Analysis/src/ParticleNumberResponse.cpp',repo/'CompactStar/Analysis/src/ChemicalResponse.cpp']})
     bundle=pathlib.Path('/Users/keeper/Documents/CompactStar/data/phase6-breakpoint-candidate/obs32-review-evidence')
     for line in (bundle/'SHA256SUMS').read_text().splitlines():
         h,n=line.split(maxsplit=1);assert digest(bundle/n.lstrip('*'))==h,n

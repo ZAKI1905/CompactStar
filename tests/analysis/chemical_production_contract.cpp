@@ -1,6 +1,8 @@
 #include <CompactStar/Analysis/ChemicalResponse.hpp>
 #include <CompactStar/EOS/TrackRFreeGasThermodynamics.hpp>
 #include <cmath>
+#include <filesystem>
+#include <fstream>
 #include <iomanip>
 #include <iostream>
 #include <limits>
@@ -102,6 +104,23 @@ int main(int argc, char **argv)
 						std::cout << "GC9\t" << variable << '\t' << order << '\t' << mutant << '\t' << g.Values()[0][0] << '\n';
 					}
 			return 0;
+		}
+		// Exercise the real chemical source snapshot/read-back path, including NULs.
+		const auto byte_dir = std::filesystem::temp_directory_path() / "compactstar-chemical-byte-contract";
+		require(std::filesystem::create_directory(byte_dir), "byte test directory collision");
+		struct Cleanup { std::filesystem::path p; ~Cleanup() { std::error_code e; std::filesystem::remove_all(p, e); } } cleanup{byte_dir};
+		const auto byte_path = byte_dir / "binary-source";
+		for (std::size_t size : {0u, 1u, 65535u, 65536u, 65537u, 200003u})
+		{
+			std::string content(size, '\0');
+			for (std::size_t i = 0; i < size; ++i) content[i] = static_cast<char>(i % 256);
+			auto write = [&](const std::string &s) { std::ofstream f; f.exceptions(std::ios::badbit | std::ios::failbit); f.open(byte_path, std::ios::binary); f.write(s.data(), s.size()); f.close(); };
+			write(content);
+			auto r = request(); r.lifetime->source_files.push_back(byte_path.string());
+			auto global = GlobalChemicalNumberResponse::Compute(r); global.RequireCurrent();
+			if (size) { content[size / 2] ^= 1; write(content); refuse([&] { global.RequireCurrent(); }, "StaleChemicalSourceBytes"); }
+			std::filesystem::remove(byte_path);
+			refuse([&] { global.RequireCurrent(); }, "SourceBytesUnavailable");
 		}
 		M h{{4, -2, -3}, {-2, 11, 8}, {-3, 8, 16}};
 		auto local = ChargeNeutralNumberSusceptibility::Compute(full(h), zeros());

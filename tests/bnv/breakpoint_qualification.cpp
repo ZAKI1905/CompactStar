@@ -7,6 +7,19 @@ const Tol tiers[]={{1e-7,{{1e-12,1e-18,1e-18}}},{1e-9,{{1e-14,1e-20,1e-20}}},{1e
 const Tol tight{1e-14,{{1e-19,1e-25,1e-25}}};
 const Tol tighter{1e-15,{{1e-20,1e-26,1e-26}}};
 std::string values(const State& y){std::ostringstream s;s<<std::setprecision(17)<<y[0]<<'\t'<<y[1]<<'\t'<<y[2];return s.str();}
+std::map<std::string,double> DiagnosticValues(const BNV::BnvDiagnostics& d)
+{
+    return {
+      {"P_dir_eq",d.P_dir_eq_erg_s},{"P_dir_actual",d.P_dir_actual_erg_s},
+      {"LH",d.LH_erg_s},{"DeltaLnu",d.DeltaLnu_erg_s},{"DeltaPbeta",d.DeltaPbeta_erg_s},
+      {"Lnu_eq",d.Lnu_eq_erg_s},{"Lnu_full",d.Lnu_full_erg_s},{"Lgamma",d.Lgamma_erg_s},
+      {"Lother",d.Lother_erg_s},{"Pnet",d.Pnet_erg_s},{"mu_B",d.mu_B_inf_MeV},
+      {"mu_n_actual",d.mu_n_actual_inf_MeV},{"sigma_e",d.sigma_count_s[0]},
+      {"sigma_mu",d.sigma_count_s[1]},{"Echem",d.Echem_MeV},
+      {"Cstar",d.Cstar_erg_K},{"Tinf",d.Tinf_K},{"Lout",d.L_out_fluid_inf_erg_s}
+    };
+}
+
 struct Solution{State y;std::vector<Stepper::Step> steps;Stepper::Statistics stats;};
 Solution integrate(Ctx p,double a,State y,double b,double h,Tol tol,const gsl_odeiv2_step_type* method,double cap=INFINITY)
 {
@@ -48,7 +61,8 @@ void window(const std::string& name,Ctx p,double a,State y,double b,double h,con
     auto ref=integrate(p,a,y,b,h,tight,gsl_odeiv2_step_rk8pd,cap);
     auto fine=integrate(p,a,y,b,h,tighter,gsl_odeiv2_step_rk8pd,cap/2);
     auto independent=integrate(p,a,y,b,h,tighter,gsl_odeiv2_step_rkf45,cap/2);
-    std::ostringstream rows,stats,events,history,uncertainty;
+    std::ostringstream rows,stats,events,history,uncertainty,envelopes;
+    envelopes<<std::setprecision(17)<<"tier\tobservation\tquantity\tbound_ratio\treference_uncertainty\n";std::size_t envelope_rows=0;
     history<<std::setprecision(17)<<"tier\tordinal\tt_left\tt_right\th_next\tcell\tboundary_knot\tx\te\tm\trejected\n";
     uncertainty<<std::setprecision(17)<<"tier\tobservation\tcomponent\tU_O\tU_event\tF_i\td_O\tD_O1\n";
     std::size_t history_rows=0;rows<<std::setprecision(17)<<"time\ttier\tx\te\tm\taccuracy_x\taccuracy_e\taccuracy_m\treconstruction_qualified\tR18\n";
@@ -72,6 +86,24 @@ void window(const std::string& name,Ctx p,double a,State y,double b,double h,con
         if(bracket.observation_index%16==0)std::cout<<"CHECKPOINT "<<name<<" tier "<<tier<<" index "<<bracket.observation_index<<'\n';
         auto q=reconstruction.Reconstruct(bracket,m.accepted_steps,factory);
         if(q.status==BNV::CheckpointStatus::Qualified)reconstruction.EvaluateDiagnostics(q,factory);
+        if(q.source==BNV::CheckpointSource::Rk8pdReconstructed&&q.status==BNV::CheckpointStatus::Qualified){
+          const auto& left=m.accepted_steps.at(bracket.right_accepted_ordinal-1);
+          const double span=bracket.t_observation_s-left.t_left_s;
+          const auto local=integrate(p,left.t_left_s,left.y_left,bracket.t_observation_s,span,tighter,gsl_odeiv2_step_rk8pd,span/8).y;
+          const auto other_local=integrate(p,left.t_left_s,left.y_left,bracket.t_observation_s,span,tighter,gsl_odeiv2_step_rkf45,span/16).y;
+          for(int i=0;i<3;++i){const double u=2*std::abs(local[i]-other_local[i]);
+            const double ratio=(std::abs(q.O2_state[i]-local[i])+u)/q.reconstruction_error_contribution[i];
+            envelopes<<tier<<'\t'<<bracket.observation_index<<"\tstate"<<i<<'\t'<<ratio<<'\t'<<u<<'\n';++envelope_rows;}
+          ActualCheckpointContext local_context(p,1);
+          const auto lv=DiagnosticValues(local_context.EvaluateDiagnostics(bracket.t_observation_s,local));
+          const auto iv=DiagnosticValues(local_context.EvaluateDiagnostics(bracket.t_observation_s,other_local));
+          const auto qv=DiagnosticValues(q.diagnostics);
+          for(const auto& [key,value]:lv){const double u=2*std::abs(value-iv.at(key));
+            const double error=std::abs(qv.at(key)-value)+u;
+            const double bound=q.diagnostic_U_O.at(key);
+            const double ratio=bound>0?error/bound:(error==0?0:INFINITY);
+            envelopes<<tier<<'\t'<<bracket.observation_index<<'\t'<<key<<'\t'<<ratio<<'\t'<<u<<'\n';++envelope_rows;}
+        }
         const auto state=q.source==BNV::CheckpointSource::MainEndpoint?q.state:q.O2_state;
         const auto reference=observe(p,fine,bracket.t_observation_s),coarse=observe(p,ref,bracket.t_observation_s),other=observe(p,independent,bracket.t_observation_s);
         rows<<bracket.t_observation_s<<'\t'<<tier<<'\t'<<values(state);
@@ -91,7 +123,13 @@ void window(const std::string& name,Ctx p,double a,State y,double b,double h,con
         auto q=reconstruction.Reconstruct(exact,m.accepted_steps,{});require(q.state==step.y_right,"endpoint changed");
         exact.t_observation_s=std::nextafter(step.t_right_s,step.t_left_s);
         auto adjacent=reconstruction.Reconstruct(exact,m.accepted_steps,factory);
-        require(adjacent.status==BNV::CheckpointStatus::Qualified,"adjacent boundary reconstruction unresolved");}
+        require(adjacent.status==BNV::CheckpointStatus::Qualified,"adjacent boundary reconstruction unresolved");
+        if(step.ordinal<m.accepted_steps.size()){
+          const auto& next=m.accepted_steps.at(step.ordinal);
+          BNV::ObservationBracket right{0,std::nextafter(step.t_right_s,next.t_right_s),step.ordinal,next.ordinal,next.t_left_s,next.t_right_s,false};
+          auto right_adjacent=reconstruction.Reconstruct(right,m.accepted_steps,factory);
+          require(right_adjacent.status==BNV::CheckpointStatus::Qualified,"right-adjacent boundary reconstruction unresolved");}}
+
     }
     std::size_t c1=0,c2=0,c3=0;double contraction=0;
     for(int j=0;j<=n;++j)for(int i=0;i<3;++i){double B=observed[0][j][i],R=observed[1][j][i],U=observed[2][j][i];
@@ -126,6 +164,7 @@ void window(const std::string& name,Ctx p,double a,State y,double b,double h,con
       r20<<tier<<'\t'<<result.R20_normalized<<'\t'<<result.reconstruction_uncertainty_erg/result.N_R20_erg<<'\t'<<all_outputs[tier].size()<<'\n';}
       PublishTsv(out/(name+"-r20.tsv"),r20.str(),4,3);}
     std::ostringstream summary;summary<<std::setprecision(17)<<"max_accuracy_ratio\tunresolved_checkpoints\tlegacy_c1\tlegacy_c2\tlegacy_c3\tmax_contraction\tschedule_invariant\tmax_reference_uncertainty_over_DU\n"<<max_accuracy<<'\t'<<failed<<'\t'<<c1<<'\t'<<c2<<'\t'<<c3<<'\t'<<contraction<<"\t1\t"<<max_reference_uncertainty<<'\n';
+    PublishTsv(out/(name+"-envelopes.tsv"),envelopes.str(),5,envelope_rows);
     PublishTsv(out/(name+"-history.tsv"),history.str(),11,history_rows);
     PublishTsv(out/(name+"-uncertainty.tsv"),uncertainty.str(),8,9*(n+1));
     PublishTsv(out/(name+"-observations.tsv"),rows.str(),10,3*(n+1));PublishTsv(out/(name+"-statistics.tsv"),stats.str(),12,3);
