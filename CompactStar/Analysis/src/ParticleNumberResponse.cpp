@@ -73,7 +73,17 @@ std::string contents(const std::string &path)
 {
     if (path.empty()) return {};
     std::ifstream in(path, std::ios::binary); require(bool(in), "EOS source file unavailable");
-    return std::string(std::istreambuf_iterator<char>(in), {});
+    // Full byte currentness, without Debug-build per-character iterator overhead.
+    // No metadata shortcut or cached content: every invocation rereads the file.
+    std::string result;
+    std::array<char,65536> block{};
+    while(in)
+    {
+        in.read(block.data(),static_cast<std::streamsize>(block.size()));
+        result.append(block.data(),static_cast<std::size_t>(in.gcount()));
+    }
+    require(in.eof()&&!in.bad(), "EOS source file read failure");
+    return result;
 }
 bool same_eos(const NumberEosSource &a,const NumberEosSource &b)
 { return a.identity==b.identity && a.revision==b.revision && a.physical_domain==b.physical_domain && a.table_path==b.table_path; }

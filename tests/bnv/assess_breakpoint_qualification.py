@@ -11,7 +11,7 @@ def assess(root):
         rejection=[int(x['rejected'])/(int(x['accepted'])+int(x['rejected'])) for x in st]
         r20=rows(root/(name+'-r20.tsv')) if (root/(name+'-r20.tsv')).exists() else []
         original={'state':all(int(s[k])==0 for k in ['legacy_c1','legacy_c2','legacy_c3']),
-          'ledger':all(int(l[k])==0 for k in ['legacy_c1','legacy_c2','legacy_c3']),
+          'ledger':int(s['unresolved_checkpoints'])==0 and all(int(l[k])==0 for k in ['legacy_c1','legacy_c2','legacy_c3']),
           'rejection_fraction_le_0p10':all(v<=.1 for v in rejection)}
         # Boundaries are classified from records, before using outcome differences.
         clips=[float(x['boundary_limited_fraction']) for x in st]

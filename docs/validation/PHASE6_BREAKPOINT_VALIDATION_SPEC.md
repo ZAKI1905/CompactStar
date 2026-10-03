@@ -54,3 +54,13 @@ This empirical envelope is tested against further step refinement and independen
 endpoint/reference errors in the declared domain. Diagnostic propagation evaluates
 all eight corners of the coupled state uncertainty box with a factor-two margin;
 it must agree conservatively with independent diagnostics in the bounded tests.
+
+Engineering runtime correction: profiling the retained full-currentness calls
+identified character-by-character copying in ParticleNumberResponse.cpp::contents.
+Replace only that file-reading loop with checked block reads. Every call still reads
+and compares all bytes. Empty/binary files, exact/adjacent block lengths, content
+mutation and missing-file refusal are tested. This is an explicit engineering
+exception to source-byte non-change in shared Analysis code; all Phase-5 mathematics,
+solver behavior and historical baselines remain unchanged. Historical Arm E and
+obs-32 must reproduce exactly after this change. It does not address the deferred
+Phase-5 knot-integration issue or weaken currentness to metadata checks.
