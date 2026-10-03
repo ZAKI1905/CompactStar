@@ -70,7 +70,13 @@ def assess(root):
           'scope':'common-time local window; no full-campaign global accuracy claim'}
     cross=rows(root/'crossings.tsv');result['crossings']={'rows':len(cross),'count':len({(x['run'],x['step']) for x in cross}),
         'max_accuracy_ratio':max(float(x['accuracy_ratio']) for x in cross),'max_event_accuracy_ratio':max(float(x['event_accuracy_ratio']) for x in cross)}
-    result['pass']=all(x['successor_pass'] for x in result['windows'].values()) and result['crossings']['count']==37 and result['crossings']['max_accuracy_ratio']<=1 and result['crossings']['max_event_accuracy_ratio']<=1
+    historical=rows(root/'historical-reproduction.tsv');assert len(historical)==4
+    result['historical_reproduction']={'exact_Arm_E_and_obs32_assertions':'PASS in completed harness',
+      'max_candidate_envelope_ratio':max(float(x['candidate_envelope_ratio']) for x in historical),
+      'all_candidate_reconstructions_qualified':all(x['new_qualified']=='1' for x in historical),
+      'smooth_bitwise':all(x['smooth_bitwise']=='1' for x in historical if x['observation']!='32')}
+    h=result['historical_reproduction'];historical_ok=h['max_candidate_envelope_ratio']<=1 and h['all_candidate_reconstructions_qualified'] and h['smooth_bitwise']
+    result['pass']=historical_ok and all(x['successor_pass'] for x in result['windows'].values()) and result['crossings']['count']==37 and result['crossings']['max_accuracy_ratio']<=1 and result['crossings']['max_event_accuracy_ratio']<=1
     return result
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('root',type=pathlib.Path);a=p.parse_args();r=assess(a.root)
