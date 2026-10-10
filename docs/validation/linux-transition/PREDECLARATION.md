@@ -78,3 +78,9 @@ The Phase-6 adapter restricts modes to named bounded source/control/reference
 windows, events and probes. It has no full-campaign option and imposes a 30 minute
 per-run process timeout in addition to Slurm wall limits. Scientific equations,
 existing tolerances and input bytes remain unchanged.
+
+The first broad-suite attempt exposed a missing API (`numpy.trapezoid`) with
+NumPy 1.26.4 and was stopped before updating its environment. The replacement
+native test environment is pinned to NumPy 2.2.6, SciPy 1.15.3 and mpmath 1.3.0;
+wheel digests and the failed first attempt are retained. No numerical threshold
+or historical oracle changes accompany this dependency repair.
