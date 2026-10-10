@@ -39,6 +39,7 @@
 #ifndef CompactStar_Core_TOVSolver_H
 #define CompactStar_Core_TOVSolver_H
 
+#include <iomanip>
 #include <gsl/gsl_spline.h>
 #include <limits>
 #include <vector>
