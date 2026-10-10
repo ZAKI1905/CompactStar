@@ -39,6 +39,7 @@
 #ifndef CompactStar_Core_TOVSolver_Thread_H
 #define CompactStar_Core_TOVSolver_Thread_H
 
+#include <atomic>
 #include <thread>
 // #include <vector>
 // #include <gsl/gsl_spline.h>

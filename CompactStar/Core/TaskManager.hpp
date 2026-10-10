@@ -38,7 +38,8 @@
 #ifndef CompactStar_Core_TaskManager_H
 #define CompactStar_Core_TaskManager_H
 
-// #include <vector>
+// #include <chrono>
+#include <vector>
 #include <Zaki/Math/Math_Core.hpp>
 #include <thread>
 
@@ -55,7 +56,7 @@ class TaskManager : public Prog
 {
 	//--------------------------------------------------------------
   private:
-	std::__1::chrono::steady_clock::time_point t_start;
+	std::chrono::high_resolution_clock::time_point t_start;
 
 	Zaki::String::Directory dar_eos_dir = "";
 	Zaki::String::Directory vis_eos_dir = "";
