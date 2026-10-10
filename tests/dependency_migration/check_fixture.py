@@ -5,6 +5,7 @@ import gzip
 import hashlib
 import json
 import os
+import platform
 from pathlib import Path
 import shutil
 import subprocess
@@ -22,7 +23,8 @@ def main():
     p.add_argument('--report', type=Path, required=True)
     a = p.parse_args()
     fixtures = Path(__file__).with_name('fixtures')
-    parent = Path(tempfile.mkdtemp(prefix='csm-', dir='/private/tmp'))
+    scratch = '/private/tmp' if platform.system() == 'Darwin' else tempfile.gettempdir()
+    parent = Path(tempfile.mkdtemp(prefix='csm-', dir=scratch))
     root = parent / 'run'
     try:
         start = time.monotonic()
