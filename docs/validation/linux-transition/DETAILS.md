@@ -308,7 +308,7 @@ profile identity and dependency-oracle drift. Do not authorize a long campaign.
 ## Evidence and reproduction
 
 `evidence/index.json` maps retained evidence files to original paths and SHA-256
-digests. Compressed files are byte-preserving gzip copies of textual logs/JSON/XML;
+digests. Compressed files are byte-preserving gzip copies of textual logs/JSON/XML.
 The old bootstrap `qualification-status.txt` predates the transferred archive
 and is retained as historical evidence; this report supersedes its status.
 Raw logs, native installations, generated scientific profiles and bounded-attempt

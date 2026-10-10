@@ -65,7 +65,7 @@ Debug	tov_surface_audit_cmf	PASS	BOUNDED	0.84495	/mnt/sdd/zaki/CompactStar/linux
 Debug	tov_surface_derivatives_cmf	PASS	BOUNDED	11.3268	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite-remainder.xml
 Debug	tov_surface_consumers_cmf	PASS	BOUNDED	0.150796	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite-remainder.xml
 Debug	tov_surface_contracts_cmf	PASS	BOUNDED	1.25565	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite-remainder.xml
-Debug	tov_surface_grid_cmf	DEFERRED	DEFERRED_LONG_HORIZON		
+Debug	tov_surface_grid_cmf	DEFERRED	DEFERRED_LONG_HORIZON	not-run	not-run
 Debug	rotochemical_trackr_freegas_barotrope	PASS	BOUNDED	0.580026	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite-remainder.xml
 Debug	rotochemical_trackr_freegas_structure	PASS	BOUNDED	6.49777	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite-remainder.xml
 Debug	relativistic_unit_boundary	FAIL	BOUNDED	0.0344623	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite-remainder.xml
@@ -76,7 +76,7 @@ Debug	phase5d_component_tolerances	PASS	BOUNDED	0.0904334	/mnt/sdd/zaki/CompactS
 Debug	phase5d_protected_manifest	FAIL	BOUNDED	0.0837245	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite-remainder.xml
 Debug	phase5d_harness_controls	PASS	BOUNDED	0.236314	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite-remainder.xml
 Debug	phase5d_coupled_oracles	FAIL	BOUNDED	0.0650411	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite-remainder.xml
-Debug	phase5d1_controlled_evolution_regression	DEFERRED	DEFERRED_LONG_HORIZON		
+Debug	phase5d1_controlled_evolution_regression	DEFERRED	DEFERRED_LONG_HORIZON	not-run	not-run
 Debug	phase6_breakpoint_contract	PASS	BOUNDED	0.0161256	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite-remainder.xml
 Debug	phase6_currentness_bytes	PASS	BOUNDED	0.0450529	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite-remainder.xml
 Debug	linux_dependency_authentication	PASS	BOUNDED	0.502712	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite-remainder.xml
@@ -123,9 +123,9 @@ Release	photon_cooling_conformance	PASS	BOUNDED	0.0978229	/mnt/sdd/zaki/CompactS
 Release	proper_volume_contract	PASS	BOUNDED	0.00424319	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.xml
 Release	geometry_cache_measure_contract	PASS	BOUNDED	0.00838898	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.xml
 Release	heat_capacity_real_star	PASS	BOUNDED	25.9594	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.xml
-Release	passive_cooling_regression	DEFERRED	DEFERRED_LONG_HORIZON		
+Release	passive_cooling_regression	DEFERRED	DEFERRED_LONG_HORIZON	not-run	not-run
 Release	tov_reference_cmf	PASS	BOUNDED	1.74774	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.xml
-Release	grid_convergence_cmf	DEFERRED	DEFERRED_LONG_HORIZON		
+Release	grid_convergence_cmf	DEFERRED	DEFERRED_LONG_HORIZON	not-run	not-run
 Release	hartle_monopole_physics_cmf	PASS	BOUNDED	43.4331	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.xml
 Release	hartle_monopole_regression	FAIL	BOUNDED	1.7447	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.xml
 Release	hartle_monopole_cmf	PASS	BOUNDED	1.72715	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.xml
@@ -149,7 +149,7 @@ Release	tov_surface_audit_cmf	PASS	BOUNDED	0.43502	/mnt/sdd/zaki/CompactStar/lin
 Release	tov_surface_derivatives_cmf	PASS	BOUNDED	4.82945	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.xml
 Release	tov_surface_consumers_cmf	PASS	BOUNDED	0.0547286	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.xml
 Release	tov_surface_contracts_cmf	PASS	BOUNDED	0.410483	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.xml
-Release	tov_surface_grid_cmf	DEFERRED	DEFERRED_LONG_HORIZON		
+Release	tov_surface_grid_cmf	DEFERRED	DEFERRED_LONG_HORIZON	not-run	not-run
 Release	rotochemical_trackr_freegas_barotrope	PASS	BOUNDED	0.429106	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.xml
 Release	rotochemical_trackr_freegas_structure	PASS	BOUNDED	4.18364	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.xml
 Release	relativistic_unit_boundary	FAIL	BOUNDED	0.0184398	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.xml
@@ -159,7 +159,7 @@ Release	phase5d_independent_oracles	PASS	BOUNDED	6.37298	/mnt/sdd/zaki/CompactSt
 Release	phase5d_component_tolerances	PASS	BOUNDED	0.0119619	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.xml
 Release	phase5d_protected_manifest	FAIL	BOUNDED	0.081158	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.xml
 Release	phase5d_harness_controls	PASS	BOUNDED	0.231912	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.xml
-Release	phase5d1_controlled_evolution_regression	DEFERRED	DEFERRED_LONG_HORIZON		
+Release	phase5d1_controlled_evolution_regression	DEFERRED	DEFERRED_LONG_HORIZON	not-run	not-run
 Release	phase6_breakpoint_contract	PASS	BOUNDED	0.0139886	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.xml
 Release	phase6_currentness_bytes	PASS	BOUNDED	0.0422965	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.xml
 Release	linux_dependency_authentication	PASS	BOUNDED	0.485838	/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.xml
