@@ -1,6 +1,11 @@
-# ADR-0017 Amendment 1 candidate: breakpoint-aware Phase-6 evolution
+# ADR-0017 Amendment 1: breakpoint-aware Phase-6 evolution
 
-Status: **PROPOSED, NOT RATIFIED**. Owner instruction of 2026-10-03 authorizes
+Status: **ACCEPTED / HUMAN-RATIFIED, 2026-10-10**, limited to the bounded
+architecture at `0c3f9269c884161c9d89163660a47b141a93ace6`; see
+[ratification](PHASE6_BREAKPOINT_RATIFICATION.md). The dated proposal text below
+is retained as the exact accepted contract, with its scope limits unchanged.
+
+Historical proposal status (2026-10-03): owner instruction authorizes
 candidate implementation and bounded qualification before ratification. The full
 campaign remains stopped. Historical BA12, BA12R and obs-32 FAIL records stand.
 This replaces the prior reconstruction-only proposal; accepted ADR-0017 is unchanged.
@@ -57,7 +62,7 @@ not, require independent accuracy evidence including reference uncertainty.
 Equilibrium-tail rejection is assessed as stability/cost/progress evidence, with no
 raised legacy threshold. Local windows do not establish campaign-global accuracy.
 
-One independent review and subsequent owner acceptance remain required. No merge,
+The independent review and owner acceptance are recorded in the ratification. No merge,
 full campaign, physical rate/model, cluster, superfluidity, A18 or Regime-II work.
 
 ## Exact matched-control subspace

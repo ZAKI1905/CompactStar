@@ -4,6 +4,15 @@
 
 **Status:** ACCEPTED / HUMAN-RATIFIED.
 
+**Amendment 1 accepted 2026-10-10:** bounded breakpoint-aware numerical
+architecture at `0c3f9269c884161c9d89163660a47b141a93ace6`. The
+[ratification record](../validation/PHASE6_BREAKPOINT_RATIFICATION.md) defines the
+exact accepted scope and exclusions. Amendment 1 prospectively modifies sections
+4, 5.2–5.4, 7, 10 and 11 through the contract in
+[the amendment](../validation/PHASE6A1_PIECEWISE_RECONSTRUCTION_PROPOSAL.md).
+The original dated implementation prerequisites below remain historical; neither
+acceptance authorizes the full campaign or ratifies intervening branch ancestry.
+
 **Date proposed:** 2026-09-24.
 **Date accepted:** 2026-09-25.
 **Human-ratified governance SHA:**

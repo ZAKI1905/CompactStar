@@ -1,5 +1,11 @@
 # CompactStar — Current Architecture
 
+> **2026-10-10: ADR-0017 Amendment 1 HUMAN-RATIFIED for bounded numerical
+> architecture at `0c3f9269`.** Campaign readiness remains unestablished. New
+> stability policy and global-accuracy work are separate candidates. See the
+> [exact ratification and ancestry boundary](../validation/PHASE6_BREAKPOINT_RATIFICATION.md).
+> The dated candidate descriptions below record the pre-ratification state.
+
 > **Phase-6 breakpoint candidate (2026-10-03; candidate branch only): bounded
 > validation PASS / UNVERIFIED SCIENTIFIC CANDIDATE / NOT RATIFIED.** Main RKF45
 > and local rk8pd now use actual Cstar-cell segmentation; scientific observations
