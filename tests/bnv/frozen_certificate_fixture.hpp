@@ -1,4 +1,5 @@
 #pragma once
+#include <filesystem>
 
 #include <CompactStar/Physics/BNV/EquilibriumBaryonTangent.hpp>
 #include <CompactStar/Physics/BNV/FrozenBnvValidity.hpp>

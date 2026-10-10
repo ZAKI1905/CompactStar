@@ -1,4 +1,5 @@
 #pragma once
+#include <cmath>
 #include <CompactStar/Physics/Rotochemical/FrozenSource.hpp>
 #include <CompactStar/EOS/CompOSE_Thermo.hpp>
 #include <memory>
