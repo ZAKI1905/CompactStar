@@ -24,6 +24,9 @@ def check_linux(args, digest, manifest):
     require(args.compiler == tool['compiler'], 'compiler path mismatch')
     require(digest(Path(args.compiler)) == tool['compiler_sha256'], 'compiler bytes mismatch')
     require(args.compiler_version == tool['compiler_version'], 'compiler version mismatch')
+    require(set(tool['executables']) == {'cmake', 'as', 'ld', 'ar', 'ranlib', 'git'}, 'tool inventory mismatch')
+    for name, executable in tool['executables'].items():
+        require(digest(Path(executable['path'])) == executable['sha256'], name + ' executable mismatch')
     require(args.cxx_flags == tool['cxx_flags'], 'compiler flags mismatch')
     require(args.mode_flags == tool['mode_flags'][args.mode], 'mode flags mismatch')
     require(lock['gsl_source_sha256'] == 'dcb0fbd43048832b757ff9942691a8dd70026d5da0ff85601e52687f6deeb34b', 'GSL source mismatch')

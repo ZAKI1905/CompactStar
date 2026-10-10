@@ -9,6 +9,7 @@ import hashlib
 import json
 from pathlib import Path
 import platform
+import os
 import subprocess
 
 parser = argparse.ArgumentParser()
@@ -16,6 +17,9 @@ parser.add_argument("--executable", required=True, type=Path)
 parser.add_argument("--source-root", required=True, type=Path)
 parser.add_argument("--output-dir", required=True, type=Path)
 args = parser.parse_args()
+compiler_executable = '/usr/bin/clang++' if platform.system() == 'Darwin' else os.environ.get('CXX')
+if not compiler_executable or not Path(compiler_executable).is_absolute():
+    raise SystemExit('Native qualification requires an explicit absolute CXX compiler')
 root = args.source_root.resolve()
 output = args.output_dir.resolve()
 output.mkdir(parents=True, exist_ok=False)
@@ -83,7 +87,7 @@ artifact = {
         "EOS_table_authority": (data / "freegas.tsv.provenance.txt").read_text(),
         "source_sha256": {name: digest(root / name) for name in source_files},
         "build": {"configuration": "Debug", "architecture": platform.machine(),
-                  "compiler": subprocess.check_output(["/usr/bin/clang++", "--version"], text=True).splitlines()[0]},
+                  "compiler": subprocess.check_output([compiler_executable, "--version"], text=True).splitlines()[0]},
     },
     "INV09": "INTENDED BUT UNVERIFIED", "INV11": "UNRESOLVED",
     "non_goals": ["Btilde", "chemical Z/W", "eta evolution", "weak-rate evolution", "BNV"],

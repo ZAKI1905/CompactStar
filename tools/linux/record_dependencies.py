@@ -5,6 +5,7 @@ import hashlib
 import json
 import platform
 import subprocess
+import shutil
 import sys
 from pathlib import Path
 
@@ -42,7 +43,7 @@ for mode in ('Debug', 'Release'):
                       configs_sha256=manifest(prefix, (prefix/'lib/cmake').rglob('*')),
                       cache_sha256=digest(build/'CMakeCache.txt'),
                       compile_commands_sha256=digest(build/'compile_commands.json'),
-                      install_manifest_sha256=digest(build/'install_manifest.txt'),
+                      installed_manifest_sha256=manifest(prefix, (p for p in prefix.rglob('*') if p.name != 'provenance.json')),
                       cxx_flags=c['CMAKE_CXX_FLAGS:STRING'],
                       mode_flags=c['CMAKE_CXX_FLAGS_'+mode.upper()+':STRING'],
                       cxx_standard=17,
@@ -63,7 +64,9 @@ lock = dict(schema='compactstar-linux-dependencies-v1', status='CANDIDATE_UNQUAL
             gsl_source_sha256='dcb0fbd43048832b757ff9942691a8dd70026d5da0ff85601e52687f6deeb34b',
             toolchain={'compiler': str(tc/'bin/g++'), 'compiler_sha256': digest(tc/'bin/g++'),
                        'compiler_version': '14.1.0', 'cxx_flags': '-ffp-contract=off',
-                       'mode_flags': {'Debug': '-g', 'Release': '-O3 -DNDEBUG'}},
+                       'mode_flags': {'Debug': '-g', 'Release': '-O3 -DNDEBUG'},
+                       'executables': {name: {'path': shutil.which(name), 'sha256': digest(Path(shutil.which(name)))}
+                                       for name in ('cmake', 'as', 'ld', 'ar', 'ranlib', 'git')}},
             link_inputs={'gsl_include': str(roots['gsl']/'include'),
                          'gsl_library': str(roots['gsl']/'lib/libgsl.a'),
                          'gsl_cblas': str(roots['gsl']/'lib/libgslcblas.a'),

@@ -44,7 +44,7 @@ class Authentication(unittest.TestCase):
         self.lock=dict(schema='compactstar-linux-dependencies-v1',status='CANDIDATE_UNQUALIFIED',
             platform=dict(system='Linux',machine=platform.machine()),
             toolchain=dict(compiler=self.args.compiler,compiler_sha256=digest(Path(self.args.compiler)),
-                compiler_version='14.1.0',cxx_flags=self.args.cxx_flags,mode_flags={'Debug':'-g','Release':'-O3 -DNDEBUG'}),
+                executables={n:dict(path=self.args.compiler,sha256=digest(Path(self.args.compiler))) for n in ('cmake','as','ld','ar','ranlib','git')},compiler_version='14.1.0',cxx_flags=self.args.cxx_flags,mode_flags={'Debug':'-g','Release':'-O3 -DNDEBUG'}),
             gsl_source_sha256='dcb0fbd43048832b757ff9942691a8dd70026d5da0ff85601e52687f6deeb34b',
             closure=closure,packages={'Debug':packages,'Release':{}},
             link_inputs={k:getattr(self.args,k) for k in ('gsl_include','gsl_library','gsl_cblas','zlib_include','zlib_library')})
