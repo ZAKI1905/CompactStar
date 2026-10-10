@@ -93,3 +93,14 @@ for that component. A ratio <=1 is consistency with the supplied propagated
 uncertainties, not a new governed-baseline acceptance rule or a continuum proof.
 Preserve units, fixture identity, source/provenance differences and all exact
 regression failures; no error budget is fitted to the observed discrepancy.
+
+Scope correction during the broad Debug run: inspection found that the generic
+passive-cooling and grid-convergence fixtures integrate a scalar thermal model to
+1 Myr. Both completed before cancellation took effect; the next static Hartle
+check was interrupted and will be rerun. These are not BNV source/control runs,
+but their physical horizon is outside the conservative bounded-only plan and
+must be disclosed. Exclude further `passive_cooling_regression`,
+`grid_convergence_cmf`, and `tov_surface_grid_cmf` runs in addition to the 10 Gyr
+controlled-evolution regression. Resume only the remaining static/local Debug
+checks and the correspondingly restricted Release inventory. Preserve the partial
+log and original outcomes; do not infer BNV accuracy from thermal regressions.
