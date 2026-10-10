@@ -1,0 +1,2098 @@
+{
+  "format": "byte-preserving textual evidence; gzip mtime=0 for new compression",
+  "files": [
+    {
+      "file": "bootstrap-20261010/compute-environment-13193.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/bootstrap-20261010/compute-environment-13193.log",
+      "source_sha256": "7375830d9e3616dae69d6ce0f6d2e2ef800f63428972445c3e9f56a431d6087d",
+      "stored_sha256": "474d2e7b2494b862e6ed316e1f7121c9e085e492b4e6d6a0e9441b74ed5f672b",
+      "source_already_gzip": false
+    },
+    {
+      "file": "bootstrap-20261010/evidence.sha256.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/bootstrap-20261010/evidence.sha256",
+      "source_sha256": "c5fc25b8b3d0f2797e1d38829399a3d4e960f0ea3cc7747d35fbead8b28fb0ad",
+      "stored_sha256": "593be762f7469448f0724def45ad0ee405b91cca5b2257aacf9393b874d67c21",
+      "source_already_gzip": false
+    },
+    {
+      "file": "bootstrap-20261010/import.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/bootstrap-20261010/import.log",
+      "source_sha256": "d78ede1ec9c4a56ee8577c660543dec964aadeed0528934cb22cc64dc7d37205",
+      "stored_sha256": "096dd66323b3cb5c337d63f8066180371fbaa7163760405451ebf5d711dd6db6",
+      "source_already_gzip": false
+    },
+    {
+      "file": "bootstrap-20261010/job-13193.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/bootstrap-20261010/job-13193.txt",
+      "source_sha256": "71f63f1aefe2471e902a5cbb4d3b74205ad79908ef858527b535eb18ad62d416",
+      "stored_sha256": "c3422833a0a5843172980bede4d326de0a8417a5c7486e3f76a08b1767a2f398",
+      "source_already_gzip": false
+    },
+    {
+      "file": "bootstrap-20261010/job-13194.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/bootstrap-20261010/job-13194.txt",
+      "source_sha256": "2382f82f65e08a7f32d6bbdbc65c274a9fd7184a69415c5b2095f6bb0d5c7e3e",
+      "stored_sha256": "499070aa7bd42009c857c8ef909529ce9856ff3a9f18d182cf4ec73706544597",
+      "source_already_gzip": false
+    },
+    {
+      "file": "bootstrap-20261010/login-environment.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/bootstrap-20261010/login-environment.log",
+      "source_sha256": "268e9b0ce5e725adc1e69acd607e2b4fc23273ce03f9abdc59944ba771b052ff",
+      "stored_sha256": "59e19938767d92693e2d75293441f592bcd968ca9a2d21330f69b6535c31c486",
+      "source_already_gzip": false
+    },
+    {
+      "file": "bootstrap-20261010/qualification-status.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/bootstrap-20261010/qualification-status.txt",
+      "source_sha256": "451112b1efe01b55b292f5e01592dad8a0d2399e48dd72da706e029a74d1ce11",
+      "stored_sha256": "92f049fb0617e2583341045a7003075538d9cb0f3c6b704ec17f1578099705a8",
+      "source_already_gzip": false
+    },
+    {
+      "file": "bootstrap-20261010/slurm-config.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/bootstrap-20261010/slurm-config.log",
+      "source_sha256": "95ce95740bc533bfab1b03276da340082a5988dba1ea0be684c79cfece2c4a3a",
+      "stored_sha256": "2d3ddba22b55c3588ed25498ac85dfa712e66b834dd7de1598af80ffacaa385c",
+      "source_already_gzip": false
+    },
+    {
+      "file": "bootstrap-20261010/slurm-nodes.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/bootstrap-20261010/slurm-nodes.log",
+      "source_sha256": "ac8ca5f44a0988cad34fe38ec5f6fc6c39c3ab61ab006145b8fa8b0d014cd14d",
+      "stored_sha256": "3d2a56c3da606920148ae2a665c60560b6bc23195baed7004753d21304e09959",
+      "source_already_gzip": false
+    },
+    {
+      "file": "bootstrap-20261010/slurm-partitions.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/bootstrap-20261010/slurm-partitions.log",
+      "source_sha256": "078cab80e9d99e36a34b750670fa0c61fd99d08291e92da90407fc0f8be779e4",
+      "stored_sha256": "b120f28baf04d1a164d22682529438b36fc6fa493fb69942516798ca738cc4f4",
+      "source_already_gzip": false
+    },
+    {
+      "file": "bootstrap-20261010/toolchain-smoke-13194.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/bootstrap-20261010/toolchain-smoke-13194.log",
+      "source_sha256": "ffd1b7abec95c3746a733f37167e8bd21f12cde637d8860577a295af96c7aa58",
+      "stored_sha256": "64f693fd9656222f6d16b2165c0f6016640330b4bb6ed8c6336b730b21e98099",
+      "source_already_gzip": false
+    },
+    {
+      "file": "bootstrap-20261010/transfer-verification.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/bootstrap-20261010/transfer-verification.log",
+      "source_sha256": "8b728962b93b3d854fc55c9a8ba314deb2cdcd744145a3403dfaa316e7079949",
+      "stored_sha256": "6bf9f608de35631bedba6f84ac966f5c124d57ffde1424f28123694e4ef8eeb4",
+      "source_already_gzip": false
+    },
+    {
+      "file": "incoming/CompactStar-EKU-handoff-20261010.zip.sha256.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/incoming/CompactStar-EKU-handoff-20261010.zip.sha256",
+      "source_sha256": "eb54e8a97183f2054e0d93f78282a9194a250d721a4a86f2fc9490ecd1ba69a0",
+      "stored_sha256": "5aa8b370e4e1068c1ffddd9373efbfb87efb00c77c356242332af432e0dd6345",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/auth-real.py.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/auth-real.py",
+      "source_sha256": "169777daf1ddf9ccdc2165a9db32a03342830df6fc85dd02e2a53c4881e854e8",
+      "stored_sha256": "a222f05c44af998a5723540757aca21b72ccaaa118e1000649335773f437e076",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/auth-real.sh.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/auth-real.sh",
+      "source_sha256": "fd3b6e6a4c176a802747b0e798a4a64c1051a28b2f90b434c2f09133324a40cc",
+      "stored_sha256": "48bf8d54e5a8750e8821f2120bed74a994b7b6ea10212ac9dd39d8e30e5029ec",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/bounded/control-13208/console.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bounded/control-13208/console.log",
+      "source_sha256": "e7968a99af32d449a748dff28de0418938a4afe6d4a962063c955bdaf9bc890a",
+      "stored_sha256": "8a7bd8f60db96e69d67b905d62ee7d9d1b70fc299890244243e68eb272f520c8",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/bounded/control-13208/execution.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bounded/control-13208/execution.json",
+      "source_sha256": "910abb49f4435ce0e04b0a80174932e3dfb953542345d3dcd48ac31068f392ca",
+      "stored_sha256": "f9957b05da1ec3e75055219d816eafd5dd2aa7176b6a7d872c84ead2f67b36fd",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/bounded/events-13208/console.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bounded/events-13208/console.log",
+      "source_sha256": "d3229051c28816efb722fd9438b80b1fdeff91135a859ca750801e0a818088b8",
+      "stored_sha256": "0eb10138e07bd1942422cfb582a9dbe7cd70891f690777f80dfb239490e1a3a8",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/bounded/events-13208/execution.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bounded/events-13208/execution.json",
+      "source_sha256": "d6f21544a5e4a1aefb3429cef2e9f57ad93fd81f6b1a22af069a0ec2e99f9dde",
+      "stored_sha256": "c0e14c1daf8292ac78dc22325020421e5e76b482bb48b843abcf9bed41e13d1a",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/bounded/source-13208/console.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bounded/source-13208/console.log",
+      "source_sha256": "98ed5dab9f90d020c65f738ce04dc50f32fce1276e01eba9683aeb1a53cbf3b1",
+      "stored_sha256": "4a3d620c1a273b2b2e0d42655fd8489ef7b023e5350d519fddef1902d5cca796",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/bounded/source-13208/execution.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bounded/source-13208/execution.json",
+      "source_sha256": "8b36494935b608f933b40bdcdd53d967da80830d6f462ff7acfa7dc8e2be6e98",
+      "stored_sha256": "409bf7b1ac3aadb9c34e7a0fad314dbcd54a4984433241271fb53a37221686d7",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CONFIND-Debug/CMakeCache.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CONFIND-Debug/CMakeCache.txt",
+      "source_sha256": "b229ab417ea0883e37cb09a8bbedee65dd484992e2f82c2a10c5be233147fc7e",
+      "stored_sha256": "cdc917a964994f66dc6eae88138b345335dcb9e7d705b38a51519f706371b391",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CONFIND-Debug/compile_commands.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CONFIND-Debug/compile_commands.json",
+      "source_sha256": "6a44ceb5735b37fb3bb6abca39d78f98a1c2f5f4971077f0174b3200606a322b",
+      "stored_sha256": "2b47aee78066db6fbf5a36873aaa66b801ba70198437c9064486eaa30572b14d",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CONFIND-Debug/install_manifest.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CONFIND-Debug/install_manifest.txt",
+      "source_sha256": "f4e94a7b1dc6b5e562311d16bca09445a437984e25599eda5d03c121a00a22d4",
+      "stored_sha256": "94725c6f2c08882a3079757b0b6196786d3681b2d3696709e38800eb8d6d1dbd",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CONFIND-Release/CMakeCache.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CONFIND-Release/CMakeCache.txt",
+      "source_sha256": "61a21bf15dc42267718481d204a0372a01bca646f8be84ec133b1d628e6527e5",
+      "stored_sha256": "602385785b71b8a91f4f92797027ec063cbc33e38b51d70104be09ec3738872b",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CONFIND-Release/compile_commands.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CONFIND-Release/compile_commands.json",
+      "source_sha256": "3da233f480a1db49a069a6c076b32de318d168f96dfbe4025e3e2b24b4eee677",
+      "stored_sha256": "a4bb8cebaa95b77e99ca4d32b21a0b4725095284c74ac748a7fb10490bd39c5b",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CONFIND-Release/install_manifest.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CONFIND-Release/install_manifest.txt",
+      "source_sha256": "0756f55323b10032a9e86cd6fafe374e744ebe4fe8559b5210b8c5874f0328a7",
+      "stored_sha256": "51ab8db5d89658e1dbbe106b81f3c7075a06250052719e9205b6fbe03b08eed2",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/CMakeCache.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/CMakeCache.txt",
+      "source_sha256": "81b2c205a36752fa6bc326ddc5d79edfb9646b1f2509df8c1e7a56be46dd17db",
+      "stored_sha256": "b4d7d712f33e939b1dfb4165f04cb833a59056ce1d3bb2ce2ac767e2bd55efef",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/compile_commands.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/compile_commands.json",
+      "source_sha256": "99d225365223242cd02e4a70a630133261d63cdd95b55e8daf9a4b456f420c47",
+      "stored_sha256": "0ba3f6677c968a798249e3368ac9d868342738dac02dee817059f56dcefc7e83",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/dependency-provenance.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/dependency-provenance.json",
+      "source_sha256": "9099e794753963074621c780f6d1c177146a7c26c1f79bebe2ca00e6b6930bf2",
+      "stored_sha256": "e532071267484b818bd90e409adb89be0b90a7ae66debc690504d08c7df024a2",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/dependency_migration/T1-result.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/dependency_migration/T1-result.json",
+      "source_sha256": "76626be7b3b673665bcc65f61f10db9347e439d00e2e0dd2a731fd871e544053",
+      "stored_sha256": "d97a28d9e86ba119855d8cfabd46a1dc152324eebb4fd0fd766aaa78e040348d",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/dependency_migration/T2-result.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/dependency_migration/T2-result.json",
+      "source_sha256": "2f32d97bd4b704accc13ae49a70d9e11b3e6961805a0c45cd238a0242b348837",
+      "stored_sha256": "d9263b5d6c9d37b9d9dca296ba1e1a0f3f23c898adec4f2b6a2ea80baf0be406",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/dependency_migration/observations-result.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/dependency_migration/observations-result.json",
+      "source_sha256": "5d50c56ee15fcb2961b4d6f05a86b3671cd236e02acd7ada09cd79ad35ffbfa8",
+      "stored_sha256": "8359580726a7e24d84c28560eed30ae29842d9966377fd6e42d6f726c462b630",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/dependency_migration/replay-result.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/dependency_migration/replay-result.json",
+      "source_sha256": "0dffa47bf1ca1f2d745c51cff997ee84d9ba3441db84db9f5b1e732e086549d6",
+      "stored_sha256": "76250f0c97e7176c4ea4e6876a4a818e819eaa7e131086ecae48067473935178",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5b-evidence/PB1-3w60zgz8/run.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5b-evidence/PB1-3w60zgz8/run.log",
+      "source_sha256": "6761eb61e34908903945a2bb0e033a64c9b87ef91b47d50e6916022480ac09ae",
+      "stored_sha256": "39dc46a9b139e12b074c422da98885835c375be1ad86ece0d8ecf8ce9bff6ee6",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5b-evidence/PB1-yzknd4k1/run.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5b-evidence/PB1-yzknd4k1/run.log",
+      "source_sha256": "f004062f4fea18b94e67819072474594add9a2ae1c73cdd2610d8190529f613a",
+      "stored_sha256": "f0066b595a09315b2dcdc5a10b2662b0db4eb1e7bc260ca1fa9323bc5d4ccfc1",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5b-evidence/PB12-rxqzirkh/run.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5b-evidence/PB12-rxqzirkh/run.log",
+      "source_sha256": "b07b5526cb45c79943c27d46801dad017a53f37ca91ae2f37df77e1dce5025d1",
+      "stored_sha256": "d09793aba0a269c40e2f3f2710550cc1ba78789d57bf093f345f4d0beaf0cba9",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5b-evidence/PB13-gbn0_7s_/run.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5b-evidence/PB13-gbn0_7s_/run.log",
+      "source_sha256": "06e1d3b033dfbabc777c0db819108dbb123f18a6d0709d6327da886bb73bfcaf",
+      "stored_sha256": "2ecc94b5acd7a2b84124bc0666727348b9c1a8d4bac68649068f9e2b8055460d",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5b-evidence/PB6-sb33raz9/run.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5b-evidence/PB6-sb33raz9/run.log",
+      "source_sha256": "b9419d39603db6cd69ee014ac0bdea64d76db60c6454468a46e9b0ceca28504a",
+      "stored_sha256": "4f2b5053e55f5a8fa1685441f4eb548a855fe53ab1e7b5be62fa2d1c5d69cd71",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5b-evidence/PB7-t4sw16lz/run.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5b-evidence/PB7-t4sw16lz/run.log",
+      "source_sha256": "d109e5157ee60450672618f4ea93190863c5138e491a90434fb7b491a99d29f4",
+      "stored_sha256": "869f382ac0b68d7fbbdd2b0fa09009ed794b0d0c54a445475b813b62289d25b1",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5b-evidence/PB9-11-fs5zmmg5/run.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5b-evidence/PB9-11-fs5zmmg5/run.log",
+      "source_sha256": "48f4ab2943459d76edb1a652fe535a0bf82f90e40c5fad92dfdb7b545145393e",
+      "stored_sha256": "4274bf5109511926d0950acea25e6a47c672dbf13c7f55deee2d2413e96f8ac7",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5b-evidence/contracts-uhbbabtz/run.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5b-evidence/contracts-uhbbabtz/run.log",
+      "source_sha256": "91968775ce32dea9186982150a6d97f11b9bd48fbd55bc73aaece303229123eb",
+      "stored_sha256": "5558b646ea789c1d039c2420b375af477d4d55a140790751a824d597eab09322",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5b-regression-evidence/regression-xc399xw4/generated/producer.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5b-regression-evidence/regression-xc399xw4/generated/producer.log",
+      "source_sha256": "61fc7a921f2865253ec3daebe007658c72ac6aa5f4a59bf961a86594e882ef7b",
+      "stored_sha256": "eeaf558e07a05d27921114a6e1c181010802f77ab46d5555a999098fd6b7f57d",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5b-regression-evidence/regression-xc399xw4/generated/structural-response.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5b-regression-evidence/regression-xc399xw4/generated/structural-response.json",
+      "source_sha256": "205995c24f482ad5cf118e2a2f319e47f34ee53180e1feb315033c050a387ecb",
+      "stored_sha256": "551f34f76264add2dc783bbae76433badf439b6adba0a0884ed788daae68a831",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5b-regression-evidence/regression-xc399xw4/producer.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5b-regression-evidence/regression-xc399xw4/producer.log",
+      "source_sha256": "ff3d5e8cd43bf3c0ff8c0bc73e7a3bde3b9803e895f8b5d40305f7af8c71c9b3",
+      "stored_sha256": "92425de9288be44807ddcc53fb73aa6aa1ba2ef38043013f06a5dde5bd904982",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-evidence/run-r1ac46i4/producer-4096-40000.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-evidence/run-r1ac46i4/producer-4096-40000.log",
+      "source_sha256": "f9ec8a99e8c474ebe48472b7c0319c90ab198dc63ba5a4c31455601cc4248bdd",
+      "stored_sha256": "c78d43a49f7fb31c9b19991c6a14821c15464856f0cff9a0a27b0681843f732f",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-evidence/run-r1ac46i4/producer-8192-40000.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-evidence/run-r1ac46i4/producer-8192-40000.log",
+      "source_sha256": "3ae095a46617d688a4999cfcba565cd3d25ed3986182a1d2f49dfc87c7466bd9",
+      "stored_sha256": "284556c5fd2ea5b1cbb96da703658fba99a9a19f1b2d07162d0c9b21eac1114d",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-evidence/run-r1ac46i4/producer-8192-80000.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-evidence/run-r1ac46i4/producer-8192-80000.log",
+      "source_sha256": "a6fa7ad7979041ebfc270bafda74533ff089f9a7b18f4062e0f2be12af2047ae",
+      "stored_sha256": "180e8d8a2fd1544418bc693c382f57a37a3d703090a11aa89dafb544168bbb00",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-evidence/run-spq0atpk/producer-4096-40000.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-evidence/run-spq0atpk/producer-4096-40000.log",
+      "source_sha256": "e2b7d58052c2b6f0fd8df873d7cb7cc7566f347072143c4ffe15ac31fdd02c0b",
+      "stored_sha256": "1879299c36f9d820359165db5fceae6f650498a3ca39f088951d2a472d994c1c",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-evidence/run-spq0atpk/producer-8192-40000.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-evidence/run-spq0atpk/producer-8192-40000.log",
+      "source_sha256": "b024534ab315551e104bdac6cf2cd4980fd7a9bce31077ce5aea35ab8e16b1e1",
+      "stored_sha256": "bc6fc01a05ede70f7a4726cdaef776b945d6f6d2ab61cc2bc29e3e2cb9ed4bd7",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-evidence/run-spq0atpk/producer-8192-80000.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-evidence/run-spq0atpk/producer-8192-80000.log",
+      "source_sha256": "5d91058013e8c012511206e6f7614672a8fb1c9d44908a4b12c60d7847531405",
+      "stored_sha256": "780fd7355ed9a94517af82e771cefee0bd6d9bc6ad3b0d7f419b506b0d76652a",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-evidence/run-spq0atpk/result.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-evidence/run-spq0atpk/result.json",
+      "source_sha256": "e970a0931b1e3eebdcd3b58a9b35474020e8500f40efc9b115d24bb8a54ce562",
+      "stored_sha256": "8a89cafc0ea323e80332ee38bbcd38a148b75251e3b9cb079c051743c79c21c8",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-production/run-ou64qvue/t4096-r40000/candidate.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-production/run-ou64qvue/t4096-r40000/candidate.json",
+      "source_sha256": "98fa31ca83b918b42a35c5e229875df01c5f36fd2af9812f4f11240f4d2ed315",
+      "stored_sha256": "a13df8f46880ec8272887f27695e61920d47a33c103143f043196646e0cee667",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-production/run-ou64qvue/t4096-r40000/production.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-production/run-ou64qvue/t4096-r40000/production.log",
+      "source_sha256": "0a7668196286b0937893a3142152a5597e601c73dadb95ddea640b856da84adb",
+      "stored_sha256": "dbed46ec5310d8ffa6cb84882878940074984596c1f7ef83ba6e21b227fa1fdf",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-production/run-ou64qvue/t4096-r40000.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-production/run-ou64qvue/t4096-r40000.log",
+      "source_sha256": "1147a81049e4ecccc192940e80c81a0c22bd2be478379880a393bff01233b894",
+      "stored_sha256": "68ad071420b6792b863272951ff8cbc14b806b8c9a408c30b6de693e705e5e05",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-production/run-ou64qvue/t8192-r40000/candidate.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-production/run-ou64qvue/t8192-r40000/candidate.json",
+      "source_sha256": "9fa2853663e8165c70c4e88bf8e71e7b8a36624d2e2d7c48426cbb2fa7d898be",
+      "stored_sha256": "4fa2247e3e791320a9b0832c82240af36461e4923eccf5ce4130c785d7a10428",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-production/run-ou64qvue/t8192-r40000/production.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-production/run-ou64qvue/t8192-r40000/production.log",
+      "source_sha256": "1562d6b02184d60480b1a451c5fa87aff3c2672e973b6d83039730eb118fb126",
+      "stored_sha256": "d499647affb9ff7ee4c2a86fbae66f1ab8b564a01c45b473b49289b865d470e4",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-production/run-ou64qvue/t8192-r40000.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-production/run-ou64qvue/t8192-r40000.log",
+      "source_sha256": "9c4d20f890aa782e0e44098203ee6880c633814d0aceb200216bf6deb4ec8f7c",
+      "stored_sha256": "733c7ee5934db510fc4786178fefaceb9eaf3b08b8360c1079462749f49ef52a",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-production/run-ou64qvue/t8192-r80000/candidate.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-production/run-ou64qvue/t8192-r80000/candidate.json",
+      "source_sha256": "ab87361ba9663d31b2aeac982fb90d637cbeeb534d34605338a432906ed59920",
+      "stored_sha256": "adc362ed7336707cadb382ace2999a42d833d82bcb9e3f94e3b5445127ae9293",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-production/run-ou64qvue/t8192-r80000/production.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-production/run-ou64qvue/t8192-r80000/production.log",
+      "source_sha256": "d3161da5f1e18ac804b50862ddecad2f1aa654356dd620ec2dfabf5791543c48",
+      "stored_sha256": "d2b31412cd7ea289d1e8052543b915216bb2e7007c0ca56a3cc8f699eb4fd7bf",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-production/run-ou64qvue/t8192-r80000.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-production/run-ou64qvue/t8192-r80000.log",
+      "source_sha256": "722fa516b91e4f05249c2f4b3a3e031a2531d56b6f312111d23e09081f21aa56",
+      "stored_sha256": "0dca0a8af0c7aea74008574c887b0ac080fdecdcccb4d0c756b5262d4fe6c1b3",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-production/run-ou64qvue/validation.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-production/run-ou64qvue/validation.json",
+      "source_sha256": "553b8a97fea98c3038a42261063b315b2e008fa5eb6f480133564becde900671",
+      "stored_sha256": "41dbf88c3f9166bd245a52e2956185a4f5a5ffb573555be3364d35749cc6bd29",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wlkhslsv/generated/characterization/run-vk2fjz8u/producer-4096-40000.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wlkhslsv/generated/characterization/run-vk2fjz8u/producer-4096-40000.log",
+      "source_sha256": "d71a124c286291528606b4ce2ffe08adf2ca7c0a66662474d86c0397f7cbfe80",
+      "stored_sha256": "b53dc9cd702feaa1dcee4b133b353553880923cf575e5f535494ae926dc66af1",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wlkhslsv/generated/characterization/run-vk2fjz8u/producer-8192-40000.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wlkhslsv/generated/characterization/run-vk2fjz8u/producer-8192-40000.log",
+      "source_sha256": "449eccc3c4bd27b5289e4225da9ca8852e4230e0429e8e3db193c09722cb2aed",
+      "stored_sha256": "b2e2ebb09b3f412a056c723365dfdb77ae80208d62b0f0ce752ec7642f17711e",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wlkhslsv/generated/characterization/run-vk2fjz8u/producer-8192-80000.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wlkhslsv/generated/characterization/run-vk2fjz8u/producer-8192-80000.log",
+      "source_sha256": "a00742a1594a9abb1bacd607aea2a9deaeb52f5f69699f8edb20089d40186c1d",
+      "stored_sha256": "2a59dd3a992a1363fc241b5cc16d6b3b79a4917ab56dd0b769270047e063d22e",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wlkhslsv/generated/characterization.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wlkhslsv/generated/characterization.log",
+      "source_sha256": "c78d73ec9c7fd3ea37be4b81a3ea9a4a5ae0566470c7561ed9b33ea71b79838f",
+      "stored_sha256": "7194e8bb692a8cbf6b25b064c2dfc4767d30e95113964c7a9c122f1b98a27986",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wlkhslsv/producer.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wlkhslsv/producer.log",
+      "source_sha256": "5b68f00d5a824f834e97e2cf48a50b8cf112097afaa1f0068bf8dee91edca26c",
+      "stored_sha256": "255095e23137fa26772e1e7fc805e0f3f4431ed5f306087ce684d35e5b4e1c2d",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wv705gbi/generated/characterization/run-5cs_sl4v/producer-4096-40000.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wv705gbi/generated/characterization/run-5cs_sl4v/producer-4096-40000.log",
+      "source_sha256": "ecd82f1afbaeb2343f36c66acb15990475cb6feb014dbbbf79f8342019bcba64",
+      "stored_sha256": "6877851cbfb1cc2a00e34d7638ae399791ab4f1963b8eaf58a3c5b042ac8dc5a",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wv705gbi/generated/characterization/run-5cs_sl4v/producer-8192-40000.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wv705gbi/generated/characterization/run-5cs_sl4v/producer-8192-40000.log",
+      "source_sha256": "8d4364d7b482b4307e1cfc74ae8a97dfd873dc843a72ff626d87f14dba3098ef",
+      "stored_sha256": "a70cfe26849f682c6997135ace0e251b74bfffedf71fcc864fab0e75660155bc",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wv705gbi/generated/characterization/run-5cs_sl4v/producer-8192-80000.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wv705gbi/generated/characterization/run-5cs_sl4v/producer-8192-80000.log",
+      "source_sha256": "08b212bcbb07735f50d3a81a1f9bc1045d8ba58955cf256d8082e546937cf754",
+      "stored_sha256": "09c6cc3344965e39b4483c5d1ccc2ba5b294cda57df76964d3fa87b1dc5909b2",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wv705gbi/generated/characterization/run-5cs_sl4v/result.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wv705gbi/generated/characterization/run-5cs_sl4v/result.json",
+      "source_sha256": "cfc5cb6b6f9343cf5cc6dd032e9d2b5c7b3f4665ad48651b986350ea8360fa6d",
+      "stored_sha256": "4824bfacaefe73375c69decbd021e9a7f034ca291f37eaff5f2116dd623dc277",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wv705gbi/generated/characterization.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wv705gbi/generated/characterization.log",
+      "source_sha256": "59dc383ca75724a95d6caf4b7742d30f9068a7361c3ab06d663ff60139c0d816",
+      "stored_sha256": "c8ab4e7a3475875d2d65475cd21a21e905c80f1bedd31a8bb12e711011eb0b14",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wv705gbi/generated/computed/candidate.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wv705gbi/generated/computed/candidate.json",
+      "source_sha256": "ab87361ba9663d31b2aeac982fb90d637cbeeb534d34605338a432906ed59920",
+      "stored_sha256": "adc362ed7336707cadb382ace2999a42d833d82bcb9e3f94e3b5445127ae9293",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wv705gbi/generated/computed/production.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wv705gbi/generated/computed/production.log",
+      "source_sha256": "da6312a278d3684ef3ce729dc7c3440d9e22cf47b592c36fa1f9d330ae58fcc9",
+      "stored_sha256": "58a352230581aa8c5b66a3f1162e8a347189b5aaef819286399d03a3f1b6c477",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wv705gbi/generated/phase5c_chemical_coefficients.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wv705gbi/generated/phase5c_chemical_coefficients.json",
+      "source_sha256": "517ade0a843c2bb1dd0bf17fae5ac3694783467a8638b96e37fd0278c27e970a",
+      "stored_sha256": "8b16543d9d8c5db90e77ba2b4042d8ce71148d9c58fbf5ca7e73fa5b0bdef016",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wv705gbi/generated/producer-report.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wv705gbi/generated/producer-report.json",
+      "source_sha256": "37405893d8103cbe6aa63df7aacf26c09b100e734c431aea472cb9d546b5ecc6",
+      "stored_sha256": "50cc7ea01dcdb72611a95f5c16fb7b1ab5136286b9632a8bc9d3e7ada7c4686b",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wv705gbi/generated/production.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wv705gbi/generated/production.log",
+      "source_sha256": "032fefd68ed908f44deeb62be3f29f855b342563925e6b86603c6b06b008108a",
+      "stored_sha256": "e14c2626160684804fcb15c9b2391df9676cc9d46deeead7f240c7d3d0c57bda",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wv705gbi/producer.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5c-regression-evidence/regression-wv705gbi/producer.log",
+      "source_sha256": "d474ab50d43929bf1b4c0211019fc74626843aa44274c7845269017674fb96bb",
+      "stored_sha256": "eabd8336c85037c2ebce14b06c0c8fcf549613652c3a22e350f537f440a410b6",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/CMakeCache.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/CMakeCache.txt",
+      "source_sha256": "9e70ad07bf85b305c2515f1fecb7adc6574c9dd59a8d043980ea9cdea6a4ce00",
+      "stored_sha256": "5cda08affb2a1bfa176f276e662117de5965c4f3a6a613772759de20a3c1de4d",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/compile_commands.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/compile_commands.json",
+      "source_sha256": "2fc4aa86f2f9a29b678fb5369bf1eb63e04fde19955e5b3b4a9fca32148737ba",
+      "stored_sha256": "cbd22dfb1d1749d64e1e8c3758d6ebd4bc6f0beaa08836c4beb99f3aa1069596",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/dependency-provenance.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/dependency-provenance.json",
+      "source_sha256": "8de30beaeab525db2027235704394d515318674fa25c98091f1174ca9fb89b59",
+      "stored_sha256": "80648da6d84ccad83ac18b7fa23b4f23ba871195d82a12aa5bf047a3b7489814",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/dependency_migration/T1-result.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/dependency_migration/T1-result.json",
+      "source_sha256": "3bcd0e2ec247c48a1919da5cf0aea9de104c0ff978790726b4296f579ff897b6",
+      "stored_sha256": "b27545d50799b1460e2bf08fd331b83ab4cf745622ff96b6e9ff94d2d8159af0",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/dependency_migration/T2-result.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/dependency_migration/T2-result.json",
+      "source_sha256": "e24f52488d022708697d510a7234d4335bfad999bbfce20dc0534142615ab8e9",
+      "stored_sha256": "48b437a23937ce1884e9d43e3112380e5a67a68f34e04a8d86cd7f7b79d69893",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/dependency_migration/observations-result.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/dependency_migration/observations-result.json",
+      "source_sha256": "f4c79791417fa1aba272d3552e931fb7882102ee9ecdd4627a74e06bd3ed9690",
+      "stored_sha256": "c36fdccc230316088857215f1dc93d761a0f938847d7b511bf170d009865edb8",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/dependency_migration/replay-result.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/dependency_migration/replay-result.json",
+      "source_sha256": "4f4d78d66c9c4193f72dac1e15fdbe243877a2fe175853883c273ce33bfe407a",
+      "stored_sha256": "62f38f7598a722d30ef5c08e19e858353c88eef56045c48baa40d08b3baf3ead",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5b-evidence/PB1-vb91ciwj/run.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5b-evidence/PB1-vb91ciwj/run.log",
+      "source_sha256": "6ce91b51bf3f0f90611dbe773d9d559ed607a57761ccde30a6bc7ff4eabc1412",
+      "stored_sha256": "41d58990aacce0674356c4e81cbc9c53d4886530594ea75c23dca19e24ad6314",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5b-evidence/PB12-tttii__4/run.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5b-evidence/PB12-tttii__4/run.log",
+      "source_sha256": "0b986c39cb205e1efd8c0b4558784dacb5e8fede7b45b8e0c2508154b936076d",
+      "stored_sha256": "9edb2fbe20799315d4377b4af0d1c71beffea1936fc283742a46e4864068302a",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5b-evidence/PB13-cjp45ay_/run.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5b-evidence/PB13-cjp45ay_/run.log",
+      "source_sha256": "adcacac2b873587560de562fd0fa64d671d1145b6cb01634d151e3517292428c",
+      "stored_sha256": "e970b311514aebdf0871b1ac7ecef6acde648876d8db1238cf0296a80079e4e8",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5b-evidence/PB6-qhdd79d6/run.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5b-evidence/PB6-qhdd79d6/run.log",
+      "source_sha256": "2651619f6ebdcf935d4f130181c73d44a7ba86713bcc9f7733106c172f11640f",
+      "stored_sha256": "d1158a9d6b110ababd980bb866b5e87027aa786427f9f6d5723139b46f87ad5f",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5b-evidence/PB7-ck8y94q9/run.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5b-evidence/PB7-ck8y94q9/run.log",
+      "source_sha256": "5b337486a5267d4390167b072f1dbec0e6aecc55240a692aee93a9a25291c64c",
+      "stored_sha256": "0585233fc3a8a11ac8916b43520bd10c2b9de82de0ac2f3a461785c4061d2ef8",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5b-evidence/PB9-11-qfndj8jv/run.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5b-evidence/PB9-11-qfndj8jv/run.log",
+      "source_sha256": "fd4f17a5f8ac8fc2d14110d0cdb49974333b83e2075e5f9e3b6d01fa084994ab",
+      "stored_sha256": "e99c8011a3f605fb3741b1d9effa7a87cbaa5e73cfd6172768e9c2d3ad8cf50a",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5b-evidence/contracts-6qqsl3r5/run.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5b-evidence/contracts-6qqsl3r5/run.log",
+      "source_sha256": "d7088e2c1452b480f06e72567fcee33f185b320a195032b213537e5228666640",
+      "stored_sha256": "8cb2830b951cc7217093b476a5ee27310eb8a7ceeff8ff894e639b2d752288f0",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-evidence/run-46u6naq8/producer-4096-40000.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-evidence/run-46u6naq8/producer-4096-40000.log",
+      "source_sha256": "149f086ad69479ab1cb7819dc3b5b5eee656aafcee1c5c7b89e9587089694488",
+      "stored_sha256": "9e62d3f012c1027f6a36103f4245d4b3d3e3867885f4c20e6b73f4d204862c36",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-evidence/run-46u6naq8/producer-8192-40000.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-evidence/run-46u6naq8/producer-8192-40000.log",
+      "source_sha256": "9b0c458b6ad2bc641775cbebe6b3e10c7b691ec7fffc8dcd42a7d6e250fb259d",
+      "stored_sha256": "52137843fe2444e746fea05a342f499d8d874ff5c076fb56ce92b7a063c6457c",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-evidence/run-46u6naq8/producer-8192-80000.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-evidence/run-46u6naq8/producer-8192-80000.log",
+      "source_sha256": "aa1a46a2a0005cd99a31b3da443240619750bc15f84fbf7271090fd0bb81a14b",
+      "stored_sha256": "d142c6b3b3a378eb6783f74ab20fc0793dec5d82b980bcf7f524649493e79478",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-evidence/run-46u6naq8/result.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-evidence/run-46u6naq8/result.json",
+      "source_sha256": "d07d6fbf5906052279f63c4fbf4cbb114d764ad33aaf1eff67c3483dc3c9734e",
+      "stored_sha256": "8cd7428be5f944ca675c16d247eecb79ed9998119dc50c04ce04e1d1ba92ce37",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-production/run-8lry5xgw/t4096-r40000/candidate.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-production/run-8lry5xgw/t4096-r40000/candidate.json",
+      "source_sha256": "b956a90acb361fe492e9cd447f9133731e95af1ad2cac55ba75f58aa2a089ca0",
+      "stored_sha256": "775832b7a1f16133c58e67ffac69d97e6b70ae6abfeab102833669a270bcbb30",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-production/run-8lry5xgw/t4096-r40000/production.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-production/run-8lry5xgw/t4096-r40000/production.log",
+      "source_sha256": "e4e6640c232239e8134573373868738e0ce121cd2bfb0030bc41a85298dcf723",
+      "stored_sha256": "d4021d4bfdee722ead3261ba7a60f5daf6f47925697dfb1c2d3a7c8ceb88ec6f",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-production/run-8lry5xgw/t4096-r40000.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-production/run-8lry5xgw/t4096-r40000.log",
+      "source_sha256": "0621d1b18ead6cd5b2d494445fd993f29a849631c597620a789e59b929c9c90c",
+      "stored_sha256": "3fb2f8e9f085c5c875904f9f2179fab11eafd851ff0d2ffe9cf04d866639552d",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-production/run-8lry5xgw/t8192-r40000/candidate.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-production/run-8lry5xgw/t8192-r40000/candidate.json",
+      "source_sha256": "e9f24103c98f4eed61ae2e523983a05e2eb979bdf2dc8d5daee6d2c809bb4163",
+      "stored_sha256": "34321faa7bb46f295b4e40eb662e4ff5d787b686829bc26d5b9ef69412cd87f7",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-production/run-8lry5xgw/t8192-r40000/production.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-production/run-8lry5xgw/t8192-r40000/production.log",
+      "source_sha256": "404605892689c9d344d2b3811348904b71328c7994415b4ea51bf3e81fe7c464",
+      "stored_sha256": "9af1934e5ec58e18b693fc7fa39a42b8ffd69d99cb3feb225cc09aa56319b142",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-production/run-8lry5xgw/t8192-r40000.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-production/run-8lry5xgw/t8192-r40000.log",
+      "source_sha256": "450e5ab8c8db94b8a2691012afac2adbc7db076dbea68e43e9b4bbacfada132c",
+      "stored_sha256": "d1881e6d5a5bb784ab2d78e7212942d2cabe070ba99dc2b916be0a6e00e8aac2",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-production/run-8lry5xgw/t8192-r80000/candidate.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-production/run-8lry5xgw/t8192-r80000/candidate.json",
+      "source_sha256": "84d0df58990379167068093f3552a02c434afa34e63a583ad9dd3b6d7c300bd7",
+      "stored_sha256": "b7737f04f1a919691cd03fae504881a109171b19760102b7d6f22ded76662d9b",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-production/run-8lry5xgw/t8192-r80000/production.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-production/run-8lry5xgw/t8192-r80000/production.log",
+      "source_sha256": "62ab16bfb4fe80976a3d3cef941350cd168a18e01ee926e7a4deb42213701230",
+      "stored_sha256": "8909be243b8458b2408c98f00e53035e13237d7c7815d0668d757852f8e20be1",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-production/run-8lry5xgw/t8192-r80000.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-production/run-8lry5xgw/t8192-r80000.log",
+      "source_sha256": "634d844bc682b568e34446d3f64980b2100f8005a6b83bc88593e92c1d4e8652",
+      "stored_sha256": "c6fdf3126464ef6fc12dc599111a9e44f7a844cd0fd53b955efb55ec2c989fff",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-production/run-8lry5xgw/validation.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase5c-production/run-8lry5xgw/validation.json",
+      "source_sha256": "9a5af0cf5aa73c1522b78b80a1188cde84468d23525737af4e37f7cd3c41abc0",
+      "stored_sha256": "1d01827bd0646100442b099a89220825f885a4bdf3ba9d995ead52461cbae905",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/Zaki-Debug/CMakeCache.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/Zaki-Debug/CMakeCache.txt",
+      "source_sha256": "90c9d39ece51e36dd4b219b5e11c081aee8a5c2238a1b8a9376478fa4eacd1d1",
+      "stored_sha256": "d1c98d8688ec89029112d424e1339194b8d130945cf8e1eedb29ab1fff6348cc",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/Zaki-Debug/compile_commands.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/Zaki-Debug/compile_commands.json",
+      "source_sha256": "7417d42a3f954828c1fa6a0ab438388ec43053818d534e8136be22fa8540b068",
+      "stored_sha256": "ec76e983fde4332b873733f3a6239be400645e4a9e4ad2c01003d06f29d3b568",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/Zaki-Debug/install_manifest.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/Zaki-Debug/install_manifest.txt",
+      "source_sha256": "6e3f9d0108284c9e281b72ccc6b17b9a6ff88092f15679620148965dc7d4bccb",
+      "stored_sha256": "ea9c57c6e0a929a69e39e673a55649ab8abcd41381a29326f98a3630b913f238",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/Zaki-Release/CMakeCache.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/Zaki-Release/CMakeCache.txt",
+      "source_sha256": "4ab5bd822151ebd54c9fc7f0039d3b39e5057a68406b97040d4b9a2a71654604",
+      "stored_sha256": "67a3a4ae1dc7ab0feba8e707ad0059861f7e93673d86128130c8f925dbdf0275",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/Zaki-Release/compile_commands.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/Zaki-Release/compile_commands.json",
+      "source_sha256": "e7fbf2b0571ca051071deed19a155b7deb93ef1ee3c3a69b09527fdf71c42667",
+      "stored_sha256": "0a72a61bcb090fff3954b65f6295cd30307b7c2ce3f3ed3f5b8e81d1c1752c7f",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/build/Zaki-Release/install_manifest.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/Zaki-Release/install_manifest.txt",
+      "source_sha256": "2251f4effd953d895579437f68bab23803f84949c68b134622438743dd77ad2c",
+      "stored_sha256": "0e480121cd32f79fcd14f9bb49bf3815ef92fc374949d37b76cc3a0d5e132f22",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/compare-coefficients.py.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/compare-coefficients.py",
+      "source_sha256": "613458e67d71b90ee8d28c64b3eb644261eb9eb222f3ec22c847a8c35da6e8cc",
+      "stored_sha256": "7d1dbb197dd2011ef0ecfc48816e1032b0a381efbc89f3b298e2adf4345d3d07",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/compiler-files.sha256.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/compiler-files.sha256",
+      "source_sha256": "5ea96da60d709a389c362ea6b38420a664d045f163fa05d43e007d70de80e1fb",
+      "stored_sha256": "b1895fa89617491944b82a6d6193e67ba58190080c37790697e19a6ea04a8fb7",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/git-runtime-manifest.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/git-runtime-manifest.json",
+      "source_sha256": "d09fa5f0fa78f02646df8b0602991c7c0bad10a958f4e3a9cfced4e600a3d62f",
+      "stored_sha256": "a5b2b5f9bbda430666df071e3aff2c6f4536566f164f0c36c836f4291decc272",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/gsl-files.sha256.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/gsl-files.sha256",
+      "source_sha256": "da305d3418c474cf5c1b721910788069f73f2f82a4cb16a580610394c4206aac",
+      "stored_sha256": "ab24ef2c102446a5a3156043a6a03aaad31540de886cd3ab637b81aba04808b7",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/install/Debug/CONFIND/provenance.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Debug/CONFIND/provenance.json",
+      "source_sha256": "98654d51f7d6d2f59a7eaadfc29e580d3ad448ccc44d7e6699c758cfa167d8e9",
+      "stored_sha256": "4bbbc57cf760040c8c575046a34d365925148af1e69cf91b4ea48e10efae9c28",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/install/Debug/Zaki/provenance.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Debug/Zaki/provenance.json",
+      "source_sha256": "58face51969717f142586439f2ac699c13cfa522f3709d2925744084051b8fcb",
+      "stored_sha256": "16ec9094a8f9f051e3155e05f20ff718622abd0b1cee892aa25238f9a2689605",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/install/Release/CONFIND/provenance.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/CONFIND/provenance.json",
+      "source_sha256": "f905a3e09ae653b2cc2534ce743942b834a0fa6b0b24c9704d66ea63cf1b4c53",
+      "stored_sha256": "ef35b21a1bafee05dd7cc464f8ec275d5438597244e120f30fa164fcf4e3dbc3",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/install/Release/Zaki/provenance.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/provenance.json",
+      "source_sha256": "d23db9d2d1cbfecb4a76abf46ece29e924d6591fcd1b797b658a9e80b96e72b6",
+      "stored_sha256": "891a763ad6a1a4fe43e516d0e12b94d9c596c9a6500eec2ec49f16799e12ad42",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CONFIND-Debug-archive-members.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CONFIND-Debug-archive-members.txt",
+      "source_sha256": "e103c1b1d3eb53ee0f1c13ebdf64acda6401c29d3b25e9111e1f76d729e56d91",
+      "stored_sha256": "439770c7d5fcc52243bac1dc3cec2d6ddaca29cf343cb61b14c5a2d91d2da106",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CONFIND-Debug-build.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CONFIND-Debug-build.log",
+      "source_sha256": "553750410e707083c354e85ae6cff77fd57ff2e1b1793f5867d184350e9b9ed1",
+      "stored_sha256": "d455756653b3d8450f6a32523fca623400388ccb7eb469ec59fe2bec836f60be",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CONFIND-Debug-configure.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CONFIND-Debug-configure.log",
+      "source_sha256": "8b44f387f1990b48a6fc5a14a524e7dcd61c77628a12e89f1dda0c2cc2510a07",
+      "stored_sha256": "4a885afc02f3e5cbb2d5f689ec706b4bb7fb1b58e831eda0362f5cdf6042eab1",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CONFIND-Debug-consumer-rerun.exit.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CONFIND-Debug-consumer-rerun.exit",
+      "source_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stored_sha256": "89ed3b723e0e40d8957a2df55fcb04d57b6d95fa665c5fe67b098df7f29694ae",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CONFIND-Debug-consumer-rerun.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CONFIND-Debug-consumer-rerun.log",
+      "source_sha256": "c6b8cbcfe1b35d3f764f7b8b151df69f37eadeef1c0bd4fcb2c6c52b7bd140e9",
+      "stored_sha256": "fb4f776c74d9878efae45e06896cf1c033e0e7a2866fdeb0f9a4f26e4c08963a",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CONFIND-Debug-install.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CONFIND-Debug-install.log",
+      "source_sha256": "5d6a6420b4900ccb7f1f6bd0ddf3a6dcf22f1ad1f6e9a40f63431743f6f8b4cf",
+      "stored_sha256": "59240911920a09a5da9e86db545bb11ca866dc0a931e7dbc7098ebf41c17838b",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CONFIND-Debug-stellar-differences.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CONFIND-Debug-stellar-differences.json",
+      "source_sha256": "d1c02e165cda0800c30b1035da605cf261afb88d76f4b2b04b36710c85546d97",
+      "stored_sha256": "874b74907c42efc4c039f1079429130de525f06748b8cc8c60c4489c1b4aabda",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CONFIND-Debug-symbols.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CONFIND-Debug-symbols.txt.gz",
+      "source_sha256": "d81867ef5ffe1ca54aa6b20ac1e9e51077b7a742ea12818d8c0c95b7514c0078",
+      "stored_sha256": "d81867ef5ffe1ca54aa6b20ac1e9e51077b7a742ea12818d8c0c95b7514c0078",
+      "source_already_gzip": true
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CONFIND-Debug-tests.exit.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CONFIND-Debug-tests.exit",
+      "source_sha256": "aa67a169b0bba217aa0aa88a65346920c84c42447c36ba5f7ea65f422c1fe5d8",
+      "stored_sha256": "51d1cc965302adac231dc8ffd859f73851cc73067f1f26ee5efca72e57bdd9eb",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CONFIND-Debug-tests.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CONFIND-Debug-tests.log",
+      "source_sha256": "5c41929b896725df88f5ade99f890942de614965cb00397740ba836c101a206b",
+      "stored_sha256": "d126beaeb57eb4f7a949905d099d3f1378abe60c771b9fc32dc7eaea5b0e57eb",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CONFIND-Debug-tests.xml.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CONFIND-Debug-tests.xml",
+      "source_sha256": "4551a50450d2902ccbf0d28e35f49a5df3bf7be8f463da7dbac5eb23e04623f3",
+      "stored_sha256": "c3e5a396780048a8b88d7ed385e124ead47da22e4850378b529f409b899a377f",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CONFIND-Release-archive-members.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CONFIND-Release-archive-members.txt",
+      "source_sha256": "e103c1b1d3eb53ee0f1c13ebdf64acda6401c29d3b25e9111e1f76d729e56d91",
+      "stored_sha256": "439770c7d5fcc52243bac1dc3cec2d6ddaca29cf343cb61b14c5a2d91d2da106",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CONFIND-Release-build.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CONFIND-Release-build.log",
+      "source_sha256": "ef2f11f05e637d5ffe7411e0235f2f23fb44649ee93ab04717690314ccd8cb8c",
+      "stored_sha256": "0dca7d9c3c199417f854338fe357026aec7d5f4cca70124cf964b663c7f5e1ba",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CONFIND-Release-configure.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CONFIND-Release-configure.log",
+      "source_sha256": "4f22513d471f64d1d57ddc744c9c819123806bff7ded006b13bb36b6e24c1d48",
+      "stored_sha256": "2455c01bb23cf760efdf77ddba1594c55041635f4dbc04224bd159990e46e3d2",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CONFIND-Release-consumer-rerun.exit.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CONFIND-Release-consumer-rerun.exit",
+      "source_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stored_sha256": "89ed3b723e0e40d8957a2df55fcb04d57b6d95fa665c5fe67b098df7f29694ae",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CONFIND-Release-consumer-rerun.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CONFIND-Release-consumer-rerun.log",
+      "source_sha256": "c9f727321830690e85ee09b5d1fe2d2b7cf979601af45d9eae3b37916a9c6e1e",
+      "stored_sha256": "7e7e5cac50300f4497eb88e6e2482b19fc2353c360162b658feac12915dcdf57",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CONFIND-Release-install.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CONFIND-Release-install.log",
+      "source_sha256": "b9809e6ddb30aeaccf938872c89a0c14afeed799bb59eee34913110ecf80915e",
+      "stored_sha256": "d32ed3b89cf4f1588aafbd2906af704b4d38a326702fb14f4ce74e2abd13b9b2",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CONFIND-Release-symbols.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CONFIND-Release-symbols.txt.gz",
+      "source_sha256": "3ff78a06a81b476ea040c401461781e0c44db72502d47c5ddbbb78b4efdca7ef",
+      "stored_sha256": "3ff78a06a81b476ea040c401461781e0c44db72502d47c5ddbbb78b4efdca7ef",
+      "source_already_gzip": true
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CONFIND-Release-tests.exit.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CONFIND-Release-tests.exit",
+      "source_sha256": "aa67a169b0bba217aa0aa88a65346920c84c42447c36ba5f7ea65f422c1fe5d8",
+      "stored_sha256": "51d1cc965302adac231dc8ffd859f73851cc73067f1f26ee5efca72e57bdd9eb",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CONFIND-Release-tests.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CONFIND-Release-tests.log",
+      "source_sha256": "eaf201589a1567168a928734772e1f559057f24ff5d3adee4ac5de45d2020f35",
+      "stored_sha256": "cdfb7ca413b2ad77d768db1adaf07e0a847e3ce7e2464e5f08a21b3c79fe1a3e",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CONFIND-Release-tests.xml.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CONFIND-Release-tests.xml",
+      "source_sha256": "01030e2661f4badd72e20d0e7c02f17fba1fa349e40d22abd50ba77e1a1dc89f",
+      "stored_sha256": "c1aca5e43edf6faf130f968975227910f66354684b8cdc34b048320fb8ba2d6a",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CONFIND-final-fsck.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CONFIND-final-fsck.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-build-attempt1.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-build-attempt1.log",
+      "source_sha256": "aa66e1d656ea5b3c72b1780d478e79a2ef673d8a7f771417dea22cdeb1f5d03f",
+      "stored_sha256": "299b14c046e0d7d6dc07f15b505edaba8d6afe671a91ea874dfe37b5d1c19be2",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-build-attempt2.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-build-attempt2.log",
+      "source_sha256": "38c1ba3dcf5ba853b1ee99ff2876d4886d40f4dd7cbc2a12606388211974f4de",
+      "stored_sha256": "b8bc73351bbe5aa5c470f1232644b7726725e91bc743a8f05aba3eaff4ad87d6",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-build-attempt3.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-build-attempt3.log",
+      "source_sha256": "6c19cc3070037ba963a7d89716cb02f602b340218cbf05b9a526a1730bcf386c",
+      "stored_sha256": "fed38cb64b8469fafe1a8ea1ee1ad42a18d2bf699577dee2bcb92b63783e50cb",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-build-attempt4.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-build-attempt4.log",
+      "source_sha256": "ef0e4f2ec254d440141c4d6639085a487d255f930e44107f73de6dc79f293c3d",
+      "stored_sha256": "00ff5705148772a17ead1d09bc04f13022501c7fe4e2023ba9277e192f92e378",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-build-attempt5.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-build-attempt5.log",
+      "source_sha256": "2c43df02d420583f7631c39b0c4f8576d39551198bc19bd051f75363d24b6e3f",
+      "stored_sha256": "f8e22b6c3aa97a0ebd23a96a8bdcdb868bbf332c7574433478c250de843765a5",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-build-attempt6.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-build-attempt6.log",
+      "source_sha256": "1b77e76a5dc9dc523cf154d988fc568201c4d5e4b0770d41f6c62b42f431cd40",
+      "stored_sha256": "25d1d3add478ecd63e8cb7c9de594d7b67663d89458f328e805cc49b122f8341",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-build.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-build.log",
+      "source_sha256": "6c27c905e3e05e60adf62913019e25ac935a32af2a205e474519650b680cc2de",
+      "stored_sha256": "19486cfaae8d67cccbf162a696ad55819777a0386a3235f49531179199f6a6b8",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-configure-attempt1.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-configure-attempt1.log",
+      "source_sha256": "622a71dbd3b2693693589b7ca0d4c4950495f99da242a4623f47760b10633ed2",
+      "stored_sha256": "2d5f7b58edb75bfed48b96b44ff89ac02c98bdd3b993345749a2d9331eace7e0",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-configure.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-configure.log",
+      "source_sha256": "7129b6473551d40d755a5cbadf3048aa80aaa08883999a90b269f63a95d05b86",
+      "stored_sha256": "7e27b9d5f8b7828eafb924f53b6b490f28cf242c0a1779e56c9dd72b63266f35",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-inventory.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-inventory.json",
+      "source_sha256": "03699201aa1d80cfe0a774104a29df47354e8801faa79dddf5b03827ad814aba",
+      "stored_sha256": "bf355be0f520b90cceaca44d3eb9a3b759fdd1f42364f32ce0f2e15827ba4825",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-migration-rerun.exit.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-migration-rerun.exit",
+      "source_sha256": "aa67a169b0bba217aa0aa88a65346920c84c42447c36ba5f7ea65f422c1fe5d8",
+      "stored_sha256": "51d1cc965302adac231dc8ffd859f73851cc73067f1f26ee5efca72e57bdd9eb",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-migration-rerun.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-migration-rerun.log",
+      "source_sha256": "04551968a4f6617db6cabfce5d27f34177dd1095cb8310073d2fb6834268ed08",
+      "stored_sha256": "3868722df18737ff70aea677d1ea102deb18958c36a55eb80b91b36d4c614446",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-migration-rerun.xml.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-migration-rerun.xml",
+      "source_sha256": "b3c0e81228a7d56e32419a9be64ab09b97856e2e40bb4e6420f12c6339c2c53a",
+      "stored_sha256": "3acb64e26baa8191a8b4a36f4ea437cb049a09ea570b9ac4c54f2a5bacb87f27",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-readiness.exit.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-readiness.exit",
+      "source_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stored_sha256": "89ed3b723e0e40d8957a2df55fcb04d57b6d95fa665c5fe67b098df7f29694ae",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-readiness.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-readiness.log",
+      "source_sha256": "7777f2836dca1884a4a8ffafbfede21304b7b2609c4d385e8f5dc86f201da3ca",
+      "stored_sha256": "c8859d4880c8bb7a3ce79869ae5cca6bd1958f61adb61a6d7cda58180c27b1c3",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-readiness.xml.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-readiness.xml",
+      "source_sha256": "91841fc10eebb73405d1dd8162c76ed32fa93992fae841735f31e9bde9609d2d",
+      "stored_sha256": "0fc68ad3e8414d64b798b12af65df69b5da52f280b34e7a03ff52087678e572a",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-static-supplement.exit.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-static-supplement.exit",
+      "source_sha256": "aa67a169b0bba217aa0aa88a65346920c84c42447c36ba5f7ea65f422c1fe5d8",
+      "stored_sha256": "51d1cc965302adac231dc8ffd859f73851cc73067f1f26ee5efca72e57bdd9eb",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-static-supplement.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-static-supplement.log",
+      "source_sha256": "b5cd170fa362372a2c92074be9e57a45619ecfc43d5ef13174318ce3f4a2cb0a",
+      "stored_sha256": "04cde15e0b0640b15a7e9f0166cd68c2134c1ce7e87e4dd960006db53e445eb7",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-static-supplement.xml.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-static-supplement.xml",
+      "source_sha256": "7b8be37e185d37d14925f2da1b532b8c9b497409eabeb5eb4f685626065c43ae",
+      "stored_sha256": "c6e9b612769842cb7a30f6655f2cd6f244f09db8435c46739397da23cb3662e5",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite-attempt1.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite-attempt1.log",
+      "source_sha256": "013a27623ada4699b7d834f1fbd8c51d592acf801393cbddc9145b7109f1fdb3",
+      "stored_sha256": "7ad4c8fe26598a854915e53482c70243815f9c7af628eb0328abeb1135dcb839",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite-attempt2.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite-attempt2.log",
+      "source_sha256": "96114b0b21eaf1f708b311fe82b4737efbc1b1686d8bb13fa5250be25e9097b0",
+      "stored_sha256": "1dc8e23eebfc93fa908d4247595590ef3036aae0966c890b23e34b5f3bbce032",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite-remainder.exit.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite-remainder.exit",
+      "source_sha256": "aa67a169b0bba217aa0aa88a65346920c84c42447c36ba5f7ea65f422c1fe5d8",
+      "stored_sha256": "51d1cc965302adac231dc8ffd859f73851cc73067f1f26ee5efca72e57bdd9eb",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite-remainder.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite-remainder.log",
+      "source_sha256": "808a130875d4e84d37dcd15edbe323af02d919ff5fc78dd94b34d16edd438921",
+      "stored_sha256": "d802957a55df1a6e4056ad931300d55d77b55b30732232218586c7e657fe8942",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite-remainder.xml.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite-remainder.xml",
+      "source_sha256": "fba3abd8833b89bf31111415ca3d255f35afce145a24e1a050b686974a9c39ca",
+      "stored_sha256": "e1f22ca9cc0e55d66bf427dc1b62a1068d4e9daf4fe9e4f849b473110c9eafef",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Debug-suite.log",
+      "source_sha256": "96114b0b21eaf1f708b311fe82b4737efbc1b1686d8bb13fa5250be25e9097b0",
+      "stored_sha256": "1dc8e23eebfc93fa908d4247595590ef3036aae0966c890b23e34b5f3bbce032",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Release-build.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-build.log",
+      "source_sha256": "1c420cda297a39a0f13b73fbfd7dd73fc9246119d68b50f927a50b9923985440",
+      "stored_sha256": "b64a0987c6f4f0b93f95ac3f312deaa2e4232ba849626bb432f589a8d41a2443",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Release-configure-attempt1.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-configure-attempt1.log",
+      "source_sha256": "83191c5afaa01b3a92f71bb30f3d93ccf51db7a7fdf19e218ac4f491bacf1ec4",
+      "stored_sha256": "71eb08a91259f3b861b7bac2c7a8950439acf0db220518bb94fcfdd932a260b1",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Release-configure.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-configure.log",
+      "source_sha256": "98c1ab2b2c4882d710fb5fa9351d6c6369b6aac36a12568df945da19723167c0",
+      "stored_sha256": "c1a6e6537d7649167fcb2b7ed3cd22bcdb24bbdace745ff87d713653155eed97",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Release-inventory.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-inventory.json",
+      "source_sha256": "52da3be18367ac336f4f4182448f08f55acebb3ae72886b1a9941173b8fca1bb",
+      "stored_sha256": "5502027fc1913f24a41b1cb92b1a7a0908639e326bb4be12eb13bf7022a13711",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Release-readiness.exit.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-readiness.exit",
+      "source_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stored_sha256": "89ed3b723e0e40d8957a2df55fcb04d57b6d95fa665c5fe67b098df7f29694ae",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Release-readiness.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-readiness.log",
+      "source_sha256": "a1dd640b22c131d45406c47d23086739fb5f50c266adaa72c73c5c50b6cc98b7",
+      "stored_sha256": "b56981f70e11dc9e261a47a8b08fb74781581c2cc78c787f59654cafb58a3f11",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Release-readiness.xml.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-readiness.xml",
+      "source_sha256": "2a038446da7a7e2f9c3250fc9cff3c979008005497eb263ab68e2999616154fb",
+      "stored_sha256": "c4a7231c1573a99167c87b2ad7e752d962e37534fb53e74a8d47a8404ec6ede8",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.exit.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.exit",
+      "source_sha256": "aa67a169b0bba217aa0aa88a65346920c84c42447c36ba5f7ea65f422c1fe5d8",
+      "stored_sha256": "51d1cc965302adac231dc8ffd859f73851cc73067f1f26ee5efca72e57bdd9eb",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.log",
+      "source_sha256": "9c7634a71c3fd0f377d5b43ae105f6ede7fdf26b48990f61c809770255b0f015",
+      "stored_sha256": "a21bd8daaf1a81aceb6c2487fa8854b5da9b462d437d7c57aff3496cd9eb5fbd",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.xml.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-Release-suite-remainder.xml",
+      "source_sha256": "3eab10981d046db89fccbc261763c28af421407cf27acddda68d0b5270a1d777",
+      "stored_sha256": "7adffb9cccbdc07ba974f20000b0993fd335e9a4bad8a233a815f8e47a9f4c25",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/CompactStar-final-fsck.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/CompactStar-final-fsck.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Debug-archive-members.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Debug-archive-members.txt",
+      "source_sha256": "3c12e51044282dc3b4ce93e5bc7ebea3be31f2cde7ec3e88660ce6c58d305caa",
+      "stored_sha256": "1b69839902114fa4085d5de872ab97b37a2c492c18ac16f5e0b51e6c590fa44a",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Debug-build.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Debug-build.log",
+      "source_sha256": "e81bad6fcbff44936803537d7bcd31312dd58a3d402375ebcc83fe2ab2313a5c",
+      "stored_sha256": "62c9bd5a2cbae731b640e0137b2556d75fe49b4bdeff5c3ac22fe18e6eb4a747",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Debug-configure.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Debug-configure.log",
+      "source_sha256": "54c0b525849c0529e0f167108fc2d53ed852bbe90b422c0cbe1185470b076870",
+      "stored_sha256": "529b7807ef3001a74996ebff41c6fa6fbd0f7e9a7790432694d8af1dd923d8f5",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Debug-fixed-differences.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Debug-fixed-differences.json",
+      "source_sha256": "c3ed1eb284e3b3a784bd5a1767a6d86ea7c9bc297e0d6a53a641ccf3d160517c",
+      "stored_sha256": "9f1d453f6a94aba4d510a1483786329a75570e8883106f7965769d0bc119cfb1",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Debug-fixed-producer.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Debug-fixed-producer.log",
+      "source_sha256": "d428732fbf4b09beda5d6164a107fd6317d5ece0dcae1dd88c78947224f7dc88",
+      "stored_sha256": "20b185d9e85466d2fa8074b1c781f96c35a8269c91b169aaaf5d5bf00b605e08",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Debug-install.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Debug-install.log",
+      "source_sha256": "41ec468b637f698de31b39cc84adab6d1e67f612589761d9b66120c8dcbe2eb6",
+      "stored_sha256": "7b7becf6cf70f6f89d594303e9718af01c4c05284a91182e8ca499b50754091d",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Debug-stress-differences.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Debug-stress-differences.json",
+      "source_sha256": "99a0abf980ae5be22c13abc1cdb935436f3822e9099112c2c43f4dfd03503251",
+      "stored_sha256": "63fb849ec1d90639e8d60ef7aafa69bacc24b815c069916847be312039813565",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Debug-stress-producer.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Debug-stress-producer.log",
+      "source_sha256": "78fad689c31e9c3c0b37d80162a9debd767b94a2b1b68cb27f6777f16d42f4d4",
+      "stored_sha256": "9a94e2d416c7f0c69e000cb5dddd85b2c6bcb56c373c217864c6fc97cd2b0628",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Debug-symbols.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Debug-symbols.txt.gz",
+      "source_sha256": "6a99b5838e422e37e4290435401c7d90725b604b589cca19dd7167ffa9acab69",
+      "stored_sha256": "6a99b5838e422e37e4290435401c7d90725b604b589cca19dd7167ffa9acab69",
+      "source_already_gzip": true
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Debug-tests.exit.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Debug-tests.exit",
+      "source_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stored_sha256": "89ed3b723e0e40d8957a2df55fcb04d57b6d95fa665c5fe67b098df7f29694ae",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Debug-tests.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Debug-tests.log",
+      "source_sha256": "fd9b6936e0403edf08473fe7c5265ae13cfea9ee4d0851b2ebc95a62a99ddff5",
+      "stored_sha256": "1bbfa734ffbd7989a8e95c02a12226e84639e8733f73d37c3da0399f24560e31",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Debug-tests.xml.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Debug-tests.xml",
+      "source_sha256": "fa30c01a835ba717236c3ef8923647c98440d1b718e90556a58202ae8a0ff55e",
+      "stored_sha256": "7180e61d05fbd06991e973b94720e410b59e0586cbb761a58516841acc0e78ef",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Release-archive-members.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Release-archive-members.txt",
+      "source_sha256": "3c12e51044282dc3b4ce93e5bc7ebea3be31f2cde7ec3e88660ce6c58d305caa",
+      "stored_sha256": "1b69839902114fa4085d5de872ab97b37a2c492c18ac16f5e0b51e6c590fa44a",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Release-build.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Release-build.log",
+      "source_sha256": "fb544cc3e83dbfa44c8cc466404ec2697e2f1c0a56a43e72b4ccfa42efc7ca47",
+      "stored_sha256": "da93bd2008426a8a39a6fa8ef078131be38b893d19c65da6fc260bca5e8dc2ea",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Release-configure.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Release-configure.log",
+      "source_sha256": "19ee8720030def57548e86300ddc9e2b8e3ceec6f7bf87c593854451e41b5c64",
+      "stored_sha256": "8cea095dd5bc481c1a12b4224646a4c4eec6b2690960056e86e8488625f3ca29",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Release-fixed-differences.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Release-fixed-differences.json",
+      "source_sha256": "a88c11e5c7b3a3a6477171032e4ce6521931872e3b2995c6d53a38be50c5e24d",
+      "stored_sha256": "a859731bf1ac78f54edf8afc83684faecd866a7d168c3b7adfd1c190c5b56ed7",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Release-fixed-producer.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Release-fixed-producer.log",
+      "source_sha256": "d428732fbf4b09beda5d6164a107fd6317d5ece0dcae1dd88c78947224f7dc88",
+      "stored_sha256": "20b185d9e85466d2fa8074b1c781f96c35a8269c91b169aaaf5d5bf00b605e08",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Release-install.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Release-install.log",
+      "source_sha256": "93f9cbb0334de8ba1c9b7c697f50b2627a42d479c57e670e336450877d3dc14c",
+      "stored_sha256": "755fbf0577ecbb7e9fd972e0c38b1dea4566cdfadf8a2f999854f91ba2e88662",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Release-stress-differences.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Release-stress-differences.json",
+      "source_sha256": "76fb42d7f51eafd67fe97bf95eceb5317e1c2631e7dc4cc5e129b95f7043b1aa",
+      "stored_sha256": "0f31c0c3d320a3df3c2f0656002b164efe95e5d513034b315897c906705e83c2",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Release-stress-producer.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Release-stress-producer.log",
+      "source_sha256": "78fad689c31e9c3c0b37d80162a9debd767b94a2b1b68cb27f6777f16d42f4d4",
+      "stored_sha256": "9a94e2d416c7f0c69e000cb5dddd85b2c6bcb56c373c217864c6fc97cd2b0628",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Release-symbols.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Release-symbols.txt.gz",
+      "source_sha256": "ed8a0817af44483061afde86f6cfe44f72dc9158316e60240c2bf08d4d2251c8",
+      "stored_sha256": "ed8a0817af44483061afde86f6cfe44f72dc9158316e60240c2bf08d4d2251c8",
+      "source_already_gzip": true
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Release-tests.exit.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Release-tests.exit",
+      "source_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stored_sha256": "89ed3b723e0e40d8957a2df55fcb04d57b6d95fa665c5fe67b098df7f29694ae",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Release-tests.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Release-tests.log",
+      "source_sha256": "6250a467cd62f20be12d81f53d22feefa5f76fa5dd9fc25bf8893097fbce19a9",
+      "stored_sha256": "1d6cc202820b31139aca666a17102da06f4ce61f5c375992e344f7217134dfbd",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-Release-tests.xml.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-Release-tests.xml",
+      "source_sha256": "806af4b3d102576814df4655cf0e3fb935b3ebf03276f6b4210bf3199cd8e316",
+      "stored_sha256": "04057a6958397f0bc8bd38ef532786568c76f7ff9b2329b4e99b89c71904a976",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-final-fsck.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-final-fsck.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/Zaki-fixed-sections.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/Zaki-fixed-sections.json",
+      "source_sha256": "8685fa0e9b0d9441364a6c96ffd3f20e859b4394cbd35b05ad54aaf1ca958bcb",
+      "stored_sha256": "300a21d28508a2dcbc28389c387b5471bae33ae83da16c3678754b1899692d09",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/auth-real-13214.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/auth-real-13214.log",
+      "source_sha256": "f9649bb18beef4d8eae83b710c9cdd8e3b755860e1b56c60c436596377c59b5e",
+      "stored_sha256": "21609a19fcc8dd0ca47f8f73ab256cd330c4385c8e83b7e51319948850cdb4d5",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/authentication-changed-flags.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/authentication-changed-flags.log",
+      "source_sha256": "43578a28a6850ec61a607a6396885ed4b4c42dd9edba005141176e88fe1cf111",
+      "stored_sha256": "3aeac8620919fd88c50b99afa97041c088407421ddfbb11b674c5c1d47f91148",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/authentication-mac-lock.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/authentication-mac-lock.log",
+      "source_sha256": "79cffd6aa7da100d15f12dcb3eb3769f7623ba1a35695d6c479a5f5734844138",
+      "stored_sha256": "e0cbcc69820698e8595370421132119780b32ae24326b7d89825bd28e845722a",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/authentication-missing-lock.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/authentication-missing-lock.log",
+      "source_sha256": "d27b423c0ccf0d1358ae8896c5e2eeb48df9319586cf11848ef8987daf0e90e0",
+      "stored_sha256": "889024afe2e690a86504658eb4c5b4ee855a46210b53ca972fc4bd4c12f0b059",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/authentication-negative-configures.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/authentication-negative-configures.json",
+      "source_sha256": "f9649bb18beef4d8eae83b710c9cdd8e3b755860e1b56c60c436596377c59b5e",
+      "stored_sha256": "21609a19fcc8dd0ca47f8f73ab256cd330c4385c8e83b7e51319948850cdb4d5",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/authentication-wrong-mode-prefix.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/authentication-wrong-mode-prefix.log",
+      "source_sha256": "71372d2cfaa75c22c1b98c886689acb4ebd5ac01df39131c8157373cf8cd9aec",
+      "stored_sha256": "50e35ec4cbf43820c130767860c1189d5f168e257bce0a9bee71ff78616d6cac",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/bounded-13208_0.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/bounded-13208_0.log",
+      "source_sha256": "8b36494935b608f933b40bdcdd53d967da80830d6f462ff7acfa7dc8e2be6e98",
+      "stored_sha256": "409bf7b1ac3aadb9c34e7a0fad314dbcd54a4984433241271fb53a37221686d7",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/bounded-13208_1.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/bounded-13208_1.log",
+      "source_sha256": "910abb49f4435ce0e04b0a80174932e3dfb953542345d3dcd48ac31068f392ca",
+      "stored_sha256": "f9957b05da1ec3e75055219d816eafd5dd2aa7176b6a7d872c84ead2f67b36fd",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/bounded-13208_2.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/bounded-13208_2.log",
+      "source_sha256": "d6f21544a5e4a1aefb3429cef2e9f57ad93fd81f6b1a22af069a0ec2e99f9dde",
+      "stored_sha256": "c0e14c1daf8292ac78dc22325020421e5e76b482bb48b843abcf9bed41e13d1a",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/compactstar-13198.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/compactstar-13198.log",
+      "source_sha256": "2d95e9011b5bd90ec61cbfbcb808dea314ebdf5115702879b79e1338d1a59504",
+      "stored_sha256": "4362c8def9478a39bf989d88b63f0ce1dc1f2dd4bc5374ef6f1c09cfdcc64220",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/compactstar-13200.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/compactstar-13200.log",
+      "source_sha256": "3210f47cde91a9b1131dea9271700de95701a97c14f250778059bd1b46d0ff0a",
+      "stored_sha256": "753e0d960b7f6b8bfc2a03818fe34d0e271c72e10baf0ddc5f54a4c25966d15c",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/compactstar-13202.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/compactstar-13202.log",
+      "source_sha256": "3210f47cde91a9b1131dea9271700de95701a97c14f250778059bd1b46d0ff0a",
+      "stored_sha256": "753e0d960b7f6b8bfc2a03818fe34d0e271c72e10baf0ddc5f54a4c25966d15c",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/compactstar-13203.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/compactstar-13203.log",
+      "source_sha256": "3210f47cde91a9b1131dea9271700de95701a97c14f250778059bd1b46d0ff0a",
+      "stored_sha256": "753e0d960b7f6b8bfc2a03818fe34d0e271c72e10baf0ddc5f54a4c25966d15c",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/compactstar-13204.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/compactstar-13204.log",
+      "source_sha256": "3210f47cde91a9b1131dea9271700de95701a97c14f250778059bd1b46d0ff0a",
+      "stored_sha256": "753e0d960b7f6b8bfc2a03818fe34d0e271c72e10baf0ddc5f54a4c25966d15c",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/compactstar-13205.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/compactstar-13205.log",
+      "source_sha256": "3210f47cde91a9b1131dea9271700de95701a97c14f250778059bd1b46d0ff0a",
+      "stored_sha256": "753e0d960b7f6b8bfc2a03818fe34d0e271c72e10baf0ddc5f54a4c25966d15c",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/compactstar-13206.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/compactstar-13206.log",
+      "source_sha256": "3210f47cde91a9b1131dea9271700de95701a97c14f250778059bd1b46d0ff0a",
+      "stored_sha256": "753e0d960b7f6b8bfc2a03818fe34d0e271c72e10baf0ddc5f54a4c25966d15c",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/compactstar-13209.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/compactstar-13209.log",
+      "source_sha256": "3210f47cde91a9b1131dea9271700de95701a97c14f250778059bd1b46d0ff0a",
+      "stored_sha256": "753e0d960b7f6b8bfc2a03818fe34d0e271c72e10baf0ddc5f54a4c25966d15c",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/compactstar-built-artifacts.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/compactstar-built-artifacts.json",
+      "source_sha256": "b80ceb7208fd9f76e30a5d819a88634531504cd152610e361881f9bc2e1b7bb3",
+      "stored_sha256": "f35a57b571ccf7948f6cd08566a6511b0c721cbba9a1401660aa06fcf6409e68",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/dependencies-13197.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/dependencies-13197.log",
+      "source_sha256": "1204b76c6a4f7777dbfaa01c6f30efd18a858f261a49f2e09fbb86eb61bc6d61",
+      "stored_sha256": "e0948145631e168f98964c4e96bda027594d90c7f400b805b77523692c82e6cc",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/final-integrity.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/final-integrity.json",
+      "source_sha256": "599885f182d3466c0e0d8669e5ade06cf5958324a4cd06d1582802f337ffb596",
+      "stored_sha256": "417b7c8569cd6ccc2f9a95a3fd96072ed4a3797dcf0e0168f4e0083d3908db02",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/floating-point-build-audit.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/floating-point-build-audit.json",
+      "source_sha256": "b592eeaaa99301207eecfb36043b06a333867ed423b8c6ac37759dd2d14687f7",
+      "stored_sha256": "c6e7666ca05cdf57ccc7e42db28fdac9b29dc5c08d013da63b2e0a0d20341c2b",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/frozen-monitor-authenticated.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/frozen-monitor-authenticated.log",
+      "source_sha256": "442a12b2c4c79f0848d504c6d848fc8bbb1bd56915c587ac1fdec60ef5e7a69d",
+      "stored_sha256": "aee8f73a53e78d42b8144a5c2eb41b7343e647507752dcdcd2747a20a1daac3b",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/frozen-profile-differences.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/frozen-profile-differences.json",
+      "source_sha256": "bf913ef104527b1d8b0dcd29a4e72ef948dd73ccea7288e418701de7456579dd",
+      "stored_sha256": "a0608396718ab6b3962eb250946ce8512446f28b5d82056d99c255a79454102a",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/gsl-build.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/gsl-build.log",
+      "source_sha256": "323fa462b40559eadf5cabfbf294c07a4ff22a1a7c356cf2259c3a254e2eede6",
+      "stored_sha256": "ec5a94bdcb0c3431ac1f4bf2df063600110d304951dbcbcbe147b3d72ad368e7",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/gsl-check.exit.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/gsl-check.exit",
+      "source_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stored_sha256": "89ed3b723e0e40d8957a2df55fcb04d57b6d95fa665c5fe67b098df7f29694ae",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/gsl-check.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/gsl-check.log",
+      "source_sha256": "de544e4c864a3b245ca43cd8353652f6dc5300cbeb570c6ca7dfa385faea9d05",
+      "stored_sha256": "de7c07c703966f9dbdbec89ae4119cbb3f7c2017900a6a5f4d2d031a37895184",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/gsl-configure.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/gsl-configure.log",
+      "source_sha256": "a646649513a6c79b7c3ebda6e36f71b3268f54faf631636bac2ebc921300fed1",
+      "stored_sha256": "785f69f4b4a0364aa25ab66fbbc39cf5d4bd3951bc9b8dc68bea056494abbbe8",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/gsl-install.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/gsl-install.log",
+      "source_sha256": "91c47dfa710e2ca804219e1e2d2a2f0f3c2a77e368e3ede7e08c4ef39b9debec",
+      "stored_sha256": "48c54bdeaff467f4618214d80bf55d0ace8d3714e71472dfa6360d64f6e5400a",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/gsl-pkgconfig-rerun.exit.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/gsl-pkgconfig-rerun.exit",
+      "source_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stored_sha256": "89ed3b723e0e40d8957a2df55fcb04d57b6d95fa665c5fe67b098df7f29694ae",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/gsl-pkgconfig-rerun.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/gsl-pkgconfig-rerun.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/historical-13201.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/historical-13201.log",
+      "source_sha256": "71192ce9bb4a63616ee1ae67d766b94299ee76c36cc432f999a99981c13a7c3e",
+      "stored_sha256": "444104df08435662cee2faab9e93d55126c573b1271bb645f084b5e9d8c53a5c",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/job-13197.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/job-13197.txt",
+      "source_sha256": "e7cbc19b304ce7fb323ea1ccae489c74fbc1bdf5635781d0999740708566b8df",
+      "stored_sha256": "a2f8a411e046bff74a7f8b2f78d31274543bcf165a8195b4e6cb1e2ff88b6183",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/job-13199.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/job-13199.txt",
+      "source_sha256": "e7cbc19b304ce7fb323ea1ccae489c74fbc1bdf5635781d0999740708566b8df",
+      "stored_sha256": "a2f8a411e046bff74a7f8b2f78d31274543bcf165a8195b4e6cb1e2ff88b6183",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/job-13201.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/job-13201.txt",
+      "source_sha256": "e7cbc19b304ce7fb323ea1ccae489c74fbc1bdf5635781d0999740708566b8df",
+      "stored_sha256": "a2f8a411e046bff74a7f8b2f78d31274543bcf165a8195b4e6cb1e2ff88b6183",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/job-13207.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/job-13207.txt",
+      "source_sha256": "a35cb6380b7fb1b1997097aa1ddc4683ec2b6e2f67a64895fad8700e68040286",
+      "stored_sha256": "a3c7f3b94083871e6d362fa163c39736d9dea8bde525da34ecbfb39fdeedaba5",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/job-13208_0.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/job-13208_0.txt",
+      "source_sha256": "e7cbc19b304ce7fb323ea1ccae489c74fbc1bdf5635781d0999740708566b8df",
+      "stored_sha256": "a2f8a411e046bff74a7f8b2f78d31274543bcf165a8195b4e6cb1e2ff88b6183",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/job-13208_1.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/job-13208_1.txt",
+      "source_sha256": "e7cbc19b304ce7fb323ea1ccae489c74fbc1bdf5635781d0999740708566b8df",
+      "stored_sha256": "a2f8a411e046bff74a7f8b2f78d31274543bcf165a8195b4e6cb1e2ff88b6183",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/job-13208_2.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/job-13208_2.txt",
+      "source_sha256": "e7cbc19b304ce7fb323ea1ccae489c74fbc1bdf5635781d0999740708566b8df",
+      "stored_sha256": "a2f8a411e046bff74a7f8b2f78d31274543bcf165a8195b4e6cb1e2ff88b6183",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/job-13209.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/job-13209.txt",
+      "source_sha256": "8acde766452cd4c765d2f01a3fa92cc9075b8f607f968254a12090a4d261cbb9",
+      "stored_sha256": "324a1a7774b4b61a7f3c12d142f8b580faeeea2d83ade1958b109272aa8fbe5f",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/job-13212.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/job-13212.txt",
+      "source_sha256": "e7cbc19b304ce7fb323ea1ccae489c74fbc1bdf5635781d0999740708566b8df",
+      "stored_sha256": "a2f8a411e046bff74a7f8b2f78d31274543bcf165a8195b4e6cb1e2ff88b6183",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/job-13213.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/job-13213.txt",
+      "source_sha256": "133d8d653199d5163d8b0a054bf8f684ef9f7ba40c0db52edef0b719cf923250",
+      "stored_sha256": "42f22d9583a6933482c966f2daa9d1be5f5ebbd157b79153e75225356fc45371",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/job-13214.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/job-13214.txt",
+      "source_sha256": "f6a82418452dadac7f5aa774a9c3416a31d98e6e171807e642b3e19855381613",
+      "stored_sha256": "e8fc19ba114e857c75f36da042591d999ff8dbeb2336f40b1ae5a11167ff1882",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/job-13216.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/job-13216.txt",
+      "source_sha256": "174a19988fcc3a69745a91cd89992b3b9437c6edf77568f482604e3d350c72dd",
+      "stored_sha256": "9b20417dca41b21048417a15e8deb6e88d6b4b5dfef0922f1583e4bf139b1f8b",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/migration-13219.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/migration-13219.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/node-runtime-phyn003.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/node-runtime-phyn003.log",
+      "source_sha256": "d6738b317536aac16911a3dae0176f087e971b0db152099242f4e1eadb551f6c",
+      "stored_sha256": "e2046fef66bdc5538030c7aab27ed7064fc4c7bd3cba18432b0d5118783c2661",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/node-runtime-phyn004.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/node-runtime-phyn004.log",
+      "source_sha256": "2391227db5e8271c083dc19e07933be20676b57572fb07bc3d4baac3f908374c",
+      "stored_sha256": "2bbbeeab48ade959a075f49696169e481fbe0e38945f06e500e61fdbd98b6f2a",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/packaging-13199.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/packaging-13199.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/pe-onset-13215.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/pe-onset-13215.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/pe-onset-Debug.exit.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/pe-onset-Debug.exit",
+      "source_sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "stored_sha256": "c28cc69d141393e44a931229323624ef7b8c5bde3ee047ca9b87332daef23c82",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/pe-onset-Debug.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/pe-onset-Debug.log",
+      "source_sha256": "40309643ad6ab314a560cc7c8f6bd1f685fcc61d77ca6bf4a0da1b6fa8ac6ba1",
+      "stored_sha256": "6c75070aadebee1bbc63c53476d9bf307e7775511c465d2cfd28f8909baa2472",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/pe-onset-Release.exit.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/pe-onset-Release.exit",
+      "source_sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "stored_sha256": "c28cc69d141393e44a931229323624ef7b8c5bde3ee047ca9b87332daef23c82",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/pe-onset-Release.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/pe-onset-Release.log",
+      "source_sha256": "40309643ad6ab314a560cc7c8f6bd1f685fcc61d77ca6bf4a0da1b6fa8ac6ba1",
+      "stored_sha256": "6c75070aadebee1bbc63c53476d9bf307e7775511c465d2cfd28f8909baa2472",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/phase5c-coefficient-differences.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/phase5c-coefficient-differences.json",
+      "source_sha256": "d9cb5ab7c9ee3fb59d46bb51de24078b6274b8b6a41223b39c1b4701f3cfd38a",
+      "stored_sha256": "74022cf5746e34f790106bee03cd36a974a2afc3b20643eebe3b18a53cd66f36",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/phase5c-within-linux-repeat.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/phase5c-within-linux-repeat.json",
+      "source_sha256": "71039bdb9387253f47f73682e3bf256aa52fdb3332823fa7cfe529e59db8d108",
+      "stored_sha256": "51ab0ff8289f1ecb43124138632513403704ee8d4197e65ab89f81643a0d4706",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/profile-13212.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/profile-13212.log",
+      "source_sha256": "74cc272f5ea22fccc62aebd6dfd168b8d2f3de1524631454ea54d516f4aa3997",
+      "stored_sha256": "14b994b72453eecadb6dec5ada68fdb3ed31a87920b6479fbe5bf9ccc36ad9e1",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/protected-source-pin-differences.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/protected-source-pin-differences.json",
+      "source_sha256": "c871d804efebc1cabd1481629e63e55ce6ecd13fafef5b92e021b82e2ce99574",
+      "stored_sha256": "05f0f22b7e46623007bae2b939e2d51a2cad3b987d22c7283ef0b304d34d40d3",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/python-download-attempt2.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/python-download-attempt2.log",
+      "source_sha256": "90ee38fcddc957771cd4daaad9a338e7dd92d9b422766be2880c4eecc1c67c9a",
+      "stored_sha256": "b2d27f1bda33410549f289109ee91a330875207496f9ff3441881182dbd095cd",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/python-download.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/python-download.log",
+      "source_sha256": "ba8cd735b109ce432f3dabe736d8b738db784ad9e6ebc64546f838dd1582b2d8",
+      "stored_sha256": "b4e5a1fe2e7b8f04d86611b31cd759434be1bf32238222b94fca491cefebf159",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/python-install-attempt2.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/python-install-attempt2.log",
+      "source_sha256": "eeaf14610c3de076ecd022d4cf14db49b7e7fc484b777d8265a2ec3598814c4e",
+      "stored_sha256": "9bdc467ed7e2ee32c8b00a889ced1e89e102bfa90847c9ef230ea53adf40f192",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/python-install.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/python-install.log",
+      "source_sha256": "d782fd0d5a4677b7417ac6a4c440ad42ebc705fdc329ea858ec9b21d2509d070",
+      "stored_sha256": "ac46e3c0bba36c4d923001e27b263fb6813b0f7f829deb5db580738d33559372",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/relativity-boundary-13220.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/relativity-boundary-13220.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/relativity-boundary-Debug.exit.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/relativity-boundary-Debug.exit",
+      "source_sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "stored_sha256": "c28cc69d141393e44a931229323624ef7b8c5bde3ee047ca9b87332daef23c82",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/relativity-boundary-Debug.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/relativity-boundary-Debug.log",
+      "source_sha256": "b2baa2dbd514e40f80d501b731edc81840e1c82c5a2967e48aa0e3c54ee5eace",
+      "stored_sha256": "3936e66795ea7fb99f8ae19c8e40c577f9e9666cd3183f7044c0bd18be8f35a3",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/relativity-boundary-Release.exit.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/relativity-boundary-Release.exit",
+      "source_sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "stored_sha256": "c28cc69d141393e44a931229323624ef7b8c5bde3ee047ca9b87332daef23c82",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/relativity-boundary-Release.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/relativity-boundary-Release.log",
+      "source_sha256": "b2baa2dbd514e40f80d501b731edc81840e1c82c5a2967e48aa0e3c54ee5eace",
+      "stored_sha256": "3936e66795ea7fb99f8ae19c8e40c577f9e9666cd3183f7044c0bd18be8f35a3",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/rpm-verify-glibc-devel.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/rpm-verify-glibc-devel.txt",
+      "source_sha256": "873088924f041d3ea0f459ea42e62a3adda470cc7d560bbd19def3139c678b08",
+      "stored_sha256": "8c7986a9efce886f711d12e7e6a36faec56d20a8a5b1b8e2ee4c296e123cd86a",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/rpm-verify-glibc-headers.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/rpm-verify-glibc-headers.txt",
+      "source_sha256": "83d66ada77186cb9e31537678a8f8038ff98e158b50a664b333861a939fe46e4",
+      "stored_sha256": "1a2f223cc54a9c27200215085eadd90ff31aaba5e0c6541c05f4dea0d282ba1c",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/rpm-verify-glibc.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/rpm-verify-glibc.txt",
+      "source_sha256": "bc80c99334f37d5f052868d6d94fb0adadb5143092239932b9dbd108347fd1bd",
+      "stored_sha256": "06429aac60763d190576b1e1e100f3105588a0679ca540399c28d653d6fb1aeb",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/rpm-verify-kernel-headers.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/rpm-verify-kernel-headers.txt",
+      "source_sha256": "068def3980c2f7c4eccd4ff9c81385ff7181e9621143497b524fac07c626c4e5",
+      "stored_sha256": "333cedd3623842823b0a502d61320c3f0852c3b4c10cbfd5f3e607766463533b",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/rpm-verify-zlib-devel.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/rpm-verify-zlib-devel.txt",
+      "source_sha256": "35c5d578f212ed3a114b17b80547939c0f152c36a70ad01907dd5cf8ca650a1c",
+      "stored_sha256": "182bb40568af345a99e90c02b6b4ae54599ab44fff4301ca668452c7bba4ce84",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/rpm-verify-zlib.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/rpm-verify-zlib.txt",
+      "source_sha256": "caa10b522ab1899fa0126c4390e93655ff4c6e0da7f22703e1687431338417e5",
+      "stored_sha256": "38aabdb873455c971046884aa87e08d0879514533bc810a24a4fabbefbc8fb35",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/runtime-provenance-attempt1.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/runtime-provenance-attempt1.json",
+      "source_sha256": "4628745014eb0fa3d270eb78d14f029b80844b4bbaefbb0f6d8428489b08ba49",
+      "stored_sha256": "b2adc00c787af8d86a071fa906de2c9df447dcd4a2fcb80ba3a633172e7db430",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/runtime-provenance.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/runtime-provenance.json",
+      "source_sha256": "739152e8780d0dc7902a123f77ee29edf6984a1fade8d78c65b7a46df1d4c882",
+      "stored_sha256": "8664ceeb64880bc5bfdba21b770005e36fd21973f2450bffd51b97cfb864e7de",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/scientific-13207.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/scientific-13207.log",
+      "source_sha256": "632b8cdaac1923531336b0b7c755212eaf5c6cf09e916c2160c4f4c31f8fffe1",
+      "stored_sha256": "4ef78c26f07e2871f9b984052bf31c549deaad60d2cb6b619500a0ecd066b65d",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/scientific-13213.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/scientific-13213.log",
+      "source_sha256": "eac18ecefbb305b692ea726008832604bdbcc091420225ab2f549e681772b7dc",
+      "stored_sha256": "62397b3467f4c54d3089992ca602c23c780b555209d2c232593179773bae7cf3",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/scientific-13216.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/scientific-13216.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/scientific-summary.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/scientific-summary.txt",
+      "source_sha256": "fd6df8f239116a92e533399877d2406e9292c207505873a6113e30a3a984567b",
+      "stored_sha256": "52cfdc9a8b38d1795df907302b6f4d983a7ce6e7f86b441ae7dac7290db708b4",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/scientific-test-outcomes.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/scientific-test-outcomes.json",
+      "source_sha256": "f55b6271d858d8e03c440b4f968cb4e6b33073be5790929858ed9a80a0069fb3",
+      "stored_sha256": "7956ad8f1c7136897f7642c2a20ab60a6a46c947e0a98fca38af3fadaac1f246",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/slurm-final.txt.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/slurm-final.txt",
+      "source_sha256": "3ec722ba9f28dc12c62318653ba90e514fe15c578588930efe9108e883a83891",
+      "stored_sha256": "741fbc66b9909de30cff3e966b5e56fac12b1a8c918526242dbcf26264026238",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/static-13217.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/static-13217.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/sysroot-smoke-13195.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/sysroot-smoke-13195.log",
+      "source_sha256": "9b4b01b8f3569e6cd7620ad6334857df1826614ed44cbbae54363f5c9ffaed51",
+      "stored_sha256": "272bcef0ac249e92077a362ebd2825b17193b7542153d32ad2717677255bd43f",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/sysroot-smoke-13196.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/sysroot-smoke-13196.log",
+      "source_sha256": "ab9f1832961d6462cadf3d124e6cdf9c430647fcbf09c0dcdad76143ec970f61",
+      "stored_sha256": "c3d15597ba6059582f1ffcb43a8d592344e0aee4f80790a4abb95c264d45343f",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/taskmanager-Debug-observations-differences.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/taskmanager-Debug-observations-differences.json",
+      "source_sha256": "4217f15d671487d9072d9132d2d4a3caa448bad6e2245da466a623f276d9b1d1",
+      "stored_sha256": "6994769b4f1c2ff36857c20787da566674e856da417d084a09e6f8b0056bb274",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/logs/transfer-verification-final.log.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/logs/transfer-verification-final.log",
+      "source_sha256": "8b728962b93b3d854fc55c9a8ba314deb2cdcd744145a3403dfaa316e7079949",
+      "stored_sha256": "6bf9f608de35631bedba6f84ac966f5c124d57ffde1424f28123694e4ef8eeb4",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/migration-rerun.sh.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/migration-rerun.sh",
+      "source_sha256": "f0bf60bdf1a847cda68b58c81cbbbee4599eb8c73e1d8c72387ccf43bf0d216d",
+      "stored_sha256": "487e7ef6a59e2073296cace68c8a1e6dbe5c7edea18c170f31bfbf3500ce6d03",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/node-runtime-probe.sh.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/node-runtime-probe.sh",
+      "source_sha256": "6827c55e7bddc0d7f506ce102b8fed64f7b93947b8e7802ec40bf49b5018f684",
+      "stored_sha256": "a078c050c35281aab4c6052d22ff74190ac91e46d4656e77e5d831b22e801686",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/pe-onset-diagnostic.cpp.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/pe-onset-diagnostic.cpp",
+      "source_sha256": "9bc7ba02ac12a6ad2b0910df8e41fddb5bcfbec92876494eb8b0086a8ce80e2d",
+      "stored_sha256": "5842232f3c6ded4a2e964bf8fb218310e626abde2681f6f2bbedeaf4168f3d93",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/pe-onset-diagnostic.sh.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/pe-onset-diagnostic.sh",
+      "source_sha256": "fb00a3e618633b9c330fb070e4ad1711414077dfe22d9a5e1e4bbbb19732b49c",
+      "stored_sha256": "cd560cca079c5a7915a01c3a8d04be6602a56521bdf74672a110ba97df832875",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/relativity-boundary-diagnostic.cpp.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/relativity-boundary-diagnostic.cpp",
+      "source_sha256": "acedc6531e43e617ffa127f600ce8dd668798d8d7d7b314a5fbe34f3e8ff04b8",
+      "stored_sha256": "509ff1e1914013f896bf2ea889dfe1206fabb0f5ce000daf3bb883c6341643d3",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/relativity-boundary-diagnostic.sh.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/relativity-boundary-diagnostic.sh",
+      "source_sha256": "8c038a495a13689a6bfa362647115dfae4360a2be77dcd7cdd94bb71093defd7",
+      "stored_sha256": "9cd3ff5d5d81449174693994be5b97635ff22ad533dff242b9594f0586d71d10",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/resume-scientific-tests.sh.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/resume-scientific-tests.sh",
+      "source_sha256": "845cb936545b08916e84308a429e1e22b4be4de0c1afae1e81dffcf065f9a5a9",
+      "stored_sha256": "a6784e403b3565a5ecb7b9bf86615851721bfd96684404110cf98e34284589e8",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/static-supplement.sh.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/static-supplement.sh",
+      "source_sha256": "bf7605c58a25c47c6888a9cd95e9f97f7edfae3c09654d5f2ebd84a06aae8f37",
+      "stored_sha256": "8f171bc29d269645c3b1209b0168cc2b4e96d33db5571da86682251639ffa026",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/sysroot-files.sha256.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot-files.sha256",
+      "source_sha256": "2171ab992a288c446c34a39706896fdc5c885210d04656f966d2a97ebc1fa3ca",
+      "stored_sha256": "c75a1b0bd24ab9e6b07acf16408d7c3877fb9dffd2fbd1dcbed07a32dd8222b0",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/sysroot-manifest.json.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot-manifest.json",
+      "source_sha256": "95ca26ca91775b01eb22f92272068ab4fe4fbe0f03c86c0b0f926a66c0aae0d9",
+      "stored_sha256": "a54cb40e17e20dc1f489dc9003179560b3b37e21d0d527b7831f25360a355480",
+      "source_already_gzip": false
+    },
+    {
+      "file": "linux-transition-20261010/toolchain/tools-files.sha256.gz",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/tools-files.sha256",
+      "source_sha256": "c3060ace44d00d525b9d38dd418426ce960b0ec06138ec788c096d96483422a8",
+      "stored_sha256": "bae4fa3b6da10b486971a9a97a85a8bd976050afd8bb5f8d8ca86b79c51711e5",
+      "source_already_gzip": false
+    }
+  ]
+}
