@@ -1,0 +1,10 @@
+The owner requested commit and push of the Linux transition candidate.
+Intended remote: https://github.com/ZAKI1905/CompactStar.git
+The URL is recorded in the imported repository's reconnaissance documentation.
+Read-only remote inspection matched canonical master 9a5c1eca and readiness
+5433fc2da exactly. No canonical ref was modified.
+An attempted candidate-only push was rejected before execution by automatic
+approval review on 2026-10-10: explicit approval of this destination is required
+because sending repository contents could expose private material.
+Do not bypass the rejection. Obtain destination approval for the completed
+candidate and report before retrying the push.

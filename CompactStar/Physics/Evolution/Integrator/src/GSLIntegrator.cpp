@@ -14,6 +14,7 @@
  * @brief Implementation of GSLIntegrator (GSL driver wrapper).
  */
 
+#include <cmath>
 #include "CompactStar/Physics/Evolution/Integrator/GSLIntegrator.hpp"
 
 #include <algorithm> // std::min

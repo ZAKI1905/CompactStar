@@ -11,7 +11,7 @@ common=(-DCMAKE_C_COMPILER="$CC" -DCMAKE_CXX_COMPILER="$CXX" -DCMAKE_C_FLAGS=-ff
 for mode in Debug Release; do
  build="$TC/build/CompactStar-$mode"
  cmake -S "$SRC" -B "$build" -DCMAKE_BUILD_TYPE="$mode" -DCOMPACTSTAR_ZAKI_PREFIX="$TC/install/$mode/Zaki" -DCOMPACTSTAR_CONFIND_PREFIX="$TC/install/$mode/CONFIND" "${common[@]}" > "$TC/logs/CompactStar-$mode-configure.log" 2>&1
- cmake --build "$build" --parallel 4 > "$TC/logs/CompactStar-$mode-build.log" 2>&1
+ cmake --build "$build" --parallel 4 -- -k > "$TC/logs/CompactStar-$mode-build.log" 2>&1
  ctest --test-dir "$build" --show-only=json-v1 > "$TC/logs/CompactStar-$mode-inventory.json"
  set +e
  ctest --test-dir "$build" -R '^(chemical_production_contract|chemical_exact_oracles|chemical_curved_gc9|particle_number_analytic|passive_checkpoint_output_contract|phase6a1_direct_energy|phase6a1_thermal_ledger|heat_capacity_v1|cache_contract|cache_thermal_contract|phase5d_component_tolerances|phase6_breakpoint_contract|phase6_currentness_bytes)$' --output-on-failure --output-junit "$TC/logs/CompactStar-$mode-readiness.xml" -j1 > "$TC/logs/CompactStar-$mode-readiness.log" 2>&1
