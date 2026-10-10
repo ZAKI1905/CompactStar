@@ -1,0 +1,148 @@
+{
+  "schema": "compactstar-linux-dependencies-v1",
+  "status": "CANDIDATE_UNQUALIFIED",
+  "platform": {
+    "system": "Linux",
+    "machine": "x86_64"
+  },
+  "gsl_source_sha256": "dcb0fbd43048832b757ff9942691a8dd70026d5da0ff85601e52687f6deeb34b",
+  "toolchain": {
+    "compiler": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/g++",
+    "compiler_sha256": "4d0e76c2a1cd55efc9e6ea8f4c57f6f9079d817650bfe6dadbebf862c6a0aabc",
+    "compiler_version": "14.1.0",
+    "cxx_flags": "-ffp-contract=off",
+    "mode_flags": {
+      "Debug": "-g",
+      "Release": "-O3 -DNDEBUG"
+    },
+    "executables": {
+      "cmake": {
+        "path": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/cmake-3.29.4-gybrkgtp3fscoavg562fdufw33t7wnpu/bin/cmake",
+        "sha256": "8e1d93063ee5b7c1f9c40fc622a56997b9745f68e313b123b05d38f04bd99899"
+      },
+      "as": {
+        "path": "/usr/bin/as",
+        "sha256": "4c54a61f0f111d56df9f41cd8cbca72793773bba51429da8116c5840d2d28817"
+      },
+      "ld": {
+        "path": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/binutils-2.42-dunwqjgbntvldbw4bideffp4lhlaviav/bin/ld",
+        "sha256": "8d1f5a69efa7ba46f54deb677e58fd84c62a6aa4dd40cc920a5c1ad180a4d8fc"
+      },
+      "ar": {
+        "path": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/binutils-2.42-dunwqjgbntvldbw4bideffp4lhlaviav/bin/ar",
+        "sha256": "a3d65ba9fb007a76e07c8e27fdf504a5108b95311d4bfccc727cf1353d98ea84"
+      },
+      "ranlib": {
+        "path": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/binutils-2.42-dunwqjgbntvldbw4bideffp4lhlaviav/bin/ranlib",
+        "sha256": "ec1697155ce79e4ff9b3256389d0a4952b0f078c398201cdae87013667332d24"
+      },
+      "git": {
+        "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/git",
+        "sha256": "4d4c1e4efcc6ab482232c0672790cc909dad62ef0a0ed1a9f558e43d5f625bc5"
+      }
+    }
+  },
+  "link_inputs": {
+    "gsl_include": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1/include",
+    "gsl_library": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1/lib/libgsl.a",
+    "gsl_cblas": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1/lib/libgslcblas.a",
+    "zlib_include": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/include",
+    "zlib_library": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libz.so"
+  },
+  "closure": {
+    "gsl": {
+      "root": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1",
+      "sha256": "da305d3418c474cf5c1b721910788069f73f2f82a4cb16a580610394c4206aac"
+    },
+    "sysroot": {
+      "root": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot",
+      "sha256": "2171ab992a288c446c34a39706896fdc5c885210d04656f966d2a97ebc1fa3ca"
+    },
+    "compiler": {
+      "root": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh",
+      "sha256": "5ea96da60d709a389c362ea6b38420a664d045f163fa05d43e007d70de80e1fb"
+    },
+    "tools": {
+      "root": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin",
+      "sha256": "c3060ace44d00d525b9d38dd418426ce960b0ec06138ec788c096d96483422a8"
+    }
+  },
+  "packages": {
+    "Debug": {
+      "Zaki": {
+        "name": "Zaki",
+        "mode": "Debug",
+        "source_sha": "e263a6e180c5c417198e7778bd21fc9c0a32dc33",
+        "dirty": false,
+        "prefix": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Debug/Zaki",
+        "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/Zaki",
+        "archive_sha256": "d7659ace8e71b754a232bf152e2188cae8fa7609311460aca3a110878115a33a",
+        "headers_sha256": "51931f9eac6823cc21609741c7f60485d0dbfab8d815d0a541e897cbcc2528a2",
+        "configs_sha256": "af4b3179bf9ad72a08ae3d02d918eb2b6ea6b9c21d60faf8f0311fd29f011dff",
+        "cache_sha256": "90c9d39ece51e36dd4b219b5e11c081aee8a5c2238a1b8a9376478fa4eacd1d1",
+        "compile_commands_sha256": "7417d42a3f954828c1fa6a0ab438388ec43053818d534e8136be22fa8540b068",
+        "installed_manifest_sha256": "144145650dd892f201f5709c807aaaf323ad1d37b678273bb1a78fe60e6a4451",
+        "cxx_flags": "-ffp-contract=off",
+        "mode_flags": "-g",
+        "cxx_standard": 17,
+        "ctest_exit": 0
+      },
+      "CONFIND": {
+        "name": "CONFIND",
+        "mode": "Debug",
+        "source_sha": "b0cbd510fd3fd0c772fa50499cd749287cb39e7b",
+        "dirty": false,
+        "prefix": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Debug/CONFIND",
+        "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CONFIND",
+        "archive_sha256": "bec1b0f08d9fa33bcd8fee0d0e23b7bb32082ac1910118666d9b52de49533532",
+        "headers_sha256": "0e02d55747cfa7bce70fdc9c660a4b95ec540dd4ce0c9bd94fbb68bccd5fd99b",
+        "configs_sha256": "96466f9ff73ab5c57cf017935dfd790c4196f96f6111471e6972c7f10e55d3ad",
+        "cache_sha256": "b229ab417ea0883e37cb09a8bbedee65dd484992e2f82c2a10c5be233147fc7e",
+        "compile_commands_sha256": "6a44ceb5735b37fb3bb6abca39d78f98a1c2f5f4971077f0174b3200606a322b",
+        "installed_manifest_sha256": "684818011fc56f9a45252af4cfb799f0db3f22f126ed48666eac3bed2f002866",
+        "cxx_flags": "-ffp-contract=off",
+        "mode_flags": "-g",
+        "cxx_standard": 17,
+        "ctest_exit": 8
+      }
+    },
+    "Release": {
+      "Zaki": {
+        "name": "Zaki",
+        "mode": "Release",
+        "source_sha": "e263a6e180c5c417198e7778bd21fc9c0a32dc33",
+        "dirty": false,
+        "prefix": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki",
+        "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/Zaki",
+        "archive_sha256": "c41330d6e0c64d71509c2088ed159345f65ce1687c2f64bee5dda90c1f469ff7",
+        "headers_sha256": "51931f9eac6823cc21609741c7f60485d0dbfab8d815d0a541e897cbcc2528a2",
+        "configs_sha256": "eb01e21b3571b29fe7b2a113e903c6fa9a2327047de26f4e215c5b3093973341",
+        "cache_sha256": "4ab5bd822151ebd54c9fc7f0039d3b39e5057a68406b97040d4b9a2a71654604",
+        "compile_commands_sha256": "e7fbf2b0571ca051071deed19a155b7deb93ef1ee3c3a69b09527fdf71c42667",
+        "installed_manifest_sha256": "09996dd8c329f43d792a2d85a81d07d7a1a57f8ba7d945fd848d370c05bdc1f9",
+        "cxx_flags": "-ffp-contract=off",
+        "mode_flags": "-O3 -DNDEBUG",
+        "cxx_standard": 17,
+        "ctest_exit": 0
+      },
+      "CONFIND": {
+        "name": "CONFIND",
+        "mode": "Release",
+        "source_sha": "b0cbd510fd3fd0c772fa50499cd749287cb39e7b",
+        "dirty": false,
+        "prefix": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/CONFIND",
+        "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CONFIND",
+        "archive_sha256": "63eda1f8fae182c78e5fad3e22ddff8ce66b504cfc3be38f48b583fa38d40e97",
+        "headers_sha256": "0e02d55747cfa7bce70fdc9c660a4b95ec540dd4ce0c9bd94fbb68bccd5fd99b",
+        "configs_sha256": "819cb1f40235db4c2444846bf837d2f02abcb87708f83b6366f03794b2d58397",
+        "cache_sha256": "61a21bf15dc42267718481d204a0372a01bca646f8be84ec133b1d628e6527e5",
+        "compile_commands_sha256": "3da233f480a1db49a069a6c076b32de318d168f96dfbe4025e3e2b24b4eee677",
+        "installed_manifest_sha256": "700008fd1a8384500e1bf92b522c342b74c56aad32249a83fa669ce43e27ba01",
+        "cxx_flags": "-ffp-contract=off",
+        "mode_flags": "-O3 -DNDEBUG",
+        "cxx_standard": 17,
+        "ctest_exit": 8
+      }
+    }
+  }
+}

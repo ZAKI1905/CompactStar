@@ -28,3 +28,8 @@ retain the historical Mac verification paths; they must not counterfeit Mac
 platform evidence. Cross-platform comparison follows the predeclared criteria in
 `docs/validation/linux-transition/PREDECLARATION.md:1`. A combined independent
 scientific/numerical review precedes any canonical integration or long campaign.
+
+Candidate evidence tracked under `docs/validation/linux-transition` is restricted
+to provenance JSON, inventories, text reports and compressed textual test logs.
+Native archives, executables, scientific input trees and disposable builds remain
+outside Git in the isolated workspace. Original failure logs are preserved.

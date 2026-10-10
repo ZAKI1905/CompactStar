@@ -64,3 +64,17 @@ Use supplied GSL 2.7.1 source, static, -O2 -g -ffp-contract=off; no fast-math,
 LTO or native tuning. Preserve Zaki/CONFIND per-source HistoricalMath protections.
 Python wheel versions and hashes will be recorded before their scientific use.
 A successful toolchain smoke is not CompactStar build or scientific qualification.
+
+## Execution inventory boundary
+
+The broad CTest run includes registered Debug and Release tests except
+`phase5d1_controlled_evolution_regression`: that producer runs the entire 10 Gyr
+mathematical evolution (`tests/baselines/phase5d1_controlled_evolution.json:1`),
+which is outside this bounded execution plan. Retain its inventory entry and
+DEFERRED status; run the independent Phase-5D response, oracle and contract tests.
+The existing fresh-context provenance guards may independently refuse the Linux
+candidate; report those refusals without changing their historical source pins.
+The Phase-6 adapter restricts modes to named bounded source/control/reference
+windows, events and probes. It has no full-campaign option and imposes a 30 minute
+per-run process timeout in addition to Slurm wall limits. Scientific equations,
+existing tolerances and input bytes remain unchanged.
