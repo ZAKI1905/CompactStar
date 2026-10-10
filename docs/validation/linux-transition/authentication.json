@@ -1,0 +1,265 @@
+{
+  "status": "AUTHENTICATED_SOURCE_AND_INPUT_TRANSFER_NOT_SCIENTIFIC_QUALIFICATION",
+  "archive_sha256": "da21bd7d745ca03a145176e632da15b2a4a6ad6b4ce8b95f888de138be65e737",
+  "receipt": "da21bd7d745ca03a145176e632da15b2a4a6ad6b4ce8b95f888de138be65e737  CompactStar-EKU-handoff-20261010.zip",
+  "transfer_verification": "PASS: 55 payload files; 23 scientific identities; 3 bundle digests",
+  "source_identities": {
+    "source_refs": {
+      "CompactStar": {
+        "refs/heads/master": "9a5c1eca40758e4c39f9f80db7324e12ad23e505",
+        "refs/heads/physics/phase6-breakpoint-aware-evolution": "0c3f9269c884161c9d89163660a47b141a93ace6",
+        "refs/heads/physics/phase6-bnv-campaign-readiness": "5433fc2da71ba380264f490b87926d850ff9f375",
+        "refs/heads/docs/phase6-cluster-preparation": "d8e7208b71e01168394e41f8f8f32b027b5d0a63"
+      },
+      "Zaki": {
+        "refs/heads/master": "7aca56cfdf3875cf2a8c0acea4acdac44f69c9f5",
+        "refs/heads/modernize/zaki-2.0.1-fp-preservation": "7aca56cfdf3875cf2a8c0acea4acdac44f69c9f5",
+        "refs/handoff/accepted-production": "e263a6e180c5c417198e7778bd21fc9c0a32dc33"
+      },
+      "CONFIND": {
+        "refs/heads/master": "b0cbd510fd3fd0c772fa50499cd749287cb39e7b"
+      }
+    },
+    "mac_dependency_lock_sha256": "e1307a042180034ad028f2ff07dbc7fd80752494ff4b2ff61cc8ca0eec2089c5",
+    "source_production_diff_from_readiness": "EMPTY",
+    "prepared_on": "2026-10-10",
+    "status": "SOURCE HANDOFF; LINUX UNQUALIFIED; NO CAMPAIGN AUTHORIZATION"
+  },
+  "scientific_inputs": [
+    {
+      "key": "certificate",
+      "original": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-fresh-qualification/certificate-t8192-r80000.txt",
+      "relative_path": "phase6/certificate.txt",
+      "sha256": "7fc892b50bfbcdd2c5d963e0ff866777f3628f40fc282e1ce5a0b0364200a453",
+      "authority": "docs/validation/evidence/obs32-forensics/authentication.json",
+      "status": "PASS"
+    },
+    {
+      "key": "coefficients",
+      "original": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-final/coefficients.tsv",
+      "relative_path": "phase6/coefficients.tsv",
+      "sha256": "3efa060d99a7a92266679aadb31885abbed9c940404247f1d3009cafa94832d6",
+      "authority": "docs/validation/evidence/obs32-forensics/authentication.json",
+      "status": "PASS"
+    },
+    {
+      "key": "entry",
+      "original": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/docs/validation/phase6a1_controlled_bnv_entry_hashes.json",
+      "relative_path": "phase6/entry.json",
+      "sha256": "5cfbf4b1d623b58fa2a94101631dce20c602950eec8eb514dc1fcd3c7a04620d",
+      "authority": "docs/validation/evidence/obs32-forensics/authentication.json",
+      "status": "PASS"
+    },
+    {
+      "key": "frozen",
+      "original": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-final/certificate.tsv",
+      "relative_path": "phase6/frozen.tsv",
+      "sha256": "9217e278eb0a4b06b193a2a02f4d59f285d74e4033427b87ccd51181c3f7beab",
+      "authority": "docs/validation/evidence/obs32-forensics/authentication.json",
+      "status": "PASS"
+    },
+    {
+      "key": "profile_tree",
+      "original": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-fresh-qualification/chemical-characterization/run-dhp6aivf/t8192-r80000",
+      "relative_path": "phase6/profile_tree",
+      "sha256": "233114862a2ab6826151519114e4bcb74a01f6a8e739bac0502ee62884688d72",
+      "authority": "docs/validation/evidence/obs32-forensics/authentication.json",
+      "status": "PASS"
+    },
+    {
+      "key": "thermal",
+      "original": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-final/chemical-profiles/target-0/thermal",
+      "relative_path": "phase6/thermal",
+      "sha256": "1cdb98507958b50fbd1e1eff3eb3bfa4f48c790fef86a8740855884fc43b9d94",
+      "authority": "docs/validation/evidence/obs32-forensics/authentication.json",
+      "status": "PASS"
+    },
+    {
+      "key": "compose/DS-CMF-1-with-crust/eos.thermo",
+      "original": "/Users/keeper/Documents/CompactStar/data/compose/DS-CMF-1-with-crust/eos.thermo",
+      "relative_path": "compose/DS-CMF-1-with-crust/eos.thermo",
+      "sha256": "416444999ccac569e2c9b34808888949c36d759f30cce25dab0d42c13e900ce3",
+      "authority": "docs/validation/PASSIVE_COOLING_BASELINE.md:268-300 and TOV_REFERENCE.md:124-136",
+      "status": "PASS"
+    },
+    {
+      "key": "compose/DS-CMF-1-with-crust/eos.nb",
+      "original": "/Users/keeper/Documents/CompactStar/data/compose/DS-CMF-1-with-crust/eos.nb",
+      "relative_path": "compose/DS-CMF-1-with-crust/eos.nb",
+      "sha256": "d9c8e78c2fcf37fe770fecfc2d3a211d840a28299821a56c77e66f9ff74edef8",
+      "authority": "docs/validation/PASSIVE_COOLING_BASELINE.md:268-300 and TOV_REFERENCE.md:124-136",
+      "status": "PASS"
+    },
+    {
+      "key": "compose/DS-CMF-1-with-crust/eos.t",
+      "original": "/Users/keeper/Documents/CompactStar/data/compose/DS-CMF-1-with-crust/eos.t",
+      "relative_path": "compose/DS-CMF-1-with-crust/eos.t",
+      "sha256": "1a37b9563c40962b203e7bca1aa3b41e8c8b1427953df68095a51dd2cc17ff96",
+      "authority": "docs/validation/PASSIVE_COOLING_BASELINE.md:268-300 and TOV_REFERENCE.md:124-136",
+      "status": "PASS"
+    },
+    {
+      "key": "compose/DS-CMF-1-with-crust/eos.yq",
+      "original": "/Users/keeper/Documents/CompactStar/data/compose/DS-CMF-1-with-crust/eos.yq",
+      "relative_path": "compose/DS-CMF-1-with-crust/eos.yq",
+      "sha256": "1a37b9563c40962b203e7bca1aa3b41e8c8b1427953df68095a51dd2cc17ff96",
+      "authority": "docs/validation/PASSIVE_COOLING_BASELINE.md:268-300 and TOV_REFERENCE.md:124-136",
+      "status": "PASS"
+    },
+    {
+      "key": "compose/DS-CMF-1-with-crust/README",
+      "original": "/Users/keeper/Documents/CompactStar/data/compose/DS-CMF-1-with-crust/README",
+      "relative_path": "compose/DS-CMF-1-with-crust/README",
+      "sha256": "4e69b9193e0f075584239d818e1b459791da4d12427531914c86cdd209c898a8",
+      "authority": "docs/validation/PASSIVE_COOLING_BASELINE.md:268-300 and TOV_REFERENCE.md:124-136",
+      "status": "PASS"
+    },
+    {
+      "key": "compose/DS-CMF-1-with-crust/eos.init",
+      "original": "/Users/keeper/Documents/CompactStar/data/compose/DS-CMF-1-with-crust/eos.init",
+      "relative_path": "compose/DS-CMF-1-with-crust/eos.init",
+      "sha256": "8b4472405295655cf530572af7edd7448efd0393d0bf9ad86ead3e4c87228c90",
+      "authority": "docs/validation/PASSIVE_COOLING_BASELINE.md:268-300 and TOV_REFERENCE.md:124-136",
+      "status": "PASS"
+    },
+    {
+      "key": "compose/DS-CMF-1-with-crust/DS(CMF)-1_with_crust.eos",
+      "original": "/Users/keeper/Documents/CompactStar/data/compose/DS-CMF-1-with-crust/DS(CMF)-1_with_crust.eos",
+      "relative_path": "compose/DS-CMF-1-with-crust/DS(CMF)-1_with_crust.eos",
+      "sha256": "5747dd73256c0c28bc56be337cbb96d0918a54bc9ed9fc40984c5befd47ae5dd",
+      "authority": "docs/validation/PASSIVE_COOLING_BASELINE.md:268-300 and TOV_REFERENCE.md:124-136",
+      "status": "PASS"
+    },
+    {
+      "key": "compose/DS-CMF-1-with-crust/eos.mr",
+      "original": "/Users/keeper/Documents/CompactStar/data/compose/DS-CMF-1-with-crust/eos.mr",
+      "relative_path": "compose/DS-CMF-1-with-crust/eos.mr",
+      "sha256": "98e38994b4191b1024f5f5edbada0e6c1abe9e0cb6d81de94e47be08e3e8efa8",
+      "authority": "docs/validation/PASSIVE_COOLING_BASELINE.md:268-300 and TOV_REFERENCE.md:124-136",
+      "status": "PASS"
+    },
+    {
+      "key": "compose/DNS-CMF-Hadronic-with-electrons/eos.thermo",
+      "original": "/Users/keeper/Documents/CompactStar/data/compose/DNS-CMF-Hadronic-with-electrons/eos.thermo",
+      "relative_path": "compose/DNS-CMF-Hadronic-with-electrons/eos.thermo",
+      "sha256": "a456fb8595208ddf3119350a856fbf2b906c0a0e19bb7c716571748d0aa0724b",
+      "authority": "docs/validation/PASSIVE_COOLING_BASELINE.md:268-300 and TOV_REFERENCE.md:124-136",
+      "status": "PASS"
+    },
+    {
+      "key": "compose/DNS-CMF-Hadronic-with-electrons/eos.nb",
+      "original": "/Users/keeper/Documents/CompactStar/data/compose/DNS-CMF-Hadronic-with-electrons/eos.nb",
+      "relative_path": "compose/DNS-CMF-Hadronic-with-electrons/eos.nb",
+      "sha256": "3f79dbcc6f8b519696377f89ebc86464bc55cd61d9e2459f6e21e2d9e00f380d",
+      "authority": "docs/validation/PASSIVE_COOLING_BASELINE.md:268-300 and TOV_REFERENCE.md:124-136",
+      "status": "PASS"
+    },
+    {
+      "key": "compose/DNS-CMF-Hadronic-with-electrons/eos.t",
+      "original": "/Users/keeper/Documents/CompactStar/data/compose/DNS-CMF-Hadronic-with-electrons/eos.t",
+      "relative_path": "compose/DNS-CMF-Hadronic-with-electrons/eos.t",
+      "sha256": "2e4c6ec1feb85b16d0ee7036dce183782a9f681577e79c72315171069aa8513d",
+      "authority": "docs/validation/PASSIVE_COOLING_BASELINE.md:268-300 and TOV_REFERENCE.md:124-136",
+      "status": "PASS"
+    },
+    {
+      "key": "compose/DNS-CMF-Hadronic-with-electrons/eos.yq",
+      "original": "/Users/keeper/Documents/CompactStar/data/compose/DNS-CMF-Hadronic-with-electrons/eos.yq",
+      "relative_path": "compose/DNS-CMF-Hadronic-with-electrons/eos.yq",
+      "sha256": "d98fcd2f7752039c552c2ef2d04ab485b75db47a61f8ae1740875b54bf9824fd",
+      "authority": "docs/validation/PASSIVE_COOLING_BASELINE.md:268-300 and TOV_REFERENCE.md:124-136",
+      "status": "PASS"
+    },
+    {
+      "key": "compose/DNS-CMF-Hadronic-with-electrons/README",
+      "original": "/Users/keeper/Documents/CompactStar/data/compose/DNS-CMF-Hadronic-with-electrons/README",
+      "relative_path": "compose/DNS-CMF-Hadronic-with-electrons/README",
+      "sha256": "48af68b1b4f6727252ae0051fc35c6445240241d654566973a068d20e1f35222",
+      "authority": "docs/validation/PASSIVE_COOLING_BASELINE.md:268-300 and TOV_REFERENCE.md:124-136",
+      "status": "PASS"
+    },
+    {
+      "key": "compose/DNS-CMF-Hadronic-with-electrons/eos.init",
+      "original": "/Users/keeper/Documents/CompactStar/data/compose/DNS-CMF-Hadronic-with-electrons/eos.init",
+      "relative_path": "compose/DNS-CMF-Hadronic-with-electrons/eos.init",
+      "sha256": "412f6739c769df650b3238a6e4b6f0d0f2d7d4a5df43e7d16c80e913bcaddbfb",
+      "authority": "docs/validation/PASSIVE_COOLING_BASELINE.md:268-300 and TOV_REFERENCE.md:124-136",
+      "status": "PASS"
+    },
+    {
+      "key": "obs32/inputs/control-accepted.tsv",
+      "original": "/Users/keeper/Documents/CompactStar/data/phase6-breakpoint-candidate/obs32-review-evidence/inputs/control-accepted.tsv",
+      "relative_path": "obs32/inputs/control-accepted.tsv",
+      "sha256": "2dcd622751fb2263776898d0bd3e94fcca35bc78853cc4bb4ddba26f0ba151f8",
+      "authority": "Original obs32-review-evidence/SHA256SUMS (entire original manifest verified before input subset copy)",
+      "status": "PASS"
+    },
+    {
+      "key": "obs32/inputs/source-accepted.tsv",
+      "original": "/Users/keeper/Documents/CompactStar/data/phase6-breakpoint-candidate/obs32-review-evidence/inputs/source-accepted.tsv",
+      "relative_path": "obs32/inputs/source-accepted.tsv",
+      "sha256": "2efb7ed971455615f657fdfc17161266dc0db09609982c74e7122abdacf83f15",
+      "authority": "Original obs32-review-evidence/SHA256SUMS (entire original manifest verified before input subset copy)",
+      "status": "PASS"
+    },
+    {
+      "key": "obs32/inputs/steps.tsv",
+      "original": "/Users/keeper/Documents/CompactStar/data/phase6-breakpoint-candidate/obs32-review-evidence/inputs/steps.tsv",
+      "relative_path": "obs32/inputs/steps.tsv",
+      "sha256": "721939b1cc9e47b1314d15e1f57e329deb038b83624821bdccea10421d4e65a8",
+      "authority": "Original obs32-review-evidence/SHA256SUMS (entire original manifest verified before input subset copy)",
+      "status": "PASS"
+    }
+  ],
+  "repositories": {
+    "CompactStar": {
+      "imported_checkout": "d8e7208b71e01168394e41f8f8f32b027b5d0a63",
+      "imported_commit_count": 255,
+      "commit_set_sha256": "b91d8ebd967a4af0e23b637ade654012cf025e2ed85d4fd957f9528bb5d1c037",
+      "refs": {
+        "refs/heads/master": "9a5c1eca40758e4c39f9f80db7324e12ad23e505",
+        "refs/heads/physics/phase6-breakpoint-aware-evolution": "0c3f9269c884161c9d89163660a47b141a93ace6",
+        "refs/heads/physics/phase6-bnv-campaign-readiness": "5433fc2da71ba380264f490b87926d850ff9f375",
+        "refs/heads/docs/phase6-cluster-preparation": "d8e7208b71e01168394e41f8f8f32b027b5d0a63"
+      },
+      "bundle_sha256": "2da10622f64cc57bd5f6e2fd672b352668ee02e7b9360fe972edb2bcc1385b17",
+      "status": ""
+    },
+    "Zaki": {
+      "imported_checkout": "e263a6e180c5c417198e7778bd21fc9c0a32dc33",
+      "imported_commit_count": 16,
+      "commit_set_sha256": "d10cbc69534d96c8229eadd992d3592f3a1baa0b212f0e9668d91a47251134e4",
+      "refs": {
+        "refs/heads/master": "7aca56cfdf3875cf2a8c0acea4acdac44f69c9f5",
+        "refs/heads/modernize/zaki-2.0.1-fp-preservation": "7aca56cfdf3875cf2a8c0acea4acdac44f69c9f5",
+        "refs/handoff/accepted-production": "e263a6e180c5c417198e7778bd21fc9c0a32dc33"
+      },
+      "bundle_sha256": "354cfc476f3c11d9b6017654688c23660228fd83e6357a86cca02653297a350e",
+      "status": ""
+    },
+    "CONFIND": {
+      "imported_checkout": "b0cbd510fd3fd0c772fa50499cd749287cb39e7b",
+      "imported_commit_count": 81,
+      "commit_set_sha256": "ff3466950d34d716ecbb6dc0b54bf759448f269429ce9c6f08e2596bad6ada36",
+      "refs": {
+        "refs/heads/master": "b0cbd510fd3fd0c772fa50499cd749287cb39e7b"
+      },
+      "bundle_sha256": "7a85efba735d6d89c8e2f22d8ea5a66915648ba8b65318c006e32a8b32937b85",
+      "status": ""
+    }
+  },
+  "baseline_files": {
+    "tests/baselines/baryon_number_dscmf1_reference.tsv": "90d607519cbdf3c4a0bf6ef50cc8fd22a8526b5db0354dc319e96854da29041d",
+    "tests/baselines/grid_convergence_cmf_1p6_debug.tsv": "b48519c3e948e9979a385d19facee2777d15955eeb8711b4bdd46b81fef74741",
+    "tests/baselines/grid_convergence_cmf_1p6_trajectory.tsv": "d5b753932c0523e67a7f25b460c7494bec1a006a8d01c9e43124cb2e78f0720f",
+    "tests/baselines/hartle_I_dscmf1_debug.tsv": "034ecddbd9bd847650429d7dc87d0331ec9e87aca3862ff87594e4bff5b707dd",
+    "tests/baselines/hartle_monopole_dscmf1_debug.tsv": "caaa0ac0d3219cda0a9fb518b27688afc23c6cdad1ec76a2bcd7359614a8d4e8",
+    "tests/baselines/passive_cooling_cmf_1p6_debug.tsv": "8fef2314673fceb939f859612f4befe94117115d6d6b3ad0dcc59d1faa68c9f9",
+    "tests/baselines/phase5b_structural_response.json": "7588f0e9cd62f5b6be48bb725e4d0ba6e47b64f50d843117e70c17a78beeb5fa",
+    "tests/baselines/phase5c_chemical_coefficients.json": "7027aa6179fe9111d76586d467d007c4223ec9d26ece0fee773327973c77bfe7",
+    "tests/baselines/phase5d1_controlled_evolution.json": "2606916915b2da5c051b1a06637c0a371a74751c6e77b2775bc629a63bc9f6dd",
+    "tests/baselines/tov_dscmf1_reference.tsv": "3d9af9129a6a4ffde9e0f8c5507a160f968a861c0cf9f3b089cceecab86b701a",
+    "tests/baselines/tov_path_equivalence_dscmf1.tsv": "5c0f4b3bdb70921f8f2a869af10edc4d8f5ae3963a9d150e11ef859d21e1c678"
+  },
+  "mac_lock_sha256": "e1307a042180034ad028f2ff07dbc7fd80752494ff4b2ff61cc8ca0eec2089c5"
+}
