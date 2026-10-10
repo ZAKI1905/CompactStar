@@ -1,0 +1,469 @@
+{
+  "status": "AUTHENTICATED RETAINED EVIDENCE, not a new BNV run",
+  "windows": {
+    "source": {
+      "tiers": [
+        {
+          "tier": "BASELINE",
+          "component_max_accuracy_ratios": {
+            "x": 0.007774229474605881,
+            "e": 0.47690659149014003,
+            "m": 0.8091446138893124
+          },
+          "all_reconstructions_qualified": true,
+          "max_reconstruction_allocation_ratio": 0.10853222795846466,
+          "r20": {
+            "tier": "0",
+            "R20_normalized": "-1.2872346232267271e-05",
+            "reconstruction_over_N": "4.8839191928053351e-11",
+            "quadrature_grid_points": "65"
+          },
+          "statistics": {
+            "tier": "0",
+            "accepted": "70",
+            "rejected": "4",
+            "rhs": "776",
+            "events": "7",
+            "event_trials": "23",
+            "discarded": "7",
+            "min_step": "32512048.333740234",
+            "max_step": "19924713289.536377",
+            "wall_s": "0.234899208",
+            "event_rejected": "0",
+            "boundary_limited_fraction": "0.10000000000000001"
+          }
+        },
+        {
+          "tier": "REFINED",
+          "component_max_accuracy_ratios": {
+            "x": 0.009685679209565463,
+            "e": 0.5944518132879776,
+            "m": 0.900860162736991
+          },
+          "all_reconstructions_qualified": true,
+          "max_reconstruction_allocation_ratio": 0.10806216907351798,
+          "r20": {
+            "tier": "1",
+            "R20_normalized": "-1.287297551689127e-05",
+            "reconstruction_over_N": "4.8796716552919898e-11",
+            "quadrature_grid_points": "65"
+          },
+          "statistics": {
+            "tier": "1",
+            "accepted": "163",
+            "rejected": "6",
+            "rhs": "1516",
+            "events": "7",
+            "event_trials": "21",
+            "discarded": "7",
+            "min_step": "579354077.84968567",
+            "max_step": "8558329531.6276855",
+            "wall_s": "0.40672950000000002",
+            "event_rejected": "0",
+            "boundary_limited_fraction": "0.042944785276073622"
+          }
+        },
+        {
+          "tier": "ULTRA",
+          "component_max_accuracy_ratios": {
+            "x": 0.011708650711610834,
+            "e": 0.6496659601917464,
+            "m": 0.9296360493746259
+          },
+          "all_reconstructions_qualified": true,
+          "max_reconstruction_allocation_ratio": 0.10730975714222712,
+          "r20": {
+            "tier": "2",
+            "R20_normalized": "-1.2872983057647104e-05",
+            "reconstruction_over_N": "4.8781629992170796e-11",
+            "quadrature_grid_points": "65"
+          },
+          "statistics": {
+            "tier": "2",
+            "accepted": "399",
+            "rejected": "9",
+            "rhs": "3430",
+            "events": "7",
+            "event_trials": "22",
+            "discarded": "7",
+            "min_step": "276580989.08978271",
+            "max_step": "3548507872.6835938",
+            "wall_s": "0.85326912499999996",
+            "event_rejected": "0",
+            "boundary_limited_fraction": "0.017543859649122806"
+          }
+        }
+      ],
+      "ledger_combined_refined_ultra": [
+        {
+          "legacy_c1": "0",
+          "legacy_c2": "0",
+          "legacy_c3": "0",
+          "max_accuracy_ratio": "0.0034748043343589947",
+          "max_R18_normalized": "9.419174842189844e-17"
+        }
+      ],
+      "limitation": "ledger max is aggregated over REFINED/ULTRA; BASELINE independent ledger accuracy was not scored by this harness"
+    },
+    "control": {
+      "tiers": [
+        {
+          "tier": "BASELINE",
+          "component_max_accuracy_ratios": {
+            "x": 0.004717145104783489,
+            "e": 3.1620201333839775e-304,
+            "m": 3.1620201333839775e-304
+          },
+          "all_reconstructions_qualified": true,
+          "max_reconstruction_allocation_ratio": 0.10661086792381975,
+          "r20": {
+            "tier": "0",
+            "R20_normalized": "1.2490099033877967e-05",
+            "reconstruction_over_N": "2.1640447625490023e-10",
+            "quadrature_grid_points": "65"
+          },
+          "statistics": {
+            "tier": "0",
+            "accepted": "6",
+            "rejected": "0",
+            "rhs": "222",
+            "events": "5",
+            "event_trials": "21",
+            "discarded": "5",
+            "min_step": "55579606472.375977",
+            "max_step": "603825565267.35547",
+            "wall_s": "0.103429584",
+            "event_rejected": "0",
+            "boundary_limited_fraction": "0.83333333333333337"
+          }
+        },
+        {
+          "tier": "REFINED",
+          "component_max_accuracy_ratios": {
+            "x": 0.2765990191393169,
+            "e": 3.162020133383978e-302,
+            "m": 3.162020133383978e-302
+          },
+          "all_reconstructions_qualified": true,
+          "max_reconstruction_allocation_ratio": 0.1064373255523879,
+          "r20": {
+            "tier": "1",
+            "R20_normalized": "1.2489258323988955e-05",
+            "reconstruction_over_N": "2.1633081061270652e-10",
+            "quadrature_grid_points": "65"
+          },
+          "statistics": {
+            "tier": "1",
+            "accepted": "10",
+            "rejected": "2",
+            "rhs": "226",
+            "events": "5",
+            "event_trials": "16",
+            "discarded": "5",
+            "min_step": "34052044386.993164",
+            "max_step": "549739020992.00293",
+            "wall_s": "0.104000416",
+            "event_rejected": "0",
+            "boundary_limited_fraction": "0.5"
+          }
+        },
+        {
+          "tier": "ULTRA",
+          "component_max_accuracy_ratios": {
+            "x": 0.25055693020538744,
+            "e": 3.162020133383978e-300,
+            "m": 3.162020133383978e-300
+          },
+          "all_reconstructions_qualified": true,
+          "max_reconstruction_allocation_ratio": 0.10640981361368194,
+          "r20": {
+            "tier": "2",
+            "R20_normalized": "1.2488016409674522e-05",
+            "reconstruction_over_N": "2.1585627139073253e-10",
+            "quadrature_grid_points": "65"
+          },
+          "statistics": {
+            "tier": "2",
+            "accepted": "14",
+            "rejected": "2",
+            "rhs": "250",
+            "events": "5",
+            "event_trials": "15",
+            "discarded": "5",
+            "min_step": "55579606472.375977",
+            "max_step": "229431571054.6123",
+            "wall_s": "0.10936183300000001",
+            "event_rejected": "0",
+            "boundary_limited_fraction": "0.35714285714285715"
+          }
+        }
+      ],
+      "ledger_combined_refined_ultra": [
+        {
+          "legacy_c1": "0",
+          "legacy_c2": "98",
+          "legacy_c3": "2",
+          "max_accuracy_ratio": "0.93605136125029442",
+          "max_R18_normalized": "0"
+        }
+      ],
+      "limitation": "ledger max is aggregated over REFINED/ULTRA; BASELINE independent ledger accuracy was not scored by this harness"
+    },
+    "bounded": {
+      "tiers": [
+        {
+          "tier": "BASELINE",
+          "component_max_accuracy_ratios": {
+            "x": 0.009685507556504358,
+            "e": 0.5467310321351619,
+            "m": 0.8876339209039876
+          },
+          "all_reconstructions_qualified": true,
+          "max_reconstruction_allocation_ratio": 0.1117230288963662,
+          "r20": {
+            "tier": "0",
+            "R20_normalized": "5.2507556024457402e-07",
+            "reconstruction_over_N": "1.6081578945915396e-10",
+            "quadrature_grid_points": "241"
+          },
+          "statistics": {
+            "tier": "0",
+            "accepted": "50",
+            "rejected": "3",
+            "rhs": "634",
+            "events": "7",
+            "event_trials": "26",
+            "discarded": "7",
+            "min_step": "1",
+            "max_step": "18065371386.865875",
+            "wall_s": "0.196541667",
+            "event_rejected": "0",
+            "boundary_limited_fraction": "0.14000000000000001"
+          }
+        },
+        {
+          "tier": "REFINED",
+          "component_max_accuracy_ratios": {
+            "x": 0.01361433763510535,
+            "e": 0.6063051073526448,
+            "m": 0.8879364391509629
+          },
+          "all_reconstructions_qualified": true,
+          "max_reconstruction_allocation_ratio": 0.1074146160396747,
+          "r20": {
+            "tier": "1",
+            "R20_normalized": "5.2415957593613033e-07",
+            "reconstruction_over_N": "1.6066611509670022e-10",
+            "quadrature_grid_points": "241"
+          },
+          "statistics": {
+            "tier": "1",
+            "accepted": "94",
+            "rejected": "4",
+            "rhs": "976",
+            "events": "7",
+            "event_trials": "24",
+            "discarded": "7",
+            "min_step": "1",
+            "max_step": "7227258366.2479248",
+            "wall_s": "0.273528875",
+            "event_rejected": "0",
+            "boundary_limited_fraction": "0.074468085106382975"
+          }
+        },
+        {
+          "tier": "ULTRA",
+          "component_max_accuracy_ratios": {
+            "x": 0.016873013473892296,
+            "e": 0.6454383034179425,
+            "m": 0.9115091970538326
+          },
+          "all_reconstructions_qualified": true,
+          "max_reconstruction_allocation_ratio": 0.1074669069067237,
+          "r20": {
+            "tier": "2",
+            "R20_normalized": "5.2414842393170267e-07",
+            "reconstruction_over_N": "1.6056586407309564e-10",
+            "quadrature_grid_points": "241"
+          },
+          "statistics": {
+            "tier": "2",
+            "accepted": "203",
+            "rejected": "4",
+            "rhs": "1840",
+            "events": "7",
+            "event_trials": "23",
+            "discarded": "7",
+            "min_step": "1",
+            "max_step": "2891359387.9020081",
+            "wall_s": "0.47046700000000002",
+            "event_rejected": "0",
+            "boundary_limited_fraction": "0.034482758620689655"
+          }
+        }
+      ],
+      "ledger_combined_refined_ultra": [
+        {
+          "legacy_c1": "0",
+          "legacy_c2": "0",
+          "legacy_c3": "0",
+          "max_accuracy_ratio": "0.0039820553670925837",
+          "max_R18_normalized": "1.318722757576901e-16"
+        }
+      ],
+      "limitation": "ledger max is aggregated over REFINED/ULTRA; BASELINE independent ledger accuracy was not scored by this harness"
+    },
+    "tail": {
+      "tiers": [
+        {
+          "tier": "BASELINE",
+          "component_max_accuracy_ratios": {
+            "x": 1.198514899335967e-07,
+            "e": 0.019258523873634987,
+            "m": 0.34504792638171117
+          },
+          "all_reconstructions_qualified": true,
+          "max_reconstruction_allocation_ratio": 0.10900969591991523,
+          "r20": {
+            "tier": "0",
+            "R20_normalized": "8.7472861402385643e-10",
+            "reconstruction_over_N": "4.11185502113212e-11",
+            "quadrature_grid_points": "33"
+          },
+          "statistics": {
+            "tier": "0",
+            "accepted": "6",
+            "rejected": "1",
+            "rhs": "55",
+            "events": "0",
+            "event_trials": "0",
+            "discarded": "0",
+            "min_step": "21737844275.701172",
+            "max_step": "105121815018.875",
+            "wall_s": "0.073852374999999998",
+            "event_rejected": "0",
+            "boundary_limited_fraction": "0"
+          }
+        },
+        {
+          "tier": "REFINED",
+          "component_max_accuracy_ratios": {
+            "x": 1.1985148993359672e-05,
+            "e": 0.007421152590085186,
+            "m": 0.13278115193811355
+          },
+          "all_reconstructions_qualified": true,
+          "max_reconstruction_allocation_ratio": 0.26858639675974294,
+          "r20": {
+            "tier": "1",
+            "R20_normalized": "8.7472861402385643e-10",
+            "reconstruction_over_N": "4.11185502113212e-11",
+            "quadrature_grid_points": "33"
+          },
+          "statistics": {
+            "tier": "1",
+            "accepted": "7",
+            "rejected": "2",
+            "rhs": "69",
+            "events": "0",
+            "event_trials": "0",
+            "discarded": "0",
+            "min_step": "38915420732.898438",
+            "max_step": "134760277940.47852",
+            "wall_s": "0.070294207999999997",
+            "event_rejected": "0",
+            "boundary_limited_fraction": "0"
+          }
+        },
+        {
+          "tier": "ULTRA",
+          "component_max_accuracy_ratios": {
+            "x": 0.0011985148993359672,
+            "e": 0.00956713443720903,
+            "m": 0.15664698897556745
+          },
+          "all_reconstructions_qualified": true,
+          "max_reconstruction_allocation_ratio": 0.11923692234336007,
+          "r20": {
+            "tier": "2",
+            "R20_normalized": "8.7472861402385643e-10",
+            "reconstruction_over_N": "4.11185502113212e-11",
+            "quadrature_grid_points": "33"
+          },
+          "statistics": {
+            "tier": "2",
+            "accepted": "11",
+            "rejected": "2",
+            "rhs": "101",
+            "events": "0",
+            "event_trials": "0",
+            "discarded": "0",
+            "min_step": "17676154559.546875",
+            "max_step": "146614328829.19922",
+            "wall_s": "0.078746625000000001",
+            "event_rejected": "0",
+            "boundary_limited_fraction": "0"
+          }
+        }
+      ],
+      "ledger_combined_refined_ultra": [
+        {
+          "legacy_c1": "0",
+          "legacy_c2": "0",
+          "legacy_c3": "0",
+          "max_accuracy_ratio": "2.1103531911496941e-13",
+          "max_R18_normalized": "4.6604097905853723e-17"
+        }
+      ],
+      "limitation": "ledger max is aggregated over REFINED/ULTRA; BASELINE independent ledger accuracy was not scored by this harness"
+    }
+  },
+  "nonnormality": {
+    "scales": [
+      1.0,
+      1e-07,
+      1e-07
+    ],
+    "linear_flow_comparison": [
+      {
+        "cap_factor": 1.0,
+        "h_s": 38723807757.235565,
+        "numerical_norm2": 10.260178160488733,
+        "exact_flow_norm2": 10.136595643630743,
+        "operator_error_norm2": 0.12877792920130376
+      },
+      {
+        "cap_factor": 0.5,
+        "h_s": 19361903878.617783,
+        "numerical_norm2": 7.373610004955314,
+        "exact_flow_norm2": 7.371354071473299,
+        "operator_error_norm2": 0.0023622516960619647
+      },
+      {
+        "cap_factor": 0.25,
+        "h_s": 9680951939.308891,
+        "numerical_norm2": 4.597615900387441,
+        "exact_flow_norm2": 4.597578635855965,
+        "operator_error_norm2": 4.002634190435459e-05
+      }
+    ],
+    "interpretation": "spectral radius below one does not imply componentwise contraction; much of scaled norm growth is present in exact frozen flow. Must transport coupled uncertainty."
+  },
+  "cost_scenario": {
+    "historical_final07_seconds": 1389.5844159126282,
+    "bounded_scored_observations": 1212,
+    "campaign_scored_observations": 49158,
+    "all_in_work_proxy_s_per_observation": 1.146521795307449,
+    "six_trajectory_proxy_hours": 15.655755114923215,
+    "steps_per_500kyr_at_cap_minimum": 408,
+    "limitation": "Planning proxy, not measured campaign runtime or upper bound. final07 also included assembly, references, envelope tests and crossings; warm windows differ from full paths. Global reference and nested R20 work may dominate; no qualified runtime ceiling exists."
+  },
+  "depletion": {
+    "fixture_rate_per_year": -1e-12,
+    "duration_year": 500000,
+    "absolute_fraction": 5e-07,
+    "certificate_ceiling": 1e-06,
+    "utilization": 0.5,
+    "status": "ARITHMETIC_ONLY; unavailable certificate.tsv prevents fresh 21-star drift/certificate verification"
+  }
+}

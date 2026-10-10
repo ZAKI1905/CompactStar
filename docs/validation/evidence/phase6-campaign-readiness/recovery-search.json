@@ -1,0 +1,523 @@
+{
+  "roots": [
+    "/Users/keeper/Documents",
+    "/Users/keeper/Downloads",
+    "/Users/keeper/.local",
+    "/Users/keeper/Library/Caches"
+  ],
+  "symlinks_followed": false,
+  "files": [
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-preflight-review/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-preflight-review/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-bnv-recovery-r0-r3/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-bnv-recovery-r0-r3/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-relativity-units-a1/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-relativity-units-a1/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-relativity-units-a1-baselines/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-relativity-units-a1-baselines/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-ba12r-numerical-forensics/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-ba12r-numerical-forensics/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-bnv-implementation-preflight/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-bnv-implementation-preflight/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotation/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotation/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-linux-cluster-bootstrap-preflight/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-linux-cluster-bootstrap-preflight/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-unit1-a1-review/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-unit1-a1-review/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-numerical-budget/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-numerical-budget/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-bnv-recovery-preflight/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-bnv-recovery-preflight/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-rotochemical-preflight/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-rotochemical-preflight/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-checkpoint-reconstruction-governance/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-checkpoint-reconstruction-governance/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review/build/phase5d-audit/qualification-fresh-80000/certificate-t8192-r80000.txt",
+      "sha256": "7fc892b50bfbcdd2c5d963e0ff866777f3628f40fc282e1ce5a0b0364200a453"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a0-bnv-thermal-preflight/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a0-bnv-thermal-preflight/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-unit-boundary-audit/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-unit-boundary-audit/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-bnv-recovery-ba12r/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-bnv-recovery-ba12r/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-revision-review/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-revision-review/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-ba12r-segmentation-diagnostic/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-ba12r-segmentation-diagnostic/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-integration/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-integration/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-bnv-campaign-readiness/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-bnv-campaign-readiness/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c2-review/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c2-review/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotochemical-local-thermo/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotochemical-local-thermo/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5b-inv09-preflight/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5b-inv09-preflight/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-A/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-A/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5b-review/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5b-review/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-checkpoint-reconstruction-validation/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-checkpoint-reconstruction-validation/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-passive-observation-proof/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-passive-observation-proof/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-evolution/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-evolution/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotochemical-trackr-pe/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotochemical-trackr-pe/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-budget-review/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-budget-review/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-tov-surface/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-tov-surface/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-adr0018-mac-source-equivalence/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-adr0018-mac-source-equivalence/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-integration/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-integration/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-chemical-coefficients/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-chemical-coefficients/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotochemical-eos-audit/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotochemical-eos-audit/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-checkpoint-reconstruction-candidate-recovery/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-checkpoint-reconstruction-candidate-recovery/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-checkpoint-reconstruction-preflight/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-checkpoint-reconstruction-preflight/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-consolidation/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-consolidation/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-trackr-freegas-structure1/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-trackr-freegas-structure1/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-uq-ratification/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-uq-ratification/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-external-deps-taskmanager-migration/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-external-deps-taskmanager-migration/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5b-global-response/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5b-global-response/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotochemical-trackr-npe/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotochemical-trackr-npe/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-tov-rr2500/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-tov-rr2500/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-bnv-recovery-governance/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-bnv-recovery-governance/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-monopole-validation/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-monopole-validation/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-trackr-freegas-wholestar/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-trackr-freegas-wholestar/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotochemical-trackr-freegas/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotochemical-trackr-freegas/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-final-review/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-final-review/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5b-integration/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5b-integration/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-B/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-B/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-B/build/phase5d-audit/qualification-fresh-80000/certificate-t8192-r80000.txt",
+      "sha256": "7fc892b50bfbcdd2c5d963e0ff866777f3628f40fc282e1ce5a0b0364200a453"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-preflight-review/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-preflight-review/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C/build/phase5d-audit/qualification-fresh-80000/certificate-t8192-r80000.txt",
+      "sha256": "7fc892b50bfbcdd2c5d963e0ff866777f3628f40fc282e1ce5a0b0364200a453"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C/build-selfcontained/phase5d-audit/qualification-fresh-80000/certificate-t8192-r80000.txt",
+      "sha256": "7fc892b50bfbcdd2c5d963e0ff866777f3628f40fc282e1ce5a0b0364200a453"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-D/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-D/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-chemical-preflight/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-chemical-preflight/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-adr0017-production-implementation/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-adr0017-production-implementation/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/external/Zaki/build_keeper/libZaki.a",
+      "sha256": "4311773a127e8244ea0c29a9614dee9c073843f6cf17886e9751c43da730f20f"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/external/equivalence/ADR0018/20260926-812463a-a8ed2907-ed76163c/dependencies/Zaki/build/libZaki.a",
+      "sha256": "5d80e83a00cb74fa97aae650df61a47848c304605c49262b3f4dce81da2e5832"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Zaki/Darwin/arm64/libZaki.a",
+      "sha256": "3dd4789a20c35064b3133bb863c54c4f64e7df31c94b83201d68f5463902dfef"
+    },
+    {
+      "path": "/Users/keeper/Documents/CompactStar/repo/CompactStar/dependencies/lib/Zaki/Darwin/x86_64/libZaki.a",
+      "sha256": "45e2d9c8d784a601252438c8021866b996626289aa30a30f368e2a34786ab09f"
+    }
+  ]
+}

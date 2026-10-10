@@ -1,0 +1,22 @@
+{
+  "certificate": {
+    "source": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review/build/phase5d-audit/qualification-fresh-80000/certificate-t8192-r80000.txt",
+    "copy": "/Users/keeper/Documents/CompactStar/data/phase6-campaign-readiness/recovered-inputs/certificate",
+    "sha256": "7fc892b50bfbcdd2c5d963e0ff866777f3628f40fc282e1ce5a0b0364200a453"
+  },
+  "entry": {
+    "source": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/docs/validation/phase6a1_controlled_bnv_entry_hashes.json",
+    "copy": "/Users/keeper/Documents/CompactStar/data/phase6-campaign-readiness/recovered-inputs/entry",
+    "sha256": "5cfbf4b1d623b58fa2a94101631dce20c602950eec8eb514dc1fcd3c7a04620d"
+  },
+  "profile_tree": {
+    "source": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review/build/tests/phase5c-regression-evidence/regression-hil_l2l6/generated/characterization/run-7_7v2vrz/t8192-r80000",
+    "copy": "/Users/keeper/Documents/CompactStar/data/phase6-campaign-readiness/recovered-inputs/profile_tree",
+    "sha256": "233114862a2ab6826151519114e4bcb74a01f6a8e739bac0502ee62884688d72"
+  },
+  "thermal": {
+    "source": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review/build/phase5d1c2-audit/review-trajectory/thermal",
+    "copy": "/Users/keeper/Documents/CompactStar/data/phase6-campaign-readiness/recovered-inputs/thermal",
+    "sha256": "1cdb98507958b50fbd1e1eff3eb3bfa4f48c790fef86a8740855884fc43b9d94"
+  }
+}

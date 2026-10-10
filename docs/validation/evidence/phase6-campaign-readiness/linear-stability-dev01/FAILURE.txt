@@ -1,0 +1,1 @@
+Engineering failure before any numerical rows: NumPy scalar repr in linear-input.txt was not a C++ double token. Probe refused input (iostream error). No scientific score. Repaired serialization with explicit float conversion; budgets unchanged. Earlier default Python also lacked mpmath; selected existing miniforge Python, without altering numerical packages.

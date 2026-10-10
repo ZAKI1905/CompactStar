@@ -1,0 +1,170 @@
+[
+  {
+    "kind": "profile_tree",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review/build/tests/phase5c-regression-evidence/regression-hil_l2l6/generated/characterization/run-7_7v2vrz/t8192-r80000",
+    "sha256": "233114862a2ab6826151519114e4bcb74a01f6a8e739bac0502ee62884688d72",
+    "match": true
+  },
+  {
+    "kind": "profile_tree",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review/build/tests/phase5c-regression-evidence/regression-38laz9wi/generated/characterization/run-zk9cdvgg/t8192-r80000",
+    "sha256": "233114862a2ab6826151519114e4bcb74a01f6a8e739bac0502ee62884688d72",
+    "match": true
+  },
+  {
+    "kind": "thermal",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review/build/phase5d1c2-audit/oracles-final/thermal",
+    "sha256": "9b20631c6e800d49e0cf86cba6aab86adffa5bdf98d077b56115be966f4fe1ae",
+    "match": false
+  },
+  {
+    "kind": "thermal",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review/build/phase5d1c2-audit/review-trajectory/thermal",
+    "sha256": "1cdb98507958b50fbd1e1eff3eb3bfa4f48c790fef86a8740855884fc43b9d94",
+    "match": true
+  },
+  {
+    "kind": "profile_tree",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review/build/phase5d-audit/qualification-fresh-80000/chemical-characterization/run-qc59rpnr/t8192-r80000",
+    "sha256": "233114862a2ab6826151519114e4bcb74a01f6a8e739bac0502ee62884688d72",
+    "match": true
+  },
+  {
+    "kind": "profile_tree",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c2-review/build/tests/phase5c-production/run-6d9cs5xf/t8192-r80000",
+    "sha256": "fb59b228907e8dd8e6e4fdac8161500ab5cc7bf6c642cfb23b9b92144f1cf0b2",
+    "match": false
+  },
+  {
+    "kind": "profile_tree",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c2-review/build/tests/phase5c-production/run-ulqrig9o/t8192-r80000",
+    "sha256": "49e3b002d33d021495ea80748d59255a240ac762e054079454451d7c70e1a470",
+    "match": false
+  },
+  {
+    "kind": "profile_tree",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c2-review/build/tests/phase5c-evidence/run-t3qytf7a/t8192-r80000",
+    "sha256": "233114862a2ab6826151519114e4bcb74a01f6a8e739bac0502ee62884688d72",
+    "match": true
+  },
+  {
+    "kind": "profile_tree",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c2-review/build/tests/phase5c-evidence/run-yy0zhl7n/t8192-r80000",
+    "sha256": "233114862a2ab6826151519114e4bcb74a01f6a8e739bac0502ee62884688d72",
+    "match": true
+  },
+  {
+    "kind": "profile_tree",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c2-review/build-selfcontained/tests/phase5c-production/run-xhhz212y/t8192-r80000",
+    "sha256": "463af51da9f761853743eb7f6d135a1f68ac94f3d9bc33d39d5448dc86f0385b",
+    "match": false
+  },
+  {
+    "kind": "profile_tree",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c2-review/build-selfcontained/tests/phase5c-evidence/run-z7r5m7o4/t8192-r80000",
+    "sha256": "233114862a2ab6826151519114e4bcb74a01f6a8e739bac0502ee62884688d72",
+    "match": true
+  },
+  {
+    "kind": "profile_tree",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-budget-review/build-selfcontained/tests/phase5c-evidence/run-ypqmcehp/t8192-r80000",
+    "sha256": "233114862a2ab6826151519114e4bcb74a01f6a8e739bac0502ee62884688d72",
+    "match": true
+  },
+  {
+    "kind": "profile_tree",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-B/build/tests/phase5c-regression-evidence/regression-vcsfh0k3/generated/characterization/run-vjryuree/t8192-r80000",
+    "sha256": "233114862a2ab6826151519114e4bcb74a01f6a8e739bac0502ee62884688d72",
+    "match": true
+  },
+  {
+    "kind": "thermal",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-B/build/phase5d1c2-audit/oracles-final/thermal",
+    "sha256": "9b20631c6e800d49e0cf86cba6aab86adffa5bdf98d077b56115be966f4fe1ae",
+    "match": false
+  },
+  {
+    "kind": "profile_tree",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-B/build/phase5d-audit/qualification-fresh-80000/chemical-characterization/run-qc59rpnr/t8192-r80000",
+    "sha256": "233114862a2ab6826151519114e4bcb74a01f6a8e739bac0502ee62884688d72",
+    "match": true
+  },
+  {
+    "kind": "thermal",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C/build/agentC-scratch/nullfault/thermal",
+    "sha256": "1cdb98507958b50fbd1e1eff3eb3bfa4f48c790fef86a8740855884fc43b9d94",
+    "match": true
+  },
+  {
+    "kind": "profile_tree",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C/build/tests/phase5c-production/run-p8l1q2o8/t8192-r80000",
+    "sha256": "f65c37cba074ed3ebbc776eda96a1c5159089ccedffe7fed9024c52ae35dec7f",
+    "match": false
+  },
+  {
+    "kind": "profile_tree",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C/build/tests/phase5c-evidence/run-ex4qi2oz/t8192-r80000",
+    "sha256": "233114862a2ab6826151519114e4bcb74a01f6a8e739bac0502ee62884688d72",
+    "match": true
+  },
+  {
+    "kind": "profile_tree",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C/build/tests/phase5c-regression-evidence/regression-t3khif3t/generated/characterization/run-1cp3zog6/t8192-r80000",
+    "sha256": "233114862a2ab6826151519114e4bcb74a01f6a8e739bac0502ee62884688d72",
+    "match": true
+  },
+  {
+    "kind": "profile_tree",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C/build/tests/phase5c-regression-evidence/regression-erhoyfp1/generated/characterization/run-tvohya9_/t8192-r80000",
+    "sha256": "233114862a2ab6826151519114e4bcb74a01f6a8e739bac0502ee62884688d72",
+    "match": true
+  },
+  {
+    "kind": "profile_tree",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C/build/tests/phase5c-regression-evidence/regression-z1l6wq37/generated/characterization/run-ecpitqeg/t8192-r80000",
+    "sha256": "233114862a2ab6826151519114e4bcb74a01f6a8e739bac0502ee62884688d72",
+    "match": true
+  },
+  {
+    "kind": "profile_tree",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C/build/phase5d-audit/qualification-fresh-80000/chemical-characterization/run-qc59rpnr/t8192-r80000",
+    "sha256": "233114862a2ab6826151519114e4bcb74a01f6a8e739bac0502ee62884688d72",
+    "match": true
+  },
+  {
+    "kind": "thermal",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C/build/phase5d1c2-7uk_dakg/thermal",
+    "sha256": "9b20631c6e800d49e0cf86cba6aab86adffa5bdf98d077b56115be966f4fe1ae",
+    "match": false
+  },
+  {
+    "kind": "thermal",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C/build/phase5d1c2-1z2tffar/thermal",
+    "sha256": "9b20631c6e800d49e0cf86cba6aab86adffa5bdf98d077b56115be966f4fe1ae",
+    "match": false
+  },
+  {
+    "kind": "profile_tree",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C/build-selfcontained/tests/phase5c-production/run-i9aria5j/t8192-r80000",
+    "sha256": "59f5e5bf3142b0d822ec0d60223a6f544d5be93fa01075b17852d785454648b9",
+    "match": false
+  },
+  {
+    "kind": "profile_tree",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C/build-selfcontained/tests/phase5c-evidence/run-_9fm9dc1/t8192-r80000",
+    "sha256": "233114862a2ab6826151519114e4bcb74a01f6a8e739bac0502ee62884688d72",
+    "match": true
+  },
+  {
+    "kind": "profile_tree",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C/build-selfcontained/tests/phase5c-regression-evidence/regression-jl6msjom/generated/characterization/run-8uqi252x/t8192-r80000",
+    "sha256": "233114862a2ab6826151519114e4bcb74a01f6a8e739bac0502ee62884688d72",
+    "match": true
+  },
+  {
+    "kind": "profile_tree",
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C/build-selfcontained/phase5d-audit/qualification-fresh-80000/chemical-characterization/run-qc59rpnr/t8192-r80000",
+    "sha256": "233114862a2ab6826151519114e4bcb74a01f6a8e739bac0502ee62884688d72",
+    "match": true
+  }
+]

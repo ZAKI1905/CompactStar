@@ -1,0 +1,80 @@
+{
+  "commands": [
+    {
+      "command": [
+        "build/readiness-standalone/breakpoint_contract"
+      ],
+      "returncode": 0,
+      "stdout": "PASS analytic heating/cooling, knot starts, coupled method comparison, GSL rollback and h carry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "build/readiness-standalone/edge_probe"
+      ],
+      "returncode": 0,
+      "stdout": "case\tmethod\tevents\tfinal_t\tresidual\tstatus\nstart_-1_-1\trkf45\t0\t1000000000000.0002\t0\tPASS\nstart_-1_0\trkf45\t0\t1000000000000.0002\t0\tPASS\nstart_-1_1\trkf45\t1\t1000000000000.0002\t-1.1207031250000001e-16\tPASS\nstart_1_-1\trkf45\t1\t1000000000000.0002\t1.1207031250000001e-16\tPASS\nstart_1_0\trkf45\t0\t1000000000000.0002\t0\tPASS\nstart_1_1\trkf45\t0\t1000000000000.0002\t0\tPASS\nstart_-1_-1\trk8pd\t0\t1000000000000.0002\t0\tPASS\nstart_-1_0\trk8pd\t0\t1000000000000.0002\t0\tPASS\nstart_-1_1\trk8pd\t1\t1000000000000.0002\t-1.1207031250000001e-16\tPASS\nstart_1_-1\trk8pd\t1\t1000000000000.0002\t1.1207031250000001e-16\tPASS\nstart_1_0\trk8pd\t0\t1000000000000.0002\t0\tPASS\nstart_1_1\trk8pd\t0\t1000000000000.0002\t0\tPASS\nturning\trkf45\t0\t0\t0\tPASS: unresolved reversing breakpoint trial\nstationary\trkf45\t0\t0\t0\tPASS: unresolved stationary knot start\n",
+      "stderr": ""
+    }
+  ],
+  "files": {
+    "tests/bnv/breakpoint_contract.cpp": "207b0d0a0ba7c1549d78c9c156722a455f76067c9a6d1de3e23532d3998360e4",
+    "build/readiness-standalone/breakpoint_contract": "bf229b5071a7ae015a198f7678e893ccda313fe9de40008336ada8dd6ae1a0e5",
+    "tests/bnv/readiness_linear_probe.cpp": "ec06b8794a72ead50e2aa26b35da5f4c359d887962da1acc344fee7fb58910ad",
+    "build/readiness-standalone/linear_probe": "794c74a86e6d60a93b2f9c601ee68b21812e743a34d9020361cbea8281e79894",
+    "tests/bnv/readiness_edge_probe.cpp": "9462e029e7fe25039586677bdc13d9105ac572079f24750d8e09fac387b7ae4c",
+    "build/readiness-standalone/edge_probe": "2e960b920bb38e00db0a1808057a41bf3974ae6ff6e050dc668bf53a30646eb7",
+    "CompactStar/Physics/BNV/BreakpointStepper.hpp": "c463f674f5645316b0ba0f9d7902c34e8249b0b59d05320a5239a2c9edac335b",
+    "tests/bnv/readiness_stability.py": "8d90e7d40ead719619d1bda520dfeed7c21d711aa34f2f09e3957afdbd9a7299",
+    "tests/bnv/readiness_summary.py": "52f0d34d615709c59ae6a3ca155bf1e4f4d5acac6e86b896cab56e49084850fe",
+    "tests/bnv/readiness_environment.py": "f26e1a1298a4825e68915b10c9361c1ae7d86434f3ec62cc62108268ce15e543",
+    "tests/bnv/verify_readiness_evidence.py": "5d5512885ec6bb884cdf2c4c8254d4a5f7291027ef0f8584fd8a24683df8603d"
+  },
+  "accepted": "0c3f9269c884161c9d89163660a47b141a93ace6",
+  "build_commands": [
+    [
+      "/usr/bin/clang++",
+      "-std=c++17",
+      "-g",
+      "-I.",
+      "-I/opt/local/include",
+      "tests/bnv/breakpoint_contract.cpp",
+      "-L/opt/local/lib",
+      "-lgsl",
+      "-lgslcblas",
+      "-o",
+      "build/readiness-standalone/breakpoint_contract"
+    ],
+    [
+      "/usr/bin/clang++",
+      "-std=c++17",
+      "-g",
+      "-I.",
+      "-I/opt/local/include",
+      "tests/bnv/readiness_linear_probe.cpp",
+      "-L/opt/local/lib",
+      "-lgsl",
+      "-lgslcblas",
+      "-o",
+      "build/readiness-standalone/linear_probe"
+    ],
+    [
+      "/usr/bin/clang++",
+      "-std=c++17",
+      "-g",
+      "-I.",
+      "-I/opt/local/include",
+      "tests/bnv/readiness_edge_probe.cpp",
+      "-L/opt/local/lib",
+      "-lgsl",
+      "-lgslcblas",
+      "-o",
+      "build/readiness-standalone/edge_probe"
+    ]
+  ],
+  "fresh_relinked_linear_numerical_rows_identical": true,
+  "linear_rows": 1812,
+  "edge_rows": 14,
+  "source_diff": "",
+  "master": "9a5c1eca40758e4c39f9f80db7324e12ad23e505"
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/docs/validation/phase6a1_controlled_bnv_entry_hashes.json",
+    "sha256": "5cfbf4b1d623b58fa2a94101631dce20c602950eec8eb514dc1fcd3c7a04620d",
+    "matching_input": "entry"
+  },
+  {
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-bnv-recovery-preflight/docs/validation/phase6a1_controlled_bnv_entry_hashes.json",
+    "sha256": "5cfbf4b1d623b58fa2a94101631dce20c602950eec8eb514dc1fcd3c7a04620d",
+    "matching_input": "entry"
+  },
+  {
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review/build/tests/phase5b-regression-evidence/regression-gckka58_/generated/solve/coefficients.tsv",
+    "sha256": "b6fd162ec7ba9a18910010e50fc68ffda3fc8cff60c00e30657015dd7b82b2cf",
+    "matching_input": null
+  },
+  {
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review/build/tests/phase5b-regression-evidence/regression-v_nkz1_i/generated/solve/coefficients.tsv",
+    "sha256": "b6fd162ec7ba9a18910010e50fc68ffda3fc8cff60c00e30657015dd7b82b2cf",
+    "matching_input": null
+  },
+  {
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review/build/phase5d1c2-audit/entry-hashes.json",
+    "sha256": "35661e5c692f7aefcf50e01d767d754045cab9921639702523f314881bd03ce4",
+    "matching_input": null
+  },
+  {
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume/docs/validation/evidence/bnv-resume/production-entry-hashes.json",
+    "sha256": "74929f035cd743d3ed775827c484f6aa1d5008378f2e40178c6ca8e2e6744488",
+    "matching_input": null
+  },
+  {
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-bnv-campaign-readiness/docs/validation/evidence/bnv-resume/production-entry-hashes.json",
+    "sha256": "74929f035cd743d3ed775827c484f6aa1d5008378f2e40178c6ca8e2e6744488",
+    "matching_input": null
+  },
+  {
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c2-review/build/tests/phase5b-regression-evidence/regression-2usblmz0/generated/solve/coefficients.tsv",
+    "sha256": "b6fd162ec7ba9a18910010e50fc68ffda3fc8cff60c00e30657015dd7b82b2cf",
+    "matching_input": null
+  },
+  {
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c2-review/build-selfcontained/tests/phase5b-regression-evidence/regression-c0wifz6j/generated/solve/coefficients.tsv",
+    "sha256": "b6fd162ec7ba9a18910010e50fc68ffda3fc8cff60c00e30657015dd7b82b2cf",
+    "matching_input": null
+  },
+  {
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-budget-review/build-selfcontained/tests/phase5b-regression-evidence/regression-jwgb5s46/generated/solve/coefficients.tsv",
+    "sha256": "b6fd162ec7ba9a18910010e50fc68ffda3fc8cff60c00e30657015dd7b82b2cf",
+    "matching_input": null
+  },
+  {
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics/docs/validation/evidence/bnv-resume/production-entry-hashes.json",
+    "sha256": "74929f035cd743d3ed775827c484f6aa1d5008378f2e40178c6ca8e2e6744488",
+    "matching_input": null
+  },
+  {
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-B/build/tests/phase5b-regression-evidence/regression-b7l1mrhk/generated/solve/coefficients.tsv",
+    "sha256": "b6fd162ec7ba9a18910010e50fc68ffda3fc8cff60c00e30657015dd7b82b2cf",
+    "matching_input": null
+  },
+  {
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-B/build/phase5d1c2-audit/entry-hashes.json",
+    "sha256": "35661e5c692f7aefcf50e01d767d754045cab9921639702523f314881bd03ce4",
+    "matching_input": null
+  },
+  {
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C/build/tests/phase5b-regression-evidence/regression-y05aoznb/generated/solve/coefficients.tsv",
+    "sha256": "b6fd162ec7ba9a18910010e50fc68ffda3fc8cff60c00e30657015dd7b82b2cf",
+    "matching_input": null
+  },
+  {
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C/build/tests/phase5b-regression-evidence/regression-so9m526w/generated/solve/coefficients.tsv",
+    "sha256": "b6fd162ec7ba9a18910010e50fc68ffda3fc8cff60c00e30657015dd7b82b2cf",
+    "matching_input": null
+  },
+  {
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C/build/tests/phase5b-regression-evidence/regression-32130dnm/generated/solve/coefficients.tsv",
+    "sha256": "b6fd162ec7ba9a18910010e50fc68ffda3fc8cff60c00e30657015dd7b82b2cf",
+    "matching_input": null
+  },
+  {
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C/build/phase5d1c2-audit/entry-hashes.json",
+    "sha256": "35661e5c692f7aefcf50e01d767d754045cab9921639702523f314881bd03ce4",
+    "matching_input": null
+  },
+  {
+    "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C/build-selfcontained/tests/phase5b-regression-evidence/regression-vc9u25zr/generated/solve/coefficients.tsv",
+    "sha256": "b6fd162ec7ba9a18910010e50fc68ffda3fc8cff60c00e30657015dd7b82b2cf",
+    "matching_input": null
+  }
+]
