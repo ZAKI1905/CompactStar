@@ -69,22 +69,21 @@ enum class StateTag : unsigned int
  */
 inline constexpr std::string_view ToString(StateTag tag)
 {
-	using enum StateTag;
 	switch (tag)
 	{
-	case Spin:
+	case StateTag::Spin:
 		return "Spin";
-	case Thermal:
+	case StateTag::Thermal:
 		return "Thermal";
-	case Chem:
+	case StateTag::Chem:
 		return "Chem";
-	case BNV:
+	case StateTag::BNV:
 		return "BNV";
-	case Structure:
+	case StateTag::Structure:
 		return "Structure";
-	case Magnetic:
+	case StateTag::Magnetic:
 		return "Magnetic";
-	case Custom:
+	case StateTag::Custom:
 		return "Custom";
 	}
 	return "Unknown";

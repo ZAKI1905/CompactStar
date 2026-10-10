@@ -731,3 +731,10 @@ add_executable(phase6_currentness_bytes bnv/currentness_bytes.cpp)
 target_link_libraries(phase6_currentness_bytes PRIVATE CompactStar)
 add_test(NAME phase6_currentness_bytes COMMAND phase6_currentness_bytes)
 set_tests_properties(phase6_currentness_bytes PROPERTIES LABELS "phase6;engineering;currentness")
+
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    add_test(NAME linux_dependency_authentication
+        COMMAND "${Python3_EXECUTABLE}" "${PROJECT_SOURCE_DIR}/tools/linux/test_dependency_auth.py")
+    set_tests_properties(linux_dependency_authentication PROPERTIES
+        LABELS "engineering;dependency;self-contained" ENVIRONMENT "PYTHONDONTWRITEBYTECODE=1")
+endif()

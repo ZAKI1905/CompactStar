@@ -1,5 +1,10 @@
 # CompactStar — Current Architecture
 
+> **Linux transition candidate (2026-10-10):** explicit Linux-only dependency lock
+> authentication is implemented for review under proposed ADR-0020. Darwin retains
+> its fixed Mac lock. This is not Linux numerical equivalence or campaign authority.
+> See `docs/validation/linux-transition/PREDECLARATION.md:1`.
+
 > **2026-10-10: ADR-0017 Amendment 1 HUMAN-RATIFIED for bounded numerical
 > architecture at `0c3f9269`.** Campaign readiness remains unestablished. New
 > stability policy and global-accuracy work are separate candidates. See the

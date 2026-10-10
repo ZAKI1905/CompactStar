@@ -5,6 +5,7 @@ import argparse
 import hashlib
 import json
 import os
+import platform
 import subprocess
 import sys
 from pathlib import Path
@@ -50,14 +51,23 @@ def configure_and_build(source_root, build_dir, output_root, python, eos_data_ro
         prefix = os.environ.get(f'COMPACTSTAR_QUALIFICATION_DEBUG_{name}_PREFIX')
         if prefix:
             dependency_args.append(f'-DCOMPACTSTAR_{name}_PREFIX={prefix}')
+    if platform.system() == 'Linux':
+        # Forward the explicit authenticated closure into the separate Debug build.
+        for name in ('COMPACTSTAR_LINUX_DEPENDENCY_LOCK', 'ZLIB_INCLUDE_DIR', 'ZLIB_LIBRARY'):
+            value = os.environ.get(name)
+            if not value:
+                raise RuntimeError('Linux nested qualification requires ' + name)
+            dependency_args.append(f'-D{name}={value}')
+        dependency_args.append('-DCMAKE_CXX_FLAGS=-ffp-contract=off')
     gsl_prefix = os.environ.get('COMPACTSTAR_QUALIFICATION_GSL_PREFIX')
     if gsl_prefix:
+        suffix = 'a' if platform.system() == 'Linux' else 'dylib'
         dependency_args.extend([
             f'-DGSL_ROOT_DIR={gsl_prefix}',
             f'-DGSL_CONFIG_EXECUTABLE={gsl_prefix}/bin/gsl-config',
             f'-DGSL_INCLUDE_DIR={gsl_prefix}/include',
-            f'-DGSL_LIBRARY={gsl_prefix}/lib/libgsl.dylib',
-            f'-DGSL_CBLAS_LIBRARY={gsl_prefix}/lib/libgslcblas.dylib',
+            f'-DGSL_LIBRARY={gsl_prefix}/lib/libgsl.{suffix}',
+            f'-DGSL_CBLAS_LIBRARY={gsl_prefix}/lib/libgslcblas.{suffix}',
         ])
     receipts.append(run_command(
         ["cmake", "-S", source_root, "-B", build_dir, "-DBUILD_TESTING=ON",

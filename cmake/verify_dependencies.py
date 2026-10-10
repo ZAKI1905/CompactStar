@@ -7,6 +7,7 @@ Rebuilt packages require explicit requalification and a reviewed lock update.
 import argparse
 import hashlib
 import json
+import platform
 from pathlib import Path
 
 
@@ -26,7 +27,21 @@ def main():
     parser.add_argument('--zaki', type=Path, required=True)
     parser.add_argument('--confind', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--linux-lock', type=Path)
+    for name in ('system', 'processor', 'compiler', 'compiler-version', 'cxx-flags',
+                 'mode-flags', 'gsl-include', 'gsl-library', 'gsl-cblas',
+                 'zlib-include', 'zlib-library'):
+        parser.add_argument('--' + name, default='')
     args = parser.parse_args()
+    if platform.system() == 'Linux':
+        from linux_dependencies import check_linux
+        result = check_linux(args, digest, manifest)
+        args.output.write_text(json.dumps(result, indent=2) + '\n')
+        return
+    if platform.system() != 'Darwin' or args.linux_lock:
+        raise SystemExit('Darwin requires the fixed Mac lock; other platforms are unsupported')
+    if digest(Path(__file__).with_name('dependency-lock.json')) != 'e1307a042180034ad028f2ff07dbc7fd80752494ff4b2ff61cc8ca0eec2089c5':
+        raise SystemExit('Accepted Mac lock bytes changed')
     lock = json.loads(Path(__file__).with_name('dependency-lock.json').read_text())
     records = []
     for name, supplied in [('Zaki', args.zaki), ('CONFIND', args.confind)]:

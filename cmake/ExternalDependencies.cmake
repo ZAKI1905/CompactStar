@@ -8,11 +8,30 @@ endif()
 if(CMAKE_CONFIGURATION_TYPES OR NOT CMAKE_BUILD_TYPE MATCHES "^(Debug|Release)$")
     message(FATAL_ERROR "This dependency candidate requires separate Debug or Release builds")
 endif()
+set(COMPACTSTAR_LINUX_DEPENDENCY_LOCK "" CACHE FILEPATH "Explicit authenticated Linux candidate lock")
+set(platform_auth_args)
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    if(NOT IS_ABSOLUTE "${COMPACTSTAR_LINUX_DEPENDENCY_LOCK}" OR
+       NOT EXISTS "${COMPACTSTAR_LINUX_DEPENDENCY_LOCK}")
+        message(FATAL_ERROR "Linux requires an explicit absolute COMPACTSTAR_LINUX_DEPENDENCY_LOCK")
+    endif()
+    string(TOUPPER "${CMAKE_BUILD_TYPE}" auth_mode)
+    list(APPEND platform_auth_args
+        --linux-lock "${COMPACTSTAR_LINUX_DEPENDENCY_LOCK}"
+        "--system=${CMAKE_SYSTEM_NAME}" "--processor=${CMAKE_SYSTEM_PROCESSOR}"
+        "--compiler=${CMAKE_CXX_COMPILER}" "--compiler-version=${CMAKE_CXX_COMPILER_VERSION}"
+        "--cxx-flags=${CMAKE_CXX_FLAGS}" "--mode-flags=${CMAKE_CXX_FLAGS_${auth_mode}}"
+        "--gsl-include=${GSL_INCLUDE_DIR}" "--gsl-library=${GSL_LIBRARY}"
+        "--gsl-cblas=${GSL_CBLAS_LIBRARY}" "--zlib-include=${ZLIB_INCLUDE_DIR}"
+        "--zlib-library=${ZLIB_LIBRARY}")
+elseif(NOT CMAKE_SYSTEM_NAME STREQUAL "Darwin" OR COMPACTSTAR_LINUX_DEPENDENCY_LOCK)
+    message(FATAL_ERROR "Darwin uses the accepted Mac lock; unsupported platform/lock selection")
+endif()
 execute_process(
     COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_LIST_DIR}/verify_dependencies.py"
         --mode "${CMAKE_BUILD_TYPE}" --zaki "${COMPACTSTAR_ZAKI_PREFIX}"
         --confind "${COMPACTSTAR_CONFIND_PREFIX}"
-        --output "${CMAKE_BINARY_DIR}/dependency-provenance.json"
+        --output "${CMAKE_BINARY_DIR}/dependency-provenance.json" ${platform_auth_args}
     RESULT_VARIABLE dependency_status ERROR_VARIABLE dependency_error)
 if(NOT dependency_status EQUAL 0)
     message(FATAL_ERROR "Dependency authentication failed: ${dependency_error}")
