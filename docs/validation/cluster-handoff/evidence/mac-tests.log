@@ -1,0 +1,50 @@
+Test project /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/build/mac-recovery
+      Start  1: chemical_production_contract
+ 1/13 Test  #1: chemical_production_contract .........   Passed    0.36 sec
+      Start  2: chemical_exact_oracles
+ 2/13 Test  #2: chemical_exact_oracles ...............   Passed    0.09 sec
+      Start  3: chemical_curved_gc9
+ 3/13 Test  #3: chemical_curved_gc9 ..................   Passed    0.65 sec
+      Start  7: particle_number_analytic
+ 4/13 Test  #7: particle_number_analytic .............   Passed    0.44 sec
+      Start 17: passive_checkpoint_output_contract
+ 5/13 Test #17: passive_checkpoint_output_contract ...   Passed    0.29 sec
+      Start 18: phase6a1_direct_energy
+ 6/13 Test #18: phase6a1_direct_energy ...............   Passed    0.24 sec
+      Start 19: phase6a1_thermal_ledger
+ 7/13 Test #19: phase6a1_thermal_ledger ..............   Passed    0.19 sec
+      Start 20: heat_capacity_v1
+ 8/13 Test #20: heat_capacity_v1 .....................   Passed   10.48 sec
+      Start 31: cache_contract
+ 9/13 Test #31: cache_contract .......................   Passed    0.27 sec
+      Start 32: cache_thermal_contract
+10/13 Test #32: cache_thermal_contract ...............   Passed    2.13 sec
+      Start 51: phase5d_component_tolerances
+11/13 Test #51: phase5d_component_tolerances .........   Passed    0.29 sec
+      Start 55: phase6_breakpoint_contract
+12/13 Test #55: phase6_breakpoint_contract ...........   Passed    0.24 sec
+      Start 56: phase6_currentness_bytes
+13/13 Test #56: phase6_currentness_bytes .............   Passed    0.25 sec
+
+100% tests passed, 0 tests failed out of 13
+
+Label Time Summary:
+adr0017            =   0.29 sec*proc (1 test)
+analysis           =   0.44 sec*proc (1 test)
+analytic           =   1.18 sec*proc (3 tests)
+bnv                =   0.96 sec*proc (4 tests)
+cache              =   2.40 sec*proc (2 tests)
+contract           =   2.93 sec*proc (4 tests)
+currentness        =   0.25 sec*proc (1 test)
+engineering        =   0.25 sec*proc (1 test)
+evolution          =   0.27 sec*proc (1 test)
+particle-number    =   0.44 sec*proc (1 test)
+phase5c            =   1.10 sec*proc (3 tests)
+phase5d            =   0.29 sec*proc (1 test)
+phase5d-coupled    =   0.29 sec*proc (1 test)
+phase6             =   1.21 sec*proc (5 tests)
+scientific         =   2.26 sec*proc (7 tests)
+self-contained     =   2.79 sec*proc (9 tests)
+thermal            =   2.13 sec*proc (1 test)
+
+Total Test time (real) =  15.93 sec

@@ -1,0 +1,383 @@
+{
+  "recorded_utc": "2026-10-10T19:26:08.473157+00:00",
+  "sources": {
+    "CompactStar canonical": {
+      "path": "/Users/keeper/Documents/CompactStar/repo/CompactStar",
+      "head": "9a5c1eca40758e4c39f9f80db7324e12ad23e505",
+      "branch": "master",
+      "status": "",
+      "worktrees": "worktree /Users/keeper/Documents/CompactStar/repo/CompactStar\nHEAD 9a5c1eca40758e4c39f9f80db7324e12ad23e505\nbranch refs/heads/master\n\nworktree /private/tmp/phase5d-repro-sources.Uv6mCQ/source-1\nHEAD da1789ea152e2f0f3101f1ffecd54144e9d093d8\ndetached\nprunable gitdir file points to non-existent location\n\nworktree /private/tmp/phase5d-repro-sources.Uv6mCQ/source-2\nHEAD da1789ea152e2f0f3101f1ffecd54144e9d093d8\ndetached\nprunable gitdir file points to non-existent location\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-adr0018-mac-source-equivalence\nHEAD abf2b628a35e56542c4f8fc42612a4fe7fd70c88\nbranch refs/heads/physics/adr0018-mac-source-equivalence\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-consolidation\nHEAD df859b5a73c4cac0c115f240744d89ce9f830b8d\nbranch refs/heads/modernization/behavior-preserving-consolidation\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-external-deps-taskmanager-migration\nHEAD 9a5c1eca40758e4c39f9f80db7324e12ad23e505\nbranch refs/heads/physics/external-deps-taskmanager-migration\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-monopole-validation\nHEAD d5e5ad766fe8266950465ed77458afaecdb0dce9\nbranch refs/heads/validation/hartle-monopole-revalidation\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5b-global-response\nHEAD d67ac9be27677aa038a9ac7cdf5f262a32a008ef\nbranch refs/heads/physics/phase5b-global-particle-response\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5b-integration\nHEAD 49ab2b8c2881b6ef7b9309307d18cea51d557f72\nbranch refs/heads/integration/phase5b-global-particle-response\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5b-inv09-preflight\nHEAD 66ace37bd12f85d63fb6381ce5344b9c4dac224e\nbranch refs/heads/analysis/phase5b-inv09-global-response-preflight\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5b-review\nHEAD fe08c94ed5ae525a9cb78331c5dd69d9c617d591\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-budget-review\nHEAD 09d1b3c935919ec85f3c629607797ae87c42d8e5\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-chemical-coefficients\nHEAD 27727016856a6a25a46e447c70e380722ea8ddbf\nbranch refs/heads/physics/phase5c-corrected-chemical-coefficients\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-chemical-preflight\nHEAD 4780121f21010374da2eb50898e90a067795b6e5\nbranch refs/heads/analysis/phase5c-corrected-chemical-coefficients-preflight\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-integration\nHEAD f0106c2bbaff4e7c10750c3bd6f618f447c1720e\nbranch refs/heads/integration/phase5c-corrected-chemical-coefficients\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-numerical-budget\nHEAD 09d1b3c935919ec85f3c629607797ae87c42d8e5\nbranch refs/heads/analysis/phase5c-numerical-budget-planning\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-preflight-review\nHEAD 54ec7abac38fa0a32c5fb3a82e424b496361966a\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-uq-ratification\nHEAD d3b102d2225c44bea581832b27cdc33eb5874e83\nbranch refs/heads/docs/phase5c-uncertainty-semantics-ratification\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c2-review\nHEAD 4d78bf4000848ddecc2127daa2f2840872f266f5\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-evolution\nHEAD 0a7418aecb7314cfa472a78f1faf477be8456a94\nbranch refs/heads/physics/phase5d-controlled-rotochemical-evolution\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review\nHEAD 3486b972f71f57e8351fa8320c1ffb250fcd5c42\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-A\nHEAD 3486b972f71f57e8351fa8320c1ffb250fcd5c42\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-B\nHEAD 3486b972f71f57e8351fa8320c1ffb250fcd5c42\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C\nHEAD 3486b972f71f57e8351fa8320c1ffb250fcd5c42\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-D\nHEAD 3486b972f71f57e8351fa8320c1ffb250fcd5c42\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-final-review\nHEAD 5f04b5ef7cefc7ceb0d73fb0b3927bfbb28508be\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-integration\nHEAD d019ae390be4f5e3daba05039903485cb497e397\nbranch refs/heads/integration/phase5d-secular-rotochemical-contract\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-preflight-review\nHEAD 080c5bcbb7c10242b6146da3d9fbee961b3d82e6\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-revision-review\nHEAD 109ebfbbb9543c5f8984f85b097a137f6cce8754\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-rotochemical-preflight\nHEAD 3fca17ebec1d70c57dc85fbf01f920c5387217b4\nbranch refs/heads/analysis/phase5d-secular-rotochemical-evolution-preflight\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-adr0017-production-implementation\nHEAD 232565a32303a4953f3f516d1d5286b6663f8f99\nbranch refs/heads/physics/phase6-adr0017-production-implementation\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-bnv-campaign-readiness\nHEAD 5433fc2da71ba380264f490b87926d850ff9f375\nbranch refs/heads/physics/phase6-bnv-campaign-readiness\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-checkpoint-reconstruction-governance\nHEAD ffd597e00162fa4efc477fe0d23878d7ad05ff6c\nbranch refs/heads/docs/phase6-checkpoint-reconstruction-governance\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation\nHEAD 5433fc2da71ba380264f490b87926d850ff9f375\nbranch refs/heads/docs/phase6-cluster-preparation\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-linux-cluster-bootstrap-preflight\nHEAD 812463ac9ed374f64ac9cadd500066ab723d3a6c\nbranch refs/heads/docs/phase6-linux-cluster-bootstrap-preflight\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a0-bnv-thermal-preflight\nHEAD 15a224c804605877103cf8464d48a89781097f74\nbranch refs/heads/analysis/phase6a0-bnv-thermal-first-law-preflight\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-ba12r-numerical-forensics\nHEAD 0aab1c2b5b748585326de35499d1830d0c788fae\nbranch refs/heads/analysis/phase6a1-ba12r-numerical-forensics\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-ba12r-segmentation-diagnostic\nHEAD 6057eb92339e5a0596baab6a652c6290d0930658\nbranch refs/heads/analysis/phase6a1-ba12r-segmentation-diagnostic\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-bnv-implementation-preflight\nHEAD 961dfa0de6f76df71df4cb98edc8e1b35a5c21b1\nbranch refs/heads/analysis/phase6a1-controlled-bnv-implementation-preflight\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-bnv-recovery-ba12r\nHEAD 971b2bac47c320bd262d8686841e679f703e5ccb\nbranch refs/heads/physics/phase6a1-bnv-recovery-ba12r\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-bnv-recovery-governance\nHEAD bd697ffdc474863d7a39f42e17ad8e8dbf105e5d\nbranch refs/heads/docs/phase6a1-bnv-recovery-governance\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-bnv-recovery-preflight\nHEAD 987d78f17906851dbd91342a2008ba65cf02bba1\nbranch refs/heads/analysis/phase6a1-bnv-recovery-preflight\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-bnv-recovery-r0-r3\nHEAD d2822656aae8e264f4985f0d2f7228b90320a577\nbranch refs/heads/physics/phase6a1-bnv-recovery-r0-r3\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-checkpoint-reconstruction-candidate-recovery\nHEAD ae0d5607fe8889cec70604747dfe3bfea7e5fd97\nbranch refs/heads/analysis/phase6a1-checkpoint-reconstruction-candidate-recovery\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-checkpoint-reconstruction-preflight\nHEAD 93e93c7f91a3cd8fced2f7a0961eda9c469c43fe\nbranch refs/heads/analysis/phase6a1-checkpoint-reconstruction-preflight\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-checkpoint-reconstruction-validation\nHEAD 8b783dbe73cc504b8aa00a5e9aeb48677bcf1ead\nbranch refs/heads/analysis/phase6a1-checkpoint-reconstruction-validation\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation\nHEAD e56e6e50040dbcd9dcbee1acecf58843f3dddf1c\nbranch refs/heads/physics/phase6a1-controlled-bnv-implementation\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume\nHEAD 7d2777561a17b56b466fb024ef13104da6c0e86a\nbranch refs/heads/physics/phase6a1-controlled-bnv-resume\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics\nHEAD 0c3f9269c884161c9d89163660a47b141a93ace6\nbranch refs/heads/physics/phase6-breakpoint-aware-evolution\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-passive-observation-proof\nHEAD 9af8912107ea77a2e2ea51517c1776f26a4b7b49\nbranch refs/heads/analysis/phase6a1-passive-observation-proof\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-relativity-units-a1\nHEAD 432e64c4ed06108915184022584bfaf9dfec7219\nbranch refs/heads/fix/relativistic-unit-boundary-a1\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-relativity-units-a1-baselines\nHEAD a43d02227bf53c3242d3212f81dd71963804f3aa\nbranch refs/heads/fix/relativistic-unit-boundary-a1-baselines\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotation\nHEAD e2fe0adf53d7975d3a5c57e84a8d3481ffd2ce41\nbranch refs/heads/physics/rotation-correctness\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotochemical-eos-audit\nHEAD 1e6dcd8c5cdb28c9d6d959e42e9e9745d54aeac8\nbranch refs/heads/analysis/phase5a-eos-thermodynamic-audit\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotochemical-local-thermo\nHEAD 8658fee45a77c483c2fbab6b250b9be6d5b4acdf\nbranch refs/heads/physics/phase5a-local-thermodynamics\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotochemical-trackr-freegas\nHEAD d3cbc005c53d03194407ed1080e8181568bbf1bf\nbranch refs/heads/physics/phase5a-trackr-freegas-local\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotochemical-trackr-npe\nHEAD 41ab66bd6e6f351691173a1e2a033c646ffd3772\nbranch refs/heads/physics/phase5a-trackr-npe-threshold\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotochemical-trackr-pe\nHEAD a1a1ea5233c156d69410a0d3d61750f3da57e458\nbranch refs/heads/physics/phase5a-trackr-pe-branch\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-tov-rr2500\nHEAD b93be5f1df73eec0df1db1fc0ec39c524551e0b0\nbranch refs/heads/analysis/tov-radial-res-2500-audit\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-tov-surface\nHEAD 218c9aa302e5641084109746e4ff13fc36c56df5\nbranch refs/heads/governance/tov-surface-contract\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-trackr-freegas-structure1\nHEAD c1be10a374ef893290583855e8fc4df3a815e66e\nbranch refs/heads/physics/trackr-freegas-wholestar-structure1\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-trackr-freegas-wholestar\nHEAD f4ae22d971e25bdd74530aec184f3fe0c3440b95\nbranch refs/heads/analysis/trackr-freegas-wholestar-interface\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-unit-boundary-audit\nHEAD 1d22dd1f5a0d1afa18c4cedebb36b28fdae49df4\nbranch refs/heads/analysis/unit-boundary-relativity-reconciliation\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-unit1-a1-review\nHEAD b3ce4f1303dbab68b68a82614c944c269cefebdc\ndetached"
+    },
+    "CompactStar readiness": {
+      "path": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-bnv-campaign-readiness",
+      "head": "5433fc2da71ba380264f490b87926d850ff9f375",
+      "branch": "physics/phase6-bnv-campaign-readiness",
+      "status": "",
+      "worktrees": "worktree /Users/keeper/Documents/CompactStar/repo/CompactStar\nHEAD 9a5c1eca40758e4c39f9f80db7324e12ad23e505\nbranch refs/heads/master\n\nworktree /private/tmp/phase5d-repro-sources.Uv6mCQ/source-1\nHEAD da1789ea152e2f0f3101f1ffecd54144e9d093d8\ndetached\nprunable gitdir file points to non-existent location\n\nworktree /private/tmp/phase5d-repro-sources.Uv6mCQ/source-2\nHEAD da1789ea152e2f0f3101f1ffecd54144e9d093d8\ndetached\nprunable gitdir file points to non-existent location\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-adr0018-mac-source-equivalence\nHEAD abf2b628a35e56542c4f8fc42612a4fe7fd70c88\nbranch refs/heads/physics/adr0018-mac-source-equivalence\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-consolidation\nHEAD df859b5a73c4cac0c115f240744d89ce9f830b8d\nbranch refs/heads/modernization/behavior-preserving-consolidation\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-external-deps-taskmanager-migration\nHEAD 9a5c1eca40758e4c39f9f80db7324e12ad23e505\nbranch refs/heads/physics/external-deps-taskmanager-migration\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-monopole-validation\nHEAD d5e5ad766fe8266950465ed77458afaecdb0dce9\nbranch refs/heads/validation/hartle-monopole-revalidation\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5b-global-response\nHEAD d67ac9be27677aa038a9ac7cdf5f262a32a008ef\nbranch refs/heads/physics/phase5b-global-particle-response\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5b-integration\nHEAD 49ab2b8c2881b6ef7b9309307d18cea51d557f72\nbranch refs/heads/integration/phase5b-global-particle-response\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5b-inv09-preflight\nHEAD 66ace37bd12f85d63fb6381ce5344b9c4dac224e\nbranch refs/heads/analysis/phase5b-inv09-global-response-preflight\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5b-review\nHEAD fe08c94ed5ae525a9cb78331c5dd69d9c617d591\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-budget-review\nHEAD 09d1b3c935919ec85f3c629607797ae87c42d8e5\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-chemical-coefficients\nHEAD 27727016856a6a25a46e447c70e380722ea8ddbf\nbranch refs/heads/physics/phase5c-corrected-chemical-coefficients\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-chemical-preflight\nHEAD 4780121f21010374da2eb50898e90a067795b6e5\nbranch refs/heads/analysis/phase5c-corrected-chemical-coefficients-preflight\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-integration\nHEAD f0106c2bbaff4e7c10750c3bd6f618f447c1720e\nbranch refs/heads/integration/phase5c-corrected-chemical-coefficients\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-numerical-budget\nHEAD 09d1b3c935919ec85f3c629607797ae87c42d8e5\nbranch refs/heads/analysis/phase5c-numerical-budget-planning\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-preflight-review\nHEAD 54ec7abac38fa0a32c5fb3a82e424b496361966a\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c-uq-ratification\nHEAD d3b102d2225c44bea581832b27cdc33eb5874e83\nbranch refs/heads/docs/phase5c-uncertainty-semantics-ratification\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5c2-review\nHEAD 4d78bf4000848ddecc2127daa2f2840872f266f5\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-evolution\nHEAD 0a7418aecb7314cfa472a78f1faf477be8456a94\nbranch refs/heads/physics/phase5d-controlled-rotochemical-evolution\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review\nHEAD 3486b972f71f57e8351fa8320c1ffb250fcd5c42\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-A\nHEAD 3486b972f71f57e8351fa8320c1ffb250fcd5c42\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-B\nHEAD 3486b972f71f57e8351fa8320c1ffb250fcd5c42\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-C\nHEAD 3486b972f71f57e8351fa8320c1ffb250fcd5c42\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-controlled-review-D\nHEAD 3486b972f71f57e8351fa8320c1ffb250fcd5c42\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-final-review\nHEAD 5f04b5ef7cefc7ceb0d73fb0b3927bfbb28508be\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-integration\nHEAD d019ae390be4f5e3daba05039903485cb497e397\nbranch refs/heads/integration/phase5d-secular-rotochemical-contract\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-preflight-review\nHEAD 080c5bcbb7c10242b6146da3d9fbee961b3d82e6\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-revision-review\nHEAD 109ebfbbb9543c5f8984f85b097a137f6cce8754\ndetached\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase5d-rotochemical-preflight\nHEAD 3fca17ebec1d70c57dc85fbf01f920c5387217b4\nbranch refs/heads/analysis/phase5d-secular-rotochemical-evolution-preflight\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-adr0017-production-implementation\nHEAD 232565a32303a4953f3f516d1d5286b6663f8f99\nbranch refs/heads/physics/phase6-adr0017-production-implementation\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-bnv-campaign-readiness\nHEAD 5433fc2da71ba380264f490b87926d850ff9f375\nbranch refs/heads/physics/phase6-bnv-campaign-readiness\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-checkpoint-reconstruction-governance\nHEAD ffd597e00162fa4efc477fe0d23878d7ad05ff6c\nbranch refs/heads/docs/phase6-checkpoint-reconstruction-governance\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation\nHEAD 5433fc2da71ba380264f490b87926d850ff9f375\nbranch refs/heads/docs/phase6-cluster-preparation\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-linux-cluster-bootstrap-preflight\nHEAD 812463ac9ed374f64ac9cadd500066ab723d3a6c\nbranch refs/heads/docs/phase6-linux-cluster-bootstrap-preflight\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a0-bnv-thermal-preflight\nHEAD 15a224c804605877103cf8464d48a89781097f74\nbranch refs/heads/analysis/phase6a0-bnv-thermal-first-law-preflight\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-ba12r-numerical-forensics\nHEAD 0aab1c2b5b748585326de35499d1830d0c788fae\nbranch refs/heads/analysis/phase6a1-ba12r-numerical-forensics\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-ba12r-segmentation-diagnostic\nHEAD 6057eb92339e5a0596baab6a652c6290d0930658\nbranch refs/heads/analysis/phase6a1-ba12r-segmentation-diagnostic\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-bnv-implementation-preflight\nHEAD 961dfa0de6f76df71df4cb98edc8e1b35a5c21b1\nbranch refs/heads/analysis/phase6a1-controlled-bnv-implementation-preflight\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-bnv-recovery-ba12r\nHEAD 971b2bac47c320bd262d8686841e679f703e5ccb\nbranch refs/heads/physics/phase6a1-bnv-recovery-ba12r\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-bnv-recovery-governance\nHEAD bd697ffdc474863d7a39f42e17ad8e8dbf105e5d\nbranch refs/heads/docs/phase6a1-bnv-recovery-governance\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-bnv-recovery-preflight\nHEAD 987d78f17906851dbd91342a2008ba65cf02bba1\nbranch refs/heads/analysis/phase6a1-bnv-recovery-preflight\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-bnv-recovery-r0-r3\nHEAD d2822656aae8e264f4985f0d2f7228b90320a577\nbranch refs/heads/physics/phase6a1-bnv-recovery-r0-r3\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-checkpoint-reconstruction-candidate-recovery\nHEAD ae0d5607fe8889cec70604747dfe3bfea7e5fd97\nbranch refs/heads/analysis/phase6a1-checkpoint-reconstruction-candidate-recovery\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-checkpoint-reconstruction-preflight\nHEAD 93e93c7f91a3cd8fced2f7a0961eda9c469c43fe\nbranch refs/heads/analysis/phase6a1-checkpoint-reconstruction-preflight\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-checkpoint-reconstruction-validation\nHEAD 8b783dbe73cc504b8aa00a5e9aeb48677bcf1ead\nbranch refs/heads/analysis/phase6a1-checkpoint-reconstruction-validation\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation\nHEAD e56e6e50040dbcd9dcbee1acecf58843f3dddf1c\nbranch refs/heads/physics/phase6a1-controlled-bnv-implementation\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-resume\nHEAD 7d2777561a17b56b466fb024ef13104da6c0e86a\nbranch refs/heads/physics/phase6a1-controlled-bnv-resume\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-obs32-reconstruction-forensics\nHEAD 0c3f9269c884161c9d89163660a47b141a93ace6\nbranch refs/heads/physics/phase6-breakpoint-aware-evolution\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-passive-observation-proof\nHEAD 9af8912107ea77a2e2ea51517c1776f26a4b7b49\nbranch refs/heads/analysis/phase6a1-passive-observation-proof\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-relativity-units-a1\nHEAD 432e64c4ed06108915184022584bfaf9dfec7219\nbranch refs/heads/fix/relativistic-unit-boundary-a1\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-relativity-units-a1-baselines\nHEAD a43d02227bf53c3242d3212f81dd71963804f3aa\nbranch refs/heads/fix/relativistic-unit-boundary-a1-baselines\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotation\nHEAD e2fe0adf53d7975d3a5c57e84a8d3481ffd2ce41\nbranch refs/heads/physics/rotation-correctness\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotochemical-eos-audit\nHEAD 1e6dcd8c5cdb28c9d6d959e42e9e9745d54aeac8\nbranch refs/heads/analysis/phase5a-eos-thermodynamic-audit\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotochemical-local-thermo\nHEAD 8658fee45a77c483c2fbab6b250b9be6d5b4acdf\nbranch refs/heads/physics/phase5a-local-thermodynamics\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotochemical-trackr-freegas\nHEAD d3cbc005c53d03194407ed1080e8181568bbf1bf\nbranch refs/heads/physics/phase5a-trackr-freegas-local\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotochemical-trackr-npe\nHEAD 41ab66bd6e6f351691173a1e2a033c646ffd3772\nbranch refs/heads/physics/phase5a-trackr-npe-threshold\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-rotochemical-trackr-pe\nHEAD a1a1ea5233c156d69410a0d3d61750f3da57e458\nbranch refs/heads/physics/phase5a-trackr-pe-branch\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-tov-rr2500\nHEAD b93be5f1df73eec0df1db1fc0ec39c524551e0b0\nbranch refs/heads/analysis/tov-radial-res-2500-audit\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-tov-surface\nHEAD 218c9aa302e5641084109746e4ff13fc36c56df5\nbranch refs/heads/governance/tov-surface-contract\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-trackr-freegas-structure1\nHEAD c1be10a374ef893290583855e8fc4df3a815e66e\nbranch refs/heads/physics/trackr-freegas-wholestar-structure1\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-trackr-freegas-wholestar\nHEAD f4ae22d971e25bdd74530aec184f3fe0c3440b95\nbranch refs/heads/analysis/trackr-freegas-wholestar-interface\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-unit-boundary-audit\nHEAD 1d22dd1f5a0d1afa18c4cedebb36b28fdae49df4\nbranch refs/heads/analysis/unit-boundary-relativity-reconciliation\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/CompactStar-unit1-a1-review\nHEAD b3ce4f1303dbab68b68a82614c944c269cefebdc\ndetached"
+    },
+    "Zaki": {
+      "path": "/Users/keeper/Documents/CompactStar/external/Zaki",
+      "head": "7aca56cfdf3875cf2a8c0acea4acdac44f69c9f5",
+      "branch": "master",
+      "status": "",
+      "worktrees": "worktree /Users/keeper/Documents/CompactStar/external/Zaki\nHEAD 7aca56cfdf3875cf2a8c0acea4acdac44f69c9f5\nbranch refs/heads/master\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/ZakiLib-2.0.1-fp-preservation\nHEAD 7aca56cfdf3875cf2a8c0acea4acdac44f69c9f5\nbranch refs/heads/modernize/zaki-2.0.1-fp-preservation\n\nworktree /Users/keeper/Documents/CompactStar/worktrees/ZakiLib-python-free-core\nHEAD c8c68131b04e9d216673725075bef38df81e6041\nbranch refs/heads/modernize/python-free-core"
+    },
+    "CONFIND": {
+      "path": "/Users/keeper/Documents/CompactStar/external/CONFIND",
+      "head": "b0cbd510fd3fd0c772fa50499cd749287cb39e7b",
+      "branch": "master",
+      "status": "",
+      "worktrees": "worktree /Users/keeper/Documents/CompactStar/external/CONFIND\nHEAD b0cbd510fd3fd0c772fa50499cd749287cb39e7b\nbranch refs/heads/master\n\nworktree /Users/keeper/.codex/worktrees/confind-2-0/CONFIND\nHEAD b0cbd510fd3fd0c772fa50499cd749287cb39e7b\nbranch refs/heads/modernize/confind-2.0"
+    }
+  },
+  "preparation_base": "5433fc2da71ba380264f490b87926d850ff9f375",
+  "preparation_branch": "docs/phase6-cluster-preparation",
+  "volume": {
+    "mount": "/Volumes/Scriptorium",
+    "filesystem": "APFS",
+    "uuid": "99EE5D09-F272-401A-95CB-0D19755A3C24",
+    "device_at_inspection": "disk5s1",
+    "inspection": "diskutil info /Volumes/Scriptorium; mounted USB external volume"
+  },
+  "readiness_only_commits": "5433fc2da71ba380264f490b87926d850ff9f375 docs: publish bounded readiness evidence and material qualification gaps\ndfc0bacd08306fe423c5274657d6cf2fa2d2277b test: derive candidate stability ceiling and audit readiness without changing physics\nd99ebb4442b680f38fd75d9551170e163d549477 docs: predeclare campaign accuracy budgets and bounded stability experiments\n1b19d5470da6c6fa7d9d3425d83cb2f65014ce80 docs: record bounded owner ratification of ADR-0017 Amendment 1\n0c3f9269c884161c9d89163660a47b141a93ace6 Qualify bounded breakpoint candidate and preserve complete review evidence\n8f5376a7aea4ed2896e15ca9e89221f8c6e0e082 Record roundoff and independent reference uncertainty for every archived crossing\nfa01369654f93a3ae473e6f51fe2a480d0bdfc26 Preserve exact zero-control chemistry in uncertainty propagation without changing budgets\n3ab8b6a6c3c24f50ad3a066bcf02a6b0117dce3c Assess independent references and quantify bounded equilibrium stability\n0f8e7463f994944d3db8cf0d2dbcae8167dbe487 Handle unrepresentable event times and audit complete archived comparisons\n14c4b9d86344f361f3b50d814d0e3f64cb8e99da Test shared-event cancellation and assess coupled uncertainty independently\nd222b60bb9bcab069ac5a6275eb5012dbdd276e1 Validate coupled reconstruction envelopes and preserve full-byte currentness efficiently\na8a43e96978d9cd0d2dbccf46cc4a9cbdd37851a perf: retain full source currentness with checked block reads\n1c873f878e2278d30db1b196c3bfdbd186930048 test: expose independent event witnesses and check evidence publication\nc4971e1196d424913608c858eeea865b7c054923 feat: implement candidate Phase-6 breakpoint-aware integration\n949139edb440ae8ea8cc06ba6aef5d5f5f9ca84e docs: predeclare breakpoint candidate and successor validation\n0441b75813c775bd33e984d3f8b9a7f12ae25b49 evidence: preserve authenticated obs32 independent review\n669898c6741883ecacdc7e2fa2599cfa3df92918 docs: finalize forensic provenance and proposal cross-reference\n9fac5f4d4ddbeb349b44ad5f0aedfafe5d5cc8f5 docs: propose event-aware reconstruction for owner review\n86c8978ba4d8653c24113c4a0f3a1b16769a0b81 test: preserve observation-32 knot reconstruction forensics\n15d4a79814c2f3a9389c9c9822b5c92f5ced6f9e test: extend local knot audit to adjacent states and saved right endpoint\nec303e322ea683294fbad42614afd0e5bd9dc1bb test: declare bounded observation-32 reconstruction experiments\n7d2777561a17b56b466fb024ef13104da6c0e86a test: preserve clean BNV checkpoint failure and stop campaign\ne34e3115e74d0a7cfead483c7af3f5370ca4cccd test: retain fresh exact governed regression before BNV campaign\n823fd6d99729ba61c9659903dc08a172b3e8cedd docs: record BNV gate inventory and certificate-boundary validation\n770d7682e7eb816a9428e93023e139e450906f3a fix: enforce controlled BNV certificate temperature domain\n81a21314fa91a5c4d4b60d29c50a48ad15432c30 test: retain BNV prerequisite evidence and partial execution provenance\n2a29f04163f17a45981a6d4bb2b6b5d5cad0b84e test: execute clean BNV hierarchy through passive checkpoint owners\n66dcfd48f06714a122da6b85e8915d57509d40f8 test: restore controlled BNV prerequisites and declare clean campaign",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin",
+  "cmake": "cmake version 4.2.1\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake).",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t26.6.2\nBuildVersion:\t\t25G83",
+  "uname": "Darwin Keepers.local 25.6.0 Darwin Kernel Version 25.6.0: Fri Jul 31 19:18:49 PDT 2026; root:xnu-12377.161.14~5/RELEASE_ARM64_T6000 arm64",
+  "python": "3.12.10 | packaged by conda-forge | (main, Apr 10 2025, 22:19:24) [Clang 18.1.8 ]\nnumpy 2.3.1 scipy 1.16.0 mpmath 1.4.1",
+  "gsl_version": "2.7.1",
+  "local_numerical_libraries": {
+    "/opt/local/lib/libgsl.27.dylib": {
+      "resolved": "/opt/local/lib/libgsl.27.dylib",
+      "sha256": "9667d3f90d26c5cfb5229472adf455c0bf6406f946764ad165ec5d4b2121543b"
+    },
+    "/opt/local/lib/libgslcblas.0.dylib": {
+      "resolved": "/opt/local/lib/libgslcblas.0.dylib",
+      "sha256": "d23286fa19ad863e8a3b1601fbd435c8cf0da8db617b9f55bc303ce1a6a09402"
+    },
+    "/opt/local/include/gsl/gsl_odeiv2.h": {
+      "resolved": "/opt/local/include/gsl/gsl_odeiv2.h",
+      "sha256": "26f60405d95dac1b8860896a6b6a876e0f861eda80362f8ae15095288c5effb7"
+    }
+  },
+  "build_files": {
+    "build/mac-recovery/CMakeCache.txt": "6fdf474da5681ef1f6378dac2e97d9f636cc1340bd675cb8eb63c017652fac44",
+    "build/mac-recovery/compile_commands.json": "501e1f7f28c0a3a4723f15d7e9a375838992c6987d680884a92fc1e9c50dcfdc",
+    "build/mac-recovery/libCompactStar.a": "e5cd5906f6f73713acfe56ca26b28eebe4b565b76493dbf85ea2c0a8c4f3b892"
+  },
+  "executables": {
+    "cache_contract": {
+      "sha256": "6a85c02379dbb0ff0bbe00d6ac34c03b88db96bf841f56bcc2821ff85f5f79c9",
+      "linkage": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/build/mac-recovery/tests/cache_contract:\n\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)\n\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)\n\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)\n\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+    },
+    "cache_thermal_contract": {
+      "sha256": "efa3d9fd1191aa7239dc33776a5d6fd5102656ca1a4ffdb13f056fec6eaa952b",
+      "linkage": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/build/mac-recovery/tests/cache_thermal_contract:\n\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)\n\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)\n\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)\n\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+    },
+    "chemical_production_contract": {
+      "sha256": "5025d7e48bf4c782f5416e7694d1d58f3534a27fcce950e617829131584c8a96",
+      "linkage": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/build/mac-recovery/tests/chemical_production_contract:\n\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)\n\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)\n\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)\n\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+    },
+    "heat_capacity_v1": {
+      "sha256": "847283094be09addc5f13798651e4de5f0669bf341d6c9128d3d393662f5a48d",
+      "linkage": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/build/mac-recovery/tests/heat_capacity_v1:\n\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)\n\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)\n\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)\n\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+    },
+    "particle_number_analytic": {
+      "sha256": "b2b258ed12242a94814e0827895e78d212f952a9c7dfc0e5931abec27a63d904",
+      "linkage": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/build/mac-recovery/tests/particle_number_analytic:\n\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)\n\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)\n\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)\n\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+    },
+    "passive_checkpoint_output_contract": {
+      "sha256": "cddbdf248af55e7fa17cadce1712e0d3752fecc67c42bfcdb3542bdb8355b941",
+      "linkage": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/build/mac-recovery/tests/passive_checkpoint_output_contract:\n\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)\n\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)\n\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)\n\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+    },
+    "phase5d_component_tolerances": {
+      "sha256": "acc5758440d3c3f17ad8ff94a2ac4b7ca11e194774c79e7474430a4b7826d7b2",
+      "linkage": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/build/mac-recovery/tests/phase5d_component_tolerances:\n\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)\n\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)\n\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)\n\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+    },
+    "phase6_breakpoint_contract": {
+      "sha256": "0600b4c566edc5378a074ba1875fe84338564feff62d58493a08fdbf8e0e79c9",
+      "linkage": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/build/mac-recovery/tests/phase6_breakpoint_contract:\n\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)\n\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)\n\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)\n\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+    },
+    "phase6_currentness_bytes": {
+      "sha256": "6c49686d80f447db1647af2e7565125f75338c90cb0a9cfe8f7bac685f826306",
+      "linkage": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/build/mac-recovery/tests/phase6_currentness_bytes:\n\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)\n\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)\n\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)\n\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+    },
+    "phase6a1_direct_energy": {
+      "sha256": "afbdef34ea491467e55c9446fcf81278a07d7a7db49c0de5a77bf552177406ed",
+      "linkage": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/build/mac-recovery/tests/phase6a1_direct_energy:\n\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)\n\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)\n\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)\n\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+    },
+    "phase6a1_thermal_ledger": {
+      "sha256": "195b6df7d7179fd01b392b2c9ed6301b60db8af111d0f844c44d8ccd0ecdc37a",
+      "linkage": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/build/mac-recovery/tests/phase6a1_thermal_ledger:\n\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)\n\t/opt/local/lib/libgsl.27.dylib (compatibility version 28.0.0, current version 28.0.0)\n\t/opt/local/lib/libgslcblas.0.dylib (compatibility version 1.0.0, current version 1.0.0)\n\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+    }
+  },
+  "tests": {
+    "count": 13,
+    "failures": 0,
+    "skipped": 0,
+    "mode": "Debug",
+    "names": [
+      "chemical_production_contract",
+      "chemical_exact_oracles",
+      "chemical_curved_gc9",
+      "particle_number_analytic",
+      "passive_checkpoint_output_contract",
+      "phase6a1_direct_energy",
+      "phase6a1_thermal_ledger",
+      "heat_capacity_v1",
+      "cache_contract",
+      "cache_thermal_contract",
+      "phase5d_component_tolerances",
+      "phase6_breakpoint_contract",
+      "phase6_currentness_bytes"
+    ],
+    "junit_sha256": "b4a281248780d56c0d1dab239d231da8a0fdb45d267b024604e35a70562bcd55"
+  },
+  "protected": [
+    {
+      "path": "CompactStar/Analysis/ChemicalResponse.hpp",
+      "phase5d_historical_pin": "56111729f309e3066371fb6b70eb1803ee1fe8c729bebf2aeae3298a9102ddbe",
+      "accepted_amendment_sha256": "56111729f309e3066371fb6b70eb1803ee1fe8c729bebf2aeae3298a9102ddbe",
+      "actual": "56111729f309e3066371fb6b70eb1803ee1fe8c729bebf2aeae3298a9102ddbe",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "CompactStar/Analysis/ParticleNumberResponse.hpp",
+      "phase5d_historical_pin": "df5b55a1ee679428052c0ee5797c1cdc7a61a4ad35270ea13d470c722957378e",
+      "accepted_amendment_sha256": "df5b55a1ee679428052c0ee5797c1cdc7a61a4ad35270ea13d470c722957378e",
+      "actual": "df5b55a1ee679428052c0ee5797c1cdc7a61a4ad35270ea13d470c722957378e",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "CompactStar/Analysis/src/ChemicalResponse.cpp",
+      "phase5d_historical_pin": "985910361aa58a525abea9d6e1726138b856ca4743966bb08a5e0ee3ec4f3a49",
+      "accepted_amendment_sha256": "463e5a975edab2fcebe2b845363e2286500ae9c2ce115f175c0205346f2805ff",
+      "actual": "463e5a975edab2fcebe2b845363e2286500ae9c2ce115f175c0205346f2805ff",
+      "status": "PREVIOUSLY_ACCEPTED_AMENDMENT_DELTA"
+    },
+    {
+      "path": "CompactStar/Analysis/src/ParticleNumberResponse.cpp",
+      "phase5d_historical_pin": "0b03159c07c81ec35ada39f3fd5eabb410fe4e7c0c4cc46ab8133eb674c0f5fd",
+      "accepted_amendment_sha256": "98ca82c19173f2087b7bd9fc9e71f18874ce507ec6de6ed7efca9ae62c394890",
+      "actual": "98ca82c19173f2087b7bd9fc9e71f18874ce507ec6de6ed7efca9ae62c394890",
+      "status": "PREVIOUSLY_ACCEPTED_AMENDMENT_DELTA"
+    },
+    {
+      "path": "CompactStar/AngularVelocity.hpp",
+      "phase5d_historical_pin": "aa32cf06f172ca36ed5061c19db66f72dafbea9056807b3334c52d8ad178db79",
+      "accepted_amendment_sha256": "aa32cf06f172ca36ed5061c19db66f72dafbea9056807b3334c52d8ad178db79",
+      "actual": "aa32cf06f172ca36ed5061c19db66f72dafbea9056807b3334c52d8ad178db79",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "CompactStar/Core/NStar.hpp",
+      "phase5d_historical_pin": "7aa71d70496f359c48f6a26b8dc17424a98b4e30e6c5f5c0627010d340504e2b",
+      "accepted_amendment_sha256": "7aa71d70496f359c48f6a26b8dc17424a98b4e30e6c5f5c0627010d340504e2b",
+      "actual": "7aa71d70496f359c48f6a26b8dc17424a98b4e30e6c5f5c0627010d340504e2b",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "CompactStar/Core/RotationSolver.hpp",
+      "phase5d_historical_pin": "7d3dbfab42734c47a55c98877b855a37d14d37df71450966a8ecf514c557421d",
+      "accepted_amendment_sha256": "7d3dbfab42734c47a55c98877b855a37d14d37df71450966a8ecf514c557421d",
+      "actual": "7d3dbfab42734c47a55c98877b855a37d14d37df71450966a8ecf514c557421d",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "CompactStar/Core/StarProfile.hpp",
+      "phase5d_historical_pin": "07c2fdb783d03b938ba0b7de9e3fb2cd6ca62a6ad6b9c430b4101e29d25f8237",
+      "accepted_amendment_sha256": "07c2fdb783d03b938ba0b7de9e3fb2cd6ca62a6ad6b9c430b4101e29d25f8237",
+      "actual": "07c2fdb783d03b938ba0b7de9e3fb2cd6ca62a6ad6b9c430b4101e29d25f8237",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "CompactStar/Core/src/NStar.cpp",
+      "phase5d_historical_pin": "69a4b403370feeb6c1ba7d469082c2a6f5d824bf604abbae268f505204feb08e",
+      "accepted_amendment_sha256": "69a4b403370feeb6c1ba7d469082c2a6f5d824bf604abbae268f505204feb08e",
+      "actual": "69a4b403370feeb6c1ba7d469082c2a6f5d824bf604abbae268f505204feb08e",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "CompactStar/Core/src/RotationSolver.cpp",
+      "phase5d_historical_pin": "b3e4b8db36952f5d1cb60412947a071b30a22de9a755f77571a580f3f8856982",
+      "accepted_amendment_sha256": "b3e4b8db36952f5d1cb60412947a071b30a22de9a755f77571a580f3f8856982",
+      "actual": "b3e4b8db36952f5d1cb60412947a071b30a22de9a755f77571a580f3f8856982",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "CompactStar/Core/src/TOVSolver.cpp",
+      "phase5d_historical_pin": "d5da96e512453ae9ce18d7e6b3334b82bf17dd1def3230dd24ad267bc1fc7ad8",
+      "accepted_amendment_sha256": "d5da96e512453ae9ce18d7e6b3334b82bf17dd1def3230dd24ad267bc1fc7ad8",
+      "actual": "d5da96e512453ae9ce18d7e6b3334b82bf17dd1def3230dd24ad267bc1fc7ad8",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "CompactStar/EOS/LocalThermodynamics.hpp",
+      "phase5d_historical_pin": "cd28ac9ad7ef6efd9f910d78991d242de71b0e1a03992718e7dca260a083c601",
+      "accepted_amendment_sha256": "cd28ac9ad7ef6efd9f910d78991d242de71b0e1a03992718e7dca260a083c601",
+      "actual": "cd28ac9ad7ef6efd9f910d78991d242de71b0e1a03992718e7dca260a083c601",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "CompactStar/EOS/TrackRFreeGasThermodynamics.hpp",
+      "phase5d_historical_pin": "57f62a1e636cf3cfa23db9289a42302a484581c8c8f413fba9057cca6217c710",
+      "accepted_amendment_sha256": "57f62a1e636cf3cfa23db9289a42302a484581c8c8f413fba9057cca6217c710",
+      "actual": "57f62a1e636cf3cfa23db9289a42302a484581c8c8f413fba9057cca6217c710",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "CompactStar/EOS/src/LocalThermodynamics.cpp",
+      "phase5d_historical_pin": "aa6fdb64094be2f53c1bfb52c91d5f102f9c17d4f37d08343ba096303a1fab6d",
+      "accepted_amendment_sha256": "aa6fdb64094be2f53c1bfb52c91d5f102f9c17d4f37d08343ba096303a1fab6d",
+      "actual": "aa6fdb64094be2f53c1bfb52c91d5f102f9c17d4f37d08343ba096303a1fab6d",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "CompactStar/EOS/src/TrackRFreeGasThermodynamics.cpp",
+      "phase5d_historical_pin": "ae6c1c570e076b6462e0558592de39d8be922eeb5118cb40b0b296baba0800e8",
+      "accepted_amendment_sha256": "ae6c1c570e076b6462e0558592de39d8be922eeb5118cb40b0b296baba0800e8",
+      "actual": "ae6c1c570e076b6462e0558592de39d8be922eeb5118cb40b0b296baba0800e8",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "CompactStar/Geometry.hpp",
+      "phase5d_historical_pin": "cad68a4773f899006c037ee00116dbc2d01c4b239c06b8f6fac9d55f00e12167",
+      "accepted_amendment_sha256": "cad68a4773f899006c037ee00116dbc2d01c4b239c06b8f6fac9d55f00e12167",
+      "actual": "cad68a4773f899006c037ee00116dbc2d01c4b239c06b8f6fac9d55f00e12167",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "CompactStar/RelativityUnits.hpp",
+      "phase5d_historical_pin": "4277eb3caff0623f2615e8435a6632f954cf505a4be9aa9a7a1509b8488549fd",
+      "accepted_amendment_sha256": "4277eb3caff0623f2615e8435a6632f954cf505a4be9aa9a7a1509b8488549fd",
+      "actual": "4277eb3caff0623f2615e8435a6632f954cf505a4be9aa9a7a1509b8488549fd",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "CompactStar/Units.hpp",
+      "phase5d_historical_pin": "fbeb722e03d40ce7bf23680987e11a38da11566df292f8123d3aa16b0145c5b6",
+      "accepted_amendment_sha256": "fbeb722e03d40ce7bf23680987e11a38da11566df292f8123d3aa16b0145c5b6",
+      "actual": "fbeb722e03d40ce7bf23680987e11a38da11566df292f8123d3aa16b0145c5b6",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "docs/validation/phase5c2_preproduction_evidence.json",
+      "phase5d_historical_pin": "883f9879103fde113b49ed311b38b5f4c4876d84ffd2aa7987270c5c08f4e481",
+      "accepted_amendment_sha256": "883f9879103fde113b49ed311b38b5f4c4876d84ffd2aa7987270c5c08f4e481",
+      "actual": "883f9879103fde113b49ed311b38b5f4c4876d84ffd2aa7987270c5c08f4e481",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "tests/analysis/chemical_curved_gc9.py",
+      "phase5d_historical_pin": "877d1e71800179f578dce3a36e113af49785c1e10204555fe67deb2b108595a4",
+      "accepted_amendment_sha256": "877d1e71800179f578dce3a36e113af49785c1e10204555fe67deb2b108595a4",
+      "actual": "877d1e71800179f578dce3a36e113af49785c1e10204555fe67deb2b108595a4",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "tests/analysis/chemical_exact_oracles.py",
+      "phase5d_historical_pin": "c2d6fb699e1a322b9e4e93ce1fcbb76c60f0d5efb8fc04348988d8d43e50902e",
+      "accepted_amendment_sha256": "c2d6fb699e1a322b9e4e93ce1fcbb76c60f0d5efb8fc04348988d8d43e50902e",
+      "actual": "c2d6fb699e1a322b9e4e93ce1fcbb76c60f0d5efb8fc04348988d8d43e50902e",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "tests/analysis/chemical_production_contract.cpp",
+      "phase5d_historical_pin": "1c9cdeff75e76fbe7a93c54e42764ac4878c7f4c48d13a9c05a5a1b9ebeb56c2",
+      "accepted_amendment_sha256": "0a7771e4f192c908299c89cc682695f216a51a6b7e1c9c8d08387b864fb24a6b",
+      "actual": "0a7771e4f192c908299c89cc682695f216a51a6b7e1c9c8d08387b864fb24a6b",
+      "status": "PREVIOUSLY_ACCEPTED_AMENDMENT_DELTA"
+    },
+    {
+      "path": "tests/analysis/chemical_production_evidence.py",
+      "phase5d_historical_pin": "9124324d82fd4bc877fb99c35e7fe62a0d72f4fea9f03b8bf4fed61dde46e0ee",
+      "accepted_amendment_sha256": "9124324d82fd4bc877fb99c35e7fe62a0d72f4fea9f03b8bf4fed61dde46e0ee",
+      "actual": "9124324d82fd4bc877fb99c35e7fe62a0d72f4fea9f03b8bf4fed61dde46e0ee",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "tests/analysis/chemical_production_fixture.cpp",
+      "phase5d_historical_pin": "c16e204cb48edc30e06332e6ae729156ed459fe66ce2bccd60cb460c676fb0e0",
+      "accepted_amendment_sha256": "c16e204cb48edc30e06332e6ae729156ed459fe66ce2bccd60cb460c676fb0e0",
+      "actual": "c16e204cb48edc30e06332e6ae729156ed459fe66ce2bccd60cb460c676fb0e0",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "tests/analysis/chemical_production_validation.py",
+      "phase5d_historical_pin": "6e4a7726744d1e601faf42ff9b3270710ff327972b901b1381f3cf03bbb90185",
+      "accepted_amendment_sha256": "6e4a7726744d1e601faf42ff9b3270710ff327972b901b1381f3cf03bbb90185",
+      "actual": "6e4a7726744d1e601faf42ff9b3270710ff327972b901b1381f3cf03bbb90185",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "tests/analysis/chemical_trackr_budget.py",
+      "phase5d_historical_pin": "397923d762d6ff6687b9b2d0bb4d7bbee5abd97265426fc38d225db6aeb8e56f",
+      "accepted_amendment_sha256": "397923d762d6ff6687b9b2d0bb4d7bbee5abd97265426fc38d225db6aeb8e56f",
+      "actual": "397923d762d6ff6687b9b2d0bb4d7bbee5abd97265426fc38d225db6aeb8e56f",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "tests/analysis/chemical_trackr_fixture.cpp",
+      "phase5d_historical_pin": "6d725cce39fc05e0275673dbb36cffd27eeb0776b8745c7d62d5675778ec6978",
+      "accepted_amendment_sha256": "6d725cce39fc05e0275673dbb36cffd27eeb0776b8745c7d62d5675778ec6978",
+      "actual": "6d725cce39fc05e0275673dbb36cffd27eeb0776b8745c7d62d5675778ec6978",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "tests/analysis/particle_number_homogeneous.hpp",
+      "phase5d_historical_pin": "333258fcabd537a003fba7ccabfe7909139da850106c399431e0c3fc0fd2a243",
+      "accepted_amendment_sha256": "333258fcabd537a003fba7ccabfe7909139da850106c399431e0c3fc0fd2a243",
+      "actual": "333258fcabd537a003fba7ccabfe7909139da850106c399431e0c3fc0fd2a243",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "tests/analysis/phase5b_freegas_validation.cpp",
+      "phase5d_historical_pin": "2bb980f1916f0498e626fd8601ba023e6f211f93d5b8655b40aa62283c613fa4",
+      "accepted_amendment_sha256": "2bb980f1916f0498e626fd8601ba023e6f211f93d5b8655b40aa62283c613fa4",
+      "actual": "2bb980f1916f0498e626fd8601ba023e6f211f93d5b8655b40aa62283c613fa4",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "tests/analysis/produce_particle_number_reference.py",
+      "phase5d_historical_pin": "194f2000bdac9260c55a35135a38ce6a9864fb115a3e309f6887d69e56c207c9",
+      "accepted_amendment_sha256": "194f2000bdac9260c55a35135a38ce6a9864fb115a3e309f6887d69e56c207c9",
+      "actual": "194f2000bdac9260c55a35135a38ce6a9864fb115a3e309f6887d69e56c207c9",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "tests/eos/structure1/local_oracle.hpp",
+      "phase5d_historical_pin": "d46d9ac1ef23df8754d32329e0df4497624d7da87d3f327704e0e0c81c2008ca",
+      "accepted_amendment_sha256": "d46d9ac1ef23df8754d32329e0df4497624d7da87d3f327704e0e0c81c2008ca",
+      "actual": "d46d9ac1ef23df8754d32329e0df4497624d7da87d3f327704e0e0c81c2008ca",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "tests/eos/structure1/table.hpp",
+      "phase5d_historical_pin": "cf164e22626cda08050461776a1e87195538b6913c24f6ec47fe41e57ef4e160",
+      "accepted_amendment_sha256": "cf164e22626cda08050461776a1e87195538b6913c24f6ec47fe41e57ef4e160",
+      "actual": "cf164e22626cda08050461776a1e87195538b6913c24f6ec47fe41e57ef4e160",
+      "status": "PIN_MATCH"
+    },
+    {
+      "path": "tests/eos/structure1/tov_oracle.hpp",
+      "phase5d_historical_pin": "d36df7a0f818b73227920bb50e6f8e5c113679328921d0c560de549c04b62686",
+      "accepted_amendment_sha256": "d36df7a0f818b73227920bb50e6f8e5c113679328921d0c560de549c04b62686",
+      "actual": "d36df7a0f818b73227920bb50e6f8e5c113679328921d0c560de549c04b62686",
+      "status": "PIN_MATCH"
+    }
+  ],
+  "baseline_sha256": {
+    "tests/baselines/baryon_number_dscmf1_reference.tsv": "90d607519cbdf3c4a0bf6ef50cc8fd22a8526b5db0354dc319e96854da29041d",
+    "tests/baselines/grid_convergence_cmf_1p6_debug.tsv": "b48519c3e948e9979a385d19facee2777d15955eeb8711b4bdd46b81fef74741",
+    "tests/baselines/grid_convergence_cmf_1p6_trajectory.tsv": "d5b753932c0523e67a7f25b460c7494bec1a006a8d01c9e43124cb2e78f0720f",
+    "tests/baselines/hartle_I_dscmf1_debug.tsv": "034ecddbd9bd847650429d7dc87d0331ec9e87aca3862ff87594e4bff5b707dd",
+    "tests/baselines/hartle_monopole_dscmf1_debug.tsv": "caaa0ac0d3219cda0a9fb518b27688afc23c6cdad1ec76a2bcd7359614a8d4e8",
+    "tests/baselines/passive_cooling_cmf_1p6_debug.tsv": "8fef2314673fceb939f859612f4befe94117115d6d6b3ad0dcc59d1faa68c9f9",
+    "tests/baselines/phase5b_structural_response.json": "7588f0e9cd62f5b6be48bb725e4d0ba6e47b64f50d843117e70c17a78beeb5fa",
+    "tests/baselines/phase5c_chemical_coefficients.json": "7027aa6179fe9111d76586d467d007c4223ec9d26ece0fee773327973c77bfe7",
+    "tests/baselines/phase5d1_controlled_evolution.json": "2606916915b2da5c051b1a06637c0a371a74751c6e77b2775bc629a63bc9f6dd",
+    "tests/baselines/tov_dscmf1_reference.tsv": "3d9af9129a6a4ffde9e0f8c5507a160f968a861c0cf9f3b089cceecab86b701a",
+    "tests/baselines/tov_path_equivalence_dscmf1.tsv": "5c0f4b3bdb70921f8f2a869af10edc4d8f5ae3963a9d150e11ef859d21e1c678"
+  },
+  "production_delta_from_accepted": ""
+}

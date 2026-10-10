@@ -1,0 +1,1329 @@
+[  0%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/MixedStar.cpp.o
+[  0%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/Analysis.cpp.o
+[  2%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/Prog.cpp.o
+[  2%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/NStar.cpp.o
+[  4%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/Banner.cpp.o
+[  4%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/Pulsar.cpp.o
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Core/src/MixedStar.cpp:1189:56: warning: unused parameter 'in_r' [-Wunused-parameter]
+ 1189 | double MixedStar::Find_BaryonNum_Visible(const double &in_r)
+      |                                                        ^
+1 warning generated.
+[  7%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/RotationSolver.cpp.o
+[  7%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/TaskManager.cpp.o
+[  9%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/TOVSolver_Thread.cpp.o
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Core/src/Pulsar.cpp:21:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Spin/MagneticDipole.hpp:33:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/IDriver.hpp:43:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/DriverContext.hpp:96:1: warning: 'DriverContext' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   96 | struct DriverContext
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Diagnostics/DriverDiagnostics.hpp:46:1: note: did you mean struct here?
+   46 | class DriverContext;
+      | ^~~~~
+      | struct
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Core/src/Pulsar.cpp:21:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Spin/MagneticDipole.hpp:33:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/IDriver.hpp:44:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/State/Tags.hpp:72:8: warning: using enum declaration is a C++20 extension [-Wc++20-extensions]
+   72 |         using enum StateTag;
+      |               ^
+2 warnings generated.
+[  9%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/TOVSolver.cpp.o
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Core/src/RotationSolver.cpp:289:18: warning: unused variable 'rot_obj' [-Wunused-variable]
+  289 |         RotationSolver *rot_obj = (RotationSolver *)params;
+      |                         ^~~~~~~
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Core/src/TaskManager.cpp:12:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Extensions/MixedStar/DarkCore_Analysis.hpp:288:28: warning: unused parameter 'in_star' [-Wunused-parameter]
+  288 |         void Analyze(Core::NStar *in_star) override {}
+      |                                   ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Core/src/TaskManager.cpp:29:37: warning: unused parameter 'in_star' [-Wunused-parameter]
+   29 | bool TrueCondition(const MixedStar &in_star)
+      |                                     ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Core/src/TaskManager.cpp:147:13: warning: comparison of integers of different signs: 'const int' and 'const size_t' (aka 'const unsigned long') [-Wsign-compare]
+  147 |         if (tsk_id == num_of_thrds)
+      |             ~~~~~~ ^  ~~~~~~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Core/src/TaskManager.cpp:250:9: warning: unused variable 'B_vis_min' [-Wunused-variable]
+  250 |         double B_vis_min = sequence_grid[6].Min();
+      |                ^~~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Core/src/TaskManager.cpp:253:9: warning: unused variable 'B_tot_max' [-Wunused-variable]
+  253 |         double B_tot_max = B_vis_max + B_dar_max;
+      |                ^~~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Core/src/TaskManager.cpp:377:22: warning: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned long') [-Wsign-compare]
+  377 |                         for (int l = 0; l < divisions; l++)
+      |                                         ~ ^ ~~~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Core/src/TaskManager.cpp:537:9: warning: unused variable 'B_tot_max' [-Wunused-variable]
+  537 |         double B_tot_max = B_vis_max + B_dar_max;
+      |                ^~~~~~~~~
+1 warning generated.
+[ 12%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/StarProfile.cpp.o
+7 warnings generated.
+[ 12%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/StarBuilder.cpp.o
+[ 14%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Analysis/src/ParticleNumberResponse.cpp.o
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Core/src/TOVSolver.cpp:2174:8: warning: variable 'exp_decrease' set but not used [-Wunused-but-set-variable]
+ 2174 |                 bool exp_decrease = false;
+      |                      ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Core/src/StarBuilder.cpp:146:15: warning: unused variable 'max_mass_in_seq' [-Wunused-variable]
+  146 |         const double max_mass_in_seq = seq_ds[mass_col].Max();
+      |                      ^~~~~~~~~~~~~~~
+[ 14%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Analysis/src/ChemicalResponse.cpp.o
+1 warning generated.
+[ 17%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Baryon.cpp.o
+1 warning generated.
+[ 17%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Common.cpp.o
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/Baryon.cpp:9:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Baryon.hpp:117:9: warning: 'CompactStar::Baryon::Mu' hides overloaded virtual function [-Woverloaded-virtual]
+  117 |         double Mu(const double &gsig) const;
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Particle.hpp:160:17: note: hidden overloaded virtual function 'CompactStar::Particle::Mu' declared here: different number of parameters (0 vs 1)
+  160 |         virtual double Mu();
+      |                        ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/Baryon.cpp:9:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Baryon.hpp:123:9: warning: 'CompactStar::Baryon::ETerm' hides overloaded virtual function [-Woverloaded-virtual]
+  123 |         double ETerm(const double &gsig) const;
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Particle.hpp:128:17: note: hidden overloaded virtual function 'CompactStar::Particle::ETerm' declared here: different number of parameters (0 vs 1)
+  128 |         virtual double ETerm() const;
+      |                        ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/Baryon.cpp:9:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Baryon.hpp:126:9: warning: 'CompactStar::Baryon::PTerm' hides overloaded virtual function [-Woverloaded-virtual]
+  126 |         double PTerm(const double &gsig) const;
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Particle.hpp:131:17: note: hidden overloaded virtual function 'CompactStar::Particle::PTerm' declared here: different number of parameters (0 vs 1)
+  131 |         virtual double PTerm() const;
+      |                        ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/Baryon.cpp:9:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Baryon.hpp:132:9: warning: 'CompactStar::Baryon::Dmu' hides overloaded virtual function [-Woverloaded-virtual]
+  132 |         double Dmu(const int &in_idx, const double &gsig);
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Particle.hpp:110:17: note: hidden overloaded virtual function 'CompactStar::Particle::Dmu' declared here: different number of parameters (1 vs 2)
+  110 |         virtual double Dmu(const int &idx);
+      |                        ^
+4 warnings generated.
+[ 19%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/CoulombLattice.cpp.o
+[ 19%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Fermi_Gas.cpp.o
+[ 21%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Lepton.cpp.o
+[ 21%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/LocalThermodynamics.cpp.o
+[ 21%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/TrackRFreeGasThermodynamics.cpp.o
+[ 24%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Model.cpp.o
+[ 24%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Particle.cpp.o
+[ 26%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Polytrope.cpp.o
+[ 26%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/SigmaOmega.cpp.o
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/Particle.cpp:8:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Baryon.hpp:117:9: warning: 'CompactStar::Baryon::Mu' hides overloaded virtual function [-Woverloaded-virtual]
+  117 |         double Mu(const double &gsig) const;
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Particle.hpp:160:17: note: hidden overloaded virtual function 'CompactStar::Particle::Mu' declared here: different number of parameters (0 vs 1)
+  160 |         virtual double Mu();
+      |                        ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/Particle.cpp:8:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Baryon.hpp:123:9: warning: 'CompactStar::Baryon::ETerm' hides overloaded virtual function [-Woverloaded-virtual]
+  123 |         double ETerm(const double &gsig) const;
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Particle.hpp:128:17: note: hidden overloaded virtual function 'CompactStar::Particle::ETerm' declared here: different number of parameters (0 vs 1)
+  128 |         virtual double ETerm() const;
+      |                        ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/Particle.cpp:8:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Baryon.hpp:126:9: warning: 'CompactStar::Baryon::PTerm' hides overloaded virtual function [-Woverloaded-virtual]
+  126 |         double PTerm(const double &gsig) const;
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Particle.hpp:131:17: note: hidden overloaded virtual function 'CompactStar::Particle::PTerm' declared here: different number of parameters (0 vs 1)
+  131 |         virtual double PTerm() const;
+      |                        ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/Particle.cpp:8:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Baryon.hpp:132:9: warning: 'CompactStar::Baryon::Dmu' hides overloaded virtual function [-Woverloaded-virtual]
+  132 |         double Dmu(const int &in_idx, const double &gsig);
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Particle.hpp:110:17: note: hidden overloaded virtual function 'CompactStar::Particle::Dmu' declared here: different number of parameters (1 vs 2)
+  110 |         virtual double Dmu(const int &idx);
+      |                        ^
+[ 29%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/SigmaOmegaPar.cpp.o
+4 warnings generated.
+[ 29%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/SigmaOmegaRho.cpp.o
+[ 31%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/CompOSE_EOS.cpp.o
+[ 31%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/CompOSE_Thermo.cpp.o
+[ 34%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp.o
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho.cpp:18:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/SigmaOmegaRho.hpp:45:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Baryon.hpp:117:9: warning: 'CompactStar::Baryon::Mu' hides overloaded virtual function [-Woverloaded-virtual]
+  117 |         double Mu(const double &gsig) const;
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Particle.hpp:160:17: note: hidden overloaded virtual function 'CompactStar::Particle::Mu' declared here: different number of parameters (0 vs 1)
+  160 |         virtual double Mu();
+      |                        ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho.cpp:18:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/SigmaOmegaRho.hpp:45:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Baryon.hpp:123:9: warning: 'CompactStar::Baryon::ETerm' hides overloaded virtual function [-Woverloaded-virtual]
+  123 |         double ETerm(const double &gsig) const;
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Particle.hpp:128:17: note: hidden overloaded virtual function 'CompactStar::Particle::ETerm' declared here: different number of parameters (0 vs 1)
+  128 |         virtual double ETerm() const;
+      |                        ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho.cpp:18:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/SigmaOmegaRho.hpp:45:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Baryon.hpp:126:9: warning: 'CompactStar::Baryon::PTerm' hides overloaded virtual function [-Woverloaded-virtual]
+  126 |         double PTerm(const double &gsig) const;
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Particle.hpp:131:17: note: hidden overloaded virtual function 'CompactStar::Particle::PTerm' declared here: different number of parameters (0 vs 1)
+  131 |         virtual double PTerm() const;
+      |                        ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho.cpp:18:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/SigmaOmegaRho.hpp:45:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Baryon.hpp:132:9: warning: 'CompactStar::Baryon::Dmu' hides overloaded virtual function [-Woverloaded-virtual]
+  132 |         double Dmu(const int &in_idx, const double &gsig);
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Particle.hpp:110:17: note: hidden overloaded virtual function 'CompactStar::Particle::Dmu' declared here: different number of parameters (1 vs 2)
+  110 |         virtual double Dmu(const int &idx);
+      |                        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho.cpp:29:3: warning: initializer order does not match the declaration order [-Wreorder-ctor]
+   29 |   muon        (2, -1, MUON_M_FM),
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   neutron     (9,  0, NEUTRON_M_FM, -1./2., 1, 1, 1)
+   30 |   sigma_minus (3, -1, SIGMA_MINUS_M_FM, -1, 0.568, 0.6, 0.6),
+   31 |   lambda      (4,  0, LAMBDA_ZERO_M_FM,  0, 0.568, 0.6, 0.6),
+   32 |   sigma_zero  (5,  0, SIGMA_ZERO_M_FM, 0, 0.568, 0.6, 0.6),
+   33 |   sigma_plus  (6, +1, SIGMA_PLUS_M_FM, +1, 0.568, 0.6, 0.6),
+   34 |   xi_minus    (7, -1, XSI_MINUS_M_FM, -1./2., 0.568, 0.6, 0.6),
+   35 |   xi_zero     (8,  0, XSI_ZERO_M_FM, +1./2., 0.568, 0.6, 0.6),
+   36 |   neutron     (9,  0, NEUTRON_M_FM, -1./2., 1, 1, 1),
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   electron    (10, -1, ELECTRON_M_FM)
+   37 |   electron    (10, -1, ELECTRON_M_FM)
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   muon        (2, -1, MUON_M_FM)
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho.cpp:29:3: note: field 'muon' will be initialized after field 'sigma_minus'
+   29 |   muon        (2, -1, MUON_M_FM),
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho.cpp:35:3: note: field 'xi_zero' will be initialized after field 'neutron'
+   35 |   xi_zero     (8,  0, XSI_ZERO_M_FM, +1./2., 0.568, 0.6, 0.6),
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho.cpp:105:15: warning: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned long') [-Wsign-compare]
+  105 |     if(b->idx < eq_size)
+      |        ~~~~~~ ^ ~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho.cpp:114:20: warning: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned long') [-Wsign-compare]
+  114 |         if(b2->idx < eq_size)
+      |            ~~~~~~~ ^ ~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho.cpp:124:15: warning: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned long') [-Wsign-compare]
+  124 |     if(l->idx < eq_size)
+      |        ~~~~~~ ^ ~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho.cpp:133:20: warning: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned long') [-Wsign-compare]
+  133 |         if(l2->idx < eq_size)
+      |            ~~~~~~~ ^ ~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho.cpp:413:15: warning: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned long') [-Wsign-compare]
+  413 |     if(b->idx < eq_size)
+      |        ~~~~~~ ^ ~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho.cpp:422:20: warning: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned long') [-Wsign-compare]
+  422 |         if(b2->idx < eq_size)
+      |            ~~~~~~~ ^ ~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho.cpp:431:15: warning: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned long') [-Wsign-compare]
+  431 |     if(l->idx < eq_size)
+      |        ~~~~~~ ^ ~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho.cpp:440:20: warning: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned long') [-Wsign-compare]
+  440 |         if(l2->idx < eq_size)
+      |            ~~~~~~~ ^ ~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho.cpp:580:12: warning: variable length arrays in C++ are a Clang extension [-Wvla-cxx-extension]
+  580 |   double y[eq_size] ;
+      |            ^~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho.cpp:580:12: note: implicit use of 'this' pointer is only allowed within the evaluation of a call to a 'constexpr' member function
+14 warnings generated.
+[ 34%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Fermi_Gas_Many.cpp.o
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/CompOSE_EOS.cpp:301:22: warning: comparison of integers of different signs: 'size_t' (aka 'unsigned long') and 'int' [-Wsign-compare]
+  301 |                                 if (line_num - 1 < crust_core_x_idx)
+      |                                     ~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/CompOSE_EOS.cpp:334:14: warning: unused parameter 'gen_plots' [-Wunused-parameter]
+  334 |         const bool &gen_plots,
+      |                     ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/CompOSE_EOS.cpp:432:14: warning: unused parameter 'gen_plots' [-Wunused-parameter]
+  432 |         const bool &gen_plots,
+      |                     ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/CompOSE_EOS.cpp:700:14: warning: unused parameter 'gen_plots' [-Wunused-parameter]
+  700 |         const bool &gen_plots,
+      |                     ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/CompOSE_EOS.cpp:701:17: warning: unused parameter 'in_dir_type' [-Wunused-parameter]
+  701 |         const Dir_Type in_dir_type)
+      |                        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/CompOSE_EOS.cpp:775:14: warning: unused parameter 'gen_plots' [-Wunused-parameter]
+  775 |         const bool &gen_plots,
+      |                     ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/CompOSE_EOS.cpp:776:17: warning: unused parameter 'in_dir_type' [-Wunused-parameter]
+  776 |         const Dir_Type in_dir_type)
+      |                        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/CompOSE_EOS.cpp:843:14: warning: unused parameter 'gen_plots' [-Wunused-parameter]
+  843 |         const bool &gen_plots,
+      |                     ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/CompOSE_EOS.cpp:844:17: warning: unused parameter 'in_dir_type' [-Wunused-parameter]
+  844 |         const Dir_Type in_dir_type)
+      |                        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/CompOSE_EOS.cpp:999:14: warning: unused parameter 'gen_plots' [-Wunused-parameter]
+  999 |         const bool &gen_plots)
+      |                     ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:18:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/SigmaOmegaRho_nstar.hpp:45:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Baryon.hpp:117:9: warning: 'CompactStar::Baryon::Mu' hides overloaded virtual function [-Woverloaded-virtual]
+  117 |         double Mu(const double &gsig) const;
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Particle.hpp:160:17: note: hidden overloaded virtual function 'CompactStar::Particle::Mu' declared here: different number of parameters (0 vs 1)
+  160 |         virtual double Mu();
+      |                        ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:18:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/SigmaOmegaRho_nstar.hpp:45:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Baryon.hpp:123:9: warning: 'CompactStar::Baryon::ETerm' hides overloaded virtual function [-Woverloaded-virtual]
+  123 |         double ETerm(const double &gsig) const;
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Particle.hpp:128:17: note: hidden overloaded virtual function 'CompactStar::Particle::ETerm' declared here: different number of parameters (0 vs 1)
+  128 |         virtual double ETerm() const;
+      |                        ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:18:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/SigmaOmegaRho_nstar.hpp:45:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Baryon.hpp:126:9: warning: 'CompactStar::Baryon::PTerm' hides overloaded virtual function [-Woverloaded-virtual]
+  126 |         double PTerm(const double &gsig) const;
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Particle.hpp:131:17: note: hidden overloaded virtual function 'CompactStar::Particle::PTerm' declared here: different number of parameters (0 vs 1)
+  131 |         virtual double PTerm() const;
+      |                        ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:18:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/SigmaOmegaRho_nstar.hpp:45:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Baryon.hpp:132:9: warning: 'CompactStar::Baryon::Dmu' hides overloaded virtual function [-Woverloaded-virtual]
+  132 |         double Dmu(const int &in_idx, const double &gsig);
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Particle.hpp:110:17: note: hidden overloaded virtual function 'CompactStar::Particle::Dmu' declared here: different number of parameters (1 vs 2)
+  110 |         virtual double Dmu(const int &idx);
+      |                        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:29:3: warning: initializer order does not match the declaration order [-Wreorder-ctor]
+   29 |   muon        (2, -1, MUON_M_FM),
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   neutron     (9,  0, NEUTRON_M_FM, -1./2., 1, 1, 1)
+   30 |   sigma_minus (3, -1, SIGMA_MINUS_M_FM, -1, 0.568, 0.6, 0.6),
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   neutron_star     (11,  0, NEUTRON_M_FM, -1./2., 1, 1, 1)
+   31 |   lambda      (4,  0, LAMBDA_ZERO_M_FM,  0, 0.568, 0.6, 0.6),
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   sigma_minus (3, -1, SIGMA_MINUS_M_FM, -1, 0.568, 0.6, 0.6)
+   32 |   sigma_zero  (5,  0, SIGMA_ZERO_M_FM, 0, 0.568, 0.6, 0.6),
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   lambda      (4,  0, LAMBDA_ZERO_M_FM,  0, 0.568, 0.6, 0.6)
+   33 |   sigma_plus  (6, +1, SIGMA_PLUS_M_FM, +1, 0.568, 0.6, 0.6),
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   sigma_zero  (5,  0, SIGMA_ZERO_M_FM, 0, 0.568, 0.6, 0.6)
+   34 |   xi_minus    (7, -1, XSI_MINUS_M_FM, -1./2., 0.568, 0.6, 0.6),
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   sigma_plus  (6, +1, SIGMA_PLUS_M_FM, +1, 0.568, 0.6, 0.6)
+   35 |   xi_zero     (8,  0, XSI_ZERO_M_FM, +1./2., 0.568, 0.6, 0.6),
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   xi_minus    (7, -1, XSI_MINUS_M_FM, -1./2., 0.568, 0.6, 0.6)
+   36 |   neutron     (9,  0, NEUTRON_M_FM, -1./2., 1, 1, 1),
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   xi_zero     (8,  0, XSI_ZERO_M_FM, +1./2., 0.568, 0.6, 0.6)
+   37 |   neutron_star     (11,  0, NEUTRON_M_FM, -1./2., 1, 1, 1),
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   electron    (10, -1, ELECTRON_M_FM)
+   38 |   electron    (10, -1, ELECTRON_M_FM)
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   muon        (2, -1, MUON_M_FM)
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:29:3: note: field 'muon' will be initialized after field 'sigma_minus'
+   29 |   muon        (2, -1, MUON_M_FM),
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:35:3: note: field 'xi_zero' will be initialized after field 'neutron'
+   35 |   xi_zero     (8,  0, XSI_ZERO_M_FM, +1./2., 0.568, 0.6, 0.6),
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:108:15: warning: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned long') [-Wsign-compare]
+  108 |     if(b->idx < eq_size)
+      |        ~~~~~~ ^ ~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:117:20: warning: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned long') [-Wsign-compare]
+  117 |         if(b2->idx < eq_size)
+      |            ~~~~~~~ ^ ~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:127:15: warning: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned long') [-Wsign-compare]
+  127 |     if(l->idx < eq_size)
+      |        ~~~~~~ ^ ~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:136:20: warning: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned long') [-Wsign-compare]
+  136 |         if(l2->idx < eq_size)
+      |            ~~~~~~~ ^ ~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:416:15: warning: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned long') [-Wsign-compare]
+  416 |     if(b->idx < eq_size)
+      |        ~~~~~~ ^ ~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:425:20: warning: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned long') [-Wsign-compare]
+  425 |         if(b2->idx < eq_size)
+      |            ~~~~~~~ ^ ~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:434:15: warning: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned long') [-Wsign-compare]
+  434 |     if(l->idx < eq_size)
+      |        ~~~~~~ ^ ~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:443:20: warning: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned long') [-Wsign-compare]
+  443 |         if(l2->idx < eq_size)
+      |            ~~~~~~~ ^ ~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:585:12: warning: variable length arrays in C++ are a Clang extension [-Wvla-cxx-extension]
+  585 |   double y[eq_size] ;
+      |            ^~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:585:12: note: implicit use of 'this' pointer is only allowed within the evaluation of a call to a 'constexpr' member function
+10 warnings generated.
+14 warnings generated.
+[ 34%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Driver/Spin/src/MagneticDipole.cpp.o
+[ 36%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Spin.cpp.o
+[ 39%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Driver/Thermal/src/PhotonCooling.cpp.o
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/Fermi_Gas_Many.cpp:10:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Fermi_Gas_Many.hpp:23:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Baryon.hpp:117:9: warning: 'CompactStar::Baryon::Mu' hides overloaded virtual function [-Woverloaded-virtual]
+  117 |         double Mu(const double &gsig) const;
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Particle.hpp:160:17: note: hidden overloaded virtual function 'CompactStar::Particle::Mu' declared here: different number of parameters (0 vs 1)
+  160 |         virtual double Mu();
+      |                        ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/Fermi_Gas_Many.cpp:10:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Fermi_Gas_Many.hpp:23:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Baryon.hpp:123:9: warning: 'CompactStar::Baryon::ETerm' hides overloaded virtual function [-Woverloaded-virtual]
+  123 |         double ETerm(const double &gsig) const;
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Particle.hpp:128:17: note: hidden overloaded virtual function 'CompactStar::Particle::ETerm' declared here: different number of parameters (0 vs 1)
+  128 |         virtual double ETerm() const;
+      |                        ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/Fermi_Gas_Many.cpp:10:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Fermi_Gas_Many.hpp:23:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Baryon.hpp:126:9: warning: 'CompactStar::Baryon::PTerm' hides overloaded virtual function [-Woverloaded-virtual]
+  126 |         double PTerm(const double &gsig) const;
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Particle.hpp:131:17: note: hidden overloaded virtual function 'CompactStar::Particle::PTerm' declared here: different number of parameters (0 vs 1)
+  131 |         virtual double PTerm() const;
+      |                        ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/src/Fermi_Gas_Many.cpp:10:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Fermi_Gas_Many.hpp:23:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Baryon.hpp:132:9: warning: 'CompactStar::Baryon::Dmu' hides overloaded virtual function [-Woverloaded-virtual]
+  132 |         double Dmu(const int &in_idx, const double &gsig);
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/EOS/Particle.hpp:110:17: note: hidden overloaded virtual function 'CompactStar::Particle::Dmu' declared here: different number of parameters (1 vs 2)
+  110 |         virtual double Dmu(const int &idx);
+      |                        ^
+4 warnings generated.
+[ 39%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Driver/Thermal/src/PhotonCooling_Details.cpp.o
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/src/PhotonCooling.cpp:59:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/PhotonCooling.hpp:112:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/IDriver.hpp:43:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/DriverContext.hpp:96:1: warning: 'DriverContext' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   96 | struct DriverContext
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Diagnostics/DriverDiagnostics.hpp:46:1: note: did you mean struct here?
+   46 | class DriverContext;
+      | ^~~~~
+      | struct
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Spin/src/MagneticDipole.cpp:26:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Spin/MagneticDipole.hpp:33:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/IDriver.hpp:43In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/src/PhotonCooling.cpp:59:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/PhotonCooling.hpp:112:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/IDriver.hpp:44:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/State/Tags.hpp:72:8: warning: using enum declaration is a C++20 extension [-Wc++20-extensions]
+:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/DriverContext.hpp:96:1: warning: 'DriverContext' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   96 | struct Drive   72 |         using enum StateTag;
+      |               ^
+rContext
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Diagnostics/DriverDiagnostics.hpp:46:1: note: did you mean struct here?
+   46 | class DriverContext;
+      | ^~~~~
+      | struct
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Spin/src/MagneticDipole.cpp:26:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Spin/MagneticDipole.hpp:33:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/IDriver.hpp:44:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/State/Tags.hpp:72:8: warning: using enum declaration is a C++20 extension [-Wc++20-extensions]
+   72 |         using enum StateTag;
+      |               ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Spin/src/MagneticDipole.cpp:28:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StarContext.hpp:53:1: warning: class 'StarProfile' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   53 | class StarProfile; // Core/StarProfile.hpp
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/ProfileProvenance.hpp:47:8: note: previous use is here
+   47 | struct StarProfile;
+      |        ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/src/PhotonCooling.cpp:60:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/PhotonCooling_Details.hpp:39:1: warning: class 'DriverContext' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   39 | class DriverContext;
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/DriverContext.hpp:96:8: note: previous use is here
+   96 | struct DriverContext
+      |        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/PhotonCooling_Details.hpp:39:1: note: did you mean struct here?
+   39 | class DriverContext;
+      | ^~~~~
+      | struct
+[ 41%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Driver/Thermal/src/NeutrinoCooling.cpp.o
+3 warnings generated.
+[ 41%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Driver/Thermal/src/NeutrinoCooling_Details.cpp.o
+3 warnings generated.
+[ 43%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Driver/Thermal/Boundary/src/SurfaceGravity.cpp.o
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/src/PhotonCooling_Details.cpp:22:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/PhotonCooling_Details.hpp:33:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StateVector.hpp:39:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/State/Tags.hpp:72:8: warning: using enum declaration is a C++20 extension [-Wc++20-extensions]
+   72 |         using enum StateTag;
+      |               ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/src/PhotonCooling_Details.cpp:22:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/PhotonCooling_Details.hpp:39:1: warning: class 'DriverContext' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   39 | class DriverContext;
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/DriverContext.hpp:96:8: note: previous use is here
+   96 | struct DriverContext
+      |        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/PhotonCooling_Details.hpp:39:1: note: did you mean struct here?
+   39 | class DriverContext;
+      | ^~~~~
+      | struct
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/src/PhotonCooling_Details.cpp:23:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/PhotonCooling.hpp:111:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Diagnostics/DriverDiagnostics.hpp:46:1: warning: class 'DriverContext' was previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   46 | class DriverContext;
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/DriverContext.hpp:96:8: note: previous use is here
+   96 | struct DriverContext
+      |        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Diagnostics/DriverDiagnostics.hpp:46:1: note: did you mean struct here?
+   46 | class DriverContext;
+      | ^~~~~
+      | struct
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/src/PhotonCooling_Details.cpp:26:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/Boundary/EnvelopePotekhin2003.hpp:58:14: warning: 'ModelName' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+   58 |         const char *ModelName() { return "Potekhin2003_Iron"; }
+      |                     ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/Boundary/IEnvelope.hpp:82:22: note: overridden virtual function is here
+   82 |         virtual const char *ModelName() = 0;
+      |                             ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/src/PhotonCooling_Details.cpp:37:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StarContext.hpp:53:1: warning: class 'StarProfile' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   53 | class StarProfile; // Core/StarProfile.hpp
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/ProfileProvenance.hpp:47:8: note: previous use is here
+   47 | struct StarProfile;
+      |        ^
+5 warnings generated.
+[ 43%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Driver/Thermal/Boundary/src/TbDefinition.cpp.o
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/src/NeutrinoCooling.cpp:39:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/NeutrinoCooling.hpp:66:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/IDriver.hpp:43:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/DriverContext.hpp:96:1: warning: 'DriverContext' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   96 | struct DriverContext
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Diagnostics/DriverDiagnostics.hpp:46:1: note: did you mean struct here?
+   46 | class DriverContext;
+      | ^~~~~
+      | struct
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/src/NeutrinoCooling.cpp:39:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/NeutrinoCooling.hpp:66:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/IDriver.hpp:44:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/State/Tags.hpp:72:8: warning: using enum declaration is a C++20 extension [-Wc++20-extensions]
+   72 |         using enum StateTag;
+      |               ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/Boundary/src/SurfaceGravity.cpp:125:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StarContext.hpp:53:1: warning: class 'StarProfile' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   53 | class StarProfile; // Core/StarProfile.hpp
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/ProfileProvenance.hpp:47:8: note: previous use is here
+   47 | struct StarProfile;
+      |        ^
+1 warning generated.
+[ 43%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Driver/Thermal/Boundary/src/EnvelopePotekhin1997.cpp.o
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/src/NeutrinoCooling.cpp:46:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/NeutrinoCooling_Details.hpp:39:1: warning: class 'DriverContext' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   39 | class DriverContext;
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/DriverContext.hpp:96:8: note: previous use is here
+   96 | struct DriverContext
+      |        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/NeutrinoCooling_Details.hpp:39:1: note: did you mean struct here?
+   39 | class DriverContext;
+      | ^~~~~
+      | struct
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/src/NeutrinoCooling_Details.cpp:22:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/NeutrinoCooling_Details.hpp:33:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StateVector.hpp:39:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/State/Tags.hpp:72:8: warning: using enum declaration is a C++20 extension [-Wc++20-extensions]
+   72 |         using enum StateTag;
+      |               ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/src/NeutrinoCooling_Details.cpp:22:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/NeutrinoCooling_Details.hpp:39:1: warning: class 'DriverContext' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   39 | class DriverContext;
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/DriverContext.hpp:96:8: note: previous use is here
+   96 | struct DriverContext
+      |        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/NeutrinoCooling_Details.hpp:39:1: note: did you mean struct here?
+   39 | class DriverContext;
+      | ^~~~~
+      | struct
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/src/NeutrinoCooling_Details.cpp:24:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/NeutrinoCooling.hpp:66:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/IDriver.hpp:42:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Diagnostics/DriverDiagnostics.hpp:46:1: warning: class 'DriverContext' was previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   46 | class DriverContext;
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/DriverContext.hpp:96:8: note: previous use is here
+   96 | struct DriverContext
+      |        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Diagnostics/DriverDiagnostics.hpp:46:1: note: did you mean struct here?
+   46 | class DriverContext;
+      | ^~~~~
+      | struct
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/src/NeutrinoCooling_Details.cpp:34:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StarContext.hpp:53:1: warning: class 'StarProfile' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   53 | class StarProfile; // Core/StarProfile.hpp
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/ProfileProvenance.hpp:47:8: note: previous use is here
+   47 | struct StarProfile;
+      |        ^
+[ 46%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Driver/Thermal/Boundary/src/EnvelopePotekhin2003.cpp.o
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/Boundary/src/EnvelopePotekhin2003.cpp:29:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/Boundary/EnvelopePotekhin2003.hpp:58:14: warning: 'ModelName' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+   58 |         const char *ModelName() { return "Potekhin2003_Iron"; }
+      |                     ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/Boundary/IEnvelope.hpp:82:22: note: overridden virtual function is here
+   82 |         virtual const char *ModelName() = 0;
+      |                             ^
+1 warning generated.
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/Boundary/src/TbDefinition.cpp:51:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StarContext.hpp:53:1: warning: class 'StarProfile' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   53 | class StarProfile; // Core/StarProfile.hpp
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/ProfileProvenance.hpp:47:8: note: previous use is here
+   47 | struct StarProfile;
+      |        ^
+[ 46%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/State/src/BNVState.cpp.o
+4 warnings generated.
+1 warning generated.
+[ 48%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/State/src/ChemState.cpp.o
+3 warnings generated.
+[ 48%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/State/src/SpinState.cpp.o
+[ 51%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/State/src/ThermalState.cpp.o
+[ 51%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/src/StateVector.cpp.o
+[ 53%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/src/EvolutionSystem.cpp.o
+[ 53%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/src/StateLayout.cpp.o
+[ 56%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/src/StatePacking.cpp.o
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/src/StatePacking.cpp:17:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StatePacking.hpp:33:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/RHSAccumulator.hpp:44:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/State/Tags.hpp:72:8: warning: using enum declaration is a C++20 extension [-Wc++20-extensions]
+   72 |         using enum StateTag;
+      |               ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/src/EvolutionSystem.cpp:19:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/IDriver.hpp:43:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/DriverContext.hpp:96:1: warning: 'DriverContext' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   96 | struct DriverContext
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Diagnostics/DriverDiagnostics.hpp:46:1: note: did you mean struct here?
+   46 | class DriverContext;
+      | ^~~~~
+      | struct
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/src/EvolutionSystem.cpp:19:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/IDriver.hpp:44:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/State/Tags.hpp:72:8: warning: using enum declaration is a C++20 extension [-Wc++20-extensions]
+   72 |         using enum StateTag;
+      |               ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/src/EvolutionSystem.cpp:23:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/Observers/IObserver.hpp:43:1: warning: class 'DriverContext' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   43 | class DriverContext;
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/DriverContext.hpp:96:8: note: previous use is here
+   96 | struct DriverContext
+      |        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/Observers/IObserver.hpp:43:1: note: did you mean struct here?
+   43 | class DriverContext;
+      | ^~~~~
+      | struct
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/src/EvolutionSystem.cpp:25:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StarContext.hpp:53:1: warning: class 'StarProfile' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   53 | class StarProfile; // Core/StarProfile.hpp
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/ProfileProvenance.hpp:47:8: note: previous use is here
+   47 | struct StarProfile;
+      |        ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/src/StateVector.cpp:17:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StateVector.hpp:39:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/State/Tags.hpp:72:8: warning: using enum declaration is a C++20 extension [-Wc++20-extensions]
+   72 |         using enum StateTag;
+      |               ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/src/StateLayout.cpp:17:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StateLayout.hpp:43:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StateVector.hpp:39:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/State/Tags.hpp:72:8: warning: using enum declaration is a C++20 extension [-Wc++20-extensions]
+   72 |         using enum StateTag;
+      |               ^
+1 warning generated.
+[ 56%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/src/StarContext.cpp.o
+1 warning generated.
+1 warning generated.
+[ 58%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/src/GeometryCache.cpp.o
+[ 58%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/src/ProfileCache.cpp.o
+4 warnings generated.
+[ 60%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/src/EvolutionConfig.cpp.o
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/src/StarContext.cpp:8:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StarContext.hpp:53:1: warning: class 'StarProfile' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   53 | class StarProfile; // Core/StarProfile.hpp
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/ProfileProvenance.hpp:47:8: note: previous use is here
+   47 | struct StarProfile;
+      |        ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/src/ProfileCache.cpp:18:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StarContext.hpp:53:1: warning: class 'StarProfile' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   53 | class StarProfile; // Core/StarProfile.hpp
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/ProfileProvenance.hpp:47:8: note: previous use is here
+   47 | struct StarProfile;
+      |        ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/src/GeometryCache.cpp:14:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StarContext.hpp:53:1: warning: class 'StarProfile' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   53 | class StarProfile; // Core/StarProfile.hpp
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/ProfileProvenance.hpp:47:8: note: previous use is here
+   47 | struct StarProfile;
+      |        ^
+1 warning generated.
+[ 60%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Integrator/src/GSLIntegrator.cpp.o
+1 warning generated.
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/src/StarContext.cpp:10:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Core/StarProfile.hpp:88:1: warning: 'StarProfile' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   88 | struct StarProfile
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StarContext.hpp:53:1: note: did you mean struct here?
+   53 | class StarProfile; // Core/StarProfile.hpp
+      | ^~~~~
+      | struct
+[ 63%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Diagnostics/src/DiagnosticsJson.cpp.o
+[ 63%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Diagnostics/src/DiagnosticPacket.cpp.o
+2 warnings generated.
+[ 65%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Diagnostics/src/UnitContract.cpp.o
+[ 65%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Diagnostics/src/DiagnosticCatalog.cpp.o
+[ 65%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Diagnostics/src/DiagnosticsCatalogJson.cpp.o
+[ 68%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Observers/src/IObserver.cpp.o
+[ 68%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Observers/src/DiagnosticsObserver.cpp.o
+[ 70%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Observers/src/TimeSeriesObserver.cpp.o
+[ 70%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Run/src/RunObservers.cpp.o
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/Diagnostics/src/DiagnosticsCatalogJson.cpp:674:13: warning: unused function 'GetSizeTOr' [-Wunused-function]
+  674 | std::size_t GetSizeTOr(const JValue &obj, const char *name, std::size_t def)
+      |             ^~~~~~~~~~
+1 warning generated.
+[ 73%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Run/src/RunPaths.cpp.o
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/Observers/src/TimeSeriesObserver.cpp:49:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StateVector.hpp:39:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/State/Tags.hpp:72:8: warning: using enum declaration is a C++20 extension [-Wc++20-extensions]
+   72 |         using enum StateTag;
+      |               ^
+[ 73%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Run/src/RunBuilder.cpp.o
+[ 75%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Rotochemical/src/GlobalUrcaChannelCoefficient.cpp.o
+[ 75%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/BNV/src/MovingReferenceSource.cpp.o
+1 warning generated.
+[ 78%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/BNV/src/DirectEnergyLedger.cpp.o
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/Run/src/RunBuilder.cpp:19:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/Run/RunBuilder.hpp:37:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/RHSAccumulator.hpp:44:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/State/Tags.hpp:72:8: warning: using enum declaration is a C++20 extension [-Wc++20-extensions]
+   72 |         using enum StateTag;
+      |               ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/Run/src/RunBuilder.cpp:19:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/Run/RunBuilder.hpp:43:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Diagnostics/DriverDiagnostics.hpp:46:1: warning: class 'DriverContext' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   46 | class DriverContext;
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/DriverContext.hpp:96:8: note: previous use is here
+   96 | struct DriverContext
+      |        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Diagnostics/DriverDiagnostics.hpp:46:1: note: did you mean struct here?
+   46 | class DriverContext;
+      | ^~~~~
+      | struct
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/Run/src/RunBuilder.cpp:24:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StarContext.hpp:53:1: warning: class 'StarProfile' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   53 | class StarProfile; // Core/StarProfile.hpp
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/ProfileProvenance.hpp:47:8: note: previous use is here
+   47 | struct StarProfile;
+      |        ^
+3 warnings generated.
+[ 78%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/BNV/src/StaticZeroSpinHistory.cpp.o
+[ 80%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/BNV/src/FrozenBnvValidity.cpp.o
+[ 80%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/BNV/src/FrozenControlledBnvRunContext.cpp.o
+[ 82%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/BNV/src/ControlledBnvSecularDriver.cpp.o
+[ 82%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/BNV/src/EquilibriumBaryonTangent.cpp.o
+[ 85%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/BNV/src/PassiveCheckpointOutput.cpp.o
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/src/FrozenControlledBnvRunContext.cpp:1:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/FrozenControlledBnvRunContext.hpp:7:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:6:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StarContext.hpp:53:1: warning: class 'StarProfile' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   53 | class StarProfile; // Core/StarProfile.hpp
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Core/StarProfile.hpp:88:8: note: previous use is here
+   88 | struct StarProfile
+      |        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StarContext.hpp:53:1: note: did you mean struct here?
+   53 | class StarProfile; // Core/StarProfile.hpp
+      | ^~~~~
+      | struct
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/src/FrozenControlledBnvRunContext.cpp:1:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/FrozenControlledBnvRunContext.hpp:7:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:8:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/PhotonCooling.hpp:112:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/IDriver.hpp:43:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/DriverContext.hpp:96:1: warning: 'DriverContext' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   96 | struct DriverContext
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Diagnostics/DriverDiagnostics.hpp:46:1: note: did you mean struct here?
+   46 | class DriverContext;
+      | ^~~~~
+      | struct
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/src/FrozenControlledBnvRunContext.cpp:1:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/FrozenControlledBnvRunContext.hpp:7:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:8:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/PhotonCooling.hpp:112:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/IDriver.hpp:44:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/State/Tags.hpp:72:8: warning: using enum declaration is a C++20 extension [-Wc++20-extensions]
+   72 |         using enum StateTag;
+      |               ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/src/FrozenControlledBnvRunContext.cpp:1:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/FrozenControlledBnvRunContext.hpp:7:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:9:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/PhotonCooling_Details.hpp:39:1: warning: class 'DriverContext' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   39 | class DriverContext;
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/DriverContext.hpp:96:8: note: previous use is here
+   96 | struct DriverContext
+      |        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/PhotonCooling_Details.hpp:39:1: note: did you mean struct here?
+   39 | class DriverContext;
+      | ^~~~~
+      | struct
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/src/FrozenControlledBnvRunContext.cpp:1:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/FrozenControlledBnvRunContext.hpp:7:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:11:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/NeutrinoCooling_Details.hpp:39:1: warning: class 'DriverContext' was previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   39 | class DriverContext;
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/DriverContext.hpp:96:8: note: previous use is here
+   96 | struct DriverContext
+      |        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/NeutrinoCooling_Details.hpp:39:1: note: did you mean struct here?
+   39 | class DriverContext;
+      | ^~~~~
+      | struct
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/src/ControlledBnvSecularDriver.cpp:1:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/ControlledBnvSecularDriver.hpp:3:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/FrozenControlledBnvRunContext.hpp:7:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:6:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StarContext.hpp:53:1: warning: class 'StarProfile' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   53 | class StarProfile; // Core/StarProfile.hpp
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Core/StarProfile.hpp:88:8: note: previous use is here
+   88 | struct StarProfile
+      |        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StarContext.hpp:53:1: note: did you mean struct here?
+   53 | class StarProfile; // Core/StarProfile.hpp
+      | ^~~~~
+      | struct
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/src/ControlledBnvSecularDriver.cpp:1:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/ControlledBnvSecularDriver.hpp:3:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/FrozenControlledBnvRunContext.hpp:7:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:8:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/PhotonCooling.hpp:112:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/IDriver.hpp:43:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/DriverContext.hpp:96:1: warning: 'DriverContext' defined as a struct here but previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   96 | struct DriverContext
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Diagnostics/DriverDiagnostics.hpp:46:1: note: did you mean struct here?
+   46 | class DriverContext;
+      | ^~~~~
+      | struct
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/src/ControlledBnvSecularDriver.cpp:1:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/ControlledBnvSecularDriver.hpp:3:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/FrozenControlledBnvRunContext.hpp:7:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:8:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/PhotonCooling.hpp:112:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/IDriver.hpp:44:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/State/Tags.hpp:72:8: warning: using enum declaration is a C++20 extension [-Wc++20-extensions]
+   72 |         using enum StateTag;
+      |               ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/src/ControlledBnvSecularDriver.cpp:1:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/ControlledBnvSecularDriver.hpp:3:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/FrozenControlledBnvRunContext.hpp:7:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:9:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/PhotonCooling_Details.hpp:39:1: warning: class 'DriverContext' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   39 | class DriverContext;
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/DriverContext.hpp:96:8: note: previous use is here
+   96 | struct DriverContext
+      |        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/PhotonCooling_Details.hpp:39:1: note: did you mean struct here?
+   39 | class DriverContext;
+      | ^~~~~
+      | struct
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/src/ControlledBnvSecularDriver.cpp:1:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/ControlledBnvSecularDriver.hpp:3:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/FrozenControlledBnvRunContext.hpp:7:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:11:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/NeutrinoCooling_Details.hpp:39:1: warning: class 'DriverContext' was previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   39 | class DriverContext;
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/DriverContext.hpp:96:8: note: previous use is here
+   96 | struct DriverContext
+      |        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/NeutrinoCooling_Details.hpp:39:1: note: did you mean struct here?
+   39 | class DriverContext;
+      | ^~~~~
+      | struct
+[ 85%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Microphysics/BNV/Analysis/src/BNV_Analysis.cpp.o
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/src/PassiveCheckpointOutput.cpp:1:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/PassiveCheckpointOutput.hpp:5:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StateLayout.hpp:43:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StateVector.hpp:39:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/State/Tags.hpp:72:8: warning: using enum declaration is a C++20 extension [-Wc++20-extensions]
+   72 |         using enum StateTag;
+      |               ^
+5 warnings generated.
+5 warnings generated.
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/src/PassiveCheckpointOutput.cpp:1:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/PassiveCheckpointOutput.hpp:6:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:6:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StarContext.hpp:53:1: warning: class 'StarProfile' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   53 | class StarProfile; // Core/StarProfile.hpp
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Core/StarProfile.hpp:88:8: note: previous use is here
+   88 | struct StarProfile
+      |        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StarContext.hpp:53:1: note: did you mean struct here?
+   53 | class StarProfile; // Core/StarProfile.hpp
+      | ^~~~~
+      | struct
+[ 87%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Microphysics/BNV/Analysis/src/Decay_Analysis.cpp.o
+[ 87%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Microphysics/BNV/Analysis/src/BNV_Sequence.cpp.o
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/src/PassiveCheckpointOutput.cpp:1:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/PassiveCheckpointOutput.hpp:6:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:8:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/PhotonCooling.hpp:111:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Diagnostics/DriverDiagnostics.hpp:46:1: warning: class 'DriverContext' was previously declared as a struct; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   46 | class DriverContext;
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/DriverContext.hpp:96:8: note: previous use is here
+   96 | struct DriverContext
+      |        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Diagnostics/DriverDiagnostics.hpp:46:1: note: did you mean struct here?
+   46 | class DriverContext;
+      | ^~~~~
+      | struct
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/src/PassiveCheckpointOutput.cpp:1:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/PassiveCheckpointOutput.hpp:6:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:9:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/PhotonCooling_Details.hpp:39:1: warning: class 'DriverContext' was previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   39 | class DriverContext;
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/DriverContext.hpp:96:8: note: previous use is here
+   96 | struct DriverContext
+      |        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/PhotonCooling_Details.hpp:39:1: note: did you mean struct here?
+   39 | class DriverContext;
+      | ^~~~~
+      | struct
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/src/PassiveCheckpointOutput.cpp:1:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/PassiveCheckpointOutput.hpp:6:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:11:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/NeutrinoCooling_Details.hpp:39:1: warning: class 'DriverContext' was previously declared as a class; this is valid, but may result in linker errors under the Microsoft C++ ABI [-Wmismatched-tags]
+   39 | class DriverContext;
+      | ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/DriverContext.hpp:96:8: note: previous use is here
+   96 | struct DriverContext
+      |        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/NeutrinoCooling_Details.hpp:39:1: note: did you mean struct here?
+   39 | class DriverContext;
+      | ^~~~~
+      | struct
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Analysis/src/BNV_Analysis.cpp:9:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Analysis/BNV_Analysis.hpp:264:32: warning: unused parameter 'in_star' [-Wunused-parameter]
+  264 |         void Analyze(Core::MixedStar *in_star) override {}
+      |                                       ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Analysis/src/Decay_Analysis.cpp:10:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Analysis/Decay_Analysis.hpp:130:32: warning: unused parameter 'in_star' [-Wunused-parameter]
+  130 |         void Analyze(Core::MixedStar *in_star) override {}
+      |                                       ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Analysis/src/Decay_Analysis.cpp:20:4: warning: field 'm_chi' will be initialized after field 'neutron' [-Wreorder-ctor]
+   20 |         : m_chi(0.8233 * Zaki::Physics::NEUTRON_M_FM),
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |           neutron("neutron", "10", Zaki::Physics::NEUTRON_M_FM, 3.826)
+   21 |           neutron("neutron", "10", Zaki::Physics::NEUTRON_M_FM, 3.826),
+      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |           lambda("lambda", "100", Zaki::Physics::LAMBDA_ZERO_M_FM, -1.22)
+   22 |           lambda("lambda", "100", Zaki::Physics::LAMBDA_ZERO_M_FM, -1.22)
+      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |           m_chi(0.8233 * Zaki::Physics::NEUTRON_M_FM)
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Analysis/src/Decay_Analysis.cpp:71:65: warning: unused parameter 'm_lam_bar' [-Wunused-parameter]
+   71 | double MicroBNVAna::Decay_Analysis::AmplitudeSqrd(const double &m_lam_bar) const
+      |                                                                 ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Analysis/src/Decay_Analysis.cpp:77:62: warning: unused parameter 'm_lam_bar' [-Wunused-parameter]
+   77 | double MicroBNVAna::Decay_Analysis::PhaseSpace(const double &m_lam_bar,
+      |                                                              ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Analysis/src/Decay_Analysis.cpp:78:29: warning: unused parameter 'n_lam' [-Wunused-parameter]
+   78 |                                                                                            const double &n_lam) const
+      |                                                                                                          ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Analysis/src/Decay_Analysis.cpp:597:73: warning: unused parameter 'in_dir' [-Wunused-parameter]
+  597 | void MicroBNVAna::Decay_Analysis::Export(const Zaki::String::Directory &in_dir)
+      |                                                                         ^
+5 warnings generated.
+[ 87%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Combo.cpp.o
+1 warning generated.
+[ 90%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp.o
+6 warnings generated.
+[ 90%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Transition.cpp.o
+[ 92%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp.o
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Combo.cpp:13:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/BNV_B_Chi_Combo.hpp:48:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:118:6: warning: field 'TeX_name' will be initialized after field 'short_name' [-Wreorder-ctor]
+  118 |                           TeX_name(in_TeX_name),
+      |                           ^~~~~~~~~~~~~~~~~~~~~
+      |                           short_name(in_short_name)
+  119 |                           short_name(in_short_name),
+      |                           ~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                           label(in_label)
+  120 |                           label(in_label),
+      |                           ~~~~~~~~~~~~~~~
+      |                           TeX_name(in_TeX_name)
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:155:51: warning: unused parameter 'B' [-Wunused-parameter]
+  155 |         virtual Process GetSpecificProcess(const Baryon &B) const
+      |                                                          ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:15:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/BNV_B_Chi_Photon.hpp:59:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:118:6: warning: field 'TeX_name' will be initialized after field 'short_name' [-Wreorder-ctor]
+  118 |                           TeX_name(in_TeX_name),
+      |                           ^~~~~~~~~~~~~~~~~~~~~
+      |                           short_name(in_short_name)
+  119 |                           short_name(in_short_name),
+      |                           ~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                           label(in_label)
+  120 |                           label(in_label),
+      |                           ~~~~~~~~~~~~~~~
+      |                           TeX_name(in_TeX_name)
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:155:51: warning: unused parameter 'B' [-Wunused-parameter]
+  155 |         virtual Process GetSpecificProcess(const Baryon &B) const
+      |                                                          ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:688:9: warning: unused variable 'rate_max' [-Wunused-variable]
+  688 |         double rate_max = ds->operator[](1).Max();
+      |                ^~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:689:9: warning: unused variable 'rate_min' [-Wunused-variable]
+  689 |         double rate_min = ds->operator[](1).Min();
+      |                ^~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:829:9: warning: unused variable 'rate_max' [-Wunused-variable]
+  829 |         double rate_max = ds->operator[](1).Max();
+      |                ^~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:830:9: warning: unused variable 'rate_min' [-Wunused-variable]
+  830 |         double rate_min = ds->operator[](1).Min();
+      |                ^~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:857:9: warning: unused variable 'rate_max' [-Wunused-variable]
+  857 |         double rate_max = ds->operator[](1).Max();
+      |                ^~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:858:9: warning: unused variable 'rate_min' [-Wunused-variable]
+  858 |         double rate_min = ds->operator[](1).Min();
+      |                ^~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:885:9: warning: unused variable 'rate_max' [-Wunused-variable]
+  885 |         double rate_max = ds->operator[](1).Max();
+      |                ^~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:886:9: warning: unused variable 'rate_min' [-Wunused-variable]
+  886 |         double rate_min = ds->operator[](1).Min();
+      |                ^~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:1747:73: warning: unused parameter 'T_core' [-Wunused-parameter]
+ 1747 | void MicroBNVCh::BNV_B_Chi_Photon::Limit_eps_From_Heating(const double &T_core)
+      |                                                                         ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:1824:74: warning: unused parameter 'T_core' [-Wunused-parameter]
+ 1824 | void MicroBNVCh::BNV_B_Chi_Photon::Limit_eps_From_Slowness(const double &T_core)
+      |                                                                          ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:1913:74: warning: unused parameter 'x' [-Wunused-parameter]
+ 1913 | void MicroBNVCh::BNV_B_Chi_Photon::Eps_From_Beta_Imbalance(const double &x)
+      |                                                                          ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Transition.cpp:16:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/BNV_B_Chi_Transition.hpp:51:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:118:6: warning: field 'TeX_name' will be initialized after field 'short_name' [-Wreorder-ctor]
+  118 |                           TeX_name(in_TeX_name),
+      |                           ^~~~~~~~~~~~~~~~~~~~~
+      |                           short_name(in_short_name)
+  119 |                           short_name(in_short_name),
+      |                           ~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                           label(in_label)
+  120 |                           label(in_label),
+      |                           ~~~~~~~~~~~~~~~
+      |                           TeX_name(in_TeX_name)
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:155:51: warning: unused parameter 'B' [-Wunused-parameter]
+  155 |         virtual Process GetSpecificProcess(const Baryon &B) const
+      |                                                          ^
+2 warnings generated.
+[ 92%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp.o
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:15:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/BNV_B_Psi_Pion.hpp:51:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:118:6: warning: field 'TeX_name' will be initialized after field 'short_name' [-Wreorder-ctor]
+  118 |                           TeX_name(in_TeX_name),
+      |                           ^~~~~~~~~~~~~~~~~~~~~
+      |                           short_name(in_short_name)
+  119 |                           short_name(in_short_name),
+      |                           ~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                           label(in_label)
+  120 |                           label(in_label),
+      |                           ~~~~~~~~~~~~~~~
+      |                           TeX_name(in_TeX_name)
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:155:51: warning: unused parameter 'B' [-Wunused-parameter]
+  155 |         virtual Process GetSpecificProcess(const Baryon &B) const
+      |                                                          ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:15:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/BNV_B_Psi_Pion.hpp:346:9: warning: 'CompactStar::Microphysics::BNV::Channels::BNV_B_Psi_Pion::PhaseSpace_Integral' hides overloaded virtual function [-Woverloaded-virtual]
+  346 |         double PhaseSpace_Integral(const double &x_F);
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:302:17: note: hidden overloaded virtual function 'CompactStar::Microphysics::BNV::Internal::BNV_Chi::PhaseSpace_Integral' declared here: different number of parameters (5 vs 1)
+  302 |         virtual double PhaseSpace_Integral(const Baryon &B,
+      |                        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:224:9: warning: unused variable 'x' [-Wunused-variable]
+  224 |         double x = pars.x;
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:225:9: warning: unused variable 'sig' [-Wunused-variable]
+  225 |         double sig = pars.sig;
+      |                ^~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:226:9: warning: unused variable 'mu_psi' [-Wunused-variable]
+  226 |         double mu_psi = pars.mu_psi;
+      |                ^~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:227:9: warning: unused variable 'mu_pi' [-Wunused-variable]
+  227 |         double mu_pi = pars.mu_pi;
+      |                ^~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:268:9: warning: unused variable 'x' [-Wunused-variable]
+  268 |         double x = pars.x;
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:269:9: warning: unused variable 'sig' [-Wunused-variable]
+  269 |         double sig = pars.sig;
+      |                ^~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:270:9: warning: unused variable 'mu_psi' [-Wunused-variable]
+  270 |         double mu_psi = pars.mu_psi;
+      |                ^~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:271:9: warning: unused variable 'mu_pi' [-Wunused-variable]
+  271 |         double mu_pi = pars.mu_pi;
+      |                ^~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:313:9: warning: unused variable 'x' [-Wunused-variable]
+  313 |         double x = pars.x;
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:314:9: warning: unused variable 'sig' [-Wunused-variable]
+  314 |         double sig = pars.sig;
+      |                ^~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:315:9: warning: unused variable 'mu_psi' [-Wunused-variable]
+  315 |         double mu_psi = pars.mu_psi;
+      |                ^~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:316:9: warning: unused variable 'mu_pi' [-Wunused-variable]
+  316 |         double mu_pi = pars.mu_pi;
+      |                ^~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:338:9: warning: unused variable 'x' [-Wunused-variable]
+  338 |         double x = pars.x;
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:339:9: warning: unused variable 'sig' [-Wunused-variable]
+  339 |         double sig = pars.sig;
+      |                ^~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:340:9: warning: unused variable 'mu_psi' [-Wunused-variable]
+  340 |         double mu_psi = pars.mu_psi;
+      |                ^~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:341:9: warning: unused variable 'mu_pi' [-Wunused-variable]
+  341 |         double mu_pi = pars.mu_pi;
+      |                ^~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:378:9: warning: unused variable 'x' [-Wunused-variable]
+  378 |         double x = pars.x;
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:379:9: warning: unused variable 'sig' [-Wunused-variable]
+  379 |         double sig = pars.sig;
+      |                ^~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:380:9: warning: unused variable 'mu_psi' [-Wunused-variable]
+  380 |         double mu_psi = pars.mu_psi;
+      |                ^~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:381:9: warning: unused variable 'mu_pi' [-Wunused-variable]
+  381 |         double mu_pi = pars.mu_pi;
+      |                ^~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:416:9: warning: unused variable 'x' [-Wunused-variable]
+  416 |         double x = pars.x;
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:417:9: warning: unused variable 'sig' [-Wunused-variable]
+  417 |         double sig = pars.sig;
+      |                ^~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:418:9: warning: unused variable 'mu_psi' [-Wunused-variable]
+  418 |         double mu_psi = pars.mu_psi;
+      |                ^~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:419:9: warning: unused variable 'mu_pi' [-Wunused-variable]
+  419 |         double mu_pi = pars.mu_pi;
+      |                ^~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:449:9: warning: unused variable 'x' [-Wunused-variable]
+  449 |         double x = pars.x;
+      |                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:450:9: warning: unused variable 'sig' [-Wunused-variable]
+  450 |         double sig = pars.sig;
+      |                ^~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:451:9: warning: unused variable 'mu_psi' [-Wunused-variable]
+  451 |         double mu_psi = pars.mu_psi;
+      |                ^~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:452:9: warning: unused variable 'mu_pi' [-Wunused-variable]
+  452 |         double mu_pi = pars.mu_pi;
+      |                ^~~~~
+2 warnings generated.
+[ 95%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Extensions/MixedStar/src/DarkCore_Analysis.cpp.o
+13 warnings generated.
+[ 95%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Extensions/LightDM/src/LightDM_Scalar_Density.cpp.o
+31 warnings generated.
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:16:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:118:6: warning: field 'TeX_name' will be initialized after field 'short_name' [-Wreorder-ctor]
+  118 |                           TeX_name(in_TeX_name),
+      |                           ^~~~~~~~~~~~~~~~~~~~~
+      |                           short_name(in_short_name)
+  119 |                           short_name(in_short_name),
+      |                           ~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                           label(in_label)
+  120 |                           label(in_label),
+      |                           ~~~~~~~~~~~~~~~
+      |                           TeX_name(in_TeX_name)
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:155:51: warning: unused parameter 'B' [-Wunused-parameter]
+  155 |         virtual Process GetSpecificProcess(const Baryon &B) const
+      |                                                          ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:45:4: warning: field 'process' will be initialized after field 'm_chi_vals' [-Wreorder-ctor]
+   37 |         : neutron("neutron", "n", "n", "10", Zaki::Physics::NEUTRON_M_MEV,
+      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |           m_chi_vals({{0, 1100}, 220, "Linear"})
+   38 |                           -3.82608545, 879.6),
+      |                           ~~~~~~~~~~~~~~~~~~~
+   39 |           lambda("lambda", "\\Lambda", "Lam", "100",
+      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   40 |                          Zaki::Physics::LAMBDA_ZERO_M_MEV, -1.22, 2.632e-10),
+      |                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   41 |           proton("proton", "p^+", "p", "11", Zaki::Physics::PROTON_M_MEV,
+      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   42 |                          5.5856946893, 1e+41),
+      |                          ~~~~~~~~~~~~~~~~~~~~
+   43 |           sigma_m("Sigma-", "\\Sigma^-", "Sig-", "110", Zaki::Physics::SIGMA_MINUS_M_MEV,
+      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   44 |                           -1.160, 1.479e-10),
+      |                           ~~~~~~~~~~~~~~~~~~
+   45 |           process(in_process),
+      |           ^~~~~~~~~~~~~~~~~~~
+   46 |           // m_chi_vals({{0, 1400}, 700, "Linear"})
+   47 |           m_chi_vals({{0, 1100}, 220, "Linear"})
+      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |           process(in_process)
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:137:30: warning: unused parameter 'micro_model' [-Wunused-parameter]
+  137 |                                                                          const std::string &micro_model)
+      |                                                                                             ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:262:7: warning: unused variable 'has_hyperons' [-Wunused-variable]
+  262 |         bool has_hyperons = true;
+      |              ^~~~~~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:369:65: warning: unused parameter 'x' [-Wunused-parameter]
+  369 | double MicroBNVInt::BNV_Chi::PhaseSpace_Integrand(const double &x)
+      |                                                                 ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:375:64: warning: unused parameter 'B' [-Wunused-parameter]
+  375 | double MicroBNVInt::BNV_Chi::PhaseSpace_Integral(const Baryon &B,
+      |                                                                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:376:28: warning: unused parameter 'm' [-Wunused-parameter]
+  376 |                                                                                                  const double &m,
+      |                                                                                                                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:377:28: warning: unused parameter 'm_chi' [-Wunused-parameter]
+  377 |                                                                                                  const double &m_chi,
+      |                                                                                                                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:378:28: warning: unused parameter 'Sigma_0' [-Wunused-parameter]
+  378 |                                                                                                  const double &Sigma_0,
+      |                                                                                                                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:379:28: warning: unused parameter 'x_F' [-Wunused-parameter]
+  379 |                                                                                                  const double &x_F)
+      |                                                                                                                ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:738:9: warning: unused variable 'Y_max' [-Wunused-variable]
+  738 |         double Y_max = std::max({ds_EF_r[1].Max(), ds_EF_r[2].Max(),
+      |                ^~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:966:7: warning: unused variable 'non_zero_cond' [-Wunused-variable]
+  966 |         auto non_zero_cond = [](const double &v)
+      |              ^~~~~~~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:1426:65: warning: unused parameter 'm_chi' [-Wunused-parameter]
+ 1426 | void MicroBNVInt::BNV_Chi::Rate_vs_R(const std::vector<double> &m_chi,
+      |                                                                 ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:1427:25: warning: unused parameter 'B' [-Wunused-parameter]
+ 1427 |                                                                          const Baryon &B,
+      |                                                                                        ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:1576:9: warning: unused variable 'rate_max' [-Wunused-variable]
+ 1576 |         double rate_max = ds->operator[](1).Max();
+      |                ^~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:1577:9: warning: unused variable 'rate_min' [-Wunused-variable]
+ 1577 |         double rate_min = ds->operator[](1).Min();
+      |                ^~~~~~~~
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:2166:66: warning: unused parameter 'in_dir' [-Wunused-parameter]
+ 2166 | void MicroBNVInt::BNV_Chi::Export(const Zaki::String::Directory &in_dir) const
+      |                                                                  ^
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Extensions/MixedStar/src/DarkCore_Analysis.cpp:9:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Extensions/MixedStar/DarkCore_Analysis.hpp:288:28: warning: unused parameter 'in_star' [-Wunused-parameter]
+  288 |         void Analyze(Core::NStar *in_star) override {}
+      |                                   ^
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Extensions/MixedStar/src/DarkCore_Analysis.cpp:330:10: warning: comparison of integers of different signs: 'size_t' (aka 'unsigned long') and 'int' [-Wsign-compare]
+  330 |                         if (i == m_idx || (m_idx == 0 && i == 1))
+      |                             ~ ^  ~~~~~
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Extensions/LightDM/src/LightDM_Scalar_Density.cpp:41:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Extensions/LightDM/LightDM_Scalar_Density.hpp:95:6: warning: field 'TeX_name' will be initialized after field 'short_name' [-Wreorder-ctor]
+   95 |                           TeX_name(in_TeX_name),
+      |                           ^~~~~~~~~~~~~~~~~~~~~
+      |                           short_name(in_short_name)
+   96 |                           short_name(in_short_name),
+      |                           ~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                           label(in_label)
+   97 |                           label(in_label),
+      |                           ~~~~~~~~~~~~~~~
+      |                           TeX_name(in_TeX_name)
+18 warnings generated.
+2 warnings generated.
+1 warning generated.
+[ 97%] Linking CXX static library libCompactStar.a
+[ 97%] Built target CompactStar
+[ 97%] Building CXX object tests/CMakeFiles/chemical_production_contract.dir/analysis/chemical_production_contract.cpp.o
+[100%] Linking CXX executable chemical_production_contract
+[100%] Built target chemical_production_contract
+[ 97%] Built target CompactStar
+[ 97%] Building CXX object tests/CMakeFiles/particle_number_analytic.dir/analysis/particle_number_analytic.cpp.o
+[100%] Linking CXX executable particle_number_analytic
+[100%] Built target particle_number_analytic
+[ 97%] Built target CompactStar
+[ 97%] Building CXX object tests/CMakeFiles/passive_checkpoint_output_contract.dir/bnv/passive_checkpoint_output_contract.cpp.o
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/tests/bnv/passive_checkpoint_output_contract.cpp:1:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/BNV/PassiveCheckpointOutput.hpp:5:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StateLayout.hpp:43:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Evolution/StateVector.hpp:39:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/State/Tags.hpp:72:8: warning: using enum declaration is a C++20 extension [-Wc++20-extensions]
+   72 |         using enum StateTag;
+      |               ^
+1 warning generated.
+[100%] Linking CXX executable passive_checkpoint_output_contract
+[100%] Built target passive_checkpoint_output_contract
+[ 97%] Built target CompactStar
+[100%] Building CXX object tests/CMakeFiles/phase6a1_direct_energy.dir/bnv/direct_energy.cpp.o
+[100%] Linking CXX executable phase6a1_direct_energy
+[100%] Built target phase6a1_direct_energy
+[ 97%] Built target CompactStar
+[ 97%] Building CXX object tests/CMakeFiles/phase6a1_thermal_ledger.dir/bnv/thermal_ledger.cpp.o
+[100%] Linking CXX executable phase6a1_thermal_ledger
+[100%] Built target phase6a1_thermal_ledger
+[ 97%] Built target CompactStar
+[ 97%] Building CXX object tests/CMakeFiles/heat_capacity_v1.dir/thermal/heat_capacity_v1.cpp.o
+[100%] Linking CXX executable heat_capacity_v1
+[100%] Built target heat_capacity_v1
+[ 97%] Built target CompactStar
+[ 97%] Building CXX object tests/CMakeFiles/cache_contract.dir/evolution/cache_contract.cpp.o
+[100%] Linking CXX executable cache_contract
+[100%] Built target cache_contract
+[ 97%] Built target CompactStar
+[ 97%] Building CXX object tests/CMakeFiles/cache_thermal_contract.dir/thermal/cache_thermal_contract.cpp.o
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/tests/thermal/cache_thermal_contract.cpp:53:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/NeutrinoCooling.hpp:66:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/IDriver.hpp:44:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/State/Tags.hpp:72:8: warning: using enum declaration is a C++20 extension [-Wc++20-extensions]
+   72 |         using enum StateTag;
+      |               ^
+1 warning generated.
+[100%] Linking CXX executable cache_thermal_contract
+[100%] Built target cache_thermal_contract
+[ 97%] Built target CompactStar
+[100%] Building CXX object tests/CMakeFiles/phase5d_component_tolerances.dir/rotochemical/component_tolerances.cpp.o
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/tests/rotochemical/component_tolerances.cpp:1:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Rotochemical/ScaledRKF45.hpp:2:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:8:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/Thermal/PhotonCooling.hpp:112:
+In file included from /Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/Driver/IDriver.hpp:44:
+/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6-cluster-preparation/CompactStar/Physics/State/Tags.hpp:72:8: warning: using enum declaration is a C++20 extension [-Wc++20-extensions]
+   72 |         using enum StateTag;
+      |               ^
+1 warning generated.
+[100%] Linking CXX executable phase5d_component_tolerances
+[100%] Built target phase5d_component_tolerances
+[ 97%] Built target CompactStar
+[100%] Building CXX object tests/CMakeFiles/phase6_breakpoint_contract.dir/bnv/breakpoint_contract.cpp.o
+[100%] Linking CXX executable phase6_breakpoint_contract
+[100%] Built target phase6_breakpoint_contract
+[ 97%] Built target CompactStar
+[100%] Building CXX object tests/CMakeFiles/phase6_currentness_bytes.dir/bnv/currentness_bytes.cpp.o
+[100%] Linking CXX executable phase6_currentness_bytes
+[100%] Built target phase6_currentness_bytes

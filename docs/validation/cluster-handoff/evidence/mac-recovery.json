@@ -1,0 +1,118 @@
+{
+  "dependency_lock_sha256": "e1307a042180034ad028f2ff07dbc7fd80752494ff4b2ff61cc8ca0eec2089c5",
+  "package_artifacts": [
+    {
+      "name": "Zaki",
+      "mode": "Debug",
+      "original_prefix": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/Debug/Zaki",
+      "resolved_prefix": "/Volumes/Scriptorium/Research/CompactStar/space_recovery/20261002T001142Z/products/external/qualification/compactstar-migration/e263a6e-b0cbd510/Debug/Zaki",
+      "actual": {
+        "archive_sha256": "f30e68b261504e1ca3b9af905dc98a0ce70fa25f04c3c19ab81e3b2629fb074f",
+        "headers_sha256": "51931f9eac6823cc21609741c7f60485d0dbfab8d815d0a541e897cbcc2528a2",
+        "configs_sha256": "596eadba91749e64e44c15b6b9e7067a9542e73c4f4b30b51828fd4c95d28ff4"
+      },
+      "provenance_sha256": "a57f4ffd872873bba3703480156fe0a4c7106e057c08b9005425d5cb3ebf93d2",
+      "archived_provenance_exact": true,
+      "status": "PASS"
+    },
+    {
+      "name": "CONFIND",
+      "mode": "Debug",
+      "original_prefix": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/Debug/CONFIND",
+      "resolved_prefix": "/Volumes/Scriptorium/Research/CompactStar/space_recovery/20261002T001142Z/products/external/qualification/compactstar-migration/e263a6e-b0cbd510/Debug/CONFIND",
+      "actual": {
+        "archive_sha256": "1f36fc6ef6964d4342a025539a5a26c6c55faf04f70d1fe9319c0a4e70cc32c7",
+        "headers_sha256": "0e02d55747cfa7bce70fdc9c660a4b95ec540dd4ce0c9bd94fbb68bccd5fd99b",
+        "configs_sha256": "2f4cca2c4e1788e01b9c743ac368373a8b687555b86c76204f965485548a3121"
+      },
+      "provenance_sha256": "2fcdbbafbbc3c80e0e7dd70b178ba5ebd58a37e644c33dd3438c6b2d5269847a",
+      "archived_provenance_exact": true,
+      "status": "PASS"
+    },
+    {
+      "name": "Zaki",
+      "mode": "Release",
+      "original_prefix": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/Release/Zaki",
+      "resolved_prefix": "/Volumes/Scriptorium/Research/CompactStar/space_recovery/20261002T001142Z/products/external/qualification/compactstar-migration/e263a6e-b0cbd510/Release/Zaki",
+      "actual": {
+        "archive_sha256": "3b7f375ff789cd2c0edf58f97274c06fa047e4f477bf327214f9406461baad9d",
+        "headers_sha256": "51931f9eac6823cc21609741c7f60485d0dbfab8d815d0a541e897cbcc2528a2",
+        "configs_sha256": "8f1643012d7b651d4eccfa3a827b0aee9410ac15f8345253780e2c29560fc235"
+      },
+      "provenance_sha256": "24dd9d4b21d6ec667c99794a626682186f1953cfcafd8339004af9109daed1a7",
+      "archived_provenance_exact": true,
+      "status": "PASS"
+    },
+    {
+      "name": "CONFIND",
+      "mode": "Release",
+      "original_prefix": "/Users/keeper/Documents/CompactStar/external/qualification/compactstar-migration/e263a6e-b0cbd510/Release/CONFIND",
+      "resolved_prefix": "/Volumes/Scriptorium/Research/CompactStar/space_recovery/20261002T001142Z/products/external/qualification/compactstar-migration/e263a6e-b0cbd510/Release/CONFIND",
+      "actual": {
+        "archive_sha256": "4cee9b8361fec75023d74b8a68bf7efae54f69cf1464e478173bcfb5d38b524d",
+        "headers_sha256": "0e02d55747cfa7bce70fdc9c660a4b95ec540dd4ce0c9bd94fbb68bccd5fd99b",
+        "configs_sha256": "ab72334b769fe04819978ded164546fba83231844190d7735dcfadfea3bf2b6d"
+      },
+      "provenance_sha256": "22e1d1ee7c302943931c901ca6aa28a130f186c517c99dfcb6a6305787e40b76",
+      "archived_provenance_exact": true,
+      "status": "PASS"
+    }
+  ],
+  "scientific_inputs": [
+    {
+      "key": "certificate",
+      "original": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-fresh-qualification/certificate-t8192-r80000.txt",
+      "resolved": "/Volumes/Scriptorium/Research/CompactStar/space_recovery/20261002T001142Z/builds/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-fresh-qualification/certificate-t8192-r80000.txt",
+      "sha256": "7fc892b50bfbcdd2c5d963e0ff866777f3628f40fc282e1ce5a0b0364200a453",
+      "status": "PASS",
+      "files": 1,
+      "bytes": 842893
+    },
+    {
+      "key": "coefficients",
+      "original": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-final/coefficients.tsv",
+      "resolved": "/Volumes/Scriptorium/Research/CompactStar/space_recovery/20261002T001142Z/builds/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-final/coefficients.tsv",
+      "sha256": "3efa060d99a7a92266679aadb31885abbed9c940404247f1d3009cafa94832d6",
+      "status": "PASS",
+      "files": 1,
+      "bytes": 9651
+    },
+    {
+      "key": "entry",
+      "original": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/docs/validation/phase6a1_controlled_bnv_entry_hashes.json",
+      "resolved": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/docs/validation/phase6a1_controlled_bnv_entry_hashes.json",
+      "sha256": "5cfbf4b1d623b58fa2a94101631dce20c602950eec8eb514dc1fcd3c7a04620d",
+      "status": "PASS",
+      "files": 1,
+      "bytes": 10389
+    },
+    {
+      "key": "frozen",
+      "original": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-final/certificate.tsv",
+      "resolved": "/Volumes/Scriptorium/Research/CompactStar/space_recovery/20261002T001142Z/builds/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-final/certificate.tsv",
+      "sha256": "9217e278eb0a4b06b193a2a02f4d59f285d74e4033427b87ccd51181c3f7beab",
+      "status": "PASS",
+      "files": 1,
+      "bytes": 96587
+    },
+    {
+      "key": "profile_tree",
+      "original": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-fresh-qualification/chemical-characterization/run-dhp6aivf/t8192-r80000",
+      "resolved": "/Volumes/Scriptorium/Research/CompactStar/space_recovery/20261002T001142Z/builds/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-fresh-qualification/chemical-characterization/run-dhp6aivf/t8192-r80000",
+      "sha256": "233114862a2ab6826151519114e4bcb74a01f6a8e739bac0502ee62884688d72",
+      "status": "PASS",
+      "files": 6,
+      "bytes": 10168931
+    },
+    {
+      "key": "thermal",
+      "original": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-final/chemical-profiles/target-0/thermal",
+      "resolved": "/Volumes/Scriptorium/Research/CompactStar/space_recovery/20261002T001142Z/builds/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-final/chemical-profiles/target-0/thermal",
+      "sha256": "1cdb98507958b50fbd1e1eff3eb3bfa4f48c790fef86a8740855884fc43b9d94",
+      "status": "PASS",
+      "files": 4,
+      "bytes": 6732931
+    }
+  ],
+  "authority": "Existing lock and obs32-forensics/authentication.json; original bytes only. No replacement packages built."
+}

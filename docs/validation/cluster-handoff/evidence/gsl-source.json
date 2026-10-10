@@ -1,0 +1,17 @@
+{
+  "version": "2.7.1",
+  "url": "https://ftp.gnu.org/gnu/gsl/gsl-2.7.1.tar.gz",
+  "sha256": "dcb0fbd43048832b757ff9942691a8dd70026d5da0ff85601e52687f6deeb34b",
+  "size": 7509209,
+  "original_macports_distfile": "/opt/local/var/macports/distfiles/gsl/gsl-2.7.1.tar.gz",
+  "independent_original_match": true,
+  "installed_macports_portfile": "/opt/local/var/macports/registry/portfiles/gsl-2.7.1_0/91a8db283a934b2efb333cff68d6407cc9b74e93ed8bd21ad83a1e9b237b836b-3890/Portfile",
+  "portfile_sha256": "91a8db283a934b2efb333cff68d6407cc9b74e93ed8bd21ad83a1e9b237b836b",
+  "signature_verification": "NOT PERFORMED; HTTPS GNU download independently matches original MacPorts distfile and its recorded checksum",
+  "macports_source_provenance_files": [
+    {
+      "relative_path": "Portfile",
+      "sha256": "91a8db283a934b2efb333cff68d6407cc9b74e93ed8bd21ad83a1e9b237b836b"
+    }
+  ]
+}

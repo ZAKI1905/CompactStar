@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Darwin-clang++"
+	tests="13"
+	failures="0"
+	disabled="0"
+	skipped="0"
+	hostname="Keepers.local"
+	time="15"
+	timestamp="2026-10-10T15:22:43"
+	>
+	<testcase name="chemical_production_contract" classname="chemical_production_contract" time="0.364828" status="run">
+		<properties>
+			<property name="cmake_labels" value="phase5c;scientific;self-contained"/>
+		</properties>
+		<system-out>GC3_6_C	0.27559055118110237	-0.055118110236220465	0.0078740157480314994	-0.055118110236220479	0.14435695538057741	-0.068241469816272979	0.0078740157480314994	-0.068241469816272965	0.10498687664041996
+GC3_6_E	2.9338335207070915e-15	2.1623217886154494e-15	1.2875135062297979e-15	2.1754528713049966e-15	3.5891960627647641e-15	2.7281010358895599e-15	1.2830150632002304e-15	2.7106354210500656e-15	2.3101224610924088e-15
+N8_C	9.9999999999999998e+23	-1	-0.50000000000000011	-1	1	0	-0.5	0	0.50000000000000011
+N8_E	7216449660.063674	2.1760371283153645e-14	1.0991207944289344e-14	2.1538326677728608e-14	7.3274719625261925e-15	1.4210854715202525e-38	1.0972021137484821e-14	1.4394525707518512e-38	3.7747582837256166e-15
+GC11_Z	0.47746482927568601	0.238732414637843	0.238732414637843	0.47746482927568601
+GC10_Q	2.8000000000000007	-0.20000000000000001	-0.20000000000000001	3.8000000000000007
+GC10_Z	0.35849056603773577	0.018867924528301869	0.018867924528301855	0.26415094339622636
+GC11_SOURCE_Z	9.9999999999999982	5	5	12
+CONTRACTS PASS
+</system-out>
+	</testcase>
+	<testcase name="chemical_exact_oracles" classname="chemical_exact_oracles" time="0.085627" status="run">
+		<properties>
+			<property name="cmake_labels" value="analytic;phase5c;scientific;self-contained"/>
+		</properties>
+		<system-out>{
+  "GC1-GC8": "PASS (precursors)",
+  "GC10": "PASS independent rational two-zone",
+  "GC11": "PASS source traceability/contract",
+  "GC12": "PASS signed unit fixture",
+  "GC12_mutants": [
+    "flip_Omega_dot",
+    "omit_c_minus2",
+    "double_c_minus2",
+    "omit_e",
+    "omit_mu",
+    "swap_channels"
+  ],
+  "arithmetic": "exact Fraction, zero tolerance",
+  "production_chemical_path_exercised": true,
+  "production_values": {
+    "GC3_6_C": [
+      0.2755905511811024,
+      -0.055118110236220465,
+      0.0078740157480315,
+      -0.05511811023622048,
+      0.1443569553805774,
+      -0.06824146981627298,
+      0.0078740157480315,
+      -0.06824146981627296,
+      0.10498687664041996
+    ],
+    "GC3_6_E": [
+      2.9338335207070915e-15,
+      2.1623217886154494e-15,
+      1.287513506229798e-15,
+      2.1754528713049966e-15,
+      3.589196062764764e-15,
+      2.72810103588956e-15,
+      1.2830150632002304e-15,
+      2.7106354210500656e-15,
+      2.3101224610924088e-15
+    ],
+    "N8_C": [
+      1e+24,
+      -1.0,...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="chemical_curved_gc9" classname="chemical_curved_gc9" time="0.647057" status="run">
+		<properties>
+			<property name="cmake_labels" value="analytic;phase5c;scientific;self-contained"/>
+		</properties>
+		<system-out>{
+  "classification": "INDEPENDENT ANALYTIC ORACLE",
+  "reference_method": "closed primitive + 70/100-digit theta integration",
+  "production_path_exercised": true,
+  "reference": [
+    "9985.876580789789259184313734665960432566464552528972461328012774191087876212118669702918867645615487",
+    "16030.73268106873533800602688983221827884204569775465682837323909260216222330643523699978201587385957"
+  ],
+  "roundoff_relative_envelope": 4.547473508866709e-13,
+  "shapes": [
+    {
+      "variable": false,
+      "correct_relative_error": 0.0,
+      "order32_64_relative_difference": 0.0,
+      "mutant_signed_relative_separation": {
+        "M6_omit_lapse": -0.19682454003266808,
+        "M7a_extra_inverse_lapse": 0.24596008441220482,
+        "M7b_nu_as_2Phi": -0.10388019868413156,
+        "M8_omit_volume": -0.09637084033243705,
+        "M19_sign_flipped_lapse": -0.35444613689721194,
+        "M20_inverse_volume": -0.1816021673622824
+      }
+    },
+    {
+      "variable": true,
+      "correct_relative_error": 0.0,
+      ...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="particle_number_analytic" classname="particle_number_analytic" time="0.443674" status="run">
+		<properties>
+			<property name="cmake_labels" value="analysis;analytic;particle-number;scientific;self-contained"/>
+		</properties>
+		<system-out>[NON-XML-CHAR-0x1B][0[NON-XML-CHAR-0x1B][36m[NON-XML-CHAR-0x1B][40mInfo in [RotationSolver.cpp:60]  [NON-XML-CHAR-0x1B][1[NON-XML-CHAR-0x1B][36m[NON-XML-CHAR-0x1B][40mAttaching NStar to RotationSolver class...[NON-XML-CHAR-0x1B][0m
+MUTATION FIRED n_i -&gt; Y_i
+MUTATION FIRED count lapse
+MUTATION FIRED wrong count-unit factor
+MUTATION FIRED wrong metric measure
+MUTATION FIRED wrong count domain
+PB1 PASS analytic_relative=1.2112533198660458e-13 raw_charge=-8.5070591730234616e+37
+MUTATION FIRED missing lapse cancellation
+MUTATION FIRED wrong angular 1/3
+MUTATION FIRED l=2 contamination
+PB2 PASS lapse_cancellation; angular_average=0.33333333333333331 P2_average=0 IBP_relative=5.5511151231257827e-16
+PB3 ramp_width=0.10000000000000001 relative_envelope=0.00037037037037028194
+MUTATION FIRED nodal dn_i/dp instead of measure
+PB3 ramp_width=0.01 relative_envelope=3.7037037037201497e-06
+MUTATION FIRED nodal dn_i/dp instead of measure
+PB3 ramp_width=0.001 relative_envelope=3.7037036964028534e-08
+MUTATION FIRED nodal dn_i/dp instead of measure
+PB3 ramp_width=0.0001 relative_envelope=3.7037034460742956e-10
+MUTATION FIRED nodal dn_i/dp instead of mea...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="passive_checkpoint_output_contract" classname="passive_checkpoint_output_contract" time="0.285948" status="run">
+		<properties>
+			<property name="cmake_labels" value="adr0017;bnv;contract;phase6;self-contained"/>
+		</properties>
+		<system-out>P1 PASS
+P2 PASS
+P3 PASS
+P4 PASS
+P5 PASS
+P6 PASS
+P7 PASS
+P8 PASS
+P9 PASS
+P10 PASS
+</system-out>
+	</testcase>
+	<testcase name="phase6a1_direct_energy" classname="phase6a1_direct_energy" time="0.242824" status="run">
+		<properties>
+			<property name="cmake_labels" value="bnv;phase6;scientific;self-contained"/>
+		</properties>
+		<system-out>DIRECT_ENERGY PASS inclusive event local/infinity and conversion
+MUTATION M13 DETECTED unit oracle
+MUTATION M14 DETECTED unit oracle
+MUTATION M15 DETECTED fate-energy closure
+MUTATION M16 DETECTED terminal duplicate
+</system-out>
+	</testcase>
+	<testcase name="phase6a1_thermal_ledger" classname="phase6a1_thermal_ledger" time="0.191993" status="run">
+		<properties>
+			<property name="cmake_labels" value="bnv;phase6;scientific;self-contained"/>
+		</properties>
+		<system-out>BA8 PASS DeltaPbeta Pnet Echem reservoir
+BA9 PASS forbidden heat/unit/double-count mutants
+BA17 PASS worst_ratio 0.467659 xi -3.6125
+MUTATION M8 DETECTED R-a/b/c double-count fixture
+MUTATION M9 DETECTED Echem reservoir is not heat
+MUTATION M10 DETECTED no PdV/gravity production input
+MUTATION M11 DETECTED omitted DeltaLnu
+MUTATION M12 DETECTED doubled equilibrium neutrinos
+</system-out>
+	</testcase>
+	<testcase name="heat_capacity_v1" classname="heat_capacity_v1" time="10.476" status="run">
+		<properties/>
+		<system-out>ADR-0002 V1 Tier-A verification (synthetic fixture; NOT a scientific baseline)
+
+U1  unit chain (erg/K) and the 1e15 km^3-&gt;cm^3 factor
+      direct integral    = 4.337437e+35 erg/K
+      production (node)  = 4.337437e+35 erg/K
+      analytic trapezoid = 4.337437e+35 erg/K
+      analytic continuum = 4.337437e+35 erg/K
+  [PASS] U1.a direct integral == closed-form trapezoid — rel err 0.000000
+  [PASS] U1.b production at a cache node == closed-form trapezoid — rel err 0.000000
+  [PASS] U1.c magnitude excludes a missing 1e15 — production is not 1e15x smaller than expected
+  [RECORD] U1.d — trapezoid vs continuum discretization gap = 0.000000 at N=2001
+
+U2  low-temperature scaling d ln C_star / d ln T_inf
+      C(1.000000e-05) = 4.337437e+35,  C(1.000000e-04) = 4.339231e+36
+  [PASS] U2 slope ~= 1 for the degenerate fixture — measured slope 1.000180
+  [RECORD] U2 caveat — the production low-T model fixes dQ2/dT to a constant below the blend window, so c_V is linear in T BY CONSTRUCTION; this checks plumbi...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="cache_contract" classname="cache_contract" time="0.26847" status="run">
+		<properties>
+			<property name="cmake_labels" value="cache;contract;evolution"/>
+		</properties>
+		<system-out>SUPPORTED CACHE CONTRACTS (StarContext / GeometryCache / ProfileVersionedCache)
+Synthetic uniform fixture; asserts no neutron-star property.
+
+C1/C2 StarContext mass-density cache
+  [PASS] C1a mass-density cache builds and is positive — rho = 134685325751059.046875 g/cm^3
+  [PASS] C2a repeated queries at a fixed version are stable and rebuild nothing — 5 repeats, identical payload identity
+  [PASS] C1b sanctioned in-place mutation increments Version() — version 1 -&gt; 2
+  [PASS] C1c mass density rebuilds and scales by exactly the same factor — rho 134685325751059.046875 -&gt; 269370651502118.093750 (expected x2, rel dev 0.000000)
+  [PASS] C1d a second mutation rebuilds again — rho -&gt; 67342662875529.523438 (expected 0.5x original)
+
+C3/C4 StarContext Direct-Urca mask and boundary
+  [PASS] C3a DU allowed throughout a composition far above threshold — mask sum 64/64, last allowed index 63, boundary r = 10.000000 km
+  [PASS] C4a repeated DU queries at a fixed version are stable — 5 repeats, identical mask ...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="cache_thermal_contract" classname="cache_thermal_contract" time="2.13441" status="run">
+		<properties>
+			<property name="cmake_labels" value="cache;contract;thermal"/>
+		</properties>
+		<system-out>THERMAL CACHE CONTRACTS (Y_q via C_star; NeutrinoCooling payload)
+Synthetic fixture; asserts no neutron-star property.
+C_star repeat/version/thermo-identity contracts live in heat_capacity_v1 (U7).
+
+  [PASS] T0 synthetic thermo fixture loads — Q2 = slope*T*(1+Yq)
+
+T1 StarContext charge-fraction (Y_q) cache
+  [PASS] T1a C_star builds with Y_q = Y_p = 0.10 — C_star = 190926721092204259427761569159708672.000000 erg/K
+  [PASS] T1b repeated queries at a fixed version are bit-identical — 4 repeats
+  [PASS] T1c the species mutation increments Version() — version 1 -&gt; 3
+  [PASS] T1d C_star rebuilds and tracks (1 + Y_q) exactly — C_star 190926721092204259427761569159708672.000000 -&gt; 225640670381696130781476059504181248.000000 (expected 225640670381695946314035322408665088.000000, rel dev 0.000000)
+  [PASS] T1e C_star rebuilds back — returned to 190926721092204259427761569159708672.000000
+
+T2 NeutrinoCooling cache — same-star rebuild (the contract it was designed for)
+  [PASS] T2a diagnostics compute clea...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="phase5d_component_tolerances" classname="phase5d_component_tolerances" time="0.285879" status="run">
+		<properties>
+			<property name="cmake_labels" value="phase5d;phase5d-coupled;scientific;self-contained"/>
+		</properties>
+		<system-out>PASS SHA256 known answers and actual GSL component error levels; baseline/refined; invalid tolerances refused
+</system-out>
+	</testcase>
+	<testcase name="phase6_breakpoint_contract" classname="phase6_breakpoint_contract" time="0.238738" status="run">
+		<properties>
+			<property name="cmake_labels" value="bnv;contract;phase6;self-contained"/>
+		</properties>
+		<system-out>PASS analytic heating/cooling, knot starts, coupled method comparison, GSL rollback and h carry
+</system-out>
+	</testcase>
+	<testcase name="phase6_currentness_bytes" classname="phase6_currentness_bytes" time="0.246958" status="run">
+		<properties>
+			<property name="cmake_labels" value="currentness;engineering;phase6"/>
+		</properties>
+		<system-out>[NON-XML-CHAR-0x1B][0[NON-XML-CHAR-0x1B][36m[NON-XML-CHAR-0x1B][40mInfo in [RotationSolver.cpp:60]  [NON-XML-CHAR-0x1B][1[NON-XML-CHAR-0x1B][36m[NON-XML-CHAR-0x1B][40mAttaching NStar to RotationSolver class...[NON-XML-CHAR-0x1B][0m
+PASS full-byte currentness: empty, binary, exact/adjacent block sizes, mutation, missing file
+
+A total of 0 errors, and 0 warnings were generated.
+</system-out>
+	</testcase>
+</testsuite>
