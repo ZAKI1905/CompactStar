@@ -84,3 +84,12 @@ NumPy 1.26.4 and was stopped before updating its environment. The replacement
 native test environment is pinned to NumPy 2.2.6, SciPy 1.15.3 and mpmath 1.3.0;
 wheel digests and the failed first attempt are retained. No numerical threshold
 or historical oracle changes accompany this dependency repair.
+
+Before inspecting Mac/Linux coefficient differences, compare the freshly passed
+Debug production result's G/Q/Z/I/W components with the unchanged governed Mac
+coefficient artifact. Report absolute and relative differences, and the ratio
+`abs(Linux-Mac)/(E_Linux+E_Mac)` using each artifact's existing `numerical_error`
+for that component. A ratio <=1 is consistency with the supplied propagated
+uncertainties, not a new governed-baseline acceptance rule or a continuum proof.
+Preserve units, fixture identity, source/provenance differences and all exact
+regression failures; no error budget is fitted to the observed discrepancy.
