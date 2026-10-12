@@ -35,6 +35,11 @@ ids=a.jobs
 res=subprocess.run(['sacct','-j',ids,'--units=K','--parsable2','--format=JobID,JobName,State,ExitCode,Elapsed,TotalCPU,MaxRSS,AllocCPUS,NodeList'],capture_output=True,text=True)
 summary['sacct_returncode']=res.returncode
 (a.output/'sacct.txt').write_text(res.stdout+res.stderr)
+for job in ids.split(','):
+ record=subprocess.run(['scontrol','show','job',job],capture_output=True,text=True)
+ (a.output/('scheduler-'+job+'.txt')).write_text(record.stdout+record.stderr)
+ summary['jobs'][job]={'scontrol_returncode':record.returncode}
+summary['resource_accounting_note']='sacct may be disabled; scheduler allocations are not measured CPU/RSS. Use retained /usr/bin/time outputs for measured runs.'
 (a.output/'summary.json').write_text(json.dumps(summary,indent=2)+'\n')
 (a.output/'SHA256SUMS').write_text(''.join(sha(f)+'  '+str(f.relative_to(a.output))+'\n' for f in sorted(a.output.rglob('*')) if f.is_file()))
 print(a.output)
