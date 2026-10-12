@@ -21,9 +21,13 @@ assert not any('-ffast-math' in c['command'] or '-Ofast' in c['command'] for c i
 lock=a.build/'linux-dependency-authentication.json'
 tc=Path(os.environ['TC']);dep=tc/'dependency-lock-linux.json'
 d=json.loads(dep.read_text())
+closure_text=subprocess.check_output(['ldd',str(a.build/'tests/phase6_breakpoint_qualification')],text=True)
+closure_paths=[token for line in closure_text.splitlines() for token in line.split() if token.startswith('/') and Path(token).is_file()]
 result=dict(status='CANDIDATE_RUNTIME_RECEIPT',host=platform.node(),kernel=platform.release(),cpu=cpus,
     types=next(r.split('\t')[1:] for r in raw.splitlines() if r.startswith('types\t')),
-    loaded_files={f:sha(f) for f in loaded},probe_sha256=sha(probe),raw_probe=raw,
+    loaded_files={f:sha(f) for f in loaded},
+    phase6_loader_closure_text=closure_text,phase6_loader_closure_sha256={f:sha(f) for f in closure_paths},
+    actual_compiler_version=subprocess.check_output([os.environ['CXX'],'--version'],text=True),probe_sha256=sha(probe),raw_probe=raw,
     dependency_lock_sha256=sha(dep),dependency_closure=d['closure'],link_inputs=d['link_inputs'],
     compiler=d['toolchain'] if 'toolchain' in d else d.get('compiler'),
     compile_commands_sha256=sha(a.build/'compile_commands.json'),

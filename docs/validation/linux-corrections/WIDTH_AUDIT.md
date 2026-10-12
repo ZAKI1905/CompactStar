@@ -24,3 +24,10 @@ Mac contraction remains its previously recorded implicit AppleClang default.
 Linux -ffp-contract=off is unchanged. Explicit std::fma is deliberate at one
 expression. Standalone default/off AppleClang probes and actual production tests
 are separate handoff requirements. No simulation can discharge that requirement.
+
+Known Mac record (not a fresh execution): cmake/dependency-lock.json and
+phase6-campaign-readiness/environment.json:38 record Apple clang 21.0.0
+(clang-2100.3.34.2), target arm64-apple-darwin25.6.0, CMake 4.2.1. The prior
+CompactStar compile configuration omits an explicit contraction flag; dependency
+HistoricalMath translation units separately disable contraction/builtins/LTO.
+This correction changes none of those Mac settings.
