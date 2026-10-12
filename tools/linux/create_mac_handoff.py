@@ -6,7 +6,9 @@ import importlib.util
 import json
 from pathlib import Path
 import subprocess
+import sys
 import zipfile
+sys.dont_write_bytecode=True
 ROOT=Path(__file__).resolve().parents[2]
 p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);a=p.parse_args()
 a.output.mkdir(parents=True,exist_ok=False)
