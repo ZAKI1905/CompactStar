@@ -28,5 +28,6 @@ result=dict(status='CANDIDATE_RUNTIME_RECEIPT',host=platform.node(),kernel=platf
     compiler=d['toolchain'] if 'toolchain' in d else d.get('compiler'),
     compile_commands_sha256=sha(a.build/'compile_commands.json'),
     effective_commands=[c for c in commands if any(n in c['file'] for n in ('LocalThermodynamics.cpp','TrackRFreeGasThermodynamics.cpp','ChemicalResponse.cpp','GlobalUrcaChannelCoefficient.cpp','arithmetic_probe.cpp'))],
+    dispatch_environment={k:os.environ.get(k) for k in ('GLIBC_TUNABLES','LD_HWCAP_MASK','LD_PRELOAD')},
     runtime_dispatch_note='CPU feature class and loaded bytes observed; arithmetic results compared across allocated nodes, no inference solely from CPU labels')
 a.output.write_text(json.dumps(result,indent=2)+'\n')

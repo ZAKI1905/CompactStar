@@ -32,3 +32,17 @@ diagnostics do not confer campaign or nonlinear stability authority.
 Dependency overlay is on a separate CONFIND candidate branch. The accepted
 b0cbd510 build/install artifacts and lock remain byte-unchanged; the overlay runs
 them without replacing dependency master or silently updating the lock.
+
+Job 14469 adds the separately committed Zaki integral overlay: 36 values in each
+build mode, independent quadrature and cancellation-aware absolute bounds.
+The runtime receipt includes actual loaded libm/libc/loader/libstdc++ bytes,
+CPU dispatch features, rounding mode and MXCSR controls, dispatch environment,
+FP widths, compiler commands and full locked GSL/zlib closure. The comparison
+requires three observed nodes with exact arithmetic/payload agreement; CPU model
+names alone are never the criterion. Receipts are a proposed runtime class,
+not a silent mutation of either dependency lock.
+
+GitHub starting branch was independently observed at the exact f4e7c18 hash.
+The existing HTTPS push dry-run failed: no available username/credential and
+terminal prompts disabled. No credentials were changed. An incremental bundle
+handoff for the office environment is required, including dependency branches.

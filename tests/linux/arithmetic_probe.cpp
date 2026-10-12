@@ -8,6 +8,10 @@
 #include <fstream>
 #include <string>
 #include <set>
+#include <cfenv>
+#if defined(__SSE__)
+#include <xmmintrin.h>
+#endif
 int main() {
   using namespace CompactStar;
   using namespace Zaki::Physics;
@@ -35,5 +39,10 @@ int main() {
       auto v=fermion.Evaluate(n);
       std::cout << "local\t" << n << '\t' << fermion.RestMassEnergyMeV() << '\t' << v.fermi_momentum_MeV << '\t' << v.chemical_potential_MeV << '\t' << v.energy_density_MeV_fm3 << '\t' << *v.dchemical_potential_dn_MeV_fm3 << '\n';
     }
+  if(std::fegetround()!=FE_TONEAREST) throw std::runtime_error("qualification requires round-to-nearest");
+  std::cout << "rounding\t" << std::fegetround() << '\n';
+#if defined(__SSE__)
+  std::cout << "mxcsr_controls\t" << (_mm_getcsr() & 0xffc0u) << '\n';
+#endif
   std::cout << "types\t" << sizeof(float) << '\t' << std::numeric_limits<float>::digits << '\t' << sizeof(double) << '\t' << std::numeric_limits<double>::digits << '\t' << sizeof(long double) << '\t' << std::numeric_limits<long double>::digits << '\n';
 }
