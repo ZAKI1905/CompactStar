@@ -54,5 +54,13 @@ contour algorithm or accepting arbitrary global topology drift.
 
 Before execution, job 14465 was cancelled and replaced by 14471 solely to keep
 Debug and Release structural captures in different subdirectories. No numerical
-rule or test selection changed. Both original and replacement accounting states
-are retained.
+rule or test selection changed. The cancellation is recorded here; its scheduler
+record had expired before collection and the cluster accounting database is
+disabled, so no durable scheduler receipt for 14465 is claimed.
+
+At execution, 14463 stopped before compiling because compute nodes lack GNU
+`time`. Job 14486 repeats the same build/test recipe with the Python child-resource
+wrapper, and 14466–14468 were reattached to it. Unstarted static job 14471 was
+cancelled and replaced by 14487 with the same measurement correction. Numerical
+rules and test selections did not change. Available scheduler snapshots, original
+failure logs and measured resource outputs are retained in the final evidence.

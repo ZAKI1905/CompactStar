@@ -1,7 +1,8 @@
 # ADR-0020: Explicit native Linux dependency candidate
 
 Status: PROPOSED FOR INDEPENDENT REVIEW; implementation authorized by the owner's
-2026-10-10 Linux-transition task, not scientifically ratified or integrated.
+2026-10-10 Linux-transition task and 2026-10-11 correction task, not scientifically
+ratified or integrated.
 
 Dependency/build and structural changes extend ADR-0019's explicit external
 package authority to native Linux. Darwin retains the byte-identical Mac lock.
@@ -25,8 +26,10 @@ separate externally built packages and authenticate before loading CMake code.
 `Tags.hpp` only qualifies existing enum names to honor C++17. Numerical equations,
 constants, baselines and failure records are unchanged. Linux harness adapters
 retain the historical Mac verification paths; they must not counterfeit Mac
-platform evidence. Cross-platform comparison follows the predeclared criteria in
-`docs/validation/linux-transition/PREDECLARATION.md:1`. A combined independent
+platform evidence. Current proposed cross-platform scoring follows the coherent
+qualification amendment below. `docs/validation/linux-transition/PREDECLARATION.md`
+remains the historical starting plan, not a competing current scoring contract.
+A combined independent
 scientific/numerical review precedes any canonical integration or long campaign.
 
 Candidate evidence tracked under `docs/validation/linux-transition` is restricted

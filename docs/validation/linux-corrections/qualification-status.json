@@ -1,0 +1,42 @@
+{
+  "classification": "REVIEWABLE_CANDIDATE_NOT_OWNER_RATIFIED",
+  "engineering": "COMPLETE",
+  "focused_tests": {
+    "Debug": {
+      "focused_pass": 19,
+      "focused_total": 21,
+      "readiness_pass": 13,
+      "readiness_total": 13,
+      "failures": [
+        "phase5d_protected_manifest",
+        "phase5d_coupled_oracles"
+      ]
+    },
+    "Release": {
+      "focused_pass": 19,
+      "focused_total": 20,
+      "readiness_pass": 13,
+      "readiness_total": 13,
+      "failures": [
+        "phase5d_protected_manifest"
+      ]
+    }
+  },
+  "protected_historical": "FAIL: seven exact source mismatches",
+  "protected_successor": "PASS_CANDIDATE_NOT_OWNER_RATIFIED; 41 mutation refusals",
+  "runtime_class": "PASS: phyn002/phyn003/phyn004 Debug and Release",
+  "native_static_coefficients": "PASS: refinement, exact repeat, componentwise propagated-error agreement",
+  "native_frozen_21_star_certificate": "BLOCKED_MISSING_ORIGINAL_PRODUCER_AND_INPUT_AUTHORITY",
+  "phase6_pilots": "NOT_RUN: require validated native frozen certificate",
+  "legacy_T2": "UNRESOLVED; independent of controlled Phase-6 call path",
+  "CMF_exact_cross_platform": "FAIL under historical exact gates; candidate drift diagnostic only",
+  "CONFIND_global_M1_cross_platform": "UNQUALIFIED; scalar and selected geometry checks pass",
+  "actual_Mac_confirmation": "PENDING",
+  "full_campaign_readiness": false,
+  "no_merge_or_promotion": true,
+  "evidence_summary_sha256": "382a894ea8a50c30e5b9c7cdcf4eb7837f9512ea5a762c3ef741137c18f9a32c",
+  "artifact_handoffs": {
+    "Mac": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/mac-confirmation-final-20261012.zip",
+    "Git": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/correction-handoff-final-20261012.zip"
+  }
+}

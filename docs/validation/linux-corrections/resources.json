@@ -1,0 +1,100 @@
+{
+  "14486/build-Debug.log": {
+    "command": [
+      "cmake",
+      "--build",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug",
+      "--parallel",
+      "4"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 171.68703740090132,
+    "user_cpu_seconds": 284.396845,
+    "system_cpu_seconds": 40.791722,
+    "max_rss_kib": 521196,
+    "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+  },
+  "14486/build-Release.log": {
+    "command": [
+      "cmake",
+      "--build",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release",
+      "--parallel",
+      "4"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 168.70799200981855,
+    "user_cpu_seconds": 439.649223,
+    "system_cpu_seconds": 34.167226,
+    "max_rss_kib": 514824,
+    "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+  },
+  "static-14487/structure-Debug.log": {
+    "command": [
+      "ctest",
+      "--test-dir",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug",
+      "-R",
+      "^(phase5b_(PB1|PB6|PB7|PB9-11|PB12|PB13|contracts)|phase5d_response|phase5d_independent_oracles|baryon_number_cmf|hartle_monopole_regression|hartle_monopole_physics_cmf)$",
+      "--output-on-failure",
+      "--output-junit",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/structure-Debug.xml",
+      "-j1"
+    ],
+    "exit_code": 8,
+    "elapsed_seconds": 454.92710630223155,
+    "user_cpu_seconds": 423.264743,
+    "system_cpu_seconds": 3.17457,
+    "max_rss_kib": 190964,
+    "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+  },
+  "static-14487/structure-Release.log": {
+    "command": [
+      "ctest",
+      "--test-dir",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release",
+      "-R",
+      "^(phase5b_(PB1|PB6|PB7|PB9-11|PB12|PB13|contracts)|phase5d_response|phase5d_independent_oracles|baryon_number_cmf|hartle_monopole_regression|hartle_monopole_physics_cmf)$",
+      "--output-on-failure",
+      "--output-junit",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/structure-Release.xml",
+      "-j1"
+    ],
+    "exit_code": 8,
+    "elapsed_seconds": 135.01690021157265,
+    "user_cpu_seconds": 115.18319,
+    "system_cpu_seconds": 3.060876,
+    "max_rss_kib": 191964,
+    "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+  },
+  "static-14487/characterization.log": {
+    "command": [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar/tests/analysis/chemical_trackr_budget.py",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/chemical_trackr_fixture",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 152.41028789058328,
+    "user_cpu_seconds": 139.681557,
+    "system_cpu_seconds": 0.733645,
+    "max_rss_kib": 123444,
+    "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+  },
+  "static-14487/production.log": {
+    "command": [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar/tests/analysis/chemical_production_validation.py",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/chemical_production_fixture",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/production",
+      "--repeat"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 737.1200270019472,
+    "user_cpu_seconds": 719.025933,
+    "system_cpu_seconds": 3.520539,
+    "max_rss_kib": 250496,
+    "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+  }
+}

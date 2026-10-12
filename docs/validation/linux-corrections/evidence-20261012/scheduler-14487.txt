@@ -1,0 +1,28 @@
+JobId=14487 JobName=corrections_static_job.sh
+   UserId=zaki(1038) GroupId=zaki(1041) MCS_label=N/A
+   Priority=4294896733 Nice=0 Account=(null) QOS=(null)
+   JobState=COMPLETED Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:24:41 TimeLimit=01:00:00 TimeMin=N/A
+   SubmitTime=2026-10-12T00:38:37 EligibleTime=2026-10-12T00:44:26
+   AccrueTime=2026-10-12T00:44:26
+   StartTime=2026-10-12T00:44:26 EndTime=2026-10-12T01:09:07 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-12T00:44:26 Scheduler=Main
+   Partition=phyall AllocNode:Sid=ekucn1:2971560
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=phyn003
+   BatchHost=phyn003
+   NumNodes=1 NumCPUs=2 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=2,node=1,billing=2
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=4G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar/tools/linux/corrections_static_job.sh
+   WorkDir=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar
+   StdErr=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections-static-14487.log
+   StdIn=/dev/null
+   StdOut=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections-static-14487.log
+   Power=
+   
+
