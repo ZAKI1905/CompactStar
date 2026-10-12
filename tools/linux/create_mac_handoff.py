@@ -13,7 +13,7 @@ a.output.mkdir(parents=True,exist_ok=False)
 files=['CompactStar/EOS/src/LocalThermodynamics.cpp','CompactStar/EOS/src/TrackRFreeGasThermodynamics.cpp',
        'tests/relativity/relativistic_unit_boundary.cpp','tests/eos/rotochemical_trackr_pe.cpp',
        'tests/linux/arithmetic_probe.cpp','tests/linux/arithmetic_oracle.py',
-       'docs/validation/linux-corrections/WIDTH_AUDIT.md']
+       'docs/validation/linux-corrections/WIDTH_AUDIT.md','tests/eos/structure1/table.hpp']
 for name in files:
  target=a.output/'sources'/name;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes((ROOT/name).read_bytes())
 spec=importlib.util.spec_from_file_location('oracle',ROOT/'tests/linux/arithmetic_oracle.py');oracle=importlib.util.module_from_spec(spec);spec.loader.exec_module(oracle)
@@ -83,7 +83,7 @@ for mode,flags in [('default',[]),('contraction-off',['-ffp-contract=off'])]:
    from a standalone probe or a simulated double-width run.
 These files are candidate changes, not baseline promotion or owner acceptance.
 ''')
-paths=files[:4]
+paths=files[:4]+['tests/eos/structure1/table.hpp']
 patch=subprocess.check_output(['git','diff','f4e7c18','--',*paths],cwd=ROOT)
 (a.output/'arithmetic.patch').write_bytes(patch)
 s=(ROOT/'tests/CMakeLists.txt').read_text();(a.output/'CMake-fragment.txt').write_text(s[s.index('# ADR-0020 candidate independent'):])
