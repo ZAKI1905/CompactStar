@@ -4,5 +4,9 @@
   "push_status": "UNAVAILABLE_EXISTING_HTTPS_AUTH",
   "remote_start_observed": "f4e7c18f568045febc5bf65c6e95200752196dad",
   "dry_run_error": "fatal: could not read Username for 'https://github.com': terminal prompts disabled",
-  "credentials_changed": false
+  "credentials_changed": false,
+  "dependency_overlay_heads": {
+    "Zaki": "6b1666a347d6afe3975f1516e4e74b95f22940d5",
+    "CONFIND": "a2b7c6e30dbf7a8d334edba223d290354320ba82"
+  }
 }
