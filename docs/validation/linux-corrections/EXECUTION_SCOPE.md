@@ -51,3 +51,8 @@ Job 14470 adds 16 held-out CONFIND stellar-field cells in Debug/Release: exact
 raw intersection counts, independent scalar libm checks and rational-coordinate
 error propagation. This supplements the near-tie case without changing the
 contour algorithm or accepting arbitrary global topology drift.
+
+Before execution, job 14465 was cancelled and replaced by 14471 solely to keep
+Debug and Release structural captures in different subdirectories. No numerical
+rule or test selection changed. Both original and replacement accounting states
+are retained.

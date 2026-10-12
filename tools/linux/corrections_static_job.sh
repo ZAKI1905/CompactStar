@@ -4,9 +4,11 @@ set -euo pipefail
 SRC=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar
 OUT="$TC/corrections/static-${SLURM_JOB_ID:?}"
 mkdir -p "$OUT/captures"
-export PYTHONDONTWRITEBYTECODE=1 COMPACTSTAR_UNIT1_CAPTURE_DIR="$OUT/captures"
+export PYTHONDONTWRITEBYTECODE=1
 cd "$SRC"
 for mode in Debug Release; do
+ export COMPACTSTAR_UNIT1_CAPTURE_DIR="$OUT/captures/$mode"
+ mkdir -p "$COMPACTSTAR_UNIT1_CAPTURE_DIR"
  b="$TC/build/CompactStar-$mode"
  set +e
  /usr/bin/time -v ctest --test-dir "$b" -R '^(phase5b_(PB1|PB6|PB7|PB9-11|PB12|PB13|contracts)|phase5d_response|phase5d_independent_oracles|baryon_number_cmf|hartle_monopole_regression|hartle_monopole_physics_cmf)$' --output-on-failure --output-junit "$OUT/structure-$mode.xml" -j1 > "$OUT/structure-$mode.log" 2>&1
