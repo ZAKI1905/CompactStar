@@ -78,6 +78,8 @@ for mode,flags in [('default',[]),('contraction-off',['-ffp-contract=off'])]:
    phase5d_independent_oracles for retained width-dependent quantities.
    Record actual repository commit, dependency lock hash, compile_commands hash,
    compiler/OS/CPU, flags and raw logs in production-results-template.json.
+   Repeat production confirmation for both Debug and Release, keeping a
+   separately named completed results receipt and raw logs for each mode.
 4. Return mac-receipt.json, filled production-results-template.json and raw logs
    through the office transfer workflow. Do not infer production qualification
    from a standalone probe or a simulated double-width run.
