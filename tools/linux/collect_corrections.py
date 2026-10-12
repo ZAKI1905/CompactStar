@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 import subprocess
 import xml.etree.ElementTree as ET
-p=argparse.ArgumentParser();p.add_argument('--toolchain',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--jobs',default='14463,14464,14465,14466,14467,14468,14469');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--toolchain',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--jobs',default='14463,14464,14465,14466,14467,14468,14469,14470');a=p.parse_args()
 a.output.mkdir(parents=True,exist_ok=False)
 root=Path(__file__).resolve().parents[2]
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()

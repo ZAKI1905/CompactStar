@@ -46,3 +46,8 @@ GitHub starting branch was independently observed at the exact f4e7c18 hash.
 The existing HTTPS push dry-run failed: no available username/credential and
 terminal prompts disabled. No credentials were changed. An incremental bundle
 handoff for the office environment is required, including dependency branches.
+
+Job 14470 adds 16 held-out CONFIND stellar-field cells in Debug/Release: exact
+raw intersection counts, independent scalar libm checks and rational-coordinate
+error propagation. This supplements the near-tie case without changing the
+contour algorithm or accepting arbitrary global topology drift.
