@@ -1,0 +1,5 @@
+ 207  glibc log10 input not CR: glibc pow CR at own input=True; Mac == CR(10^CR-input)=True
+  53  same input: glibc pow CR=True, Mac pow CR=False
+  17  same input: glibc pow CR=False, Mac pow CR=True
+   1  glibc log10 input not CR: glibc pow CR at own input=True; Mac == CR(10^CR-input)=False
+total differing: 278

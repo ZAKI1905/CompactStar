@@ -1,0 +1,76 @@
+===== NStar/Dark_Core/0.8/B_conts/2.01/BNV_tau/BNV_tau_neutron.tsv rows 11 11
+header: M(0)            	t_0 [ch]        	t_0             	age [ch]        	age             	death [ch]      	death           	age/death [ch]  	age/death       
+  row    1 col  3 mac= 7.77630766e+07          linux= 7.78531345e+07          rel=1.16e-03
+  row    1 col  4 mac= 7.66264387e+07          linux= 7.67150409e+07          rel=1.15e-03
+  row    1 col  5 mac= 5.90857392e+08          linux= 5.90851150e+08          rel=1.06e-05
+  row    1 col  6 mac= 5.56063274e+08          linux= 5.56060415e+08          rel=5.14e-06
+  row    1 col  7 mac= 1.31610567e-01          linux= 1.31764378e-01          rel=1.17e-03
+  row    1 col  8 mac= 1.37801654e-01          linux= 1.37961701e-01          rel=1.16e-03
+  row    2 col  3 mac= 7.47712196e+07          linux= 7.52131301e+07          rel=5.88e-03
+  row    2 col  4 mac= 7.37098159e+07          linux= 7.41447700e+07          rel=5.87e-03
+  row    2 col  5 mac= 5.76078884e+08          linux= 5.76048782e+08          rel=5.23e-05
+  row    2 col  6 mac= 5.42712575e+08          linux= 5.42698710e+08          rel=2.55e-05
+  row    2 col  7 mac= 1.29793370e-01          linux= 1.30567293e-01          rel=5.93e-03
+  row    2 col  8 mac= 1.35817409e-01          linux= 1.36622344e-01          rel=5.89e-03
+  row    3 col  5 mac= 5.60371739e+08          linux= 5.60385041e+08          rel=2.37e-05
+  row    3 col  6 mac= 5.28559455e+08          linux= 5.28567715e+08          rel=1.56e-05
+  row    3 col  7 mac= 1.29386136e-01          linux= 1.29383065e-01          rel=2.37e-05
+  row    3 col  8 mac= 1.35283600e-01          linux= 1.35281486e-01          rel=1.56e-05
+  row    4 col  5 mac= 5.44997386e+08          linux= 5.44997304e+08          rel=1.50e-07
+  row    4 col  6 mac= 5.14608135e+08          linux= 5.14608060e+08          rel=1.46e-07
+  row    4 col  7 mac= 1.27225308e-01          linux= 1.27225327e-01          rel=1.49e-07
+  row    4 col  8 mac= 1.32940502e-01          linux= 1.32940522e-01          rel=1.50e-07
+  row    5 col  0 mac=2.01661380e+00           linux=2.01661382e+00           rel=9.92e-09
+  row    5 col  1 mac= 9.04266881e+06          linux= 9.04260063e+06          rel=7.54e-06
+  row    5 col  2 mac= 9.01466293e+06          linux= 9.01459502e+06          rel=7.53e-06
+  row    5 col  3 mac= 2.92445666e+08          linux= 2.92445880e+08          rel=7.32e-07
+  row    5 col  4 mac= 2.81263926e+08          linux= 2.81264136e+08          rel=7.47e-07
+  row    5 col  5 mac= 5.02644694e+08          linux= 5.02644908e+08          rel=4.26e-07
+  row    5 col  6 mac= 4.75763769e+08          linux= 4.75763979e+08          rel=4.41e-07
+  row    5 col  7 mac= 5.81813893e-01          linux= 5.81814071e-01          rel=3.06e-07
+  row    5 col  8 mac= 5.91183996e-01          linux= 5.91184176e-01          rel=3.04e-07
+  row    6 col  0 mac=2.01890839e+00           linux=2.01843032e+00           rel=2.37e-04
+  row    6 col  1 mac= 8.88319560e+06          linux= 8.93723785e+06          rel=6.05e-03
+  row    6 col  2 mac= 8.85633962e+06          linux= 8.90987841e+06          rel=6.01e-03
+  row    6 col  3 mac= 2.89719505e+08          linux= 2.83600623e+08          rel=2.11e-02
+  row    6 col  4 mac= 2.79042746e+08          linux= 2.73010043e+08          rel=2.16e-02
+  row    6 col  5 mac= 5.20439887e+08          linux= 5.14321004e+08          rel=1.18e-02
+  row    6 col  6 mac= 4.92861556e+08          linux= 4.86828852e+08          rel=1.22e-02
+  row    6 col  7 mac= 5.56681977e-01          linux= 5.51407818e-01          rel=9.47e-03
+  row    6 col  8 mac= 5.66168619e-01          linux= 5.60792652e-01          rel=9.50e-03
+  row    9 col  3 mac= 3.24631717e+08          linux= 3.24538413e+08          rel=2.87e-04
+  row    9 col  4 mac= 3.11874355e+08          linux= 3.11785320e+08          rel=2.85e-04
+  row    9 col  5 mac= 3.24631717e+08          linux= 3.24538413e+08          rel=2.87e-04
+  row    9 col  6 mac= 3.11874355e+08          linux= 3.11785320e+08          rel=2.85e-04
+===== EOS/Fermi_Gas_0.8mn.eos rows 2002 2002
+header: e(g/cm^3)    	 p(dyne/cm^2) 	 rho(1/fm^3)  
+  row    1 col  1 mac= 7.37331480e+26          linux= 7.37331665e+26          rel=2.51e-07
+  row    2 col  1 mac= 7.46870047e+26          linux= 7.46870233e+26          rel=2.49e-07
+  row    3 col  1 mac= 7.56531914e+26          linux= 7.56532096e+26          rel=2.41e-07
+  row    5 col  1 mac= 7.76232323e+26          linux= 7.76232322e+26          rel=1.29e-09
+  row    6 col  1 mac= 7.86274097e+26          linux= 7.86274281e+26          rel=2.34e-07
+  row    7 col  1 mac= 7.96445853e+26          linux= 7.96445850e+26          rel=3.77e-09
+  row    8 col  1 mac= 8.06748964e+26          linux= 8.06748967e+26          rel=3.72e-09
+  row    9 col  1 mac= 8.17185582e+26          linux= 8.17185583e+26          rel=1.22e-09
+  row   10 col  1 mac= 8.27757047e+26          linux= 8.27757048e+26          rel=1.21e-09
+  row   11 col  1 mac= 8.38465269e+26          linux= 8.38465267e+26          rel=2.39e-09
+  row   13 col  1 mac= 8.60299126e+26          linux= 8.60299310e+26          rel=2.14e-07
+  row   14 col  1 mac= 8.71428474e+26          linux= 8.71428473e+26          rel=1.15e-09
+  row   15 col  1 mac= 8.82701729e+26          linux= 8.82701726e+26          rel=3.40e-09
+  row   16 col  1 mac= 8.94120815e+26          linux= 8.94120814e+26          rel=1.12e-09
+===== NStar/Dark_Core/0.8/Crit_curve_smooth.tsv rows 85 85
+header: #	
+  row   17 col  0 mac=2.4269379721e+15         linux=2.4269379718e+15         rel=1.24e-10
+  row   17 col  1 mac= 2.1071402780e+15        linux= 2.1071402789e+15        rel=4.27e-10
+  row   18 col  0 mac=2.4140683409e+15         linux=2.4140683403e+15         rel=2.49e-10
+  row   18 col  1 mac= 2.0525143293e+15        linux= 2.0525143310e+15        rel=8.28e-10
+  row   19 col  0 mac=2.4021893502e+15         linux=2.4021893494e+15         rel=3.33e-10
+  row   19 col  1 mac= 1.9991095050e+15        linux= 1.9991095073e+15        rel=1.15e-09
+  row   20 col  0 mac=2.3895554747e+15         linux=2.3895554739e+15         rel=3.35e-10
+  row   20 col  1 mac= 1.9450205887e+15        linux= 1.9450205910e+15        rel=1.18e-09
+===== NStar/Dark_Core/0.8/0.8_19x19_Sequence.tsv rows 401 401
+header: v_idx 	 d_idx 	 ec(g/cm^3)    	 M(Sun)        	 R(km)         	 pc(dyne/cm^2) 	 B             	 I(km^3)       	 ec_d(g/cm^3)  	 M_d(Sun)      	 R_d(km)       	 pc_d(dyne/cm^2)	 B_d           	 I_d(km^
+  row  110 col  3 mac=2.03318994e+00           linux=2.03318993e+00           rel=4.92e-09
+  row  211 col  6 mac=2.24965501e+57           linux=2.24965502e+57           rel=4.45e-09
+  row  278 col  7 mac=9.34840760e+01           linux=9.34840759e+01           rel=1.07e-09
+  row  292 col  6 mac=8.52832954e+56           linux=8.52832953e+56           rel=1.17e-09

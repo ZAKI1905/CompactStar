@@ -1,0 +1,3 @@
+axis_historical {'n': 1575, 'log': 251, 'diff': 0, 'mac_cr': 0, 'lin_cr': 0, 'both_cr': 0, 'neither': 0, 'input_dep': 0, 'lin_match': 251}
+axis_random {'n': 46002, 'log': 46002, 'diff': 278, 'mac_cr': 224, 'lin_cr': 53, 'both_cr': 0, 'neither': 1, 'input_dep': 289, 'lin_match': 46002}
+glibc pow(10,x) survey in stellar range: 11/20000 not correctly rounded

@@ -1,0 +1,6 @@
+contract=False independent=7.3567289037328375442378e-09 production=7.3567289037328358898766e-09
+   matches Mac logged independent? False
+   |indep-rev|/rev=6.631e-16 (<2e-16?)  |prod/indep-1|=2.220e-16 (<3e-16?)
+contract=True independent=7.3567289037328334083347e-09 production=7.3567289037328317539735e-09
+   matches Mac logged independent? True
+   |indep-rev|/rev=1.010e-16 (<2e-16?)  |prod/indep-1|=2.220e-16 (<3e-16?)

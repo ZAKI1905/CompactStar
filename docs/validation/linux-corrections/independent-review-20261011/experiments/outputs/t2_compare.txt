@@ -1,0 +1,7 @@
+linux run root: toolchain/tmp/csm-fe6_iw1i/run
+Fermi_Gas_0.8mn.eos              tokens=6006 diff=97 max_rel=2.51e-07 max_ulp=1353328116 nonnumeric_diffs=0
+BNV_tau_neutron.tsv              tokens=103 diff=42 max_rel=2.16e-02 max_ulp=102657821769728 nonnumeric_diffs=0
+BNV_tau_lambda.tsv               tokens=103 diff=42 max_rel=2.49e-02 max_ulp=194047587123200 nonnumeric_diffs=0
+BNV_tau_sigmam.tsv               tokens=103 diff=42 max_rel=4.26e-02 max_ulp=358857965568000 nonnumeric_diffs=0
+Crit_curve_smooth.tsv            tokens=168 diff=24 max_rel=1.44e-09 max_ulp=9200000 nonnumeric_diffs=0
+0.8_19x19_Sequence.tsv           tokens=5614 diff=4 max_rel=4.92e-09 max_ulp=28698593 nonnumeric_diffs=0

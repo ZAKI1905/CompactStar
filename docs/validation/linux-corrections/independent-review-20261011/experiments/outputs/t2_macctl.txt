@@ -1,0 +1,17 @@
+WITHIN-MAC CONTROL: Mac Debug fixture vs Mac Release fixture
+BNV_tau_neutron                    rows=11/11 differing_tokens=27 worst_rel=5.93e-03 example=(2, 7, '1.29793370e-01', '1.30567293e-01')
+BNV_tau_lambda                     rows=11/11 differing_tokens=27 worst_rel=6.02e-03 example=(2, 3, '1.06144923e+10', '1.06787776e+10')
+BNV_tau_sigmam                     rows=11/11 differing_tokens=27 worst_rel=6.58e-03 example=(2, 3, '1.28640972e+12', '1.29492531e+12')
+2.01_0_Sequence                    rows=5/5 differing_tokens=0 worst_rel=0.00e+00 example=None
+2.01_1_Sequence                    rows=5/5 differing_tokens=9 worst_rel=3.68e-04 example=(2, 12, '1.06972859e+55', '1.07012251e+55')
+2.01_2_Sequence                    rows=5/5 differing_tokens=9 worst_rel=8.48e-05 example=(3, 12, '4.20689616e+55', '4.20653960e+55')
+2.01_3_Sequence                    rows=5/5 differing_tokens=8 worst_rel=7.21e-08 example=(4, 12, '7.07321003e+55', '7.07320952e+55')
+2.01_4_Sequence                    rows=5/5 differing_tokens=0 worst_rel=0.00e+00 example=None
+2.01_5_Sequence                    rows=5/5 differing_tokens=9 worst_rel=7.35e-05 example=(1, 12, '1.27885259e+54', '1.27875863e+54')
+2.01_6_Sequence                    rows=5/5 differing_tokens=0 worst_rel=0.00e+00 example=None
+2.01_7_Sequence                    rows=5/5 differing_tokens=0 worst_rel=0.00e+00 example=None
+2.01_8_Sequence                    rows=4/4 differing_tokens=9 worst_rel=2.02e-04 example=(3, 12, '4.35869404e+55', '4.35781249e+55')
+2.01_9_Sequence                    rows=4/4 differing_tokens=0 worst_rel=0.00e+00 example=None
+Crit_curve_smooth                  rows=85/85 differing_tokens=24 worst_rel=1.44e-09 example=(26, 1, '1.5950025668e+15', '1.5950025691e+15')
+19x19_Sequence                     rows=401/401 differing_tokens=11 worst_rel=2.36e-02 example=(388, 4, '2.36985966e+00', '2.31385967e+00')
+Fermi_Gas_EOS                      rows=2002/2002 differing_tokens=0 worst_rel=0.00e+00 example=None

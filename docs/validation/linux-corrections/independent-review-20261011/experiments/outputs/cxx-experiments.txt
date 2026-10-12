@@ -1,0 +1,20 @@
+# host: ekucn1.eku.edu; CPU: AMD EPYC 7232P 8-Core Processor; libm: sysroot glibc 2.34-231 (byte-identical to login /lib64/libm.so.6); date: 2026-10-11T23:51:33Z
+## pev6.cpp
+long double digits=64
+x86_64 (80-bit long double):
+  production=7.3567289037328375442377868e-09
+  independent=7.3567289037328316925811879e-09
+  |prod/indep-1|=7.954e-16  |indep-rev|/rev=1.323e-16
+arm64-equivalent (long double == double):
+  production=7.3567289037328358898765617e-09
+  independent=7.3567289037328375442377868e-09
+  |prod/indep-1|=2.249e-16  |indep-rev|/rev=6.632e-16
+hex: prod_x86=0x1.f98cf18cad24dp-28 prod_arm=0x1.f98cf18cad24bp-28 indep_arm=0x1.f98cf18cad24dp-28
+## u11.cpp
+(1.0001-1*0.0001) as double = 0x1p+0 (exactly 1? 1)
+x86_64 80-bit: col1=0x1.fe38f2694b4c7p-28 threshold=0x1.fe38f2694b4c8p-28  col1>=thr? 0  selected=0  col1 inverse=9999999999.9999981 g/cm3
+arm64-equiv   : col1=0x1.fe38f2694b4c9p-28 threshold=0x1.fe38f2694b4c8p-28  col1>=thr? 1  selected=1  col1 inverse=10000000000.000002 g/cm3
+## pev6_fix.cpp
+correctly rounded truth = 0x1.f98cf18cad246p-28
+x86 (80-bit LD):   A(no fma)=0x1.f98cf18cad24dp-28 [+7 ulp]  A(fma)=0x1.f98cf18cad247p-28 [+1 ulp]  B=0x1.f98cf18cad247p-28 [+1 ulp]  C=0x1.f98cf18cad246p-28 [+0 ulp]
+arm64-equiv (LD=double): A(no fma)=0x1.f98cf18cad24bp-28 [+5 ulp]  A(fma)=0x1.f98cf18cad246p-28 [+0 ulp]  B=0x1.f98cf18cad24bp-28 [+5 ulp]  C=0x1.f98cf18cad24bp-28 [+5 ulp]

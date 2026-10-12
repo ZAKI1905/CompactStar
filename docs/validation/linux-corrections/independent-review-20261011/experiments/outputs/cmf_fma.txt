@@ -1,0 +1,22 @@
+=== CMF per-star rows (Linux Debug) ===
+[FAIL] R1b structure unchanged (M, R, ec) — 1.0e+00 Msun — dM 4.174e-14, dR 7.512e-12, dec 0.000e+00
+[FAIL] R1c B within the predeclared 1.0e-15 — 1.0e+00 Msun — B = 1.27389644456460144e+57, |dB|/B = 4.999e-12
+[FAIL] R2b structure unchanged (M, R, ec) — 1.4e+00 Msun — dM 1.903e-15, dR 2.281e-11, dec 0.000e+00
+[FAIL] R2c B within the predeclared 1.0e-15 — 1.4e+00 Msun — B = 1.83220011704123995e+57, |dB|/B = 4.585e-13
+[FAIL] R3b structure unchanged (M, R, ec) — 1.6e+00 Msun — dM 5.274e-15, dR 1.263e-10, dec 0.000e+00
+[FAIL] R3c B within the predeclared 1.0e-15 — 1.6e+00 Msun — B = 2.12459934140163991e+57, |dB|/B = 2.147e-13
+[FAIL] R4b structure unchanged (M, R, ec) — 2.0e+00 Msun — dM 1.110e-16, dR 8.188e-11, dec 0.000e+00
+[FAIL] R4c B within the predeclared 1.0e-15 — 2.0e+00 Msun — B = 2.74564070763355871e+57, |dB|/B = 5.984e-13
+=== (Linux Release) ===
+[FAIL] R1b structure unchanged (M, R, ec) — 1.0e+00 Msun — dM 0.000e+00, dR 7.673e-15, dec 0.000e+00
+[PASS] R1c B within the predeclared 1.0e-15 — 1.0e+00 Msun — B = 1.27389644455840183e+57, |dB|/B = 0.000e+00 (bitwise)
+[FAIL] R2b structure unchanged (M, R, ec) — 1.4e+00 Msun — dM 9.040e-15, dR 2.482e-11, dec 0.000e+00
+[FAIL] R2c B within the predeclared 1.0e-15 — 1.4e+00 Msun — B = 1.83220011704144833e+57, |dB|/B = 2.586e-13
+[FAIL] R3b structure unchanged (M, R, ec) — 1.6e+00 Msun — dM 9.715e-16, dR 6.771e-12, dec 0.000e+00
+[PASS] R3c B within the predeclared 1.0e-15 — 1.6e+00 Msun — B = 2.12459934140183086e+57, |dB|/B = 4.920e-16
+[FAIL] R4b structure unchanged (M, R, ec) — 2.0e+00 Msun — dM 9.992e-16, dR 1.175e-12, dec 0.000e+00
+[PASS] R4c B within the predeclared 1.0e-15 — 2.0e+00 Msun — B = 2.74564070763355871e+57, |dB|/B = 0.000e+00 (bitwise)
+
+=== FMA audit of Linux CompactStar objects ===
+Debug: TUs=162 contract_off=162 march=0 lib=toolchain/build/CompactStar-Debug/libCompactStar.a fma_instructions=0
+Release: TUs=162 contract_off=162 march=0 lib=toolchain/build/CompactStar-Release/libCompactStar.a fma_instructions=0

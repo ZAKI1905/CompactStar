@@ -1,0 +1,48 @@
+contour point counts (rows) Mac vs Linux:
+  k=0 rows mac=5 linux=5 differing_rows=1
+  k=1 rows mac=5 linux=5 differing_rows=1
+  k=2 rows mac=5 linux=5 differing_rows=1
+  k=3 rows mac=5 linux=5 differing_rows=1
+  k=4 rows mac=5 linux=5 differing_rows=1
+  k=5 rows mac=5 linux=5 differing_rows=1
+  k=6 rows mac=5 linux=5 differing_rows=0
+  k=7 rows mac=5 linux=5 differing_rows=0
+  k=8 rows mac=4 linux=4 differing_rows=1
+  k=9 rows mac=4 linux=4 differing_rows=0
+===== 2.01_5_Sequence.tsv rows 5 5
+header: v_idx 	 d_idx 	 ec(g/cm^3)    	 M(Sun)        	 R(km)         	 pc(dyne/cm^2) 	 B             	 I(km^3)       	 ec_d(g/cm^3)  	 M_d(Sun)      	 R_d(km)       	 pc_d(dyne/cm^2)	 B_d           	 I_d(km^3)     
+  row   1 col  2 mac=1.38817109e+15 linux=1.38589639e+15 rel=1.64e-03
+  row   1 col  3 mac=2.01804853e+00 linux=2.01756505e+00 rel=2.40e-04
+  row   1 col  5 mac=3.04484700e+35 linux=3.03662398e+35 rel=2.70e-03
+  row   1 col  6 mac=2.77601507e+57 linux=2.77514146e+57 rel=3.15e-04
+  row   1 col  7 mac=1.92865304e+02 linux=1.92874327e+02 rel=4.68e-05
+  row   1 col  8 mac=5.00542185e+13 linux=5.01371651e+13 rel=1.65e-03
+  row   1 col  9 mac=8.59868268e-04 linux=8.65270818e-04 rel=6.24e-03
+  row   1 col 11 mac=6.24117031e+32 linux=6.25801360e+32 rel=2.69e-03
+  row   1 col 12 mac=1.27885259e+54 linux=1.28689860e+54 rel=6.25e-03
+  worst rel per column: {2: '1.6e-03', 3: '2.4e-04', 5: '2.7e-03', 6: '3.1e-04', 7: '4.7e-05', 8: '1.7e-03', 9: '6.2e-03', 11: '2.7e-03', 12: '6.3e-03'}
+===== BNV_rates_2.01_5.tsv rows 5 5
+header: 10(fr)          	 10(B_dot)       	 10(fr_ch)       	 10(B_dot_ch)    	 100(fr)         	 100(B_dot)      	 100(fr_ch)      	 100(B_dot_ch)   	 110(fr)         	 110(B_dot)      	 110(fr_ch)      	 110(B_dot_ch)   	 B             
+  row   1 col  0 mac=2.37031108e+57 linux=2.36995500e+57 rel=1.50e-04
+  row   1 col  1 mac=1.44399678e+57 linux=1.44435035e+57 rel=2.45e-04
+  row   1 col  2 mac=2.36124746e+57 linux=2.36078223e+57 rel=1.97e-04
+  row   1 col  3 mac=1.43963124e+57 linux=1.43992878e+57 rel=2.07e-04
+  row   1 col  4 mac=2.09481047e+55 linux=2.07867630e+55 rel=7.70e-03
+  row   1 col  5 mac=1.06388731e+55 linux=1.05622373e+55 rel=7.20e-03
+  row   1 col  6 mac=2.09481047e+55 linux=2.07867630e+55 rel=7.70e-03
+  row   1 col  7 mac=1.06388731e+55 linux=1.05622373e+55 rel=7.20e-03
+  row   1 col  8 mac=2.14048995e+53 linux=2.06104741e+53 rel=3.71e-02
+  row   1 col  9 mac=1.03993980e+53 linux=1.00187162e+53 rel=3.66e-02
+  worst rel per column: {0: '1.5e-04', 1: '2.4e-04', 2: '2.0e-04', 3: '2.1e-04', 4: '7.7e-03', 5: '7.2e-03', 6: '7.7e-03', 7: '7.2e-03', 8: '3.7e-02', 9: '3.7e-02', 10: '3.7e-02', 11: '3.7e-02', 12: '3.1e-04', 13: '3.1e-04', 14: '6.3e-03', 15: '2.4e-04'}
+===== 2.01_0_Sequence.tsv rows 5 5
+header: v_idx 	 d_idx 	 ec(g/cm^3)    	 M(Sun)        	 R(km)         	 pc(dyne/cm^2) 	 B             	 I(km^3)       	 ec_d(g/cm^3)  	 M_d(Sun)      	 R_d(km)       	 pc_d(dyne/cm^2)	 B_d           	 I_d(km^3)     
+  row   2 col  2 mac=1.39713706e+15 linux=1.39710912e+15 rel=2.00e-05
+  row   2 col  3 mac=1.99966270e+00 linux=1.99965533e+00 rel=3.69e-06
+  row   2 col  5 mac=3.07731866e+35 linux=3.07721731e+35 rel=3.29e-05
+  row   2 col  6 mac=2.75105032e+57 linux=2.75103752e+57 rel=4.65e-06
+  row   2 col  7 mac=1.90372309e+02 linux=1.90372202e+02 rel=5.62e-07
+  row   2 col  8 mac=1.59536211e+14 linux=1.59539402e+14 rel=2.00e-05
+  row   2 col  9 mac=7.44716494e-03 linux=7.44770602e-03 rel=7.27e-05
+  row   2 col 11 mac=4.03604298e+33 linux=4.03617126e+33 rel=3.18e-05
+  row   2 col 12 mac=1.10994779e+55 linux=1.11002869e+55 rel=7.29e-05
+  worst rel per column: {2: '2.0e-05', 3: '3.7e-06', 5: '3.3e-05', 6: '4.7e-06', 7: '5.6e-07', 8: '2.0e-05', 9: '7.3e-05', 11: '3.2e-05', 12: '7.3e-05'}

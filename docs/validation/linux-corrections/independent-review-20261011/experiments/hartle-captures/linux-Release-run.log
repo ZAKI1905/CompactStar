@@ -1,0 +1,647 @@
+[0[36m[40mInfo in [RotationSolver.cpp:74]  [1[36m[40mAttaching MixedStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [Prog.cpp:267]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [Prog.cpp:267]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [DataSet.cpp:272]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [Prog.cpp:267]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [Prog.cpp:267]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [DataSet.cpp:272]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [DataSet.cpp:272]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [Prog.cpp:267]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[EOS:raw] line 0 has 20 fields.
+    [0] = 'e(g/cm^3)       '
+    [1] = 'p(dyne/cm^2)    '
+    [2] = 'rho(1/fm^3)     '
+    [3] = '500             '
+    [4] = '501             '
+    [5] = '502             '
+    [6] = '0               '
+    [7] = '1               '
+    [8] = '11              '
+    [9] = '10              '
+    [10] = '100             '
+    [11] = '112             '
+    [12] = '111             '
+    [13] = '110             '
+    [14] = '121             '
+    [15] = '120             '
+    [16] = '23              '
+    [17] = '22              '
+    [18] = '21              '
+    [19] = '20              '
+[EOS] headers: eps='e(g/cm^3)       ', p='p(dyne/cm^2)    ', rho='rho(1/fm^3)     '
+[EOS] extra columns: 500 501 502 0 1 11 10 100 112 111 110 121 120 23 22 21 20 
+[EOS:raw] line 1 has 20 fields.
+    [0] = '1.65880787e+08 '
+    [1] = ' 3.35188490e+25 '
+    [2] = ' 1.00000000e-07 '
+    [3] = ' 0.00000000e+00 '
+    [4] = ' 0.00000000e+00 '
+    [5] = ' 0.00000000e+00 '
+    [6] = ' 4.28868700e-01 '
+    [7] = ' 0.00000000e+00 '
+    [8] = ' 0.00000000e+00 '
+    [9] = ' 0.00000000e+00 '
+    [10] = ' 0.00000000e+00 '
+    [11] = ' 0.00000000e+00 '
+    [12] = ' 0.00000000e+00 '
+    [13] = ' 0.00000000e+00 '
+    [14] = ' 0.00000000e+00 '
+    [15] = ' 0.00000000e+00 '
+    [16] = ' 0.00000000e+00 '
+    [17] = ' 0.00000000e+00 '
+    [18] = ' 0.00000000e+00 '
+    [19] = ' 0.00000000e+00  '
+[EOS:raw] line 2 has 20 fields.
+    [0] = '1.69745526e+08 '
+    [1] = ' 3.45753241e+25 '
+    [2] = ' 1.02329300e-07 '
+    [3] = ' 0.00000000e+00 '
+    [4] = ' 0.00000000e+00 '
+    [5] = ' 0.00000000e+00 '
+    [6] = ' 4.28746900e-01 '
+    [7] = ' 0.00000000e+00 '
+    [8] = ' 0.00000000e+00 '
+    [9] = ' 0.00000000e+00 '
+    [10] = ' 0.00000000e+00 '
+    [11] = ' 0.00000000e+00 '
+    [12] = ' 0.00000000e+00 '
+    [13] = ' 0.00000000e+00 '
+    [14] = ' 0.00000000e+00 '
+    [15] = ' 0.00000000e+00 '
+    [16] = ' 0.00000000e+00 '
+    [17] = ' 0.00000000e+00 '
+    [18] = ' 0.00000000e+00 '
+    [19] = ' 0.00000000e+00  '
+[EOS:raw] line 3 has 20 fields.
+    [0] = '1.73700326e+08 '
+    [1] = ' 3.56691145e+25 '
+    [2] = ' 1.04712900e-07 '
+    [3] = ' 0.00000000e+00 '
+    [4] = ' 0.00000000e+00 '
+    [5] = ' 0.00000000e+00 '
+    [6] = ' 4.28655500e-01 '
+    [7] = ' 0.00000000e+00 '
+    [8] = ' 0.00000000e+00 '
+    [9] = ' 0.00000000e+00 '
+    [10] = ' 0.00000000e+00 '
+    [11] = ' 0.00000000e+00 '
+    [12] = ' 0.00000000e+00 '
+    [13] = ' 0.00000000e+00 '
+    [14] = ' 0.00000000e+00 '
+    [15] = ' 0.00000000e+00 '
+    [16] = ' 0.00000000e+00 '
+    [17] = ' 0.00000000e+00 '
+    [18] = ' 0.00000000e+00 '
+    [19] = ' 0.00000000e+00  '
+[EOS:raw] line 4 has 20 fields.
+    [0] = '1.77747271e+08 '
+    [1] = ' 3.67926729e+25 '
+    [2] = ' 1.07151900e-07 '
+    [3] = ' 0.00000000e+00 '
+    [4] = ' 0.00000000e+00 '
+    [5] = ' 0.00000000e+00 '
+    [6] = ' 4.28533700e-01 '
+    [7] = ' 0.00000000e+00 '
+    [8] = ' 0.00000000e+00 '
+    [9] = ' 0.00000000e+00 '
+    [10] = ' 0.00000000e+00 '
+    [11] = ' 0.00000000e+00 '
+    [12] = ' 0.00000000e+00 '
+    [13] = ' 0.00000000e+00 '
+    [14] = ' 0.00000000e+00 '
+    [15] = ' 0.00000000e+00 '
+    [16] = ' 0.00000000e+00 '
+    [17] = ' 0.00000000e+00 '
+    [18] = ' 0.00000000e+00 '
+    [19] = ' 0.00000000e+00  '
+[EOS] imported rows (excluding header): 1191
+[EOS] eps.size() = 1191
+[EOS] pre.size() = 1191
+[EOS] rho.size() = 1191
+[EOS] rho_i[0].size() = 1191
+[EOS] rho_i[1].size() = 1191
+[EOS] rho_i[2].size() = 1191
+[EOS] rho_i[3].size() = 1191
+[EOS] rho_i[4].size() = 1191
+[EOS] rho_i[5].size() = 1191
+[EOS] rho_i[6].size() = 1191
+[EOS] rho_i[7].size() = 1191
+[EOS] rho_i[8].size() = 1191
+[EOS] rho_i[9].size() = 1191
+[EOS] rho_i[10].size() = 1191
+[EOS] rho_i[11].size() = 1191
+[EOS] rho_i[12].size() = 1191
+[EOS] rho_i[13].size() = 1191
+[EOS] rho_i[14].size() = 1191
+[EOS] rho_i[15].size() = 1191
+[EOS] rho_i[16].size() = 1191
+[0[36m[40mInfo in [TOVSolver.cpp:657]  [1[36m[40mEOS data imported from: /mnt/sdd/zaki/CompactStar/incoming...ific/compose/DS-CMF-1-with-crust/DS(CMF)-1_with_crust.eos.[0m
+[0[36m[40mInfo in [TOVSolver.cpp:685]  [1[36m[40mInitializing main splines for EOS with n = 1191[0m
+[0[36m[40mInfo in [TOVSolver.cpp:717]  [1[36m[40mInitializing the splines for energy density and pressure: done.[0m
+[0[31m[40mError(1) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 1658807870.000003[0m
+[0[31m[40mError(2) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 3192448132.149791[0m
+[0[31m[40mError(3) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 6144005740.982330[0m
+[0[31m[40mError(4) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 11824407157.964954[0m
+[0[31m[40mError(5) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 22756587563.829060[0m
+[0[31m[40mError(6) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 43796045808.637932[0m
+[0[31m[40mError(7) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 84287401311.480774[0m
+[0[31m[40mError(8) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 162214781920.823761[0m
+[0[31m[40mError(9) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 312189426464.572144[0m
+[0[31m[40mError(10) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 600822174417.185669[0m
+[0[31m[40mError(11) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 1156308493082.033203[0m
+[0[31m[40mError(12) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 2225366153422.379395[0m
+[0[31m[40mError(13) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 4282814271819.573242[0m
+[0[31m[40mError(14) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 8242462957699.158203[0m
+[0[31m[40mError(15) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 15862979643097.832031[0m
+[0[31m[40mError(16) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 30528996544933.042969[0m
+[0[31m[40mError(17) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 58754386061767.812500[0m
+[0[31m[40mError(18) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 113075379874161.109375[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+target=1 SURFACE_REACHED p=p_cut current=true residual_M=4.3809728552890448e-05 decomposition_residual_km3=7.1331829332166308e-14
+[0[36m[40mInfo in [RotationSolver.cpp:74]  [1[36m[40mAttaching MixedStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [Prog.cpp:267]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [Prog.cpp:267]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [DataSet.cpp:272]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [Prog.cpp:267]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [Prog.cpp:267]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [DataSet.cpp:272]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [DataSet.cpp:272]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [Prog.cpp:267]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[EOS:raw] line 0 has 20 fields.
+    [0] = 'e(g/cm^3)       '
+    [1] = 'p(dyne/cm^2)    '
+    [2] = 'rho(1/fm^3)     '
+    [3] = '500             '
+    [4] = '501             '
+    [5] = '502             '
+    [6] = '0               '
+    [7] = '1               '
+    [8] = '11              '
+    [9] = '10              '
+    [10] = '100             '
+    [11] = '112             '
+    [12] = '111             '
+    [13] = '110             '
+    [14] = '121             '
+    [15] = '120             '
+    [16] = '23              '
+    [17] = '22              '
+    [18] = '21              '
+    [19] = '20              '
+[EOS] headers: eps='e(g/cm^3)       ', p='p(dyne/cm^2)    ', rho='rho(1/fm^3)     '
+[EOS] extra columns: 500 501 502 0 1 11 10 100 112 111 110 121 120 23 22 21 20 
+[EOS:raw] line 1 has 20 fields.
+    [0] = '1.65880787e+08 '
+    [1] = ' 3.35188490e+25 '
+    [2] = ' 1.00000000e-07 '
+    [3] = ' 0.00000000e+00 '
+    [4] = ' 0.00000000e+00 '
+    [5] = ' 0.00000000e+00 '
+    [6] = ' 4.28868700e-01 '
+    [7] = ' 0.00000000e+00 '
+    [8] = ' 0.00000000e+00 '
+    [9] = ' 0.00000000e+00 '
+    [10] = ' 0.00000000e+00 '
+    [11] = ' 0.00000000e+00 '
+    [12] = ' 0.00000000e+00 '
+    [13] = ' 0.00000000e+00 '
+    [14] = ' 0.00000000e+00 '
+    [15] = ' 0.00000000e+00 '
+    [16] = ' 0.00000000e+00 '
+    [17] = ' 0.00000000e+00 '
+    [18] = ' 0.00000000e+00 '
+    [19] = ' 0.00000000e+00  '
+[EOS:raw] line 2 has 20 fields.
+    [0] = '1.69745526e+08 '
+    [1] = ' 3.45753241e+25 '
+    [2] = ' 1.02329300e-07 '
+    [3] = ' 0.00000000e+00 '
+    [4] = ' 0.00000000e+00 '
+    [5] = ' 0.00000000e+00 '
+    [6] = ' 4.28746900e-01 '
+    [7] = ' 0.00000000e+00 '
+    [8] = ' 0.00000000e+00 '
+    [9] = ' 0.00000000e+00 '
+    [10] = ' 0.00000000e+00 '
+    [11] = ' 0.00000000e+00 '
+    [12] = ' 0.00000000e+00 '
+    [13] = ' 0.00000000e+00 '
+    [14] = ' 0.00000000e+00 '
+    [15] = ' 0.00000000e+00 '
+    [16] = ' 0.00000000e+00 '
+    [17] = ' 0.00000000e+00 '
+    [18] = ' 0.00000000e+00 '
+    [19] = ' 0.00000000e+00  '
+[EOS:raw] line 3 has 20 fields.
+    [0] = '1.73700326e+08 '
+    [1] = ' 3.56691145e+25 '
+    [2] = ' 1.04712900e-07 '
+    [3] = ' 0.00000000e+00 '
+    [4] = ' 0.00000000e+00 '
+    [5] = ' 0.00000000e+00 '
+    [6] = ' 4.28655500e-01 '
+    [7] = ' 0.00000000e+00 '
+    [8] = ' 0.00000000e+00 '
+    [9] = ' 0.00000000e+00 '
+    [10] = ' 0.00000000e+00 '
+    [11] = ' 0.00000000e+00 '
+    [12] = ' 0.00000000e+00 '
+    [13] = ' 0.00000000e+00 '
+    [14] = ' 0.00000000e+00 '
+    [15] = ' 0.00000000e+00 '
+    [16] = ' 0.00000000e+00 '
+    [17] = ' 0.00000000e+00 '
+    [18] = ' 0.00000000e+00 '
+    [19] = ' 0.00000000e+00  '
+[EOS:raw] line 4 has 20 fields.
+    [0] = '1.77747271e+08 '
+    [1] = ' 3.67926729e+25 '
+    [2] = ' 1.07151900e-07 '
+    [3] = ' 0.00000000e+00 '
+    [4] = ' 0.00000000e+00 '
+    [5] = ' 0.00000000e+00 '
+    [6] = ' 4.28533700e-01 '
+    [7] = ' 0.00000000e+00 '
+    [8] = ' 0.00000000e+00 '
+    [9] = ' 0.00000000e+00 '
+    [10] = ' 0.00000000e+00 '
+    [11] = ' 0.00000000e+00 '
+    [12] = ' 0.00000000e+00 '
+    [13] = ' 0.00000000e+00 '
+    [14] = ' 0.00000000e+00 '
+    [15] = ' 0.00000000e+00 '
+    [16] = ' 0.00000000e+00 '
+    [17] = ' 0.00000000e+00 '
+    [18] = ' 0.00000000e+00 '
+    [19] = ' 0.00000000e+00  '
+[EOS] imported rows (excluding header): 1191
+[EOS] eps.size() = 1191
+[EOS] pre.size() = 1191
+[EOS] rho.size() = 1191
+[EOS] rho_i[0].size() = 1191
+[EOS] rho_i[1].size() = 1191
+[EOS] rho_i[2].size() = 1191
+[EOS] rho_i[3].size() = 1191
+[EOS] rho_i[4].size() = 1191
+[EOS] rho_i[5].size() = 1191
+[EOS] rho_i[6].size() = 1191
+[EOS] rho_i[7].size() = 1191
+[EOS] rho_i[8].size() = 1191
+[EOS] rho_i[9].size() = 1191
+[EOS] rho_i[10].size() = 1191
+[EOS] rho_i[11].size() = 1191
+[EOS] rho_i[12].size() = 1191
+[EOS] rho_i[13].size() = 1191
+[EOS] rho_i[14].size() = 1191
+[EOS] rho_i[15].size() = 1191
+[EOS] rho_i[16].size() = 1191
+[0[36m[40mInfo in [TOVSolver.cpp:657]  [1[36m[40mEOS data imported from: /mnt/sdd/zaki/CompactStar/incoming...ific/compose/DS-CMF-1-with-crust/DS(CMF)-1_with_crust.eos.[0m
+[0[36m[40mInfo in [TOVSolver.cpp:685]  [1[36m[40mInitializing main splines for EOS with n = 1191[0m
+[0[36m[40mInfo in [TOVSolver.cpp:717]  [1[36m[40mInitializing the splines for energy density and pressure: done.[0m
+[0[31m[40mError(19) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 1658807870.000003[0m
+[0[31m[40mError(20) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 3192448132.149791[0m
+[0[31m[40mError(21) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 6144005740.982330[0m
+[0[31m[40mError(22) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 11824407157.964954[0m
+[0[31m[40mError(23) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 22756587563.829060[0m
+[0[31m[40mError(24) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 43796045808.637932[0m
+[0[31m[40mError(25) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 84287401311.480774[0m
+[0[31m[40mError(26) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 162214781920.823761[0m
+[0[31m[40mError(27) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 312189426464.572144[0m
+[0[31m[40mError(28) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 600822174417.185669[0m
+[0[31m[40mError(29) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 1156308493082.033203[0m
+[0[31m[40mError(30) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 2225366153422.379395[0m
+[0[31m[40mError(31) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 4282814271819.573242[0m
+[0[31m[40mError(32) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 8242462957699.158203[0m
+[0[31m[40mError(33) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 15862979643097.832031[0m
+[0[31m[40mError(34) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 30528996544933.042969[0m
+[0[31m[40mError(35) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 58754386061767.812500[0m
+[0[31m[40mError(36) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 113075379874161.109375[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+target=1.3999999999999999 SURFACE_REACHED p=p_cut current=true residual_M=2.1783281223930473e-05 decomposition_residual_km3=3.1141755840735641e-14
+[0[36m[40mInfo in [RotationSolver.cpp:74]  [1[36m[40mAttaching MixedStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [Prog.cpp:267]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [Prog.cpp:267]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [DataSet.cpp:272]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [Prog.cpp:267]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [Prog.cpp:267]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [DataSet.cpp:272]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [DataSet.cpp:272]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [Prog.cpp:267]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[EOS:raw] line 0 has 20 fields.
+    [0] = 'e(g/cm^3)       '
+    [1] = 'p(dyne/cm^2)    '
+    [2] = 'rho(1/fm^3)     '
+    [3] = '500             '
+    [4] = '501             '
+    [5] = '502             '
+    [6] = '0               '
+    [7] = '1               '
+    [8] = '11              '
+    [9] = '10              '
+    [10] = '100             '
+    [11] = '112             '
+    [12] = '111             '
+    [13] = '110             '
+    [14] = '121             '
+    [15] = '120             '
+    [16] = '23              '
+    [17] = '22              '
+    [18] = '21              '
+    [19] = '20              '
+[EOS] headers: eps='e(g/cm^3)       ', p='p(dyne/cm^2)    ', rho='rho(1/fm^3)     '
+[EOS] extra columns: 500 501 502 0 1 11 10 100 112 111 110 121 120 23 22 21 20 
+[EOS:raw] line 1 has 20 fields.
+    [0] = '1.65880787e+08 '
+    [1] = ' 3.35188490e+25 '
+    [2] = ' 1.00000000e-07 '
+    [3] = ' 0.00000000e+00 '
+    [4] = ' 0.00000000e+00 '
+    [5] = ' 0.00000000e+00 '
+    [6] = ' 4.28868700e-01 '
+    [7] = ' 0.00000000e+00 '
+    [8] = ' 0.00000000e+00 '
+    [9] = ' 0.00000000e+00 '
+    [10] = ' 0.00000000e+00 '
+    [11] = ' 0.00000000e+00 '
+    [12] = ' 0.00000000e+00 '
+    [13] = ' 0.00000000e+00 '
+    [14] = ' 0.00000000e+00 '
+    [15] = ' 0.00000000e+00 '
+    [16] = ' 0.00000000e+00 '
+    [17] = ' 0.00000000e+00 '
+    [18] = ' 0.00000000e+00 '
+    [19] = ' 0.00000000e+00  '
+[EOS:raw] line 2 has 20 fields.
+    [0] = '1.69745526e+08 '
+    [1] = ' 3.45753241e+25 '
+    [2] = ' 1.02329300e-07 '
+    [3] = ' 0.00000000e+00 '
+    [4] = ' 0.00000000e+00 '
+    [5] = ' 0.00000000e+00 '
+    [6] = ' 4.28746900e-01 '
+    [7] = ' 0.00000000e+00 '
+    [8] = ' 0.00000000e+00 '
+    [9] = ' 0.00000000e+00 '
+    [10] = ' 0.00000000e+00 '
+    [11] = ' 0.00000000e+00 '
+    [12] = ' 0.00000000e+00 '
+    [13] = ' 0.00000000e+00 '
+    [14] = ' 0.00000000e+00 '
+    [15] = ' 0.00000000e+00 '
+    [16] = ' 0.00000000e+00 '
+    [17] = ' 0.00000000e+00 '
+    [18] = ' 0.00000000e+00 '
+    [19] = ' 0.00000000e+00  '
+[EOS:raw] line 3 has 20 fields.
+    [0] = '1.73700326e+08 '
+    [1] = ' 3.56691145e+25 '
+    [2] = ' 1.04712900e-07 '
+    [3] = ' 0.00000000e+00 '
+    [4] = ' 0.00000000e+00 '
+    [5] = ' 0.00000000e+00 '
+    [6] = ' 4.28655500e-01 '
+    [7] = ' 0.00000000e+00 '
+    [8] = ' 0.00000000e+00 '
+    [9] = ' 0.00000000e+00 '
+    [10] = ' 0.00000000e+00 '
+    [11] = ' 0.00000000e+00 '
+    [12] = ' 0.00000000e+00 '
+    [13] = ' 0.00000000e+00 '
+    [14] = ' 0.00000000e+00 '
+    [15] = ' 0.00000000e+00 '
+    [16] = ' 0.00000000e+00 '
+    [17] = ' 0.00000000e+00 '
+    [18] = ' 0.00000000e+00 '
+    [19] = ' 0.00000000e+00  '
+[EOS:raw] line 4 has 20 fields.
+    [0] = '1.77747271e+08 '
+    [1] = ' 3.67926729e+25 '
+    [2] = ' 1.07151900e-07 '
+    [3] = ' 0.00000000e+00 '
+    [4] = ' 0.00000000e+00 '
+    [5] = ' 0.00000000e+00 '
+    [6] = ' 4.28533700e-01 '
+    [7] = ' 0.00000000e+00 '
+    [8] = ' 0.00000000e+00 '
+    [9] = ' 0.00000000e+00 '
+    [10] = ' 0.00000000e+00 '
+    [11] = ' 0.00000000e+00 '
+    [12] = ' 0.00000000e+00 '
+    [13] = ' 0.00000000e+00 '
+    [14] = ' 0.00000000e+00 '
+    [15] = ' 0.00000000e+00 '
+    [16] = ' 0.00000000e+00 '
+    [17] = ' 0.00000000e+00 '
+    [18] = ' 0.00000000e+00 '
+    [19] = ' 0.00000000e+00  '
+[EOS] imported rows (excluding header): 1191
+[EOS] eps.size() = 1191
+[EOS] pre.size() = 1191
+[EOS] rho.size() = 1191
+[EOS] rho_i[0].size() = 1191
+[EOS] rho_i[1].size() = 1191
+[EOS] rho_i[2].size() = 1191
+[EOS] rho_i[3].size() = 1191
+[EOS] rho_i[4].size() = 1191
+[EOS] rho_i[5].size() = 1191
+[EOS] rho_i[6].size() = 1191
+[EOS] rho_i[7].size() = 1191
+[EOS] rho_i[8].size() = 1191
+[EOS] rho_i[9].size() = 1191
+[EOS] rho_i[10].size() = 1191
+[EOS] rho_i[11].size() = 1191
+[EOS] rho_i[12].size() = 1191
+[EOS] rho_i[13].size() = 1191
+[EOS] rho_i[14].size() = 1191
+[EOS] rho_i[15].size() = 1191
+[EOS] rho_i[16].size() = 1191
+[0[36m[40mInfo in [TOVSolver.cpp:657]  [1[36m[40mEOS data imported from: /mnt/sdd/zaki/CompactStar/incoming...ific/compose/DS-CMF-1-with-crust/DS(CMF)-1_with_crust.eos.[0m
+[0[36m[40mInfo in [TOVSolver.cpp:685]  [1[36m[40mInitializing main splines for EOS with n = 1191[0m
+[0[36m[40mInfo in [TOVSolver.cpp:717]  [1[36m[40mInitializing the splines for energy density and pressure: done.[0m
+[0[31m[40mError(37) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 1658807870.000003[0m
+[0[31m[40mError(38) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 3192448132.149791[0m
+[0[31m[40mError(39) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 6144005740.982330[0m
+[0[31m[40mError(40) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 11824407157.964954[0m
+[0[31m[40mError(41) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 22756587563.829060[0m
+[0[31m[40mError(42) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 43796045808.637932[0m
+[0[31m[40mError(43) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 84287401311.480774[0m
+[0[31m[40mError(44) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 162214781920.823761[0m
+[0[31m[40mError(45) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 312189426464.572144[0m
+[0[31m[40mError(46) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 600822174417.185669[0m
+[0[31m[40mError(47) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 1156308493082.033203[0m
+[0[31m[40mError(48) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 2225366153422.379395[0m
+[0[31m[40mError(49) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 4282814271819.573242[0m
+[0[31m[40mError(50) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 8242462957699.158203[0m
+[0[31m[40mError(51) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 15862979643097.832031[0m
+[0[31m[40mError(52) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 30528996544933.042969[0m
+[0[31m[40mError(53) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 58754386061767.812500[0m
+[0[31m[40mError(54) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 113075379874161.109375[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+target=1.6000000000000001 SURFACE_REACHED p=p_cut current=true residual_M=2.4164699364170872e-05 decomposition_residual_km3=1.2601031329495527e-14
+[0[36m[40mInfo in [RotationSolver.cpp:74]  [1[36m[40mAttaching MixedStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [Prog.cpp:267]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [Prog.cpp:267]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [DataSet.cpp:272]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [Prog.cpp:267]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [Prog.cpp:267]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [DataSet.cpp:272]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [DataSet.cpp:272]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[0[36m[40mInfo in [Prog.cpp:267]  [1[36m[40mWork directory set to '/tmp/claude-1038/-mnt-sdd-zaki-Comp.../tmp/compactstar_monopole_regression_32942870780969676_0'.[0m
+[EOS:raw] line 0 has 20 fields.
+    [0] = 'e(g/cm^3)       '
+    [1] = 'p(dyne/cm^2)    '
+    [2] = 'rho(1/fm^3)     '
+    [3] = '500             '
+    [4] = '501             '
+    [5] = '502             '
+    [6] = '0               '
+    [7] = '1               '
+    [8] = '11              '
+    [9] = '10              '
+    [10] = '100             '
+    [11] = '112             '
+    [12] = '111             '
+    [13] = '110             '
+    [14] = '121             '
+    [15] = '120             '
+    [16] = '23              '
+    [17] = '22              '
+    [18] = '21              '
+    [19] = '20              '
+[EOS] headers: eps='e(g/cm^3)       ', p='p(dyne/cm^2)    ', rho='rho(1/fm^3)     '
+[EOS] extra columns: 500 501 502 0 1 11 10 100 112 111 110 121 120 23 22 21 20 
+[EOS:raw] line 1 has 20 fields.
+    [0] = '1.65880787e+08 '
+    [1] = ' 3.35188490e+25 '
+    [2] = ' 1.00000000e-07 '
+    [3] = ' 0.00000000e+00 '
+    [4] = ' 0.00000000e+00 '
+    [5] = ' 0.00000000e+00 '
+    [6] = ' 4.28868700e-01 '
+    [7] = ' 0.00000000e+00 '
+    [8] = ' 0.00000000e+00 '
+    [9] = ' 0.00000000e+00 '
+    [10] = ' 0.00000000e+00 '
+    [11] = ' 0.00000000e+00 '
+    [12] = ' 0.00000000e+00 '
+    [13] = ' 0.00000000e+00 '
+    [14] = ' 0.00000000e+00 '
+    [15] = ' 0.00000000e+00 '
+    [16] = ' 0.00000000e+00 '
+    [17] = ' 0.00000000e+00 '
+    [18] = ' 0.00000000e+00 '
+    [19] = ' 0.00000000e+00  '
+[EOS:raw] line 2 has 20 fields.
+    [0] = '1.69745526e+08 '
+    [1] = ' 3.45753241e+25 '
+    [2] = ' 1.02329300e-07 '
+    [3] = ' 0.00000000e+00 '
+    [4] = ' 0.00000000e+00 '
+    [5] = ' 0.00000000e+00 '
+    [6] = ' 4.28746900e-01 '
+    [7] = ' 0.00000000e+00 '
+    [8] = ' 0.00000000e+00 '
+    [9] = ' 0.00000000e+00 '
+    [10] = ' 0.00000000e+00 '
+    [11] = ' 0.00000000e+00 '
+    [12] = ' 0.00000000e+00 '
+    [13] = ' 0.00000000e+00 '
+    [14] = ' 0.00000000e+00 '
+    [15] = ' 0.00000000e+00 '
+    [16] = ' 0.00000000e+00 '
+    [17] = ' 0.00000000e+00 '
+    [18] = ' 0.00000000e+00 '
+    [19] = ' 0.00000000e+00  '
+[EOS:raw] line 3 has 20 fields.
+    [0] = '1.73700326e+08 '
+    [1] = ' 3.56691145e+25 '
+    [2] = ' 1.04712900e-07 '
+    [3] = ' 0.00000000e+00 '
+    [4] = ' 0.00000000e+00 '
+    [5] = ' 0.00000000e+00 '
+    [6] = ' 4.28655500e-01 '
+    [7] = ' 0.00000000e+00 '
+    [8] = ' 0.00000000e+00 '
+    [9] = ' 0.00000000e+00 '
+    [10] = ' 0.00000000e+00 '
+    [11] = ' 0.00000000e+00 '
+    [12] = ' 0.00000000e+00 '
+    [13] = ' 0.00000000e+00 '
+    [14] = ' 0.00000000e+00 '
+    [15] = ' 0.00000000e+00 '
+    [16] = ' 0.00000000e+00 '
+    [17] = ' 0.00000000e+00 '
+    [18] = ' 0.00000000e+00 '
+    [19] = ' 0.00000000e+00  '
+[EOS:raw] line 4 has 20 fields.
+    [0] = '1.77747271e+08 '
+    [1] = ' 3.67926729e+25 '
+    [2] = ' 1.07151900e-07 '
+    [3] = ' 0.00000000e+00 '
+    [4] = ' 0.00000000e+00 '
+    [5] = ' 0.00000000e+00 '
+    [6] = ' 4.28533700e-01 '
+    [7] = ' 0.00000000e+00 '
+    [8] = ' 0.00000000e+00 '
+    [9] = ' 0.00000000e+00 '
+    [10] = ' 0.00000000e+00 '
+    [11] = ' 0.00000000e+00 '
+    [12] = ' 0.00000000e+00 '
+    [13] = ' 0.00000000e+00 '
+    [14] = ' 0.00000000e+00 '
+    [15] = ' 0.00000000e+00 '
+    [16] = ' 0.00000000e+00 '
+    [17] = ' 0.00000000e+00 '
+    [18] = ' 0.00000000e+00 '
+    [19] = ' 0.00000000e+00  '
+[EOS] imported rows (excluding header): 1191
+[EOS] eps.size() = 1191
+[EOS] pre.size() = 1191
+[EOS] rho.size() = 1191
+[EOS] rho_i[0].size() = 1191
+[EOS] rho_i[1].size() = 1191
+[EOS] rho_i[2].size() = 1191
+[EOS] rho_i[3].size() = 1191
+[EOS] rho_i[4].size() = 1191
+[EOS] rho_i[5].size() = 1191
+[EOS] rho_i[6].size() = 1191
+[EOS] rho_i[7].size() = 1191
+[EOS] rho_i[8].size() = 1191
+[EOS] rho_i[9].size() = 1191
+[EOS] rho_i[10].size() = 1191
+[EOS] rho_i[11].size() = 1191
+[EOS] rho_i[12].size() = 1191
+[EOS] rho_i[13].size() = 1191
+[EOS] rho_i[14].size() = 1191
+[EOS] rho_i[15].size() = 1191
+[EOS] rho_i[16].size() = 1191
+[0[36m[40mInfo in [TOVSolver.cpp:657]  [1[36m[40mEOS data imported from: /mnt/sdd/zaki/CompactStar/incoming...ific/compose/DS-CMF-1-with-crust/DS(CMF)-1_with_crust.eos.[0m
+[0[36m[40mInfo in [TOVSolver.cpp:685]  [1[36m[40mInitializing main splines for EOS with n = 1191[0m
+[0[36m[40mInfo in [TOVSolver.cpp:717]  [1[36m[40mInitializing the splines for energy density and pressure: done.[0m
+[0[31m[40mError(55) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 1658807870.000003[0m
+[0[31m[40mError(56) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 3192448132.149791[0m
+[0[31m[40mError(57) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 6144005740.982330[0m
+[0[31m[40mError(58) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 11824407157.964954[0m
+[0[31m[40mError(59) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 22756587563.829060[0m
+[0[31m[40mError(60) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 43796045808.637932[0m
+[0[31m[40mError(61) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 84287401311.480774[0m
+[0[31m[40mError(62) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 162214781920.823761[0m
+[0[31m[40mError(63) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 312189426464.572144[0m
+[0[31m[40mError(64) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 600822174417.185669[0m
+[0[31m[40mError(65) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 1156308493082.033203[0m
+[0[31m[40mError(66) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 2225366153422.379395[0m
+[0[31m[40mError(67) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 4282814271819.573242[0m
+[0[31m[40mError(68) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 8242462957699.158203[0m
+[0[31m[40mError(69) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 15862979643097.832031[0m
+[0[31m[40mError(70) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 30528996544933.042969[0m
+[0[31m[40mError(71) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 58754386061767.812500[0m
+[0[31m[40mError(72) in [TOVSolver.cpp:SolveToProfile:2676]  [1[31m[40mSolveToProfile: SingleStarSolveToTOVPoints failed at ec = 113075379874161.109375[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+target=2 SURFACE_REACHED p=p_cut current=true residual_M=1.4138336186242384e-06 decomposition_residual_km3=1.1879386363489175e-14
+FAIL: regression bytes differ from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar/tests/dependency_migration/fixtures/Release-hartle_monopole_regression.tsv
+
+A total of 72 errors, and 0 warnings were generated.

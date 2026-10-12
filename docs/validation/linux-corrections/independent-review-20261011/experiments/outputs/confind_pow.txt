@@ -1,0 +1,9 @@
+Mac table: RAW0/2 x=1.002559138472023 (pow at L); RAW4/5 x=1.002559138472023; Linux RAW4/5 x=1.0025591384720227
+L (exact level)                        x=0.00111
+   glibc pow=1.0025591384720227  glibc exp10=1.0025591384720227  correctly-rounded=1.0025591384720227  (10^x - midpoint)/ULP=-0.0001
+L' = 1-(1-L) [center->corner edge]     x=0.0011100000000000554
+   glibc pow=1.002559138472023  glibc exp10=1.002559138472023  correctly-rounded=1.002559138472023  (10^x - midpoint)/ULP=+0.5748
+2-(2-L)                                x=0.0011099999999999444
+   glibc pow=1.0025591384720227  glibc exp10=1.0025591384720227  correctly-rounded=1.0025591384720227  (10^x - midpoint)/ULP=-0.5794
+(L/2)*2                                x=0.00111
+   glibc pow=1.0025591384720227  glibc exp10=1.0025591384720227  correctly-rounded=1.0025591384720227  (10^x - midpoint)/ULP=-0.0001

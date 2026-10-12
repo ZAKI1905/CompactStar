@@ -1,0 +1,5 @@
+truth (exact constants, 60 digits): 0.00000000735672890373283169195830681102
+reviewed literal rel dev from truth: 1.324e-16
+Linux production             rel dev from truth = +7.955e-16  (= +7.07 double ULPs)
+Linux independent(80-bit)    rel dev from truth = +8.467e-20  (= +0.00 double ULPs)
+correctly rounded double of truth: 7.3567289037328317539734989e-09  (7.356728903732832e-09)
