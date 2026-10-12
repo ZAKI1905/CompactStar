@@ -24,7 +24,7 @@ for path in sorted((a.toolchain/'corrections').rglob('*')):
   except ET.ParseError:continue
   summary['tests'][str(rel)]=[dict(name=t.get('name'),seconds=t.get('time'),status='FAIL' if t.find('failure') is not None or t.get('status')=='fail' else 'SKIP' if t.find('skipped') is not None else 'PASS') for t in tree.findall('.//testcase')]
  # Do not archive bulky repetition tables or scientific profile/input trees.
- if path.suffix not in ('.json','.xml','.log','.exit'):continue
+ if path.suffix not in ('.json','.xml','.log','.txt','.exit'):continue
  if any(x in rel.parts for x in ('thermal','central','tangent-sequence')):continue
  if path.stat().st_size>4_000_000:continue
  dest=a.output/'runs'/rel
@@ -32,6 +32,12 @@ for path in sorted((a.toolchain/'corrections').rglob('*')):
  with dest.open('wb') as f:
   with gzip.GzipFile(filename='',mode='wb',fileobj=f,mtime=0) as out:out.write(path.read_bytes())
 ids=a.jobs
+for job in ids.split(','):
+ for path in a.toolchain.glob('corrections-*-'+job+'.log'):
+  if path.stat().st_size>4_000_000:continue
+  dest=a.output/'batch'/path.name;dest.parent.mkdir(exist_ok=True)
+  dest.write_bytes(path.read_bytes())
+  summary['artifacts']['batch/'+path.name]={'sha256':sha(path),'bytes':path.stat().st_size}
 res=subprocess.run(['sacct','-j',ids,'--units=K','--parsable2','--format=JobID,JobName,State,ExitCode,Elapsed,TotalCPU,MaxRSS,AllocCPUS,NodeList'],capture_output=True,text=True)
 summary['sacct_returncode']=res.returncode
 (a.output/'sacct.txt').write_text(res.stdout+res.stderr)
