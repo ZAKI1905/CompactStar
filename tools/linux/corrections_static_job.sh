@@ -11,14 +11,14 @@ for mode in Debug Release; do
  mkdir -p "$COMPACTSTAR_UNIT1_CAPTURE_DIR"
  b="$TC/build/CompactStar-$mode"
  set +e
- /usr/bin/time -v ctest --test-dir "$b" -R '^(phase5b_(PB1|PB6|PB7|PB9-11|PB12|PB13|contracts)|phase5d_response|phase5d_independent_oracles|baryon_number_cmf|hartle_monopole_regression|hartle_monopole_physics_cmf)$' --output-on-failure --output-junit "$OUT/structure-$mode.xml" -j1 > "$OUT/structure-$mode.log" 2>&1
+ "$TC/python/bin/python" "$SRC/tools/linux/measure.py" ctest --test-dir "$b" -R '^(phase5b_(PB1|PB6|PB7|PB9-11|PB12|PB13|contracts)|phase5d_response|phase5d_independent_oracles|baryon_number_cmf|hartle_monopole_regression|hartle_monopole_physics_cmf)$' --output-on-failure --output-junit "$OUT/structure-$mode.xml" -j1 > "$OUT/structure-$mode.log" 2>&1
  echo "$?" > "$OUT/structure-$mode.exit"
  set -e
  "$TC/python/bin/python" "$SRC/tools/linux/arithmetic_environment.py" --build "$b" --output "$OUT/runtime-$mode.json"
 done
 b="$TC/build/CompactStar-Debug"
-/usr/bin/time -v "$TC/python/bin/python" "$SRC/tests/analysis/chemical_trackr_budget.py" "$b/tests/chemical_trackr_fixture" "$OUT/characterization" > "$OUT/characterization.log" 2>&1
-/usr/bin/time -v "$TC/python/bin/python" "$SRC/tests/analysis/chemical_production_validation.py" "$b/tests/chemical_production_fixture" "$OUT/characterization" "$OUT/production" --repeat > "$OUT/production.log" 2>&1
+"$TC/python/bin/python" "$SRC/tools/linux/measure.py" "$TC/python/bin/python" "$SRC/tests/analysis/chemical_trackr_budget.py" "$b/tests/chemical_trackr_fixture" "$OUT/characterization" > "$OUT/characterization.log" 2>&1
+"$TC/python/bin/python" "$SRC/tools/linux/measure.py" "$TC/python/bin/python" "$SRC/tests/analysis/chemical_production_validation.py" "$b/tests/chemical_production_fixture" "$OUT/characterization" "$OUT/production" --repeat > "$OUT/production.log" 2>&1
 validation=$(find "$OUT/production" -name validation.json)
 candidate=$(dirname "$validation")/t8192-r80000/candidate.json
 "$TC/python/bin/python" "$SRC/tools/linux/compare_candidate_coefficients.py" --mac "$SRC/tests/baselines/phase5c_chemical_coefficients.json" --linux "$candidate" --validation "$validation" --output "$OUT/coefficient-agreement.json"
