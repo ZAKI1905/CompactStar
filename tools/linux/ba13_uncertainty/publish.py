@@ -10,6 +10,12 @@ def sha(p):
  return h.hexdigest()
 required=['summary.json','disposition-matrix.json','disposition-matrix.tsv','resources.json','measurements.tsv','paired-integrals.json','holdout-validation.json','holdout-predictions.json','target-holdout-predictions.json','thermal-diagnostic.json','fit-units.json','chemical-diagnostic.json','integral-diagnostic.json','profile-diagnostic.json','p1-validation.json','eos-ordering.tsv']
 for n in required:assert (R/n).is_file(),n
+for n,count in [('integral-diagnostic.json',27),('profile-diagnostic.json',55),('p1-validation.json',27),('holdout-validation.json',352)]:
+ assert len(json.loads((R/n).read_text()))==count,n
+t=json.loads((R/'thermal-diagnostic.json').read_text());assert len(t['records'])==546 and len(t['high_precision'])==27
+c=json.loads((R/'chemical-diagnostic.json').read_text())['records'];assert [v['index'] for v in c]==list(range(21))
+assert all(len(v['integrals'])==5 for v in c if v['index'] in (0,10,20))
+u=json.loads((R/'fit-units.json').read_text())['quantities'];assert len(u)==22 and sum(v['components'] for v in u.values())==10303
 matrix=json.loads((R/'disposition-matrix.json').read_text());assert len(matrix)==462
 assert len({(v['index'],v['quantity']) for v in matrix})==462
 assert all(v['proposed_qualified_uncertainty'] is None or v['quantity']=='P2_average' for v in matrix)
