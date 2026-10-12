@@ -1,0 +1,101 @@
+{
+  "baselines": {
+    "tests/baselines/baryon_number_dscmf1_reference.tsv": "90d607519cbdf3c4a0bf6ef50cc8fd22a8526b5db0354dc319e96854da29041d",
+    "tests/baselines/grid_convergence_cmf_1p6_debug.tsv": "b48519c3e948e9979a385d19facee2777d15955eeb8711b4bdd46b81fef74741",
+    "tests/baselines/grid_convergence_cmf_1p6_trajectory.tsv": "d5b753932c0523e67a7f25b460c7494bec1a006a8d01c9e43124cb2e78f0720f",
+    "tests/baselines/hartle_I_dscmf1_debug.tsv": "034ecddbd9bd847650429d7dc87d0331ec9e87aca3862ff87594e4bff5b707dd",
+    "tests/baselines/hartle_monopole_dscmf1_debug.tsv": "caaa0ac0d3219cda0a9fb518b27688afc23c6cdad1ec76a2bcd7359614a8d4e8",
+    "tests/baselines/passive_cooling_cmf_1p6_debug.tsv": "8fef2314673fceb939f859612f4befe94117115d6d6b3ad0dcc59d1faa68c9f9",
+    "tests/baselines/phase5b_structural_response.json": "7588f0e9cd62f5b6be48bb725e4d0ba6e47b64f50d843117e70c17a78beeb5fa",
+    "tests/baselines/phase5c_chemical_coefficients.json": "7027aa6179fe9111d76586d467d007c4223ec9d26ece0fee773327973c77bfe7",
+    "tests/baselines/tov_dscmf1_reference.tsv": "3d9af9129a6a4ffde9e0f8c5507a160f968a861c0cf9f3b089cceecab86b701a",
+    "tests/baselines/tov_path_equivalence_dscmf1.tsv": "5c0f4b3bdb70921f8f2a869af10edc4d8f5ae3963a9d150e11ef859d21e1c678"
+  },
+  "historical_entry": "f7116c1408c06f976527f86d4397ad6d4540dedf",
+  "historical_plan_sha256": "39ce3c80746223c0d694b1f1340110c119fceea06f0d582da10861591cb961fb",
+  "protected": {
+    "CompactStar/Analysis/ChemicalResponse.hpp": "56111729f309e3066371fb6b70eb1803ee1fe8c729bebf2aeae3298a9102ddbe",
+    "CompactStar/Analysis/ParticleNumberResponse.hpp": "df5b55a1ee679428052c0ee5797c1cdc7a61a4ad35270ea13d470c722957378e",
+    "CompactStar/Analysis/src/ChemicalResponse.cpp": "463e5a975edab2fcebe2b845363e2286500ae9c2ce115f175c0205346f2805ff",
+    "CompactStar/Analysis/src/ParticleNumberResponse.cpp": "98ca82c19173f2087b7bd9fc9e71f18874ce507ec6de6ed7efca9ae62c394890",
+    "CompactStar/AngularVelocity.hpp": "aa32cf06f172ca36ed5061c19db66f72dafbea9056807b3334c52d8ad178db79",
+    "CompactStar/Core/NStar.hpp": "7aa71d70496f359c48f6a26b8dc17424a98b4e30e6c5f5c0627010d340504e2b",
+    "CompactStar/Core/RotationSolver.hpp": "7d3dbfab42734c47a55c98877b855a37d14d37df71450966a8ecf514c557421d",
+    "CompactStar/Core/StarProfile.hpp": "07c2fdb783d03b938ba0b7de9e3fb2cd6ca62a6ad6b9c430b4101e29d25f8237",
+    "CompactStar/Core/src/NStar.cpp": "69a4b403370feeb6c1ba7d469082c2a6f5d824bf604abbae268f505204feb08e",
+    "CompactStar/Core/src/RotationSolver.cpp": "b3e4b8db36952f5d1cb60412947a071b30a22de9a755f77571a580f3f8856982",
+    "CompactStar/Core/src/TOVSolver.cpp": "d5da96e512453ae9ce18d7e6b3334b82bf17dd1def3230dd24ad267bc1fc7ad8",
+    "CompactStar/EOS/LocalThermodynamics.hpp": "cd28ac9ad7ef6efd9f910d78991d242de71b0e1a03992718e7dca260a083c601",
+    "CompactStar/EOS/TrackRFreeGasThermodynamics.hpp": "57f62a1e636cf3cfa23db9289a42302a484581c8c8f413fba9057cca6217c710",
+    "CompactStar/EOS/src/LocalThermodynamics.cpp": "1621e90dadd103defdc7b590c008b79b8110dcc9f9839d60b94bf6200adafeb8",
+    "CompactStar/EOS/src/TrackRFreeGasThermodynamics.cpp": "4707a228d45d2eb9df7a411d5180ab5982d149d1d2519dd95e5ff30de513793b",
+    "CompactStar/Geometry.hpp": "cad68a4773f899006c037ee00116dbc2d01c4b239c06b8f6fac9d55f00e12167",
+    "CompactStar/RelativityUnits.hpp": "4277eb3caff0623f2615e8435a6632f954cf505a4be9aa9a7a1509b8488549fd",
+    "CompactStar/Units.hpp": "fbeb722e03d40ce7bf23680987e11a38da11566df292f8123d3aa16b0145c5b6",
+    "docs/validation/phase5c2_preproduction_evidence.json": "883f9879103fde113b49ed311b38b5f4c4876d84ffd2aa7987270c5c08f4e481",
+    "tests/analysis/chemical_curved_gc9.py": "877d1e71800179f578dce3a36e113af49785c1e10204555fe67deb2b108595a4",
+    "tests/analysis/chemical_exact_oracles.py": "c2d6fb699e1a322b9e4e93ce1fcbb76c60f0d5efb8fc04348988d8d43e50902e",
+    "tests/analysis/chemical_production_contract.cpp": "0a7771e4f192c908299c89cc682695f216a51a6b7e1c9c8d08387b864fb24a6b",
+    "tests/analysis/chemical_production_evidence.py": "9124324d82fd4bc877fb99c35e7fe62a0d72f4fea9f03b8bf4fed61dde46e0ee",
+    "tests/analysis/chemical_production_fixture.cpp": "c16e204cb48edc30e06332e6ae729156ed459fe66ce2bccd60cb460c676fb0e0",
+    "tests/analysis/chemical_production_validation.py": "6e4a7726744d1e601faf42ff9b3270710ff327972b901b1381f3cf03bbb90185",
+    "tests/analysis/chemical_trackr_budget.py": "397923d762d6ff6687b9b2d0bb4d7bbee5abd97265426fc38d225db6aeb8e56f",
+    "tests/analysis/chemical_trackr_fixture.cpp": "6d725cce39fc05e0275673dbb36cffd27eeb0776b8745c7d62d5675778ec6978",
+    "tests/analysis/particle_number_homogeneous.hpp": "333258fcabd537a003fba7ccabfe7909139da850106c399431e0c3fc0fd2a243",
+    "tests/analysis/phase5b_freegas_validation.cpp": "2bb980f1916f0498e626fd8601ba023e6f211f93d5b8655b40aa62283c613fa4",
+    "tests/analysis/produce_particle_number_reference.py": "dc6911cf1005cfea871a5cacc20e147516b953c4887832f46824c3afde025407",
+    "tests/eos/structure1/local_oracle.hpp": "d46d9ac1ef23df8754d32329e0df4497624d7da87d3f327704e0e0c81c2008ca",
+    "tests/eos/structure1/table.hpp": "cf164e22626cda08050461776a1e87195538b6913c24f6ec47fe41e57ef4e160",
+    "tests/eos/structure1/tov_oracle.hpp": "d36df7a0f818b73227920bb50e6f8e5c113679328921d0c560de549c04b62686"
+  },
+  "special": {
+    "docs/validation/phase5c_chemical_coefficients_candidate.json": "a6b430b2356987b54a7c82c87d0b00f3e1d9698f6f299c32c80efcc40c63833b",
+    "tests/baselines/phase5b_structural_response.json": "7588f0e9cd62f5b6be48bb725e4d0ba6e47b64f50d843117e70c17a78beeb5fa",
+    "tests/baselines/phase5c_chemical_coefficients.json": "7027aa6179fe9111d76586d467d007c4223ec9d26ece0fee773327973c77bfe7"
+  },
+  "status": "PROPOSED_NOT_OWNER_RATIFIED",
+  "transitions": [
+    {
+      "new": "463e5a975edab2fcebe2b845363e2286500ae9c2ce115f175c0205346f2805ff",
+      "old": "985910361aa58a525abea9d6e1726138b856ca4743966bb08a5e0ee3ec4f3a49",
+      "origin": "d222b60",
+      "path": "CompactStar/Analysis/src/ChemicalResponse.cpp",
+      "rationale": "Full-byte checked block reads replace streambuf copying; equations untouched; empty/NUL/block-boundary/mutation/deletion controls added. Bounded ADR-0017 amendment accepted at 0c3f9269, but its ratification explicitly excludes blanket acceptance of every ancestry commit; exact upstream re-pin remains proposed."
+    },
+    {
+      "new": "98ca82c19173f2087b7bd9fc9e71f18874ce507ec6de6ed7efca9ae62c394890",
+      "old": "0b03159c07c81ec35ada39f3fd5eabb410fe4e7c0c4cc46ab8133eb674c0f5fd",
+      "origin": "a8a43e9",
+      "path": "CompactStar/Analysis/src/ParticleNumberResponse.cpp",
+      "rationale": "Full-byte checked block reads replace character iterators; no cache or metadata shortcut. Adds read-error refusal; successful scientific inputs retain identical bytes. Same bounded architecture acceptance, separate upstream pin amendment still needed."
+    },
+    {
+      "new": "1621e90dadd103defdc7b590c008b79b8110dcc9f9839d60b94bf6200adafeb8",
+      "old": "aa6fdb64094be2f53c1bfb52c91d5f102f9c17d4f37d08343ba096303a1fab6d",
+      "origin": "this correction",
+      "path": "CompactStar/EOS/src/LocalThermodynamics.cpp",
+      "rationale": "Binary64 inverse chemical-potential relation; physical formula and constants unchanged. Numerical-method candidate under ADR-0020. Independent exact-binary 80/120-digit oracle and nearby-input checks required; other long-double quantities retained."
+    },
+    {
+      "new": "4707a228d45d2eb9df7a411d5180ab5982d149d1d2519dd95e5ff30de513793b",
+      "old": "ae6c1c570e076b6462e0558592de39d8be922eeb5118cb40b0b296baba0800e8",
+      "origin": "this correction",
+      "path": "CompactStar/EOS/src/TrackRFreeGasThermodynamics.cpp",
+      "rationale": "Explicit fma mu_e expression; numerical-method candidate, no hardcoded onset. Derived metadata and EOS must be regenerated. Existing PE-V6 accuracy threshold retained."
+    },
+    {
+      "new": "0a7771e4f192c908299c89cc682695f216a51a6b7e1c9c8d08387b864fb24a6b",
+      "old": "1c9cdeff75e76fbe7a93c54e42764ac4878c7f4c48d13a9c05a5a1b9ebeb56c2",
+      "origin": "d222b60",
+      "path": "tests/analysis/chemical_production_contract.cpp",
+      "rationale": "Adds successful byte-read and refusal controls only; scientific expected values unchanged. Candidate successor records exact extended harness bytes."
+    },
+    {
+      "new": "dc6911cf1005cfea871a5cacc20e147516b953c4887832f46824c3afde025407",
+      "old": "194f2000bdac9260c55a35135a38ce6a9864fb115a3e309f6887d69e56c207c9",
+      "origin": "bd07325",
+      "path": "tests/analysis/produce_particle_number_reference.py",
+      "rationale": "Retain explicit absolute Linux CXX selection and real compiler provenance; Darwin path unchanged. No changed calculation, source exclusion or numerical waiver. Owner authorized routine portability correction in this task; pin amendment not ratified."
+    }
+  ]
+}

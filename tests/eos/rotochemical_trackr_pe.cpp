@@ -351,16 +351,16 @@ void V5(const TrackRFreeGasThermodynamicProvider &provider)
 
 void V6(const TrackRFreeGasThermodynamicProvider &provider)
 {
-	const long double independent = IndependentOnsetExpression();
-	const long double reviewed = 7.3567289037328326656352e-9L;
-	Require(std::abs((independent - reviewed) / reviewed) < 2e-16L,
-		"PE-V6 falsifier: independent onset expression misses reviewed high-precision reference");
+	// Correct rounding of the exact-binary-input 80/120-digit oracle in
+	// tests/linux/arithmetic_oracle.py. Native long double is diagnostic only.
+	constexpr double independent = 0x1.f98cf18cad246p-28;
 	const double production = provider.NeutronOnsetBaryonDensityFm3();
-	Require(std::abs(static_cast<long double>(production) / independent - 1.0L) < 3e-16L,
-		"PE-V6 falsifier: production neutron onset differs from independent expression");
+	Require(std::abs((production - independent) / independent) < 3e-16,
+		"PE-V6 falsifier: production neutron onset differs from high-precision oracle");
 	std::cout << std::setprecision(22)
-		<< "PE-V6 PASS: independent neutron-onset expression=" << independent
-		<< " fm^-3; production=" << production << " fm^-3\n";
+		<< "PE-V6 PASS: correctly rounded high-precision neutron onset=" << independent
+		<< " fm^-3; production=" << production
+		<< "; native-long-double diagnostic=" << IndependentOnsetExpression() << "\n";
 	std::cout << std::setprecision(17);
 }
 

@@ -1,0 +1,83 @@
+{
+  "historical_status": "FAIL",
+  "historical_mismatches": [
+    {
+      "path": "CompactStar/Analysis/src/ChemicalResponse.cpp",
+      "expected": "985910361aa58a525abea9d6e1726138b856ca4743966bb08a5e0ee3ec4f3a49",
+      "actual": "463e5a975edab2fcebe2b845363e2286500ae9c2ce115f175c0205346f2805ff"
+    },
+    {
+      "path": "CompactStar/Analysis/src/ParticleNumberResponse.cpp",
+      "expected": "0b03159c07c81ec35ada39f3fd5eabb410fe4e7c0c4cc46ab8133eb674c0f5fd",
+      "actual": "98ca82c19173f2087b7bd9fc9e71f18874ce507ec6de6ed7efca9ae62c394890"
+    },
+    {
+      "path": "CompactStar/EOS/src/LocalThermodynamics.cpp",
+      "expected": "aa6fdb64094be2f53c1bfb52c91d5f102f9c17d4f37d08343ba096303a1fab6d",
+      "actual": "1621e90dadd103defdc7b590c008b79b8110dcc9f9839d60b94bf6200adafeb8"
+    },
+    {
+      "path": "CompactStar/EOS/src/TrackRFreeGasThermodynamics.cpp",
+      "expected": "ae6c1c570e076b6462e0558592de39d8be922eeb5118cb40b0b296baba0800e8",
+      "actual": "4707a228d45d2eb9df7a411d5180ab5982d149d1d2519dd95e5ff30de513793b"
+    },
+    {
+      "path": "tests/analysis/chemical_production_contract.cpp",
+      "expected": "1c9cdeff75e76fbe7a93c54e42764ac4878c7f4c48d13a9c05a5a1b9ebeb56c2",
+      "actual": "0a7771e4f192c908299c89cc682695f216a51a6b7e1c9c8d08387b864fb24a6b"
+    },
+    {
+      "path": "tests/analysis/produce_particle_number_reference.py",
+      "expected": "194f2000bdac9260c55a35135a38ce6a9864fb115a3e309f6887d69e56c207c9",
+      "actual": "dc6911cf1005cfea871a5cacc20e147516b953c4887832f46824c3afde025407"
+    }
+  ],
+  "proposed_status": "PASS_CANDIDATE_NOT_OWNER_RATIFIED",
+  "authority_sha256": "bb7c0c7e3882cb9b9e16047a17a2bc8c6939541704006ef416f1e727d7d1cbd0",
+  "protected_paths": 33,
+  "baselines": 10,
+  "special_artifacts": 3,
+  "refused_mutations": [
+    "duplicate_path_json",
+    "missing_protected",
+    "extra_protected",
+    "forged_hash",
+    "missing_baseline",
+    "missing_special",
+    "forged_status",
+    "forged_transition",
+    "source:CompactStar/Analysis/ChemicalResponse.hpp",
+    "source:CompactStar/Analysis/ParticleNumberResponse.hpp",
+    "source:CompactStar/Analysis/src/ChemicalResponse.cpp",
+    "source:CompactStar/Analysis/src/ParticleNumberResponse.cpp",
+    "source:CompactStar/AngularVelocity.hpp",
+    "source:CompactStar/Core/NStar.hpp",
+    "source:CompactStar/Core/RotationSolver.hpp",
+    "source:CompactStar/Core/StarProfile.hpp",
+    "source:CompactStar/Core/src/NStar.cpp",
+    "source:CompactStar/Core/src/RotationSolver.cpp",
+    "source:CompactStar/Core/src/TOVSolver.cpp",
+    "source:CompactStar/EOS/LocalThermodynamics.hpp",
+    "source:CompactStar/EOS/TrackRFreeGasThermodynamics.hpp",
+    "source:CompactStar/EOS/src/LocalThermodynamics.cpp",
+    "source:CompactStar/EOS/src/TrackRFreeGasThermodynamics.cpp",
+    "source:CompactStar/Geometry.hpp",
+    "source:CompactStar/RelativityUnits.hpp",
+    "source:CompactStar/Units.hpp",
+    "source:docs/validation/phase5c2_preproduction_evidence.json",
+    "source:tests/analysis/chemical_curved_gc9.py",
+    "source:tests/analysis/chemical_exact_oracles.py",
+    "source:tests/analysis/chemical_production_contract.cpp",
+    "source:tests/analysis/chemical_production_evidence.py",
+    "source:tests/analysis/chemical_production_fixture.cpp",
+    "source:tests/analysis/chemical_production_validation.py",
+    "source:tests/analysis/chemical_trackr_budget.py",
+    "source:tests/analysis/chemical_trackr_fixture.cpp",
+    "source:tests/analysis/particle_number_homogeneous.hpp",
+    "source:tests/analysis/phase5b_freegas_validation.cpp",
+    "source:tests/analysis/produce_particle_number_reference.py",
+    "source:tests/eos/structure1/local_oracle.hpp",
+    "source:tests/eos/structure1/table.hpp",
+    "source:tests/eos/structure1/tov_oracle.hpp"
+  ]
+}

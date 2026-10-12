@@ -1,0 +1,12 @@
+{
+  "CompactStar/Physics/BNV": {
+    "returncode": 1,
+    "matches": ""
+  },
+  "tests/bnv": {
+    "returncode": 1,
+    "matches": ""
+  },
+  "linked_legacy_symbols": [],
+  "executable": "starting candidate executable; corrected executable must be checked again"
+}

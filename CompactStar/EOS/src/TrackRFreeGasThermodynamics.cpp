@@ -223,7 +223,9 @@ double TrackRFreeGasThermodynamicProvider::ComputeNeutronOnsetBaryonDensityFm3()
 	const double mn = neutron_.RestMassEnergyMeV();
 	const double mp = proton_.RestMassEnergyMeV();
 	const double me = electron_.RestMassEnergyMeV();
-	const double mu_e = ((mn - mp) * (mn + mp) + me * me) / (2.0 * mn);
+	// ADR-0020 candidate: explicit fusion avoids premature rounding independently
+	// of compiler contraction and native long-double width.
+	const double mu_e = std::fma(mn - mp, mn + mp, me * me) / (2.0 * mn);
 	return electron_.NumberDensityForChemicalPotentialFm3(mu_e);
 }
 

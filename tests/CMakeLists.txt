@@ -738,3 +738,11 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
     set_tests_properties(linux_dependency_authentication PROPERTIES
         LABELS "engineering;dependency;self-contained" ENVIRONMENT "PYTHONDONTWRITEBYTECODE=1")
 endif()
+
+# ADR-0020 candidate independent binary-input arithmetic qualification.
+add_executable(linux_arithmetic_probe linux/arithmetic_probe.cpp)
+target_link_libraries(linux_arithmetic_probe PRIVATE CompactStar)
+add_test(NAME candidate_arithmetic_oracle COMMAND "${Python3_EXECUTABLE}"
+    "${CMAKE_CURRENT_SOURCE_DIR}/linux/arithmetic_oracle.py"
+    --executable $<TARGET_FILE:linux_arithmetic_probe>)
+set_tests_properties(candidate_arithmetic_oracle PROPERTIES LABELS "candidate;analytic;self-contained" TIMEOUT 60)

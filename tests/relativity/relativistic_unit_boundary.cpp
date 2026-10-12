@@ -77,14 +77,21 @@ int main()
     std::cout << "U5 analytic TOV PASS worst_nuprime=" << worst << '\n';
     CompactStar::Physics::Evolution::StarContext context(p);
     for(size_t i=0;i<points.size();++i) close((*context.MassDensity_gcm3())[i],points[i].e,"U11 context inverse");
-    // Density-selected boundary with values within the old-vs-new inverse mismatch.
-    // This synthetic column probes conversion only; it makes no new stellar-physics claim.
+    // ADR-0020 fixture amendment: construct in FindTbIndex comparison units.
+    // The intended rule is the outermost rho >= threshold, including equality.
+    const double boundary=CompactStar::RelativityUnits::MassDensityGcm3ToEnergyKmMinus2(1e10);
+    const double below=std::nextafter(boundary,0.0);
+    const double above=std::nextafter(boundary,std::numeric_limits<double>::infinity());
     auto profile=ns.Profile();
-    { auto edit=profile.Edit(); auto &col=profile.RadialMutable()[profile.GetColumnIndex(StarProfile::Column::EnergyDensity)];
-      for(size_t i=0;i<points.size();++i) col[i]=static_cast<double>((1.0001-i*0.0001)*1e10L*G/c/c*1e10L); }
+    for (const auto value : {below,boundary,above}) {
+      { auto edit=profile.Edit(); auto &col=profile.RadialMutable()[profile.GetColumnIndex(StarProfile::Column::EnergyDensity)];
+        for(size_t i=0;i<points.size();++i) col[i]=below;
+        col[0]=above; col[1]=value; }
+      CompactStar::Physics::Evolution::StarContext test_layers(profile);
+      auto index=CompactStar::Physics::Driver::Thermal::Boundary::FindTbIndex(test_layers,1e10);
+      require(index==(value<boundary ? 0u : 1u),"U11 below/equal/above comparison boundary");
+    }
     CompactStar::Physics::Evolution::StarContext layers(profile);
-    auto index=CompactStar::Physics::Driver::Thermal::Boundary::FindTbIndex(layers,1e10);
-    require(index==1,"U11 density layer");
     const double old_factor=Zaki::Physics::MEV_FM3_2_INV_KM2/Zaki::Physics::MEV_FM3_2_G_CM3;
     require((*layers.MassDensity_gcm3())[0]/((*profile.GetEnergyDensity())[0]/old_factor)-1>1e-4,"U13 wrong inverse detector");
     // Fixed coherent interior node. Each mixed field independently violates F or m'.

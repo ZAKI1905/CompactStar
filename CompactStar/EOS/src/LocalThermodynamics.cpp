@@ -205,15 +205,16 @@ double ColdRelativisticIdealFermion::NumberDensityForChemicalPotentialFm3(
 	if (chemical_potential_MeV == rest_mass_energy_MeV_)
 		return 0.0;
 
-	const long double chemical_potential = chemical_potential_MeV;
-	const long double mass = rest_mass_energy_MeV_;
-	const long double hbar_c = hbar_c_MeV_fm_;
-	const long double p_F = std::sqrt(
+	// ADR-0020 candidate: binary64 throughout the inverse relation. Wider
+	// intermediates cannot recover the already rounded input mu or hbar-c,
+	// and made the neutron threshold depend on native long-double width.
+	const double chemical_potential = chemical_potential_MeV;
+	const double mass = rest_mass_energy_MeV_;
+	const double p_F = std::sqrt(
 		(chemical_potential - mass) * (chemical_potential + mass));
-	const long double pi = std::acos(-1.0L);
-	const long double ratio = p_F / hbar_c;
-	const double density = static_cast<double>(ratio * ratio * ratio /
-											 (3.0L * pi * pi));
+	const double pi = std::acos(-1.0);
+	const double ratio = p_F / hbar_c_MeV_fm_;
+	const double density = ratio * ratio * ratio / (3.0 * pi * pi);
 	if (!std::isfinite(density) || density < 0.0)
 		throw std::runtime_error(
 			"Ideal-fermion inverse chemical-potential relation left its finite domain.");
