@@ -23,3 +23,9 @@ Both retain one simple connected vertical contour with exact endpoints and
 independently bounded coordinates. See near-tie-geometry.json. This is scoped
 analytic geometry evidence, not a pass of historical text identity or general
 stellar/randomized topology qualification.
+
+The complete existing PE-V1–PE-V13 executable was also linked directly against
+the two changed EOS translation units and accepted Zaki constants. All thirteen
+pass; runtime 0.01 s, peak RSS 4480 KiB (pe-local-probe.log). This includes
+nextafter branch classification and explicit unresolved-interior refusals, not
+just the onset scalar. Full-library compute-node testing remains separate.

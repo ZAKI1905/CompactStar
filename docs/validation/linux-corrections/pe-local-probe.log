@@ -1,0 +1,41 @@
+PE-V1 PASS: 7 logarithmic densities have exact n_p=n_e=n_B, n_n=n_mu=0 and a 1D active set
+PE-V2 PASS: independent p/e phase-space energy relative=2.2204460492503131e-16; max |h_pe-(mu_p+mu_e)|=1.1368683772161603e-13 MeV
+PE-V3 PASS: 1x1 H_pe=D_p+D_e; max independent relative error=4.4408920985006262e-16
+PE-V4 diagnostic scale=0.01 relative error=1.4113200324405994e-05
+PE-V4 diagnostic scale=0.0050000000000000001 relative error=3.5282199271069459e-06
+PE-V4 diagnostic scale=0.0025000000000000001 relative error=8.819047534469604e-07
+PE-V4 diagnostic scale=0.00125 relative error=2.2060625748387963e-07
+PE-V4 PASS: centered finite perturbations converge with min order=1.9991491382860955; final relative derivative error=2.2060625748387963e-07
+PE-V5 PASS: m_n-mu_p-mu_e is positive, strictly decreasing, final=3.6402320802153554e-07 MeV
+PE-V6 PASS: correctly rounded high-precision neutron onset=7.356728903732831753973e-09 fm^-3; production=7.356728903732831753973e-09; native-long-double diagnostic=7.356728903732831692581e-09
+PE-V7 PASS: P_onset=1.8964875026317867e-09 MeV fm^-3 >0; P>0 below onset and P/n_B->0 (final 5.5191587679051711e-05 MeV)
+PE-V8 PASS: exact value-only neutron threshold; lower nextafter is pe, upper nextafter remains Npe-classified and fails resolution explicitly
+PE-V9 PASS: t^T H_npe t=H_pe (max relative 3.3306690738754696e-16); H^-1 -> tt^T/H_pe with no 1/2 factor; production/independent final normalized errors=6.8117019658066038/0.015950325143963464
+PE-V10 PASS: vacuum is value-only, epsilon=0, h_pe->m_p+m_e; H_pe grows without a fabricated finite boundary value
+PE-V11 PASS: 4 resolved responses through 1e-6 above onset, 4 explicit failures from 1e-7 through 1e-10; max allowed H00 relative error=1.5938597330844573e-08; no floor/substitution
+PE-V12 PASS: invalid / vacuum / pe / neutron threshold / npe / muon threshold / npe-mu / Sigma rejection dispatched explicitly
+PE-V13 PASS: muon/Sigma thresholds, npe 2D, and npe-mu 3D paths preserved; V1-V10, RFG1-RFG11 and R1-V1-R1-V10 remain separate regression executables
+Phase 5A-5 PE-V1 through PE-V13 PASS
+	Command being timed: "/tmp/compactstar-pe-correction"
+	User time (seconds): 0.01
+	System time (seconds): 0.00
+	Percent of CPU this job got: 83%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.01
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 4480
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 155
+	Voluntary context switches: 0
+	Involuntary context switches: 0
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

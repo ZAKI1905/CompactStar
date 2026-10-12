@@ -113,8 +113,8 @@ long double IndependentOnsetExpression()
 {
 	// Independent closed form using the exact binary values of the Zaki double
 	// constants. This does not call the provider or its threshold routine. The
-	// separately supplied 80-digit review value is checked below; arm64 long
-	// double is not assumed to provide more precision than double.
+	// native-width result is diagnostic only for PE-V6; its authority is the
+	// separate exact-binary 80/120-digit oracle, also valid on arm64.
 	const long double neutron_mass = Zaki::Physics::NEUTRON_M_MEV;
 	const long double proton_mass = Zaki::Physics::PROTON_M_MEV;
 	const long double electron_mass = Zaki::Physics::ELECTRON_M_MEV;

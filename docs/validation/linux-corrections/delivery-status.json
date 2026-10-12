@@ -1,0 +1,8 @@
+{
+  "mac_lock_sha256": "e1307a042180034ad028f2ff07dbc7fd80752494ff4b2ff61cc8ca0eec2089c5",
+  "linux_lock_sha256": "7e59a8e4d0d59033d1f99e9e54ff4f351a14de29fbdc10c3e7358576f9010fd9",
+  "push_status": "UNAVAILABLE_EXISTING_HTTPS_AUTH",
+  "remote_start_observed": "f4e7c18f568045febc5bf65c6e95200752196dad",
+  "dry_run_error": "fatal: could not read Username for 'https://github.com': terminal prompts disabled",
+  "credentials_changed": false
+}
