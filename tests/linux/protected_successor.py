@@ -36,21 +36,21 @@ def unique_object(pairs):
 
 
 def main():
-    assert manifest.digest(AUTHORITY)==AUTHORITY_SHA256, 'candidate authority changed'
+    if manifest.digest(AUTHORITY)!=AUTHORITY_SHA256: raise RuntimeError('candidate authority changed')
     authority=json.loads(AUTHORITY.read_text(),object_pairs_hook=unique_object)
     p=argparse.ArgumentParser();p.add_argument('--entry',type=Path);p.add_argument('--write-entry',type=Path);args=p.parse_args()
     if args.entry: check(ROOT,json.loads(args.entry.read_text(),object_pairs_hook=unique_object),authority)
-    if args.write_entry:
-        with args.write_entry.open('x') as f: f.write(json.dumps(authority,indent=2)+'\n')
     old=manifest.protected_authority(ROOT)
-    assert set(old)==set(authority['protected'])
-    assert manifest.digest(ROOT/'docs/validation/PHASE5D1_FROZEN_CONTEXT_PROVENANCE_PLAN.md')==authority['historical_plan_sha256']
+    if set(old)!=set(authority['protected']): raise RuntimeError('protected topology changed')
+    if manifest.digest(ROOT/'docs/validation/PHASE5D1_FROZEN_CONTEXT_PROVENANCE_PLAN.md')!=authority['historical_plan_sha256']: raise RuntimeError('historical authority changed')
     changed={p for p in old if old[p]!=authority['protected'][p]}
-    assert changed=={t['path'] for t in authority['transitions']}
+    if changed!={t['path'] for t in authority['transitions']}: raise RuntimeError('transition inventory changed')
     for t in authority['transitions']:
-        assert t['old']==old[t['path']] and t['new']==authority['protected'][t['path']]
+        if t['old']!=old[t['path']] or t['new']!=authority['protected'][t['path']]: raise RuntimeError('transition hash mismatch')
     historical=[dict(path=p,expected=h,actual=manifest.digest(ROOT/p)) for p,h in old.items() if manifest.digest(ROOT/p)!=h]
     check(ROOT,authority,authority)
+    if args.write_entry:
+        with args.write_entry.open('x') as f: f.write(json.dumps(authority,indent=2)+'\n')
     refused=[]
     try: json.loads('{"protected":{},"protected":{}}',object_pairs_hook=unique_object)
     except RuntimeError: refused.append('duplicate_path_json')
