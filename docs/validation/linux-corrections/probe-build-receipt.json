@@ -1,0 +1,30 @@
+{
+  "scope": "small login-node probes only; no stellar solves or evolution",
+  "compiler": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/g++",
+  "compiler_wrapper_sha256": "4d0e76c2a1cd55efc9e6ea8f4c57f6f9079d817650bfe6dadbebf862c6a0aabc",
+  "flags": [
+    "-std=c++17",
+    "-O0",
+    "-ffp-contract=off"
+  ],
+  "zaki_accepted_source": "e263a6e180c5c417198e7778bd21fc9c0a32dc33",
+  "zaki_archive_sha256": "d7659ace8e71b754a232bf152e2188cae8fa7609311460aca3a110878115a33a",
+  "production_probe": {
+    "executable_sha256": "ed9d261726f8140996b6d9f1eeea567fed6c7d3b366c30f41737fed4ec3517e2",
+    "source_revision": "556fe30",
+    "sources": {
+      "tests/linux/arithmetic_probe.cpp": "86593868b22b756e81b0366f0bd9378486479eb8ddd390c1c0fb259f89c24f85",
+      "CompactStar/EOS/src/LocalThermodynamics.cpp": "1621e90dadd103defdc7b590c008b79b8110dcc9f9839d60b94bf6200adafeb8",
+      "CompactStar/EOS/src/TrackRFreeGasThermodynamics.cpp": "4707a228d45d2eb9df7a411d5180ab5982d149d1d2519dd95e5ff30de513793b"
+    }
+  },
+  "pe_probe": {
+    "executable_sha256": "bebdb2436129740e399b429ba318bca4de3bdd233ac1c8f3fcb52f860b24808c",
+    "source_revision": "4dcd1f6",
+    "sources": {
+      "tests/eos/rotochemical_trackr_pe.cpp": "87309e02e8d4b7c015058c3dfa08b1222dd04cb84ae1ed9ff0a2aaa4988aec8f",
+      "CompactStar/EOS/src/LocalThermodynamics.cpp": "1621e90dadd103defdc7b590c008b79b8110dcc9f9839d60b94bf6200adafeb8",
+      "CompactStar/EOS/src/TrackRFreeGasThermodynamics.cpp": "4707a228d45d2eb9df7a411d5180ab5982d149d1d2519dd95e5ff30de513793b"
+    }
+  }
+}
