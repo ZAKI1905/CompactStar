@@ -1,5 +1,14 @@
 # CompactStar — Current Architecture
 
+> **Linux correction candidate (2026-10-12):** proposed ADR-0020 now separates
+> reproducibility, numerical agreement, independent accuracy, exact provenance
+> and owner acceptance. Explicit-fma neutron onset and binary64 inverse density
+> are numerical-method candidates; U11 repairs fixture construction only.
+> Historical Mac authorities and failures are retained. The proposed 33-path
+> successor is not ratified. Native Phase-6 certificate/pilots require the missing
+> original 21-star producer; no whole-library or campaign qualification is claimed.
+> See `docs/validation/linux-corrections/EXECUTION_SCOPE.md`.
+
 > **Linux transition candidate (2026-10-10):** explicit Linux-only dependency lock
 > authentication is implemented for review under proposed ADR-0020. Darwin retains
 > its fixed Mac lock. This is not Linux numerical equivalence or campaign authority.

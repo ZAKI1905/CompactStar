@@ -42,10 +42,14 @@ def main():
     p.add_argument('--executable', type=Path)
     p.add_argument('--input', type=Path)
     p.add_argument('--output', type=Path)
+    p.add_argument('--standalone', action='store_true', help='transcribed Mac probe, excludes linked local-EOS coverage')
     a = p.parse_args()
     raw = a.input.read_text() if a.input else subprocess.check_output([str(a.executable.resolve())], text=True)
     rows = [r.split('\t') for r in raw.splitlines() if r.startswith(('constants\t','onset\t','inverse\t','muon_onset\t','types\t','local\t'))]
     constants = [float.fromhex(x) for x in next(r[1:] for r in rows if r[0]=='constants')]
+    assert [x.hex() for x in constants]==['0x1.d5c85fb318f19p+9','0x1.d522d3c8ea6a1p+9','0x1.05a1a78514a75p-1','0x1.4c1e69b0d9ff5p-8'], 'governed constants changed'
+    assert len([r for r in rows if r[0]=='inverse'])==12, 'missing inverse diagnostics'
+    assert len([r for r in rows if r[0]=='local'])==(0 if a.standalone else 10), 'missing local-EOS diagnostics'
     t80, truth = calculate(constants,80), calculate(constants,120)
     assert float(t80)==float(truth) and abs(t80-truth)<D('1e-85')
     onset = float.fromhex(next(r[1] for r in rows if r[0]=='onset'))
@@ -83,7 +87,7 @@ def main():
                 error=abs(D.from_float(actual)-expected)
                 assert error<=bound, (name,row,str(error),str(bound))
                 local_checks.append(dict(quantity=name,n=str(n),mass=str(m),actual=actual.hex(),absolute_error=str(error),bound=str(bound)))
-    result=dict(status='PASS_CANDIDATE_ONLY',oracle='Decimal Machin pi and Kallen momentum, 80/120 digits',
+    result=dict(status='PASS_CANDIDATE_ONLY',scope='standalone transcription' if a.standalone else 'linked production EOS',oracle='Decimal Machin pi and Kallen momentum, 80/120 digits',
         constants=[v.hex() for v in constants],exact_onset=str(truth),correctly_rounded=float(truth).hex(),
         actual=onset.hex(),relative_error=str(rel),onset_limit='3e-16 (unchanged)',inverse_checks=checks,
         local_checks=local_checks,types=next(r[1:] for r in rows if r[0]=='types'),raw=raw)
