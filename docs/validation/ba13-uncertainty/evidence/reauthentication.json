@@ -1,0 +1,22 @@
+{
+  "status": "PASS_REAUTHENTICATED_STUDY_INPUTS",
+  "heads": {
+    "CompactStar": "8e6ac589d8d34e78447ee893e43e5673490eb728",
+    "Zaki": "6b1666a347d6afe3975f1516e4e74b95f22940d5",
+    "CONFIND": "351703ca2b675b98b36bd1efdd1738b9158b4873"
+  },
+  "base": "8e6ac589d8d34e78447ee893e43e5673490eb728",
+  "dependency_lock_sha256": "7e59a8e4d0d59033d1f99e9e54ff4f351a14de29fbdc10c3e7358576f9010fd9",
+  "historical_archive_sha256": "990d3708a24c71e518d4bb59e6ad3c23ae47f337ba924007b083ca598e6b8e2b",
+  "refit_components_each": 10303,
+  "files": {
+    "run1/raw/COMPLETE.json": "83050d9ce30b669c482c5b68ab773c230f84c208a346eb305714e3c68d80feaa",
+    "repeat/raw/COMPLETE.json": "83050d9ce30b669c482c5b68ab773c230f84c208a346eb305714e3c68d80feaa",
+    "run1/fit/COMPLETE.json": "b02f8356ec3e4fe87137e3dd0e7bbd241de72f5bf23b85b6fd71606cc25ef3f1",
+    "repeat/fit/COMPLETE.json": "3826ef4c6a55803ada7df5bd9647d2ce733ab459551722b4f0b1e90ccf36fbc6",
+    "native-independent-refit.json": "6de65885496aaab5214dedca07e1dbda1f4008d7408845c4ddec03ef5a2cb6f7",
+    "mac-independent-refit.json": "17c23f98c3e3ce7f2252d8e4a3da2d3cfbf00f5784194aaa6adb64ea3ef328a5",
+    "native-independent-refit.json.fits.json.gz": "f95ac157eb924bee61d7213e33a0c18531f6b32b29d9599816c0872e57a15d73",
+    "mac-independent-refit.json.fits.json.gz": "3c6131b5ff7d48b25ff90ca1b97b737509bd414489e46aa58e57b419e90f46c1"
+  }
+}

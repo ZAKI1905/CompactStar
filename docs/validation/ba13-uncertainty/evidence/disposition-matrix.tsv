@@ -1,0 +1,463 @@
+index	quantity	status	original_uncertainty_normalized_max	proposed_qualified_uncertainty	original_utilization	qualified_utilization	missing_bounds
+0	t_n	INCONCLUSIVE	1.4434756931736272e-07		3.027399979467988e-08		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+0	t_e	INCONCLUSIVE	4.354016234306743e-09		8.798201899105537e-07		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+0	t_mu	INCONCLUSIVE	2.178623885279128e-09		3.098628029939885e-06		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+0	Z_row_npe	INCONCLUSIVE	9.825108090631571e-08		2.2122949495364785e-09		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+0	Z_row_npmu	INCONCLUSIVE	2.832068249676315e-07		3.416016873003491e-07		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+0	Cstar	INCONCLUSIVE	1.4210854715202004e-14		2.0173182601570558e-07		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+0	Ltilde_Me	INCONCLUSIVE	0.0		4.033679930985983e-07		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+0	Ltilde_Mmu	INCONCLUSIVE	0.0		2.6949226140532713e-08		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+0	mu_B	INCONCLUSIVE	0.0		1.492373408405331e-10		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+0	mu_n_profile	INCONCLUSIVE	0.0		7.160774089521834e-10		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+0	P0_average	INCONCLUSIVE	0.0		1.492373408405331e-10		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+0	P1_average	INCONCLUSIVE	1.3435221477737736e-16		2.2302467652832768e-10		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+0	P2_average	PASS	0.0	0.0	0.0	0.0	
+0	N_n	INCONCLUSIVE	1.4537241581019683e-14		6.100371435291297e-11		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+0	N_e	INCONCLUSIVE	5.738971034716834e-12		5.978376319527056e-09		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+0	N_mu	INCONCLUSIVE	1.453694211549616e-14		3.832333791351177e-07		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+0	species_support	INCONCLUSIVE	0.0		0.0		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; quantitative support-edge enclosure under all admissible errors
+0	metric_structure	INCONCLUSIVE	0.0		1.6731354994913514e-07		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+0	radius	INCONCLUSIVE	0.0		1.4565759707535355e-08		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+0	surface_gravity	INCONCLUSIVE	1.4210854715202004e-14		3.2268615270915364e-08		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+0	envelope	INCONCLUSIVE	0.0		7.792031887838607e-09		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+0	Tsurface_inf	INCONCLUSIVE	1.4210854715202004e-14		6.4631642703271735e-09		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+1	t_n	UNBOUNDED	1.4413176596905636e-07		0.00016606300695559648		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+1	t_e	UNBOUNDED	4.352276597891137e-09		0.0031388653748908786		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+1	t_mu	UNBOUNDED	2.1904056172570633e-09		0.01881326758697403		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+1	Z_row_npe	UNBOUNDED	9.825107532171118e-08		0.001081508028377242		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+1	Z_row_npmu	UNBOUNDED	2.831927326103445e-07		0.01754599601182121		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+1	Cstar	UNBOUNDED	1.4210855752242702e-14		0.0007299542468864598		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+1	Ltilde_Me	UNBOUNDED	1.5096785525495095e-16		0.0006131845630896755		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+1	Ltilde_Mmu	UNBOUNDED	0.0		0.01284060301122775		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+1	mu_B	UNBOUNDED	0.0		9.413227615873985e-05		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+1	mu_n_profile	UNBOUNDED	0.0		9.413347388632292e-05		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+1	P0_average	UNBOUNDED	0.0		9.413227615873985e-05		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+1	P1_average	UNBOUNDED	0.0		0.00013072896662976274		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+1	P2_average	PASS	0.0	0.0	0.0	0.0	
+1	N_n	UNBOUNDED	1.453529518158087e-14		0.00048598560696682026		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+1	N_e	UNBOUNDED	5.738972883641998e-12		0.0024418404404097185		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+1	N_mu	UNBOUNDED	1.4539809593507287e-14		0.027038518734079347		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+1	species_support	INCONCLUSIVE	0.0		0.0		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; quantitative support-edge enclosure under all admissible errors
+1	metric_structure	UNBOUNDED	0.0		0.0016506194514504283		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+1	radius	UNBOUNDED	0.0		0.0006415602920818952		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+1	surface_gravity	UNBOUNDED	1.4210852082513976e-14		0.0018526217700969348		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+1	envelope	UNBOUNDED	0.0		0.0004876992965034		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+1	Tsurface_inf	UNBOUNDED	1.421085415595314e-14		0.00039354286939528464		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+2	t_n	UNBOUNDED	1.4372179432285202e-07		0.0003320826993928653		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+2	t_e	UNBOUNDED	4.3476298979501734e-09		0.006276479003918083		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+2	t_mu	UNBOUNDED	2.2018013649656734e-09		0.03762319528850673		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+2	Z_row_npe	UNBOUNDED	9.825106980946716e-08		0.0021630141861755737		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+2	Z_row_npmu	UNBOUNDED	2.8317865139845986e-07		0.03509169450267998		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+2	Cstar	UNBOUNDED	1.421085678924259e-14		0.0014596780466736967		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+2	Ltilde_Me	UNBOUNDED	0.0		0.0012260250976206958		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+2	Ltilde_Mmu	UNBOUNDED	0.0		0.025681174889925936		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+2	mu_B	UNBOUNDED	0.0		0.00018826438213454715		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+2	mu_n_profile	UNBOUNDED	0.0		0.00018826620551324732		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+2	P0_average	UNBOUNDED	0.0		0.00018826438213454715		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+2	P1_average	UNBOUNDED	0.0		0.0002614576806773617		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+2	P2_average	PASS	0.0	0.0	0.0	0.0	
+2	N_n	UNBOUNDED	1.4542530810874712e-14		0.0009719711701951284		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+2	N_e	UNBOUNDED	5.738970263358486e-12		0.00488367401282904		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+2	N_mu	UNBOUNDED	1.4529946469505543e-14		0.054076600949685465		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+2	species_support	INCONCLUSIVE	0.0		0.0		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; quantitative support-edge enclosure under all admissible errors
+2	metric_structure	UNBOUNDED	0.0		0.003301089212998715		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+2	radius	UNBOUNDED	0.0		0.0012830819823959447		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+2	surface_gravity	UNBOUNDED	1.4210849449897717e-14		0.0037051607685769207		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+2	envelope	UNBOUNDED	0.0		0.0009753782374049686		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+2	Tsurface_inf	UNBOUNDED	1.4210853596719214e-14		0.0007870687600589463		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+3	t_n	UNBOUNDED	1.4326421273922646e-07		0.0004981102654888405		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+3	t_e	UNBOUNDED	4.342306780100483e-09		0.009414262872577971		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+3	t_mu	UNBOUNDED	2.212926130844381e-09		0.05643390963116355		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+3	Z_row_npe	UNBOUNDED	9.825106351965257e-08		0.003244520735048928		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+3	Z_row_npmu	UNBOUNDED	2.831646069981748e-07		0.05263744283020537		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+3	Cstar	UNBOUNDED	1.421085782620321e-14		0.002189374210164861		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+3	Ltilde_Me	UNBOUNDED	0.0		0.0018389243359976035		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+3	Ltilde_Mmu	UNBOUNDED	0.0		0.03852174643521016		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+3	mu_B	UNBOUNDED	0.0		0.00028239648287395656		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+3	mu_n_profile	UNBOUNDED	0.0		0.0002823989292855748		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+3	P0_average	UNBOUNDED	0.0		0.00028239648287395656		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+3	P1_average	UNBOUNDED	0.0		0.00039218638800734987		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+3	P2_average	PASS	0.0	0.0	0.0	0.0	
+3	N_n	UNBOUNDED	1.4539468780088467e-14		0.0014579567529906655		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+3	N_e	UNBOUNDED	5.738969426327196e-12		0.007325507281167238		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+3	N_mu	UNBOUNDED	1.452957913094571e-14		0.08111463904173354		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+3	species_support	INCONCLUSIVE	0.0		0.0		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; quantitative support-edge enclosure under all admissible errors
+3	metric_structure	UNBOUNDED	0.0		0.0049515768436696255		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+3	radius	UNBOUNDED	0.0		0.0019246276711488248		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+3	surface_gravity	UNBOUNDED	1.4210846817210931e-14		0.005557749396458172		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+3	envelope	UNBOUNDED	0.0		0.0014630696474955873		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+3	Tsurface_inf	UNBOUNDED	1.4210853037470415e-14		0.0011806051164930014		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+4	t_n	UNBOUNDED	1.4348464104026383e-07		0.0006641888326103256		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+4	t_e	UNBOUNDED	4.346685914599935e-09		0.012553450603560022		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+4	t_mu	UNBOUNDED	2.2251019233856084e-09		0.07524647396227825		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+4	Z_row_npe	UNBOUNDED	9.82510581238569e-08		0.00432602749781121		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+4	Z_row_npmu	UNBOUNDED	2.831505804700293e-07		0.07018323252393398		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+4	Cstar	UNBOUNDED	1.4210858863123722e-14		0.0029190421507041243		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+4	Ltilde_Me	UNBOUNDED	0.0		0.002451881850985997		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+4	Ltilde_Mmu	UNBOUNDED	0.0		0.05136231160916177		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+4	mu_B	UNBOUNDED	0.0		0.00037652854695858037		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+4	mu_n_profile	UNBOUNDED	0.0		0.00037653160593032115		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+4	P0_average	UNBOUNDED	0.0		0.00037652854695858037		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+4	P1_average	UNBOUNDED	0.0		0.0005229150389094079		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+4	P2_average	PASS	0.0	0.0	0.0	0.0	
+4	N_n	UNBOUNDED	1.4535155186014864e-14		0.0019439423519003916		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+4	N_e	UNBOUNDED	5.73896953348049e-12		0.009767339269536055		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+4	N_mu	UNBOUNDED	1.4528696833787866e-14		0.10815262010606928		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+4	species_support	INCONCLUSIVE	0.0		0.0		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; quantitative support-edge enclosure under all admissible errors
+4	metric_structure	UNBOUNDED	0.0		0.0066020814121028285		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+4	radius	UNBOUNDED	0.0		0.0025661431792245878		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+4	surface_gravity	UNBOUNDED	1.4210844184614162e-14		0.0074102746802205575		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+4	envelope	UNBOUNDED	0.0		0.0019507452831236927		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+4	Tsurface_inf	UNBOUNDED	1.421085247824038e-14		0.0015741282672421155		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+5	t_n	INCONCLUSIVE	1.4334294719817133e-07		0.0008302275764687901		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+5	t_e	INCONCLUSIVE	4.3460757105441505e-09		0.015691526861030064		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+5	t_mu	INCONCLUSIVE	2.2365751527832806e-09		0.09405789395322604		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+5	Z_row_npe	INCONCLUSIVE	9.82510525722218e-08		0.0054075346111488376		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+5	Z_row_npmu	INCONCLUSIVE	2.8313658087095206e-07		0.08772907203807458		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+5	Cstar	INCONCLUSIVE	1.42108599000139e-14		0.0036486887464728585		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+5	Ltilde_Me	INCONCLUSIVE	0.0		0.0030648970281467046		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+5	Ltilde_Mmu	INCONCLUSIVE	0.0		0.06420287679353258		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+5	mu_B	INCONCLUSIVE	0.0		0.0004706606188978012		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+5	mu_n_profile	INCONCLUSIVE	0.0		0.00047066428519326633		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+5	P0_average	INCONCLUSIVE	0.0		0.0004706606188978012		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+5	P1_average	INCONCLUSIVE	1.3435221477737736e-16		0.0006536437019013465		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+5	P2_average	PASS	0.0	0.0	0.0	0.0	
+5	N_n	INCONCLUSIVE	1.4535504940609924e-14		0.002429927924336807		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+5	N_e	INCONCLUSIVE	5.738965114024064e-12		0.012209171042926589		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+5	N_mu	INCONCLUSIVE	1.4541492902261705e-14		0.1351905565439571		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+5	species_support	INCONCLUSIVE	0.0		0.0		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; quantitative support-edge enclosure under all admissible errors
+5	metric_structure	INCONCLUSIVE	0.0		0.008252603560864755		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+5	radius	INCONCLUSIVE	0.0		0.003207681191315612		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+5	surface_gravity	INCONCLUSIVE	1.4210841551951199e-14		0.009262846543871653		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+5	envelope	INCONCLUSIVE	0.0		0.0024384326298699938		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+5	Tsurface_inf	INCONCLUSIVE	1.4210851918996383e-14		0.001967661245745737		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+6	t_n	UNBOUNDED	1.431844410634581e-07		0.0009962716959627052		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+6	t_e	UNBOUNDED	4.3453888800703505e-09		0.018829708992423266		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+6	t_mu	UNBOUNDED	2.247824595573198e-09		0.11286997480383401		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+6	Z_row_npe	UNBOUNDED	9.825104673738738e-08		0.006489042164920469		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+6	Z_row_npmu	UNBOUNDED	2.831226016545784e-07		0.10527495831495245		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+6	Cstar	UNBOUNDED	1.421086093685826e-14		0.004378303102905542		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+6	Ltilde_Me	UNBOUNDED	0.0		0.003677969980705619		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+6	Ltilde_Mmu	UNBOUNDED	0.0		0.07704343945472368		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+6	mu_B	UNBOUNDED	0.0		0.0005647926764369278		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+6	mu_n_profile	UNBOUNDED	0.0		0.0005647969474379183		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+6	P0_average	UNBOUNDED	0.0		0.0005647926764369278		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+6	P1_average	UNBOUNDED	0.0		0.000784372340713524		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+6	P2_average	PASS	0.0	0.0	0.0	0.0	
+6	N_n	UNBOUNDED	1.4536833782354677e-14		0.0029159135554749104		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+6	N_e	UNBOUNDED	5.738966838296399e-12		0.014651002151581646		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+6	N_mu	UNBOUNDED	1.4536608143596977e-14		0.1622284442138195		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+6	species_support	INCONCLUSIVE	0.0		0.0		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; quantitative support-edge enclosure under all admissible errors
+6	metric_structure	UNBOUNDED	0.0		0.009903142983833869		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+6	radius	UNBOUNDED	0.0		0.0038492054391254917		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+6	surface_gravity	UNBOUNDED	1.4210838919329546e-14		0.01111538933806455		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+6	envelope	UNBOUNDED	0.0		0.0029261127729316755		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+6	Tsurface_inf	UNBOUNDED	1.4210851359760945e-14		0.0023611882019319713		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+7	t_n	UNBOUNDED	1.4302755960256033e-07		0.0011623258054756975		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+7	t_e	UNBOUNDED	4.343781249953098e-09		0.021968110012353246		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+7	t_mu	UNBOUNDED	2.2589582616191716e-09		0.13168300302373695		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+7	Z_row_npe	UNBOUNDED	9.825104122632613e-08		0.007570549803488304		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+7	Z_row_npmu	UNBOUNDED	2.831086361509015e-07		0.12282088570157176		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+7	Cstar	UNBOUNDED	1.4210861973664888e-14		0.005107890905677947		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+7	Ltilde_Me	UNBOUNDED	0.0		0.004291099715294251		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+7	Ltilde_Mmu	UNBOUNDED	0.0		0.08988399541811433		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+7	mu_B	UNBOUNDED	0.0		0.0006589246789938761		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+7	mu_n_profile	UNBOUNDED	0.0		0.0006589295481548946		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+7	P0_average	UNBOUNDED	0.0		0.0006589246789938761		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+7	P1_average	UNBOUNDED	0.0		0.0009151009069736868		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+7	P2_average	PASS	0.0	0.0	0.0	0.0	
+7	N_n	UNBOUNDED	1.453744422616599e-14		0.0034018991728008516		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+7	N_e	UNBOUNDED	5.738971018083575e-12		0.01709283195905236		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+7	N_mu	UNBOUNDED	1.4546122690989273e-14		0.18926627435196214		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+7	species_support	INCONCLUSIVE	0.0		0.0		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; quantitative support-edge enclosure under all admissible errors
+7	metric_structure	UNBOUNDED	0.0		0.011553698938809842		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+7	radius	UNBOUNDED	0.0		0.0044907419595758575		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+7	surface_gravity	UNBOUNDED	1.421083628667241e-14		0.01296795710064704		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+7	envelope	UNBOUNDED	0.0		0.0034137992106970804		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+7	Tsurface_inf	UNBOUNDED	1.4210850800517977e-14		0.002754720454031245		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+8	t_n	UNBOUNDED	1.4272772361000127e-07		0.0013283457959099986		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+8	t_e	UNBOUNDED	4.339844174650347e-09		0.025105576380208692		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+8	t_mu	UNBOUNDED	2.2698335808475334e-09		0.15049490301315713		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+8	Z_row_npe	UNBOUNDED	9.825103516289721e-08		0.008652057734413193		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+8	Z_row_npmu	UNBOUNDED	2.830946948491916e-07		0.14036686003514737		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+8	Cstar	UNBOUNDED	1.421086301043793e-14		0.005837455073472442		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+8	Ltilde_Me	UNBOUNDED	0.0		0.00490428601451889		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+8	Ltilde_Mmu	UNBOUNDED	0.0		0.10272454912401455		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+8	mu_B	UNBOUNDED	0.0		0.0007530566841690233		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+8	mu_n_profile	UNBOUNDED	0.0		0.00075306215149007		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+8	P0_average	UNBOUNDED	0.0		0.0007530566841690233		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+8	P1_average	UNBOUNDED	0.0		0.0010458294718903272		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+8	P2_average	PASS	0.0	0.0	0.0	0.0	
+8	N_n	UNBOUNDED	1.4533868672293734e-14		0.003887884763653483		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+8	N_e	UNBOUNDED	5.738969259352944e-12		0.01953466116118949		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+8	N_mu	UNBOUNDED	1.4538430139307266e-14		0.2163040557254319		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+8	species_support	INCONCLUSIVE	0.0		0.0		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; quantitative support-edge enclosure under all admissible errors
+8	metric_structure	UNBOUNDED	0.0		0.013204271884974984		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+8	radius	UNBOUNDED	0.0		0.005132283899746712		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+8	surface_gravity	UNBOUNDED	1.4210833653999545e-14		0.014820535932879209		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+8	envelope	UNBOUNDED	0.0		0.0039014884854605817		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+8	Tsurface_inf	UNBOUNDED	1.4210850241271617e-14		0.003148255093155887		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+9	t_n	UNBOUNDED	1.4265259156460167e-07		0.0014943944224296243		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+9	t_e	UNBOUNDED	4.3405729397065894e-09		0.028243806017128996		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+9	t_mu	UNBOUNDED	2.280779238364839e-09		0.1693081091709306		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+9	Z_row_npe	UNBOUNDED	9.82510300374713e-08		0.009733566129818775		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+9	Z_row_npmu	UNBOUNDED	2.8308079037370387e-07		0.15791288240473883		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+9	Cstar	UNBOUNDED	1.4210864047167668e-14		0.006566988769664304		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+9	Ltilde_Me	UNBOUNDED	0.0		0.005517528769682681		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+9	Ltilde_Mmu	UNBOUNDED	0.0		0.11556510120452168		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+9	mu_B	UNBOUNDED	0.0		0.0008471886788713746		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+9	mu_n_profile	UNBOUNDED	0.0		0.0008471947338796538		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+9	P0_average	UNBOUNDED	0.0		0.0008471886788713746		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+9	P1_average	UNBOUNDED	0.0		0.001176558020684702		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+9	P2_average	PASS	0.0	0.0	0.0	0.0	
+9	N_n	UNBOUNDED	1.4539004175862538e-14		0.004373870391338546		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+9	N_e	UNBOUNDED	5.7389661494643435e-12		0.021976489858410525		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+9	N_mu	UNBOUNDED	1.4531247234533622e-14		0.2433417901111064		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+9	species_support	INCONCLUSIVE	0.0		0.0		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; quantitative support-edge enclosure under all admissible errors
+9	metric_structure	UNBOUNDED	0.0		0.014854861802113716		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+9	radius	UNBOUNDED	0.0		0.005773804234782775		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+9	surface_gravity	UNBOUNDED	1.4210831021391292e-14		0.01667306929744542		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+9	envelope	UNBOUNDED	0.0		0.004389166455503372		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+9	Tsurface_inf	UNBOUNDED	1.4210849682038698e-14		0.003541780274004628		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+10	t_n	INCONCLUSIVE	1.4261300779013412e-07		0.0016604685915323333		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+10	t_e	INCONCLUSIVE	4.341422760134185e-09		0.03138272523979413		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+10	t_mu	INCONCLUSIVE	2.2917289276935184e-09		0.18812241062973167		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+10	Z_row_npe	INCONCLUSIVE	9.825102440486191e-08		0.010815074587239487		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+10	Z_row_npmu	INCONCLUSIVE	2.830668970944337e-07		0.17545894512010457		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+10	Cstar	INCONCLUSIVE	1.4210865083857283e-14		0.007296494232142782		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+10	Ltilde_Me	INCONCLUSIVE	0.0		0.0061308271232882044		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+10	Ltilde_Mmu	INCONCLUSIVE	0.0		0.12840564610099964		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+10	mu_B	INCONCLUSIVE	0.0		0.0009413206212097468		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+10	mu_n_profile	INCONCLUSIVE	0.0		0.0009413272625961588		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+10	P0_average	INCONCLUSIVE	0.0		0.0009413206212097468		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+10	P1_average	INCONCLUSIVE	0.0		0.001307286496928881		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+10	P2_average	PASS	0.0	0.0	0.0	0.0	
+10	N_n	INCONCLUSIVE	1.4537800575729772e-14		0.004859855998305367		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+10	N_e	INCONCLUSIVE	5.738970470253708e-12		0.02441831714695807		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+10	N_mu	INCONCLUSIVE	1.4543429804693067e-14		0.2703794657480676		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+10	species_support	INCONCLUSIVE	0.0		0.0		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; quantitative support-edge enclosure under all admissible errors
+10	metric_structure	INCONCLUSIVE	0.0		0.016505467852723724		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+10	radius	INCONCLUSIVE	0.0		0.0064153332650263685		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+10	surface_gravity	INCONCLUSIVE	1.4210828388758078e-14		0.01852562022704217		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+10	envelope	INCONCLUSIVE	0.0		0.004876848870725358		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+10	Tsurface_inf	INCONCLUSIVE	1.4210849122800461e-14		0.0039353092007296964		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+11	t_n	UNBOUNDED	1.4254487317302668e-07		0.0018265070298579347		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+11	t_e	UNBOUNDED	4.341704534621831e-09		0.03452062060797203		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+11	t_mu	UNBOUNDED	2.3024943170380025e-09		0.20693593841588906		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+11	Z_row_npe	UNBOUNDED	9.825101904954453e-08		0.01189658354457811		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+11	Z_row_npmu	UNBOUNDED	2.8305302769258407e-07		0.19300505809114493		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+11	Cstar	UNBOUNDED	1.4210866120512304e-14		0.008025975351784748		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+11	Ltilde_Me	UNBOUNDED	0.0		0.00674418100438057		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+11	Ltilde_Mmu	UNBOUNDED	0.0		0.14124619104610045		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+11	mu_B	UNBOUNDED	0.0		0.0010354525766391137		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+11	mu_n_profile	UNBOUNDED	0.0		0.0010354597965490618		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+11	P0_average	UNBOUNDED	0.0		0.0010354525766391137		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+11	P1_average	UNBOUNDED	0.0		0.0014380149879518033		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+11	P2_average	PASS	0.0	0.0	0.0	0.0	
+11	N_n	UNBOUNDED	1.453319642087682e-14		0.005345841650161713		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+11	N_e	UNBOUNDED	5.738967620727569e-12		0.02686014426720025		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+11	N_mu	UNBOUNDED	1.453780009845911e-14		0.29741709784705816		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+11	species_support	INCONCLUSIVE	0.0		0.0		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; quantitative support-edge enclosure under all admissible errors
+11	metric_structure	UNBOUNDED	0.0		0.018156090790557095		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+11	radius	UNBOUNDED	0.0		0.0070568642405252225		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+11	surface_gravity	UNBOUNDED	1.4210825756119476e-14		0.020378174948307376		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+11	envelope	UNBOUNDED	0.0		0.005364532304507285		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+11	Tsurface_inf	UNBOUNDED	1.4210848563560994e-14		0.004328838989607811		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+12	t_n	UNBOUNDED	1.422689794973064e-07		0.0019925343440060526		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+12	t_e	UNBOUNDED	4.33838783110258e-09		0.03765816703151111		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+12	t_mu	UNBOUNDED	2.3128062109981562e-09		0.22574956214149777		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+12	Z_row_npe	UNBOUNDED	9.825101335765641e-08		0.012978092748711648		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+12	Z_row_npmu	UNBOUNDED	2.8303918451855064e-07		0.21055121507066737		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+12	Cstar	UNBOUNDED	1.4210867157123124e-14		0.008755425367550763		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+12	Ltilde_Me	UNBOUNDED	0.0		0.007357590011385281		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+12	Ltilde_Mmu	UNBOUNDED	0.0		0.15408673135466325		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+12	mu_B	UNBOUNDED	0.0		0.0011295844954136954		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+12	mu_n_profile	UNBOUNDED	0.0		0.001129592293877409		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+12	P0_average	UNBOUNDED	0.0		0.0011295844954136954		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+12	P1_average	UNBOUNDED	0.0		0.0015687434292644062		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+12	P2_average	PASS	0.0	0.0	0.0	0.0	
+12	N_n	UNBOUNDED	1.453821152781298e-14		0.005831827284752856		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+12	N_e	UNBOUNDED	5.738956871696019e-12		0.029301970369124252		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+12	N_mu	UNBOUNDED	1.4538259688502792e-14		0.32445467671459616		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+12	species_support	INCONCLUSIVE	0.0		0.0		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; quantitative support-edge enclosure under all admissible errors
+12	metric_structure	UNBOUNDED	0.0		0.019806730061129534		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+12	radius	UNBOUNDED	0.0		0.007698382816761108		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+12	surface_gravity	UNBOUNDED	1.421082312351835e-14		0.022230703297760102		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+12	envelope	UNBOUNDED	0.0		0.0058522092006216145		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+12	Tsurface_inf	UNBOUNDED	1.4210848004329285e-14		0.004722363319062213		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+13	t_n	UNBOUNDED	1.4218971220532385e-07		0.0021585901401925144		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+13	t_e	UNBOUNDED	4.339025622880334e-09		0.04079649760561014		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+13	t_mu	UNBOUNDED	2.323238244063369e-09		0.2445642583914536		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+13	Z_row_npe	UNBOUNDED	9.825100813628709e-08		0.014059602297092457		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+13	Z_row_npmu	UNBOUNDED	2.830253681158337e-07		0.22809741894838226		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+13	Cstar	UNBOUNDED	1.4210868193702405e-14		0.009484853189154182		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+13	Ltilde_Me	UNBOUNDED	0.0		0.007971053498159918		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+13	Ltilde_Mmu	UNBOUNDED	0.0		0.16692726926507662		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+13	mu_B	UNBOUNDED	0.0		0.0012237164115700778		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+13	mu_n_profile	UNBOUNDED	0.0		0.0012237247860507393		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+13	P0_average	UNBOUNDED	0.0		0.0012237164115700778		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+13	P1_average	UNBOUNDED	0.0		0.0016994718625158761		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+13	P2_average	PASS	0.0	0.0	0.0	0.0	
+13	N_n	UNBOUNDED	1.453491556080776e-14		0.006317812979196701		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+13	N_e	UNBOUNDED	5.738965905835743e-12		0.03174379594774585		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+13	N_mu	UNBOUNDED	1.4532905353880967e-14		0.35149220683422433		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+13	species_support	INCONCLUSIVE	0.0		0.0		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; quantitative support-edge enclosure under all admissible errors
+13	metric_structure	UNBOUNDED	0.0		0.021457385563363178		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+13	radius	UNBOUNDED	0.0		0.008339924794501269		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+13	surface_gravity	UNBOUNDED	1.4210820490848312e-14		0.02408328014012467		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+13	envelope	UNBOUNDED	0.0		0.0063398982888194875		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+13	Tsurface_inf	UNBOUNDED	1.4210847445083038e-14		0.00511589787962266		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+14	t_n	UNBOUNDED	1.4227094109907492e-07		0.002324653176618085		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+14	t_e	UNBOUNDED	4.340708202876894e-09		0.04393498766058855		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+14	t_mu	UNBOUNDED	2.333910750660258e-09		0.2633796582111636		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+14	Z_row_npe	UNBOUNDED	9.825100259580946e-08		0.015141112064424657		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+14	Z_row_npmu	UNBOUNDED	2.830115633483717e-07		0.24564366715064134		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+14	Cstar	UNBOUNDED	1.4210869230242338e-14		0.01021425332122574		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+14	Ltilde_Me	UNBOUNDED	0.0		0.008584571203530091		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+14	Ltilde_Mmu	UNBOUNDED	0.0		0.17976780269350315		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+14	mu_B	UNBOUNDED	0.0		0.001317848298926272		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+14	mu_n_profile	UNBOUNDED	0.0		0.0013178572454965825		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+14	P0_average	UNBOUNDED	0.0		0.001317848298926272		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+14	P1_average	UNBOUNDED	0.0		0.001830200255461682		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+14	P2_average	PASS	0.0	0.0	0.0	0.0	
+14	N_n	UNBOUNDED	1.4537086685099943e-14		0.0068037986552243294		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+14	N_e	UNBOUNDED	5.738962754768068e-12		0.03418562054906487		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+14	N_mu	UNBOUNDED	1.4533853804813963e-14		0.3785296842610509		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+14	species_support	INCONCLUSIVE	0.0		0.0		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; quantitative support-edge enclosure under all admissible errors
+14	metric_structure	UNBOUNDED	0.0		0.02310805706333497		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+14	radius	UNBOUNDED	0.0		0.008981460420245531		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+14	surface_gravity	UNBOUNDED	1.4210817858197744e-14		0.025935843281927197		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+14	envelope	UNBOUNDED	0.0		0.0068275840113752595		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+14	Tsurface_inf	UNBOUNDED	1.4210846885840779e-14		0.0055094296348599265		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+15	t_n	INCONCLUSIVE	1.4237492853347496e-07		0.0024907096526674047		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+15	t_e	INCONCLUSIVE	4.34383578761367e-09		0.047073272478327224		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+15	t_mu	INCONCLUSIVE	2.344386913074716e-09		0.28219514719959404		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+15	Z_row_npe	INCONCLUSIVE	9.825099760287468e-08		0.01622262205323947		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+15	Z_row_npmu	INCONCLUSIVE	2.829977878703237e-07		0.26318996017230745		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+15	Cstar	INCONCLUSIVE	1.421087026674406e-14		0.010943626567979627		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+15	Ltilde_Me	INCONCLUSIVE	0.0		0.009198142715353557		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+15	Ltilde_Mmu	INCONCLUSIVE	0.0		0.1926083322824595		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+15	mu_B	INCONCLUSIVE	0.0		0.0014119801627186753		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+15	mu_n_profile	INCONCLUSIVE	0.0		0.0014119896761422368		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+15	P0_average	INCONCLUSIVE	0.0		0.0014119801627186753		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+15	P1_average	INCONCLUSIVE	0.0		0.001960928613475912		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+15	P2_average	PASS	0.0	0.0	0.0	0.0	
+15	N_n	INCONCLUSIVE	1.4540514827307477e-14		0.00728978428521142		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+15	N_e	INCONCLUSIVE	5.73895777297157e-12		0.036627444242383504		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+15	N_mu	INCONCLUSIVE	1.4537739288978733e-14		0.40556710969018145		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+15	species_support	INCONCLUSIVE	0.0		0.0		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; quantitative support-edge enclosure under all admissible errors
+15	metric_structure	INCONCLUSIVE	0.0		0.024758744537941395		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+15	radius	INCONCLUSIVE	0.0		0.00962299862157455		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+15	surface_gravity	INCONCLUSIVE	1.4210815225540232e-14		0.027788411309420925		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+15	envelope	INCONCLUSIVE	0.0		0.007315271015285963		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+15	Tsurface_inf	INCONCLUSIVE	1.4210846326596967e-14		0.005902962480520144		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+16	t_n	UNBOUNDED	1.4201321429045268e-07		0.0026567259399057582		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+16	t_e	UNBOUNDED	4.3393053996295585e-09		0.05021040895996459		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+16	t_mu	UNBOUNDED	2.3539985662844527e-09		0.3010097247985647		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+16	Z_row_npe	UNBOUNDED	9.825099174191309e-08		0.017304132409082622		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+16	Z_row_npmu	UNBOUNDED	2.8298403828599257e-07		0.280736299698443		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+16	Cstar	UNBOUNDED	1.421087130320777e-14		0.011672973062424733		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+16	Ltilde_Me	UNBOUNDED	0.0		0.009811767789062389		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+16	Ltilde_Mmu	UNBOUNDED	0.0		0.20544885900961254		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+16	mu_B	UNBOUNDED	0.0		0.0015061120160382827		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+16	mu_n_profile	UNBOUNDED	0.0		0.0015061220976241953		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+16	P0_average	UNBOUNDED	0.0		0.0015061120160382827		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+16	P1_average	UNBOUNDED	0.0		0.002091656956711398		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+16	P2_average	PASS	0.0	0.0	0.0	0.0	
+16	N_n	UNBOUNDED	1.45327910953536e-14		0.007775769942822833		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+16	N_e	UNBOUNDED	5.738965238726459e-12		0.03906926732046825		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+16	N_mu	UNBOUNDED	1.453977462127942e-14		0.4326044859199188		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+16	species_support	INCONCLUSIVE	0.0		0.0		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; quantitative support-edge enclosure under all admissible errors
+16	metric_structure	UNBOUNDED	0.0		0.026409448042053293		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+16	radius	UNBOUNDED	0.0		0.010264535388312599		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+16	surface_gravity	UNBOUNDED	1.4210812592887416e-14		0.02964097603260198		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+16	envelope	UNBOUNDED	0.0		0.007802957256919537		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+16	Tsurface_inf	UNBOUNDED	1.4210845767354043e-14		0.006296494700709329		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+17	t_n	UNBOUNDED	1.417367148171281e-07		0.0028227568292452034		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+17	t_e	UNBOUNDED	4.336966808158576e-09		0.05334794718442164		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+17	t_mu	UNBOUNDED	2.3647755350951413e-09		0.3198248976571782		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+17	Z_row_npe	UNBOUNDED	9.825098715013032e-08		0.018385643096516895		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+17	Z_row_npmu	UNBOUNDED	2.829703065218959e-07		0.298282683216806		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+17	Cstar	UNBOUNDED	1.421087233962859e-14		0.01240228937608603		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+17	Ltilde_Me	UNBOUNDED	0.0		0.010425446071391805		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+17	Ltilde_Mmu	UNBOUNDED	0.0		0.2182893811696888		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+17	mu_B	UNBOUNDED	0.0		0.0016002438405577015		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+17	mu_n_profile	UNBOUNDED	0.0		0.0016002544811422686		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+17	P0_average	UNBOUNDED	0.0		0.0016002438405577015		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+17	P1_average	UNBOUNDED	0.0		0.002222385255610653		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+17	P2_average	PASS	0.0	0.0	0.0	0.0	
+17	N_n	UNBOUNDED	1.4533901881953864e-14		0.008261755663739987		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+17	N_e	UNBOUNDED	5.738960881930183e-12		0.04151108944670835		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+17	N_mu	UNBOUNDED	1.4532329750761495e-14		0.4596418089271439		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+17	species_support	INCONCLUSIVE	0.0		0.0		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; quantitative support-edge enclosure under all admissible errors
+17	metric_structure	UNBOUNDED	0.0		0.02806016720745844		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+17	radius	UNBOUNDED	0.0		0.010906046336587582		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+17	surface_gravity	UNBOUNDED	1.4210809960311743e-14		0.03149348647122401		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+17	envelope	UNBOUNDED	0.0		0.008290629988628171		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+17	Tsurface_inf	UNBOUNDED	1.4210845208127193e-14		0.006690015613987439		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+18	t_n	UNBOUNDED	1.416416279391067e-07		0.0029888029736412475		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+18	t_e	UNBOUNDED	4.336354158456826e-09		0.0564858410357123		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+18	t_mu	UNBOUNDED	2.380194437442431e-09		0.33864127501880065		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+18	Z_row_npe	UNBOUNDED	9.825098138301192e-08		0.019467154048464694		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+18	Z_row_npmu	UNBOUNDED	2.829565990670927e-07		0.31582911373269523		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+18	Cstar	UNBOUNDED	1.4210873376015695e-14		0.013131581966920993		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+18	Ltilde_Me	UNBOUNDED	0.0		0.011039176969038132		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+18	Ltilde_Mmu	UNBOUNDED	1.7365310999763332e-16		0.2311299008966147		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+18	mu_B	UNBOUNDED	1.309099481057308e-16		0.001694375651975035		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+18	mu_n_profile	UNBOUNDED	0.0		0.001694386851569347		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+18	P0_average	UNBOUNDED	1.309099481057308e-16		0.001694375651975035		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+18	P1_average	UNBOUNDED	0.0		0.0023531135357005985		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+18	P2_average	PASS	0.0	0.0	0.0	0.0	
+18	N_n	UNBOUNDED	1.4540233712597407e-14		0.008747741351277752		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+18	N_e	UNBOUNDED	5.738958858514143e-12		0.04395291095630022		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+18	N_mu	UNBOUNDED	1.451916781634703e-14		0.48667908333956117		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+18	species_support	INCONCLUSIVE	0.0		0.0		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; quantitative support-edge enclosure under all admissible errors
+18	metric_structure	UNBOUNDED	0.0		0.029710902113575164		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+18	radius	UNBOUNDED	0.0		0.01154758088812794		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+18	surface_gravity	UNBOUNDED	1.4210807327666712e-14		0.03334604571620248		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+18	envelope	UNBOUNDED	0.0		0.008778314984282571		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+18	Tsurface_inf	UNBOUNDED	1.421084464888571e-14		0.007083546819861875		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+19	t_n	UNBOUNDED	1.4154121818992216e-07		0.0031548338209152348		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+19	t_e	UNBOUNDED	4.335635463091627e-09		0.059623309515110585		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+19	t_mu	UNBOUNDED	2.3955361897641455e-09		0.3574572542906081		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+19	Z_row_npe	UNBOUNDED	9.825097618535917e-08		0.02054866531048816		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+19	Z_row_npmu	UNBOUNDED	2.829429104649153e-07		0.33337558886751795		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+19	Cstar	UNBOUNDED	1.4210874412363448e-14		0.013860846865500051		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+19	Ltilde_Me	UNBOUNDED	0.0		0.011652960211768915		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+19	Ltilde_Mmu	UNBOUNDED	0.0		0.24397041635221467		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+19	mu_B	UNBOUNDED	0.0		0.0017885074359234605		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+19	mu_n_profile	UNBOUNDED	0.0		0.001788519193196237		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+19	P0_average	UNBOUNDED	0.0		0.0017885074359234605		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+19	P1_average	UNBOUNDED	0.0		0.0024838417795154453		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+19	P2_average	PASS	0.0	0.0	0.0	0.0	
+19	N_n	UNBOUNDED	1.4538160175557527e-14		0.009233727102121256		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+19	N_e	UNBOUNDED	5.738957874600775e-12		0.04639473160880762		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+19	N_mu	UNBOUNDED	1.453319432003648e-14		0.5137163055095427		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+19	species_support	INCONCLUSIVE	0.0		0.0		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; quantitative support-edge enclosure under all admissible errors
+19	metric_structure	UNBOUNDED	0.0		0.03136165246872162		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+19	radius	UNBOUNDED	0.0		0.012189112272714808		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+19	surface_gravity	UNBOUNDED	1.4210804695031682e-14		0.03519859792384427		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+19	envelope	UNBOUNDED	0.0		0.009265998282195417		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+19	Tsurface_inf	UNBOUNDED	1.421084408964623e-14		0.0074770766198102735		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+20	t_n	INCONCLUSIVE	1.4189287891755264e-07		0.0033209336622889887		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+20	t_e	INCONCLUSIVE	4.341932455072169e-09		0.06276265596747366		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+20	t_mu	INCONCLUSIVE	2.411279708823963e-09		0.37627589752468465		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+20	Z_row_npe	INCONCLUSIVE	9.825097125828107e-08		0.02163017688258729		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+20	Z_row_npmu	INCONCLUSIVE	2.8292924759687376e-07		0.35092211155432995		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; new per-target tangent/background refinement
+20	Cstar	INCONCLUSIVE	1.4210875448673444e-14		0.014590085194272167		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+20	Ltilde_Me	INCONCLUSIVE	0.0		0.01226679550519683		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+20	Ltilde_Mmu	INCONCLUSIVE	0.0		0.2568109297549646		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+20	mu_B	INCONCLUSIVE	1.309099481057308e-16		0.0018826392133029753		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+20	mu_n_profile	INCONCLUSIVE	0.0		0.0018826515217321318		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+20	P0_average	INCONCLUSIVE	1.309099481057308e-16		0.0018826392133029753		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+20	P1_average	INCONCLUSIVE	0.0		0.0026145700112385935		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; independent whole-profile/event remainder
+20	P2_average	PASS	0.0	0.0	0.0	0.0	
+20	N_n	INCONCLUSIVE	1.4538560469733636e-14		0.009719712795414089		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+20	N_e	INCONCLUSIVE	5.738963005295792e-12		0.048836551670124746		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+20	N_mu	INCONCLUSIVE	1.452708659782358e-14		0.5407534798513441		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+20	species_support	INCONCLUSIVE	0.0		0.0		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; quantitative support-edge enclosure under all admissible errors
+20	metric_structure	INCONCLUSIVE	0.0		0.033012418548695986		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+20	radius	INCONCLUSIVE	0.0		0.012830644476869168		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation
+20	surface_gravity	INCONCLUSIVE	1.421080206239479e-14		0.03705115144188669		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+20	envelope	INCONCLUSIVE	0.0		0.009753681970712242		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound
+20	Tsurface_inf	INCONCLUSIVE	1.4210843530406265e-14		0.007870606762112315		global structure/EOS enclosure; common-B sensitivity enclosure; correlated reference/normalization propagation; radial/onset thermal interpolation bound

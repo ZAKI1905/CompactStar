@@ -3,7 +3,7 @@
 import json,sys,time
 from pathlib import Path
 import numpy as np
-S=Path(__file__).resolve().parents[3];R=S.parents[1]/'ba13-uncertainty';OLD=S.parents[1]/'ba13-recovery'
+S=Path(__file__).resolve().parents[3];R=Path(__import__('os').environ.get('BA13_STUDY_OUT',str(S.parents[1]/'ba13-uncertainty')));OLD=S.parents[1]/'ba13-recovery'
 sys.path.insert(0,str(S/'tests/analysis'))
 from chemical_trackr_budget import Model,matrix,integrate,zsolve,zerror,tail
 records=[]

@@ -2,7 +2,7 @@
 """Unit-rescaling diagnostic using unchanged historical regression on copies."""
 import json,math,sys
 from pathlib import Path
-S=Path(__file__).resolve().parents[3];R=S.parents[1]/'ba13-uncertainty';OLD=S.parents[1]/'ba13-recovery'
+S=Path(__file__).resolve().parents[3];R=Path(__import__('os').environ.get('BA13_STUDY_OUT',str(S.parents[1]/'ba13-uncertainty')));OLD=S.parents[1]/'ba13-recovery'
 sys.path.insert(0,str(S/'tools/linux'));from ba13_refit import load
 sys.path.insert(0,str(S/'tests/bnv'));from compare_candidate import regression
 x,series=load(OLD/'run1/raw');results={}

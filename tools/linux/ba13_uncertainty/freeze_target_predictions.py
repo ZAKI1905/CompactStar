@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import csv,json,math
 from pathlib import Path
-S=Path(__file__).resolve().parents[3];R=S.parents[1]/'ba13-uncertainty'
+S=Path(__file__).resolve().parents[3];R=Path(__import__('os').environ.get('BA13_STUDY_OUT',str(S.parents[1]/'ba13-uncertainty')))
 records=[]
 for i in (5,15):
  for key in ('R','M','N_n','N_e','N_mu'):

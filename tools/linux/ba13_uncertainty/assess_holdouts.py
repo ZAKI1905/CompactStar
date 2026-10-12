@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import csv,json
 from pathlib import Path
-S=Path(__file__).resolve().parents[3];R=S.parents[1]/'ba13-uncertainty'
-r=json.loads((R/'holdout-predictions.json').read_text())
+S=Path(__file__).resolve().parents[3];R=Path(__import__('os').environ.get('BA13_STUDY_OUT',str(S.parents[1]/'ba13-uncertainty')))
+r=json.loads((R/'holdout-predictions.json').read_text())+json.loads((R/'target-holdout-predictions.json').read_text())
 for v in r:
  case={'radial':'r320000','eos':'e32768'}[v['axis']]
  path=R/'runs'/f'{case}-{v["index"]}'/v['table']

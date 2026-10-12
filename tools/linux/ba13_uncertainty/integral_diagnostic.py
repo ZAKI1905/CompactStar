@@ -5,7 +5,7 @@ No fitted error percentages: quadrature spreads are diagnostics, never global bo
 import json,sys,time,math
 from pathlib import Path
 import numpy as np
-S=Path(__file__).resolve().parents[3];R=S.parents[1]/'ba13-uncertainty'
+S=Path(__file__).resolve().parents[3];R=Path(__import__('os').environ.get('BA13_STUDY_OUT',str(S.parents[1]/'ba13-uncertainty')))
 sys.path.insert(0,str(S/'tests/analysis'))
 from chemical_trackr_budget import Model
 KB=8.61733326214518e-11;CONV=1.602176634e33

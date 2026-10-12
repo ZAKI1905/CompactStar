@@ -1,0 +1,191 @@
+[
+  {
+    "index": 0,
+    "node": 0,
+    "pf": 513.5809063078002,
+    "relative_error": 2.229710119082066e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 0,
+    "node": 2532,
+    "pf": 513.543088275612,
+    "relative_error": 2.2297347646708842e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 0,
+    "node": 5064,
+    "pf": 511.9074936969715,
+    "relative_error": 3.346199618031975e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 0,
+    "node": 7596,
+    "pf": 501.23687825315943,
+    "relative_error": 2.237702942294118e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 0,
+    "node": 10129,
+    "pf": 450.74125290245485,
+    "relative_error": 1.1346172811817954e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 0,
+    "node": 12661,
+    "pf": 371.8387717499435,
+    "relative_error": 2.3141237082163055e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 0,
+    "node": 15193,
+    "pf": 277.8583368216079,
+    "relative_error": 2.3590289990436094e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 0,
+    "node": 17725,
+    "pf": 174.61009104902243,
+    "relative_error": 2.395320577332638e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 0,
+    "node": 20258,
+    "pf": 0.0,
+    "relative_error": 2.419987693005908e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 10,
+    "node": 0,
+    "pf": 513.5804630322737,
+    "relative_error": 3.344565611947975e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 10,
+    "node": 2532,
+    "pf": 513.5426450940156,
+    "relative_error": 1.1148675267408504e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 10,
+    "node": 5064,
+    "pf": 511.9070545811533,
+    "relative_error": 4.461600062067168e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 10,
+    "node": 7596,
+    "pf": 501.2364654145222,
+    "relative_error": 1.1188516039250163e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 10,
+    "node": 10129,
+    "pf": 450.74095824893453,
+    "relative_error": 3.403852110735789e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 10,
+    "node": 12661,
+    "pf": 371.83864063425193,
+    "relative_error": 2.314123777780902e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 10,
+    "node": 15193,
+    "pf": 277.85837160512864,
+    "relative_error": 3.538543476580169e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 10,
+    "node": 17725,
+    "pf": 174.61030695652653,
+    "relative_error": 2.395320517316889e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 10,
+    "node": 20258,
+    "pf": 0.0,
+    "relative_error": 2.419987693005908e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 20,
+    "node": 0,
+    "pf": 513.5800197578166,
+    "relative_error": 3.344566045271608e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 20,
+    "node": 2532,
+    "pf": 513.5422019134879,
+    "relative_error": 1.1148676711458448e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 20,
+    "node": 5064,
+    "pf": 511.9066154663915,
+    "relative_error": 4.461600633423402e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 20,
+    "node": 7596,
+    "pf": 501.2360525768199,
+    "relative_error": 2.237703473405226e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 20,
+    "node": 10129,
+    "pf": 450.74066359585936,
+    "relative_error": 3.40385237792568e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 20,
+    "node": 12661,
+    "pf": 371.8385095184116,
+    "relative_error": 1.1570619236727798e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 20,
+    "node": 15193,
+    "pf": 277.85840638800295,
+    "relative_error": 2.3590289697302195e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 20,
+    "node": 17725,
+    "pf": 174.61052286268,
+    "relative_error": 2.3953204573014465e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  },
+  {
+    "index": 20,
+    "node": 20258,
+    "pf": 0.0,
+    "relative_error": 2.419987693005908e-16,
+    "status": "PASS_FIXED_INPUT_P1_ARITHMETIC"
+  }
+]

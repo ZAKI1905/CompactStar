@@ -4,7 +4,7 @@ import csv,json,sys
 from pathlib import Path
 import numpy as np
 from scipy.interpolate import PchipInterpolator
-S=Path(__file__).resolve().parents[3];R=S.parents[1]/'ba13-uncertainty'
+S=Path(__file__).resolve().parents[3];R=Path(__import__('os').environ.get('BA13_STUDY_OUT',str(S.parents[1]/'ba13-uncertainty')))
 sys.path.insert(0,str(S/'tests/analysis'));from chemical_trackr_budget import Model
 q=np.linspace(0,1,2049);q2=np.linspace(0,1,4097)
 def mapped(p):

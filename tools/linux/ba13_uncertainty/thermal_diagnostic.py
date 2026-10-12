@@ -5,7 +5,7 @@ from pathlib import Path
 import numpy as np
 import mpmath as mp
 from scipy.integrate import simpson
-S=Path(__file__).resolve().parents[3];R=S.parents[1]/'ba13-uncertainty';OLD=S.parents[1]/'ba13-recovery'
+S=Path(__file__).resolve().parents[3];R=Path(__import__('os').environ.get('BA13_STUDY_OUT',str(S.parents[1]/'ba13-uncertainty')));OLD=S.parents[1]/'ba13-recovery'
 KB=8.61733326214518e-5*1e-6;CONV=1.602176634e33;EPS=sys.float_info.epsilon
 assert '8.61733326214518e-5' in (S.parents[1]/'sources/Zaki/Zaki/Physics/src/Constants.cpp').read_text()
 Tgrid=np.array([math.exp((1-i/159)*math.log(1e-5)+(i/159)*math.log(1.)) for i in range(160)])

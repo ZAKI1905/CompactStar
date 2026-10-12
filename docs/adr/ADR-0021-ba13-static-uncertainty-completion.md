@@ -1,6 +1,7 @@
 # ADR-0021: BA13 historical reproduction and unresolved uncertainty completion
 
-Status: PROPOSED FOR OWNER REVIEW; no option selected or implemented.
+Status: PROPOSED FOR OWNER REVIEW. Option A investigation authorized and piloted
+2026-10-12; no new scientific method ratified and no certificate accepted.
 
 ## Context and authority
 
@@ -67,13 +68,33 @@ original fitter's output. No such amendment is implemented here.
 
 ## Current disposition and next bounded step
 
+The subsequent Option-A investigation is recorded in
+[the uncertainty review](../validation/ba13-uncertainty/SCIENTIFIC_REVIEW.md).
+It gives disposition **B: specific additional bounded evidence required**:
+64 conditional radial holdout predictions pass; the EOS 32768 holdout refuses
+on four rounded equal-value pairs near neutron onset; heat-capacity radial
+convergence is irregular; Ltilde_Me changes about 6.35e-5 under radial refinement
+although fixed-profile quadrature agrees near machine precision. The cache law
+explains a shared absolute Cstar bias up to 6.56e-4, whose exact common factor
+cancels in relative depletion ratios. Original covariance is unit dependent and
+remains unsuitable as physical uncertainty. The 462-entry matrix contains only
+21 exact-P2 PASS entries, with all other full-budget entries unresolved.
+
+This evidence does not select Option C or amend the original fitter. Independent
+review must resolve the joint error/envelope interpretation, then authorize any
+required method change separately. Next numerical work is bounded onset/EOS
+refinement and per-target background/tangent error completion, subject to the
+predeclaration and its continuation estimate. Historical outputs and all 10,303
+refits remain unchanged.
+
+
 Leave platform agreement and scientific certificate qualification UNQUALIFIED;
 retain passing static production, exact native repeats, independent refits and
 runtime refusal controls as separate findings. Do not attach historical Mac
 certificates to native stars. No promotion, campaign, extra certificate-dependent
 pilot or nonlinear stability-ceiling claim follows from this recovery.
 
-The next bounded step is owner review of the uncertainty construction/envelope
-interpretation, followed by the predeclared static error-budget work. Static
+The next bounded step is independent owner review of the new uncertainty evidence
+and envelope interpretation, followed by the specific bounded continuation above. Static
 certificate qualification must precede the already scoped certificate-dependent
 pilots; nonlinear stability-ceiling qualification remains a separate task.

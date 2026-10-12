@@ -2,7 +2,7 @@
 """Freeze pilot predictions before examining withheld resolution levels."""
 import csv,json,math
 from pathlib import Path
-S=Path(__file__).resolve().parents[3];R=S.parents[1]/'ba13-uncertainty';records=[]
+S=Path(__file__).resolve().parents[3];R=Path(__import__('os').environ.get('BA13_STUDY_OUT',str(S.parents[1]/'ba13-uncertainty')));records=[]
 for i in (0,10,20):
  for axis,cases in [('radial',['r20000','r40000','nominal','r160000']),('eos',['e2048','e4096','nominal','e16384'])]:
   for table,keys in [('star.tsv',['R','M','N_n','N_e','N_mu']),('thermal.tsv',['Cstar','Tsurface','Tsurface_inf','g14'])]:

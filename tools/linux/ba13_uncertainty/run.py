@@ -3,7 +3,7 @@
 import sys,os,json,time,resource,hashlib,subprocess
 from pathlib import Path
 sys.dont_write_bytecode=True
-S=Path(__file__).resolve().parents[3];R=S.parents[1]/'ba13-uncertainty';RAW=S.parents[1]/'ba13-recovery/run1/raw'
+S=Path(__file__).resolve().parents[3];R=Path(__import__('os').environ.get('BA13_STUDY_OUT',str(S.parents[1]/'ba13-uncertainty')));RAW=S.parents[1]/'ba13-recovery/run1/raw'
 sys.path.insert(0,str(S/'tests/bnv'));from produce_frozen_certificates import thermal_source
 case=sys.argv[1];index=int(sys.argv[2])
 cases={'nominal':(80000,8192,1,5e-11,1e-14),
