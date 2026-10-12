@@ -1,0 +1,8 @@
+{
+  "manifest": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-uncertainty/STUDY_COMPLETE.json",
+  "sha256": "b68c7a675c8bb2df0de24b37092767c75f0c1104e0ec01fc8aeafcbb642c4845",
+  "file_count": 1022,
+  "retained_bytes": 1223277519,
+  "source_commit": "dcd14d28b6efc8a22f93c9909281072bb47f507a",
+  "status": "COMPLETE_BOUNDED_PILOT_NOT_QUALIFIED"
+}
