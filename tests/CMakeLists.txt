@@ -754,3 +754,14 @@ add_test(NAME candidate_arithmetic_oracle COMMAND "${Python3_EXECUTABLE}"
     "${CMAKE_CURRENT_SOURCE_DIR}/linux/arithmetic_oracle.py"
     --executable $<TARGET_FILE:linux_arithmetic_probe>)
 set_tests_properties(candidate_arithmetic_oracle PROPERTIES LABELS "candidate;analytic;self-contained" TIMEOUT 60)
+
+# Separate uncertainty-study executable; original BA13 producer stays byte-identical.
+set(ba13_study_helpers "${CMAKE_CURRENT_BINARY_DIR}/ba13_original_helpers.hpp")
+add_custom_command(OUTPUT "${ba13_study_helpers}"
+  COMMAND "${Python3_EXECUTABLE}" -B "${PROJECT_SOURCE_DIR}/tools/linux/ba13_uncertainty/extract_helpers.py"
+    "${CMAKE_CURRENT_SOURCE_DIR}/bnv/frozen_sensitivity.cpp" "${ba13_study_helpers}"
+  DEPENDS bnv/frozen_sensitivity.cpp "${PROJECT_SOURCE_DIR}/tools/linux/ba13_uncertainty/extract_helpers.py"
+  VERBATIM)
+add_executable(ba13_uncertainty_pilot bnv/uncertainty_pilot.cpp "${ba13_study_helpers}")
+target_include_directories(ba13_uncertainty_pilot PRIVATE "${CMAKE_CURRENT_BINARY_DIR}")
+target_link_libraries(ba13_uncertainty_pilot PRIVATE CompactStar)
