@@ -1,0 +1,6 @@
+Required final artifacts missing: NONE.
+All 21 indices 0 through 20 are complete.
+Final fitter: RECOVERED from historical Git blob 6790b8983d63fb908af43bf2c8e30e3a5fed7e94.
+Historical commands: RECOVERED with successful exit codes and original session locations.
+Not packaged: stopped-attempt intermediate TSV data (authenticated in source_inventory.tsv); unrelated build outputs and compiled binaries.
+The radial profiles and all 10 files in every final chemical-profiles/target-N directory ARE included.

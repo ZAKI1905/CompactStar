@@ -1,0 +1,8 @@
+{
+  "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/native-ba13-candidate-20261012.tar.gz",
+  "bytes": 124865916,
+  "sha256": "01ee8ff545315020ccb2f954cfb92d1d7db34dded953ff8c2f984b82dbab1a49",
+  "compressed_stream_readback": "PASS",
+  "member_hashes_compared_to_retained_outputs": 284,
+  "status": "PASS"
+}

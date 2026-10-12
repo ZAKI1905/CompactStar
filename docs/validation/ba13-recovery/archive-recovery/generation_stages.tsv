@@ -1,0 +1,7 @@
+stage	status	files_in_archive	files_packaged	bytes_in_archive	interpretation
+phase6a1-frozen-target-stars	EARLIER_COMPLETED_STAGE	1	1	5656	21 target-B solves; original table retained
+phase6a1-frozen-target-tangent	EARLIER_COMPLETED_STAGE	2	2	9992	21 target-B and tangent samples; all common fields match final
+phase6a1-frozen-certificate-final	FINAL_COMPLETED	280	280	448535920	Authoritative hash-matched final certificate and all 21 final shards/profiles
+phase6a1-frozen-coefficients-failed-attempt1	STOPPED_NONFINAL	4	1	285143	STOP invalid frozen profile metric; not final evidence
+phase6a1-frozen-coefficients-interrupted-sequential-attempt2	STOPPED_NONFINAL	4	1	303104	Exit 130; deliberately interrupted sequential construction; not final evidence
+phase6a1-frozen-coefficients-domain-refusal-attempt3	STOPPED_NONFINAL	28	7	2117956	Index 0 completed; perturbed stars refused B0 thermal domain; not final evidence

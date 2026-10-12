@@ -1,0 +1,147 @@
+{
+  "stages": {
+    "fit-mac-replay.log": {
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+        "-B",
+        "tools/linux/ba13_fit.py",
+        "--work",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/historical-package/BA13-original-evidence-20261012/original/phase6a1-frozen-certificate-final",
+        "--historical-package",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/historical-package/BA13-original-evidence-20261012",
+        "--output",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/mac-replay/fit"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 9.808896236121655,
+      "user_cpu_seconds": 4.348401,
+      "system_cpu_seconds": 0.798844,
+      "max_rss_kib": 257116,
+      "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+    },
+    "fit-run1.log": {
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+        "-B",
+        "tools/linux/ba13_fit.py",
+        "--work",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw",
+        "--output",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/fit"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 5.4817082062363625,
+      "user_cpu_seconds": 4.200586,
+      "system_cpu_seconds": 0.558747,
+      "max_rss_kib": 256648,
+      "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+    },
+    "fit-repeat.log": {
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+        "-B",
+        "tools/linux/ba13_fit.py",
+        "--work",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/raw",
+        "--output",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/fit"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 9.112657479941845,
+      "user_cpu_seconds": 4.240912,
+      "system_cpu_seconds": 0.7370439999999999,
+      "max_rss_kib": 256268,
+      "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+    },
+    "native-refit.log": {
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+        "-B",
+        "tools/linux/ba13_refit.py",
+        "--raw",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw",
+        "--certificate",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/fit/certificate.json",
+        "--output",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/native-independent-refit.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 20.12600629031658,
+      "user_cpu_seconds": 19.793651,
+      "system_cpu_seconds": 0.088514,
+      "max_rss_kib": 120636,
+      "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+    },
+    "mac-refit.log": {
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+        "-B",
+        "tools/linux/ba13_refit.py",
+        "--raw",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/historical-package/BA13-original-evidence-20261012/original/phase6a1-frozen-certificate-final",
+        "--certificate",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/historical-package/BA13-original-evidence-20261012/original/phase6a1-frozen-certificate-final/certificate.json",
+        "--output",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/mac-independent-refit.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 20.00695252791047,
+      "user_cpu_seconds": 19.774799,
+      "system_cpu_seconds": 0.09638,
+      "max_rss_kib": 124080,
+      "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+    },
+    "platform-comparison.log": {
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+        "-B",
+        "tools/linux/ba13_platform_compare.py",
+        "--native",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw",
+        "--mac",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/historical-package/BA13-original-evidence-20261012/original/phase6a1-frozen-certificate-final",
+        "--native-certificate",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/fit/certificate.json",
+        "--mac-certificate",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/historical-package/BA13-original-evidence-20261012/original/phase6a1-frozen-certificate-final/certificate.json",
+        "--output",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/platform-comparison.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 11.609028086066246,
+      "user_cpu_seconds": 10.165332,
+      "system_cpu_seconds": 0.300746,
+      "max_rss_kib": 225700,
+      "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+    },
+    "native-monitor.log": {
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_monitor",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/fit/certificate.tsv"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.011754222214221954,
+      "user_cpu_seconds": 0.002041,
+      "system_cpu_seconds": 0.00409,
+      "max_rss_kib": 10752,
+      "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+    },
+    "native-frozen-binding.log": {
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_ba13_native_certificate_binding",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/certificate.txt",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/fit/certificate.tsv",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/native-frozen-binding-work"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 106.1876246072352,
+      "user_cpu_seconds": 105.177601,
+      "system_cpu_seconds": 0.428539,
+      "max_rss_kib": 188292,
+      "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+    }
+  },
+  "cpu_seconds_sum": 170.716227,
+  "note": "Post-archive static fit/refit/comparison and monitor/profile binding only. Build and archive I/O excluded. No trajectory."
+}

@@ -1,0 +1,116 @@
+{
+  "HEAD": "e56e6e50040dbcd9dcbee1acecf58843f3dddf1c",
+  "authorization": "User request: Recover Original BA13 Evidence, read-only source handling, 2026-10-12",
+  "branch": "physics/phase6a1-controlled-bnv-implementation",
+  "change_class": "Generated artifact recovery with documentation; no repository or scientific source edits",
+  "frozen_run_files_authenticated": 347,
+  "git_sources": [
+    {
+      "bytes": 20348,
+      "commit": "460ca713a6bd2633b4afbf3926e959b751cea0c6",
+      "git_blob_sha1": "6790b8983d63fb908af43bf2c8e30e3a5fed7e94",
+      "historical_repository": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation",
+      "package_path": "historical-source/tests/bnv/compare_candidate.py",
+      "path": "tests/bnv/compare_candidate.py",
+      "sha256": "9b3ef1ce17df7e1f8d2d7c40e111ee0844abfddc2cc54b8f93cb3f2ce1322370"
+    },
+    {
+      "bytes": 3525,
+      "commit": "460ca713a6bd2633b4afbf3926e959b751cea0c6",
+      "git_blob_sha1": "89f67e4080316dae95aecfd1e0470c2b10b85bf5",
+      "historical_repository": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation",
+      "package_path": "historical-source/tests/bnv/produce_frozen_certificates.py",
+      "path": "tests/bnv/produce_frozen_certificates.py",
+      "sha256": "fb609dbd549763800cc47e962e4f12333835916ea299058388dcb6c1c592ad79"
+    },
+    {
+      "bytes": 27859,
+      "commit": "460ca713a6bd2633b4afbf3926e959b751cea0c6",
+      "git_blob_sha1": "b89b22a2ecdd6d270f86d5dde83f320cd07b1547",
+      "historical_repository": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation",
+      "package_path": "historical-source/tests/bnv/frozen_sensitivity.cpp",
+      "path": "tests/bnv/frozen_sensitivity.cpp",
+      "sha256": "efc7af412f7cc99e7b8eda452c90b2e2ea643e46d1113505cd6d3060d9fd4416"
+    },
+    {
+      "bytes": 16822,
+      "commit": "460ca713a6bd2633b4afbf3926e959b751cea0c6",
+      "git_blob_sha1": "7861150f5f10303e85b505456468b42b55fbd4fe",
+      "historical_repository": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation",
+      "package_path": "historical-source/tests/analysis/chemical_production_evidence.py",
+      "path": "tests/analysis/chemical_production_evidence.py",
+      "sha256": "9124324d82fd4bc877fb99c35e7fe62a0d72f4fea9f03b8bf4fed61dde46e0ee"
+    },
+    {
+      "bytes": 7430,
+      "commit": "460ca713a6bd2633b4afbf3926e959b751cea0c6",
+      "git_blob_sha1": "fb6a84ab7328981d8cbf7a0b671443d463386dc2",
+      "historical_repository": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation",
+      "package_path": "historical-source/docs/validation/PHASE6A1_CONTROLLED_BNV_PRETRAJECTORY.md",
+      "path": "docs/validation/PHASE6A1_CONTROLLED_BNV_PRETRAJECTORY.md",
+      "sha256": "1d4e77780fde474f24782879d6ac43fb5bd6d01f3919c359437c0c5f01d327a6"
+    },
+    {
+      "bytes": 82184,
+      "commit": "460ca713a6bd2633b4afbf3926e959b751cea0c6",
+      "git_blob_sha1": "a2726d3cfc8038e025b71ac5b6acf8e0c8123694",
+      "historical_repository": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation",
+      "package_path": "historical-source/docs/validation/PHASE6A1_CONTROLLED_BNV_IMPLEMENTATION_PREFLIGHT.md",
+      "path": "docs/validation/PHASE6A1_CONTROLLED_BNV_IMPLEMENTATION_PREFLIGHT.md",
+      "sha256": "cc2ad8bce7219cc63a45a97ef878a24353c4f4322de545cd7b456c471c6cfc65"
+    },
+    {
+      "bytes": 9394,
+      "commit": "460ca713a6bd2633b4afbf3926e959b751cea0c6",
+      "git_blob_sha1": "bd1633783d680994e4be6263e2e8cd8991182956",
+      "historical_repository": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation",
+      "package_path": "historical-source/docs/validation/phase5c2_preproduction_evidence.json",
+      "path": "docs/validation/phase5c2_preproduction_evidence.json",
+      "sha256": "883f9879103fde113b49ed311b38b5f4c4876d84ffd2aa7987270c5c08f4e481"
+    },
+    {
+      "bytes": 13243,
+      "commit": "460ca713a6bd2633b4afbf3926e959b751cea0c6",
+      "git_blob_sha1": "d73bf3bc898719c79076a5bab94896e5012f7ed7",
+      "historical_repository": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation",
+      "package_path": "historical-source/GOVERNANCE.md",
+      "path": "GOVERNANCE.md",
+      "sha256": "65d3f3cde9e9faea1d69050b22a6db452c0b0c5df47ebcd19f523ebf65bc0222"
+    }
+  ],
+  "governance": "GOVERNANCE.md sections 2 and 10 of the AI Operating Contract; numerical meaning and original generated artifacts preserved",
+  "head_role": "Historical clean source checkout; archive evidence is the recovery source of truth authenticated by specified hashes and historical offload manifests",
+  "historical_manifest_files": [
+    {
+      "archive_path": "/Volumes/Scriptorium/Research/CompactStar/space_recovery/20261002T001142Z/audit/manifests/002-source.json",
+      "bytes": 5179205,
+      "package_path": "historical/002-source.json",
+      "sha256": "33508bf6b8f40ef021596dc9daddcc9673205a365d99425766e110173601f6a8"
+    },
+    {
+      "archive_path": "/Volumes/Scriptorium/Research/CompactStar/space_recovery/20261002T001142Z/audit/manifests/002-destination.json",
+      "bytes": 5180381,
+      "package_path": "historical/002-destination.json",
+      "sha256": "120e7f81b608ae348fd4f5c2873c246785e00f899bcec0465a5ac083218b032c"
+    }
+  ],
+  "historical_source_commit": "460ca713a6bd2633b4afbf3926e959b751cea0c6",
+  "historical_source_commit_record": "460ca713a6bd2633b4afbf3926e959b751cea0c6 2026-09-19T08:32:43-04:00 validation: record controlled bnv pretrajectory pass",
+  "historical_source_root": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug",
+  "original_files_inventoried": 354,
+  "original_files_packaged": 327,
+  "original_session": "/Users/keeper/.codex/sessions/2026/09/18/rollout-2026-09-18T21-26-58-01a0b746-1637-7960-bd02-b7256138d27e.jsonl",
+  "original_session_thread_id": "01a0b746-1637-7960-bd02-b7256138d27e",
+  "recovered_at_utc": "2026-10-12T20:15:19.245994+00:00",
+  "session_excerpts": "Only selected original BA13 command/patch records are included; raw JSONL line bytes preserved",
+  "source_handling": "Read-only opens and hashes; no source writes, simulations, Git commits or merges",
+  "source_path_resolves_to_archive": true,
+  "source_root": "/Volumes/Scriptorium/Research/CompactStar/space_recovery/20261002T001142Z/builds/worktrees/CompactStar-phase6a1-controlled-bnv-implementation/build/phase6a1-controlled-bnv-debug",
+  "successful_assembly_completed_utc": "2026-09-19T03:59:42.114Z",
+  "successful_assembly_exit_code": 0,
+  "successful_fit_completed_utc": "2026-09-19T04:00:27.370Z",
+  "successful_fit_exit_code": 0,
+  "volume_identity_note": "Mount path and historical symlink resolved successfully. diskutil info was unavailable in the execution environment; no current volume UUID claim is made. Evidence authenticated by exact bytes and earlier manifests.",
+  "working_tree_status": "",
+  "worktree": "/Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation"
+}

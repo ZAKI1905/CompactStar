@@ -1,0 +1,43 @@
+Recovered historical commands; DOCUMENTATION ONLY, not executed against the archive.
+
+Successful final assembly
+UTC: 2026-09-19T03:59:42.114Z
+Session: /Users/keeper/.codex/sessions/2026/09/18/rollout-2026-09-18T21-26-58-01a0b746-1637-7960-bd02-b7256138d27e.jsonl:3880
+Working directory: file:///Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation
+Exit code: 0
+Exact recorded shell command:
+/Users/keeper/miniforge3/bin/python3 tests/bnv/compare_candidate.py merge-frozen --work build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-final
+Recorded output:
+MERGED_FROZEN_EVIDENCE coefficients rows 21
+MERGED_FROZEN_EVIDENCE thermal_surface rows 273
+MERGED_FROZEN_EVIDENCE profile_metrics rows 43029
+
+
+Earlier failed fit
+UTC: 2026-09-19T03:59:50.098Z
+Session: /Users/keeper/.codex/sessions/2026/09/18/rollout-2026-09-18T21-26-58-01a0b746-1637-7960-bd02-b7256138d27e.jsonl:3887
+Working directory: file:///Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation
+Exit code: 1
+Exact recorded shell command:
+/Users/keeper/miniforge3/bin/python3 tests/bnv/compare_candidate.py frozen --work build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-final --output-json build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-final/certificate.json --output-tsv build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-final/certificate.tsv > build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-comparison.log 2>&1
+rc=$?
+cat build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-comparison.log
+exit $rc
+Recorded output:
+STOP rank-deficient frozen sensitivity fit
+
+
+Successful final fitting
+UTC: 2026-09-19T04:00:27.370Z
+Session: /Users/keeper/.codex/sessions/2026/09/18/rollout-2026-09-18T21-26-58-01a0b746-1637-7960-bd02-b7256138d27e.jsonl:3909
+Working directory: file:///Users/keeper/Documents/CompactStar/worktrees/CompactStar-phase6a1-controlled-bnv-implementation
+Exit code: 0
+Exact recorded shell command:
+/Users/keeper/miniforge3/bin/python3 tests/bnv/compare_candidate.py frozen --work build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-final --output-json build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-final/certificate.json --output-tsv build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-final/certificate.tsv > build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-comparison.log 2>&1
+rc=$?
+cat build/phase6a1-controlled-bnv-debug/phase6a1-frozen-certificate-comparison.log
+exit $rc
+Recorded output:
+BA13_STATIC_CERTIFICATE PASS max_utilization 0.54075347894390757 index 20 quantity N_mu
+
+

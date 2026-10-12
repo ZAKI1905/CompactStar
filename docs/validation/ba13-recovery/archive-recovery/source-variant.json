@@ -1,0 +1,5 @@
+{
+  "archived_cpp_sha256": "efc7af412f7cc99e7b8eda452c90b2e2ea643e46d1113505cd6d3060d9fd4416",
+  "selected_recovered_cpp_sha256": "30d59d0026902246a2e96778914b6a79f0aaf4a10ac76d519390d13bba314e80",
+  "difference": "Three namespace/include substitutions: Analysis::EquilibriumBaryonTangent to Physics::BNV::EquilibriumBaryonTangent, accepted ADR-0016. No equations changed."
+}

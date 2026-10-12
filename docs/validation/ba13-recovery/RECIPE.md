@@ -47,13 +47,44 @@ historical snapshots are under `historical/`; source identities are in
 `recovered-identities.json`. The adapter uses the original `thermal_source`
 function directly, so entropy mathematics is unchanged.
 
-The final fit stage is **on hold for the owner's located Scriptorium archive**.
-The drafts retained outside Git under
-`ba13-recovery/provisional-fit-not-used/` are
-provisional replacement drafts, not a selected reproduction of the historical
-fit. Do not use their output as a qualified frozen certificate. Audit archived
-raw tables, final JSON/covariance and fitting implementation before finalizing
-stage 4 or running any certificate-dependent checks.
+The final fitter is now recovered as the unchanged
+`tests/bnv/compare_candidate.py` (see `fitter-identity.json`). Its historical
+`merge-frozen` mode merges the original shards; the native collector performs the
+same index-ordered concatenation with added completion/hash checks. The archived
+final assembled tables and all shards are retained for verification.
+
+Verify the original ZIP SHA-256
+`990d3708a24c71e518d4bb59e6ad3c23ae47f337ba924007b083ca598e6b8e2b`,
+extract into a fresh directory, and verify complete `SHA256SUMS` coverage before
+using the package. Do not write fit outputs into the historical tree.
+
+After collecting two independent native runs and building the validation targets:
+
+```bash
+# Run on the login node; the environment must be exported into Slurm.
+source tools/linux/eku_environment.sh
+ARCHIVE="$OUT/historical-package/BA13-original-evidence-20261012"
+sbatch --partition=phyall --cpus-per-task=1 --mem=4G --time=00:30:00 \
+  --export=ALL tools/linux/ba13_qualify.sh \
+  "$OUT/run1/raw" "$OUT/repeat/raw" "$ARCHIVE" "$OUT/FRESH_QUALIFICATION"
+```
+
+The recipe runs the original fitter through atomic, hash-bound candidate output
+publication; checks exact repeated certificate bytes; independently refits both
+native and historical certificates using separate 80/112-digit normal equations;
+compares all component errors; exercises the existing depletion/M20 monitor; and
+binds the native candidate to its actual canonical native profile and exact B0.
+It contains no trajectory command. The commands were executed individually in
+jobs 14573–14577; the consolidated shell recipe preserves those stages. Job 14573
+completed all fits, then its monitor build failed because modules were sourced on
+the compute node. Job 14575 completed that build/control with the proper exported
+login-node environment; both logs are retained.
+
+A successful script exit reports completed static processing, **not** scientific
+qualification. The platform report remains UNQUALIFIED for the historical error
+assignments described in proposed ADR-0021. Do not run further certificate-dependent
+pilots or promote these files. The separate provisional replacement draft was
+never selected or executed.
 
 Independent input-boundary controls use `phase6a1_ba13_profile_binding PROFILE
 CERTIFICATE FRESH_WORK`: nominal native exact-profile equality, one-ULP profile

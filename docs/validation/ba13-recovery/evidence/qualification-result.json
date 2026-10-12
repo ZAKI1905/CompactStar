@@ -1,0 +1,34 @@
+{
+  "status": "STATIC_PRODUCER_PASS_SCIENTIFIC_PLATFORM_QUALIFICATION_UNQUALIFIED",
+  "candidate": {
+    "certificate.json": "4212cad05bb4244ab75e80b8dfea023e6d0fcee69086c9993bd48d26a40e41fb",
+    "certificate.tsv": "38bc85c62621b390ff2d7c8affee1f5ba4e9f0f44233047bb9959f2d685fd5ba"
+  },
+  "historical": {
+    "certificate.json": "6643054d8cba36035af15a15615baf9920d9a56adf3f5211f13ea9f2745f4409",
+    "certificate.tsv": "9217e278eb0a4b06b193a2a02f4d59f285d74e4033427b87ccd51181c3f7beab"
+  },
+  "linux_replay_of_historical": {
+    "certificate.json": "5ea4f4ed2a012ddb8f79bcaf70a27f7f088e2628e34c332efe372c25a7ba30bf",
+    "certificate.tsv": "639cc4ce3bb169be6dcbc257470d3d78aca64e3ecc0aba83dbae1e1af6b7e313"
+  },
+  "exact_native_repeated_certificate_bytes": true,
+  "independent_refits": {
+    "native": "PASS",
+    "archived_mac": "PASS",
+    "components_each": 10303,
+    "precisions": [
+      80,
+      112
+    ]
+  },
+  "native_runtime_monitor": "PASS: 21 samples, just-inside/just-outside, M20 over-budget, currentness",
+  "native_frozen_binding": "PASS: own canonical profile and exact B0; no trajectory",
+  "profile_one_ulp_mutation": "PASS: refused in earlier native input validation",
+  "governed_grids_and_topology": "PASS: native/Mac q, active dimension and thermal knots exactly equal",
+  "max_utilization": 0.5407534798513441,
+  "limiting_sample": 20,
+  "limiting_quantity": "N_mu",
+  "remaining_blocker": "Proposed ADR-0021: incomplete independently validated numerical errors and envelope interpretation",
+  "post_archive_cpu_seconds": 170.716227
+}

@@ -1,0 +1,194 @@
+{
+  "status": "PASS_INDEPENDENT_HISTORICAL_SEMANTICS_REFIT",
+  "precision_digits": [
+    80,
+    112
+  ],
+  "precision_repeat": "exact binary64 outputs",
+  "fit_count": 10303,
+  "failures": [],
+  "method": "separate raw parser; uncentered 2x2 high-precision normal equations",
+  "arithmetic_allowance": "1024 epsilon times value scale; slope additionally divided by abscissa span; comparison only",
+  "max_coefficient_arithmetic_allowance_utilization": 0.002805158362264139,
+  "quantities": {
+    "t_n": {
+      "components": 1,
+      "zero_error_entries": 0,
+      "error_entries": 21,
+      "max_independent_utilization": 0.0033209336626052644,
+      "largest_numerical_uncertainty": 2.041382902242048e-07,
+      "nonlinearity": 2.923802880290911e-12
+    },
+    "t_e": {
+      "components": 1,
+      "zero_error_entries": 0,
+      "error_entries": 21,
+      "max_independent_utilization": 0.06276265596831347,
+      "largest_numerical_uncertainty": 6.157508809349228e-09,
+      "nonlinearity": 2.7144389055862516e-12
+    },
+    "t_mu": {
+      "components": 1,
+      "zero_error_entries": 0,
+      "error_entries": 21,
+      "max_independent_utilization": 0.376275897525808,
+      "largest_numerical_uncertainty": 3.2497187367055166e-09,
+      "nonlinearity": 1.0466375487174616e-12
+    },
+    "Z_row_npe": {
+      "components": 2,
+      "zero_error_entries": 0,
+      "error_entries": 42,
+      "max_independent_utilization": 0.02163017688579809,
+      "largest_numerical_uncertainty": 1.389480111355279e-07,
+      "nonlinearity": 2.2155057491205095e-13
+    },
+    "Z_row_npmu": {
+      "components": 2,
+      "zero_error_entries": 0,
+      "error_entries": 42,
+      "max_independent_utilization": 0.35092211155403036,
+      "largest_numerical_uncertainty": 4.0051493282584773e-07,
+      "nonlinearity": 3.4160138777376866e-11
+    },
+    "Cstar": {
+      "components": 13,
+      "zero_error_entries": 0,
+      "error_entries": 273,
+      "max_independent_utilization": 0.01459008519434808,
+      "largest_numerical_uncertainty": 2.009719813193592e-14,
+      "nonlinearity": 2.017319021312054e-11
+    },
+    "Ltilde_Me": {
+      "components": 1,
+      "zero_error_entries": 20,
+      "error_entries": 21,
+      "max_independent_utilization": 0.012266795503777432,
+      "largest_numerical_uncertainty": 1.5096785525495095e-16,
+      "nonlinearity": 4.033665736992052e-11
+    },
+    "Ltilde_Mmu": {
+      "components": 1,
+      "zero_error_entries": 20,
+      "error_entries": 21,
+      "max_independent_utilization": 0.2568109297565561,
+      "largest_numerical_uncertainty": 1.7365310999763332e-16,
+      "nonlinearity": 2.6950817628206767e-12
+    },
+    "mu_B": {
+      "components": 1,
+      "zero_error_entries": 19,
+      "error_entries": 21,
+      "max_independent_utilization": 0.0018826392143740554,
+      "largest_numerical_uncertainty": 1.309099481057308e-16,
+      "nonlinearity": 1.503084207525994e-14
+    },
+    "mu_n_profile": {
+      "components": 2049,
+      "zero_error_entries": 43029,
+      "error_entries": 43029,
+      "max_independent_utilization": 0.0018826515202666795,
+      "largest_numerical_uncertainty": 0.0,
+      "nonlinearity": 7.146119564691354e-14
+    },
+    "P0_average": {
+      "components": 1,
+      "zero_error_entries": 19,
+      "error_entries": 21,
+      "max_independent_utilization": 0.0018826392143740554,
+      "largest_numerical_uncertainty": 1.309099481057308e-16,
+      "nonlinearity": 1.503084207525994e-14
+    },
+    "P1_average": {
+      "components": 1,
+      "zero_error_entries": 19,
+      "error_entries": 21,
+      "max_independent_utilization": 0.0026145700085008594,
+      "largest_numerical_uncertainty": 1.9000272427303005e-16,
+      "nonlinearity": 2.2028694289424405e-14
+    },
+    "P2_average": {
+      "components": 1,
+      "zero_error_entries": 21,
+      "error_entries": 21,
+      "max_independent_utilization": 0.0,
+      "largest_numerical_uncertainty": 0.0,
+      "nonlinearity": 0.0
+    },
+    "N_n": {
+      "components": 1,
+      "zero_error_entries": 0,
+      "error_entries": 21,
+      "max_independent_utilization": 0.009719712796446761,
+      "largest_numerical_uncertainty": 2.056250459380296e-14,
+      "nonlinearity": 6.203638901828759e-15
+    },
+    "N_e": {
+      "components": 1,
+      "zero_error_entries": 0,
+      "error_entries": 21,
+      "max_independent_utilization": 0.04883655166696479,
+      "largest_numerical_uncertainty": 8.116131978750528e-12,
+      "nonlinearity": 5.975216360194002e-13
+    },
+    "N_mu": {
+      "components": 1,
+      "zero_error_entries": 0,
+      "error_entries": 21,
+      "max_independent_utilization": 0.5407534798521276,
+      "largest_numerical_uncertainty": 2.056483336695435e-14,
+      "nonlinearity": 3.8323416255478284e-11
+    },
+    "species_support": {
+      "components": 1,
+      "zero_error_entries": 21,
+      "error_entries": 21,
+      "max_independent_utilization": 0.0,
+      "largest_numerical_uncertainty": 0.0,
+      "nonlinearity": 0.0
+    },
+    "metric_structure": {
+      "components": 8196,
+      "zero_error_entries": 172116,
+      "error_entries": 172116,
+      "max_independent_utilization": 0.03301241854766516,
+      "largest_numerical_uncertainty": 0.0,
+      "nonlinearity": 1.673125191208692e-11
+    },
+    "radius": {
+      "components": 1,
+      "zero_error_entries": 21,
+      "error_entries": 21,
+      "max_independent_utilization": 0.012830644474733054,
+      "largest_numerical_uncertainty": 0.0,
+      "nonlinearity": 1.4563623594281721e-12
+    },
+    "surface_gravity": {
+      "components": 1,
+      "zero_error_entries": 0,
+      "error_entries": 21,
+      "max_independent_utilization": 0.03705115143995586,
+      "largest_numerical_uncertainty": 2.0097183471152322e-14,
+      "nonlinearity": 3.226668447381906e-12
+    },
+    "envelope": {
+      "components": 13,
+      "zero_error_entries": 273,
+      "error_entries": 273,
+      "max_independent_utilization": 0.009753681970169466,
+      "largest_numerical_uncertainty": 0.0,
+      "nonlinearity": 7.791489111715001e-13
+    },
+    "Tsurface_inf": {
+      "components": 13,
+      "zero_error_entries": 0,
+      "error_entries": 273,
+      "max_independent_utilization": 0.007870606760573585,
+      "largest_numerical_uncertainty": 2.0097183471152322e-14,
+      "nonlinearity": 6.461625547386685e-13
+    }
+  },
+  "certificate_sha256": "4212cad05bb4244ab75e80b8dfea023e6d0fcee69086c9993bd48d26a40e41fb",
+  "scientific_qualification": false,
+  "limitation": "Reproduces historical zero-error assignments and envelope formula; does not validate omitted errors"
+}

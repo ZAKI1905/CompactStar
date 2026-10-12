@@ -8,7 +8,7 @@ OUT=${1:?fresh build receipt directory}
 mkdir "$OUT"
 cd "$SRC"
 cmake -S "$SRC" -B "$TC/build/CompactStar-Release" > "$OUT/configure.log" 2>&1
-"$TC/python/bin/python" -B tools/linux/measure.py cmake --build "$TC/build/CompactStar-Release" --target phase6a1_frozen_sensitivity phase6a1_ba13_profile_binding -j4 > "$OUT/build.log" 2>&1
+"$TC/python/bin/python" -B tools/linux/measure.py cmake --build "$TC/build/CompactStar-Release" --target phase6a1_frozen_sensitivity phase6a1_ba13_profile_binding phase6a1_ba13_native_certificate_binding phase6a1_frozen_monitor -j4 > "$OUT/build.log" 2>&1
 cp "$TC/build/CompactStar-Release/tests/CMakeFiles/phase6a1_frozen_sensitivity.dir/flags.make" "$OUT/flags.make"
 cp "$TC/build/CompactStar-Release/tests/CMakeFiles/phase6a1_frozen_sensitivity.dir/link.txt" "$OUT/link.txt"
 cp "$TC/build/CompactStar-Release/dependency-provenance.json" "$OUT/dependency-provenance.json"

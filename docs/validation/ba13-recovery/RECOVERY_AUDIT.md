@@ -1,9 +1,10 @@
 # Original BA13 recovery audit
 
-Status: exact producer recovery; two native static sample runs complete; final qualification pending;
-replacement assembler is a provisional draft on hold. The owner located the
-original completed BA13 calculation on Scriptorium and is packaging it with hashes;
-audit that archive before selecting fitting semantics.
+Status: original producer and final fitter recovered and authenticated; native
+static candidate and independent refit complete. Scientific/platform uncertainty
+qualification remains UNQUALIFIED (proposed ADR-0021). The original Scriptorium
+archive is now verified locally: 351/351 checksums, complete coverage and ZIP CRC.
+No replacement assembler was selected or executed.
 
 Authenticated repository: `/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar`.
 Entry `5ec9994f5822647aebf79a556c0fe5e11ce77e18`, clean, one worktree;
@@ -40,24 +41,28 @@ Original stages, directly evidenced by recovered source:
    PROFILE WORK INDEX`): independently resolves each achieved star and requires
    exact B equality; recomputes Z, enabled Ltilde, P0/P1/P2 reference averages,
    2049 source-support profile nodes and 13 thermal/surface knots.
-4. The final assembler/refit was **not found in the checked source/history or
-   initially transferred cluster archives**. `assembly-search.json` records targeted successful history
-   queries and archive inventories. Broader traversal encounters omitted objects
-   in the source-only partial bundle; office-Mac scratch is not accessible. No
-   claim of exhaustive absence from the owner's Mac is made.
+4. The original `compare_candidate.py` was recovered in the owner's authenticated
+   Scriptorium package. Its `merge-frozen` and `frozen` modes are the original final
+   assembly and fit. Git blob `6790b8983d63fb908af43bf2c8e30e3a5fed7e94` is present
+   locally and exactly matches the archive; the restored executable copy is
+   unchanged. `fitter-identity.json` and `archive-recovery/historical_commands.txt`
+   give the source and successful command identities. The earlier unsuccessful
+   search record remains historical evidence, not a current absence claim.
 
-The authenticated Mac handoff retains all 21 coefficient rows and the final
+The initial authenticated Mac handoff retained all 21 coefficient rows and the final
 462-row `frozen.tsv`, plus the B0 profile/certificate/thermal inputs. It does not
 retain `target_stars.tsv`, `tangent.tsv`, `thermal_surface.tsv`, `profile_metrics.tsv`,
-or the final JSON with fit covariance. The historical `produce_candidate.py`
+or the final JSON with fit covariance. The new Scriptorium archive supplies all of
+these, all 63 successful coefficient/thermal/profile shards, all 21 profile and
+chemical-certificate sets, and the final assembler. The historical `produce_candidate.py`
 serializes trajectories and is not the missing static fit; it is not restored or run.
 The recovery record cites scratch `r1-retained-certificate.OiTiiX` and
 `r3-retained-certificate`, but those directories are not in the transferred archive
 (`PHASE6A1_CONTROLLED_BNV_RECOVERY_IMPLEMENTATION.md:215-222`).
 
 A provisional replacement draft is retained separately outside Git; see
-`provisional-fit-status.json`. It is not selected or executed. Original raw samples
-will be distinguished from regenerated Linux values; a Mac certificate cannot be
+`provisional-fit-status.json`. It was not selected or executed. Original raw samples
+are distinguished from regenerated Linux values; a Mac certificate cannot be
 attached to a different Linux star. `ba13_stage.py` isolates stages and publishes
 only after process success, row-count checks and a complete hash manifest.
 

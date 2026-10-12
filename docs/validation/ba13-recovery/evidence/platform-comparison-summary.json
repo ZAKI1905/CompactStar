@@ -1,0 +1,284 @@
+{
+  "status": "UNQUALIFIED_PLATFORM_AGREEMENT",
+  "contract": "PROPOSED ADR-0020 B: independently validated summed componentwise errors",
+  "fit_semantics": "Unchanged authenticated historical assembler; discrepancies documented without threshold/window changes",
+  "max_achieved_abscissa_difference": 4.3459460578605235e-15,
+  "quantities": {
+    "t_n": {
+      "max_scaled_difference": 1.769806523554962e-12,
+      "comparisons": 21,
+      "outside_declared_error_sum": 0,
+      "zero_error_sum_without_exact_zero_authority": 0,
+      "certificate_max_absolute_differences": {
+        "drift_bound": 2.1396218130576017e-12,
+        "threshold": 1.7698245213110253e-16,
+        "utilization": 2.215456106373012e-08
+      },
+      "outside_after_linear_alignment_diagnostic": 0
+    },
+    "t_e": {
+      "max_scaled_difference": 1.592021653396003e-12,
+      "comparisons": 21,
+      "outside_declared_error_sum": 0,
+      "zero_error_sum_without_exact_zero_authority": 0,
+      "certificate_max_absolute_differences": {
+        "drift_bound": 2.089776268698884e-12,
+        "threshold": 1.5920196001881388e-16,
+        "utilization": 6.773547996871687e-07
+      },
+      "outside_after_linear_alignment_diagnostic": 0
+    },
+    "t_mu": {
+      "max_scaled_difference": 1.9488880995122138e-13,
+      "comparisons": 21,
+      "outside_declared_error_sum": 0,
+      "zero_error_sum_without_exact_zero_authority": 0,
+      "certificate_max_absolute_differences": {
+        "drift_bound": 2.2224323076303065e-13,
+        "threshold": 1.9488851687782163e-17,
+        "utilization": 6.580096792996315e-07
+      },
+      "outside_after_linear_alignment_diagnostic": 0
+    },
+    "Z_row_npe": {
+      "max_scaled_difference": 1.1010850149294831e-14,
+      "comparisons": 42,
+      "outside_declared_error_sum": 0,
+      "zero_error_sum_without_exact_zero_authority": 0,
+      "certificate_max_absolute_differences": {
+        "drift_bound": 1.6073330241382546e-14,
+        "threshold": 0.0,
+        "utilization": 1.6073330166843647e-10
+      },
+      "outside_after_linear_alignment_diagnostic": 0
+    },
+    "Z_row_npmu": {
+      "max_scaled_difference": 1.5080675733753736e-13,
+      "comparisons": 42,
+      "outside_declared_error_sum": 0,
+      "zero_error_sum_without_exact_zero_authority": 0,
+      "certificate_max_absolute_differences": {
+        "drift_bound": 1.2335457362597918e-13,
+        "threshold": 0.0,
+        "utilization": 1.2335457377776748e-09
+      },
+      "outside_after_linear_alignment_diagnostic": 0
+    },
+    "Cstar": {
+      "max_scaled_difference": 2.367950789807125e-13,
+      "comparisons": 273,
+      "outside_declared_error_sum": 214,
+      "zero_error_sum_without_exact_zero_authority": 0,
+      "certificate_max_absolute_differences": {
+        "drift_bound": 4.108422353576058e-13,
+        "threshold": 0.0,
+        "utilization": 4.1084223488530025e-09
+      },
+      "outside_after_linear_alignment_diagnostic": 217
+    },
+    "Ltilde_Me": {
+      "max_scaled_difference": 2.234324257773274e-14,
+      "comparisons": 21,
+      "outside_declared_error_sum": 11,
+      "zero_error_sum_without_exact_zero_authority": 0,
+      "certificate_max_absolute_differences": {
+        "drift_bound": 3.86477491024997e-14,
+        "threshold": 1.2840257828349022e-13,
+        "utilization": 3.7905786322289803e-10
+      },
+      "outside_after_linear_alignment_diagnostic": 11
+    },
+    "Ltilde_Mmu": {
+      "max_scaled_difference": 9.220980140874329e-14,
+      "comparisons": 21,
+      "outside_declared_error_sum": 20,
+      "zero_error_sum_without_exact_zero_authority": 1,
+      "certificate_max_absolute_differences": {
+        "drift_bound": 1.0488607053195376e-13,
+        "threshold": 1.1287452634893558e-13,
+        "utilization": 1.2117910008768717e-09
+      },
+      "outside_after_linear_alignment_diagnostic": 16
+    },
+    "mu_B": {
+      "max_scaled_difference": 6.296768503885651e-14,
+      "comparisons": 21,
+      "outside_declared_error_sum": 7,
+      "zero_error_sum_without_exact_zero_authority": 0,
+      "certificate_max_absolute_differences": {
+        "drift_bound": 1.0852434832918211e-13,
+        "threshold": 3.612053147902805e-13,
+        "utilization": 1.08223414930185e-09
+      },
+      "outside_after_linear_alignment_diagnostic": 7
+    },
+    "mu_n_profile": {
+      "max_scaled_difference": 8.705511467880364e-14,
+      "comparisons": 43029,
+      "outside_declared_error_sum": 38376,
+      "zero_error_sum_without_exact_zero_authority": 43029,
+      "certificate_max_absolute_differences": {
+        "drift_bound": 1.7411022984611e-14,
+        "threshold": 0.0,
+        "utilization": 1.7411022992276648e-10
+      },
+      "outside_after_linear_alignment_diagnostic": 42622
+    },
+    "P0_average": {
+      "max_scaled_difference": 6.296768503885651e-14,
+      "comparisons": 21,
+      "outside_declared_error_sum": 7,
+      "zero_error_sum_without_exact_zero_authority": 0,
+      "certificate_max_absolute_differences": {
+        "drift_bound": 1.0852434832918211e-13,
+        "threshold": 3.612053147902805e-13,
+        "utilization": 1.08223414930185e-09
+      },
+      "outside_after_linear_alignment_diagnostic": 7
+    },
+    "P1_average": {
+      "max_scaled_difference": 7.0131856113791e-14,
+      "comparisons": 21,
+      "outside_declared_error_sum": 9,
+      "zero_error_sum_without_exact_zero_authority": 0,
+      "certificate_max_absolute_differences": {
+        "drift_bound": 8.356707440676907e-14,
+        "threshold": 2.682760697619857e-13,
+        "utilization": 8.331077696200478e-10
+      },
+      "outside_after_linear_alignment_diagnostic": 9
+    },
+    "P2_average": {
+      "max_scaled_difference": 0.0,
+      "comparisons": 21,
+      "outside_declared_error_sum": 0,
+      "zero_error_sum_without_exact_zero_authority": 0,
+      "certificate_max_absolute_differences": {
+        "drift_bound": 0.0,
+        "threshold": 0.0,
+        "utilization": 0.0
+      },
+      "outside_after_linear_alignment_diagnostic": 0
+    },
+    "N_n": {
+      "max_scaled_difference": 5.179560652605818e-15,
+      "comparisons": 21,
+      "outside_declared_error_sum": 0,
+      "zero_error_sum_without_exact_zero_authority": 0,
+      "certificate_max_absolute_differences": {
+        "drift_bound": 4.373850711274869e-15,
+        "threshold": 0.0,
+        "utilization": 4.3738507173735064e-11
+      },
+      "outside_after_linear_alignment_diagnostic": 0
+    },
+    "N_e": {
+      "max_scaled_difference": 2.1497828260423766e-14,
+      "comparisons": 21,
+      "outside_declared_error_sum": 0,
+      "zero_error_sum_without_exact_zero_authority": 0,
+      "certificate_max_absolute_differences": {
+        "drift_bound": 1.7254844217529835e-14,
+        "threshold": 0.0,
+        "utilization": 1.7254844081326937e-10
+      },
+      "outside_after_linear_alignment_diagnostic": 0
+    },
+    "N_mu": {
+      "max_scaled_difference": 2.3155285120140783e-13,
+      "comparisons": 21,
+      "outside_declared_error_sum": 15,
+      "zero_error_sum_without_exact_zero_authority": 0,
+      "certificate_max_absolute_differences": {
+        "drift_bound": 2.1970697694972605e-13,
+        "threshold": 0.0,
+        "utilization": 2.197069748355318e-09
+      },
+      "outside_after_linear_alignment_diagnostic": 12
+    },
+    "species_support": {
+      "max_scaled_difference": 0.0,
+      "comparisons": 21,
+      "outside_declared_error_sum": 0,
+      "zero_error_sum_without_exact_zero_authority": 0,
+      "certificate_max_absolute_differences": {
+        "drift_bound": 0.0,
+        "threshold": 0.0,
+        "utilization": 0.0
+      },
+      "outside_after_linear_alignment_diagnostic": 0
+    },
+    "metric_structure": {
+      "max_scaled_difference": 1.2722182230390161e-14,
+      "comparisons": 172116,
+      "outside_declared_error_sum": 170713,
+      "zero_error_sum_without_exact_zero_authority": 172116,
+      "certificate_max_absolute_differences": {
+        "drift_bound": 1.1931897324021258e-14,
+        "threshold": 0.0,
+        "utilization": 1.1931897483941079e-10
+      },
+      "outside_after_linear_alignment_diagnostic": 172000
+    },
+    "radius": {
+      "max_scaled_difference": 4.220563846474612e-12,
+      "comparisons": 21,
+      "outside_declared_error_sum": 21,
+      "zero_error_sum_without_exact_zero_authority": 21,
+      "certificate_max_absolute_differences": {
+        "drift_bound": 5.958079083244388e-12,
+        "threshold": 0.0,
+        "utilization": 5.958079083226431e-08
+      },
+      "outside_after_linear_alignment_diagnostic": 21
+    },
+    "surface_gravity": {
+      "max_scaled_difference": 8.796670838474174e-12,
+      "comparisons": 21,
+      "outside_declared_error_sum": 21,
+      "zero_error_sum_without_exact_zero_authority": 0,
+      "certificate_max_absolute_differences": {
+        "drift_bound": 1.2405706476300421e-11,
+        "threshold": 0.0,
+        "utilization": 1.2405706463838873e-07
+      },
+      "outside_after_linear_alignment_diagnostic": 21
+    },
+    "envelope": {
+      "max_scaled_difference": 2.1992966125872504e-12,
+      "comparisons": 273,
+      "outside_declared_error_sum": 273,
+      "zero_error_sum_without_exact_zero_authority": 273,
+      "certificate_max_absolute_differences": {
+        "drift_bound": 3.1047548582232133e-12,
+        "threshold": 0.0,
+        "utilization": 3.104754858242187e-08
+      },
+      "outside_after_linear_alignment_diagnostic": 273
+    },
+    "Tsurface_inf": {
+      "max_scaled_difference": 1.843648275788727e-12,
+      "comparisons": 273,
+      "outside_declared_error_sum": 273,
+      "zero_error_sum_without_exact_zero_authority": 0,
+      "certificate_max_absolute_differences": {
+        "drift_bound": 2.6032129353140975e-12,
+        "threshold": 0.0,
+        "utilization": 2.603212932716925e-08
+      },
+      "outside_after_linear_alignment_diagnostic": 273
+    }
+  },
+  "blockers": [
+    "Historical fitter sets radius, envelope, mu_n_profile and metric_structure numerical errors to zero; no per-target refinement bounds are serialized.",
+    "Historical thermal Cstar, surface gravity and redshifted temperature errors are 64 epsilon times value, not resolution/refinement bounds.",
+    "Ltilde/direct-reference errors are order-16 versus order-32 differences; zero differences do not certify zero quadrature/background/EOS error.",
+    "Native and historical Phase-5C target adapters inherit B0 background/center characterization; per-target independent refinement is not demonstrated.",
+    "Historical bound is cumulative maximum drift plus largest fit residual. Pointwise numerical uncertainty enters thresholds/residuals, not an added envelope term.",
+    "Regression uses a 64 epsilon max(1,abs(value)) weight floor. For dimensional tiny Z/Ltilde values this is a conditioning floor, not physical uncertainty."
+  ],
+  "owner_approval": false,
+  "full_campaign_authorized": false,
+  "full_report_location": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/platform-comparison.json",
+  "full_report_sha256": "7c2b7f47dc9ef93d8ef30698d8da60fb319e22202d168cc6bc6e7929f3c6d7de"
+}

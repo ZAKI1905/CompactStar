@@ -1,0 +1,400 @@
+{
+  "checks": [
+    {
+      "check": "historical certificate.json SHA-256",
+      "detail": "6643054d8cba36035af15a15615baf9920d9a56adf3f5211f13ea9f2745f4409",
+      "status": "PASS"
+    },
+    {
+      "check": "historical certificate.tsv SHA-256",
+      "detail": "9217e278eb0a4b06b193a2a02f4d59f285d74e4033427b87ccd51181c3f7beab",
+      "status": "PASS"
+    },
+    {
+      "check": "achieved target-B stars",
+      "detail": {
+        "indices": "0..20",
+        "rows": 21
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "tangent samples",
+      "detail": {
+        "indices": "0..20",
+        "rows": 21
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "assembled coefficients",
+      "detail": {
+        "indices": "0..20",
+        "rows": 21
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "target residuals",
+      "detail": {
+        "maximum_absolute_residual": 5.400961727769135e+42,
+        "tau_B_target_count": 3.808453259359445e+46
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "target bracket widths",
+      "detail": {
+        "maximum_bracket_width": 3.7197817215720943e+46,
+        "tau_B_target_count": 3.808453259359445e+46
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "nominal target-B grid",
+      "detail": "21 nominal points 0 through -1e-6",
+      "status": "PASS"
+    },
+    {
+      "check": "achieved target-B monotonicity",
+      "detail": {
+        "last_achieved_fraction": -9.999999972900923e-07
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "residual identities",
+      "detail": "B_solved minus B_target agrees with recorded residual",
+      "status": "PASS"
+    },
+    {
+      "check": "B_solved table joins",
+      "detail": "target/tangent/coefficient B_solved equal for every index",
+      "status": "PASS"
+    },
+    {
+      "check": "per-star evidence target-0",
+      "detail": {
+        "chemical_certificate_parse": "PASS",
+        "files": 10,
+        "tail_direct_and_independent_enclosed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "per-star evidence target-1",
+      "detail": {
+        "chemical_certificate_parse": "PASS",
+        "files": 10,
+        "tail_direct_and_independent_enclosed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "per-star evidence target-2",
+      "detail": {
+        "chemical_certificate_parse": "PASS",
+        "files": 10,
+        "tail_direct_and_independent_enclosed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "per-star evidence target-3",
+      "detail": {
+        "chemical_certificate_parse": "PASS",
+        "files": 10,
+        "tail_direct_and_independent_enclosed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "per-star evidence target-4",
+      "detail": {
+        "chemical_certificate_parse": "PASS",
+        "files": 10,
+        "tail_direct_and_independent_enclosed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "per-star evidence target-5",
+      "detail": {
+        "chemical_certificate_parse": "PASS",
+        "files": 10,
+        "tail_direct_and_independent_enclosed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "per-star evidence target-6",
+      "detail": {
+        "chemical_certificate_parse": "PASS",
+        "files": 10,
+        "tail_direct_and_independent_enclosed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "per-star evidence target-7",
+      "detail": {
+        "chemical_certificate_parse": "PASS",
+        "files": 10,
+        "tail_direct_and_independent_enclosed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "per-star evidence target-8",
+      "detail": {
+        "chemical_certificate_parse": "PASS",
+        "files": 10,
+        "tail_direct_and_independent_enclosed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "per-star evidence target-9",
+      "detail": {
+        "chemical_certificate_parse": "PASS",
+        "files": 10,
+        "tail_direct_and_independent_enclosed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "per-star evidence target-10",
+      "detail": {
+        "chemical_certificate_parse": "PASS",
+        "files": 10,
+        "tail_direct_and_independent_enclosed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "per-star evidence target-11",
+      "detail": {
+        "chemical_certificate_parse": "PASS",
+        "files": 10,
+        "tail_direct_and_independent_enclosed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "per-star evidence target-12",
+      "detail": {
+        "chemical_certificate_parse": "PASS",
+        "files": 10,
+        "tail_direct_and_independent_enclosed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "per-star evidence target-13",
+      "detail": {
+        "chemical_certificate_parse": "PASS",
+        "files": 10,
+        "tail_direct_and_independent_enclosed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "per-star evidence target-14",
+      "detail": {
+        "chemical_certificate_parse": "PASS",
+        "files": 10,
+        "tail_direct_and_independent_enclosed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "per-star evidence target-15",
+      "detail": {
+        "chemical_certificate_parse": "PASS",
+        "files": 10,
+        "tail_direct_and_independent_enclosed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "per-star evidence target-16",
+      "detail": {
+        "chemical_certificate_parse": "PASS",
+        "files": 10,
+        "tail_direct_and_independent_enclosed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "per-star evidence target-17",
+      "detail": {
+        "chemical_certificate_parse": "PASS",
+        "files": 10,
+        "tail_direct_and_independent_enclosed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "per-star evidence target-18",
+      "detail": {
+        "chemical_certificate_parse": "PASS",
+        "files": 10,
+        "tail_direct_and_independent_enclosed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "per-star evidence target-19",
+      "detail": {
+        "chemical_certificate_parse": "PASS",
+        "files": 10,
+        "tail_direct_and_independent_enclosed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "per-star evidence target-20",
+      "detail": {
+        "chemical_certificate_parse": "PASS",
+        "files": 10,
+        "tail_direct_and_independent_enclosed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "coefficients shard set",
+      "detail": "21 shards, exactly 0..20",
+      "status": "PASS"
+    },
+    {
+      "check": "coefficients original assembly",
+      "detail": {
+        "byte_identical_concatenation": true,
+        "rows": 21,
+        "rows_per_star": 1
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "thermal_surface shard set",
+      "detail": "21 shards, exactly 0..20",
+      "status": "PASS"
+    },
+    {
+      "check": "thermal_surface original assembly",
+      "detail": {
+        "byte_identical_concatenation": true,
+        "rows": 273,
+        "rows_per_star": 13
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "profile_metrics shard set",
+      "detail": "21 shards, exactly 0..20",
+      "status": "PASS"
+    },
+    {
+      "check": "profile_metrics original assembly",
+      "detail": {
+        "byte_identical_concatenation": true,
+        "rows": 43029,
+        "rows_per_star": 2049
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "thermal knot grids",
+      "detail": "same 13 temperature knots at all 21 stars",
+      "status": "PASS"
+    },
+    {
+      "check": "earlier target table provenance",
+      "detail": "all common fields identical; final table adds u_N_n,u_N_e,u_N_mu",
+      "status": "PASS"
+    },
+    {
+      "check": "earlier tangent provenance",
+      "detail": "exact bytes identical",
+      "status": "PASS"
+    },
+    {
+      "check": "final certificate sample set",
+      "detail": "21 samples",
+      "status": "PASS"
+    },
+    {
+      "check": "final certificate outer half",
+      "detail": "indices 10..20",
+      "status": "PASS"
+    },
+    {
+      "check": "final certificate TSV coverage",
+      "detail": "21 stars times 22 quantities",
+      "status": "PASS"
+    },
+    {
+      "check": "final certificate JSON/TSV joins",
+      "detail": "all 462 recorded quantity rows agree",
+      "status": "PASS"
+    },
+    {
+      "check": "recorded monotone bounds",
+      "detail": {
+        "limiting_index": 20,
+        "limiting_quantity": "N_mu",
+        "max_utilization": 0.5407534789439076
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "recorded outer-half fit checks",
+      "detail": {
+        "checks": 113333,
+        "quantity_groups": 22
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "phase6a1-frozen-certificates.log",
+      "detail": "21 explicit PASS records",
+      "status": "PASS"
+    },
+    {
+      "check": "phase6a1-frozen-current-thermal-certificates.log",
+      "detail": "21 explicit PASS records",
+      "status": "PASS"
+    },
+    {
+      "check": "final coefficient logs",
+      "detail": "21 explicit final shard PASS records",
+      "status": "PASS"
+    },
+    {
+      "check": "historical manifest provenance",
+      "detail": {
+        "files": 354,
+        "frozen_run_files": 347
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "recovered historical fitter verification",
+      "detail": {
+        "both_outputs_byte_identical_to_original": true,
+        "exit_code": 0,
+        "no_simulations": true,
+        "stdout": "BA13_STATIC_CERTIFICATE PASS max_utilization 0.54075347894390757 index 20 quantity N_mu"
+      },
+      "status": "PASS"
+    }
+  ],
+  "expected_final_hashes": {
+    "certificate.json": "6643054d8cba36035af15a15615baf9920d9a56adf3f5211f13ea9f2745f4409",
+    "certificate.tsv": "9217e278eb0a4b06b193a2a02f4d59f285d74e4033427b87ccd51181c3f7beab"
+  },
+  "required_final_files_missing": [],
+  "scientific_scope": "CONTROLLED MATHEMATICAL STATIC CERTIFICATE; NO BNV TRAJECTORY",
+  "status": "PASS",
+  "verification_scope": "File authenticity, completeness, serialized-record consistency and byte-identical offline fitter verification. No new stellar simulation or scientific ratification."
+}

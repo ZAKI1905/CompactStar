@@ -1,5 +1,5 @@
 {
-  "status": "NOT_SELECTED_NOT_EXECUTED_PENDING_HISTORICAL_ARCHIVE_AUDIT",
+  "status": "NOT_SELECTED_NOT_EXECUTED_SUPERSEDED_BY_AUTHENTICATED_ORIGINAL_FITTER",
   "location": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/provisional-fit-not-used",
   "files": {
     "assemble_ba13_candidate.py": "77336c262db881dfaf6d66e0630f4d1dc2f8cff1d2af6d4c7ce32faf0166dabe",

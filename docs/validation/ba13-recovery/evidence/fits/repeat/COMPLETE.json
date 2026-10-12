@@ -1,0 +1,9 @@
+{
+  "stage": "historical frozen fit candidate",
+  "files": {
+    "fit.log": "901f8294bdddcc8a0e479facd5e33b9635fe2d207d151489fce22f4ba800a5cc",
+    "certificate.json": "4212cad05bb4244ab75e80b8dfea023e6d0fcee69086c9993bd48d26a40e41fb",
+    "certificate.tsv": "38bc85c62621b390ff2d7c8affee1f5ba4e9f0f44233047bb9959f2d685fd5ba",
+    "binding.json": "cd8684d54f743a7dfb002de7d86020445c89bb3a77526386acace865a0fe2050"
+  }
+}
