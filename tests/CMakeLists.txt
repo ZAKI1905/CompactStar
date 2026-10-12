@@ -765,3 +765,7 @@ add_custom_command(OUTPUT "${ba13_study_helpers}"
 add_executable(ba13_uncertainty_pilot bnv/uncertainty_pilot.cpp "${ba13_study_helpers}")
 target_include_directories(ba13_uncertainty_pilot PRIVATE "${CMAKE_CURRENT_BINARY_DIR}")
 target_link_libraries(ba13_uncertainty_pilot PRIVATE CompactStar)
+
+# Validation-only audit; does not modify the EOS generator or accepted provider.
+add_executable(ba13_uncertainty_eos_audit bnv/uncertainty_eos_audit.cpp)
+target_link_libraries(ba13_uncertainty_eos_audit PRIVATE CompactStar)
