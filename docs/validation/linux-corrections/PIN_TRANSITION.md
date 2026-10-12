@@ -5,7 +5,7 @@ owner 2026-10-11 correction instruction. This is not a historical plan edit.
 `protected-successor.json` enumerates all 33 protected paths, all ten historical
 baselines and three special artifacts. `transitions` records old pins, exact new
 bytes, origin, behavior analysis and acceptance limitation for each changed path.
-The four already-stale paths and two newly authorized numerical-method paths are
+The four already-stale paths and two newly authorized numerical-method paths and the generated-provenance path are
 separately explained. No paths removed; no artifact or baseline hash refreshed.
 
 The compiler-selection edit is retained: an absolute CXX records the actual Linux
@@ -22,3 +22,10 @@ Run tests/linux/protected_successor.py for historical and proposed results,
 including topology, forged-record and real-file mutation controls. Historical
 phase5d_protected_manifest and coupled_oracles stay unchanged and must still fail.
 The successor checks are provenance qualification, not a pass of coupled physics.
+
+The final metadata audit also identified tests/eos/structure1/table.hpp as a
+protected path containing hardcoded historical commits labeled as current source.
+Its seventh transition explicitly renames them as historical origins and records
+the proposed arithmetic contract. No table-grid or equation change is hidden in
+that metadata fix. The pre-metadata six-mismatch receipt is retained alongside
+the final seven-mismatch receipt.

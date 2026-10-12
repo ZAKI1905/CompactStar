@@ -30,10 +30,15 @@
       "path": "tests/analysis/produce_particle_number_reference.py",
       "expected": "194f2000bdac9260c55a35135a38ce6a9864fb115a3e309f6887d69e56c207c9",
       "actual": "dc6911cf1005cfea871a5cacc20e147516b953c4887832f46824c3afde025407"
+    },
+    {
+      "path": "tests/eos/structure1/table.hpp",
+      "expected": "cf164e22626cda08050461776a1e87195538b6913c24f6ec47fe41e57ef4e160",
+      "actual": "8d3810f3b2fa78a21c5f4f09880de1afe512814074f69f3afb84b7691d63b6c9"
     }
   ],
   "proposed_status": "PASS_CANDIDATE_NOT_OWNER_RATIFIED",
-  "authority_sha256": "bb7c0c7e3882cb9b9e16047a17a2bc8c6939541704006ef416f1e727d7d1cbd0",
+  "authority_sha256": "c7071a5d627dc4aa849eca604723293e9df6f74ebbd7cfe1030bd684baa6ec55",
   "protected_paths": 33,
   "baselines": 10,
   "special_artifacts": 3,

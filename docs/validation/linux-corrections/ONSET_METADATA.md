@@ -23,3 +23,10 @@ The static qualification job regenerates these artifacts and keeps their native
 source/provenance strings; historical Mac tables are untouched. Actual regenerated
 hashes and refinement status must be read from that job's receipt, never inferred
 from this scalar agreement or overwritten with the Mac strings.
+
+The table writer also contained hardcoded source_commit/provider_commit fields
+from f4ae22d/933494d. They are now explicitly historical_generator_origin_commit
+and historical_provider_origin_commit, with the candidate arithmetic contract
+and actual source-authority location disclosed. The protected successor records
+this seventh source transition. No historical provenance string is forged to
+make a newly generated table appear to come from an old producer.

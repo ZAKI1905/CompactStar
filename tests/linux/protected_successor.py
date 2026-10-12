@@ -13,7 +13,7 @@ ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'tests/rotochemical'))
 import manifest
 AUTHORITY=ROOT/'docs/validation/linux-corrections/protected-successor.json'
-AUTHORITY_SHA256='bb7c0c7e3882cb9b9e16047a17a2bc8c6939541704006ef416f1e727d7d1cbd0'
+AUTHORITY_SHA256='c7071a5d627dc4aa849eca604723293e9df6f74ebbd7cfe1030bd684baa6ec55'
 
 
 def check(root, record, authority):

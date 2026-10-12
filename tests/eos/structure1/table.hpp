@@ -99,7 +99,7 @@ inline Table generate(const TrackRFreeGasThermodynamicProvider &eos,
 	f.close();
 	require(bool(f), "table write failed");
 	std::ofstream meta(file.string() + ".provenance.txt");
-	meta << std::setprecision(17) << "generator=structure1-candidate-v1\nsource_commit=f4ae22d971e25bdd74530aec184f3fe0c3440b95\nprovider_commit=933494d86daf2cf8965079ece49fabd66d9390e5\nmodel=track-r-fernandez-reisenegger-2005-free-gas-local\nresolution=" << resolution << "\nrows=" << out.rows.size() << "\nfloor_n=" << lower << "\nupper_n=" << upper << "\nneutron_onset=" << eos.NeutronOnsetBaryonDensityFm3() << "\nmuon_onset=" << eos.MuonOnsetBaryonDensityFm3() << "\nSigma_ceiling=" << eos.SigmaMinusOnsetBaryonDensityFm3() << "\nMeV_fm3_to_erg_cm3=" << CompactStar::Units::MEV_FM3_TO_ERG_CM3 << "\nc_cgs=" << GSL_CONST_CGSM_SPEED_OF_LIGHT << "\n";
+	meta << std::setprecision(17) << "generator=structure1-candidate-v1\nhistorical_generator_origin_commit=f4ae22d971e25bdd74530aec184f3fe0c3440b95\nhistorical_provider_origin_commit=933494d86daf2cf8965079ece49fabd66d9390e5\narithmetic_contract=ADR-0020-proposed-fma-binary64-inverse\nsource_identity_authority=run-local exact protected manifest and producer source hashes\nmodel=track-r-fernandez-reisenegger-2005-free-gas-local\nresolution=" << resolution << "\nrows=" << out.rows.size() << "\nfloor_n=" << lower << "\nupper_n=" << upper << "\nneutron_onset=" << eos.NeutronOnsetBaryonDensityFm3() << "\nmuon_onset=" << eos.MuonOnsetBaryonDensityFm3() << "\nSigma_ceiling=" << eos.SigmaMinusOnsetBaryonDensityFm3() << "\nMeV_fm3_to_erg_cm3=" << CompactStar::Units::MEV_FM3_TO_ERG_CM3 << "\nc_cgs=" << GSL_CONST_CGSM_SPEED_OF_LIGHT << "\n";
 	return out;
 }
 } // namespace structure1

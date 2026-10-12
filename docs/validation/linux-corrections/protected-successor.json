@@ -45,7 +45,7 @@
     "tests/analysis/phase5b_freegas_validation.cpp": "2bb980f1916f0498e626fd8601ba023e6f211f93d5b8655b40aa62283c613fa4",
     "tests/analysis/produce_particle_number_reference.py": "dc6911cf1005cfea871a5cacc20e147516b953c4887832f46824c3afde025407",
     "tests/eos/structure1/local_oracle.hpp": "d46d9ac1ef23df8754d32329e0df4497624d7da87d3f327704e0e0c81c2008ca",
-    "tests/eos/structure1/table.hpp": "cf164e22626cda08050461776a1e87195538b6913c24f6ec47fe41e57ef4e160",
+    "tests/eos/structure1/table.hpp": "8d3810f3b2fa78a21c5f4f09880de1afe512814074f69f3afb84b7691d63b6c9",
     "tests/eos/structure1/tov_oracle.hpp": "d36df7a0f818b73227920bb50e6f8e5c113679328921d0c560de549c04b62686"
   },
   "special": {
@@ -96,6 +96,13 @@
       "origin": "bd07325",
       "path": "tests/analysis/produce_particle_number_reference.py",
       "rationale": "Retain explicit absolute Linux CXX selection and real compiler provenance; Darwin path unchanged. No changed calculation, source exclusion or numerical waiver. Owner authorized routine portability correction in this task; pin amendment not ratified."
+    },
+    {
+      "new": "8d3810f3b2fa78a21c5f4f09880de1afe512814074f69f3afb84b7691d63b6c9",
+      "old": "cf164e22626cda08050461776a1e87195538b6913c24f6ec47fe41e57ef4e160",
+      "origin": "this correction: generated provenance audit",
+      "path": "tests/eos/structure1/table.hpp",
+      "rationale": "The table writer hardcoded historical generator/provider commits as current source_commit/provider_commit. Rename those fields as historical origins and disclose the proposed arithmetic contract; actual source authority is the run-local exact manifest and producer hashes. No table grid, formula, value formatting or tolerance changed by this metadata correction. Separate upstream candidate amendment, not ratified."
     }
   ]
 }
