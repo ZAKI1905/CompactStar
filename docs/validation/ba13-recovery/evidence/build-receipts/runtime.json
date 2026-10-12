@@ -1,0 +1,147 @@
+{
+  "status": "CANDIDATE_RUNTIME_RECEIPT",
+  "host": "phyn002",
+  "kernel": "5.14.0-427.20.1.el9_4.0.1.x86_64",
+  "cpu": {
+    "vendor_id": [
+      "AuthenticAMD"
+    ],
+    "model name": [
+      "AMD EPYC 7352 24-Core Processor"
+    ],
+    "flags": [
+      "fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr rdpru wbnoinvd amd_ppin arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip rdpid overflow_recov succor smca sev sev_es"
+    ]
+  },
+  "types": [
+    "4",
+    "24",
+    "8",
+    "53",
+    "16",
+    "64"
+  ],
+  "loaded_files": {
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/linux_arithmetic_probe": "f69cfefb2da17daed3308d7c4df0168541333cfde1441522c8e7de7361833718",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/ld-linux-x86-64.so.2": "ad96200950148efb34358c6e980e06b15a807644ce0a003e1d8a71f9f0820fcd",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libc.so.6": "8d36f99f015e0835abaf22d071fc24c919906b88d767bd92b2300136c262aa42",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libm.so.6": "d4d4aca358a3704f3e7e7bf3cc782dde7e629af2a7e4adc197d74782af9e0844",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libz.so.1.2.11": "a3a41e5539e19c5617404a657cdff4cad75774c3c683c1c2e7557e2001088425",
+    "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libgcc_s.so.1": "80e373702a3f75c5cf9cffdb6d52f6bee915066033ba52b012f7339d1e11b152",
+    "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libstdc++.so.6.0.33": "8e40922dbf2551d5bfb43ff34f48912bf03b95eecba6e0f55f50e30c1816749d"
+  },
+  "phase6_loader_closure_text": "\tlinux-vdso.so.1 (0x00007ffe74bad000)\n\tlibz.so.1 => /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libz.so.1 (0x00007f1d271d4000)\n\tlibstdc++.so.6 => /opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libstdc++.so.6 (0x00007f1d26f5c000)\n\tlibm.so.6 => /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libm.so.6 (0x00007f1d26e81000)\n\tlibgcc_s.so.1 => /opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libgcc_s.so.1 (0x00007f1d26e52000)\n\tlibc.so.6 => /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libc.so.6 (0x00007f1d26c49000)\n\t/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/ld-linux-x86-64.so.2 => /lib64/ld-linux-x86-64.so.2 (0x00007f1d271f0000)\n",
+  "phase6_loader_closure_sha256": {
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libz.so.1": "a3a41e5539e19c5617404a657cdff4cad75774c3c683c1c2e7557e2001088425",
+    "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libstdc++.so.6": "8e40922dbf2551d5bfb43ff34f48912bf03b95eecba6e0f55f50e30c1816749d",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libm.so.6": "d4d4aca358a3704f3e7e7bf3cc782dde7e629af2a7e4adc197d74782af9e0844",
+    "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libgcc_s.so.1": "80e373702a3f75c5cf9cffdb6d52f6bee915066033ba52b012f7339d1e11b152",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libc.so.6": "8d36f99f015e0835abaf22d071fc24c919906b88d767bd92b2300136c262aa42",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/ld-linux-x86-64.so.2": "ad96200950148efb34358c6e980e06b15a807644ce0a003e1d8a71f9f0820fcd",
+    "/lib64/ld-linux-x86-64.so.2": "17a1a80f01feb4a94c5e357f20b62db00c9c7746e32ac7edfad63b1ebc9a5a09"
+  },
+  "actual_compiler_version": "g++ (Spack GCC) 14.1.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "probe_sha256": "f69cfefb2da17daed3308d7c4df0168541333cfde1441522c8e7de7361833718",
+  "raw_probe": "constants\t0x1.d5c85fb318f19p+9\t0x1.d522d3c8ea6a1p+9\t0x1.05a1a78514a75p-1\t0x1.4c1e69b0d9ff5p-8\nonset\t0x1.f98cf18cad246p-28\nmuon_onset\t0x1.d3f3d3280fa07p-2\ninverse\t0x1.4ae6997296565p+0\t0x1.f98cf18cad19ep-28\ninverse\t0x1.4ae699729657dp+0\t0x1.f98cf18cad22p-28\ninverse\t0x1.4ae6997296584p+0\t0x1.f98cf18cad243p-28\ninverse\t0x1.4ae6997296585p+0\t0x1.f98cf18cad246p-28\ninverse\t0x1.4ae6997296586p+0\t0x1.f98cf18cad24bp-28\ninverse\t0x1.4ae699729658dp+0\t0x1.f98cf18cad275p-28\ninverse\t0x1.4ae69972965a5p+0\t0x1.f98cf18cad2f8p-28\ninverse\t0x1.ap-1\t0x1.30904b6716e63p-30\ninverse\t0x1.1p+0\t0x1.e85e9eb394c41p-29\ninverse\t0x1.cp+0\t0x1.6213aa602d24p-26\ninverse\t0x1.1p+1\t0x1.4b58d39667adp-25\ninverse\t0x1.1p+3\t0x1.685a40a08cdcap-19\nloaded\t/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/linux_arithmetic_probe\nloaded\t/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/ld-linux-x86-64.so.2\nloaded\t/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libc.so.6\nloaded\t/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libm.so.6\nloaded\t/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libz.so.1.2.11\nloaded\t/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libgcc_s.so.1\nloaded\t/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libstdc++.so.6.0.33\nlocal\t0x1.2725dd1d243acp-60\t0x1.05a1a78514a75p-1\t0x1.400f1b22d29a6p-11\t0x1.05a1b3c15b377p-1\t0x1.2da402d8a9cd5p-61\t0x1.c4cd7169a02f1p+37\nlocal\t0x1.19799812dea11p-40\t0x1.05a1a78514a75p-1\t0x1.f4179a6669113p-5\t0x1.077de89c9f9dap-1\t0x1.20e537483b9eap-41\t0x1.1fbf6c0e1d733p+31\nlocal\t0x1.0c6f7a0b5ed8dp-20\t0x1.05a1a78514a75p-1\t0x1.86b270a002156p+2\t0x1.88103b9f2d42dp+2\t0x1.35633131ae1b6p-18\t0x1.ef10c9daa21c8p+20\nlocal\t0x1p-5\t0x1.05a1a78514a75p-1\t0x1.80917b926e55ap+7\t0x1.8091d491ae382p+7\t0x1.206da22bfd1f9p+2\t0x1.0060c1b78207cp+11\nlocal\t0x1p-1\t0x1.05a1a78514a75p-1\t0x1.e486935b1affcp+8\t0x1.e486a503e1a88p+8\t0x1.6b65090177acep+7\t0x1.43045676e3528p+8\nlocal\t0x1.2725dd1d243acp-60\t0x1.d5c85fb318f19p+9\t0x1.400f1b22d29a6p-11\t0x1.d5c85fb3195e9p+9\t0x1.0ecfb10055dc7p-50\t0x1.f8599d3414ab4p+26\nlocal\t0x1.19799812dea11p-40\t0x1.d5c85fb318f19p+9\t0x1.f4179a6669113p-5\t0x1.d5c85fc3bbcd2p+9\t0x1.024409eeb28acp-30\t0x1.42c8b67c4d5f8p+20\nlocal\t0x1.0c6f7a0b5ed8dp-20\t0x1.d5c85fb318f19p+9\t0x1.86b270a002156p+2\t0x1.d5cae98af77a9p+9\t0x1.ec9beee03d405p-11\t0x1.9d27a3e34c771p+13\nlocal\t0x1p-5\t0x1.d5c85fb318f19p+9\t0x1.80917b926e55ap+7\t0x1.df8507aacfc1p+9\t0x1.dba4586d6d8e4p+4\t0x1.9b398b1f69fccp+8\nlocal\t0x1p-1\t0x1.d5c85fb318f19p+9\t0x1.e486935b1affcp+8\t0x1.08490fa4d815fp+10\t0x1.f9a524f2c3f2fp+8\t0x1.2819bca6334a6p+7\nrounding\t0\nmxcsr_controls\t8064\ntypes\t4\t24\t8\t53\t16\t64\n",
+  "dependency_lock_sha256": "7e59a8e4d0d59033d1f99e9e54ff4f351a14de29fbdc10c3e7358576f9010fd9",
+  "dependency_closure": {
+    "gsl": {
+      "root": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1",
+      "sha256": "da305d3418c474cf5c1b721910788069f73f2f82a4cb16a580610394c4206aac"
+    },
+    "sysroot": {
+      "root": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot",
+      "sha256": "2171ab992a288c446c34a39706896fdc5c885210d04656f966d2a97ebc1fa3ca"
+    },
+    "compiler": {
+      "root": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh",
+      "sha256": "5ea96da60d709a389c362ea6b38420a664d045f163fa05d43e007d70de80e1fb"
+    },
+    "tools": {
+      "root": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin",
+      "sha256": "c3060ace44d00d525b9d38dd418426ce960b0ec06138ec788c096d96483422a8"
+    }
+  },
+  "link_inputs": {
+    "gsl_include": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1/include",
+    "gsl_library": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1/lib/libgsl.a",
+    "gsl_cblas": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1/lib/libgslcblas.a",
+    "zlib_include": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/include",
+    "zlib_library": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libz.so"
+  },
+  "compiler": {
+    "compiler": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/g++",
+    "compiler_sha256": "4d0e76c2a1cd55efc9e6ea8f4c57f6f9079d817650bfe6dadbebf862c6a0aabc",
+    "compiler_version": "14.1.0",
+    "cxx_flags": "-ffp-contract=off",
+    "mode_flags": {
+      "Debug": "-g",
+      "Release": "-O3 -DNDEBUG"
+    },
+    "executables": {
+      "cmake": {
+        "path": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/cmake-3.29.4-gybrkgtp3fscoavg562fdufw33t7wnpu/bin/cmake",
+        "sha256": "8e1d93063ee5b7c1f9c40fc622a56997b9745f68e313b123b05d38f04bd99899"
+      },
+      "as": {
+        "path": "/usr/bin/as",
+        "sha256": "4c54a61f0f111d56df9f41cd8cbca72793773bba51429da8116c5840d2d28817"
+      },
+      "ld": {
+        "path": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/binutils-2.42-dunwqjgbntvldbw4bideffp4lhlaviav/bin/ld",
+        "sha256": "8d1f5a69efa7ba46f54deb677e58fd84c62a6aa4dd40cc920a5c1ad180a4d8fc"
+      },
+      "ar": {
+        "path": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/binutils-2.42-dunwqjgbntvldbw4bideffp4lhlaviav/bin/ar",
+        "sha256": "a3d65ba9fb007a76e07c8e27fdf504a5108b95311d4bfccc727cf1353d98ea84"
+      },
+      "ranlib": {
+        "path": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/binutils-2.42-dunwqjgbntvldbw4bideffp4lhlaviav/bin/ranlib",
+        "sha256": "ec1697155ce79e4ff9b3256389d0a4952b0f078c398201cdae87013667332d24"
+      },
+      "git": {
+        "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/git",
+        "sha256": "4d4c1e4efcc6ab482232c0672790cc909dad62ef0a0ed1a9f558e43d5f625bc5"
+      }
+    }
+  },
+  "compile_commands_sha256": "2fc4205a4b04dcc7cbaa86aeda8e13b91f1e98cb4873b7fa33bea76a3cf90a53",
+  "effective_commands": [
+    {
+      "directory": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release",
+      "command": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/g++  -I/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/generated/include -I/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar -isystem /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1/include -isystem /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/include -isystem /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/CONFIND/include -ffp-contract=off -O3 -DNDEBUG -std=c++17 -fPIC -Wall -Wextra -o CMakeFiles/CompactStar.dir/CompactStar/Analysis/src/ChemicalResponse.cpp.o -c /mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar/CompactStar/Analysis/src/ChemicalResponse.cpp",
+      "file": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar/CompactStar/Analysis/src/ChemicalResponse.cpp",
+      "output": "CMakeFiles/CompactStar.dir/CompactStar/Analysis/src/ChemicalResponse.cpp.o"
+    },
+    {
+      "directory": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release",
+      "command": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/g++  -I/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/generated/include -I/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar -isystem /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1/include -isystem /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/include -isystem /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/CONFIND/include -ffp-contract=off -O3 -DNDEBUG -std=c++17 -fPIC -Wall -Wextra -o CMakeFiles/CompactStar.dir/CompactStar/EOS/src/LocalThermodynamics.cpp.o -c /mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar/CompactStar/EOS/src/LocalThermodynamics.cpp",
+      "file": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar/CompactStar/EOS/src/LocalThermodynamics.cpp",
+      "output": "CMakeFiles/CompactStar.dir/CompactStar/EOS/src/LocalThermodynamics.cpp.o"
+    },
+    {
+      "directory": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release",
+      "command": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/g++  -I/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/generated/include -I/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar -isystem /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1/include -isystem /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/include -isystem /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/CONFIND/include -ffp-contract=off -O3 -DNDEBUG -std=c++17 -fPIC -Wall -Wextra -o CMakeFiles/CompactStar.dir/CompactStar/EOS/src/TrackRFreeGasThermodynamics.cpp.o -c /mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar/CompactStar/EOS/src/TrackRFreeGasThermodynamics.cpp",
+      "file": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar/CompactStar/EOS/src/TrackRFreeGasThermodynamics.cpp",
+      "output": "CMakeFiles/CompactStar.dir/CompactStar/EOS/src/TrackRFreeGasThermodynamics.cpp.o"
+    },
+    {
+      "directory": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release",
+      "command": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/g++  -I/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/generated/include -I/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar -isystem /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1/include -isystem /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/include -isystem /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/CONFIND/include -ffp-contract=off -O3 -DNDEBUG -std=c++17 -fPIC -Wall -Wextra -o CMakeFiles/CompactStar.dir/CompactStar/Physics/Rotochemical/src/GlobalUrcaChannelCoefficient.cpp.o -c /mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar/CompactStar/Physics/Rotochemical/src/GlobalUrcaChannelCoefficient.cpp",
+      "file": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar/CompactStar/Physics/Rotochemical/src/GlobalUrcaChannelCoefficient.cpp",
+      "output": "CMakeFiles/CompactStar.dir/CompactStar/Physics/Rotochemical/src/GlobalUrcaChannelCoefficient.cpp.o"
+    },
+    {
+      "directory": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests",
+      "command": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/g++  -I/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/generated/include -I/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar -isystem /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1/include -isystem /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/include -isystem /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/CONFIND/include -ffp-contract=off -O3 -DNDEBUG -std=c++17 -o CMakeFiles/linux_arithmetic_probe.dir/linux/arithmetic_probe.cpp.o -c /mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar/tests/linux/arithmetic_probe.cpp",
+      "file": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar/tests/linux/arithmetic_probe.cpp",
+      "output": "tests/CMakeFiles/linux_arithmetic_probe.dir/linux/arithmetic_probe.cpp.o"
+    }
+  ],
+  "dispatch_environment": {
+    "GLIBC_TUNABLES": null,
+    "LD_HWCAP_MASK": null,
+    "LD_PRELOAD": null
+  },
+  "runtime_dispatch_note": "CPU feature class and loaded bytes observed; arithmetic results compared across allocated nodes, no inference solely from CPU labels"
+}

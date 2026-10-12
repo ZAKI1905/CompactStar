@@ -1,0 +1,10 @@
+{
+  "failed_assertion": "measured direct_R_vacuum_km <= actual-profile R_upper_km",
+  "inherited_direct_R_vacuum_km": 12.768154903376066,
+  "actual_profile_upper_km": 12.768154903370624,
+  "excess_km": 5.4427573559223674e-12,
+  "native_same_cut_direct_R_km": 12.768154903370108,
+  "native_assertion_pass": true,
+  "changed_formulas": false,
+  "changed_assertions": false
+}

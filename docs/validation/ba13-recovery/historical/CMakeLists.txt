@@ -1,0 +1,693 @@
+# ---------------------------------------------------------------------------
+#  Canonical automated-test root for CompactStar.
+#
+#  This directory holds tests that run unattended under CTest. It is distinct
+#  from main/Test/, which holds manual demo and debugging programs and is NOT
+#  the automated suite.
+#
+#  Reached only when BUILD_TESTING is ON (standard CMake/CTest semantics).
+#
+#  Phase 1 scope: build/link/run infrastructure only. No scientific reference
+#  values belong here; those are roadmap Phase 2A/2B work.
+# ---------------------------------------------------------------------------
+
+# ADR-0013 Phase-5C planning oracles and production candidate gates.
+add_executable(chemical_structural_envelope analysis/chemical_structural_envelope.cpp)
+target_link_libraries(chemical_structural_envelope PRIVATE CompactStar)
+add_executable(chemical_production_contract analysis/chemical_production_contract.cpp)
+target_link_libraries(chemical_production_contract PRIVATE CompactStar)
+add_executable(chemical_production_fixture analysis/chemical_production_fixture.cpp)
+target_link_libraries(chemical_production_fixture PRIVATE CompactStar)
+add_test(NAME chemical_production_contract COMMAND chemical_production_contract)
+set_tests_properties(chemical_production_contract PROPERTIES LABELS "phase5c;self-contained;scientific")
+add_executable(chemical_trackr_fixture analysis/chemical_trackr_fixture.cpp)
+target_link_libraries(chemical_trackr_fixture PRIVATE CompactStar)
+foreach(oracle exact_oracles curved_gc9)
+    add_test(NAME chemical_${oracle} COMMAND "${Python3_EXECUTABLE}"
+        "${CMAKE_CURRENT_SOURCE_DIR}/analysis/chemical_${oracle}.py"
+        $<TARGET_FILE:chemical_production_contract>)
+    set_tests_properties(chemical_${oracle} PROPERTIES
+        LABELS "phase5c;analytic;self-contained;scientific" TIMEOUT 120)
+endforeach()
+add_test(NAME chemical_trackr_budget COMMAND "${Python3_EXECUTABLE}"
+    "${CMAKE_CURRENT_SOURCE_DIR}/analysis/chemical_trackr_budget.py"
+    $<TARGET_FILE:chemical_trackr_fixture>
+    "${CMAKE_CURRENT_BINARY_DIR}/phase5c-evidence")
+set_tests_properties(chemical_trackr_budget PROPERTIES
+    LABELS "phase5c;track-r;self-contained;scientific" TIMEOUT 900 RUN_SERIAL TRUE)
+
+# The producer fixture is rerun by CTest, including focused production selection.
+set_tests_properties(chemical_trackr_budget PROPERTIES FIXTURES_SETUP chemical_characterization)
+add_test(NAME chemical_production_validation COMMAND "${Python3_EXECUTABLE}"
+    "${CMAKE_CURRENT_SOURCE_DIR}/analysis/chemical_production_validation.py"
+    $<TARGET_FILE:chemical_production_fixture>
+    "${CMAKE_CURRENT_BINARY_DIR}/phase5c-evidence"
+    "${CMAKE_CURRENT_BINARY_DIR}/phase5c-production")
+set_tests_properties(chemical_production_validation PROPERTIES
+    FIXTURES_REQUIRED chemical_characterization
+    LABELS "phase5c;track-r;self-contained;scientific" TIMEOUT 2400 RUN_SERIAL TRUE)
+
+# Governed Phase-5C corrected-coefficient regression. The producer completes a
+# fresh Structure-1 characterization and production G/Q/Z/I/W computation
+# before the comparator reads the baseline or reviewed candidate. The only
+# portable equality exclusion is provenance.toolchain.compiler; its actual
+# values are retained, validated and reported.
+add_test(NAME phase5c_chemical_coefficient_regression COMMAND "${Python3_EXECUTABLE}"
+    "${CMAKE_CURRENT_SOURCE_DIR}/analysis/chemical_coefficient_regression.py"
+    --producer "${CMAKE_CURRENT_SOURCE_DIR}/analysis/produce_chemical_coefficient_reference.py"
+    --characterization-executable $<TARGET_FILE:chemical_trackr_fixture>
+    --production-executable $<TARGET_FILE:chemical_production_fixture>
+    --source-root "${PROJECT_SOURCE_DIR}"
+    --baseline "${CMAKE_CURRENT_SOURCE_DIR}/baselines/phase5c_chemical_coefficients.json"
+    --reviewed-candidate "${PROJECT_SOURCE_DIR}/docs/validation/phase5c_chemical_coefficients_candidate.json"
+    --output-root "${CMAKE_CURRENT_BINARY_DIR}/phase5c-regression-evidence")
+set_tests_properties(phase5c_chemical_coefficient_regression PROPERTIES
+    LABELS "phase5c;track-r;self-contained;scientific;regression"
+    TIMEOUT 3600 RUN_SERIAL TRUE)
+
+# ADR-0011 candidate analytic particle-current oracles (PB1-PB5).
+add_executable(particle_number_analytic analysis/particle_number_analytic.cpp)
+target_link_libraries(particle_number_analytic PRIVATE CompactStar)
+add_test(NAME particle_number_analytic COMMAND particle_number_analytic)
+set_tests_properties(particle_number_analytic PROPERTIES
+    LABELS "analysis;particle-number;analytic;self-contained;scientific")
+add_executable(phase5b_freegas_validation analysis/phase5b_freegas_validation.cpp)
+target_link_libraries(phase5b_freegas_validation PRIVATE CompactStar)
+foreach(stage PB1 PB6 PB7 PB9-11 PB12 PB13 contracts)
+    add_test(NAME phase5b_${stage} COMMAND "${Python3_EXECUTABLE}"
+        "${CMAKE_CURRENT_SOURCE_DIR}/analysis/run_phase5b_validation.py"
+        $<TARGET_FILE:phase5b_freegas_validation> ${stage}
+        "${CMAKE_CURRENT_BINARY_DIR}/phase5b-evidence")
+    set_tests_properties(phase5b_${stage} PROPERTIES
+        LABELS "phase5b;scientific;self-contained" TIMEOUT 900 RUN_SERIAL TRUE)
+endforeach()
+
+# Governed Phase-5B structural-response regression. The comparator invokes the
+# canonical producer in a new isolated directory and compares exact bytes; it
+# never supplies the governed baseline as producer input.
+add_test(NAME phase5b_structural_response_regression COMMAND "${Python3_EXECUTABLE}"
+    "${CMAKE_CURRENT_SOURCE_DIR}/analysis/particle_number_response_regression.py"
+    --producer "${CMAKE_CURRENT_SOURCE_DIR}/analysis/produce_particle_number_reference.py"
+    --executable $<TARGET_FILE:phase5b_freegas_validation>
+    --source-root "${PROJECT_SOURCE_DIR}"
+    --baseline "${CMAKE_CURRENT_SOURCE_DIR}/baselines/phase5b_structural_response.json"
+    --output-root "${CMAKE_CURRENT_BINARY_DIR}/phase5b-regression-evidence")
+set_tests_properties(phase5b_structural_response_regression PROPERTIES
+    LABELS "phase5b;particle-number;scientific;self-contained;regression"
+    TIMEOUT 900 RUN_SERIAL TRUE)
+
+add_executable(compactstar_library_smoke smoke/compactstar_library_smoke.cpp)
+
+target_link_libraries(compactstar_library_smoke PRIVATE CompactStar)
+
+# Test binaries are build artifacts only — never installed.
+add_test(NAME compactstar_library_smoke COMMAND compactstar_library_smoke)
+
+# ---------------------------------------------------------------------------
+#  Thermal verification (roadmap Phase 2A-1, ADR-0002 §V1 Tier A).
+#
+#  Self-contained: builds its own synthetic CompOSE fixture in a temp directory
+#  and requires NO external EOS assets, so it runs in a clean checkout.
+#  It is verification evidence, not a scientific baseline.
+# ---------------------------------------------------------------------------
+add_executable(heat_capacity_v1 thermal/heat_capacity_v1.cpp)
+target_link_libraries(heat_capacity_v1 PRIVATE CompactStar)
+add_test(NAME heat_capacity_v1 COMMAND heat_capacity_v1)
+
+# ---------------------------------------------------------------------------
+#  TOV equation-level reference against the exact Schwarzschild interior. Self-contained.
+# ---------------------------------------------------------------------------
+add_executable(tov_reference_analytic core/tov_reference_analytic.cpp)
+target_link_libraries(tov_reference_analytic PRIVATE CompactStar)
+add_test(NAME tov_reference_analytic COMMAND tov_reference_analytic)
+set_tests_properties(tov_reference_analytic PROPERTIES LABELS "core;tov;reference")
+
+# ---------------------------------------------------------------------------
+#  Phase 4C-I0 EOS thermodynamic-derivative authority (ADR-0007 P5). Self-contained:
+#  builds its own synthetic EOS tables in a temp directory. Contract only — it exercises
+#  no O(Omega^2) physics.
+# ---------------------------------------------------------------------------
+add_executable(eos_derivative_contract eos/eos_derivative_contract.cpp)
+target_link_libraries(eos_derivative_contract PRIVATE CompactStar)
+add_test(NAME eos_derivative_contract COMMAND eos_derivative_contract)
+set_tests_properties(eos_derivative_contract PROPERTIES LABELS "eos;derivative;contract")
+
+# ---------------------------------------------------------------------------
+#  Phase 5A-2 accepted ADR-0010 local cold charge-neutral thermodynamic
+#  contract. Self-contained analytic free leptons plus independent toy and
+#  projection fixtures; no external EOS data and no scientific baseline.
+# ---------------------------------------------------------------------------
+add_executable(rotochemical_local_thermodynamics
+    eos/rotochemical_local_thermodynamics.cpp)
+target_link_libraries(rotochemical_local_thermodynamics PRIVATE CompactStar)
+add_test(NAME rotochemical_local_thermodynamics
+         COMMAND rotochemical_local_thermodynamics)
+set_tests_properties(rotochemical_local_thermodynamics PROPERTIES
+    LABELS "rotochemical;thermodynamics;self-contained;scientific;contract")
+
+# ---------------------------------------------------------------------------
+#  Phase 5A-3 source-faithful Track-R cold ideal npe-mu local provider.
+#  Self-contained analytic/numerical validation only: no star, external EOS
+#  data, electrostatic projection, or scientific baseline.
+# ---------------------------------------------------------------------------
+add_executable(rotochemical_trackr_freegas_local
+    eos/rotochemical_trackr_freegas_local.cpp)
+target_link_libraries(rotochemical_trackr_freegas_local PRIVATE CompactStar)
+add_test(NAME rotochemical_trackr_freegas_local
+         COMMAND rotochemical_trackr_freegas_local)
+set_tests_properties(rotochemical_trackr_freegas_local PROPERTIES
+    LABELS "rotochemical;thermodynamics;track-r;free-gas;self-contained;scientific;contract")
+
+# Phase 5A-4 R1: active npe chart and species boundaries; independent local oracles.
+add_executable(rotochemical_trackr_npe eos/rotochemical_trackr_npe.cpp)
+target_link_libraries(rotochemical_trackr_npe PRIVATE CompactStar)
+add_test(NAME rotochemical_trackr_npe COMMAND rotochemical_trackr_npe)
+set_tests_properties(rotochemical_trackr_npe PROPERTIES
+    LABELS "rotochemical;thermodynamics;track-r;free-gas;npe;self-contained;scientific;contract")
+
+# Phase 5A-5: vacuum, active pe chart, neutron threshold and pe/npe limit.
+add_executable(rotochemical_trackr_pe eos/rotochemical_trackr_pe.cpp)
+target_link_libraries(rotochemical_trackr_pe PRIVATE CompactStar)
+add_test(NAME rotochemical_trackr_pe COMMAND rotochemical_trackr_pe)
+set_tests_properties(rotochemical_trackr_pe PROPERTIES
+    LABELS "rotochemical;thermodynamics;track-r;free-gas;pe;self-contained;scientific;contract")
+
+# ---------------------------------------------------------------------------
+#  Phase 4C-I1 governed O(Omega^2) monopole IMPLEMENTATION contract (ADR-0007).
+#  Self-contained. Protects contracts — fail-closed inputs, regular-centre start,
+#  provenance/staleness, seed invariance, materialization algebra, solve accounting.
+#  It is NOT independent physical validation of the ODE; that is Phase 4D.
+# ---------------------------------------------------------------------------
+add_executable(hartle_monopole_contract rotation/hartle_monopole_contract.cpp)
+target_include_directories(hartle_monopole_contract PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+target_link_libraries(hartle_monopole_contract PRIVATE CompactStar)
+add_test(NAME hartle_monopole_contract COMMAND hartle_monopole_contract)
+set_tests_properties(hartle_monopole_contract PROPERTIES
+    LABELS "rotation;hartle;monopole;contract")
+
+# ---------------------------------------------------------------------------
+#  Phase 4D INDEPENDENT physical validation of the governed O(Omega^2) monopole response on
+#  the exact constant-density background (ADR-0007 §7). Self-contained. The oracles are a
+#  test-only (m0,h0) solver and a continuum solver in hartle_monopole_reference.hpp.
+# ---------------------------------------------------------------------------
+add_executable(hartle_monopole_physics_analytic rotation/hartle_monopole_physics_analytic.cpp)
+target_include_directories(hartle_monopole_physics_analytic PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+target_link_libraries(hartle_monopole_physics_analytic PRIVATE CompactStar)
+add_test(NAME hartle_monopole_physics_analytic COMMAND hartle_monopole_physics_analytic)
+set_tests_properties(hartle_monopole_physics_analytic PROPERTIES
+    LABELS "rotation;hartle;monopole;scientific;reference")
+
+# Phase 4D-RI implementation contract of the MEASURE-COMPLETE EOS energy-density source
+# (ADR-0008, ACCEPTED 2026-09-03): constant-density interior measure identically zero, smooth-EOS
+# equivalence with the superseded differential form, per-segment measure identity and
+# same-partition source accounting, terminal surface atom applied exactly once. Self-contained.
+add_executable(hartle_monopole_measure_contract rotation/hartle_monopole_measure_contract.cpp)
+target_include_directories(hartle_monopole_measure_contract PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+target_link_libraries(hartle_monopole_measure_contract PRIVATE CompactStar)
+add_test(NAME hartle_monopole_measure_contract COMMAND hartle_monopole_measure_contract)
+set_tests_properties(hartle_monopole_measure_contract PROPERTIES
+    LABELS "rotation;hartle;monopole;contract;measure"
+    TIMEOUT 900)
+
+# Phase 4D Experiment K: the governed O(Omega^2) monopole response against PUBLISHED
+# second-order results — Chandrasekhar & Miller 1974 Table I (homogeneous stars, analytic
+# background) and Hartle & Thorne 1968 Tables 3/5 on the printed Harrison-Wheeler EOS
+# (historical fixture embedded in tests/rotation/hartle_thorne_1968_hw_eos.hpp). Self-contained.
+add_executable(hartle_monopole_published rotation/hartle_monopole_published.cpp)
+target_include_directories(hartle_monopole_published PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+target_link_libraries(hartle_monopole_published PRIVATE CompactStar)
+add_test(NAME hartle_monopole_published COMMAND hartle_monopole_published)
+set_tests_properties(hartle_monopole_published PROPERTIES
+    LABELS "rotation;hartle;monopole;scientific;published"
+    TIMEOUT 900)
+
+# ---------------------------------------------------------------------------
+#  INV-12 cache-correctness contracts. Self-contained.
+#  The registered test runs ONLY the supported-contract cases. The known-hazard
+#  reproductions live behind --audit-known-hazards and are deliberately NOT a
+#  CTest: they document defects, they do not assert that defects are correct.
+# ---------------------------------------------------------------------------
+add_executable(cache_contract evolution/cache_contract.cpp)
+target_link_libraries(cache_contract PRIVATE CompactStar)
+add_test(NAME cache_contract COMMAND cache_contract)
+set_tests_properties(cache_contract PROPERTIES LABELS "evolution;cache;contract")
+
+# ---------------------------------------------------------------------------
+#  INV-12 cache contracts on the thermal path (Y_q, NeutrinoCooling payload).
+#  Self-contained. Same two-mode split as cache_contract: only the supported
+#  contracts are registered; --audit-known-hazards is documentation, not a test.
+# ---------------------------------------------------------------------------
+add_executable(cache_thermal_contract thermal/cache_thermal_contract.cpp)
+target_link_libraries(cache_thermal_contract PRIVATE CompactStar)
+add_test(NAME cache_thermal_contract COMMAND cache_thermal_contract)
+set_tests_properties(cache_thermal_contract PROPERTIES LABELS "thermal;cache;contract")
+
+# ---------------------------------------------------------------------------
+#  Phase-2B-4B scale-free first-order Hartle moment of inertia. Self-contained.
+# ---------------------------------------------------------------------------
+add_executable(hartle_moment_inertia_analytic rotation/hartle_moment_inertia_analytic.cpp)
+target_include_directories(hartle_moment_inertia_analytic PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+target_link_libraries(hartle_moment_inertia_analytic PRIVATE CompactStar)
+add_test(NAME hartle_moment_inertia_analytic COMMAND hartle_moment_inertia_analytic)
+set_tests_properties(hartle_moment_inertia_analytic PROPERTIES
+    LABELS "rotation;hartle;scientific")
+
+# ---------------------------------------------------------------------------
+#  Phase-4A ADR-0006 first-order physical-normalization contract. Self-contained.
+#  Tolerances are predeclared in ADR-0006 SS7 and must not be widened here.
+# ---------------------------------------------------------------------------
+add_executable(hartle_normalization_contract rotation/hartle_normalization_contract.cpp)
+target_include_directories(hartle_normalization_contract PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+target_link_libraries(hartle_normalization_contract PRIVATE CompactStar)
+add_test(NAME hartle_normalization_contract COMMAND hartle_normalization_contract)
+set_tests_properties(hartle_normalization_contract PROPERTIES
+    LABELS "rotation;hartle;scientific;contract")
+
+# ---------------------------------------------------------------------------
+#  Phase-4B independent PHYSICAL validation of the normalized first-order Hartle
+#  response (profile shape, exterior identities, volume identity, weak-field
+#  limit). Self-contained. Bounds are predeclared in the source from the Phase-2B
+#  record and must not be widened here.
+# ---------------------------------------------------------------------------
+add_executable(hartle_first_order_physics_analytic
+    rotation/hartle_first_order_physics_analytic.cpp)
+target_include_directories(hartle_first_order_physics_analytic PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+target_link_libraries(hartle_first_order_physics_analytic PRIVATE CompactStar)
+add_test(NAME hartle_first_order_physics_analytic
+         COMMAND hartle_first_order_physics_analytic)
+set_tests_properties(hartle_first_order_physics_analytic PROPERTIES
+    LABELS "rotation;hartle;scientific;reference")
+
+# ---------------------------------------------------------------------------
+#  Evolution stepper contract + thermal-only execution. Self-contained.
+# ---------------------------------------------------------------------------
+add_executable(evolution_stepper_contract thermal/evolution_stepper_contract.cpp)
+target_link_libraries(evolution_stepper_contract PRIVATE CompactStar)
+add_test(NAME evolution_stepper_contract COMMAND evolution_stepper_contract)
+set_tests_properties(evolution_stepper_contract PROPERTIES LABELS "thermal")
+
+# ---------------------------------------------------------------------------
+#  ADR-0002 PhotonCooling source-conformance (Phase 2A). Self-contained.
+# ---------------------------------------------------------------------------
+add_executable(photon_cooling_conformance thermal/photon_cooling_conformance.cpp)
+target_link_libraries(photon_cooling_conformance PRIVATE CompactStar)
+add_test(NAME photon_cooling_conformance COMMAND photon_cooling_conformance)
+set_tests_properties(photon_cooling_conformance PROPERTIES LABELS "thermal")
+
+# ---------------------------------------------------------------------------
+#  Tier B — real canonical-star heat-capacity verification (ADR-0002 §V1).
+#
+#  Requires authenticated official CompOSE tables. Registered ONLY when
+#  COMPACTSTAR_EOS_DATA_ROOT points at them, so a clean checkout still
+#  configures and Tier A still runs with no external data. The test itself
+#  exits non-zero if the data are missing — it never silently skips.
+#
+#  Expected layout under the root:
+#     DS-CMF-1-with-crust/DS(CMF)-1_with_crust.eos
+#     DNS-CMF-Hadronic-with-electrons/eos.{t,nb,yq,thermo}
+# ---------------------------------------------------------------------------
+#  ADR-0004 canonical proper-volume / metric primitive. Self-contained.
+#  Exercises CompactStar/Geometry.hpp directly: the regular-centre limit, the
+#  fail-closed domain, the metric factor against two independent algebraic
+#  forms, and the w_V composition. No EOS assets, no TOV solve.
+# ---------------------------------------------------------------------------
+add_executable(proper_volume_contract core/proper_volume_contract.cpp)
+target_link_libraries(proper_volume_contract PRIVATE CompactStar)
+add_test(NAME proper_volume_contract COMMAND proper_volume_contract)
+set_tests_properties(proper_volume_contract PROPERTIES
+    LABELS "core;geometry;contract;scientific")
+
+# ---------------------------------------------------------------------------
+#  ADR-0004 GeometryCache conformance. Self-contained.
+#  Pins the stored-Lambda and derived-Lambda routes to the same cached arrays,
+#  ties the cached WV to the canonical primitive, and proves WVExpNu/WVExp2Nu
+#  are composed from the ONE WV array rather than independently re-derived.
+# ---------------------------------------------------------------------------
+add_executable(geometry_cache_measure_contract evolution/geometry_cache_measure_contract.cpp)
+target_link_libraries(geometry_cache_measure_contract PRIVATE CompactStar)
+add_test(NAME geometry_cache_measure_contract COMMAND geometry_cache_measure_contract)
+set_tests_properties(geometry_cache_measure_contract PROPERTIES
+    LABELS "evolution;geometry;cache;contract")
+
+# ---------------------------------------------------------------------------
+# Opt-in ADR-0012 scientific-candidate comparison. Default regression still reads
+# governed historical files. This redirects ONLY three comparisons whose artifacts
+# ADR-0012 explicitly adjudicates obsolete; all assertions/tolerances stay unchanged.
+set(COMPACTSTAR_ADR0012_CANDIDATE_DIR "" CACHE PATH
+    "External validated ADR-0012 candidate artifacts; does not supersede baselines")
+set(_adr0012_references "${CMAKE_CURRENT_SOURCE_DIR}/baselines")
+if(COMPACTSTAR_ADR0012_CANDIDATE_DIR)
+    get_filename_component(_adr0012_references "${COMPACTSTAR_ADR0012_CANDIDATE_DIR}" REALPATH)
+    if(_adr0012_references MATCHES "/tests/baselines($|/)")
+        message(FATAL_ERROR "ADR-0012 candidate directory must be outside governed baselines")
+    endif()
+    foreach(_artifact passive_cooling_cmf_1p6_debug.tsv baryon_number_dscmf1_reference.tsv hartle_monopole_dscmf1_debug.tsv)
+        if(NOT EXISTS "${_adr0012_references}/${_artifact}")
+            message(FATAL_ERROR "Missing ADR-0012 candidate: ${_artifact}")
+        endif()
+    endforeach()
+    message(STATUS "ADR-0012 candidate comparisons (not ratification): ${_adr0012_references}")
+endif()
+
+set(COMPACTSTAR_EOS_DATA_ROOT "" CACHE PATH
+    "Path to authenticated official CompOSE tables; enables the Tier-B thermal test.")
+
+if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
+    add_executable(heat_capacity_real_star thermal/heat_capacity_real_star.cpp)
+    target_link_libraries(heat_capacity_real_star PRIVATE CompactStar)
+    add_test(NAME heat_capacity_real_star
+             COMMAND heat_capacity_real_star "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(heat_capacity_real_star PROPERTIES
+        LABELS "thermal;external-data;scientific")
+    # Phase-2B passive-cooling regression baseline (GOVERNANCE.md §3.1 condition 7).
+    # Requires the authenticated external CMF tables; ~11 s runtime.
+    add_executable(passive_cooling_regression thermal/passive_cooling_regression.cpp)
+    target_link_libraries(passive_cooling_regression PRIVATE CompactStar)
+    add_test(NAME passive_cooling_regression
+             COMMAND passive_cooling_regression "${COMPACTSTAR_EOS_DATA_ROOT}"
+                     --compare
+                     "${_adr0012_references}/passive_cooling_cmf_1p6_debug.tsv")
+    set_tests_properties(passive_cooling_regression PROPERTIES
+        LABELS "thermal;scientific;external-data;regression")
+
+    # Phase-2B-2 TOV reference validation against the official CompOSE eos.mr.
+    # Reference data are third-party and live beside the .eos table in the
+    # authenticated distribution; the test SKIPs (77) if eos.mr is absent.
+    add_executable(tov_reference_cmf core/tov_reference_cmf.cpp)
+    target_link_libraries(tov_reference_cmf PRIVATE CompactStar)
+    add_test(NAME tov_reference_cmf
+             COMMAND tov_reference_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(tov_reference_cmf PROPERTIES
+        LABELS "core;tov;reference;external-data;scientific"
+        SKIP_RETURN_CODE 77)
+
+    # Phase-2B-4A nonrotating TOV -> cooling grid-convergence harness.
+    # Registered only with the authenticated external data root.
+    add_executable(grid_convergence_cmf thermal/grid_convergence_cmf.cpp)
+    target_link_libraries(grid_convergence_cmf PRIVATE CompactStar)
+    add_test(NAME grid_convergence_cmf
+             COMMAND grid_convergence_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(grid_convergence_cmf PROPERTIES
+        LABELS "thermal;scientific;external-data;convergence"
+        TIMEOUT 1800)
+
+    # Phase 4D INDEPENDENT physical validation of the governed O(Omega^2) monopole response on
+    # the authenticated CMF sequence (ADR-0007 §7): (m0,h0) reference solver, exterior identity,
+    # radial convergence, EOS-derivative sensitivity, homogeneous sequence-derivative identity.
+    add_executable(hartle_monopole_physics_cmf rotation/hartle_monopole_physics_cmf.cpp)
+    target_include_directories(hartle_monopole_physics_cmf PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+    target_link_libraries(hartle_monopole_physics_cmf PRIVATE CompactStar)
+    add_test(NAME hartle_monopole_physics_cmf
+             COMMAND hartle_monopole_physics_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(hartle_monopole_physics_cmf PROPERTIES
+        LABELS "rotation;hartle;monopole;scientific;external-data;reference"
+        TIMEOUT 1800)
+
+    # Phase 4D-BL production regression, established AFTER independent verification.
+    # This baseline is not an independent physics oracle.
+    add_executable(hartle_monopole_regression rotation/hartle_monopole_regression.cpp)
+    target_link_libraries(hartle_monopole_regression PRIVATE CompactStar)
+    target_compile_definitions(hartle_monopole_regression PRIVATE
+        COMPACTSTAR_BASELINE_DIR="${CMAKE_CURRENT_SOURCE_DIR}/baselines")
+    add_test(NAME hartle_monopole_regression
+             COMMAND hartle_monopole_regression "${COMPACTSTAR_EOS_DATA_ROOT}"
+                --compare "${_adr0012_references}/hartle_monopole_dscmf1_debug.tsv")
+    set_tests_properties(hartle_monopole_regression PROPERTIES
+        LABELS "rotation;hartle;monopole;scientific;regression;external-data"
+        TIMEOUT 900)
+
+    # Phase 4C-I1 governed O(Omega^2) monopole conformance on the authenticated CMF
+    # sequence (ADR-0007). Structural conformance and diagnostics only — the independent
+    # scientific validation is Phase 4D, and no golden is produced here.
+    add_executable(hartle_monopole_cmf rotation/hartle_monopole_cmf.cpp)
+    target_include_directories(hartle_monopole_cmf PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+    target_link_libraries(hartle_monopole_cmf PRIVATE CompactStar)
+    add_test(NAME hartle_monopole_cmf
+             COMMAND hartle_monopole_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(hartle_monopole_cmf PROPERTIES
+        LABELS "rotation;hartle;monopole;external-data"
+        TIMEOUT 900)
+
+    # Phase 4C-I0 EOS d(eps)/dp on the authenticated CMF sequence (ADR-0007 P5).
+    # Asserts completeness, finiteness and positivity; prints the retired profile
+    # finite difference as a diagnostic only. No O(Omega^2) physics.
+    add_executable(eos_derivative_cmf eos/eos_derivative_cmf.cpp)
+    target_link_libraries(eos_derivative_cmf PRIVATE CompactStar)
+    add_test(NAME eos_derivative_cmf
+             COMMAND eos_derivative_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(eos_derivative_cmf PROPERTIES
+        LABELS "eos;derivative;scientific;external-data"
+        TIMEOUT 900)
+
+    # Phase-2B-4B scale-free Hartle I on the authenticated CMF sequence.
+    add_executable(hartle_moment_inertia_cmf rotation/hartle_moment_inertia_cmf.cpp)
+    target_include_directories(hartle_moment_inertia_cmf PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+    target_link_libraries(hartle_moment_inertia_cmf PRIVATE CompactStar)
+    add_test(NAME hartle_moment_inertia_cmf
+             COMMAND hartle_moment_inertia_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(hartle_moment_inertia_cmf PROPERTIES
+        LABELS "rotation;hartle;scientific;external-data"
+        TIMEOUT 900)
+
+    # Phase-4A ADR-0006 normalization contract on the authenticated CMF sequence,
+    # plus the V9 slow-rotation regime diagnostic (reported, never enforced).
+    add_executable(hartle_normalization_cmf rotation/hartle_normalization_cmf.cpp)
+    target_include_directories(hartle_normalization_cmf PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+    target_link_libraries(hartle_normalization_cmf PRIVATE CompactStar)
+    add_test(NAME hartle_normalization_cmf
+             COMMAND hartle_normalization_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(hartle_normalization_cmf PROPERTIES
+        LABELS "rotation;hartle;scientific;external-data;contract"
+        TIMEOUT 900)
+
+    # Phase-4B independent physical validation of the normalized first-order
+    # response on the authenticated DS(CMF)-1 sequence.
+    add_executable(hartle_first_order_physics_cmf
+        rotation/hartle_first_order_physics_cmf.cpp)
+    target_include_directories(hartle_first_order_physics_cmf PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/rotation)
+    target_link_libraries(hartle_first_order_physics_cmf PRIVATE CompactStar)
+    add_test(NAME hartle_first_order_physics_cmf
+             COMMAND hartle_first_order_physics_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(hartle_first_order_physics_cmf PROPERTIES
+        LABELS "rotation;hartle;scientific;external-data;reference"
+        TIMEOUT 900)
+
+    # Phase-3D INV-14 / ADR-0004 baryon-number reference on the authenticated
+    # DS(CMF)-1 sequence (1.0 / 1.4 / 1.6 / 2.0 Msun). Guards the proper-volume
+    # migration under the tolerance predeclared in ADR-0004 SS7.1 before
+    # implementation: |dB|/B <= 1.0e-15.
+    add_executable(baryon_number_cmf core/baryon_number_cmf.cpp)
+    target_link_libraries(baryon_number_cmf PRIVATE CompactStar)
+    add_test(NAME baryon_number_cmf
+             COMMAND baryon_number_cmf "${COMPACTSTAR_EOS_DATA_ROOT}"
+                     --compare
+                     "${_adr0012_references}/baryon_number_dscmf1_reference.tsv")
+    set_tests_properties(baryon_number_cmf PROPERTIES
+        LABELS "core;tov;reference;external-data;scientific"
+        TIMEOUT 900)
+
+    # Phase-3E-0 equivalence measurement of the two LIVE TOV paths.
+    # Path 1 (TOVSolver::Solve + NStar::Append + FinalizeSurface) vs Path 2
+    # (SingleStarSolveToTOVPoints + NStar(points,labels) + BuildFromTOV) at the
+    # same frozen central densities. Measurement only: it designates no canonical
+    # owner. Criteria are predeclared in the source header.
+    add_executable(tov_path_equivalence_cmf core/tov_path_equivalence_cmf.cpp)
+    target_link_libraries(tov_path_equivalence_cmf PRIVATE CompactStar)
+    add_test(NAME tov_path_equivalence_cmf
+             COMMAND tov_path_equivalence_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(tov_path_equivalence_cmf PROPERTIES
+        LABELS "core;tov;scientific;external-data;equivalence"
+        TIMEOUT 1800)
+
+    # Phase-3E-I1 workflow/interface contract for TOVSolver::Solve.
+    # ADR-0005 Q1/Q2: Solve() stays a public sequence orchestrator and its
+    # _Sequence.tsv output is a compatibility contract. All six live callers
+    # consume only that file, and one reads it back as program input, so ONE
+    # focused test protects the contract -- deliberately not one per caller.
+    add_executable(tov_sequence_workflow_cmf core/tov_sequence_workflow_cmf.cpp)
+    target_link_libraries(tov_sequence_workflow_cmf PRIVATE CompactStar)
+    add_test(NAME tov_sequence_workflow_cmf
+             COMMAND tov_sequence_workflow_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(tov_sequence_workflow_cmf PROPERTIES
+        LABELS "core;tov;workflow;interface;external-data"
+        TIMEOUT 900)
+
+    # Phase-3E-I4 coverage for TOVSolver::GenTestSequence -- the last remaining
+    # caller of the duplicate ordinary-star radial loop. Committed BEFORE the
+    # migration it justifies, so its equivalence assertion is evidence about the
+    # legacy RadiusLoop implementation rather than a description of the new one.
+    add_executable(tov_gen_test_sequence_cmf core/tov_gen_test_sequence_cmf.cpp)
+    target_link_libraries(tov_gen_test_sequence_cmf PRIVATE CompactStar)
+    add_test(NAME tov_gen_test_sequence_cmf
+             COMMAND tov_gen_test_sequence_cmf "${COMPACTSTAR_EOS_DATA_ROOT}")
+    set_tests_properties(tov_gen_test_sequence_cmf PROPERTIES
+        LABELS "core;tov;scientific;external-data;equivalence"
+        TIMEOUT 3600)
+
+    message(STATUS "CompactStar: Tier-B thermal test enabled (EOS data root supplied)")
+else()
+    message(STATUS "CompactStar: Tier-B thermal test NOT registered "
+                   "(set COMPACTSTAR_EOS_DATA_ROOT to enable)")
+endif()
+
+# ADR-0009 surface-event contracts. Reports are disposable build outputs only.
+add_executable(tov_surface_contract core/tov_surface_contract.cpp)
+target_link_libraries(tov_surface_contract PRIVATE CompactStar)
+foreach(mode sweep audit derivatives consumers contracts)
+    add_test(NAME tov_surface_${mode}_hw COMMAND tov_surface_contract HW ${mode}
+        "${CMAKE_CURRENT_BINARY_DIR}/tov_surface_${mode}_hw.tsv")
+    set_tests_properties(tov_surface_${mode}_hw PROPERTIES LABELS "core;tov;surface;scientific" TIMEOUT 900)
+endforeach()
+if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
+    foreach(mode v7a v7b sweep audit derivatives consumers contracts)
+        add_test(NAME tov_surface_${mode}_cmf COMMAND tov_surface_contract
+            "${COMPACTSTAR_EOS_DATA_ROOT}/DS-CMF-1-with-crust/DS(CMF)-1_with_crust.eos" ${mode}
+            "${CMAKE_CURRENT_BINARY_DIR}/tov_surface_${mode}_cmf.tsv")
+        set_tests_properties(tov_surface_${mode}_cmf PROPERTIES LABELS "core;tov;surface;scientific;external-data" TIMEOUT 900)
+    endforeach()
+    add_test(NAME tov_surface_grid_cmf COMMAND grid_convergence_cmf
+        "${COMPACTSTAR_EOS_DATA_ROOT}" --surface-dry-run)
+    set_tests_properties(tov_surface_grid_cmf PROPERTIES LABELS "core;tov;surface;thermal;scientific;external-data" TIMEOUT 1200)
+endif()
+
+# Track-R Structure-1 candidate; all EOS data generated locally.
+add_executable(rotochemical_trackr_freegas_structure eos/rotochemical_trackr_freegas_structure.cpp)
+target_link_libraries(rotochemical_trackr_freegas_structure PRIVATE CompactStar)
+add_executable(rotochemical_trackr_freegas_barotrope eos/rotochemical_trackr_freegas_barotrope.cpp)
+target_link_libraries(rotochemical_trackr_freegas_barotrope PRIVATE CompactStar)
+add_test(NAME rotochemical_trackr_freegas_barotrope COMMAND rotochemical_trackr_freegas_barotrope)
+add_test(NAME rotochemical_trackr_freegas_structure COMMAND rotochemical_trackr_freegas_structure)
+set_tests_properties(rotochemical_trackr_freegas_barotrope rotochemical_trackr_freegas_structure
+    PROPERTIES LABELS "rotochemical;thermodynamics;track-r;free-gas;structure;self-contained;scientific")
+
+# ADR-0012 candidate: independent algebra, analytic spacetime, inverse and mixed controls.
+add_executable(relativistic_unit_boundary relativity/relativistic_unit_boundary.cpp)
+target_link_libraries(relativistic_unit_boundary PRIVATE CompactStar)
+add_test(NAME relativistic_unit_boundary COMMAND relativistic_unit_boundary)
+set_tests_properties(relativistic_unit_boundary PROPERTIES
+    LABELS "relativity;units;scientific;self-contained")
+add_executable(relativistic_unit_background relativity/relativistic_unit_background.cpp)
+target_link_libraries(relativistic_unit_background PRIVATE CompactStar)
+add_test(NAME relativistic_unit_background COMMAND relativistic_unit_background)
+set_tests_properties(relativistic_unit_background PROPERTIES
+    LABELS "relativity;units;tov;scientific;self-contained" TIMEOUT 300)
+
+# Phase-5D controlled-evolution analytic machinery.
+add_executable(phase5d_response rotochemical/response.cpp)
+target_link_libraries(phase5d_response PRIVATE CompactStar)
+add_test(NAME phase5d_response COMMAND phase5d_response)
+add_test(NAME phase5d_independent_oracles COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/rotochemical/oracles.py" $<TARGET_FILE:phase5d_response>)
+set_tests_properties(phase5d_response phase5d_independent_oracles PROPERTIES LABELS "phase5d;phase5d-analytic;scientific;self-contained" TIMEOUT 180)
+
+# Phase-6A-1 controlled abstract BNV pretrajectory semantic oracles.  The
+# authenticated Structure-1 tangent executable is invoked by the fresh-context
+# harness after qualification; the remaining ledgers are self-contained.
+add_executable(phase6a1_source_projection bnv/source_projection.cpp)
+target_link_libraries(phase6a1_source_projection PRIVATE CompactStar)
+add_executable(phase6a1_direct_energy bnv/direct_energy.cpp)
+target_link_libraries(phase6a1_direct_energy PRIVATE CompactStar)
+add_executable(phase6a1_thermal_ledger bnv/thermal_ledger.cpp)
+target_link_libraries(phase6a1_thermal_ledger PRIVATE CompactStar)
+add_executable(phase6a1_frozen_sensitivity bnv/frozen_sensitivity.cpp)
+target_link_libraries(phase6a1_frozen_sensitivity PRIVATE CompactStar)
+add_executable(phase6a1_frozen_monitor bnv/frozen_monitor.cpp)
+target_link_libraries(phase6a1_frozen_monitor PRIVATE CompactStar)
+add_executable(phase6a1_matched_control bnv/matched_control.cpp)
+target_link_libraries(phase6a1_matched_control PRIVATE CompactStar)
+add_executable(phase6a1_coupled_trajectory bnv/coupled_trajectory.cpp)
+target_link_libraries(phase6a1_coupled_trajectory PRIVATE CompactStar)
+add_executable(phase6a1_ode_refinement bnv/ode_refinement.cpp)
+target_link_libraries(phase6a1_ode_refinement PRIVATE CompactStar)
+add_executable(phase6a1_qss_beta_bounds bnv/qss_beta_bounds.cpp)
+target_link_libraries(phase6a1_qss_beta_bounds PRIVATE CompactStar)
+foreach(test direct_energy thermal_ledger)
+    add_test(NAME phase6a1_${test} COMMAND phase6a1_${test})
+    set_tests_properties(phase6a1_${test} PROPERTIES
+        LABELS "phase6a1;bnv;controlled;mathematical;self-contained;scientific")
+endforeach()
+
+# Phase-5D downstream provenance-preserving controlled evolution.
+add_executable(phase5d_evolution rotochemical/evolution.cpp)
+target_link_libraries(phase5d_evolution PRIVATE CompactStar)
+add_executable(phase5d_component_tolerances rotochemical/component_tolerances.cpp)
+target_link_libraries(phase5d_component_tolerances PRIVATE CompactStar)
+add_test(NAME phase5d_component_tolerances COMMAND phase5d_component_tolerances)
+set_tests_properties(phase5d_component_tolerances PROPERTIES LABELS "phase5d;phase5d-coupled;scientific;self-contained")
+set(COMPACTSTAR_PHASE5D_SCRATCH_ROOT "${CMAKE_BINARY_DIR}/phase5d-fresh-context" CACHE PATH "Run-local Phase-5D reproducibility scratch parent")
+add_test(NAME phase5d_protected_manifest COMMAND "${Python3_EXECUTABLE}"
+    "${CMAKE_CURRENT_SOURCE_DIR}/rotochemical/protected_manifest.py"
+    --source-root "${PROJECT_SOURCE_DIR}"
+    --scratch-root "${COMPACTSTAR_PHASE5D_SCRATCH_ROOT}")
+set_tests_properties(phase5d_protected_manifest PROPERTIES
+    LABELS "phase5d;phase5d-coupled;scientific;fresh-context")
+add_test(NAME phase5d_harness_controls COMMAND "${Python3_EXECUTABLE}"
+    "${CMAKE_CURRENT_SOURCE_DIR}/rotochemical/harness_controls.py")
+set_tests_properties(phase5d_harness_controls PROPERTIES
+    LABELS "phase5d;phase5d-coupled;governance;fresh-context")
+add_test(NAME phase5d_coupled_oracles COMMAND "${Python3_EXECUTABLE}"
+    "${CMAKE_CURRENT_SOURCE_DIR}/rotochemical/fresh_coupled_oracles.py"
+    --source-root "${PROJECT_SOURCE_DIR}"
+    --build-dir "${CMAKE_BINARY_DIR}"
+    --scratch-root "${COMPACTSTAR_PHASE5D_SCRATCH_ROOT}"
+    --evolution-executable $<TARGET_FILE:phase5d_evolution>
+    --trackr-executable $<TARGET_FILE:chemical_trackr_fixture>
+    --structural-executable $<TARGET_FILE:chemical_structural_envelope>
+    --phase5b-executable $<TARGET_FILE:phase5b_freegas_validation>
+    --production-executable $<TARGET_FILE:chemical_production_fixture>)
+set_tests_properties(phase5d_coupled_oracles PROPERTIES
+    LABELS "phase5d;phase5d-coupled;scientific;fresh-context"
+    RUN_SERIAL TRUE TIMEOUT 7200)
+
+# Expensive governed Phase-5D regression. It configures and builds in a new
+# empty scratch root, regenerates every qualification/thermal/oracle/trajectory
+# dependency, and reads the baseline only after scientific generation closes.
+if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
+    add_test(NAME phase5d1_controlled_evolution_regression
+        COMMAND "${Python3_EXECUTABLE}"
+        "${CMAKE_CURRENT_SOURCE_DIR}/rotochemical/phase5d1_controlled_evolution_regression.py"
+        --producer "${CMAKE_CURRENT_SOURCE_DIR}/rotochemical/fresh_context.py"
+        --source-root "${PROJECT_SOURCE_DIR}"
+        --eos-data-root "${COMPACTSTAR_EOS_DATA_ROOT}"
+        --baseline "${CMAKE_CURRENT_SOURCE_DIR}/baselines/phase5d1_controlled_evolution.json"
+        --output-root "${CMAKE_CURRENT_BINARY_DIR}/phase5d1-regression-evidence")
+    set_tests_properties(phase5d1_controlled_evolution_regression PROPERTIES
+        LABELS "phase5d;phase5d-coupled;scientific;fresh-context;regression;expensive;external-data"
+        RUN_SERIAL TRUE TIMEOUT 14400)
+endif()
+
+# Validation scripts execute from the build tree but import sibling modules
+# from their source directories.  Bytecode caching has no scientific value in
+# CTest and must not contaminate the authenticated source checkout.
+set(_compactstar_python_tests
+    chemical_exact_oracles
+    chemical_curved_gc9
+    chemical_trackr_budget
+    chemical_production_validation
+    phase5c_chemical_coefficient_regression
+    phase5b_PB1
+    phase5b_PB6
+    phase5b_PB7
+    phase5b_PB9-11
+    phase5b_PB12
+    phase5b_PB13
+    phase5b_contracts
+    phase5b_structural_response_regression
+    phase5d_independent_oracles
+    phase5d_protected_manifest
+    phase5d_harness_controls
+    phase5d_coupled_oracles)
+if(COMPACTSTAR_EOS_DATA_ROOT AND EXISTS "${COMPACTSTAR_EOS_DATA_ROOT}")
+    list(APPEND _compactstar_python_tests
+        phase5d1_controlled_evolution_regression)
+endif()
+set_tests_properties(${_compactstar_python_tests} PROPERTIES
+    ENVIRONMENT "PYTHONDONTWRITEBYTECODE=1")
+unset(_compactstar_python_tests)

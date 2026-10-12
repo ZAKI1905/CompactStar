@@ -1,0 +1,1021 @@
+{
+  "stages": {
+    "run1": {
+      "records": [
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+            "-B",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar/tests/bnv/produce_frozen_certificates.py",
+            "--source-root",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+            "--profiles",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/adapters.partial/chemical-profiles",
+            "--phase5-characterization",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/result.json"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 1,
+          "wall_seconds": 4.07135496661067,
+          "user_seconds": 0.962563,
+          "system_seconds": 0.25898,
+          "max_rss_kib": 90700,
+          "slurm_job": "14525",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/adapters.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/coefficient-0.partial",
+            "0"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 153.04129322990775,
+          "user_seconds": 150.3202,
+          "system_seconds": 0.205649,
+          "max_rss_kib": 60844,
+          "slurm_job": "14529",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/coefficient-0.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/coefficient-1.partial",
+            "1"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 150.47285743802786,
+          "user_seconds": 147.861783,
+          "system_seconds": 0.228483,
+          "max_rss_kib": 60708,
+          "slurm_job": "14530",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/coefficient-1.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/coefficient-10.partial",
+            "10"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 152.80545696988702,
+          "user_seconds": 150.077056,
+          "system_seconds": 0.4339,
+          "max_rss_kib": 61024,
+          "slurm_job": "14549",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/coefficient-10.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/coefficient-11.partial",
+            "11"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 151.2749969549477,
+          "user_seconds": 148.330144,
+          "system_seconds": 0.557698,
+          "max_rss_kib": 61140,
+          "slurm_job": "14550",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/coefficient-11.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/coefficient-12.partial",
+            "12"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 150.74755942076445,
+          "user_seconds": 147.848052,
+          "system_seconds": 0.574925,
+          "max_rss_kib": 60468,
+          "slurm_job": "14551",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/coefficient-12.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/coefficient-13.partial",
+            "13"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 152.09162713587284,
+          "user_seconds": 148.948589,
+          "system_seconds": 0.545854,
+          "max_rss_kib": 60280,
+          "slurm_job": "14552",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/coefficient-13.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/coefficient-14.partial",
+            "14"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 152.27085530385375,
+          "user_seconds": 149.308841,
+          "system_seconds": 0.6060369999999999,
+          "max_rss_kib": 60272,
+          "slurm_job": "14553",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/coefficient-14.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/coefficient-15.partial",
+            "15"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 152.10178478062153,
+          "user_seconds": 149.083972,
+          "system_seconds": 0.594662,
+          "max_rss_kib": 60544,
+          "slurm_job": "14554",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/coefficient-15.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/coefficient-16.partial",
+            "16"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 155.18694636970758,
+          "user_seconds": 145.450229,
+          "system_seconds": 0.12200799999999999,
+          "max_rss_kib": 67140,
+          "slurm_job": "14563",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/coefficient-16.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/coefficient-17.partial",
+            "17"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 150.54270424693823,
+          "user_seconds": 147.107542,
+          "system_seconds": 1.168953,
+          "max_rss_kib": 59804,
+          "slurm_job": "14564",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/coefficient-17.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/coefficient-18.partial",
+            "18"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 149.8850066885352,
+          "user_seconds": 147.352141,
+          "system_seconds": 0.541603,
+          "max_rss_kib": 59804,
+          "slurm_job": "14565",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/coefficient-18.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/coefficient-19.partial",
+            "19"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 151.8948201239109,
+          "user_seconds": 147.597454,
+          "system_seconds": 1.538287,
+          "max_rss_kib": 60372,
+          "slurm_job": "14566",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/coefficient-19.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/coefficient-2.partial",
+            "2"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 150.94598580524325,
+          "user_seconds": 148.304427,
+          "system_seconds": 0.240092,
+          "max_rss_kib": 60408,
+          "slurm_job": "14531",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/coefficient-2.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/coefficient-20.partial",
+            "20"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 152.08376350998878,
+          "user_seconds": 148.627715,
+          "system_seconds": 1.161847,
+          "max_rss_kib": 60356,
+          "slurm_job": "14528",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/coefficient-20.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/coefficient-3.partial",
+            "3"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 152.0042820647359,
+          "user_seconds": 148.261821,
+          "system_seconds": 0.736107,
+          "max_rss_kib": 61432,
+          "slurm_job": "14532",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/coefficient-3.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/coefficient-4.partial",
+            "4"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 151.09199250862002,
+          "user_seconds": 147.517123,
+          "system_seconds": 0.6955899999999999,
+          "max_rss_kib": 60732,
+          "slurm_job": "14533",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/coefficient-4.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/coefficient-5.partial",
+            "5"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 151.10489993542433,
+          "user_seconds": 147.553232,
+          "system_seconds": 0.698716,
+          "max_rss_kib": 60796,
+          "slurm_job": "14534",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/coefficient-5.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/coefficient-6.partial",
+            "6"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 151.2409407608211,
+          "user_seconds": 147.649085,
+          "system_seconds": 0.7243419999999999,
+          "max_rss_kib": 60928,
+          "slurm_job": "14535",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/coefficient-6.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/coefficient-7.partial",
+            "7"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 146.93198228627443,
+          "user_seconds": 144.742473,
+          "system_seconds": 0.102142,
+          "max_rss_kib": 63268,
+          "slurm_job": "14536",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/coefficient-7.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/coefficient-8.partial",
+            "8"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 147.42337975651026,
+          "user_seconds": 145.952691,
+          "system_seconds": 0.117118,
+          "max_rss_kib": 64144,
+          "slurm_job": "14547",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/coefficient-8.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/coefficient-9.partial",
+            "9"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 150.79901502281427,
+          "user_seconds": 147.50618,
+          "system_seconds": 1.1063749999999999,
+          "max_rss_kib": 61476,
+          "slurm_job": "14548",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/coefficient-9.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+            "-B",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar/tests/bnv/produce_native_ba13_inputs.py",
+            "--source-root",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+            "--profiles",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/native-adapters.partial/chemical-profiles",
+            "--phase5-characterization",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/result.json"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 70.72685577347875,
+          "user_seconds": 48.94657,
+          "system_seconds": 1.546249,
+          "max_rss_kib": 122308,
+          "slurm_job": "14526",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/native-adapters.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "stars",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/stars.partial"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 264.43582643195987,
+          "user_seconds": 196.421373,
+          "system_seconds": 8.749684,
+          "max_rss_kib": 283968,
+          "slurm_job": "14523",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "run1/stars.receipt.json"
+        }
+      ],
+      "wall_seconds_sum": 3515.1761874854565,
+      "cpu_seconds_sum": 3374.986557000001,
+      "max_child_rss_kib": 283968,
+      "successes": 23,
+      "failures": 1
+    },
+    "repeat": {
+      "records": [
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/coefficient-0.partial",
+            "0"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 163.90124316513538,
+          "user_seconds": 150.710395,
+          "system_seconds": 0.232792,
+          "max_rss_kib": 60528,
+          "slurm_job": "14539",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "repeat/coefficient-0.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/coefficient-1.partial",
+            "1"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 163.33488212525845,
+          "user_seconds": 146.043492,
+          "system_seconds": 0.124167,
+          "max_rss_kib": 67232,
+          "slurm_job": "14540",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "repeat/coefficient-1.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/coefficient-10.partial",
+            "10"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 160.45229741930962,
+          "user_seconds": 146.204734,
+          "system_seconds": 0.1252,
+          "max_rss_kib": 63144,
+          "slurm_job": "14557",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "repeat/coefficient-10.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/coefficient-11.partial",
+            "11"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 160.2314566411078,
+          "user_seconds": 146.107126,
+          "system_seconds": 0.130137,
+          "max_rss_kib": 67360,
+          "slurm_job": "14558",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "repeat/coefficient-11.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/coefficient-12.partial",
+            "12"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 160.40241873264313,
+          "user_seconds": 146.257914,
+          "system_seconds": 0.127141,
+          "max_rss_kib": 67204,
+          "slurm_job": "14559",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "repeat/coefficient-12.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/coefficient-13.partial",
+            "13"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 163.8558691777289,
+          "user_seconds": 146.243586,
+          "system_seconds": 0.117238,
+          "max_rss_kib": 65752,
+          "slurm_job": "14560",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "repeat/coefficient-13.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/coefficient-14.partial",
+            "14"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 160.36465844884515,
+          "user_seconds": 146.253389,
+          "system_seconds": 0.119131,
+          "max_rss_kib": 63160,
+          "slurm_job": "14561",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "repeat/coefficient-14.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/coefficient-15.partial",
+            "15"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 163.2119136415422,
+          "user_seconds": 150.127101,
+          "system_seconds": 0.221235,
+          "max_rss_kib": 59804,
+          "slurm_job": "14562",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "repeat/coefficient-15.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/coefficient-16.partial",
+            "16"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 178.2766463048756,
+          "user_seconds": 147.435044,
+          "system_seconds": 0.42477,
+          "max_rss_kib": 59740,
+          "slurm_job": "14567",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "repeat/coefficient-16.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/coefficient-17.partial",
+            "17"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 177.2958111912012,
+          "user_seconds": 147.486783,
+          "system_seconds": 0.428861,
+          "max_rss_kib": 60376,
+          "slurm_job": "14568",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "repeat/coefficient-17.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/coefficient-18.partial",
+            "18"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 178.32781566679478,
+          "user_seconds": 147.420104,
+          "system_seconds": 0.465769,
+          "max_rss_kib": 60468,
+          "slurm_job": "14569",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "repeat/coefficient-18.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/coefficient-19.partial",
+            "19"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 178.02817168831825,
+          "user_seconds": 143.522016,
+          "system_seconds": 0.13311299999999998,
+          "max_rss_kib": 67416,
+          "slurm_job": "14570",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "repeat/coefficient-19.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/coefficient-2.partial",
+            "2"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 162.7536335363984,
+          "user_seconds": 146.090217,
+          "system_seconds": 0.113261,
+          "max_rss_kib": 64480,
+          "slurm_job": "14541",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "repeat/coefficient-2.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/coefficient-20.partial",
+            "20"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 177.1654764637351,
+          "user_seconds": 143.426867,
+          "system_seconds": 0.131162,
+          "max_rss_kib": 64072,
+          "slurm_job": "14538",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "repeat/coefficient-20.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/coefficient-3.partial",
+            "3"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 162.95784435421228,
+          "user_seconds": 146.17404,
+          "system_seconds": 0.11026699999999999,
+          "max_rss_kib": 64132,
+          "slurm_job": "14542",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "repeat/coefficient-3.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/coefficient-4.partial",
+            "4"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 162.8213734589517,
+          "user_seconds": 146.095405,
+          "system_seconds": 0.128003,
+          "max_rss_kib": 66868,
+          "slurm_job": "14543",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "repeat/coefficient-4.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/coefficient-5.partial",
+            "5"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 162.67621698603034,
+          "user_seconds": 146.158698,
+          "system_seconds": 0.125237,
+          "max_rss_kib": 68048,
+          "slurm_job": "14544",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "repeat/coefficient-5.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/coefficient-6.partial",
+            "6"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 162.9583867713809,
+          "user_seconds": 146.400467,
+          "system_seconds": 0.12418699999999999,
+          "max_rss_kib": 66848,
+          "slurm_job": "14545",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "repeat/coefficient-6.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/coefficient-7.partial",
+            "7"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 162.9138011224568,
+          "user_seconds": 146.114804,
+          "system_seconds": 0.127184,
+          "max_rss_kib": 64792,
+          "slurm_job": "14546",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "repeat/coefficient-7.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/coefficient-8.partial",
+            "8"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 160.5055876672268,
+          "user_seconds": 146.211979,
+          "system_seconds": 0.129163,
+          "max_rss_kib": 66684,
+          "slurm_job": "14555",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "repeat/coefficient-8.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "coefficient",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/coefficient-9.partial",
+            "9"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 160.45198810100555,
+          "user_seconds": 146.261235,
+          "system_seconds": 0.100302,
+          "max_rss_kib": 63732,
+          "slurm_job": "14556",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "repeat/coefficient-9.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+            "-B",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar/tests/bnv/produce_native_ba13_inputs.py",
+            "--source-root",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+            "--profiles",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/native-adapters.partial/chemical-profiles",
+            "--phase5-characterization",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/result.json"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 74.66222567111254,
+          "user_seconds": 50.979877,
+          "system_seconds": 1.2371699999999999,
+          "max_rss_kib": 121644,
+          "slurm_job": "14527",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "repeat/native-adapters.receipt.json"
+        },
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_frozen_sensitivity",
+            "stars",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/corrections/static-14487/characterization/run-_kg8zl8c/t8192-r80000",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/stars.partial"
+          ],
+          "cwd": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+          "exit_code": 0,
+          "wall_seconds": 270.5764190517366,
+          "user_seconds": 195.032555,
+          "system_seconds": 9.015549,
+          "max_rss_kib": 285260,
+          "slurm_job": "14524",
+          "node": "phyn002",
+          "executable_sha256": "4f8ca66f952736e36bf58f1b56409f19b0312ac0c06267536884b3d01f6cd0b4",
+          "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+          "receipt": "repeat/stars.receipt.json"
+        }
+      ],
+      "wall_seconds_sum": 3828.1261373870075,
+      "cpu_seconds_sum": 3336.748866999999,
+      "max_child_rss_kib": 285260,
+      "successes": 23,
+      "failures": 0
+    }
+  },
+  "extra": {
+    "build.log": {
+      "command": [
+        "cmake",
+        "--build",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release",
+        "--target",
+        "phase6a1_frozen_sensitivity",
+        "-j4"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 11.750885035842657,
+      "user_cpu_seconds": 8.968072,
+      "system_cpu_seconds": 0.715413,
+      "max_rss_kib": 348180,
+      "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+    },
+    "binding.log": {
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release/tests/phase6a1_ba13_profile_binding",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/native-adapters/chemical-profiles/target-0",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/native-adapters/chemical-profiles/target-0/certificate.txt",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/binding-work"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 236.6711959168315,
+      "user_cpu_seconds": 215.171287,
+      "system_cpu_seconds": 0.705402,
+      "max_rss_kib": 312900,
+      "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+    },
+    "build-attempt1.log": {
+      "command": [
+        "cmake",
+        "--build",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/build/CompactStar-Release",
+        "--target",
+        "phase6a1_frozen_sensitivity",
+        "-j4"
+      ],
+      "exit_code": 2,
+      "elapsed_seconds": 0.2685437686741352,
+      "user_cpu_seconds": 0.006842,
+      "system_cpu_seconds": 0.019384,
+      "max_rss_kib": 11520,
+      "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+    }
+  },
+  "note": "Sums of concurrently executed process wall times are not elapsed campaign time. Includes both native repeats, original refused adapter, and validation controls. No BNV trajectory. Peak RSS is maximum child, not simultaneous aggregate. Prior Phase-5C characterization was reused and is excluded from new-work totals."
+}

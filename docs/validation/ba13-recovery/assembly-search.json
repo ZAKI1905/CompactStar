@@ -1,0 +1,142 @@
+{
+  "history": {
+    "tests/bnv": {
+      "returncode": 0,
+      "paths": [
+        "tests/bnv/adr0017_production_qualification.cpp",
+        "tests/bnv/adr0017_production_verify.py",
+        "tests/bnv/analyze_obs32_forensics.py",
+        "tests/bnv/assess_breakpoint_qualification.py",
+        "tests/bnv/assess_breakpoint_supplement.py",
+        "tests/bnv/breakpoint_contract.cpp",
+        "tests/bnv/breakpoint_fixture.hpp",
+        "tests/bnv/breakpoint_qualification.cpp",
+        "tests/bnv/campaign_fixture.hpp",
+        "tests/bnv/check_obs32_reduction.py",
+        "tests/bnv/checked_evidence.hpp",
+        "tests/bnv/compare_candidate.py",
+        "tests/bnv/controlled_campaign.cpp",
+        "tests/bnv/controlled_campaign_failure_audit.py",
+        "tests/bnv/controlled_campaign_verify.py",
+        "tests/bnv/controlled_neutron_sink_fixture.hpp",
+        "tests/bnv/coupled_trajectory.cpp",
+        "tests/bnv/currentness_bytes.cpp",
+        "tests/bnv/direct_energy.cpp",
+        "tests/bnv/energy_partition_fixtures.hpp",
+        "tests/bnv/frozen_certificate_fixture.hpp",
+        "tests/bnv/frozen_monitor.cpp",
+        "tests/bnv/frozen_sensitivity.cpp",
+        "tests/bnv/matched_control.cpp",
+        "tests/bnv/obs32_boundary_audit.cpp",
+        "tests/bnv/obs32_forensics.cpp",
+        "tests/bnv/ode_refinement.cpp",
+        "tests/bnv/passive_checkpoint_output_contract.cpp",
+        "tests/bnv/produce_candidate.py",
+        "tests/bnv/produce_frozen_certificates.py",
+        "tests/bnv/qss_beta_bounds.cpp",
+        "tests/bnv/readiness_edge_probe.cpp",
+        "tests/bnv/readiness_environment.py",
+        "tests/bnv/readiness_linear_probe.cpp",
+        "tests/bnv/readiness_stability.py",
+        "tests/bnv/readiness_summary.py",
+        "tests/bnv/run_breakpoint_qualification.py",
+        "tests/bnv/run_controlled_campaign.py",
+        "tests/bnv/source_projection.cpp",
+        "tests/bnv/thermal_ledger.cpp",
+        "tests/bnv/verify_readiness_evidence.py"
+      ],
+      "stderr": ""
+    },
+    "*frozen*": {
+      "returncode": 0,
+      "paths": [
+        "docs/validation/linux-transition/evidence/linux-transition-20261010/toolchain/logs/frozen-monitor-authenticated.log.gz",
+        "docs/validation/linux-transition/evidence/linux-transition-20261010/toolchain/logs/frozen-profile-differences.json.gz",
+        "tests/bnv/frozen_certificate_fixture.hpp",
+        "tests/bnv/frozen_monitor.cpp",
+        "tests/bnv/frozen_sensitivity.cpp",
+        "tests/bnv/produce_frozen_certificates.py"
+      ],
+      "stderr": ""
+    },
+    "*sensitivity*": {
+      "returncode": 0,
+      "paths": [
+        "tests/bnv/frozen_sensitivity.cpp"
+      ],
+      "stderr": ""
+    },
+    "*fit*": {
+      "returncode": 0,
+      "paths": [],
+      "stderr": ""
+    },
+    "*target_stars*": {
+      "returncode": 0,
+      "paths": [],
+      "stderr": ""
+    },
+    "*tangent.tsv*": {
+      "returncode": 0,
+      "paths": [],
+      "stderr": ""
+    },
+    "*profile_metrics*": {
+      "returncode": 0,
+      "paths": [],
+      "stderr": ""
+    },
+    "*thermal_surface*": {
+      "returncode": 0,
+      "paths": [],
+      "stderr": ""
+    }
+  },
+  "archives": {
+    "/mnt/sdd/zaki/CompactStar/PHASE6_EKU_CLUSTER_PREFLIGHT_TRANSFER.zip": {
+      "sha256": "49718055eeacc2b81cb25a29a69a782985ab52436702760553ee336cc04760e6",
+      "matches": []
+    },
+    "/mnt/sdd/zaki/CompactStar/incoming/CompactStar-EKU-20261010-20261010T203856Z-1-001.zip": {
+      "sha256": "5c24305b0e20a82c6f0bbedc45766d2d33059f0f002eefb9801add1c7aee37a3",
+      "matches": [
+        "CompactStar-EKU-20261010/verification/sources/CompactStar/tests/bnv/frozen_monitor.cpp",
+        "CompactStar-EKU-20261010/verification/sources/CompactStar/tests/bnv/frozen_certificate_fixture.hpp",
+        "CompactStar-EKU-20261010/verification/sources/CompactStar/docs/validation/PHASE5D1_FROZEN_CONTEXT_PROVENANCE_PLAN.md",
+        "CompactStar-EKU-20261010/verification/sources/CompactStar/CompactStar/Physics/BNV/FrozenControlledBnvRunContext.hpp",
+        "CompactStar-EKU-20261010/verification/sources/CompactStar/CompactStar/Physics/BNV/FrozenBnvValidity.hpp",
+        "CompactStar-EKU-20261010/verification/sources/CompactStar/CompactStar/Physics/Rotochemical/FrozenThermalSource.hpp",
+        "CompactStar-EKU-20261010/verification/sources/CompactStar/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp",
+        "CompactStar-EKU-20261010/verification/sources/CompactStar/CompactStar/Physics/Rotochemical/FrozenSource.hpp",
+        "CompactStar-EKU-20261010/verification/sources/CompactStar/CompactStar/Physics/BNV/src/FrozenBnvValidity.cpp",
+        "CompactStar-EKU-20261010/verification/sources/CompactStar/CompactStar/Physics/BNV/src/FrozenControlledBnvRunContext.cpp",
+        "CompactStar-EKU-20261010/CompactStar-EKU-handoff-20261010/scientific/phase6/frozen.tsv",
+        "CompactStar-EKU-20261010/verification/unpacked/CompactStar-EKU-handoff-20261010/scientific/phase6/frozen.tsv",
+        "CompactStar-EKU-20261010/verification/sources/CONFIND/docs/modernization/evidence/frozen-source-audit.tsv"
+      ]
+    },
+    "/mnt/sdd/zaki/CompactStar/incoming/CompactStar-EKU-handoff-20261010.zip": {
+      "sha256": "da21bd7d745ca03a145176e632da15b2a4a6ad6b4ce8b95f888de138be65e737",
+      "matches": [
+        "CompactStar-EKU-handoff-20261010/scientific/phase6/frozen.tsv"
+      ]
+    },
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/mac-confirmation-44d51e5.zip": {
+      "sha256": "ac3da77249632d7b5919f83aec133da1493430dde85da0be5a25bbe1c04f577f",
+      "matches": []
+    },
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/mac-confirmation-556fe30.zip": {
+      "sha256": "956a55843765c3b1140fef5cc593403f096c09ef53d5d1c58b784350cfb53cfb",
+      "matches": []
+    },
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/mac-confirmation-final-20261012.zip": {
+      "sha256": "ef026fd775d98df4182ccd5193954fde7e9e63c7a023728c7b31cb6c6c3e247a",
+      "matches": []
+    },
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/correction-handoff-final-20261012.zip": {
+      "sha256": "57446d708750579192ec65f5c1b1dfc8060b3749627b6f163c00b167012212ee",
+      "matches": []
+    }
+  },
+  "scope": "fetched commits and local refs; local archives. Office Mac scratch unavailable. Omitted partial-clone objects limit broad traversal."
+}

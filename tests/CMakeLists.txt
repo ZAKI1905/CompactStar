@@ -117,6 +117,12 @@ add_test(NAME passive_checkpoint_output_contract COMMAND passive_checkpoint_outp
 set_tests_properties(passive_checkpoint_output_contract PROPERTIES
     LABELS "phase6;bnv;adr0017;self-contained;contract")
 # Phase-6 resumed campaign: recovered independent physics and refusal checks.
+# Recovered BA13 static validation producer; never registered as a trajectory.
+add_executable(phase6a1_frozen_sensitivity bnv/frozen_sensitivity.cpp)
+target_link_libraries(phase6a1_frozen_sensitivity PRIVATE CompactStar)
+add_executable(phase6a1_ba13_profile_binding bnv/ba13_profile_binding.cpp)
+target_link_libraries(phase6a1_ba13_profile_binding PRIVATE CompactStar)
+
 foreach(test source_projection direct_energy thermal_ledger matched_control frozen_monitor)
     add_executable(phase6a1_${test} bnv/${test}.cpp)
     target_link_libraries(phase6a1_${test} PRIVATE CompactStar)

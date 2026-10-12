@@ -1,0 +1,20 @@
+{
+  "characterization_sha256": "d70bc57a15fe2b1aaf242c9976d609ec9b7219f8f4377685744a55f79c62bb93",
+  "characterization_input_checks": {
+    "t4096-r40000/profile.tsv": true,
+    "t8192-r40000/profile.tsv": true,
+    "t8192-r80000/profile.tsv": true,
+    "t4096-r40000/freegas.tsv": true,
+    "t8192-r40000/freegas.tsv": true,
+    "t8192-r80000/freegas.tsv": true
+  },
+  "prior_production_refinement": true,
+  "prior_exact_repeat": true,
+  "prior_native_coefficient_sha256": "52c52989d66c2547cdd9409d7f654c8518515b0e77fe887f58a292e934188eb1",
+  "validation_sha256": "907041723d64531544ea8f90128abadc9ac7688ceca60cc5b14956dea8402ee5",
+  "mac_evidence": {
+    "frozen.tsv": "9217e278eb0a4b06b193a2a02f4d59f285d74e4033427b87ccd51181c3f7beab",
+    "coefficients.tsv": "3efa060d99a7a92266679aadb31885abbed9c940404247f1d3009cafa94832d6"
+  },
+  "mode_note": "Characterization Debug; BA13 regenerated with Release; EOS reused exactly, profiles generated fresh; inherited tail witness replaced by same-cut native witness"
+}

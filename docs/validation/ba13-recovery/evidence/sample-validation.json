@@ -1,0 +1,56 @@
+{
+  "status": "PASS_STATIC_SAMPLE_INTEGRITY",
+  "errors": [],
+  "sample_count": 21,
+  "quantities_expected": 22,
+  "thermal_knots": 13,
+  "profile_nodes": 2049,
+  "max_target_residual_over_B0": 5.3752496879551676e-15,
+  "max_bracket_width_over_B0": 4.88350583511898e-11,
+  "target_bound": 5e-11,
+  "fit_indices": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "achieved_B_strictly_decreasing": true,
+  "files": {
+    "target_stars.tsv": {
+      "sha256": "6b230c55949991664cb78b436907c7758de8b38ebfc645badd8206857acbfa51",
+      "repeat_sha256": "6b230c55949991664cb78b436907c7758de8b38ebfc645badd8206857acbfa51",
+      "exact": true
+    },
+    "tangent.tsv": {
+      "sha256": "871fddddb4e6470552e9efc1a8b2f6f3dbe000d9b48572369aa29e8360f1aa5c",
+      "repeat_sha256": "871fddddb4e6470552e9efc1a8b2f6f3dbe000d9b48572369aa29e8360f1aa5c",
+      "exact": true
+    },
+    "coefficients.tsv": {
+      "sha256": "ec3942227c98532af4802db4bdd229603715556af9d44929082368b3afc7d831",
+      "repeat_sha256": "ec3942227c98532af4802db4bdd229603715556af9d44929082368b3afc7d831",
+      "exact": true
+    },
+    "thermal_surface.tsv": {
+      "sha256": "8f021020da3b3dd63aab6f91ce5da68cd3ac8f528ec8f35508dac3b43d67d6fc",
+      "repeat_sha256": "8f021020da3b3dd63aab6f91ce5da68cd3ac8f528ec8f35508dac3b43d67d6fc",
+      "exact": true
+    },
+    "profile_metrics.tsv": {
+      "sha256": "0b18ae24515aea54353359cd001bb2caa4711a65640daa7c9b8116187f253bc5",
+      "repeat_sha256": "0b18ae24515aea54353359cd001bb2caa4711a65640daa7c9b8116187f253bc5",
+      "exact": true
+    }
+  },
+  "profile_adapter_files": 231,
+  "exact_profiles": true,
+  "frozen_certificate_qualified": false,
+  "limitation": "Input integrity and sampled support only; final historical fit and complete uncertainty audit are separate"
+}

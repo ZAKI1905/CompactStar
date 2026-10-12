@@ -1,0 +1,9 @@
+{
+  "status": "NOT_SELECTED_NOT_EXECUTED_PENDING_HISTORICAL_ARCHIVE_AUDIT",
+  "location": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/provisional-fit-not-used",
+  "files": {
+    "assemble_ba13_candidate.py": "77336c262db881dfaf6d66e0630f4d1dc2f8cff1d2af6d4c7ce32faf0166dabe",
+    "refit_ba13_independent.py": "f8bb40f867f8daa0946b686f9330a495092cbc991c1f1ca1e9ba1b0dce945eb5",
+    "FIT_CONTRACT.md": "9313b414f74ae9dc8c88d0bdb1e34be8bf07dd0ec68dc611353e25977f408085"
+  }
+}

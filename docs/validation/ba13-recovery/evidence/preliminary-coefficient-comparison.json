@@ -1,0 +1,63 @@
+{
+  "status": "DIAGNOSTIC_ONLY_NOT_PLATFORM_QUALIFICATION",
+  "fields": {
+    "Z00": {
+      "max_absolute": 5.0422021110907134e-68,
+      "max_relative": 1.1010850149294831e-14,
+      "worst_index": 0
+    },
+    "Z01": {
+      "max_absolute": 8.258779319889962e-69,
+      "max_relative": 1.5966632022036663e-14,
+      "worst_index": 16
+    },
+    "Z10": {
+      "max_absolute": 8.258779319889962e-69,
+      "max_relative": 1.596663202203666e-14,
+      "worst_index": 16
+    },
+    "Z11": {
+      "max_absolute": 1.5485935679119984e-65,
+      "max_relative": 1.5080331755793845e-13,
+      "worst_index": 13
+    },
+    "Ltilde_Me": {
+      "max_absolute": 4.050628373438924e-46,
+      "max_relative": 2.2343242577732242e-14,
+      "worst_index": 0
+    },
+    "Ltilde_Mmu": {
+      "max_absolute": 9.083123590777318e-47,
+      "max_relative": 9.221134066721558e-14,
+      "worst_index": 13
+    },
+    "mu_B_inf": {
+      "max_absolute": 5.468336894409731e-11,
+      "max_relative": 6.296767436976802e-14,
+      "worst_index": 18
+    },
+    "P0_inf": {
+      "max_absolute": 5.468336894409731e-11,
+      "max_relative": 6.296767436976802e-14,
+      "worst_index": 18
+    },
+    "P1_inf": {
+      "max_absolute": 5.934452929068357e-11,
+      "max_relative": 7.013183961097444e-14,
+      "worst_index": 18
+    },
+    "P2_inf": {
+      "max_absolute": 0.0,
+      "max_relative": 0.0,
+      "worst_index": 0
+    },
+    "neutron_measure": {
+      "max_absolute": 2.6133685779528074e+43,
+      "max_relative": 4.0001708573814035e-14,
+      "worst_index": 5
+    }
+  },
+  "mac_sha256": "3efa060d99a7a92266679aadb31885abbed9c940404247f1d3009cafa94832d6",
+  "native_sha256": "ec3942227c98532af4802db4bdd229603715556af9d44929082368b3afc7d831",
+  "note": "Raw pointwise comparison; achieved abscissae and validated independent uncertainty analysis still required; zero quadrature differences do not establish zero true error."
+}
