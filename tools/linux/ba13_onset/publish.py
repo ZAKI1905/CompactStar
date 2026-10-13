@@ -9,6 +9,7 @@ def sha(p):
  return h.hexdigest()
 # Fail closed on protected owner/fitter/certificate drift.
 subprocess.run(['python3','-B',str(Path(__file__).parent/'authenticate.py')],check=True,cwd=S)
+assert (DOC/'authentication.json').read_bytes()==subprocess.check_output(['git','show','8bb72e2:docs/validation/ba13-onset-pilot/evidence/authentication.json'],cwd=S), 'initial authentication identities changed'
 for name,commit in [('PREDECLARATION.md','8bb72e2'),('evidence/predictions.json','e657efb'),('evidence/eos-predictions.json','650871e')]:
  current=S/'docs/validation/ba13-onset-pilot'/name
  original=subprocess.check_output(['git','show',commit+':docs/validation/ba13-onset-pilot/'+name],cwd=S)
@@ -17,22 +18,22 @@ verified=[]
 for p in (OUT/'runs').glob('*/COMPLETE.json'):
  for n,h in json.loads(p.read_text())['files'].items():assert sha(p.parent/n)==h,(p,n)
  verified.append(p.parent.name)
-resources=json.loads((OUT/'resources.json').read_text());score=json.loads((OUT/'score-resource.json').read_text());total=resources['total_cpu']+score['cpu_seconds']
+resources=json.loads((OUT/'resources.json').read_text());score=json.loads((OUT/'score-resource.json').read_text());total=resources['total_cpu']+score['cpu_seconds']+sum(json.loads((OUT/n).read_text())['cpu_seconds'] for n in ['diagnosis-resource.json','geometry-resource.json'])
 assert total<=3600, 'numerical resource ceiling exceeded'
 # Build is reported separately, including all build wrapper records.
 build=[]
 for p in OUT.glob('build-*.log'):
  for line in p.read_text().splitlines():
   if line.startswith('RESOURCE_USAGE_JSON '):build.append(json.loads(line[len('RESOURCE_USAGE_JSON '):]))
-record=dict(numerical_cpu_seconds_including_conservative_startup_charge=total,build_cpu_seconds=sum(v['user_cpu_seconds']+v['system_cpu_seconds'] for v in build),ceiling_seconds=3600,completed_new_stars=len(verified),numerical_job_ids=['14687','14689','14690','14691'],failed_setup_job='14686 (no numerical work)',note='Publication/authentication hashing is I/O bookkeeping, not numerical work; no Slurm accounting database. Process receipts and conservative sequential wall guard retained.')
+record=dict(numerical_cpu_seconds_including_conservative_startup_charge=total,build_cpu_seconds=sum(v['user_cpu_seconds']+v['system_cpu_seconds'] for v in build),ceiling_seconds=3600,completed_new_stars=len(verified),max_numerical_child_rss_kib=max(v.get('max_rss_kib',0) for v in resources['records']),numerical_job_ids=['14687','14689','14690','14691','14693','14695'],failed_setup_job='14686 (no numerical work)',note='Publication/authentication hashing is I/O bookkeeping, not numerical work; no Slurm accounting database. Process receipts and conservative sequential wall guard retained.')
 (OUT/'resource-summary.json').write_text(json.dumps(record,indent=2)+'\n')
 files={str(p.relative_to(OUT)):dict(sha256=sha(p),bytes=p.stat().st_size) for p in sorted(OUT.rglob('*')) if p.is_file() and p.name!='PILOT_COMPLETE.json'}
 source={str(p.relative_to(S)):sha(p) for folder in [S/'tools/linux/ba13_onset',S/'docs/validation/ba13-onset-pilot'] for p in sorted(folder.rglob('*')) if p.is_file() and 'evidence' not in p.parts}
 source.update({str(p.relative_to(S)):sha(p) for p in (S/'tests/bnv').glob('onset*')})
 protected={name:sha(S/name) for name in ['tests/eos/structure1/table.hpp','tests/bnv/compare_candidate.py','tests/bnv/frozen_sensitivity.cpp','CompactStar/EOS/src/TrackRFreeGasThermodynamics.cpp','CompactStar/Core/src/TOVSolver.cpp','CompactStar/Core/src/NStar.cpp','CompactStar/Physics/Evolution/src/StarContext.cpp','CompactStar/Physics/Driver/Thermal/Boundary/src/TbDefinition.cpp']}
-manifest=dict(status='VALIDATION_ONLY_NOT_QUALIFIED',entry='4f3cf97462ca030f715e26808938f781a2a40945',source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=S,text=True).strip(),predeclaration_commit='8bb72e2',radial_prediction_commit='e657efb',final_blind_gate_commit='650871e',root=str(OUT),files=files,source_files=source,protected=protected,completed_cases=verified,resources=record)
+manifest=dict(status='VALIDATION_ONLY_NOT_QUALIFIED',scoring_status=json.loads((OUT/'scores.json').read_text())['status'],entry='4f3cf97462ca030f715e26808938f781a2a40945',source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=S,text=True).strip(),predeclaration_commit='8bb72e2',radial_prediction_commit='e657efb',final_blind_gate_commit='650871e',root=str(OUT),files=files,source_files=source,protected=protected,completed_cases=verified,resources=record)
 (OUT/'PILOT_COMPLETE.json').write_text(json.dumps(manifest,indent=2)+'\n')
-for name in ['scores.json','high-precision.json','resource-summary.json','constants.json']:(DOC/name).write_bytes((OUT/name).read_bytes())
+for name in ['scores.json','high-precision.json','resource-summary.json','constants.json','diagnosis.json','geometry-diagnostic.json']:(DOC/name).write_bytes((OUT/name).read_bytes())
 for name in ['metrics.json','discovery.json','resources.json','PILOT_COMPLETE.json']:
  with (DOC/(name+'.gz')).open('wb') as stream:
   with gzip.GzipFile(filename='',mode='wb',fileobj=stream,mtime=0) as g:g.write((OUT/name).read_bytes())

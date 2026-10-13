@@ -44,3 +44,10 @@ owner stars/thermal output and per-case COMPLETE hashes; `analysis/` reconstruct
 outputs; discovery.json; high-precision.json; oracle logs; resources.json;
 scores.json; metrics.json. Partial/refused outputs remain in place. Compact Git
 evidence references the external manifest; large profiles and tables stay outside Git.
+
+Scoring job14691 returned FAIL under unchanged rules. Post-outcome jobs14693
+(diagnose.py) and14695 (geometry_diagnostic.py) analyzed only already-declared
+profiles; neither adds a case nor changes a score. Their CPU is included in the
+resource summary. The geometry subtraction is explicitly post-hoc discovery,
+not a new production implementation or repaired holdout result. A prospective
+successor must use new withheld data and its own predeclaration.
