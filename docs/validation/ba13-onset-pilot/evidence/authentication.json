@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "source_entry": "4f3cf97462ca030f715e26808938f781a2a40945",
+  "review": {
+    "cstar_nu.py": "72b4b32060323471a0e3df1a7b901be148409430fbd820b9762b118a662124fc",
+    "edge_analysis.py": "e3eccfc7dd7e08ed930242c3692ac24a060b34cba7197b109d2dc247e526977d",
+    "edge_coordinates.py": "7041a529d506f6465b8ad88843e289848b7a90de015fd2f40e2e1854b1f05071",
+    "eos_pairs.py": "830a00194a5f63632038592899f73011d897115a50d77056cad0e83c6859354d",
+    "tb_snap.py": "ccdf01f4714ec7ebe1c51a89c02f596fd08eccff1a6dfc556efa772e4d609931",
+    "z_radial.py": "a9d3a15863c45a37384173197ae5ea8d5fec6608c33bb44e3c92553d3ed6e18e",
+    "cstar_nu.json": "f0c89249b6eeca561b398adf8c60016f6ec62443cad7b3bef4751e0a11c3fdb7",
+    "edge_analysis.json": "fd02f6c03b2966dcfd95b12a31eb4b546357689a0161f36b70f8e95cc6c1e3d9",
+    "edge_coordinates.json": "426947ec51584610614f5169ca6be7a0408ee436809adc3376b418f6bd9a6ab4",
+    "z_radial.json": "25480ca5b7810f3e1ee717b9399344eda7dfc16164b514232777e2cd9b7c9c37",
+    "BA13_INDEPENDENT_REVIEW.md": "09fb5e8b12104ab78d420122f647575ff05cee23c75df01ec1521622128f2411"
+  },
+  "review_manifest": "f2512b2cbb0fda43d2c0bedb88c9a306915e0920fd095cc1384f197ff18bea4b",
+  "study_manifest": "b68c7a675c8bb2df0de24b37092767c75f0c1104e0ec01fc8aeafcbb642c4845",
+  "verified_study_files": 1022,
+  "study_source_commit": "dcd14d28b6efc8a22f93c9909281072bb47f507a",
+  "fitter": "9b3ef1ce17df7e1f8d2d7c40e111ee0844abfddc2cc54b8f93cb3f2ce1322370",
+  "protected_paths": [
+    "CompactStar",
+    "cmake",
+    "tests/eos",
+    "tests/analysis",
+    "tests/bnv/compare_candidate.py",
+    "tests/bnv/frozen_sensitivity.cpp",
+    "tests/bnv/produce_frozen_certificates.py"
+  ],
+  "certificate": "4212cad05bb4244ab75e80b8dfea023e6d0fcee69086c9993bd48d26a40e41fb",
+  "dependencies": {
+    "Zaki": "6b1666a347d6afe3975f1516e4e74b95f22940d5",
+    "CONFIND": "351703ca2b675b98b36bd1efdd1738b9158b4873"
+  },
+  "dependency_lock": "7e59a8e4d0d59033d1f99e9e54ff4f351a14de29fbdc10c3e7358576f9010fd9"
+}
