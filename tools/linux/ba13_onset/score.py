@@ -64,6 +64,13 @@ for i in [10,20]:
   a,b=d.get(f'0:{c}'),d.get(f'{i}:{c}')
   if a and b and a['ib']==b['ib']:v.append(b['Tb_node_factor']/a['Tb_node_factor']-1)
  add('P7-Tb-shared-target-node',str(i),max(v)-min(v) if len(v)>1 else None,1e-10,reason=f'{len(v)} phases with reference and target on same index')
+for i in [10,20]:
+ groups={}
+ for c in phases:
+  a,b=d.get(f'0:{c}'),d.get(f'{i}:{c}')
+  if a and b:groups.setdefault((a['ib'],b['ib']),[]).append(b['Tb_node_factor']/a['Tb_node_factor']-1)
+ repeats=[v for v in groups.values() if len(v)>1]
+ add('P7-Tb-literal-index-groups',str(i),max(max(v)-min(v) for v in repeats) if repeats else None,1e-10,reason='Literal predeclared identical index tuple across grids; absence is not a PASS')
 # Preregistered EOS availability and independent physical cross-check completion.
 for n,cap in [(2048,11),(4096,11),(8192,11),(16384,11),(32768,11),(65536,11),(32768,12)]:
  p=OUT/f'table-{n}-{cap}.log'
@@ -79,9 +86,9 @@ for key,o in d.items():
  i,case=key.split(':');base=d.get(f'0:{case}')
  therm=[]
  for j,t in enumerate(o['thermal']):
-  row=dict(t,absolute_cache_bias=o['cache_factor'][j]-1,absolute_C_spatial=t['C_decache']/t['C_nu']-1,absolute_Tb=t['Tb_node']/t['Tb_nu']-1,absolute_Ts=t['Ts_prod']/t['Ts_nu']-1)
+  row=dict(t,Ts_inf_prod=t['Ts_prod']*float(np.exp(o['star']['nu_surface'])),absolute_cache_bias=o['cache_factor'][j]-1,absolute_C_spatial=t['C_decache']/t['C_nu']-1,absolute_Tb=t['Tb_node']/t['Tb_nu']-1,absolute_Ts=t['Ts_prod']/t['Ts_nu']-1)
   if base:
-   b=base['thermal'][j];row.update(paired_C_prod=t['C_prod']/b['C_prod']-1,paired_C_nu=t['C_nu']/b['C_nu']-1,paired_C_error=t['C_prod']/b['C_prod']-t['C_nu']/b['C_nu'],paired_Tb_error=t['Tb_node']/b['Tb_node']-t['Tb_nu']/b['Tb_nu'],paired_Ts_error=t['Ts_prod']/b['Ts_prod']-t['Ts_nu']/b['Ts_nu'])
+   b=base['thermal'][j];row.update(paired_C_prod=t['C_prod']/b['C_prod']-1,paired_C_nu=t['C_nu']/b['C_nu']-1,paired_C_error=t['C_prod']/b['C_prod']-t['C_nu']/b['C_nu'],paired_Tb_error=t['Tb_node']/b['Tb_node']-t['Tb_nu']/b['Tb_nu'],paired_Ts_error=t['Ts_prod']/b['Ts_prod']-t['Ts_nu']/b['Ts_nu'],paired_Ts_inf_error=(t['Ts_prod']/b['Ts_prod'])*float(np.exp(o['star']['nu_surface']-base['star']['nu_surface']))-t['Ts_inf_nu']/b['Ts_inf_nu'])
   therm.append(row)
  metrics['thermal'][key]=therm
  metrics['onset'][key]={k:o[k] for k in ['r_nu','r_nb','mu_constancy','enthalpy_mu_disagreement','metric_secant_max','rb','rb_logeps','rb_pressure','r_on_pressure','cache_law_residual','nodal_vs_decache','Ts_node_reproduction']}
