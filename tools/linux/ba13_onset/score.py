@@ -72,7 +72,7 @@ hp=json.loads((OUT/'high-precision.json').read_text())
 for j,row in enumerate(hp['pairs']):
  add('HP-order',f'{row["case"]}:{j}',0. if row['high_precision_order'] and row['rounded_order'] else 1.,0.)
 # Full all-knot accounting and reconstruction separations.
-metrics={'discovery_reproduction':{},'thermal':{},'onset':{},'oracle':{},'tangents':{},'conditional_estimates':{}}
+metrics={'withheld_ratios':{},'discovery_reproduction':{},'thermal':{},'onset':{},'oracle':{},'tangents':{},'conditional_estimates':{}}
 rev=json.loads((R/'ba13-uncertainty-independent-review-20261012/edge_coordinates.json').read_text());cv=json.loads((R/'ba13-uncertainty-independent-review-20261012/cstar_nu.json').read_text())
 metrics['discovery_reproduction']={'L_relative_max':max(abs(d[k]['L_nu']/v['L_nu']-1) for k,v in rev.items()),'C_relative_max':max(abs(d[k]['C_nu']/v['nu_slope']-1) for k,v in cv.items())}
 for key,o in d.items():
@@ -108,6 +108,11 @@ for i in [10,20]:
  if f'{i}:r640000' in d:
   r640=paired(i,'r640000','N_mu');r320=paired(i,'r320000','N_mu');dx=abs(d[f'{i}:nominal']['star']['B_target']/d['0:nominal']['star']['B_target']-1)
   metrics['tangents'][str(i)]={'paired_Nmu_radial_increment':r640-r320,'increment_per_B_fraction':(r640-r320)/dx,'status':'secant structure sensitivity only; no full tangent bound'}
+for key,p in pred['absolute'].items():
+ i,k=key.split(':');v=get(int(i),'r640000',k);last=p['increments'][-1]
+ if v is not None and last:
+  q=(v-p['discovery'][-1])/last
+  metrics['withheld_ratios'][key]={'ratio':q,'effective_order':float(-np.log2(abs(q))) if q else None}
 for k,p in pred['absolute'].items():metrics['conditional_estimates'][k]={'at320_relative':p['conditional_tail']/abs(p['discovery'][-1]) if p['conditional_tail'] is not None else None,'at640_relative':p['q']*p['conditional_tail']/abs(p['discovery'][-1]) if p['conditional_tail'] is not None else None,'eligible':p['eligible'],'condition':'future increments contract by frozen q; excludes common EOS/solver errors'}
 for i in [0,10,20]:
  for tol in ['2e-10','2e-12']:
