@@ -20,7 +20,8 @@ struct Oracle:structure1::EnthalpyOracle {
  gsl_odeiv2_system sys={rhs7,nullptr,6,this};auto*d=gsl_odeiv2_driver_alloc_y_new(&sys,gsl_odeiv2_step_rkf45,delta,tol*1e-5,tol);
  double hn=std::log(eos.masses[0]/h0);double hp=std::sqrt(eos.masses[3]*eos.masses[3]-eos.masses[2]*eos.masses[2]);
  double hm=std::log((std::hypot(eos.masses[1],hp)+eos.masses[3])/h0);
- double hb=H_for_rho(1e10),rn=0,rb=0;
+ double ba=0,bb=.3;for(int k=0;k<70;++k){double mid=(ba+bb)/2;if(at_H(mid).e*1.602176634e33/(c*c)<1e10)ba=mid;else bb=mid;}
+ double hb=(ba+bb)/2,rn=0,rb=0;
  for(double h:{hm,hb,hn,hs}){ // actual ordering hb > hn is checked below
   if(!(h<Hc&&h>=hs))continue;
   if(Hc-h<x)throw std::runtime_error("oracle boundary ordering");
