@@ -1,0 +1,3019 @@
+{
+  "status": "FAIL",
+  "counts": {
+    "PASS": 171,
+    "INCONCLUSIVE": 8,
+    "FAIL": 14
+  },
+  "by_rule": {
+    "HP-order": {
+      "PASS": 32
+    },
+    "P1": {
+      "PASS": 18
+    },
+    "P2-next": {
+      "INCONCLUSIVE": 4
+    },
+    "P2-tail": {
+      "INCONCLUSIVE": 4
+    },
+    "P3-L": {
+      "PASS": 14
+    },
+    "P3-Tb": {
+      "PASS": 14
+    },
+    "P4-secondary": {
+      "PASS": 20
+    },
+    "P5-16384": {
+      "PASS": 9
+    },
+    "P5-32768-holdout": {
+      "PASS": 7,
+      "FAIL": 2
+    },
+    "P5-65536-consistency": {
+      "PASS": 6,
+      "FAIL": 3
+    },
+    "P5-depth": {
+      "PASS": 18
+    },
+    "P5-order-and-identity": {
+      "PASS": 7
+    },
+    "P6": {
+      "PASS": 6
+    },
+    "P7-Tb-literal-index-groups": {
+      "PASS": 2
+    },
+    "P7-Tb-shared-target-node": {
+      "PASS": 2
+    },
+    "P7-absolute": {
+      "FAIL": 6,
+      "PASS": 3
+    },
+    "P7-paired": {
+      "FAIL": 3,
+      "PASS": 3
+    },
+    "independent-oracle-completion": {
+      "PASS": 6
+    },
+    "paired-stability-only": {
+      "PASS": 4
+    }
+  },
+  "scores": [
+    {
+      "rule": "P1",
+      "key": "0:L_nu",
+      "status": "PASS",
+      "observed": 1.453265836827188e-41,
+      "band": 3.202664302240945e-41,
+      "reason": null
+    },
+    {
+      "rule": "P1",
+      "key": "0:r_nu",
+      "status": "PASS",
+      "observed": 6.458009238485829e-09,
+      "band": 1.3735013437998632e-08,
+      "reason": null
+    },
+    {
+      "rule": "P1",
+      "key": "0:C_nu",
+      "status": "PASS",
+      "observed": 8.17963749046376e+20,
+      "band": 1.642552226671253e+21,
+      "reason": null
+    },
+    {
+      "rule": "P1",
+      "key": "0:Z00",
+      "status": "PASS",
+      "observed": 3.72995510215629e-63,
+      "band": 7.480562421294268e-63,
+      "reason": null
+    },
+    {
+      "rule": "P1",
+      "key": "0:Z01",
+      "status": "PASS",
+      "observed": 1.8689545155478353e-64,
+      "band": 3.753313586665903e-64,
+      "reason": null
+    },
+    {
+      "rule": "P1",
+      "key": "0:Z11",
+      "status": "PASS",
+      "observed": 1.5158588036004905e-60,
+      "band": 3.041724405076727e-60,
+      "reason": null
+    },
+    {
+      "rule": "P1",
+      "key": "10:L_nu",
+      "status": "PASS",
+      "observed": 1.495196135387726e-41,
+      "band": 3.2136049591232805e-41,
+      "reason": null
+    },
+    {
+      "rule": "P1",
+      "key": "10:r_nu",
+      "status": "PASS",
+      "observed": 6.578799727208207e-09,
+      "band": 1.3764131751872178e-08,
+      "reason": null
+    },
+    {
+      "rule": "P1",
+      "key": "10:C_nu",
+      "status": "PASS",
+      "observed": 8.180389028651577e+20,
+      "band": 1.6404509448650133e+21,
+      "reason": null
+    },
+    {
+      "rule": "P1",
+      "key": "10:Z00",
+      "status": "PASS",
+      "observed": 3.7313385201378044e-63,
+      "band": 7.48965916054035e-63,
+      "reason": null
+    },
+    {
+      "rule": "P1",
+      "key": "10:Z01",
+      "status": "PASS",
+      "observed": 1.869867327998981e-64,
+      "band": 3.7623385898361763e-64,
+      "reason": null
+    },
+    {
+      "rule": "P1",
+      "key": "10:Z11",
+      "status": "PASS",
+      "observed": 1.516178889545264e-60,
+      "band": 3.042526856529848e-60,
+      "reason": null
+    },
+    {
+      "rule": "P1",
+      "key": "20:L_nu",
+      "status": "PASS",
+      "observed": 1.5065392632888866e-41,
+      "band": 3.2314412246579303e-41,
+      "reason": null
+    },
+    {
+      "rule": "P1",
+      "key": "20:r_nu",
+      "status": "PASS",
+      "observed": 6.6119607566861305e-09,
+      "band": 1.3811458673713225e-08,
+      "reason": null
+    },
+    {
+      "rule": "P1",
+      "key": "20:C_nu",
+      "status": "PASS",
+      "observed": 8.180448138396686e+20,
+      "band": 1.6426989647574815e+21,
+      "reason": null
+    },
+    {
+      "rule": "P1",
+      "key": "20:Z00",
+      "status": "PASS",
+      "observed": 3.7332249992035056e-63,
+      "band": 7.482563312963324e-63,
+      "reason": null
+    },
+    {
+      "rule": "P1",
+      "key": "20:Z01",
+      "status": "PASS",
+      "observed": 1.8711061448969645e-64,
+      "band": 3.754233181363457e-64,
+      "reason": null
+    },
+    {
+      "rule": "P1",
+      "key": "20:Z11",
+      "status": "PASS",
+      "observed": 1.5165286862313046e-60,
+      "band": 3.042159551367791e-60,
+      "reason": null
+    },
+    {
+      "rule": "P2-next",
+      "key": "10:L_nu",
+      "status": "INCONCLUSIVE",
+      "observed": 2.3130164450435586e-11,
+      "band": 1e-07,
+      "reason": "paired order eligibility is separate from stability"
+    },
+    {
+      "rule": "P2-tail",
+      "key": "10:L_nu",
+      "status": "INCONCLUSIVE",
+      "observed": null,
+      "band": 1e-07,
+      "reason": null
+    },
+    {
+      "rule": "paired-stability-only",
+      "key": "10:L_nu",
+      "status": "PASS",
+      "observed": 2.3130164450435586e-11,
+      "band": 1e-07,
+      "reason": null
+    },
+    {
+      "rule": "P2-next",
+      "key": "10:C_nu",
+      "status": "INCONCLUSIVE",
+      "observed": 5.706546346573305e-14,
+      "band": 1e-07,
+      "reason": "paired order eligibility is separate from stability"
+    },
+    {
+      "rule": "P2-tail",
+      "key": "10:C_nu",
+      "status": "INCONCLUSIVE",
+      "observed": null,
+      "band": 1e-07,
+      "reason": null
+    },
+    {
+      "rule": "paired-stability-only",
+      "key": "10:C_nu",
+      "status": "PASS",
+      "observed": 5.706546346573305e-14,
+      "band": 1e-07,
+      "reason": null
+    },
+    {
+      "rule": "P2-next",
+      "key": "20:L_nu",
+      "status": "INCONCLUSIVE",
+      "observed": 2.938693732801312e-11,
+      "band": 1e-07,
+      "reason": "paired order eligibility is separate from stability"
+    },
+    {
+      "rule": "P2-tail",
+      "key": "20:L_nu",
+      "status": "INCONCLUSIVE",
+      "observed": null,
+      "band": 1e-07,
+      "reason": null
+    },
+    {
+      "rule": "paired-stability-only",
+      "key": "20:L_nu",
+      "status": "PASS",
+      "observed": 2.938693732801312e-11,
+      "band": 1e-07,
+      "reason": null
+    },
+    {
+      "rule": "P2-next",
+      "key": "20:C_nu",
+      "status": "INCONCLUSIVE",
+      "observed": 6.128431095930864e-14,
+      "band": 1e-07,
+      "reason": "paired order eligibility is separate from stability"
+    },
+    {
+      "rule": "P2-tail",
+      "key": "20:C_nu",
+      "status": "INCONCLUSIVE",
+      "observed": null,
+      "band": 1e-07,
+      "reason": null
+    },
+    {
+      "rule": "paired-stability-only",
+      "key": "20:C_nu",
+      "status": "PASS",
+      "observed": 6.128431095930864e-14,
+      "band": 1e-07,
+      "reason": null
+    },
+    {
+      "rule": "P3-L",
+      "key": "10:r640000",
+      "status": "PASS",
+      "observed": 4.873146000734742e-13,
+      "band": 3.048719449338932e-08,
+      "reason": null
+    },
+    {
+      "rule": "P3-Tb",
+      "key": "10:r640000",
+      "status": "PASS",
+      "observed": 3.649858193455202e-15,
+      "band": 1.0713034370724017e-09,
+      "reason": null
+    },
+    {
+      "rule": "P3-L",
+      "key": "20:r640000",
+      "status": "PASS",
+      "observed": 5.958086818476317e-11,
+      "band": 2.807833616147448e-07,
+      "reason": null
+    },
+    {
+      "rule": "P3-Tb",
+      "key": "20:r640000",
+      "status": "PASS",
+      "observed": 3.182454300088011e-13,
+      "band": 1.263496971715128e-08,
+      "reason": null
+    },
+    {
+      "rule": "P3-L",
+      "key": "10:nominal",
+      "status": "PASS",
+      "observed": 3.091310629036363e-11,
+      "band": 3.03531692003034e-08,
+      "reason": null
+    },
+    {
+      "rule": "P3-Tb",
+      "key": "10:nominal",
+      "status": "PASS",
+      "observed": 3.4833247397614286e-15,
+      "band": 1.0712653231159664e-09,
+      "reason": null
+    },
+    {
+      "rule": "P3-L",
+      "key": "20:nominal",
+      "status": "PASS",
+      "observed": 6.136112573794047e-11,
+      "band": 6.071737001178689e-08,
+      "reason": null
+    },
+    {
+      "rule": "P3-Tb",
+      "key": "20:nominal",
+      "status": "PASS",
+      "observed": 1.432187701766452e-14,
+      "band": 2.1425262342056327e-09,
+      "reason": null
+    },
+    {
+      "rule": "P3-L",
+      "key": "10:r80001",
+      "status": "PASS",
+      "observed": 2.0935204437357304e-11,
+      "band": 3.048078855982794e-08,
+      "reason": null
+    },
+    {
+      "rule": "P3-Tb",
+      "key": "10:r80001",
+      "status": "PASS",
+      "observed": 3.982925100842749e-15,
+      "band": 1.07125304626976e-09,
+      "reason": null
+    },
+    {
+      "rule": "P3-L",
+      "key": "20:r80001",
+      "status": "PASS",
+      "observed": 4.1391482925573605e-11,
+      "band": 6.096492201068671e-08,
+      "reason": null
+    },
+    {
+      "rule": "P3-Tb",
+      "key": "20:r80001",
+      "status": "PASS",
+      "observed": 1.4682699500667695e-14,
+      "band": 2.142505088897906e-09,
+      "reason": null
+    },
+    {
+      "rule": "P3-L",
+      "key": "10:r80002",
+      "status": "PASS",
+      "observed": 1.0708150509164085e-11,
+      "band": 3.052376987167094e-08,
+      "reason": null
+    },
+    {
+      "rule": "P3-Tb",
+      "key": "10:r80002",
+      "status": "PASS",
+      "observed": 3.566591466608315e-15,
+      "band": 1.071308366462631e-09,
+      "reason": null
+    },
+    {
+      "rule": "P3-L",
+      "key": "20:r80002",
+      "status": "PASS",
+      "observed": 2.09350671254815e-11,
+      "band": 6.104871222989416e-08,
+      "reason": null
+    },
+    {
+      "rule": "P3-Tb",
+      "key": "20:r80002",
+      "status": "PASS",
+      "observed": 1.441902153231922e-14,
+      "band": 2.142609449862221e-09,
+      "reason": null
+    },
+    {
+      "rule": "P3-L",
+      "key": "10:r80003",
+      "status": "PASS",
+      "observed": 4.1401058115505185e-13,
+      "band": 3.054184601225529e-08,
+      "reason": null
+    },
+    {
+      "rule": "P3-Tb",
+      "key": "10:r80003",
+      "status": "PASS",
+      "observed": 3.608224830031759e-15,
+      "band": 1.0712916687083406e-09,
+      "reason": null
+    },
+    {
+      "rule": "P3-L",
+      "key": "20:r80003",
+      "status": "PASS",
+      "observed": 1.3753378753656722e-09,
+      "band": 1.368088788575861e-06,
+      "reason": null
+    },
+    {
+      "rule": "P3-Tb",
+      "key": "20:r80003",
+      "status": "PASS",
+      "observed": 1.444677710793485e-14,
+      "band": 2.142581247976949e-09,
+      "reason": null
+    },
+    {
+      "rule": "P3-L",
+      "key": "10:r80004",
+      "status": "PASS",
+      "observed": 3.931045095110724e-11,
+      "band": 2.8023069607030494e-08,
+      "reason": null
+    },
+    {
+      "rule": "P3-Tb",
+      "key": "10:r80004",
+      "status": "PASS",
+      "observed": 3.677613769070831e-15,
+      "band": 1.07128217630148e-09,
+      "reason": null
+    },
+    {
+      "rule": "P3-L",
+      "key": "20:r80004",
+      "status": "PASS",
+      "observed": 7.898547525039601e-11,
+      "band": 5.635476949761298e-08,
+      "reason": null
+    },
+    {
+      "rule": "P3-Tb",
+      "key": "20:r80004",
+      "status": "PASS",
+      "observed": 1.4335754805472334e-14,
+      "band": 2.142562758322697e-09,
+      "reason": null
+    },
+    {
+      "rule": "P3-L",
+      "key": "10:r80005",
+      "status": "PASS",
+      "observed": 3.58820239254348e-11,
+      "band": 3.016163383273707e-08,
+      "reason": null
+    },
+    {
+      "rule": "P3-Tb",
+      "key": "10:r80005",
+      "status": "PASS",
+      "observed": 3.608224830031759e-15,
+      "band": 1.0712720888150784e-09,
+      "reason": null
+    },
+    {
+      "rule": "P3-L",
+      "key": "20:r80005",
+      "status": "PASS",
+      "observed": 7.133213044221466e-11,
+      "band": 6.03493128203958e-08,
+      "reason": null
+    },
+    {
+      "rule": "P3-Tb",
+      "key": "20:r80005",
+      "status": "PASS",
+      "observed": 1.4516166046973922e-14,
+      "band": 2.1425399543417713e-09,
+      "reason": null
+    },
+    {
+      "rule": "P4-secondary",
+      "key": "5:r20000:L_nu",
+      "status": "PASS",
+      "observed": 5.180359927113112e-12,
+      "band": 1.4522993348150458e-09,
+      "reason": null
+    },
+    {
+      "rule": "P4-secondary",
+      "key": "5:r40000:L_nu",
+      "status": "PASS",
+      "observed": 2.6478856853040147e-12,
+      "band": 1.452399704361065e-09,
+      "reason": null
+    },
+    {
+      "rule": "P4-secondary",
+      "key": "5:nominal:L_nu",
+      "status": "PASS",
+      "observed": 1.1793381900690007e-12,
+      "band": 1.4523073217594857e-09,
+      "reason": null
+    },
+    {
+      "rule": "P4-secondary",
+      "key": "5:r160000:L_nu",
+      "status": "PASS",
+      "observed": 3.0073683487965804e-12,
+      "band": 1.452323104745517e-09,
+      "reason": null
+    },
+    {
+      "rule": "P4-secondary",
+      "key": "5:r320000:L_nu",
+      "status": "PASS",
+      "observed": 4.0950954479391716e-13,
+      "band": 1.4523072134017185e-09,
+      "reason": null
+    },
+    {
+      "rule": "P4-secondary",
+      "key": "5:r20000:C_nu",
+      "status": "PASS",
+      "observed": 5.1229710941025675e-12,
+      "band": 1.367507474050408e-09,
+      "reason": null
+    },
+    {
+      "rule": "P4-secondary",
+      "key": "5:r40000:C_nu",
+      "status": "PASS",
+      "observed": 2.276858859748264e-12,
+      "band": 1.3675038475624088e-09,
+      "reason": null
+    },
+    {
+      "rule": "P4-secondary",
+      "key": "5:nominal:C_nu",
+      "status": "PASS",
+      "observed": 6.670909851930182e-13,
+      "band": 1.3675038388471582e-09,
+      "reason": null
+    },
+    {
+      "rule": "P4-secondary",
+      "key": "5:r160000:C_nu",
+      "status": "PASS",
+      "observed": 3.96498151814806e-12,
+      "band": 1.3675041177351818e-09,
+      "reason": null
+    },
+    {
+      "rule": "P4-secondary",
+      "key": "5:r320000:C_nu",
+      "status": "PASS",
+      "observed": 1.81896561737839e-13,
+      "band": 1.3675039923910024e-09,
+      "reason": null
+    },
+    {
+      "rule": "P4-secondary",
+      "key": "15:r20000:L_nu",
+      "status": "PASS",
+      "observed": 1.999008284139683e-12,
+      "band": 2.3568980042382243e-09,
+      "reason": null
+    },
+    {
+      "rule": "P4-secondary",
+      "key": "15:r40000:L_nu",
+      "status": "PASS",
+      "observed": 3.886672536021946e-12,
+      "band": 2.3571991128762365e-09,
+      "reason": null
+    },
+    {
+      "rule": "P4-secondary",
+      "key": "15:nominal:L_nu",
+      "status": "PASS",
+      "observed": 7.77527663750648e-12,
+      "band": 2.356921965071541e-09,
+      "reason": null
+    },
+    {
+      "rule": "P4-secondary",
+      "key": "15:r160000:L_nu",
+      "status": "PASS",
+      "observed": 3.7865304280946025e-12,
+      "band": 2.356969314029627e-09,
+      "reason": null
+    },
+    {
+      "rule": "P4-secondary",
+      "key": "15:r320000:L_nu",
+      "status": "PASS",
+      "observed": 2.0454156074160477e-12,
+      "band": 2.3569216399982394e-09,
+      "reason": null
+    },
+    {
+      "rule": "P4-secondary",
+      "key": "15:r20000:C_nu",
+      "status": "PASS",
+      "observed": 1.5907695805165582e-12,
+      "band": 2.102522421983101e-09,
+      "reason": null
+    },
+    {
+      "rule": "P4-secondary",
+      "key": "15:r40000:C_nu",
+      "status": "PASS",
+      "observed": 4.947389323075736e-12,
+      "band": 2.1025115425191048e-09,
+      "reason": null
+    },
+    {
+      "rule": "P4-secondary",
+      "key": "15:nominal:C_nu",
+      "status": "PASS",
+      "observed": 7.954234890337052e-12,
+      "band": 2.102511516373353e-09,
+      "reason": null
+    },
+    {
+      "rule": "P4-secondary",
+      "key": "15:r160000:C_nu",
+      "status": "PASS",
+      "observed": 4.828428925987151e-12,
+      "band": 2.102512353037424e-09,
+      "reason": null
+    },
+    {
+      "rule": "P4-secondary",
+      "key": "15:r320000:C_nu",
+      "status": "PASS",
+      "observed": 1.6269628506958219e-12,
+      "band": 2.102511977004886e-09,
+      "reason": null
+    },
+    {
+      "rule": "P5-16384",
+      "key": "0:L_nu",
+      "status": "PASS",
+      "observed": 6.127341749924051e-43,
+      "band": 1.2546323367893147e-42,
+      "reason": null
+    },
+    {
+      "rule": "P5-32768-holdout",
+      "key": "0:L_nu",
+      "status": "PASS",
+      "observed": 5.033179445104177e-44,
+      "band": 7.416303993161476e-44,
+      "reason": null
+    },
+    {
+      "rule": "P5-65536-consistency",
+      "key": "0:L_nu",
+      "status": "PASS",
+      "observed": 3.0872356792156126e-45,
+      "band": 6.091971092927377e-45,
+      "reason": null
+    },
+    {
+      "rule": "P5-16384",
+      "key": "0:C_nu",
+      "status": "PASS",
+      "observed": 4.1137567846262374e+19,
+      "band": 8.489200992950215e+19,
+      "reason": null
+    },
+    {
+      "rule": "P5-32768-holdout",
+      "key": "0:C_nu",
+      "status": "PASS",
+      "observed": 3.551088306181636e+18,
+      "band": 4.984000801490159e+18,
+      "reason": null
+    },
+    {
+      "rule": "P5-65536-consistency",
+      "key": "0:C_nu",
+      "status": "PASS",
+      "observed": 2.1701720704391578e+17,
+      "band": 4.302302710338682e+17,
+      "reason": null
+    },
+    {
+      "rule": "P5-16384",
+      "key": "0:r_nu",
+      "status": "PASS",
+      "observed": 1.9963408703915775e-10,
+      "band": 4.0727727199763063e-10,
+      "reason": null
+    },
+    {
+      "rule": "P5-32768-holdout",
+      "key": "0:r_nu",
+      "status": "PASS",
+      "observed": 1.5855761148486636e-11,
+      "band": 2.4142613045872e-11,
+      "reason": null
+    },
+    {
+      "rule": "P5-65536-consistency",
+      "key": "0:r_nu",
+      "status": "PASS",
+      "observed": 8.828493491819245e-13,
+      "band": 1.9175057307753192e-12,
+      "reason": null
+    },
+    {
+      "rule": "P5-16384",
+      "key": "10:L_nu",
+      "status": "PASS",
+      "observed": 6.192617078779806e-43,
+      "band": 1.2488495971700435e-42,
+      "reason": null
+    },
+    {
+      "rule": "P5-32768-holdout",
+      "key": "10:L_nu",
+      "status": "PASS",
+      "observed": 5.402388747521009e-44,
+      "band": 7.478420559231429e-44,
+      "reason": null
+    },
+    {
+      "rule": "P5-65536-consistency",
+      "key": "10:L_nu",
+      "status": "PASS",
+      "observed": 2.2470039828333492e-45,
+      "band": 6.524113240727348e-45,
+      "reason": null
+    },
+    {
+      "rule": "P5-16384",
+      "key": "10:C_nu",
+      "status": "PASS",
+      "observed": 4.1643941329364845e+19,
+      "band": 8.4434222772285e+19,
+      "reason": null
+    },
+    {
+      "rule": "P5-32768-holdout",
+      "key": "10:C_nu",
+      "status": "PASS",
+      "observed": 3.841570482147033e+18,
+      "band": 5.032052177274801e+18,
+      "reason": null
+    },
+    {
+      "rule": "P5-65536-consistency",
+      "key": "10:C_nu",
+      "status": "PASS",
+      "observed": 2.0238050825496166e+17,
+      "band": 4.641967712890691e+17,
+      "reason": null
+    },
+    {
+      "rule": "P5-16384",
+      "key": "10:r_nu",
+      "status": "PASS",
+      "observed": 2.0152945978679782e-10,
+      "band": 4.056115078479804e-10,
+      "reason": null
+    },
+    {
+      "rule": "P5-32768-holdout",
+      "key": "10:r_nu",
+      "status": "PASS",
+      "observed": 1.694822060471779e-11,
+      "band": 2.4323055101384964e-11,
+      "reason": null
+    },
+    {
+      "rule": "P5-65536-consistency",
+      "key": "10:r_nu",
+      "status": "PASS",
+      "observed": 6.323830348264892e-13,
+      "band": 2.0455198166813332e-12,
+      "reason": null
+    },
+    {
+      "rule": "P5-16384",
+      "key": "20:L_nu",
+      "status": "PASS",
+      "observed": 6.143763216302857e-43,
+      "band": 1.2376556796712398e-42,
+      "reason": null
+    },
+    {
+      "rule": "P5-32768-holdout",
+      "key": "20:L_nu",
+      "status": "FAIL",
+      "observed": 7.656782390224821e-44,
+      "band": 7.383684082348154e-44,
+      "reason": null
+    },
+    {
+      "rule": "P5-65536-consistency",
+      "key": "20:L_nu",
+      "status": "FAIL",
+      "observed": 5.952507871211025e-44,
+      "band": 9.202057479475581e-45,
+      "reason": null
+    },
+    {
+      "rule": "P5-16384",
+      "key": "20:C_nu",
+      "status": "PASS",
+      "observed": 4.125916503620138e+19,
+      "band": 8.353907558487364e+19,
+      "reason": null
+    },
+    {
+      "rule": "P5-32768-holdout",
+      "key": "20:C_nu",
+      "status": "FAIL",
+      "observed": 5.638788208444572e+18,
+      "band": 4.957155755970268e+18,
+      "reason": null
+    },
+    {
+      "rule": "P5-65536-consistency",
+      "key": "20:C_nu",
+      "status": "FAIL",
+      "observed": 4.710765210229539e+18,
+      "band": 6.774822369687437e+17,
+      "reason": null
+    },
+    {
+      "rule": "P5-16384",
+      "key": "20:r_nu",
+      "status": "PASS",
+      "observed": 2.000621890374532e-10,
+      "band": 4.0243000957526687e-10,
+      "reason": null
+    },
+    {
+      "rule": "P5-32768-holdout",
+      "key": "20:r_nu",
+      "status": "PASS",
+      "observed": 2.34123831432953e-11,
+      "band": 2.4044111860983284e-11,
+      "reason": null
+    },
+    {
+      "rule": "P5-65536-consistency",
+      "key": "20:r_nu",
+      "status": "FAIL",
+      "observed": 1.710276364974561e-11,
+      "band": 2.8137748663952024e-12,
+      "reason": null
+    },
+    {
+      "rule": "P5-depth",
+      "key": "0:L_nu",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 1e-12,
+      "reason": null
+    },
+    {
+      "rule": "P5-depth",
+      "key": "0:C_nu",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 1e-12,
+      "reason": null
+    },
+    {
+      "rule": "P5-depth",
+      "key": "0:r_nu",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 1e-12,
+      "reason": null
+    },
+    {
+      "rule": "P5-depth",
+      "key": "0:R",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 1e-12,
+      "reason": null
+    },
+    {
+      "rule": "P5-depth",
+      "key": "0:M",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 1e-12,
+      "reason": null
+    },
+    {
+      "rule": "P5-depth",
+      "key": "0:N_mu",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 1e-12,
+      "reason": null
+    },
+    {
+      "rule": "P5-depth",
+      "key": "10:L_nu",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 1e-12,
+      "reason": null
+    },
+    {
+      "rule": "P5-depth",
+      "key": "10:C_nu",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 1e-12,
+      "reason": null
+    },
+    {
+      "rule": "P5-depth",
+      "key": "10:r_nu",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 1e-12,
+      "reason": null
+    },
+    {
+      "rule": "P5-depth",
+      "key": "10:R",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 1e-12,
+      "reason": null
+    },
+    {
+      "rule": "P5-depth",
+      "key": "10:M",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 1e-12,
+      "reason": null
+    },
+    {
+      "rule": "P5-depth",
+      "key": "10:N_mu",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 1e-12,
+      "reason": null
+    },
+    {
+      "rule": "P5-depth",
+      "key": "20:L_nu",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 1e-12,
+      "reason": null
+    },
+    {
+      "rule": "P5-depth",
+      "key": "20:C_nu",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 1e-12,
+      "reason": null
+    },
+    {
+      "rule": "P5-depth",
+      "key": "20:r_nu",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 1e-12,
+      "reason": null
+    },
+    {
+      "rule": "P5-depth",
+      "key": "20:R",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 1e-12,
+      "reason": null
+    },
+    {
+      "rule": "P5-depth",
+      "key": "20:M",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 1e-12,
+      "reason": null
+    },
+    {
+      "rule": "P5-depth",
+      "key": "20:N_mu",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 1e-12,
+      "reason": null
+    },
+    {
+      "rule": "P6",
+      "key": "L_nu",
+      "status": "PASS",
+      "observed": 2.301468512989724e-44,
+      "band": 3.0626649233007703e-41,
+      "reason": null
+    },
+    {
+      "rule": "P6",
+      "key": "C_nu",
+      "status": "PASS",
+      "observed": 1.769070228626473e+18,
+      "band": 1.7177640676240639e+21,
+      "reason": null
+    },
+    {
+      "rule": "P6",
+      "key": "r_nu",
+      "status": "PASS",
+      "observed": 7.30082660993503e-12,
+      "band": 1.3597245107632716e-08,
+      "reason": null
+    },
+    {
+      "rule": "P6",
+      "key": "R",
+      "status": "PASS",
+      "observed": 1.0311751452718454e-11,
+      "band": 1.2328338705458464e-08,
+      "reason": null
+    },
+    {
+      "rule": "P6",
+      "key": "M",
+      "status": "PASS",
+      "observed": 9.85878045867139e-14,
+      "band": 6.590386347760103e-10,
+      "reason": null
+    },
+    {
+      "rule": "P6",
+      "key": "N_mu",
+      "status": "PASS",
+      "observed": 1.86692730463983e+41,
+      "band": 1.5681652531639285e+45,
+      "reason": null
+    },
+    {
+      "rule": "P7-absolute",
+      "key": "0:L_nu",
+      "status": "FAIL",
+      "observed": 3.0024252346380542e-09,
+      "band": 1e-09,
+      "reason": null
+    },
+    {
+      "rule": "P7-absolute",
+      "key": "10:L_nu",
+      "status": "FAIL",
+      "observed": 3.1305358067430462e-09,
+      "band": 1e-09,
+      "reason": null
+    },
+    {
+      "rule": "P7-absolute",
+      "key": "20:L_nu",
+      "status": "FAIL",
+      "observed": 3.0862854011363405e-09,
+      "band": 1e-09,
+      "reason": null
+    },
+    {
+      "rule": "P7-paired",
+      "key": "10:L_nu",
+      "status": "FAIL",
+      "observed": 1.897677570639189e-10,
+      "band": 1e-10,
+      "reason": null
+    },
+    {
+      "rule": "P7-paired",
+      "key": "20:L_nu",
+      "status": "FAIL",
+      "observed": 2.9246294275253604e-10,
+      "band": 1e-10,
+      "reason": null
+    },
+    {
+      "rule": "P7-absolute",
+      "key": "0:C_nu",
+      "status": "PASS",
+      "observed": 4.325674402321445e-11,
+      "band": 1e-09,
+      "reason": null
+    },
+    {
+      "rule": "P7-absolute",
+      "key": "10:C_nu",
+      "status": "PASS",
+      "observed": 4.5283089020086094e-11,
+      "band": 1e-09,
+      "reason": null
+    },
+    {
+      "rule": "P7-absolute",
+      "key": "20:C_nu",
+      "status": "PASS",
+      "observed": 5.0369067797863794e-11,
+      "band": 1e-09,
+      "reason": null
+    },
+    {
+      "rule": "P7-paired",
+      "key": "10:C_nu",
+      "status": "PASS",
+      "observed": 6.811218256075335e-12,
+      "band": 1e-10,
+      "reason": null
+    },
+    {
+      "rule": "P7-paired",
+      "key": "20:C_nu",
+      "status": "PASS",
+      "observed": 9.93294335671635e-12,
+      "band": 1e-10,
+      "reason": null
+    },
+    {
+      "rule": "P7-absolute",
+      "key": "0:r_nu",
+      "status": "FAIL",
+      "observed": 1.2417071547749627e-09,
+      "band": 1e-09,
+      "reason": null
+    },
+    {
+      "rule": "P7-absolute",
+      "key": "10:r_nu",
+      "status": "FAIL",
+      "observed": 1.295125019505766e-09,
+      "band": 1e-09,
+      "reason": null
+    },
+    {
+      "rule": "P7-absolute",
+      "key": "20:r_nu",
+      "status": "FAIL",
+      "observed": 1.2775469656356532e-09,
+      "band": 1e-09,
+      "reason": null
+    },
+    {
+      "rule": "P7-paired",
+      "key": "10:r_nu",
+      "status": "PASS",
+      "observed": 7.878031560437648e-11,
+      "band": 1e-10,
+      "reason": null
+    },
+    {
+      "rule": "P7-paired",
+      "key": "20:r_nu",
+      "status": "FAIL",
+      "observed": 1.211228894959504e-10,
+      "band": 1e-10,
+      "reason": null
+    },
+    {
+      "rule": "P7-Tb-shared-target-node",
+      "key": "10",
+      "status": "PASS",
+      "observed": 2.735034421164073e-12,
+      "band": 1e-10,
+      "reason": "6 phases with reference and target on same index"
+    },
+    {
+      "rule": "P7-Tb-shared-target-node",
+      "key": "20",
+      "status": "PASS",
+      "observed": 5.470734976142921e-12,
+      "band": 1e-10,
+      "reason": "6 phases with reference and target on same index"
+    },
+    {
+      "rule": "P7-Tb-literal-index-groups",
+      "key": "10",
+      "status": "PASS",
+      "observed": 1.853961428821549e-12,
+      "band": 1e-10,
+      "reason": "Literal predeclared identical index tuple across grids; absence is not a PASS"
+    },
+    {
+      "rule": "P7-Tb-literal-index-groups",
+      "key": "20",
+      "status": "PASS",
+      "observed": 3.707922857643098e-12,
+      "band": 1e-10,
+      "reason": "Literal predeclared identical index tuple across grids; absence is not a PASS"
+    },
+    {
+      "rule": "P5-order-and-identity",
+      "key": "2048:11",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "P5-order-and-identity",
+      "key": "4096:11",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "P5-order-and-identity",
+      "key": "8192:11",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "P5-order-and-identity",
+      "key": "16384:11",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "P5-order-and-identity",
+      "key": "32768:11",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "P5-order-and-identity",
+      "key": "65536:11",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "P5-order-and-identity",
+      "key": "32768:12",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "historical32768:0",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "historical32768:1",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "historical32768:2",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "historical32768:3",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "16384-11:4",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "16384-11:5",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "16384-11:6",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "16384-11:7",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "2048-11:8",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "2048-11:9",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "2048-11:10",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "2048-11:11",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "32768-11:12",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "32768-11:13",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "32768-11:14",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "32768-11:15",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "32768-12:16",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "32768-12:17",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "32768-12:18",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "32768-12:19",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "4096-11:20",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "4096-11:21",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "4096-11:22",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "4096-11:23",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "65536-11:24",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "65536-11:25",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "65536-11:26",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "65536-11:27",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "8192-11:28",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "8192-11:29",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "8192-11:30",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "HP-order",
+      "key": "8192-11:31",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "independent-oracle-completion",
+      "key": "0:2e-10",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "independent-oracle-completion",
+      "key": "0:2e-12",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "independent-oracle-completion",
+      "key": "10:2e-10",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "independent-oracle-completion",
+      "key": "10:2e-12",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "independent-oracle-completion",
+      "key": "20:2e-10",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    },
+    {
+      "rule": "independent-oracle-completion",
+      "key": "20:2e-12",
+      "status": "PASS",
+      "observed": 0.0,
+      "band": 0.0,
+      "reason": null
+    }
+  ],
+  "resources": {
+    "prior_cpu_charged": 37.947176,
+    "controller_cpu": 0.5630599999999999,
+    "children_cpu": 754.6470810000001,
+    "total_cpu": 793.157317,
+    "wall_seconds": 781.3032374419272,
+    "ceiling": 3600,
+    "reserve": 100,
+    "records": [
+      {
+        "name": "table-2048-11",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-pilot/build/onset_table_audit",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-pilot/tables/2048-11",
+          "2048",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 0.042622999999999994,
+        "wall_seconds": 0.06546137854456902,
+        "max_rss_kib": 13056,
+        "job": "14690"
+      },
+      {
+        "name": "table-4096-11",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-pilot/build/onset_table_audit",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-pilot/tables/4096-11",
+          "4096",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 0.080792,
+        "wall_seconds": 0.11494584009051323,
+        "max_rss_kib": 13056,
+        "job": "14690"
+      },
+      {
+        "name": "table-8192-11",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-pilot/build/onset_table_audit",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-pilot/tables/8192-11",
+          "8192",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 0.161546,
+        "wall_seconds": 0.21521101519465446,
+        "max_rss_kib": 14592,
+        "job": "14690"
+      },
+      {
+        "name": "table-16384-11",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-pilot/build/onset_table_audit",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-pilot/tables/16384-11",
+          "16384",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 0.153092,
+        "wall_seconds": 0.21522124484181404,
+        "max_rss_kib": 14592,
+        "job": "14690"
+      },
+      {
+        "name": "table-32768-11",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-pilot/build/onset_table_audit",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-pilot/tables/32768-11",
+          "32768",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 0.301527,
+        "wall_seconds": 0.36552445963025093,
+        "max_rss_kib": 21832,
+        "job": "14690"
+      },
+      {
+        "name": "table-65536-11",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-pilot/build/onset_table_audit",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-pilot/tables/65536-11",
+          "65536",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 0.598661,
+        "wall_seconds": 0.7161101177334785,
+        "max_rss_kib": 38512,
+        "job": "14690"
+      },
+      {
+        "name": "table-32768-12",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-pilot/build/onset_table_audit",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-pilot/tables/32768-12",
+          "32768",
+          "12"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 0.305523,
+        "wall_seconds": 0.3655809685587883,
+        "max_rss_kib": 38512,
+        "job": "14690"
+      },
+      {
+        "name": "high-precision",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/high_precision.py",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-pilot"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.9991330000000003,
+        "wall_seconds": 2.1182657666504383,
+        "max_rss_kib": 38844,
+        "job": "14690"
+      },
+      {
+        "name": "run-r640000-0",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "r640000",
+          "0",
+          "640000",
+          "8192",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 48.47789,
+        "wall_seconds": 50.5392918176949,
+        "max_rss_kib": 291704,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-r640000-0",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r640000",
+          "0"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 83.473929,
+        "wall_seconds": 84.11313549801707,
+        "max_rss_kib": 291704,
+        "job": "14690"
+      },
+      {
+        "name": "run-r640000-10",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "r640000",
+          "10",
+          "640000",
+          "8192",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 48.07560400000003,
+        "wall_seconds": 50.141898311674595,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-r640000-10",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r640000",
+          "10"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 83.70495199999996,
+        "wall_seconds": 84.36304444074631,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-r640000-20",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "r640000",
+          "20",
+          "640000",
+          "8192",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 36.248357999999996,
+        "wall_seconds": 38.221497755497694,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-r640000-20",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r640000",
+          "20"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 83.50626600000004,
+        "wall_seconds": 84.1617720760405,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-e16384c-0",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "e16384c",
+          "0",
+          "80000",
+          "16384",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 5.944622999999979,
+        "wall_seconds": 6.376269139349461,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-e16384c-0",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "e16384c",
+          "0"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.712034000000017,
+        "wall_seconds": 1.9683908522129059,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-e16384c-10",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "e16384c",
+          "10",
+          "80000",
+          "16384",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 13.555611999999996,
+        "wall_seconds": 13.986485973000526,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-e16384c-10",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "e16384c",
+          "10"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.697108999999955,
+        "wall_seconds": 1.8184471689164639,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-e16384c-20",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "e16384c",
+          "20",
+          "80000",
+          "16384",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 5.935346000000038,
+        "wall_seconds": 6.324645273387432,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-e16384c-20",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "e16384c",
+          "20"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.6854040000000055,
+        "wall_seconds": 1.7682190388441086,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-e32768c-0",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "e32768c",
+          "0",
+          "80000",
+          "32768",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 14.69864100000001,
+        "wall_seconds": 15.189684882760048,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-e32768c-0",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "e32768c",
+          "0"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.6856440000000248,
+        "wall_seconds": 1.7681944370269775,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-e32768c-10",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "e32768c",
+          "10",
+          "80000",
+          "32768",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 14.70919699999996,
+        "wall_seconds": 15.18973858654499,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-e32768c-10",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "e32768c",
+          "10"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.6862449999999853,
+        "wall_seconds": 1.7690620571374893,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-e32768c-20",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "e32768c",
+          "20",
+          "80000",
+          "32768",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 6.30850700000002,
+        "wall_seconds": 6.725831337273121,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-e32768c-20",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "e32768c",
+          "20"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.700540999999987,
+        "wall_seconds": 1.8184023089706898,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-e65536c-0",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "e65536c",
+          "0",
+          "80000",
+          "65536",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 17.000586,
+        "wall_seconds": 17.594441410154104,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-e65536c-0",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "e65536c",
+          "0"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.6800840000000221,
+        "wall_seconds": 1.7682977207005024,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-e65536c-10",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "e65536c",
+          "10",
+          "80000",
+          "65536",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 16.990742999999952,
+        "wall_seconds": 17.59401659294963,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-e65536c-10",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "e65536c",
+          "10"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.684238999999991,
+        "wall_seconds": 1.768297005444765,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-e65536c-20",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "e65536c",
+          "20",
+          "80000",
+          "65536",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 7.04422500000004,
+        "wall_seconds": 7.577188245952129,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-e65536c-20",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "e65536c",
+          "20"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.681397000000004,
+        "wall_seconds": 1.768282551318407,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-e32768d12-0",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "e32768d12",
+          "0",
+          "80000",
+          "32768",
+          "12"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 14.725475000000074,
+        "wall_seconds": 15.239969167858362,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-e32768d12-0",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "e32768d12",
+          "0"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.7070179999999482,
+        "wall_seconds": 1.869526382535696,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-e32768d12-10",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "e32768d12",
+          "10",
+          "80000",
+          "32768",
+          "12"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 14.745317,
+        "wall_seconds": 15.24009658023715,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-e32768d12-10",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "e32768d12",
+          "10"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.6789249999999356,
+        "wall_seconds": 1.718181062489748,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-e32768d12-20",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "e32768d12",
+          "20",
+          "80000",
+          "32768",
+          "12"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 6.308675999999991,
+        "wall_seconds": 6.725511837750673,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-e32768d12-20",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "e32768d12",
+          "20"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.687208000000055,
+        "wall_seconds": 1.7682062573730946,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-r80001-0",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "r80001",
+          "0",
+          "80001",
+          "8192",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 5.682905000000005,
+        "wall_seconds": 6.02411787584424,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-r80001-0",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r80001",
+          "0"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.6836490000000595,
+        "wall_seconds": 1.768243446946144,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-r80001-10",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "r80001",
+          "10",
+          "80001",
+          "8192",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 12.609936999999945,
+        "wall_seconds": 13.034517992287874,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-r80001-10",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r80001",
+          "10"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.6954319999999825,
+        "wall_seconds": 1.918161053210497,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-r80001-20",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "r80001",
+          "20",
+          "80001",
+          "8192",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 12.584969999999998,
+        "wall_seconds": 12.984155368059874,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-r80001-20",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r80001",
+          "20"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.7078689999999597,
+        "wall_seconds": 1.8693616315722466,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-r80002-0",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "r80002",
+          "0",
+          "80002",
+          "8192",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 12.995852000000014,
+        "wall_seconds": 13.384417105466127,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-r80002-0",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r80002",
+          "0"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.69825400000002,
+        "wall_seconds": 1.9182122945785522,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-r80002-10",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "r80002",
+          "10",
+          "80002",
+          "8192",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 5.679665999999997,
+        "wall_seconds": 6.024105634540319,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-r80002-10",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r80002",
+          "10"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.6844820000000027,
+        "wall_seconds": 1.7683643475174904,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-r80002-20",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "r80002",
+          "20",
+          "80002",
+          "8192",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 5.694527999999991,
+        "wall_seconds": 6.023978885263205,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-r80002-20",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r80002",
+          "20"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.6849720000001298,
+        "wall_seconds": 1.768212877213955,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-r80003-0",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "r80003",
+          "0",
+          "80003",
+          "8192",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 5.304946999999856,
+        "wall_seconds": 5.623320445418358,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-r80003-0",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r80003",
+          "0"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.6939570000000685,
+        "wall_seconds": 1.7682310156524181,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-r80003-10",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "r80003",
+          "10",
+          "80003",
+          "8192",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 5.300610000000006,
+        "wall_seconds": 5.623298976570368,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-r80003-10",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r80003",
+          "10"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.685671999999954,
+        "wall_seconds": 1.7682390809059143,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-r80003-20",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "r80003",
+          "20",
+          "80003",
+          "8192",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 5.298171000000025,
+        "wall_seconds": 5.623446822166443,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-r80003-20",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r80003",
+          "20"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.6886789999999792,
+        "wall_seconds": 1.768568281084299,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-r80004-0",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "r80004",
+          "0",
+          "80004",
+          "8192",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 12.612938999999983,
+        "wall_seconds": 13.034333478659391,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-r80004-0",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r80004",
+          "0"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.7218890000000329,
+        "wall_seconds": 2.0695163421332836,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-r80004-10",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "r80004",
+          "10",
+          "80004",
+          "8192",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 5.687790999999947,
+        "wall_seconds": 6.02408354729414,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-r80004-10",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r80004",
+          "10"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.6880010000000993,
+        "wall_seconds": 1.7682161442935467,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-r80004-20",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "r80004",
+          "20",
+          "80004",
+          "8192",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 5.3211019999998825,
+        "wall_seconds": 5.673353921622038,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-r80004-20",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r80004",
+          "20"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.7004899999999452,
+        "wall_seconds": 1.8179630376398563,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-r80005-0",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "r80005",
+          "0",
+          "80005",
+          "8192",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 5.30603700000006,
+        "wall_seconds": 5.623125027865171,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-r80005-0",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r80005",
+          "0"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.6952860000001237,
+        "wall_seconds": 1.9183525294065475,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-r80005-10",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "r80005",
+          "10",
+          "80005",
+          "8192",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 5.303980999999908,
+        "wall_seconds": 5.623242139816284,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-r80005-10",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r80005",
+          "10"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.686633000000029,
+        "wall_seconds": 1.768289253115654,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-r80005-20",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "r80005",
+          "20",
+          "80005",
+          "8192",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 5.305699000000004,
+        "wall_seconds": 5.673843756318092,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-r80005-20",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r80005",
+          "20"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.6875590000000784,
+        "wall_seconds": 1.7682819813489914,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "run-cross-20",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/run_case.py",
+          "cross",
+          "20",
+          "640000",
+          "16384",
+          "11"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 37.90077599999984,
+        "wall_seconds": 39.822305250912905,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "analyze-cross-20",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "cross",
+          "20"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 10.961622000000034,
+        "wall_seconds": 11.337306313216686,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "secondary-r20000-5",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r20000",
+          "5",
+          "old"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 0.78206200000011,
+        "wall_seconds": 0.8670474588871002,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "secondary-r40000-5",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r40000",
+          "5",
+          "old"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.0826619999999139,
+        "wall_seconds": 1.1676879897713661,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "secondary-nominal-5",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "nominal",
+          "5",
+          "old"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.685385999999994,
+        "wall_seconds": 1.768548920750618,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "secondary-r160000-5",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r160000",
+          "5",
+          "old"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 2.895089000000098,
+        "wall_seconds": 2.9700330905616283,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "secondary-r320000-5",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r320000",
+          "5",
+          "old"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 5.342832999999814,
+        "wall_seconds": 5.4241597801446915,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "secondary-r20000-15",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r20000",
+          "15",
+          "old"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 0.7886540000001787,
+        "wall_seconds": 1.0190424881875515,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "secondary-r40000-15",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r40000",
+          "15",
+          "old"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.082262999999898,
+        "wall_seconds": 1.1674455255270004,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "secondary-nominal-15",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "nominal",
+          "15",
+          "old"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 1.685252000000105,
+        "wall_seconds": 1.7681638784706593,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "secondary-r160000-15",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r160000",
+          "15",
+          "old"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 2.8883839999999736,
+        "wall_seconds": 2.970110695809126,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "secondary-r320000-15",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+          "-B",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot/tools/linux/ba13_onset/analyze_case.py",
+          "r320000",
+          "15",
+          "old"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 5.337914999999953,
+        "wall_seconds": 5.424450021237135,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "oracle-0-2e-10",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-pilot/build/onset_structure_oracle",
+          "7.6169065187188748e+56",
+          "1100000000000000",
+          "4.9156528789505745e+19",
+          "2e-10"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 0.06781899999998586,
+        "wall_seconds": 0.11710634082555771,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "oracle-0-2e-12",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-pilot/build/onset_structure_oracle",
+          "7.6169065187188748e+56",
+          "1100000000000000",
+          "4.9156528789505745e+19",
+          "2e-12"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 0.14303399999994326,
+        "wall_seconds": 0.16535769775509834,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "oracle-10-2e-10",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-pilot/build/onset_structure_oracle",
+          "7.6169027102656157e+56",
+          "1099996952470734.8",
+          "4.915632272737791e+19",
+          "2e-10"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 0.06763100000000577,
+        "wall_seconds": 0.11595079302787781,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "oracle-10-2e-12",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-pilot/build/onset_structure_oracle",
+          "7.6169027102656157e+56",
+          "1099996952470734.8",
+          "4.915632272737791e+19",
+          "2e-12"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 0.143367000000012,
+        "wall_seconds": 0.16538381204009056,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "oracle-20-2e-10",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-pilot/build/onset_structure_oracle",
+          "7.6168989018123558e+56",
+          "1099993904954983.9",
+          "4.9156116666429006e+19",
+          "2e-10"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 0.06782800000007683,
+        "wall_seconds": 0.11607975140213966,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      },
+      {
+        "name": "oracle-20-2e-12",
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-pilot/build/onset_structure_oracle",
+          "7.6168989018123558e+56",
+          "1099993904954983.9",
+          "4.9156116666429006e+19",
+          "2e-12"
+        ],
+        "exit_code": 0,
+        "cpu_seconds": 0.14308500000004187,
+        "wall_seconds": 0.16543229669332504,
+        "max_rss_kib": 293296,
+        "job": "14690"
+      }
+    ]
+  },
+  "missing_independent_bounds": [
+    "absolute common EOS/solver enclosure",
+    "uniform remainder beyond last refinement",
+    "inter-sample and inner-half response remainder",
+    "full tangent/background/tail paired bounds"
+  ]
+}

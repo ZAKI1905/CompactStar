@@ -1,0 +1,356 @@
+{
+  "constants": {
+    "onset_n": 7.3567289037328326e-09,
+    "P_on": 1.8964875026317867e-09,
+    "eps_on": 6.910231598584746e-06,
+    "mu_b": 939.6306205322022,
+    "P_b": 1.5789207483182767e-07,
+    "n_b": 5.9701614371634145e-06,
+    "eps_b": 0.005609588603804452,
+    "precision": 70,
+    "thermodynamics": [
+      {
+        "mu": "938.88308710999995290169550798964337445795536041259765625",
+        "enthalpy_relative": "1.848293078161584239688187276451929143371002801640032149736018363403484e-65",
+        "dP_n_relative": "0.0"
+      },
+      {
+        "mu": "939.5654205199999751130235381424427032470703125",
+        "enthalpy_relative": "4.518874417125317738510725617345916976478389893183411347983620656226715e-66",
+        "dP_n_relative": "0.0"
+      },
+      {
+        "mu": "939.5655205199999751130235381424427032470703125",
+        "enthalpy_relative": "4.12219945075639242996435615592786814531737229658012453872714379358798e-66",
+        "dP_n_relative": "-3.622271631530684947003647716355116712273012479255655275833045955974201e-71"
+      },
+      {
+        "mu": "939.6306205322022340701025776440794889901284233081141040610785555692291",
+        "enthalpy_relative": "-2.232224892930784598590997905203840673938243940341297563732114570369101e-68",
+        "dP_n_relative": "-9.055679078826712367509119290887791780682531198139138189582614889935501e-72"
+      }
+    ]
+  },
+  "pairs": [
+    {
+      "case": "historical32768",
+      "a": 7.356728903732069e-09,
+      "b": 7.3567289037320765e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 6.5524152916188765,
+      "energy_ulp_gap": 8.257899203789062,
+      "provider_pf_equal": true
+    },
+    {
+      "case": "historical32768",
+      "a": 7.356728903732083e-09,
+      "b": 7.356728903732089e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 5.096323004592463,
+      "energy_ulp_gap": 6.422810491835937,
+      "provider_pf_equal": true
+    },
+    {
+      "case": "historical32768",
+      "a": 7.356728903733616e-09,
+      "b": 7.3567289037336225e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 5.794043868194282,
+      "energy_ulp_gap": 7.3403548478125,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "historical32768",
+      "a": 7.356728903733712e-09,
+      "b": 7.35672890373372e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 7.240307061742162,
+      "energy_ulp_gap": 9.175443559765625,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "16384-11",
+      "a": 7.356728903657929e-09,
+      "b": 7.356728903659265e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 1175.794521769301,
+      "energy_ulp_gap": 1481.8341349021425,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "16384-11",
+      "a": 7.356728903659265e-09,
+      "b": 7.356728903732832e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 64750.239865511896,
+      "energy_ulp_gap": 81603.64238748737,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "16384-11",
+      "a": 7.356728903732832e-09,
+      "b": 7.356728903806399e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 62666.301679062395,
+      "energy_ulp_gap": 81603.6423874877,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "16384-11",
+      "a": 7.356728903806399e-09,
+      "b": 7.356728903807734e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 1118.9996110315353,
+      "energy_ulp_gap": 1480.9165905461775,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "2048-11",
+      "a": 7.356728895237414e-09,
+      "b": 7.356728896376103e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 1002221.7683284328,
+      "energy_ulp_gap": 1263083.302537605,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "2048-11",
+      "a": 7.356728896376103e-09,
+      "b": 7.356728903732832e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 6475052.379114188,
+      "energy_ulp_gap": 8160400.022977056,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "2048-11",
+      "a": 7.356728903732832e-09,
+      "b": 7.356728911089561e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 4992951.467244402,
+      "energy_ulp_gap": 8160400.940524268,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "2048-11",
+      "a": 7.356728911089561e-09,
+      "b": 7.3567289122282504e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 686346.9046319926,
+      "energy_ulp_gap": 1263083.3025385356,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "32768-11",
+      "a": 7.3567289036586e-09,
+      "b": 7.356728903659265e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 585.3490993823743,
+      "energy_ulp_gap": 737.7056622051533,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "32768-11",
+      "a": 7.356728903659265e-09,
+      "b": 7.356728903732832e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 64750.239865511896,
+      "energy_ulp_gap": 81603.64238748737,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "32768-11",
+      "a": 7.356728903732832e-09,
+      "b": 7.356728903806399e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 62666.301679062395,
+      "energy_ulp_gap": 81603.6423874877,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "32768-11",
+      "a": 7.356728903806399e-09,
+      "b": 7.356728903807064e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 557.4789408110163,
+      "energy_ulp_gap": 737.705662205159,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "32768-12",
+      "a": 7.356728903725408e-09,
+      "b": 7.356728903725475e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 58.971737624549384,
+      "energy_ulp_gap": 74.32109283410153,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "32768-12",
+      "a": 7.356728903725475e-09,
+      "b": 7.356728903732832e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 6475.242400405486,
+      "energy_ulp_gap": 8160.639502055545,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "32768-12",
+      "a": 7.356728903732832e-09,
+      "b": 7.3567289037401895e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 6407.842045961075,
+      "energy_ulp_gap": 8161.557046411524,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "32768-12",
+      "a": 7.3567289037401895e-09,
+      "b": 7.356728903740255e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 56.61071008851299,
+      "energy_ulp_gap": 72.48600412214846,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "4096-11",
+      "a": 7.356728902942271e-09,
+      "b": 7.356728902997159e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 48309.501850887485,
+      "energy_ulp_gap": 60883.65574082236,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "4096-11",
+      "a": 7.356728902997159e-09,
+      "b": 7.356728903732832e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 647505.3108284512,
+      "energy_ulp_gap": 816040.0940522834,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "4096-11",
+      "a": 7.356728903732832e-09,
+      "b": 7.356728904468505e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 587659.9693880453,
+      "energy_ulp_gap": 816040.094052314,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "4096-11",
+      "a": 7.356728904468505e-09,
+      "b": 7.3567289045233914e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 41809.82024015711,
+      "energy_ulp_gap": 60882.738196471044,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "65536-11",
+      "a": 7.356728903658933e-09,
+      "b": 7.356728903659265e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 291.94650354767936,
+      "energy_ulp_gap": 367.9352867466001,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "65536-11",
+      "a": 7.356728903659265e-09,
+      "b": 7.356728903732832e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 64750.239865511896,
+      "energy_ulp_gap": 81603.64238748737,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "65536-11",
+      "a": 7.356728903732832e-09,
+      "b": 7.356728903806399e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 62666.301679062395,
+      "energy_ulp_gap": 81603.6423874877,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "65536-11",
+      "a": 7.356728903806399e-09,
+      "b": 7.3567289038067304e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 278.0607814374981,
+      "energy_ulp_gap": 367.9352867466029,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "8192-11",
+      "a": 7.356728903656569e-09,
+      "b": 7.356728903659265e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 2372.702381700319,
+      "energy_ulp_gap": 2990.277056127605,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "8192-11",
+      "a": 7.356728903659265e-09,
+      "b": 7.356728903732832e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 64750.239865511896,
+      "energy_ulp_gap": 81603.64238748737,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "8192-11",
+      "a": 7.356728903732832e-09,
+      "b": 7.356728903806399e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 62666.301679062395,
+      "energy_ulp_gap": 81603.6423874877,
+      "provider_pf_equal": false
+    },
+    {
+      "case": "8192-11",
+      "a": 7.356728903806399e-09,
+      "b": 7.3567289038090945e-09,
+      "high_precision_order": true,
+      "rounded_order": true,
+      "pressure_ulp_gap": 2259.0080599300527,
+      "energy_ulp_gap": 2990.2770561276284,
+      "provider_pf_equal": false
+    }
+  ]
+}

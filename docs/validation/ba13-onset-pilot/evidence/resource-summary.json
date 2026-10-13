@@ -1,0 +1,17 @@
+{
+  "numerical_cpu_seconds_including_conservative_startup_charge": 795.518701,
+  "build_cpu_seconds": 9.441487,
+  "ceiling_seconds": 3600,
+  "completed_new_stars": 31,
+  "max_numerical_child_rss_kib": 293296,
+  "numerical_job_ids": [
+    "14687",
+    "14689",
+    "14690",
+    "14691",
+    "14693",
+    "14695"
+  ],
+  "failed_setup_job": "14686 (no numerical work)",
+  "note": "Publication/authentication hashing is I/O bookkeeping, not numerical work; no Slurm accounting database. Process receipts and conservative sequential wall guard retained."
+}
