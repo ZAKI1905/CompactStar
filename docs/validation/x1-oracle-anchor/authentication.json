@@ -1,0 +1,27 @@
+{
+  "starting_commit": "dad05b17056f3ccb1e3871e6e4bb24ebe5db5df4",
+  "review_sha256": {
+    "BA13_ONSET_INDEPENDENT_REVIEW.md": "e603ff32a9f941d197af9c670ffc4231999cee2a82903659c6637861741a7c66",
+    "anchor.py": "3270d0ec084de3d586b662ce70c8a74ac41b6d1723ffe1b1dd49575d78443e02",
+    "authenticate_pilot.py": "fc0bd933e084718163a37424f84dadbf1ee3270533a75b51d0a4d35ed1858eb3",
+    "b_functional.py": "ad3eeb68e9c372aa018899d28b354920156852e141fedd971f300203eec50377",
+    "common.py": "b448db710c66c2851e5332a16ccad60231a511588043058abb801017cf9c812d",
+    "eos_decomposition.py": "ab574347b65d7e923a70696bcd96d2b74fc0e7ae20c0d41b4e1537f72dd5e281",
+    "hermite_ladder.py": "5546c3130cde1f4d5a2f2aeb48595bea54d069a2c8d6d3e37fdcd9bb35efb855",
+    "phase_model.py": "54cf1b6b300e91c1c15ec1ed335dddc067570d4663c399daa3faf094b8079559",
+    "anchor.json": "2c34b727f39c9c8e98288a66c734d4ea62f188cac53d6493f98f26fbd8c32109",
+    "authentication.json": "5f913f867f72271ba88f632d463a95df4af02df76da6a547dfdb503fcd435d5a",
+    "b_functional.json": "8f69e90b003859e4dd3cb835d2404b4f36fb272cc3617e45abef101b9f5acb4a",
+    "eos_decomposition.json": "092d92eb9e7a2aa5389563e51d5fb577ebc698bfcdcf107b941711fee5d19c03",
+    "hermite_ladder.json": "e11561d7ccb971fb2adc59230b01d73c649ee7250493c225803f97ff9f36dae9",
+    "phase_model.json": "c3060cfb4d5f3dcb924dfaf3504366fd0dcd3106d7b0e6b6f9908ed9a8c24301"
+  },
+  "review_manifest_sha256": "58820a2617a101280b6a5d7c6c65572b7d63f240bad0ec9e50f08a4e500577f0",
+  "source_hashes": {
+    "tests/bnv/onset_structure_oracle.cpp": "eb5c4fb628ba9c7f962794128df7405077815bf68e11487cdd94455eabdfcd43",
+    "tests/eos/structure1/tov_oracle.hpp": "d36df7a0f818b73227920bb50e6f8e5c113679328921d0c560de549c04b62686",
+    "tests/eos/structure1/local_oracle.hpp": "d46d9ac1ef23df8754d32329e0df4497624d7da87d3f327704e0e0c81c2008ca"
+  },
+  "old_metrics_sha256": "7e4fdbaad3619e5d72c5ed3fcaf226ab4ac35e830b392c749431073eca2867ec",
+  "retained_metrics_and_resources_match_git": true
+}

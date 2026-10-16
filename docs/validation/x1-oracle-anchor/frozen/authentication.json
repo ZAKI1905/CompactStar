@@ -1,0 +1,81 @@
+{
+ "head": "dad05b17056f3ccb1e3871e6e4bb24ebe5db5df4",
+ "worktree_clean": true,
+ "commits": [
+  "dad05b17056f3ccb1e3871e6e4bb24ebe5db5df4 2026-10-13T15:24:02-04:00 Bind scored onset pilot evidence and resource ledger to authenticated retained data",
+  "96ff4e707549b586c69bc78fb29ffb274ce0dc7c 2026-10-13T15:23:23-04:00 Report prospective BA13 estimator failures and bounded scientific disposition",
+  "caa2029bdf05238f516912f5d92009717ae49b29 2026-10-13T15:16:10-04:00 Preserve literal envelope phase test and add authenticated evidence publication",
+  "aad93e78e08091079b8513f051e9491e7cba1179 2026-10-13T15:11:46-04:00 Record withheld increment ratios without changing frozen scoring",
+  "3dbdcc3c18d67de277d912574263ebca3de63254 2026-10-13T15:11:13-04:00 Add fixed-rule scorer and document independent-equation limits",
+  "650871e33721d7e9d35eb21f645d1d65cb813dd4 2026-10-13T15:04:41-04:00 Freeze EOS predictions and validation estimators before withheld outcomes",
+  "e657efb0facd70307b05ae9748664dda4e608d16 2026-10-13T15:00:09-04:00 Freeze numerical predictions and add isolated capped EOS and independent enthalpy controls",
+  "8bb72e2e2929b0d4aafd1dbe23e3e9d5bf7c9cf5 2026-10-13T14:58:00-04:00 Freeze full onset pilot hypotheses, scoring, cases and CPU ceiling",
+  "878a98b5868fafc2caa4604f1533a9d8d1837146 2026-10-13T14:57:52-04:00 Predeclare validation-only BA13 onset pilot and authenticate discovery evidence"
+ ],
+ "frozen_files_unchanged": {
+  "PREDECLARATION.md": {
+   "commit": "8bb72e2",
+   "sha256": "63ccc49d100c7fa6afcd22b7fa1f4abf9c769f4017b29cba50332a0c59cde944",
+   "unchanged": true
+  },
+  "evidence/predictions.json": {
+   "commit": "e657efb",
+   "sha256": "1803bc8dea239ae57c4dc5ea03166c8cbfecefe30a1f4521c3a09cc51564b317",
+   "unchanged": true
+  },
+  "evidence/eos-predictions.json": {
+   "commit": "650871e",
+   "sha256": "6b9dbc0868e4e152f72cf2db5d3c39ee059e20b6b714071d703b1e1f73d58a8a",
+   "unchanged": true
+  }
+ },
+ "tools_changed_after_final_gate_650871e": [
+  "tools/linux/ba13_onset/diagnose.py",
+  "tools/linux/ba13_onset/geometry_diagnostic.py",
+  "tools/linux/ba13_onset/publish.py",
+  "tools/linux/ba13_onset/score.py"
+ ],
+ "receipts": {
+  "executable_sha256": {
+   "e574d959d0fb880d4c42460d67d0093afe998d2665839d5f382bf0726806d87d": 31
+  },
+  "predeclaration": {
+   "63ccc49d100c7fa6afcd22b7fa1f4abf9c769f4017b29cba50332a0c59cde944": 31
+  },
+  "predictions": {
+   "1803bc8dea239ae57c4dc5ea03166c8cbfecefe30a1f4521c3a09cc51564b317": 31
+  },
+  "eos_predictions": {
+   "6b9dbc0868e4e152f72cf2db5d3c39ee059e20b6b714071d703b1e1f73d58a8a": 31
+  },
+  "status": {
+   "COMPLETE_NOT_QUALIFIED": 31
+  },
+  "source_commit": {
+   "650871e33721d7e9d35eb21f645d1d65cb813dd4": 3,
+   "3dbdcc3c18d67de277d912574263ebca3de63254": 3,
+   "aad93e78e08091079b8513f051e9491e7cba1179": 22,
+   "caa2029bdf05238f516912f5d92009717ae49b29": 3
+  }
+ },
+ "build_executable_sha256": "e574d959d0fb880d4c42460d67d0093afe998d2665839d5f382bf0726806d87d",
+ "pilot_complete_sha256": "3d508ffd095151182c6aeedb600851bb941a624674222b850120c75ab808ea75",
+ "manifest_files": 650,
+ "manifest_bytes": 1130004091,
+ "manifest_mismatches": [],
+ "source_files_mismatching_worktree": [],
+ "protected_mismatching_worktree": [],
+ "compact_copies_identical": {
+  "scores.json": true,
+  "high-precision.json": true,
+  "resource-summary.json": true,
+  "constants.json": true,
+  "diagnosis.json": true,
+  "geometry-diagnostic.json": true
+ },
+ "bundle_sha256": "a8884a625b8e74f5a2c8fc7abc86336227f4d9e401c31474765b010a8cf807e6",
+ "bundle_sha_recorded": "a8884a625b8e74f5a2c8fc7abc86336227f4d9e401c31474765b010a8cf807e6",
+ "previous_review_unchanged": true,
+ "first_controller_output_mtime": 1791918283.0218925,
+ "final_gate_commit_time": "1791918281"
+}
