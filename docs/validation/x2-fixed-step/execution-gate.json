@@ -1,0 +1,17 @@
+{
+  "predeclaration_commit": "75d8c02defc33e8d87ed5d630181cef222a9e805",
+  "files": {
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/tests/bnv/x2_fixed_step.cpp": "95d1e6a17a6d88446ae7fdced4c0e8b2237ba44cef0e0d9f7e0e87f95dda8f20",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/tools/linux/x2_oracle/build.sh": "a05b5673dd60ecc0be1a40c69ae690d1e51bc733dfc42095cc2e2d5f87680538",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/tools/linux/x2_oracle/run.py": "f4f2acf5d009a75f1d7de792dbef4498cd0c64208c5002ec358acfc4b60ad0c8",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/tools/linux/x2_oracle/run.sbatch": "3b3ea8bb417578f6027e7505090d0d10820c753930bb3b03b50fbf76addb52bb",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/docs/validation/x2-fixed-step/PREDECLARATION.md": "703c01e4bb78b80baa6717a2ed08af9a3432a25c7ab9bf1e1016ca91b3cc6e44",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/docs/validation/x1-oracle-anchor/targets.json": "f243bce5dbf5e2540a2b77880745e3ce2b887a3c7d72f54f30c8c53178b42005",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x2-fixed-step/build/extended": "ab345225524757fceff13e9dc30374642f2e05ecceb03cfc468317fb70486cea",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x2-fixed-step/build/double": "f32cdaf444bfa00d69b55fb1203dfff3b5150a0b24394f1f3dbec035c02b9d61",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/lib/libZaki.a": "c41330d6e0c64d71509c2088ed159345f65ce1687c2f64bee5dda90c1f469ff7",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/include/Zaki/Physics/Constants.hpp": "c7a3e1a7a32fd91808f6a1ed130cad0c3caae4643bb00135529060cfeeba719b",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/g++": "4d0e76c2a1cd55efc9e6ea8f4c57f6f9079d817650bfe6dadbebf862c6a0aabc"
+  },
+  "numerical_runs_started": false
+}
