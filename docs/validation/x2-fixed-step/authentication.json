@@ -1,0 +1,407 @@
+{
+  "SHA256SUMS": {
+    "LAUNCHER_CORRECTION.md": "5370efe1c77d95572993d6b341905771b390678c5598fb8a7520d822c54eaa23",
+    "MATHEMATICS.md": "478a3325ff8ae981fe052fc7779cbf76d63b88cb9af8b8c43b1bcc36acbb09c1",
+    "PREDECLARATION.md": "90687b4eee8fef3c89958aef320c8c5c1b79e26fff5822b2ae13bba1a053d8bc",
+    "REPORT.md": "8af804c579ca553c37ed762309b677a533d9bf68dba95f1974c765f149be7e5b",
+    "REPRODUCE.md": "33094e1f957673779308fc30b78aee2eaf2cb36c60f20fdde0a1b2a09d0aacee",
+    "authentication.json": "da56dbb4d4ad9681ded03d03bed939018cc3e8c83eb2b8af837bfcfe5f30bedb",
+    "evidence/audit-slurm-17023.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/audit-slurm-17023.out": "6de342bf3e51b41e0e1342102b286fa5e861437e4fafd5ce4be5e50bfe975031",
+    "evidence/compiler.txt": "07316a14f2fdd7579d3cb3c529b60cf3f91bc757509d9a8cf59478160289031e",
+    "evidence/external-manifest.json": "a31e0635d254e51e2c72022f9ac905fa9e017fc6fdf90a88a5864634ac4dd770",
+    "evidence/final-authentication.json": "7fccc2a16eb250651b410283f9a868431595b6603915a9e92cdf5ff2c3adf1db",
+    "evidence/independent-audit.json": "8eebe817d948564c2d2262fb0544d5475341df4c2e6786a0e49e9e4d147e9838",
+    "evidence/mathematical-checks.out": "6d986e82cc3a8bb8f11de0c8a31d5da66a210fc5ae8a2712ff3a23679f734474",
+    "evidence/onset_structure_oracle.build-receipt.txt": "fb5ca547c088a6086ba096ba816fb7ce0194c6a6e23ce6ef2e8143b4d40c89f7",
+    "evidence/receipts.json": "51b4465117870e3d04486885d71c9cec631d20193393c5297c96486d015962c2",
+    "evidence/resources.json": "3359503f50f77a2860a39bfe40da0a0eb74a0550317aafbce21fcea287cfa520",
+    "evidence/runs.json": "b76ecef0977281dc0bb05fa4c0ebc8e1ee75f41f01d8f9fd77a7ab12fe927160",
+    "evidence/sacct.txt": "6e7b6669c47d3e41740c1293da303c51dd86542af165aa9da2c4e5e4ebdb6e74",
+    "evidence/scores.json": "afbaa55fb4e4a73e5b5b2da10a35e0284439bea7f4a4927184a6d45530b62159",
+    "evidence/slurm-17021.err": "1b806f20a5d98198fa775f43cfae6a46e1a02996a6f833fc9795a124ba387bf3",
+    "evidence/slurm-17021.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/slurm-17022.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/slurm-17022.out": "2619aff8b2657485a4541daec983028f745a7ef4ebde503e80b39f560b8daa4f",
+    "evidence/slurm-allocation-17022.txt": "41454456c6556a312aebc9a6fa05d083e981477e2638da49764c6e3cd305a623",
+    "evidence/slurm-allocation.txt": "46125f64e944fed3d165ef0bdce8797e292d459bb4ebe45ceea958b90f6ee45b",
+    "evidence/slurm-final-17021.txt": "ad83a6520688f8f6b6b91ec102243eff87cc1dd4f0417b63d6daddc52a3c04ae",
+    "evidence/slurm-final-17022.txt": "d3f5555d508f2b14ea0390c439120035cf6931b0daa3f274b81dac104dbc7f9f",
+    "evidence/slurm-final-17023.txt": "77f5551806d4f05295a54cfa139ab94ab9193887f50d6bbf2bed63e3093dbb6a",
+    "evidence/x1_regularized_oracle.build-receipt.txt": "2501073440d7d84b5d649feadee39e4e78fcfec3dca85c3f07dd1c2b4cb4f0b2",
+    "execution-gate.json": "e18b3b1272bb4e3436f78c36dda39033004c75962ccc8d946049f4e31ae3f05c",
+    "frozen/BA13_ONSET_INDEPENDENT_REVIEW.md": "e603ff32a9f941d197af9c670ffc4231999cee2a82903659c6637861741a7c66",
+    "frozen/SHA256SUMS": "58820a2617a101280b6a5d7c6c65572b7d63f240bad0ec9e50f08a4e500577f0",
+    "frozen/anchor.json": "2c34b727f39c9c8e98288a66c734d4ea62f188cac53d6493f98f26fbd8c32109",
+    "frozen/anchor.py": "3270d0ec084de3d586b662ce70c8a74ac41b6d1723ffe1b1dd49575d78443e02",
+    "frozen/authenticate_pilot.py": "fc0bd933e084718163a37424f84dadbf1ee3270533a75b51d0a4d35ed1858eb3",
+    "frozen/authentication.json": "5f913f867f72271ba88f632d463a95df4af02df76da6a547dfdb503fcd435d5a",
+    "frozen/b_functional.json": "8f69e90b003859e4dd3cb835d2404b4f36fb272cc3617e45abef101b9f5acb4a",
+    "frozen/b_functional.py": "ad3eeb68e9c372aa018899d28b354920156852e141fedd971f300203eec50377",
+    "frozen/common.py": "b448db710c66c2851e5332a16ccad60231a511588043058abb801017cf9c812d",
+    "frozen/eos_decomposition.json": "092d92eb9e7a2aa5389563e51d5fb577ebc698bfcdcf107b941711fee5d19c03",
+    "frozen/eos_decomposition.py": "ab574347b65d7e923a70696bcd96d2b74fc0e7ae20c0d41b4e1537f72dd5e281",
+    "frozen/hermite_ladder.json": "e11561d7ccb971fb2adc59230b01d73c649ee7250493c225803f97ff9f36dae9",
+    "frozen/hermite_ladder.py": "5546c3130cde1f4d5a2f2aeb48595bea54d069a2c8d6d3e37fdcd9bb35efb855",
+    "frozen/oracle-retained.json": "fe3ea1fa0ec178f7ce65df7e8636da3fb999fedf2d0c409c2774eda9ac56aa2e",
+    "frozen/paired-production.json": "c2c1aa002354f084dc4c5071664a0fd6492ed5103c0abffbf378f645d1fae68a",
+    "frozen/phase_model.json": "c3060cfb4d5f3dcb924dfaf3504366fd0dcd3106d7b0e6b6f9908ed9a8c24301",
+    "frozen/phase_model.py": "54cf1b6b300e91c1c15ec1ed335dddc067570d4663c399daa3faf094b8079559",
+    "targets.json": "f243bce5dbf5e2540a2b77880745e3ce2b887a3c7d72f54f30c8c53178b42005"
+  },
+  "frozen/SHA256SUMS": {
+    "BA13_ONSET_INDEPENDENT_REVIEW.md": "e603ff32a9f941d197af9c670ffc4231999cee2a82903659c6637861741a7c66",
+    "anchor.py": "3270d0ec084de3d586b662ce70c8a74ac41b6d1723ffe1b1dd49575d78443e02",
+    "authenticate_pilot.py": "fc0bd933e084718163a37424f84dadbf1ee3270533a75b51d0a4d35ed1858eb3",
+    "b_functional.py": "ad3eeb68e9c372aa018899d28b354920156852e141fedd971f300203eec50377",
+    "common.py": "b448db710c66c2851e5332a16ccad60231a511588043058abb801017cf9c812d",
+    "eos_decomposition.py": "ab574347b65d7e923a70696bcd96d2b74fc0e7ae20c0d41b4e1537f72dd5e281",
+    "hermite_ladder.py": "5546c3130cde1f4d5a2f2aeb48595bea54d069a2c8d6d3e37fdcd9bb35efb855",
+    "phase_model.py": "54cf1b6b300e91c1c15ec1ed335dddc067570d4663c399daa3faf094b8079559",
+    "anchor.json": "2c34b727f39c9c8e98288a66c734d4ea62f188cac53d6493f98f26fbd8c32109",
+    "authentication.json": "5f913f867f72271ba88f632d463a95df4af02df76da6a547dfdb503fcd435d5a",
+    "b_functional.json": "8f69e90b003859e4dd3cb835d2404b4f36fb272cc3617e45abef101b9f5acb4a",
+    "eos_decomposition.json": "092d92eb9e7a2aa5389563e51d5fb577ebc698bfcdcf107b941711fee5d19c03",
+    "hermite_ladder.json": "e11561d7ccb971fb2adc59230b01d73c649ee7250493c225803f97ff9f36dae9",
+    "phase_model.json": "c3060cfb4d5f3dcb924dfaf3504366fd0dcd3106d7b0e6b6f9908ed9a8c24301"
+  },
+  "files": {
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/tools/linux/x1_oracle/build.sh": "c175a5e9ed97c9625f5efab218b02cafac585d536f91d4a22d0111f1ca534f69",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/tools/linux/x1_oracle/score.py": "c038c530b434c03accbcfe19254444a19fb76843949c553860cf5d020a048d8c",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/tools/linux/x1_oracle/run.py": "48ed0803ec3ca36f4eb8d28110d024a7c3f1ffea2bc98cb595b5f5fd991c5279",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/tools/linux/x1_oracle/run.sbatch": "dcf7a3dc489d459a419b6f50494c95586800c2ce0e6d24cf17ffbc6272eae343",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/targets.json": "f243bce5dbf5e2540a2b77880745e3ce2b887a3c7d72f54f30c8c53178b42005",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/authentication.json": "da56dbb4d4ad9681ded03d03bed939018cc3e8c83eb2b8af837bfcfe5f30bedb",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/PREDECLARATION.md": "90687b4eee8fef3c89958aef320c8c5c1b79e26fff5822b2ae13bba1a053d8bc",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/MATHEMATICS.md": "478a3325ff8ae981fe052fc7779cbf76d63b88cb9af8b8c43b1bcc36acbb09c1",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/frozen/BA13_ONSET_INDEPENDENT_REVIEW.md": "e603ff32a9f941d197af9c670ffc4231999cee2a82903659c6637861741a7c66",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/frozen/anchor.py": "3270d0ec084de3d586b662ce70c8a74ac41b6d1723ffe1b1dd49575d78443e02",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/frozen/authenticate_pilot.py": "fc0bd933e084718163a37424f84dadbf1ee3270533a75b51d0a4d35ed1858eb3",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/frozen/b_functional.py": "ad3eeb68e9c372aa018899d28b354920156852e141fedd971f300203eec50377",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/frozen/common.py": "b448db710c66c2851e5332a16ccad60231a511588043058abb801017cf9c812d",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/frozen/eos_decomposition.py": "ab574347b65d7e923a70696bcd96d2b74fc0e7ae20c0d41b4e1537f72dd5e281",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/frozen/hermite_ladder.py": "5546c3130cde1f4d5a2f2aeb48595bea54d069a2c8d6d3e37fdcd9bb35efb855",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/frozen/phase_model.py": "54cf1b6b300e91c1c15ec1ed335dddc067570d4663c399daa3faf094b8079559",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/frozen/anchor.json": "2c34b727f39c9c8e98288a66c734d4ea62f188cac53d6493f98f26fbd8c32109",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/frozen/authentication.json": "5f913f867f72271ba88f632d463a95df4af02df76da6a547dfdb503fcd435d5a",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/frozen/b_functional.json": "8f69e90b003859e4dd3cb835d2404b4f36fb272cc3617e45abef101b9f5acb4a",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/frozen/eos_decomposition.json": "092d92eb9e7a2aa5389563e51d5fb577ebc698bfcdcf107b941711fee5d19c03",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/frozen/hermite_ladder.json": "e11561d7ccb971fb2adc59230b01d73c649ee7250493c225803f97ff9f36dae9",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/frozen/phase_model.json": "c3060cfb4d5f3dcb924dfaf3504366fd0dcd3106d7b0e6b6f9908ed9a8c24301",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/frozen/SHA256SUMS": "58820a2617a101280b6a5d7c6c65572b7d63f240bad0ec9e50f08a4e500577f0",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/frozen/oracle-retained.json": "fe3ea1fa0ec178f7ce65df7e8636da3fb999fedf2d0c409c2774eda9ac56aa2e",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/frozen/paired-production.json": "c2c1aa002354f084dc4c5071664a0fd6492ed5103c0abffbf378f645d1fae68a",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/tests/bnv/onset_structure_oracle.cpp": "eb5c4fb628ba9c7f962794128df7405077815bf68e11487cdd94455eabdfcd43",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/tests/bnv/x1_regularized_oracle.cpp": "4c0ddac21a90056c74be7e0f7a054b2ab350dd178645db571759c0d7b6fc637f",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/tests/eos/structure1/tov_oracle.hpp": "d36df7a0f818b73227920bb50e6f8e5c113679328921d0c560de549c04b62686",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/tests/eos/structure1/local_oracle.hpp": "d46d9ac1ef23df8754d32329e0df4497624d7da87d3f327704e0e0c81c2008ca",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor/build/onset_structure_oracle": "ce88435ad795afa9097da11500d3fa6d652b9bb20ea880c6c8ee24c470b584d3",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor/build/x1_regularized_oracle": "5dcc971ff9d20627a6052d297b444c0e99ec3f15c147d5366ea366ddf4a36dc1",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/g++": "4d0e76c2a1cd55efc9e6ea8f4c57f6f9079d817650bfe6dadbebf862c6a0aabc",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/include/Zaki/Physics/Constants.hpp": "c7a3e1a7a32fd91808f6a1ed130cad0c3caae4643bb00135529060cfeeba719b",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/lib/libZaki.a": "c41330d6e0c64d71509c2088ed159345f65ce1687c2f64bee5dda90c1f469ff7",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1/lib/libgsl.a": "55db172a76f999c817ccd26ab05684dd0e3fd003ef6fd079eb068739a5cd7b09",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1/lib/libgslcblas.a": "a7ede7c52179bf549d68645caed2529e357f5e4c1a924b371fd0e3c93b09b3e3",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/source/gsl-2.7.1/ode-initval2/rkf45.c": "0064196e68256f15a5d6de0e460ff0055fed8c79e2663fde4c2e9d2d35483164",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/source/gsl-2.7.1/ode-initval2/cstd.c": "37c10a8a6b109a247318ec2e0cdcf4189cb10b704bceb226bbd81f47adbd249b",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/LAUNCHER_CORRECTION.md": "5370efe1c77d95572993d6b341905771b390678c5598fb8a7520d822c54eaa23",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/git": "4d4c1e4efcc6ab482232c0672790cc909dad62ef0a0ed1a9f558e43d5f625bc5",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/libexec/git": "be60250fab3f99aaf4c136e7c50ce00d7a5af30a184be60bf237b13ee997309a"
+  },
+  "review_files": {
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-independent-review-20261016/common.py": "b448db710c66c2851e5332a16ccad60231a511588043058abb801017cf9c812d",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-independent-review-20261016/phase_model.py": "54cf1b6b300e91c1c15ec1ed335dddc067570d4663c399daa3faf094b8079559",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-independent-review-20261016/phase_model.json": "c3060cfb4d5f3dcb924dfaf3504366fd0dcd3106d7b0e6b6f9908ed9a8c24301",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-independent-review-20261016/b_functional.py": "ad3eeb68e9c372aa018899d28b354920156852e141fedd971f300203eec50377",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-independent-review-20261016/eos_decomposition.py": "ab574347b65d7e923a70696bcd96d2b74fc0e7ae20c0d41b4e1537f72dd5e281",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-independent-review-20261016/eos_decomposition.json": "092d92eb9e7a2aa5389563e51d5fb577ebc698bfcdcf107b941711fee5d19c03",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-independent-review-20261016/b_functional.json": "8f69e90b003859e4dd3cb835d2404b4f36fb272cc3617e45abef101b9f5acb4a",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-independent-review-20261016/anchor.py": "3270d0ec084de3d586b662ce70c8a74ac41b6d1723ffe1b1dd49575d78443e02",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-independent-review-20261016/authenticate_pilot.py": "fc0bd933e084718163a37424f84dadbf1ee3270533a75b51d0a4d35ed1858eb3",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-independent-review-20261016/anchor.json": "2c34b727f39c9c8e98288a66c734d4ea62f188cac53d6493f98f26fbd8c32109",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-independent-review-20261016/authentication.json": "5f913f867f72271ba88f632d463a95df4af02df76da6a547dfdb503fcd435d5a",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-independent-review-20261016/hermite_ladder.py": "5546c3130cde1f4d5a2f2aeb48595bea54d069a2c8d6d3e37fdcd9bb35efb855",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-independent-review-20261016/hermite_ladder.json": "e11561d7ccb971fb2adc59230b01d73c649ee7250493c225803f97ff9f36dae9",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-independent-review-20261016/BA13_ONSET_INDEPENDENT_REVIEW.md": "e603ff32a9f941d197af9c670ffc4231999cee2a82903659c6637861741a7c66",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-independent-review-20261016/SHA256SUMS": "58820a2617a101280b6a5d7c6c65572b7d63f240bad0ec9e50f08a4e500577f0"
+  },
+  "external_manifest": {
+    "root": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor",
+    "files": {
+      "audit-slurm-17023.err": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "audit-slurm-17023.out": {
+        "sha256": "6de342bf3e51b41e0e1342102b286fa5e861437e4fafd5ce4be5e50bfe975031",
+        "bytes": 547
+      },
+      "build/compiler.txt": {
+        "sha256": "07316a14f2fdd7579d3cb3c529b60cf3f91bc757509d9a8cf59478160289031e",
+        "bytes": 225
+      },
+      "build/onset_structure_oracle": {
+        "sha256": "ce88435ad795afa9097da11500d3fa6d652b9bb20ea880c6c8ee24c470b584d3",
+        "bytes": 326848
+      },
+      "build/onset_structure_oracle.build-receipt.txt": {
+        "sha256": "fb5ca547c088a6086ba096ba816fb7ce0194c6a6e23ce6ef2e8143b4d40c89f7",
+        "bytes": 1537
+      },
+      "build/x1_regularized_oracle": {
+        "sha256": "5dcc971ff9d20627a6052d297b444c0e99ec3f15c147d5366ea366ddf4a36dc1",
+        "bytes": 297160
+      },
+      "build/x1_regularized_oracle.build-receipt.txt": {
+        "sha256": "2501073440d7d84b5d649feadee39e4e78fcfec3dca85c3f07dd1c2b4cb4f0b2",
+        "bytes": 1535
+      },
+      "independent-audit.json": {
+        "sha256": "8eebe817d948564c2d2262fb0544d5475341df4c2e6786a0e49e9e4d147e9838",
+        "bytes": 613
+      },
+      "mathematical-checks.err": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "mathematical-checks.out": {
+        "sha256": "6d986e82cc3a8bb8f11de0c8a31d5da66a210fc5ae8a2712ff3a23679f734474",
+        "bytes": 194
+      },
+      "receipts.json": {
+        "sha256": "51b4465117870e3d04486885d71c9cec631d20193393c5297c96486d015962c2",
+        "bytes": 10848
+      },
+      "regularized-0-2e-10.err": {
+        "sha256": "524d75f7be2d40baa1f330c1e6fb66d6160d2fe2d55d1d3c74dba1943901e6ac",
+        "bytes": 285
+      },
+      "regularized-0-2e-10.out": {
+        "sha256": "7c8b9280b6f67f32ef6c4ed167640a4441645c4f706b096a8bfabf22d52025c9",
+        "bytes": 184
+      },
+      "regularized-0-2e-11.err": {
+        "sha256": "ace9d6a0d9ac80a5aeb258af0b00493e6a78fad172809c916afa9ba9e3825114",
+        "bytes": 286
+      },
+      "regularized-0-2e-11.out": {
+        "sha256": "ed338e3446570b7677f376c166f9faab9db7892f2084378456a17f641cf3cf6d",
+        "bytes": 185
+      },
+      "regularized-0-2e-12.err": {
+        "sha256": "97865715bd55c2632982db7d903117ab71cdb88eb331b608b0cab2a5c6261160",
+        "bytes": 286
+      },
+      "regularized-0-2e-12.out": {
+        "sha256": "5209ca510a9536cd432c8302abf92ad801169159984e762e62a6aae0cb7b7e70",
+        "bytes": 182
+      },
+      "regularized-0-2e-13.err": {
+        "sha256": "db4eff0647d9abfbc981b903c34591f9390d98fe511a0aaca1127d3223488bf9",
+        "bytes": 287
+      },
+      "regularized-0-2e-13.out": {
+        "sha256": "6566ab2e73a72dc7620b24386719b26c5f5fe4fee80f137ea25c580b4944cd56",
+        "bytes": 185
+      },
+      "regularized-10-2e-10.err": {
+        "sha256": "12294d283c37836bc44faa09b5ed83b5ea8e47b0581d1be152d21367ba2eb2c0",
+        "bytes": 284
+      },
+      "regularized-10-2e-10.out": {
+        "sha256": "605cf30c7dd56a78d11d79b7eaa627b032e0757dce84437624fd7b26049a9d42",
+        "bytes": 182
+      },
+      "regularized-10-2e-11.err": {
+        "sha256": "c8d6fdc84189aacc25ae879057c020bcabe561ce450e685b1a30251620b14d2f",
+        "bytes": 286
+      },
+      "regularized-10-2e-11.out": {
+        "sha256": "827804c9843b134a1f307822200810f47db57e97c5668866722f74c5eb81fc0f",
+        "bytes": 185
+      },
+      "regularized-10-2e-12.err": {
+        "sha256": "eb1f1dad96ac07723278adfd7f72fb8333c56cb48a8b529c0208bc49c4d45bff",
+        "bytes": 287
+      },
+      "regularized-10-2e-12.out": {
+        "sha256": "b536349c1a81cd828fde3d7dec677558b52cabb2369242a1315e7abaf308eda2",
+        "bytes": 186
+      },
+      "regularized-10-2e-13.err": {
+        "sha256": "0500325e8619ec8b97e90673e82e0f6bd9f9226bb58d4aed58f6ced0d51fdb82",
+        "bytes": 287
+      },
+      "regularized-10-2e-13.out": {
+        "sha256": "b72bc96e0eec0c7282a199db2c8f6e374f724a922d3e633a55580fd2efa544d5",
+        "bytes": 186
+      },
+      "regularized-20-2e-10.err": {
+        "sha256": "31c23bacc7ca13adcc4eef914307543df5b6e9cfdbc3ed06f823e9108ded0df7",
+        "bytes": 284
+      },
+      "regularized-20-2e-10.out": {
+        "sha256": "d45fec9ed6f14836b1852986590375e29b5467160ccd5aa406f4130e630d117b",
+        "bytes": 184
+      },
+      "regularized-20-2e-11.err": {
+        "sha256": "8121aa0f8b7e11ec401faa7a8811117dc28ead3c24ea7ebb4b5371c2a6c1654c",
+        "bytes": 285
+      },
+      "regularized-20-2e-11.out": {
+        "sha256": "edeee9b706327b1bad1110c991b686cea2c1b4a9020067ff6b3de7c7ae0ebceb",
+        "bytes": 185
+      },
+      "regularized-20-2e-12.err": {
+        "sha256": "a3accf4481de1d784f0307121eeb1dc2645a0bbd9f14b9ba497c027203c2ee38",
+        "bytes": 287
+      },
+      "regularized-20-2e-12.out": {
+        "sha256": "dfd43d829ba10cd6acd834ba9f77ff682b777fb0ea5e2cd74b44e6db20b9a3c0",
+        "bytes": 183
+      },
+      "regularized-20-2e-13.err": {
+        "sha256": "00498e42d18a883309909622617d66b466f1d02b66ed762ad4a3d94bcadefcca",
+        "bytes": 287
+      },
+      "regularized-20-2e-13.out": {
+        "sha256": "4450a0ffc01caa02a3b45a374762961af06b4f4ae70405e1303f2be290207efd",
+        "bytes": 185
+      },
+      "resources.json": {
+        "sha256": "3359503f50f77a2860a39bfe40da0a0eb74a0550317aafbce21fcea287cfa520",
+        "bytes": 446
+      },
+      "runs.json": {
+        "sha256": "b76ecef0977281dc0bb05fa4c0ebc8e1ee75f41f01d8f9fd77a7ab12fe927160",
+        "bytes": 11737
+      },
+      "sacct.txt": {
+        "sha256": "6e7b6669c47d3e41740c1293da303c51dd86542af165aa9da2c4e5e4ebdb6e74",
+        "bytes": 37
+      },
+      "score.err": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "score.out": {
+        "sha256": "8ce74eae9e9233237081823a3c3aed9a074460129ad2d48e3a5c8a3d608fbfe6",
+        "bytes": 103
+      },
+      "scores.json": {
+        "sha256": "afbaa55fb4e4a73e5b5b2da10a35e0284439bea7f4a4927184a6d45530b62159",
+        "bytes": 80564
+      },
+      "slurm-17021.err": {
+        "sha256": "1b806f20a5d98198fa775f43cfae6a46e1a02996a6f833fc9795a124ba387bf3",
+        "bytes": 1355
+      },
+      "slurm-17021.out": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "slurm-17022.err": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "slurm-17022.out": {
+        "sha256": "2619aff8b2657485a4541daec983028f745a7ef4ebde503e80b39f560b8daa4f",
+        "bytes": 418
+      },
+      "slurm-allocation-17022.txt": {
+        "sha256": "41454456c6556a312aebc9a6fa05d083e981477e2638da49764c6e3cd305a623",
+        "bytes": 1387
+      },
+      "slurm-allocation.txt": {
+        "sha256": "46125f64e944fed3d165ef0bdce8797e292d459bb4ebe45ceea958b90f6ee45b",
+        "bytes": 1387
+      },
+      "slurm-final-17021.txt": {
+        "sha256": "ad83a6520688f8f6b6b91ec102243eff87cc1dd4f0417b63d6daddc52a3c04ae",
+        "bytes": 1393
+      },
+      "slurm-final-17022.txt": {
+        "sha256": "d3f5555d508f2b14ea0390c439120035cf6931b0daa3f274b81dac104dbc7f9f",
+        "bytes": 1385
+      },
+      "slurm-final-17023.txt": {
+        "sha256": "77f5551806d4f05295a54cfa139ab94ab9193887f50d6bbf2bed63e3093dbb6a",
+        "bytes": 1290
+      },
+      "unregularized-0-2e-11.err": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "unregularized-0-2e-11.out": {
+        "sha256": "66e4d5f14a7fe027e8c008aa9dd5c03568766c342e2f79f3c56e7cd04509e8b3",
+        "bytes": 184
+      },
+      "unregularized-0-2e-13.err": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "unregularized-0-2e-13.out": {
+        "sha256": "2d30db82f07d14b32c8e87ca78a279d0ad072a031ce97340b4e798a949c02704",
+        "bytes": 184
+      },
+      "unregularized-10-2e-11.err": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "unregularized-10-2e-11.out": {
+        "sha256": "ab58d7c52e63bc61f4e8986c829546a8d1f613dac2aade4b7e092c91ebbfb62f",
+        "bytes": 183
+      },
+      "unregularized-10-2e-13.err": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "unregularized-10-2e-13.out": {
+        "sha256": "8e985acaee8ae15f68915e51c5500b52be451b76c8d9637fa0d7aec5b260e32b",
+        "bytes": 182
+      },
+      "unregularized-20-2e-11.err": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "unregularized-20-2e-11.out": {
+        "sha256": "895d14d1cd3bd00bb4b2beecafa3c02f05e892a90902e39804b8b29f01f71ee3",
+        "bytes": 185
+      },
+      "unregularized-20-2e-13.err": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "unregularized-20-2e-13.out": {
+        "sha256": "8babf152f4dd3acc7ca1d955af4745a7b058c444d9bcda19cbb427e94ce09916",
+        "bytes": 183
+      }
+    }
+  },
+  "entry_commit": "6cc7e20713e3c0210faa9036316650816f0290d5",
+  "worktree": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step",
+  "ancestry": "All 10 existing local branch tips are ancestors of 6cc7e20; new paths have no competing owner.",
+  "preserved_failures": {
+    "status": "PASS",
+    "purpose": "independent arithmetic and provenance audit, not a global error bound",
+    "counts": {
+      "A1_PASS": 12,
+      "anchor_residual_within_original_band": 15,
+      "direction_PASS": 12,
+      "agreement_PASS": 12,
+      "A1_FAIL": 3,
+      "agreement_FAIL": 3,
+      "paired_oracle_PASS": 72,
+      "paired_phase_PASS": 432
+    },
+    "cpu_seconds": 0.087927,
+    "combined_measured_cpu_seconds": 3.137887,
+    "max_rss_kib": 35624,
+    "affinity": [
+      4
+    ],
+    "job": "17023",
+    "source_sha256": "2581f2a5740e4af80b0ae8d32cc0abe1a0ef70cf93922e3e4e42687ba1c7b62c",
+    "numerical_solver_runs_added": 0
+  }
+}

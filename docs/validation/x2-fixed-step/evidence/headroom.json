@@ -1,0 +1,4354 @@
+{
+  "source_sha256": "21f04903397d80d76700f15a5ff9e3012181bb5658f2b3fbfd826bd2514e5c4f",
+  "conditional": true,
+  "rows": [
+    {
+      "target": 0,
+      "quantity": "Cstar",
+      "threshold": 0.00010000000010048592,
+      "drift_bound": 2.0173182621841767e-11,
+      "headroom": 9.99999799273033e-05,
+      "equal_endpoint_relative_error_sufficient": 4.99974900886404e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 0,
+      "quantity": "Ltilde_Me",
+      "threshold": 0.0001,
+      "drift_bound": 4.0336799309859835e-11,
+      "headroom": 9.99999596632007e-05,
+      "equal_endpoint_relative_error_sufficient": 4.999747995659415e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 0,
+      "quantity": "Ltilde_Mmu",
+      "threshold": 0.0001,
+      "drift_bound": 2.6949226140532714e-12,
+      "headroom": 9.999999730507739e-05,
+      "equal_endpoint_relative_error_sufficient": 4.999749877753245e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 0,
+      "quantity": "N_e",
+      "threshold": 0.0001,
+      "drift_bound": 5.978376319527056e-13,
+      "headroom": 9.999999940216238e-05,
+      "equal_endpoint_relative_error_sufficient": 4.999749982607495e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 0,
+      "quantity": "N_mu",
+      "threshold": 0.0001,
+      "drift_bound": 3.832333791351177e-11,
+      "headroom": 9.99999616766621e-05,
+      "equal_endpoint_relative_error_sufficient": 4.999748096332485e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 0,
+      "quantity": "N_n",
+      "threshold": 0.0001,
+      "drift_bound": 6.100371435291297e-15,
+      "headroom": 9.999999999389963e-05,
+      "equal_endpoint_relative_error_sufficient": 4.999750012194357e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 0,
+      "quantity": "P0_average",
+      "threshold": 0.0001,
+      "drift_bound": 1.492373408405331e-14,
+      "headroom": 9.999999998507627e-05,
+      "equal_endpoint_relative_error_sufficient": 4.999750011753189e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 0,
+      "quantity": "P1_average",
+      "threshold": 0.00010000000000095002,
+      "drift_bound": 2.2302467653044646e-14,
+      "headroom": 9.999999997864755e-05,
+      "equal_endpoint_relative_error_sufficient": 4.999750011431749e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 0,
+      "quantity": "P2_average",
+      "threshold": 0.0001,
+      "drift_bound": 0.0,
+      "headroom": 0.0001,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 0,
+      "quantity": "Tsurface_inf",
+      "threshold": 0.00010000000010048592,
+      "drift_bound": 6.463164276821744e-13,
+      "headroom": 9.99999994541695e-05,
+      "equal_endpoint_relative_error_sufficient": 4.999749985207348e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 0,
+      "quantity": "Z_row_npe",
+      "threshold": 0.0001,
+      "drift_bound": 2.2122949495364787e-13,
+      "headroom": 9.999999977877052e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.999999988938526e-05
+    },
+    {
+      "target": 0,
+      "quantity": "Z_row_npmu",
+      "threshold": 0.0001,
+      "drift_bound": 3.4160168730034914e-11,
+      "headroom": 9.999996583983128e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.999998291991564e-05
+    },
+    {
+      "target": 0,
+      "quantity": "envelope",
+      "threshold": 0.0001,
+      "drift_bound": 7.792031887838607e-13,
+      "headroom": 9.999999922079682e-05,
+      "equal_endpoint_relative_error_sufficient": 4.999749973539216e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 0,
+      "quantity": "metric_structure",
+      "threshold": 0.0001,
+      "drift_bound": 1.6731354994913515e-11,
+      "headroom": 9.999998326864502e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.999999163432251e-05
+    },
+    {
+      "target": 0,
+      "quantity": "mu_B",
+      "threshold": 0.0001,
+      "drift_bound": 1.492373408405331e-14,
+      "headroom": 9.999999998507627e-05,
+      "equal_endpoint_relative_error_sufficient": 4.999750011753189e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 0,
+      "quantity": "mu_n_profile",
+      "threshold": 0.0001,
+      "drift_bound": 7.160774089521835e-14,
+      "headroom": 9.999999992839226e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.999999996419613e-05
+    },
+    {
+      "target": 0,
+      "quantity": "radius",
+      "threshold": 0.0001,
+      "drift_bound": 1.4565759707535356e-12,
+      "headroom": 9.999999854342403e-05,
+      "equal_endpoint_relative_error_sufficient": 4.999749939670576e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 0,
+      "quantity": "species_support",
+      "threshold": 1.0,
+      "drift_bound": 0.0,
+      "headroom": 1.0,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 0,
+      "quantity": "surface_gravity",
+      "threshold": 0.00010000000010048592,
+      "drift_bound": 3.226861530334078e-12,
+      "headroom": 9.99999968736244e-05,
+      "equal_endpoint_relative_error_sufficient": 4.999749856180093e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 0,
+      "quantity": "t_e",
+      "threshold": 3.085217122473952e-06,
+      "drift_bound": 2.7144363146103245e-12,
+      "headroom": 3.0852144080376374e-06,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.5426072040188187e-06
+    },
+    {
+      "target": 0,
+      "quantity": "t_mu",
+      "threshold": 3.3777438246255103e-07,
+      "drift_bound": 1.0466371692940957e-12,
+      "headroom": 3.3777333582538174e-07,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.6888666791269087e-07
+    },
+    {
+      "target": 0,
+      "quantity": "t_n",
+      "threshold": 9.65770084950635e-05,
+      "drift_bound": 2.9237723353503497e-12,
+      "headroom": 9.657700557129117e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.8288502785645585e-05
+    },
+    {
+      "target": 1,
+      "quantity": "Cstar",
+      "threshold": 0.00010000000010048592,
+      "drift_bound": 7.299542476199611e-08,
+      "headroom": 9.992700467572393e-05,
+      "equal_endpoint_relative_error_sufficient": 4.996100246427394e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 1,
+      "quantity": "Ltilde_Me",
+      "threshold": 0.00010000000000075484,
+      "drift_bound": 6.131845630943041e-08,
+      "headroom": 9.993868154444541e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9966840898233e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 1,
+      "quantity": "Ltilde_Mmu",
+      "threshold": 0.0001,
+      "drift_bound": 1.284060301122775e-06,
+      "headroom": 9.871593969887723e-05,
+      "equal_endpoint_relative_error_sufficient": 4.935547038821911e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 1,
+      "quantity": "N_e",
+      "threshold": 0.0001,
+      "drift_bound": 2.4418404404097184e-07,
+      "headroom": 9.975581595595903e-05,
+      "equal_endpoint_relative_error_sufficient": 4.987540811818417e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 1,
+      "quantity": "N_mu",
+      "threshold": 0.0001,
+      "drift_bound": 2.7038518734079347e-06,
+      "headroom": 9.729614812659207e-05,
+      "equal_endpoint_relative_error_sufficient": 4.8645576019279136e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 1,
+      "quantity": "N_n",
+      "threshold": 0.0001,
+      "drift_bound": 4.859856069668203e-08,
+      "headroom": 9.995140143930333e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9973200845296575e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 1,
+      "quantity": "P0_average",
+      "threshold": 0.0001,
+      "drift_bound": 9.413227615873986e-09,
+      "headroom": 9.999058677238414e-05,
+      "equal_endpoint_relative_error_sufficient": 4.999279351121974e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 1,
+      "quantity": "P1_average",
+      "threshold": 0.00010000000000067176,
+      "drift_bound": 1.3072896663064092e-08,
+      "headroom": 9.99869271040087e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9990963677057126e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 1,
+      "quantity": "P2_average",
+      "threshold": 0.0001,
+      "drift_bound": 0.0,
+      "headroom": 0.0001,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 1,
+      "quantity": "Tsurface_inf",
+      "threshold": 0.00010000000010048592,
+      "drift_bound": 3.935428697907398e-08,
+      "headroom": 9.996064581350685e-05,
+      "equal_endpoint_relative_error_sufficient": 4.997782303217851e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 1,
+      "quantity": "Z_row_npe",
+      "threshold": 0.0001,
+      "drift_bound": 1.0815080283772422e-07,
+      "headroom": 9.989184919716228e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.994592459858114e-05
+    },
+    {
+      "target": 1,
+      "quantity": "Z_row_npmu",
+      "threshold": 0.0001,
+      "drift_bound": 1.7545996011821208e-06,
+      "headroom": 9.824540039881788e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.912270019940894e-05
+    },
+    {
+      "target": 1,
+      "quantity": "envelope",
+      "threshold": 0.0001,
+      "drift_bound": 4.876992965034e-08,
+      "headroom": 9.995123007034966e-05,
+      "equal_endpoint_relative_error_sufficient": 4.997311516082413e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 1,
+      "quantity": "metric_structure",
+      "threshold": 0.0001,
+      "drift_bound": 1.6506194514504284e-07,
+      "headroom": 9.983493805485496e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.991746902742748e-05
+    },
+    {
+      "target": 1,
+      "quantity": "mu_B",
+      "threshold": 0.0001,
+      "drift_bound": 9.413227615873986e-09,
+      "headroom": 9.999058677238414e-05,
+      "equal_endpoint_relative_error_sufficient": 4.999279351121974e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 1,
+      "quantity": "mu_n_profile",
+      "threshold": 0.0001,
+      "drift_bound": 9.413347388632293e-09,
+      "headroom": 9.999058665261137e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.999529332630569e-05
+    },
+    {
+      "target": 1,
+      "quantity": "radius",
+      "threshold": 0.0001,
+      "drift_bound": 6.415602920818952e-08,
+      "headroom": 9.993584397079181e-05,
+      "equal_endpoint_relative_error_sufficient": 4.996542211149879e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 1,
+      "quantity": "species_support",
+      "threshold": 1.0,
+      "drift_bound": 0.0,
+      "headroom": 1.0,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 1,
+      "quantity": "surface_gravity",
+      "threshold": 0.00010000000010048591,
+      "drift_bound": 1.8526217719585587e-07,
+      "headroom": 9.981473792329005e-05,
+      "equal_endpoint_relative_error_sufficient": 4.990486909544539e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 1,
+      "quantity": "t_e",
+      "threshold": 3.085216154337579e-06,
+      "drift_bound": 9.68407816090422e-09,
+      "headroom": 3.075532076176675e-06,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.5377660380883374e-06
+    },
+    {
+      "target": 1,
+      "quantity": "t_mu",
+      "threshold": 3.3777374710442595e-07,
+      "drift_bound": 6.35462788813046e-09,
+      "headroom": 3.314191192162955e-07,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.6570955960814775e-07
+    },
+    {
+      "target": 1,
+      "quantity": "t_n",
+      "threshold": 9.6577010098558e-05,
+      "drift_bound": 1.603786869974755e-08,
+      "headroom": 9.656097222985825e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.8280486114929125e-05
+    },
+    {
+      "target": 2,
+      "quantity": "Cstar",
+      "threshold": 0.00010000000010048594,
+      "drift_bound": 1.459678048140468e-07,
+      "headroom": 9.985403229567188e-05,
+      "equal_endpoint_relative_error_sufficient": 4.99245162783335e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 2,
+      "quantity": "Ltilde_Me",
+      "threshold": 0.0001,
+      "drift_bound": 1.2260250976206958e-07,
+      "headroom": 9.987739749023794e-05,
+      "equal_endpoint_relative_error_sufficient": 4.993619887402362e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 2,
+      "quantity": "Ltilde_Mmu",
+      "threshold": 0.0001,
+      "drift_bound": 2.568117488992594e-06,
+      "headroom": 9.743188251100741e-05,
+      "equal_endpoint_relative_error_sufficient": 4.871344303242959e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 2,
+      "quantity": "N_e",
+      "threshold": 0.0001,
+      "drift_bound": 4.88367401282904e-07,
+      "headroom": 9.95116325987171e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9753316484585395e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 2,
+      "quantity": "N_mu",
+      "threshold": 0.0001,
+      "drift_bound": 5.407660094968547e-06,
+      "headroom": 9.459233990503145e-05,
+      "equal_endpoint_relative_error_sufficient": 4.729367739458e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 2,
+      "quantity": "N_n",
+      "threshold": 0.0001,
+      "drift_bound": 9.719711701951284e-08,
+      "headroom": 9.99028028829805e-05,
+      "equal_endpoint_relative_error_sufficient": 4.994890156896718e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 2,
+      "quantity": "P0_average",
+      "threshold": 0.0001,
+      "drift_bound": 1.8826438213454715e-08,
+      "headroom": 9.998117356178656e-05,
+      "equal_endpoint_relative_error_sufficient": 4.998808690599917e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 2,
+      "quantity": "P1_average",
+      "threshold": 0.00010000000000067176,
+      "drift_bound": 2.6145768067911806e-08,
+      "headroom": 9.997385423260386e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9984427241499226e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 2,
+      "quantity": "P2_average",
+      "threshold": 0.0001,
+      "drift_bound": 0.0,
+      "headroom": 0.0001,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 2,
+      "quantity": "Tsurface_inf",
+      "threshold": 0.00010000000010048592,
+      "drift_bound": 7.870687608498396e-08,
+      "headroom": 9.992129322440094e-05,
+      "equal_endpoint_relative_error_sufficient": 4.995814673883618e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 2,
+      "quantity": "Z_row_npe",
+      "threshold": 0.0001,
+      "drift_bound": 2.1630141861755738e-07,
+      "headroom": 9.978369858138244e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.989184929069122e-05
+    },
+    {
+      "target": 2,
+      "quantity": "Z_row_npmu",
+      "threshold": 0.0001,
+      "drift_bound": 3.5091694502679984e-06,
+      "headroom": 9.649083054973201e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.8245415274866005e-05
+    },
+    {
+      "target": 2,
+      "quantity": "envelope",
+      "threshold": 0.0001,
+      "drift_bound": 9.753782374049686e-08,
+      "headroom": 9.990246217625951e-05,
+      "equal_endpoint_relative_error_sufficient": 4.99487312156237e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 2,
+      "quantity": "metric_structure",
+      "threshold": 0.0001,
+      "drift_bound": 3.301089212998715e-07,
+      "headroom": 9.966989107870014e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.983494553935007e-05
+    },
+    {
+      "target": 2,
+      "quantity": "mu_B",
+      "threshold": 0.0001,
+      "drift_bound": 1.8826438213454715e-08,
+      "headroom": 9.998117356178656e-05,
+      "equal_endpoint_relative_error_sufficient": 4.998808690599917e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 2,
+      "quantity": "mu_n_profile",
+      "threshold": 0.0001,
+      "drift_bound": 1.8826620551324734e-08,
+      "headroom": 9.998117337944867e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.999058668972434e-05
+    },
+    {
+      "target": 2,
+      "quantity": "radius",
+      "threshold": 0.0001,
+      "drift_bound": 1.2830819823959448e-07,
+      "headroom": 9.987169180176042e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9933346030149864e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 2,
+      "quantity": "species_support",
+      "threshold": 1.0,
+      "drift_bound": 0.0,
+      "headroom": 1.0,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 2,
+      "quantity": "surface_gravity",
+      "threshold": 0.00010000000010048591,
+      "drift_bound": 3.7051607723000854e-07,
+      "headroom": 9.96294840232559e-05,
+      "equal_endpoint_relative_error_sufficient": 4.98122421713986e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 2,
+      "quantity": "t_e",
+      "threshold": 3.0852151863165616e-06,
+      "drift_bound": 1.9364288339485114e-08,
+      "headroom": 3.0658508979770765e-06,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.5329254489885382e-06
+    },
+    {
+      "target": 2,
+      "quantity": "t_mu",
+      "threshold": 3.377731117568401e-07,
+      "drift_bound": 1.2708103746834204e-08,
+      "headroom": 3.250650080100059e-07,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.6253250400500294e-07
+    },
+    {
+      "target": 2,
+      "quantity": "t_n",
+      "threshold": 9.65770117019266e-05,
+      "drift_bound": 3.2071554745272124e-08,
+      "headroom": 9.654494014718133e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.827247007359066e-05
+    },
+    {
+      "target": 3,
+      "quantity": "Cstar",
+      "threshold": 0.00010000000010048594,
+      "drift_bound": 2.1893742123648743e-07,
+      "headroom": 9.978106267924944e-05,
+      "equal_endpoint_relative_error_sufficient": 4.988803147686989e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 3,
+      "quantity": "Ltilde_Me",
+      "threshold": 0.0001,
+      "drift_bound": 1.8389243359976036e-07,
+      "headroom": 9.981610756640024e-05,
+      "equal_endpoint_relative_error_sufficient": 4.99055539168774e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 3,
+      "quantity": "Ltilde_Mmu",
+      "threshold": 0.0001,
+      "drift_bound": 3.8521746435210165e-06,
+      "headroom": 9.614782535647899e-05,
+      "equal_endpoint_relative_error_sufficient": 4.8071416517667715e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 3,
+      "quantity": "N_e",
+      "threshold": 0.0001,
+      "drift_bound": 7.325507281167239e-07,
+      "headroom": 9.926744927188328e-05,
+      "equal_endpoint_relative_error_sufficient": 4.963122489600188e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 3,
+      "quantity": "N_mu",
+      "threshold": 0.0001,
+      "drift_bound": 8.111463904173353e-06,
+      "headroom": 9.188853609582665e-05,
+      "equal_endpoint_relative_error_sufficient": 4.594178463111791e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 3,
+      "quantity": "N_n",
+      "threshold": 0.0001,
+      "drift_bound": 1.4579567529906656e-07,
+      "headroom": 9.985420432470094e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9924602292840274e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 3,
+      "quantity": "P0_average",
+      "threshold": 0.0001,
+      "drift_bound": 2.8239648287395656e-08,
+      "headroom": 9.99717603517126e-05,
+      "equal_endpoint_relative_error_sufficient": 4.99833803010847e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 3,
+      "quantity": "P1_average",
+      "threshold": 0.00010000000000067176,
+      "drift_bound": 3.9218638800998446e-08,
+      "headroom": 9.996078136187077e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9977890806362634e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 3,
+      "quantity": "P2_average",
+      "threshold": 0.0001,
+      "drift_bound": 0.0,
+      "headroom": 0.0001,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 3,
+      "quantity": "Tsurface_inf",
+      "threshold": 0.00010000000010048592,
+      "drift_bound": 1.1806051176793434e-07,
+      "headroom": 9.988193958871799e-05,
+      "equal_endpoint_relative_error_sufficient": 4.993846992297968e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 3,
+      "quantity": "Z_row_npe",
+      "threshold": 0.0001,
+      "drift_bound": 3.244520735048928e-07,
+      "headroom": 9.967554792649511e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.9837773963247553e-05
+    },
+    {
+      "target": 3,
+      "quantity": "Z_row_npmu",
+      "threshold": 0.0001,
+      "drift_bound": 5.263744283020537e-06,
+      "headroom": 9.473625571697946e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.736812785848973e-05
+    },
+    {
+      "target": 3,
+      "quantity": "envelope",
+      "threshold": 0.0001,
+      "drift_bound": 1.4630696474955874e-07,
+      "headroom": 9.985369303525045e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9924346648153e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 3,
+      "quantity": "metric_structure",
+      "threshold": 0.0001,
+      "drift_bound": 4.951576843669626e-07,
+      "headroom": 9.950484231563304e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.975242115781652e-05
+    },
+    {
+      "target": 3,
+      "quantity": "mu_B",
+      "threshold": 0.0001,
+      "drift_bound": 2.8239648287395656e-08,
+      "headroom": 9.99717603517126e-05,
+      "equal_endpoint_relative_error_sufficient": 4.99833803010847e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 3,
+      "quantity": "mu_n_profile",
+      "threshold": 0.0001,
+      "drift_bound": 2.8239892928557485e-08,
+      "headroom": 9.997176010707145e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.9985880053535725e-05
+    },
+    {
+      "target": 3,
+      "quantity": "radius",
+      "threshold": 0.0001,
+      "drift_bound": 1.924627671148825e-07,
+      "headroom": 9.980753723288512e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9901268750936885e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 3,
+      "quantity": "species_support",
+      "threshold": 1.0,
+      "drift_bound": 0.0,
+      "headroom": 1.0,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 3,
+      "quantity": "surface_gravity",
+      "threshold": 0.0001000000001004859,
+      "drift_bound": 5.557749402042926e-07,
+      "headroom": 9.94442251602816e-05,
+      "equal_endpoint_relative_error_sufficient": 4.971961278304174e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 3,
+      "quantity": "t_e",
+      "threshold": 3.0852142182436285e-06,
+      "drift_bound": 2.9045017668760664e-08,
+      "headroom": 3.056169200574868e-06,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.528084600287434e-06
+    },
+    {
+      "target": 3,
+      "quantity": "t_mu",
+      "threshold": 3.377724763850739e-07,
+      "drift_bound": 1.9061821408209584e-08,
+      "headroom": 3.187106549768643e-07,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.5935532748843216e-07
+    },
+    {
+      "target": 3,
+      "quantity": "t_n",
+      "threshold": 9.65770133053713e-05,
+      "drift_bound": 4.810600173765778e-08,
+      "headroom": 9.652890730363364e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.826445365181682e-05
+    },
+    {
+      "target": 4,
+      "quantity": "Cstar",
+      "threshold": 0.00010000000010048594,
+      "drift_bound": 2.919042153637351e-07,
+      "headroom": 9.97080958851222e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9851548089215615e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 4,
+      "quantity": "Ltilde_Me",
+      "threshold": 0.0001,
+      "drift_bound": 2.451881850985997e-07,
+      "headroom": 9.97548118149014e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9874906047779464e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 4,
+      "quantity": "Ltilde_Mmu",
+      "threshold": 0.0001,
+      "drift_bound": 5.1362311609161775e-06,
+      "headroom": 9.486376883908383e-05,
+      "equal_endpoint_relative_error_sufficient": 4.742939114582626e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 4,
+      "quantity": "N_e",
+      "threshold": 0.0001,
+      "drift_bound": 9.767339269536055e-07,
+      "headroom": 9.90232660730464e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9509133401227995e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 4,
+      "quantity": "N_mu",
+      "threshold": 0.0001,
+      "drift_bound": 1.0815262010606928e-05,
+      "headroom": 8.918473798939307e-05,
+      "equal_endpoint_relative_error_sufficient": 4.458989837406086e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 4,
+      "quantity": "N_n",
+      "threshold": 0.0001,
+      "drift_bound": 1.9439423519003917e-07,
+      "headroom": 9.980560576480996e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9900303017088506e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 4,
+      "quantity": "P0_average",
+      "threshold": 0.0001,
+      "drift_bound": 3.765285469585804e-08,
+      "headroom": 9.996234714530415e-05,
+      "equal_endpoint_relative_error_sufficient": 4.997867369804731e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 4,
+      "quantity": "P1_average",
+      "threshold": 0.00010000000000067176,
+      "drift_bound": 5.2291503891292066e-08,
+      "headroom": 9.994770849678047e-05,
+      "equal_endpoint_relative_error_sufficient": 4.997135437413289e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 4,
+      "quantity": "P2_average",
+      "threshold": 0.0001,
+      "drift_bound": 0.0,
+      "headroom": 0.0001,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 4,
+      "quantity": "Tsurface_inf",
+      "threshold": 0.00010000000010048591,
+      "drift_bound": 1.5741282688238925e-07,
+      "headroom": 9.984258727360352e-05,
+      "equal_endpoint_relative_error_sufficient": 4.991879376818162e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 4,
+      "quantity": "Z_row_npe",
+      "threshold": 0.0001,
+      "drift_bound": 4.326027497811211e-07,
+      "headroom": 9.956739725021889e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.9783698625109445e-05
+    },
+    {
+      "target": 4,
+      "quantity": "Z_row_npmu",
+      "threshold": 0.0001,
+      "drift_bound": 7.018323252393399e-06,
+      "headroom": 9.298167674760661e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.6490838373803306e-05
+    },
+    {
+      "target": 4,
+      "quantity": "envelope",
+      "threshold": 0.0001,
+      "drift_bound": 1.9507452831236929e-07,
+      "headroom": 9.980492547168763e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9899962870594425e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 4,
+      "quantity": "metric_structure",
+      "threshold": 0.0001,
+      "drift_bound": 6.602081412102829e-07,
+      "headroom": 9.933979185878973e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.966989592939486e-05
+    },
+    {
+      "target": 4,
+      "quantity": "mu_B",
+      "threshold": 0.0001,
+      "drift_bound": 3.765285469585804e-08,
+      "headroom": 9.996234714530415e-05,
+      "equal_endpoint_relative_error_sufficient": 4.997867369804731e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 4,
+      "quantity": "mu_n_profile",
+      "threshold": 0.0001,
+      "drift_bound": 3.7653160593032116e-08,
+      "headroom": 9.996234683940697e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.9981173419703485e-05
+    },
+    {
+      "target": 4,
+      "quantity": "radius",
+      "threshold": 0.0001,
+      "drift_bound": 2.566143179224588e-07,
+      "headroom": 9.974338568207754e-05,
+      "equal_endpoint_relative_error_sufficient": 4.986919298281515e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 4,
+      "quantity": "species_support",
+      "threshold": 1.0,
+      "drift_bound": 0.0,
+      "headroom": 1.0,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 4,
+      "quantity": "surface_gravity",
+      "threshold": 0.00010000000010048588,
+      "drift_bound": 7.410274687666837e-07,
+      "headroom": 9.92589726317192e-05,
+      "equal_endpoint_relative_error_sufficient": 4.962698657904803e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 4,
+      "quantity": "t_e",
+      "threshold": 3.0852132497381822e-06,
+      "drift_bound": 3.873007213203716e-08,
+      "headroom": 3.046483177606145e-06,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.5232415888030725e-06
+    },
+    {
+      "target": 4,
+      "quantity": "t_mu",
+      "threshold": 3.377718409532112e-07,
+      "drift_bound": 2.5416140035476598e-08,
+      "headroom": 3.123557009177346e-07,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.561778504588673e-07
+    },
+    {
+      "target": 4,
+      "quantity": "t_n",
+      "threshold": 9.65770149093086e-05,
+      "drift_bound": 6.414537478960369e-08,
+      "headroom": 9.6512869534519e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.82564347672595e-05
+    },
+    {
+      "target": 5,
+      "quantity": "Cstar",
+      "threshold": 0.00010000000010048594,
+      "drift_bound": 3.6486887501392777e-07,
+      "headroom": 9.963513122547201e-05,
+      "equal_endpoint_relative_error_sufficient": 4.981506577146142e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 5,
+      "quantity": "Ltilde_Me",
+      "threshold": 0.0001,
+      "drift_bound": 3.064897028146705e-07,
+      "headroom": 9.969351029718534e-05,
+      "equal_endpoint_relative_error_sufficient": 4.98442552974523e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 5,
+      "quantity": "Ltilde_Mmu",
+      "threshold": 0.0001,
+      "drift_bound": 6.420287679353258e-06,
+      "headroom": 9.357971232064674e-05,
+      "equal_endpoint_relative_error_sufficient": 4.6787366597816825e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 5,
+      "quantity": "N_e",
+      "threshold": 0.0001,
+      "drift_bound": 1.220917104292659e-06,
+      "headroom": 9.877908289570734e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9387041947014194e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 5,
+      "quantity": "N_mu",
+      "threshold": 0.0001,
+      "drift_bound": 1.3519055654395711e-05,
+      "headroom": 8.648094434560429e-05,
+      "equal_endpoint_relative_error_sufficient": 4.3238018003316084e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 5,
+      "quantity": "N_n",
+      "threshold": 0.0001,
+      "drift_bound": 2.429927924336807e-07,
+      "headroom": 9.975700720756632e-05,
+      "equal_endpoint_relative_error_sufficient": 4.987600374384126e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 5,
+      "quantity": "P0_average",
+      "threshold": 0.0001,
+      "drift_bound": 4.706606188978012e-08,
+      "headroom": 9.995293393811022e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9973967094661464e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 5,
+      "quantity": "P1_average",
+      "threshold": 0.00010000000000095002,
+      "drift_bound": 6.536437019075563e-08,
+      "headroom": 9.993463563075927e-05,
+      "equal_endpoint_relative_error_sufficient": 4.996481794152311e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 5,
+      "quantity": "P2_average",
+      "threshold": 0.0001,
+      "drift_bound": 0.0,
+      "headroom": 0.0001,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 5,
+      "quantity": "Tsurface_inf",
+      "threshold": 0.00010000000010048591,
+      "drift_bound": 1.9676612477229595e-07,
+      "headroom": 9.980323397571361e-05,
+      "equal_endpoint_relative_error_sufficient": 4.989911712277021e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 5,
+      "quantity": "Z_row_npe",
+      "threshold": 0.0001,
+      "drift_bound": 5.407534611148837e-07,
+      "headroom": 9.945924653888512e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.972962326944256e-05
+    },
+    {
+      "target": 5,
+      "quantity": "Z_row_npmu",
+      "threshold": 0.0001,
+      "drift_bound": 8.772907203807458e-06,
+      "headroom": 9.122709279619255e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.5613546398096275e-05
+    },
+    {
+      "target": 5,
+      "quantity": "envelope",
+      "threshold": 0.0001,
+      "drift_bound": 2.438432629869994e-07,
+      "headroom": 9.9756156737013e-05,
+      "equal_endpoint_relative_error_sufficient": 4.987557850866917e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 5,
+      "quantity": "metric_structure",
+      "threshold": 0.0001,
+      "drift_bound": 8.252603560864755e-07,
+      "headroom": 9.917473964391352e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.958736982195676e-05
+    },
+    {
+      "target": 5,
+      "quantity": "mu_B",
+      "threshold": 0.0001,
+      "drift_bound": 4.706606188978012e-08,
+      "headroom": 9.995293393811022e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9973967094661464e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 5,
+      "quantity": "mu_n_profile",
+      "threshold": 0.0001,
+      "drift_bound": 4.706642851932664e-08,
+      "headroom": 9.995293357148068e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.997646678574034e-05
+    },
+    {
+      "target": 5,
+      "quantity": "radius",
+      "threshold": 0.0001,
+      "drift_bound": 3.2076811913156125e-07,
+      "headroom": 9.967923188086845e-05,
+      "equal_endpoint_relative_error_sufficient": 4.983711609155064e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 5,
+      "quantity": "species_support",
+      "threshold": 1.0,
+      "drift_bound": 0.0,
+      "headroom": 1.0,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 5,
+      "quantity": "surface_gravity",
+      "threshold": 0.00010000000010048588,
+      "drift_bound": 9.262846553179505e-07,
+      "headroom": 9.907371544516793e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9534358063220415e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 5,
+      "quantity": "t_e",
+      "threshold": 3.0852122815762565e-06,
+      "drift_bound": 4.841169138833368e-08,
+      "headroom": 3.036800590187923e-06,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.5184002950939614e-06
+    },
+    {
+      "target": 5,
+      "quantity": "t_mu",
+      "threshold": 3.377712055623914e-07,
+      "drift_bound": 3.177004823324073e-08,
+      "headroom": 3.060011573291507e-07,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.5300057866457534e-07
+    },
+    {
+      "target": 5,
+      "quantity": "t_n",
+      "threshold": 9.657701651286136e-05,
+      "drift_bound": 8.018090236205921e-08,
+      "headroom": 9.64968356104993e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.824841780524965e-05
+    },
+    {
+      "target": 6,
+      "quantity": "Cstar",
+      "threshold": 0.00010000000010048595,
+      "drift_bound": 4.3783031073051214e-07,
+      "headroom": 9.956216978975544e-05,
+      "equal_endpoint_relative_error_sufficient": 4.977858506833512e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 6,
+      "quantity": "Ltilde_Me",
+      "threshold": 0.0001,
+      "drift_bound": 3.677969980705619e-07,
+      "headroom": 9.963220300192945e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9813601660235135e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 6,
+      "quantity": "Ltilde_Mmu",
+      "threshold": 0.0001,
+      "drift_bound": 7.704343945472368e-06,
+      "headroom": 9.229565605452764e-05,
+      "equal_endpoint_relative_error_sufficient": 4.6145343000316815e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 6,
+      "quantity": "N_e",
+      "threshold": 0.0001,
+      "drift_bound": 1.4651002151581648e-06,
+      "headroom": 9.853489978484184e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9264950555848295e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 6,
+      "quantity": "N_mu",
+      "threshold": 0.0001,
+      "drift_bound": 1.622284442138195e-05,
+      "headroom": 8.377715557861806e-05,
+      "equal_endpoint_relative_error_sufficient": 4.188614372592619e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 6,
+      "quantity": "N_n",
+      "threshold": 0.0001,
+      "drift_bound": 2.9159135554749105e-07,
+      "headroom": 9.970840864445252e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9851704468839784e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 6,
+      "quantity": "P0_average",
+      "threshold": 0.0001,
+      "drift_bound": 5.647926764369278e-08,
+      "headroom": 9.994352073235631e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9969260492039935e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 6,
+      "quantity": "P1_average",
+      "threshold": 0.00010000000000067176,
+      "drift_bound": 7.843723407187931e-08,
+      "headroom": 9.992156276659989e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9958281509929725e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 6,
+      "quantity": "P2_average",
+      "threshold": 0.0001,
+      "drift_bound": 0.0,
+      "headroom": 0.0001,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 6,
+      "quantity": "Tsurface_inf",
+      "threshold": 0.00010000000010048591,
+      "drift_bound": 2.3611882043046326e-07,
+      "headroom": 9.976388128005544e-05,
+      "equal_endpoint_relative_error_sufficient": 4.987944077924889e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 6,
+      "quantity": "Z_row_npe",
+      "threshold": 0.0001,
+      "drift_bound": 6.489042164920469e-07,
+      "headroom": 9.935109578350796e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.967554789175398e-05
+    },
+    {
+      "target": 6,
+      "quantity": "Z_row_npmu",
+      "threshold": 0.0001,
+      "drift_bound": 1.0527495831495246e-05,
+      "headroom": 8.947250416850476e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.473625208425238e-05
+    },
+    {
+      "target": 6,
+      "quantity": "envelope",
+      "threshold": 0.0001,
+      "drift_bound": 2.926112772931676e-07,
+      "headroom": 9.970738872270684e-05,
+      "equal_endpoint_relative_error_sufficient": 4.985119450811717e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 6,
+      "quantity": "metric_structure",
+      "threshold": 0.0001,
+      "drift_bound": 9.903142983833869e-07,
+      "headroom": 9.900968570161662e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.950484285080831e-05
+    },
+    {
+      "target": 6,
+      "quantity": "mu_B",
+      "threshold": 0.0001,
+      "drift_bound": 5.647926764369278e-08,
+      "headroom": 9.994352073235631e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9969260492039935e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 6,
+      "quantity": "mu_n_profile",
+      "threshold": 0.0001,
+      "drift_bound": 5.647969474379183e-08,
+      "headroom": 9.994352030525621e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.9971760152628106e-05
+    },
+    {
+      "target": 6,
+      "quantity": "radius",
+      "threshold": 0.0001,
+      "drift_bound": 3.849205439125492e-07,
+      "headroom": 9.961507945608746e-05,
+      "equal_endpoint_relative_error_sufficient": 4.980503989055769e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 6,
+      "quantity": "species_support",
+      "threshold": 1.0,
+      "drift_bound": 0.0,
+      "headroom": 1.0,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 6,
+      "quantity": "surface_gravity",
+      "threshold": 0.00010000000010048587,
+      "drift_bound": 1.1115389349233945e-06,
+      "headroom": 9.888846116556248e-05,
+      "equal_endpoint_relative_error_sufficient": 4.944173101802334e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 6,
+      "quantity": "t_e",
+      "threshold": 3.0852113133822744e-06,
+      "drift_bound": 5.809363121112021e-08,
+      "headroom": 3.027117682171154e-06,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.513558841085577e-06
+    },
+    {
+      "target": 6,
+      "quantity": "t_mu",
+      "threshold": 3.377705701516405e-07,
+      "drift_bound": 3.812415574249231e-08,
+      "headroom": 2.996464144091482e-07,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.498232072045741e-07
+    },
+    {
+      "target": 6,
+      "quantity": "t_n",
+      "threshold": 9.657701811646608e-05,
+      "drift_bound": 9.621694962991256e-08,
+      "headroom": 9.648080116683617e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.8240400583418086e-05
+    },
+    {
+      "target": 7,
+      "quantity": "Cstar",
+      "threshold": 0.00010000000010048595,
+      "drift_bound": 5.10789091081066e-07,
+      "headroom": 9.948921100940488e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9742105695552685e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 7,
+      "quantity": "Ltilde_Me",
+      "threshold": 0.0001,
+      "drift_bound": 4.2910997152942514e-07,
+      "headroom": 9.957089002847058e-05,
+      "equal_endpoint_relative_error_sufficient": 4.97829451857969e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 7,
+      "quantity": "Ltilde_Mmu",
+      "threshold": 0.0001,
+      "drift_bound": 8.988399541811434e-06,
+      "headroom": 9.101160045818857e-05,
+      "equal_endpoint_relative_error_sufficient": 4.550332056205334e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 7,
+      "quantity": "N_e",
+      "threshold": 0.0001,
+      "drift_bound": 1.7092831959052362e-06,
+      "headroom": 9.829071680409477e-05,
+      "equal_endpoint_relative_error_sufficient": 4.914285925955265e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 7,
+      "quantity": "N_mu",
+      "threshold": 0.0001,
+      "drift_bound": 1.8926627435196214e-05,
+      "headroom": 8.10733725648038e-05,
+      "equal_endpoint_relative_error_sufficient": 4.053427598003298e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 7,
+      "quantity": "N_n",
+      "threshold": 0.0001,
+      "drift_bound": 3.401899172800852e-07,
+      "headroom": 9.965981008271991e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9827405195709744e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 7,
+      "quantity": "P0_average",
+      "threshold": 0.0001,
+      "drift_bound": 6.589246789938761e-08,
+      "headroom": 9.993410753210061e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9964553892211805e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 7,
+      "quantity": "P1_average",
+      "threshold": 0.00010000000000067176,
+      "drift_bound": 9.15100906979834e-08,
+      "headroom": 9.990848990997377e-05,
+      "equal_endpoint_relative_error_sufficient": 4.99517450821884e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 7,
+      "quantity": "P2_average",
+      "threshold": 0.0001,
+      "drift_bound": 0.0,
+      "headroom": 0.0001,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 7,
+      "quantity": "Tsurface_inf",
+      "threshold": 0.00010000000010048591,
+      "drift_bound": 2.754720456799351e-07,
+      "headroom": 9.972452805480597e-05,
+      "equal_endpoint_relative_error_sufficient": 4.985976417170628e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 7,
+      "quantity": "Z_row_npe",
+      "threshold": 0.0001,
+      "drift_bound": 7.570549803488304e-07,
+      "headroom": 9.924294501965118e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.962147250982559e-05
+    },
+    {
+      "target": 7,
+      "quantity": "Z_row_npmu",
+      "threshold": 0.0001,
+      "drift_bound": 1.2282088570157177e-05,
+      "headroom": 8.771791142984283e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.385895571492141e-05
+    },
+    {
+      "target": 7,
+      "quantity": "envelope",
+      "threshold": 0.0001,
+      "drift_bound": 3.4137992106970804e-07,
+      "headroom": 9.96586200789303e-05,
+      "equal_endpoint_relative_error_sufficient": 4.982681019401919e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 7,
+      "quantity": "metric_structure",
+      "threshold": 0.0001,
+      "drift_bound": 1.1553698938809843e-06,
+      "headroom": 9.884463010611902e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.942231505305951e-05
+    },
+    {
+      "target": 7,
+      "quantity": "mu_B",
+      "threshold": 0.0001,
+      "drift_bound": 6.589246789938761e-08,
+      "headroom": 9.993410753210061e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9964553892211805e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 7,
+      "quantity": "mu_n_profile",
+      "threshold": 0.0001,
+      "drift_bound": 6.589295481548947e-08,
+      "headroom": 9.993410704518452e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.996705352259226e-05
+    },
+    {
+      "target": 7,
+      "quantity": "radius",
+      "threshold": 0.0001,
+      "drift_bound": 4.490741959575858e-07,
+      "headroom": 9.955092580404242e-05,
+      "equal_endpoint_relative_error_sufficient": 4.977296307799062e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 7,
+      "quantity": "species_support",
+      "threshold": 1.0,
+      "drift_bound": 0.0,
+      "headroom": 1.0,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 7,
+      "quantity": "surface_gravity",
+      "threshold": 0.00010000000010048585,
+      "drift_bound": 1.2967957113678002e-06,
+      "headroom": 9.870320438911805e-05,
+      "equal_endpoint_relative_error_sufficient": 4.934910274156707e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 7,
+      "quantity": "t_e",
+      "threshold": 3.0852103451213682e-06,
+      "drift_bound": 6.777624027287654e-08,
+      "headroom": 3.0174341048484917e-06,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.5087170524242458e-06
+    },
+    {
+      "target": 7,
+      "quantity": "t_mu",
+      "threshold": 3.3776993471128137e-07,
+      "drift_bound": 4.447855933391309e-08,
+      "headroom": 2.932913753773683e-07,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.4664568768868414e-07
+    },
+    {
+      "target": 7,
+      "quantity": "t_n",
+      "threshold": 9.657701972016735e-05,
+      "drift_bound": 1.1225396223668582e-07,
+      "headroom": 9.646476575793066e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.823238287896533e-05
+    },
+    {
+      "target": 8,
+      "quantity": "Cstar",
+      "threshold": 0.00010000000010048595,
+      "drift_bound": 5.837455079338264e-07,
+      "headroom": 9.941625459255212e-05,
+      "equal_endpoint_relative_error_sufficient": 4.970562750717981e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 8,
+      "quantity": "Ltilde_Me",
+      "threshold": 0.0001,
+      "drift_bound": 4.904286014518891e-07,
+      "headroom": 9.950957139854812e-05,
+      "equal_endpoint_relative_error_sufficient": 4.975228588500781e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 8,
+      "quantity": "Ltilde_Mmu",
+      "threshold": 0.0001,
+      "drift_bound": 1.0272454912401456e-05,
+      "headroom": 8.972754508759854e-05,
+      "equal_endpoint_relative_error_sufficient": 4.486129906101026e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 8,
+      "quantity": "N_e",
+      "threshold": 0.0001,
+      "drift_bound": 1.953466116118949e-06,
+      "headroom": 9.804653388388105e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9020768023334696e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 8,
+      "quantity": "N_mu",
+      "threshold": 0.0001,
+      "drift_bound": 2.1630405572543192e-05,
+      "headroom": 7.836959442745681e-05,
+      "equal_endpoint_relative_error_sufficient": 3.9182414327255446e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 8,
+      "quantity": "N_n",
+      "threshold": 0.0001,
+      "drift_bound": 3.8878847636534835e-07,
+      "headroom": 9.961121152363466e-05,
+      "equal_endpoint_relative_error_sufficient": 4.980310592508424e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 8,
+      "quantity": "P0_average",
+      "threshold": 0.0001,
+      "drift_bound": 7.530566841690234e-08,
+      "headroom": 9.99246943315831e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9959847292297095e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 8,
+      "quantity": "P1_average",
+      "threshold": 0.00010000000000067176,
+      "drift_bound": 1.0458294718973527e-07,
+      "headroom": 9.989541705348203e-05,
+      "equal_endpoint_relative_error_sufficient": 4.994520865459971e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 8,
+      "quantity": "P2_average",
+      "threshold": 0.0001,
+      "drift_bound": 0.0,
+      "headroom": 0.0001,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 8,
+      "quantity": "Tsurface_inf",
+      "threshold": 0.00010000000010048591,
+      "drift_bound": 3.14825509631944e-07,
+      "headroom": 9.968517459085396e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9840087445586725e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 8,
+      "quantity": "Z_row_npe",
+      "threshold": 0.0001,
+      "drift_bound": 8.652057734413194e-07,
+      "headroom": 9.913479422655868e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.956739711327934e-05
+    },
+    {
+      "target": 8,
+      "quantity": "Z_row_npmu",
+      "threshold": 0.0001,
+      "drift_bound": 1.4036686003514737e-05,
+      "headroom": 8.596331399648527e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.2981656998242635e-05
+    },
+    {
+      "target": 8,
+      "quantity": "envelope",
+      "threshold": 0.0001,
+      "drift_bound": 3.901488485460582e-07,
+      "headroom": 9.960985115145395e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9802425739260484e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 8,
+      "quantity": "metric_structure",
+      "threshold": 0.0001,
+      "drift_bound": 1.3204271884974985e-06,
+      "headroom": 9.86795728115025e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.933978640575125e-05
+    },
+    {
+      "target": 8,
+      "quantity": "mu_B",
+      "threshold": 0.0001,
+      "drift_bound": 7.530566841690234e-08,
+      "headroom": 9.99246943315831e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9959847292297095e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 8,
+      "quantity": "mu_n_profile",
+      "threshold": 0.0001,
+      "drift_bound": 7.5306215149007e-08,
+      "headroom": 9.9924693784851e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.99623468924255e-05
+    },
+    {
+      "target": 8,
+      "quantity": "radius",
+      "threshold": 0.0001,
+      "drift_bound": 5.132283899746712e-07,
+      "headroom": 9.948677161002533e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9740885996495417e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 8,
+      "quantity": "species_support",
+      "threshold": 1.0,
+      "drift_bound": 0.0,
+      "headroom": 1.0,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 8,
+      "quantity": "surface_gravity",
+      "threshold": 0.00010000000010048585,
+      "drift_bound": 1.4820535947771751e-06,
+      "headroom": 9.851794650570868e-05,
+      "equal_endpoint_relative_error_sufficient": 4.925647392878831e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 8,
+      "quantity": "t_e",
+      "threshold": 3.0852093771494286e-06,
+      "drift_bound": 7.745595966696106e-08,
+      "headroom": 3.0077534174824676e-06,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.5038767087412338e-06
+    },
+    {
+      "target": 8,
+      "quantity": "t_mu",
+      "threshold": 3.377692993114207e-07,
+      "drift_bound": 5.08325579406943e-08,
+      "headroom": 2.869367413707264e-07,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.434683706853632e-07
+    },
+    {
+      "target": 8,
+      "quantity": "t_n",
+      "threshold": 9.657702132353915e-05,
+      "drift_bound": 1.282876802566335e-07,
+      "headroom": 9.644873364328251e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.8224366821641257e-05
+    },
+    {
+      "target": 9,
+      "quantity": "Cstar",
+      "threshold": 0.00010000000010048595,
+      "drift_bound": 6.566988776263205e-07,
+      "headroom": 9.934330122285963e-05,
+      "equal_endpoint_relative_error_sufficient": 4.966915084504725e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 9,
+      "quantity": "Ltilde_Me",
+      "threshold": 0.0001,
+      "drift_bound": 5.517528769682681e-07,
+      "headroom": 9.944824712303174e-05,
+      "equal_endpoint_relative_error_sufficient": 4.972162376330323e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 9,
+      "quantity": "Ltilde_Mmu",
+      "threshold": 0.0001,
+      "drift_bound": 1.1556510120452169e-05,
+      "headroom": 8.844348987954784e-05,
+      "equal_endpoint_relative_error_sufficient": 4.421927846558109e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 9,
+      "quantity": "N_e",
+      "threshold": 0.0001,
+      "drift_bound": 2.1976489858410525e-06,
+      "headroom": 9.780235101415895e-05,
+      "equal_endpoint_relative_error_sufficient": 4.8898676842173574e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 9,
+      "quantity": "N_mu",
+      "threshold": 0.0001,
+      "drift_bound": 2.433417901111064e-05,
+      "headroom": 7.566582098888937e-05,
+      "equal_endpoint_relative_error_sufficient": 3.783055867871726e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 9,
+      "quantity": "N_n",
+      "threshold": 0.0001,
+      "drift_bound": 4.3738703913385464e-07,
+      "headroom": 9.956261296086615e-05,
+      "equal_endpoint_relative_error_sufficient": 4.977880665379797e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 9,
+      "quantity": "P0_average",
+      "threshold": 0.0001,
+      "drift_bound": 8.471886788713747e-08,
+      "headroom": 9.991528113211286e-05,
+      "equal_endpoint_relative_error_sufficient": 4.99551406929503e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 9,
+      "quantity": "P1_average",
+      "threshold": 0.00010000000000067176,
+      "drift_bound": 1.1765580206926058e-07,
+      "headroom": 9.98823441986025e-05,
+      "equal_endpoint_relative_error_sufficient": 4.993867222790257e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 9,
+      "quantity": "P2_average",
+      "threshold": 0.0001,
+      "drift_bound": 0.0,
+      "headroom": 0.0001,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 9,
+      "quantity": "Tsurface_inf",
+      "threshold": 0.00010000000010048591,
+      "drift_bound": 3.5417802775636183e-07,
+      "headroom": 9.964582207272955e-05,
+      "equal_endpoint_relative_error_sufficient": 4.982041119315512e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 9,
+      "quantity": "Z_row_npe",
+      "threshold": 0.0001,
+      "drift_bound": 9.733566129818774e-07,
+      "headroom": 9.902664338701812e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.951332169350906e-05
+    },
+    {
+      "target": 9,
+      "quantity": "Z_row_npmu",
+      "threshold": 0.0001,
+      "drift_bound": 1.5791288240473883e-05,
+      "headroom": 8.420871175952612e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.210435587976306e-05
+    },
+    {
+      "target": 9,
+      "quantity": "envelope",
+      "threshold": 0.0001,
+      "drift_bound": 4.3891664555033723e-07,
+      "headroom": 9.956108335444966e-05,
+      "equal_endpoint_relative_error_sufficient": 4.977804185092671e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 9,
+      "quantity": "metric_structure",
+      "threshold": 0.0001,
+      "drift_bound": 1.4854861802113716e-06,
+      "headroom": 9.851451381978864e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.925725690989432e-05
+    },
+    {
+      "target": 9,
+      "quantity": "mu_B",
+      "threshold": 0.0001,
+      "drift_bound": 8.471886788713747e-08,
+      "headroom": 9.991528113211286e-05,
+      "equal_endpoint_relative_error_sufficient": 4.99551406929503e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 9,
+      "quantity": "mu_n_profile",
+      "threshold": 0.0001,
+      "drift_bound": 8.471947338796538e-08,
+      "headroom": 9.991528052661204e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.995764026330602e-05
+    },
+    {
+      "target": 9,
+      "quantity": "radius",
+      "threshold": 0.0001,
+      "drift_bound": 5.773804234782776e-07,
+      "headroom": 9.942261957652173e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9708809997314114e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 9,
+      "quantity": "species_support",
+      "threshold": 1.0,
+      "drift_bound": 0.0,
+      "headroom": 1.0,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 9,
+      "quantity": "surface_gravity",
+      "threshold": 0.00010000000010048584,
+      "drift_bound": 1.6673069314199496e-06,
+      "headroom": 9.83326931690659e-05,
+      "equal_endpoint_relative_error_sufficient": 4.916384740654838e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 9,
+      "quantity": "t_e",
+      "threshold": 3.085208408942613e-06,
+      "drift_bound": 8.713802782459035e-08,
+      "headroom": 2.9980703811180228e-06,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.4990351905590114e-06
+    },
+    {
+      "target": 9,
+      "quantity": "t_mu",
+      "threshold": 3.3776866386983307e-07,
+      "drift_bound": 5.718697381699306e-08,
+      "headroom": 2.8058169005284e-07,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.4029084502642e-07
+    },
+    {
+      "target": 9,
+      "quantity": "t_n",
+      "threshold": 9.657702292718757e-05,
+      "drift_bound": 1.4432416439724705e-07,
+      "headroom": 9.643269876279032e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.821634938139516e-05
+    },
+    {
+      "target": 10,
+      "quantity": "Cstar",
+      "threshold": 0.00010000000010048596,
+      "drift_bound": 7.296494239474735e-07,
+      "headroom": 9.927035067653848e-05,
+      "equal_endpoint_relative_error_sufficient": 4.96326755972603e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 10,
+      "quantity": "Ltilde_Me",
+      "threshold": 0.0001,
+      "drift_bound": 6.130827123288205e-07,
+      "headroom": 9.938691728767118e-05,
+      "equal_endpoint_relative_error_sufficient": 4.969095886355849e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 10,
+      "quantity": "Ltilde_Mmu",
+      "threshold": 0.0001,
+      "drift_bound": 1.2840564610099965e-05,
+      "headroom": 8.715943538990003e-05,
+      "equal_endpoint_relative_error_sufficient": 4.3577259053692126e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 10,
+      "quantity": "N_e",
+      "threshold": 0.0001,
+      "drift_bound": 2.441831714695807e-06,
+      "headroom": 9.755816828530419e-05,
+      "equal_endpoint_relative_error_sufficient": 4.877658576125702e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 10,
+      "quantity": "N_mu",
+      "threshold": 0.0001,
+      "drift_bound": 2.7037946574806763e-05,
+      "headroom": 7.296205342519324e-05,
+      "equal_endpoint_relative_error_sufficient": 3.647870962241455e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 10,
+      "quantity": "N_n",
+      "threshold": 0.0001,
+      "drift_bound": 4.859855998305367e-07,
+      "headroom": 9.951401440016946e-05,
+      "equal_endpoint_relative_error_sufficient": 4.975450738472844e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 10,
+      "quantity": "P0_average",
+      "threshold": 0.0001,
+      "drift_bound": 9.413206212097469e-08,
+      "headroom": 9.990586793787902e-05,
+      "equal_endpoint_relative_error_sufficient": 4.995043409626601e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 10,
+      "quantity": "P1_average",
+      "threshold": 0.00010000000000067176,
+      "drift_bound": 1.3072864969376628e-07,
+      "headroom": 9.9869271350978e-05,
+      "equal_endpoint_relative_error_sufficient": 4.993213580491839e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 10,
+      "quantity": "P2_average",
+      "threshold": 0.0001,
+      "drift_bound": 0.0,
+      "headroom": 0.0001,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 10,
+      "quantity": "Tsurface_inf",
+      "threshold": 0.00010000000010048591,
+      "drift_bound": 3.9353092046841277e-07,
+      "headroom": 9.960646918001749e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9800734754204044e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 10,
+      "quantity": "Z_row_npe",
+      "threshold": 0.0001,
+      "drift_bound": 1.0815074587239488e-06,
+      "headroom": 9.891849254127605e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.9459246270638026e-05
+    },
+    {
+      "target": 10,
+      "quantity": "Z_row_npmu",
+      "threshold": 0.0001,
+      "drift_bound": 1.754589451201046e-05,
+      "headroom": 8.245410548798955e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.1227052743994776e-05
+    },
+    {
+      "target": 10,
+      "quantity": "envelope",
+      "threshold": 0.0001,
+      "drift_bound": 4.876848870725358e-07,
+      "headroom": 9.951231511292747e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9753657741523176e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 10,
+      "quantity": "metric_structure",
+      "threshold": 0.0001,
+      "drift_bound": 1.6505467852723727e-06,
+      "headroom": 9.834945321472763e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.9174726607363816e-05
+    },
+    {
+      "target": 10,
+      "quantity": "mu_B",
+      "threshold": 0.0001,
+      "drift_bound": 9.413206212097469e-08,
+      "headroom": 9.990586793787902e-05,
+      "equal_endpoint_relative_error_sufficient": 4.995043409626601e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 10,
+      "quantity": "mu_n_profile",
+      "threshold": 0.0001,
+      "drift_bound": 9.413272625961589e-08,
+      "headroom": 9.990586727374039e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.995293363687019e-05
+    },
+    {
+      "target": 10,
+      "quantity": "radius",
+      "threshold": 0.0001,
+      "drift_bound": 6.415333265026369e-07,
+      "headroom": 9.935846667349736e-05,
+      "equal_endpoint_relative_error_sufficient": 4.967673356543035e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 10,
+      "quantity": "species_support",
+      "threshold": 1.0,
+      "drift_bound": 0.0,
+      "headroom": 1.0,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 10,
+      "quantity": "surface_gravity",
+      "threshold": 0.00010000000010048583,
+      "drift_bound": 1.8525620245657792e-06,
+      "headroom": 9.814743807592004e-05,
+      "equal_endpoint_relative_error_sufficient": 4.907122002321703e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 10,
+      "quantity": "t_e",
+      "threshold": 3.085207440523654e-06,
+      "drift_bound": 9.682221741372232e-08,
+      "headroom": 2.9883852231099317e-06,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.4941926115549658e-06
+    },
+    {
+      "target": 10,
+      "quantity": "t_mu",
+      "threshold": 3.3776802839364123e-07,
+      "drift_bound": 6.354173573506344e-08,
+      "headroom": 2.742262926585778e-07,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.371131463292889e-07
+    },
+    {
+      "target": 10,
+      "quantity": "t_n",
+      "threshold": 9.657702453108271e-05,
+      "drift_bound": 1.603631158975105e-07,
+      "headroom": 9.64166614151852e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.82083307075926e-05
+    },
+    {
+      "target": 11,
+      "quantity": "Cstar",
+      "threshold": 0.00010000000010048596,
+      "drift_bound": 8.025975359849727e-07,
+      "headroom": 9.919740256450099e-05,
+      "equal_endpoint_relative_error_sufficient": 4.959620156927495e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 11,
+      "quantity": "Ltilde_Me",
+      "threshold": 0.0001,
+      "drift_bound": 6.74418100438057e-07,
+      "headroom": 9.932558189956194e-05,
+      "equal_endpoint_relative_error_sufficient": 4.966029118932188e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 11,
+      "quantity": "Ltilde_Mmu",
+      "threshold": 0.0001,
+      "drift_bound": 1.4124619104610047e-05,
+      "headroom": 8.587538089538996e-05,
+      "equal_endpoint_relative_error_sufficient": 4.293524046371294e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 11,
+      "quantity": "N_e",
+      "threshold": 0.0001,
+      "drift_bound": 2.6860144267200252e-06,
+      "headroom": 9.731398557327998e-05,
+      "equal_endpoint_relative_error_sufficient": 4.8654494718566696e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 11,
+      "quantity": "N_mu",
+      "threshold": 0.0001,
+      "drift_bound": 2.9741709784705818e-05,
+      "headroom": 7.025829021529418e-05,
+      "equal_endpoint_relative_error_sufficient": 3.5126866397794175e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 11,
+      "quantity": "N_n",
+      "threshold": 0.0001,
+      "drift_bound": 5.345841650161713e-07,
+      "headroom": 9.946541583498383e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9730208114595307e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 11,
+      "quantity": "P0_average",
+      "threshold": 0.0001,
+      "drift_bound": 1.0354525766391138e-07,
+      "headroom": 9.989645474233609e-05,
+      "equal_endpoint_relative_error_sufficient": 4.994572749897148e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 11,
+      "quantity": "P1_average",
+      "threshold": 0.00010000000000067176,
+      "drift_bound": 1.4380149879614634e-07,
+      "headroom": 9.985619850187562e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9925599381280727e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 11,
+      "quantity": "P2_average",
+      "threshold": 0.0001,
+      "drift_bound": 0.0,
+      "headroom": 0.0001,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 11,
+      "quantity": "Tsurface_inf",
+      "threshold": 0.0001000000001004859,
+      "drift_bound": 4.3288389939576837e-07,
+      "headroom": 9.956711620109012e-05,
+      "equal_endpoint_relative_error_sufficient": 4.97810582729196e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 11,
+      "quantity": "Z_row_npe",
+      "threshold": 0.0001,
+      "drift_bound": 1.189658354457811e-06,
+      "headroom": 9.881034164554219e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.9405170822771095e-05
+    },
+    {
+      "target": 11,
+      "quantity": "Z_row_npmu",
+      "threshold": 0.0001,
+      "drift_bound": 1.9300505809114494e-05,
+      "headroom": 8.069949419088551e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.034974709544276e-05
+    },
+    {
+      "target": 11,
+      "quantity": "envelope",
+      "threshold": 0.0001,
+      "drift_bound": 5.364532304507285e-07,
+      "headroom": 9.946354676954928e-05,
+      "equal_endpoint_relative_error_sufficient": 4.972927358238079e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 11,
+      "quantity": "metric_structure",
+      "threshold": 0.0001,
+      "drift_bound": 1.8156090790557096e-06,
+      "headroom": 9.818439092094429e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.9092195460472145e-05
+    },
+    {
+      "target": 11,
+      "quantity": "mu_B",
+      "threshold": 0.0001,
+      "drift_bound": 1.0354525766391138e-07,
+      "headroom": 9.989645474233609e-05,
+      "equal_endpoint_relative_error_sufficient": 4.994572749897148e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 11,
+      "quantity": "mu_n_profile",
+      "threshold": 0.0001,
+      "drift_bound": 1.0354597965490618e-07,
+      "headroom": 9.98964540203451e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.994822701017255e-05
+    },
+    {
+      "target": 11,
+      "quantity": "radius",
+      "threshold": 0.0001,
+      "drift_bound": 7.056864240525222e-07,
+      "headroom": 9.929431357594748e-05,
+      "equal_endpoint_relative_error_sufficient": 4.964465703834158e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 11,
+      "quantity": "species_support",
+      "threshold": 1.0,
+      "drift_bound": 0.0,
+      "headroom": 1.0,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 11,
+      "quantity": "surface_gravity",
+      "threshold": 0.00010000000010048581,
+      "drift_bound": 2.037817496878455e-06,
+      "headroom": 9.796218260360736e-05,
+      "equal_endpoint_relative_error_sufficient": 4.897859246746149e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 11,
+      "quantity": "t_e",
+      "threshold": 3.0852064724211824e-06,
+      "drift_bound": 1.0650324213171136e-07,
+      "headroom": 2.978703230289471e-06,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.4893516151447355e-06
+    },
+    {
+      "target": 11,
+      "quantity": "t_mu",
+      "threshold": 3.3776739294597217e-07,
+      "drift_bound": 6.98962124255631e-08,
+      "headroom": 2.6787118052040907e-07,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.3393559026020454e-07
+    },
+    {
+      "target": 11,
+      "quantity": "t_n",
+      "threshold": 9.657702613463284e-05,
+      "drift_bound": 1.7639861715768035e-07,
+      "headroom": 9.640062751747516e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.820031375873758e-05
+    },
+    {
+      "target": 12,
+      "quantity": "Cstar",
+      "threshold": 0.00010000000010048596,
+      "drift_bound": 8.755425376348737e-07,
+      "headroom": 9.912445756285109e-05,
+      "equal_endpoint_relative_error_sufficient": 4.95597290991426e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 12,
+      "quantity": "Ltilde_Me",
+      "threshold": 0.0001,
+      "drift_bound": 7.357590011385282e-07,
+      "headroom": 9.926424099886148e-05,
+      "equal_endpoint_relative_error_sufficient": 4.962962076067261e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 12,
+      "quantity": "Ltilde_Mmu",
+      "threshold": 0.0001,
+      "drift_bound": 1.5408673135466325e-05,
+      "headroom": 8.459132686453368e-05,
+      "equal_endpoint_relative_error_sufficient": 4.229322292989636e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 12,
+      "quantity": "N_e",
+      "threshold": 0.0001,
+      "drift_bound": 2.9301970369124253e-06,
+      "headroom": 9.706980296308758e-05,
+      "equal_endpoint_relative_error_sufficient": 4.853240375660311e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 12,
+      "quantity": "N_mu",
+      "threshold": 0.0001,
+      "drift_bound": 3.2445467671459615e-05,
+      "headroom": 6.755453232854039e-05,
+      "equal_endpoint_relative_error_sufficient": 3.377502948948202e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 12,
+      "quantity": "N_n",
+      "threshold": 0.0001,
+      "drift_bound": 5.831827284752857e-07,
+      "headroom": 9.941681727152472e-05,
+      "equal_endpoint_relative_error_sufficient": 4.970590884650626e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 12,
+      "quantity": "P0_average",
+      "threshold": 0.0001,
+      "drift_bound": 1.1295844954136954e-07,
+      "headroom": 9.988704155045863e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9941020903553995e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 12,
+      "quantity": "P1_average",
+      "threshold": 0.00010000000000067176,
+      "drift_bound": 1.5687434292749444e-07,
+      "headroom": 9.984312565774427e-05,
+      "equal_endpoint_relative_error_sufficient": 4.991906296021401e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 12,
+      "quantity": "P2_average",
+      "threshold": 0.0001,
+      "drift_bound": 0.0,
+      "headroom": 0.0001,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 12,
+      "quantity": "Tsurface_inf",
+      "threshold": 0.0001000000001004859,
+      "drift_bound": 4.722363323807522e-07,
+      "headroom": 9.952776376810514e-05,
+      "equal_endpoint_relative_error_sufficient": 4.976138206538051e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 12,
+      "quantity": "Z_row_npe",
+      "threshold": 0.0001,
+      "drift_bound": 1.297809274871165e-06,
+      "headroom": 9.870219072512884e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.935109536256442e-05
+    },
+    {
+      "target": 12,
+      "quantity": "Z_row_npmu",
+      "threshold": 0.0001,
+      "drift_bound": 2.1055121507066738e-05,
+      "headroom": 7.894487849293327e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 3.947243924646664e-05
+    },
+    {
+      "target": 12,
+      "quantity": "envelope",
+      "threshold": 0.0001,
+      "drift_bound": 5.852209200621615e-07,
+      "headroom": 9.941477907993784e-05,
+      "equal_endpoint_relative_error_sufficient": 4.970488975131069e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 12,
+      "quantity": "metric_structure",
+      "threshold": 0.0001,
+      "drift_bound": 1.9806730061129536e-06,
+      "headroom": 9.801932699388706e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.900966349694353e-05
+    },
+    {
+      "target": 12,
+      "quantity": "mu_B",
+      "threshold": 0.0001,
+      "drift_bound": 1.1295844954136954e-07,
+      "headroom": 9.988704155045863e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9941020903553995e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 12,
+      "quantity": "mu_n_profile",
+      "threshold": 0.0001,
+      "drift_bound": 1.1295922938774091e-07,
+      "headroom": 9.988704077061227e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.9943520385306135e-05
+    },
+    {
+      "target": 12,
+      "quantity": "radius",
+      "threshold": 0.0001,
+      "drift_bound": 7.698382816761108e-07,
+      "headroom": 9.92301617183239e-05,
+      "equal_endpoint_relative_error_sufficient": 4.961258113327319e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 12,
+      "quantity": "species_support",
+      "threshold": 1.0,
+      "drift_bound": 0.0,
+      "headroom": 1.0,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 12,
+      "quantity": "surface_gravity",
+      "threshold": 0.00010000000010048581,
+      "drift_bound": 2.2230703320098805e-06,
+      "headroom": 9.777692976847594e-05,
+      "equal_endpoint_relative_error_sufficient": 4.888596624745253e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 12,
+      "quantity": "t_e",
+      "threshold": 3.0852055044269742e-06,
+      "drift_bound": 1.1618318421224849e-07,
+      "headroom": 2.9690223202147258e-06,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.4845111601073629e-06
+    },
+    {
+      "target": 12,
+      "quantity": "t_mu",
+      "threshold": 3.3776675749745364e-07,
+      "drift_bound": 7.625069761100361e-08,
+      "headroom": 2.6151605988645e-07,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.30758029943225e-07
+    },
+    {
+      "target": 12,
+      "quantity": "t_n",
+      "threshold": 9.657702773807558e-05,
+      "drift_bound": 1.9243304461014077e-07,
+      "headroom": 9.638459469346544e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.819229734673272e-05
+    },
+    {
+      "target": 13,
+      "quantity": "Cstar",
+      "threshold": 0.00010000000010048598,
+      "drift_bound": 9.484853198685129e-07,
+      "headroom": 9.905151478061746e-05,
+      "equal_endpoint_relative_error_sufficient": 4.95232577413777e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 13,
+      "quantity": "Ltilde_Me",
+      "threshold": 0.0001,
+      "drift_bound": 7.971053498159919e-07,
+      "headroom": 9.920289465018402e-05,
+      "equal_endpoint_relative_error_sufficient": 4.959894760991828e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 13,
+      "quantity": "Ltilde_Mmu",
+      "threshold": 0.0001,
+      "drift_bound": 1.669272692650766e-05,
+      "headroom": 8.330727307349235e-05,
+      "equal_endpoint_relative_error_sufficient": 4.1651206340322356e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 13,
+      "quantity": "N_e",
+      "threshold": 0.0001,
+      "drift_bound": 3.1743795947745857e-06,
+      "headroom": 9.682562040522543e-05,
+      "equal_endpoint_relative_error_sufficient": 4.841031285061554e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 13,
+      "quantity": "N_mu",
+      "threshold": 0.0001,
+      "drift_bound": 3.5149220683422435e-05,
+      "headroom": 6.485077931657757e-05,
+      "equal_endpoint_relative_error_sufficient": 3.242319867327241e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 13,
+      "quantity": "N_n",
+      "threshold": 0.0001,
+      "drift_bound": 6.317812979196701e-07,
+      "headroom": 9.936821870208033e-05,
+      "equal_endpoint_relative_error_sufficient": 4.968160957660544e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 13,
+      "quantity": "P0_average",
+      "threshold": 0.0001,
+      "drift_bound": 1.223716411570078e-07,
+      "headroom": 9.987762835884299e-05,
+      "equal_endpoint_relative_error_sufficient": 4.99363143083117e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 13,
+      "quantity": "P1_average",
+      "threshold": 0.00010000000000067176,
+      "drift_bound": 1.6994718625272927e-07,
+      "headroom": 9.983005281441903e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9912526539635785e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 13,
+      "quantity": "P2_average",
+      "threshold": 0.0001,
+      "drift_bound": 0.0,
+      "headroom": 0.0001,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 13,
+      "quantity": "Tsurface_inf",
+      "threshold": 0.0001000000001004859,
+      "drift_bound": 5.115897884763416e-07,
+      "headroom": 9.948841031200955e-05,
+      "equal_endpoint_relative_error_sufficient": 4.974170534706067e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 13,
+      "quantity": "Z_row_npe",
+      "threshold": 0.0001,
+      "drift_bound": 1.4059602297092459e-06,
+      "headroom": 9.859403977029076e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.929701988514538e-05
+    },
+    {
+      "target": 13,
+      "quantity": "Z_row_npmu",
+      "threshold": 0.0001,
+      "drift_bound": 2.2809741894838228e-05,
+      "headroom": 7.719025810516178e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 3.859512905258089e-05
+    },
+    {
+      "target": 13,
+      "quantity": "envelope",
+      "threshold": 0.0001,
+      "drift_bound": 6.339898288819487e-07,
+      "headroom": 9.936601017111805e-05,
+      "equal_endpoint_relative_error_sufficient": 4.96805053118259e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 13,
+      "quantity": "metric_structure",
+      "threshold": 0.0001,
+      "drift_bound": 2.145738556336318e-06,
+      "headroom": 9.785426144366369e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.8927130721831845e-05
+    },
+    {
+      "target": 13,
+      "quantity": "mu_B",
+      "threshold": 0.0001,
+      "drift_bound": 1.223716411570078e-07,
+      "headroom": 9.987762835884299e-05,
+      "equal_endpoint_relative_error_sufficient": 4.99363143083117e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 13,
+      "quantity": "mu_n_profile",
+      "threshold": 0.0001,
+      "drift_bound": 1.2237247860507393e-07,
+      "headroom": 9.987762752139493e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.993881376069747e-05
+    },
+    {
+      "target": 13,
+      "quantity": "radius",
+      "threshold": 0.0001,
+      "drift_bound": 8.339924794501269e-07,
+      "headroom": 9.916600752054988e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9580504060188164e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 13,
+      "quantity": "species_support",
+      "threshold": 1.0,
+      "drift_bound": 0.0,
+      "headroom": 1.0,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 13,
+      "quantity": "surface_gravity",
+      "threshold": 0.0001000000001004858,
+      "drift_bound": 2.408328016432495e-06,
+      "headroom": 9.759167208405331e-05,
+      "equal_endpoint_relative_error_sufficient": 4.8793337619962205e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 13,
+      "quantity": "t_e",
+      "threshold": 3.085204536191448e-06,
+      "drift_bound": 1.2586553947355195e-07,
+      "headroom": 2.959338996717896e-06,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.479669498358948e-06
+    },
+    {
+      "target": 13,
+      "quantity": "t_mu",
+      "threshold": 3.377661220151007e-07,
+      "drift_bound": 8.260552114038033e-08,
+      "headroom": 2.5516060087472036e-07,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.2758030043736018e-07
+    },
+    {
+      "target": 13,
+      "quantity": "t_n",
+      "threshold": 9.657702934179346e-05,
+      "drift_bound": 2.084702233062785e-07,
+      "headroom": 9.636855911848718e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.818427955924359e-05
+    },
+    {
+      "target": 14,
+      "quantity": "Cstar",
+      "threshold": 0.00010000000010048598,
+      "drift_bound": 1.0214253331489632e-06,
+      "headroom": 9.897857476733701e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9486787770748137e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 14,
+      "quantity": "Ltilde_Me",
+      "threshold": 0.0001,
+      "drift_bound": 8.584571203530092e-07,
+      "headroom": 9.914154287964699e-05,
+      "equal_endpoint_relative_error_sufficient": 4.956827175011808e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 14,
+      "quantity": "Ltilde_Mmu",
+      "threshold": 0.0001,
+      "drift_bound": 1.7976780269350317e-05,
+      "headroom": 8.202321973064969e-05,
+      "equal_endpoint_relative_error_sufficient": 4.100919079917888e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 14,
+      "quantity": "N_e",
+      "threshold": 0.0001,
+      "drift_bound": 3.418562054906487e-06,
+      "headroom": 9.658143794509352e-05,
+      "equal_endpoint_relative_error_sufficient": 4.828822202330384e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 14,
+      "quantity": "N_mu",
+      "threshold": 0.0001,
+      "drift_bound": 3.785296842610509e-05,
+      "headroom": 6.214703157389492e-05,
+      "equal_endpoint_relative_error_sufficient": 3.107137414636788e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 14,
+      "quantity": "N_n",
+      "threshold": 0.0001,
+      "drift_bound": 6.80379865522433e-07,
+      "headroom": 9.931962013447757e-05,
+      "equal_endpoint_relative_error_sufficient": 4.965731030880629e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 14,
+      "quantity": "P0_average",
+      "threshold": 0.0001,
+      "drift_bound": 1.317848298926272e-07,
+      "headroom": 9.986821517010737e-05,
+      "equal_endpoint_relative_error_sufficient": 4.993160771455374e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 14,
+      "quantity": "P1_average",
+      "threshold": 0.00010000000000067176,
+      "drift_bound": 1.8302002554739765e-07,
+      "headroom": 9.981697997512436e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9905990121158304e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 14,
+      "quantity": "P2_average",
+      "threshold": 0.0001,
+      "drift_bound": 0.0,
+      "headroom": 0.0001,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 14,
+      "quantity": "Tsurface_inf",
+      "threshold": 0.0001000000001004859,
+      "drift_bound": 5.509429640396126e-07,
+      "headroom": 9.944905713644628e-05,
+      "equal_endpoint_relative_error_sufficient": 4.972202876978119e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 14,
+      "quantity": "Z_row_npe",
+      "threshold": 0.0001,
+      "drift_bound": 1.5141112064424657e-06,
+      "headroom": 9.848588879355754e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.924294439677877e-05
+    },
+    {
+      "target": 14,
+      "quantity": "Z_row_npmu",
+      "threshold": 0.0001,
+      "drift_bound": 2.4564366715064135e-05,
+      "headroom": 7.543563328493587e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 3.7717816642467935e-05
+    },
+    {
+      "target": 14,
+      "quantity": "envelope",
+      "threshold": 0.0001,
+      "drift_bound": 6.82758401137526e-07,
+      "headroom": 9.931724159886248e-05,
+      "equal_endpoint_relative_error_sufficient": 4.965612104181225e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 14,
+      "quantity": "metric_structure",
+      "threshold": 0.0001,
+      "drift_bound": 2.3108057063334973e-06,
+      "headroom": 9.76891942936665e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.884459714683325e-05
+    },
+    {
+      "target": 14,
+      "quantity": "mu_B",
+      "threshold": 0.0001,
+      "drift_bound": 1.317848298926272e-07,
+      "headroom": 9.986821517010737e-05,
+      "equal_endpoint_relative_error_sufficient": 4.993160771455374e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 14,
+      "quantity": "mu_n_profile",
+      "threshold": 0.0001,
+      "drift_bound": 1.3178572454965825e-07,
+      "headroom": 9.986821427545034e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.993410713772517e-05
+    },
+    {
+      "target": 14,
+      "quantity": "radius",
+      "threshold": 0.0001,
+      "drift_bound": 8.981460420245531e-07,
+      "headroom": 9.910185395797546e-05,
+      "equal_endpoint_relative_error_sufficient": 4.954842730676046e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 14,
+      "quantity": "species_support",
+      "threshold": 1.0,
+      "drift_bound": 0.0,
+      "headroom": 1.0,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 14,
+      "quantity": "surface_gravity",
+      "threshold": 0.00010000000010048579,
+      "drift_bound": 2.5935843307989034e-06,
+      "headroom": 9.740641576968688e-05,
+      "equal_endpoint_relative_error_sufficient": 4.870070969465747e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 14,
+      "quantity": "t_e",
+      "threshold": 3.085203567907327e-06,
+      "drift_bound": 1.3554838068641217e-07,
+      "headroom": 2.9496551872209147e-06,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.4748275936104574e-06
+    },
+    {
+      "target": 14,
+      "quantity": "t_mu",
+      "threshold": 3.3776548651137547e-07,
+      "drift_bound": 8.896055839289346e-08,
+      "headroom": 2.48804928118482e-07,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.24402464059241e-07
+    },
+    {
+      "target": 14,
+      "quantity": "t_n",
+      "threshold": 9.657703094558131e-05,
+      "drift_bound": 2.2450810177598868e-07,
+      "headroom": 9.635252284380532e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.817626142190266e-05
+    },
+    {
+      "target": 15,
+      "quantity": "Cstar",
+      "threshold": 0.00010000000010048598,
+      "drift_bound": 1.0943626578976436e-06,
+      "headroom": 9.890563744258833e-05,
+      "equal_endpoint_relative_error_sufficient": 4.945031914704298e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 15,
+      "quantity": "Ltilde_Me",
+      "threshold": 0.0001,
+      "drift_bound": 9.198142715353558e-07,
+      "headroom": 9.908018572846465e-05,
+      "equal_endpoint_relative_error_sufficient": 4.953759320187963e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 15,
+      "quantity": "Ltilde_Mmu",
+      "threshold": 0.0001,
+      "drift_bound": 1.926083322824595e-05,
+      "headroom": 8.073916677175405e-05,
+      "equal_endpoint_relative_error_sufficient": 4.036717627433825e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 15,
+      "quantity": "N_e",
+      "threshold": 0.0001,
+      "drift_bound": 3.6627444242383507e-06,
+      "headroom": 9.633725557576165e-05,
+      "equal_endpoint_relative_error_sufficient": 4.81661312712029e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 15,
+      "quantity": "N_mu",
+      "threshold": 0.0001,
+      "drift_bound": 4.0556710969018145e-05,
+      "headroom": 5.944328903098186e-05,
+      "equal_endpoint_relative_error_sufficient": 2.971955587397838e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 15,
+      "quantity": "N_n",
+      "threshold": 0.0001,
+      "drift_bound": 7.28978428521142e-07,
+      "headroom": 9.927102157147886e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9633011044490007e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 15,
+      "quantity": "P0_average",
+      "threshold": 0.0001,
+      "drift_bound": 1.4119801627186753e-07,
+      "headroom": 9.985880198372814e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9926901122018275e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 15,
+      "quantity": "P1_average",
+      "threshold": 0.00010000000000067176,
+      "drift_bound": 1.9609286134890844e-07,
+      "headroom": 9.980390713932285e-05,
+      "equal_endpoint_relative_error_sufficient": 4.989945370451286e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 15,
+      "quantity": "P2_average",
+      "threshold": 0.0001,
+      "drift_bound": 0.0,
+      "headroom": 0.0001,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 15,
+      "quantity": "Tsurface_inf",
+      "threshold": 0.0001000000001004859,
+      "drift_bound": 5.902962486451789e-07,
+      "headroom": 9.940970385184071e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9702352138754916e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 15,
+      "quantity": "Z_row_npe",
+      "threshold": 0.0001,
+      "drift_bound": 1.622262205323947e-06,
+      "headroom": 9.837773779467606e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.918886889733803e-05
+    },
+    {
+      "target": 15,
+      "quantity": "Z_row_npmu",
+      "threshold": 0.0001,
+      "drift_bound": 2.6318996017230746e-05,
+      "headroom": 7.368100398276926e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 3.684050199138463e-05
+    },
+    {
+      "target": 15,
+      "quantity": "envelope",
+      "threshold": 0.0001,
+      "drift_bound": 7.315271015285964e-07,
+      "headroom": 9.926847289847141e-05,
+      "equal_endpoint_relative_error_sufficient": 4.963173670892e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 15,
+      "quantity": "metric_structure",
+      "threshold": 0.0001,
+      "drift_bound": 2.47587445379414e-06,
+      "headroom": 9.752412554620586e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.876206277310293e-05
+    },
+    {
+      "target": 15,
+      "quantity": "mu_B",
+      "threshold": 0.0001,
+      "drift_bound": 1.4119801627186753e-07,
+      "headroom": 9.985880198372814e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9926901122018275e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 15,
+      "quantity": "mu_n_profile",
+      "threshold": 0.0001,
+      "drift_bound": 1.411989676142237e-07,
+      "headroom": 9.985880103238579e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.992940051619289e-05
+    },
+    {
+      "target": 15,
+      "quantity": "radius",
+      "threshold": 0.0001,
+      "drift_bound": 9.62299862157455e-07,
+      "headroom": 9.903770013784255e-05,
+      "equal_endpoint_relative_error_sufficient": 4.951635042661135e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 15,
+      "quantity": "species_support",
+      "threshold": 1.0,
+      "drift_bound": 0.0,
+      "headroom": 1.0,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 15,
+      "quantity": "surface_gravity",
+      "threshold": 0.00010000000010048579,
+      "drift_bound": 2.778841133734433e-06,
+      "headroom": 9.722115896675135e-05,
+      "equal_endpoint_relative_error_sufficient": 4.860808154222791e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 15,
+      "quantity": "t_e",
+      "threshold": 3.085202599687133e-06,
+      "drift_bound": 1.4523058262591593e-07,
+      "headroom": 2.939972017061217e-06,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.4699860085306085e-06
+    },
+    {
+      "target": 15,
+      "quantity": "t_mu",
+      "threshold": 3.377648510070299e-07,
+      "drift_bound": 9.531560184877774e-08,
+      "headroom": 2.4244924915825215e-07,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.2122462457912608e-07
+    },
+    {
+      "target": 15,
+      "quantity": "t_n",
+      "threshold": 9.657703254930584e-05,
+      "drift_bound": 2.405453471965302e-07,
+      "headroom": 9.633648720210931e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.8168243601054656e-05
+    },
+    {
+      "target": 16,
+      "quantity": "Cstar",
+      "threshold": 0.00010000000010048598,
+      "drift_bound": 1.1672973074154435e-06,
+      "headroom": 9.883270279307053e-05,
+      "equal_endpoint_relative_error_sufficient": 4.941385186361149e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 16,
+      "quantity": "Ltilde_Me",
+      "threshold": 0.0001,
+      "drift_bound": 9.81176778906239e-07,
+      "headroom": 9.901882322109377e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9506911977431795e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 16,
+      "quantity": "Ltilde_Mmu",
+      "threshold": 0.0001,
+      "drift_bound": 2.0544885900961254e-05,
+      "headroom": 7.945511409903875e-05,
+      "equal_endpoint_relative_error_sufficient": 3.972516271691582e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 16,
+      "quantity": "N_e",
+      "threshold": 0.0001,
+      "drift_bound": 3.906926732046825e-06,
+      "headroom": 9.609307326795318e-05,
+      "equal_endpoint_relative_error_sufficient": 4.8044040579674376e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 16,
+      "quantity": "N_mu",
+      "threshold": 0.0001,
+      "drift_bound": 4.3260448591991884e-05,
+      "headroom": 5.673955140800812e-05,
+      "equal_endpoint_relative_error_sufficient": 2.83677437161589e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 16,
+      "quantity": "N_n",
+      "threshold": 0.0001,
+      "drift_bound": 7.775769942822833e-07,
+      "headroom": 9.922242300571773e-05,
+      "equal_endpoint_relative_error_sufficient": 4.960871177997336e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 16,
+      "quantity": "P0_average",
+      "threshold": 0.0001,
+      "drift_bound": 1.5061120160382828e-07,
+      "headroom": 9.984938879839617e-05,
+      "equal_endpoint_relative_error_sufficient": 4.992219453005073e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 16,
+      "quantity": "P1_average",
+      "threshold": 0.00010000000000067176,
+      "drift_bound": 2.091656956725449e-07,
+      "headroom": 9.979083430499922e-05,
+      "equal_endpoint_relative_error_sufficient": 4.989291728869179e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 16,
+      "quantity": "P2_average",
+      "threshold": 0.0001,
+      "drift_bound": 0.0,
+      "headroom": 0.0001,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 16,
+      "quantity": "Tsurface_inf",
+      "threshold": 0.0001000000001004859,
+      "drift_bound": 6.296494707036418e-07,
+      "headroom": 9.937035062978225e-05,
+      "equal_endpoint_relative_error_sufficient": 4.968267553977646e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 16,
+      "quantity": "Z_row_npe",
+      "threshold": 0.0001,
+      "drift_bound": 1.7304132409082624e-06,
+      "headroom": 9.826958675909174e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.913479337954587e-05
+    },
+    {
+      "target": 16,
+      "quantity": "Z_row_npmu",
+      "threshold": 0.0001,
+      "drift_bound": 2.80736299698443e-05,
+      "headroom": 7.19263700301557e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 3.596318501507785e-05
+    },
+    {
+      "target": 16,
+      "quantity": "envelope",
+      "threshold": 0.0001,
+      "drift_bound": 7.802957256919537e-07,
+      "headroom": 9.921970427430805e-05,
+      "equal_endpoint_relative_error_sufficient": 4.960735241533073e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 16,
+      "quantity": "metric_structure",
+      "threshold": 0.0001,
+      "drift_bound": 2.6409448042053296e-06,
+      "headroom": 9.735905519579467e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.8679527597897336e-05
+    },
+    {
+      "target": 16,
+      "quantity": "mu_B",
+      "threshold": 0.0001,
+      "drift_bound": 1.5061120160382828e-07,
+      "headroom": 9.984938879839617e-05,
+      "equal_endpoint_relative_error_sufficient": 4.992219453005073e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 16,
+      "quantity": "mu_n_profile",
+      "threshold": 0.0001,
+      "drift_bound": 1.5061220976241953e-07,
+      "headroom": 9.984938779023758e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.992469389511879e-05
+    },
+    {
+      "target": 16,
+      "quantity": "radius",
+      "threshold": 0.0001,
+      "drift_bound": 1.02645353883126e-06,
+      "headroom": 9.897354646116874e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9484273620249474e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 16,
+      "quantity": "species_support",
+      "threshold": 1.0,
+      "drift_bound": 0.0,
+      "headroom": 1.0,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 16,
+      "quantity": "surface_gravity",
+      "threshold": 0.00010000000010048577,
+      "drift_bound": 2.9640976062386944e-06,
+      "headroom": 9.703590249424708e-05,
+      "equal_endpoint_relative_error_sufficient": 4.85154535721726e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 16,
+      "quantity": "t_e",
+      "threshold": 3.0852016318218297e-06,
+      "drift_bound": 1.549092356577242e-07,
+      "headroom": 2.9302923961641055e-06,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.4651461980820528e-06
+    },
+    {
+      "target": 16,
+      "quantity": "t_mu",
+      "threshold": 3.377642155358582e-07,
+      "drift_bound": 1.0167031356525177e-07,
+      "headroom": 2.3609390197060643e-07,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.1804695098530322e-07
+    },
+    {
+      "target": 16,
+      "quantity": "t_n",
+      "threshold": 9.657703415264231e-05,
+      "drift_bound": 2.5657871183248915e-07,
+      "headroom": 9.632045544080982e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.816022772040491e-05
+    },
+    {
+      "target": 17,
+      "quantity": "Cstar",
+      "threshold": 0.00010000000010048599,
+      "drift_bound": 1.2402289388548595e-06,
+      "headroom": 9.875977116163113e-05,
+      "equal_endpoint_relative_error_sufficient": 4.937738609187691e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 17,
+      "quantity": "Ltilde_Me",
+      "threshold": 0.0001,
+      "drift_bound": 1.0425446071391805e-06,
+      "headroom": 9.895745539286083e-05,
+      "equal_endpoint_relative_error_sufficient": 4.947622809443831e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 17,
+      "quantity": "Ltilde_Mmu",
+      "threshold": 0.0001,
+      "drift_bound": 2.182893811696888e-05,
+      "headroom": 7.817106188303112e-05,
+      "equal_endpoint_relative_error_sufficient": 3.908315021217126e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 17,
+      "quantity": "N_e",
+      "threshold": 0.0001,
+      "drift_bound": 4.151108944670835e-06,
+      "headroom": 9.584889105532917e-05,
+      "equal_endpoint_relative_error_sufficient": 4.792194996554874e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 17,
+      "quantity": "N_mu",
+      "threshold": 0.0001,
+      "drift_bound": 4.596418089271439e-05,
+      "headroom": 5.4035819107285614e-05,
+      "equal_endpoint_relative_error_sufficient": 2.701593787402139e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 17,
+      "quantity": "N_n",
+      "threshold": 0.0001,
+      "drift_bound": 8.261755663739988e-07,
+      "headroom": 9.9173824433626e-05,
+      "equal_endpoint_relative_error_sufficient": 4.958441251347228e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 17,
+      "quantity": "P0_average",
+      "threshold": 0.0001,
+      "drift_bound": 1.6002438405577015e-07,
+      "headroom": 9.983997561594424e-05,
+      "equal_endpoint_relative_error_sufficient": 4.991748793956752e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 17,
+      "quantity": "P1_average",
+      "threshold": 0.00010000000000067176,
+      "drift_bound": 2.2223852556255824e-07,
+      "headroom": 9.977776147510921e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9886380875172956e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 17,
+      "quantity": "P2_average",
+      "threshold": 0.0001,
+      "drift_bound": 0.0,
+      "headroom": 0.0001,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 17,
+      "quantity": "Tsurface_inf",
+      "threshold": 0.0001000000001004859,
+      "drift_bound": 6.690015620709961e-07,
+      "headroom": 9.93309985384149e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9662999506917485e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 17,
+      "quantity": "Z_row_npe",
+      "threshold": 0.0001,
+      "drift_bound": 1.8385643096516897e-06,
+      "headroom": 9.816143569034831e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.9080717845174156e-05
+    },
+    {
+      "target": 17,
+      "quantity": "Z_row_npmu",
+      "threshold": 0.0001,
+      "drift_bound": 2.9828268321680602e-05,
+      "headroom": 7.01717316783194e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 3.50858658391597e-05
+    },
+    {
+      "target": 17,
+      "quantity": "envelope",
+      "threshold": 0.0001,
+      "drift_bound": 8.290629988628173e-07,
+      "headroom": 9.917093700113719e-05,
+      "equal_endpoint_relative_error_sufficient": 4.958296879842627e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 17,
+      "quantity": "metric_structure",
+      "threshold": 0.0001,
+      "drift_bound": 2.8060167207458443e-06,
+      "headroom": 9.719398327925416e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.859699163962708e-05
+    },
+    {
+      "target": 17,
+      "quantity": "mu_B",
+      "threshold": 0.0001,
+      "drift_bound": 1.6002438405577015e-07,
+      "headroom": 9.983997561594424e-05,
+      "equal_endpoint_relative_error_sufficient": 4.991748793956752e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 17,
+      "quantity": "mu_n_profile",
+      "threshold": 0.0001,
+      "drift_bound": 1.6002544811422686e-07,
+      "headroom": 9.983997455188578e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.991998727594289e-05
+    },
+    {
+      "target": 17,
+      "quantity": "radius",
+      "threshold": 0.0001,
+      "drift_bound": 1.0906046336587582e-06,
+      "headroom": 9.890939536634125e-05,
+      "equal_endpoint_relative_error_sufficient": 4.945219810686708e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 17,
+      "quantity": "species_support",
+      "threshold": 1.0,
+      "drift_bound": 0.0,
+      "headroom": 1.0,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 17,
+      "quantity": "surface_gravity",
+      "threshold": 0.00010000000010048576,
+      "drift_bound": 3.149348650287048e-06,
+      "headroom": 9.685065145019871e-05,
+      "equal_endpoint_relative_error_sufficient": 4.842282833349572e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 17,
+      "quantity": "t_e",
+      "threshold": 3.0852006638331887e-06,
+      "drift_bound": 1.6458912206751553e-07,
+      "headroom": 2.920611541765673e-06,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.4603057708828366e-06
+    },
+    {
+      "target": 17,
+      "quantity": "t_mu",
+      "threshold": 3.377635800469727e-07,
+      "drift_bound": 1.0802520242084515e-07,
+      "headroom": 2.2973837762612753e-07,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.1486918881306376e-07
+    },
+    {
+      "target": 17,
+      "quantity": "t_n",
+      "threshold": 9.657703575611985e-05,
+      "drift_bound": 2.726134872288455e-07,
+      "headroom": 9.6304422268891e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.81522111344455e-05
+    },
+    {
+      "target": 18,
+      "quantity": "Cstar",
+      "threshold": 0.00010000000010048599,
+      "drift_bound": 1.3131581980116393e-06,
+      "headroom": 9.868684190247435e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9340921508941465e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 18,
+      "quantity": "Ltilde_Me",
+      "threshold": 0.0001,
+      "drift_bound": 1.1039176969038133e-06,
+      "headroom": 9.889608230309619e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9445541582564784e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 18,
+      "quantity": "Ltilde_Mmu",
+      "threshold": 0.00010000000000086827,
+      "drift_bound": 2.3112990089862155e-05,
+      "headroom": 7.688700991100612e-05,
+      "equal_endpoint_relative_error_sufficient": 3.844113865374199e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 18,
+      "quantity": "N_e",
+      "threshold": 0.0001,
+      "drift_bound": 4.395291095630022e-06,
+      "headroom": 9.560470890436998e-05,
+      "equal_endpoint_relative_error_sufficient": 4.779985941206617e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 18,
+      "quantity": "N_mu",
+      "threshold": 0.0001,
+      "drift_bound": 4.866790833395612e-05,
+      "headroom": 5.1332091666043885e-05,
+      "equal_endpoint_relative_error_sufficient": 2.566413811615548e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 18,
+      "quantity": "N_n",
+      "threshold": 0.0001,
+      "drift_bound": 8.747741351277752e-07,
+      "headroom": 9.912522586487223e-05,
+      "equal_endpoint_relative_error_sufficient": 4.956011324982102e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 18,
+      "quantity": "P0_average",
+      "threshold": 0.00010000000000065455,
+      "drift_bound": 1.6943756519861257e-07,
+      "headroom": 9.983056243545594e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9912781350110385e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 18,
+      "quantity": "P1_average",
+      "threshold": 0.00010000000000067176,
+      "drift_bound": 2.3531135357164058e-07,
+      "headroom": 9.976468864710012e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9879844462680055e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 18,
+      "quantity": "P2_average",
+      "threshold": 0.0001,
+      "drift_bound": 0.0,
+      "headroom": 0.0001,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 18,
+      "quantity": "Tsurface_inf",
+      "threshold": 0.00010000000010048588,
+      "drift_bound": 7.08354682697984e-07,
+      "headroom": 9.92916454177879e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9643322960203305e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 18,
+      "quantity": "Z_row_npe",
+      "threshold": 0.0001,
+      "drift_bound": 1.9467154048464696e-06,
+      "headroom": 9.805328459515353e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.9026642297576766e-05
+    },
+    {
+      "target": 18,
+      "quantity": "Z_row_npmu",
+      "threshold": 0.0001,
+      "drift_bound": 3.1582911373269526e-05,
+      "headroom": 6.841708862673047e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 3.4208544313365236e-05
+    },
+    {
+      "target": 18,
+      "quantity": "envelope",
+      "threshold": 0.0001,
+      "drift_bound": 8.778314984282571e-07,
+      "headroom": 9.912216850157175e-05,
+      "equal_endpoint_relative_error_sufficient": 4.955858456951412e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 18,
+      "quantity": "metric_structure",
+      "threshold": 0.0001,
+      "drift_bound": 2.9710902113575165e-06,
+      "headroom": 9.702890978864249e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.8514454894321244e-05
+    },
+    {
+      "target": 18,
+      "quantity": "mu_B",
+      "threshold": 0.00010000000000065455,
+      "drift_bound": 1.6943756519861257e-07,
+      "headroom": 9.983056243545594e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9912781350110385e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 18,
+      "quantity": "mu_n_profile",
+      "threshold": 0.0001,
+      "drift_bound": 1.694386851569347e-07,
+      "headroom": 9.983056131484307e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.991528065742154e-05
+    },
+    {
+      "target": 18,
+      "quantity": "radius",
+      "threshold": 0.0001,
+      "drift_bound": 1.154758088812794e-06,
+      "headroom": 9.884524191118721e-05,
+      "equal_endpoint_relative_error_sufficient": 4.942012141538037e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 18,
+      "quantity": "species_support",
+      "threshold": 1.0,
+      "drift_bound": 0.0,
+      "headroom": 1.0,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 18,
+      "quantity": "surface_gravity",
+      "threshold": 0.00010000000010048576,
+      "drift_bound": 3.33460457497105e-06,
+      "headroom": 9.666539552551471e-05,
+      "equal_endpoint_relative_error_sufficient": 4.833020067166721e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 18,
+      "quantity": "t_e",
+      "threshold": 3.0851996957354376e-06,
+      "drift_bound": 1.742700995767399e-07,
+      "headroom": 2.9109295961586977e-06,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.4554647980793489e-06
+    },
+    {
+      "target": 18,
+      "quantity": "t_mu",
+      "threshold": 3.3776294451979613e-07,
+      "drift_bound": 1.1438047418628819e-07,
+      "headroom": 2.2338247033350794e-07,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.1169123516675397e-07
+    },
+    {
+      "target": 18,
+      "quantity": "t_n",
+      "threshold": 9.657703735974477e-05,
+      "drift_bound": 2.88649736446267e-07,
+      "headroom": 9.62883876232985e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.814419381164925e-05
+    },
+    {
+      "target": 19,
+      "quantity": "Cstar",
+      "threshold": 0.00010000000010048599,
+      "drift_bound": 1.386084687942826e-06,
+      "headroom": 9.861391541254316e-05,
+      "equal_endpoint_relative_error_sufficient": 4.930445831327608e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 19,
+      "quantity": "Ltilde_Me",
+      "threshold": 0.0001,
+      "drift_bound": 1.1652960211768916e-06,
+      "headroom": 9.883470397882311e-05,
+      "equal_endpoint_relative_error_sufficient": 4.941485245532331e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 19,
+      "quantity": "Ltilde_Mmu",
+      "threshold": 0.0001,
+      "drift_bound": 2.439704163522147e-05,
+      "headroom": 7.560295836477854e-05,
+      "equal_endpoint_relative_error_sufficient": 3.779912813253123e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 19,
+      "quantity": "N_e",
+      "threshold": 0.0001,
+      "drift_bound": 4.639473160880762e-06,
+      "headroom": 9.536052683911924e-05,
+      "equal_endpoint_relative_error_sufficient": 4.767776893124839e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 19,
+      "quantity": "N_mu",
+      "threshold": 0.0001,
+      "drift_bound": 5.137163055095427e-05,
+      "headroom": 4.8628369449045734e-05,
+      "equal_endpoint_relative_error_sufficient": 2.4312344624898673e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 19,
+      "quantity": "N_n",
+      "threshold": 0.0001,
+      "drift_bound": 9.233727102121257e-07,
+      "headroom": 9.907662728978787e-05,
+      "equal_endpoint_relative_error_sufficient": 4.953581398418532e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 19,
+      "quantity": "P0_average",
+      "threshold": 0.0001,
+      "drift_bound": 1.7885074359234606e-07,
+      "headroom": 9.982114925640765e-05,
+      "equal_endpoint_relative_error_sufficient": 4.990807476141762e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 19,
+      "quantity": "P1_average",
+      "threshold": 0.00010000000000067176,
+      "drift_bound": 2.483841779532131e-07,
+      "headroom": 9.975161582271854e-05,
+      "equal_endpoint_relative_error_sufficient": 4.987330805208635e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 19,
+      "quantity": "P2_average",
+      "threshold": 0.0001,
+      "drift_bound": 0.0,
+      "headroom": 0.0001,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 19,
+      "quantity": "Tsurface_inf",
+      "threshold": 0.00010000000010048588,
+      "drift_bound": 7.47707662732368e-07,
+      "headroom": 9.925229243775352e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9623646484559674e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 19,
+      "quantity": "Z_row_npe",
+      "threshold": 0.0001,
+      "drift_bound": 2.054866531048816e-06,
+      "headroom": 9.79451334689512e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.89725667344756e-05
+    },
+    {
+      "target": 19,
+      "quantity": "Z_row_npmu",
+      "threshold": 0.0001,
+      "drift_bound": 3.3337558886751795e-05,
+      "headroom": 6.666244111324822e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 3.333122055662411e-05
+    },
+    {
+      "target": 19,
+      "quantity": "envelope",
+      "threshold": 0.0001,
+      "drift_bound": 9.265998282195418e-07,
+      "headroom": 9.907340017178047e-05,
+      "equal_endpoint_relative_error_sufficient": 4.95342004266781e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 19,
+      "quantity": "metric_structure",
+      "threshold": 0.0001,
+      "drift_bound": 3.1361652468721624e-06,
+      "headroom": 9.686383475312784e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.843191737656392e-05
+    },
+    {
+      "target": 19,
+      "quantity": "mu_B",
+      "threshold": 0.0001,
+      "drift_bound": 1.7885074359234606e-07,
+      "headroom": 9.982114925640765e-05,
+      "equal_endpoint_relative_error_sufficient": 4.990807476141762e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 19,
+      "quantity": "mu_n_profile",
+      "threshold": 0.0001,
+      "drift_bound": 1.788519193196237e-07,
+      "headroom": 9.982114808068039e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.991057404034019e-05
+    },
+    {
+      "target": 19,
+      "quantity": "radius",
+      "threshold": 0.0001,
+      "drift_bound": 1.2189112272714809e-06,
+      "headroom": 9.878108877272852e-05,
+      "equal_endpoint_relative_error_sufficient": 4.938804488429884e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 19,
+      "quantity": "species_support",
+      "threshold": 1.0,
+      "drift_bound": 0.0,
+      "headroom": 1.0,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 19,
+      "quantity": "surface_gravity",
+      "threshold": 0.00010000000010048575,
+      "drift_bound": 3.5198597959213846e-06,
+      "headroom": 9.648014030456436e-05,
+      "equal_endpoint_relative_error_sufficient": 4.823757337886323e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 19,
+      "quantity": "t_e",
+      "threshold": 3.0851987277695293e-06,
+      "drift_bound": 1.8394975866142804e-07,
+      "headroom": 2.9012489691081012e-06,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.4506244845540506e-06
+    },
+    {
+      "target": 19,
+      "quantity": "t_mu",
+      "threshold": 3.3776230900845666e-07,
+      "drift_bound": 1.2073558758101885e-07,
+      "headroom": 2.170267214274378e-07,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.085133607137189e-07
+    },
+    {
+      "target": 19,
+      "quantity": "t_n",
+      "threshold": 9.6577038963222e-05,
+      "drift_bound": 3.046845088450212e-07,
+      "headroom": 9.627235445437698e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.813617722718849e-05
+    },
+    {
+      "target": 20,
+      "quantity": "Cstar",
+      "threshold": 0.00010000000010048599,
+      "drift_bound": 1.4590085208933158e-06,
+      "headroom": 9.854099157959267e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9267996448758115e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 20,
+      "quantity": "Ltilde_Me",
+      "threshold": 0.0001,
+      "drift_bound": 1.226679550519683e-06,
+      "headroom": 9.877332044948032e-05,
+      "equal_endpoint_relative_error_sufficient": 4.938416072743374e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 20,
+      "quantity": "Ltilde_Mmu",
+      "threshold": 0.0001,
+      "drift_bound": 2.5681092975496463e-05,
+      "headroom": 7.431890702450355e-05,
+      "equal_endpoint_relative_error_sufficient": 3.71571185386169e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 20,
+      "quantity": "N_e",
+      "threshold": 0.0001,
+      "drift_bound": 4.883655167012475e-06,
+      "headroom": 9.511634483298752e-05,
+      "equal_endpoint_relative_error_sufficient": 4.755567850980074e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 20,
+      "quantity": "N_mu",
+      "threshold": 0.0001,
+      "drift_bound": 5.4075347985134414e-05,
+      "headroom": 4.592465201486559e-05,
+      "equal_endpoint_relative_error_sufficient": 2.296055717951411e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 20,
+      "quantity": "N_n",
+      "threshold": 0.0001,
+      "drift_bound": 9.71971279541409e-07,
+      "headroom": 9.90280287204586e-05,
+      "equal_endpoint_relative_error_sufficient": 4.951151472260802e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 20,
+      "quantity": "P0_average",
+      "threshold": 0.00010000000000065455,
+      "drift_bound": 1.882639213315298e-07,
+      "headroom": 9.981173607932302e-05,
+      "equal_endpoint_relative_error_sufficient": 4.990336817375091e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 20,
+      "quantity": "P1_average",
+      "threshold": 0.00010000000000067176,
+      "drift_bound": 2.614570011256157e-07,
+      "headroom": 9.973854299954615e-05,
+      "equal_endpoint_relative_error_sufficient": 4.986677164218266e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 20,
+      "quantity": "P2_average",
+      "threshold": 0.0001,
+      "drift_bound": 0.0,
+      "headroom": 0.0001,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 20,
+      "quantity": "Tsurface_inf",
+      "threshold": 0.00010000000010048588,
+      "drift_bound": 7.870606770021163e-07,
+      "headroom": 9.921293942348377e-05,
+      "equal_endpoint_relative_error_sufficient": 4.960396999257266e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 20,
+      "quantity": "Z_row_npe",
+      "threshold": 0.0001,
+      "drift_bound": 2.163017688258729e-06,
+      "headroom": 9.783698231174127e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.8918491155870635e-05
+    },
+    {
+      "target": 20,
+      "quantity": "Z_row_npmu",
+      "threshold": 0.0001,
+      "drift_bound": 3.5092211155433e-05,
+      "headroom": 6.490778884456701e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 3.245389442228351e-05
+    },
+    {
+      "target": 20,
+      "quantity": "envelope",
+      "threshold": 0.0001,
+      "drift_bound": 9.753681970712242e-07,
+      "headroom": 9.902463180292879e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9509816265501e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 20,
+      "quantity": "metric_structure",
+      "threshold": 0.0001,
+      "drift_bound": 3.3012418548695986e-06,
+      "headroom": 9.66987581451304e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.83493790725652e-05
+    },
+    {
+      "target": 20,
+      "quantity": "mu_B",
+      "threshold": 0.00010000000000065455,
+      "drift_bound": 1.882639213315298e-07,
+      "headroom": 9.981173607932302e-05,
+      "equal_endpoint_relative_error_sufficient": 4.990336817375091e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 20,
+      "quantity": "mu_n_profile",
+      "threshold": 0.0001,
+      "drift_bound": 1.882651521732132e-07,
+      "headroom": 9.981173484782679e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.9905867423913396e-05
+    },
+    {
+      "target": 20,
+      "quantity": "radius",
+      "threshold": 0.0001,
+      "drift_bound": 1.2830644476869168e-06,
+      "headroom": 9.871693555231309e-05,
+      "equal_endpoint_relative_error_sufficient": 4.9355968314296724e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 20,
+      "quantity": "species_support",
+      "threshold": 1.0,
+      "drift_bound": 0.0,
+      "headroom": 1.0,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": null
+    },
+    {
+      "target": 20,
+      "quantity": "surface_gravity",
+      "threshold": 0.00010000000010048573,
+      "drift_bound": 3.7051151479117813e-06,
+      "headroom": 9.629488495257395e-05,
+      "equal_endpoint_relative_error_sufficient": 4.814494603769823e-05,
+      "budget_units": "historical component norm"
+    },
+    {
+      "target": 20,
+      "quantity": "t_e",
+      "threshold": 3.08519775922484e-06,
+      "drift_bound": 1.9363520555384928e-07,
+      "headroom": 2.8915625536709907e-06,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.4457812768354953e-06
+    },
+    {
+      "target": 20,
+      "quantity": "t_mu",
+      "threshold": 3.377616734095336e-07,
+      "drift_bound": 1.2709157681161168e-07,
+      "headroom": 2.1067009659792193e-07,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 1.0533504829896097e-07
+    },
+    {
+      "target": 20,
+      "quantity": "t_n",
+      "threshold": 9.657704056736562e-05,
+      "drift_bound": 3.2072594502441376e-07,
+      "headroom": 9.625631462234121e-05,
+      "equal_endpoint_relative_error_sufficient": null,
+      "budget_units": "historical component norm",
+      "equal_endpoint_absolute_or_norm_error_sufficient": 4.8128157311170604e-05
+    }
+  ],
+  "note": "For tangents headroom is absolute component error, not relative. Profile/matrix allowances are in their historical scaled norms. P2 requires exact-zero semantics; support requires topology. Scalar ratio formula uses 1+historical drift as conservative |ratio| bound."
+}
