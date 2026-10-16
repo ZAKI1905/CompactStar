@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "purpose": "independent arithmetic and provenance audit, not a global error bound",
+  "counts": {
+    "A1_PASS": 12,
+    "anchor_residual_within_original_band": 15,
+    "direction_PASS": 12,
+    "agreement_PASS": 12,
+    "A1_FAIL": 3,
+    "agreement_FAIL": 3,
+    "paired_oracle_PASS": 72,
+    "paired_phase_PASS": 432
+  },
+  "cpu_seconds": 0.087927,
+  "combined_measured_cpu_seconds": 3.137887,
+  "max_rss_kib": 35624,
+  "affinity": [
+    4
+  ],
+  "job": "17023",
+  "source_sha256": "2581f2a5740e4af80b0ae8d32cc0abe1a0ef70cf93922e3e4e42687ba1c7b62c",
+  "numerical_solver_runs_added": 0
+}

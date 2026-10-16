@@ -195,7 +195,12 @@ still be empirical evidence.
 * Slurm 17021 stopped before any numerical work because compute-node PATH lacked
   Git. Its receipt is retained. Slurm **17022 completed**, exit 0, node phyn004,
   all 18 prescribed solves, all mathematical checks and scoring.
-* Measured total **3.04996 CPU-s**, including controller and children; maximum
+* The independent 60-digit Decimal audit passed under Slurm **17023**, checking
+  all A1, A2s, formulation-agreement and A3 classifications against raw outputs,
+  the unchanged A2 gates/bands, and source authentication. It added no stellar
+  solve. Receipt: [independent-audit.json](evidence/independent-audit.json:1).
+* Measured numerical run **3.04996 CPU-s**, including controller and children;
+  independent audit **0.087927 CPU-s**; combined **3.137887 CPU-s**. Maximum
   per-process measurement **0.267799 CPU-s**; peak RSS upper bound **37,732 KiB**.
   Slurm accounting storage is disabled; getrusage receipts and Slurm allocation/
   final-state records are retained. Slurm rounded allocation to two hardware

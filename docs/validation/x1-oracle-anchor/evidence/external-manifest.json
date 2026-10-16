@@ -1,6 +1,14 @@
 {
   "root": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor",
   "files": {
+    "audit-slurm-17023.err": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "audit-slurm-17023.out": {
+      "sha256": "6de342bf3e51b41e0e1342102b286fa5e861437e4fafd5ce4be5e50bfe975031",
+      "bytes": 547
+    },
     "build/compiler.txt": {
       "sha256": "07316a14f2fdd7579d3cb3c529b60cf3f91bc757509d9a8cf59478160289031e",
       "bytes": 225
@@ -20,6 +28,10 @@
     "build/x1_regularized_oracle.build-receipt.txt": {
       "sha256": "2501073440d7d84b5d649feadee39e4e78fcfec3dca85c3f07dd1c2b4cb4f0b2",
       "bytes": 1535
+    },
+    "independent-audit.json": {
+      "sha256": "8eebe817d948564c2d2262fb0544d5475341df4c2e6786a0e49e9e4d147e9838",
+      "bytes": 613
     },
     "mathematical-checks.err": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -184,6 +196,10 @@
     "slurm-final-17022.txt": {
       "sha256": "d3f5555d508f2b14ea0390c439120035cf6931b0daa3f274b81dac104dbc7f9f",
       "bytes": 1385
+    },
+    "slurm-final-17023.txt": {
+      "sha256": "77f5551806d4f05295a54cfa139ab94ab9193887f50d6bbf2bed63e3093dbb6a",
+      "bytes": 1290
     },
     "unregularized-0-2e-11.err": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
