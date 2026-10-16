@@ -1,0 +1,662 @@
+{
+  "0": {
+    "defect512": {
+      "primary": [
+        7.6169065187576955e+56,
+        12.766174635722221,
+        0.9209327431340144,
+        12.64330453705309,
+        1.8127414588403465e-32,
+        1.304044299998277e+30,
+        12.633023510828307,
+        868.4354335171303,
+        0.13154890784581055,
+        5.0099723631832904e-12,
+        3.979642136664463e-13,
+        -3.807934490732828e-12,
+        5.032988457422116e-15,
+        3.3684121389618644e-18,
+        4.665310997430149e-06
+      ],
+      "N": [
+        7.568311540643401e+56,
+        4.859497811429437e+54,
+        4.811920572466742e+54,
+        4.7577238962694695e+52
+      ],
+      "G_packed": [
+        2.904618514381059e+55,
+        2.2013803858089883e+53,
+        -1.0354118519711853e+51,
+        9.746443322660061e+51
+      ],
+      "Lmu": 9.850498710658395e-34,
+      "P0": 868.4354335171303,
+      "P1": 846.1850640192775,
+      "Hs": 1.3073642058034328e-05,
+      "Hb": 0.0009023927756353209,
+      "Hn": 0.000833001386121841,
+      "Hmu": 0.11182827543253801,
+      "K": -0.0778912079872672,
+      "digits": 64,
+      "defect_transport_uv": [
+        -5.4185483470497126e-11,
+        -1.56953981500143e-15
+      ],
+      "defect_absolute_transport_uv": [
+        0.00026316973831560966,
+        1.3800272547953687e-09
+      ],
+      "stage_transport_uv": [
+        3.698931385473353e-17,
+        2.590638431519622e-22
+      ],
+      "defect_quadrature_spread": 4.384344115754851e-16
+    },
+    "derivative_ablation_changes": {
+      "center": [
+        0.0,
+        0.0,
+        -2.697495005143935e-14,
+        0.0
+      ],
+      "eos": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "dB_dH": {
+      "0.0001": 1.918040670717994e+57,
+      "0.00005": 1.9180406644138067e+57
+    },
+    "dB_dH_relative_spread": 3.2867849553142037e-09,
+    "stencil": {
+      "0.0001": [
+        0.9657700776396425,
+        0.034229922361787,
+        0.03085217821236205,
+        0.00337774414943001
+      ],
+      "0.00005": [
+        0.9657700775651137,
+        0.03422992243054368,
+        0.03085217837726026,
+        0.0033777440533068162
+      ]
+    },
+    "quantities": {
+      "N_n": 7.568311540643401e+56,
+      "N_e": 4.811920572466742e+54,
+      "N_mu": 4.7577238962694695e+52,
+      "Ltilde_Me": 1.8127414588403465e-32,
+      "Ltilde_Mmu": 9.850498710658395e-34,
+      "Cstar": 1.304044299998277e+30,
+      "radius": 12.766174635722221,
+      "surface_gravity": 0.0061085727676778,
+      "envelope": 0.29321609910559765,
+      "Tsurface_inf": 0.27124042241132346,
+      "mu_B": 868.4354335171303,
+      "P0_average": 868.4354335171303,
+      "P1_average": 846.1850640192775,
+      "Z_row_npe": [
+        4.579303172928304e-54,
+        5.172520257038069e-55
+      ],
+      "Z_row_npmu": [
+        5.172520257038069e-55,
+        1.0268725098149441e-52
+      ],
+      "t_n": 0.9657700775651137,
+      "t_e": 0.03085217837726026,
+      "t_mu": 0.0033777440533068162
+    },
+    "errors": {
+      "N_n": {
+        "integration": 1.008529113803712e-11,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "N_e": {
+        "integration": 2.507596478674752e-11,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "N_mu": {
+        "integration": 4.801910876132009e-13,
+        "eos_equilibrium": 0.0,
+        "center": 4.470130759213374e-16
+      },
+      "Ltilde_Me": {
+        "integration": 1.619265818870848e-12,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "Ltilde_Mmu": {
+        "integration": 1.3983717094607458e-12,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "Cstar": {
+        "integration": 3.917622404492046e-12,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "radius": {
+        "integration": 9.3536499794608e-13,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "surface_gravity": {
+        "integration": 3.768570980383971e-12,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "envelope": {
+        "integration": 1.0754076961006539e-12,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "Tsurface_inf": {
+        "integration": 8.551340595901094e-13,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "mu_B": {
+        "integration": 2.2027267265088045e-13,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "P0_average": {
+        "integration": 2.2027267265088045e-13,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "P1_average": {
+        "integration": 4.628987024632011e-13,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "Z_row_npe": {
+        "integration": 1.322887264938251e-11,
+        "eos_equilibrium": 0.0,
+        "center": 2.801165738579359e-16
+      },
+      "Z_row_npmu": {
+        "integration": 1.2642251969254671e-11,
+        "eos_equilibrium": 0.0,
+        "center": 3.6121389123133397e-16
+      },
+      "t_n": {
+        "integration": 6.050236888679931e-07,
+        "stencil": 9.937177007183588e-11,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "t_e": {
+        "integration": 9.564472874881043e-09,
+        "stencil": 2.1986427956033339e-10,
+        "eos_equilibrium": 0.0,
+        "center": 5.39499001028787e-14
+      },
+      "t_mu": {
+        "integration": 1.8109158455339256e-12,
+        "stencil": 1.2816425814151286e-10,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      }
+    },
+    "root_computed_residual_relative": 5.096589816844244e-12,
+    "B_functional_discretization_estimate": 7.753548233622165e+45,
+    "defect_transport_R_relative": -5.943028558532773e-11,
+    "defect_transport_M_relative": -1.0537438583852834e-09,
+    "fine_minus_128_R_relative": 1.197266730201818e-10,
+    "fine_minus_128_M_relative": -2.1472845723735645e-10,
+    "defect_absolute_R_estimate": 1.2660898399674713e-05,
+    "defect_absolute_M_estimate": 8.662810832354e-05,
+    "stage_transport_R_estimate": 1.0956602602561834e-19,
+    "defect_quadrature_spread": 1.1001545995772977e-14,
+    "defect_status": "CONDITIONAL: numerical Jacobians and quadrature; no derivative-tube or intra-step transport remainder enclosure"
+  },
+  "10": {
+    "defect512": {
+      "primary": [
+        7.616902710304437e+56,
+        12.766182825621517,
+        0.9209323053752073,
+        12.643312486068602,
+        1.8127430986549044e-32,
+        1.3040452584815504e+30,
+        12.633031440104407,
+        868.4355152646827,
+        0.13154870928652895,
+        5.010092059103133e-12,
+        3.9796941783687423e-13,
+        -3.808033207340633e-12,
+        5.03300878621285e-15,
+        3.4312178325982925e-18,
+        4.665316681095295e-06
+      ],
+      "N": [
+        7.5683078625528964e+56,
+        4.8594847751540515e+54,
+        4.8119088225772575e+54,
+        4.757595257679407e+52
+      ],
+      "G_packed": [
+        2.904620913709421e+55,
+        2.2013779541578e+53,
+        -1.0353931930937702e+51,
+        9.746272171565996e+51
+      ],
+      "Lmu": 9.850372228194923e-34,
+      "P0": 868.4355152646827,
+      "P1": 846.1851746398091,
+      "Hs": 1.3073620247702123e-05,
+      "Hb": 0.0009023927756353209,
+      "Hn": 0.000833001386121841,
+      "Hmu": 0.11182827543253801,
+      "K": -0.07789111385528516,
+      "digits": 64,
+      "defect_transport_uv": [
+        -5.4186018013164745e-11,
+        -1.5695463680126147e-15
+      ],
+      "defect_absolute_transport_uv": [
+        0.00026317027153358567,
+        1.3800245315000553e-09
+      ],
+      "stage_transport_uv": [
+        3.670251477325667e-17,
+        2.5793989720843193e-22
+      ],
+      "defect_quadrature_spread": 5.82978045305451e-16
+    },
+    "derivative_ablation_changes": {
+      "center": [
+        0.0,
+        0.0,
+        2.6971480604487397e-14,
+        0.0
+      ],
+      "eos": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "dB_dH": {
+      "0.0001": 1.9180462090889693e+57,
+      "0.00005": 1.9180462027781504e+57
+    },
+    "dB_dH_relative_spread": 3.290232974961782e-09,
+    "stencil": {
+      "0.0001": [
+        0.9657702382546373,
+        0.034229761745511136,
+        0.030852081252995617,
+        0.003377680492506665
+      ],
+      "0.00005": [
+        0.9657702381868958,
+        0.03422976181437189,
+        0.030852081417959337,
+        0.0033776803963931597
+      ]
+    },
+    "quantities": {
+      "N_n": 7.5683078625528964e+56,
+      "N_e": 4.8119088225772575e+54,
+      "N_mu": 4.757595257679407e+52,
+      "Ltilde_Me": 1.8127430986549044e-32,
+      "Ltilde_Mmu": 9.850372228194923e-34,
+      "Cstar": 1.3040452584815504e+30,
+      "radius": 12.766182825621517,
+      "surface_gravity": 0.0061085614511983445,
+      "envelope": 0.2932159466070121,
+      "Tsurface_inf": 0.2712403068803568,
+      "mu_B": 868.4355152646827,
+      "P0_average": 868.4355152646827,
+      "P1_average": 846.1851746398091,
+      "Z_row_npe": [
+        4.579308125296589e-54,
+        5.172523041204001e-55
+      ],
+      "Z_row_npmu": [
+        5.172523041204001e-55,
+        1.0268905271391611e-52
+      ],
+      "t_n": 0.9657702381868958,
+      "t_e": 0.030852081417959337,
+      "t_mu": 0.0033776803963931597
+    },
+    "errors": {
+      "N_n": {
+        "integration": 1.0085495548445781e-11,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "N_e": {
+        "integration": 2.507650300927757e-11,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "N_mu": {
+        "integration": 4.801909234964211e-13,
+        "eos_equilibrium": 0.0,
+        "center": 2.2351258125867026e-16
+      },
+      "Ltilde_Me": {
+        "integration": 1.6192963266802612e-12,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "Ltilde_Mmu": {
+        "integration": 1.3983787690572197e-12,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "Cstar": {
+        "integration": 3.9176923206544924e-12,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "radius": {
+        "integration": 9.353742199156395e-13,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "surface_gravity": {
+        "integration": 3.768600235013022e-12,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "envelope": {
+        "integration": 1.0754171645066338e-12,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "Tsurface_inf": {
+        "integration": 8.551424495760305e-13,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "mu_B": {
+        "integration": 2.2027470540537028e-13,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "P0_average": {
+        "integration": 2.2027470540537028e-13,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "P1_average": {
+        "integration": 4.629049644054949e-13,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "Z_row_npe": {
+        "integration": 1.3229145215214478e-11,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "Z_row_npmu": {
+        "integration": 1.2642511000405116e-11,
+        "eos_equilibrium": 0.0,
+        "center": 7.224151070944218e-16
+      },
+      "t_n": {
+        "integration": 6.050348237470342e-07,
+        "stencil": 9.032197212377469e-11,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "t_e": {
+        "integration": 9.564641627219809e-09,
+        "stencil": 2.1995162635679577e-10,
+        "eos_equilibrium": 0.0,
+        "center": 5.3942961208974793e-14
+      },
+      "t_mu": {
+        "integration": 1.810863767795456e-12,
+        "stencil": 1.281513402340284e-10,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      }
+    },
+    "root_computed_residual_relative": 5.093703236980218e-12,
+    "B_functional_discretization_estimate": 7.753701961185573e+45,
+    "defect_transport_R_relative": -5.943082180070578e-11,
+    "defect_transport_M_relative": -1.05375136455808e-09,
+    "fine_minus_128_R_relative": 1.1972778324320643e-10,
+    "fine_minus_128_M_relative": -2.1472967848268354e-10,
+    "defect_absolute_R_estimate": 1.2660907501849818e-05,
+    "defect_absolute_M_estimate": 8.662815460189311e-05,
+    "stage_transport_R_estimate": 1.141231274874678e-19,
+    "defect_quadrature_spread": 1.095213847505485e-14,
+    "defect_status": "CONDITIONAL: numerical Jacobians and quadrature; no derivative-tube or intra-step transport remainder enclosure"
+  },
+  "20": {
+    "defect512": {
+      "primary": [
+        7.616898901851178e+56,
+        12.766191015511183,
+        0.9209318676163589,
+        12.643320435074324,
+        1.8127447384687755e-32,
+        1.3040462169635041e+30,
+        12.633039369370707,
+        868.4355970120707,
+        0.13154851072782064,
+        5.010201455102337e-12,
+        3.9796432208666355e-13,
+        -3.808131815528221e-12,
+        5.033022338740006e-15,
+        3.408182013901671e-18,
+        4.665322364762397e-06
+      ],
+      "N": [
+        7.5683041844617795e+56,
+        4.8594717389398334e+54,
+        4.811897072724697e+54,
+        4.7574666215136484e+52
+      ],
+      "G_packed": [
+        2.904623313034496e+55,
+        2.201375522510255e+53,
+        -1.0353745343996452e+51,
+        9.74610102203281e+51
+      ],
+      "Lmu": 9.850245746250206e-34,
+      "P0": 868.4355970120707,
+      "P1": 846.1852852601058,
+      "Hs": 1.3073598437439474e-05,
+      "Hb": 0.0009023927756353209,
+      "Hn": 0.000833001386121841,
+      "Hmu": 0.11182827543253801,
+      "K": -0.07789101972350139,
+      "digits": 64,
+      "defect_transport_uv": [
+        -5.4186554414517877e-11,
+        -1.5695529134135793e-15
+      ],
+      "defect_absolute_transport_uv": [
+        0.0002631708047524551,
+        1.3800218082184033e-09
+      ],
+      "stage_transport_uv": [
+        3.608897509780189e-17,
+        2.528034972608116e-22
+      ],
+      "defect_quadrature_spread": 1.1648845723739329e-16
+    },
+    "derivative_ablation_changes": {
+      "center": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "eos": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "dB_dH": {
+      "0.0001": 1.9180517474553263e+57,
+      "0.00005": 1.9180517411444977e+57
+    },
+    "dB_dH_relative_spread": 3.2902285340696835e-09,
+    "stencil": {
+      "0.0001": [
+        0.9657703988672266,
+        0.034229601130480736,
+        0.03085198429417689,
+        0.00337761683631059
+      ],
+      "0.00005": [
+        0.9657703988012121,
+        0.03422960119935435,
+        0.030851984459140065,
+        0.0033776167401951113
+      ]
+    },
+    "quantities": {
+      "N_n": 7.5683041844617795e+56,
+      "N_e": 4.811897072724697e+54,
+      "N_mu": 4.7574666215136484e+52,
+      "Ltilde_Me": 1.8127447384687755e-32,
+      "Ltilde_Mmu": 9.850245746250206e-34,
+      "Cstar": 1.3040462169635041e+30,
+      "radius": 12.766191015511183,
+      "surface_gravity": 0.0061085501347536535,
+      "envelope": 0.2932157941087067,
+      "Tsurface_inf": 0.2712401913495713,
+      "mu_B": 868.4355970120707,
+      "P0_average": 868.4355970120707,
+      "P1_average": 846.1852852601058,
+      "Z_row_npe": [
+        4.5793130776687934e-54,
+        5.172525825373394e-55
+      ],
+      "Z_row_npmu": [
+        5.172525825373394e-55,
+        1.0269085449318638e-52
+      ],
+      "t_n": 0.9657703988012121,
+      "t_e": 0.030851984459140065,
+      "t_mu": 0.0033776167401951113
+    },
+    "errors": {
+      "N_n": {
+        "integration": 1.008569995905394e-11,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "N_e": {
+        "integration": 2.5077042343528154e-11,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "N_mu": {
+        "integration": 4.801907591260713e-13,
+        "eos_equilibrium": 0.0,
+        "center": 2.2351862476958466e-16
+      },
+      "Ltilde_Me": {
+        "integration": 1.619325650265658e-12,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "Ltilde_Mmu": {
+        "integration": 1.3983858287613468e-12,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "Cstar": {
+        "integration": 3.917762236718125e-12,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "radius": {
+        "integration": 9.3538235053755e-13,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "surface_gravity": {
+        "integration": 3.768627262412547e-12,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "envelope": {
+        "integration": 1.0754236632207096e-12,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "Tsurface_inf": {
+        "integration": 8.551476292656877e-13,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "mu_B": {
+        "integration": 2.2027571141501974e-13,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "P0_average": {
+        "integration": 2.2027571141501974e-13,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "P1_average": {
+        "integration": 4.629112263462799e-13,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "Z_row_npe": {
+        "integration": 1.3229419765719663e-11,
+        "eos_equilibrium": 0.0,
+        "center": 2.8011627230641815e-16
+      },
+      "Z_row_npmu": {
+        "integration": 1.264277442524899e-11,
+        "eos_equilibrium": 0.0,
+        "center": 5.602325446128363e-16
+      },
+      "t_n": {
+        "integration": 6.05045958597474e-07,
+        "stencil": 8.801936957070211e-11,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "t_e": {
+        "integration": 9.564810802226452e-09,
+        "stencil": 2.1995090008590049e-10,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      },
+      "t_mu": {
+        "integration": 1.8108116902067759e-12,
+        "stencil": 1.2815397180954147e-10,
+        "eos_equilibrium": 0.0,
+        "center": 0.0
+      }
+    },
+    "root_computed_residual_relative": 5.0959236830294685e-12,
+    "B_functional_discretization_estimate": 7.753855005515367e+45,
+    "defect_transport_R_relative": -5.943135801104453e-11,
+    "defect_transport_M_relative": -1.0537588708130973e-09,
+    "fine_minus_128_R_relative": 1.1972889346623106e-10,
+    "fine_minus_128_M_relative": -2.1473089972801063e-10,
+    "defect_absolute_R_estimate": 1.2660916604049508e-05,
+    "defect_absolute_M_estimate": 8.662820088044994e-05,
+    "stage_transport_R_estimate": 1.1342033881490642e-19,
+    "defect_quadrature_spread": 1.0943769801615836e-14,
+    "defect_status": "CONDITIONAL: numerical Jacobians and quadrature; no derivative-tube or intra-step transport remainder enclosure"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schema_id": "compactstar.ba13.headroom-uncertainty-assessment.v1",
+  "candidate": true,
+  "owner_ratified": false,
+  "entry_commit": "89b629dd9961c29e127badbd723455d00dc38553",
+  "recommendation": "B",
+  "counts": {
+    "UNQUALIFIED": 441,
+    "PASS": 21
+  },
+  "fitter_sha256": "9b3ef1ce17df7e1f8d2d7c40e111ee0844abfddc2cc54b8f93cb3f2ce1322370",
+  "historical_certificate_sha256": "4212cad05bb4244ab75e80b8dfea023e6d0fcee69086c9993bd48d26a40e41fb",
+  "required_interpretation": "ADR-0021 Option A and interpretation (2), proposed, right thresholds frozen",
+  "gaps": [
+    "continuous paired-error modulus and discrete production-node jump coverage",
+    "quantity-dependent nonlinear propagation remainder for numerical defect transport",
+    "remainder of measured tangent EOS/center perturbations and attained-B coordinate errors",
+    "variation of inherited chemical background at depleted targets"
+  ],
+  "all_profiles_complete": 21,
+  "new_whole_sequence_solves": 0,
+  "headroom_rows": 462,
+  "cpu_seconds": 3.7709591619999996,
+  "peak_rss_kib": 136404,
+  "source_sha256": "1197e3b5a57f9bd613244f23261854625f5fabb0d022805c2becc40eb88dce07"
+}

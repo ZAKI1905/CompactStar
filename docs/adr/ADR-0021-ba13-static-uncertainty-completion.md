@@ -98,3 +98,39 @@ The next bounded step is independent owner review of the new uncertainty evidenc
 and envelope interpretation, followed by the specific bounded continuation above. Static
 certificate qualification must precede the already scoped certificate-dependent
 pilots; nonlinear stability-ceiling qualification remains a separate task.
+
+## 2026-10-16 headroom assessment — proposal remains unratified
+
+The user authorized candidate implementation of Option A and interpretation (2)
+with all original right-hand thresholds frozen. That authorization does not
+ratify either interpretation. The executed [headroom assessment](../validation/ba13-headroom/REPORT.md)
+and [complete 21-by-22 matrix](../validation/ba13-headroom/MATRIX.md) supersede the
+older *next numerical step* recommendations above, without altering any historical
+disposition, fitter output or independent-review evidence.
+
+The separate schema `compactstar.ba13.headroom-uncertainty-assessment.v1` preserves
+all 462 historical drift/threshold fields. It implements headroom allocation,
+deterministic paired corrections, B0 normalization, functional-error-aware common-B
+propagation, changing inverse Jacobians and Neumann remainders, and a qualification
+layer around the unchanged fitter. Three-target X2 extensions and all 21 retained
+nominal profiles were evaluated. Exact replay and 14 focused fault/algebra tests
+pass; the signed defect-transport correction fails its radius-direction check.
+Evidence: `docs/validation/ba13-headroom/evidence/audit.json:1`, `pilots.json:1`,
+`matrix.json.gz`, and `REPORT.md:1`.
+
+Recommendation **B**: numerical and interval-coverage gaps prevent closure.
+The matrix records 21 exact-P2 PASS and 441 UNQUALIFIED rows. The remaining work is
+specifically quantity-dependent defect/roundoff propagation, remainders beyond
+measured EOS/center/tangent perturbations, variation of inherited chemical
+background uncertainty, uncertain achieved-B design/reference propagation, and
+continuous paired-error coverage including production-node jumps. This is not
+an added requirement for a formal proof of the entire stellar model. Nor does
+observed small paired error or an enlarged numerical estimate justify increasing
+any frozen threshold. A whole-cell L support allowance is too loose; that does
+not establish a necessary production change.
+
+The next action is **one independent review of the completed assessment and its
+explicit residual gaps**, followed by owner adjudication. Do not reopen a general
+oracle comparison, EOS/jitter sweep or tolerance ladder as the default next step.
+No acceptance of BA13, ADR interpretation, narrower conditional certification,
+production owner change, trajectory or certificate promotion follows automatically.

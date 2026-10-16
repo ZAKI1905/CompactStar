@@ -1,0 +1,1736 @@
+{
+  "solver_controller_cpu_seconds": 31.207427000000003,
+  "build_cpu_seconds": 9.990221,
+  "nominal_profile_cpu_seconds": 102.634529831,
+  "supplement_cpu_seconds": 24.249491455,
+  "final_assessment_cpu_seconds": 3.7709591619999996,
+  "final_audit_cpu_seconds": 1.348875485,
+  "failed_profile_jobs": {
+    "source": "scontrol show job output observed during session; raw final records expired before archival",
+    "jobs": [
+      {
+        "job": 17038,
+        "runtime_seconds": 13
+      },
+      {
+        "job": 17045,
+        "runtime_seconds": 12
+      },
+      {
+        "job": 17047,
+        "runtime_seconds": 12
+      }
+    ],
+    "charge": "entire two-CPU allocations; conservative 74 CPU seconds",
+    "cpu_charge": 74
+  },
+  "receipts": [
+    {
+      "phase": "build",
+      "target": "0",
+      "job": "17035",
+      "affinity": [
+        4
+      ],
+      "cpu_seconds": 3.22279,
+      "wall_seconds": 3.543675661087036,
+      "peak_rss_kib": 132852,
+      "runs": [
+        {
+          "label": "build-extended",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/g++",
+            "-O3",
+            "-std=c++17",
+            "-ffp-contract=off",
+            "-Wall",
+            "-Wextra",
+            "-isystem",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/include",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/tests/bnv/x2_fixed_step.cpp",
+            "-o",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/extended",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/lib/libZaki.a"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 1.4810759999999998,
+          "wall_seconds": 1.7206475734710693,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "build-assessment",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/g++",
+            "-O3",
+            "-std=c++17",
+            "-ffp-contract=off",
+            "-Wall",
+            "-Wextra",
+            "-isystem",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/include",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/tests/bnv/x2_uncertainty.cpp",
+            "-o",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/lib/libZaki.a"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 1.74091,
+          "wall_seconds": 1.8209233283996582,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "61bf1e9f71ecec65538c0dc34dae3ba68a3bafacc053cb097f3bd7c61e16a003"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "f2eacd9e697ade947c12005b1b3ff212433bfe230ecab7391c6054e2380508e8",
+        "tests/bnv/x2_fixed_step.cpp": "3e6c680e7bb78ba933ef724b744ea6161372dd61e7c3094691902ac3936f9446",
+        "tests/bnv/x2_uncertainty.cpp": "231c49294a111b1e54956b0a4bcc2a171b36f314127a9dc5f3ad9b87556cf757"
+      }
+    },
+    {
+      "phase": "build-final",
+      "target": "0",
+      "job": "17082",
+      "affinity": [
+        4
+      ],
+      "cpu_seconds": 3.3862919999999996,
+      "wall_seconds": 3.5942471027374268,
+      "peak_rss_kib": 136328,
+      "runs": [
+        {
+          "label": "build-final-extended",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/g++",
+            "-O3",
+            "-std=c++17",
+            "-ffp-contract=off",
+            "-Wall",
+            "-Wextra",
+            "-isystem",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/include",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/tests/bnv/x2_fixed_step.cpp",
+            "-o",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/extended-final",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/lib/libZaki.a"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 1.489466,
+          "wall_seconds": 1.6209015846252441,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "build-final-assessment",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/g++",
+            "-O3",
+            "-std=c++17",
+            "-ffp-contract=off",
+            "-Wall",
+            "-Wextra",
+            "-isystem",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/include",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/tests/bnv/x2_uncertainty.cpp",
+            "-o",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment-final",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/lib/libZaki.a"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 1.89604,
+          "wall_seconds": 1.9713351726531982,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "d5f2274a5c0b700e996851f9747cc6d6829a205bd478dbdcf844bc43b08e744f",
+        "tests/bnv/x2_fixed_step.cpp": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec",
+        "tests/bnv/x2_uncertainty.cpp": "d100caeee9db681879574d7cf33f1d2d4ef2249e607dfbf820ec1adaf74b96ba"
+      }
+    },
+    {
+      "phase": "build-v2",
+      "target": "0",
+      "job": "17044",
+      "affinity": [
+        4
+      ],
+      "cpu_seconds": 3.3811390000000006,
+      "wall_seconds": 3.5939018726348877,
+      "peak_rss_kib": 135912,
+      "runs": [
+        {
+          "label": "build-v2-extended",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/g++",
+            "-O3",
+            "-std=c++17",
+            "-ffp-contract=off",
+            "-Wall",
+            "-Wextra",
+            "-isystem",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/include",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/tests/bnv/x2_fixed_step.cpp",
+            "-o",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/extended-v2",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/lib/libZaki.a"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 1.4870530000000002,
+          "wall_seconds": 1.6205930709838867,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "build-v2-assessment",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/g++",
+            "-O3",
+            "-std=c++17",
+            "-ffp-contract=off",
+            "-Wall",
+            "-Wextra",
+            "-isystem",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/include",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/tests/bnv/x2_uncertainty.cpp",
+            "-o",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment-v2",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/lib/libZaki.a"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 1.8932490000000002,
+          "wall_seconds": 1.9712600708007812,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "179724e5210a2600ce5895a3a4b67d545c43ac656822f1ae1d19a69382cd205f",
+        "tests/bnv/x2_fixed_step.cpp": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec",
+        "tests/bnv/x2_uncertainty.cpp": "553a11db74f8cfa25626e8025b404494fa5ba4cb0dbf71521a3d55682dd07743"
+      }
+    },
+    {
+      "phase": "defect",
+      "target": "0",
+      "job": "17048",
+      "affinity": [
+        6
+      ],
+      "cpu_seconds": 0.37379899999999994,
+      "wall_seconds": 0.4241330623626709,
+      "peak_rss_kib": 16128,
+      "runs": [
+        {
+          "label": "t0-defect",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment-v2",
+            "0.131548907845810551193",
+            "4.9156528789505745e+19",
+            "128",
+            "1e-4",
+            "96",
+            "1"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.37287499999999996,
+          "wall_seconds": 0.41990137100219727,
+          "sha256": "b499d0842aa73a89c3b8782d7eba33601bfbeb22dcda1595441f87b7364e945b",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "179724e5210a2600ce5895a3a4b67d545c43ac656822f1ae1d19a69382cd205f",
+        "tests/bnv/x2_fixed_step.cpp": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec",
+        "tests/bnv/x2_uncertainty.cpp": "553a11db74f8cfa25626e8025b404494fa5ba4cb0dbf71521a3d55682dd07743"
+      }
+    },
+    {
+      "phase": "defect",
+      "target": "10",
+      "job": "17049",
+      "affinity": [
+        7
+      ],
+      "cpu_seconds": 0.37426199999999993,
+      "wall_seconds": 0.4241499900817871,
+      "peak_rss_kib": 15360,
+      "runs": [
+        {
+          "label": "t10-defect",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment-v2",
+            "0.131548709286528951577",
+            "4.915632272737791e+19",
+            "128",
+            "1e-4",
+            "96",
+            "1"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.37327799999999994,
+          "wall_seconds": 0.41991591453552246,
+          "sha256": "95fcbab0a061e17b5c04166a068a4ac53cab2852e53774a463d2da773ee5e1eb",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "179724e5210a2600ce5895a3a4b67d545c43ac656822f1ae1d19a69382cd205f",
+        "tests/bnv/x2_fixed_step.cpp": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec",
+        "tests/bnv/x2_uncertainty.cpp": "553a11db74f8cfa25626e8025b404494fa5ba4cb0dbf71521a3d55682dd07743"
+      }
+    },
+    {
+      "phase": "defect",
+      "target": "20",
+      "job": "17046",
+      "affinity": [
+        8
+      ],
+      "cpu_seconds": 0.37556599999999996,
+      "wall_seconds": 0.42409658432006836,
+      "peak_rss_kib": 15360,
+      "runs": [
+        {
+          "label": "t20-defect",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment-v2",
+            "0.131548510727820650639",
+            "4.9156116666429006e+19",
+            "128",
+            "1e-4",
+            "96",
+            "1"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.37462999999999996,
+          "wall_seconds": 0.4198341369628906,
+          "sha256": "6a06f9d6440498e60383a973bf790393a702d957455c790fb89d006d4b6b5af4",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "179724e5210a2600ce5895a3a4b67d545c43ac656822f1ae1d19a69382cd205f",
+        "tests/bnv/x2_fixed_step.cpp": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec",
+        "tests/bnv/x2_uncertainty.cpp": "553a11db74f8cfa25626e8025b404494fa5ba4cb0dbf71521a3d55682dd07743"
+      }
+    },
+    {
+      "phase": "defect512",
+      "target": "0",
+      "job": "17075",
+      "affinity": [
+        7
+      ],
+      "cpu_seconds": 1.475909,
+      "wall_seconds": 1.5253746509552002,
+      "peak_rss_kib": 15360,
+      "runs": [
+        {
+          "label": "t0-defect512",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment-v2",
+            "0.131548907845810551193",
+            "4.9156528789505745e+19",
+            "512",
+            "1e-4",
+            "96",
+            "1"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 1.47492,
+          "wall_seconds": 1.5218558311462402,
+          "sha256": "f198af076ec07d879a1f79fed2d0e26b0067f5c9a2a9bf12a7b9d82e7262ea68",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "f7ab096f75e3cfc5d7a8f4caaf5a1564f70437b02b92b6ca40b404b2578ed1a5",
+        "tests/bnv/x2_fixed_step.cpp": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec",
+        "tests/bnv/x2_uncertainty.cpp": "553a11db74f8cfa25626e8025b404494fa5ba4cb0dbf71521a3d55682dd07743"
+      }
+    },
+    {
+      "phase": "defect512",
+      "target": "10",
+      "job": "17076",
+      "affinity": [
+        8
+      ],
+      "cpu_seconds": 1.4759099999999998,
+      "wall_seconds": 1.525280237197876,
+      "peak_rss_kib": 15360,
+      "runs": [
+        {
+          "label": "t10-defect512",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment-v2",
+            "0.131548709286528951577",
+            "4.915632272737791e+19",
+            "512",
+            "1e-4",
+            "96",
+            "1"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 1.4749979999999998,
+          "wall_seconds": 1.5214993953704834,
+          "sha256": "c20224eba36bca491c9564f096cbb2e896a98d3d785d51c2a174c4c40ce91175",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "f7ab096f75e3cfc5d7a8f4caaf5a1564f70437b02b92b6ca40b404b2578ed1a5",
+        "tests/bnv/x2_fixed_step.cpp": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec",
+        "tests/bnv/x2_uncertainty.cpp": "553a11db74f8cfa25626e8025b404494fa5ba4cb0dbf71521a3d55682dd07743"
+      }
+    },
+    {
+      "phase": "defect512",
+      "target": "20",
+      "job": "17072",
+      "affinity": [
+        9
+      ],
+      "cpu_seconds": 1.476183,
+      "wall_seconds": 1.525458574295044,
+      "peak_rss_kib": 15360,
+      "runs": [
+        {
+          "label": "t20-defect512",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment-v2",
+            "0.131548510727820650639",
+            "4.9156116666429006e+19",
+            "512",
+            "1e-4",
+            "96",
+            "1"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 1.4752189999999998,
+          "wall_seconds": 1.5218744277954102,
+          "sha256": "a4bc1aa661de55e18489fc9a7b73885b15846d296a6958022493a6440705bfb5",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "f7ab096f75e3cfc5d7a8f4caaf5a1564f70437b02b92b6ca40b404b2578ed1a5",
+        "tests/bnv/x2_fixed_step.cpp": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec",
+        "tests/bnv/x2_uncertainty.cpp": "553a11db74f8cfa25626e8025b404494fa5ba4cb0dbf71521a3d55682dd07743"
+      }
+    },
+    {
+      "phase": "derivative-errors",
+      "target": "0",
+      "job": "17073",
+      "affinity": [
+        4
+      ],
+      "cpu_seconds": 2.282519,
+      "wall_seconds": 2.3884551525115967,
+      "peak_rss_kib": 16128,
+      "runs": [
+        {
+          "label": "t0-derivative-center--1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.13154233040041826066544035",
+            "4.9156528789505745e+19",
+            "512",
+            "1e-2",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.546228,
+          "wall_seconds": 0.5708539485931396,
+          "sha256": "10ee52399799aca70c70bd0512549db92b42051357eead2514a554dc392f3e6f",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t0-derivative-center-1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.13155548529120284172055965",
+            "4.9156528789505745e+19",
+            "512",
+            "1e-2",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.54655,
+          "wall_seconds": 0.5691759586334229,
+          "sha256": "cc3707ead81d7b8ef86cf1ab9ab63686791d0148b030060cdf4f60e02fba31fc",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t0-derivative-eos--1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.13154233040041826066544035",
+            "4.9156528789505745e+19",
+            "512",
+            "1e-4",
+            "192",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.594244,
+          "wall_seconds": 0.6192600727081299,
+          "sha256": "4b3255694dedfa5b62afa57d78297cff7736c3d323b0790b5791e007ca772c68",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t0-derivative-eos-1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.13155548529120284172055965",
+            "4.9156528789505745e+19",
+            "512",
+            "1e-4",
+            "192",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5918779999999997,
+          "wall_seconds": 0.6196088790893555,
+          "sha256": "18b19a0a0593a2a226e6df6ded4f0771481c0936bfdfa2fba3175613ead5d6dc",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "f7ab096f75e3cfc5d7a8f4caaf5a1564f70437b02b92b6ca40b404b2578ed1a5",
+        "tests/bnv/x2_fixed_step.cpp": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec",
+        "tests/bnv/x2_uncertainty.cpp": "553a11db74f8cfa25626e8025b404494fa5ba4cb0dbf71521a3d55682dd07743"
+      }
+    },
+    {
+      "phase": "derivative-errors",
+      "target": "10",
+      "job": "17074",
+      "affinity": [
+        5
+      ],
+      "cpu_seconds": 2.284273,
+      "wall_seconds": 2.3882744312286377,
+      "peak_rss_kib": 16128,
+      "runs": [
+        {
+          "label": "t10-derivative-center--1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.13154213185106462512942115",
+            "4.915632272737791e+19",
+            "512",
+            "1e-2",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.546606,
+          "wall_seconds": 0.5706319808959961,
+          "sha256": "763bf1dba81b7eb177c49d9bb2f97543e6a73438c6ac0ccdb1d2dbfb2c3042a7",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t10-derivative-center-1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.13155528672199327802457885",
+            "4.915632272737791e+19",
+            "512",
+            "1e-2",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5470270000000002,
+          "wall_seconds": 0.5690305233001709,
+          "sha256": "becff1e09db324c91b1257410a80d2a50159c873ec869987cc57d3aa6b8ec910",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t10-derivative-eos--1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.13154213185106462512942115",
+            "4.915632272737791e+19",
+            "512",
+            "1e-4",
+            "192",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5945720000000003,
+          "wall_seconds": 0.6192073822021484,
+          "sha256": "30f5104dc99936310ca73c2730e24569138d8b4b7c041f46dbf14e522ff9e9f6",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t10-derivative-eos-1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.13155528672199327802457885",
+            "4.915632272737791e+19",
+            "512",
+            "1e-4",
+            "192",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5922910000000001,
+          "wall_seconds": 0.6197853088378906,
+          "sha256": "da804df9ba1159252d5a4eadbfdf0a8563bc2caf181d3ee58c3d81b6ee983cc0",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "f7ab096f75e3cfc5d7a8f4caaf5a1564f70437b02b92b6ca40b404b2578ed1a5",
+        "tests/bnv/x2_fixed_step.cpp": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec",
+        "tests/bnv/x2_uncertainty.cpp": "553a11db74f8cfa25626e8025b404494fa5ba4cb0dbf71521a3d55682dd07743"
+      }
+    },
+    {
+      "phase": "derivative-errors",
+      "target": "20",
+      "job": "17071",
+      "affinity": [
+        6
+      ],
+      "cpu_seconds": 2.2846569999999997,
+      "wall_seconds": 2.388033866882324,
+      "peak_rss_kib": 16128,
+      "runs": [
+        {
+          "label": "t20-derivative-center--1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.13154193330228425960646805",
+            "4.9156116666429006e+19",
+            "512",
+            "1e-2",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.546287,
+          "wall_seconds": 0.5703721046447754,
+          "sha256": "4b2ff5789d44737e1556050793ded620ceba1a146d5d5b23aad8897729d6bf26",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t20-derivative-center-1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.13155508815335704167153195",
+            "4.9156116666429006e+19",
+            "512",
+            "1e-2",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5470010000000001,
+          "wall_seconds": 0.5688674449920654,
+          "sha256": "5dd22688104a0d8f7b701cbab7d06c3efb5e5a286246ef5f2aa116cc6fe511ff",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t20-derivative-eos--1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.13154193330228425960646805",
+            "4.9156116666429006e+19",
+            "512",
+            "1e-4",
+            "192",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5946350000000002,
+          "wall_seconds": 0.6192507743835449,
+          "sha256": "33cb662dafe15526362b2d8c4c70a1c3d954687aeb641c0ebcf0bea0804bfadd",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t20-derivative-eos-1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.13155508815335704167153195",
+            "4.9156116666429006e+19",
+            "512",
+            "1e-4",
+            "192",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5927539999999998,
+          "wall_seconds": 0.6196184158325195,
+          "sha256": "f3b81fa2b8a8010d1f365ba4b8b325d86956cabc9db8179a85501ce19f6bc5b5",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "f7ab096f75e3cfc5d7a8f4caaf5a1564f70437b02b92b6ca40b404b2578ed1a5",
+        "tests/bnv/x2_fixed_step.cpp": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec",
+        "tests/bnv/x2_uncertainty.cpp": "553a11db74f8cfa25626e8025b404494fa5ba4cb0dbf71521a3d55682dd07743"
+      }
+    },
+    {
+      "phase": "pilot",
+      "target": "0",
+      "job": "17036",
+      "affinity": [
+        4
+      ],
+      "cpu_seconds": 0.14015499999999997,
+      "wall_seconds": 0.17250347137451172,
+      "peak_rss_kib": 16128,
+      "runs": [
+        {
+          "label": "t0-replay",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/extended",
+            "7.6169065187188748e+56",
+            "0.13154890732837649525",
+            "4.9156528789505745e+19",
+            "128",
+            "1e-4",
+            "96",
+            "0",
+            "0",
+            "1"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.13904699999999998,
+          "wall_seconds": 0.1681680679321289,
+          "sha256": "dd6b4f1d7cec0ed22044c9397371109f87dfd56777089eea4614c043815f1595",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "f2eacd9e697ade947c12005b1b3ff212433bfe230ecab7391c6054e2380508e8",
+        "tests/bnv/x2_fixed_step.cpp": "3e6c680e7bb78ba933ef724b744ea6161372dd61e7c3094691902ac3936f9446",
+        "tests/bnv/x2_uncertainty.cpp": "231c49294a111b1e54956b0a4bcc2a171b36f314127a9dc5f3ad9b87556cf757"
+      }
+    },
+    {
+      "phase": "pilot-v2",
+      "target": "0",
+      "job": "17037",
+      "affinity": [
+        4
+      ],
+      "cpu_seconds": 1.2277160000000003,
+      "wall_seconds": 1.3114471435546875,
+      "peak_rss_kib": 15360,
+      "runs": [
+        {
+          "label": "t0-replay-v2",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/extended",
+            "7.6169065187188748e+56",
+            "0.13154890784587198",
+            "4.9156528789505745e+19",
+            "128",
+            "1e-4",
+            "96",
+            "0",
+            "0",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5431969999999999,
+          "wall_seconds": 0.5689249038696289,
+          "sha256": "d052c6833b52325e12989dabc98d7ce2f91522275750459d94ece18a1ac362a1",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t0-n128",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.131548907845810551193",
+            "4.9156528789505745e+19",
+            "128",
+            "1e-4",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.13940700000000006,
+          "wall_seconds": 0.1677405834197998,
+          "sha256": "9fb1ff9eb2bacbfb295a523f0d577dea27a54cf5630b6e1de0474066aeda809b",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t0-n512",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.131548907845810551193",
+            "4.9156528789505745e+19",
+            "512",
+            "1e-4",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5428790000000002,
+          "wall_seconds": 0.5676939487457275,
+          "sha256": "7ef5dee5ec73001d5cff1fd309367c7d0776a41d680e2d2c5bbd9c092c35f758",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "30f06cfb5fd23d3a558d03a406e3a395d28500700e0ef905a919ccef27eac615",
+        "tests/bnv/x2_fixed_step.cpp": "3e6c680e7bb78ba933ef724b744ea6161372dd61e7c3094691902ac3936f9446",
+        "tests/bnv/x2_uncertainty.cpp": "231c49294a111b1e54956b0a4bcc2a171b36f314127a9dc5f3ad9b87556cf757"
+      }
+    },
+    {
+      "phase": "pilot-v2",
+      "target": "10",
+      "job": "17041",
+      "affinity": [
+        5
+      ],
+      "cpu_seconds": 1.250338,
+      "wall_seconds": 1.3680143356323242,
+      "peak_rss_kib": 15360,
+      "runs": [
+        {
+          "label": "t10-replay-v2",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/extended",
+            "7.6169027102656157e+56",
+            "0.13154870928658902",
+            "4.915632272737791e+19",
+            "128",
+            "1e-4",
+            "96",
+            "0",
+            "0",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.552228,
+          "wall_seconds": 0.6207723617553711,
+          "sha256": "9eff8430bb696196ff9256099f13504bb3f3b1a200b1b6c3d4aa3dcc98d02d6e",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t10-n128",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.131548709286528951577",
+            "4.915632272737791e+19",
+            "128",
+            "1e-4",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.14189700000000005,
+          "wall_seconds": 0.16752243041992188,
+          "sha256": "5815f9c3690c57538cfa43d10681f95b53d5350d56dd89cbdfe4821ef6084d3c",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t10-n512",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.131548709286528951577",
+            "4.915632272737791e+19",
+            "512",
+            "1e-4",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.55356,
+          "wall_seconds": 0.5711948871612549,
+          "sha256": "957a794c3d5906205378b6b165d2ed547ec3c74bf2f74e4c2b8e00522346268c",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "30f06cfb5fd23d3a558d03a406e3a395d28500700e0ef905a919ccef27eac615",
+        "tests/bnv/x2_fixed_step.cpp": "3e6c680e7bb78ba933ef724b744ea6161372dd61e7c3094691902ac3936f9446",
+        "tests/bnv/x2_uncertainty.cpp": "231c49294a111b1e54956b0a4bcc2a171b36f314127a9dc5f3ad9b87556cf757"
+      }
+    },
+    {
+      "phase": "pilot-v2",
+      "target": "20",
+      "job": "17039",
+      "affinity": [
+        6
+      ],
+      "cpu_seconds": 1.243913,
+      "wall_seconds": 1.3135547637939453,
+      "peak_rss_kib": 15360,
+      "runs": [
+        {
+          "label": "t20-replay-v2",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/extended",
+            "7.6168989018123558e+56",
+            "0.13154851072788262",
+            "4.9156116666429006e+19",
+            "128",
+            "1e-4",
+            "96",
+            "0",
+            "0",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5492869999999999,
+          "wall_seconds": 0.570615291595459,
+          "sha256": "2359e394610e06f1ef5fb4f796298a232b118de87bce125dbdcdaf73b839229f",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t20-n128",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.131548510727820650639",
+            "4.9156116666429006e+19",
+            "128",
+            "1e-4",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.14117100000000005,
+          "wall_seconds": 0.16756582260131836,
+          "sha256": "a9f15ac4b4a8a1b5160b07cb7d17cdee97f5b16361e949d0d3f974d0452d6bc8",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t20-n512",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.131548510727820650639",
+            "4.9156116666429006e+19",
+            "512",
+            "1e-4",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5511479999999999,
+          "wall_seconds": 0.5677402019500732,
+          "sha256": "55170cbf374a94e9feed99161ce7293b62e76084f45052e9ca8e006ac6fd4517",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "30f06cfb5fd23d3a558d03a406e3a395d28500700e0ef905a919ccef27eac615",
+        "tests/bnv/x2_fixed_step.cpp": "3e6c680e7bb78ba933ef724b744ea6161372dd61e7c3094691902ac3936f9446",
+        "tests/bnv/x2_uncertainty.cpp": "231c49294a111b1e54956b0a4bcc2a171b36f314127a9dc5f3ad9b87556cf757"
+      }
+    },
+    {
+      "phase": "regression",
+      "target": "0",
+      "job": "17080",
+      "affinity": [
+        4
+      ],
+      "cpu_seconds": 0.544825,
+      "wall_seconds": 0.5749256610870361,
+      "peak_rss_kib": 16128,
+      "runs": [
+        {
+          "label": "t0-regression",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/extended-v2",
+            "7.6169065187188748e+56",
+            "0.13154890784587198",
+            "4.9156528789505745e+19",
+            "128",
+            "1e-4",
+            "96",
+            "0",
+            "0",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5433520000000001,
+          "wall_seconds": 0.5705621242523193,
+          "sha256": "d052c6833b52325e12989dabc98d7ce2f91522275750459d94ece18a1ac362a1",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "28fbb152d1cc85bf4e3efaaa3b13bf8ec2086a11c730760aa4ff17bc75855289",
+        "tests/bnv/x2_fixed_step.cpp": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec",
+        "tests/bnv/x2_uncertainty.cpp": "553a11db74f8cfa25626e8025b404494fa5ba4cb0dbf71521a3d55682dd07743"
+      }
+    },
+    {
+      "phase": "regression",
+      "target": "10",
+      "job": "17081",
+      "affinity": [
+        5
+      ],
+      "cpu_seconds": 0.545208,
+      "wall_seconds": 0.574955940246582,
+      "peak_rss_kib": 16896,
+      "runs": [
+        {
+          "label": "t10-regression",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/extended-v2",
+            "7.6169027102656157e+56",
+            "0.13154870928658902",
+            "4.915632272737791e+19",
+            "128",
+            "1e-4",
+            "96",
+            "0",
+            "0",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5437420000000001,
+          "wall_seconds": 0.5706877708435059,
+          "sha256": "9eff8430bb696196ff9256099f13504bb3f3b1a200b1b6c3d4aa3dcc98d02d6e",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "28fbb152d1cc85bf4e3efaaa3b13bf8ec2086a11c730760aa4ff17bc75855289",
+        "tests/bnv/x2_fixed_step.cpp": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec",
+        "tests/bnv/x2_uncertainty.cpp": "553a11db74f8cfa25626e8025b404494fa5ba4cb0dbf71521a3d55682dd07743"
+      }
+    },
+    {
+      "phase": "regression",
+      "target": "20",
+      "job": "17079",
+      "affinity": [
+        6
+      ],
+      "cpu_seconds": 0.5452539999999999,
+      "wall_seconds": 0.5749020576477051,
+      "peak_rss_kib": 15360,
+      "runs": [
+        {
+          "label": "t20-regression",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/extended-v2",
+            "7.6168989018123558e+56",
+            "0.13154851072788262",
+            "4.9156116666429006e+19",
+            "128",
+            "1e-4",
+            "96",
+            "0",
+            "0",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.543733,
+          "wall_seconds": 0.5705063343048096,
+          "sha256": "2359e394610e06f1ef5fb4f796298a232b118de87bce125dbdcdaf73b839229f",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "28fbb152d1cc85bf4e3efaaa3b13bf8ec2086a11c730760aa4ff17bc75855289",
+        "tests/bnv/x2_fixed_step.cpp": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec",
+        "tests/bnv/x2_uncertainty.cpp": "553a11db74f8cfa25626e8025b404494fa5ba4cb0dbf71521a3d55682dd07743"
+      }
+    },
+    {
+      "phase": "regression-final",
+      "target": "0",
+      "job": "17084",
+      "affinity": [
+        4
+      ],
+      "cpu_seconds": 0.5453759999999999,
+      "wall_seconds": 0.5755045413970947,
+      "peak_rss_kib": 16128,
+      "runs": [
+        {
+          "label": "t0-regression-final",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/extended-final",
+            "7.6169065187188748e+56",
+            "0.13154890784587198",
+            "4.9156528789505745e+19",
+            "128",
+            "1e-4",
+            "96",
+            "0",
+            "0",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5436899999999999,
+          "wall_seconds": 0.5702128410339355,
+          "sha256": "d052c6833b52325e12989dabc98d7ce2f91522275750459d94ece18a1ac362a1",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "d5f2274a5c0b700e996851f9747cc6d6829a205bd478dbdcf844bc43b08e744f",
+        "tests/bnv/x2_fixed_step.cpp": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec",
+        "tests/bnv/x2_uncertainty.cpp": "d100caeee9db681879574d7cf33f1d2d4ef2249e607dfbf820ec1adaf74b96ba"
+      }
+    },
+    {
+      "phase": "regression-final",
+      "target": "10",
+      "job": "17085",
+      "affinity": [
+        5
+      ],
+      "cpu_seconds": 0.5454899999999998,
+      "wall_seconds": 0.5754916667938232,
+      "peak_rss_kib": 14592,
+      "runs": [
+        {
+          "label": "t10-regression-final",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/extended-final",
+            "7.6169027102656157e+56",
+            "0.13154870928658902",
+            "4.915632272737791e+19",
+            "128",
+            "1e-4",
+            "96",
+            "0",
+            "0",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5439309999999999,
+          "wall_seconds": 0.5703456401824951,
+          "sha256": "9eff8430bb696196ff9256099f13504bb3f3b1a200b1b6c3d4aa3dcc98d02d6e",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "d5f2274a5c0b700e996851f9747cc6d6829a205bd478dbdcf844bc43b08e744f",
+        "tests/bnv/x2_fixed_step.cpp": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec",
+        "tests/bnv/x2_uncertainty.cpp": "d100caeee9db681879574d7cf33f1d2d4ef2249e607dfbf820ec1adaf74b96ba"
+      }
+    },
+    {
+      "phase": "regression-final",
+      "target": "20",
+      "job": "17083",
+      "affinity": [
+        6
+      ],
+      "cpu_seconds": 0.545272,
+      "wall_seconds": 0.5757594108581543,
+      "peak_rss_kib": 16128,
+      "runs": [
+        {
+          "label": "t20-regression-final",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/extended-final",
+            "7.6168989018123558e+56",
+            "0.13154851072788262",
+            "4.9156116666429006e+19",
+            "128",
+            "1e-4",
+            "96",
+            "0",
+            "0",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.543693,
+          "wall_seconds": 0.5704483985900879,
+          "sha256": "2359e394610e06f1ef5fb4f796298a232b118de87bce125dbdcdaf73b839229f",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "d5f2274a5c0b700e996851f9747cc6d6829a205bd478dbdcf844bc43b08e744f",
+        "tests/bnv/x2_fixed_step.cpp": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec",
+        "tests/bnv/x2_uncertainty.cpp": "d100caeee9db681879574d7cf33f1d2d4ef2249e607dfbf820ec1adaf74b96ba"
+      }
+    },
+    {
+      "phase": "sensitivity",
+      "target": "0",
+      "job": "17042",
+      "affinity": [
+        7
+      ],
+      "cpu_seconds": 3.889835,
+      "wall_seconds": 4.04421067237854,
+      "peak_rss_kib": 15360,
+      "runs": [
+        {
+          "label": "t0-center-small",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.131548907845810551193",
+            "4.9156528789505745e+19",
+            "512",
+            "1e-6",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.54863,
+          "wall_seconds": 0.5710773468017578,
+          "sha256": "47a6c895a1b18f0f1692c70619bd60e4b9607f97a03e964ced602283ac39a87c",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t0-center-large",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.131548907845810551193",
+            "4.9156528789505745e+19",
+            "512",
+            "1e-2",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5506070000000001,
+          "wall_seconds": 0.5682361125946045,
+          "sha256": "6f7361c1178086e41ba0d58c54fab27550e03b3f7d5ae12ee148a8313885bfbb",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t0-eos192",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.131548907845810551193",
+            "4.9156528789505745e+19",
+            "512",
+            "1e-4",
+            "192",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5983400000000001,
+          "wall_seconds": 0.6180999279022217,
+          "sha256": "b4d0363b72f016f66c125fd50872edb317834bc362acd85fd425d080c76a0d5d",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t0-h0.0001--1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.1315357529550259701378807",
+            "4.9156528789505745e+19",
+            "512",
+            "1e-4",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5480340000000001,
+          "wall_seconds": 0.5680949687957764,
+          "sha256": "125f66d63a6f1494145e59434d2986a0a79d538162be0d3846a41e5ae845628f",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t0-h0.0001-1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.1315620627365951322481193",
+            "4.9156528789505745e+19",
+            "512",
+            "1e-4",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5466989999999998,
+          "wall_seconds": 0.5677995681762695,
+          "sha256": "e8a84bd04f4704005ab994e856dd3d693cdc037cb73e68b69ca554d6b6231ccc",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t0-h0.00005--1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.13154233040041826066544035",
+            "4.9156528789505745e+19",
+            "512",
+            "1e-4",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5462769999999999,
+          "wall_seconds": 0.568415641784668,
+          "sha256": "68d4f8723eda75cb399282ed2de3a01ea7768654b15264cad9f79c09593e621a",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t0-h0.00005-1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.13155548529120284172055965",
+            "4.9156528789505745e+19",
+            "512",
+            "1e-4",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.54617,
+          "wall_seconds": 0.5679481029510498,
+          "sha256": "46fd977f4ee589a3c744838f67063589ce7a2311d0c52f47d628530fdacb58cc",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "30f06cfb5fd23d3a558d03a406e3a395d28500700e0ef905a919ccef27eac615",
+        "tests/bnv/x2_fixed_step.cpp": "3e6c680e7bb78ba933ef724b744ea6161372dd61e7c3094691902ac3936f9446",
+        "tests/bnv/x2_uncertainty.cpp": "231c49294a111b1e54956b0a4bcc2a171b36f314127a9dc5f3ad9b87556cf757"
+      }
+    },
+    {
+      "phase": "sensitivity",
+      "target": "10",
+      "job": "17043",
+      "affinity": [
+        8
+      ],
+      "cpu_seconds": 3.891182,
+      "wall_seconds": 4.045247316360474,
+      "peak_rss_kib": 15360,
+      "runs": [
+        {
+          "label": "t10-center-small",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.131548709286528951577",
+            "4.915632272737791e+19",
+            "512",
+            "1e-6",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5495990000000001,
+          "wall_seconds": 0.571678638458252,
+          "sha256": "a7c71497705aa1b15f3328ed7c3c106bf1f441b044fef63e13bfdd1461a71774",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t10-center-large",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.131548709286528951577",
+            "4.915632272737791e+19",
+            "512",
+            "1e-2",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.551719,
+          "wall_seconds": 0.5690279006958008,
+          "sha256": "367e1b3eece4de8e51e7487d4b9606b369a856e50065e605899e41690c9f4bd7",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t10-eos192",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.131548709286528951577",
+            "4.915632272737791e+19",
+            "512",
+            "1e-4",
+            "192",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5992389999999999,
+          "wall_seconds": 0.6202058792114258,
+          "sha256": "cd9c56d475aad36ee10d5ddb1f7374988a138efe5f8f0b9415310a88e86c56b3",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t10-h0.0001--1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.1315355544156002986818423",
+            "4.915632272737791e+19",
+            "512",
+            "1e-4",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5476100000000004,
+          "wall_seconds": 0.5679178237915039,
+          "sha256": "bc61037ca2182c878287f5ffc1f9a12dee5f10e21921f390647fda265578b32e",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t10-h0.0001-1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.1315618641574576044721577",
+            "4.915632272737791e+19",
+            "512",
+            "1e-4",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5462209999999996,
+          "wall_seconds": 0.5676443576812744,
+          "sha256": "ee64bf6bea66ae63040492f9719a4c829c39c592827108c7d67353bf58a8725d",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t10-h0.00005--1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.13154213185106462512942115",
+            "4.915632272737791e+19",
+            "512",
+            "1e-4",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5460190000000003,
+          "wall_seconds": 0.5674870014190674,
+          "sha256": "6e93f467ab756c6e8398014a400c00bae56c521f3b9a978b94e2b6bb80fbf36b",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t10-h0.00005-1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.13155528672199327802457885",
+            "4.915632272737791e+19",
+            "512",
+            "1e-4",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5458470000000002,
+          "wall_seconds": 0.5674581527709961,
+          "sha256": "6258ca3bd5643b325fb13bfe4bab8a0c97b9c627d88eab2a014b6676fb937d58",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "30f06cfb5fd23d3a558d03a406e3a395d28500700e0ef905a919ccef27eac615",
+        "tests/bnv/x2_fixed_step.cpp": "3e6c680e7bb78ba933ef724b744ea6161372dd61e7c3094691902ac3936f9446",
+        "tests/bnv/x2_uncertainty.cpp": "231c49294a111b1e54956b0a4bcc2a171b36f314127a9dc5f3ad9b87556cf757"
+      }
+    },
+    {
+      "phase": "sensitivity",
+      "target": "20",
+      "job": "17040",
+      "affinity": [
+        9
+      ],
+      "cpu_seconds": 3.889785,
+      "wall_seconds": 4.046799182891846,
+      "peak_rss_kib": 15360,
+      "runs": [
+        {
+          "label": "t20-center-small",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.131548510727820650639",
+            "4.9156116666429006e+19",
+            "512",
+            "1e-6",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5489089999999999,
+          "wall_seconds": 0.572359561920166,
+          "sha256": "c23758f537f9b969e3f0916795a65c98dadb9730677c3c2f292e397207f83c2a",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t20-center-large",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.131548510727820650639",
+            "4.9156116666429006e+19",
+            "512",
+            "1e-2",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.550689,
+          "wall_seconds": 0.5688490867614746,
+          "sha256": "6f2f0d11dd1584fc4d49b75b67f865f9e1bf5a5ff52912d505c037402d5236c8",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t20-eos192",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.131548510727820650639",
+            "4.9156116666429006e+19",
+            "512",
+            "1e-4",
+            "192",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5984550000000002,
+          "wall_seconds": 0.6204586029052734,
+          "sha256": "3508018b1552991bf4be37af6caab3234f54ac8ea88a6ca9dce2e7ad631e02a6",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t20-h0.0001--1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.1315353558767478685739361",
+            "4.9156116666429006e+19",
+            "512",
+            "1e-4",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5479399999999996,
+          "wall_seconds": 0.5684247016906738,
+          "sha256": "096329618e2bc942a0e0ab6facb9e3dedad497ad3d7e1b4263e51107c2a7e159",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t20-h0.0001-1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.1315616655788934327040639",
+            "4.9156116666429006e+19",
+            "512",
+            "1e-4",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.546535,
+          "wall_seconds": 0.5675656795501709,
+          "sha256": "afc9a9f5340410feaaebf24260b7e561af258fe5cdcfc55093a3a6d11627e81a",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t20-h0.00005--1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.13154193330228425960646805",
+            "4.9156116666429006e+19",
+            "512",
+            "1e-4",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.5463559999999998,
+          "wall_seconds": 0.5678443908691406,
+          "sha256": "b6609f6fac805374fe9f6d9841b5f583f345d79408ebc7b21f91986c3ff9f4e1",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "t20-h0.00005-1",
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/assessment",
+            "0.13155508815335704167153195",
+            "4.9156116666429006e+19",
+            "512",
+            "1e-4",
+            "96",
+            "0"
+          ],
+          "returncode": 0,
+          "cpu_seconds": 0.546052,
+          "wall_seconds": 0.5675094127655029,
+          "sha256": "251d07d4d8c05458a46bf13876a4d51656a4f21515724f4142c7c1df44f1663d",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": {
+        "tools/linux/ba13_headroom/run.py": "30f06cfb5fd23d3a558d03a406e3a395d28500700e0ef905a919ccef27eac615",
+        "tests/bnv/x2_fixed_step.cpp": "3e6c680e7bb78ba933ef724b744ea6161372dd61e7c3094691902ac3936f9446",
+        "tests/bnv/x2_uncertainty.cpp": "231c49294a111b1e54956b0a4bcc2a171b36f314127a9dc5f3ad9b87556cf757"
+      }
+    }
+  ],
+  "profile_jobs": [
+    {
+      "index": 0,
+      "job": "17051",
+      "cpu_seconds": 10.100370993999999,
+      "wall_seconds": 10.149116277694702,
+      "peak_rss_kib": 108000
+    },
+    {
+      "index": 1,
+      "job": "17054",
+      "cpu_seconds": 4.037112463000001,
+      "wall_seconds": 4.336256265640259,
+      "peak_rss_kib": 105680
+    },
+    {
+      "index": 10,
+      "job": "17052",
+      "cpu_seconds": 10.091808528,
+      "wall_seconds": 10.138516426086426,
+      "peak_rss_kib": 108084
+    },
+    {
+      "index": 11,
+      "job": "17063",
+      "cpu_seconds": 4.025067548,
+      "wall_seconds": 4.276507377624512,
+      "peak_rss_kib": 103308
+    },
+    {
+      "index": 12,
+      "job": "17064",
+      "cpu_seconds": 4.0185277159999995,
+      "wall_seconds": 4.266321897506714,
+      "peak_rss_kib": 103036
+    },
+    {
+      "index": 13,
+      "job": "17065",
+      "cpu_seconds": 4.024547426,
+      "wall_seconds": 4.274884223937988,
+      "peak_rss_kib": 101596
+    },
+    {
+      "index": 14,
+      "job": "17066",
+      "cpu_seconds": 4.026297831,
+      "wall_seconds": 4.329705476760864,
+      "peak_rss_kib": 102816
+    },
+    {
+      "index": 15,
+      "job": "17067",
+      "cpu_seconds": 4.028962473,
+      "wall_seconds": 4.329780340194702,
+      "peak_rss_kib": 104116
+    },
+    {
+      "index": 16,
+      "job": "17068",
+      "cpu_seconds": 4.032298631,
+      "wall_seconds": 4.332967519760132,
+      "peak_rss_kib": 101956
+    },
+    {
+      "index": 17,
+      "job": "17069",
+      "cpu_seconds": 4.030416862999999,
+      "wall_seconds": 4.332819700241089,
+      "peak_rss_kib": 103764
+    },
+    {
+      "index": 18,
+      "job": "17070",
+      "cpu_seconds": 3.9984330260000003,
+      "wall_seconds": 4.078042030334473,
+      "peak_rss_kib": 105424
+    },
+    {
+      "index": 19,
+      "job": "17053",
+      "cpu_seconds": 3.996450626,
+      "wall_seconds": 4.193958759307861,
+      "peak_rss_kib": 105196
+    },
+    {
+      "index": 2,
+      "job": "17055",
+      "cpu_seconds": 4.034133841,
+      "wall_seconds": 4.32917046546936,
+      "peak_rss_kib": 104760
+    },
+    {
+      "index": 20,
+      "job": "17050",
+      "cpu_seconds": 10.022334336,
+      "wall_seconds": 10.075048208236694,
+      "peak_rss_kib": 106692
+    },
+    {
+      "index": 3,
+      "job": "17056",
+      "cpu_seconds": 4.033261282000001,
+      "wall_seconds": 4.326823472976685,
+      "peak_rss_kib": 102844
+    },
+    {
+      "index": 4,
+      "job": "17057",
+      "cpu_seconds": 4.018974945,
+      "wall_seconds": 4.321192979812622,
+      "peak_rss_kib": 103344
+    },
+    {
+      "index": 5,
+      "job": "17058",
+      "cpu_seconds": 4.019406307,
+      "wall_seconds": 4.324321269989014,
+      "peak_rss_kib": 100996
+    },
+    {
+      "index": 6,
+      "job": "17059",
+      "cpu_seconds": 4.032505832,
+      "wall_seconds": 4.327768325805664,
+      "peak_rss_kib": 103472
+    },
+    {
+      "index": 7,
+      "job": "17060",
+      "cpu_seconds": 4.0274426519999995,
+      "wall_seconds": 4.331157684326172,
+      "peak_rss_kib": 104308
+    },
+    {
+      "index": 8,
+      "job": "17061",
+      "cpu_seconds": 4.020509587,
+      "wall_seconds": 4.323525905609131,
+      "peak_rss_kib": 103688
+    },
+    {
+      "index": 9,
+      "job": "17062",
+      "cpu_seconds": 4.0156669240000005,
+      "wall_seconds": 4.267632722854614,
+      "peak_rss_kib": 104368
+    }
+  ],
+  "max_recorded_rss_kib": 149476,
+  "numerical_ceiling_cpu_seconds": 1800,
+  "substantial_work": "single pinned logical CPU per Slurm task; arrays for independent work",
+  "controls": "static executable 180 CPU seconds/200 wall seconds; profile/supplement jobs Slurm 10 minute wall limit; benchmarked 3-target profile task before 18-profile expansion",
+  "accounting_limit": "CPU is retained measurements plus explicit failed-allocation charge, not exact whole-session CPU. Earlier local assembly/audits, source hashing and interpreter startup outside timers are not included.",
+  "failed_checks": [
+    "17036: fixed-H diagnostics differ from shooting-history maxima; primary physical outputs agree; original-history replay passes",
+    "17038/17045/17047: NumPy int64 serialization after calculation; partial files retained, corrected write validates JSON before opening final output",
+    "signed N=128 defect correction has wrong sign for R; not used as an error bound"
+  ],
+  "retained_numerical_cpu_seconds_plus_failed_charge": 237.211282933
+}

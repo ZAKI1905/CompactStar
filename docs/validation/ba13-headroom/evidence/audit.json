@@ -1,0 +1,15 @@
+{
+  "status": "PASS_COMPLETION_AUDIT_NOT_SCIENTIFIC_QUALIFICATION",
+  "checks": {
+    "protected_input_bytes": 387,
+    "original_X2_external_artifacts": 257,
+    "original_nominal_manifest_files": 236,
+    "full_decimal_X2_replays": 3,
+    "frozen_historical_rows_and_complete_budgets": 462,
+    "nominal_profiles_cache_and_retained_tail": 21,
+    "direct_events_and_metric_mapping": 21,
+    "fault_and_algebra_tests": 14
+  },
+  "cpu_seconds": 1.348875485,
+  "source_sha256": "0e0f97d7bce04b0310e363ed860380debaab17f112721c1fe239bbd3d15f3842"
+}
