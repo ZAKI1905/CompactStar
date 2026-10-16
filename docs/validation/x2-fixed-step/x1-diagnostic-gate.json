@@ -1,0 +1,13 @@
+{
+  "files": {
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/tools/linux/x2_oracle/x1_diagnostics.py": "ee1d4a5bb40629b6d85fa59426f7114cbe03af10b6a4868b44ac4bff9214a62b",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/tools/linux/x2_oracle/run_x1.py": "8dc08c1a37148326b8371bb9a4368ef1ecb592a0916888a32bf44e508f70291f",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x2-fixed-step/build/x1-regularized.cpp": "8acf97e64cb41f5742e680bf203be381fd86fd502c57cefae3328f013d59fa67",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x2-fixed-step/build/x1-unregularized.cpp": "78f249fde30d450fc069bed4af441d13390dae5935e1509187a486c99c480cb1",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x2-fixed-step/build/x1-regularized": "ac30facd4ea14234cc7af4274049b137331748f0f2e97d18a5b864082db521f7",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x2-fixed-step/build/x1-unregularized": "3d796b3fcc925055a6c18df864ee99ef11e81eb2814e3da3a0d043c5aa84836c",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/tests/bnv/x1_regularized_oracle.cpp": "4c0ddac21a90056c74be7e0f7a054b2ab350dd178645db571759c0d7b6fc637f",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/tests/bnv/onset_structure_oracle.cpp": "eb5c4fb628ba9c7f962794128df7405077815bf68e11487cdd94455eabdfcd43"
+  },
+  "role": "Distinct diagnostic copies, frozen before replay results; baseline numerical outputs must reproduce X1."
+}
