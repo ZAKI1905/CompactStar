@@ -1,0 +1,28 @@
+JobId=17021 JobName=x1-oracle-anchor
+   UserId=zaki(1038) GroupId=zaki(1041) MCS_label=N/A
+   Priority=4294894455 Nice=0 Account=(null) QOS=(null)
+   JobState=FAILED Reason=NonZeroExitCode Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=1:0
+   RunTime=00:00:00 TimeLimit=00:04:00 TimeMin=N/A
+   SubmitTime=2026-10-16T08:25:31 EligibleTime=2026-10-16T08:25:31
+   AccrueTime=2026-10-16T08:25:31
+   StartTime=2026-10-16T08:25:31 EndTime=2026-10-16T08:25:31 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-16T08:25:31 Scheduler=Main
+   Partition=phyall AllocNode:Sid=ekucn1:575066
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=phyn004
+   BatchHost=phyn004
+   NumNodes=1 NumCPUs=2 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=2,node=1,billing=2
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=1G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/tools/linux/x1_oracle/run.sbatch
+   WorkDir=/mnt/sdd/zaki/CompactStar
+   StdErr=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor/slurm-17021.err
+   StdIn=/dev/null
+   StdOut=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor/slurm-17021.out
+   Power=
+   
+

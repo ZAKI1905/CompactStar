@@ -1,0 +1,379 @@
+[
+  {
+    "name": "mathematical-checks",
+    "command": [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor/build/x1_regularized_oracle",
+      "--check"
+    ],
+    "exit_code": 0,
+    "cpu_seconds": 0.005876000000000006,
+    "wall_seconds": 0.03487009555101395,
+    "slurm_job": "17022",
+    "head": "d2796ac20b24acee681dfc301926e7a90cbb10d3",
+    "max_child_rss_kib_upper_bound": 37732,
+    "cpu_affinity": [
+      4
+    ]
+  },
+  {
+    "name": "unregularized-0-2e-11",
+    "command": [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor/build/onset_structure_oracle",
+      "7.6169065187188748e+56",
+      "1100000000000000",
+      "4.9156528789505745e+19",
+      "2e-11"
+    ],
+    "exit_code": 0,
+    "cpu_seconds": 0.09867600000000001,
+    "wall_seconds": 0.11653346195816994,
+    "slurm_job": "17022",
+    "head": "d2796ac20b24acee681dfc301926e7a90cbb10d3",
+    "max_child_rss_kib_upper_bound": 37732,
+    "cpu_affinity": [
+      4
+    ]
+  },
+  {
+    "name": "unregularized-0-2e-13",
+    "command": [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor/build/onset_structure_oracle",
+      "7.6169065187188748e+56",
+      "1100000000000000",
+      "4.9156528789505745e+19",
+      "2e-13"
+    ],
+    "exit_code": 0,
+    "cpu_seconds": 0.21623900000000004,
+    "wall_seconds": 0.2666456699371338,
+    "slurm_job": "17022",
+    "head": "d2796ac20b24acee681dfc301926e7a90cbb10d3",
+    "max_child_rss_kib_upper_bound": 37732,
+    "cpu_affinity": [
+      4
+    ]
+  },
+  {
+    "name": "unregularized-10-2e-11",
+    "command": [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor/build/onset_structure_oracle",
+      "7.6169027102656157e+56",
+      "1099996952470734.8",
+      "4.915632272737791e+19",
+      "2e-11"
+    ],
+    "exit_code": 0,
+    "cpu_seconds": 0.09837799999999991,
+    "wall_seconds": 0.11644013226032257,
+    "slurm_job": "17022",
+    "head": "d2796ac20b24acee681dfc301926e7a90cbb10d3",
+    "max_child_rss_kib_upper_bound": 37732,
+    "cpu_affinity": [
+      4
+    ]
+  },
+  {
+    "name": "unregularized-10-2e-13",
+    "command": [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor/build/onset_structure_oracle",
+      "7.6169027102656157e+56",
+      "1099996952470734.8",
+      "4.915632272737791e+19",
+      "2e-13"
+    ],
+    "exit_code": 0,
+    "cpu_seconds": 0.21621400000000013,
+    "wall_seconds": 0.266759492456913,
+    "slurm_job": "17022",
+    "head": "d2796ac20b24acee681dfc301926e7a90cbb10d3",
+    "max_child_rss_kib_upper_bound": 37732,
+    "cpu_affinity": [
+      4
+    ]
+  },
+  {
+    "name": "unregularized-20-2e-11",
+    "command": [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor/build/onset_structure_oracle",
+      "7.6168989018123558e+56",
+      "1099993904954983.9",
+      "4.9156116666429006e+19",
+      "2e-11"
+    ],
+    "exit_code": 0,
+    "cpu_seconds": 0.09841299999999997,
+    "wall_seconds": 0.11661448702216148,
+    "slurm_job": "17022",
+    "head": "d2796ac20b24acee681dfc301926e7a90cbb10d3",
+    "max_child_rss_kib_upper_bound": 37732,
+    "cpu_affinity": [
+      4
+    ]
+  },
+  {
+    "name": "unregularized-20-2e-13",
+    "command": [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor/build/onset_structure_oracle",
+      "7.6168989018123558e+56",
+      "1099993904954983.9",
+      "4.9156116666429006e+19",
+      "2e-13"
+    ],
+    "exit_code": 0,
+    "cpu_seconds": 0.21627499999999988,
+    "wall_seconds": 0.26681875064969063,
+    "slurm_job": "17022",
+    "head": "d2796ac20b24acee681dfc301926e7a90cbb10d3",
+    "max_child_rss_kib_upper_bound": 37732,
+    "cpu_affinity": [
+      4
+    ]
+  },
+  {
+    "name": "regularized-0-2e-10",
+    "command": [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor/build/x1_regularized_oracle",
+      "7.6169065187188748e+56",
+      "1100000000000000",
+      "4.9156528789505745e+19",
+      "2e-10"
+    ],
+    "exit_code": 0,
+    "cpu_seconds": 0.07953900000000025,
+    "wall_seconds": 0.1165553368628025,
+    "slurm_job": "17022",
+    "head": "d2796ac20b24acee681dfc301926e7a90cbb10d3",
+    "max_child_rss_kib_upper_bound": 37732,
+    "cpu_affinity": [
+      4
+    ]
+  },
+  {
+    "name": "regularized-0-2e-11",
+    "command": [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor/build/x1_regularized_oracle",
+      "7.6169065187188748e+56",
+      "1100000000000000",
+      "4.9156528789505745e+19",
+      "2e-11"
+    ],
+    "exit_code": 0,
+    "cpu_seconds": 0.11634399999999978,
+    "wall_seconds": 0.16656619682908058,
+    "slurm_job": "17022",
+    "head": "d2796ac20b24acee681dfc301926e7a90cbb10d3",
+    "max_child_rss_kib_upper_bound": 37732,
+    "cpu_affinity": [
+      4
+    ]
+  },
+  {
+    "name": "regularized-0-2e-12",
+    "command": [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor/build/x1_regularized_oracle",
+      "7.6169065187188748e+56",
+      "1100000000000000",
+      "4.9156528789505745e+19",
+      "2e-12"
+    ],
+    "exit_code": 0,
+    "cpu_seconds": 0.17551599999999978,
+    "wall_seconds": 0.2166653610765934,
+    "slurm_job": "17022",
+    "head": "d2796ac20b24acee681dfc301926e7a90cbb10d3",
+    "max_child_rss_kib_upper_bound": 37732,
+    "cpu_affinity": [
+      4
+    ]
+  },
+  {
+    "name": "regularized-0-2e-13",
+    "command": [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor/build/x1_regularized_oracle",
+      "7.6169065187188748e+56",
+      "1100000000000000",
+      "4.9156528789505745e+19",
+      "2e-13"
+    ],
+    "exit_code": 0,
+    "cpu_seconds": 0.2672810000000003,
+    "wall_seconds": 0.31688639894127846,
+    "slurm_job": "17022",
+    "head": "d2796ac20b24acee681dfc301926e7a90cbb10d3",
+    "max_child_rss_kib_upper_bound": 37732,
+    "cpu_affinity": [
+      4
+    ]
+  },
+  {
+    "name": "regularized-10-2e-10",
+    "command": [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor/build/x1_regularized_oracle",
+      "7.6169027102656157e+56",
+      "1099996952470734.8",
+      "4.915632272737791e+19",
+      "2e-10"
+    ],
+    "exit_code": 0,
+    "cpu_seconds": 0.07956399999999997,
+    "wall_seconds": 0.11661302298307419,
+    "slurm_job": "17022",
+    "head": "d2796ac20b24acee681dfc301926e7a90cbb10d3",
+    "max_child_rss_kib_upper_bound": 37732,
+    "cpu_affinity": [
+      4
+    ]
+  },
+  {
+    "name": "regularized-10-2e-11",
+    "command": [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor/build/x1_regularized_oracle",
+      "7.6169027102656157e+56",
+      "1099996952470734.8",
+      "4.915632272737791e+19",
+      "2e-11"
+    ],
+    "exit_code": 0,
+    "cpu_seconds": 0.1162909999999997,
+    "wall_seconds": 0.16658444702625275,
+    "slurm_job": "17022",
+    "head": "d2796ac20b24acee681dfc301926e7a90cbb10d3",
+    "max_child_rss_kib_upper_bound": 37732,
+    "cpu_affinity": [
+      4
+    ]
+  },
+  {
+    "name": "regularized-10-2e-12",
+    "command": [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor/build/x1_regularized_oracle",
+      "7.6169027102656157e+56",
+      "1099996952470734.8",
+      "4.915632272737791e+19",
+      "2e-12"
+    ],
+    "exit_code": 0,
+    "cpu_seconds": 0.175319,
+    "wall_seconds": 0.21679706126451492,
+    "slurm_job": "17022",
+    "head": "d2796ac20b24acee681dfc301926e7a90cbb10d3",
+    "max_child_rss_kib_upper_bound": 37732,
+    "cpu_affinity": [
+      4
+    ]
+  },
+  {
+    "name": "regularized-10-2e-13",
+    "command": [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor/build/x1_regularized_oracle",
+      "7.6169027102656157e+56",
+      "1099996952470734.8",
+      "4.915632272737791e+19",
+      "2e-13"
+    ],
+    "exit_code": 0,
+    "cpu_seconds": 0.26731099999999985,
+    "wall_seconds": 0.31695161014795303,
+    "slurm_job": "17022",
+    "head": "d2796ac20b24acee681dfc301926e7a90cbb10d3",
+    "max_child_rss_kib_upper_bound": 37732,
+    "cpu_affinity": [
+      4
+    ]
+  },
+  {
+    "name": "regularized-20-2e-10",
+    "command": [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor/build/x1_regularized_oracle",
+      "7.6168989018123558e+56",
+      "1099993904954983.9",
+      "4.9156116666429006e+19",
+      "2e-10"
+    ],
+    "exit_code": 0,
+    "cpu_seconds": 0.07947599999999966,
+    "wall_seconds": 0.11653682217001915,
+    "slurm_job": "17022",
+    "head": "d2796ac20b24acee681dfc301926e7a90cbb10d3",
+    "max_child_rss_kib_upper_bound": 37732,
+    "cpu_affinity": [
+      4
+    ]
+  },
+  {
+    "name": "regularized-20-2e-11",
+    "command": [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor/build/x1_regularized_oracle",
+      "7.6168989018123558e+56",
+      "1099993904954983.9",
+      "4.9156116666429006e+19",
+      "2e-11"
+    ],
+    "exit_code": 0,
+    "cpu_seconds": 0.11644999999999994,
+    "wall_seconds": 0.1665567085146904,
+    "slurm_job": "17022",
+    "head": "d2796ac20b24acee681dfc301926e7a90cbb10d3",
+    "max_child_rss_kib_upper_bound": 37732,
+    "cpu_affinity": [
+      4
+    ]
+  },
+  {
+    "name": "regularized-20-2e-12",
+    "command": [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor/build/x1_regularized_oracle",
+      "7.6168989018123558e+56",
+      "1099993904954983.9",
+      "4.9156116666429006e+19",
+      "2e-12"
+    ],
+    "exit_code": 0,
+    "cpu_seconds": 0.1753170000000006,
+    "wall_seconds": 0.21678535267710686,
+    "slurm_job": "17022",
+    "head": "d2796ac20b24acee681dfc301926e7a90cbb10d3",
+    "max_child_rss_kib_upper_bound": 37732,
+    "cpu_affinity": [
+      4
+    ]
+  },
+  {
+    "name": "regularized-20-2e-13",
+    "command": [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor/build/x1_regularized_oracle",
+      "7.6168989018123558e+56",
+      "1099993904954983.9",
+      "4.9156116666429006e+19",
+      "2e-13"
+    ],
+    "exit_code": 0,
+    "cpu_seconds": 0.2677990000000001,
+    "wall_seconds": 0.31701644137501717,
+    "slurm_job": "17022",
+    "head": "d2796ac20b24acee681dfc301926e7a90cbb10d3",
+    "max_child_rss_kib_upper_bound": 37732,
+    "cpu_affinity": [
+      4
+    ]
+  },
+  {
+    "name": "score",
+    "command": [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+      "-I",
+      "-B",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/tools/linux/x1_oracle/score.py",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x1-oracle-anchor"
+    ],
+    "exit_code": 0,
+    "cpu_seconds": 0.04490599999999967,
+    "wall_seconds": 0.06654609367251396,
+    "slurm_job": "17022",
+    "head": "d2796ac20b24acee681dfc301926e7a90cbb10d3",
+    "max_child_rss_kib_upper_bound": 37732,
+    "cpu_affinity": [
+      4
+    ]
+  }
+]
