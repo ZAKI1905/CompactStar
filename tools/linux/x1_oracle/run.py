@@ -16,6 +16,7 @@ OUT=ROOT/'x1-oracle-anchor'
 start=time.monotonic()
 if not os.environ.get('SLURM_JOB_ID'):raise SystemExit('Slurm required')
 if int(os.environ.get('SLURM_CPUS_PER_TASK','0'))!=1:raise SystemExit('one CPU required')
+os.sched_setaffinity(0,{min(os.sched_getaffinity(0))})
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 gate=json.loads((DOC/'execution-gate.json').read_text())
 for path,h in gate['files'].items():
@@ -35,11 +36,12 @@ def execute(name,cmd):
     def limits():
         resource.setrlimit(resource.RLIMIT_CPU,(60,60))
         resource.setrlimit(resource.RLIMIT_AS,(1024**3,1024**3))
-    receipt=OUT/(name+'.time')
     with (OUT/(name+'.out')).open('w') as out,(OUT/(name+'.err')).open('w') as err:
-        p=subprocess.run(['/usr/bin/time','-v','-o',str(receipt)]+cmd,stdout=out,stderr=err,preexec_fn=limits,timeout=61)
+        p=subprocess.run(cmd,stdout=out,stderr=err,preexec_fn=limits,timeout=61)
     used=cpu()-before
     record=dict(name=name,command=cmd,exit_code=p.returncode,cpu_seconds=used,wall_seconds=time.monotonic()-wall,slurm_job=os.environ['SLURM_JOB_ID'],head=head)
+    record['max_child_rss_kib_upper_bound']=resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss
+    record['cpu_affinity']=sorted(os.sched_getaffinity(0))
     receipts.append(record)
     (OUT/'receipts.json').write_text(json.dumps(receipts,indent=2)+'\n')
     if p.returncode or used>60 or cpu()>120:raise RuntimeError('solve/check/resource failure: '+name)

@@ -3,8 +3,8 @@
   "files": {
     "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/tools/linux/x1_oracle/build.sh": "c175a5e9ed97c9625f5efab218b02cafac585d536f91d4a22d0111f1ca534f69",
     "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/tools/linux/x1_oracle/score.py": "c038c530b434c03accbcfe19254444a19fb76843949c553860cf5d020a048d8c",
-    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/tools/linux/x1_oracle/run.py": "7901ccbbba9119cbf64a1133fcda44374793914bc2a409322f9adb0c22d1d872",
-    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/tools/linux/x1_oracle/run.sbatch": "43003b35ca9351a14ee115a885579bfc705810d8b69f7cacea5d944818ba9f9a",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/tools/linux/x1_oracle/run.py": "48ed0803ec3ca36f4eb8d28110d024a7c3f1ffea2bc98cb595b5f5fd991c5279",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/tools/linux/x1_oracle/run.sbatch": "dcf7a3dc489d459a419b6f50494c95586800c2ce0e6d24cf17ffbc6272eae343",
     "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/targets.json": "f243bce5dbf5e2540a2b77880745e3ce2b887a3c7d72f54f30c8c53178b42005",
     "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/authentication.json": "da56dbb4d4ad9681ded03d03bed939018cc3e8c83eb2b8af837bfcfe5f30bedb",
     "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/PREDECLARATION.md": "90687b4eee8fef3c89958aef320c8c5c1b79e26fff5822b2ae13bba1a053d8bc",
@@ -38,7 +38,10 @@
     "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1/lib/libgsl.a": "55db172a76f999c817ccd26ab05684dd0e3fd003ef6fd079eb068739a5cd7b09",
     "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1/lib/libgslcblas.a": "a7ede7c52179bf549d68645caed2529e357f5e4c1a924b371fd0e3c93b09b3e3",
     "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/source/gsl-2.7.1/ode-initval2/rkf45.c": "0064196e68256f15a5d6de0e460ff0055fed8c79e2663fde4c2e9d2d35483164",
-    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/source/gsl-2.7.1/ode-initval2/cstd.c": "37c10a8a6b109a247318ec2e0cdcf4189cb10b704bceb226bbd81f47adbd249b"
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/source/gsl-2.7.1/ode-initval2/cstd.c": "37c10a8a6b109a247318ec2e0cdcf4189cb10b704bceb226bbd81f47adbd249b",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor/docs/validation/x1-oracle-anchor/LAUNCHER_CORRECTION.md": "5370efe1c77d95572993d6b341905771b390678c5598fb8a7520d822c54eaa23",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/git": "4d4c1e4efcc6ab482232c0672790cc909dad62ef0a0ed1a9f558e43d5f625bc5",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/libexec/git": "be60250fab3f99aaf4c136e7c50ce00d7a5af30a184be60bf237b13ee997309a"
   },
   "review_files": {
     "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-onset-independent-review-20261016/common.py": "b448db710c66c2851e5332a16ccad60231a511588043058abb801017cf9c812d",
@@ -60,5 +63,6 @@
   "numerical_runs_started": false,
   "one_cpu": true,
   "max_cpu_seconds": 120,
-  "max_memory_mib": 1024
+  "max_memory_mib": 1024,
+  "pre_numerical_launcher_failure_job": "17021"
 }
