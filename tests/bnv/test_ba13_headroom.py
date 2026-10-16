@@ -48,6 +48,13 @@ class EnclosureTests(unittest.TestCase):
  def test_all_missing_refuses(self):
   terms={k:dict(value=None,evidence_type='unresolved') for k in FRACTIONS}
   self.assertEqual(qualify(dict(drift_bound=0.,threshold=1e-4),terms)['status'],'UNQUALIFIED')
+ def test_partial_estimate_does_not_hide_missing_remainder(self):
+  terms={k:dict(value=1e-8,evidence_type='conditional_estimate') for k in FRACTIONS}
+  terms['integration']['missing_estimate']='nonlinear defect transport remainder'
+  result=qualify(dict(drift_bound=1e-6,threshold=1e-4),terms)
+  self.assertEqual(result['status'],'UNQUALIFIED')
+  self.assertIsNone(result['proposed_total_utilization'])
+  self.assertGreater(result['partial_utilization'],.01)
  def test_frozen_threshold_failure(self):
   terms={k:dict(value=1e-5,evidence_type='analytic_bound') for k in FRACTIONS}
   h=dict(drift_bound=0.,threshold=1e-4)

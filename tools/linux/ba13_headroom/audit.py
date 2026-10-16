@@ -10,6 +10,12 @@ auth=read(D/'authentication.json');allowed={str(S/'tests/bnv/x2_fixed_step.cpp')
 for p,h in auth['protected_inputs'].items():
  if p not in allowed:assert sha(pathlib.Path(p))==h,p
 checks['protected_input_bytes']=len(auth['protected_inputs'])-len(allowed)
+old_manifest=read(S/'docs/validation/x2-fixed-step/evidence/external-manifest.json')
+for name,entry in old_manifest['files'].items():assert sha(pathlib.Path(old_manifest['root'])/name)==entry['sha256'],name
+checks['original_X2_external_artifacts']=len(old_manifest['files'])
+raw_root=R/'ba13-recovery/run1/raw';raw_manifest=read(raw_root/'COMPLETE.json')
+for name,h in raw_manifest['files'].items():assert sha(raw_root/name)==h,name
+checks['original_nominal_manifest_files']=len(raw_manifest['files'])
 assert sha(S/'tests/bnv/compare_candidate.py')=='9b3ef1ce17df7e1f8d2d7c40e111ee0844abfddc2cc54b8f93cb3f2ce1322370'
 for i in [0,10,20]:
  assert read(O/f't{i}-regression-final.json')==read(R/f'x2-fixed-step/t{i}-n128.json')
@@ -40,6 +46,6 @@ for r in supp['records']:
 checks['direct_events_and_metric_mapping']=21
 result=subprocess.run([sys.executable,'-B',str(S/'tests/bnv/test_ba13_headroom.py')],capture_output=True,text=True)
 (O/'tests.txt').write_text(result.stdout+result.stderr);assert result.returncode==0
-checks['fault_and_algebra_tests']=13
+checks['fault_and_algebra_tests']=14
 result=dict(status='PASS_COMPLETION_AUDIT_NOT_SCIENTIFIC_QUALIFICATION',checks=checks,cpu_seconds=time.process_time()-start,source_sha256=sha(pathlib.Path(__file__)))
 (O/'audit.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result,indent=2))
