@@ -1,0 +1,10 @@
+{
+  "files": {
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x2-fixed-step/build/double-newton.cpp": "664cdbae508e623e89aac347e05df6457b4f187995bb2a43d733352cea6c478c",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x2-fixed-step/build/double-newton": "68de48cb1b029d66a75339709b72a0c2da9646f67ef8f368619a6944e6abab97",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/tools/linux/x2_oracle/continue_diagnostics.py": "efb882d9da9014812a190512074aa287e94f8aff0bfd61bd3c35f5fc4827e018",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/tests/bnv/x2_fixed_step.cpp": "95d1e6a17a6d88446ae7fdced4c0e8b2237ba44cef0e0d9f7e0e87f95dda8f20",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x2-fixed-step/build/extended": "ab345225524757fceff13e9dc30374642f2e05ecceb03cfc468317fb70486cea"
+  },
+  "purpose": "Correct early Newton stop, not stage gate, in binary64 diagnostic only; preserve first failure."
+}
