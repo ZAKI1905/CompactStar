@@ -1,0 +1,13 @@
+{
+  "files": {
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/tools/linux/x2_oracle/shell_diagnostics.py": "61865e791d64ae3e3a027c9213d29e940b086b9b2168abb41c7fad6949d79559",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/docs/validation/x2-fixed-step/SHELL_DIAGNOSTIC_PREDECLARATION.md": "dd81f8f52b96708767be5357d10770920fac469924eea084474607a9daa7a2ad",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x2-fixed-step/build/x1-regularized.cpp": "8acf97e64cb41f5742e680bf203be381fd86fd502c57cefae3328f013d59fa67",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x2-fixed-step/build/shell-support.cpp": "db9a4239a2dd60c8713775cb5240088b79b1bd119f51f4164ab1e6f7c98f0d98",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x2-fixed-step/build/shell-support": "b341b7050c87168060145729ef49dd4adb201689aba02e4006a947022d128718",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x2-fixed-step/build/shell-endpoint.cpp": "8dbb796150059ac3a89fa917dc9904d122f7d5fe1c1d5614995aeedfa50c8bf0",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x2-fixed-step/build/shell-endpoint": "695243020c09730a598dd4384414809649f6989361b8cc5fcaaf52095edd9d3d",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x2-fixed-step/build/shell-shell-s.cpp": "526d58ba66b71b2d2c7b0918512f04c7924d045b5c3e67ccd475002999e1db78",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/x2-fixed-step/build/shell-shell-s": "db9b4ca82073fb65541c5b5be3650e5f106c31ed11214f8f542804117dee9cae"
+  }
+}
