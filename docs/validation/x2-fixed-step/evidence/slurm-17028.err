@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/tools/linux/x2_oracle/run.py", line 53, in <module>
+    solve('0',n,f'double-n{n}',mode='double',fixed=1,hc=hc)
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/tools/linux/x2_oracle/run.py", line 32, in solve
+    return call(label or f't{t}-n{n}',[str(OUT/'build'/mode),q['B'],hc,q['surfaceP_cgs'],str(n),center,str(eq),str(raw),str(plain),str(fixed)])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/tools/linux/x2_oracle/run.py", line 25, in call
+    if p.returncode:raise RuntimeError(label+': '+p.stderr)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: double-n512: stage residual
+

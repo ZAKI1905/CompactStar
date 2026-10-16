@@ -34,6 +34,18 @@
       "sha256": "9e50d371ff15c042df6c6763eb8c876ddcc5a868b899c997d9beda64612f3b63",
       "bytes": 1330
     },
+    "allocation-17032.txt": {
+      "sha256": "53054d21d0c86497d78eedbe7f433e3940bdee7c967124d2c3377184e9bcd140",
+      "bytes": 1318
+    },
+    "allocation-17033.txt": {
+      "sha256": "a137147963c281d6124de9596d7f12c06098cf68487feb37848d7ba22b8c3b17",
+      "bytes": 1324
+    },
+    "allocation-17034.txt": {
+      "sha256": "828c5a7d9ca5d44677f2cfd65e611518d0c79affc7723a60f683eb0ded49da93",
+      "bytes": 1325
+    },
     "build/compiler.txt": {
       "sha256": "07316a14f2fdd7579d3cb3c529b60cf3f91bc757509d9a8cf59478160289031e",
       "bytes": 225
@@ -190,6 +202,10 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "bytes": 0
     },
+    "ending-17033.txt": {
+      "sha256": "a137147963c281d6124de9596d7f12c06098cf68487feb37848d7ba22b8c3b17",
+      "bytes": 1324
+    },
     "eos192-n1024.err": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "bytes": 0
@@ -214,6 +230,50 @@
       "sha256": "06e298b1c93dff91b786b462ffbe27b23f803026776542e728f1a8e6a75c5422",
       "bytes": 1390
     },
+    "final-17024.txt": {
+      "sha256": "e7cbc19b304ce7fb323ea1ccae489c74fbc1bdf5635781d0999740708566b8df",
+      "bytes": 48
+    },
+    "final-17025.txt": {
+      "sha256": "e7cbc19b304ce7fb323ea1ccae489c74fbc1bdf5635781d0999740708566b8df",
+      "bytes": 48
+    },
+    "final-17026.txt": {
+      "sha256": "e7cbc19b304ce7fb323ea1ccae489c74fbc1bdf5635781d0999740708566b8df",
+      "bytes": 48
+    },
+    "final-17027.txt": {
+      "sha256": "e7cbc19b304ce7fb323ea1ccae489c74fbc1bdf5635781d0999740708566b8df",
+      "bytes": 48
+    },
+    "final-17028.txt": {
+      "sha256": "e7cbc19b304ce7fb323ea1ccae489c74fbc1bdf5635781d0999740708566b8df",
+      "bytes": 48
+    },
+    "final-17029.txt": {
+      "sha256": "e7cbc19b304ce7fb323ea1ccae489c74fbc1bdf5635781d0999740708566b8df",
+      "bytes": 48
+    },
+    "final-17030.txt": {
+      "sha256": "e7cbc19b304ce7fb323ea1ccae489c74fbc1bdf5635781d0999740708566b8df",
+      "bytes": 48
+    },
+    "final-17031.txt": {
+      "sha256": "e7cbc19b304ce7fb323ea1ccae489c74fbc1bdf5635781d0999740708566b8df",
+      "bytes": 48
+    },
+    "final-17032.txt": {
+      "sha256": "951133a0d88b7285303f1f3847a95cd20ce8343bdd0c8d969d5a8d65671f700d",
+      "bytes": 1324
+    },
+    "final-17033.txt": {
+      "sha256": "556c32d46bdf735dde861d82029a022643c8c2decb44aecc233344b949d1b9d9",
+      "bytes": 1332
+    },
+    "final-17034.txt": {
+      "sha256": "6c30b241eb57753f017ad81c05e6d402c508582e8cb4668b96ca3424f6e173fb",
+      "bytes": 1323
+    },
     "fixed-x1-regularized.err": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "bytes": 0
@@ -229,6 +289,10 @@
     "fixed-x1-unregularized.json": {
       "sha256": "801ad1853dbbf85ea0163f8337bd1c30fc27180532f7d9cbd64eb88a399fcf92",
       "bytes": 1367
+    },
+    "independent-audit.json": {
+      "sha256": "af885ecd04bd89cb14e32324883a94d8f08d9d717e598c2330a6dfa64dc7f76e",
+      "bytes": 2541
     },
     "plain-n1024.err": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -565,6 +629,30 @@
     "slurm-17031.out": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "bytes": 0
+    },
+    "slurm-17032.err": {
+      "sha256": "3f515c86f7c12ad777235440697098c93223ba8f0a4124b7b8c87dc342a657d1",
+      "bytes": 1403
+    },
+    "slurm-17032.out": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "slurm-17033.err": {
+      "sha256": "41cf63a07a7fdc523676688f816b2cd3b82b97480fae0cea3f7ce7f515bb3eb5",
+      "bytes": 90
+    },
+    "slurm-17033.out": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "slurm-17034.err": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "slurm-17034.out": {
+      "sha256": "980f8fdf8282125c5dd906a3f8b716dd427a9cf31d37dbf2fe3e82d84cdef07a",
+      "bytes": 2341
     },
     "t0-n1024.err": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -942,5 +1030,6 @@
       "sha256": "2394f7b9aede0388a2fa2600b48f8a0f5d215d66e61f61dc374d9344d6704c99",
       "bytes": 186
     }
-  }
+  },
+  "final_extension": "Includes post-analysis independent audit and controller-state receipts; primary execution gates unchanged."
 }

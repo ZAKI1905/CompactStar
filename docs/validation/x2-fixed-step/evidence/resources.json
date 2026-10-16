@@ -1742,5 +1742,10 @@
       ],
       "gate_sha256": "6ceb6a14792f4e57a664efb33f5d2127775d46afe4d65ee430a72ed325e5a45c"
     }
-  ]
+  ],
+  "independent_audit_cpu_seconds": 0.18068299999999998,
+  "combined_measured_cpu_seconds": 148.199356,
+  "failed_audit_allocations_cpu_upper_seconds": 4,
+  "accounted_seconds_including_failed_allocation_charge": 152.199356,
+  "limitations": "Controller-loop and solver CPU plus audit process measured. Interpreter/launcher and pre-loop authentication overhead not fully timed. Early completed Slurm records expired; raw per-command receipts retained. Build cost separate."
 }

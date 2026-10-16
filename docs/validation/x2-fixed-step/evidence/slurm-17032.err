@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step/tools/linux/x2_oracle/audit.py", line 62, in <module>
+    changed=subprocess.check_output(['git','diff','--name-only','6cc7e20','HEAD'],cwd=SRC,text=True).splitlines()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/python-3.11.9-g4zuo4tjs6qdheidlgtli3ampfghjezh/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/python-3.11.9-g4zuo4tjs6qdheidlgtli3ampfghjezh/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/python-3.11.9-g4zuo4tjs6qdheidlgtli3ampfghjezh/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/python-3.11.9-g4zuo4tjs6qdheidlgtli3ampfghjezh/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'git'
