@@ -121,6 +121,8 @@ std::array<Real,4> linear(std::array<std::array<Real,5>,4>a){
  }
  return {a[0][4],a[1][4],a[2][4],a[3][4]};
 }
+using X2StepObserver=void (*)(const EOS&,const Map&,Real,Real,const V2&,const V2*,const Evaluation*);
+X2StepObserver x2_step_observer=nullptr;
 struct Solver {
  EOS eos;Rule audit{4};int N;Real cf;bool raw,plain;Real Hc,Hs,hb;
  Real thermo=0,beta=0,charge=0,stage=0,mudrift=0,defect=0;
@@ -165,6 +167,7 @@ struct Solver {
    auto rhs=evaluate(eos,qp,H0,jac0,yp);
    defect=std::max(defect,abs(yd[0]-rhs.f[0])/(abs(rhs.f[0])+Real(1e-30)));
   }
+  if(x2_step_observer)x2_step_observer(eos,map,t,h,y,Y,f);
   for(int k=0;k<6;k++)sums[k].add(h*(f[0].g[k]+f[1].g[k])/2);
   if(x2_observer)for(int j=0;j<2;j++){
    Real D=1-2*Y[j][0]*Y[j][1],Q=Y[j][1]+4*pi*q[j].p*eos.geo;
@@ -245,4 +248,5 @@ int main(int argc,char**argv){try{
  std::cout<<"],\"shots\":"<<shots<<",\"dB_dH\":"<<sensitivity<<",\"thermo\":"<<s.thermo<<",\"charge\":"<<s.charge<<",\"beta\":"<<s.beta<<",\"segments\":[";
  for(size_t i=0;i<s.segments.size();i++){std::cout<<(i?",[":"[");for(int j=0;j<7;j++)std::cout<<(j?",":"")<<s.segments[i][j];std::cout<<"]";}
  std::cout<<"]}\n";
+ return 0;
  }catch(const std::exception&e){std::cerr<<e.what()<<'\n';return 1;}}
