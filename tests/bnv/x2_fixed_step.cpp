@@ -98,6 +98,10 @@ struct Map {
  }
 };
 struct Evaluation {V2 f;std::array<Real,4> J;std::array<Real,6> g;};
+// Optional passive validation observer. Null in the historical executable.
+// It cannot modify stages, step selection, shooting, or primary accumulators.
+using X2Observer=void (*)(const EOS&,const Point&,Real,const V2&,Real);
+X2Observer x2_observer=nullptr;
 Evaluation evaluate(const EOS&e,const Point&q,Real H,Real jac,const V2&y){
  Real u=y[0],v=y[1],D=1-2*u*v,Q=v+4*pi*q.p*e.geo;
  if(!(u>0&&D>0&&Q>0))throw std::runtime_error("structure domain");
@@ -162,6 +166,11 @@ struct Solver {
    defect=std::max(defect,abs(yd[0]-rhs.f[0])/(abs(rhs.f[0])+Real(1e-30)));
   }
   for(int k=0;k<6;k++)sums[k].add(h*(f[0].g[k]+f[1].g[k])/2);
+  if(x2_observer)for(int j=0;j<2;j++){
+   Real D=1-2*Y[j][0]*Y[j][1],Q=Y[j][1]+4*pi*q[j].p*eos.geo;
+   Real volume=h/2*4*pi*sqrt(Y[j][0])*sqrt(D)/Q*jac[j];
+   x2_observer(eos,q[j],H[j],Y[j],volume);
+  }
   for(int k=0;k<2;k++)y[k]+=h*(f[0].f[k]+f[1].f[k])/2;
   auto [hend,jend]=map.at(t+h);(void)jend;
   mudrift=std::max(mudrift,abs(sums[8].s-(Hc-hend)));
@@ -180,6 +189,7 @@ struct Solver {
   Real mc=y[1]*r*r*r;
   std::array<Real,9> initial={vol*q.n*Real(.001),vol*exp(6*Hc),vol*exp(Hc)*q.cv,vol*q.ns[3],mc,x0,mc,vol*q.n*Real(.001),x0};
   for(int i=0;i<9;i++)sums[i].s=initial[i];
+  if(x2_observer)x2_observer(eos,q,Hc,y,vol);
   segments.clear();
   Real mid=(Hc+eos.hm)/2;
   if(!(Hc>mid&&mid>eos.hm&&eos.hm>hb&&hb>eos.hn&&eos.hn>Hs))throw std::runtime_error("event ordering");
