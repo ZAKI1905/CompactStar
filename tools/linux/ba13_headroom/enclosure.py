@@ -70,16 +70,34 @@ def between_samples(second_derivative,spacing,jump=0.):
  if min(second_derivative,spacing,jump)<0 or not all(map(math.isfinite,(second_derivative,spacing,jump))):raise ValueError('invalid continuity data')
  return second_derivative*spacing**2/8+jump
 
-def qualify(historical,terms,*,exact=False):
+def qualify(historical,terms,*,exact=False,accepted_authorities=None,frozen_historical=None):
  """No zero fill; no covariance accepted as physical source; no threshold update."""
+ accepted_authorities=accepted_authorities or {}
+ if frozen_historical is not None and historical!=frozen_historical:raise ValueError('historical threshold/drift identity changed')
+ if not all(math.isfinite(historical[k]) for k in ('drift_bound','threshold')) or historical['drift_bound']<0 or historical['threshold']<=0:raise ValueError('invalid historical decision inputs')
  if set(terms)!=set(FRACTIONS):raise ValueError('incomplete contribution schema')
  for term in terms.values():
   if term['evidence_type'] not in TYPES:raise ValueError('unknown evidence type')
   if term.get('source')=='fit_covariance':raise ValueError('covariance is not physical uncertainty')
   v=term['value']
   if v is not None and (not math.isfinite(v) or v<0):raise ValueError('invalid uncertainty')
- missing=[k for k,v in terms.items() if v['value'] is None or v['evidence_type']=='unresolved' or bool(v.get('missing_estimate'))]
+ reasons={}
+ for k,v in terms.items():
+  if v['value'] is None or v['evidence_type']=='unresolved' or v.get('missing_estimate'):
+   reasons[k]=v.get('missing_estimate') or 'missing/unqualified evidence'
+  elif v['evidence_type'] in ('conditional_estimate','validated_numerical_estimate'):
+   field='condition_id' if v['evidence_type']=='conditional_estimate' else 'standard_id'
+   name=v.get(field);authority=v.get('authority')
+   # The caller supplies an explicit registry of cited, externally accepted
+   # decisions. A term cannot create its own authority by carrying a string.
+   if not name or not authority or accepted_authorities.get(name)!=authority:
+    reasons[k]='explicit acceptance required for '+field+': '+str(name)
+ missing=list(reasons)
  partial=historical['drift_bound']+sum(t['value'] or 0 for t in terms.values())
  conditional=[k for k,t in terms.items() if t['evidence_type']=='conditional_estimate']
- if missing:return dict(status='UNQUALIFIED',proposed_total_utilization=None,partial_utilization=partial/historical['threshold'],missing=missing,conditional=conditional)
- return dict(status='PASS' if partial<=historical['threshold'] else 'FAIL',proposed_total_utilization=partial/historical['threshold'],partial_utilization=partial/historical['threshold'],missing=[],conditional=conditional)
+ if exact and (historical['drift_bound']!=0 or any(t['value'] not in (0,None) for t in terms.values())):
+  return dict(status='FAIL',proposed_total_utilization=None,partial_utilization=partial/historical['threshold'],missing=missing,conditional=conditional,refusal_reasons={'exact':'exact identity violated'})
+ if missing:return dict(status='UNQUALIFIED',proposed_total_utilization=None,partial_utilization=partial/historical['threshold'],missing=missing,conditional=conditional,refusal_reasons=reasons)
+ if exact and any(t['evidence_type']!='analytic_bound' for t in terms.values()):
+  return dict(status='UNQUALIFIED',proposed_total_utilization=None,partial_utilization=partial/historical['threshold'],missing=['exact'],conditional=conditional,refusal_reasons={'exact':'numerical evidence cannot establish exact identity'})
+ return dict(status='PASS' if partial<=historical['threshold'] else 'FAIL',proposed_total_utilization=partial/historical['threshold'],partial_utilization=partial/historical['threshold'],missing=[],conditional=conditional,refusal_reasons={})

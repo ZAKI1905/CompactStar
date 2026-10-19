@@ -5,8 +5,9 @@
 #undef main
 std::array<Sum,12> extra;
 Rule momentum(32);
-// Numerical defect transport, deliberately not labelled an interval enclosure.
-// Uses the actual implicit-stage tangent map, not an assumed stability constant.
+// HISTORICAL INCONSISTENT estimator retained for failure provenance only.
+// Its first-order intra-step propagator omits a leading O(h^5) contribution.
+// Retired from execution and qualification; see ba13-closure/PREDECLARATION.md.
 V2 transported{},majorant{},stage_effect{};
 Real defect_quadrature_spread=0;
 void transport(const EOS&e,const Map&map,Real t,Real h,const V2&y,const V2*Y,const Evaluation*f){
@@ -70,7 +71,7 @@ int main(int argc,char**argv){try{
  Real H=std::stold(argv[1]),ps=std::stold(argv[2]);
  Solver s(std::stoi(argv[3]),std::stoi(argv[5]),std::stold(argv[4]),false,false);
  x2_observer=observe;
- if(std::stoi(argv[6]))x2_step_observer=transport;
+ if(std::stoi(argv[6]))throw std::runtime_error("retired inconsistent defect estimator; qualification requires independent reference evidence");
  auto v=s.run(H,ps);x2_observer=nullptr;x2_step_observer=nullptr;
  Real K=log1p(-2*v[2]/v[1])/2+s.Hs;
  std::cout<<std::setprecision(21)<<"{\"primary\":[";
