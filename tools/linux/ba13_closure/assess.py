@@ -21,6 +21,7 @@ import numpy as np
 S=pathlib.Path(__file__).resolve().parents[3]
 R=S.parents[1]
 O=R/'ba13-closure-20261019'
+RESULT=O/'assessment-final'
 HR=R/'ba13-headroom'
 RAW=R/'ba13-recovery/run1/raw'
 sys.path.insert(0,str(S/'tools/linux/ba13_headroom'))
@@ -48,7 +49,7 @@ def serial(v):
     raise TypeError(type(v).__name__)
 
 def write(name,value):
-    with (O/name).open('x') as f:
+    with (RESULT/name).open('x') as f:
         json.dump(value,f,indent=2,allow_nan=False,default=serial);f.write('\n')
 
 def arr(v):return np.atleast_1d(np.asarray(v,dtype=LD))
@@ -93,6 +94,7 @@ def residual(xx,yy,uu):
 def main():
     if not os.environ.get('SLURM_JOB_ID'):raise RuntimeError('Slurm required')
     os.sched_setaffinity(0,{min(os.sched_getaffinity(0))})
+    RESULT.mkdir(exist_ok=True)
     start=time.process_time();wall=time.monotonic()
     x,series=load(RAW);x=np.array(x,dtype=LD)
     cert=read(R/'ba13-recovery/run1/fit/certificate.json')
@@ -210,11 +212,12 @@ def main():
             discrepancy=maximum((P[n][i]-P[n][0])-(X[i][2048][n]-X[0][2048][n]))
             bx=sum(reference[t][n][k] for t in (0,i) for k in ('integration','eos_equilibrium','center','stencil'))
             share=.23*(cert['samples'][i]['threshold'][n]-cert['samples'][i]['drift_bound'][n])
-            gate='FAIL' if discrepancy>share else 'INCONCLUSIVE' if bx>=discrepancy else 'PASS_ESTIMATOR_ONLY'
+            orders_ok=all(reference[t][n]['order_status']=='ORDER_COMPATIBLE' and reference[t][n].get('stencil_status','ORDER_COMPATIBLE')=='ORDER_COMPATIBLE' for t in (0,i))
+            gate='FAIL' if discrepancy>share else 'INCONCLUSIVE' if bx>=discrepancy or discrepancy+bx>share or not orders_ok else 'PASS_ESTIMATOR_ONLY'
             m1[n][i]=dict(paired_production_minus_X2=discrepancy,reference_partial_estimate=bx,
                          R_estimate=discrepancy+bx,representation_share=share,
                          estimator_gate=gate,reference_band_complete=False,qualification='UNQUALIFIED',
-                         reason='reference remainders/evidence acceptance unresolved')
+                         order_gate_satisfied=orders_ok,reason='reference remainders/evidence acceptance unresolved')
     # M2's full-grid prerequisite is checked from actual retained raw profiles.
     grids=[];grid0=None
     for i in range(21):
@@ -225,10 +228,12 @@ def main():
         match=grid.shape==grid0.shape
         first=int(np.flatnonzero(grid!=grid0)[0]) if match and not same else None
         grids.append(dict(index=i,nodes=len(grid),identical_to_0=same,first_different_node=first,
+                          interior_identical_to_0=match and np.array_equal(grid[:-1],grid0[:-1]),
                           max_radial_difference_km=maximum(grid-grid0) if match else None,
                           r0=float(grid[0]),surface=float(grid[-1]),profile_sha256=sha(p),
                           grid_sha256=hashlib.sha256(grid.astype('<f8').tobytes()).hexdigest()))
     grid_ok=all(g['identical_to_0'] for g in grids)
+    interior_grid_ok=all(g['interior_identical_to_0'] for g in grids)
     selection={key:dict(values=[profiles[i][key] for i in range(21)],
                         constant=all(profiles[i][key]==profiles[0][key] for i in range(21)))
                for key in ('k','neutron_cell','envelope_node')}
@@ -246,6 +251,13 @@ def main():
                 selection=selection,continuous_selection_proven=False,
                 physical_response='no production-node jump charged to smooth physical response',
                 production_response='sample monotonicity and margins do not bound unsampled adaptive-controller changes')
+    window['sufficient_no_switch_conditions']=dict(
+        neutron_edge_Lipschitz_limit_km_per_x=2*float(edge_margin)/float(max(abs(np.diff(x)))),
+        neutron_edge_observed_secant_km_per_x=float(max(abs(np.diff(edge)/np.diff(x)))),
+        envelope_Lipschitz_limit_per_x=2*node_margin/float(max(abs(np.diff(x)))),
+        envelope_observed_secant_per_x=float(max(abs(np.diff(en)/np.diff(x)))),
+        rationale='nearest achieved sample is at most half the largest gap away; L*gap/2 < margin suffices without monotonicity',
+        derivative_bounds_established=False)
     # M5: independent endpoint error sets, full structure, both nonlinear tails.
     inv={};zscale={n:float(series[n][2][0]) for n in ('Z_row_npe','Z_row_npmu')}
     base=profiles[0]
@@ -284,7 +296,9 @@ def main():
             gaps.append(dict(left=j,right=j+1,achieved_spacing=width,coordinate_estimate=u,
                              tested_spacing=width+u,remainder_estimate=K*(width+u)**2/8,
                              evidence_type='conditional_estimate',condition_id='global-curvature-continuation',authority=None))
+        wide_K=10*max(maximum(derivatives[i][n][0]['curvature']) for i in TARGETS)
         curvature[n]=dict(K_hypothesis=K,factor=10,three_target_curvatures=curv,
+                          wider_stencil_K=wide_K,narrower_width_prediction_satisfied=all(v<=wide_K for v in curv),
                           cross_target_ratio=spread,estimator_gate='INCONCLUSIVE' if spread is None or spread>2 else 'PASS_ESTIMATOR_ONLY',
                           width_checks={i:derivatives[i][n] for i in TARGETS},intervals=gaps,
                           validated_supremum=False,missing='global derivative/continuation enclosure; fixed-cut H derivatives versus moving surface-cut response')
@@ -297,7 +311,9 @@ def main():
         transfer[n]=dict(representation_signed=rep,structural_samples=str_samples,
                          independent_endpoint_magnitude=mag,grid_identity=grid_ok,
                          transfer_validated=False,evidence_type='conditional_estimate',condition_id='all-target-structural-transfer',authority=None,
-                         reason='complete grids differ' if not grid_ok else 'grid identity alone does not establish an error-magnitude bound',
+                         interior_grid_identity=interior_grid_ok,
+                         reason=('interior grids agree; only moving surface node differs; full-grid transfer precondition fails and structural-error supremum remains unvalidated'
+                                 if interior_grid_ok and not grid_ok else 'complete grids differ; magnitude transfer unvalidated' if not grid_ok else 'grid identity alone does not establish an error-magnitude bound'),
                          common_B_removed_before_structural_estimate=True)
         vals,errs,scales,_=series[n];vals=np.asarray(vals,float);errs=np.asarray(errs,float);scales=np.asarray(scales,float)
         hfit=0.;design_change=0.;weight_change=0.;inner_excess=0.
@@ -329,7 +345,7 @@ def main():
             hr=history['threshold']-history['drift_bound'];alloc=budget(hr)
             term={k:dict(value=None,evidence_type='unresolved',source=None,missing_estimate='quantity-specific evidence absent') for k in FRACTIONS}
             def put(k,value,source,condition=None,missing='',charged_to=None):
-                term[k]=dict(value=value,evidence_type='conditional_estimate' if condition else 'analytic_bound',source=source,
+                term[k]=dict(value=value,evidence_type='unresolved' if value is None else 'conditional_estimate' if condition else 'analytic_bound',source=source,
                              missing_estimate=missing,condition_id=condition,authority=None,charged_to=charged_to)
             breakdown={}
             if n in transfer:
@@ -377,6 +393,7 @@ def main():
                     'nodewise-structural-reference','no independent X2 nodewise structural evidence at original support coordinates')
             if n in ('P2_average','species_support'):
                 assert np.all(P[n]==0)
+                if n=='P2_average':assert np.all(np.asarray(errs)==0)
                 for k in FRACTIONS:put(k,0.,'exact original P2 identity' if n=='P2_average' else 'exact sampled species topology identity')
                 if n=='species_support':
                     put('between_samples',None,'analytic threshold ordering at retained Hc',None,
@@ -395,23 +412,24 @@ def main():
     assert len(rows)==462 and len({(r['index'],r['quantity']) for r in rows})==462
     summary=dict(schema_id='compactstar.ba13.closure.v1',entry_commit='286aafb63002093b3052e23a3972903011f36035',
                  predeclaration_commit='fdffaaf',candidate=True,owner_ratified=False,disposition='E',
-                 counts=dict(Counter(r['status'] for r in rows)),full_BA13_closure=False,
-                 grid_identity=grid_ok,muon_counts=dict(Counter(r['status'] for r in rows if r['quantity'] in MUON)),
+                 counts={v:sum(r['status']==v for r in rows) for v in ('PASS','FAIL','UNQUALIFIED')},full_BA13_closure=False,
+                 grid_identity=grid_ok,interior_grid_identity=interior_grid_ok,
+                 muon_counts={v:sum(r['status']==v for r in rows if r['quantity'] in MUON) for v in ('PASS','FAIL','UNQUALIFIED')},
                  numerical_expansion_stopped=True,stop_reason='M2 transfer unproved; M1 reference and M3 global-continuation evidence incomplete',
                  remaining=['all-target structural-error transfer','X2 EOS/center/stage/arithmetic and tangent endpoint remainders',
                             'global curvature or accepted numerical continuation standard','uncertain-design and source-residual completion',
                             'metric and chemical-potential profile nodewise reference','five owner decisions'],
                  certificate_sha256=sha(R/'ba13-recovery/run1/fit/certificate.json'),fitter_sha256=sha(S/'tests/bnv/compare_candidate.py'))
     write('m1.json',dict(reference=reference,paired=m1,root_alignment=roots))
-    write('m2.json',dict(grids=grids,grid_identity=grid_ok,transfer=transfer,qualification='UNQUALIFIED'))
+    write('m2.json',dict(grids=grids,grid_identity=grid_ok,interior_grid_identity=interior_grid_ok,transfer=transfer,qualification='UNQUALIFIED'))
     write('m3.json',dict(window=window,curvatures=curvature))
     write('m4.json',dict(common_B=common,fit=fit,reconstructed_B=Br,production_B=Bp,achieved_x=x,design_x=design_x))
     write('m5.json',inv)
-    with gzip.open(O/'component-data.json.gz','xt') as f:
+    with gzip.open(RESULT/'component-data.json.gz','xt') as f:
         json.dump(dict(P=P,R=recon,X={i:X[i][2048] for i in TARGETS},
                        original_units={n:dict(scales=series[n][2],values=series[n][0]) for n in NAMES}),f,default=serial,allow_nan=False)
     write('matrix.json',dict(**summary,rows=rows));write('summary.json',summary)
-    with (O/'matrix.tsv').open('x') as f:
+    with (RESULT/'matrix.tsv').open('x') as f:
         cols=['index','quantity','historical_drift','threshold','headroom','units']+list(FRACTIONS)+['partial_utilization','proposed_total_utilization','status','missing']
         w=csv.DictWriter(f,fieldnames=cols,delimiter='\t');w.writeheader()
         for r in rows:

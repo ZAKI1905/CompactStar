@@ -74,5 +74,23 @@ class ClosureTests(unittest.TestCase):
         actual=abs(L.T@(np.linalg.inv(gi-e)-ai-np.linalg.inv(g0+e)+a0)@L)
         self.assertTrue(np.all(actual<=bound))
         self.assertTrue(np.any((abs(L).T@(r0+ri)@abs(L))>0))
+    def test_identical_selection_samples_do_not_preclude_switch(self):
+        h=5e-8
+        edge=lambda x:.5+.6*np.sin(np.pi*x/h)**2
+        self.assertAlmostEqual(edge(0),edge(h))
+        self.assertLess(edge(0),1.)
+        self.assertGreater(edge(h/2),1.)
+    def test_physical_chain_rule_and_tangent_curvature(self):
+        # B=exp(H), N=exp(3H), B0=1: N(B)=B^3 and
+        # t=dN/dB=3B^2, so N_xx=6B and t_xx=6 exactly.
+        for h in (0.,.1,-.1):
+            b=np.exp(h);n=np.exp(3*h);b1=b;b2=b;b3=b
+            n1=3*n;n2=9*n;n3=27*n
+            qxx=(n2*b1-n1*b2)/b1**3
+            t1=n2/b1-n1*b2/b1**2
+            t2=n3/b1-n1*b3/b1**2-2*n2*b2/b1**2+2*n1*b2*b2/b1**3
+            txx=(t2*b1-t1*b2)/b1**3
+            self.assertAlmostEqual(qxx,6*b)
+            self.assertAlmostEqual(txx,6.)
 
 if __name__=='__main__':unittest.main(verbosity=2)
