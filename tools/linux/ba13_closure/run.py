@@ -64,15 +64,19 @@ def main():
                     hc *= 1 + decimal.Decimal(width)*sign
             return call(label, [exe, str(hc), target['surfaceP_cgs'], n, '1e-4', 96, retired],
                         expected_rc=1 if retired else 0)
-        if phase == 'benchmark':
-            replay=solve(0,'t0-replay512')
+        if phase in ('benchmark','benchmark-v2'):
+            replay=solve(0,'t0-replay512' + ('-v2' if phase.endswith('v2') else ''))
             retained=json.loads((R/'ba13-headroom/t0-n512.json').read_text(),parse_float=decimal.Decimal)
-            if replay != retained:
+            # The older retained functional schema predates the four zero
+            # transport diagnostics. Every scientific decimal must match.
+            added=set(replay)-set(retained)
+            allowed={'defect_transport_uv','defect_absolute_transport_uv','stage_transport_uv','defect_quadrature_spread'}
+            if any(replay.get(k)!=v for k,v in retained.items()) or added!=allowed or any(replay[k] not in (0,[0,0]) for k in added):
                 raise RuntimeError('retained decimal replay differs')
             solve(0,'retired-defect-negative',retired=1)
             solve(0,'t0-n1024',1024)
         elif phase == 'm1':
-            estimate=json.loads((O/'receipt-benchmark.json').read_text())
+            estimate=json.loads((O/'receipt-benchmark-v2.json').read_text())
             if estimate['status']!='PASS':
                 raise RuntimeError('benchmark gate')
             for i in (0,10,20):
@@ -84,6 +88,9 @@ def main():
         else:
             raise ValueError(phase)
         status='PASS'
+    except BaseException:
+        status='ERROR'
+        raise
     finally:
         receipt=dict(phase=phase,status=status,job=os.environ['SLURM_JOB_ID'],
                      affinity=sorted(os.sched_getaffinity(0)),
