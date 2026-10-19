@@ -1,0 +1,1487 @@
+{
+  "reference": {
+    "0": {
+      "N_n": {
+        "integration": 1.973114235655678e-14,
+        "eos_equilibrium": 2.710505431213761e-19,
+        "center": 2.6020852139652106e-18,
+        "stencil": 0.0,
+        "order": [
+          3.9998770700042883
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "N_e": {
+        "integration": 4.905779920026202e-14,
+        "eos_equilibrium": 3.2526065174565133e-19,
+        "center": 8.456776945386935e-18,
+        "stencil": 0.0,
+        "order": [
+          3.999880707968143
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "N_mu": {
+        "integration": 9.382757880834389e-16,
+        "eos_equilibrium": 2.168404344971009e-19,
+        "center": 1.4159680372660688e-16,
+        "stencil": 0.0,
+        "order": [
+          3.9999277584137487
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "Ltilde_Me": {
+        "integration": 3.170243292420031e-15,
+        "eos_equilibrium": 3.7947076036992655e-19,
+        "center": 5.963111948670274e-19,
+        "stencil": 0.0,
+        "order": [
+          3.9997515351090196
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "Ltilde_Mmu": {
+        "integration": 2.7315317253454967e-15,
+        "eos_equilibrium": 4.336808689942018e-19,
+        "center": 1.0842021724855044e-18,
+        "stencil": 0.0,
+        "order": [
+          3.9999973754164553
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "Cstar": {
+        "integration": 7.664864836581797e-15,
+        "eos_equilibrium": 3.2526065174565133e-19,
+        "center": 1.1384122811097797e-18,
+        "stencil": 0.0,
+        "order": [
+          3.9998625009223256,
+          3.9998625009223256,
+          3.9998625009223256,
+          3.9998625009223256,
+          3.9998625009223256,
+          3.9998625009223256,
+          3.9998625009223256,
+          3.9998625009223256,
+          3.9998625009223256,
+          3.9998625009223256,
+          3.9998625009223256,
+          3.9998625009223256,
+          3.9998625009223256
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "radius": {
+        "integration": 1.8268625906018667e-15,
+        "eos_equilibrium": 5.421010862427522e-20,
+        "center": 3.2526065174565133e-19,
+        "stencil": 0.0,
+        "order": [
+          4.000082764332218
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "surface_gravity": {
+        "integration": 7.361284614278615e-15,
+        "eos_equilibrium": 7.589415207398531e-19,
+        "center": 2.2768245622195593e-18,
+        "stencil": 0.0,
+        "order": [
+          3.999992474419263
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "envelope": {
+        "integration": 2.100641709190665e-15,
+        "eos_equilibrium": 2.710505431213761e-19,
+        "center": 7.047314121155779e-19,
+        "stencil": 0.0,
+        "order": [
+          3.999986348627499,
+          3.999988985815577,
+          3.999991312748008,
+          3.9999888306856186,
+          3.999986348627499,
+          3.999991312748008,
+          3.9999937948146678,
+          3.999991312748008,
+          3.9999914678779667,
+          3.9999888306856186,
+          3.9999914678779667,
+          3.9999888306856186,
+          3.999991312748008
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "Tsurface_inf": {
+        "integration": 1.6703543929963426e-15,
+        "eos_equilibrium": 1.6263032587282567e-19,
+        "center": 5.963111948670274e-19,
+        "stencil": 0.0,
+        "order": [
+          3.99999863436658,
+          4.000001755816297,
+          4.0000019509068645,
+          4.0000015607257025,
+          3.99999863436658,
+          3.99999863436658,
+          3.999998439275986,
+          4.0000015607257025,
+          4.0000015607257025,
+          3.999998439275986,
+          3.999998439275986,
+          4.000001755816297,
+          3.9999951227424027
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "mu_B": {
+        "integration": 4.3028731619432213e-16,
+        "eos_equilibrium": 5.421010862427522e-20,
+        "center": 2.168404344971009e-19,
+        "stencil": 0.0,
+        "order": [
+          3.9999538021442076
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "P0_average": {
+        "integration": 4.302800881798389e-16,
+        "eos_equilibrium": 5.421010862427522e-20,
+        "center": 2.710505431213761e-19,
+        "stencil": 0.0,
+        "order": [
+          3.99997803690048
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "P1_average": {
+        "integration": 9.049727113519257e-16,
+        "eos_equilibrium": 1.0842021724855044e-19,
+        "center": 1.6263032587282567e-19,
+        "stencil": 0.0,
+        "order": [
+          3.999903493312138
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "Z_row_npe": {
+        "integration": 2.588126472395184e-14,
+        "eos_equilibrium": 3.7947076036992655e-19,
+        "center": 3.5236570605778894e-18,
+        "stencil": 0.0,
+        "order": [
+          3.9998771575807086,
+          3.999876981856742
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "Z_row_npmu": {
+        "integration": 1.2926906362472254e-15,
+        "eos_equilibrium": 4.336808689942018e-19,
+        "center": 2.815673041944855e-16,
+        "stencil": 0.0,
+        "order": [
+          3.9998767350270445,
+          3.9999415148296054
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "t_n": {
+        "integration": 1.2005004530649643e-06,
+        "eos_equilibrium": 1.7314708694593506e-16,
+        "center": 2.0320117116723324e-15,
+        "stencil": 5.738037034813219e-12,
+        "order": [
+          3.9998769712005813
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "stencil_ratio": 3.999370856290786,
+        "stencil_status": "ORDER_COMPATIBLE",
+        "stencil_values": [
+          0.9657700776382132,
+          0.9657700775693676,
+          0.9657700775521535
+        ],
+        "band_complete": false,
+        "missing": [
+          "endpoint GL4-error transfer to offset H",
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "t_e": {
+        "integration": 2.8571433596835803e-08,
+        "eos_equilibrium": 1.428605768839103e-16,
+        "center": 2.7255148550391073e-16,
+        "stencil": 1.3746888562649485e-11,
+        "order": [
+          3.999880832288986
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "stencil_ratio": 3.999976471225829,
+        "stencil_status": "ORDER_COMPATIBLE",
+        "stencil_values": [
+          0.030852178212355568,
+          0.03085217837731726,
+          0.030852178418557925
+        ],
+        "band_complete": false,
+        "missing": [
+          "endpoint GL4-error transfer to offset H",
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "t_mu": {
+        "integration": 2.081071356158373e-09,
+        "eos_equilibrium": 1.6979622460659705e-17,
+        "center": 3.457652018163098e-17,
+        "stencil": 8.009496731325742e-12,
+        "order": [
+          3.9999321770894785
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "stencil_ratio": 4.000006623875436,
+        "stencil_status": "ORDER_COMPATIBLE",
+        "stencil_values": [
+          0.0033777441494292253,
+          0.003377744053315105,
+          0.003377744029286615
+        ],
+        "band_complete": false,
+        "missing": [
+          "endpoint GL4-error transfer to offset H",
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      }
+    },
+    "10": {
+      "N_n": {
+        "integration": 1.9731529055331635e-14,
+        "eos_equilibrium": 2.168404344971009e-19,
+        "center": 2.4936649967166602e-18,
+        "stencil": 0.0,
+        "order": [
+          3.9998774853277426
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "N_e": {
+        "integration": 4.9058738842144844e-14,
+        "eos_equilibrium": 2.710505431213761e-19,
+        "center": 8.348356728138384e-18,
+        "stencil": 0.0,
+        "order": [
+          3.999880584036414
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "N_mu": {
+        "integration": 9.3830108613413e-16,
+        "eos_equilibrium": 2.710505431213761e-19,
+        "center": 1.415425936179826e-16,
+        "stencil": 0.0,
+        "order": [
+          3.999845791775719
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "Ltilde_Me": {
+        "integration": 3.1702107663548565e-15,
+        "eos_equilibrium": 0.0,
+        "center": 7.589415207398531e-19,
+        "stencil": 0.0,
+        "order": [
+          3.999792141458834
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "Ltilde_Mmu": {
+        "integration": 2.7315642514106712e-15,
+        "eos_equilibrium": 2.710505431213761e-19,
+        "center": 1.0299920638612292e-18,
+        "stencil": 0.0,
+        "order": [
+          3.999960154010279
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "Cstar": {
+        "integration": 7.664976870806288e-15,
+        "eos_equilibrium": 2.168404344971009e-19,
+        "center": 1.1926223897340549e-18,
+        "stencil": 0.0,
+        "order": [
+          3.999868710565232,
+          3.999868710565232,
+          3.999868710565232,
+          3.999868710565232,
+          3.999868710565232,
+          3.999868710565232,
+          3.999868710565232,
+          3.999868710565232,
+          3.999868710565232,
+          3.999868710565232,
+          3.999868710565232,
+          3.999868710565232,
+          3.999868710565232
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "radius": {
+        "integration": 1.8269673968118737e-15,
+        "eos_equilibrium": 0.0,
+        "center": 5.421010862427522e-19,
+        "stencil": 0.0,
+        "order": [
+          4.000015339419336
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "surface_gravity": {
+        "integration": 7.36132075435103e-15,
+        "eos_equilibrium": 0.0,
+        "center": 2.656295322589486e-18,
+        "stencil": 0.0,
+        "order": [
+          3.9999870294794615
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "envelope": {
+        "integration": 2.1006525512123895e-15,
+        "eos_equilibrium": 0.0,
+        "center": 9.215718466126788e-19,
+        "stencil": 0.0,
+        "order": [
+          3.999983866601406,
+          3.999984176860773,
+          3.999984021731098,
+          3.999984176860773,
+          3.999984021731098,
+          3.999984176860773,
+          3.999984176860773,
+          3.9999868140400103,
+          3.999981539685789,
+          3.999984176860773,
+          3.999981539685789,
+          3.999981539685789,
+          3.999984176860773
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "Tsurface_inf": {
+        "integration": 1.6703760770397924e-15,
+        "eos_equilibrium": 0.0,
+        "center": 7.047314121155779e-19,
+        "stencil": 0.0,
+        "order": [
+          3.999983612526381,
+          3.9999900504415913,
+          3.999983417436288,
+          3.999986929025643,
+          3.999987124115683,
+          3.9999838076164473,
+          3.999983612526381,
+          3.999983612526381,
+          3.999986733935576,
+          3.999986929025643,
+          3.9999838076164473,
+          3.999983612526381,
+          3.999980491123939
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "mu_B": {
+        "integration": 4.302764741725973e-16,
+        "eos_equilibrium": 0.0,
+        "center": 2.168404344971009e-19,
+        "stencil": 0.0,
+        "order": [
+          3.999990911785107
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "P0_average": {
+        "integration": 4.302837021870805e-16,
+        "eos_equilibrium": 0.0,
+        "center": 2.168404344971009e-19,
+        "stencil": 0.0,
+        "order": [
+          3.9999666768252813
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "P1_average": {
+        "integration": 9.049763253591672e-16,
+        "eos_equilibrium": 0.0,
+        "center": 1.0842021724855044e-19,
+        "stencil": 0.0,
+        "order": [
+          3.9999135767475713
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "Z_row_npe": {
+        "integration": 2.5881821281067048e-14,
+        "eos_equilibrium": 2.168404344971009e-19,
+        "center": 3.469446951953614e-18,
+        "stencil": 0.0,
+        "order": [
+          3.9998774876075793,
+          3.99987750934271
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "Z_row_npmu": {
+        "integration": 1.2927737584137826e-15,
+        "eos_equilibrium": 4.336808689942018e-19,
+        "center": 2.8124204354273985e-16,
+        "stencil": 0.0,
+        "order": [
+          3.999877616300819,
+          3.999870934421019
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "t_n": {
+        "integration": 1.2005227823892966e-06,
+        "eos_equilibrium": 3.602424348408961e-15,
+        "center": 1.7309287683731078e-16,
+        "stencil": 5.737134653345059e-12,
+        "order": [
+          3.9998774530621017
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "stencil_ratio": 3.9999640592045282,
+        "stencil_status": "ORDER_COMPATIBLE",
+        "stencil_values": [
+          0.9657702382544843,
+          0.9657702381856393,
+          0.9657702381684279
+        ],
+        "band_complete": false,
+        "missing": [
+          "endpoint GL4-error transfer to offset H",
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "t_e": {
+        "integration": 2.8571895076566447e-08,
+        "eos_equilibrium": 1.9487009391121884e-16,
+        "center": 1.2969090862000043e-16,
+        "stencil": 1.3746640058994042e-11,
+        "order": [
+          3.999880580703631
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "stencil_ratio": 4.000020281138173,
+        "stencil_status": "ORDER_COMPATIBLE",
+        "stencil_values": [
+          0.03085208125300793,
+          0.030852081417968448,
+          0.03085208145920837
+        ],
+        "band_complete": false,
+        "missing": [
+          "endpoint GL4-error transfer to offset H",
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "t_mu": {
+        "integration": 2.081070621947467e-09,
+        "eos_equilibrium": 2.2776080676957695e-17,
+        "center": 1.6773581696240096e-17,
+        "stencil": 8.009693429246168e-12,
+        "order": [
+          3.9998440773017725
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "stencil_ratio": 3.9999956896428412,
+        "stencil_status": "ORDER_COMPATIBLE",
+        "stencil_values": [
+          0.0033776804925079386,
+          0.003377680396391721,
+          0.003377680372362641
+        ],
+        "band_complete": false,
+        "missing": [
+          "endpoint GL4-error transfer to offset H",
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      }
+    },
+    "20": {
+      "N_n": {
+        "integration": 1.973189768407028e-14,
+        "eos_equilibrium": 2.710505431213761e-19,
+        "center": 2.222614453595284e-18,
+        "stencil": 0.0,
+        "order": [
+          3.9998790071113737
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "N_e": {
+        "integration": 4.9059613431897314e-14,
+        "eos_equilibrium": 2.710505431213761e-19,
+        "center": 8.185726402265558e-18,
+        "stencil": 0.0,
+        "order": [
+          3.9998823730948097
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "N_mu": {
+        "integration": 9.381926659168815e-16,
+        "eos_equilibrium": 2.168404344971009e-19,
+        "center": 1.415425936179826e-16,
+        "stencil": 0.0,
+        "order": [
+          3.9999739494602817
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "Ltilde_Me": {
+        "integration": 3.1704023087386623e-15,
+        "eos_equilibrium": 1.0842021724855044e-19,
+        "center": 4.87890977618477e-19,
+        "stencil": 0.0,
+        "order": [
+          3.999738697193185
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "Ltilde_Mmu": {
+        "integration": 2.7315244973310132e-15,
+        "eos_equilibrium": 2.710505431213761e-19,
+        "center": 1.1926223897340549e-18,
+        "stencil": 0.0,
+        "order": [
+          3.9999785259375273
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "Cstar": {
+        "integration": 7.665143115139401e-15,
+        "eos_equilibrium": 3.2526065174565133e-19,
+        "center": 9.75781955236954e-19,
+        "stencil": 0.0,
+        "order": [
+          3.9998643766701494,
+          3.9998643766701494,
+          3.9998643766701494,
+          3.9998643766701494,
+          3.9998643766701494,
+          3.9998643766701494,
+          3.9998643766701494,
+          3.9998643766701494,
+          3.9998643766701494,
+          3.9998643766701494,
+          3.9998643766701494,
+          3.9998643766701494,
+          3.9998643766701494
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "radius": {
+        "integration": 1.826909572696008e-15,
+        "eos_equilibrium": 0.0,
+        "center": 5.421010862427522e-19,
+        "stencil": 0.0,
+        "order": [
+          4.0000681364701025
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "surface_gravity": {
+        "integration": 7.361533980778287e-15,
+        "eos_equilibrium": 3.2526065174565133e-19,
+        "center": 2.3852447794681098e-18,
+        "stencil": 0.0,
+        "order": [
+          3.9999571051170597
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "envelope": {
+        "integration": 2.1007212173499805e-15,
+        "eos_equilibrium": 0.0,
+        "center": 7.047314121155779e-19,
+        "stencil": 0.0,
+        "order": [
+          3.9999486534965096,
+          3.999951135460688,
+          3.9999486534965096,
+          3.999951135460688,
+          3.9999512905888284,
+          3.9999539276854,
+          3.9999488086246497,
+          3.9999539276854,
+          3.9999512905888284,
+          3.9999486534965096,
+          3.9999512905888284,
+          3.9999512905888284,
+          3.999951135460688
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "Tsurface_inf": {
+        "integration": 1.6704230591339334e-15,
+        "eos_equilibrium": 1.0842021724855044e-19,
+        "center": 5.963111948670274e-19,
+        "stencil": 0.0,
+        "order": [
+          3.9999607878245764,
+          3.9999574714150596,
+          3.9999609829126643,
+          3.9999607878245764,
+          3.9999605927364623,
+          3.9999605927364623,
+          3.9999603976483216,
+          3.9999607878245764,
+          3.9999574714150596,
+          3.9999607878245764,
+          3.9999543501004102,
+          3.9999639091527324,
+          3.9999576665031737
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "mu_B": {
+        "integration": 4.30298158216047e-16,
+        "eos_equilibrium": 0.0,
+        "center": 1.0842021724855044e-19,
+        "stencil": 0.0,
+        "order": [
+          3.999934869810493
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "P0_average": {
+        "integration": 4.30298158216047e-16,
+        "eos_equilibrium": 2.168404344971009e-19,
+        "center": 1.0842021724855044e-19,
+        "stencil": 0.0,
+        "order": [
+          3.9999363844994575
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "P1_average": {
+        "integration": 9.049907813881339e-16,
+        "eos_equilibrium": 1.0842021724855044e-19,
+        "center": 0.0,
+        "stencil": 0.0,
+        "order": [
+          3.999915018535064
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "Z_row_npe": {
+        "integration": 2.5882370610167775e-14,
+        "eos_equilibrium": 3.2526065174565133e-19,
+        "center": 3.144186300207963e-18,
+        "stencil": 0.0,
+        "order": [
+          3.9998783967933873,
+          3.999878415887436
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "Z_row_npmu": {
+        "integration": 1.2927159342979167e-15,
+        "eos_equilibrium": 3.2526065174565133e-19,
+        "center": 2.8124204354273985e-16,
+        "stencil": 0.0,
+        "order": [
+          3.9998782932134773,
+          3.9999672290706645
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "band_complete": false,
+        "missing": [
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "t_n": {
+        "integration": 1.200544927853822e-06,
+        "eos_equilibrium": 1.7309287683731078e-16,
+        "center": 4.616532850443278e-16,
+        "stencil": 5.735339214547423e-12,
+        "order": [
+          3.9998790820340373
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "stencil_ratio": 4.001107197641964,
+        "stencil_status": "ORDER_COMPATIBLE",
+        "stencil_values": [
+          0.9657703988694869,
+          0.9657703988006437,
+          0.9657703987834377
+        ],
+        "band_complete": false,
+        "missing": [
+          "endpoint GL4-error transfer to offset H",
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "t_e": {
+        "integration": 2.8572353724551546e-08,
+        "eos_equilibrium": 1.1651954629019606e-16,
+        "center": 3.3705812663500923e-16,
+        "stencil": 1.3746542526538297e-11,
+        "order": [
+          3.999882368409074
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "stencil_ratio": 4.000043915891877,
+        "stencil_status": "ORDER_COMPATIBLE",
+        "stencil_values": [
+          0.03085198429419988,
+          0.030851984459160202,
+          0.030851984500399828
+        ],
+        "band_complete": false,
+        "missing": [
+          "endpoint GL4-error transfer to offset H",
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      },
+      "t_mu": {
+        "integration": 2.0810695769623524e-09,
+        "eos_equilibrium": 1.708190168904066e-17,
+        "center": 4.750668987970469e-17,
+        "stencil": 8.00987005919142e-12,
+        "order": [
+          3.999973428313375
+        ],
+        "order_status": "ORDER_COMPATIBLE",
+        "stencil_ratio": 3.99998969894467,
+        "stencil_status": "ORDER_COMPATIBLE",
+        "stencil_values": [
+          0.0033776168363132933,
+          0.0033776167401951,
+          0.0033776167161654897
+        ],
+        "band_complete": false,
+        "missing": [
+          "endpoint GL4-error transfer to offset H",
+          "implicit-stage and arithmetic propagation",
+          "EOS/center unseen remainders"
+        ]
+      }
+    }
+  },
+  "paired": {
+    "N_n": {
+      "10": {
+        "paired_production_minus_X2": 1.6780251233666776e-14,
+        "reference_partial_estimate": 3.946825505307672e-14,
+        "R_estimate": 5.6248506286743496e-14,
+        "representation_share": 2.2888223312038977e-05,
+        "estimator_gate": "INCONCLUSIVE",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      },
+      "20": {
+        "paired_production_minus_X2": 2.850362090453529e-14,
+        "reference_partial_estimate": 3.9468406841380864e-14,
+        "R_estimate": 6.797202774591616e-14,
+        "representation_share": 2.2776446605705478e-05,
+        "estimator_gate": "INCONCLUSIVE",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      }
+    },
+    "N_e": {
+      "10": {
+        "paired_production_minus_X2": 1.5821678277412599e-12,
+        "reference_partial_estimate": 9.813393948727525e-14,
+        "R_estimate": 1.6803017672285352e-12,
+        "representation_share": 2.2438378705619965e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      },
+      "20": {
+        "paired_production_minus_X2": 3.1732300706348304e-12,
+        "reference_partial_estimate": 9.813465144670185e-14,
+        "R_estimate": 3.271364722081532e-12,
+        "representation_share": 2.1876759311587133e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      }
+    },
+    "N_mu": {
+      "10": {
+        "paired_production_minus_X2": 5.651195928314118e-11,
+        "reference_partial_estimate": 2.160204162539777e-15,
+        "R_estimate": 5.651411948730372e-11,
+        "representation_share": 1.6781272287794445e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      },
+      "20": {
+        "paired_production_minus_X2": 1.1573406236186148e-10,
+        "reference_partial_estimate": 2.1600415322139042e-15,
+        "R_estimate": 1.157362224033937e-10,
+        "representation_share": 1.0562669963419086e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      }
+    },
+    "Ltilde_Me": {
+      "10": {
+        "paired_production_minus_X2": 1.5175631330377926e-06,
+        "reference_partial_estimate": 6.342188782250865e-15,
+        "R_estimate": 1.5175631393799814e-06,
+        "representation_share": 2.2858990976164372e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      },
+      "20": {
+        "paired_production_minus_X2": 3.0356803498329224e-06,
+        "reference_partial_estimate": 6.342217694308797e-15,
+        "R_estimate": 3.03568035617514e-06,
+        "representation_share": 2.2717863703380473e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      }
+    },
+    "Ltilde_Mmu": {
+      "10": {
+        "paired_production_minus_X2": 3.503713647879693e-10,
+        "reference_partial_estimate": 5.465914902404631e-15,
+        "R_estimate": 3.503768307028717e-10,
+        "representation_share": 2.0046670139677007e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      },
+      "20": {
+        "paired_production_minus_X2": 7.198556785381616e-10,
+        "reference_partial_estimate": 5.4660377786508455e-15,
+        "R_estimate": 7.198611445759402e-10,
+        "representation_share": 1.7093348615635817e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      }
+    },
+    "Cstar": {
+      "10": {
+        "paired_production_minus_X2": 5.3788345352723775e-09,
+        "reference_partial_estimate": 1.533271484314517e-14,
+        "R_estimate": 5.378849867987221e-09,
+        "representation_share": 2.2832180655603854e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      },
+      "20": {
+        "paired_production_minus_X2": 1.1026793646630537e-08,
+        "reference_partial_estimate": 1.5332772667261034e-14,
+        "R_estimate": 1.1026808979403205e-08,
+        "representation_share": 2.2664428063306317e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      }
+    },
+    "radius": {
+      "10": {
+        "paired_production_minus_X2": 6.79223875494489e-13,
+        "reference_partial_estimate": 3.654751559260353e-15,
+        "R_estimate": 6.828786270537494e-13,
+        "representation_share": 2.2852447334904396e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      },
+      "20": {
+        "paired_production_minus_X2": 1.3638991737223438e-12,
+        "reference_partial_estimate": 3.654693735144487e-15,
+        "R_estimate": 1.3675538674574883e-12,
+        "representation_share": 2.2704895177032013e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      }
+    },
+    "surface_gravity": {
+      "10": {
+        "paired_production_minus_X2": 1.7101785482545595e-12,
+        "reference_partial_estimate": 1.4728297430035192e-14,
+        "R_estimate": 1.7249068456845947e-12,
+        "representation_share": 2.257391075746161e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      },
+      "20": {
+        "paired_production_minus_X2": 3.4369918478112382e-12,
+        "reference_partial_estimate": 1.4728564866571073e-14,
+        "R_estimate": 3.4517204126778095e-12,
+        "representation_share": 2.214782353909201e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      }
+    },
+    "envelope": {
+      "10": {
+        "paired_production_minus_X2": 3.2404002055078963e-08,
+        "reference_partial_estimate": 4.203191614204904e-15,
+        "R_estimate": 3.2404006258270575e-08,
+        "representation_share": 2.2887832475973318e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      },
+      "20": {
+        "paired_production_minus_X2": 6.480784642872708e-08,
+        "reference_partial_estimate": 4.203043439907998e-15,
+        "R_estimate": 6.480785063177051e-08,
+        "representation_share": 2.277566531467362e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      }
+    },
+    "Tsurface_inf": {
+      "10": {
+        "paired_production_minus_X2": 3.2404321483915643e-08,
+        "reference_partial_estimate": 3.3421941429689905e-15,
+        "R_estimate": 3.2404324826109785e-08,
+        "representation_share": 2.2909487911404025e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      },
+      "20": {
+        "paired_production_minus_X2": 6.48084921553091e-08,
+        "reference_partial_estimate": 3.3422411250631312e-15,
+        "R_estimate": 6.480849549755021e-08,
+        "representation_share": 2.281897606740127e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      }
+    },
+    "mu_B": {
+      "10": {
+        "paired_production_minus_X2": 6.088445719809599e-14,
+        "reference_partial_estimate": 8.610516813445378e-16,
+        "R_estimate": 6.174550887944053e-14,
+        "representation_share": 2.2978349625712177e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      },
+      "20": {
+        "paired_production_minus_X2": 1.2318444875258905e-13,
+        "reference_partial_estimate": 8.609649451707391e-16,
+        "R_estimate": 1.240454136977598e-13,
+        "representation_share": 2.2956699298244296e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      }
+    },
+    "P0_average": {
+      "10": {
+        "paired_production_minus_X2": 6.088429456777011e-14,
+        "reference_partial_estimate": 8.611058914531621e-16,
+        "R_estimate": 6.174540045922328e-14,
+        "representation_share": 2.2978349625712177e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      },
+      "20": {
+        "paired_production_minus_X2": 1.2318439454248042e-13,
+        "reference_partial_estimate": 8.612287676993772e-16,
+        "R_estimate": 1.240456233101798e-13,
+        "representation_share": 2.2956699298244296e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      }
+    },
+    "P1_average": {
+      "10": {
+        "paired_production_minus_X2": 9.530066623006372e-14,
+        "reference_partial_estimate": 1.810328507471463e-15,
+        "R_estimate": 9.711099473753519e-14,
+        "representation_share": 2.296993241072494e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      },
+      "20": {
+        "paired_production_minus_X2": 1.9221717316789122e-13,
+        "reference_partial_estimate": 1.8103429635004295e-15,
+        "R_estimate": 1.9402751613139164e-13,
+        "representation_share": 2.2939864889895615e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      }
+    },
+    "Z_row_npe": {
+      "10": {
+        "paired_production_minus_X2": 3.9579591719959145e-11,
+        "reference_partial_estimate": 5.177067542022628e-14,
+        "R_estimate": 3.963136239537937e-11,
+        "representation_share": 2.2751253284493493e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      },
+      "20": {
+        "paired_production_minus_X2": 8.129537901148051e-11,
+        "reference_partial_estimate": 5.1771007908892515e-14,
+        "R_estimate": 8.13471500193894e-11,
+        "representation_share": 2.2502505931700494e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      }
+    },
+    "Z_row_npmu": {
+      "10": {
+        "paired_production_minus_X2": 4.1375048406930987e-11,
+        "reference_partial_estimate": 3.1491411041362217e-15,
+        "R_estimate": 4.137819754803512e-11,
+        "representation_share": 1.8964444262237597e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      },
+      "20": {
+        "paired_production_minus_X2": 8.281650576901986e-11,
+        "reference_partial_estimate": 3.1489748598031073e-15,
+        "R_estimate": 8.281965474387966e-11,
+        "representation_share": 1.4928791434250414e-05,
+        "estimator_gate": "PASS_ESTIMATOR_ONLY",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      }
+    },
+    "t_n": {
+      "10": {
+        "paired_production_minus_X2": 2.5608222270143144e-10,
+        "reference_partial_estimate": 2.4010347166066248e-06,
+        "R_estimate": 2.4012907988293262e-06,
+        "representation_share": 2.2175832125492596e-05,
+        "estimator_gate": "INCONCLUSIVE",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      },
+      "20": {
+        "paired_production_minus_X2": 5.082629845427553e-10,
+        "reference_partial_estimate": 2.4010568571349407e-06,
+        "R_estimate": 2.4015651201194834e-06,
+        "representation_share": 2.213895236313848e-05,
+        "estimator_gate": "INCONCLUSIVE",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      }
+    },
+    "t_e": {
+      "10": {
+        "paired_production_minus_X2": 1.398465800897964e-10,
+        "reference_partial_estimate": 5.717082294199696e-08,
+        "R_estimate": 5.7310669522086756e-08,
+        "representation_share": 6.873286013152844e-07,
+        "estimator_gate": "INCONCLUSIVE",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      },
+      "20": {
+        "paired_production_minus_X2": 2.8566698110482885e-10,
+        "reference_partial_estimate": 5.717128162146627e-08,
+        "R_estimate": 5.74569486025711e-08,
+        "representation_share": 6.650593873443278e-07,
+        "estimator_gate": "INCONCLUSIVE",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      }
+    },
+    "t_mu": {
+      "10": {
+        "paired_production_minus_X2": 1.1623487635640831e-10,
+        "reference_partial_estimate": 4.1781612593722164e-09,
+        "R_estimate": 4.294396135728625e-09,
+        "representation_share": 6.30720473114729e-08,
+        "estimator_gate": "INCONCLUSIVE",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      },
+      "20": {
+        "paired_production_minus_X2": 2.2259095079999868e-10,
+        "reference_partial_estimate": 4.178160416055977e-09,
+        "R_estimate": 4.400751366855976e-09,
+        "representation_share": 4.845412221752205e-08,
+        "estimator_gate": "INCONCLUSIVE",
+        "reference_band_complete": false,
+        "qualification": "UNQUALIFIED",
+        "order_gate_satisfied": true,
+        "reason": "reference remainders/evidence acceptance unresolved"
+      }
+    }
+  },
+  "root_alignment": {
+    "0": {
+      "computed_B_residual": 1.422116574895159e+43,
+      "functional_GL4_tail_estimate": 1.5169254808293928e+43,
+      "slope_secants": [
+        1.918040670717177e+57,
+        1.918040664407865e+57,
+        1.9180406628305148e+57
+      ],
+      "local_slope_hypothesis": 1.916122623743457e+57,
+      "H_error_estimate": 1.5338486270688957e-14,
+      "evidence_type": "conditional_estimate",
+      "condition_id": "positive-B-slope-and-reference-band",
+      "authority": null,
+      "missing": "local derivative enclosure and EOS/center/stage/arithmetic B remainder"
+    },
+    "10": {
+      "computed_B_residual": 1.18644551462489e+43,
+      "functional_GL4_tail_estimate": 1.51695468839922e+43,
+      "slope_secants": [
+        1.9180462090878145e+57,
+        1.9180462027785396e+57,
+        1.9180462012012358e+57
+      ],
+      "local_slope_hypothesis": 1.916128156575761e+57,
+      "H_error_estimate": 1.4108660705948042e-14,
+      "evidence_type": "conditional_estimate",
+      "condition_id": "positive-B-slope-and-reference-band",
+      "authority": null,
+      "missing": "local derivative enclosure and EOS/center/stage/arithmetic B remainder"
+    },
+    "20": {
+      "computed_B_residual": 1.3436134328464985e+43,
+      "functional_GL4_tail_estimate": 1.5169827616944911e+43,
+      "slope_secants": [
+        1.9180517474539367e+57,
+        1.918051741144628e+57,
+        1.9180517395673315e+57
+      ],
+      "local_slope_hypothesis": 1.9161336894034835e+57,
+      "H_error_estimate": 1.4929001094028723e-14,
+      "evidence_type": "conditional_estimate",
+      "condition_id": "positive-B-slope-and-reference-band",
+      "authority": null,
+      "missing": "local derivative enclosure and EOS/center/stage/arithmetic B remainder"
+    }
+  }
+}

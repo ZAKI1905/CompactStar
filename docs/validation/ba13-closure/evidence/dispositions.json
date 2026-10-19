@@ -1,0 +1,528 @@
+{
+  "schema_id": "compactstar.ba13.closure.v1",
+  "entry_commit": "286aafb63002093b3052e23a3972903011f36035",
+  "predeclaration_commit": "fdffaaf",
+  "candidate": true,
+  "owner_ratified": false,
+  "disposition": "E",
+  "counts": {
+    "PASS": 21,
+    "FAIL": 0,
+    "UNQUALIFIED": 441
+  },
+  "full_BA13_closure": false,
+  "grid_identity": false,
+  "interior_grid_identity": true,
+  "muon_counts": {
+    "PASS": 0,
+    "FAIL": 0,
+    "UNQUALIFIED": 105
+  },
+  "numerical_expansion_stopped": true,
+  "stop_reason": "M2 transfer unproved; M1 reference and M3 global-continuation evidence incomplete",
+  "remaining": [
+    "all-target structural-error transfer",
+    "X2 EOS/center/stage/arithmetic and tangent endpoint remainders",
+    "global curvature or accepted numerical continuation standard",
+    "uncertain-design and source-residual completion",
+    "metric and chemical-potential profile nodewise reference",
+    "five owner decisions"
+  ],
+  "certificate_sha256": "4212cad05bb4244ab75e80b8dfea023e6d0fcee69086c9993bd48d26a40e41fb",
+  "fitter_sha256": "9b3ef1ce17df7e1f8d2d7c40e111ee0844abfddc2cc54b8f93cb3f2ce1322370",
+  "implementation": {
+    "D1": "CORRECTED",
+    "D2": "RETIRED",
+    "D3": "CORRECTED",
+    "D4": "CORRECTED",
+    "D5": "CORRECTED",
+    "D6": "CORRECTED"
+  },
+  "milestones": {
+    "M1": {
+      "status": "INCONCLUSIVE",
+      "per_quantity": {
+        "N_n": {
+          "10": {
+            "paired_production_minus_X2": 1.6780251233666776e-14,
+            "reference_partial_estimate": 3.946825505307672e-14,
+            "R_estimate": 5.6248506286743496e-14,
+            "representation_share": 2.2888223312038977e-05,
+            "estimator_gate": "INCONCLUSIVE",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          },
+          "20": {
+            "paired_production_minus_X2": 2.850362090453529e-14,
+            "reference_partial_estimate": 3.9468406841380864e-14,
+            "R_estimate": 6.797202774591616e-14,
+            "representation_share": 2.2776446605705478e-05,
+            "estimator_gate": "INCONCLUSIVE",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          }
+        },
+        "N_e": {
+          "10": {
+            "paired_production_minus_X2": 1.5821678277412599e-12,
+            "reference_partial_estimate": 9.813393948727525e-14,
+            "R_estimate": 1.6803017672285352e-12,
+            "representation_share": 2.2438378705619965e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          },
+          "20": {
+            "paired_production_minus_X2": 3.1732300706348304e-12,
+            "reference_partial_estimate": 9.813465144670185e-14,
+            "R_estimate": 3.271364722081532e-12,
+            "representation_share": 2.1876759311587133e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          }
+        },
+        "N_mu": {
+          "10": {
+            "paired_production_minus_X2": 5.651195928314118e-11,
+            "reference_partial_estimate": 2.160204162539777e-15,
+            "R_estimate": 5.651411948730372e-11,
+            "representation_share": 1.6781272287794445e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          },
+          "20": {
+            "paired_production_minus_X2": 1.1573406236186148e-10,
+            "reference_partial_estimate": 2.1600415322139042e-15,
+            "R_estimate": 1.157362224033937e-10,
+            "representation_share": 1.0562669963419086e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          }
+        },
+        "Ltilde_Me": {
+          "10": {
+            "paired_production_minus_X2": 1.5175631330377926e-06,
+            "reference_partial_estimate": 6.342188782250865e-15,
+            "R_estimate": 1.5175631393799814e-06,
+            "representation_share": 2.2858990976164372e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          },
+          "20": {
+            "paired_production_minus_X2": 3.0356803498329224e-06,
+            "reference_partial_estimate": 6.342217694308797e-15,
+            "R_estimate": 3.03568035617514e-06,
+            "representation_share": 2.2717863703380473e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          }
+        },
+        "Ltilde_Mmu": {
+          "10": {
+            "paired_production_minus_X2": 3.503713647879693e-10,
+            "reference_partial_estimate": 5.465914902404631e-15,
+            "R_estimate": 3.503768307028717e-10,
+            "representation_share": 2.0046670139677007e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          },
+          "20": {
+            "paired_production_minus_X2": 7.198556785381616e-10,
+            "reference_partial_estimate": 5.4660377786508455e-15,
+            "R_estimate": 7.198611445759402e-10,
+            "representation_share": 1.7093348615635817e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          }
+        },
+        "Cstar": {
+          "10": {
+            "paired_production_minus_X2": 5.3788345352723775e-09,
+            "reference_partial_estimate": 1.533271484314517e-14,
+            "R_estimate": 5.378849867987221e-09,
+            "representation_share": 2.2832180655603854e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          },
+          "20": {
+            "paired_production_minus_X2": 1.1026793646630537e-08,
+            "reference_partial_estimate": 1.5332772667261034e-14,
+            "R_estimate": 1.1026808979403205e-08,
+            "representation_share": 2.2664428063306317e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          }
+        },
+        "radius": {
+          "10": {
+            "paired_production_minus_X2": 6.79223875494489e-13,
+            "reference_partial_estimate": 3.654751559260353e-15,
+            "R_estimate": 6.828786270537494e-13,
+            "representation_share": 2.2852447334904396e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          },
+          "20": {
+            "paired_production_minus_X2": 1.3638991737223438e-12,
+            "reference_partial_estimate": 3.654693735144487e-15,
+            "R_estimate": 1.3675538674574883e-12,
+            "representation_share": 2.2704895177032013e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          }
+        },
+        "surface_gravity": {
+          "10": {
+            "paired_production_minus_X2": 1.7101785482545595e-12,
+            "reference_partial_estimate": 1.4728297430035192e-14,
+            "R_estimate": 1.7249068456845947e-12,
+            "representation_share": 2.257391075746161e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          },
+          "20": {
+            "paired_production_minus_X2": 3.4369918478112382e-12,
+            "reference_partial_estimate": 1.4728564866571073e-14,
+            "R_estimate": 3.4517204126778095e-12,
+            "representation_share": 2.214782353909201e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          }
+        },
+        "envelope": {
+          "10": {
+            "paired_production_minus_X2": 3.2404002055078963e-08,
+            "reference_partial_estimate": 4.203191614204904e-15,
+            "R_estimate": 3.2404006258270575e-08,
+            "representation_share": 2.2887832475973318e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          },
+          "20": {
+            "paired_production_minus_X2": 6.480784642872708e-08,
+            "reference_partial_estimate": 4.203043439907998e-15,
+            "R_estimate": 6.480785063177051e-08,
+            "representation_share": 2.277566531467362e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          }
+        },
+        "Tsurface_inf": {
+          "10": {
+            "paired_production_minus_X2": 3.2404321483915643e-08,
+            "reference_partial_estimate": 3.3421941429689905e-15,
+            "R_estimate": 3.2404324826109785e-08,
+            "representation_share": 2.2909487911404025e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          },
+          "20": {
+            "paired_production_minus_X2": 6.48084921553091e-08,
+            "reference_partial_estimate": 3.3422411250631312e-15,
+            "R_estimate": 6.480849549755021e-08,
+            "representation_share": 2.281897606740127e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          }
+        },
+        "mu_B": {
+          "10": {
+            "paired_production_minus_X2": 6.088445719809599e-14,
+            "reference_partial_estimate": 8.610516813445378e-16,
+            "R_estimate": 6.174550887944053e-14,
+            "representation_share": 2.2978349625712177e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          },
+          "20": {
+            "paired_production_minus_X2": 1.2318444875258905e-13,
+            "reference_partial_estimate": 8.609649451707391e-16,
+            "R_estimate": 1.240454136977598e-13,
+            "representation_share": 2.2956699298244296e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          }
+        },
+        "P0_average": {
+          "10": {
+            "paired_production_minus_X2": 6.088429456777011e-14,
+            "reference_partial_estimate": 8.611058914531621e-16,
+            "R_estimate": 6.174540045922328e-14,
+            "representation_share": 2.2978349625712177e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          },
+          "20": {
+            "paired_production_minus_X2": 1.2318439454248042e-13,
+            "reference_partial_estimate": 8.612287676993772e-16,
+            "R_estimate": 1.240456233101798e-13,
+            "representation_share": 2.2956699298244296e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          }
+        },
+        "P1_average": {
+          "10": {
+            "paired_production_minus_X2": 9.530066623006372e-14,
+            "reference_partial_estimate": 1.810328507471463e-15,
+            "R_estimate": 9.711099473753519e-14,
+            "representation_share": 2.296993241072494e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          },
+          "20": {
+            "paired_production_minus_X2": 1.9221717316789122e-13,
+            "reference_partial_estimate": 1.8103429635004295e-15,
+            "R_estimate": 1.9402751613139164e-13,
+            "representation_share": 2.2939864889895615e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          }
+        },
+        "Z_row_npe": {
+          "10": {
+            "paired_production_minus_X2": 3.9579591719959145e-11,
+            "reference_partial_estimate": 5.177067542022628e-14,
+            "R_estimate": 3.963136239537937e-11,
+            "representation_share": 2.2751253284493493e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          },
+          "20": {
+            "paired_production_minus_X2": 8.129537901148051e-11,
+            "reference_partial_estimate": 5.1771007908892515e-14,
+            "R_estimate": 8.13471500193894e-11,
+            "representation_share": 2.2502505931700494e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          }
+        },
+        "Z_row_npmu": {
+          "10": {
+            "paired_production_minus_X2": 4.1375048406930987e-11,
+            "reference_partial_estimate": 3.1491411041362217e-15,
+            "R_estimate": 4.137819754803512e-11,
+            "representation_share": 1.8964444262237597e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          },
+          "20": {
+            "paired_production_minus_X2": 8.281650576901986e-11,
+            "reference_partial_estimate": 3.1489748598031073e-15,
+            "R_estimate": 8.281965474387966e-11,
+            "representation_share": 1.4928791434250414e-05,
+            "estimator_gate": "PASS_ESTIMATOR_ONLY",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          }
+        },
+        "t_n": {
+          "10": {
+            "paired_production_minus_X2": 2.5608222270143144e-10,
+            "reference_partial_estimate": 2.4010347166066248e-06,
+            "R_estimate": 2.4012907988293262e-06,
+            "representation_share": 2.2175832125492596e-05,
+            "estimator_gate": "INCONCLUSIVE",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          },
+          "20": {
+            "paired_production_minus_X2": 5.082629845427553e-10,
+            "reference_partial_estimate": 2.4010568571349407e-06,
+            "R_estimate": 2.4015651201194834e-06,
+            "representation_share": 2.213895236313848e-05,
+            "estimator_gate": "INCONCLUSIVE",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          }
+        },
+        "t_e": {
+          "10": {
+            "paired_production_minus_X2": 1.398465800897964e-10,
+            "reference_partial_estimate": 5.717082294199696e-08,
+            "R_estimate": 5.7310669522086756e-08,
+            "representation_share": 6.873286013152844e-07,
+            "estimator_gate": "INCONCLUSIVE",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          },
+          "20": {
+            "paired_production_minus_X2": 2.8566698110482885e-10,
+            "reference_partial_estimate": 5.717128162146627e-08,
+            "R_estimate": 5.74569486025711e-08,
+            "representation_share": 6.650593873443278e-07,
+            "estimator_gate": "INCONCLUSIVE",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          }
+        },
+        "t_mu": {
+          "10": {
+            "paired_production_minus_X2": 1.1623487635640831e-10,
+            "reference_partial_estimate": 4.1781612593722164e-09,
+            "R_estimate": 4.294396135728625e-09,
+            "representation_share": 6.30720473114729e-08,
+            "estimator_gate": "INCONCLUSIVE",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          },
+          "20": {
+            "paired_production_minus_X2": 2.2259095079999868e-10,
+            "reference_partial_estimate": 4.178160416055977e-09,
+            "R_estimate": 4.400751366855976e-09,
+            "representation_share": 4.845412221752205e-08,
+            "estimator_gate": "INCONCLUSIVE",
+            "reference_band_complete": false,
+            "qualification": "UNQUALIFIED",
+            "order_gate_satisfied": true,
+            "reason": "reference remainders/evidence acceptance unresolved"
+          }
+        }
+      },
+      "reason": "tangent endpoint reference dominates measured paired error; all reference bands lack named remainders"
+    },
+    "M2": {
+      "status": "INCONCLUSIVE",
+      "full_grid_identity": false,
+      "interior_grid_identity": true,
+      "reason": "moving final node plus unvalidated all-target structural magnitude"
+    },
+    "M3": {
+      "status": "CONDITIONAL",
+      "all_intervals_evaluated": 20,
+      "narrower_width_test_satisfied": true,
+      "reason": "factor 10 hypothesis is tested, not a uniform derivative enclosure"
+    },
+    "M4": {
+      "status": "PARTIAL_EVIDENCE",
+      "reason": "functional/common-B/denominator/design terms evaluated; numerical and residual-input remainders not established"
+    },
+    "M5": {
+      "status": "ALGEBRA_VERIFIED_CONDITIONAL_INPUT",
+      "majorants": {
+        "Z_row_npe": 1.964651762540869e-07,
+        "Z_row_npmu": 5.596724943450813e-07
+      },
+      "reason": "per-target inherited background magnitude hypothesis still needs validation/acceptance"
+    },
+    "M6": {
+      "status": "PASS_IMPLEMENTATION",
+      "existing_tests": 17,
+      "new_tests": 13,
+      "independent_checks": 113,
+      "scientific_acceptance": false
+    }
+  },
+  "owner_decisions": [
+    "inter-sample remainder",
+    "accepted evidence classes/standard",
+    "physical response versus production output",
+    "sidecar versus successor runtime record",
+    "magnitude transfer across targets"
+  ],
+  "observer": {
+    "feasible_in_principle": true,
+    "implemented": false,
+    "reason": "M1-M3 prerequisite/transfer stop",
+    "method": "passive existing step observer; retain collocation polynomials and evaluate original support coordinates; verify dense-output order",
+    "estimated_three_target_512_1024_2048_solver_cpu_seconds": 12,
+    "observer_overhead_benchmarked": false
+  },
+  "no_promotion": true
+}

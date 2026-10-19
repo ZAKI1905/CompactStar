@@ -42,7 +42,7 @@ def main():
                    extension_numerical_cpu_seconds=0,new_blanket_sequence_solves=0,
                    scope='all newly scored stellar/static/audit runs, including stopped schema replay and all static assemblies',
                    excluded='initial historical fitter/authentication replay, login-node source edits/hash/packaging/startup and Slurm connectivity probes were not metered; no exact whole-session CPU claim',
-                   stopped_run='receipt-benchmark.json says RUNNING because its then-current finally block recorded that before the schema exception; final-slurm-18965.txt and traceback retain actual FAILED state',
+                   stopped_run='receipt-benchmark.json says RUNNING because its then-current finally block recorded that before the schema exception; the traceback records the stop. The early final Slurm state expired; final-slurm-18965.txt retains the failed query, not an invented scheduler state.',
                    allocation='one pinned logical core; Slurm may allocate both hardware threads of that core; see allocation receipts')
     save(E/'resources.json',resources);save(O/'resources.json',resources)
     m1=read(F/'m1.json');m2=read(F/'m2.json');m3=read(F/'m3.json');m5=read(F/'m5.json')
@@ -74,7 +74,9 @@ def main():
     source['receipt_source_note']='Execution receipts bind the exact earlier Git revisions. Later output-directory configuration changes only reproduction I/O, not equations/scoring; final source files are hashed separately here.'
     git=R/'toolchain/bin/git'
     source['changed_paths']=sorted(set(subprocess.check_output([str(git),'-C',str(S),'diff','--name-only',source['entry']],text=True).splitlines()+
-        subprocess.check_output([str(git),'-C',str(S),'ls-files','--others','--exclude-standard'],text=True).splitlines()))
+        subprocess.check_output([str(git),'-C',str(S),'ls-files','--others','--exclude-standard'],text=True).splitlines()+
+        ['docs/validation/ba13-closure/MATRIX.md']+
+        ['docs/validation/ba13-closure/evidence/'+n for n in ('source-hashes.json','inputs.json','external-manifest.json','COMPLETE.json')]))
     save(E/'source-hashes.json',source);save(O/'source-hashes.json',source)
     manifests=[('headroom','docs/validation/ba13-headroom/evidence/external-manifest.json',R/'ba13-headroom'),
                ('x2','docs/validation/x2-fixed-step/evidence/external-manifest.json',R/'x2-fixed-step'),

@@ -154,9 +154,18 @@ run: no production owner changed and trajectories are outside this task.
 The first replay gate stopped because an older schema omitted four zero-valued
 transport fields. Every retained numerical decimal matched. The corrected gate
 explicitly checks those original fields and the additional zeros, then passes.
-The stopped run, traceback, receipts and Slurm FAILED state are retained. There
-was no scientific replay discrepancy and no change to a numerical tolerance.
+The stopped run, traceback and receipts are retained. Early final Slurm states
+expired before collection; failed state queries are preserved without inventing
+scheduler results. There was no scientific replay discrepancy and no change to a numerical tolerance.
 Source: [resources.json](evidence/resources.json) and external manifest.
+
+Metered new numerical/static/audit work totals 41.877268337 CPU seconds; builds
+add 1.954336 CPU seconds. Peak RSS is 139920 KiB, and summed measured command
+wall time is 50.979858 seconds. All calculations used a pinned logical core;
+Slurm allocated its two hardware threads. Initial historical authentication and
+login-node engineering/packaging were not metered, so these figures are not an
+exact whole-session CPU total. All repeated/stopped numerical runs are included.
+Source: [resources.json](evidence/resources.json).
 
 M1 t_mu and M2 transfer remain INCONCLUSIVE; M3 is conditional. Under the
 predeclared stop rules, no qualified full-inventory extension or nodewise observer

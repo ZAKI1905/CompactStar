@@ -32,17 +32,22 @@ Execution history:
 | Slurm job | Action | Result |
 |---|---|---|
 | 18963 | srun visibility probe | Cancelled by this task before numerical work; subsequent sbatch route worked |
-| 18964 | sbatch filesystem/toolchain probe | Completed |
+| 18964 | sbatch filesystem/toolchain probe | Visibility confirmed; final scheduler record expired |
 | 18965 | Build and first N=512 replay | Schema gate stopped; retained decimals equal, four additive zero fields omitted by old schema |
 | 18966 | Corrected schema gate and N=1024 benchmark | PASS; retired-estimator negative control refuses as required |
 | 18967 | Remaining five fine central and six third-width runs | PASS execution |
 | 18971 | First static M1–M5 assembly | Completed; original derived outputs retained at artifact root |
 | 18977 | Final static assembly | Completed; surface-node localization, stricter order gate and sufficient no-switch conditions recorded under assessment-final |
 | 18978 | All BA13 tests and initial independent audit | PASS: 30 tests, 111 checks |
+| 18989 | Audit after additive ADR/reproduction configuration | PASS: 30 tests, 112 checks |
+| 18991 | Static assembly with native-value/reference JSON pointers | Completed; prior assembly preserved in assessment-before-pointer-correction |
+| 18992 | Delivery audit, including every component pointer | PASS: 30 tests, 113 checks |
 
 Per-command CPU/wall/return-code/stdout/stderr hashes, process RSS, CPU affinity,
 build commands, source hashes, Slurm allocations and final states are in the
-external manifest. [resources.json](evidence/resources.json) totals all metered
+external manifest. Early final scheduler records expired; the failed queries
+are preserved and do not stand in for completed/failed scheduler receipts.
+[resources.json](evidence/resources.json) totals all metered
 new numerical phases, including the stopped replay and all static assemblies.
 The initial historical authentication/fitter replay and login-node packaging
 were not metered, so this is not an exact whole-session CPU claim. No 900-second

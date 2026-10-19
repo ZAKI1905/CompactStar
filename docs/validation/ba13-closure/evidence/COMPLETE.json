@@ -1,0 +1,10 @@
+{
+  "external_manifest_sha256": "56adef5c4594b5b2085740c8623a29403ef44bce0062a3a42828021f7760378f",
+  "matrix_sha256": "e7d73d83b3d8842673ef8bfa3f625e6d6ab600b5b6351fce2ec3608947a789b2",
+  "status": "ASSESSMENT_COMPLETE_SCIENTIFICALLY_UNQUALIFIED",
+  "counts": {
+    "PASS": 21,
+    "FAIL": 0,
+    "UNQUALIFIED": 441
+  }
+}

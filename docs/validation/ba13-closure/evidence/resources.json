@@ -1,0 +1,106 @@
+{
+  "records": [
+    {
+      "path": "assessment-before-pointer-correction/receipt-static.json",
+      "numerical_cpu_seconds": 7.656889327,
+      "build_cpu_seconds": 0.0,
+      "wall_seconds": 7.8604966923594475,
+      "peak_rss_kib": 126416,
+      "job": "18977",
+      "status": "completed",
+      "sha256": "8d01fe66722210dff62850e47bc153003c7ec18118de350b7eb9dd45f9399124"
+    },
+    {
+      "path": "assessment-final/receipt-static.json",
+      "numerical_cpu_seconds": 7.633863669999999,
+      "build_cpu_seconds": 0.0,
+      "wall_seconds": 7.845813646912575,
+      "peak_rss_kib": 128176,
+      "job": "18991",
+      "status": "completed",
+      "sha256": "011f471fdad1e6547f2ced4d6a117d95bcb76d88c49cfb745dbe68c47d4bb4f1"
+    },
+    {
+      "path": "receipt-benchmark-v2.json",
+      "numerical_cpu_seconds": 1.631848,
+      "build_cpu_seconds": 0.0,
+      "wall_seconds": 1.7057890966534615,
+      "peak_rss_kib": 16128,
+      "job": "18966",
+      "status": "PASS",
+      "sha256": "9737fcfd65dd2531d744ed877753c939207e0f0b6702d7c29c58e69fac90ef17"
+    },
+    {
+      "path": "receipt-benchmark.json",
+      "numerical_cpu_seconds": 0.5477930000000002,
+      "build_cpu_seconds": 1.9543360000000003,
+      "wall_seconds": 3.397424042224884,
+      "peak_rss_kib": 136036,
+      "job": "18965",
+      "status": "RUNNING",
+      "sha256": "fef3b9b4429b82f7e9765c7fb3e76bb9d9434d6250ffa4644a97189944336fd2"
+    },
+    {
+      "path": "receipt-m1.json",
+      "numerical_cpu_seconds": 11.894576999999998,
+      "build_cpu_seconds": 0.0,
+      "wall_seconds": 12.17193178832531,
+      "peak_rss_kib": 16896,
+      "job": "18967",
+      "status": "PASS",
+      "sha256": "5c16d193c6787b66b9038e48ba386c8283bcf5143f8b3b317c3a08c058b69fd6"
+    },
+    {
+      "path": "receipt-static.json",
+      "numerical_cpu_seconds": 7.810310135,
+      "build_cpu_seconds": 0.0,
+      "wall_seconds": 9.563272923231125,
+      "peak_rss_kib": 126936,
+      "job": "18971",
+      "status": "completed",
+      "sha256": "e96f75fbabb5d17bcfe51bd16bdfd47f222e6c08024366517c4b704e8cf45bed"
+    },
+    {
+      "path": "audit-delivery.json",
+      "numerical_cpu_seconds": 1.746726569,
+      "build_cpu_seconds": 0,
+      "wall_seconds": 2.1818423122167587,
+      "peak_rss_kib": 139920,
+      "job": "18992",
+      "status": "PASS",
+      "sha256": "f5380ce5a51f228af30ece3ba56607ca762c05456c4cf4ebb430e06a536d0005"
+    },
+    {
+      "path": "audit-final.json",
+      "numerical_cpu_seconds": 1.3952730519999998,
+      "build_cpu_seconds": 0,
+      "wall_seconds": 1.7924286648631096,
+      "peak_rss_kib": 105656,
+      "job": "18989",
+      "status": "PASS",
+      "sha256": "5fc9dd45f122c06a441d0756059cd548c92bb75209c3a408e18a20121ce6e616"
+    },
+    {
+      "path": "audit.json",
+      "numerical_cpu_seconds": 1.559987584,
+      "build_cpu_seconds": 0,
+      "wall_seconds": 4.46085911989212,
+      "peak_rss_kib": 107912,
+      "job": "18978",
+      "status": "PASS",
+      "sha256": "8c11729eaf2699c2fc4bb90dc78f612831df70921cd6aba923c478740da3de63"
+    }
+  ],
+  "numerical_cpu_seconds": 41.877268337,
+  "build_cpu_seconds": 1.9543360000000003,
+  "measured_wall_seconds_sum": 50.97985828667879,
+  "peak_rss_kib": 139920,
+  "initial_numerical_cpu_ceiling": 900,
+  "total_numerical_cpu_ceiling": 1800,
+  "extension_numerical_cpu_seconds": 0,
+  "new_blanket_sequence_solves": 0,
+  "scope": "all newly scored stellar/static/audit runs, including stopped schema replay and all static assemblies",
+  "excluded": "initial historical fitter/authentication replay, login-node source edits/hash/packaging/startup and Slurm connectivity probes were not metered; no exact whole-session CPU claim",
+  "stopped_run": "receipt-benchmark.json says RUNNING because its then-current finally block recorded that before the schema exception; the traceback records the stop. The early final Slurm state expired; final-slurm-18965.txt retains the failed query, not an invented scheduler state.",
+  "allocation": "one pinned logical core; Slurm may allocate both hardware threads of that core; see allocation receipts"
+}
