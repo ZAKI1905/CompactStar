@@ -1,0 +1,1058 @@
+{
+ "checks": [
+  {
+   "check": "certificate sha256",
+   "ok": true,
+   "detail": "4212cad05bb4244ab75e80b8dfea023e6d0fcee69086c9993bd48d26a40e41fb"
+  },
+  {
+   "check": "historical fitter sha256",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "repo external-manifest sha256 == COMPLETE.json",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "recovery fit COMPLETE binds certificate",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "headroom.json bound to certificate summary",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "certificate summary names certificate",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "headroom_external_manifest: all 391 files authentic",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "check": "x2_external_manifest: all 257 files authentic",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "check": "recovery_run1_raw_manifest: all 236 files authentic",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "check": "repo matrix.json.gz == external matrix.json",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "repo matrix.tsv.gz == external matrix.tsv",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "repo pilots.json == external pilots.json",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "repo inner-half.json == external inner-half.json",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "repo summary.json == external summary.json",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "historical fitter rerun succeeds",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "rerun certificate.json byte-identical",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "rerun certificate.tsv byte-identical",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "22 quantities, 462 rows",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "own thresholds reproduce certificate (rel <= 1e-14)",
+   "ok": true,
+   "detail": 0.0
+  },
+  {
+   "check": "own drift bounds reproduce certificate (|diff|/headroom <= 1e-9)",
+   "ok": true,
+   "detail": 4.86684750023883e-12
+  },
+  {
+   "check": "matrix has 462 unique rows",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "headroom.json has 462 rows",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "only P2_average PASS (21), all others UNQUALIFIED (441)",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "historical fields equal certificate (all 462)",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "check": "headroom = threshold - drift_bound exactly; equals X2 headroom.json",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "check": "allocations = headroom x METHOD fractions",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "check": "partial_utilization = (drift_bound + sum finite)/threshold",
+   "ok": true,
+   "detail": 0.0
+  },
+  {
+   "check": "every null term is listed as missing",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "check": "every flagged/unresolved term is listed as missing",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "check": "no nonzero value labelled analytic_bound",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "check": "proposed_total_utilization null for every UNQUALIFIED row",
+   "ok": true,
+   "detail": null
+  }
+ ],
+ "headroom_external_manifest": {
+  "files": 391,
+  "mismatches": []
+ },
+ "x2_external_manifest": {
+  "files": 257,
+  "mismatches": []
+ },
+ "recovery_run1_raw_manifest": {
+  "files": 236,
+  "mismatches": []
+ },
+ "fitter_rerun": {
+  "returncode": 0,
+  "stdout": "BA13_STATIC_CERTIFICATE PASS max_utilization 0.54075347985134414 index 20 quantity N_mu",
+  "stderr": ""
+ },
+ "own_reimplementation": {
+  "max_relative_threshold_difference": 0.0,
+  "max_drift_bound_difference_over_headroom": 4.86684750023883e-12,
+  "per_quantity": {
+   "t_n:threshold": 0.0,
+   "t_n:drift_bound": 0.0,
+   "t_e:threshold": 0.0,
+   "t_e:drift_bound": 0.0,
+   "t_mu:threshold": 0.0,
+   "t_mu:drift_bound": 0.0,
+   "Ltilde_Me:threshold": 0.0,
+   "Ltilde_Me:drift_bound": 0.0,
+   "Ltilde_Mmu:threshold": 0.0,
+   "Ltilde_Mmu:drift_bound": 0.0,
+   "mu_B:threshold": 0.0,
+   "mu_B:drift_bound": 0.0,
+   "P0_average:threshold": 0.0,
+   "P0_average:drift_bound": 0.0,
+   "P1_average:threshold": 0.0,
+   "P1_average:drift_bound": 0.0060240963855422245,
+   "P2_average:threshold": 0.0,
+   "P2_average:drift_bound": 0.0,
+   "N_n:threshold": 0.0,
+   "N_n:drift_bound": 0.0,
+   "N_e:threshold": 0.0,
+   "N_e:drift_bound": 0.0,
+   "N_mu:threshold": 0.0,
+   "N_mu:drift_bound": 5.832128026934006e-06,
+   "radius:threshold": 0.0,
+   "radius:drift_bound": 9.5529231944956e-05,
+   "Z_row_npe:threshold": 0.0,
+   "Z_row_npe:drift_bound": 0.00171624713958806,
+   "Z_row_npmu:threshold": 0.0,
+   "Z_row_npmu:drift_bound": 5.28706097571921e-06,
+   "Cstar:threshold": 0.0,
+   "Cstar:drift_bound": 0.0,
+   "envelope:threshold": 0.0,
+   "envelope:drift_bound": 3.320186350766414e-05,
+   "Tsurface_inf:threshold": 0.0,
+   "Tsurface_inf:drift_bound": 6.563227842253957e-05,
+   "surface_gravity:threshold": 0.0,
+   "surface_gravity:drift_bound": 0.0,
+   "mu_n_profile:threshold": 0.0,
+   "mu_n_profile:drift_bound": 0.0,
+   "metric_structure:threshold": 0.0,
+   "metric_structure:drift_bound": 7.205285797820618e-06,
+   "species_support:threshold": 0.0,
+   "species_support:drift_bound": 0.0
+  }
+ },
+ "status_counts": {
+  "UNQUALIFIED": 441,
+  "PASS": 21
+ },
+ "conditional_terms_not_flagged_missing": {
+  "t_n": [
+   "differentiation_inverse",
+   "surface_events"
+  ],
+  "t_e": [
+   "differentiation_inverse",
+   "surface_events"
+  ],
+  "t_mu": [
+   "differentiation_inverse",
+   "surface_events"
+  ],
+  "Cstar": [
+   "surface_events"
+  ],
+  "Ltilde_Me": [
+   "surface_events"
+  ],
+  "Ltilde_Mmu": [
+   "surface_events"
+  ],
+  "mu_B": [
+   "surface_events"
+  ],
+  "mu_n_profile": [
+   "surface_events"
+  ],
+  "P0_average": [
+   "surface_events"
+  ],
+  "P1_average": [
+   "surface_events"
+  ],
+  "N_n": [
+   "surface_events"
+  ],
+  "N_e": [
+   "surface_events"
+  ],
+  "N_mu": [
+   "surface_events"
+  ],
+  "metric_structure": [
+   "surface_events"
+  ],
+  "radius": [
+   "implicit_stages",
+   "surface_events"
+  ],
+  "surface_gravity": [
+   "surface_events"
+  ],
+  "envelope": [
+   "surface_events"
+  ],
+  "Tsurface_inf": [
+   "surface_events"
+  ]
+ },
+ "zero_valued_conditional_terms_not_flagged": {
+  "t_n": [
+   "surface_events"
+  ],
+  "t_e": [
+   "surface_events"
+  ],
+  "t_mu": [
+   "surface_events"
+  ],
+  "Cstar": [
+   "surface_events"
+  ],
+  "Ltilde_Me": [
+   "surface_events"
+  ],
+  "Ltilde_Mmu": [
+   "surface_events"
+  ],
+  "mu_B": [
+   "surface_events"
+  ],
+  "mu_n_profile": [
+   "surface_events"
+  ],
+  "P0_average": [
+   "surface_events"
+  ],
+  "P1_average": [
+   "surface_events"
+  ],
+  "N_n": [
+   "surface_events"
+  ],
+  "N_e": [
+   "surface_events"
+  ],
+  "N_mu": [
+   "surface_events"
+  ],
+  "metric_structure": [
+   "surface_events"
+  ],
+  "radius": [
+   "surface_events"
+  ],
+  "surface_gravity": [
+   "surface_events"
+  ],
+  "envelope": [
+   "surface_events"
+  ],
+  "Tsurface_inf": [
+   "surface_events"
+  ]
+ },
+ "min_headroom": {
+  "t_n": 9.625631462234121e-05,
+  "t_e": 2.8915625536709907e-06,
+  "t_mu": 2.1067009659792193e-07,
+  "Z_row_npe": 9.783698231174127e-05,
+  "Z_row_npmu": 6.490778884456701e-05,
+  "Cstar": 9.854099157959267e-05,
+  "Ltilde_Me": 9.877332044948032e-05,
+  "Ltilde_Mmu": 7.431890702450355e-05,
+  "mu_B": 9.981173607932302e-05,
+  "mu_n_profile": 9.981173484782679e-05,
+  "P0_average": 9.981173607932302e-05,
+  "P1_average": 9.973854299954615e-05,
+  "P2_average": 0.0001,
+  "N_n": 9.90280287204586e-05,
+  "N_e": 9.511634483298752e-05,
+  "N_mu": 4.592465201486559e-05,
+  "species_support": 1.0,
+  "metric_structure": 9.66987581451304e-05,
+  "radius": 9.871693555231309e-05,
+  "surface_gravity": 9.629488495257395e-05,
+  "envelope": 9.902463180292879e-05,
+  "Tsurface_inf": 9.921293942348377e-05
+ },
+ "tabulation": {
+  "t_n": {
+   "index20": {
+    "historical_utilization": 0.0033209336622889887,
+    "added_finite_over_threshold": 0.012684827076433352,
+    "added_finite_over_headroom": 0.012727092907693591,
+    "partial_utilization": 0.01600576073872234,
+    "headroom": 9.625631462234121e-05,
+    "missing": [
+     "eos_equilibrium",
+     "center",
+     "integration",
+     "implicit_stages",
+     "floating_point",
+     "common_B",
+     "production_representation",
+     "nonlinear_fit",
+     "between_samples"
+    ]
+   },
+   "max_value_over_allocation": {
+    "surface_events": 0.0,
+    "integration": 0.1257155877973001,
+    "floating_point": 5.767013982309055e-09,
+    "production_representation": 0.0006671970005168932,
+    "differentiation_inverse": 2.064732489742996e-05,
+    "normalization": 0.0,
+    "nonlinear_fit": 1.3970014670745376e-07
+   },
+   "sampled_over_sufficient_curvature": 8.656361735926102e-08
+  },
+  "t_e": {
+   "index20": {
+    "historical_utilization": 0.06276265596747366,
+    "added_finite_over_threshold": 0.010982038137181375,
+    "added_finite_over_headroom": 0.011717456850289833,
+    "partial_utilization": 0.07374469410465505,
+    "headroom": 2.8915625536709907e-06,
+    "missing": [
+     "eos_equilibrium",
+     "center",
+     "integration",
+     "implicit_stages",
+     "floating_point",
+     "common_B",
+     "production_representation",
+     "nonlinear_fit",
+     "between_samples"
+    ]
+   },
+   "max_value_over_allocation": {
+    "center": 9.328848866573275e-07,
+    "surface_events": 0.0,
+    "integration": 0.06615669296231147,
+    "floating_point": 1.9197631108060867e-07,
+    "production_representation": 0.02150941969531288,
+    "differentiation_inverse": 0.00152133403496705,
+    "normalization": 0.0,
+    "nonlinear_fit": 2.4464657183309984e-05
+   },
+   "sampled_over_sufficient_curvature": 2.5025607329787862e-06
+  },
+  "t_mu": {
+   "index20": {
+    "historical_utilization": 0.37627589752468465,
+    "added_finite_over_threshold": 0.002148954861740138,
+    "added_finite_over_headroom": 0.0034453612634364815,
+    "partial_utilization": 0.37842485238642476,
+    "headroom": 2.1067009659792193e-07,
+    "missing": [
+     "eos_equilibrium",
+     "center",
+     "integration",
+     "implicit_stages",
+     "floating_point",
+     "common_B",
+     "production_representation",
+     "nonlinear_fit",
+     "between_samples"
+    ]
+   },
+   "max_value_over_allocation": {
+    "surface_events": 0.0,
+    "integration": 0.00017191959132103882,
+    "floating_point": 2.6349801005315386e-06,
+    "production_representation": 0.009439085701302809,
+    "differentiation_inverse": 0.012167294761925606,
+    "normalization": 0.0,
+    "nonlinear_fit": 0.0004039741721015992
+   },
+   "sampled_over_sufficient_curvature": 5.201557303792851e-06
+  },
+  "Z_row_npe": {
+   "index20": {
+    "historical_utilization": 0.02163017688258729,
+    "added_finite_over_threshold": 0.0003333353006071548,
+    "added_finite_over_headroom": 0.00034070480582182853,
+    "partial_utilization": 0.02196351218319444,
+    "headroom": 9.783698231174127e-05,
+    "missing": [
+     "eos_equilibrium",
+     "center",
+     "integration",
+     "implicit_stages",
+     "floating_point",
+     "common_B",
+     "production_representation",
+     "differentiation_inverse",
+     "normalization",
+     "nonlinear_fit",
+     "between_samples"
+    ]
+   },
+   "max_value_over_allocation": {
+    "center": 1.431547494818427e-10,
+    "surface_events": 0.0,
+    "integration": 2.7043801746800236e-06,
+    "floating_point": 5.673841314359133e-09,
+    "common_B": 7.691632428563831e-07,
+    "production_representation": 3.472263853456927e-06,
+    "differentiation_inverse": 0.00339500948541864,
+    "normalization": 6.951652122252443e-09,
+    "nonlinear_fit": 5.741546629341954e-07
+   },
+   "sampled_over_sufficient_curvature": 5.731570621175767e-10
+  },
+  "Z_row_npmu": {
+   "index20": {
+    "historical_utilization": 0.35092211155432995,
+    "added_finite_over_threshold": 8.263322230894733e-06,
+    "added_finite_over_headroom": 1.273086385777629e-05,
+    "partial_utilization": 0.35093037487656087,
+    "headroom": 6.490778884456701e-05,
+    "missing": [
+     "eos_equilibrium",
+     "center",
+     "integration",
+     "implicit_stages",
+     "floating_point",
+     "common_B",
+     "production_representation",
+     "differentiation_inverse",
+     "normalization",
+     "nonlinear_fit",
+     "between_samples"
+    ]
+   },
+   "max_value_over_allocation": {
+    "center": 5.564933885087122e-10,
+    "surface_events": 0.0,
+    "integration": 3.895610881314818e-06,
+    "floating_point": 8.552309702644351e-09,
+    "common_B": 2.0036564041592647e-05,
+    "production_representation": 3.2028441166480725e-06,
+    "differentiation_inverse": 2.4260392753446385e-05,
+    "normalization": 3.7654419425188e-07,
+    "nonlinear_fit": 7.155932427669662e-05
+   },
+   "sampled_over_sufficient_curvature": 9.803141556202342e-08
+  },
+  "Cstar": {
+   "index20": {
+    "historical_utilization": 0.014590085194272167,
+    "added_finite_over_threshold": 0.00011329947077208448,
+    "added_finite_over_headroom": 0.00011497699492339827,
+    "partial_utilization": 0.01470338466504425,
+    "headroom": 9.854099157959267e-05,
+    "missing": [
+     "eos_equilibrium",
+     "center",
+     "integration",
+     "implicit_stages",
+     "floating_point",
+     "common_B",
+     "production_representation",
+     "normalization",
+     "nonlinear_fit",
+     "between_samples"
+    ]
+   },
+   "max_value_over_allocation": {
+    "surface_events": 0.0,
+    "integration": 7.951538083628281e-07,
+    "floating_point": 5.633305525084061e-09,
+    "common_B": 5.161078998674298e-07,
+    "production_representation": 0.0004865218555226687,
+    "differentiation_inverse": 0.0,
+    "normalization": 5.434747795044198e-08,
+    "nonlinear_fit": 2.9430119423534007e-05
+   },
+   "sampled_over_sufficient_curvature": 4.102597590577122e-08
+  },
+  "Ltilde_Me": {
+   "index20": {
+    "historical_utilization": 0.01226679550519683,
+    "added_finite_over_threshold": 0.030367007130564786,
+    "added_finite_over_headroom": 0.030744139199103498,
+    "partial_utilization": 0.042633802635761615,
+    "headroom": 9.877332044948032e-05,
+    "missing": [
+     "eos_equilibrium",
+     "center",
+     "integration",
+     "implicit_stages",
+     "floating_point",
+     "common_B",
+     "production_representation",
+     "normalization",
+     "nonlinear_fit",
+     "between_samples"
+    ]
+   },
+   "max_value_over_allocation": {
+    "surface_events": 0.0,
+    "integration": 3.2788725597088653e-07,
+    "floating_point": 5.620055190880261e-09,
+    "common_B": 6.352802833884803e-07,
+    "production_representation": 0.13362614364603517,
+    "differentiation_inverse": 0.0,
+    "normalization": 8.013972511185055e-05,
+    "nonlinear_fit": 6.022745104780887e-05
+   },
+   "sampled_over_sufficient_curvature": 7.50830615633556e-08
+  },
+  "Ltilde_Mmu": {
+   "index20": {
+    "historical_utilization": 0.2568109297549646,
+    "added_finite_over_threshold": 9.458390553230952e-06,
+    "added_finite_over_headroom": 1.2726762181947111e-05,
+    "partial_utilization": 0.25682038814551783,
+    "headroom": 7.431890702450355e-05,
+    "missing": [
+     "eos_equilibrium",
+     "center",
+     "integration",
+     "implicit_stages",
+     "floating_point",
+     "common_B",
+     "production_representation",
+     "normalization",
+     "nonlinear_fit",
+     "between_samples"
+    ]
+   },
+   "max_value_over_allocation": {
+    "surface_events": 0.0,
+    "integration": 3.7632034289747767e-07,
+    "floating_point": 7.469317493185907e-09,
+    "common_B": 1.1869946116662844e-05,
+    "production_representation": 4.758731660801017e-05,
+    "differentiation_inverse": 0.0,
+    "normalization": 3.2090961875573976e-07,
+    "nonlinear_fit": 5.408578488610892e-06
+   },
+   "sampled_over_sufficient_curvature": 1.0913805022491102e-08
+  },
+  "mu_B": {
+   "index20": {
+    "historical_utilization": 0.0018826392133029753,
+    "added_finite_over_threshold": 1.4603152887288015e-08,
+    "added_finite_over_headroom": 1.4630697211576492e-08,
+    "partial_utilization": 0.0018826538164558625,
+    "headroom": 9.981173607932302e-05,
+    "missing": [
+     "eos_equilibrium",
+     "center",
+     "integration",
+     "implicit_stages",
+     "floating_point",
+     "common_B",
+     "production_representation",
+     "normalization",
+     "nonlinear_fit",
+     "between_samples"
+    ]
+   },
+   "max_value_over_allocation": {
+    "surface_events": 0.0,
+    "integration": 4.413823866162609e-08,
+    "floating_point": 5.561585582194659e-09,
+    "common_B": 6.514821015860273e-08,
+    "production_representation": 3.9347060750960145e-09,
+    "differentiation_inverse": 0.0,
+    "normalization": 7.78818487775239e-12,
+    "nonlinear_fit": 2.685448811393745e-08
+   },
+   "sampled_over_sufficient_curvature": 6.292511462556417e-11
+  },
+  "mu_n_profile": {
+   "index20": {
+    "historical_utilization": 0.0018826515217321318,
+    "added_finite_over_threshold": 5.564565955955722e-07,
+    "added_finite_over_headroom": 5.575061854640112e-07,
+    "partial_utilization": 0.0018832079783277274,
+    "headroom": 9.981173484782679e-05,
+    "missing": [
+     "eos_equilibrium",
+     "center",
+     "integration",
+     "implicit_stages",
+     "floating_point",
+     "common_B",
+     "production_representation",
+     "differentiation_inverse",
+     "normalization",
+     "nonlinear_fit",
+     "between_samples"
+    ]
+   },
+   "max_value_over_allocation": {
+    "surface_events": 0.0,
+    "production_representation": 2.4056108676686677e-06,
+    "normalization": 4.257843927781901e-10,
+    "nonlinear_fit": 4.194396680578518e-08
+   },
+   "sampled_over_sufficient_curvature": 2.502538252829312e-09
+  },
+  "P0_average": {
+   "index20": {
+    "historical_utilization": 0.0018826392133029753,
+    "added_finite_over_threshold": 1.4603152887288015e-08,
+    "added_finite_over_headroom": 1.4630697211576492e-08,
+    "partial_utilization": 0.0018826538164558625,
+    "headroom": 9.981173607932302e-05,
+    "missing": [
+     "eos_equilibrium",
+     "center",
+     "integration",
+     "implicit_stages",
+     "floating_point",
+     "common_B",
+     "production_representation",
+     "normalization",
+     "nonlinear_fit",
+     "between_samples"
+    ]
+   },
+   "max_value_over_allocation": {
+    "surface_events": 0.0,
+    "integration": 4.413823866162609e-08,
+    "floating_point": 5.561585582194659e-09,
+    "common_B": 6.514821015860273e-08,
+    "production_representation": 3.9347060750960145e-09,
+    "differentiation_inverse": 0.0,
+    "normalization": 7.78818487775239e-12,
+    "nonlinear_fit": 2.685448811393745e-08
+   },
+   "sampled_over_sufficient_curvature": 6.292511462556417e-11
+  },
+  "P1_average": {
+   "index20": {
+    "historical_utilization": 0.0026145700112385935,
+    "added_finite_over_threshold": 2.2815955793762115e-08,
+    "added_finite_over_headroom": 2.2875766085754036e-08,
+    "partial_utilization": 0.002614592827194387,
+    "headroom": 9.973854299954615e-05,
+    "missing": [
+     "eos_equilibrium",
+     "center",
+     "integration",
+     "implicit_stages",
+     "floating_point",
+     "common_B",
+     "production_representation",
+     "normalization",
+     "nonlinear_fit",
+     "between_samples"
+    ]
+   },
+   "max_value_over_allocation": {
+    "surface_events": 0.0,
+    "integration": 9.282494257979812e-08,
+    "floating_point": 5.565666948985884e-09,
+    "common_B": 9.051662895328352e-08,
+    "production_representation": 4.076272547108282e-09,
+    "differentiation_inverse": 0.0,
+    "normalization": 1.0577434436234514e-11,
+    "nonlinear_fit": 3.49222403590944e-08
+   },
+   "sampled_over_sufficient_curvature": 8.268085596760416e-11
+  },
+  "P2_average": {
+   "index20": {
+    "historical_utilization": 0.0,
+    "added_finite_over_threshold": 0.0,
+    "added_finite_over_headroom": 0.0,
+    "partial_utilization": 0.0,
+    "headroom": 0.0001,
+    "missing": []
+   },
+   "max_value_over_allocation": {
+    "eos_equilibrium": 0.0,
+    "center": 0.0,
+    "surface_events": 0.0,
+    "integration": 0.0,
+    "implicit_stages": 0.0,
+    "floating_point": 0.0,
+    "common_B": 0.0,
+    "production_representation": 0.0,
+    "differentiation_inverse": 0.0,
+    "normalization": 0.0,
+    "nonlinear_fit": 0.0,
+    "between_samples": 0.0
+   },
+   "sampled_over_sufficient_curvature": 0.0
+  },
+  "N_n": {
+   "index20": {
+    "historical_utilization": 0.009719712795414089,
+    "added_finite_over_threshold": 2.9740910499021004e-07,
+    "added_finite_over_headroom": 3.0032820892532526e-07,
+    "partial_utilization": 0.00972001020451908,
+    "headroom": 9.90280287204586e-05,
+    "missing": [
+     "eos_equilibrium",
+     "center",
+     "integration",
+     "implicit_stages",
+     "floating_point",
+     "common_B",
+     "production_representation",
+     "normalization",
+     "nonlinear_fit",
+     "between_samples"
+    ]
+   },
+   "max_value_over_allocation": {
+    "surface_events": 0.0,
+    "integration": 2.036938448512263e-06,
+    "floating_point": 5.605599944633641e-09,
+    "common_B": 3.409343137981069e-07,
+    "production_representation": 1.5253560589218614e-07,
+    "differentiation_inverse": 0.0,
+    "normalization": 1.4579399080036007e-09,
+    "nonlinear_fit": 2.727273434479258e-07
+   },
+   "sampled_over_sufficient_curvature": 1.5942702426638335e-11
+  },
+  "N_e": {
+   "index20": {
+    "historical_utilization": 0.048836551670124746,
+    "added_finite_over_threshold": 8.146292910013948e-07,
+    "added_finite_over_headroom": 8.564556306613575e-07,
+    "partial_utilization": 0.048837366299415756,
+    "headroom": 9.511634483298752e-05,
+    "missing": [
+     "eos_equilibrium",
+     "center",
+     "integration",
+     "implicit_stages",
+     "floating_point",
+     "common_B",
+     "production_representation",
+     "normalization",
+     "nonlinear_fit",
+     "between_samples"
+    ]
+   },
+   "max_value_over_allocation": {
+    "surface_events": 0.0,
+    "integration": 5.272919683270067e-06,
+    "floating_point": 5.836131668929122e-09,
+    "common_B": 1.7681776116531366e-06,
+    "production_representation": 1.6378411511617017e-07,
+    "differentiation_inverse": 0.0,
+    "normalization": 1.7774623528131122e-08,
+    "nonlinear_fit": 1.1367010088253278e-06
+   },
+   "sampled_over_sufficient_curvature": 1.7114707892279093e-09
+  },
+  "N_mu": {
+   "index20": {
+    "historical_utilization": 0.5407534798513441,
+    "added_finite_over_threshold": 7.96310252987065e-06,
+    "added_finite_over_headroom": 1.7339494542697966e-05,
+    "partial_utilization": 0.540761442953874,
+    "headroom": 4.592465201486559e-05,
+    "missing": [
+     "eos_equilibrium",
+     "center",
+     "integration",
+     "implicit_stages",
+     "floating_point",
+     "common_B",
+     "production_representation",
+     "normalization",
+     "nonlinear_fit",
+     "between_samples"
+    ]
+   },
+   "max_value_over_allocation": {
+    "center": 4.866809614329155e-10,
+    "surface_events": 0.0,
+    "integration": 2.09121274324633e-07,
+    "floating_point": 1.2087440796130462e-08,
+    "common_B": 3.888586430611197e-05,
+    "production_representation": 8.406993235295838e-06,
+    "differentiation_inverse": 0.0,
+    "normalization": 3.53433984563794e-06,
+    "nonlinear_fit": 0.00011319409332199984
+   },
+   "sampled_over_sufficient_curvature": 1.558942152836582e-07
+  },
+  "species_support": {
+   "index20": {
+    "historical_utilization": 0.0,
+    "added_finite_over_threshold": 0.0,
+    "added_finite_over_headroom": 0.0,
+    "partial_utilization": 0.0,
+    "headroom": 1.0,
+    "missing": [
+     "between_samples"
+    ]
+   },
+   "max_value_over_allocation": {
+    "eos_equilibrium": 0.0,
+    "center": 0.0,
+    "surface_events": 0.0,
+    "integration": 0.0,
+    "implicit_stages": 0.0,
+    "floating_point": 0.0,
+    "common_B": 0.0,
+    "production_representation": 0.0,
+    "differentiation_inverse": 0.0,
+    "normalization": 0.0,
+    "nonlinear_fit": 0.0
+   },
+   "sampled_over_sufficient_curvature": 0.0
+  },
+  "metric_structure": {
+   "index20": {
+    "historical_utilization": 0.033012418548695986,
+    "added_finite_over_threshold": 0.012690047696095639,
+    "added_finite_over_headroom": 0.013123278870913494,
+    "partial_utilization": 0.04570246624479163,
+    "headroom": 9.66987581451304e-05,
+    "missing": [
+     "eos_equilibrium",
+     "center",
+     "integration",
+     "implicit_stages",
+     "floating_point",
+     "common_B",
+     "production_representation",
+     "differentiation_inverse",
+     "normalization",
+     "nonlinear_fit",
+     "between_samples"
+    ]
+   },
+   "max_value_over_allocation": {
+    "surface_events": 0.0,
+    "production_representation": 0.05704161823259201,
+    "normalization": 2.649308543029915e-05,
+    "nonlinear_fit": 2.3820231458170768e-05
+   },
+   "sampled_over_sufficient_curvature": 3.182890039523542e-08
+  },
+  "radius": {
+   "index20": {
+    "historical_utilization": 0.012830644476869168,
+    "added_finite_over_threshold": 1.0533447634956931e-07,
+    "added_finite_over_headroom": 1.0670355168566735e-07,
+    "partial_utilization": 0.012830749811345516,
+    "headroom": 9.871693555231309e-05,
+    "missing": [
+     "eos_equilibrium",
+     "center",
+     "integration",
+     "floating_point",
+     "common_B",
+     "production_representation",
+     "normalization",
+     "nonlinear_fit",
+     "between_samples"
+    ]
+   },
+   "max_value_over_allocation": {
+    "surface_events": 0.0,
+    "integration": 1.8950797961953804e-07,
+    "implicit_stages": 1.156064325224019e-13,
+    "floating_point": 5.623265240222241e-09,
+    "common_B": 4.4972129601130463e-07,
+    "production_representation": 1.1581525575476861e-07,
+    "differentiation_inverse": 0.0,
+    "normalization": 2.544356385513669e-09,
+    "nonlinear_fit": 1.5903429862777518e-07
+   },
+   "sampled_over_sufficient_curvature": 3.822362227584257e-08
+  },
+  "surface_gravity": {
+   "index20": {
+    "historical_utilization": 0.03705115144188669,
+    "added_finite_over_threshold": 3.1908367241968085e-07,
+    "added_finite_over_headroom": 3.3136097820508936e-07,
+    "partial_utilization": 0.03705147052555911,
+    "headroom": 9.629488495257395e-05,
+    "missing": [
+     "eos_equilibrium",
+     "center",
+     "integration",
+     "implicit_stages",
+     "floating_point",
+     "common_B",
+     "production_representation",
+     "normalization",
+     "nonlinear_fit",
+     "between_samples"
+    ]
+   },
+   "max_value_over_allocation": {
+    "surface_events": 0.0,
+    "integration": 7.827263648050731e-07,
+    "floating_point": 5.764704039949562e-09,
+    "common_B": 1.3249147024534127e-06,
+    "production_representation": 2.9140223514941697e-07,
+    "differentiation_inverse": 0.0,
+    "normalization": 2.1765596298462807e-08,
+    "nonlinear_fit": 5.237078349915267e-07
+   },
+   "sampled_over_sufficient_curvature": 8.224875777202981e-08
+  },
+  "envelope": {
+   "index20": {
+    "historical_utilization": 0.009753681970712242,
+    "added_finite_over_threshold": 0.0006481977744018454,
+    "added_finite_over_headroom": 0.0006545823625901875,
+    "partial_utilization": 0.010401879745114086,
+    "headroom": 9.902463180292879e-05,
+    "missing": [
+     "eos_equilibrium",
+     "center",
+     "integration",
+     "implicit_stages",
+     "floating_point",
+     "common_B",
+     "production_representation",
+     "normalization",
+     "nonlinear_fit",
+     "between_samples"
+    ]
+   },
+   "max_value_over_allocation": {
+    "surface_events": 0.0,
+    "integration": 2.1720326420620982e-07,
+    "floating_point": 5.605792237807272e-09,
+    "common_B": 3.6288396700060057e-07,
+    "production_representation": 0.0028456508333555117,
+    "differentiation_inverse": 0.0,
+    "normalization": 4.910015890853627e-07,
+    "nonlinear_fit": 0.0
+   },
+   "sampled_over_sufficient_curvature": 1.9922959991208823e-08
+  },
+  "Tsurface_inf": {
+   "index20": {
+    "historical_utilization": 0.007870606762112315,
+    "added_finite_over_threshold": 0.0006481821898192677,
+    "added_finite_over_headroom": 0.0006533242480639315,
+    "partial_utilization": 0.008518788951931582,
+    "headroom": 9.921293942348377e-05,
+    "missing": [
+     "eos_equilibrium",
+     "center",
+     "integration",
+     "implicit_stages",
+     "floating_point",
+     "common_B",
+     "production_representation",
+     "normalization",
+     "nonlinear_fit",
+     "between_samples"
+    ]
+   },
+   "max_value_over_allocation": {
+    "surface_events": 0.0,
+    "integration": 1.723863105427302e-07,
+    "floating_point": 5.595152361559667e-09,
+    "common_B": 2.9683148037407756e-07,
+    "production_representation": 0.002840249746153849,
+    "differentiation_inverse": 0.0,
+    "normalization": 3.9545532814595745e-07,
+    "nonlinear_fit": 0.0
+   },
+   "sampled_over_sufficient_curvature": 1.664900966682895e-08
+  }
+ },
+ "problems": []
+}
