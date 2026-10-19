@@ -134,3 +134,19 @@ explicit residual gaps**, followed by owner adjudication. Do not reopen a genera
 oracle comparison, EOS/jitter sweep or tolerance ladder as the default next step.
 No acceptance of BA13, ADR interpretation, narrower conditional certification,
 production owner change, trajectory or certificate promotion follows automatically.
+
+## 2026-10-19 closure study — proposed status unchanged
+
+The authorized [closure study](../validation/ba13-closure/REPORT.md) corrects the
+independent review's reference, evidence-class, tangent-coordinate and bookkeeping
+defects and retires the inconsistent first-order defect transport. The updated
+462-row sidecar retains 21 exact-P2 PASS, 0 FAIL and 441 UNQUALIFIED. The muon
+sector remains unqualified: tangent reference, all-target transfer and continuous
+curvature evidence are incomplete. Small measured errors do not establish closure.
+
+[The owner memo](../validation/ba13-closure/OWNER_DECISIONS.md) records five pending
+decisions: interval remainder, evidence standard, certified object, record format
+and target-to-target magnitude transfer. No decision is ratified here. Option A
+and interpretation (2), the original fitter, historical thresholds/certificate,
+production owners and all prior failures remain unchanged. No successor fitter,
+runtime certificate, trajectory or promotion is authorized by this assessment.

@@ -3,7 +3,7 @@
 import csv,decimal,gzip,hashlib,json,os,pathlib,resource,subprocess,sys,time
 import numpy as np
 S=pathlib.Path(__file__).resolve().parents[3];R=S.parents[1]
-O=R/'ba13-closure-20261019';F=O/'assessment-final';REV=R/'ba13-headroom-independent-review-20261018'
+O=pathlib.Path(os.environ.get('BA13_CLOSURE_OUTPUT_ROOT',R/'ba13-closure-20261019'));F=O/'assessment-final';REV=R/'ba13-headroom-independent-review-20261018'
 D=decimal.Decimal
 
 def read(p,precise=False):return json.loads(p.read_text(),parse_float=D if precise else float)
@@ -97,8 +97,11 @@ def main():
     git=R/'toolchain/bin/git'
     changed=subprocess.check_output([str(git),'-C',str(S),'diff','--name-only','286aafb63002093b3052e23a3972903011f36035','HEAD'],text=True).splitlines()
     allowed=('tools/linux/ba13_headroom/','tools/linux/ba13_closure/','docs/validation/ba13-closure/')
-    exact={'tests/bnv/x2_uncertainty.cpp','tests/bnv/test_ba13_closure.py'}
+    exact={'tests/bnv/x2_uncertainty.cpp','tests/bnv/test_ba13_closure.py','docs/adr/ADR-0021-ba13-static-uncertainty-completion.md'}
     check('protected source/failure trees unchanged',all(p.startswith(allowed) or p in exact for p in changed))
+    adr='docs/adr/ADR-0021-ba13-static-uncertainty-completion.md'
+    old_adr=subprocess.check_output([str(git),'-C',str(S),'show','286aafb63002093b3052e23a3972903011f36035:'+adr])
+    check('ADR historical bytes preserved as prefix',(S/adr).read_bytes().startswith(old_adr))
     result=dict(status='PASS',checks=checks,tests=tests,check_count=len(checks),scientific_qualification=False,
                 method='independent Decimal functionals/stencils; Neumann series sum; complete source/manifest/decision audit',
                 cpu_seconds=time.process_time()-start,

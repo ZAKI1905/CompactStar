@@ -20,7 +20,7 @@ import numpy as np
 
 S=pathlib.Path(__file__).resolve().parents[3]
 R=S.parents[1]
-O=R/'ba13-closure-20261019'
+O=pathlib.Path(os.environ.get('BA13_CLOSURE_OUTPUT_ROOT',R/'ba13-closure-20261019'))
 RESULT=O/'assessment-final'
 HR=R/'ba13-headroom'
 RAW=R/'ba13-recovery/run1/raw'

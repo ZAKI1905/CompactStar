@@ -13,5 +13,7 @@ set -euo pipefail
 ROOT=/mnt/sdd/zaki/CompactStar/linux-transition-20261010
 export PATH="$ROOT/toolchain/bin:$PATH"
 export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1
-scontrol show job "$SLURM_JOB_ID" > "$ROOT/ba13-closure-20261019/allocation-$SLURM_JOB_ID.txt"
+BA13_OUTPUT=${BA13_CLOSURE_OUTPUT_ROOT:-"$ROOT/ba13-closure-20261019"}
+mkdir -p "$BA13_OUTPUT"
+scontrol show job "$SLURM_JOB_ID" > "$BA13_OUTPUT/allocation-$SLURM_JOB_ID.txt"
 exec "$ROOT/toolchain/python/bin/python" -B "$ROOT/worktrees/ba13-closure/tools/linux/ba13_closure/$1.py" "${@:2}"

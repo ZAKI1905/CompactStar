@@ -4,7 +4,7 @@ import decimal, hashlib, json, os, pathlib, resource, subprocess, sys, time
 
 S = pathlib.Path(__file__).resolve().parents[3]
 R = S.parents[1]
-O = R / 'ba13-closure-20261019'
+O = pathlib.Path(os.environ.get('BA13_CLOSURE_OUTPUT_ROOT',R/'ba13-closure-20261019'))
 TC = R / 'toolchain'
 PREDECLARATION = 'fdffaaf'
 
@@ -18,6 +18,7 @@ def cpu():
 def main():
     if not os.environ.get('SLURM_JOB_ID'):
         raise RuntimeError('Slurm required')
+    O.mkdir(parents=True,exist_ok=True)
     os.sched_setaffinity(0, {min(os.sched_getaffinity(0))})
     phase = sys.argv[1]
     records = []
@@ -76,7 +77,9 @@ def main():
             solve(0,'retired-defect-negative',retired=1)
             solve(0,'t0-n1024',1024)
         elif phase == 'm1':
-            estimate=json.loads((O/'receipt-benchmark-v2.json').read_text())
+            gate=O/'receipt-benchmark-v2.json'
+            if not gate.exists():gate=O/'receipt-benchmark.json'
+            estimate=json.loads(gate.read_text())
             if estimate['status']!='PASS':
                 raise RuntimeError('benchmark gate')
             for i in (0,10,20):
