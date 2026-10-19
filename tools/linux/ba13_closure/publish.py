@@ -12,12 +12,15 @@ def sha(p):
 def save(p,v):p.write_text(json.dumps(v,indent=2,allow_nan=False)+'\n')
 
 def main():
-    assert read(O/'audit.json')['status']=='PASS'
+    audit_path=O/'audit-final.json' if (O/'audit-final.json').exists() else O/'audit.json'
+    assert read(audit_path)['status']=='PASS'
     E.mkdir(exist_ok=True)
     for name in ('summary.json','m1.json','m2.json','m3.json','m4.json','m5.json'):
         shutil.copyfile(F/name,E/name)
-    shutil.copyfile(O/'audit.json',E/'audit.json')
-    for p in O.glob('test_ba13_*.out'):shutil.copyfile(p,E/p.name)
+    shutil.copyfile(audit_path,E/'audit.json')
+    for record in read(audit_path)['tests']:
+        p=O/record.get('output',pathlib.Path(record['script']).stem+'.out')
+        shutil.copyfile(p,E/p.name)
     for name in ('matrix.json','matrix.tsv'):
         (E/(name+'.gz')).write_bytes(gzip.compress((F/name).read_bytes(),mtime=0))
     records=[]
@@ -26,9 +29,11 @@ def main():
         records.append(dict(path=str(p.relative_to(O)),numerical_cpu_seconds=data['numerical_cpu_seconds'],
                             build_cpu_seconds=data.get('build_cpu_seconds',0),wall_seconds=data['wall_seconds'],
                             peak_rss_kib=data['peak_rss_kib'],job=data.get('job'),status=data.get('status','completed'),sha256=sha(p)))
-    audit=read(O/'audit.json')
-    records.append(dict(path='audit.json',numerical_cpu_seconds=audit['numerical_cpu_seconds'],build_cpu_seconds=0,
-                        wall_seconds=audit['wall_seconds'],peak_rss_kib=audit['peak_rss_kib'],job=audit['job'],status=audit['status'],sha256=sha(O/'audit.json')))
+    audit=read(audit_path)
+    for ap in sorted(O.glob('audit*.json')):
+        ar=read(ap)
+        records.append(dict(path=ap.name,numerical_cpu_seconds=ar['numerical_cpu_seconds'],build_cpu_seconds=0,
+                            wall_seconds=ar['wall_seconds'],peak_rss_kib=ar['peak_rss_kib'],job=ar['job'],status=ar['status'],sha256=sha(ap)))
     resources=dict(records=records,numerical_cpu_seconds=sum(r['numerical_cpu_seconds'] for r in records),
                    build_cpu_seconds=sum(r['build_cpu_seconds'] for r in records),
                    measured_wall_seconds_sum=sum(r['wall_seconds'] for r in records),

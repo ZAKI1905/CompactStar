@@ -18,14 +18,19 @@ def main():
     os.sched_setaffinity(0,{min(os.sched_getaffinity(0))})
     start=time.process_time();wall=time.monotonic();checks={};tests=[]
     children_start=resource.getrusage(resource.RUSAGE_CHILDREN)
+    audit_name=os.environ.get('BA13_CLOSURE_AUDIT_NAME','audit.json')
+    if pathlib.Path(audit_name).name!=audit_name:raise ValueError('audit receipt must be a basename')
+    test_output=O if audit_name=='audit.json' else O/(pathlib.Path(audit_name).stem+'-tests')
+    test_output.mkdir(exist_ok=True)
     def check(name,ok):
         checks[name]=bool(ok)
         if not ok:raise AssertionError(name)
     for script in sorted((S/'tests/bnv').glob('test_ba13_*.py')):
         p=subprocess.run([sys.executable,'-B',str(script)],capture_output=True,text=True)
-        (O/(script.stem+'.out')).write_text(p.stdout+p.stderr)
+        outfile=test_output/(script.stem+'.out')
+        with outfile.open('x') as f:f.write(p.stdout+p.stderr)
         tests.append(dict(script=str(script.relative_to(S)),returncode=p.returncode,
-                          output_sha256=sha(O/(script.stem+'.out'))))
+                          output=str(outfile.relative_to(O)),output_sha256=sha(outfile)))
         check(script.stem,p.returncode==0)
     for line in (REV/'SHA256SUMS').read_text().splitlines():
         digest,rel=line.split(maxsplit=1)
@@ -109,7 +114,7 @@ def main():
                 wall_seconds=time.monotonic()-wall,
                 peak_rss_kib=max(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss),
                 job=os.environ['SLURM_JOB_ID'],source_sha256=sha(pathlib.Path(__file__)))
-    with (O/'audit.json').open('x') as f:json.dump(result,f,indent=2);f.write('\n')
+    with (O/audit_name).open('x') as f:json.dump(result,f,indent=2);f.write('\n')
     print(json.dumps(result,indent=2))
 
 if __name__=='__main__':main()
