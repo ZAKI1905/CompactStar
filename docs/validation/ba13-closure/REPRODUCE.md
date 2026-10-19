@@ -43,7 +43,7 @@ Execution history:
 Per-command CPU/wall/return-code/stdout/stderr hashes, process RSS, CPU affinity,
 build commands, source hashes, Slurm allocations and final states are in the
 external manifest. [resources.json](evidence/resources.json) totals all metered
-new numerical phases, including the stopped replay and both static assemblies.
+new numerical phases, including the stopped replay and all static assemblies.
 The initial historical authentication/fitter replay and login-node packaging
 were not metered, so this is not an exact whole-session CPU claim. No 900-second
 initial or 1800-second total numerical expansion was needed.

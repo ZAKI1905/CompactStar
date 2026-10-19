@@ -356,7 +356,7 @@ def main():
                     'all-target-structural-transfer',tr['reason'])
                 breakdown=dict(deterministic_representation=representation,structural_independent_endpoints=structural,
                                physical_reference='X2 fixed-Hc N=2048; t uses third-width N=512 number stencil',
-                               reconstruction_reference='fixed production profile; never independent stellar truth',
+                               reconstruction_reference='none; production tangent compared directly to X2 number stencil' if n.startswith('t_') else 'fixed production profile; never independent stellar truth',
                                reference_band_complete=False,common_B_subtracted_from_R_minus_X=True)
                 for k in ('integration','eos_equilibrium','center'):
                     val=max(reference[t][n][k] for t in TARGETS)*(2 if i else 0)
@@ -402,8 +402,10 @@ def main():
             unit='absolute dN_i/dB component (dimensionless count/count)' if n.startswith('t_') else 'historical scaled maximum-component drift'
             rows.append(dict(index=i,quantity=n,historical=history,headroom=hr,norm_kind=kind,units=unit,
                              component_count=len(scales),component_scales=dict(source='unchanged historical table parser',min=min(scales),max=max(scales)),
-                             values_source=dict(historical=f'component-data.json.gz:P:{n}:{i}',reconstruction=f'component-data.json.gz:R:{n}:{i}',
-                                                independent_reference=f'component-data.json.gz:X:{n}:{i}' if i in TARGETS and n in X[0][2048] else None),
+                             values_source=dict(historical=f'component-data.json.gz#/original_units/{n}/values/{i}',
+                                                normalized_production=f'component-data.json.gz#/P/{n}/{i}',
+                                                reconstruction=f'component-data.json.gz#/R/{i}/{n}' if n in recon[i] else None,
+                                                independent_reference=f'component-data.json.gz#/X/{i}/{n}' if i in TARGETS and n in X[0][2048] else None),
                              allocated_budget=alloc,contributions=term,reference_decomposition=breakdown,
                              correlation='deterministic P-R signed pairs; aligned R-X independent endpoints; shared B0 coordinate counted once; no fit covariance duplication',
                              normalization='unchanged historical scales; Cstar same-knot cache factor cancels exactly; t has S=1',

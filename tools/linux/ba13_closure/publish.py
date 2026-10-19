@@ -12,7 +12,7 @@ def sha(p):
 def save(p,v):p.write_text(json.dumps(v,indent=2,allow_nan=False)+'\n')
 
 def main():
-    audit_path=O/'audit-final.json' if (O/'audit-final.json').exists() else O/'audit.json'
+    audit_path=next(p for p in (O/'audit-delivery.json',O/'audit-final.json',O/'audit.json') if p.exists())
     assert read(audit_path)['status']=='PASS'
     E.mkdir(exist_ok=True)
     for name in ('summary.json','m1.json','m2.json','m3.json','m4.json','m5.json'):
@@ -40,7 +40,7 @@ def main():
                    peak_rss_kib=max(r['peak_rss_kib'] for r in records),
                    initial_numerical_cpu_ceiling=900,total_numerical_cpu_ceiling=1800,
                    extension_numerical_cpu_seconds=0,new_blanket_sequence_solves=0,
-                   scope='all newly scored stellar/static/audit runs, including stopped schema replay and both static assemblies',
+                   scope='all newly scored stellar/static/audit runs, including stopped schema replay and all static assemblies',
                    excluded='initial historical fitter/authentication replay, login-node source edits/hash/packaging/startup and Slurm connectivity probes were not metered; no exact whole-session CPU claim',
                    stopped_run='receipt-benchmark.json says RUNNING because its then-current finally block recorded that before the schema exception; final-slurm-18965.txt and traceback retain actual FAILED state',
                    allocation='one pinned logical core; Slurm may allocate both hardware threads of that core; see allocation receipts')

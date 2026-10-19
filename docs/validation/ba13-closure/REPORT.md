@@ -144,7 +144,7 @@ explicit. See [m4.json](evidence/m4.json).
 ## Validation, stops and remaining work
 
 All 17 existing BA13 tests and 13 new controls pass. The independent audit passes
-112 checks, including Decimal N_mu/t_mu calculations, all 20 changing-Jacobian
+113 checks, including Decimal N_mu/t_mu calculations, all component JSON pointers, all 20 changing-Jacobian
 Neumann-series comparisons, exact inventory/threshold preservation and all 884
 input-manifest entries. This verifies the implementation and honest refusals;
 it is not scientific acceptance. See [audit.json](evidence/audit.json) and the

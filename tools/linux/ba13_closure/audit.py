@@ -48,6 +48,19 @@ def main():
     check('no incomplete totals',all(r['proposed_total_utilization'] is None for r in rows if r['status']=='UNQUALIFIED'))
     check('all missing values named',all(k in r['missing'] for r in rows for k,v in r['contributions'].items() if v['value'] is None))
     check('no fabricated owner authority',all(not t.get('authority') for r in rows for t in r['contributions'].values()))
+    with gzip.open(F/'component-data.json.gz','rt') as f:components=json.load(f)
+    pointer_count=0
+    for row in rows:
+        for pointer in row['values_source'].values():
+            if pointer is None:continue
+            filename,fragment=pointer.split('#');assert filename=='component-data.json.gz'
+            node=components
+            for token in fragment.strip('/').split('/'):
+                node=node[int(token)] if isinstance(node,list) else node[token]
+            assert isinstance(node,list)
+            pointer_count+=1
+    check('all component JSON pointers resolve',pointer_count>=924)
+    del components
     check('units of tangents absolute',all('absolute' in r['units'] and r['contributions']['normalization']['value']==0 for r in rows if r['quantity'].startswith('t_')))
     check('no historical estimator consumption','defect_transport_uv' not in (S/'tools/linux/ba13_closure/assess.py').read_text())
     # Independent Decimal calculation of the three central N_mu errors/orders.
