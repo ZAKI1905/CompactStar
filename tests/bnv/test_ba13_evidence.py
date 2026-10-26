@@ -7,6 +7,7 @@ import unittest
 import numpy as np
 
 SOURCE=pathlib.Path(__file__).resolve().parents[2]/'tools/linux/ba13_evidence'
+sys.path.insert(0,str(SOURCE.parent/'ba13_closure'))
 sys.path.insert(0,os.environ.get('BA13_EVIDENCE_MODULES',str(SOURCE)))
 from evidence import contribution,qualify,m1_decision,FRACTIONS
 from reference import interpolation,paired_comparison
