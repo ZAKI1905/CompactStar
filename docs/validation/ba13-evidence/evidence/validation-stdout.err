@@ -1,0 +1,4 @@
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence/tools/linux/ba13_evidence/validate.py", line 79
+    check('holdouts use own cutoffs',all(hold['targets'][str(i)]['pressure']==frozen['targets'][str(i)]['surfaceP_cgs'] for i in (5,15))
+         ^
+SyntaxError: '(' was never closed

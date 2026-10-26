@@ -1,0 +1,6 @@
+{
+ "command": "sacct -j 19130,19131,19132,19133,19134,19135,19136,19137 --parsable2 --units=K --format=JobIDRaw,JobName,State,ExitCode,ElapsedRaw,TotalCPU,UserCPU,SystemCPU,MaxRSS,AllocCPUS,NodeList",
+ "returncode": 1,
+ "stderr": "Slurm accounting storage is disabled",
+ "fabricated_accounting": false
+}

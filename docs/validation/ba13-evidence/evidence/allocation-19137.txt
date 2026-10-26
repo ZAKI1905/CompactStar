@@ -1,0 +1,28 @@
+JobId=19137 JobName=ba13-evidence
+   UserId=nobody(1038) GroupId=nobody(1041) MCS_label=N/A
+   Priority=4294893338 Nice=0 Account=(null) QOS=(null)
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:00 TimeLimit=00:05:00 TimeMin=N/A
+   SubmitTime=2026-10-26T17:46:59 EligibleTime=2026-10-26T17:46:59
+   AccrueTime=2026-10-26T17:46:59
+   StartTime=2026-10-26T17:47:00 EndTime=2026-10-26T17:52:00 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-26T17:47:00 Scheduler=Main
+   Partition=phyall AllocNode:Sid=ekucn1:3045640
+   ReqNodeList=phyn004 ExcNodeList=(null)
+   NodeList=phyn004
+   BatchHost=phyn004
+   NumNodes=1 NumCPUs=2 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:1
+   TRES=cpu=2,node=1,billing=2
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=1G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence/tools/linux/ba13_evidence/run.sbatch run diagnostics
+   WorkDir=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence
+   StdErr=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-evidence-20261026/slurm-19137.err
+   StdIn=/dev/null
+   StdOut=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-evidence-20261026/slurm-19137.out
+   Power=
+   
+

@@ -181,6 +181,6 @@ Owner review must still adjudicate the evidence standard, itemized conditionals,
 continuous curvature and finite-cut law, input/normalization propagation, the
 certified object and sidecar format. Neither this investigation nor its passing
 tests ratifies Option A or interpretation (2). Numerical work stopped after
-49.689379 measured CPU seconds, within the 40–60 second plan and 180 second
+49.681485 measured CPU seconds, within the 40–60 second plan and 180 second
 ceiling. No production-method/fitter changes, certificate promotion, master merge,
 new solver, observer campaign, BNV trajectory or full campaign follows.

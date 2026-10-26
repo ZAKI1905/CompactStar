@@ -160,9 +160,11 @@ One static audit submission failed at Python parsing because of a missing closin
 parenthesis; its receipt/error remain preserved (job 19135). It ran no solver.
 The corrected audit passed as job 19136. No acceptance criterion changed.
 
-Measured numerical execution: **49.689379 CPU seconds**, within the initial
+Measured numerical execution: **49.681485 CPU seconds**, within the initial
 40–60 second plan and 180 second ceiling; one pinned Slurm core, single-thread
-BLAS. Tangents used 19.450991 CPU s; holdouts 17.610455 CPU s. No new build was
+BLAS. Tangents used 19.444015 CPU s; holdouts 17.603915 CPU s. These are receipt
+values before final receipt hashing/printing; stdout timing includes that small
+packaging overhead. No new build was
 needed: retained executables were authenticated by hash. Allocations, per-command
 CPU/wall measurements, stderr and source identities are retained. `sacct` reports
 that Slurm accounting storage is disabled; this limitation is explicit rather

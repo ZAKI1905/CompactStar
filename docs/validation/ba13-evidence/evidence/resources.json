@@ -1,0 +1,89 @@
+{
+ "numerical_cpu_seconds": 49.681485,
+ "initial_plan_cpu_seconds": [
+  40,
+  60
+ ],
+ "ceiling_cpu_seconds": 180,
+ "within_initial_plan": true,
+ "builds_cpu_seconds": 0,
+ "execution": "authenticated retained executables",
+ "phases": {
+  "receipt-assemble.json": {
+   "job": "19133",
+   "status": "PASS",
+   "numerical_cpu_seconds": 6.442755000000001,
+   "wall_seconds": 7.1533119678497314,
+   "affinity": [
+    0
+   ]
+  },
+  "receipt-diagnostics.json": {
+   "job": "19137",
+   "status": "PASS",
+   "numerical_cpu_seconds": 0.225655,
+   "wall_seconds": 0.28599634021520615,
+   "affinity": [
+    0
+   ]
+  },
+  "receipt-freeze.json": {
+   "job": "19131",
+   "status": "PASS",
+   "numerical_cpu_seconds": 0.606798,
+   "wall_seconds": 1.2457163408398628,
+   "affinity": [
+    0
+   ]
+  },
+  "receipt-historical-audit.json": {
+   "job": "19134",
+   "status": "PASS",
+   "numerical_cpu_seconds": 2.1585509999999997,
+   "wall_seconds": 6.150303155183792,
+   "affinity": [
+    0
+   ]
+  },
+  "receipt-holdouts.json": {
+   "job": "19132",
+   "status": "PASS_EXPERIMENT",
+   "numerical_cpu_seconds": 17.603915000000004,
+   "wall_seconds": 17.84620613604784,
+   "affinity": [
+    0
+   ]
+  },
+  "receipt-tangent.json": {
+   "job": "19130",
+   "status": "PASS_EXPERIMENT",
+   "numerical_cpu_seconds": 19.444014999999997,
+   "wall_seconds": 19.843876227736473,
+   "affinity": [
+    0
+   ]
+  },
+  "receipt-validate-v2.json": {
+   "job": "19136",
+   "status": "PASS",
+   "numerical_cpu_seconds": 3.168055,
+   "wall_seconds": 3.6979841738939285,
+   "affinity": [
+    0
+   ]
+  },
+  "receipt-validate.json": {
+   "job": "19135",
+   "status": "ERROR",
+   "numerical_cpu_seconds": 0.03174099999999999,
+   "wall_seconds": 0.05808667093515396,
+   "affinity": [
+    0
+   ]
+  }
+ },
+ "scheduler_accounting": "sacct failed: Slurm accounting storage is disabled",
+ "available_receipts": "scontrol job allocations and per-process self+children getrusage, tied to Slurm job IDs",
+ "stopped_static_attempt": "19135: audit SyntaxError before any test or solver; preserved; corrected static run 19136 passed",
+ "packaging": "hashing, compression, copying and report formatting only; outside numerical scope"
+}

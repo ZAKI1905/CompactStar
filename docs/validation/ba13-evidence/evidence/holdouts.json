@@ -1,0 +1,205 @@
+{
+  "status": "PASS_EXPERIMENT",
+  "targets": {
+    "5": {
+      "groups": {
+        "Cstar": {
+          "discrepancy": 1.5165646516379638e-13,
+          "criterion": 1.4332116772626678e-12,
+          "ratio": 0.10581581741885429,
+          "status": "PASS"
+        },
+        "Ltilde_Me": {
+          "discrepancy": 7.838174553853605e-14,
+          "criterion": 6.68358276892829e-13,
+          "ratio": 0.11727504281525422,
+          "status": "PASS"
+        },
+        "Ltilde_Mmu": {
+          "discrepancy": 7.022937786871353e-12,
+          "criterion": 6.850325163303418e-11,
+          "ratio": 0.10251977270352954,
+          "status": "PASS"
+        },
+        "N_e": {
+          "discrepancy": 1.0428324870304095e-12,
+          "criterion": 1.019730344616929e-11,
+          "ratio": 0.10226551485257204,
+          "status": "PASS"
+        },
+        "N_mu": {
+          "discrepancy": 6.462086421521462e-11,
+          "criterion": 6.425627529340605e-10,
+          "ratio": 0.1005673981570575,
+          "status": "PASS"
+        },
+        "N_n": {
+          "discrepancy": 6.661338147750939e-15,
+          "criterion": 2.351554724082494e-13,
+          "ratio": 0.028327378816795312,
+          "status": "PASS"
+        },
+        "P0_average": {
+          "discrepancy": 2.6867397195928788e-14,
+          "criterion": 2.5769042042985567e-13,
+          "ratio": 0.10426230494370356,
+          "status": "PASS"
+        },
+        "P1_average": {
+          "discrepancy": 3.930189507173054e-14,
+          "criterion": 3.7624130573804363e-13,
+          "ratio": 0.10445927778885158,
+          "status": "PASS"
+        },
+        "Tsurface_inf": {
+          "discrepancy": 9.814371537686384e-14,
+          "criterion": 9.265822797754671e-13,
+          "ratio": 0.10592012983525477,
+          "status": "PASS"
+        },
+        "Z_row_npe": {
+          "discrepancy": 6.994405055138486e-14,
+          "criterion": 1.331941670234119e-12,
+          "ratio": 0.05251284805819658,
+          "status": "PASS"
+        },
+        "Z_row_npmu": {
+          "discrepancy": 5.642575295894403e-11,
+          "criterion": 5.737178540027669e-10,
+          "ratio": 0.09835104932723936,
+          "status": "PASS"
+        },
+        "envelope": {
+          "discrepancy": 1.3722356584366935e-13,
+          "criterion": 1.306342777844773e-12,
+          "ratio": 0.10504407278927448,
+          "status": "PASS"
+        },
+        "mu_B": {
+          "discrepancy": 2.6867397195928788e-14,
+          "criterion": 2.57690328272671e-13,
+          "ratio": 0.1042623422307859,
+          "status": "PASS"
+        },
+        "radius": {
+          "discrepancy": 1.163513729807164e-13,
+          "criterion": 1.0796377380660114e-12,
+          "ratio": 0.10776890143645797,
+          "status": "PASS"
+        },
+        "surface_gravity": {
+          "discrepancy": 7.749356711883593e-13,
+          "criterion": 7.513513256081117e-12,
+          "ratio": 0.10313892379988275,
+          "status": "PASS"
+        }
+      },
+      "pressure": "4.9156425758295409e+19",
+      "B_target": "7.6169046144922614e+56",
+      "B_achieved": "7.6169046144922613874E+56",
+      "root_shots": 3
+    },
+    "15": {
+      "groups": {
+        "Cstar": {
+          "discrepancy": 1.509903313490213e-13,
+          "criterion": 1.4301786030997441e-12,
+          "ratio": 0.1055744583381177,
+          "status": "PASS"
+        },
+        "Ltilde_Me": {
+          "discrepancy": 7.749356711883593e-14,
+          "criterion": 6.646254899504993e-13,
+          "ratio": 0.1165973443549503,
+          "status": "PASS"
+        },
+        "Ltilde_Mmu": {
+          "discrepancy": 7.009837155180776e-12,
+          "criterion": 6.845026517669283e-11,
+          "ratio": 0.10240774286390361,
+          "status": "PASS"
+        },
+        "N_e": {
+          "discrepancy": 1.0403899963762342e-12,
+          "criterion": 1.0187227678465729e-11,
+          "ratio": 0.10212690137233926,
+          "status": "PASS"
+        },
+        "N_mu": {
+          "discrepancy": 6.459266455038915e-11,
+          "criterion": 6.424511881115411e-10,
+          "ratio": 0.10054096831894208,
+          "status": "PASS"
+        },
+        "N_n": {
+          "discrepancy": 6.106226635438361e-15,
+          "criterion": 2.3315014495809784e-13,
+          "ratio": 0.026190104391896403,
+          "status": "PASS"
+        },
+        "P0_average": {
+          "discrepancy": 2.6645352591003757e-14,
+          "criterion": 2.573019795889963e-13,
+          "ratio": 0.10355673373973243,
+          "status": "PASS"
+        },
+        "P1_average": {
+          "discrepancy": 3.907985046680551e-14,
+          "criterion": 3.757017627454273e-13,
+          "ratio": 0.10401827817157655,
+          "status": "PASS"
+        },
+        "Tsurface_inf": {
+          "discrepancy": 9.769962616701378e-14,
+          "criterion": 9.248250651765767e-13,
+          "ratio": 0.10564119620650636,
+          "status": "PASS"
+        },
+        "Z_row_npe": {
+          "discrepancy": 7.105427357601002e-14,
+          "criterion": 1.3274791304339385e-12,
+          "ratio": 0.053525717992103684,
+          "status": "PASS"
+        },
+        "Z_row_npmu": {
+          "discrepancy": 5.6445736973387284e-11,
+          "criterion": 5.736454566339645e-10,
+          "ratio": 0.09839829867144673,
+          "status": "PASS"
+        },
+        "envelope": {
+          "discrepancy": 1.3666845433135677e-13,
+          "criterion": 1.3041970139015969e-12,
+          "ratio": 0.10479126456707909,
+          "status": "PASS"
+        },
+        "mu_B": {
+          "discrepancy": 2.6645352591003757e-14,
+          "criterion": 2.573018025026419e-13,
+          "ratio": 0.10355680501200597,
+          "status": "PASS"
+        },
+        "radius": {
+          "discrepancy": 1.156852391659413e-13,
+          "criterion": 1.0769915219775635e-12,
+          "ratio": 0.10741518090460078,
+          "status": "PASS"
+        },
+        "surface_gravity": {
+          "discrepancy": 7.728262474415715e-13,
+          "criterion": 7.505870633881816e-12,
+          "ratio": 0.10296290532280175,
+          "status": "PASS"
+        }
+      },
+      "pressure": "4.9156219696754016e+19",
+      "B_target": "7.6169008060390084e+56",
+      "B_achieved": "7.61690080603900837912E+56",
+      "root_shots": 3
+    }
+  },
+  "criterion_sha256": "2fe626af3db6268392aa8c0080e6be185c964aca667cb9b056a51d96e33a283e",
+  "continuous_theorem": false,
+  "qualification": "UNQUALIFIED",
+  "reference_transfer_allowed": true
+}

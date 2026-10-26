@@ -1,0 +1,335 @@
+{
+ "window": {
+  "physical_thresholds": {
+   "0": {
+    "Hs": 1.3073642058034328e-05,
+    "Hb": 0.0009023927756353209,
+    "Hn": 0.000833001386121841,
+    "Hmu": 0.11182827543253801
+   },
+   "10": {
+    "Hs": 1.3073620247702123e-05,
+    "Hb": 0.0009023927756353209,
+    "Hn": 0.000833001386121841,
+    "Hmu": 0.11182827543253801
+   },
+   "20": {
+    "Hs": 1.3073598437439474e-05,
+    "Hb": 0.0009023927756353209,
+    "Hn": 0.000833001386121841,
+    "Hmu": 0.11182827543253801
+   }
+  },
+  "Hc_values": [
+   0.13154890784581055,
+   0.13154870928652895,
+   0.13154851072782064
+  ],
+  "neutron_cell_min_sample_margin_km": 0.0003908557699094928,
+  "neutron_edge_sample_motion_km": 1.5898130387270726e-05,
+  "neutron_edge_sample_monotone": true,
+  "envelope_node_min_sample_margin": 1.684285596741258e-06,
+  "envelope_sample_motion": 1.0712632615731879e-07,
+  "envelope_sample_monotone": true,
+  "selection": {
+   "k": {
+    "values": [
+     20118,
+     20118,
+     20118,
+     20118,
+     20118,
+     20118,
+     20118,
+     20118,
+     20118,
+     20118,
+     20118,
+     20118,
+     20118,
+     20118,
+     20118,
+     20118,
+     20118,
+     20118,
+     20118,
+     20118,
+     20118
+    ],
+    "constant": true
+   },
+   "neutron_cell": {
+    "values": [
+     [
+      12.642913818873028,
+      12.643788818748028
+     ],
+     [
+      12.642913818873028,
+      12.643788818748028
+     ],
+     [
+      12.642913818873028,
+      12.643788818748028
+     ],
+     [
+      12.642913818873028,
+      12.643788818748028
+     ],
+     [
+      12.642913818873028,
+      12.643788818748028
+     ],
+     [
+      12.642913818873028,
+      12.643788818748028
+     ],
+     [
+      12.642913818873028,
+      12.643788818748028
+     ],
+     [
+      12.642913818873028,
+      12.643788818748028
+     ],
+     [
+      12.642913818873028,
+      12.643788818748028
+     ],
+     [
+      12.642913818873028,
+      12.643788818748028
+     ],
+     [
+      12.642913818873028,
+      12.643788818748028
+     ],
+     [
+      12.642913818873028,
+      12.643788818748028
+     ],
+     [
+      12.642913818873028,
+      12.643788818748028
+     ],
+     [
+      12.642913818873028,
+      12.643788818748028
+     ],
+     [
+      12.642913818873028,
+      12.643788818748028
+     ],
+     [
+      12.642913818873028,
+      12.643788818748028
+     ],
+     [
+      12.642913818873028,
+      12.643788818748028
+     ],
+     [
+      12.642913818873028,
+      12.643788818748028
+     ],
+     [
+      12.642913818873028,
+      12.643788818748028
+     ],
+     [
+      12.642913818873028,
+      12.643788818748028
+     ],
+     [
+      12.642913818873028,
+      12.643788818748028
+     ]
+    ],
+    "constant": true
+   },
+   "envelope_node": {
+    "values": [
+     20105,
+     20105,
+     20105,
+     20105,
+     20105,
+     20105,
+     20105,
+     20105,
+     20105,
+     20105,
+     20105,
+     20105,
+     20105,
+     20105,
+     20105,
+     20105,
+     20105,
+     20105,
+     20105,
+     20105,
+     20105
+    ],
+    "constant": true
+   }
+  },
+  "continuous_selection_proven": false,
+  "physical_response": "no production-node jump charged to smooth physical response",
+  "production_response": "sample monotonicity and margins do not bound unsampled adaptive-controller changes",
+  "sufficient_no_switch_conditions": {
+   "neutron_edge_Lipschitz_limit_km_per_x": 15634.229413679017,
+   "neutron_edge_observed_secant_km_per_x": 15.898373345634223,
+   "envelope_Lipschitz_limit_per_x": 67.37141791128141,
+   "envelope_observed_secant_per_x": 0.10712804550055542,
+   "rationale": "nearest achieved sample is at most half the largest gap away; L*gap/2 < margin suffices without monotonicity",
+   "derivative_bounds_established": false
+  }
+ },
+ "moving_surface": {
+  "prev_nodes_identical": true,
+  "cell_spacing_km": 0.0008749998750001708,
+  "surface_offset_in_terminal_cell_km": [
+   0.000760959303555353,
+   0.0007773391099288318
+  ],
+  "min_margin_to_node_crossing_km": 9.766076507133903e-05,
+  "surface_motion_over_window_km": 1.63798063734788e-05,
+  "margin_over_window_motion": 5.962266149218069,
+  "surface_radius_second_difference_max_km": 3.852917984659143e-11,
+  "lnPs_slope_per_x": [
+   8.38391596606531,
+   8.383940269064954
+  ],
+  "lnPs_linear_fit_residual_max": 2.0676793610618915e-12,
+  "lnPs_change_over_window": 8.383928125965667e-06
+ },
+ "groups": {
+  "t_n": {
+   "K": 50.6494140625,
+   "curvature_ratio": 1.0003084290094566,
+   "continuation_sample_checks": true,
+   "validated_supremum": false
+  },
+  "t_e": {
+   "K": 21.68121337890625,
+   "curvature_ratio": 1.0051694571784728,
+   "continuation_sample_checks": true,
+   "validated_supremum": false
+  },
+  "t_mu": {
+   "K": 29.099712371826172,
+   "curvature_ratio": 1.0012232430766757,
+   "continuation_sample_checks": true,
+   "validated_supremum": false
+  },
+  "N_n": {
+   "K": 3.232964070048756,
+   "curvature_ratio": 1.0627785578587243,
+   "continuation_sample_checks": true,
+   "validated_supremum": false
+  },
+  "N_e": {
+   "K": 307.9541015625,
+   "curvature_ratio": 1.0032513431977599,
+   "continuation_sample_checks": true,
+   "validated_supremum": false
+  },
+  "N_mu": {
+   "K": 20393.41796875,
+   "curvature_ratio": 1.0005580422485507,
+   "continuation_sample_checks": true,
+   "validated_supremum": false
+  },
+  "Ltilde_Me": {
+   "K": 15.546875,
+   "curvature_ratio": 1.0252984442117186,
+   "continuation_sample_checks": true,
+   "validated_supremum": false
+  },
+  "Ltilde_Mmu": {
+   "K": 2111.8994140625,
+   "curvature_ratio": 1.0025115488292424,
+   "continuation_sample_checks": true,
+   "validated_supremum": false
+  },
+  "mu_B": {
+   "K": 7.6318359375,
+   "curvature_ratio": 1.0072549129139379,
+   "continuation_sample_checks": true,
+   "validated_supremum": false
+  },
+  "P0_average": {
+   "K": 7.6318359375,
+   "curvature_ratio": 1.0072549133079893,
+   "continuation_sample_checks": true,
+   "validated_supremum": false
+  },
+  "P1_average": {
+   "K": 11.1669921875,
+   "curvature_ratio": 1.00566732867802,
+   "continuation_sample_checks": true,
+   "validated_supremum": false
+  },
+  "radius": {
+   "K": 30.4345703125,
+   "curvature_ratio": 1.0084333611165506,
+   "continuation_sample_checks": true,
+   "validated_supremum": false
+  },
+  "Z_row_npe": {
+   "K": 34.22495068592649,
+   "curvature_ratio": 1.0136326681818866,
+   "continuation_sample_checks": true,
+   "validated_supremum": false
+  },
+  "Z_row_npmu": {
+   "K": 18249.50813385821,
+   "curvature_ratio": 1.000432900668212,
+   "continuation_sample_checks": true,
+   "validated_supremum": false
+  },
+  "Cstar": {
+   "K": 40.791015625,
+   "curvature_ratio": 1.0077059870710026,
+   "continuation_sample_checks": true,
+   "validated_supremum": false
+  },
+  "envelope": {
+   "K": 38.427734375,
+   "curvature_ratio": 1.0058879267076861,
+   "continuation_sample_checks": true,
+   "validated_supremum": false
+  },
+  "Tsurface_inf": {
+   "K": 26.8896484375,
+   "curvature_ratio": 1.0067089179840807,
+   "continuation_sample_checks": true,
+   "validated_supremum": false
+  },
+  "surface_gravity": {
+   "K": 228.41796875,
+   "curvature_ratio": 1.0037728861115773,
+   "continuation_sample_checks": true,
+   "validated_supremum": false
+  },
+  "mu_n_profile": {
+   "K": 7.631835939378132,
+   "curvature_ratio": 1.0072549129139377,
+   "continuation_sample_checks": true,
+   "validated_supremum": false
+  }
+ },
+ "physical_response": "fixed topology analytic equilibrium response; snapped numerical support/envelope nodes are representation choices",
+ "unresolved": [
+  "uniform curvature supremum",
+  "positive B_H away from sampled stencils",
+  "continuous surface-cut law"
+ ],
+ "observer": {
+  "needed_for_full_metric_claim": true,
+  "implemented": false,
+  "benchmark_run": false,
+  "reason": "reference uncertainty and continuation authority stop; quadratic dense output order is not endpoint GL4 order"
+ }
+}

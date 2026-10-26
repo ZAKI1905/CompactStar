@@ -1,0 +1,622 @@
+{
+  "tangents": {
+    "t_n": {
+      "cross_geometry": {
+        "0-10": {
+          "mean_extrapolated_offset_minus_central_secant": "-3.76821136781649293727196928836098427238880816242E-13",
+          "predicted_curvature_mean_value_term": "-1.0548784596157019310051162360963482063583157078125E-13",
+          "residual": "-2.7133329082007910062668530522646360660304924546075E-13",
+          "measured_secant_last_increment": "3.93758117061884026998787652097987039854547287846E-13",
+          "offset_mean_tail": "1.57074187738624439056699649520575786619057833463333333333334E-14",
+          "central_secants": {
+            "512": "0.965770157854919034706834822799688828538324249772962829054668",
+            "1024": "0.965770157858415313155671824034733135308042821688542403644466",
+            "2048": "0.965770157858809071272733708061731922960140808728396950932312"
+          },
+          "interpretation": "independent stencil geometry on same X2 method; not an independent solver derivative bound",
+          "unresolved": "fourth-width term, higher mean-value derivatives, moving-cut tangent response and arithmetic cancellation"
+        },
+        "10-20": {
+          "mean_extrapolated_offset_minus_central_secant": "-7.4354294172783576283281237387969231736021545117E-14",
+          "predicted_curvature_mean_value_term": "-1.05488992414899769440935767381669275292758271238333333333333E-13",
+          "residual": "3.1134698242116193157654529993700043556736726121333333333333E-14",
+          "measured_secant_last_increment": "2.68195989122927115177872479790917255485346464035E-13",
+          "offset_mean_tail": "1.56649434999653428504448587758435932766342617353000000000000E-14",
+          "central_secants": {
+            "512": "0.965770318470434248323970326653032847188137447233178386305953",
+            "1024": "0.965770318473878077977595187243201726041573508567960746848392",
+            "2048": "0.965770318474146273966718114358379598521364425823446093312427"
+          },
+          "interpretation": "independent stencil geometry on same X2 method; not an independent solver derivative bound",
+          "unresolved": "fourth-width term, higher mean-value derivatives, moving-cut tangent response and arithmetic cancellation"
+        },
+        "0-20": {
+          "mean_extrapolated_offset_minus_central_secant": "-5.41901454313993729460447220778028746573943793968E-13",
+          "predicted_curvature_mean_value_term": "-4.21955305475054741321904492684045779179582678366666666666667E-13",
+          "residual": "-1.19946148838938988138542728093982967394361115601333333333333E-13",
+          "measured_secant_last_increment": "3.30977035162213109383746719178743560107613237831E-13",
+          "offset_mean_tail": "1.56451400679899659321110088610266185400036894475666666666666E-14",
+          "central_secants": {
+            "512": "0.965770238162676649897265221122360379974900479484444630431709",
+            "1024": "0.965770238166146703890083239787094290580229150571237967744117",
+            "2048": "0.965770238166477680925245452896478037299407894131345580981948"
+          },
+          "interpretation": "independent stencil geometry on same X2 method; not an independent solver derivative bound",
+          "unresolved": "fourth-width term, higher mean-value derivatives, moving-cut tangent response and arithmetic cancellation"
+        }
+      },
+      "root_alignment": {
+        "0": {
+          "computed_B_residual": "1.422116574895159E+43",
+          "functional_GL4_tail_estimate": "1.5169254808293928E+43",
+          "slope_secants": [
+            "1.918040670717177E+57",
+            "1.918040664407865E+57",
+            "1.9180406628305148E+57"
+          ],
+          "local_slope_hypothesis": "1.916122623743457E+57",
+          "H_error_estimate": "1.5338486270688957E-14",
+          "evidence_type": "conditional_estimate",
+          "condition_id": "positive-B-slope-and-reference-band",
+          "authority": null,
+          "missing": "local derivative enclosure and EOS/center/stage/arithmetic B remainder"
+        },
+        "10": {
+          "computed_B_residual": "1.18644551462489E+43",
+          "functional_GL4_tail_estimate": "1.51695468839922E+43",
+          "slope_secants": [
+            "1.9180462090878145E+57",
+            "1.9180462027785396E+57",
+            "1.9180462012012358E+57"
+          ],
+          "local_slope_hypothesis": "1.916128156575761E+57",
+          "H_error_estimate": "1.4108660705948042E-14",
+          "evidence_type": "conditional_estimate",
+          "condition_id": "positive-B-slope-and-reference-band",
+          "authority": null,
+          "missing": "local derivative enclosure and EOS/center/stage/arithmetic B remainder"
+        },
+        "20": {
+          "computed_B_residual": "1.3436134328464985E+43",
+          "functional_GL4_tail_estimate": "1.5169827616944911E+43",
+          "slope_secants": [
+            "1.9180517474539367E+57",
+            "1.918051741144628E+57",
+            "1.9180517395673315E+57"
+          ],
+          "local_slope_hypothesis": "1.9161336894034835E+57",
+          "H_error_estimate": "1.4929001094028723E-14",
+          "evidence_type": "conditional_estimate",
+          "condition_id": "positive-B-slope-and-reference-band",
+          "authority": null,
+          "missing": "local derivative enclosure and EOS/center/stage/arithmetic B remainder"
+        }
+      },
+      "independent_method_tangent_reference_available": false,
+      "classification": "offset discretization experimentally supported; full derivative uncertainty remains conditional/unresolved"
+    },
+    "t_e": {
+      "cross_geometry": {
+        "0-10": {
+          "mean_extrapolated_offset_minus_central_secant": "1.925204720642088223711631418354118029643560244536E-13",
+          "predicted_curvature_mean_value_term": "4.4937634195357882281749465801683516698084113634375E-14",
+          "residual": "1.47582837868850940089413676033728286266271910819225E-13",
+          "measured_secant_last_increment": "1.760115636136059428625287711467727310298078002175E-13",
+          "offset_mean_tail": "1.25563408635556073335097789208172230993666912649000000000000E-14",
+          "central_secants": {
+            "512": "0.0308521299524539144584000450638201386284664558968344178880301",
+            "1024": "0.0308521299494215112465487086755608566588882933140736381624277",
+            "2048": "0.0308521299492454996829351027326983278877415205830438303622102"
+          },
+          "interpretation": "independent stencil geometry on same X2 method; not an independent solver derivative bound",
+          "unresolved": "fourth-width term, higher mean-value derivatives, moving-cut tangent response and arithmetic cancellation"
+        },
+        "10-20": {
+          "mean_extrapolated_offset_minus_central_secant": "1.442604238982268709332046027901191352695753104579E-13",
+          "predicted_curvature_mean_value_term": "4.49373713883735992909364064440644951914165120194583333333333E-14",
+          "residual": "9.93230525098532716422681963460546400781587984384416666666667E-14",
+          "measured_secant_last_increment": "1.753412904545899678247823204325879091796039660961E-13",
+          "offset_mean_tail": "1.25163265887172375239832428347208825955370865331633333333333E-14",
+          "central_secants": {
+            "512": "0.0308520329933769586058594656281120934394407029104177662030513",
+            "1024": "0.0308520329903903457683398620550466204230216492039025244727494",
+            "2048": "0.0308520329902150044778852720872218381025890612947229205066533"
+          },
+          "interpretation": "independent stencil geometry on same X2 method; not an independent solver derivative bound",
+          "unresolved": "fourth-width term, higher mean-value derivatives, moving-cut tangent response and arithmetic cancellation"
+        },
+        "0-20": {
+          "mean_extrapolated_offset_minus_central_secant": "3.028726718195350924296177800022339987290172568622E-13",
+          "predicted_curvature_mean_value_term": "1.79749736200202580312021190103320518657642510240E-13",
+          "residual": "1.231229356193325121175965898989134800713747466222E-13",
+          "measured_secant_last_increment": "1.756764162140306851615992070793127709821664619761E-13",
+          "offset_mean_tail": "1.25846830060240048093464656189711810642105834068700000000000E-14",
+          "central_secants": {
+            "512": "0.0308520814729154314722346120628577277374561611673210843333071",
+            "1024": "0.0308520814699059234828121093260460787634325610011710226065197",
+            "2048": "0.0308520814697302470665980786408844795563532482301888561445436"
+          },
+          "interpretation": "independent stencil geometry on same X2 method; not an independent solver derivative bound",
+          "unresolved": "fourth-width term, higher mean-value derivatives, moving-cut tangent response and arithmetic cancellation"
+        }
+      },
+      "root_alignment": {
+        "0": {
+          "computed_B_residual": "1.422116574895159E+43",
+          "functional_GL4_tail_estimate": "1.5169254808293928E+43",
+          "slope_secants": [
+            "1.918040670717177E+57",
+            "1.918040664407865E+57",
+            "1.9180406628305148E+57"
+          ],
+          "local_slope_hypothesis": "1.916122623743457E+57",
+          "H_error_estimate": "1.5338486270688957E-14",
+          "evidence_type": "conditional_estimate",
+          "condition_id": "positive-B-slope-and-reference-band",
+          "authority": null,
+          "missing": "local derivative enclosure and EOS/center/stage/arithmetic B remainder"
+        },
+        "10": {
+          "computed_B_residual": "1.18644551462489E+43",
+          "functional_GL4_tail_estimate": "1.51695468839922E+43",
+          "slope_secants": [
+            "1.9180462090878145E+57",
+            "1.9180462027785396E+57",
+            "1.9180462012012358E+57"
+          ],
+          "local_slope_hypothesis": "1.916128156575761E+57",
+          "H_error_estimate": "1.4108660705948042E-14",
+          "evidence_type": "conditional_estimate",
+          "condition_id": "positive-B-slope-and-reference-band",
+          "authority": null,
+          "missing": "local derivative enclosure and EOS/center/stage/arithmetic B remainder"
+        },
+        "20": {
+          "computed_B_residual": "1.3436134328464985E+43",
+          "functional_GL4_tail_estimate": "1.5169827616944911E+43",
+          "slope_secants": [
+            "1.9180517474539367E+57",
+            "1.918051741144628E+57",
+            "1.9180517395673315E+57"
+          ],
+          "local_slope_hypothesis": "1.9161336894034835E+57",
+          "H_error_estimate": "1.4929001094028723E-14",
+          "evidence_type": "conditional_estimate",
+          "condition_id": "positive-B-slope-and-reference-band",
+          "authority": null,
+          "missing": "local derivative enclosure and EOS/center/stage/arithmetic B remainder"
+        }
+      },
+      "independent_method_tangent_reference_available": false,
+      "classification": "offset discretization experimentally supported; full derivative uncertainty remains conditional/unresolved"
+    },
+    "t_mu": {
+      "cross_geometry": {
+        "0-10": {
+          "mean_extrapolated_offset_minus_central_secant": "6.396566459451858306923894476623837922443678473300E-14",
+          "predicted_curvature_mean_value_term": "6.0550970907634565613139926322273290611613653915625E-14",
+          "residual": "3.414693686884017456099018443965088612823130817375E-15",
+          "measured_secant_last_increment": "3.880067867003251858805761652900518648298686977244E-14",
+          "offset_mean_tail": "2.67310441840393408708773363873115503237303119637366666666667E-15",
+          "central_secants": {
+            "512": "0.00337771219275278087988305232677407964385734196332632199145146",
+            "1024": "0.00337771219210948398438928958571556628589987992483037197702776",
+            "2048": "0.00337771219207068330571925706712750866937087473834738510725532"
+          },
+          "interpretation": "independent stencil geometry on same X2 method; not an independent solver derivative bound",
+          "unresolved": "fourth-width term, higher mean-value derivatives, moving-cut tangent response and arithmetic cancellation"
+        },
+        "10-20": {
+          "mean_extrapolated_offset_minus_central_secant": "5.758879379782083954636063274814133705485343140952E-14",
+          "predicted_curvature_mean_value_term": "6.0550577673085679752292014937361888414821867535375E-14",
+          "residual": "-2.961783875264840205931382189220551359968436125855E-15",
+          "measured_secant_last_increment": "3.755114480156589780371767783636285923665113146920E-14",
+          "offset_mean_tail": "2.66889429272041065640652029218192890351373851381033333333334E-15",
+          "central_secants": {
+            "512": "0.00337764853619219182528659730307087394338232279891619353342556",
+            "1024": "0.00337764853555391567801608358632566884182013594970080370558004",
+            "2048": "0.00337764853551636453321451768852195116398377309046415257411084"
+          },
+          "interpretation": "independent stencil geometry on same X2 method; not an independent solver derivative bound",
+          "unresolved": "fourth-width term, higher mean-value derivatives, moving-cut tangent response and arithmetic cancellation"
+        },
+        "0-20": {
+          "mean_extrapolated_offset_minus_central_secant": "2.4237560334075191828277081918037698495445905020314E-13",
+          "predicted_curvature_mean_value_term": "2.42203060667353316797157998392026557625566807513333333333333E-13",
+          "residual": "1.72542673398601485612820788350427328892242689806666666667E-16",
+          "measured_secant_last_increment": "3.817590463205380424315835976849011751797419891988E-14",
+          "offset_mean_tail": "2.67751950049931742564385368865638193492530963626533333333334E-15",
+          "central_secants": {
+            "512": "0.00337768036447248303061093773552107930014807039711815203963942",
+            "1024": "0.00337768036383169653237870413038229625262694984323550238469666",
+            "2048": "0.00337768036379352062774665032613913789285845972571752818577678"
+          },
+          "interpretation": "independent stencil geometry on same X2 method; not an independent solver derivative bound",
+          "unresolved": "fourth-width term, higher mean-value derivatives, moving-cut tangent response and arithmetic cancellation"
+        }
+      },
+      "root_alignment": {
+        "0": {
+          "computed_B_residual": "1.422116574895159E+43",
+          "functional_GL4_tail_estimate": "1.5169254808293928E+43",
+          "slope_secants": [
+            "1.918040670717177E+57",
+            "1.918040664407865E+57",
+            "1.9180406628305148E+57"
+          ],
+          "local_slope_hypothesis": "1.916122623743457E+57",
+          "H_error_estimate": "1.5338486270688957E-14",
+          "evidence_type": "conditional_estimate",
+          "condition_id": "positive-B-slope-and-reference-band",
+          "authority": null,
+          "missing": "local derivative enclosure and EOS/center/stage/arithmetic B remainder"
+        },
+        "10": {
+          "computed_B_residual": "1.18644551462489E+43",
+          "functional_GL4_tail_estimate": "1.51695468839922E+43",
+          "slope_secants": [
+            "1.9180462090878145E+57",
+            "1.9180462027785396E+57",
+            "1.9180462012012358E+57"
+          ],
+          "local_slope_hypothesis": "1.916128156575761E+57",
+          "H_error_estimate": "1.4108660705948042E-14",
+          "evidence_type": "conditional_estimate",
+          "condition_id": "positive-B-slope-and-reference-band",
+          "authority": null,
+          "missing": "local derivative enclosure and EOS/center/stage/arithmetic B remainder"
+        },
+        "20": {
+          "computed_B_residual": "1.3436134328464985E+43",
+          "functional_GL4_tail_estimate": "1.5169827616944911E+43",
+          "slope_secants": [
+            "1.9180517474539367E+57",
+            "1.918051741144628E+57",
+            "1.9180517395673315E+57"
+          ],
+          "local_slope_hypothesis": "1.9161336894034835E+57",
+          "H_error_estimate": "1.4929001094028723E-14",
+          "evidence_type": "conditional_estimate",
+          "condition_id": "positive-B-slope-and-reference-band",
+          "authority": null,
+          "missing": "local derivative enclosure and EOS/center/stage/arithmetic B remainder"
+        }
+      },
+      "independent_method_tangent_reference_available": false,
+      "classification": "offset discretization experimentally supported; full derivative uncertainty remains conditional/unresolved"
+    }
+  },
+  "retained_reference_ablations": {
+    "center-1e-2": {
+      "differences": {
+        "512": {
+          "B": "5.514049554997583E-20",
+          "R": "-3.940099633207437E-18",
+          "M": "1.7699446698581546E-19",
+          "r_e": "-3.772747849259055E-18",
+          "L": "-6.117805683658978E-18",
+          "C": "-4.95381943693181E-18",
+          "rb": "-3.8470600452878055E-18",
+          "mu_inf": "-3.1896441498004615E-19",
+          "Hc": "7.936211840236204E-18"
+        },
+        "1024": {
+          "B": "2.231877200832355E-19",
+          "R": "-4.699920039638004E-19",
+          "M": "0.0",
+          "r_e": "-4.824688025284856E-19",
+          "L": "-5.902661931088086E-19",
+          "C": "-3.1440649677400113E-19",
+          "rb": "-4.749456846060811E-19",
+          "mu_inf": "0.0",
+          "Hc": "7.221648705091586E-19"
+        },
+        "2048": {
+          "B": "-5.514049554997583E-20",
+          "R": "0.0",
+          "M": "0.0",
+          "r_e": "0.0",
+          "L": "0.0",
+          "C": "0.0",
+          "rb": "0.0",
+          "mu_inf": "0.0",
+          "Hc": "0.0"
+        }
+      },
+      "C_sequence": {
+        "increments": [
+          "-1.156039623E+19",
+          "-7.2258475E+17"
+        ],
+        "orders": [
+          "3.99988022919661"
+        ],
+        "status": "INCONCLUSIVE",
+        "arithmetic_screen_absolute": "9048625043665.578",
+        "conditional_Richardson_relative": null
+      }
+    },
+    "center-1e-6": {
+      "differences": {
+        "512": {
+          "B": "0.0",
+          "R": "7.51987206337801E-19",
+          "M": "-1.529970576582908E-18",
+          "r_e": "6.881112429466201E-19",
+          "L": "1.0315867113112975E-18",
+          "C": "1.0505778062843E-18",
+          "rb": "6.174293899844626E-19",
+          "mu_inf": "1.9229984585439603E-19",
+          "Hc": "-1.3379054443310075E-18"
+        },
+        "1024": {
+          "B": "1.1159386004161776E-19",
+          "R": "0.0",
+          "M": "0.0",
+          "r_e": "0.0",
+          "L": "0.0",
+          "C": "0.0",
+          "rb": "0.0",
+          "mu_inf": "0.0",
+          "Hc": "0.0"
+        },
+        "2048": {
+          "B": "1.6804722453325967E-19",
+          "R": "6.266560052852901E-20",
+          "M": "-2.9535273018374E-19",
+          "r_e": "0.0",
+          "L": "-1.434291684190472E-19",
+          "C": "9.968986483083609E-20",
+          "rb": "6.332609128083288E-20",
+          "mu_inf": "6.333228456287865E-20",
+          "Hc": "2.1284859341303376E-19"
+        }
+      },
+      "C_sequence": {
+        "increments": [
+          "-1.156040365E+19",
+          "-7.2258503E+17"
+        ],
+        "orders": [
+          "3.9998805961440485"
+        ],
+        "status": "INCONCLUSIVE",
+        "arithmetic_screen_absolute": "9048625043665.578",
+        "conditional_Richardson_relative": null
+      }
+    },
+    "eos192": {
+      "differences": {
+        "512": {
+          "B": "0.0",
+          "R": "-7.441540062717822E-19",
+          "M": "1.7699446698581546E-19",
+          "r_e": "-7.513858399991829E-19",
+          "L": "-8.826410364160834E-19",
+          "C": "-8.435296254837446E-19",
+          "rb": "-7.599130953654924E-19",
+          "mu_inf": "-6.333228456282505E-20",
+          "Hc": "8.285891672277262E-19"
+        },
+        "1024": {
+          "B": "0.0",
+          "R": "-5.404908045583705E-19",
+          "M": "2.3563067077164205E-19",
+          "r_e": "-5.536527242130163E-19",
+          "L": "-8.109264522149053E-19",
+          "C": "-6.364814446888316E-19",
+          "rb": "-5.461875372969932E-19",
+          "mu_inf": "-6.448378064583686E-20",
+          "Hc": "8.209874317367278E-19"
+        },
+        "2048": {
+          "B": "0.0",
+          "R": "-3.446608029069096E-19",
+          "M": "2.345448151459112E-19",
+          "r_e": "-4.112848808440986E-19",
+          "L": "-8.826410364249058E-19",
+          "C": "-7.4383976066085385E-19",
+          "rb": "-4.1953535473551783E-19",
+          "mu_inf": "0.0",
+          "Hc": "1.0338360251490212E-18"
+        }
+      },
+      "C_sequence": {
+        "increments": [
+          "-1.156040201E+19",
+          "-7.225853E+17"
+        ],
+        "orders": [
+          "3.9998798524030943"
+        ],
+        "status": "INCONCLUSIVE",
+        "arithmetic_screen_absolute": "9048625043665.578",
+        "conditional_Richardson_relative": null
+      }
+    },
+    "plain": {
+      "differences": {
+        "512": {
+          "B": "6.131097957580646E-19",
+          "R": "-1.5588068131377334E-18",
+          "M": "4.126251377583428E-19",
+          "r_e": "-1.439497082945803E-18",
+          "L": "-1.914227747727381E-18",
+          "C": "-6.364814446831891E-19",
+          "rb": "-1.4406685766304128E-18",
+          "mu_inf": "-1.911483497714356E-19",
+          "Hc": "2.9874820433073062E-18"
+        },
+        "1024": {
+          "B": "4.476883091081371E-19",
+          "R": "-2.5144572212063324E-18",
+          "M": "4.356452770211188E-18",
+          "r_e": "-2.4044346880108136E-18",
+          "L": "-3.982917676865045E-18",
+          "C": "-2.2161823796996667E-18",
+          "rb": "-2.3984757072607093E-18",
+          "mu_inf": "-6.402318221265231E-19",
+          "Hc": "5.556868635181E-18"
+        },
+        "2048": {
+          "B": "-7.260165247413484E-19",
+          "R": "2.1697964183003172E-18",
+          "M": "-2.119590181318605E-18",
+          "r_e": "2.119699001273431E-18",
+          "L": "1.4894567489670286E-19",
+          "C": "1.0505778062941957E-18",
+          "rb": "2.1926659105988384E-18",
+          "mu_inf": "4.467804801890348E-19",
+          "Hc": "-5.8685397898165026E-18"
+        }
+      },
+      "C_sequence": {
+        "increments": [
+          "-1.156040434E+19",
+          "-7.225809E+17"
+        ],
+        "orders": [
+          "3.9998889281308294"
+        ],
+        "status": "INCONCLUSIVE",
+        "arithmetic_screen_absolute": "9048625043665.578",
+        "conditional_Richardson_relative": null
+      }
+    },
+    "raw": {
+      "differences": {
+        "512": {
+          "B": "4.958837279566993E-17",
+          "R": "-1.1893840852226247E-9",
+          "M": "3.8044196323109E-12",
+          "r_e": "-1.1759638147710214E-9",
+          "L": "-2.1440126699592746E-9",
+          "C": "3.313263299669066E-7",
+          "rb": "-1.1748408877956655E-9",
+          "mu_inf": "-1.005872635679289E-10",
+          "Hc": "2.808016366472992E-9"
+        },
+        "1024": {
+          "B": "3.5184887636651246E-18",
+          "R": "-9.754826885371802E-11",
+          "M": "2.369958844741354E-13",
+          "r_e": "-9.644843900779916E-11",
+          "L": "-1.7589643213326096E-10",
+          "C": "3.479082033360541E-8",
+          "rb": "-9.635641226786467E-11",
+          "mu_inf": "-8.243418494574381E-12",
+          "Hc": "2.3053300978047508E-10"
+        },
+        "2048": {
+          "B": "5.104040584515263E-17",
+          "R": "-6.9034566904129624E-12",
+          "M": "1.483734844035537E-14",
+          "r_e": "-6.825644675966461E-12",
+          "L": "-1.2449402191338676E-11",
+          "C": "2.831575519000385E-9",
+          "rb": "-6.819132911936683E-12",
+          "mu_inf": "-5.832206948865266E-13",
+          "Hc": "1.632161848517011E-11"
+        }
+      },
+      "C_sequence": {
+        "increments": [
+          "-3.8670700148997E+23",
+          "-4.167699361784E+22"
+        ],
+        "orders": [
+          "3.213917767994285"
+        ],
+        "status": "INCONCLUSIVE",
+        "arithmetic_screen_absolute": "9048625069287.443",
+        "conditional_Richardson_relative": null
+      }
+    },
+    "double-newton": {
+      "differences": {
+        "512": {
+          "status": "FAIL",
+          "error": "Newton convergence"
+        },
+        "1024": {
+          "B": "9.175614775925478E-16",
+          "R": "9.932497683768315E-16",
+          "M": "1.4031502404876094E-15",
+          "r_e": "1.6601672401758876E-17",
+          "L": "6.223557112893128E-16",
+          "C": "9.123999851870105E-16",
+          "rb": "-1.9546389649963268E-16",
+          "mu_inf": "-7.312575874846196E-17",
+          "Hc": "7.737046370570755E-17"
+        },
+        "2048": {
+          "B": "4.573011354990162E-16",
+          "R": "-1.845345271563858E-16",
+          "M": "-1.7194306661446641E-16",
+          "r_e": "-1.0153911868823948E-15",
+          "L": "-3.516221228857719E-17",
+          "C": "7.263786974131759E-16",
+          "rb": "7.444615290974713E-16",
+          "mu_inf": "9.850127792868663E-17",
+          "Hc": "4.389242065595918E-17"
+        }
+      },
+      "C_sequence": null
+    },
+    "same_H_regularized": {
+      "B": "-1.0374690145636392E-13",
+      "R": "2.3738896627021914E-14",
+      "M": "-7.417285193660098E-14",
+      "r_e": "2.2128732182317545E-14",
+      "L": "9.124300197006045E-12",
+      "C": "1.5802217838820495E-12",
+      "rb": "1.1193203264346052E-14",
+      "mu_inf": "8.304844230952438E-15",
+      "Hc": "-7.601735479032943E-21"
+    },
+    "same_H_unregularized": {
+      "B": "-1.7816140143832675E-13",
+      "R": "8.378936764711457E-14",
+      "M": "1.8733184185959988E-13",
+      "r_e": "8.377616760678696E-14",
+      "L": "1.1815942861332297E-12",
+      "C": "6.654233333968164E-12",
+      "rb": "8.4651223761531E-14",
+      "mu_inf": "-8.689483073528488E-15",
+      "Hc": "3.040694191612613E-20"
+    }
+  },
+  "ablation_source": {
+    "path": "worktrees/ba13-evidence/docs/validation/x2-fixed-step/evidence/ablations.json",
+    "sha256": "67e19352fb7f6d61162114b422534820a70a885fca3502f33dcd47db7537e61c"
+  },
+  "ablation_scope": "primary X2 outputs at retained cases only; no blanket transfer to every passive/differentiated quantity",
+  "retained_failures_preserved": [
+    "double-newton N512 FAIL Newton convergence",
+    "historical M1 INCONCLUSIVE",
+    "historical M2 INCONCLUSIVE",
+    "historical X1/X2 failures"
+  ],
+  "common_bias_enclosure": null,
+  "mu_n_profile": {
+    "field": "mu_n_inf_MeV",
+    "nodes": 2049,
+    "contract": "PHASE6A1_CONTROLLED_BNV_IMPLEMENTATION_PREFLIGHT sections 8,9,11; compare_candidate.py profile parser",
+    "identity": "at equilibrium eta=0: mu_n_inf=mu_B_inf; X2 H=log(mu_B/h0), nu=K-H, hence mu_B exp(nu)=h0 exp(K)",
+    "covers": "all source-support nodes for the equilibrium/reference field; current eta-dependent correction remains separate",
+    "owner_definition_acceptance": false
+  },
+  "metric_structure": {
+    "fields": [
+      "r_km",
+      "m_km",
+      "nu",
+      "lambda"
+    ],
+    "nodes": 2049,
+    "independent_nodewise_reference_required": true,
+    "observer_benchmarked": false,
+    "stop": "reference uncertainty/continuation/authority prerequisites unclosed; no observer developed",
+    "dense_output": "quadratic collocation interior output is not granted endpoint fourth order"
+  }
+}

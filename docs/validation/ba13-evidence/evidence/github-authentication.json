@@ -1,0 +1,7 @@
+{
+ "noninteractive_credential_available": false,
+ "credential_fill_returncode": 128,
+ "credential_values_logged": false,
+ "push_attempted": false,
+ "delivery": "verified incremental Git bundle"
+}

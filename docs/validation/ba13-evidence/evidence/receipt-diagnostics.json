@@ -1,0 +1,43 @@
+{
+  "phase": "diagnostics",
+  "status": "PASS",
+  "job": "19137",
+  "affinity": [
+    0
+  ],
+  "prior_cpu_seconds": 49.455830000000006,
+  "numerical_cpu_seconds": 0.225655,
+  "wall_seconds": 0.28599634021520615,
+  "peak_rss_kib": 36864,
+  "predeclaration_commit": "93c28c3bd85afea8a893a34a8a6dd92ce06c52be",
+  "predeclaration_sha256": "cae214457be82148ea76bda3d2fa2e24f3a9b3a62b0da229d751e1fe71c26582",
+  "source_commit": "ad612fed6e5abc10c936ff1fa6d8c314632c46e6",
+  "runner_sha256": "85e26c67ba327b98ef0a1d388f6a1b03be3d5292b6b363eae7e286ca7e697789",
+  "executable_sha256": "3a2a12356729563451be7e39a57db78ca229e26068b3f9b28b385d330323e41f",
+  "assessment_sources": {
+    "tools/linux/ba13_evidence/run.py": "85e26c67ba327b98ef0a1d388f6a1b03be3d5292b6b363eae7e286ca7e697789",
+    "tools/linux/ba13_evidence/reference.py": "60a92e4ad2ae50a6fc0e51507cc7eac339e13bb3ff26802b94d44d96fcc308b6",
+    "tools/linux/ba13_evidence/freeze.py": "d74326eed920272f6ef45c0df10e9f551c30cad13644bbe414b402675c21bb2f",
+    "tools/linux/ba13_evidence/evidence.py": "f4de44da261194b27c1ace08f87e713e8e83a1fc168da2c32f2524004886ce8c",
+    "tools/linux/ba13_evidence/assemble.py": "d31ddfc5345206d2b805f894f583b528d5090c39d42040995d1cbc90e637fbf5",
+    "tools/linux/ba13_evidence/validate.py": "454a8d9d0e209c348986b3ff96e17bbc4d816ce6e4f9959c2fa950aaebd2aaa5",
+    "tools/linux/ba13_evidence/diagnostics.py": "565e37410b021465f07a42ad5a9e9e97c04402fb37006c9a89d812b56c6ea6c9"
+  },
+  "solver_sha256": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec",
+  "passive_source_sha256": "3ecb9d086b7a250656882deb28d2c01f57dcda8d468c2d6dea931fe69f55ced5",
+  "runs": [
+    {
+      "label": "diagnostics",
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+        "-B",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence/tools/linux/ba13_evidence/diagnostics.py"
+      ],
+      "cpu_seconds": 0.21616199999999997,
+      "wall_seconds": 0.26750335842370987,
+      "returncode": 0,
+      "stdout_sha256": "bd5f41601d5e43af3468bfce48eb3845c9ad98560f05bc39a0da752230aaf619",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

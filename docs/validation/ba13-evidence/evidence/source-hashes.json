@@ -1,0 +1,29 @@
+{
+ "files": {
+  "tools/linux/ba13_evidence/assemble.py": "d31ddfc5345206d2b805f894f583b528d5090c39d42040995d1cbc90e637fbf5",
+  "tools/linux/ba13_evidence/diagnostics.py": "565e37410b021465f07a42ad5a9e9e97c04402fb37006c9a89d812b56c6ea6c9",
+  "tools/linux/ba13_evidence/evidence.py": "f4de44da261194b27c1ace08f87e713e8e83a1fc168da2c32f2524004886ce8c",
+  "tools/linux/ba13_evidence/freeze.py": "d74326eed920272f6ef45c0df10e9f551c30cad13644bbe414b402675c21bb2f",
+  "tools/linux/ba13_evidence/publish.py": "1c9a84f18823e89bc794899080c2ccece35ecb3d1d022d67e6feb5c565f50ae0",
+  "tools/linux/ba13_evidence/reference.py": "60a92e4ad2ae50a6fc0e51507cc7eac339e13bb3ff26802b94d44d96fcc308b6",
+  "tools/linux/ba13_evidence/run.py": "85e26c67ba327b98ef0a1d388f6a1b03be3d5292b6b363eae7e286ca7e697789",
+  "tools/linux/ba13_evidence/run.sbatch": "f2e7aabaab9ebee3d904c5690637c253a4577a9f1f9acbeba31635dca1e1f0f6",
+  "tools/linux/ba13_evidence/validate.py": "454a8d9d0e209c348986b3ff96e17bbc4d816ce6e4f9959c2fa950aaebd2aaa5",
+  "tools/linux/ba13_closure/assess.py": "8d1f3cfff8e17b7075e154b1e1da432dac4eb1f89c79bdb36b2779845075e1d1",
+  "tests/bnv/test_ba13_evidence.py": "cd733044b4e4ef1a044b61c5860e901bd01c0643d2363981a8d024d1e11f14fe",
+  "tests/bnv/x2_fixed_step.cpp": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec",
+  "tests/bnv/x2_uncertainty.cpp": "3ecb9d086b7a250656882deb28d2c01f57dcda8d468c2d6dea931fe69f55ced5",
+  "tests/bnv/compare_candidate.py": "9b3ef1ce17df7e1f8d2d7c40e111ee0844abfddc2cc54b8f93cb3f2ce1322370",
+  "tools/linux/ba13_refit.py": "d61d25c70aaacc9c61a81048ed9e3e0c7765cf3b5089174c52aa41b5cd7d8c5a",
+  "docs/adr/ADR-0021-ba13-static-uncertainty-completion.md": "e61038bd34ec251da13686047f5a71cebb028401df467be2231003de1dfa3c8d",
+  "docs/validation/ba13-evidence/PREDECLARATION.md": "cae214457be82148ea76bda3d2fa2e24f3a9b3a62b0da229d751e1fe71c26582",
+  "docs/validation/ba13-evidence/REPORT.md": "3d5bf3061974f9dba979a5e88351d62921ee82711ea6445b26254feb89577ef1",
+  "docs/validation/ba13-evidence/REPRODUCE.md": "533049cc7b062837cd8c597919da5587cedf06b2e3dd775ae953b3a1fc2cd1ae",
+  "docs/validation/ba13-evidence/MATRIX.md": "8ad4744c5746ca999ac867fbb333c204ca68ead53f707f9b4c4dd0eb0cb713f8",
+  "docs/validation/ba13-evidence/acceptance-registry.json": "a46d693b41af287aa2c167ee6545a67f184a5516870f85dda4b58868d1f26d97"
+ },
+ "assembly_source_commit": "2cac8b0",
+ "final_reference_change": "output-root override only",
+ "packaging_source_commit": "c3bd82c9f03484041f3a6dcb42cabb4ae6a2d2d5",
+ "review_manifest_sha256": "b30ef83e4c25605c4ebe40a2c7883dbb88a037647e0f215cd7c86a1f8c15a82b"
+}

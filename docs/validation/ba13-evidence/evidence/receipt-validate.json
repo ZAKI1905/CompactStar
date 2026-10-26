@@ -1,0 +1,34 @@
+{
+  "phase": "validate",
+  "status": "ERROR",
+  "job": "19135",
+  "affinity": [
+    0
+  ],
+  "prior_cpu_seconds": 46.25603400000001,
+  "numerical_cpu_seconds": 0.03174099999999999,
+  "wall_seconds": 0.05808667093515396,
+  "peak_rss_kib": 17664,
+  "predeclaration_commit": "93c28c3bd85afea8a893a34a8a6dd92ce06c52be",
+  "predeclaration_sha256": "cae214457be82148ea76bda3d2fa2e24f3a9b3a62b0da229d751e1fe71c26582",
+  "source_commit": "13e40646fe4b44894814046a2a1a06ad0700212a",
+  "runner_sha256": "0a28af326c78d5c0f7ee68da588301b8c45a28cfa95d1b634cfa8ec4caf34c17",
+  "executable_sha256": "3a2a12356729563451be7e39a57db78ca229e26068b3f9b28b385d330323e41f",
+  "solver_sha256": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec",
+  "passive_source_sha256": "3ecb9d086b7a250656882deb28d2c01f57dcda8d468c2d6dea931fe69f55ced5",
+  "runs": [
+    {
+      "label": "validation-stdout",
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+        "-B",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence/tools/linux/ba13_evidence/validate.py"
+      ],
+      "cpu_seconds": 0.02215099999999999,
+      "wall_seconds": 0.03513979911804199,
+      "returncode": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "8cf8312582feb192a8a59f3cad682230a8bf3ebe2aae7144319851bedd99969b"
+    }
+  ]
+}

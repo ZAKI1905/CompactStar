@@ -1,0 +1,301 @@
+{
+ "schema": "independent-review.ba13-closure.authentication.v1",
+ "final": "093d121135e35bc50ca2a807470906bcb28ef5c3",
+ "entry": "286aafb63002093b3052e23a3972903011f36035",
+ "predeclaration": "fdffaaf10f384cc8ed0bf89b686e6a0163a2ecd5",
+ "check_count": 85,
+ "failed": [],
+ "checks": {
+  "worktree HEAD equals requested commit": true,
+  "worktree clean (tracked and untracked)": true,
+  "entry 286aafb is ancestor of final": true,
+  "predeclaration fdffaaf is ancestor of final": true,
+  "entry is ancestor of predeclaration": true,
+  "linear history entry..final (no merges)": true,
+  "predeclaration file unchanged after fdffaaf": true,
+  "predeclaration commit touches only declaration and authentication record": true,
+  "unchanged since entry: docs/validation/x1-oracle-anchor": true,
+  "unchanged since entry: docs/validation/x2-fixed-step": true,
+  "unchanged since entry: docs/validation/ba13-onset": true,
+  "unchanged since entry: docs/validation/ba13-onset-pilot": true,
+  "unchanged since entry: docs/validation/ba13-uncertainty": true,
+  "unchanged since entry: docs/validation/ba13-recovery": true,
+  "unchanged since entry: docs/validation/ba13-headroom": true,
+  "unchanged since entry: tests/bnv/compare_candidate.py": true,
+  "unchanged since entry: tests/bnv/x2_fixed_step.cpp": true,
+  "unchanged since entry: tools/linux/ba13_refit.py": true,
+  "unchanged since entry: tools/linux/ba13_onset": true,
+  "unchanged since entry: tests/bnv/test_ba13_headroom.py": true,
+  "unchanged since entry: tests/bnv/test_ba13_recovery.py": true,
+  "unchanged since entry: CompactStar": true,
+  "unchanged since entry: GOVERNANCE.md": true,
+  "unchanged since entry: AGENTS.md": true,
+  "unchanged since entry: docs/SCIENTIFIC_INVARIANTS.md": true,
+  "unchanged since entry: docs/validation/PHASE6A1_CONTROLLED_BNV_IMPLEMENTATION_PREFLIGHT.md": true,
+  "ADR-0021 change is append-only": true,
+  "ADR-0021 still PROPOSED": true,
+  "source-hashes.json matches committed blobs at final": true,
+  "fitter hash": true,
+  "fitter unchanged since entry": true,
+  "changed_paths list equals git diff": true,
+  "historical certificate SHA-256": true,
+  "candidate fitter re-run certificate bytes identical": true,
+  "prior review fitter re-run certificate bytes identical": true,
+  "handoff HANDOFF.json": true,
+  "handoff README.txt": true,
+  "handoff archive-files.txt": true,
+  "handoff ba13-closure-review.tar.gz": true,
+  "handoff ba13-closure.bundle": true,
+  "handoff bundle-verify.txt": true,
+  "handoff isolated-fetch-verify.txt": true,
+  "handoff final_sha": true,
+  "handoff external manifest hash": true,
+  "handoff certificate/fitter hash": true,
+  "handoff flags: no ratification/promotion/merge": true,
+  "bundle verifies against repository": true,
+  "bundle head is final commit": true,
+  "external manifest: every listed file authentic": true,
+  "COMPLETE.json binds external manifest": true,
+  "COMPLETE.json binds final matrix": true,
+  "repo evidence m1.json == assessment-final": true,
+  "repo evidence m2.json == assessment-final": true,
+  "repo evidence m3.json == assessment-final": true,
+  "repo evidence m4.json == assessment-final": true,
+  "repo evidence m5.json == assessment-final": true,
+  "repo evidence summary.json == assessment-final": true,
+  "repo matrix.json.gz decompresses to assessment-final/matrix.json": true,
+  "repo matrix.tsv.gz decompresses to assessment-final/matrix.tsv": true,
+  "repo test receipt test_ba13_closure.out == delivery audit output": true,
+  "repo test receipt test_ba13_headroom.out == delivery audit output": true,
+  "repo test receipt test_ba13_recovery.out == delivery audit output": true,
+  "repo audit.json == delivery audit": true,
+  "inputs headroom: all 391 files authentic": true,
+  "inputs headroom: committed manifest hash": true,
+  "inputs x2: all 257 files authentic": true,
+  "inputs x2: committed manifest hash": true,
+  "inputs nominal: all 236 files authentic": true,
+  "inputs nominal: committed manifest hash": true,
+  "884 input entries in total": true,
+  "prior review SHA256SUMS (40 entries) verify": true,
+  "inputs.json binds prior review SHA256SUMS": true,
+  "receipt-benchmark.json: predeclaration bytes bound": true,
+  "receipt-benchmark-v2.json: predeclaration bytes bound": true,
+  "receipt-m1.json: predeclaration bytes bound": true,
+  "stopped benchmark receipt status (RUNNING) disclosed and explained in resources.json": true,
+  "post-receipt run.py/assess.py changes touch only output root, mkdir, gate-file fallback and labels": true,
+  "science output m1.json byte-identical across assemblies 18977 and 18991": true,
+  "science output m2.json byte-identical across assemblies 18977 and 18991": true,
+  "science output m3.json byte-identical across assemblies 18977 and 18991": true,
+  "science output m4.json byte-identical across assemblies 18977 and 18991": true,
+  "science output m5.json byte-identical across assemblies 18977 and 18991": true,
+  "science output summary.json byte-identical across assemblies 18977 and 18991": true,
+  "science output component-data.json.gz payload identical across assemblies 18977 and 18991 (gzip mtime differs)": true,
+  "assessment-final produced by the committed final assessor": true
+ },
+ "notes": {
+  "worktree HEAD equals requested commit": "093d121135e35bc50ca2a807470906bcb28ef5c3",
+  "worktree clean (tracked and untracked)": "",
+  "linear history entry..final (no merges)": 9,
+  "predeclaration commit touches only declaration and authentication record": [
+   "docs/validation/ba13-closure/PREDECLARATION.md",
+   "docs/validation/ba13-closure/evidence/authentication.json"
+  ],
+  "commit_times_epoch": {
+   "093d121135e35bc50ca2a807470906bcb28ef5c3": 1792435572,
+   "bef0242166d86ea2b3247c49aa1318e249852039": 1792435370,
+   "5d92e290000851c87070d7392921af8e617443e1": 1792435240,
+   "1951123e00db08ff422e79d63f92e1b38951f302": 1792435207,
+   "08ba7417b5a2a3d45dff5941ad59df030a13fd0a": 1792434747,
+   "17b7a0e4e07fd8cb8b40729b09644a27bc7066af": 1792434535,
+   "3ac75dbb83d72ea25254f1bc17866c9424b88192": 1792434248,
+   "575dfbe6fcc25272336527b0addd7df562ace249": 1792434198,
+   "fdffaaf10f384cc8ed0bf89b686e6a0163a2ecd5": 1792434093
+  },
+  "changed_paths": [
+   "docs/adr/ADR-0021-ba13-static-uncertainty-completion.md",
+   "docs/validation/ba13-closure/MATRIX.md",
+   "docs/validation/ba13-closure/METHOD.md",
+   "docs/validation/ba13-closure/OWNER_DECISIONS.md",
+   "docs/validation/ba13-closure/PREDECLARATION.md",
+   "docs/validation/ba13-closure/REPORT.md",
+   "docs/validation/ba13-closure/REPRODUCE.md",
+   "docs/validation/ba13-closure/REVIEW_GUIDE.md",
+   "docs/validation/ba13-closure/evidence/COMPLETE.json",
+   "docs/validation/ba13-closure/evidence/audit.json",
+   "docs/validation/ba13-closure/evidence/authentication.json",
+   "docs/validation/ba13-closure/evidence/dispositions.json",
+   "docs/validation/ba13-closure/evidence/external-manifest.json",
+   "docs/validation/ba13-closure/evidence/inputs.json",
+   "docs/validation/ba13-closure/evidence/m1.json",
+   "docs/validation/ba13-closure/evidence/m2.json",
+   "docs/validation/ba13-closure/evidence/m3.json",
+   "docs/validation/ba13-closure/evidence/m4.json",
+   "docs/validation/ba13-closure/evidence/m5.json",
+   "docs/validation/ba13-closure/evidence/matrix.json.gz",
+   "docs/validation/ba13-closure/evidence/matrix.tsv.gz",
+   "docs/validation/ba13-closure/evidence/resources.json",
+   "docs/validation/ba13-closure/evidence/source-hashes.json",
+   "docs/validation/ba13-closure/evidence/summary.json",
+   "docs/validation/ba13-closure/evidence/test_ba13_closure.out",
+   "docs/validation/ba13-closure/evidence/test_ba13_headroom.out",
+   "docs/validation/ba13-closure/evidence/test_ba13_recovery.out",
+   "tests/bnv/test_ba13_closure.py",
+   "tests/bnv/x2_uncertainty.cpp",
+   "tools/linux/ba13_closure/assess.py",
+   "tools/linux/ba13_closure/audit.py",
+   "tools/linux/ba13_closure/publish.py",
+   "tools/linux/ba13_closure/run.py",
+   "tools/linux/ba13_closure/run.sbatch",
+   "tools/linux/ba13_headroom/assess.py",
+   "tools/linux/ba13_headroom/enclosure.py"
+  ],
+  "pre-existing code files modified (history retains originals)": [
+   "tests/bnv/x2_uncertainty.cpp",
+   "tools/linux/ba13_headroom/assess.py",
+   "tools/linux/ba13_headroom/enclosure.py"
+  ],
+  "source-hashes.json matches committed blobs at final": {},
+  "bundle head is final commit": "093d121135e35bc50ca2a807470906bcb28ef5c3 refs/heads/candidate/linux-ba13-closure-20261019",
+  "external manifest: every listed file authentic": {
+   "count": 127,
+   "bad": []
+  },
+  "external files not in manifest": [
+   "COMPLETE.json",
+   "external-manifest.json"
+  ],
+  "inputs headroom: all 391 files authentic": [],
+  "inputs x2: all 257 files authentic": [],
+  "inputs nominal: all 236 files authentic": [],
+  "884 input entries in total": 884,
+  "prior review SHA256SUMS (40 entries) verify": [],
+  "receipts": {
+   "receipt-benchmark.json": {
+    "status": "RUNNING",
+    "job": "18965",
+    "numerical_cpu_seconds": 0.5477930000000002,
+    "predeclaration_sha256": "ae396a423300d76ef6856b95c5521dd718769de01de7f6af310b46f5fe1caba0",
+    "runs": [
+     [
+      "build",
+      0,
+      0
+     ],
+     [
+      "t0-replay512",
+      0,
+      0
+     ]
+    ]
+   },
+   "receipt-benchmark-v2.json": {
+    "status": "PASS",
+    "job": "18966",
+    "numerical_cpu_seconds": 1.631848,
+    "predeclaration_sha256": "ae396a423300d76ef6856b95c5521dd718769de01de7f6af310b46f5fe1caba0",
+    "runs": [
+     [
+      "t0-replay512-v2",
+      0,
+      0
+     ],
+     [
+      "retired-defect-negative",
+      1,
+      1
+     ],
+     [
+      "t0-n1024",
+      0,
+      0
+     ]
+    ]
+   },
+   "receipt-m1.json": {
+    "status": "PASS",
+    "job": "18967",
+    "numerical_cpu_seconds": 11.894576999999998,
+    "predeclaration_sha256": "ae396a423300d76ef6856b95c5521dd718769de01de7f6af310b46f5fe1caba0",
+    "runs": [
+     [
+      "t0-n2048",
+      0,
+      0
+     ],
+     [
+      "t0-h0.000025--1",
+      0,
+      0
+     ],
+     [
+      "t0-h0.000025-1",
+      0,
+      0
+     ],
+     [
+      "t10-n1024",
+      0,
+      0
+     ],
+     [
+      "t10-n2048",
+      0,
+      0
+     ],
+     [
+      "t10-h0.000025--1",
+      0,
+      0
+     ],
+     [
+      "t10-h0.000025-1",
+      0,
+      0
+     ],
+     [
+      "t20-n1024",
+      0,
+      0
+     ],
+     [
+      "t20-n2048",
+      0,
+      0
+     ],
+     [
+      "t20-h0.000025--1",
+      0,
+      0
+     ],
+     [
+      "t20-h0.000025-1",
+      0,
+      0
+     ]
+    ]
+   }
+  },
+  "stopped receipt raw status": "RUNNING",
+  "post-receipt source changes": [
+   "-O = R / 'ba13-closure-20261019'",
+   "+O = pathlib.Path(os.environ.get('BA13_CLOSURE_OUTPUT_ROOT',R/'ba13-closure-20261019'))",
+   "+    O.mkdir(parents=True,exist_ok=True)",
+   "-            estimate=json.loads((O/'receipt-benchmark-v2.json').read_text())",
+   "+            gate=O/'receipt-benchmark-v2.json'",
+   "+            if not gate.exists():gate=O/'receipt-benchmark.json'",
+   "+            estimate=json.loads(gate.read_text())",
+   "-O=R/'ba13-closure-20261019'",
+   "+O=pathlib.Path(os.environ.get('BA13_CLOSURE_OUTPUT_ROOT',R/'ba13-closure-20261019'))",
+   "-                               reconstruction_reference='fixed production profile; never independent stellar truth',",
+   "+                               reconstruction_reference='none; production tangent compared directly to X2 number stencil' if n.startswith('t_') else 'fixed production profile; never independent stellar truth',",
+   "-                             values_source=dict(historical=f'component-data.json.gz:P:{n}:{i}',reconstruction=f'component-data.json.gz:R:{n}:{i}',",
+   "-                                                independent_reference=f'component-data.json.gz:X:{n}:{i}' if i in TARGETS and n in X[0][2048] else None),",
+   "+                             values_source=dict(historical=f'component-data.json.gz#/original_units/{n}/values/{i}',",
+   "+                                                normalized_production=f'component-data.json.gz#/P/{n}/{i}',",
+   "+                                                reconstruction=f'component-data.json.gz#/R/{i}/{n}' if n in recon[i] else None,",
+   "+                                                independent_reference=f'component-data.json.gz#/X/{i}/{n}' if i in TARGETS and n in X[0][2048] else None),"
+  ],
+  "assessment-final assessor": "b5f8b8b1bb6c5e8c2e211ebbe6e8c4f792be5520d4e104f9b2a7ab8c1cd9042b",
+  "assessment-before-pointer-correction assessor": "15b3d85cc4ee3b688c67d7da6af2907792ef206f328dd974852b88063c992e49"
+ }
+}

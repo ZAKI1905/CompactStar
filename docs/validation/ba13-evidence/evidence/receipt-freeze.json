@@ -1,0 +1,34 @@
+{
+  "phase": "freeze",
+  "status": "PASS",
+  "job": "19131",
+  "affinity": [
+    0
+  ],
+  "prior_cpu_seconds": 19.444014999999997,
+  "numerical_cpu_seconds": 0.606798,
+  "wall_seconds": 1.2457163408398628,
+  "peak_rss_kib": 90776,
+  "predeclaration_commit": "93c28c3bd85afea8a893a34a8a6dd92ce06c52be",
+  "predeclaration_sha256": "cae214457be82148ea76bda3d2fa2e24f3a9b3a62b0da229d751e1fe71c26582",
+  "source_commit": "8b1cf32bbd9e1915b9f593cc33820dc45db3ec4f",
+  "runner_sha256": "ee1ed86cc5e90067caff9f2a084cfd320c55c21080c2d70badf1362f3fa44aba",
+  "executable_sha256": "3a2a12356729563451be7e39a57db78ca229e26068b3f9b28b385d330323e41f",
+  "solver_sha256": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec",
+  "passive_source_sha256": "3ecb9d086b7a250656882deb28d2c01f57dcda8d468c2d6dea931fe69f55ced5",
+  "runs": [
+    {
+      "label": "frozen-holdouts",
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+        "-B",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence/tools/linux/ba13_evidence/freeze.py"
+      ],
+      "cpu_seconds": 0.596912,
+      "wall_seconds": 1.2190861329436302,
+      "returncode": 0,
+      "stdout_sha256": "2fe626af3db6268392aa8c0080e6be185c964aca667cb9b056a51d96e33a283e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

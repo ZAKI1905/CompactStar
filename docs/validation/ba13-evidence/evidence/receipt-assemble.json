@@ -1,0 +1,34 @@
+{
+  "phase": "assemble",
+  "status": "PASS",
+  "job": "19133",
+  "affinity": [
+    0
+  ],
+  "prior_cpu_seconds": 37.654728000000006,
+  "numerical_cpu_seconds": 6.442755000000001,
+  "wall_seconds": 7.1533119678497314,
+  "peak_rss_kib": 188860,
+  "predeclaration_commit": "93c28c3bd85afea8a893a34a8a6dd92ce06c52be",
+  "predeclaration_sha256": "cae214457be82148ea76bda3d2fa2e24f3a9b3a62b0da229d751e1fe71c26582",
+  "source_commit": "2cac8b09e9b3d9f9a9acf3014a51b0abb05f3331",
+  "runner_sha256": "0a28af326c78d5c0f7ee68da588301b8c45a28cfa95d1b634cfa8ec4caf34c17",
+  "executable_sha256": "3a2a12356729563451be7e39a57db78ca229e26068b3f9b28b385d330323e41f",
+  "solver_sha256": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec",
+  "passive_source_sha256": "3ecb9d086b7a250656882deb28d2c01f57dcda8d468c2d6dea931fe69f55ced5",
+  "runs": [
+    {
+      "label": "assemble-stdout",
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+        "-B",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence/tools/linux/ba13_evidence/assemble.py"
+      ],
+      "cpu_seconds": 6.432939000000001,
+      "wall_seconds": 7.127840369939804,
+      "returncode": 0,
+      "stdout_sha256": "b6f8d8867849338e666d858ec48034b6dc8e633a562d3e4c45a8814ecd44f54c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

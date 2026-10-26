@@ -1,0 +1,26 @@
+test_M1_budget_not_resolution (__main__.EvidenceTests.test_M1_budget_not_resolution) ... ok
+test_achieved_coordinate_and_linear_remainder (__main__.EvidenceTests.test_achieved_coordinate_and_linear_remainder) ... ok
+test_actual_paired_reference_and_root_charge (__main__.EvidenceTests.test_actual_paired_reference_and_root_charge) ... ok
+test_analytic_cannot_upgrade_inputs (__main__.EvidenceTests.test_analytic_cannot_upgrade_inputs) ... ok
+test_analytic_needs_derivation (__main__.EvidenceTests.test_analytic_needs_derivation) ... ok
+test_conditional_acceptance_itemized (__main__.EvidenceTests.test_conditional_acceptance_itemized) ... ok
+test_evidence_class_preserved (__main__.EvidenceTests.test_evidence_class_preserved) ... ok
+test_frozen_history_and_invalid_values (__main__.EvidenceTests.test_frozen_history_and_invalid_values) ... ok
+test_missing_term_and_category_refuse (__main__.EvidenceTests.test_missing_term_and_category_refuse) ... ok
+test_no_default_evidence_class (__main__.EvidenceTests.test_no_default_evidence_class) ... ok
+test_nonzero_provenance_required (__main__.EvidenceTests.test_nonzero_provenance_required) ... ok
+test_numerical_standard_not_automatic (__main__.EvidenceTests.test_numerical_standard_not_automatic) ... ok
+test_wrong_reference_rejected_by_comparison (__main__.EvidenceTests.test_wrong_reference_rejected_by_comparison) ... FAIL
+
+======================================================================
+FAIL: test_wrong_reference_rejected_by_comparison (__main__.EvidenceTests.test_wrong_reference_rejected_by_comparison)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence/tests/bnv/test_ba13_evidence.py", line 70, in test_wrong_reference_rejected_by_comparison
+    with self.assertRaises(ValueError):paired_comparison(p,r,.01,reference_kind='R')
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.004s
+
+FAILED (failures=1)

@@ -1,0 +1,18 @@
+test_common_B_tangent_absolute_units (__main__.ClosureTests.test_common_B_tangent_absolute_units) ... ok
+test_conditional_without_missing_flag_refuses (__main__.ClosureTests.test_conditional_without_missing_flag_refuses) ... ok
+test_each_missing_contribution_refuses (__main__.ClosureTests.test_each_missing_contribution_refuses) ... ok
+test_exact_does_not_use_tolerance (__main__.ClosureTests.test_exact_does_not_use_tolerance) ... ok
+test_explicit_acceptance_and_remaining_gap (__main__.ClosureTests.test_explicit_acceptance_and_remaining_gap) ... ok
+test_forged_authority_cannot_accept_itself (__main__.ClosureTests.test_forged_authority_cannot_accept_itself) ... ok
+test_identical_selection_samples_do_not_preclude_switch (__main__.ClosureTests.test_identical_selection_samples_do_not_preclude_switch) ... ok
+test_independent_inverse_both_nonlinear_tails (__main__.ClosureTests.test_independent_inverse_both_nonlinear_tails) ... ok
+test_nonfinite_and_negative_refuse (__main__.ClosureTests.test_nonfinite_and_negative_refuse) ... ok
+test_numerical_standard_requires_acceptance (__main__.ClosureTests.test_numerical_standard_requires_acceptance) ... ok
+test_physical_chain_rule_and_tangent_curvature (__main__.ClosureTests.test_physical_chain_rule_and_tangent_curvature) ... ok
+test_threshold_mutation_refuses (__main__.ClosureTests.test_threshold_mutation_refuses) ... ok
+test_wrong_reference_counterexample (__main__.ClosureTests.test_wrong_reference_counterexample) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.026s
+
+OK

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence/tools/linux/ba13_evidence/run.py", line 225, in <module>
+    main()
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence/tools/linux/ba13_evidence/run.py", line 194, in main
+    call('validation-stdout',[sys.executable,'-B',S/'tools/linux/ba13_evidence/validate.py'])
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence/tools/linux/ba13_evidence/run.py", line 122, in call
+    raise RuntimeError(label+' failed')
+RuntimeError: validation-stdout failed

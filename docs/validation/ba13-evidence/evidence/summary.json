@@ -1,0 +1,27 @@
+{
+ "schema": "compactstar.ba13.evidence-completion.v1",
+ "counts": {
+  "PASS": 21,
+  "FAIL": 0,
+  "UNQUALIFIED": 441
+ },
+ "owner_ratified": false,
+ "certificate_promoted": false,
+ "entry_commit": "093d121135e35bc50ca2a807470906bcb28ef5c3",
+ "predeclaration_commit": "93c28c3bd85afea8a893a34a8a6dd92ce06c52be",
+ "historical_outcomes_preserved": true,
+ "full_BA13_qualified": false,
+ "numerical_expansion_stopped": true,
+ "stop_reason": "reference unseen remainders, continuous continuation and evidence authority unresolved",
+ "milestones": {
+  "tangents": "PASS_EXPERIMENT",
+  "holdouts": "PASS_EXPERIMENT",
+  "continuous": "CONDITIONAL",
+  "mu_n_profile": "IDENTITY_SUPPORTED_DEFINITION_PENDING",
+  "metric_structure": "NODEWISE_REFERENCE_UNQUALIFIED",
+  "qualification": "UNQUALIFIED"
+ },
+ "certificate_sha256": "4212cad05bb4244ab75e80b8dfea023e6d0fcee69086c9993bd48d26a40e41fb",
+ "fitter_sha256": "9b3ef1ce17df7e1f8d2d7c40e111ee0844abfddc2cc54b8f93cb3f2ce1322370",
+ "acceptance_registry_sha256": "a46d693b41af287aa2c167ee6545a67f184a5516870f85dda4b58868d1f26d97"
+}

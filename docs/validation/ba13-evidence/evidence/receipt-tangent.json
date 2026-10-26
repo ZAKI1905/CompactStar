@@ -1,0 +1,225 @@
+{
+  "phase": "tangent",
+  "status": "PASS_EXPERIMENT",
+  "job": "19130",
+  "affinity": [
+    0
+  ],
+  "prior_cpu_seconds": 0,
+  "numerical_cpu_seconds": 19.444014999999997,
+  "wall_seconds": 19.843876227736473,
+  "peak_rss_kib": 16128,
+  "predeclaration_commit": "93c28c3bd85afea8a893a34a8a6dd92ce06c52be",
+  "predeclaration_sha256": "cae214457be82148ea76bda3d2fa2e24f3a9b3a62b0da229d751e1fe71c26582",
+  "source_commit": "17f85a131f79b0a3a0b95e4cc7b3cd7e8b4f1f6a",
+  "runner_sha256": "15b0919a39038be22f9be6c9b64e56f15c83f2645ba9666b46a6906ba0984b51",
+  "executable_sha256": "3a2a12356729563451be7e39a57db78ca229e26068b3f9b28b385d330323e41f",
+  "solver_sha256": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec",
+  "passive_source_sha256": "3ecb9d086b7a250656882deb28d2c01f57dcda8d468c2d6dea931fe69f55ced5",
+  "runs": [
+    {
+      "label": "t0-n1024-offset--1",
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/assessment",
+        "0.131545619123114405929220175",
+        "4.9156528789505745e+19",
+        "1024",
+        "1e-4",
+        "96",
+        "0"
+      ],
+      "cpu_seconds": 1.083749,
+      "wall_seconds": 1.168859176337719,
+      "returncode": 0,
+      "stdout_sha256": "b270410e6e2fdd14b8f53ba0eb5f3f9e4dc642944cec45b857a1ec9c9e6afc61",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "t0-n1024-offset-1",
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/assessment",
+        "0.131552196568506696456779825",
+        "4.9156528789505745e+19",
+        "1024",
+        "1e-4",
+        "96",
+        "0"
+      ],
+      "cpu_seconds": 1.0810289999999998,
+      "wall_seconds": 1.1184685081243515,
+      "returncode": 0,
+      "stdout_sha256": "5df4fb37b359d0b694c86213155fdde8e7d2cbc10050e32f4dc3ab0be1024adc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "t0-n2048-offset--1",
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/assessment",
+        "0.131545619123114405929220175",
+        "4.9156528789505745e+19",
+        "2048",
+        "1e-4",
+        "96",
+        "0"
+      ],
+      "cpu_seconds": 2.155764000000001,
+      "wall_seconds": 2.1695458367466927,
+      "returncode": 0,
+      "stdout_sha256": "3262107b2f8c95c23cec76af23f6435697056b567e74aafcf0228dfa7b3c767b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "t0-n2048-offset-1",
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/assessment",
+        "0.131552196568506696456779825",
+        "4.9156528789505745e+19",
+        "2048",
+        "1e-4",
+        "96",
+        "0"
+      ],
+      "cpu_seconds": 2.1555909999999994,
+      "wall_seconds": 2.169506423175335,
+      "returncode": 0,
+      "stdout_sha256": "85b029ebe452880411bbf773a6ffdec6284f53bc54d44aae2a4d0854161f816c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "t10-n1024-offset--1",
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/assessment",
+        "0.131545420568796788353210575",
+        "4.915632272737791e+19",
+        "1024",
+        "1e-4",
+        "96",
+        "0"
+      ],
+      "cpu_seconds": 1.0810620000000002,
+      "wall_seconds": 1.118340164422989,
+      "returncode": 0,
+      "stdout_sha256": "65b1dd9106eb0d5b01e0e77513e42ddc2579f20f17debcf5e00c739f87bf87ef",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "t10-n1024-offset-1",
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/assessment",
+        "0.131551998004261114800789425",
+        "4.915632272737791e+19",
+        "1024",
+        "1e-4",
+        "96",
+        "0"
+      ],
+      "cpu_seconds": 1.0810420000000018,
+      "wall_seconds": 1.1184651777148247,
+      "returncode": 0,
+      "stdout_sha256": "fe4b383be4edb2c923583e15865ffc1998dc34b0714e552d14ce7446fae31302",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "t10-n2048-offset--1",
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/assessment",
+        "0.131545420568796788353210575",
+        "4.915632272737791e+19",
+        "2048",
+        "1e-4",
+        "96",
+        "0"
+      ],
+      "cpu_seconds": 2.155593999999999,
+      "wall_seconds": 2.169395826756954,
+      "returncode": 0,
+      "stdout_sha256": "2bf540e74f14099521e0dcb6d68dcf188dc6b594d912150369db1b26a9db2167",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "t10-n2048-offset-1",
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/assessment",
+        "0.131551998004261114800789425",
+        "4.915632272737791e+19",
+        "2048",
+        "1e-4",
+        "96",
+        "0"
+      ],
+      "cpu_seconds": 2.1556869999999986,
+      "wall_seconds": 2.169370360672474,
+      "returncode": 0,
+      "stdout_sha256": "b558638cac8820062ba861038ca3f7d93f28a361324b6c84d36f036c4139088e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "t20-n1024-offset--1",
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/assessment",
+        "0.131545222015052455122734025",
+        "4.9156116666429006e+19",
+        "1024",
+        "1e-4",
+        "96",
+        "0"
+      ],
+      "cpu_seconds": 1.0807649999999995,
+      "wall_seconds": 1.1183118000626564,
+      "returncode": 0,
+      "stdout_sha256": "7147ac47e386be9e6974dd3b5896eb09f7d23f8a8f6a206ab56edd5ddebe9f10",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "t20-n1024-offset-1",
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/assessment",
+        "0.131551799440588846155265975",
+        "4.9156116666429006e+19",
+        "1024",
+        "1e-4",
+        "96",
+        "0"
+      ],
+      "cpu_seconds": 1.0809920000000002,
+      "wall_seconds": 1.1182793229818344,
+      "returncode": 0,
+      "stdout_sha256": "721d2ab7a174c9a61e3828d084a49dfcd0a0e633a5f0380ca8b1dd7847a887a7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "t20-n2048-offset--1",
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/assessment",
+        "0.131545222015052455122734025",
+        "4.9156116666429006e+19",
+        "2048",
+        "1e-4",
+        "96",
+        "0"
+      ],
+      "cpu_seconds": 2.155614,
+      "wall_seconds": 2.1692595332860947,
+      "returncode": 0,
+      "stdout_sha256": "4168825c326f3995426308c8e7e5095a7d5777afaff8bb35f8e239455f53fbc0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "t20-n2048-offset-1",
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/assessment",
+        "0.131551799440588846155265975",
+        "4.9156116666429006e+19",
+        "2048",
+        "1e-4",
+        "96",
+        "0"
+      ],
+      "cpu_seconds": 2.155874999999998,
+      "wall_seconds": 2.169413737952709,
+      "returncode": 0,
+      "stdout_sha256": "57d89e9e98213f27a405f681aa8d0f59509882d470a351a9f23e233937d3eec6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

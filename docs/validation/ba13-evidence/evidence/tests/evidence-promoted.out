@@ -1,0 +1,61 @@
+test_M1_budget_not_resolution (__main__.EvidenceTests.test_M1_budget_not_resolution) ... ok
+test_achieved_coordinate_and_linear_remainder (__main__.EvidenceTests.test_achieved_coordinate_and_linear_remainder) ... ok
+test_actual_paired_reference_and_root_charge (__main__.EvidenceTests.test_actual_paired_reference_and_root_charge) ... ok
+test_analytic_cannot_upgrade_inputs (__main__.EvidenceTests.test_analytic_cannot_upgrade_inputs) ... ok
+test_analytic_needs_derivation (__main__.EvidenceTests.test_analytic_needs_derivation) ... ok
+test_conditional_acceptance_itemized (__main__.EvidenceTests.test_conditional_acceptance_itemized) ... ERROR
+test_evidence_class_preserved (__main__.EvidenceTests.test_evidence_class_preserved) ... FAIL
+test_frozen_history_and_invalid_values (__main__.EvidenceTests.test_frozen_history_and_invalid_values) ... ok
+test_missing_term_and_category_refuse (__main__.EvidenceTests.test_missing_term_and_category_refuse) ... ok
+test_no_default_evidence_class (__main__.EvidenceTests.test_no_default_evidence_class) ... ok
+test_nonzero_provenance_required (__main__.EvidenceTests.test_nonzero_provenance_required) ... ok
+test_numerical_standard_not_automatic (__main__.EvidenceTests.test_numerical_standard_not_automatic) ... ERROR
+test_wrong_reference_rejected_by_comparison (__main__.EvidenceTests.test_wrong_reference_rejected_by_comparison) ... ok
+
+======================================================================
+ERROR: test_conditional_acceptance_itemized (__main__.EvidenceTests.test_conditional_acceptance_itemized)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence/tests/bnv/test_ba13_evidence.py", line 47, in test_conditional_acceptance_itemized
+    self.assertEqual(self.check()['status'],'UNQUALIFIED')
+                     ^^^^^^^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence/tests/bnv/test_ba13_evidence.py", line 25, in check
+    return qualify(self.h,terms or self.terms,self.registry,frozen_historical=self.h)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-evidence-20261026/ba13-mutation-td34tys5/evidence.py", line 44, in qualify
+    contribution(**t)
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-evidence-20261026/ba13-mutation-td34tys5/evidence.py", line 21, in contribution
+    raise ValueError('analytic evidence needs a derivation and explicit input dependencies')
+ValueError: analytic evidence needs a derivation and explicit input dependencies
+
+======================================================================
+ERROR: test_numerical_standard_not_automatic (__main__.EvidenceTests.test_numerical_standard_not_automatic)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence/tests/bnv/test_ba13_evidence.py", line 56, in test_numerical_standard_not_automatic
+    self.assertEqual(self.check()['status'],'UNQUALIFIED')
+                     ^^^^^^^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence/tests/bnv/test_ba13_evidence.py", line 25, in check
+    return qualify(self.h,terms or self.terms,self.registry,frozen_historical=self.h)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-evidence-20261026/ba13-mutation-td34tys5/evidence.py", line 44, in qualify
+    contribution(**t)
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-evidence-20261026/ba13-mutation-td34tys5/evidence.py", line 21, in contribution
+    raise ValueError('analytic evidence needs a derivation and explicit input dependencies')
+ValueError: analytic evidence needs a derivation and explicit input dependencies
+
+======================================================================
+FAIL: test_evidence_class_preserved (__main__.EvidenceTests.test_evidence_class_preserved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence/tests/bnv/test_ba13_evidence.py", line 42, in test_evidence_class_preserved
+    self.assertEqual(t['evidence_type'],'conditional_estimate')
+AssertionError: 'analytic_bound' != 'conditional_estimate'
+- analytic_bound
++ conditional_estimate
+
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.004s
+
+FAILED (failures=1, errors=2)
