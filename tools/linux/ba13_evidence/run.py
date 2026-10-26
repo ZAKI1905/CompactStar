@@ -139,6 +139,54 @@ def main():
             result = tangent_report()
             write(O/'tangents.json', result)
             status = result['status']
+        elif phase == 'freeze':
+            if not read(O/'tangents.json')['numerical_expansion_allowed']:
+                raise RuntimeError('tangent stop')
+            call('frozen-holdouts', [sys.executable, '-B', S/'tools/linux/ba13_evidence/freeze.py'])
+            status = 'PASS'
+        elif phase == 'holdouts':
+            if not read(O/'tangents.json')['numerical_expansion_allowed']:
+                raise RuntimeError('tangent stop')
+            frozen = read(O/'frozen-holdouts.json')
+            # Numeric criteria must be committed, not merely written, first.
+            frozen_doc = S/'docs/validation/ba13-evidence/evidence/frozen-holdouts.json'
+            if sha(frozen_doc) != sha(O/'frozen-holdouts.json'):
+                raise RuntimeError('frozen criterion mismatch')
+            blob = subprocess.check_output(['git','-C',str(S),'show',
+                'HEAD:docs/validation/ba13-evidence/evidence/frozen-holdouts.json'])
+            if hashlib.sha256(blob).hexdigest() != sha(frozen_doc):
+                raise RuntimeError('criterion not committed')
+            from reference import load_reference, normalized_fields
+            comp = load_reference()[0]
+            root_exe = R/'x2-fixed-step/build/extended'
+            manifest = json.loads((S/'docs/validation/x2-fixed-step/evidence/external-manifest.json').read_text())
+            if sha(root_exe) != manifest['files']['build/extended']['sha256']:
+                raise RuntimeError('root executable hash mismatch')
+            scores = {}
+            status = 'PASS_EXPERIMENT'
+            for i in (5,15):
+                t = frozen['targets'][str(i)]
+                root = call(f'holdout-{i}-root', [root_exe,t['B'],t['H_guess'],t['surfaceP_cgs'],
+                            2048,'1e-4',96,0,0,0])
+                result = call(f'holdout-{i}-functional', [exe,root['values'][8],t['surfaceP_cgs'],
+                              2048,'1e-4',96,0])
+                if abs(result['primary'][0]/D(t['B'])-1)>D('2e-16'):
+                    raise RuntimeError('holdout alignment violates frozen root residual')
+                values = normalized_fields(result,comp)
+                score = {}
+                for n,gate in t['groups'].items():
+                    diff=max(abs(float(v)-float(p)) for v,p in zip(values[n],gate['prediction']))
+                    tol=float(gate['criterion'])
+                    score[n]=dict(discrepancy=diff,criterion=tol,ratio=diff/tol,
+                                  status='PASS' if diff<=tol else 'FAIL')
+                scores[str(i)]=dict(groups=score,pressure=t['surfaceP_cgs'],B_target=t['B'],
+                    B_achieved=result['primary'][0],root_shots=root['shots'])
+                if any(v['status']=='FAIL' for v in score.values()):
+                    status='STOP_HOLDOUT_FAIL'
+                    break
+            write(O/'holdouts.json',dict(status=status,targets=scores,
+                  criterion_sha256=sha(frozen_doc),continuous_theorem=False,
+                  qualification='UNQUALIFIED',reference_transfer_allowed=status=='PASS_EXPERIMENT'))
         elif phase == 'historical-audit':
             mirror = O/'historical-audit'
             mirror.mkdir()
