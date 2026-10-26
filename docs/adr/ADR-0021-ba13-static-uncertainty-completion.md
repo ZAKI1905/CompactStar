@@ -150,3 +150,37 @@ and target-to-target magnitude transfer. No decision is ratified here. Option A
 and interpretation (2), the original fitter, historical thresholds/certificate,
 production owners and all prior failures remain unchanged. No successor fitter,
 runtime certificate, trajectory or promotion is authorized by this assessment.
+
+## 2026-10-26 evidence completion — proposal remains unratified
+
+The authorized [evidence completion](../validation/ba13-evidence/REPORT.md)
+prospectively replaces magnitude transfer with direct achieved-B interpolation
+of X2 and corrects the M1 budget-versus-resolution rule. It does not rescore
+historical M1/M2. Twelve offset-H evaluations pass their frozen signed-order and
+width gates. Targets 5 and 15 pass the committed interpolation criteria using
+their own historical surface cutoffs. These are experimental numerical results,
+not continuous error theorems or acceptance of an evidence standard.
+
+The complete [462-row sidecar](../validation/ba13-evidence/MATRIX.md) remains
+21 exact-P2 PASS, 0 FAIL and 441 UNQUALIFIED. It explicitly charges reference
+alignment, interpolator error, all-sample fit response and full-numerator
+normalization. Missing reference and nonlinear remainders stay null; conditional
+continuation is not promoted by small observed error. Every successor term has
+explicit class/provenance, and the acceptance registry is empty. All original
+FAIL/INCONCLUSIVE/UNQUALIFIED dispositions and certificate/fitter bytes survive.
+
+The equilibrium redshifted identity supports the mu_n_profile scalar-reference
+route under the accepted preflight's equilibrium/reference definition. Acceptance
+of that mapping and its uncertainty remains recorded as pending. The full metric
+profile claim still needs a passive nodewise reference; no observer was built
+because reference/continuation/authority prerequisites remain unresolved. Any
+future observer requires a predeclared dense-output accuracy and coverage
+benchmark; endpoint GL4 order is not interior interpolation authority.
+
+Owner review must still adjudicate the evidence standard, itemized conditionals,
+continuous curvature and finite-cut law, input/normalization propagation, the
+certified object and sidecar format. Neither this investigation nor its passing
+tests ratifies Option A or interpretation (2). Numerical work stopped after
+49.689379 measured CPU seconds, within the 40–60 second plan and 180 second
+ceiling. No production-method/fitter changes, certificate promotion, master merge,
+new solver, observer campaign, BNV trajectory or full campaign follows.
