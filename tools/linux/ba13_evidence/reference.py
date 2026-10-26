@@ -3,13 +3,14 @@ import csv
 import gzip
 import hashlib
 import json
+import os
 import pathlib
 import sys
 import numpy as np
 
 S = pathlib.Path(__file__).resolve().parents[3]
 R = S.parents[1]
-O = R/'ba13-evidence-20261026'
+O = pathlib.Path(os.environ.get('BA13_EVIDENCE_OUTPUT_ROOT',R/'ba13-evidence-20261026'))
 OLD = R/'ba13-closure-20261019'
 F = OLD/'assessment-final'
 RAW = R/'ba13-recovery/run1/raw'

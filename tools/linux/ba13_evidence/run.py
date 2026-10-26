@@ -13,7 +13,7 @@ import time
 
 S = pathlib.Path(__file__).resolve().parents[3]
 R = S.parents[1]
-O = R / 'ba13-evidence-20261026'
+O = pathlib.Path(os.environ.get('BA13_EVIDENCE_OUTPUT_ROOT',R/'ba13-evidence-20261026'))
 OLD = R / 'ba13-closure-20261019'
 PRE = '93c28c3bd85afea8a893a34a8a6dd92ce06c52be'
 D = decimal.Decimal
@@ -190,8 +190,11 @@ def main():
         elif phase == 'assemble':
             call('assemble-stdout',[sys.executable,'-B',S/'tools/linux/ba13_evidence/assemble.py'])
             status='PASS'
-        elif phase == 'validate':
-            call('validation-stdout',[sys.executable,'-B',S/'tools/linux/ba13_evidence/validate.py'])
+        elif phase.startswith('validate'):
+            call(phase+'-stdout',[sys.executable,'-B',S/'tools/linux/ba13_evidence/validate.py'])
+            status='PASS'
+        elif phase == 'diagnostics':
+            call('diagnostics',[sys.executable,'-B',S/'tools/linux/ba13_evidence/diagnostics.py'])
             status='PASS'
         elif phase == 'historical-audit':
             mirror = O/'historical-audit'
@@ -216,6 +219,7 @@ def main():
             predeclaration_commit=PRE, predeclaration_sha256=sha(decl),
             source_commit=subprocess.check_output(['git','-C',str(S),'rev-parse','HEAD'],text=True).strip(),
             runner_sha256=sha(pathlib.Path(__file__)), executable_sha256=sha(OLD/'assessment'),
+            assessment_sources={str(p.relative_to(S)):sha(p) for p in (S/'tools/linux/ba13_evidence').glob('*.py')},
             solver_sha256=sha(S/'tests/bnv/x2_fixed_step.cpp'),
             passive_source_sha256=sha(S/'tests/bnv/x2_uncertainty.cpp'), runs=records))
     print(json.dumps(dict(phase=phase, status=status, numerical_cpu_seconds=cpu()-begin)))

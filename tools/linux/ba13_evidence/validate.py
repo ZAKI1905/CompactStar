@@ -10,7 +10,8 @@ import sys
 import tempfile
 import numpy as np
 
-S=pathlib.Path(__file__).resolve().parents[3];R=S.parents[1];O=R/'ba13-evidence-20261026'
+S=pathlib.Path(__file__).resolve().parents[3];R=S.parents[1]
+O=pathlib.Path(os.environ.get('BA13_EVIDENCE_OUTPUT_ROOT',R/'ba13-evidence-20261026'))
 F=R/'ba13-closure-20261019/assessment-final'
 
 
@@ -76,7 +77,7 @@ def main():
     check('frozen holdout criteria unchanged',hold['criterion_sha256']==sha(O/'frozen-holdouts.json') and
           sha(O/'frozen-holdouts.json')==sha(S/'docs/validation/ba13-evidence/evidence/frozen-holdouts.json'))
     check('all 30 holdout group comparisons pass',all(v['discrepancy']<=v['criterion'] for t in hold['targets'].values() for v in t['groups'].values()))
-    check('holdouts use own cutoffs',all(hold['targets'][str(i)]['pressure']==frozen['targets'][str(i)]['surfaceP_cgs'] for i in (5,15))
+    check('holdouts use own cutoffs',all(hold['targets'][str(i)]['pressure']==frozen['targets'][str(i)]['surfaceP_cgs'] for i in (5,15)))
     check('all 9 tangent estimates meet frozen order gate',len(tg['records'])==9 and all(v['order_ok'] and v['width_ok'] for v in tg['records'].values()))
     check('tangent correlated identity',max(abs(float(v['correlated_identity_residual'])) for v in tg['records'].values())<1e-55)
     check('old M1 M2 bytes remain unchanged',all(subprocess.run(['git','-C',str(S),'diff','--quiet',
