@@ -1,0 +1,7 @@
+{
+  "schema": "compactstar.ba13.evidence-acceptance.v1",
+  "owner_ratified": false,
+  "accepted_standards": {},
+  "accepted_conditions": {},
+  "note": "Execution is authorized; scientific evidence classes and ADR-0021 interpretation remain unratified."
+}
