@@ -345,7 +345,9 @@ def main():
             hr=history['threshold']-history['drift_bound'];alloc=budget(hr)
             term={k:dict(value=None,evidence_type='unresolved',source=None,missing_estimate='quantity-specific evidence absent') for k in FRACTIONS}
             def put(k,value,source,condition=None,missing='',charged_to=None):
-                term[k]=dict(value=value,evidence_type='unresolved' if value is None else 'conditional_estimate' if condition else 'analytic_bound',source=source,
+                # Historical outputs are replayed unchanged. A future nonzero
+                # unclassified value must refuse, never become analytic evidence.
+                term[k]=dict(value=value,evidence_type='unresolved' if value is None else 'conditional_estimate' if condition else 'analytic_bound' if value==0 else 'unresolved',source=source,
                              missing_estimate=missing,condition_id=condition,authority=None,charged_to=charged_to)
             breakdown={}
             if n in transfer:

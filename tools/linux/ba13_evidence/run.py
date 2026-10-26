@@ -187,6 +187,12 @@ def main():
             write(O/'holdouts.json',dict(status=status,targets=scores,
                   criterion_sha256=sha(frozen_doc),continuous_theorem=False,
                   qualification='UNQUALIFIED',reference_transfer_allowed=status=='PASS_EXPERIMENT'))
+        elif phase == 'assemble':
+            call('assemble-stdout',[sys.executable,'-B',S/'tools/linux/ba13_evidence/assemble.py'])
+            status='PASS'
+        elif phase == 'validate':
+            call('validation-stdout',[sys.executable,'-B',S/'tools/linux/ba13_evidence/validate.py'])
+            status='PASS'
         elif phase == 'historical-audit':
             mirror = O/'historical-audit'
             mirror.mkdir()
