@@ -1,0 +1,13 @@
+.......F....
+======================================================================
+FAIL: test_missing_dependency (__main__.DecisionTests.test_missing_dependency)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision/tests/bnv/test_ba13_final_decision.py", line 20, in test_missing_dependency
+    self.assertIsNone(m.complete_total([self.term(evidence_type='measured_difference',dependencies=['absent'])],{}))
+AssertionError: 0.1 is not None
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.001s
+
+FAILED (failures=1)

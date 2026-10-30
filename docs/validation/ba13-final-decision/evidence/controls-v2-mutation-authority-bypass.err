@@ -1,0 +1,21 @@
+F...F.......
+======================================================================
+FAIL: test_authority_must_match_exactly (__main__.DecisionTests.test_authority_must_match_exactly)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision/tests/bnv/test_ba13_final_decision.py", line 16, in test_authority_must_match_exactly
+    self.assertIsNone(m.complete_total([self.term(authority='some-other-review')],r))
+AssertionError: 0.1 is not None
+
+======================================================================
+FAIL: test_general_standard_does_not_accept_condition (__main__.DecisionTests.test_general_standard_does_not_accept_condition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision/tests/bnv/test_ba13_final_decision.py", line 18, in test_general_standard_does_not_accept_condition
+    self.assertIsNone(m.complete_total([self.term(authority='owner')],{'accepted_standards':{'C-REF':'owner'}}))
+AssertionError: 0.1 is not None
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.001s
+
+FAILED (failures=2)

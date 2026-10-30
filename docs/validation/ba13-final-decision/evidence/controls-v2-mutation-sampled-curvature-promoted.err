@@ -1,0 +1,21 @@
+.F.......F..
+======================================================================
+FAIL: test_between_sample_counterexample (__main__.DecisionTests.test_between_sample_counterexample)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision/tests/bnv/test_ba13_final_decision.py", line 56, in test_between_sample_counterexample
+    with self.assertRaises(ValueError):m.continuous_remainder(0,1,reference_kind='X2',evidence_scope='two_holdouts')
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_sampled_curvature_refused (__main__.DecisionTests.test_sampled_curvature_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision/tests/bnv/test_ba13_final_decision.py", line 48, in test_sampled_curvature_refused
+    with self.assertRaises(ValueError):m.continuous_remainder(1,1,reference_kind='X2',evidence_scope=scope)
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.001s
+
+FAILED (failures=2)

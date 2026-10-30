@@ -1,0 +1,347 @@
+{
+ "disposition": "E",
+ "full_qualification": false,
+ "owner_accepted": false,
+ "counts": {
+  "PASS": 21,
+  "FAIL": 0,
+  "UNQUALIFIED": 441
+ },
+ "actual_x_endpoint": "-9.999999990055996e-07",
+ "declared_x_endpoint": "-0.000001",
+ "endpoint_shortfall": 9.94400374692314e-16,
+ "endpoint_sliver_qualified": false,
+ "groups": {
+  "Cstar": {
+   "worst_finite_fraction": 0.00011770753540557096,
+   "finite_added": 1.1599017255254974e-08,
+   "historical_utilization": 0.014590085194272167,
+   "historical_headroom": 9.854099157959267e-05,
+   "partial_remaining": 9.852939256233742e-05,
+   "min_required_pointwise_cap": 1.371908924680631e-05,
+   "units": "historical scaled maximum-component drift",
+   "blockers": [
+    "C-REF",
+    "C-CONT",
+    "C-INPUT"
+   ],
+   "proposed_total_utilization": null
+  },
+  "Ltilde_Me": {
+   "worst_finite_fraction": 0.030749545687156016,
+   "finite_added": 3.0372347298333966e-06,
+   "historical_utilization": 0.01226679550519683,
+   "historical_headroom": 9.877332044948032e-05,
+   "partial_remaining": 9.573608571964692e-05,
+   "min_required_pointwise_cap": 1.3328917607553226e-05,
+   "units": "historical scaled maximum-component drift",
+   "blockers": [
+    "C-REF",
+    "C-CONT",
+    "C-INPUT"
+   ],
+   "proposed_total_utilization": null
+  },
+  "Ltilde_Mmu": {
+   "worst_finite_fraction": 1.6995607653662515e-05,
+   "finite_added": 1.2630949850374853e-09,
+   "historical_utilization": 0.2568109297549646,
+   "historical_headroom": 7.431890702450355e-05,
+   "partial_remaining": 7.431764392951851e-05,
+   "min_required_pointwise_cap": 1.034788038899691e-05,
+   "units": "historical scaled maximum-component drift",
+   "blockers": [
+    "C-REF",
+    "C-CONT",
+    "C-INPUT"
+   ],
+   "proposed_total_utilization": null
+  },
+  "N_e": {
+   "worst_finite_fraction": 9.175911065424075e-07,
+   "finite_added": 8.727791210557024e-11,
+   "historical_utilization": 0.048836551670124746,
+   "historical_headroom": 9.511634483298752e-05,
+   "partial_remaining": 9.511625755507541e-05,
+   "min_required_pointwise_cap": 1.3243848618855026e-05,
+   "units": "historical scaled maximum-component drift",
+   "blockers": [
+    "C-REF",
+    "C-CONT",
+    "C-INPUT"
+   ],
+   "proposed_total_utilization": null
+  },
+  "N_mu": {
+   "worst_finite_fraction": 0.00010520054268107789,
+   "finite_added": 4.831298314403517e-09,
+   "historical_utilization": 0.5407534798513441,
+   "historical_headroom": 4.592465201486559e-05,
+   "partial_remaining": 4.591982071655119e-05,
+   "min_required_pointwise_cap": 6.393374492380425e-06,
+   "units": "historical scaled maximum-component drift",
+   "blockers": [
+    "C-REF",
+    "C-CONT",
+    "C-INPUT"
+   ],
+   "proposed_total_utilization": null
+  },
+  "N_n": {
+   "worst_finite_fraction": 4.0496230210956244e-08,
+   "finite_added": 4.010261848400878e-12,
+   "historical_utilization": 0.009719712795414089,
+   "historical_headroom": 9.90280287204586e-05,
+   "partial_remaining": 9.902802471019675e-05,
+   "min_required_pointwise_cap": 1.3788469174570802e-05,
+   "units": "historical scaled maximum-component drift",
+   "blockers": [
+    "C-REF",
+    "C-CONT",
+    "C-INPUT"
+   ],
+   "proposed_total_utilization": null
+  },
+  "P0_average": {
+   "worst_finite_fraction": 2.4021163374033252e-08,
+   "finite_added": 2.3975940190073075e-12,
+   "historical_utilization": 0.0018826392133029753,
+   "historical_headroom": 9.981173607932302e-05,
+   "partial_remaining": 9.9811733681729e-05,
+   "min_required_pointwise_cap": 1.389764291719656e-05,
+   "units": "historical scaled maximum-component drift",
+   "blockers": [
+    "C-REF",
+    "C-CONT",
+    "C-INPUT"
+   ],
+   "proposed_total_utilization": null
+  },
+  "P1_average": {
+   "worst_finite_fraction": 3.48885533586151e-08,
+   "finite_added": 3.479733479350192e-12,
+   "historical_utilization": 0.0026145700112385935,
+   "historical_headroom": 9.973854299954615e-05,
+   "partial_remaining": 9.973853951981267e-05,
+   "min_required_pointwise_cap": 1.3887451477328792e-05,
+   "units": "historical scaled maximum-component drift",
+   "blockers": [
+    "C-REF",
+    "C-CONT",
+    "C-INPUT"
+   ],
+   "proposed_total_utilization": null
+  },
+  "P2_average": {
+   "worst_finite_fraction": 0.0,
+   "finite_added": 0.0,
+   "historical_utilization": 0.0,
+   "historical_headroom": 0.0001,
+   "partial_remaining": 0.0001,
+   "min_required_pointwise_cap": null,
+   "units": "historical scaled maximum-component drift",
+   "blockers": [],
+   "proposed_total_utilization": 0
+  },
+  "Tsurface_inf": {
+   "worst_finite_fraction": 0.0006533372026879593,
+   "finite_added": 6.481950431338884e-08,
+   "historical_utilization": 0.007870606762112315,
+   "historical_headroom": 9.921293942348377e-05,
+   "partial_remaining": 9.914811991917039e-05,
+   "min_required_pointwise_cap": 1.3805207734812842e-05,
+   "units": "historical scaled maximum-component drift",
+   "blockers": [
+    "C-REF",
+    "C-CONT",
+    "C-INPUT"
+   ],
+   "proposed_total_utilization": null
+  },
+  "Z_row_npe": {
+   "worst_finite_fraction": 1.024964588183995e-06,
+   "finite_added": 1.0027944228431869e-10,
+   "historical_utilization": 0.02163017688258729,
+   "historical_headroom": 9.783698231174127e-05,
+   "partial_remaining": 9.783688203229898e-05,
+   "min_required_pointwise_cap": 1.362266727104286e-05,
+   "units": "historical scaled maximum-component drift",
+   "blockers": [
+    "C-REF",
+    "C-CONT",
+    "C-INPUT"
+   ],
+   "proposed_total_utilization": null
+  },
+  "Z_row_npmu": {
+   "worst_finite_fraction": 6.505665568763923e-05,
+   "finite_added": 4.222683670306987e-09,
+   "historical_utilization": 0.35092211155432995,
+   "historical_headroom": 6.490778884456701e-05,
+   "partial_remaining": 6.49035661608967e-05,
+   "min_required_pointwise_cap": 9.03707709329938e-06,
+   "units": "historical scaled maximum-component drift",
+   "blockers": [
+    "C-REF",
+    "C-CONT",
+    "C-INPUT"
+   ],
+   "proposed_total_utilization": null
+  },
+  "envelope": {
+   "worst_finite_fraction": 0.0006546081959476353,
+   "finite_added": 6.482233557889405e-08,
+   "historical_utilization": 0.009753681970712242,
+   "historical_headroom": 9.902463180292879e-05,
+   "partial_remaining": 9.895980946734989e-05,
+   "min_required_pointwise_cap": 1.3778987693239756e-05,
+   "units": "historical scaled maximum-component drift",
+   "blockers": [
+    "C-REF",
+    "C-CONT",
+    "C-INPUT"
+   ],
+   "proposed_total_utilization": null
+  },
+  "metric_structure": {
+   "worst_finite_fraction": 0.013119572193811546,
+   "finite_added": 1.2686463385369606e-06,
+   "historical_utilization": 0.033012418548695986,
+   "historical_headroom": 9.66987581451304e-05,
+   "partial_remaining": 9.543011180659344e-05,
+   "min_required_pointwise_cap": null,
+   "units": "historical scaled maximum-component drift",
+   "blockers": [
+    "NODEWISE",
+    "C-REF",
+    "C-CONT",
+    "C-INPUT"
+   ],
+   "proposed_total_utilization": null
+  },
+  "mu_B": {
+   "worst_finite_fraction": 2.402113651410269e-08,
+   "finite_added": 2.397591338071007e-12,
+   "historical_utilization": 0.0018826392133029753,
+   "historical_headroom": 9.981173607932302e-05,
+   "partial_remaining": 9.981173368173168e-05,
+   "min_required_pointwise_cap": 1.3897642917196934e-05,
+   "units": "historical scaled maximum-component drift",
+   "blockers": [
+    "C-REF",
+    "C-CONT",
+    "C-INPUT"
+   ],
+   "proposed_total_utilization": null
+  },
+  "mu_n_profile": {
+   "worst_finite_fraction": 5.819649634864294e-07,
+   "finite_added": 5.8086932626232686e-11,
+   "historical_utilization": 0.0018826515217321318,
+   "historical_headroom": 9.981173484782679e-05,
+   "partial_remaining": 9.981167676089416e-05,
+   "min_required_pointwise_cap": 1.3897634837615617e-05,
+   "units": "historical scaled maximum-component drift",
+   "blockers": [
+    "C-REF",
+    "C-CONT",
+    "C-INPUT"
+   ],
+   "proposed_total_utilization": null
+  },
+  "radius": {
+   "worst_finite_fraction": 1.4953579969297754e-07,
+   "finite_added": 1.4761715901055264e-11,
+   "historical_utilization": 0.012830644476869168,
+   "historical_headroom": 9.871693555231309e-05,
+   "partial_remaining": 9.87169207905972e-05,
+   "min_required_pointwise_cap": 1.3745202911224903e-05,
+   "units": "historical scaled maximum-component drift",
+   "blockers": [
+    "C-REF",
+    "C-CONT",
+    "C-INPUT"
+   ],
+   "proposed_total_utilization": null
+  },
+  "species_support": {
+   "worst_finite_fraction": 0.0,
+   "finite_added": 0.0,
+   "historical_utilization": 0.0,
+   "historical_headroom": 1.0,
+   "partial_remaining": 1.0,
+   "min_required_pointwise_cap": null,
+   "units": "historical scaled maximum-component drift",
+   "blockers": [
+    "C-CONT"
+   ],
+   "proposed_total_utilization": null
+  },
+  "surface_gravity": {
+   "worst_finite_fraction": 7.133429797568748e-07,
+   "finite_added": 6.869128016741454e-11,
+   "historical_utilization": 0.03705115144188669,
+   "historical_headroom": 9.629488495257395e-05,
+   "partial_remaining": 9.629481626129378e-05,
+   "min_required_pointwise_cap": 1.3407951964930467e-05,
+   "units": "historical scaled maximum-component drift",
+   "blockers": [
+    "C-REF",
+    "C-CONT",
+    "C-INPUT"
+   ],
+   "proposed_total_utilization": null
+  },
+  "t_e": {
+   "worst_finite_fraction": 0.00016499383053139143,
+   "finite_added": 4.770899819513089e-10,
+   "historical_utilization": 0.06276265596747366,
+   "historical_headroom": 2.8915625536709907e-06,
+   "partial_remaining": 2.8910854636890393e-06,
+   "min_required_pointwise_cap": 4.0251917614962706e-07,
+   "units": "absolute dN_i/dB component (dimensionless count/count)",
+   "blockers": [
+    "C-REF",
+    "C-CONT",
+    "C-INPUT",
+    "C-TAN"
+   ],
+   "proposed_total_utilization": null
+  },
+  "t_mu": {
+   "worst_finite_fraction": 0.0016437174993760358,
+   "finite_added": 3.4628212437324414e-10,
+   "historical_utilization": 0.37627589752468465,
+   "historical_headroom": 2.1067009659792193e-07,
+   "partial_remaining": 2.1032381447354868e-07,
+   "min_required_pointwise_cap": 2.9331769087322903e-08,
+   "units": "absolute dN_i/dB component (dimensionless count/count)",
+   "blockers": [
+    "C-REF",
+    "C-CONT",
+    "C-INPUT",
+    "C-TAN"
+   ],
+   "proposed_total_utilization": null
+  },
+  "t_n": {
+   "worst_finite_fraction": 6.181640381526276e-06,
+   "finite_added": 5.950219214463626e-10,
+   "historical_utilization": 0.0033209336622889887,
+   "historical_headroom": 9.625631462234121e-05,
+   "partial_remaining": 9.625571960041976e-05,
+   "min_required_pointwise_cap": 1.3397207775059257e-05,
+   "units": "absolute dN_i/dB component (dimensionless count/count)",
+   "blockers": [
+    "C-REF",
+    "C-CONT",
+    "C-INPUT",
+    "C-TAN"
+   ],
+   "proposed_total_utilization": null
+  }
+ },
+ "reason": "joint reference/derivative remainder and quantitative continuous/input model incomplete; nodewise metric reference gated",
+ "stellar_runs": 0,
+ "checks": 1042
+}

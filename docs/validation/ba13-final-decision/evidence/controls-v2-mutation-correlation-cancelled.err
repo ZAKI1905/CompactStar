@@ -1,0 +1,21 @@
+..F..F......
+======================================================================
+FAIL: test_correlated_error_is_not_blanket_cancellation (__main__.DecisionTests.test_correlated_error_is_not_blanket_cancellation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision/tests/bnv/test_ba13_final_decision.py", line 26, in test_correlated_error_is_not_blanket_cancellation
+    self.assertEqual(m.correlated_increment(F(1,10),F(1,20),F(1,2),F(2)),F(3,80))
+AssertionError: Fraction(0, 1) != Fraction(3, 80)
+
+======================================================================
+FAIL: test_independent_ratio_algebra (__main__.DecisionTests.test_independent_ratio_algebra)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision/tests/bnv/test_ba13_final_decision.py", line 24, in test_independent_ratio_algebra
+    self.assertEqual(m.correlated_increment(a,d,t,D+d),(A+a)/(D+d)-t)
+AssertionError: Fraction(0, 1) != Fraction(52, 5859)
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.001s
+
+FAILED (failures=2)

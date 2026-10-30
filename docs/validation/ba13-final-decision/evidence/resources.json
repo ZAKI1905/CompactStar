@@ -1,0 +1,18 @@
+{
+ "measured_numerical_cpu_seconds": 8.363868,
+ "ceiling_cpu_seconds": 600,
+ "stellar_evaluations": 0,
+ "slurm_jobs": [
+  "19138",
+  "19140",
+  "19139"
+ ],
+ "budget_includes": "static numeric assessment, tests, independent reference replay, source mutations; hash-only packaging excluded",
+ "receipts": {
+  "receipt-benchmark.json": "7a166edfea519b296e836df0c686ac1e205bfeeb5e4d0aabae36423eab8e8287",
+  "receipt-validate.json": "6dbdaee2331baea5731380029a46aaa5c0dee21e60ea43fa55490c83189df757",
+  "receipt-controls-v2.json": "2fbb67b12a5c7792747a37bcb87f340bc529b28f02730e921f695b4c9a774407"
+ },
+ "scheduler_accounting": "Slurm accounting storage is disabled; process CPU and allocation receipts available",
+ "initial_submission": "sandbox DNS resolution of ekucn1 failed; retry loop interrupted, no job submitted; permitted scheduler submission then succeeded"
+}

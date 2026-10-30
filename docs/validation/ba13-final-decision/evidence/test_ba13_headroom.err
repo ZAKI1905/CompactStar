@@ -1,0 +1,19 @@
+test_all_missing_refuses (__main__.EnclosureTests.test_all_missing_refuses) ... ok
+test_budget_units_and_completeness (__main__.EnclosureTests.test_budget_units_and_completeness) ... ok
+test_changing_inverse_shared_error (__main__.EnclosureTests.test_changing_inverse_shared_error) ... ok
+test_covariance_not_physical (__main__.EnclosureTests.test_covariance_not_physical) ... ok
+test_frozen_threshold_failure (__main__.EnclosureTests.test_frozen_threshold_failure) ... ok
+test_incorrect_shared_cancellation (__main__.EnclosureTests.test_incorrect_shared_cancellation) ... ok
+test_inverse_remainder (__main__.EnclosureTests.test_inverse_remainder) ... ok
+test_missing_B_functional (__main__.EnclosureTests.test_missing_B_functional) ... ok
+test_normalization_and_singular_refusal (__main__.EnclosureTests.test_normalization_and_singular_refusal) ... ok
+test_partial_estimate_does_not_hide_missing_remainder (__main__.EnclosureTests.test_partial_estimate_does_not_hide_missing_remainder) ... ok
+test_source_residual_correlation (__main__.EnclosureTests.test_source_residual_correlation) ... ok
+test_support_edge_omission (__main__.EnclosureTests.test_support_edge_omission) ... ok
+test_underestimated_center_and_integration (__main__.EnclosureTests.test_underestimated_center_and_integration) ... ok
+test_unseen_bump_and_curvature (__main__.EnclosureTests.test_unseen_bump_and_curvature) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.003s
+
+OK

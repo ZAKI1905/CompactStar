@@ -1,0 +1,13 @@
+...F........
+======================================================================
+FAIL: test_feasibility_is_not_estimate (__main__.DecisionTests.test_feasibility_is_not_estimate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision/tests/bnv/test_ba13_final_decision.py", line 39, in test_feasibility_is_not_estimate
+    self.assertAlmostEqual(result,.001,places=14)
+AssertionError: 0.0010000975025420305 != 0.001 within 14 places (9.750254203045976e-08 difference)
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.001s
+
+FAILED (failures=1)

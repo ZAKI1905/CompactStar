@@ -1,0 +1,125 @@
+{
+ "status": "PASS",
+ "phase": "controls-v2",
+ "slurm_job": "19140",
+ "source_commit": "328ccf4dba2b8f567a9689e93fb41f82c82a1d46",
+ "predeclaration_sha256": "4beffcf3ca02ce2e9d9738f387b5ba8edf6c63fde95c479e17334f87c7cc5323",
+ "cpu_seconds": 0.5745529999999999,
+ "wall_seconds": 0.9638871029019356,
+ "prior_cpu_seconds": 7.789314999999999,
+ "ceiling_cpu_seconds": 600,
+ "stellar_runs": 0,
+ "runs": [
+  {
+   "label": "controls-v2-test_ba13_final_decision",
+   "command": [
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+    "-B",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision/tests/bnv/test_ba13_final_decision.py"
+   ],
+   "returncode": 0,
+   "cpu_seconds": 0.07191799999999998,
+   "wall_seconds": 0.11729926615953445,
+   "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "stderr_sha256": "72f09eca554e87a45b7156c6109520cf15e8b6ec157dc5c033610649b49b8698"
+  },
+  {
+   "label": "controls-v2-mutation-missing-error",
+   "command": [
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+    "-B",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision/tests/bnv/test_ba13_final_decision.py"
+   ],
+   "returncode": 1,
+   "cpu_seconds": 0.069997,
+   "wall_seconds": 0.11731193214654922,
+   "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "stderr_sha256": "6911248586ec679ae7d83f4d628729f1da1a04bb356625f466fe67240e6cc3b8"
+  },
+  {
+   "label": "controls-v2-mutation-authority-bypass",
+   "command": [
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+    "-B",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision/tests/bnv/test_ba13_final_decision.py"
+   ],
+   "returncode": 1,
+   "cpu_seconds": 0.07052499999999998,
+   "wall_seconds": 0.11752637475728989,
+   "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "stderr_sha256": "7391a9214cb7953d72a8eabad9594b2e40701603498df679fcd37d5a14a7d040"
+  },
+  {
+   "label": "controls-v2-mutation-correlation-cancelled",
+   "command": [
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+    "-B",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision/tests/bnv/test_ba13_final_decision.py"
+   ],
+   "returncode": 1,
+   "cpu_seconds": 0.06998300000000002,
+   "wall_seconds": 0.11745307594537735,
+   "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "stderr_sha256": "833a49320cdbfd685f7d48d1224a116efe75cd498ef6d5b09be886532e08c526"
+  },
+  {
+   "label": "controls-v2-mutation-wrong-reference",
+   "command": [
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+    "-B",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision/tests/bnv/test_ba13_final_decision.py"
+   ],
+   "returncode": 1,
+   "cpu_seconds": 0.07041100000000006,
+   "wall_seconds": 0.11728351563215256,
+   "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "stderr_sha256": "773d785e4dd898083f190d1471d4d02f8318efb74a91089deb2f8e22a046e441"
+  },
+  {
+   "label": "controls-v2-mutation-sampled-curvature-promoted",
+   "command": [
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+    "-B",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision/tests/bnv/test_ba13_final_decision.py"
+   ],
+   "returncode": 1,
+   "cpu_seconds": 0.0702529999999999,
+   "wall_seconds": 0.11730684340000153,
+   "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "stderr_sha256": "18cb2c1b9c8fbedc499a0ef52d5cd7454929116617ed3f250809886e47284d70"
+  },
+  {
+   "label": "controls-v2-mutation-normalization-omitted",
+   "command": [
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+    "-B",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision/tests/bnv/test_ba13_final_decision.py"
+   ],
+   "returncode": 1,
+   "cpu_seconds": 0.07003200000000004,
+   "wall_seconds": 0.11731081455945969,
+   "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "stderr_sha256": "d02479419e7226860926c7c945796beae27085915ee775333beefbdc56a82acc"
+  },
+  {
+   "label": "controls-v2-mutation-dependency-omitted",
+   "command": [
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+    "-B",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision/tests/bnv/test_ba13_final_decision.py"
+   ],
+   "returncode": 1,
+   "cpu_seconds": 0.06984100000000004,
+   "wall_seconds": 0.11727232486009598,
+   "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "stderr_sha256": "b5a8cf088388c3623276366dc06283ca0b227a037a6ff1da8a71d6323e1308ec"
+  }
+ ],
+ "source_sha256": {
+  "tools/linux/ba13_final_decision/authenticate_entry.py": "9431812a384a7c0af46f168d11e2f461917ead43991aef0b01ccec6d7b055ffb",
+  "tools/linux/ba13_final_decision/model.py": "431a6cc310f3ca87cde18127c20a54cd803d1ccd25c7352ba0c2794de6adadee",
+  "tools/linux/ba13_final_decision/assess.py": "ef62020c97d025f2ec3b751c830b09ebc830b9861fb21d5355abb1dfe28abb7e",
+  "tools/linux/ba13_final_decision/run.py": "3241b0b4c3e31031a6dd1e92da28f0927ccaf07bb1f66d5a2299a0da65c595af",
+  "tests/bnv/test_ba13_final_decision.py": "c6c9d00c3586f7b81f76ae4f80d333d11fd9f9937a20e2ae6a2a1338b0491d3d"
+ }
+}

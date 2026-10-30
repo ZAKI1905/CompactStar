@@ -1,0 +1,34 @@
+{
+ "status": "PASS",
+ "phase": "benchmark",
+ "slurm_job": "19138",
+ "source_commit": "5957154a1710fe0f6ebf9e37b75e6e2dae6e233c",
+ "predeclaration_sha256": "4beffcf3ca02ce2e9d9738f387b5ba8edf6c63fde95c479e17334f87c7cc5323",
+ "cpu_seconds": 2.657819,
+ "wall_seconds": 3.3311049938201904,
+ "prior_cpu_seconds": 0,
+ "ceiling_cpu_seconds": 600,
+ "stellar_runs": 0,
+ "runs": [
+  {
+   "label": "assessment",
+   "command": [
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+    "-B",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision/tools/linux/ba13_final_decision/assess.py"
+   ],
+   "returncode": 0,
+   "cpu_seconds": 2.651066,
+   "wall_seconds": 3.3222567215561867,
+   "stdout_sha256": "9b13bad3b3f789a6488f40fa797c6bb0fe13ed87641e9bcca63f66e520917213",
+   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+ ],
+ "source_sha256": {
+  "tools/linux/ba13_final_decision/authenticate_entry.py": "9431812a384a7c0af46f168d11e2f461917ead43991aef0b01ccec6d7b055ffb",
+  "tools/linux/ba13_final_decision/model.py": "431a6cc310f3ca87cde18127c20a54cd803d1ccd25c7352ba0c2794de6adadee",
+  "tools/linux/ba13_final_decision/assess.py": "ef62020c97d025f2ec3b751c830b09ebc830b9861fb21d5355abb1dfe28abb7e",
+  "tools/linux/ba13_final_decision/run.py": "6cb14b5bcc3d7a4e317d4d0e559d6d0ce5866444cd1ffb083395476e85f5f712",
+  "tests/bnv/test_ba13_final_decision.py": "6bd9ff5f772bce34ceeec202af7efc3cda1bff5c8e48030789bde45fc510330c"
+ }
+}

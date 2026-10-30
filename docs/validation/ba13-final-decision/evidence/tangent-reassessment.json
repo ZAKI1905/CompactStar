@@ -1,0 +1,146 @@
+{
+ "0:t_n": {
+  "t": {
+   "512": "0.965770077552153579433124139891056759392194517091000385609130",
+   "1024": "0.965770077555798813006221894610412444805641796309776364417527",
+   "2048": "0.965770077556034127236350200615222486531200405368655492583406"
+  },
+  "order": "3.95335078784980550318418759312080564811827635948639315199421",
+  "fine_tail": "1.56876153418870669873361150372406039252752110586E-14",
+  "joint_refinement_identity_residual": "2.97357201599E-61",
+  "stencil_tail_observation": "5.738037034813219E-12",
+  "units": "absolute dN_i/dB",
+  "evidence_type": "validated_numerical_estimate",
+  "scope": "correlated GL4 discretization only; asymptotic error model, not full tangent uncertainty",
+  "remaining_joint_reference_error": null,
+  "remaining_stencil_and_surface_error": null
+ },
+ "0:t_e": {
+  "t": {
+   "512": "0.0308521784185579282933472427876550666287360332478893730485074",
+   "1024": "0.0308521784155543562162230764610041193133699072179438913972196",
+   "2048": "0.0308521784153649857570101408417210242877938943944232885751405"
+  },
+  "order": "3.98739608412976708274906867526527909510389650919939823557892",
+  "fine_tail": "1.26246972808623746188730017050675215680401881386066666666667E-14",
+  "joint_refinement_identity_residual": "-1.0497274657E-62",
+  "stencil_tail_observation": "1.3746888562649485E-11",
+  "units": "absolute dN_i/dB",
+  "evidence_type": "validated_numerical_estimate",
+  "scope": "correlated GL4 discretization only; asymptotic error model, not full tangent uncertainty",
+  "remaining_joint_reference_error": null,
+  "remaining_stencil_and_surface_error": null
+ },
+ "0:t_mu": {
+  "t": {
+   "512": "0.00337774402928661522367769630091222675541541850660601138042233",
+   "1024": "0.00337774402864631449669982362654633452219657175389714588809141",
+   "2048": "0.00337774402860608855230708101370145851666848763294037685330898"
+  },
+  "order": "3.99255145104995892126073262849815762269199471713563578209979",
+  "fine_tail": "2.68172962618284085632506703520560806378460231882866666666667E-15",
+  "joint_refinement_identity_residual": "8.1862273232E-63",
+  "stencil_tail_observation": "8.009496731325742E-12",
+  "units": "absolute dN_i/dB",
+  "evidence_type": "validated_numerical_estimate",
+  "scope": "correlated GL4 discretization only; asymptotic error model, not full tangent uncertainty",
+  "remaining_joint_reference_error": null,
+  "remaining_stencil_and_surface_error": null
+ },
+ "10:t_n": {
+  "t": {
+   "512": "0.965770238168427874941301309959003629945051395642469024321228",
+   "1024": "0.965770238172069629973043227122271513542619807784428154493832",
+   "2048": "0.965770238172305538306130794434631570765622926085406199828343"
+  },
+  "order": "3.94833559497244719811492123166540030870705869390209599622108",
+  "fine_tail": "1.57272222058378208240038148668745533985363556340666666666667E-14",
+  "joint_refinement_identity_residual": "-4.58191357675E-61",
+  "stencil_tail_observation": "5.737134653345059E-12",
+  "units": "absolute dN_i/dB",
+  "evidence_type": "validated_numerical_estimate",
+  "scope": "correlated GL4 discretization only; asymptotic error model, not full tangent uncertainty",
+  "remaining_joint_reference_error": null,
+  "remaining_stencil_and_surface_error": null
+ },
+ "10:t_e": {
+  "t": {
+   "512": "0.0308520814592083708841120156098782739093094575266093557023186",
+   "1024": "0.0308520814562048447494312161771047507973029647001005238618518",
+   "2048": "0.0308520814560175249827374835763825524552544608306401259459839"
+  },
+  "order": "4.00308216589827061330062584511690228315364207889468134647646",
+  "fine_tail": "1.24879844462488400481465561365669246306931943911933333333333E-14",
+  "joint_refinement_identity_residual": "-3.7295028102E-62",
+  "stencil_tail_observation": "1.3746640058994042E-11",
+  "units": "absolute dN_i/dB",
+  "evidence_type": "validated_numerical_estimate",
+  "scope": "correlated GL4 discretization only; asymptotic error model, not full tangent uncertainty",
+  "remaining_joint_reference_error": null,
+  "remaining_stencil_and_surface_error": null
+ },
+ "10:t_mu": {
+  "t": {
+   "512": "0.00337768037236264096955394744687885120792641953388014838105468",
+   "1024": "0.00337768037172236667318080310634126465213396617623164216293961",
+   "2048": "0.00337768037168239948502142769657350864850011564621722026183083"
+  },
+  "order": "4.00180211208084734215403727805359008625357366085099092931158",
+  "fine_tail": "2.66447921062502731785040024225670200096146007391866666666667E-15",
+  "joint_refinement_identity_residual": "6.2129395991E-63",
+  "stencil_tail_observation": "8.009693429246168E-12",
+  "units": "absolute dN_i/dB",
+  "evidence_type": "validated_numerical_estimate",
+  "scope": "correlated GL4 discretization only; asymptotic error model, not full tangent uncertainty",
+  "remaining_joint_reference_error": null,
+  "remaining_stencil_and_surface_error": null
+ },
+ "20:t_n": {
+  "t": {
+   "512": "0.965770398783437843828722056257817038880497421450451802735302",
+   "1024": "0.965770398787076730223400296822730580012105476102979203654818",
+   "2048": "0.965770398787310770195311689795883868552377665600300186172366"
+  },
+  "order": "3.95867015598997232235280725472756999363756341718666333119255",
+  "fine_tail": "1.56026647940928648768859026848126331547321678365333333333333E-14",
+  "joint_refinement_identity_residual": "3.35979805147E-61",
+  "stencil_tail_observation": "5.735339214547423E-12",
+  "units": "absolute dN_i/dB",
+  "evidence_type": "validated_numerical_estimate",
+  "scope": "correlated GL4 discretization only; asymptotic error model, not full tangent uncertainty",
+  "remaining_joint_reference_error": null,
+  "remaining_stencil_and_surface_error": null
+ },
+ "20:t_e": {
+  "t": {
+   "512": "0.0308519845003998297856875485306683158655959836500051503658881",
+   "1024": "0.0308519844973959915979095720179296393521763579741423069246952",
+   "2048": "0.0308519844972078215669417874929323404091832353657365922445682"
+  },
+  "order": "3.99669831950950113654276125758906069719340819764821914260424",
+  "fine_tail": "1.25446687311856349998199295328748405603809786751333333333333E-14",
+  "joint_refinement_identity_residual": "2.1264610372E-62",
+  "stencil_tail_observation": "1.3746542526538297E-11",
+  "units": "absolute dN_i/dB",
+  "evidence_type": "validated_numerical_estimate",
+  "scope": "correlated GL4 discretization only; asymptotic error model, not full tangent uncertainty",
+  "remaining_joint_reference_error": null,
+  "remaining_stencil_and_surface_error": null
+ },
+ "20:t_mu": {
+  "t": {
+   "512": "0.00337761671616549000308367550521539987146185888750528309662069",
+   "1024": "0.00337761671552517024971020494498581630899227174409481663700595",
+   "2048": "0.00337761671548507060908796803506137670386066440700382638270042"
+  },
+  "order": "3.99713130444008087387416328986063914394973021428530728894964",
+  "fine_tail": "2.673309374815793994962640342107155806066016953702E-15",
+  "joint_refinement_identity_residual": "5.6749407188E-63",
+  "stencil_tail_observation": "8.00987005919142E-12",
+  "units": "absolute dN_i/dB",
+  "evidence_type": "validated_numerical_estimate",
+  "scope": "correlated GL4 discretization only; asymptotic error model, not full tangent uncertainty",
+  "remaining_joint_reference_error": null,
+  "remaining_stencil_and_surface_error": null
+ }
+}

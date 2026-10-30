@@ -1,0 +1,13 @@
+...........F
+======================================================================
+FAIL: test_wrong_reference_refused (__main__.DecisionTests.test_wrong_reference_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision/tests/bnv/test_ba13_final_decision.py", line 45, in test_wrong_reference_refused
+    with self.assertRaises(ValueError):m.continuous_remainder(1,1,reference_kind='reconstruction',evidence_scope='analytic_supremum')
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.001s
+
+FAILED (failures=1)
