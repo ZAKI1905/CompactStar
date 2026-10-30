@@ -184,3 +184,15 @@ tests ratifies Option A or interpretation (2). Numerical work stopped after
 49.681485 measured CPU seconds, within the 40–60 second plan and 180 second
 ceiling. No production-method/fitter changes, certificate promotion, master merge,
 new solver, observer campaign, BNV trajectory or full campaign follows.
+
+## 2026-10-30 final decision package (proposal only)
+
+The [exact owner decision record](../validation/ba13-final-decision/OWNER_DECISION.md)
+proposes Option A and interpretation (2), full physical-interval coverage,
+analytical bounds or independently validated numerical estimates, itemized
+conditional acceptance, an authenticated sidecar, and quantity-specific achieved-B
+reference transfer. It distinguishes contract clarifications from new evidence
+policy and investigation-only criteria. Status remains PROPOSED; no owner
+selection, certificate promotion or scientific uncertainty is accepted by this
+appendix. See the [final report](../validation/ba13-final-decision/REPORT.md)
+for the evidence-based disposition, required accuracy regions and stop reason.
