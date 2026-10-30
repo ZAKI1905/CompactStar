@@ -21,6 +21,7 @@ def call(label,args,env=None,expected=0):
     if remaining<15:raise RuntimeError('resource stop')
     cap=min(60,int(remaining-5))
     def limit():resource.setrlimit(resource.RLIMIT_CPU,(cap,cap))
+    label=(phase+'-'+label) if phase=='controls-v2' else label
     a=cpu();w=time.monotonic()
     with (O/(label+'.out')).open('x') as f,(O/(label+'.err')).open('x') as e:
         p=subprocess.run(args,stdout=f,stderr=e,env=env,timeout=90,preexec_fn=limit)
@@ -32,16 +33,16 @@ def call(label,args,env=None,expected=0):
 try:
     if phase=='benchmark':
         call('assessment',[sys.executable,'-B',str(S/'tools/linux/ba13_final_decision/assess.py')])
-    elif phase=='validate':
+    elif phase in ('validate','controls-v2'):
         benchmark=json.loads((O/'receipt-benchmark.json').read_text())
         assert benchmark['status']=='PASS' and benchmark['cpu_seconds']<30,'benchmark expansion gate'
-        for p in sorted((S/'tests/bnv').glob('test_ba13_*.py')):
+        for p in (sorted((S/'tests/bnv').glob('test_ba13_*.py')) if phase=='validate' else [S/'tests/bnv/test_ba13_final_decision.py']):
             call(p.stem,[sys.executable,'-B',str(p)])
         review=R/'ba13-closure-independent-review-20261020/scripts/verify_reference.py'
-        call('independent-reference-replay',[sys.executable,'-I','-B',str(review),str(O/'independent-reference-replay.json')])
+        if phase=='validate':call('independent-reference-replay',[sys.executable,'-I','-B',str(review),str(O/'independent-reference-replay.json')])
         # Mutations operate only on an external copy, with the same unchanged test suite.
         mutations={
-          'missing-error':("if v is None or kind=='unresolved' or t.get('missing'):","if kind=='unresolved' or t.get('missing'):"),
+          'missing-error':("if v is None or kind=='unresolved' or t.get('missing'):","if v is None: v=0\n        if kind=='unresolved' or t.get('missing'):"),
           'authority-bypass':("if not authority or registry.get(table,{}).get(t.get(field))!=authority:",'if False:'),
           'correlation-cancelled':('return (a - t*d) / denominator','return a*0'),
           'wrong-reference':("if reference_kind != 'X2':",'if False:'),
@@ -51,7 +52,7 @@ try:
         code=(S/'tools/linux/ba13_final_decision/model.py').read_text()
         for label,(old,new) in mutations.items():
             assert code.count(old)==1
-            p=O/(label+'.py');p.write_text(code.replace(old,new))
+            p=O/(phase+'-'+label+'.py');p.write_text(code.replace(old,new))
             env=dict(os.environ,BA13_FINAL_MODEL=str(p))
             call('mutation-'+label,[sys.executable,'-B',str(S/'tests/bnv/test_ba13_final_decision.py')],env,expected='nonzero')
     else:raise ValueError('unknown phase')

@@ -10,7 +10,7 @@ class DecisionTests(unittest.TestCase):
                provenance=[dict(path='fixture',sha256='a'*64)],dependencies=[],missing=None)
         t.update(kw);return t
     def test_missing_error_is_not_zero(self):
-        self.assertIsNone(m.complete_total([self.term(value=None)],{}))
+        self.assertIsNone(m.complete_total([self.term(value=None,evidence_type='measured_difference')],{}))
     def test_authority_must_match_exactly(self):
         r={'accepted_conditions':{'C-REF':'owner:reviewed-commit'}}
         self.assertIsNone(m.complete_total([self.term(authority='some-other-review')],r))
