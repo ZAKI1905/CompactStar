@@ -1,0 +1,22 @@
+{
+  "source_commit": "bb0f9c5af8ebaf86b5a59aece5551bb9dafbd264",
+  "predeclaration_commit": "a5f1c53abe084a992b9b64fc008921827d70c457",
+  "protected_paths": [
+    "CompactStar",
+    "tests",
+    "cmake",
+    "GOVERNANCE.md",
+    "AGENTS.md",
+    "docs/SCIENTIFIC_INVARIANTS.md",
+    "docs/validation/ba13-final-decision",
+    "docs/validation/ba13-recovery"
+  ],
+  "protected_source_unchanged": true,
+  "review_copy_exact": true,
+  "experiment_json_parses": true,
+  "python_audit_parses": true,
+  "native_profile_substitution_performed": false,
+  "acceptance_registry_unchanged": true,
+  "trajectory_executed": false,
+  "plot_generated": false
+}

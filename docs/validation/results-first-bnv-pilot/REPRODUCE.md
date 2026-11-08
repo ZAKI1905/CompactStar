@@ -17,6 +17,18 @@ inputs without constructing a star. New audit time/HEAD/free-space fields may
 differ; scientific source remains pinned to bb0f9c5. The review's 12 manifest
 entries are authenticated, not silently rerun as a new independent review.
 
+The fresh 12-test static refusal suite is reproducible with:
+
+```bash
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python -I -B \
+  tests/bnv/test_ba13_final_decision.py
+git diff bb0f9c5 -- CompactStar tests cmake GOVERNANCE.md AGENTS.md
+```
+
+The test suite must pass and the protected-source diff must be empty. This does
+not execute or qualify a thermal trajectory. Source/control native prerequisites
+remain release gates rather than being inferred from this test.
+
 Verify committed compact evidence with `sha256sum -c SHA256SUMS` from this
 directory. `evidence/external-SHA256SUMS` records external receipt hashes. Large
 native inputs remain under `ba13-recovery/run1`, already bound by the inherited

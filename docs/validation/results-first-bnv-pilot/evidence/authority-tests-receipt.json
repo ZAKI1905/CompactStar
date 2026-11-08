@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+    "-I",
+    "-B",
+    "tests/bnv/test_ba13_final_decision.py"
+  ],
+  "source_commit": "a5f1c53abe084a992b9b64fc008921827d70c457",
+  "exit_code": 0,
+  "wall_seconds": 0.08478689938783646,
+  "user_cpu_seconds": 0.045697999999999996,
+  "system_cpu_seconds": 0.021891,
+  "max_rss_kib": 16224,
+  "slurm_job_id": null,
+  "scope": "12 unchanged static authority/algebra/refusal tests; no stellar solver or trajectory",
+  "scientific_source": "bb0f9c5af8ebaf86b5a59aece5551bb9dafbd264",
+  "artifacts": {
+    "authority-tests.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "authority-tests.stderr": "72f09eca554e87a45b7156c6109520cf15e8b6ec157dc5c033610649b49b8698"
+  }
+}

@@ -21,7 +21,8 @@ New branch: `candidate/results-first-bnv-pilot-20261108`.
 Worktree: `/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot`.
 External evidence/tmp/output root:
 `/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-pilot-20261108`.
-The final delivery commit is the branch tip; the first commit freezes the proposal
+The final delivery commit is the branch tip; predeclaration commit
+`a5f1c53abe084a992b9b64fc008921827d70c457` freezes the proposal
 and experiment before any future simulation. Production source and all historical
 cards, certificates, tests, baselines, registries and master remain unchanged.
 
@@ -67,6 +68,17 @@ Only file/source inspection, hashing and small Python checks ran on the cluster
 login host. Their measured receipts are under evidence; no stellar solver,
 coefficient campaign, build or ODE was launched. Proposed future allocation is
 separately labelled in EXPERIMENT.md.
+
+Fresh verification: all 12 external review-manifest entries and both native
+certificate hashes match. The 12 unchanged BA13 authority/algebra/refusal tests
+pass, including missing error, wrong authority, generic-standard-only acceptance,
+missing dependency, sampled-curvature promotion and correlation controls. Measured
+test process: **0.084787 s wall, 0.067589 s CPU, 16224 KiB maximum RSS**, no Slurm.
+These are static checks, not the native thermal prerequisite suite or independent
+scientific acceptance (`evidence/authority-tests-receipt.json`). The initial Git
+commit attempt lacked configured author identity and made no commit; the retry
+used per-command Codex identity consistent with the reviewed branch. No global
+Git configuration changed.
 
 Changed files: this validation directory, `tools/linux/results_first/preflight.py`
 and an append-only proposed-status note in ADR-0021. Classes: documentation,
