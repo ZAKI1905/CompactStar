@@ -1,5 +1,6 @@
 #pragma once
 #include <CompactStar/Physics/Rotochemical/FrozenThermalSource.hpp>
+#include <CompactStar/Physics/Rotochemical/QualifiedBackgroundInputs.hpp>
 #include <CompactStar/Physics/Rotochemical/PrescribedSpinHistory.hpp>
 #include <CompactStar/Physics/Rotochemical/RotochemicalReactionResponse.hpp>
 #include <CompactStar/Physics/Evolution/EvolutionConfig.hpp>
@@ -43,6 +44,7 @@ enum class RunPurpose {ControlledTrajectory,AnalyticControl};
 struct RunQualification
 {
     RunPurpose purpose=RunPurpose::ControlledTrajectory;
+    QualifiedBackgroundInputs background_inputs=QualifiedBackgroundInputs::HistoricalStructure1;
     size_t radial_resolution=0,eos_resolution=0;
     double rho_c_g_cm3=0;
     // Authenticated paths bound both to semantic source ownership and exact bytes.
@@ -85,11 +87,14 @@ class FrozenRotochemicalRunContext final
         selection_=channels_->Selection();Need(!selection_.Enabled(UrcaProcess::De)&&!selection_.Enabled(UrcaProcess::Dmu),"controlled DU disabled");
         Need(qualification_.radial_resolution==80000&&qualification_.eos_resolution==8192&&qualification_.rho_c_g_cm3==1.10e15,"unqualified background resolution/density");
         Need(fixed_->metadata.sequence_radial_resolution==80000,"structural radial provenance mismatch");
+        Need(qualification_.background_inputs!=QualifiedBackgroundInputs::NativeStructure1 ||
+             qualification_.purpose==RunPurpose::AnalyticControl,"native background restricted to analytic controls");
+        const auto hashes=BackgroundInputHashes(qualification_.background_inputs);
         const std::array<std::pair<std::string,std::string>,5> sources{{
-          {qualification_.profile_path,"e9cd03b0b8449806f6c9883d75de1d3dff0cf1481675efc45a56519655d40890"},
-          {qualification_.model_path,"3ea70de79e15b70c5a6d68f48335d18047ff80e60b55a9acdb78084e9be4d6d4"},
-          {qualification_.certificate_path,"7fc892b50bfbcdd2c5d963e0ff866777f3628f40fc282e1ce5a0b0364200a453"},
-          {qualification_.eos_path,"7cd44c92e1e7206e0e68e3fed7e3f0ca68e79ab4517d02b96ff78b9be23d3f1a"},
+          {qualification_.profile_path,hashes[0]},
+          {qualification_.model_path,hashes[1]},
+          {qualification_.certificate_path,hashes[2]},
+          {qualification_.eos_path,hashes[3]},
           {qualification_.entry_manifest_path,qualification_.entry_manifest_sha256}}};
         for(size_t i=0;i<sources.size();++i){const auto& s=sources[i];Need(!s.first.empty()&&s.second.size()==64,"missing qualification identity");qualification_sources_.emplace_back(s.first);Need(qualification_sources_.back().sha256==s.second,"qualification source hash mismatch");if(i<4)Need(std::any_of(source_paths_.begin(),source_paths_.end(),[&](const auto& p){return std::filesystem::absolute(p)==std::filesystem::absolute(s.first);}),"qualification not in semantic source owner");}
         domain_=channels_->DomainIdentity();metric_=channels_->MetricIdentity();partition_=channels_->PartitionKm();Need(domain_==revision_->domain&&partition_==global_->Partition()&&!metric_.empty(),"foreign domain/partition/metric");

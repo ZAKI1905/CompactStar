@@ -124,6 +124,8 @@ add_executable(phase6a1_ba13_profile_binding bnv/ba13_profile_binding.cpp)
 target_link_libraries(phase6a1_ba13_profile_binding PRIVATE CompactStar)
 add_executable(phase6a1_ba13_native_certificate_binding bnv/ba13_native_certificate_binding.cpp)
 target_link_libraries(phase6a1_ba13_native_certificate_binding PRIVATE CompactStar)
+add_executable(phase6a1_native_input_binding bnv/native_input_binding.cpp)
+target_link_libraries(phase6a1_native_input_binding PRIVATE CompactStar)
 
 foreach(test source_projection direct_energy thermal_ledger matched_control frozen_monitor)
     add_executable(phase6a1_${test} bnv/${test}.cpp)
