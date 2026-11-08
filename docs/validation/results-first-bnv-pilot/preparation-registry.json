@@ -1,0 +1,28 @@
+{
+  "schema": "compactstar.restricted-bnv-approval.v1",
+  "status": "ACCEPTED_FOR_PREPARATION_ONLY",
+  "owner": "project owner via explicit conversation message",
+  "session_date": "2026-11-08",
+  "reviewed_commit": "4509e13217ec442a2649ab0e2dcf950f3c0f5c97",
+  "approval_evidence": "OWNER_APPROVAL.md",
+  "approval_sha256": "506c70574884defc27669ebc4a9ec6a2ffcf1c4280f0551d8d417d1c972994ae",
+  "decision_sha256": "da23fbf44529e19c80dd71487026b0149847bd776d03ae794b3910d8201e19aa",
+  "review_sha256": "606c9cb0f4ea005b7439aeddf0a3fbeeacca2e7a972e34d74ddf32dccd34d412",
+  "scope": "RF-BNV-P2-NATIVE-BOUNDED-v1",
+  "accepted_standards": {
+    "S": "owner:RF-BNV-P2-20261108:4509e13217ec442a2649ab0e2dcf950f3c0f5c97"
+  },
+  "accepted_conditions": {
+    "C-REF": "owner:RF-BNV-P2-20261108:4509e13217ec442a2649ab0e2dcf950f3c0f5c97",
+    "C-TAN": "owner:RF-BNV-P2-20261108:4509e13217ec442a2649ab0e2dcf950f3c0f5c97",
+    "C-CONT": "owner:RF-BNV-P2-20261108:4509e13217ec442a2649ab0e2dcf950f3c0f5c97",
+    "C-INPUT": "owner:RF-BNV-P2-20261108:4509e13217ec442a2649ab0e2dcf950f3c0f5c97",
+    "C-SUPPORT": "owner:RF-BNV-P2-20261108:4509e13217ec442a2649ab0e2dcf950f3c0f5c97",
+    "C-CUT": "owner:RF-BNV-P2-20261108:4509e13217ec442a2649ab0e2dcf950f3c0f5c97",
+    "C-MUN": "owner:RF-BNV-P2-20261108:4509e13217ec442a2649ab0e2dcf950f3c0f5c97"
+  },
+  "metric_claim": "consumer-functionals-only",
+  "historical_certificate_promoted": false,
+  "paired_trajectories_authorized": false,
+  "full_campaign_authorized": false
+}
