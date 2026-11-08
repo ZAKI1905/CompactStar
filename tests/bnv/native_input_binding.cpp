@@ -41,7 +41,8 @@ int main(int argc,char** argv)
     auto invalid=q;invalid.background_inputs=static_cast<RC::QualifiedBackgroundInputs>(123);
     MustRefuse([&]{Context(fixture,channels,thermal,spin,invalid,token);},"unknown identity");
     auto production=q;production.purpose=RC::RunPurpose::ControlledTrajectory;
-    MustRefuse([&]{Context(fixture,channels,thermal,spin,production,token);},"native identity does not authorize production trajectory");
+    auto dipole=std::make_shared<const RC::PrescribedDipoleHistory>(token);
+    MustRefuse([&]{Context(fixture,channels,thermal,dipole,production,token);},"native identity does not authorize production trajectory");
     auto src=source(profile/"freegas.tsv");auto numbers=ParticleNumbers::Compute(input(*fixture.central,src));
     double B0=0;for(std::size_t i=0;i<species.size();++i)if(species[i].label=="10"||species[i].label=="11")B0+=numbers.Values()[i];
     require(B0==Phase6A1Campaign::Column(coefficients,"B_solved"),"native coefficient B0 differs from owning star");

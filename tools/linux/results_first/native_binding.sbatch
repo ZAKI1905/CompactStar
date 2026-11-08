@@ -17,6 +17,10 @@ test -z "$(git -C "$RF_SOURCE" status --porcelain --untracked-files=no)"
 build="$RF_OUTPUT/build"
 native="$TC/../ba13-recovery/run1"
 cmake -S "$RF_SOURCE" -B "$build" -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_CXX_FLAGS=-ffp-contract=off \
+  -DGSL_ROOT_DIR="$TC/install/gsl-2.7.1" \
+  -DZLIB_INCLUDE_DIR="$TC/sysroot/usr/include" \
+  -DZLIB_LIBRARY="$TC/sysroot/usr/lib64/libz.so" \
   -DPython3_EXECUTABLE="$TC/python/bin/python" \
   -DCOMPACTSTAR_LINUX_DEPENDENCY_LOCK="$TC/dependency-lock-linux.json" \
   -DCOMPACTSTAR_ZAKI_PREFIX="$TC/install/Release/Zaki" \
