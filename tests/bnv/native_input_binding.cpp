@@ -11,6 +11,10 @@ int main(int argc,char** argv)
     std::filesystem::create_directories(work);
     const auto profile=work/"profile";
     std::filesystem::copy(original,profile,std::filesystem::copy_options::recursive);
+    // Only this private fresh copy is mutated. The scientific archive is read-only.
+    require(std::filesystem::canonical(profile)!=std::filesystem::canonical(original),"private fixture aliases archive");
+    require(std::filesystem::canonical(profile/"model.txt").parent_path()==std::filesystem::canonical(profile),"private model escapes fixture");
+    require(!std::filesystem::equivalent(profile/"model.txt",original/"model.txt"),"private model aliases archive inode");
     const auto certificate=profile/"certificate.txt";
     auto fixture=Fixture(profile,certificate.string(),work/"owning-star",80000);
     auto channels=Channels(fixture);
