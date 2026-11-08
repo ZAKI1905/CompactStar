@@ -15,6 +15,7 @@ mkdir -p "$TMPDIR"
 scontrol show job "$SLURM_JOB_ID" > "$RF_OUTPUT/allocation-$SLURM_JOB_ID.txt"
 test "$(git -C "$RF_SOURCE" rev-parse HEAD)" = "$RF_COMMIT"
 test -z "$(git -C "$RF_SOURCE" status --porcelain --untracked-files=no)"
+cd "$RF_SOURCE" # retained fixture authenticates provider sources relative to the repository
 build="${RF_BUILD:-$RF_OUTPUT/build}"
 native="$TC/../ba13-recovery/run1"
 cmake -S "$RF_SOURCE" -B "$build" -DCMAKE_BUILD_TYPE=Release \
