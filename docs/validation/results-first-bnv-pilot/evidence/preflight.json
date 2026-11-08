@@ -1,0 +1,203 @@
+{
+  "status": "AUTHENTICATED_NOT_AUTHORIZED_FOR_TRAJECTORIES",
+  "scientific_disposition": "UNQUALIFIED_PENDING_OWNER_AND_NATIVE_RUN_BINDING",
+  "host": "ekucn1.eku.edu",
+  "system": "Linux",
+  "repository": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot",
+  "source_commit": "bb0f9c5af8ebaf86b5a59aece5551bb9dafbd264",
+  "audit_head": "bb0f9c5af8ebaf86b5a59aece5551bb9dafbd264",
+  "branch": "candidate/results-first-bnv-pilot-20261108",
+  "branches": [
+    {
+      "ref": "refs/heads/candidate/linux-ba13-closure-20261019",
+      "commit": "093d121135e35bc50ca2a807470906bcb28ef5c3",
+      "ancestor_of_source": true
+    },
+    {
+      "ref": "refs/heads/candidate/linux-ba13-evidence-20261026",
+      "commit": "84e1062db78b91e4fb0988074941b1aea6019917",
+      "ancestor_of_source": true
+    },
+    {
+      "ref": "refs/heads/candidate/linux-ba13-final-decision-20261030",
+      "commit": "bb0f9c5af8ebaf86b5a59aece5551bb9dafbd264",
+      "ancestor_of_source": true
+    },
+    {
+      "ref": "refs/heads/candidate/linux-ba13-onset-pilot-20261013",
+      "commit": "dad05b17056f3ccb1e3871e6e4bb24ebe5db5df4",
+      "ancestor_of_source": true
+    },
+    {
+      "ref": "refs/heads/candidate/linux-ba13-recovery-20261012",
+      "commit": "8e6ac589d8d34e78447ee893e43e5673490eb728",
+      "ancestor_of_source": true
+    },
+    {
+      "ref": "refs/heads/candidate/linux-ba13-uncertainty-20261012",
+      "commit": "4f3cf97462ca030f715e26808938f781a2a40945",
+      "ancestor_of_source": true
+    },
+    {
+      "ref": "refs/heads/candidate/linux-qualification-corrections-20261011",
+      "commit": "5ec9994f5822647aebf79a556c0fe5e11ce77e18",
+      "ancestor_of_source": true
+    },
+    {
+      "ref": "refs/heads/candidate/linux-transition-20261010",
+      "commit": "f4e7c18f568045febc5bf65c6e95200752196dad",
+      "ancestor_of_source": true
+    },
+    {
+      "ref": "refs/heads/candidate/linux-x1-oracle-anchor-20261016",
+      "commit": "6cc7e20713e3c0210faa9036316650816f0290d5",
+      "ancestor_of_source": true
+    },
+    {
+      "ref": "refs/heads/candidate/linux-x2-fixed-step-20261016",
+      "commit": "286aafb63002093b3052e23a3972903011f36035",
+      "ancestor_of_source": true
+    },
+    {
+      "ref": "refs/heads/candidate/results-first-bnv-pilot-20261108",
+      "commit": "bb0f9c5af8ebaf86b5a59aece5551bb9dafbd264",
+      "ancestor_of_source": true
+    },
+    {
+      "ref": "refs/heads/docs/phase6-cluster-preparation",
+      "commit": "d8e7208b71e01168394e41f8f8f32b027b5d0a63",
+      "ancestor_of_source": true
+    },
+    {
+      "ref": "refs/heads/master",
+      "commit": "9a5c1eca40758e4c39f9f80db7324e12ad23e505",
+      "ancestor_of_source": true
+    },
+    {
+      "ref": "refs/heads/physics/phase6-bnv-campaign-readiness",
+      "commit": "5433fc2da71ba380264f490b87926d850ff9f375",
+      "ancestor_of_source": true
+    },
+    {
+      "ref": "refs/heads/physics/phase6-breakpoint-aware-evolution",
+      "commit": "0c3f9269c884161c9d89163660a47b141a93ace6",
+      "ancestor_of_source": true
+    }
+  ],
+  "worktrees": "worktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar\nHEAD 8e6ac589d8d34e78447ee893e43e5673490eb728\nbranch refs/heads/candidate/linux-ba13-recovery-20261012\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-closure\nHEAD 093d121135e35bc50ca2a807470906bcb28ef5c3\nbranch refs/heads/candidate/linux-ba13-closure-20261019\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence\nHEAD 84e1062db78b91e4fb0988074941b1aea6019917\nbranch refs/heads/candidate/linux-ba13-evidence-20261026\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision\nHEAD bb0f9c5af8ebaf86b5a59aece5551bb9dafbd264\nbranch refs/heads/candidate/linux-ba13-final-decision-20261030\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot\nHEAD dad05b17056f3ccb1e3871e6e4bb24ebe5db5df4\nbranch refs/heads/candidate/linux-ba13-onset-pilot-20261013\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-uncertainty\nHEAD 4f3cf97462ca030f715e26808938f781a2a40945\nbranch refs/heads/candidate/linux-ba13-uncertainty-20261012\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot\nHEAD bb0f9c5af8ebaf86b5a59aece5551bb9dafbd264\nbranch refs/heads/candidate/results-first-bnv-pilot-20261108\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor\nHEAD 6cc7e20713e3c0210faa9036316650816f0290d5\nbranch refs/heads/candidate/linux-x1-oracle-anchor-20261016\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step\nHEAD 286aafb63002093b3052e23a3972903011f36035\nbranch refs/heads/candidate/linux-x2-fixed-step-20261016",
+  "storage": {
+    "root": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010",
+    "available_bytes": 266265452544,
+    "writable": true,
+    "scriptorium_visible_on_this_host": false,
+    "mac_mount_status": "NOT_OBSERVABLE_FROM_THIS_LINUX_SESSION"
+  },
+  "review_manifest_checks": [
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-final-decision-independent-review-20261030/outputs/authentication.json",
+      "sha256": "e1b0fe29583329cf0584be47efb9d28c82666561beb159bce6b1f9b9aedb6f8d"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-final-decision-independent-review-20261030/outputs/no-write-check.txt",
+      "sha256": "268aa1f0120be4539b562e4ab131fef10930f8aab45aff71c029c9e52bb9cd4b"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-final-decision-independent-review-20261030/outputs/quantitative-review.json",
+      "sha256": "c131e993dcc3f11fa1db11b0efba23822224d027d8f007bd00db605aa4562793"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-final-decision-independent-review-20261030/outputs/quantitative-review.txt",
+      "sha256": "c9773bdad01b67cd54f2ecc6a096cf155f0320f42f15ac436757982537933562"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-final-decision-independent-review-20261030/outputs/rerun-test_ba13_closure.out",
+      "sha256": "aef178d02db1056970cf5afc8faad765a5c0cbe35eb8c5912b76c17cf21fdde3"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-final-decision-independent-review-20261030/outputs/rerun-test_ba13_evidence.out",
+      "sha256": "e6d52cd721e25010440ad53d62b74821065827d9d006df753d9392f0bc907058"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-final-decision-independent-review-20261030/outputs/rerun-test_ba13_final_decision.out",
+      "sha256": "906e021f59d70c992b66d5474c3244c4491174bfc8f2cbc2b1947792a05f7f77"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-final-decision-independent-review-20261030/outputs/rerun-test_ba13_headroom.out",
+      "sha256": "dd8338474cf49e513d678baa809ec3a90bc90080499ec163ecd222e5ac55cdcc"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-final-decision-independent-review-20261030/outputs/rerun-test_ba13_recovery.out",
+      "sha256": "57839bf0311543f1c6d6ab5b52f67494257623493141cb43e762d4c90fedbe8e"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-final-decision-independent-review-20261030/REVIEW.md",
+      "sha256": "606c9cb0f4ea005b7439aeddf0a3fbeeacca2e7a972e34d74ddf32dccd34d412"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-final-decision-independent-review-20261030/scripts/authenticate.py",
+      "sha256": "cab20750f3588648636a365334030329aac6b9b3789922066c3a96e1c87e75f5"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-final-decision-independent-review-20261030/scripts/quantitative_review.py",
+      "sha256": "51c0d66897068ecd9d2133110a1f134b9ffadb754f02088094e8bdf9dd309b17"
+    }
+  ],
+  "input_sha256": {
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/fit/certificate.json": "4212cad05bb4244ab75e80b8dfea023e6d0fcee69086c9993bd48d26a40e41fb",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/fit/certificate.tsv": "38bc85c62621b390ff2d7c8affee1f5ba4e9f0f44233047bb9959f2d685fd5ba",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/profile.tsv": "62b8dc594fd9c30d413ccb1d906459e2599049966b0bec097284b43598a07a56",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/model.txt": "6dc75c841408d8e03fed5cbc8444310af35c77ab34d0339df309c00cbb3e7f4a",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/certificate.txt": "337ed8ae8d6168d8a612f1344f204dc927ac9e0867a47542d5b943dbf27b8537",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/freegas.tsv": "f6b9c4068a430cc356b54e39c21a0ca17e17b8c2b35d17b836638298d1112d7f",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.nb": "eeea89bb2e73909c886393bcedcc56f54aa1afa867f7435db2f29990e6b417d0",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.t": "a34c76462115f14fb3d93516e1229e77240c46a9cc55bc3970f9e32251759468",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.thermo": "9929739023a10210eca5d9f693f31c43b63e2ed255cb23421050af5b6acdaca1",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.yq": "45125714a8b219f0e5677e69c295620d0de0f66ddee4e0e7cd3e67d964b69258",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/coefficients.tsv": "ec3942227c98532af4802db4bdd229603715556af9d44929082368b3afc7d831"
+  },
+  "native_context_hash_comparison": [
+    {
+      "file": "profile.tsv",
+      "native_sha256": "62b8dc594fd9c30d413ccb1d906459e2599049966b0bec097284b43598a07a56",
+      "context_pin": "e9cd03b0b8449806f6c9883d75de1d3dff0cf1481675efc45a56519655d40890",
+      "matches": false
+    },
+    {
+      "file": "model.txt",
+      "native_sha256": "6dc75c841408d8e03fed5cbc8444310af35c77ab34d0339df309c00cbb3e7f4a",
+      "context_pin": "3ea70de79e15b70c5a6d68f48335d18047ff80e60b55a9acdb78084e9be4d6d4",
+      "matches": false
+    },
+    {
+      "file": "certificate.txt",
+      "native_sha256": "337ed8ae8d6168d8a612f1344f204dc927ac9e0867a47542d5b943dbf27b8537",
+      "context_pin": "7fc892b50bfbcdd2c5d963e0ff866777f3628f40fc282e1ce5a0b0364200a453",
+      "matches": false
+    },
+    {
+      "file": "freegas.tsv",
+      "native_sha256": "f6b9c4068a430cc356b54e39c21a0ca17e17b8c2b35d17b836638298d1112d7f",
+      "context_pin": "7cd44c92e1e7206e0e68e3fed7e3f0ca68e79ab4517d02b96ff78b9be23d3f1a",
+      "matches": false
+    }
+  ],
+  "native_B0_count": 7.616906518718875e+56,
+  "native_Bdot_count_s": -2.413652026364133e+37,
+  "historical_Bdot_literal_count_s": -2.4136520263641375e+37,
+  "native_Bdot_matches_historical_literal": false,
+  "bounded_duration_s": 462269531250.0,
+  "bounded_duration_year": 14648.4375,
+  "predicted_fractional_depletion": 1.4648437499999999e-08,
+  "historical_native_max_utilization": 0.5407534798513441,
+  "existing_acceptance_registry": {
+    "status": "PROPOSED_NOT_ACCEPTED",
+    "accepted_standards": {},
+    "accepted_conditions": {},
+    "owner": null,
+    "approval_evidence": null,
+    "reviewed_commit": null
+  },
+  "trajectories_run": 0,
+  "slurm_jobs_submitted": 0,
+  "elapsed_wall_seconds": 0.3114264979958534
+}

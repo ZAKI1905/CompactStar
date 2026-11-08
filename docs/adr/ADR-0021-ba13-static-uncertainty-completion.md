@@ -196,3 +196,16 @@ policy and investigation-only criteria. Status remains PROPOSED; no owner
 selection, certificate promotion or scientific uncertainty is accepted by this
 appendix. See the [final report](../validation/ba13-final-decision/REPORT.md)
 for the evidence-based disposition, required accuracy regions and stop reason.
+
+## 2026-11-08 results-first P2 pilot decision (proposal only)
+
+The authenticated independent review of bb0f9c5 recommends narrower conditional
+acceptance using existing evidence. The [P2 consumer inventory](../validation/results-first-bnv-pilot/METRIC_CONSUMERS.md)
+supports its metric-functional route for this bounded experiment. The
+[exact owner decision](../validation/results-first-bnv-pilot/OWNER_DECISION.md)
+incorporates the review's quantitative conditions, surface/tangent definition,
+restricted claim and native execution-identity gate. All selections remain
+PROPOSED and the acceptance registry is unchanged. The separately named
+[pilot declaration](../validation/results-first-bnv-pilot/EXPERIMENT.md) preserves
+the historical cards and numerical criteria. No sidecar promotion, trajectory,
+full campaign, scientific baseline promotion or master merge has occurred.

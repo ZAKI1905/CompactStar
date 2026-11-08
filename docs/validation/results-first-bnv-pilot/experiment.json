@@ -1,0 +1,92 @@
+{
+  "schema": "compactstar.results-first.bounded-pilot-proposal.v1",
+  "status": "PROPOSED_NOT_AUTHORIZED",
+  "identity": "RF-BNV-P2-NATIVE-BOUNDED-v1",
+  "source_commit": "bb0f9c5af8ebaf86b5a59aece5551bb9dafbd264",
+  "parent_benchmark": "CPL-P2-LINEAR-QSS-v1",
+  "historical_card_modified": false,
+  "common": {
+    "initial_time_s": 0,
+    "final_time_s": 462269531250,
+    "seconds_per_year": 31557600,
+    "Tinf_initial_K": 100000000.0,
+    "Tref_K": 100000000.0,
+    "eta_initial_MeV": [
+      0,
+      0
+    ],
+    "spin_omega": 0,
+    "spin_omega_dot": 0,
+    "native_B0_count": 7.616906518718875e+56,
+    "radial_resolution": 80000,
+    "eos_parameter": 8192,
+    "rho_c_g_cm3": 1100000000000000.0,
+    "thermal_domain_K": [
+      1000000.0,
+      1000000000.0
+    ],
+    "scientific_grid_intervals": [
+      240,
+      480,
+      960,
+      1920
+    ],
+    "microphysics": "existing mathematical modified Urca only; standard photon/envelope owners",
+    "tolerance_tiers": [
+      {
+        "name": "BASELINE",
+        "rtol": 1e-07,
+        "atol": [
+          1e-12,
+          1e-18,
+          1e-18
+        ]
+      },
+      {
+        "name": "REFINED",
+        "rtol": 1e-09,
+        "atol": [
+          1e-14,
+          1e-20,
+          1e-20
+        ]
+      },
+      {
+        "name": "ULTRA",
+        "rtol": 1e-11,
+        "atol": [
+          1e-16,
+          1e-22,
+          1e-22
+        ]
+      }
+    ],
+    "initial_step_s": 1,
+    "maximum_step_policies_s": [
+      null,
+      38723807757.0,
+      19361903878.5,
+      9680951939.25
+    ]
+  },
+  "source": {
+    "fractional_Bdot_per_year": -1e-12,
+    "partition": "P2",
+    "history": "UniformProperNeutronSinkHistory",
+    "microscopic_rate": null
+  },
+  "control": {
+    "fractional_Bdot_per_year": 0,
+    "partition": "ExactZeroPartition",
+    "history": "ExactZeroHistory"
+  },
+  "criteria": "EXPERIMENT.md and unchanged PHASE6_CAMPAIGN_ACCURACY_PREDECLARATION.md",
+  "release_gates": [
+    "explicit owner decision",
+    "conditional sidecar acceptance",
+    "exact native context binding",
+    "affected prerequisites"
+  ],
+  "production_runner_implemented": false,
+  "paired_pilot_ran": false
+}
