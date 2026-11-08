@@ -1,0 +1,2256 @@
+{
+  "status": "BLOCKED_CREF_INTERPRETATION",
+  "failed_rows": [
+    {
+      "index": 0,
+      "quantity": "envelope",
+      "utilization_lower_bound": 1.3210455330978166
+    },
+    {
+      "index": 1,
+      "quantity": "envelope",
+      "utilization_lower_bound": 1.8314428106777751
+    },
+    {
+      "index": 2,
+      "quantity": "envelope",
+      "utilization_lower_bound": 1.831962916697184
+    },
+    {
+      "index": 3,
+      "quantity": "envelope",
+      "utilization_lower_bound": 1.8324830217716097
+    },
+    {
+      "index": 4,
+      "quantity": "envelope",
+      "utilization_lower_bound": 1.8330031258885509
+    },
+    {
+      "index": 5,
+      "quantity": "envelope",
+      "utilization_lower_bound": 1.8335232290142458
+    },
+    {
+      "index": 6,
+      "quantity": "envelope",
+      "utilization_lower_bound": 1.8340433317130014
+    },
+    {
+      "index": 7,
+      "quantity": "envelope",
+      "utilization_lower_bound": 1.8345634343847697
+    },
+    {
+      "index": 8,
+      "quantity": "envelope",
+      "utilization_lower_bound": 1.8350835370198935
+    },
+    {
+      "index": 9,
+      "quantity": "envelope",
+      "utilization_lower_bound": 1.8356036396904511
+    },
+    {
+      "index": 10,
+      "quantity": "envelope",
+      "utilization_lower_bound": 1.8361237423251657
+    },
+    {
+      "index": 11,
+      "quantity": "envelope",
+      "utilization_lower_bound": 1.836643844041237
+    },
+    {
+      "index": 12,
+      "quantity": "envelope",
+      "utilization_lower_bound": 1.8371639457271964
+    },
+    {
+      "index": 13,
+      "quantity": "envelope",
+      "utilization_lower_bound": 1.8376840474696865
+    },
+    {
+      "index": 14,
+      "quantity": "envelope",
+      "utilization_lower_bound": 1.8382041491858698
+    },
+    {
+      "index": 15,
+      "quantity": "envelope",
+      "utilization_lower_bound": 1.8387242508421893
+    },
+    {
+      "index": 16,
+      "quantity": "envelope",
+      "utilization_lower_bound": 1.8392443525203686
+    },
+    {
+      "index": 17,
+      "quantity": "envelope",
+      "utilization_lower_bound": 1.8397644542558709
+    },
+    {
+      "index": 18,
+      "quantity": "envelope",
+      "utilization_lower_bound": 1.8402845559468277
+    },
+    {
+      "index": 19,
+      "quantity": "envelope",
+      "utilization_lower_bound": 1.840804657696786
+    },
+    {
+      "index": 20,
+      "quantity": "envelope",
+      "utilization_lower_bound": 1.8413247593801518
+    },
+    {
+      "index": 0,
+      "quantity": "Tsurface_inf",
+      "utilization_lower_bound": 1.3217909708314268
+    },
+    {
+      "index": 1,
+      "quantity": "Tsurface_inf",
+      "utilization_lower_bound": 1.8323818167829768
+    },
+    {
+      "index": 2,
+      "quantity": "Tsurface_inf",
+      "utilization_lower_bound": 1.8328077656509008
+    },
+    {
+      "index": 3,
+      "quantity": "Tsurface_inf",
+      "utilization_lower_bound": 1.8332337138589263
+    },
+    {
+      "index": 4,
+      "quantity": "Tsurface_inf",
+      "utilization_lower_bound": 1.8336596613978977
+    },
+    {
+      "index": 5,
+      "quantity": "Tsurface_inf",
+      "utilization_lower_bound": 1.8340856082394725
+    },
+    {
+      "index": 6,
+      "quantity": "Tsurface_inf",
+      "utilization_lower_bound": 1.8345115547905138
+    },
+    {
+      "index": 7,
+      "quantity": "Tsurface_inf",
+      "utilization_lower_bound": 1.834937501316939
+    },
+    {
+      "index": 8,
+      "quantity": "Tsurface_inf",
+      "utilization_lower_bound": 1.8353634478141816
+    },
+    {
+      "index": 9,
+      "quantity": "Tsurface_inf",
+      "utilization_lower_bound": 1.8357893943384176
+    },
+    {
+      "index": 10,
+      "quantity": "Tsurface_inf",
+      "utilization_lower_bound": 1.83621534083785
+    },
+    {
+      "index": 11,
+      "quantity": "Tsurface_inf",
+      "utilization_lower_bound": 1.836641286696348
+    },
+    {
+      "index": 12,
+      "quantity": "Tsurface_inf",
+      "utilization_lower_bound": 1.8370672325307853
+    },
+    {
+      "index": 13,
+      "quantity": "Tsurface_inf",
+      "utilization_lower_bound": 1.8374931784126383
+    },
+    {
+      "index": 14,
+      "quantity": "Tsurface_inf",
+      "utilization_lower_bound": 1.8379191242707844
+    },
+    {
+      "index": 15,
+      "quantity": "Tsurface_inf",
+      "utilization_lower_bound": 1.83834507008077
+    },
+    {
+      "index": 16,
+      "quantity": "Tsurface_inf",
+      "utilization_lower_bound": 1.838771015907877
+    },
+    {
+      "index": 17,
+      "quantity": "Tsurface_inf",
+      "utilization_lower_bound": 1.8391969617830648
+    },
+    {
+      "index": 18,
+      "quantity": "Tsurface_inf",
+      "utilization_lower_bound": 1.8396229076209847
+    },
+    {
+      "index": 19,
+      "quantity": "Tsurface_inf",
+      "utilization_lower_bound": 1.8400488535089503
+    },
+    {
+      "index": 20,
+      "quantity": "Tsurface_inf",
+      "utilization_lower_bound": 1.8404747993416513
+    }
+  ],
+  "review_expectation_failures": [
+    {
+      "index": 0,
+      "quantity": "t_n",
+      "increase": 0.003969809143874546
+    },
+    {
+      "index": 1,
+      "quantity": "t_n",
+      "increase": 0.005501146785249899
+    },
+    {
+      "index": 2,
+      "quantity": "t_n",
+      "increase": 0.005501146693920028
+    },
+    {
+      "index": 3,
+      "quantity": "t_n",
+      "increase": 0.005501146602585826
+    },
+    {
+      "index": 4,
+      "quantity": "t_n",
+      "increase": 0.005501146511223567
+    },
+    {
+      "index": 5,
+      "quantity": "t_n",
+      "increase": 0.005501146419883215
+    },
+    {
+      "index": 6,
+      "quantity": "t_n",
+      "increase": 0.005501146328539906
+    },
+    {
+      "index": 7,
+      "quantity": "t_n",
+      "increase": 0.005501146237191102
+    },
+    {
+      "index": 8,
+      "quantity": "t_n",
+      "increase": 0.0055011461458610664
+    },
+    {
+      "index": 9,
+      "quantity": "t_n",
+      "increase": 0.005501146054515279
+    },
+    {
+      "index": 10,
+      "quantity": "t_n",
+      "increase": 0.005501145963155439
+    },
+    {
+      "index": 11,
+      "quantity": "t_n",
+      "increase": 0.005501145871815256
+    },
+    {
+      "index": 12,
+      "quantity": "t_n",
+      "increase": 0.005501145780481191
+    },
+    {
+      "index": 13,
+      "quantity": "t_n",
+      "increase": 0.0055011456891314574
+    },
+    {
+      "index": 14,
+      "quantity": "t_n",
+      "increase": 0.005501145597777741
+    },
+    {
+      "index": 15,
+      "quantity": "t_n",
+      "increase": 0.005501145506427637
+    },
+    {
+      "index": 16,
+      "quantity": "t_n",
+      "increase": 0.005501145415099638
+    },
+    {
+      "index": 17,
+      "quantity": "t_n",
+      "increase": 0.005501145323763607
+    },
+    {
+      "index": 18,
+      "quantity": "t_n",
+      "increase": 0.005501145232419185
+    },
+    {
+      "index": 19,
+      "quantity": "t_n",
+      "increase": 0.005501145141083177
+    },
+    {
+      "index": 20,
+      "quantity": "t_n",
+      "increase": 0.005501145049709215
+    },
+    {
+      "index": 0,
+      "quantity": "t_e",
+      "increase": 0.12078652111640349
+    },
+    {
+      "index": 1,
+      "quantity": "t_e",
+      "increase": 0.16739998971370923
+    },
+    {
+      "index": 2,
+      "quantity": "t_e",
+      "increase": 0.16740004223734165
+    },
+    {
+      "index": 3,
+      "quantity": "t_e",
+      "increase": 0.16740009476382392
+    },
+    {
+      "index": 4,
+      "quantity": "t_e",
+      "increase": 0.16740014731380679
+    },
+    {
+      "index": 5,
+      "quantity": "t_e",
+      "increase": 0.16740019984518362
+    },
+    {
+      "index": 6,
+      "quantity": "t_e",
+      "increase": 0.16740025237833278
+    },
+    {
+      "index": 7,
+      "quantity": "t_e",
+      "increase": 0.16740030491514613
+    },
+    {
+      "index": 8,
+      "quantity": "t_e",
+      "increase": 0.16740035743631343
+    },
+    {
+      "index": 9,
+      "quantity": "t_e",
+      "increase": 0.1674004099702578
+    },
+    {
+      "index": 10,
+      "quantity": "t_e",
+      "increase": 0.1674004625157459
+    },
+    {
+      "index": 11,
+      "quantity": "t_e",
+      "increase": 0.16740051504409464
+    },
+    {
+      "index": 12,
+      "quantity": "t_e",
+      "increase": 0.16740056756660204
+    },
+    {
+      "index": 13,
+      "quantity": "t_e",
+      "increase": 0.16740062010223616
+    },
+    {
+      "index": 14,
+      "quantity": "t_e",
+      "increase": 0.16740067264053995
+    },
+    {
+      "index": 15,
+      "quantity": "t_e",
+      "increase": 0.16740072517540805
+    },
+    {
+      "index": 16,
+      "quantity": "t_e",
+      "increase": 0.16740077769105305
+    },
+    {
+      "index": 17,
+      "quantity": "t_e",
+      "increase": 0.16740083021342322
+    },
+    {
+      "index": 18,
+      "quantity": "t_e",
+      "increase": 0.16740088274174658
+    },
+    {
+      "index": 19,
+      "quantity": "t_e",
+      "increase": 0.16740093526294922
+    },
+    {
+      "index": 20,
+      "quantity": "t_e",
+      "increase": 0.1674009878155891
+    },
+    {
+      "index": 0,
+      "quantity": "t_mu",
+      "increase": 0.031224514601084684
+    },
+    {
+      "index": 1,
+      "quantity": "t_mu",
+      "increase": 0.04330251486662905
+    },
+    {
+      "index": 2,
+      "quantity": "t_mu",
+      "increase": 0.04330259631819321
+    },
+    {
+      "index": 3,
+      "quantity": "t_mu",
+      "increase": 0.043302677773163725
+    },
+    {
+      "index": 4,
+      "quantity": "t_mu",
+      "increase": 0.043302759236145114
+    },
+    {
+      "index": 5,
+      "quantity": "t_mu",
+      "increase": 0.04330284069417126
+    },
+    {
+      "index": 6,
+      "quantity": "t_mu",
+      "increase": 0.04330292215505907
+    },
+    {
+      "index": 7,
+      "quantity": "t_mu",
+      "increase": 0.04330300362004924
+    },
+    {
+      "index": 8,
+      "quantity": "t_mu",
+      "increase": 0.043303085080153875
+    },
+    {
+      "index": 9,
+      "quantity": "t_mu",
+      "increase": 0.04330316654591454
+    },
+    {
+      "index": 10,
+      "quantity": "t_mu",
+      "increase": 0.04330324801641813
+    },
+    {
+      "index": 11,
+      "quantity": "t_mu",
+      "increase": 0.04330332948357152
+    },
+    {
+      "index": 12,
+      "quantity": "t_mu",
+      "increase": 0.043303410951140375
+    },
+    {
+      "index": 13,
+      "quantity": "t_mu",
+      "increase": 0.04330349242335352
+    },
+    {
+      "index": 14,
+      "quantity": "t_mu",
+      "increase": 0.04330357389861328
+    },
+    {
+      "index": 15,
+      "quantity": "t_mu",
+      "increase": 0.04330365537425912
+    },
+    {
+      "index": 16,
+      "quantity": "t_mu",
+      "increase": 0.04330373684595851
+    },
+    {
+      "index": 17,
+      "quantity": "t_mu",
+      "increase": 0.04330381832023544
+    },
+    {
+      "index": 18,
+      "quantity": "t_mu",
+      "increase": 0.04330389979972821
+    },
+    {
+      "index": 19,
+      "quantity": "t_mu",
+      "increase": 0.04330398127749707
+    },
+    {
+      "index": 20,
+      "quantity": "t_mu",
+      "increase": 0.0433040627668016
+    },
+    {
+      "index": 0,
+      "quantity": "N_e",
+      "increase": 0.012647227996791145
+    },
+    {
+      "index": 1,
+      "quantity": "N_e",
+      "increase": 0.017528613553854325
+    },
+    {
+      "index": 2,
+      "quantity": "N_e",
+      "increase": 0.017528614149838393
+    },
+    {
+      "index": 3,
+      "quantity": "N_e",
+      "increase": 0.017528614745820414
+    },
+    {
+      "index": 4,
+      "quantity": "N_e",
+      "increase": 0.017528615341799923
+    },
+    {
+      "index": 5,
+      "quantity": "N_e",
+      "increase": 0.017528615937777485
+    },
+    {
+      "index": 6,
+      "quantity": "N_e",
+      "increase": 0.017528616533753726
+    },
+    {
+      "index": 7,
+      "quantity": "N_e",
+      "increase": 0.01752861712972936
+    },
+    {
+      "index": 8,
+      "quantity": "N_e",
+      "increase": 0.01752861772570479
+    },
+    {
+      "index": 9,
+      "quantity": "N_e",
+      "increase": 0.017528618321680102
+    },
+    {
+      "index": 10,
+      "quantity": "N_e",
+      "increase": 0.01752861891765507
+    },
+    {
+      "index": 11,
+      "quantity": "N_e",
+      "increase": 0.017528619513630474
+    },
+    {
+      "index": 12,
+      "quantity": "N_e",
+      "increase": 0.017528620109606215
+    },
+    {
+      "index": 13,
+      "quantity": "N_e",
+      "increase": 0.017528620705581623
+    },
+    {
+      "index": 14,
+      "quantity": "N_e",
+      "increase": 0.017528621301556593
+    },
+    {
+      "index": 15,
+      "quantity": "N_e",
+      "increase": 0.01752862189753117
+    },
+    {
+      "index": 16,
+      "quantity": "N_e",
+      "increase": 0.01752862249350544
+    },
+    {
+      "index": 17,
+      "quantity": "N_e",
+      "increase": 0.017528623089479174
+    },
+    {
+      "index": 18,
+      "quantity": "N_e",
+      "increase": 0.017528623685452722
+    },
+    {
+      "index": 19,
+      "quantity": "N_e",
+      "increase": 0.017528624281426076
+    },
+    {
+      "index": 20,
+      "quantity": "N_e",
+      "increase": 0.01752862487739927
+    },
+    {
+      "index": 0,
+      "quantity": "N_mu",
+      "increase": 0.17436755747720986
+    },
+    {
+      "index": 1,
+      "quantity": "N_mu",
+      "increase": 0.24166108467797875
+    },
+    {
+      "index": 2,
+      "quantity": "N_mu",
+      "increase": 0.24166117565906264
+    },
+    {
+      "index": 3,
+      "quantity": "N_mu",
+      "increase": 0.24166126663813142
+    },
+    {
+      "index": 4,
+      "quantity": "N_mu",
+      "increase": 0.24166135761510021
+    },
+    {
+      "index": 5,
+      "quantity": "N_mu",
+      "increase": 0.241661448590059
+    },
+    {
+      "index": 6,
+      "quantity": "N_mu",
+      "increase": 0.2416615395638224
+    },
+    {
+      "index": 7,
+      "quantity": "N_mu",
+      "increase": 0.24166163053727782
+    },
+    {
+      "index": 8,
+      "quantity": "N_mu",
+      "increase": 0.24166172151056928
+    },
+    {
+      "index": 9,
+      "quantity": "N_mu",
+      "increase": 0.24166181248370255
+    },
+    {
+      "index": 10,
+      "quantity": "N_mu",
+      "increase": 0.24166190345663813
+    },
+    {
+      "index": 11,
+      "quantity": "N_mu",
+      "increase": 0.24166199442942737
+    },
+    {
+      "index": 12,
+      "quantity": "N_mu",
+      "increase": 0.24166208540251932
+    },
+    {
+      "index": 13,
+      "quantity": "N_mu",
+      "increase": 0.24166217637559095
+    },
+    {
+      "index": 14,
+      "quantity": "N_mu",
+      "increase": 0.24166226734831336
+    },
+    {
+      "index": 15,
+      "quantity": "N_mu",
+      "increase": 0.24166235832069566
+    },
+    {
+      "index": 16,
+      "quantity": "N_mu",
+      "increase": 0.2416624492927429
+    },
+    {
+      "index": 17,
+      "quantity": "N_mu",
+      "increase": 0.24166254026449208
+    },
+    {
+      "index": 18,
+      "quantity": "N_mu",
+      "increase": 0.24166263123607767
+    },
+    {
+      "index": 19,
+      "quantity": "N_mu",
+      "increase": 0.24166272220748763
+    },
+    {
+      "index": 20,
+      "quantity": "N_mu",
+      "increase": 0.2416628131787364
+    },
+    {
+      "index": 0,
+      "quantity": "Ltilde_Mmu",
+      "increase": 0.09781753130986327
+    },
+    {
+      "index": 1,
+      "quantity": "Ltilde_Mmu",
+      "increase": 0.13557169068836064
+    },
+    {
+      "index": 2,
+      "quantity": "Ltilde_Mmu",
+      "increase": 0.13557171492862874
+    },
+    {
+      "index": 3,
+      "quantity": "Ltilde_Mmu",
+      "increase": 0.1355717391687952
+    },
+    {
+      "index": 4,
+      "quantity": "Ltilde_Mmu",
+      "increase": 0.1355717634088377
+    },
+    {
+      "index": 5,
+      "quantity": "Ltilde_Mmu",
+      "increase": 0.13557178764878208
+    },
+    {
+      "index": 6,
+      "quantity": "Ltilde_Mmu",
+      "increase": 0.13557181188866457
+    },
+    {
+      "index": 7,
+      "quantity": "Ltilde_Mmu",
+      "increase": 0.13557183612852308
+    },
+    {
+      "index": 8,
+      "quantity": "Ltilde_Mmu",
+      "increase": 0.13557186036837462
+    },
+    {
+      "index": 9,
+      "quantity": "Ltilde_Mmu",
+      "increase": 0.13557188460821853
+    },
+    {
+      "index": 10,
+      "quantity": "Ltilde_Mmu",
+      "increase": 0.13557190884803702
+    },
+    {
+      "index": 11,
+      "quantity": "Ltilde_Mmu",
+      "increase": 0.1355719330879533
+    },
+    {
+      "index": 12,
+      "quantity": "Ltilde_Mmu",
+      "increase": 0.13557195732785346
+    },
+    {
+      "index": 13,
+      "quantity": "Ltilde_Mmu",
+      "increase": 0.13557198156774186
+    },
+    {
+      "index": 14,
+      "quantity": "Ltilde_Mmu",
+      "increase": 0.13557200580761483
+    },
+    {
+      "index": 15,
+      "quantity": "Ltilde_Mmu",
+      "increase": 0.13557203004747592
+    },
+    {
+      "index": 16,
+      "quantity": "Ltilde_Mmu",
+      "increase": 0.13557205428732505
+    },
+    {
+      "index": 17,
+      "quantity": "Ltilde_Mmu",
+      "increase": 0.13557207852715458
+    },
+    {
+      "index": 18,
+      "quantity": "Ltilde_Mmu",
+      "increase": 0.13557210276579965
+    },
+    {
+      "index": 19,
+      "quantity": "Ltilde_Mmu",
+      "increase": 0.13557212700678015
+    },
+    {
+      "index": 20,
+      "quantity": "Ltilde_Mmu",
+      "increase": 0.1355721512465789
+    },
+    {
+      "index": 1,
+      "quantity": "mu_B",
+      "increase": 0.0011794998397355258
+    },
+    {
+      "index": 2,
+      "quantity": "mu_B",
+      "increase": 0.0011794998412815092
+    },
+    {
+      "index": 3,
+      "quantity": "mu_B",
+      "increase": 0.0011794998428274897
+    },
+    {
+      "index": 4,
+      "quantity": "mu_B",
+      "increase": 0.0011794998443734653
+    },
+    {
+      "index": 5,
+      "quantity": "mu_B",
+      "increase": 0.0011794998459194387
+    },
+    {
+      "index": 6,
+      "quantity": "mu_B",
+      "increase": 0.00117949984746541
+    },
+    {
+      "index": 7,
+      "quantity": "mu_B",
+      "increase": 0.001179499849011379
+    },
+    {
+      "index": 8,
+      "quantity": "mu_B",
+      "increase": 0.0011794998505573482
+    },
+    {
+      "index": 9,
+      "quantity": "mu_B",
+      "increase": 0.0011794998521033177
+    },
+    {
+      "index": 10,
+      "quantity": "mu_B",
+      "increase": 0.0011794998536492852
+    },
+    {
+      "index": 11,
+      "quantity": "mu_B",
+      "increase": 0.0011794998551952554
+    },
+    {
+      "index": 12,
+      "quantity": "mu_B",
+      "increase": 0.001179499856741225
+    },
+    {
+      "index": 13,
+      "quantity": "mu_B",
+      "increase": 0.0011794998582871944
+    },
+    {
+      "index": 14,
+      "quantity": "mu_B",
+      "increase": 0.0011794998598331633
+    },
+    {
+      "index": 15,
+      "quantity": "mu_B",
+      "increase": 0.001179499861379131
+    },
+    {
+      "index": 16,
+      "quantity": "mu_B",
+      "increase": 0.001179499862925099
+    },
+    {
+      "index": 17,
+      "quantity": "mu_B",
+      "increase": 0.0011794998644710645
+    },
+    {
+      "index": 18,
+      "quantity": "mu_B",
+      "increase": 0.0011794998660093108
+    },
+    {
+      "index": 19,
+      "quantity": "mu_B",
+      "increase": 0.0011794998675629968
+    },
+    {
+      "index": 20,
+      "quantity": "mu_B",
+      "increase": 0.0011794998691012411
+    },
+    {
+      "index": 1,
+      "quantity": "P0_average",
+      "increase": 0.0011794998397355256
+    },
+    {
+      "index": 2,
+      "quantity": "P0_average",
+      "increase": 0.0011794998412815094
+    },
+    {
+      "index": 3,
+      "quantity": "P0_average",
+      "increase": 0.0011794998428274897
+    },
+    {
+      "index": 4,
+      "quantity": "P0_average",
+      "increase": 0.0011794998443734653
+    },
+    {
+      "index": 5,
+      "quantity": "P0_average",
+      "increase": 0.0011794998459194387
+    },
+    {
+      "index": 6,
+      "quantity": "P0_average",
+      "increase": 0.0011794998474654098
+    },
+    {
+      "index": 7,
+      "quantity": "P0_average",
+      "increase": 0.001179499849011379
+    },
+    {
+      "index": 8,
+      "quantity": "P0_average",
+      "increase": 0.0011794998505573482
+    },
+    {
+      "index": 9,
+      "quantity": "P0_average",
+      "increase": 0.001179499852103317
+    },
+    {
+      "index": 10,
+      "quantity": "P0_average",
+      "increase": 0.001179499853649285
+    },
+    {
+      "index": 11,
+      "quantity": "P0_average",
+      "increase": 0.0011794998551952558
+    },
+    {
+      "index": 12,
+      "quantity": "P0_average",
+      "increase": 0.0011794998567412254
+    },
+    {
+      "index": 13,
+      "quantity": "P0_average",
+      "increase": 0.0011794998582871949
+    },
+    {
+      "index": 14,
+      "quantity": "P0_average",
+      "increase": 0.001179499859833163
+    },
+    {
+      "index": 15,
+      "quantity": "P0_average",
+      "increase": 0.0011794998613791315
+    },
+    {
+      "index": 16,
+      "quantity": "P0_average",
+      "increase": 0.0011794998629250989
+    },
+    {
+      "index": 17,
+      "quantity": "P0_average",
+      "increase": 0.0011794998644710647
+    },
+    {
+      "index": 18,
+      "quantity": "P0_average",
+      "increase": 0.0011794998660093106
+    },
+    {
+      "index": 19,
+      "quantity": "P0_average",
+      "increase": 0.0011794998675629968
+    },
+    {
+      "index": 20,
+      "quantity": "P0_average",
+      "increase": 0.0011794998691012416
+    },
+    {
+      "index": 0,
+      "quantity": "P1_average",
+      "increase": 0.0011809044390103008
+    },
+    {
+      "index": 1,
+      "quantity": "P1_average",
+      "increase": 0.0016366921263622721
+    },
+    {
+      "index": 2,
+      "quantity": "P1_average",
+      "increase": 0.0016366921293415253
+    },
+    {
+      "index": 3,
+      "quantity": "P1_average",
+      "increase": 0.0016366921323207723
+    },
+    {
+      "index": 4,
+      "quantity": "P1_average",
+      "increase": 0.0016366921353000096
+    },
+    {
+      "index": 5,
+      "quantity": "P1_average",
+      "increase": 0.0016366921382746872
+    },
+    {
+      "index": 6,
+      "quantity": "P1_average",
+      "increase": 0.0016366921412584693
+    },
+    {
+      "index": 7,
+      "quantity": "P1_average",
+      "increase": 0.0016366921442376929
+    },
+    {
+      "index": 8,
+      "quantity": "P1_average",
+      "increase": 0.001636692147216918
+    },
+    {
+      "index": 9,
+      "quantity": "P1_average",
+      "increase": 0.0016366921501961408
+    },
+    {
+      "index": 10,
+      "quantity": "P1_average",
+      "increase": 0.0016366921531753627
+    },
+    {
+      "index": 11,
+      "quantity": "P1_average",
+      "increase": 0.0016366921561545887
+    },
+    {
+      "index": 12,
+      "quantity": "P1_average",
+      "increase": 0.0016366921591338137
+    },
+    {
+      "index": 13,
+      "quantity": "P1_average",
+      "increase": 0.0016366921621130384
+    },
+    {
+      "index": 14,
+      "quantity": "P1_average",
+      "increase": 0.0016366921650922603
+    },
+    {
+      "index": 15,
+      "quantity": "P1_average",
+      "increase": 0.001636692168071482
+    },
+    {
+      "index": 16,
+      "quantity": "P1_average",
+      "increase": 0.0016366921710507026
+    },
+    {
+      "index": 17,
+      "quantity": "P1_average",
+      "increase": 0.001636692174029921
+    },
+    {
+      "index": 18,
+      "quantity": "P1_average",
+      "increase": 0.0016366921770091386
+    },
+    {
+      "index": 19,
+      "quantity": "P1_average",
+      "increase": 0.0016366921799883549
+    },
+    {
+      "index": 20,
+      "quantity": "P1_average",
+      "increase": 0.0016366921829675703
+    },
+    {
+      "index": 0,
+      "quantity": "radius",
+      "increase": 0.005073049886747803
+    },
+    {
+      "index": 1,
+      "quantity": "radius",
+      "increase": 0.007031069283163804
+    },
+    {
+      "index": 2,
+      "quantity": "radius",
+      "increase": 0.007031069345969658
+    },
+    {
+      "index": 3,
+      "quantity": "radius",
+      "increase": 0.007031069408778277
+    },
+    {
+      "index": 4,
+      "quantity": "radius",
+      "increase": 0.007031069471583379
+    },
+    {
+      "index": 5,
+      "quantity": "radius",
+      "increase": 0.007031069534390607
+    },
+    {
+      "index": 6,
+      "quantity": "radius",
+      "increase": 0.007031069597196453
+    },
+    {
+      "index": 7,
+      "quantity": "radius",
+      "increase": 0.007031069660003501
+    },
+    {
+      "index": 8,
+      "quantity": "radius",
+      "increase": 0.007031069722811099
+    },
+    {
+      "index": 9,
+      "quantity": "radius",
+      "increase": 0.007031069785616561
+    },
+    {
+      "index": 10,
+      "quantity": "radius",
+      "increase": 0.007031069848422872
+    },
+    {
+      "index": 11,
+      "quantity": "radius",
+      "increase": 0.007031069911229376
+    },
+    {
+      "index": 12,
+      "quantity": "radius",
+      "increase": 0.007031069974034667
+    },
+    {
+      "index": 13,
+      "quantity": "radius",
+      "increase": 0.00703107003684225
+    },
+    {
+      "index": 14,
+      "quantity": "radius",
+      "increase": 0.007031070099649204
+    },
+    {
+      "index": 15,
+      "quantity": "radius",
+      "increase": 0.007031070162456434
+    },
+    {
+      "index": 16,
+      "quantity": "radius",
+      "increase": 0.007031070225264127
+    },
+    {
+      "index": 17,
+      "quantity": "radius",
+      "increase": 0.007031070288068672
+    },
+    {
+      "index": 18,
+      "quantity": "radius",
+      "increase": 0.007031070350875525
+    },
+    {
+      "index": 19,
+      "quantity": "radius",
+      "increase": 0.00703107041368207
+    },
+    {
+      "index": 20,
+      "quantity": "radius",
+      "increase": 0.007031070476488689
+    },
+    {
+      "index": 0,
+      "quantity": "Z_row_npe",
+      "increase": 0.003924204660119757
+    },
+    {
+      "index": 1,
+      "quantity": "Z_row_npe",
+      "increase": 0.005438810059463829
+    },
+    {
+      "index": 2,
+      "quantity": "Z_row_npe",
+      "increase": 0.005438810141369722
+    },
+    {
+      "index": 3,
+      "quantity": "Z_row_npe",
+      "increase": 0.005438810223275606
+    },
+    {
+      "index": 4,
+      "quantity": "Z_row_npe",
+      "increase": 0.005438810305181457
+    },
+    {
+      "index": 5,
+      "quantity": "Z_row_npe",
+      "increase": 0.005438810387087303
+    },
+    {
+      "index": 6,
+      "quantity": "Z_row_npe",
+      "increase": 0.005438810468993172
+    },
+    {
+      "index": 7,
+      "quantity": "Z_row_npe",
+      "increase": 0.00543881055089906
+    },
+    {
+      "index": 8,
+      "quantity": "Z_row_npe",
+      "increase": 0.005438810632804998
+    },
+    {
+      "index": 9,
+      "quantity": "Z_row_npe",
+      "increase": 0.0054388107147109975
+    },
+    {
+      "index": 10,
+      "quantity": "Z_row_npe",
+      "increase": 0.005438810796617018
+    },
+    {
+      "index": 11,
+      "quantity": "Z_row_npe",
+      "increase": 0.005438810878523038
+    },
+    {
+      "index": 12,
+      "quantity": "Z_row_npe",
+      "increase": 0.005438810960429101
+    },
+    {
+      "index": 13,
+      "quantity": "Z_row_npe",
+      "increase": 0.0054388110423352135
+    },
+    {
+      "index": 14,
+      "quantity": "Z_row_npe",
+      "increase": 0.0054388111242413585
+    },
+    {
+      "index": 15,
+      "quantity": "Z_row_npe",
+      "increase": 0.005438811206147545
+    },
+    {
+      "index": 16,
+      "quantity": "Z_row_npe",
+      "increase": 0.005438811288053787
+    },
+    {
+      "index": 17,
+      "quantity": "Z_row_npe",
+      "increase": 0.005438811369960068
+    },
+    {
+      "index": 18,
+      "quantity": "Z_row_npe",
+      "increase": 0.005438811451866397
+    },
+    {
+      "index": 19,
+      "quantity": "Z_row_npe",
+      "increase": 0.005438811533772764
+    },
+    {
+      "index": 20,
+      "quantity": "Z_row_npe",
+      "increase": 0.00543881161567919
+    },
+    {
+      "index": 0,
+      "quantity": "Z_row_npmu",
+      "increase": 0.14522220215711054
+    },
+    {
+      "index": 1,
+      "quantity": "Z_row_npmu",
+      "increase": 0.2012729261849841
+    },
+    {
+      "index": 2,
+      "quantity": "Z_row_npmu",
+      "increase": 0.20127297536222233
+    },
+    {
+      "index": 3,
+      "quantity": "Z_row_npmu",
+      "increase": 0.20127302453818344
+    },
+    {
+      "index": 4,
+      "quantity": "Z_row_npmu",
+      "increase": 0.2012730737128664
+    },
+    {
+      "index": 5,
+      "quantity": "Z_row_npmu",
+      "increase": 0.20127312288632676
+    },
+    {
+      "index": 6,
+      "quantity": "Z_row_npmu",
+      "increase": 0.20127317205927886
+    },
+    {
+      "index": 7,
+      "quantity": "Z_row_npmu",
+      "increase": 0.20127322123234612
+    },
+    {
+      "index": 8,
+      "quantity": "Z_row_npmu",
+      "increase": 0.20127327040554513
+    },
+    {
+      "index": 9,
+      "quantity": "Z_row_npmu",
+      "increase": 0.20127331957887856
+    },
+    {
+      "index": 10,
+      "quantity": "Z_row_npmu",
+      "increase": 0.20127336875240484
+    },
+    {
+      "index": 11,
+      "quantity": "Z_row_npmu",
+      "increase": 0.20127341792599232
+    },
+    {
+      "index": 12,
+      "quantity": "Z_row_npmu",
+      "increase": 0.20127346709970295
+    },
+    {
+      "index": 13,
+      "quantity": "Z_row_npmu",
+      "increase": 0.20127351627354517
+    },
+    {
+      "index": 14,
+      "quantity": "Z_row_npmu",
+      "increase": 0.20127356544751163
+    },
+    {
+      "index": 15,
+      "quantity": "Z_row_npmu",
+      "increase": 0.2012736146216037
+    },
+    {
+      "index": 16,
+      "quantity": "Z_row_npmu",
+      "increase": 0.20127366379582606
+    },
+    {
+      "index": 17,
+      "quantity": "Z_row_npmu",
+      "increase": 0.20127371297017177
+    },
+    {
+      "index": 18,
+      "quantity": "Z_row_npmu",
+      "increase": 0.2012737621446491
+    },
+    {
+      "index": 19,
+      "quantity": "Z_row_npmu",
+      "increase": 0.2012738113197171
+    },
+    {
+      "index": 20,
+      "quantity": "Z_row_npmu",
+      "increase": 0.2012738604951485
+    },
+    {
+      "index": 0,
+      "quantity": "Cstar",
+      "increase": 0.10130641493082046
+    },
+    {
+      "index": 1,
+      "quantity": "Cstar",
+      "increase": 0.14040713967570703
+    },
+    {
+      "index": 2,
+      "quantity": "Cstar",
+      "increase": 0.14040714111268157
+    },
+    {
+      "index": 3,
+      "quantity": "Cstar",
+      "increase": 0.14040714254965425
+    },
+    {
+      "index": 4,
+      "quantity": "Cstar",
+      "increase": 0.14040714398662485
+    },
+    {
+      "index": 5,
+      "quantity": "Cstar",
+      "increase": 0.1404071454235936
+    },
+    {
+      "index": 6,
+      "quantity": "Cstar",
+      "increase": 0.14040714686056127
+    },
+    {
+      "index": 7,
+      "quantity": "Cstar",
+      "increase": 0.14040714829752882
+    },
+    {
+      "index": 8,
+      "quantity": "Cstar",
+      "increase": 0.14040714973449647
+    },
+    {
+      "index": 9,
+      "quantity": "Cstar",
+      "increase": 0.14040715117146413
+    },
+    {
+      "index": 10,
+      "quantity": "Cstar",
+      "increase": 0.14040715260843173
+    },
+    {
+      "index": 11,
+      "quantity": "Cstar",
+      "increase": 0.14040715404539733
+    },
+    {
+      "index": 12,
+      "quantity": "Cstar",
+      "increase": 0.140407155482363
+    },
+    {
+      "index": 13,
+      "quantity": "Cstar",
+      "increase": 0.14040715691932884
+    },
+    {
+      "index": 14,
+      "quantity": "Cstar",
+      "increase": 0.14040715835629441
+    },
+    {
+      "index": 15,
+      "quantity": "Cstar",
+      "increase": 0.14040715979325996
+    },
+    {
+      "index": 16,
+      "quantity": "Cstar",
+      "increase": 0.14040716123022554
+    },
+    {
+      "index": 17,
+      "quantity": "Cstar",
+      "increase": 0.14040716266719122
+    },
+    {
+      "index": 18,
+      "quantity": "Cstar",
+      "increase": 0.14040716410415688
+    },
+    {
+      "index": 19,
+      "quantity": "Cstar",
+      "increase": 0.14040716554112262
+    },
+    {
+      "index": 20,
+      "quantity": "Cstar",
+      "increase": 0.1404071669780883
+    },
+    {
+      "index": 0,
+      "quantity": "envelope",
+      "increase": 1.321045419231676
+    },
+    {
+      "index": 1,
+      "quantity": "envelope",
+      "increase": 1.8309226021310714
+    },
+    {
+      "index": 2,
+      "quantity": "envelope",
+      "increase": 1.8309226153902427
+    },
+    {
+      "index": 3,
+      "quantity": "envelope",
+      "increase": 1.8309226286493896
+    },
+    {
+      "index": 4,
+      "quantity": "envelope",
+      "increase": 1.8309226419085125
+    },
+    {
+      "index": 5,
+      "quantity": "envelope",
+      "increase": 1.8309226551676099
+    },
+    {
+      "index": 6,
+      "quantity": "envelope",
+      "increase": 1.8309226684266966
+    },
+    {
+      "index": 7,
+      "quantity": "envelope",
+      "increase": 1.8309226816857822
+    },
+    {
+      "index": 8,
+      "quantity": "envelope",
+      "increase": 1.8309226949448671
+    },
+    {
+      "index": 9,
+      "quantity": "envelope",
+      "increase": 1.8309227082039532
+    },
+    {
+      "index": 10,
+      "quantity": "envelope",
+      "increase": 1.8309227214630381
+    },
+    {
+      "index": 11,
+      "quantity": "envelope",
+      "increase": 1.8309227347220998
+    },
+    {
+      "index": 12,
+      "quantity": "envelope",
+      "increase": 1.8309227479811605
+    },
+    {
+      "index": 13,
+      "quantity": "envelope",
+      "increase": 1.8309227612402226
+    },
+    {
+      "index": 14,
+      "quantity": "envelope",
+      "increase": 1.8309227744992844
+    },
+    {
+      "index": 15,
+      "quantity": "envelope",
+      "increase": 1.8309227877583443
+    },
+    {
+      "index": 16,
+      "quantity": "envelope",
+      "increase": 1.8309228010174046
+    },
+    {
+      "index": 17,
+      "quantity": "envelope",
+      "increase": 1.8309228142764664
+    },
+    {
+      "index": 18,
+      "quantity": "envelope",
+      "increase": 1.8309228275355276
+    },
+    {
+      "index": 19,
+      "quantity": "envelope",
+      "increase": 1.8309228407945901
+    },
+    {
+      "index": 20,
+      "quantity": "envelope",
+      "increase": 1.8309228540536506
+    },
+    {
+      "index": 0,
+      "quantity": "Tsurface_inf",
+      "increase": 1.3217908846007307
+    },
+    {
+      "index": 1,
+      "quantity": "Tsurface_inf",
+      "increase": 1.831955791104541
+    },
+    {
+      "index": 2,
+      "quantity": "Tsurface_inf",
+      "increase": 1.8319558019694717
+    },
+    {
+      "index": 3,
+      "quantity": "Tsurface_inf",
+      "increase": 1.831955812834386
+    },
+    {
+      "index": 4,
+      "quantity": "Tsurface_inf",
+      "increase": 1.8319558236992832
+    },
+    {
+      "index": 5,
+      "quantity": "Tsurface_inf",
+      "increase": 1.8319558345641622
+    },
+    {
+      "index": 6,
+      "quantity": "Tsurface_inf",
+      "increase": 1.8319558454290341
+    },
+    {
+      "index": 7,
+      "quantity": "Tsurface_inf",
+      "increase": 1.8319558562939051
+    },
+    {
+      "index": 8,
+      "quantity": "Tsurface_inf",
+      "increase": 1.8319558671587757
+    },
+    {
+      "index": 9,
+      "quantity": "Tsurface_inf",
+      "increase": 1.8319558780236465
+    },
+    {
+      "index": 10,
+      "quantity": "Tsurface_inf",
+      "increase": 1.831955888888517
+    },
+    {
+      "index": 11,
+      "quantity": "Tsurface_inf",
+      "increase": 1.8319558997533716
+    },
+    {
+      "index": 12,
+      "quantity": "Tsurface_inf",
+      "increase": 1.831955910618225
+    },
+    {
+      "index": 13,
+      "quantity": "Tsurface_inf",
+      "increase": 1.8319559214830796
+    },
+    {
+      "index": 14,
+      "quantity": "Tsurface_inf",
+      "increase": 1.8319559323479335
+    },
+    {
+      "index": 15,
+      "quantity": "Tsurface_inf",
+      "increase": 1.8319559432127865
+    },
+    {
+      "index": 16,
+      "quantity": "Tsurface_inf",
+      "increase": 1.8319559540776398
+    },
+    {
+      "index": 17,
+      "quantity": "Tsurface_inf",
+      "increase": 1.8319559649424944
+    },
+    {
+      "index": 18,
+      "quantity": "Tsurface_inf",
+      "increase": 1.831955975807348
+    },
+    {
+      "index": 19,
+      "quantity": "Tsurface_inf",
+      "increase": 1.8319559866722028
+    },
+    {
+      "index": 20,
+      "quantity": "Tsurface_inf",
+      "increase": 1.8319559975370563
+    },
+    {
+      "index": 0,
+      "quantity": "surface_gravity",
+      "increase": 0.014658666427376132
+    },
+    {
+      "index": 1,
+      "quantity": "surface_gravity",
+      "increase": 0.02031639789065869
+    },
+    {
+      "index": 2,
+      "quantity": "surface_gravity",
+      "increase": 0.02031639841472272
+    },
+    {
+      "index": 3,
+      "quantity": "surface_gravity",
+      "increase": 0.020316398938802983
+    },
+    {
+      "index": 4,
+      "quantity": "surface_gravity",
+      "increase": 0.020316399462859906
+    },
+    {
+      "index": 5,
+      "quantity": "surface_gravity",
+      "increase": 0.02031639998692838
+    },
+    {
+      "index": 6,
+      "quantity": "surface_gravity",
+      "increase": 0.020316400510987837
+    },
+    {
+      "index": 7,
+      "quantity": "surface_gravity",
+      "increase": 0.02031640103505435
+    },
+    {
+      "index": 8,
+      "quantity": "surface_gravity",
+      "increase": 0.02031640155912428
+    },
+    {
+      "index": 9,
+      "quantity": "surface_gravity",
+      "increase": 0.020316402083181067
+    },
+    {
+      "index": 10,
+      "quantity": "surface_gravity",
+      "increase": 0.020316402607242826
+    },
+    {
+      "index": 11,
+      "quantity": "surface_gravity",
+      "increase": 0.020316403131305644
+    },
+    {
+      "index": 12,
+      "quantity": "surface_gravity",
+      "increase": 0.020316403655361005
+    },
+    {
+      "index": 13,
+      "quantity": "surface_gravity",
+      "increase": 0.0203164041794301
+    },
+    {
+      "index": 14,
+      "quantity": "surface_gravity",
+      "increase": 0.0203164047034953
+    },
+    {
+      "index": 15,
+      "quantity": "surface_gravity",
+      "increase": 0.020316405227563113
+    },
+    {
+      "index": 16,
+      "quantity": "surface_gravity",
+      "increase": 0.020316405751632564
+    },
+    {
+      "index": 17,
+      "quantity": "surface_gravity",
+      "increase": 0.020316406275682868
+    },
+    {
+      "index": 18,
+      "quantity": "surface_gravity",
+      "increase": 0.02031640679974698
+    },
+    {
+      "index": 19,
+      "quantity": "surface_gravity",
+      "increase": 0.02031640732380908
+    },
+    {
+      "index": 20,
+      "quantity": "surface_gravity",
+      "increase": 0.020316407847871573
+    },
+    {
+      "index": 0,
+      "quantity": "mu_n_profile",
+      "increase": 0.006592611077079627
+    },
+    {
+      "index": 1,
+      "quantity": "mu_n_profile",
+      "increase": 0.009137127674574452
+    },
+    {
+      "index": 2,
+      "quantity": "mu_n_profile",
+      "increase": 0.009137127686554294
+    },
+    {
+      "index": 3,
+      "quantity": "mu_n_profile",
+      "increase": 0.00913712769853408
+    },
+    {
+      "index": 4,
+      "quantity": "mu_n_profile",
+      "increase": 0.009137127710513877
+    },
+    {
+      "index": 5,
+      "quantity": "mu_n_profile",
+      "increase": 0.009137127722493399
+    },
+    {
+      "index": 6,
+      "quantity": "mu_n_profile",
+      "increase": 0.009137127734473106
+    },
+    {
+      "index": 7,
+      "quantity": "mu_n_profile",
+      "increase": 0.009137127746452766
+    },
+    {
+      "index": 8,
+      "quantity": "mu_n_profile",
+      "increase": 0.009137127758432244
+    },
+    {
+      "index": 9,
+      "quantity": "mu_n_profile",
+      "increase": 0.009137127770411882
+    },
+    {
+      "index": 10,
+      "quantity": "mu_n_profile",
+      "increase": 0.009137127782391502
+    },
+    {
+      "index": 11,
+      "quantity": "mu_n_profile",
+      "increase": 0.009137127794371033
+    },
+    {
+      "index": 12,
+      "quantity": "mu_n_profile",
+      "increase": 0.009137127806350695
+    },
+    {
+      "index": 13,
+      "quantity": "mu_n_profile",
+      "increase": 0.009137127818330188
+    },
+    {
+      "index": 14,
+      "quantity": "mu_n_profile",
+      "increase": 0.009137127830309727
+    },
+    {
+      "index": 15,
+      "quantity": "mu_n_profile",
+      "increase": 0.009137127842289228
+    },
+    {
+      "index": 16,
+      "quantity": "mu_n_profile",
+      "increase": 0.00913712785426873
+    },
+    {
+      "index": 17,
+      "quantity": "mu_n_profile",
+      "increase": 0.009137127866248356
+    },
+    {
+      "index": 18,
+      "quantity": "mu_n_profile",
+      "increase": 0.009137127878227869
+    },
+    {
+      "index": 19,
+      "quantity": "mu_n_profile",
+      "increase": 0.009137127890207396
+    },
+    {
+      "index": 20,
+      "quantity": "mu_n_profile",
+      "increase": 0.009137127902186931
+    }
+  ],
+  "group_maxima": {
+    "t_n": {
+      "index": 20,
+      "status": "PENDING_FULL_COMPLETION",
+      "interpretation": "pointwise absolute production-X2 agreement; LMe accepted exception",
+      "max_absolute_agreement": 7.394600861048827e-09,
+      "common_residual_allowance": 7.394600861048827e-08,
+      "budget_lower_bound": 8.526052755785895e-07,
+      "utilization_lower_bound": 0.008828239823562099,
+      "increase_from_finite_ledger": 0.005501145049709215,
+      "full_conditional_utilization": null,
+      "unresolved_terms_remain": true,
+      "operational_certificate": false
+    },
+    "t_e": {
+      "index": 20,
+      "status": "PENDING_FULL_COMPLETION",
+      "interpretation": "pointwise absolute production-X2 agreement; LMe accepted exception",
+      "max_absolute_agreement": 7.190625469414533e-09,
+      "common_residual_allowance": 7.190625469414533e-08,
+      "budget_lower_bound": 7.105774480364808e-07,
+      "utilization_lower_bound": 0.23031828216257175,
+      "increase_from_finite_ledger": 0.1674009878155891,
+      "full_conditional_utilization": null,
+      "unresolved_terms_remain": true,
+      "operational_certificate": false
+    },
+    "t_mu": {
+      "index": 20,
+      "status": "PENDING_FULL_COMPLETION",
+      "interpretation": "pointwise absolute production-X2 agreement; LMe accepted exception",
+      "max_absolute_agreement": 2.0398057842360598e-10,
+      "common_residual_allowance": 2.0398057842360598e-09,
+      "budget_lower_bound": 1.4206431164153133e-07,
+      "utilization_lower_bound": 0.4206051865135076,
+      "increase_from_finite_ledger": 0.0433040627668016,
+      "full_conditional_utilization": null,
+      "unresolved_terms_remain": true,
+      "operational_certificate": false
+    },
+    "N_n": {
+      "index": 20,
+      "status": "PENDING_FULL_COMPLETION",
+      "interpretation": "pointwise absolute production-X2 agreement; LMe accepted exception",
+      "max_absolute_agreement": 1.7631335969122905e-10,
+      "common_residual_allowance": 1.7631335969122905e-09,
+      "budget_lower_bound": 9.84637843422373e-07,
+      "utilization_lower_bound": 0.00984637843422373,
+      "increase_from_finite_ledger": 0.00012662553619115745,
+      "full_conditional_utilization": null,
+      "unresolved_terms_remain": true,
+      "operational_certificate": false
+    },
+    "N_e": {
+      "index": 20,
+      "status": "PENDING_FULL_COMPLETION",
+      "interpretation": "pointwise absolute production-X2 agreement; LMe accepted exception",
+      "max_absolute_agreement": 2.4406918252780924e-08,
+      "common_residual_allowance": 2.4406918252780924e-07,
+      "budget_lower_bound": 6.636604932664509e-06,
+      "utilization_lower_bound": 0.06636604932664508,
+      "increase_from_finite_ledger": 0.01752862487739927,
+      "full_conditional_utilization": null,
+      "unresolved_terms_remain": true,
+      "operational_certificate": false
+    },
+    "N_mu": {
+      "index": 20,
+      "status": "PENDING_FULL_COMPLETION",
+      "interpretation": "pointwise absolute production-X2 agreement; LMe accepted exception",
+      "max_absolute_agreement": 3.3646593582998966e-07,
+      "common_residual_allowance": 3.3646593582998966e-06,
+      "budget_lower_bound": 7.824646060132246e-05,
+      "utilization_lower_bound": 0.7824646060132245,
+      "increase_from_finite_ledger": 0.2416628131787364,
+      "full_conditional_utilization": null,
+      "unresolved_terms_remain": true,
+      "operational_certificate": false
+    },
+    "Ltilde_Me": {
+      "index": 20,
+      "status": "PENDING_FULL_COMPLETION",
+      "interpretation": "pointwise absolute production-X2 agreement; LMe accepted exception",
+      "max_absolute_agreement": 9.28643284990871e-05,
+      "common_residual_allowance": 9.1e-11,
+      "budget_lower_bound": 4.2645678868893105e-06,
+      "utilization_lower_bound": 0.0426456788688931,
+      "increase_from_finite_ledger": 6.536065362307275e-06,
+      "full_conditional_utilization": null,
+      "unresolved_terms_remain": true,
+      "operational_certificate": false
+    },
+    "Ltilde_Mmu": {
+      "index": 20,
+      "status": "PENDING_FULL_COMPLETION",
+      "interpretation": "pointwise absolute production-X2 agreement; LMe accepted exception",
+      "max_absolute_agreement": 1.8877028384878258e-07,
+      "common_residual_allowance": 1.8877028384878258e-06,
+      "budget_lower_bound": 3.923957119513939e-05,
+      "utilization_lower_bound": 0.3923957119513939,
+      "increase_from_finite_ledger": 0.1355721512465789,
+      "full_conditional_utilization": null,
+      "unresolved_terms_remain": true,
+      "operational_certificate": false
+    },
+    "mu_B": {
+      "index": 20,
+      "status": "PENDING_FULL_COMPLETION",
+      "interpretation": "pointwise absolute production-X2 agreement; LMe accepted exception",
+      "max_absolute_agreement": 1.6423415308925923e-09,
+      "common_residual_allowance": 1.6423415308925923e-08,
+      "budget_lower_bound": 3.0621630583376406e-07,
+      "utilization_lower_bound": 0.003062163058317597,
+      "increase_from_finite_ledger": 0.0011794998691012411,
+      "full_conditional_utilization": null,
+      "unresolved_terms_remain": true,
+      "operational_certificate": false
+    },
+    "P0_average": {
+      "index": 20,
+      "status": "PENDING_FULL_COMPLETION",
+      "interpretation": "pointwise absolute production-X2 agreement; LMe accepted exception",
+      "max_absolute_agreement": 1.6423415308925923e-09,
+      "common_residual_allowance": 1.6423415308925923e-08,
+      "budget_lower_bound": 3.06216305836445e-07,
+      "utilization_lower_bound": 0.0030621630583444067,
+      "increase_from_finite_ledger": 0.0011794998691012416,
+      "full_conditional_utilization": null,
+      "unresolved_terms_remain": true,
+      "operational_certificate": false
+    },
+    "P1_average": {
+      "index": 20,
+      "status": "PENDING_FULL_COMPLETION",
+      "interpretation": "pointwise absolute production-X2 agreement; LMe accepted exception",
+      "max_absolute_agreement": 2.278938364733661e-09,
+      "common_residual_allowance": 2.278938364733661e-08,
+      "budget_lower_bound": 4.2512969915695157e-07,
+      "utilization_lower_bound": 0.004251296991540957,
+      "increase_from_finite_ledger": 0.0016366921829675703,
+      "full_conditional_utilization": null,
+      "unresolved_terms_remain": true,
+      "operational_certificate": false
+    },
+    "radius": {
+      "index": 20,
+      "status": "PENDING_FULL_COMPLETION",
+      "interpretation": "pointwise absolute production-X2 agreement; LMe accepted exception",
+      "max_absolute_agreement": 9.790095613750396e-09,
+      "common_residual_allowance": 9.790095613750396e-08,
+      "budget_lower_bound": 1.986186257051687e-06,
+      "utilization_lower_bound": 0.019861862570516867,
+      "increase_from_finite_ledger": 0.007031070476488689,
+      "full_conditional_utilization": null,
+      "unresolved_terms_remain": true,
+      "operational_certificate": false
+    },
+    "Z_row_npe": {
+      "index": 20,
+      "status": "PENDING_FULL_COMPLETION",
+      "interpretation": "pointwise absolute production-X2 agreement; LMe accepted exception",
+      "max_absolute_agreement": 7.573025956331136e-09,
+      "common_residual_allowance": 7.573025956331136e-08,
+      "budget_lower_bound": 2.706999129268932e-06,
+      "utilization_lower_bound": 0.02706999129268932,
+      "increase_from_finite_ledger": 0.00543881161567919,
+      "full_conditional_utilization": null,
+      "unresolved_terms_remain": true,
+      "operational_certificate": false
+    },
+    "Z_row_npmu": {
+      "index": 20,
+      "status": "PENDING_FULL_COMPLETION",
+      "interpretation": "pointwise absolute production-X2 agreement; LMe accepted exception",
+      "max_absolute_agreement": 2.8025251030960874e-07,
+      "common_residual_allowance": 2.8025251030960874e-06,
+      "budget_lower_bound": 5.5223819888618155e-05,
+      "utilization_lower_bound": 0.5522381988861815,
+      "increase_from_finite_ledger": 0.2012738604951485,
+      "full_conditional_utilization": null,
+      "unresolved_terms_remain": true,
+      "operational_certificate": false
+    },
+    "Cstar": {
+      "index": 20,
+      "status": "PENDING_FULL_COMPLETION",
+      "interpretation": "pointwise absolute production-X2 agreement; LMe accepted exception",
+      "max_absolute_agreement": 1.9550319629857427e-07,
+      "common_residual_allowance": 1.9550319629857427e-06,
+      "budget_lower_bound": 1.5511324250066353e-05,
+      "utilization_lower_bound": 0.15511324234479645,
+      "increase_from_finite_ledger": 0.1404071669780883,
+      "full_conditional_utilization": null,
+      "unresolved_terms_remain": true,
+      "operational_certificate": false
+    },
+    "envelope": {
+      "index": 20,
+      "status": "FAIL_CREF_POINTWISE_COMPLETION",
+      "interpretation": "pointwise absolute production-X2 agreement; LMe accepted exception",
+      "max_absolute_agreement": 2.549314522370949e-06,
+      "common_residual_allowance": 2.549314522370949e-05,
+      "budget_lower_bound": 0.0001841324759380152,
+      "utilization_lower_bound": 1.8413247593801518,
+      "increase_from_finite_ledger": 1.8309228540536506,
+      "full_conditional_utilization": null,
+      "unresolved_terms_remain": true,
+      "operational_certificate": false
+    },
+    "Tsurface_inf": {
+      "index": 20,
+      "status": "FAIL_CREF_POINTWISE_COMPLETION",
+      "interpretation": "pointwise absolute production-X2 agreement; LMe accepted exception",
+      "max_absolute_agreement": 2.550753074315182e-06,
+      "common_residual_allowance": 2.550753074315182e-05,
+      "budget_lower_bound": 0.00018404748011910686,
+      "utilization_lower_bound": 1.8404747993416513,
+      "increase_from_finite_ledger": 1.8319559975370563,
+      "full_conditional_utilization": null,
+      "unresolved_terms_remain": true,
+      "operational_certificate": false
+    },
+    "surface_gravity": {
+      "index": 20,
+      "status": "PENDING_FULL_COMPLETION",
+      "interpretation": "pointwise absolute production-X2 agreement; LMe accepted exception",
+      "max_absolute_agreement": 2.8288645921841632e-08,
+      "common_residual_allowance": 2.828864592184163e-07,
+      "budget_lower_bound": 5.736824626020615e-06,
+      "utilization_lower_bound": 0.05736824620255925,
+      "increase_from_finite_ledger": 0.020316407847871573,
+      "full_conditional_utilization": null,
+      "unresolved_terms_remain": true,
+      "operational_certificate": false
+    },
+    "mu_n_profile": {
+      "index": 20,
+      "status": "PENDING_FULL_COMPLETION",
+      "interpretation": "pointwise absolute production-X2 agreement; LMe accepted exception",
+      "max_absolute_agreement": 1.272258114706987e-08,
+      "common_residual_allowance": 1.272258114706987e-07,
+      "budget_lower_bound": 1.1020360293245326e-06,
+      "utilization_lower_bound": 0.011020360293245325,
+      "increase_from_finite_ledger": 0.009137127902186931,
+      "full_conditional_utilization": null,
+      "unresolved_terms_remain": true,
+      "operational_certificate": false
+    }
+  },
+  "historical_rows_preserved": 462,
+  "operational_certificate_issued": false,
+  "trajectories_authorized": false,
+  "trajectories_run": 0,
+  "provenance": {
+    "docs/validation/ba13-final-decision/evidence/matrix.json.gz": "c956697442ad3b99da9fcf4347a8639f1ca2c480b4f41283c7a8187397ac2c1e",
+    "docs/validation/ba13-evidence/evidence/comparison.json.gz": "e8fe2d6d9b8d6cedad81b681d2901d2b65a2bbc096b0ea57ed1c581fbab2d757",
+    "docs/validation/results-first-bnv-pilot/preparation-registry.json": "ed4121c0e7d3121540ab1d9546e2b83996f295d20cb9e1039744c4b9edd6c501",
+    "docs/validation/results-first-bnv-pilot/CREF_COMPLETION_MODEL.md": "6cd2ab821afc818955c4963ea9d5ada3d8b891a76dcfcdd4b58df8069b1be36b",
+    "tools/linux/results_first/cref_completion.py": "b402cc16126d9186ba6cdf023da2b9939841a3ee64b6bdb39788b2aa62799e84",
+    "execution_commit": "ac22c6c19c1f841c90c14b66f438b617fe058f02"
+  },
+  "slurm_job_id": "19142",
+  "cpu_seconds": 1.155684564,
+  "wall_seconds": 1.2853386625647545
+}

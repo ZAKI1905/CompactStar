@@ -1,0 +1,28 @@
+JobId=19147 JobName=rf-bnv-native-binding
+   UserId=zaki(1038) GroupId=zaki(1041) MCS_label=N/A
+   Priority=4294893328 Nice=0 Account=(null) QOS=(null)
+   JobState=COMPLETED Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:02:10 TimeLimit=01:00:00 TimeMin=N/A
+   SubmitTime=2026-11-08T17:38:28 EligibleTime=2026-11-08T17:38:28
+   AccrueTime=2026-11-08T17:38:28
+   StartTime=2026-11-08T17:38:29 EndTime=2026-11-08T17:40:39 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-11-08T17:38:29 Scheduler=Main
+   Partition=phyall AllocNode:Sid=ekucn1:889958
+   ReqNodeList=phyn004 ExcNodeList=(null)
+   NodeList=phyn004
+   BatchHost=phyn004
+   NumNodes=1 NumCPUs=4 NumTasks=1 CPUs/Task=4 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=4,node=1,billing=4
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=4 MinMemoryNode=8G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/native_binding.sbatch
+   WorkDir=/mnt/sdd/zaki/CompactStar
+   StdErr=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-preparation-20261108/native-current/slurm-19147.err
+   StdIn=/dev/null
+   StdOut=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-preparation-20261108/native-current/slurm-19147.out
+   Power=
+   
+

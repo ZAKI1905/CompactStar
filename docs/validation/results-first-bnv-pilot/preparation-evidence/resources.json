@@ -1,0 +1,84 @@
+{
+  "native-verify/build.log": [
+    {
+      "command": [
+        "cmake",
+        "--build",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-preparation-20261108/native-qualified/build",
+        "--target",
+        "phase6a1_native_input_binding",
+        "phase6_currentness_bytes",
+        "phase6a1_direct_energy",
+        "phase6a1_thermal_ledger",
+        "passive_checkpoint_output_contract",
+        "phase6_breakpoint_contract",
+        "-j4"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 74.25375294685364,
+      "user_cpu_seconds": 197.944272,
+      "system_cpu_seconds": 19.205822,
+      "max_rss_kib": 432132,
+      "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+    }
+  ],
+  "native-current/build.log": [
+    {
+      "command": [
+        "cmake",
+        "--build",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-preparation-20261108/native-qualified/build",
+        "--target",
+        "phase6a1_native_input_binding",
+        "phase6_currentness_bytes",
+        "phase6a1_direct_energy",
+        "phase6a1_thermal_ledger",
+        "passive_checkpoint_output_contract",
+        "phase6_breakpoint_contract",
+        "-j4"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.3712223172187805,
+      "user_cpu_seconds": 0.47993399999999997,
+      "system_cpu_seconds": 0.44201199999999996,
+      "max_rss_kib": 19968,
+      "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+    }
+  ],
+  "native-current/native-binding.log": [
+    {
+      "command": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-preparation-20261108/native-qualified/build/tests/phase6a1_native_input_binding",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-preparation-20261108/native-current/native-fixture"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 121.28649810701609,
+      "user_cpu_seconds": 112.708508,
+      "system_cpu_seconds": 7.413001,
+      "max_rss_kib": 316380,
+      "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+    }
+  ],
+  "native-current/retained-contracts.log": [
+    {
+      "command": [
+        "ctest",
+        "--test-dir",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-preparation-20261108/native-qualified/build",
+        "--output-on-failure",
+        "-R",
+        "^(phase6a1_direct_energy|phase6a1_thermal_ledger|passive_checkpoint_output_contract|phase6_breakpoint_contract)$"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.18314412236213684,
+      "user_cpu_seconds": 0.014924,
+      "system_cpu_seconds": 0.022248,
+      "max_rss_kib": 12288,
+      "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+    }
+  ]
+}

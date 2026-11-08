@@ -1,0 +1,23 @@
+Internal ctest changing into directory: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-preparation-20261108/native-qualified/build
+Test project /mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-preparation-20261108/native-qualified/build
+    Start 15: passive_checkpoint_output_contract
+1/4 Test #15: passive_checkpoint_output_contract ...   Passed    0.01 sec
+    Start 16: phase6a1_direct_energy
+2/4 Test #16: phase6a1_direct_energy ...............   Passed    0.00 sec
+    Start 17: phase6a1_thermal_ledger
+3/4 Test #17: phase6a1_thermal_ledger ..............   Passed    0.01 sec
+    Start 76: phase6_breakpoint_contract
+4/4 Test #76: phase6_breakpoint_contract ...........   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Label Time Summary:
+adr0017           =   0.01 sec*proc (1 test)
+bnv               =   0.03 sec*proc (4 tests)
+contract          =   0.02 sec*proc (2 tests)
+phase6            =   0.03 sec*proc (4 tests)
+scientific        =   0.01 sec*proc (2 tests)
+self-contained    =   0.03 sec*proc (4 tests)
+
+Total Test time (real) =   0.06 sec
+RESOURCE_USAGE_JSON {"command": ["ctest", "--test-dir", "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-preparation-20261108/native-qualified/build", "--output-on-failure", "-R", "^(phase6a1_direct_energy|phase6a1_thermal_ledger|passive_checkpoint_output_contract|phase6_breakpoint_contract)$"], "exit_code": 0, "elapsed_seconds": 0.18314412236213684, "user_cpu_seconds": 0.014924, "system_cpu_seconds": 0.022248, "max_rss_kib": 12288, "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"}

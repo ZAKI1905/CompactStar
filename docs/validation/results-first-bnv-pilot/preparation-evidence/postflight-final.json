@@ -1,0 +1,26 @@
+{
+  "host": "ekucn1.eku.edu",
+  "head": "8492d6383fc5990add43bb9addd544a4abd378da",
+  "branch": "candidate/results-first-bnv-pilot-20261108",
+  "master": "9a5c1eca40758e4c39f9f80db7324e12ad23e505",
+  "native_input_checks": {
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/fit/certificate.json": true,
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/fit/certificate.tsv": true,
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/profile.tsv": true,
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/model.txt": true,
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/certificate.txt": true,
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/freegas.tsv": true,
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.nb": true,
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.t": true,
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.thermo": true,
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.yq": true,
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/coefficients.tsv": true
+  },
+  "native_input_count": 11,
+  "available_bytes": 266176921600,
+  "storage_writable": true,
+  "scriptorium_visible": false,
+  "mac_mount_status": "NOT_OBSERVABLE_FROM_LINUX",
+  "trajectory_runs": 0,
+  "native_verification_completed": true
+}

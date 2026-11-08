@@ -1,0 +1,19 @@
+REFUSAL default historical identity refuses native bytes : qualification source hash mismatch
+NATIVE_CONTEXT_EXACT_OWNING_STAR PASS
+REFUSAL missing identity input : missing source: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-preparation-20261108/native-current/native-fixture/missing
+REFUSAL mixed or foreign identity input : qualification source hash mismatch
+REFUSAL missing identity input : missing source: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-preparation-20261108/native-current/native-fixture/missing
+REFUSAL mixed or foreign identity input : qualification source hash mismatch
+REFUSAL missing identity input : missing source: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-preparation-20261108/native-current/native-fixture/missing
+REFUSAL mixed or foreign identity input : qualification source hash mismatch
+REFUSAL missing identity input : missing source: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-preparation-20261108/native-current/native-fixture/missing
+REFUSAL mixed or foreign identity input : qualification source hash mismatch
+REFUSAL equal bytes outside semantic owner : qualification not in semantic source owner
+REFUSAL unknown identity : unknown qualified background input identity
+REFUSAL native identity does not authorize production trajectory : native background restricted to analytic controls
+NATIVE_B0 7.6169065187188748e+56 NATIVE_BDOT -2.4136520263641328e+37
+REFUSAL revoked source token : stale source identity token
+REFUSAL modified retained source bytes : StaleChemicalSourceBytes
+REFUSAL modified native identity input : StaleChemicalSourceBytes
+PASS native input binding; zero RHS calls, zero trajectories
+RESOURCE_USAGE_JSON {"command": ["/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-preparation-20261108/native-qualified/build/tests/phase6a1_native_input_binding", "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0", "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal", "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json", "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv", "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-preparation-20261108/native-current/native-fixture"], "exit_code": 0, "elapsed_seconds": 121.28649810701609, "user_cpu_seconds": 112.708508, "system_cpu_seconds": 7.413001, "max_rss_kib": 316380, "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"}

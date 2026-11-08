@@ -1,0 +1,41 @@
+{
+  "historical": {
+    "path": "/mnt/sdd/zaki/CompactStar/incoming/CompactStar-EKU-handoff-20261010/scientific/phase6/coefficients.tsv",
+    "sha256": "3efa060d99a7a92266679aadb31885abbed9c940404247f1d3009cafa94832d6",
+    "B0_count": 7.6169065187188905e+56,
+    "B0_hex": "0x1.f106be4f2d4b4p+188",
+    "fractional_rate_hex": "-0x1.19799812dea11p-40",
+    "seconds_per_year": 31557600.0,
+    "derived_Bdot_count_s": -2.4136520263641375e+37,
+    "derived_hex": "-0x1.228865395c170p+124",
+    "expected_literal_hex": "-0x1.228865395c170p+124",
+    "exact_binary_inputs_witness": "-24136520263641374234906081371280159374.757753948335741628007199533551347377493853",
+    "decimal_fraction_witness": "-24136520263641374720372418437511283209.063409166699551020863437016756660836058509",
+    "binary64_rounding_error_ulp": "-0.13592604834084586338401309171067349861839937130833776966562729728280913259891305"
+  },
+  "native": {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/coefficients.tsv",
+    "sha256": "ec3942227c98532af4802db4bdd229603715556af9d44929082368b3afc7d831",
+    "B0_count": 7.616906518718875e+56,
+    "B0_hex": "0x1.f106be4f2d4a2p+188",
+    "fractional_rate_hex": "-0x1.19799812dea11p-40",
+    "seconds_per_year": 31557600.0,
+    "derived_Bdot_count_s": -2.413652026364133e+37,
+    "derived_hex": "-0x1.228865395c166p+124",
+    "expected_literal_hex": "-0x1.228865395c166p+124",
+    "exact_binary_inputs_witness": "-24136520263641324547314288215767442911.264292848632342129946510507769919131999899",
+    "decimal_fraction_witness": "-24136520263641325032780625281997567361.527758623314807274570943290998048013790656",
+    "binary64_rounding_error_ulp": "-0.65768287797212081488648648467158069688442720612467361269551550172745700995752260"
+  },
+  "comparison": {
+    "B0_relative_difference": "-2.0586062634721877224252204168769668733582543105601149185961965056660420280517879E-15",
+    "B0_difference_ulp": "-18",
+    "Bdot_relative_difference": "-1.9565233228682491642313005678587441745620382764084954739701703588610441253436153E-15",
+    "Bdot_difference_ulp": "10",
+    "duration_s": 462269531250,
+    "expected_fractional_depletion": "1.46484375E-8",
+    "conclusion": "Both exact literals are reproduced by the unchanged fractional-drive formula with their own authenticated B0. No new microscopic rate or tolerance.",
+    "historical_assertion_modified": false,
+    "trajectories_run": 0
+  }
+}
