@@ -1,0 +1,32 @@
+{
+  "execution_commit": "3dd687003b1a6af8308843b4e79f2fe4664ebc6d",
+  "job": "19155",
+  "host": "phyn004",
+  "affinity": [
+    0
+  ],
+  "cpu_seconds": 0.733831753,
+  "wall_seconds": 0.9124935641884804,
+  "max_child_rss_kib": 38400,
+  "steps": [
+    {
+      "label": "test_results_first_cut.py",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_results_first_cut.py"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 0.278450701
+    },
+    {
+      "label": "test_surface_transfer.py",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_surface_transfer.py"
+      ],
+      "exit_code": 1,
+      "cpu_seconds": 0.45226615000000003
+    }
+  ],
+  "exit_code": 1,
+  "global_stellar_integrations": 0,
+  "trajectories": 0
+}

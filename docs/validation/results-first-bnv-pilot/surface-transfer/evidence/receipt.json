@@ -1,0 +1,70 @@
+{
+  "execution_commit": "30e24f488a6b0dbd5f1b7c24129256c67db8e184",
+  "job": "19157",
+  "host": "phyn004",
+  "affinity": [
+    0
+  ],
+  "cpu_seconds": 53.209438844,
+  "wall_seconds": 53.86093740910292,
+  "max_child_rss_kib": 290192,
+  "steps": [
+    {
+      "label": "test_results_first_cut.py",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_results_first_cut.py"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 0.27398106099999997
+    },
+    {
+      "label": "test_surface_transfer.py",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_surface_transfer.py"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 0.7281406810000002
+    },
+    {
+      "label": "test_results_first_static.py",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_results_first_static.py"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 0.19683552999999998
+    },
+    {
+      "label": "surface-transfer",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/surface_transfer.py",
+        "--output",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-surface-transfer-20261109-r3/assessment"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 41.094866574
+    },
+    {
+      "label": "historical-ledger-audit",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/static_validate.py",
+        "--assessment",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-surface-transfer-20261109-r3/historical-ledger"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 5.441467541999998
+    },
+    {
+      "label": "surface-transfer-audit",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/surface_transfer_validate.py",
+        "--assessment",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-surface-transfer-20261109-r3/assessment"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 5.470785515000003
+    }
+  ],
+  "exit_code": 0,
+  "global_stellar_integrations": 0,
+  "trajectories": 0
+}

@@ -1,0 +1,60 @@
+{
+  "execution_commit": "67d8174179a6d34547e5e4636e473ca2edc90070",
+  "job": "19156",
+  "host": "phyn004",
+  "affinity": [
+    0
+  ],
+  "cpu_seconds": 44.469975127,
+  "wall_seconds": 45.028935723006725,
+  "max_child_rss_kib": 292988,
+  "steps": [
+    {
+      "label": "test_results_first_cut.py",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_results_first_cut.py"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 0.27973028
+    },
+    {
+      "label": "test_surface_transfer.py",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_surface_transfer.py"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 0.7327488609999999
+    },
+    {
+      "label": "test_results_first_static.py",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_results_first_static.py"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 0.20226188999999994
+    },
+    {
+      "label": "surface-transfer",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/surface_transfer.py",
+        "--output",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-surface-transfer-20261109-r2/assessment"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 37.801958245
+    },
+    {
+      "label": "historical-ledger-audit",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/static_validate.py",
+        "--assessment",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-surface-transfer-20261109-r2/historical-ledger"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 5.44989134099999
+    }
+  ],
+  "exit_code": 0,
+  "global_stellar_integrations": 0,
+  "trajectories": 0
+}

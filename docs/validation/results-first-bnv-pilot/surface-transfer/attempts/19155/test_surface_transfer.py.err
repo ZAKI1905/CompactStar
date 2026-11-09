@@ -1,0 +1,54 @@
+..E..E
+======================================================================
+ERROR: test_interval_fermi_series_and_derivative (__main__.SurfaceTransfer.test_interval_fermi_series_and_derivative)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_surface_transfer.py", line 23, in test_interval_fermi_series_and_derivative
+    H=mp.mpf(hs);q=m.eos_jet(m.Jet(m.I(H),[m.I(1),m.I(0),m.I(0)]))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/surface_transfer.py", line 89, in eos_jet
+    pH=sum(k**4/(3*norm*mu) for mu in mus)*kH
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/surface_transfer.py", line 89, in <genexpr>
+    pH=sum(k**4/(3*norm*mu) for mu in mus)*kH
+                 ~~~~~~^~~
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/lib/python3.11/site-packages/mpmath/ctx_iv.py", line 257, in lop_real
+    if not isinstance(t, ctx._types): t = ctx.convert(t)
+                                          ^^^^^^^^^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/lib/python3.11/site-packages/mpmath/ctx_iv.py", line 435, in convert
+    a = convert_mpf_(a, ctx.prec, round_floor)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/lib/python3.11/site-packages/mpmath/ctx_iv.py", line 35, in convert_mpf_
+    raise NotImplementedError
+NotImplementedError
+
+======================================================================
+ERROR: test_structural_jacobian_with_independent_differentiation (__main__.SurfaceTransfer.test_structural_jacobian_with_independent_differentiation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_surface_transfer.py", line 32, in test_structural_jacobian_with_independent_differentiation
+    B0=mp.mpf('7.6e56');v=m.structural([m.I(x-mp.mpf('1e-25'),x+mp.mpf('1e-25')) for x in y],scales,B0)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/surface_transfer.py", line 96, in structural
+    q=eos_jet(H);geo=cut.wide(1.602176634e33*6.673e-8/float(2.99792458e10)**4*1e10)
+      ^^^^^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/surface_transfer.py", line 89, in eos_jet
+    pH=sum(k**4/(3*norm*mu) for mu in mus)*kH
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/surface_transfer.py", line 89, in <genexpr>
+    pH=sum(k**4/(3*norm*mu) for mu in mus)*kH
+                 ~~~~~~^~~
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/lib/python3.11/site-packages/mpmath/ctx_iv.py", line 257, in lop_real
+    if not isinstance(t, ctx._types): t = ctx.convert(t)
+                                          ^^^^^^^^^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/lib/python3.11/site-packages/mpmath/ctx_iv.py", line 435, in convert
+    a = convert_mpf_(a, ctx.prec, round_floor)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/lib/python3.11/site-packages/mpmath/ctx_iv.py", line 35, in convert_mpf_
+    raise NotImplementedError
+NotImplementedError
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.257s
+
+FAILED (errors=2)
