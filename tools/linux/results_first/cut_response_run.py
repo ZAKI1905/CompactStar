@@ -22,7 +22,10 @@ def main():
     source=Path(os.environ['RF_SOURCE']).resolve()
     output=Path(os.environ['RF_OUTPUT']).resolve()
     commit=subprocess.check_output(['git','-C',str(source),'rev-parse','HEAD'],text=True).strip()
-    if commit!=os.environ['RF_COMMIT'] or subprocess.check_output(['git','-C',str(source),'status','--porcelain'],text=True):
+    status=subprocess.check_output(['git','-C',str(source),'status','--porcelain'],text=True)
+    preflight=dict(actual_commit=commit,requested_commit=os.environ['RF_COMMIT'],status=status,source=str(source))
+    (output/'source-preflight.json').write_text(json.dumps(preflight,indent=2)+'\n')
+    if commit!=os.environ['RF_COMMIT'] or status:
         raise RuntimeError('source must be the clean execution commit')
     if source==output or source in output.parents:
         raise RuntimeError('external output required')
