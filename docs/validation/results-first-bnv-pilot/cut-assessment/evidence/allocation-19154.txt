@@ -1,0 +1,28 @@
+JobId=19154 JobName=rf-bnv-cut
+   UserId=nobody(1038) GroupId=nobody(1041) MCS_label=N/A
+   Priority=4294893321 Nice=0 Account=(null) QOS=(null)
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:00 TimeLimit=00:03:00 TimeMin=N/A
+   SubmitTime=2026-11-08T21:23:28 EligibleTime=2026-11-08T21:23:28
+   AccrueTime=2026-11-08T21:23:28
+   StartTime=2026-11-08T21:23:28 EndTime=2026-11-08T21:26:28 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-11-08T21:23:28 Scheduler=Backfill
+   Partition=phyall AllocNode:Sid=ekucn1:925010
+   ReqNodeList=phyn004 ExcNodeList=(null)
+   NodeList=phyn004
+   BatchHost=phyn004
+   NumNodes=1 NumCPUs=2 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:1
+   TRES=cpu=2,node=1,billing=2
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=1G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/cut_response.sbatch
+   WorkDir=/mnt/sdd/zaki/CompactStar
+   StdErr=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-cut-assessment-20261109-r5/slurm-19154.err
+   StdIn=/dev/null
+   StdOut=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-cut-assessment-20261109-r5/slurm-19154.out
+   Power=
+   
+

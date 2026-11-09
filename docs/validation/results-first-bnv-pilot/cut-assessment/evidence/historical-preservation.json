@@ -1,0 +1,22 @@
+{
+  "starting_commit": "878229af791fc787123cc121f3a346c8a29ba470",
+  "execution_commit": "c7a406803f57603b7c623404acfcd0eba7cc7115",
+  "all_existing_tracked_files_unchanged": true,
+  "preexisting_file_modifications": [],
+  "new_tracked_analysis_files": [
+    "docs/validation/results-first-bnv-pilot/cut-assessment/PREDECLARATION.md",
+    "docs/validation/results-first-bnv-pilot/cut-assessment/input-provenance.json",
+    "docs/validation/results-first-bnv-pilot/cut-assessment/inputs-manifest.json",
+    "docs/validation/results-first-bnv-pilot/cut-assessment/retained-inputs.json.gz",
+    "tests/bnv/test_results_first_cut.py",
+    "tools/linux/results_first/cut_response.py",
+    "tools/linux/results_first/cut_response.sbatch",
+    "tools/linux/results_first/cut_response_run.py"
+  ],
+  "historical_ledger_sha256": "7e6d8c9bc62d5d6e8f2a7ba10949a2dda150331d39be8a9c0a6eb1937c6578f6",
+  "authority": "Final Targeted C-CUT Assessment user instruction; PREDECLARATION.md",
+  "production_changes": false,
+  "scientific_policy_changes": false,
+  "stellar_calculations": 0,
+  "trajectories": 0
+}

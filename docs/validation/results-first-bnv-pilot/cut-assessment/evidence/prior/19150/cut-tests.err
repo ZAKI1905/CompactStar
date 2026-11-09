@@ -1,0 +1,21 @@
+...FF..
+======================================================================
+FAIL: test_pressure_enthalpy_and_density_derivatives (__main__.CutResponse.test_pressure_enthalpy_and_density_derivatives)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_results_first_cut.py", line 29, in test_pressure_enthalpy_and_density_derivatives
+    self.assertLess(abs(mp.diff(lambda h:cut.eos(h)['p'],H)/(q['e']+q['p'])-1),mp.mpf('1e-45'))
+AssertionError: mpf('0.0000000000000409558155587966300633929643603460950041083706844518471191636872101509978') not less than mpf('1.000000000000000000000000000000000000000000000000000000000000000000000006e-45')
+
+======================================================================
+FAIL: test_terminal_redshift_identity (__main__.CutResponse.test_terminal_redshift_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_results_first_cut.py", line 35, in test_terminal_redshift_identity
+    self.assertLess(abs(t['thermodynamic_residual']),mp.mpf('1e-45'))
+AssertionError: mpf('0.00000000000000004616833615690350111984928590454723217390903920213616508690873446979672351') not less than mpf('1.000000000000000000000000000000000000000000000000000000000000000000000006e-45')
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.059s
+
+FAILED (failures=2)

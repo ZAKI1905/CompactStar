@@ -1,0 +1,52 @@
+{
+  "execution_commit": "c7a406803f57603b7c623404acfcd0eba7cc7115",
+  "slurm_job_id": "19154",
+  "host": "phyn004",
+  "affinity": [
+    0
+  ],
+  "cpu_seconds": 6.951918152999999,
+  "wall_seconds": 7.261054523289204,
+  "max_child_rss_kib": 241744,
+  "steps": [
+    {
+      "name": "cut-tests",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_results_first_cut.py"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 0.27978392
+    },
+    {
+      "name": "static-refusal-tests",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_results_first_static.py"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 0.19745342
+    },
+    {
+      "name": "cut-response",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/cut_response.py",
+        "--output",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-cut-assessment-20261109-r5/assessment"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 0.9794943509999998
+    },
+    {
+      "name": "historical-ledger-audit",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/static_validate.py",
+        "--assessment",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-cut-assessment-20261109-r5/historical-ledger"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 5.491667060999999
+    }
+  ],
+  "exit_code": 0,
+  "stellar_calculations": 0,
+  "trajectories": 0
+}

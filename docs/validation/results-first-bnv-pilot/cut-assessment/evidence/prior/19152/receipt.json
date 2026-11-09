@@ -1,0 +1,42 @@
+{
+  "execution_commit": "fbd89e2db5df578e39b8b084fcd9a9815a02ee34",
+  "slurm_job_id": "19152",
+  "host": "phyn004",
+  "affinity": [
+    0
+  ],
+  "cpu_seconds": 0.6780844939999999,
+  "wall_seconds": 0.9807614758610725,
+  "max_child_rss_kib": 41312,
+  "steps": [
+    {
+      "name": "cut-tests",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_results_first_cut.py"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 0.28742018999999996
+    },
+    {
+      "name": "static-refusal-tests",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_results_first_static.py"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 0.20361360099999992
+    },
+    {
+      "name": "cut-response",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/cut_response.py",
+        "--output",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-cut-assessment-20261109-final/assessment"
+      ],
+      "exit_code": 1,
+      "cpu_seconds": 0.18372483099999992
+    }
+  ],
+  "exit_code": 1,
+  "stellar_calculations": 0,
+  "trajectories": 0
+}

@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/cut_response.py", line 293, in <module>
+    main()
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/cut_response.py", line 265, in main
+    result=calculate(inputs,70)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/cut_response.py", line 205, in calculate
+    raise ValueError('original pressure-law replay differs')
+ValueError: original pressure-law replay differs
