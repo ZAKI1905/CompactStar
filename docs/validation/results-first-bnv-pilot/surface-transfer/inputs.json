@@ -1,0 +1,10 @@
+{
+  "docs/validation/results-first-bnv-pilot/cut-assessment/retained-inputs.json.gz": "34ab61e6d6a859948c99db28c04ece4c60e775b013995a224cf3c09ef400ed9d",
+  "docs/validation/results-first-bnv-pilot/cut-assessment/evidence/response.json.gz": "21dd8ac4f11f54b08337c5625bedcd911e7b6d766abc309ed6b596a4bb264df4",
+  "docs/validation/ba13-evidence/evidence/comparison.json.gz": "e8fe2d6d9b8d6cedad81b681d2901d2b65a2bbc096b0ea57ed1c581fbab2d757",
+  "docs/validation/ba13-closure/evidence/m1.json": "66e120759c25fa62137a18552bdc452c0fcf4e979cd1733684c5ab7e8fea6133",
+  "docs/validation/ba13-closure/evidence/m4.json": "6d4b2c6bf4191ce84f00a466043cdc4791161472ceedf98c0407875aa0885a0a",
+  "docs/validation/results-first-bnv-pilot/static-completion/evidence/ledger.json.gz": "7e6d8c9bc62d5d6e8f2a7ba10949a2dda150331d39be8a9c0a6eb1937c6578f6",
+  "docs/validation/results-first-bnv-pilot/static-completion/acceptance-registry.json": "fe818149e324a223a04a9080adca59de59820b3cae419cf10f7409d64269403b",
+  "docs/validation/results-first-bnv-pilot/cut-assessment/NEXT_CALCULATION.md": "7279cc3b21dc704e45ac5fd2da05915908d8aac8da7e4c2dac1461ac0d4d33de"
+}
