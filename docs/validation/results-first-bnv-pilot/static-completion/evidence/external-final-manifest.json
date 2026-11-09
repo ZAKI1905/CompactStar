@@ -1,0 +1,182 @@
+{
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109/allocation-19148.txt": {
+    "bytes": 1448,
+    "sha256": "9e4f016348033a604623c543f0583a14602f5b09a9248de01106363132beebda"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109/assessment/amended-expectation-violations.json": {
+    "bytes": 51430,
+    "sha256": "23e892ebf33dbf3bb2d5c5db43162a63627e5f5f32d26fcb2d15eacb5aaacb93"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109/assessment/checks.json": {
+    "bytes": 423,
+    "sha256": "bcac0e66aee1fa9c2ff94b23dd2d54440b263e9dd9a401b942b00a895b3b3f9c"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109/assessment/completion-expectation-violations.json": {
+    "bytes": 31578,
+    "sha256": "60d8f8c769389aedb15cd09824568c19fdb84c24de666a77196a48fffeb97b83"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109/assessment/ledger.json.gz": {
+    "bytes": 1746283,
+    "sha256": "044903c0e63556bf7db2b2990d20e620fac7feba320b95d730596e9b3fd043d0"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109/assessment/matrix.tsv.gz": {
+    "bytes": 14452,
+    "sha256": "7561d1e9b4fdeae31c71b1faf59b183d403ee53cd8fa0d0c6800a14ee3b391d1"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109/assessment/precision-witness.json": {
+    "bytes": 8075,
+    "sha256": "06d94eb4b63add6a42bd1bc642dcf9770057620343ca965f920e35039a5255e2"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109/assessment/summary.json": {
+    "bytes": 69088,
+    "sha256": "e9a891592a719cdf6ce2210f755a2c99cdbc32bb37d72499bf2f40540d116ee0"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109/controller-19148.txt": {
+    "bytes": 1454,
+    "sha256": "cfda7236206bf6b60aee8246cf0f0cdf623befe7789e8d0d0f6870d8101d904d"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109/external-manifest.json": {
+    "bytes": 2245,
+    "sha256": "209f503c8612ef57ce11119b4939719ba3077984da5db072915b00b521c7dcd8"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109/receipt.json": {
+    "bytes": 1739,
+    "sha256": "3156e03e2608ea10fd24f802e2f99e63ebbce76b06c2b6607491d637a4eb55e2"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109/slurm-19148.err": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109/slurm-19148.out": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109/static-assessment.err": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109/static-assessment.out": {
+    "bytes": 224,
+    "sha256": "b1b707a5371e18da2d607457967ec7ddd9052b10ae740d2350dd254ebd55913b"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109/test_ba13_final_decision.err": {
+    "bytes": 111,
+    "sha256": "72f09eca554e87a45b7156c6109520cf15e8b6ec157dc5c033610649b49b8698"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109/test_ba13_final_decision.out": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109/test_results_first_cref.err": {
+    "bytes": 103,
+    "sha256": "baf49b59538192f3e136ca0404cac516ecb8dd2fe5ba1416604056f3080fa49c"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109/test_results_first_cref.out": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109/test_results_first_static.err": {
+    "bytes": 107,
+    "sha256": "31fee74ca91764ff428912a09870cbe01b998b86899b47ff32b2bbbf7fdc0d92"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109/test_results_first_static.out": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/allocation-19149.txt": {
+    "bytes": 1462,
+    "sha256": "5fce05d082b20f52a84bd61a8ce59e7c87df7379661c5b91c8064b7f5ba9122c"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/assessment/amended-expectation-violations.json": {
+    "bytes": 51430,
+    "sha256": "23e892ebf33dbf3bb2d5c5db43162a63627e5f5f32d26fcb2d15eacb5aaacb93"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/assessment/checks.json": {
+    "bytes": 423,
+    "sha256": "bcac0e66aee1fa9c2ff94b23dd2d54440b263e9dd9a401b942b00a895b3b3f9c"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/assessment/completion-expectation-violations.json": {
+    "bytes": 31578,
+    "sha256": "60d8f8c769389aedb15cd09824568c19fdb84c24de666a77196a48fffeb97b83"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/assessment/independent-ledger-audit.json": {
+    "bytes": 443,
+    "sha256": "d61e5f874f3be26a5f493444bbd975abcfc54d160d25b2fd5b7648db472156a1"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/assessment/ledger.json.gz": {
+    "bytes": 1746320,
+    "sha256": "7e6d8c9bc62d5d6e8f2a7ba10949a2dda150331d39be8a9c0a6eb1937c6578f6"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/assessment/matrix.tsv.gz": {
+    "bytes": 14452,
+    "sha256": "7561d1e9b4fdeae31c71b1faf59b183d403ee53cd8fa0d0c6800a14ee3b391d1"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/assessment/precision-witness.json": {
+    "bytes": 8075,
+    "sha256": "06d94eb4b63add6a42bd1bc642dcf9770057620343ca965f920e35039a5255e2"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/assessment/summary.json": {
+    "bytes": 69088,
+    "sha256": "a82c3f7a873e2323a47fd30f7fad5c4d63e56f0aa200596ab53274a377918acb"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/controller-19149.txt": {
+    "bytes": 1468,
+    "sha256": "a5a4b4dd49cef881e2927c24c0c42cb14304c5ce127c1a1e8aaa94c16b3d3f4c"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/external-manifest.json": {
+    "bytes": 2675,
+    "sha256": "ca0f4ba33b154b82527147cf3c7b239a03fc78ba7d5249018748584688b2df82"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/independent-ledger-audit.err": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/independent-ledger-audit.out": {
+    "bytes": 405,
+    "sha256": "74ef8e756fabd4bf251c8feddf4b1b4286bdfb980e1bf82bb362f3eb81eebcea"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/receipt.json": {
+    "bytes": 2222,
+    "sha256": "cd007022a7a1da5dd0d1c4575192d990e5f053c9a8bd3e553718b174b7272fec"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/slurm-19149.err": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/slurm-19149.out": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/static-assessment.err": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/static-assessment.out": {
+    "bytes": 224,
+    "sha256": "b1b707a5371e18da2d607457967ec7ddd9052b10ae740d2350dd254ebd55913b"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/test_ba13_final_decision.err": {
+    "bytes": 111,
+    "sha256": "72f09eca554e87a45b7156c6109520cf15e8b6ec157dc5c033610649b49b8698"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/test_ba13_final_decision.out": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/test_results_first_cref.err": {
+    "bytes": 103,
+    "sha256": "baf49b59538192f3e136ca0404cac516ecb8dd2fe5ba1416604056f3080fa49c"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/test_results_first_cref.out": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/test_results_first_static.err": {
+    "bytes": 107,
+    "sha256": "7c758af7411e05fc2e6c4fb89045f7a03d9a5957d5305092903a23a66373d034"
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/test_results_first_static.out": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

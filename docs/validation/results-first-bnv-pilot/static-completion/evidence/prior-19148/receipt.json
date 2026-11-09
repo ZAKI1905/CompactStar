@@ -1,0 +1,52 @@
+{
+  "execution_commit": "9d7f5a5e3cce3cce761b4e64b26d962d10bbf3ec",
+  "slurm_job_id": "19148",
+  "host": "phyn004",
+  "cpu_seconds": 5.535156524,
+  "wall_seconds": 6.431320235133171,
+  "cpu_ceiling_seconds": 60,
+  "max_child_rss_kib": 282948,
+  "exit_code": 2,
+  "steps": [
+    {
+      "label": "test_results_first_cref",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_results_first_cref.py"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 0.08518422999999997,
+      "wall_seconds": 0.16777105629444122
+    },
+    {
+      "label": "test_ba13_final_decision",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_ba13_final_decision.py"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 0.07249981,
+      "wall_seconds": 0.11773435771465302
+    },
+    {
+      "label": "test_results_first_static",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_results_first_static.py"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 0.221500431,
+      "wall_seconds": 0.5184256583452225
+    },
+    {
+      "label": "static-assessment",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/static_completion.py",
+        "--output",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109/assessment"
+      ],
+      "exit_code": 2,
+      "cpu_seconds": 5.155501733,
+      "wall_seconds": 5.626986414194107
+    }
+  ],
+  "stellar_calculations": 0,
+  "trajectories_run": 0
+}

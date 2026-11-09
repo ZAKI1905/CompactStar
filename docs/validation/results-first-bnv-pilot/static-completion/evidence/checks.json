@@ -1,0 +1,14 @@
+{
+  "authority": true,
+  "all_inputs_authenticated": true,
+  "original_42_reproduced": true,
+  "original_355_reproduced": true,
+  "amended_353_reproduced": true,
+  "historical_rows_unchanged": true,
+  "temperature_fit_affine_identities": true,
+  "temperature_fit_norms": true,
+  "precision_70_90_agree": true,
+  "raw_tangent_ratios": true,
+  "correlated_tangent_identities": true,
+  "no_full_pass_with_missing_cut": true
+}

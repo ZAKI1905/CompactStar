@@ -1,0 +1,147 @@
+{
+  "starting_commit": "30f2ab39572abdf33f51f0ef9609d4fef9b90642",
+  "all_manifest_blobs_match": true,
+  "only_authorized_current_difference": "docs/adr/ADR-0022-restricted-bnv-common-reference-residual.md",
+  "records": [
+    {
+      "path": "docs/validation/results-first-bnv-pilot/OWNER_APPROVAL.md",
+      "manifest_sha256": "506c70574884defc27669ebc4a9ec6a2ffcf1c4280f0551d8d417d1c972994ae",
+      "historical_blob_sha256": "506c70574884defc27669ebc4a9ec6a2ffcf1c4280f0551d8d417d1c972994ae",
+      "current_sha256": "506c70574884defc27669ebc4a9ec6a2ffcf1c4280f0551d8d417d1c972994ae",
+      "unchanged": true
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/preparation-registry.json",
+      "manifest_sha256": "ed4121c0e7d3121540ab1d9546e2b83996f295d20cb9e1039744c4b9edd6c501",
+      "historical_blob_sha256": "ed4121c0e7d3121540ab1d9546e2b83996f295d20cb9e1039744c4b9edd6c501",
+      "current_sha256": "ed4121c0e7d3121540ab1d9546e2b83996f295d20cb9e1039744c4b9edd6c501",
+      "unchanged": true
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/CREF_COMPLETION_MODEL.md",
+      "manifest_sha256": "6cd2ab821afc818955c4963ea9d5ada3d8b891a76dcfcdd4b58df8069b1be36b",
+      "historical_blob_sha256": "6cd2ab821afc818955c4963ea9d5ada3d8b891a76dcfcdd4b58df8069b1be36b",
+      "current_sha256": "6cd2ab821afc818955c4963ea9d5ada3d8b891a76dcfcdd4b58df8069b1be36b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/PREPARATION_REPORT.md",
+      "manifest_sha256": "7e05e625d56fc6a541ae661d123a035f96a7ce6ff484c69a4dac06bfb0971d15",
+      "historical_blob_sha256": "7e05e625d56fc6a541ae661d123a035f96a7ce6ff484c69a4dac06bfb0971d15",
+      "current_sha256": "7e05e625d56fc6a541ae661d123a035f96a7ce6ff484c69a4dac06bfb0971d15",
+      "unchanged": true
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/PREPARATION_REPRODUCE.md",
+      "manifest_sha256": "352bb4d74405c4645695cb11b521244f18f29aa77724c2720ed05fcacd2adf15",
+      "historical_blob_sha256": "352bb4d74405c4645695cb11b521244f18f29aa77724c2720ed05fcacd2adf15",
+      "current_sha256": "352bb4d74405c4645695cb11b521244f18f29aa77724c2720ed05fcacd2adf15",
+      "unchanged": true
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/preparation-evidence/allocation-19142.txt",
+      "manifest_sha256": "b886a10d774bdc92c4b5e70dec96b036d0c5e27db93b8a3d3ae7684792663d50",
+      "historical_blob_sha256": "b886a10d774bdc92c4b5e70dec96b036d0c5e27db93b8a3d3ae7684792663d50",
+      "current_sha256": "b886a10d774bdc92c4b5e70dec96b036d0c5e27db93b8a3d3ae7684792663d50",
+      "unchanged": true
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/preparation-evidence/bdot-witness.json",
+      "manifest_sha256": "fd173239749cc1745528bfc04a96b4008a148fbd3842d55d25b4fb8f327eef69",
+      "historical_blob_sha256": "fd173239749cc1745528bfc04a96b4008a148fbd3842d55d25b4fb8f327eef69",
+      "current_sha256": "fd173239749cc1745528bfc04a96b4008a148fbd3842d55d25b4fb8f327eef69",
+      "unchanged": true
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/preparation-evidence/cref-summary.json",
+      "manifest_sha256": "3c6dc7378f2259cb0180683e7fe44a51adaa90f318bccb31700d74b5a05b4e65",
+      "historical_blob_sha256": "3c6dc7378f2259cb0180683e7fe44a51adaa90f318bccb31700d74b5a05b4e65",
+      "current_sha256": "3c6dc7378f2259cb0180683e7fe44a51adaa90f318bccb31700d74b5a05b4e65",
+      "unchanged": true
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/preparation-evidence/currentness-bytes.log",
+      "manifest_sha256": "929368c6967fb408130409b64b3554384da64b465e35436876124736d804358c",
+      "historical_blob_sha256": "929368c6967fb408130409b64b3554384da64b465e35436876124736d804358c",
+      "current_sha256": "929368c6967fb408130409b64b3554384da64b465e35436876124736d804358c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/preparation-evidence/dependency-provenance.json",
+      "manifest_sha256": "8de30beaeab525db2027235704394d515318674fa25c98091f1174ca9fb89b59",
+      "historical_blob_sha256": "8de30beaeab525db2027235704394d515318674fa25c98091f1174ca9fb89b59",
+      "current_sha256": "8de30beaeab525db2027235704394d515318674fa25c98091f1174ca9fb89b59",
+      "unchanged": true
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/preparation-evidence/external-manifest.json",
+      "manifest_sha256": "7a16f52346344ba066ec6abafe258cebfc8f63b1ede43ee43b2b3260a28ed1d0",
+      "historical_blob_sha256": "7a16f52346344ba066ec6abafe258cebfc8f63b1ede43ee43b2b3260a28ed1d0",
+      "current_sha256": "7a16f52346344ba066ec6abafe258cebfc8f63b1ede43ee43b2b3260a28ed1d0",
+      "unchanged": true
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/preparation-evidence/job-19147-final.txt",
+      "manifest_sha256": "7d4052bcf71a249af2198da3bd56f77c2d8598029a27754f51b4891636e3d600",
+      "historical_blob_sha256": "7d4052bcf71a249af2198da3bd56f77c2d8598029a27754f51b4891636e3d600",
+      "current_sha256": "7d4052bcf71a249af2198da3bd56f77c2d8598029a27754f51b4891636e3d600",
+      "unchanged": true
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/preparation-evidence/native-binding-summary.log",
+      "manifest_sha256": "473a10d5aa119f2412e5e3a6efd161a932f7f90844e5026657f1dd7717967236",
+      "historical_blob_sha256": "473a10d5aa119f2412e5e3a6efd161a932f7f90844e5026657f1dd7717967236",
+      "current_sha256": "473a10d5aa119f2412e5e3a6efd161a932f7f90844e5026657f1dd7717967236",
+      "unchanged": true
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/preparation-evidence/postflight-final.json",
+      "manifest_sha256": "b5bd712d887f1bdc345780efd1725fe393b725b055b18c40cc3276870422fba1",
+      "historical_blob_sha256": "b5bd712d887f1bdc345780efd1725fe393b725b055b18c40cc3276870422fba1",
+      "current_sha256": "b5bd712d887f1bdc345780efd1725fe393b725b055b18c40cc3276870422fba1",
+      "unchanged": true
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/preparation-evidence/resources.json",
+      "manifest_sha256": "c95f3511b9deec802db7322b15f6423e70388d5d15330b10351ce481a3d417c9",
+      "historical_blob_sha256": "c95f3511b9deec802db7322b15f6423e70388d5d15330b10351ce481a3d417c9",
+      "current_sha256": "c95f3511b9deec802db7322b15f6423e70388d5d15330b10351ce481a3d417c9",
+      "unchanged": true
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/preparation-evidence/retained-contracts.log",
+      "manifest_sha256": "6fe05c18a6dd5bb30c5f72c60a13b39673717488c517e7d200ceb7e53e0866a6",
+      "historical_blob_sha256": "6fe05c18a6dd5bb30c5f72c60a13b39673717488c517e7d200ceb7e53e0866a6",
+      "current_sha256": "6fe05c18a6dd5bb30c5f72c60a13b39673717488c517e7d200ceb7e53e0866a6",
+      "unchanged": true
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/preparation-evidence/slurm-19142.out",
+      "manifest_sha256": "1bc3f15609f75736d7e4502f299387b6af783f495c16ae86e961fdc520fe791b",
+      "historical_blob_sha256": "1bc3f15609f75736d7e4502f299387b6af783f495c16ae86e961fdc520fe791b",
+      "current_sha256": "1bc3f15609f75736d7e4502f299387b6af783f495c16ae86e961fdc520fe791b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/preparation-evidence/test-cref.log",
+      "manifest_sha256": "d03ce458f2a6cd2b4f27522f3aacad03ce1872c028853507c3ad02ca621bdcad",
+      "historical_blob_sha256": "d03ce458f2a6cd2b4f27522f3aacad03ce1872c028853507c3ad02ca621bdcad",
+      "current_sha256": "d03ce458f2a6cd2b4f27522f3aacad03ce1872c028853507c3ad02ca621bdcad",
+      "unchanged": true
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/preparation-evidence/test-final-decision.log",
+      "manifest_sha256": "72f09eca554e87a45b7156c6109520cf15e8b6ec157dc5c033610649b49b8698",
+      "historical_blob_sha256": "72f09eca554e87a45b7156c6109520cf15e8b6ec157dc5c033610649b49b8698",
+      "current_sha256": "72f09eca554e87a45b7156c6109520cf15e8b6ec157dc5c033610649b49b8698",
+      "unchanged": true
+    },
+    {
+      "path": "docs/adr/ADR-0022-restricted-bnv-common-reference-residual.md",
+      "manifest_sha256": "485324f1dbad5eee610be3c8dcd83fd058bb9f850bb14390801d57133fe7e35f",
+      "historical_blob_sha256": "485324f1dbad5eee610be3c8dcd83fd058bb9f850bb14390801d57133fe7e35f",
+      "current_sha256": "c45ee49a480def9759464c689455f471b0147b556444feef53da4a8e16fc643e",
+      "unchanged": false
+    }
+  ]
+}

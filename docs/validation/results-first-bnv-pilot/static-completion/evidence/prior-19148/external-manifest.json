@@ -1,0 +1,66 @@
+{
+  "assessment/amended-expectation-violations.json": {
+    "sha256": "23e892ebf33dbf3bb2d5c5db43162a63627e5f5f32d26fcb2d15eacb5aaacb93",
+    "bytes": 51430
+  },
+  "assessment/checks.json": {
+    "sha256": "bcac0e66aee1fa9c2ff94b23dd2d54440b263e9dd9a401b942b00a895b3b3f9c",
+    "bytes": 423
+  },
+  "assessment/completion-expectation-violations.json": {
+    "sha256": "60d8f8c769389aedb15cd09824568c19fdb84c24de666a77196a48fffeb97b83",
+    "bytes": 31578
+  },
+  "assessment/ledger.json.gz": {
+    "sha256": "044903c0e63556bf7db2b2990d20e620fac7feba320b95d730596e9b3fd043d0",
+    "bytes": 1746283
+  },
+  "assessment/matrix.tsv.gz": {
+    "sha256": "7561d1e9b4fdeae31c71b1faf59b183d403ee53cd8fa0d0c6800a14ee3b391d1",
+    "bytes": 14452
+  },
+  "assessment/precision-witness.json": {
+    "sha256": "06d94eb4b63add6a42bd1bc642dcf9770057620343ca965f920e35039a5255e2",
+    "bytes": 8075
+  },
+  "assessment/summary.json": {
+    "sha256": "e9a891592a719cdf6ce2210f755a2c99cdbc32bb37d72499bf2f40540d116ee0",
+    "bytes": 69088
+  },
+  "receipt.json": {
+    "sha256": "3156e03e2608ea10fd24f802e2f99e63ebbce76b06c2b6607491d637a4eb55e2",
+    "bytes": 1739
+  },
+  "static-assessment.err": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  "static-assessment.out": {
+    "sha256": "b1b707a5371e18da2d607457967ec7ddd9052b10ae740d2350dd254ebd55913b",
+    "bytes": 224
+  },
+  "test_ba13_final_decision.err": {
+    "sha256": "72f09eca554e87a45b7156c6109520cf15e8b6ec157dc5c033610649b49b8698",
+    "bytes": 111
+  },
+  "test_ba13_final_decision.out": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  "test_results_first_cref.err": {
+    "sha256": "baf49b59538192f3e136ca0404cac516ecb8dd2fe5ba1416604056f3080fa49c",
+    "bytes": 103
+  },
+  "test_results_first_cref.out": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  "test_results_first_static.err": {
+    "sha256": "31fee74ca91764ff428912a09870cbe01b998b86899b47ff32b2bbbf7fdc0d92",
+    "bytes": 107
+  },
+  "test_results_first_static.out": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  }
+}

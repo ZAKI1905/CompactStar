@@ -1,0 +1,243 @@
+{
+  "projection": [
+    {
+      "envelope": {
+        "f": 5.181818280512721,
+        "K": 38.427734375,
+        "L": 1e-06,
+        "fit_reference": 9.608052884937298e-13,
+        "measured_fit_error": 1.2171812595428897e-12,
+        "curvature_fit": 2.489069205788276e-11,
+        "F": 2.5851497346376493e-11,
+        "affine_identity_residual": "3.14684847989e-70",
+        "varying_full_allowance_identity": "1.73352761404e-74",
+        "digits": 70
+      },
+      "Tsurface_inf": {
+        "f": 5.1818182548344405,
+        "K": 26.8896484375,
+        "L": 1e-06,
+        "fit_reference": 6.724498722479101e-13,
+        "measured_fit_error": 1.0288682815233782e-12,
+        "curvature_fit": 1.7417158892439735e-11,
+        "F": 1.808960876468765e-11,
+        "affine_identity_residual": "3.34494145974e-70",
+        "varying_full_allowance_identity": "1.1103337336e-74",
+        "digits": 70
+      }
+    },
+    {
+      "envelope": {
+        "f": 5.181818280512721,
+        "K": 38.427734375,
+        "L": 1e-06,
+        "fit_reference": 9.608052884937298e-13,
+        "measured_fit_error": 1.2171812595428897e-12,
+        "curvature_fit": 2.489069205788276e-11,
+        "F": 2.5851497346376493e-11,
+        "affine_identity_residual": "4.20341127966e-90",
+        "varying_full_allowance_identity": "1.96820218888e-94",
+        "digits": 90
+      },
+      "Tsurface_inf": {
+        "f": 5.1818182548344405,
+        "K": 26.8896484375,
+        "L": 1e-06,
+        "fit_reference": 6.724498722479101e-13,
+        "measured_fit_error": 1.0288682815233782e-12,
+        "curvature_fit": 1.7417158892439735e-11,
+        "F": 1.808960876468765e-11,
+        "affine_identity_residual": "5.16988905564e-90",
+        "varying_full_allowance_identity": "1.48416640859e-94",
+        "digits": 90
+      }
+    }
+  ],
+  "tangents": [
+    {
+      "0:t_n": {
+        "t": 0.9657700775560342,
+        "tail": 1.5687615341887066e-14,
+        "order": 3.9533507878498053,
+        "denominator": 1.2615807722499074e+52,
+        "denominator_relative_allowance": 1e-14,
+        "separated": true,
+        "correlated_identity_residual": "2.55759657134e-73",
+        "digits": 70
+      },
+      "0:t_e": {
+        "t": 0.030852178415364986,
+        "tail": 1.2624697280862374e-14,
+        "order": 3.987396084129767,
+        "denominator": 1.2615807722499074e+52,
+        "denominator_relative_allowance": 1e-14,
+        "separated": true,
+        "correlated_identity_residual": "1.108633928e-73",
+        "digits": 70
+      },
+      "0:t_mu": {
+        "t": 0.0033777440286060887,
+        "tail": 2.681729626182841e-15,
+        "order": 3.992551451049959,
+        "denominator": 1.2615807722499074e+52,
+        "denominator_relative_allowance": 1e-14,
+        "separated": true,
+        "correlated_identity_residual": "2.40843905955e-74",
+        "digits": 70
+      },
+      "10:t_n": {
+        "t": 0.9657702381723056,
+        "tail": 1.572722220583782e-14,
+        "order": 3.948335594972447,
+        "denominator": 1.2615825108535243e+52,
+        "denominator_relative_allowance": 1e-14,
+        "separated": true,
+        "correlated_identity_residual": "2.72041911865e-72",
+        "digits": 70
+      },
+      "10:t_e": {
+        "t": 0.030852081456017526,
+        "tail": 1.2487984446248841e-14,
+        "order": 4.00308216589827,
+        "denominator": 1.2615825108535243e+52,
+        "denominator_relative_allowance": 1e-14,
+        "separated": true,
+        "correlated_identity_residual": "4.35957374615e-74",
+        "digits": 70
+      },
+      "10:t_mu": {
+        "t": 0.0033776803716823994,
+        "tail": 2.6644792106250275e-15,
+        "order": 4.001802112080847,
+        "denominator": 1.2615825108535243e+52,
+        "denominator_relative_allowance": 1e-14,
+        "separated": true,
+        "correlated_identity_residual": "5.23483111131e-75",
+        "digits": 70
+      },
+      "20:t_n": {
+        "t": 0.9657703987873107,
+        "tail": 1.5602664794092865e-14,
+        "order": 3.958670155989972,
+        "denominator": 1.2615842494487745e+52,
+        "denominator_relative_allowance": 1e-14,
+        "separated": true,
+        "correlated_identity_residual": "3.90059687962e-72",
+        "digits": 70
+      },
+      "20:t_e": {
+        "t": 0.030851984497207822,
+        "tail": 1.2544668731185636e-14,
+        "order": 3.996698319509501,
+        "denominator": 1.2615842494487745e+52,
+        "denominator_relative_allowance": 1e-14,
+        "separated": true,
+        "correlated_identity_residual": "1.99415755322e-73",
+        "digits": 70
+      },
+      "20:t_mu": {
+        "t": 0.0033776167154850704,
+        "tail": 2.673309374815794e-15,
+        "order": 3.9971313044400807,
+        "denominator": 1.2615842494487745e+52,
+        "denominator_relative_allowance": 1e-14,
+        "separated": true,
+        "correlated_identity_residual": "1.48624837781e-74",
+        "digits": 70
+      }
+    },
+    {
+      "0:t_n": {
+        "t": 0.9657700775560342,
+        "tail": 1.5687615341887066e-14,
+        "order": 3.9533507878498053,
+        "denominator": 1.2615807722499074e+52,
+        "denominator_relative_allowance": 1e-14,
+        "separated": true,
+        "correlated_identity_residual": "4.44112788275e-92",
+        "digits": 90
+      },
+      "0:t_e": {
+        "t": 0.030852178415364986,
+        "tail": 1.2624697280862374e-14,
+        "order": 3.987396084129767,
+        "denominator": 1.2615807722499074e+52,
+        "denominator_relative_allowance": 1e-14,
+        "separated": true,
+        "correlated_identity_residual": "3.61122290324e-93",
+        "digits": 90
+      },
+      "0:t_mu": {
+        "t": 0.0033777440286060887,
+        "tail": 2.681729626182841e-15,
+        "order": 3.992551451049959,
+        "denominator": 1.2615807722499074e+52,
+        "denominator_relative_allowance": 1e-14,
+        "separated": true,
+        "correlated_identity_residual": "1.58172299399e-94",
+        "digits": 90
+      },
+      "10:t_n": {
+        "t": 0.9657702381723056,
+        "tail": 1.572722220583782e-14,
+        "order": 3.948335594972447,
+        "denominator": 1.2615825108535243e+52,
+        "denominator_relative_allowance": 1e-14,
+        "separated": true,
+        "correlated_identity_residual": "3.64648769968e-92",
+        "digits": 90
+      },
+      "10:t_e": {
+        "t": 0.030852081456017526,
+        "tail": 1.2487984446248841e-14,
+        "order": 4.00308216589827,
+        "denominator": 1.2615825108535243e+52,
+        "denominator_relative_allowance": 1e-14,
+        "separated": true,
+        "correlated_identity_residual": "4.72285090079e-94",
+        "digits": 90
+      },
+      "10:t_mu": {
+        "t": 0.0033776803716823994,
+        "tail": 2.6644792106250275e-15,
+        "order": 4.001802112080847,
+        "denominator": 1.2615825108535243e+52,
+        "denominator_relative_allowance": 1e-14,
+        "separated": true,
+        "correlated_identity_residual": "1.15645946499e-95",
+        "digits": 90
+      },
+      "20:t_n": {
+        "t": 0.9657703987873107,
+        "tail": 1.5602664794092865e-14,
+        "order": 3.958670155989972,
+        "denominator": 1.2615842494487745e+52,
+        "denominator_relative_allowance": 1e-14,
+        "separated": true,
+        "correlated_identity_residual": "1.50668441311e-92",
+        "digits": 90
+      },
+      "20:t_e": {
+        "t": 0.030851984497207822,
+        "tail": 1.2544668731185636e-14,
+        "order": 3.996698319509501,
+        "denominator": 1.2615842494487745e+52,
+        "denominator_relative_allowance": 1e-14,
+        "separated": true,
+        "correlated_identity_residual": "8.58048657313e-94",
+        "digits": 90
+      },
+      "20:t_mu": {
+        "t": 0.0033776167154850704,
+        "tail": 2.673309374815794e-15,
+        "order": 3.9971313044400807,
+        "denominator": 1.2615842494487745e+52,
+        "denominator_relative_allowance": 1e-14,
+        "separated": true,
+        "correlated_identity_residual": "1.97200617222e-94",
+        "digits": 90
+      }
+    }
+  ],
+  "precision_repeat": "identical binary64 reporting values"
+}

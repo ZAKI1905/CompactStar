@@ -1,0 +1,63 @@
+{
+  "execution_commit": "6a4e109951df63e9d2a1002ad026fa99b6758331",
+  "slurm_job_id": "19149",
+  "host": "phyn004",
+  "cpu_seconds": 10.640776448,
+  "wall_seconds": 11.006109438836575,
+  "cpu_ceiling_seconds": 60,
+  "max_child_rss_kib": 283652,
+  "exit_code": 2,
+  "steps": [
+    {
+      "label": "test_results_first_cref",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_results_first_cref.py"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 0.078987941,
+      "wall_seconds": 0.11731383949518204
+    },
+    {
+      "label": "test_ba13_final_decision",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_ba13_final_decision.py"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 0.06866177099999998,
+      "wall_seconds": 0.1175680011510849
+    },
+    {
+      "label": "test_results_first_static",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_results_first_static.py"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 0.19819361999999996,
+      "wall_seconds": 0.317812517285347
+    },
+    {
+      "label": "static-assessment",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/static_completion.py",
+        "--output",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/assessment"
+      ],
+      "exit_code": 2,
+      "cpu_seconds": 5.222165642,
+      "wall_seconds": 5.325982302427292
+    },
+    {
+      "label": "independent-ledger-audit",
+      "arguments": [
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/static_validate.py",
+        "--assessment",
+        "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-static-20261109-verified/assessment"
+      ],
+      "exit_code": 0,
+      "cpu_seconds": 5.072134072,
+      "wall_seconds": 5.1268888264894485
+    }
+  ],
+  "stellar_calculations": 0,
+  "trajectories_run": 0
+}
