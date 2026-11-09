@@ -1,0 +1,62 @@
+{
+  "rows": 20259,
+  "multiple_inverse_fraction_rows": {
+    "nn_profile": 12972,
+    "np_profile": 5450,
+    "ne_profile": 7611,
+    "nmu_profile": 16455
+  },
+  "examples": [
+    {
+      "row": 0,
+      "species": "nn_profile",
+      "nB": 0.6049252414031138,
+      "density": 0.595451231141618,
+      "compatible_fraction_hex": [
+        "0x1.f7fb38ba5ce85p-1",
+        "0x1.f7fb38ba5ce86p-1"
+      ]
+    },
+    {
+      "row": 0,
+      "species": "ne_profile",
+      "nB": 0.6049252414031138,
+      "density": 0.008309407080754404,
+      "compatible_fraction_hex": [
+        "0x1.c21c0df6c0343p-7",
+        "0x1.c21c0df6c0344p-7"
+      ]
+    },
+    {
+      "row": 0,
+      "species": "nmu_profile",
+      "nB": 0.6049252414031138,
+      "density": 0.0011646031807412147,
+      "compatible_fraction_hex": [
+        "0x1.f8ae1b902d793p-10",
+        "0x1.f8ae1b902d794p-10"
+      ]
+    },
+    {
+      "row": 1,
+      "species": "ne_profile",
+      "nB": 0.6049252414014283,
+      "density": 0.008309407080716372,
+      "compatible_fraction_hex": [
+        "0x1.c21c0df6bcbdfp-7",
+        "0x1.c21c0df6bcbe0p-7"
+      ]
+    },
+    {
+      "row": 1,
+      "species": "nmu_profile",
+      "nB": 0.6049252414014283,
+      "density": 0.0011646031807214599,
+      "compatible_fraction_hex": [
+        "0x1.f8ae1b900ebeap-10",
+        "0x1.f8ae1b900ebebp-10"
+      ]
+    }
+  ],
+  "meaning": "Retained rounded n_i=Y_i*nB does not uniquely identify original binary64 Y_i. No model reconstructed."
+}

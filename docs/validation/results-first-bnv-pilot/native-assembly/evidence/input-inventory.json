@@ -1,0 +1,324 @@
+{
+  "schema": "compactstar.native-assembly.input-inventory.v1",
+  "scope": "Input authentication and retained serialization coverage only",
+  "input_hashes_match": true,
+  "checks": [
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/fit/certificate.json",
+      "expected_sha256": "4212cad05bb4244ab75e80b8dfea023e6d0fcee69086c9993bd48d26a40e41fb",
+      "actual_sha256": "4212cad05bb4244ab75e80b8dfea023e6d0fcee69086c9993bd48d26a40e41fb",
+      "matches": true
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/fit/certificate.tsv",
+      "expected_sha256": "38bc85c62621b390ff2d7c8affee1f5ba4e9f0f44233047bb9959f2d685fd5ba",
+      "actual_sha256": "38bc85c62621b390ff2d7c8affee1f5ba4e9f0f44233047bb9959f2d685fd5ba",
+      "matches": true
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/profile.tsv",
+      "expected_sha256": "62b8dc594fd9c30d413ccb1d906459e2599049966b0bec097284b43598a07a56",
+      "actual_sha256": "62b8dc594fd9c30d413ccb1d906459e2599049966b0bec097284b43598a07a56",
+      "matches": true
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/model.txt",
+      "expected_sha256": "6dc75c841408d8e03fed5cbc8444310af35c77ab34d0339df309c00cbb3e7f4a",
+      "actual_sha256": "6dc75c841408d8e03fed5cbc8444310af35c77ab34d0339df309c00cbb3e7f4a",
+      "matches": true
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/certificate.txt",
+      "expected_sha256": "337ed8ae8d6168d8a612f1344f204dc927ac9e0867a47542d5b943dbf27b8537",
+      "actual_sha256": "337ed8ae8d6168d8a612f1344f204dc927ac9e0867a47542d5b943dbf27b8537",
+      "matches": true
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/freegas.tsv",
+      "expected_sha256": "f6b9c4068a430cc356b54e39c21a0ca17e17b8c2b35d17b836638298d1112d7f",
+      "actual_sha256": "f6b9c4068a430cc356b54e39c21a0ca17e17b8c2b35d17b836638298d1112d7f",
+      "matches": true
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.nb",
+      "expected_sha256": "eeea89bb2e73909c886393bcedcc56f54aa1afa867f7435db2f29990e6b417d0",
+      "actual_sha256": "eeea89bb2e73909c886393bcedcc56f54aa1afa867f7435db2f29990e6b417d0",
+      "matches": true
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.t",
+      "expected_sha256": "a34c76462115f14fb3d93516e1229e77240c46a9cc55bc3970f9e32251759468",
+      "actual_sha256": "a34c76462115f14fb3d93516e1229e77240c46a9cc55bc3970f9e32251759468",
+      "matches": true
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.thermo",
+      "expected_sha256": "9929739023a10210eca5d9f693f31c43b63e2ed255cb23421050af5b6acdaca1",
+      "actual_sha256": "9929739023a10210eca5d9f693f31c43b63e2ed255cb23421050af5b6acdaca1",
+      "matches": true
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.yq",
+      "expected_sha256": "45125714a8b219f0e5677e69c295620d0de0f66ddee4e0e7cd3e67d964b69258",
+      "actual_sha256": "45125714a8b219f0e5677e69c295620d0de0f66ddee4e0e7cd3e67d964b69258",
+      "matches": true
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/coefficients.tsv",
+      "expected_sha256": "ec3942227c98532af4802db4bdd229603715556af9d44929082368b3afc7d831",
+      "actual_sha256": "ec3942227c98532af4802db4bdd229603715556af9d44929082368b3afc7d831",
+      "matches": true
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/tangent.tsv",
+      "expected_sha256": "871fddddb4e6470552e9efc1a8b2f6f3dbe000d9b48572369aa29e8360f1aa5c",
+      "actual_sha256": "871fddddb4e6470552e9efc1a8b2f6f3dbe000d9b48572369aa29e8360f1aa5c",
+      "matches": true
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/target_stars.tsv",
+      "expected_sha256": "6b230c55949991664cb78b436907c7758de8b38ebfc645badd8206857acbfa51",
+      "actual_sha256": "6b230c55949991664cb78b436907c7758de8b38ebfc645badd8206857acbfa51",
+      "matches": true
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/thermal_surface.tsv",
+      "expected_sha256": "8f021020da3b3dd63aab6f91ce5da68cd3ac8f528ec8f35508dac3b43d67d6fc",
+      "actual_sha256": "8f021020da3b3dd63aab6f91ce5da68cd3ac8f528ec8f35508dac3b43d67d6fc",
+      "matches": true
+    }
+  ],
+  "fitter_binding": {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/fit/binding.json",
+    "sha256": "008f900db6980c4a20e31e5d52a492042b3b9ee906c42f399cfd7e1ce494c50b"
+  },
+  "owner_directories": [
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/stars/tangent-sequences/target-0",
+      "exists": true,
+      "child_directories": 15,
+      "files": []
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/repeat/stars/tangent-sequences/target-0",
+      "exists": true,
+      "child_directories": 15,
+      "files": []
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-preparation-20261108/native-current/native-fixture/owning-star/central",
+      "exists": true,
+      "child_directories": 0,
+      "files": []
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-preparation-20261108/native-current/native-fixture/owning-star/sequence",
+      "exists": true,
+      "child_directories": 15,
+      "files": []
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-preparation-20261108/native-verify/native-fixture/owning-star/central",
+      "exists": true,
+      "child_directories": 0,
+      "files": []
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-bnv-preparation-20261108/native-verify/native-fixture/owning-star/sequence",
+      "exists": true,
+      "child_directories": 15,
+      "files": []
+    }
+  ],
+  "retained_tables": {
+    "coefficients.tsv": {
+      "columns": [
+        "index",
+        "B_solved",
+        "Z00",
+        "Z01",
+        "Z10",
+        "Z11",
+        "uZ00",
+        "uZ01",
+        "uZ10",
+        "uZ11",
+        "Ltilde_Me",
+        "Ltilde_Mmu",
+        "uLtilde_Me",
+        "uLtilde_Mmu",
+        "mu_B_inf",
+        "P0_inf",
+        "P1_inf",
+        "P2_inf",
+        "u_mu_B",
+        "u_P0",
+        "u_P1",
+        "u_P2",
+        "neutron_measure"
+      ],
+      "first_row": {
+        "index": "0",
+        "B_solved": "7.6169065187188748e+56",
+        "Z00": "4.5793031807027468e-54",
+        "Z01": "5.1725199102788713e-55",
+        "Z10": "5.1725199102788713e-55",
+        "Z11": "1.0268727975139198e-52",
+        "uZ00": "4.4992148730177441e-61",
+        "uZ01": "4.2854306680577612e-61",
+        "uZ10": "4.2854306697318928e-61",
+        "uZ11": "2.9081738462954679e-59",
+        "Ltilde_Me": "1.8129098134913405e-32",
+        "Ltilde_Mmu": "9.8504968582613821e-34",
+        "uLtilde_Me": "0",
+        "uLtilde_Mmu": "0",
+        "mu_B_inf": "868.43543494338303",
+        "P0_inf": "868.43543494338303",
+        "P1_inf": "846.18506594771043",
+        "P2_inf": "0",
+        "u_mu_B": "0",
+        "u_P0": "0",
+        "u_P1": "1.1368683772161603e-13",
+        "u_P2": "0",
+        "neutron_measure": "6.5331433335442406e+56"
+      }
+    },
+    "tangent.tsv": {
+      "columns": [
+        "index",
+        "B_solved",
+        "t_n",
+        "t_e",
+        "t_mu",
+        "u_t_n",
+        "u_t_e",
+        "u_t_mu",
+        "raw_closure",
+        "closure_budget"
+      ],
+      "first_row": {
+        "index": "0",
+        "B_solved": "7.6169065187188748e+56",
+        "t_n": "0.96577008495063499",
+        "t_e": "0.030852171224739516",
+        "t_mu": "0.0033777438246255101",
+        "u_t_n": "1.4434756931736272e-07",
+        "u_t_e": "4.3540162343067433e-09",
+        "u_t_mu": "2.1786238852791279e-09",
+        "raw_closure": "-5.8841820305133297e-15",
+        "closure_budget": "1.5088021654237595e-07"
+      }
+    },
+    "target_stars.tsv": {
+      "columns": [
+        "index",
+        "target_fraction",
+        "rho_c_g_cm3",
+        "B_solved",
+        "B_target",
+        "residual",
+        "bracket_width",
+        "N_n",
+        "N_e",
+        "N_mu",
+        "u_N_n",
+        "u_N_e",
+        "u_N_mu",
+        "radius_km",
+        "mass_km",
+        "nu_surface"
+      ],
+      "first_row": {
+        "index": "0",
+        "target_fraction": "-0",
+        "rho_c_g_cm3": "1100000000000000",
+        "B_solved": "7.6169065187188748e+56",
+        "B_target": "7.6169065187188748e+56",
+        "residual": "0",
+        "bracket_width": "0",
+        "N_n": "7.5683115419394628e+56",
+        "N_e": "4.8119204549793053e+54",
+        "N_mu": "4.7577222961866953e+52",
+        "u_N_n": "1.1002237324559355e+43",
+        "u_N_e": "2.7615472112487683e+43",
+        "u_N_mu": "6.916273362127148e+38",
+        "radius_km": "12.766174760676613",
+        "mass_km": "0.92093273643866624",
+        "nu_surface": "-0.077904280191305617"
+      }
+    },
+    "thermal_surface.tsv": {
+      "columns": [
+        "index",
+        "Tinf_K",
+        "Cstar_erg_K",
+        "u_Cstar_erg_K",
+        "Tsurface_local_K",
+        "Tsurface_inf_K",
+        "u_Tsurface_inf_K",
+        "surface_g14",
+        "u_surface_g14"
+      ],
+      "first_row": {
+        "index": "0",
+        "Tinf_K": "1000000",
+        "Cstar_erg_K": "1.3046866702023788e+36",
+        "u_Cstar_erg_K": "1.8540712719106676e+22",
+        "Tsurface_local_K": "79706.691008666297",
+        "Tsurface_inf_K": "73732.91110288928",
+        "u_Tsurface_inf_K": "1.0478076874120643e-09",
+        "surface_g14": "0.54901112543585029",
+        "u_surface_g14": "7.8019173405984118e-15"
+      }
+    },
+    "profile.tsv": {
+      "columns": [
+        "r",
+        "m",
+        "nu",
+        "nB",
+        "Pgeom",
+        "dim",
+        "nn",
+        "np",
+        "ne",
+        "nmu",
+        "epsMeVfm3",
+        "PMeVfm3",
+        "H00",
+        "H01",
+        "H02",
+        "H10",
+        "H11",
+        "H12",
+        "H20",
+        "H21",
+        "H22",
+        "eps_profile_geom",
+        "nn_profile",
+        "np_profile",
+        "ne_profile",
+        "nmu_profile"
+      ],
+      "rows": 20259
+    }
+  },
+  "existing_static_result": {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/assessment/summary.json",
+    "sha256": "ccc328ebe21cb723856072183e480bad9bc74101d852f0a924fb460fce43b3f2",
+    "status": "CONDITIONAL_STATIC_PASS",
+    "row_statuses": {
+      "CONDITIONALLY_QUALIFIED": 420,
+      "EXACT_IDENTITY": 21,
+      "CONSUMER_SCOPE_ONLY": 21
+    },
+    "maximum_utilization": "0.7824646077302389824027648208996043306067886335510698090995367516447366122816168914327203531470244297380738503815031314009142530641987276369838959309617154112314"
+  },
+  "source_snapshot": null,
+  "control_snapshot": null,
+  "assembly_status": "BLOCKED_EMPTY_KNOWN_OWNER_DIRECTORIES",
+  "limitation": "Directory inventory is not proof that no other archive exists. Aggregate tangent rows are not Phase-5B derivative snapshots.",
+  "stellar_solves": 0,
+  "rhs_evaluations": 0,
+  "thermal_trajectories": 0
+}

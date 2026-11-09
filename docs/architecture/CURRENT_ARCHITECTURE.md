@@ -1,5 +1,13 @@
 # CompactStar — Current Architecture
 
+> **Restricted native P2 assembly investigation (2026-11-08): BLOCKED ON RETAINED
+> OWNER DATA.** The conditional static BA13 result is unchanged. Authenticated
+> inputs are available, but the complete matching Phase-5B/central/Hartle owner
+> snapshots needed by the existing paired context were not found. No loader,
+> paired snapshot or native runner is claimed operational; historical builders
+> and guards are unchanged. See the [assembly report](../validation/results-first-bnv-pilot/native-assembly/REPORT.md:1)
+> and proposed [ADR-0023](../adr/ADR-0023-retained-native-assembly-reconstruction.md:1).
+
 > **Linux correction candidate (2026-10-12):** proposed ADR-0020 now separates
 > reproducibility, numerical agreement, independent accuracy, exact provenance
 > and owner acceptance. Explicit-fma neutron onset and binary64 inverse density

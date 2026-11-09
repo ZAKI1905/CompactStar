@@ -1,0 +1,10 @@
+{
+  "protected_scientific_diff_exit": 0,
+  "historical_manifest_entries": 113,
+  "historical_manifest_all_ok": true,
+  "stellar_solves": 0,
+  "actual_pair_rhs_evaluations": 0,
+  "thermal_trajectories": 0,
+  "slurm_jobs_submitted": 0,
+  "native_snapshots_created": 0
+}

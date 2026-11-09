@@ -1,0 +1,183 @@
+{
+  "cluster_files": 51620,
+  "historical_path_scan": {
+    "exit_code": 0,
+    "stderr": "",
+    "path_count": 5745,
+    "matches": [
+      "docs/adr/ADR-0011-particle-number-structural-response.md",
+      "docs/validation/linux-transition/evidence/linux-transition-20261010/toolchain/build/CompactStar-Debug/tests/phase5b-regression-evidence/regression-xc399xw4/generated/structural-response.json.gz",
+      "docs/validation/phase5b_structural_response_candidate.json",
+      "main/Test/results/ns_build/NStar_Profile.tsv",
+      "main/Test/results/spin_therm_evol_2/NStar_Profile.tsv",
+      "main/Test/results/tov_debug/NStar_Profile.tsv.debug",
+      "tests/baselines/phase5b_structural_response.json"
+    ]
+  },
+  "git_object_scan": {
+    "listed_objects": 14427,
+    "missing_objects_count": 4916,
+    "exit_code": 0
+  },
+  "interiors": {
+    "profile_count": 319,
+    "unique_central_ratios": 105,
+    "ratio_min": 0.999993822756231,
+    "ratio_max": 1.0000000417050623,
+    "stencil_comparison": [
+      {
+        "log_rho_ratio": -0.002,
+        "rho_g_cm3": 1097802198534066.4,
+        "nearest_retained_log_ratio": -6.177262848194435e-06,
+        "nearest_log_distance": 0.0019938227371518054
+      },
+      {
+        "log_rho_ratio": -0.001,
+        "rho_g_cm3": 1098900549816712.5,
+        "nearest_retained_log_ratio": -6.177262848194435e-06,
+        "nearest_log_distance": 0.0009938227371518056
+      },
+      {
+        "log_rho_ratio": -0.0005,
+        "rho_g_cm3": 1099450137477086.2,
+        "nearest_retained_log_ratio": -6.177262848194435e-06,
+        "nearest_log_distance": 0.0004938227371518056
+      },
+      {
+        "log_rho_ratio": -0.00025,
+        "rho_g_cm3": 1099725034372135.6,
+        "nearest_retained_log_ratio": -6.177262848194435e-06,
+        "nearest_log_distance": 0.00024382273715180556
+      },
+      {
+        "log_rho_ratio": 0.0,
+        "rho_g_cm3": 1100000000000000.0,
+        "nearest_retained_log_ratio": 0.0,
+        "nearest_log_distance": 0.0
+      },
+      {
+        "log_rho_ratio": 0.00025,
+        "rho_g_cm3": 1100275034377864.8,
+        "nearest_retained_log_ratio": 4.170506142285139e-08,
+        "nearest_log_distance": 0.00024995829493857714
+      },
+      {
+        "log_rho_ratio": 0.0005,
+        "rho_g_cm3": 1100550137522919.4,
+        "nearest_retained_log_ratio": 4.170506142285139e-08,
+        "nearest_log_distance": 0.0004999582949385771
+      },
+      {
+        "log_rho_ratio": 0.001,
+        "rho_g_cm3": 1101100550183379.2,
+        "nearest_retained_log_ratio": 4.170506142285139e-08,
+        "nearest_log_distance": 0.0009999582949385773
+      },
+      {
+        "log_rho_ratio": 0.002,
+        "rho_g_cm3": 1102202201467400.4,
+        "nearest_retained_log_ratio": 4.170506142285139e-08,
+        "nearest_log_distance": 0.001999958294938577
+      }
+    ]
+  },
+  "archive_scan": [
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/PHASE6_EKU_CLUSTER_PREFLIGHT_TRANSFER.zip",
+      "members": 2,
+      "candidate_members": [],
+      "status": "LISTED"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/incoming/BA13-original-evidence-20261012.zip",
+      "members": 352,
+      "candidate_members": [],
+      "status": "LISTED"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/incoming/CompactStar-EKU-handoff-20261010/upstream/gsl-2.7.1.tar.gz",
+      "members": 2281,
+      "candidate_members": [],
+      "status": "LISTED"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/incoming/CompactStar-EKU-handoff-20261010.zip",
+      "members": 56,
+      "candidate_members": [],
+      "status": "LISTED"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/incoming/CompactStar-EKU-20261010-20261010T203856Z-1-001.zip",
+      "members": 1880,
+      "candidate_members": [
+        "CompactStar-EKU-20261010/verification/sources/CompactStar/docs/adr/ADR-0011-particle-number-structural-response.md"
+      ],
+      "status": "LISTED"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/correction-handoff-final-20261012.zip",
+      "members": 9,
+      "candidate_members": [],
+      "status": "LISTED"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/mac-confirmation-556fe30.zip",
+      "members": 16,
+      "candidate_members": [],
+      "status": "LISTED"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/mac-confirmation-final-20261012.zip",
+      "members": 17,
+      "candidate_members": [],
+      "status": "LISTED"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/mac-confirmation-44d51e5.zip",
+      "members": 16,
+      "candidate_members": [],
+      "status": "LISTED"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-handoff-20261019/ba13-closure-review.tar.gz",
+      "members": 226,
+      "candidate_members": [],
+      "status": "LISTED"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-final-decision-handoff-20261030/ba13-final-decision-evidence.tar.gz",
+      "members": 81,
+      "candidate_members": [],
+      "status": "LISTED"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-evidence-handoff-20261026/ba13-evidence-artifacts.tar.gz",
+      "members": 105,
+      "candidate_members": [],
+      "status": "LISTED"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom-handoff-20261016/ba13-headroom-artifacts.tar.gz",
+      "members": 394,
+      "candidate_members": [],
+      "status": "LISTED"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-acceptance-20261109-r1/historical-source.tar",
+      "status": "UNREADABLE",
+      "reason": "file could not be opened successfully"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/native-ba13-candidate-20261012.tar.gz",
+      "members": 332,
+      "candidate_members": [],
+      "status": "LISTED"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/native-static-inputs.tar.gz",
+      "members": 294,
+      "candidate_members": [],
+      "status": "LISTED"
+    }
+  ]
+}

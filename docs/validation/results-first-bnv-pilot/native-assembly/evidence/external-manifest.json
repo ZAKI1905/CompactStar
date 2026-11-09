@@ -1,0 +1,250 @@
+{
+  "root": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-native-assembly-20261109-r1",
+  "files": [
+    {
+      "path": "archive-coverage.json",
+      "bytes": 555,
+      "sha256": "73ad270ef7b0669e6d932ba7f57a404bcd68650ae32b0f6d78e94d05721ff398"
+    },
+    {
+      "path": "archive-members-0.txt",
+      "bytes": 97,
+      "sha256": "ce43fb746d15b9f3da5ad1cd22d2af1c6c4937690d222bc90716b20504681f0c"
+    },
+    {
+      "path": "archive-members-1.txt",
+      "bytes": 37828,
+      "sha256": "5f9a415e6e950eaac223bd8430e3531338a5543de86993975c6cc2a094abb952"
+    },
+    {
+      "path": "archive-members-10.txt",
+      "bytes": 4670,
+      "sha256": "05fae962e47d6f84cdd20ca08102ca0032acfd33582bece4940c98c56c855ef9"
+    },
+    {
+      "path": "archive-members-11.txt",
+      "bytes": 4850,
+      "sha256": "80e4800aa63c5f268e147a80d87994d0625a06f6a0762bbcace32977fd2f4042"
+    },
+    {
+      "path": "archive-members-12.txt",
+      "bytes": 13291,
+      "sha256": "1c04be60baff832c2c4a3d3a05f4c2ecc814be7458bf64b10869db6bfc2d4764"
+    },
+    {
+      "path": "archive-members-14.txt",
+      "bytes": 14957,
+      "sha256": "a9f9d42fb6c8cd0ece122a41d25da3fc30b1d2747eefe2105d5e1634e2c4563c"
+    },
+    {
+      "path": "archive-members-15.txt",
+      "bytes": 14021,
+      "sha256": "fc5c2a0c0c68205c8e1835d5b847e025fae8d3f3f8e4a3eae5326d9208b6d50a"
+    },
+    {
+      "path": "archive-members-2.txt",
+      "bytes": 68880,
+      "sha256": "c3f47fb0d0c226f734c28d0bba53824af503480b3e7c6a558f6b7e937b4e6f1b"
+    },
+    {
+      "path": "archive-members-3.txt",
+      "bytes": 3887,
+      "sha256": "585a7d54598516c91a5ac4395cfdc0c59ef36c0fe2e7f76f99384c59086f064e"
+    },
+    {
+      "path": "archive-members-4.txt",
+      "bytes": 215535,
+      "sha256": "33af72981527e6e4c2efaab209fedb38ee36d9617a34a066477944a469b06088"
+    },
+    {
+      "path": "archive-members-5.txt",
+      "bytes": 471,
+      "sha256": "33a9003ac90916fdb3bf31a80b1519d91e2f7045c8c0a04f15a71eb4bb861393"
+    },
+    {
+      "path": "archive-members-6.txt",
+      "bytes": 903,
+      "sha256": "c294f305f0fce8eda5decb87800ab32bf94d349be92332d8c206e4597a4caf75"
+    },
+    {
+      "path": "archive-members-7.txt",
+      "bytes": 1086,
+      "sha256": "1b5ad9f68e18214c7e724b01ea8a295abf8dd0803324e00fb8ecd61390eb089c"
+    },
+    {
+      "path": "archive-members-8.txt",
+      "bytes": 903,
+      "sha256": "f4909c0589e094ed77b57fa970f1f42a9bdfb2702254d9bae189c4f6e7d28140"
+    },
+    {
+      "path": "archive-members-9.txt",
+      "bytes": 12134,
+      "sha256": "26a2379e0e936165e1683697812db4c2b03b289a4b998e27248eec06a5043f28"
+    },
+    {
+      "path": "archive-search.json",
+      "bytes": 3182,
+      "sha256": "abf4853510dbeda7138873dcd3594c6a12441a9623ab1c0be509e9c2af8fe1ac"
+    },
+    {
+      "path": "cluster-file-list.txt",
+      "bytes": 7042624,
+      "sha256": "8b9fdfce435fddee1c9bc90c46c4ff2a6ccacbe733f3b7aaf6ecfcc23ec214d1"
+    },
+    {
+      "path": "composition-reconstruction.json",
+      "bytes": 1489,
+      "sha256": "2eb0d27dc33338f51c48c4516c1589569bd5b8aff6ff1b30843c5beda6f04252"
+    },
+    {
+      "path": "git-all-historical-paths.txt",
+      "bytes": 420415,
+      "sha256": "b2f1e2af132667ca6138a8be3764bbab0663972324c8a04bbeb005ff9461021e"
+    },
+    {
+      "path": "git-history-path-scan.json",
+      "bytes": 637,
+      "sha256": "b0cc1096f445e6530fa8859ccae8e785f7979487bc521acd63f27e687a66ac2e"
+    },
+    {
+      "path": "git-object-paths.txt",
+      "bytes": 971376,
+      "sha256": "db799e7d46238fc21649fd914142c7e12822240c94c246eaa1f6e1c48e2a99f0"
+    },
+    {
+      "path": "git-object-scan.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "git-reconstruction-candidates.txt",
+      "bytes": 923,
+      "sha256": "52c1720a36e2a7105a1950e765321781b0e1aad976ca6c1eeda4d6d7cdac8c97"
+    },
+    {
+      "path": "historical-preservation.log",
+      "bytes": 10604,
+      "sha256": "df1c072f6106f3e9783681360f80adc88903c5abd1bbc4c8fc3eab1afa6c68b6"
+    },
+    {
+      "path": "history-coverage.json",
+      "bytes": 241994,
+      "sha256": "40986a40b03c547fba57c736799df2c1c91e6558595b5f5800d7804d0fde46ff"
+    },
+    {
+      "path": "input-inventory-final.json",
+      "bytes": 11911,
+      "sha256": "c431771d7dcdf406e9b0db638c72dc112a5b80db88bffd9ee042997fc6bc8e2a"
+    },
+    {
+      "path": "input-inventory.json",
+      "bytes": 11921,
+      "sha256": "1f8e59acd7e1ccda85048a0f3272230f5be2f24a218b9ea42962ad48fcea3041"
+    },
+    {
+      "path": "interior-coverage.json",
+      "bytes": 96925,
+      "sha256": "ba4c4305e2e725652ba9b247b65328590082731f1a1272c9a10b1de57e333232"
+    },
+    {
+      "path": "large-interior-candidates.txt",
+      "bytes": 97914,
+      "sha256": "48b97c8a57667add05b37ab80b5aa1b09f352d90715119503e249552969d5484"
+    },
+    {
+      "path": "native-ba13-candidate-20261012.tar.gz.members.json",
+      "bytes": 35512,
+      "sha256": "1d7156a24aa780808974cd8a47ff73267f5a795afdd99985768129e9a8b63887"
+    },
+    {
+      "path": "native-static-inputs.tar.gz.members.json",
+      "bytes": 32239,
+      "sha256": "863348597d47efe9d3da709ff78f01e74ca5e14159b260d6b6fd8fdaf3ba97e8"
+    },
+    {
+      "path": "other-interior-headers.json",
+      "bytes": 26279,
+      "sha256": "393e0d29259425d5daff7e4b5b2ce132a516954c9929141642bbe38e0267cf7d"
+    },
+    {
+      "path": "passive_checkpoint_output_contract.ldd.txt",
+      "bytes": 855,
+      "sha256": "a97b1737a96e297da886967c251a36b183983d2f0a415a14997d1a8cafa14131"
+    },
+    {
+      "path": "passive_checkpoint_output_contract.log",
+      "bytes": 81,
+      "sha256": "7b069f1391e332cc343eb18eb4883aefe4ace33d981c2421e33553da175c2a3f"
+    },
+    {
+      "path": "phase5b-candidate-review.json",
+      "bytes": 9378,
+      "sha256": "c5e27bc3c57a8da6872cc40590e73663e600b121614ecc619145e255f96604f0"
+    },
+    {
+      "path": "phase5d_component_tolerances.ldd.txt",
+      "bytes": 855,
+      "sha256": "899bc863993c59925ac18dedd62981ddc8e04d05d0222326bfbc2b88cbcfc4e5"
+    },
+    {
+      "path": "phase5d_component_tolerances.log",
+      "bytes": 110,
+      "sha256": "e204740d5486c1671886f3df6cbaf17bbb23f3a72e54212bd066aa593eee49da"
+    },
+    {
+      "path": "phase6_breakpoint_contract.ldd.txt",
+      "bytes": 855,
+      "sha256": "b9a2b7ea410c04412e0020a67c7ebb372996367b1eb847b34f2fb4499ac2d423"
+    },
+    {
+      "path": "phase6_breakpoint_contract.log",
+      "bytes": 96,
+      "sha256": "fd593278a7b4467499172b88db13a241da37435f38d62d28a833bbcb391177fd"
+    },
+    {
+      "path": "phase6_currentness_bytes.ldd.txt",
+      "bytes": 855,
+      "sha256": "071381d512b458c56664b309f08c1bd35ce90afe6736822fae6ec48a288d3900"
+    },
+    {
+      "path": "phase6_currentness_bytes.log",
+      "bytes": 253,
+      "sha256": "929368c6967fb408130409b64b3554384da64b465e35436876124736d804358c"
+    },
+    {
+      "path": "phase6a1_direct_energy.ldd.txt",
+      "bytes": 855,
+      "sha256": "2bbbde5639b9fab96492e4c1932af985cf30a01550eb6dd7d246f119ca817626"
+    },
+    {
+      "path": "phase6a1_direct_energy.log",
+      "bytes": 216,
+      "sha256": "f6f18f5e5ecf81bad2f02ca09dfe4d6c0b215f73e4e8926eac6b0f9dbfd11702"
+    },
+    {
+      "path": "phase6a1_thermal_ledger.ldd.txt",
+      "bytes": 855,
+      "sha256": "51a7a93fb863c58fdebf9c6b9fef3890562f17cd44e2afd3ab32865c93daf82a"
+    },
+    {
+      "path": "phase6a1_thermal_ledger.log",
+      "bytes": 377,
+      "sha256": "dfbdb0b297992ec86d85dc6ceb749f58a3b3e56718efa41727b7e1d313370a84"
+    },
+    {
+      "path": "reconstruction-candidates.txt",
+      "bytes": 2017,
+      "sha256": "51591af13ef175fbe458eaa20212d653bcb1177c0e4fb6b9282e59b9e911bccd"
+    },
+    {
+      "path": "retained-contract-results.json",
+      "bytes": 2420,
+      "sha256": "c356f5eca2bfdd627f15aa519be10a9b9bbb02e03aff7abb3118d810520fc533"
+    },
+    {
+      "path": "source-preflight.json",
+      "bytes": 3905,
+      "sha256": "995f123ce1e7feb1d58050e274783125ae623ecd326d356d085b7259292600a6"
+    }
+  ]
+}
