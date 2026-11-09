@@ -33,4 +33,4 @@ cmake -S "$RF_SOURCE" -B "$build" -DCMAKE_BUILD_TYPE=Release \
   > "$RF_OUTPUT/configure.log" 2>&1
 python3 tools/linux/native_pair/authenticate.py > "$RF_OUTPUT/authentication.json"
 "$TC/python/bin/python" -I -B "$RF_SOURCE/tools/linux/measure.py" cmake --build "$build" \
-  --target native_p2_regenerate native_p2_verify phase6a1_direct_energy phase6a1_thermal_ledger passive_checkpoint_output_contract phase6_breakpoint_contract phase5d_component_tolerances phase6_currentness_bytes -j4 > "$RF_OUTPUT/build.log" 2>&1
+  --target native_p2_regenerate native_p2_verify native_p2_stage phase6a1_direct_energy phase6a1_thermal_ledger passive_checkpoint_output_contract phase6_breakpoint_contract phase5d_component_tolerances phase6_currentness_bytes -j4 > "$RF_OUTPUT/build.log" 2>&1

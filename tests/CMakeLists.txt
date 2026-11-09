@@ -777,3 +777,6 @@ add_executable(native_p2_regenerate native/regenerate.cpp)
 target_link_libraries(native_p2_regenerate PRIVATE CompactStar)
 add_executable(native_p2_verify native/verify.cpp)
 target_link_libraries(native_p2_verify PRIVATE CompactStar)
+
+add_executable(native_p2_stage native/stage.cpp)
+target_link_libraries(native_p2_stage PRIVATE CompactStar)

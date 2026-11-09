@@ -15,6 +15,7 @@ int main(int argc,char** argv) {
     std::ofstream out(argv[9]);out<<std::setprecision(17);
     out<<"role\tt_s\tx\teta_e\teta_mu\txdot\tetadot_e\tetadot_mu\tPdir\tPnet\tCstar\tLgamma\tR18\tBdot\n";
     std::size_t identity=0;
+    std::vector<BNV::BnvDiagnostics> source_diagnostics;std::size_t comparison=0;
     for(const auto& context:{pair.source,pair.control}) {
       ActualCheckpointContext evaluation(context,++identity);
       require(!evaluation.Breakpoints().empty(),"missing Cstar breakpoint metadata");
@@ -25,9 +26,17 @@ int main(int argc,char** argv) {
         const double G=std::max(1.0,std::abs(d.P_dir_actual_erg_s)+std::abs(d.LH_erg_s)+std::abs(d.DeltaLnu_erg_s)+std::abs(d.Lnu_eq_erg_s)+std::abs(d.Lgamma_erg_s)+std::abs(d.Lother_erg_s)+std::abs(d.L_out_fluid_inf_erg_s));
         require(std::abs(d.R18_residual_erg_s)<=1e-10*G,"R18 energy contract");
         if(context==pair.control) {
+          const auto& source=source_diagnostics.at(comparison++);
+          require(source.Cstar_erg_K==d.Cstar_erg_K&&source.Lgamma_erg_s==d.Lgamma_erg_s&&source.LH_erg_s==d.LH_erg_s&&source.DeltaLnu_erg_s==d.DeltaLnu_erg_s&&source.Lnu_eq_erg_s==d.Lnu_eq_erg_s&&source.R_count_s==d.R_count_s,"source contaminated ordinary physics");
+          RunState ordinary(context->OrdinaryContext());EV::UnpackStateVector(ordinary.state,ordinary.layout,state.data());
+          const auto ordinary_rhs=context->OrdinaryContext()->Evaluate(t,ordinary.state,ordinary.ctx,context->SpinOwner().get());
+          require(rhs[0]==ordinary_rhs.x_dot_s&&rhs[1]==ordinary_rhs.eta_dot_MeV_s[0]&&rhs[2]==ordinary_rhs.eta_dot_MeV_s[1],"control differs from ordinary RHS");
           require(d.Bdot_count_s==0&&d.P_dir_actual_erg_s==0&&d.sigma_count_s==std::array<double,2>{{0,0}},"nonzero control source");
           if(eta[0]==0)require(rhs[1]==0&&rhs[2]==0,"zero control equilibrium drift");
-        } else require(d.Bdot_count_s==-2.413652026364133e37&&d.P_dir_actual_erg_s>0,"source drive mismatch");
+        } else {
+          require(d.Bdot_count_s==-2.413652026364133e37&&d.P_dir_actual_erg_s>0,"source drive mismatch");
+          source_diagnostics.push_back(d);
+        }
         // Restart state transport at a static state: validates representation, not trajectory accuracy.
         std::stringstream saved;saved<<std::setprecision(17)<<t;for(double v:state)saved<<' '<<v;
         double rt;BNV::CheckpointState restored,rr;saved>>rt;for(auto& v:restored)saved>>v;
@@ -41,7 +50,6 @@ int main(int argc,char** argv) {
     }
     out.flush();require(bool(out),"static report write failed");
     // Revoking any contributing profile must still invalidate the full pair.
-    sequence->contributing_stars.back()->GetSequence(); // mutable accessor version behavior is not assumed
     auto* last=sequence->contributing_stars.back().get();
     last->GetRho_i(std::string("10"));
     MustRefuse([&]{pair.source->RequireFullCurrent();},"mutated neighboring profile");

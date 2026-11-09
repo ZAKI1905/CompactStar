@@ -35,6 +35,15 @@ BreakpointTest::Pair NativePair(const Inputs& inputs, const std::shared_ptr<Equi
     auto q=Campaign::Qualification(inputs.profile,inputs.certificate,inputs.entry);
     q.background_inputs=RC::QualifiedBackgroundInputs::NativeStructure1;
     auto ordinary=Context(fixture,channels,thermal,spin,q,run_token);
+    auto historical=q;historical.background_inputs=RC::QualifiedBackgroundInputs::HistoricalStructure1;
+    MustRefuse([&]{Context(fixture,channels,thermal,spin,historical,run_token);},"historical Mac binding cannot substitute native owner");
+    auto missing=q;missing.certificate_path=(inputs.work/"missing-certificate").string();
+    MustRefuse([&]{Context(fixture,channels,thermal,spin,missing,run_token);},"missing chemical certificate");
+    auto foreign=q;foreign.certificate_path=inputs.entry.string();
+    MustRefuse([&]{Context(fixture,channels,thermal,spin,foreign,run_token);},"foreign chemical certificate");
+    MustRefuse([&]{Phase6A1Test::LoadFrozenMonitor(inputs.work/"missing-frozen",tangent,bnv_token);},"missing frozen certificate");
+    auto bad_rows=Phase6A1Test::ReadFrozenCertificateRows(inputs.frozen);bad_rows[0].B_solved_count*=1.001;
+    MustRefuse([&]{BNV::FrozenSensitivityCertificate bad(B0,tangent->StarIdentity(),tangent->DomainIdentity(),"mismatch test",bnv_token,bad_rows);},"mismatched frozen owner");
     const double mu_B=Campaign::Column(inputs.coefficients,"mu_B_inf");
     const double Bdot=card.fractional_drive_per_year*tangent->B0Count()/Year;
     require(Bdot==-2.413652026364133e37,"native P2 Bdot changed");
