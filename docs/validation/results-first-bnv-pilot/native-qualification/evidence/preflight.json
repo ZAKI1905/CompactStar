@@ -1,0 +1,50 @@
+{
+  "time_utc": "2026-11-09T08:53:18.706225+00:00",
+  "repository": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot",
+  "branch": "candidate/results-first-bnv-pilot-20261108",
+  "head": "3436063dec533d0e7be7b9f01b74e95c64fd0da2",
+  "initial_status": "clean",
+  "worktrees": [
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar                8e6ac58 [candidate/linux-ba13-recovery-20261012]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-closure             093d121 [candidate/linux-ba13-closure-20261019]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence            84e1062 [candidate/linux-ba13-evidence-20261026]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision      bb0f9c5 [candidate/linux-ba13-final-decision-20261030]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot         dad05b1 [candidate/linux-ba13-onset-pilot-20261013]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-uncertainty         4f3cf97 [candidate/linux-ba13-uncertainty-20261012]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot  3436063 [candidate/results-first-bnv-pilot-20261108]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor         6cc7e20 [candidate/linux-x1-oracle-anchor-20261016]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step            286aafb [candidate/linux-x2-fixed-step-20261016]"
+  ],
+  "branch_ancestry": {
+    "refs/heads/candidate/linux-ba13-closure-20261019": true,
+    "refs/heads/candidate/linux-ba13-evidence-20261026": true,
+    "refs/heads/candidate/linux-ba13-final-decision-20261030": true,
+    "refs/heads/candidate/linux-ba13-onset-pilot-20261013": true,
+    "refs/heads/candidate/linux-ba13-recovery-20261012": true,
+    "refs/heads/candidate/linux-ba13-uncertainty-20261012": true,
+    "refs/heads/candidate/linux-qualification-corrections-20261011": true,
+    "refs/heads/candidate/linux-transition-20261010": true,
+    "refs/heads/candidate/linux-x1-oracle-anchor-20261016": true,
+    "refs/heads/candidate/linux-x2-fixed-step-20261016": true,
+    "refs/heads/candidate/results-first-bnv-pilot-20261108": true,
+    "refs/heads/docs/phase6-cluster-preparation": true,
+    "refs/heads/master": true,
+    "refs/heads/physics/phase6-bnv-campaign-readiness": true,
+    "refs/heads/physics/phase6-breakpoint-aware-evolution": true
+  },
+  "snapshot_sha256": {
+    "source": "93f1dab5269eb36259598839426f33ce28132430ea92602c4892317d832e48d8",
+    "control": "fe692927032cc1387e9bbc404d12615d4c170f07c4abd79fdf036ece6a8a94cc"
+  },
+  "authorization": "Owner authorized Stage A 1 year and Stage B 2048 years only after Stage A passes all applicable gates; stop on first failure, no retuning or automatic extension.",
+  "resource_ceiling": {
+    "cpus": 1,
+    "memory_GiB": 4,
+    "wall_minutes": 30
+  },
+  "change_classes": [
+    "generated artifact",
+    "documentation",
+    "engineering: evidence analysis only"
+  ]
+}

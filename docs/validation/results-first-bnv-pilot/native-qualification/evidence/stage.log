@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_pair/snapshot.py", line 99, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_pair/snapshot.py", line 93, in main
+    pair=load_pair(a.directory)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_pair/snapshot.py", line 20, in load_pair
+    if digest(item['path'])!=item['sha256']:raise ValueError('missing/mismatched authenticated dependency: '+item['path'])
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: missing/mismatched authenticated dependency: /usr/lib64/ld-linux-x86-64.so.2
+RESOURCE_USAGE_JSON {"command": ["/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python", "-B", "tools/linux/native_pair/snapshot.py", "stage", "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/native-regeneration/snapshots", "1", "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-qualification-1yr-r1/run"], "exit_code": 1, "elapsed_seconds": 0.6652049198746681, "user_cpu_seconds": 0.238702, "system_cpu_seconds": 0.119861, "max_rss_kib": 19220, "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"}
