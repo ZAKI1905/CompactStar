@@ -1,0 +1,1 @@
+checkpoint=0 time_s=0 status=QUALIFIED

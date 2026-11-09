@@ -1,0 +1,2 @@
+checkpoint=1 time_s=0.5 status=NUMERICALLY_UNRESOLVED
+FAIL diagnostic Echem (whole-star chemical free energy (not a power), MeV): U <= 0.20 F; U=15999999.999999998 F=9.9999999999999994e-12 threshold=2e-12 U/F=1.6e+18 utilization=7.999999999999999e+18 O1=0 O2=0 d=0 64ulp=3.1620201333839779e-322 propagated=15999999.999999998

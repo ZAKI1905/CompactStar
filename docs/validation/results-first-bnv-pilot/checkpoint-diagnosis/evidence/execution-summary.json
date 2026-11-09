@@ -1,0 +1,14 @@
+{
+  "build_job": 19175,
+  "replay_job": 19176,
+  "original_main_sha256": "4b854db1b18eb3e3332a071472b9ba7355a09cac77e20f6e984f1ea699f4a19f",
+  "replayed_main_sha256": "4b854db1b18eb3e3332a071472b9ba7355a09cac77e20f6e984f1ea699f4a19f",
+  "exact_main_identity": true,
+  "original_failure_preserved": true,
+  "build_manifest_sha256": "af46ed2e2b22da2cf688be7f3827a5d8512125aab716d4cfa192a735869c51ab",
+  "status": "REPRODUCED_DIAGNOSTIC_REFUSAL_NOT_QUALIFICATION_PASS",
+  "new_source_main_trajectories": 1,
+  "new_reference_trajectories": 0,
+  "new_control_trajectories": 0,
+  "later_checkpoints": 0
+}

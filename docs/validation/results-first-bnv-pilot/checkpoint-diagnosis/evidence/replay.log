@@ -1,0 +1,48 @@
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+PB13 envelope R_upper=12.768154903368297 m_upper=0.92093273643869789 s_prime_upper=0.007100883194399092 phat_upper=31.80548905802204 phat_lower=31.77447563495048 xihat_upper=4818.0911316987376 mhat_upper=473.08533779464295
+ASSEMBLY G begin
+ASSEMBLY G passed
+ASSEMBLY Z begin
+ASSEMBLY Z passed
+PB13 envelope R_upper=12.768154903368297 m_upper=0.92093273643869789 s_prime_upper=0.007100883194399092 phat_upper=31.80548905802204 phat_lower=31.77447563495048 xihat_upper=4818.0911316987376 mhat_upper=473.08533779464295
+REFUSAL historical Mac binding cannot substitute native owner : qualification source hash mismatch
+REFUSAL missing chemical certificate : missing source: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-checkpoint-diagnosis-20261109-r1/replay/assembly/missing-certificate
+REFUSAL foreign chemical certificate : qualification source hash mismatch
+REFUSAL missing frozen certificate : missing frozen certificate TSV
+REFUSAL mismatched frozen owner : frozen certificate achieved-B identity failed
+checkpoint=1 time_s=131490 status=NUMERICALLY_UNRESOLVED
+FAIL diagnostic Echem (whole-star chemical free energy (not a power), MeV): U <= 0.20 F; U=4.5873384329419162e+17 F=2.8395321373652749e+17 threshold=56790642747305504 U/F=1.6155261539664711 utilization=8.0776307698323553 O1=2.8395321373652751e+28 O2=2.8395321373652751e+28 d=0 64ulp=281474976710656 propagated=4.581708933407703e+17
+
+A total of 0 errors, and 0 warnings were generated.
+STOP diagnostic replay stopped at first unresolved checkpoint; evidence persisted
+RESOURCE_USAGE_JSON {"command": ["/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python", "-B", "tools/linux/native_qualification/run_diagnostic.py", "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-checkpoint-diagnosis-20261109-r1/build", "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-qualification-1yr-r2", "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-checkpoint-diagnosis-20261109-r1/replay"], "exit_code": 1, "elapsed_seconds": 113.73870588839054, "user_cpu_seconds": 108.936083, "system_cpu_seconds": 4.038347, "max_rss_kib": 435676, "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"}
+srun: error: phyn004: task 0: Exited with exit code 1

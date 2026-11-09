@@ -1,0 +1,4 @@
+channel	units	O1	O2	d_O	D_O1	F_O	F_i	U_O	U_event	propagated_state_radius	threshold	utilization	pass
+x	dimensionless	0	0	0	0	0	0	0	0	0	0	0	1
+eta_e	MeV	0	0	0	0	0	0	0	0	0	0	0	1
+eta_mu	MeV	0	0	0	0	0	0	0	0	0	0	0	1

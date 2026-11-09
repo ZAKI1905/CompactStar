@@ -1,0 +1,293 @@
+{
+  "Echem_algebra": {
+    "Echem_MeV": "28395321373652749379421129940.93610178365413807346806778603988404801529685179850855896432327748229182",
+    "bound_caveat": "Linearized necessary budget estimate only; omits witness/roundoff/event contributions and is not an accepted tolerance change.",
+    "center_binary64_absolute_error_MeV": "1881227866923.06389821634586192653193221396011595198470314820149144103567672251770818",
+    "corner_envelope_binary64_difference_MeV": "3619565307508.44227816245204107131866910689424411549575634471168064068662892816505778",
+    "decimal_operands": "exact binary64 coefficients/states reconstructed from serialized decimals",
+    "decimal_propagated_MeV": "458167273775462795.55772183754795892868133089310575588450424365528831935931337107183494222",
+    "determinant_condition": "1.001138585007878450054284623833708315023649963813700020096043744180202992955774867286970474594308478",
+    "first_checkpoint_common_O2_chemical_atol_upper_bound_MeV": "7.841422681709920506210648926300557371543144244351576164691565413589336992076642665989076523151711000E-26",
+    "linear_propagation_from_atol_MeV": "434543411718662184.1594426965722894387076253778635077903512727816100622230313000451365221467726997624",
+    "linear_propagation_from_rtol_MeV": "22716257098922200.19351471722819921928802497996237640743458066375693170413315834715490151254222778546",
+    "linear_propagation_full_box_MeV": "458169540344332300.7543874253610321788890429495922764958915489763502521455188669347517991694411254828",
+    "maximum_corner_algebra_roundoff_MeV": "6731891933992.16934631955979172284398949605117434727617899819284688969322744930963359",
+    "precision_digits": 100,
+    "quadratic_numerator_condition": "1.040518459567814442047027018741897661444417604216920343667509846002134533271478163217804741904767030",
+    "recorded_Echem_MeV": "2.8395321373652751e+28",
+    "recorded_propagated_MeV": "4.581708933407703e+17"
+  },
+  "Echem_measured_vs_estimated": {
+    "atol_linear_fraction_of_propagated": 0.9484308541517611,
+    "atol_linear_utilization": 7.65167271749675,
+    "primary_witness_disagreement_utilization": 0.0,
+    "propagated_fraction": 0.9987728179168585,
+    "reference_disagreement_utilization": 0.0005421020803500008,
+    "rtol_linear_utilization": 0.39999999999999997
+  },
+  "checkpoint": {
+    "O1_atol": [
+      1e-17,
+      1e-23,
+      1e-23
+    ],
+    "O1_rtol": 1e-12,
+    "O1_state": [
+      3.085359261716406e-07,
+      -4.539313908623407e-13,
+      -1.1514529788213765e-12
+    ],
+    "O2_atol": [
+      1e-18,
+      1e-24,
+      1e-24
+    ],
+    "O2_rtol": 1e-13,
+    "O2_state": [
+      3.085359261716406e-07,
+      -4.539313908623407e-13,
+      -1.1514529788213765e-12
+    ],
+    "checkpoint_index": 1,
+    "criterion": "diagnostic U=2 max(|O2-O1|,64ulp)+propagated_state_uncertainty <= 0.20 F",
+    "independent_method_invocations": 1,
+    "main_accepted_step_s": 332329.3056960102,
+    "main_at_checkpoint": "No exact main state exists in strict interior; O2 is reconstructed candidate, main bracketing states are above",
+    "main_atol": [
+      1e-12,
+      1e-18,
+      1e-18
+    ],
+    "main_cumulative_rejected": 0,
+    "main_initial_step_s": 1,
+    "main_left_state": [
+      1.9994741588025735e-07,
+      -2.941712506619656e-13,
+      -7.462016759025513e-13
+    ],
+    "main_left_time_s": 85212.38607590004,
+    "main_local_rk_error": [
+      4.194585550765199e-24,
+      0,
+      3.200214806186828e-29
+    ],
+    "main_maximum_step_s": null,
+    "main_right_state": [
+      9.797438132379694e-07,
+      -1.4414423611732796e-12,
+      -3.656396277150883e-12
+    ],
+    "main_right_time_s": 417541.69177191023,
+    "main_rtol": 1e-07,
+    "main_step_ordinal": 9,
+    "main_suggested_next_h_s": 1628413.59791045,
+    "method": "breakpoint-rk8pd-with-independent-witness",
+    "normalization": "G=max(1 erg/s, gross power sum for O1 and O2); power F=max(1e-11 G, 1e-11 max(1,|O1|,|O2|),64ulp); nonpower F=max(1e-11 max(1,|O1|,|O2|),64ulp). Existing Lout branch is nonpower. Echem is MeV, not erg.",
+    "refinement_invocations": 1,
+    "state": [
+      3.085359261716406e-07,
+      -4.539313908623407e-13,
+      -1.1514529788213765e-12
+    ],
+    "time_s": 131490
+  },
+  "failed_channels": [
+    {
+      "64ulp": "281474976710656",
+      "F": "2.8395321373652749e+17",
+      "G_erg_s": "3.6549335738821012e+34",
+      "O1": "2.8395321373652751e+28",
+      "O2": "2.8395321373652751e+28",
+      "U": "4.5873384329419162e+17",
+      "U_over_F": "1.6155261539664711",
+      "channel": "Echem",
+      "d_O": "0",
+      "pass": "0",
+      "propagated_state_term": "4.581708933407703e+17",
+      "quantity": "whole-star chemical free energy (not a power)",
+      "reference_0": "2.839532137365272e+28",
+      "reference_1": "2.8395321373652742e+28",
+      "reference_2": "2.8395321373652738e+28",
+      "reference_3": "2.8395321373652742e+28",
+      "reference_4": "2.8395321373652742e+28",
+      "threshold": "56790642747305504",
+      "units": "MeV",
+      "utilization": "8.0776307698323553",
+      "witness_or_roundoff_term": "562949953421312"
+    }
+  ],
+  "finest_grid_first_checkpoint_necessary_budget": {
+    "caveat": "Linearized necessary bound from retained reference, before witness/event/roundoff costs; no checkpoint replay or tolerance change performed.",
+    "common_O2_chemical_atol_upper_bound_MeV": "9.801778911510820181898654447926507244219890826396407005023963788062134058497870965910154111326845694E-27",
+    "current_O2_chemical_atol_MeV": 1e-24,
+    "time_s": 16436.25
+  },
+  "interpretation": "Local data diagnose estimator contributions; no global accuracy or accumulated-roundoff certification is inferred.",
+  "local_rhs_evaluations_by_context": {
+    "2": 15,
+    "3": 15,
+    "4": 29,
+    "5": 29
+  },
+  "local_witness_settings": {
+    "independent": {
+      "atol": [
+        1e-19,
+        1e-25,
+        1e-25
+      ],
+      "cap": "local span / 4",
+      "method": "RKF45",
+      "rtol": 1e-14
+    },
+    "refinement": {
+      "atol": [
+        1e-19,
+        1e-25,
+        1e-25
+      ],
+      "cap": "local span / 2",
+      "method": "rk8pd",
+      "rtol": 1e-14
+    },
+    "source": "PassiveCheckpointOutput.cpp Reconstruct, unchanged library"
+  },
+  "observed_reference_agreement": {
+    "Cstar": {
+      "maximum_difference_from_O2": 0.0,
+      "range": 0.0
+    },
+    "DeltaLnu": {
+      "maximum_difference_from_O2": 6.103515625e-05,
+      "range": 4.57763671875e-05
+    },
+    "DeltaPbeta": {
+      "maximum_difference_from_O2": 1.52587890625e-05,
+      "range": 3.0517578125e-05
+    },
+    "Echem": {
+      "maximum_difference_from_O2": 30786325577728.0,
+      "range": 21990232555520.0
+    },
+    "LH": {
+      "maximum_difference_from_O2": 7.62939453125e-05,
+      "range": 6.103515625e-05
+    },
+    "Lgamma": {
+      "maximum_difference_from_O2": 0.0,
+      "range": 0.0
+    },
+    "Lnu_eq": {
+      "maximum_difference_from_O2": 0.0,
+      "range": 0.0
+    },
+    "Lnu_full": {
+      "maximum_difference_from_O2": 0.0,
+      "range": 0.0
+    },
+    "Lother": {
+      "maximum_difference_from_O2": 0.0,
+      "range": 0.0
+    },
+    "Lout": {
+      "maximum_difference_from_O2": 0.0,
+      "range": 0.0
+    },
+    "P_dir_actual": {
+      "maximum_difference_from_O2": 0.0,
+      "range": 0.0
+    },
+    "P_dir_eq": {
+      "maximum_difference_from_O2": 0.0,
+      "range": 0.0
+    },
+    "Pnet": {
+      "maximum_difference_from_O2": 0.0,
+      "range": 0.0
+    },
+    "Tinf": {
+      "maximum_difference_from_O2": 0.0,
+      "range": 0.0
+    },
+    "mu_B": {
+      "maximum_difference_from_O2": 0.0,
+      "range": 0.0
+    },
+    "mu_n_actual": {
+      "maximum_difference_from_O2": 0.0,
+      "range": 0.0
+    },
+    "sigma_e": {
+      "maximum_difference_from_O2": 0.0,
+      "range": 0.0
+    },
+    "sigma_mu": {
+      "maximum_difference_from_O2": 0.0,
+      "range": 0.0
+    }
+  },
+  "state_budgets": [
+    {
+      "D_O1": "1.0308535926171642e-17",
+      "F_O": "1.0308535926171641e-18",
+      "F_i": "1.0979743813237969e-16",
+      "O1": "3.0853592617164061e-07",
+      "O2": "3.0853592617164061e-07",
+      "U_O": "2.0617071852343281e-18",
+      "U_event": "3.4940109074239889e-21",
+      "channel": "x",
+      "d_O": "0",
+      "pass": "1",
+      "propagated_state_radius": "2.0652011961417521e-18",
+      "threshold": "2.195948762647594e-17",
+      "units": "dimensionless",
+      "utilization": "0.094045964608563862"
+    },
+    {
+      "D_O1": "1.045393139086234e-23",
+      "F_O": "1.0453931390862341e-24",
+      "F_i": "1.1441442361173279e-22",
+      "O1": "-4.5393139086234072e-13",
+      "O2": "-4.5393139086234072e-13",
+      "U_O": "2.0907862781724682e-24",
+      "U_event": "3.2311742677852644e-27",
+      "channel": "eta_e",
+      "d_O": "0",
+      "pass": "1",
+      "propagated_state_radius": "2.0940174524402534e-24",
+      "threshold": "2.2882884722346559e-23",
+      "units": "MeV",
+      "utilization": "0.091510204148138513"
+    },
+    {
+      "D_O1": "1.1151452978821377e-23",
+      "F_O": "1.1151452978821375e-24",
+      "F_i": "1.3656396277150884e-22",
+      "O1": "-1.1514529788213765e-12",
+      "O2": "-1.1514529788213765e-12",
+      "U_O": "2.2302905957642751e-24",
+      "U_event": "1.2924697071141057e-26",
+      "channel": "eta_mu",
+      "d_O": "0",
+      "pass": "1",
+      "propagated_state_radius": "2.2432152928354161e-24",
+      "threshold": "2.7312792554301767e-23",
+      "units": "MeV",
+      "utilization": "0.082130572638282259"
+    }
+  ],
+  "state_event_decomposition": {
+    "eta_e": {
+      "twice_independent_discrepancy": 0.0,
+      "ulp_floor": 3.2311742677852644e-27
+    },
+    "eta_mu": {
+      "twice_independent_discrepancy": 0.0,
+      "ulp_floor": 1.2924697071141057e-26
+    },
+    "x": {
+      "twice_independent_discrepancy": 1.0587911840678754e-22,
+      "ulp_floor": 3.3881317890172014e-21
+    }
+  }
+}
