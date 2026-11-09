@@ -1,0 +1,710 @@
+[  0%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/Analysis.cpp.o
+[  0%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/MixedStar.cpp.o
+[  3%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/Prog.cpp.o
+[  3%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/NStar.cpp.o
+[  3%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/Banner.cpp.o
+[  6%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/Pulsar.cpp.o
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/MixedStar.cpp: In member function 'double CompactStar::Core::MixedStar::Find_BaryonNum_Visible(const double&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/MixedStar.cpp:1189:56: warning: unused parameter 'in_r' [-Wunused-parameter]
+ 1189 | double MixedStar::Find_BaryonNum_Visible(const double &in_r)
+      |                                          ~~~~~~~~~~~~~~^~~~
+[  6%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/RotationSolver.cpp.o
+[  9%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/TaskManager.cpp.o
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/RotationSolver.cpp: In static member function 'static int CompactStar::Core::RotationSolver::ODE_Mixed_Out(double, const double*, double*, void*)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/RotationSolver.cpp:289:25: warning: unused variable 'rot_obj' [-Wunused-variable]
+  289 |         RotationSolver *rot_obj = (RotationSolver *)params;
+      |                         ^~~~~~~
+[  9%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/TOVSolver_Thread.cpp.o
+[  9%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/TOVSolver.cpp.o
+In file included from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/TaskManager.cpp:12:
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Extensions/MixedStar/DarkCore_Analysis.hpp: In member function 'virtual void CompactStar::DarkCore_Analysis::Analyze(CompactStar::Core::NStar*)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Extensions/MixedStar/DarkCore_Analysis.hpp:288:35: warning: unused parameter 'in_star' [-Wunused-parameter]
+  288 |         void Analyze(Core::NStar *in_star) override {}
+      |                      ~~~~~~~~~~~~~^~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/TaskManager.cpp: In function 'bool TrueCondition(const CompactStar::Core::MixedStar&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/TaskManager.cpp:29:37: warning: unused parameter 'in_star' [-Wunused-parameter]
+   29 | bool TrueCondition(const MixedStar &in_star)
+      |                    ~~~~~~~~~~~~~~~~~^~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/TaskManager.cpp: In member function 'void CompactStar::Core::TaskManager::Task(int) const':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/TaskManager.cpp:147:20: warning: comparison of integer expressions of different signedness: 'const int' and 'const size_t' {aka 'const long unsigned int'} [-Wsign-compare]
+  147 |         if (tsk_id == num_of_thrds)
+      |             ~~~~~~~^~~~~~~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/TaskManager.cpp: In member function 'void CompactStar::Core::TaskManager::FindCriticalCurve()':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/TaskManager.cpp:377:43: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  377 |                         for (int l = 0; l < divisions; l++)
+      |                                         ~~^~~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/TaskManager.cpp:250:16: warning: unused variable 'B_vis_min' [-Wunused-variable]
+  250 |         double B_vis_min = sequence_grid[6].Min();
+      |                ^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/TaskManager.cpp:253:16: warning: unused variable 'B_tot_max' [-Wunused-variable]
+  253 |         double B_tot_max = B_vis_max + B_dar_max;
+      |                ^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/TaskManager.cpp: In member function 'void CompactStar::Core::TaskManager::FindBtotContour(const double&, const std::vector<Zaki::Math::Coord2D>&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/TaskManager.cpp:537:16: warning: unused variable 'B_tot_max' [-Wunused-variable]
+  537 |         double B_tot_max = B_vis_max + B_dar_max;
+      |                ^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/TOVSolver.cpp: In member function 'void CompactStar::Core::TOVSolver::Solve_Mixed(const CompactStar::Core::Contour&, const Zaki::String::Directory&, const Zaki::String::Directory&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/TOVSolver.cpp:2174:22: warning: variable 'exp_decrease' set but not used [-Wunused-but-set-variable]
+ 2174 |                 bool exp_decrease = false;
+      |                      ^~~~~~~~~~~~
+[ 12%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/StarProfile.cpp.o
+[ 12%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Core/src/StarBuilder.cpp.o
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/StarBuilder.cpp: In function 'int CompactStar::Core::StarBuilder::BuildFromSequence(const Zaki::String::Directory&, const Zaki::String::Directory&, const std::string&, double, Output&, const Options&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/StarBuilder.cpp:146:22: warning: unused variable 'max_mass_in_seq' [-Wunused-variable]
+  146 |         const double max_mass_in_seq = seq_ds[mass_col].Max();
+      |                      ^~~~~~~~~~~~~~~
+[ 15%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Analysis/src/ParticleNumberResponse.cpp.o
+[ 15%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Analysis/src/ChemicalResponse.cpp.o
+[ 15%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Baryon.cpp.o
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Analysis/src/ParticleNumberResponse.cpp: In member function 'std::vector<double> CompactStar::Analysis::FixedBaryonNumberResponse::WholeStarIPhysical() const':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Analysis/src/ParticleNumberResponse.cpp:525:5: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+  525 |     for(auto &x:out) x*=inverse_c*inverse_c; return out;
+      |     ^~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Analysis/src/ParticleNumberResponse.cpp:525:46: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+  525 |     for(auto &x:out) x*=inverse_c*inverse_c; return out;
+      |                                              ^~~~~~
+In file included from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Baryon.hpp:44,
+                 from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/Baryon.cpp:9:
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Particle.hpp:160:24: warning: 'virtual double CompactStar::Particle::Mu()' was hidden [-Woverloaded-virtual=]
+  160 |         virtual double Mu();
+      |                        ^~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Baryon.hpp:117:16: note:   by 'double CompactStar::Baryon::Mu(const double&) const'
+  117 |         double Mu(const double &gsig) const;
+      |                ^~
+[ 18%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Common.cpp.o
+[ 18%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/CoulombLattice.cpp.o
+[ 21%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Fermi_Gas.cpp.o
+[ 21%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Lepton.cpp.o
+[ 21%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/LocalThermodynamics.cpp.o
+[ 24%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/TrackRFreeGasThermodynamics.cpp.o
+[ 24%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Model.cpp.o
+[ 24%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Particle.cpp.o
+[ 27%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Polytrope.cpp.o
+[ 27%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/SigmaOmega.cpp.o
+In file included from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Baryon.hpp:44,
+                 from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/Particle.cpp:8:
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Particle.hpp:160:24: warning: 'virtual double CompactStar::Particle::Mu()' was hidden [-Woverloaded-virtual=]
+  160 |         virtual double Mu();
+      |                        ^~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Baryon.hpp:117:16: note:   by 'double CompactStar::Baryon::Mu(const double&) const'
+  117 |         double Mu(const double &gsig) const;
+      |                ^~
+[ 30%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/SigmaOmegaPar.cpp.o
+[ 30%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/SigmaOmegaRho.cpp.o
+[ 30%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/CompOSE_EOS.cpp.o
+[ 33%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/CompOSE_Thermo.cpp.o
+[ 33%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp.o
+In file included from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Baryon.hpp:44,
+                 from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/SigmaOmegaRho.hpp:45,
+                 from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho.cpp:18:
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Particle.hpp:160:24: warning: 'virtual double CompactStar::Particle::Mu()' was hidden [-Woverloaded-virtual=]
+  160 |         virtual double Mu();
+      |                        ^~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Baryon.hpp:117:16: note:   by 'double CompactStar::Baryon::Mu(const double&) const'
+  117 |         double Mu(const double &gsig) const;
+      |                ^~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/SigmaOmegaRho.hpp: In constructor 'CompactStar::SigmaOmegaRho::SigmaOmegaRho()':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/SigmaOmegaRho.hpp:68:16: warning: 'CompactStar::SigmaOmegaRho::muon' will be initialized after [-Wreorder]
+   68 |         Lepton muon;
+      |                ^~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/SigmaOmegaRho.hpp:66:16: warning:   'CompactStar::Baryon CompactStar::SigmaOmegaRho::sigma_minus' [-Wreorder]
+   66 |         Baryon sigma_minus, lambda, sigma_zero, sigma_plus, xi_minus, xi_zero;
+      |                ^~~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho.cpp:26:1: warning:   when initialized here [-Wreorder]
+   26 | CompactStar::SigmaOmegaRho::SigmaOmegaRho()
+      | ^~~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/SigmaOmegaRho.hpp:66:71: warning: 'CompactStar::SigmaOmegaRho::xi_zero' will be initialized after [-Wreorder]
+   66 |         Baryon sigma_minus, lambda, sigma_zero, sigma_plus, xi_minus, xi_zero;
+      |                                                                       ^~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/SigmaOmegaRho.hpp:65:24: warning:   'CompactStar::Baryon CompactStar::SigmaOmegaRho::neutron' [-Wreorder]
+   65 |         Baryon proton, neutron;
+      |                        ^~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho.cpp:26:1: warning:   when initialized here [-Wreorder]
+   26 | CompactStar::SigmaOmegaRho::SigmaOmegaRho()
+      | ^~~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho.cpp: In member function 'void CompactStar::SigmaOmegaRho::SetXRhos(const gsl_vector*)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho.cpp:105:15: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  105 |     if(b->idx < eq_size)
+      |        ~~~~~~~^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho.cpp:114:20: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  114 |         if(b2->idx < eq_size)
+      |            ~~~~~~~~^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho.cpp:124:15: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  124 |     if(l->idx < eq_size)
+      |        ~~~~~~~^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho.cpp:133:20: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  133 |         if(l2->idx < eq_size)
+      |            ~~~~~~~~^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho.cpp: In member function 'int CompactStar::SigmaOmegaRho::Jacob(const gsl_vector*, gsl_matrix*)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho.cpp:413:15: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  413 |     if(b->idx < eq_size)
+      |        ~~~~~~~^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho.cpp:422:20: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  422 |         if(b2->idx < eq_size)
+      |            ~~~~~~~~^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho.cpp:431:15: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  431 |     if(l->idx < eq_size)
+      |        ~~~~~~~^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho.cpp:440:20: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  440 |         if(l2->idx < eq_size)
+      |            ~~~~~~~~^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/CompOSE_EOS.cpp: In member function 'void CompactStar::CompOSE_EOS::ImportThermo(const Zaki::String::Directory&, const bool&, CompactStar::Dir_Type)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/CompOSE_EOS.cpp:301:50: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  301 |                                 if (line_num - 1 < crust_core_x_idx)
+      |                                     ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/CompOSE_EOS.cpp: In member function 'void CompactStar::CompOSE_EOS::ImportCompo(const Zaki::String::Directory&, const bool&, CompactStar::Dir_Type)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/CompOSE_EOS.cpp:334:21: warning: unused parameter 'gen_plots' [-Wunused-parameter]
+  334 |         const bool &gen_plots,
+      |         ~~~~~~~~~~~~^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/CompOSE_EOS.cpp: In member function 'void CompactStar::CompOSE_EOS::ImportMicro(const Zaki::String::Directory&, const bool&, CompactStar::Dir_Type)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/CompOSE_EOS.cpp:432:21: warning: unused parameter 'gen_plots' [-Wunused-parameter]
+  432 |         const bool &gen_plots,
+      |         ~~~~~~~~~~~~^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/CompOSE_EOS.cpp: In member function 'void CompactStar::CompOSE_EOS::ExtendMeffToCrust(const Zaki::String::Directory&, const std::string&, const bool&, CompactStar::Dir_Type)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/CompOSE_EOS.cpp:700:21: warning: unused parameter 'gen_plots' [-Wunused-parameter]
+  700 |         const bool &gen_plots,
+      |         ~~~~~~~~~~~~^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/CompOSE_EOS.cpp:701:24: warning: unused parameter 'in_dir_type' [-Wunused-parameter]
+  701 |         const Dir_Type in_dir_type)
+      |         ~~~~~~~~~~~~~~~^~~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/CompOSE_EOS.cpp: In member function 'void CompactStar::CompOSE_EOS::ExtendVeffToCrust(const Zaki::String::Directory&, const std::string&, const bool&, CompactStar::Dir_Type)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/CompOSE_EOS.cpp:775:21: warning: unused parameter 'gen_plots' [-Wunused-parameter]
+  775 |         const bool &gen_plots,
+      |         ~~~~~~~~~~~~^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/CompOSE_EOS.cpp:776:24: warning: unused parameter 'in_dir_type' [-Wunused-parameter]
+  776 |         const Dir_Type in_dir_type)
+      |         ~~~~~~~~~~~~~~~^~~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/CompOSE_EOS.cpp: In member function 'void CompactStar::CompOSE_EOS::ExtendUeffToCrust(const Zaki::String::Directory&, const std::string&, const bool&, CompactStar::Dir_Type)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/CompOSE_EOS.cpp:843:21: warning: unused parameter 'gen_plots' [-Wunused-parameter]
+  843 |         const bool &gen_plots,
+      |         ~~~~~~~~~~~~^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/CompOSE_EOS.cpp:844:24: warning: unused parameter 'in_dir_type' [-Wunused-parameter]
+  844 |         const Dir_Type in_dir_type)
+      |         ~~~~~~~~~~~~~~~^~~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/CompOSE_EOS.cpp: In member function 'void CompactStar::CompOSE_EOS::ImportEOS(const Zaki::String::Directory&, const bool&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/CompOSE_EOS.cpp:999:21: warning: unused parameter 'gen_plots' [-Wunused-parameter]
+  999 |         const bool &gen_plots)
+      |         ~~~~~~~~~~~~^~~~~~~~~
+In file included from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Baryon.hpp:44,
+                 from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/SigmaOmegaRho_nstar.hpp:45,
+                 from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:18:
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Particle.hpp:160:24: warning: 'virtual double CompactStar::Particle::Mu()' was hidden [-Woverloaded-virtual=]
+  160 |         virtual double Mu();
+      |                        ^~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Baryon.hpp:117:16: note:   by 'double CompactStar::Baryon::Mu(const double&) const'
+  117 |         double Mu(const double &gsig) const;
+      |                ^~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/SigmaOmegaRho_nstar.hpp: In constructor 'CompactStar::SigmaOmegaRho_nstar::SigmaOmegaRho_nstar()':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/SigmaOmegaRho_nstar.hpp:68:16: warning: 'CompactStar::SigmaOmegaRho_nstar::muon' will be initialized after [-Wreorder]
+   68 |         Lepton muon;
+      |                ^~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/SigmaOmegaRho_nstar.hpp:66:16: warning:   'CompactStar::Baryon CompactStar::SigmaOmegaRho_nstar::sigma_minus' [-Wreorder]
+   66 |         Baryon sigma_minus, lambda, sigma_zero, sigma_plus, xi_minus, xi_zero;
+      |                ^~~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:26:1: warning:   when initialized here [-Wreorder]
+   26 | CompactStar::SigmaOmegaRho_nstar::SigmaOmegaRho_nstar()
+      | ^~~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/SigmaOmegaRho_nstar.hpp:66:71: warning: 'CompactStar::SigmaOmegaRho_nstar::xi_zero' will be initialized after [-Wreorder]
+   66 |         Baryon sigma_minus, lambda, sigma_zero, sigma_plus, xi_minus, xi_zero;
+      |                                                                       ^~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/SigmaOmegaRho_nstar.hpp:65:24: warning:   'CompactStar::Baryon CompactStar::SigmaOmegaRho_nstar::neutron' [-Wreorder]
+   65 |         Baryon proton, neutron, neutron_star;
+      |                        ^~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:26:1: warning:   when initialized here [-Wreorder]
+   26 | CompactStar::SigmaOmegaRho_nstar::SigmaOmegaRho_nstar()
+      | ^~~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp: In member function 'void CompactStar::SigmaOmegaRho_nstar::SetXRhos(const gsl_vector*)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:108:15: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  108 |     if(b->idx < eq_size)
+      |        ~~~~~~~^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:117:20: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  117 |         if(b2->idx < eq_size)
+      |            ~~~~~~~~^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:127:15: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  127 |     if(l->idx < eq_size)
+      |        ~~~~~~~^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:136:20: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  136 |         if(l2->idx < eq_size)
+      |            ~~~~~~~~^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp: In member function 'int CompactStar::SigmaOmegaRho_nstar::Jacob(const gsl_vector*, gsl_matrix*)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:416:15: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  416 |     if(b->idx < eq_size)
+      |        ~~~~~~~^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:425:20: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  425 |         if(b2->idx < eq_size)
+      |            ~~~~~~~~^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:434:15: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  434 |     if(l->idx < eq_size)
+      |        ~~~~~~~^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp:443:20: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  443 |         if(l2->idx < eq_size)
+      |            ~~~~~~~~^~~~~~~~~
+[ 36%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/EOS/src/Fermi_Gas_Many.cpp.o
+[ 36%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Spin.cpp.o
+In file included from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Fermi_Gas_Many.hpp:22,
+                 from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/Fermi_Gas_Many.cpp:10:
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Particle.hpp:160:24: warning: 'virtual double CompactStar::Particle::Mu()' was hidden [-Woverloaded-virtual=]
+  160 |         virtual double Mu();
+      |                        ^~
+In file included from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Fermi_Gas_Many.hpp:23:
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Baryon.hpp:117:16: note:   by 'double CompactStar::Baryon::Mu(const double&) const'
+  117 |         double Mu(const double &gsig) const;
+      |                ^~
+[ 36%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Driver/Spin/src/MagneticDipole.cpp.o
+[ 39%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Driver/Thermal/src/PhotonCooling.cpp.o
+[ 39%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Driver/Thermal/src/PhotonCooling_Details.cpp.o
+[ 42%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Driver/Thermal/src/NeutrinoCooling.cpp.o
+[ 42%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Driver/Thermal/src/NeutrinoCooling_Details.cpp.o
+[ 42%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Driver/Thermal/Boundary/src/SurfaceGravity.cpp.o
+[ 45%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Driver/Thermal/Boundary/src/TbDefinition.cpp.o
+[ 45%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Driver/Thermal/Boundary/src/EnvelopePotekhin1997.cpp.o
+[ 48%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Driver/Thermal/Boundary/src/EnvelopePotekhin2003.cpp.o
+[ 48%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/State/src/BNVState.cpp.o
+[ 48%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/State/src/ChemState.cpp.o
+[ 51%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/State/src/SpinState.cpp.o
+[ 51%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/State/src/ThermalState.cpp.o
+[ 51%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/src/StateVector.cpp.o
+[ 54%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/src/EvolutionSystem.cpp.o
+[ 54%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/src/StateLayout.cpp.o
+[ 57%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/src/StatePacking.cpp.o
+[ 57%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/src/StarContext.cpp.o
+[ 57%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/src/GeometryCache.cpp.o
+[ 60%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/src/ProfileCache.cpp.o
+[ 60%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/src/EvolutionConfig.cpp.o
+[ 63%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Integrator/src/GSLIntegrator.cpp.o
+[ 63%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Diagnostics/src/DiagnosticsJson.cpp.o
+[ 63%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Diagnostics/src/DiagnosticPacket.cpp.o
+[ 66%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Diagnostics/src/UnitContract.cpp.o
+[ 66%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Diagnostics/src/DiagnosticCatalog.cpp.o
+[ 69%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Diagnostics/src/DiagnosticsCatalogJson.cpp.o
+[ 69%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Observers/src/IObserver.cpp.o
+[ 69%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Observers/src/DiagnosticsObserver.cpp.o
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Diagnostics/src/DiagnosticsCatalogJson.cpp:674:13: warning: 'std::size_t CompactStar::Physics::Evolution::Diagnostics::{anonymous}::GetSizeTOr(const JValue&, const char*, std::size_t)' defined but not used [-Wunused-function]
+  674 | std::size_t GetSizeTOr(const JValue &obj, const char *name, std::size_t def)
+      |             ^~~~~~~~~~
+[ 72%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Observers/src/TimeSeriesObserver.cpp.o
+[ 72%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Run/src/RunObservers.cpp.o
+[ 75%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Run/src/RunPaths.cpp.o
+[ 75%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Evolution/Run/src/RunBuilder.cpp.o
+[ 75%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/Rotochemical/src/GlobalUrcaChannelCoefficient.cpp.o
+[ 78%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/BNV/src/MovingReferenceSource.cpp.o
+[ 78%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/BNV/src/DirectEnergyLedger.cpp.o
+[ 78%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/BNV/src/StaticZeroSpinHistory.cpp.o
+[ 81%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/BNV/src/FrozenBnvValidity.cpp.o
+[ 81%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/BNV/src/FrozenControlledBnvRunContext.cpp.o
+[ 84%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/BNV/src/ControlledBnvSecularDriver.cpp.o
+[ 84%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/BNV/src/EquilibriumBaryonTangent.cpp.o
+[ 84%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Physics/BNV/src/PassiveCheckpointOutput.cpp.o
+In file included from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/FrozenControlledBnvRunContext.hpp:7,
+                 from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/src/FrozenControlledBnvRunContext.cpp:1:
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp: In member function 'CompactStar::Physics::Rotochemical::SecularEvaluation CompactStar::Physics::Rotochemical::FrozenRotochemicalRunContext::Evaluate(double, const CompactStar::Physics::Evolution::StateVector&, const CompactStar::Physics::Evolution::DriverContext&, const CompactStar::Physics::Rotochemical::PrescribedSpinHistory*) const':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:146:9: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+  146 |         for(double v:{out.x_dot_s,out.equilibrium_x_dot_s,out.Cstar_erg_K,out.Lgamma_erg_s,out.Lother_neutrino_erg_s,out.Tsurface_infinity_K,out.Pnet_erg_s,out.eta_dot_MeV_s[0],out.eta_dot_MeV_s[1],out.beta.heating_erg_s,out.beta.neutrino_increment_erg_s,out.beta.incremental_beta_erg_s,out.beta.full_beta_erg_s})Need(std::isfinite(v),"nonfinite secular RHS");RequireCheapCurrent();return out;
+      |         ^~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:146:361: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+  146 |         for(double v:{out.x_dot_s,out.equilibrium_x_dot_s,out.Cstar_erg_K,out.Lgamma_erg_s,out.Lother_neutrino_erg_s,out.Tsurface_infinity_K,out.Pnet_erg_s,out.eta_dot_MeV_s[0],out.eta_dot_MeV_s[1],out.beta.heating_erg_s,out.beta.neutrino_increment_erg_s,out.beta.incremental_beta_erg_s,out.beta.full_beta_erg_s})Need(std::isfinite(v),"nonfinite secular RHS");RequireCheapCurrent();return out;
+      |                                                                                                                                                                                                                                                                                                                                                                         ^~~~~~~~~~~~~~~~~~~
+In file included from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/FrozenControlledBnvRunContext.hpp:7,
+                 from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/ControlledBnvSecularDriver.hpp:3,
+                 from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/src/ControlledBnvSecularDriver.cpp:1:
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp: In member function 'CompactStar::Physics::Rotochemical::SecularEvaluation CompactStar::Physics::Rotochemical::FrozenRotochemicalRunContext::Evaluate(double, const CompactStar::Physics::Evolution::StateVector&, const CompactStar::Physics::Evolution::DriverContext&, const CompactStar::Physics::Rotochemical::PrescribedSpinHistory*) const':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:146:9: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+  146 |         for(double v:{out.x_dot_s,out.equilibrium_x_dot_s,out.Cstar_erg_K,out.Lgamma_erg_s,out.Lother_neutrino_erg_s,out.Tsurface_infinity_K,out.Pnet_erg_s,out.eta_dot_MeV_s[0],out.eta_dot_MeV_s[1],out.beta.heating_erg_s,out.beta.neutrino_increment_erg_s,out.beta.incremental_beta_erg_s,out.beta.full_beta_erg_s})Need(std::isfinite(v),"nonfinite secular RHS");RequireCheapCurrent();return out;
+      |         ^~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:146:361: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+  146 |         for(double v:{out.x_dot_s,out.equilibrium_x_dot_s,out.Cstar_erg_K,out.Lgamma_erg_s,out.Lother_neutrino_erg_s,out.Tsurface_infinity_K,out.Pnet_erg_s,out.eta_dot_MeV_s[0],out.eta_dot_MeV_s[1],out.beta.heating_erg_s,out.beta.neutrino_increment_erg_s,out.beta.incremental_beta_erg_s,out.beta.full_beta_erg_s})Need(std::isfinite(v),"nonfinite secular RHS");RequireCheapCurrent();return out;
+      |                                                                                                                                                                                                                                                                                                                                                                         ^~~~~~~~~~~~~~~~~~~
+[ 87%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Microphysics/BNV/Analysis/src/BNV_Analysis.cpp.o
+[ 87%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Microphysics/BNV/Analysis/src/Decay_Analysis.cpp.o
+In file included from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/PassiveCheckpointOutput.hpp:6,
+                 from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/src/PassiveCheckpointOutput.cpp:1:
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp: In member function 'CompactStar::Physics::Rotochemical::SecularEvaluation CompactStar::Physics::Rotochemical::FrozenRotochemicalRunContext::Evaluate(double, const CompactStar::Physics::Evolution::StateVector&, const CompactStar::Physics::Evolution::DriverContext&, const CompactStar::Physics::Rotochemical::PrescribedSpinHistory*) const':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:146:9: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+  146 |         for(double v:{out.x_dot_s,out.equilibrium_x_dot_s,out.Cstar_erg_K,out.Lgamma_erg_s,out.Lother_neutrino_erg_s,out.Tsurface_infinity_K,out.Pnet_erg_s,out.eta_dot_MeV_s[0],out.eta_dot_MeV_s[1],out.beta.heating_erg_s,out.beta.neutrino_increment_erg_s,out.beta.incremental_beta_erg_s,out.beta.full_beta_erg_s})Need(std::isfinite(v),"nonfinite secular RHS");RequireCheapCurrent();return out;
+      |         ^~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp:146:361: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+  146 |         for(double v:{out.x_dot_s,out.equilibrium_x_dot_s,out.Cstar_erg_K,out.Lgamma_erg_s,out.Lother_neutrino_erg_s,out.Tsurface_infinity_K,out.Pnet_erg_s,out.eta_dot_MeV_s[0],out.eta_dot_MeV_s[1],out.beta.heating_erg_s,out.beta.neutrino_increment_erg_s,out.beta.incremental_beta_erg_s,out.beta.full_beta_erg_s})Need(std::isfinite(v),"nonfinite secular RHS");RequireCheapCurrent();return out;
+      |                                                                                                                                                                                                                                                                                                                                                                         ^~~~~~~~~~~~~~~~~~~
+In file included from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/src/BNV_Analysis.cpp:9:
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/BNV_Analysis.hpp: In member function 'virtual void CompactStar::Microphysics::BNV::Analysis::BNV_Analysis::Analyze(CompactStar::Core::MixedStar*)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/BNV_Analysis.hpp:264:39: warning: unused parameter 'in_star' [-Wunused-parameter]
+  264 |         void Analyze(Core::MixedStar *in_star) override {}
+      |                      ~~~~~~~~~~~~~~~~~^~~~~~~
+In file included from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/src/Decay_Analysis.cpp:10:
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/Decay_Analysis.hpp: In member function 'virtual void CompactStar::Microphysics::BNV::Analysis::Decay_Analysis::Analyze(CompactStar::Core::MixedStar*)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/Decay_Analysis.hpp:130:39: warning: unused parameter 'in_star' [-Wunused-parameter]
+  130 |         void Analyze(Core::MixedStar *in_star) override {}
+      |                      ~~~~~~~~~~~~~~~~~^~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/Decay_Analysis.hpp: In constructor 'CompactStar::Microphysics::BNV::Analysis::Decay_Analysis::Decay_Analysis()':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/Decay_Analysis.hpp:90:16: warning: 'CompactStar::Microphysics::BNV::Analysis::Decay_Analysis::m_chi' will be initialized after [-Wreorder]
+   90 |         double m_chi;
+      |                ^~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/Decay_Analysis.hpp:80:16: warning:   'CompactStar::Microphysics::BNV::Analysis::Decay_Analysis::Baryon CompactStar::Microphysics::BNV::Analysis::Decay_Analysis::neutron' [-Wreorder]
+   80 |         Baryon neutron;
+      |                ^~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/src/Decay_Analysis.cpp:19:1: warning:   when initialized here [-Wreorder]
+   19 | MicroBNVAna::Decay_Analysis::Decay_Analysis()
+      | ^~~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/src/Decay_Analysis.cpp: In member function 'double CompactStar::Microphysics::BNV::Analysis::Decay_Analysis::AmplitudeSqrd(const double&) const':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/src/Decay_Analysis.cpp:71:65: warning: unused parameter 'm_lam_bar' [-Wunused-parameter]
+   71 | double MicroBNVAna::Decay_Analysis::AmplitudeSqrd(const double &m_lam_bar) const
+      |                                                   ~~~~~~~~~~~~~~^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/src/Decay_Analysis.cpp: In member function 'double CompactStar::Microphysics::BNV::Analysis::Decay_Analysis::PhaseSpace(const double&, const double&) const':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/src/Decay_Analysis.cpp:77:62: warning: unused parameter 'm_lam_bar' [-Wunused-parameter]
+   77 | double MicroBNVAna::Decay_Analysis::PhaseSpace(const double &m_lam_bar,
+      |                                                ~~~~~~~~~~~~~~^~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/src/Decay_Analysis.cpp:78:106: warning: unused parameter 'n_lam' [-Wunused-parameter]
+   78 |                                                                                            const double &n_lam) const
+      |                                                                                            ~~~~~~~~~~~~~~^~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/src/Decay_Analysis.cpp: In member function 'virtual void CompactStar::Microphysics::BNV::Analysis::Decay_Analysis::Export(const Zaki::String::Directory&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/src/Decay_Analysis.cpp:597:73: warning: unused parameter 'in_dir' [-Wunused-parameter]
+  597 | void MicroBNVAna::Decay_Analysis::Export(const Zaki::String::Directory &in_dir)
+      |                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+[ 90%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Microphysics/BNV/Analysis/src/BNV_Sequence.cpp.o
+[ 90%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Combo.cpp.o
+[ 90%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp.o
+In file included from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/BNV_B_Chi_Combo.hpp:48,
+                 from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Combo.cpp:13:
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp: In constructor 'CompactStar::Microphysics::BNV::Internal::BNV_Chi::Baryon::Baryon(const std::string&, const std::string&, const std::string&, const std::string&, const double&, const double&, const double&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:98:29: warning: 'CompactStar::Microphysics::BNV::Internal::BNV_Chi::Baryon::TeX_name' will be initialized after [-Wreorder]
+   98 |                 std::string TeX_name = "";
+      |                             ^~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:92:29: warning:   'std::string CompactStar::Microphysics::BNV::Internal::BNV_Chi::Baryon::short_name' [-Wreorder]
+   92 |                 std::string short_name = "";
+      |                             ^~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:110:17: warning:   when initialized here [-Wreorder]
+  110 |                 Baryon(const std::string &in_name,
+      |                 ^~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp: In member function 'virtual CompactStar::Microphysics::BNV::Internal::BNV_Chi::Process CompactStar::Microphysics::BNV::Internal::BNV_Chi::GetSpecificProcess(const Baryon&) const':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:155:58: warning: unused parameter 'B' [-Wunused-parameter]
+  155 |         virtual Process GetSpecificProcess(const Baryon &B) const
+      |                                            ~~~~~~~~~~~~~~^
+In file included from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/BNV_B_Chi_Photon.hpp:59,
+                 from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:15:
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp: In constructor 'CompactStar::Microphysics::BNV::Internal::BNV_Chi::Baryon::Baryon(const std::string&, const std::string&, const std::string&, const std::string&, const double&, const double&, const double&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:98:29: warning: 'CompactStar::Microphysics::BNV::Internal::BNV_Chi::Baryon::TeX_name' will be initialized after [-Wreorder]
+   98 |                 std::string TeX_name = "";
+      |                             ^~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:92:29: warning:   'std::string CompactStar::Microphysics::BNV::Internal::BNV_Chi::Baryon::short_name' [-Wreorder]
+   92 |                 std::string short_name = "";
+      |                             ^~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:110:17: warning:   when initialized here [-Wreorder]
+  110 |                 Baryon(const std::string &in_name,
+      |                 ^~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp: In member function 'virtual CompactStar::Microphysics::BNV::Internal::BNV_Chi::Process CompactStar::Microphysics::BNV::Internal::BNV_Chi::GetSpecificProcess(const Baryon&) const':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:155:58: warning: unused parameter 'B' [-Wunused-parameter]
+  155 |         virtual Process GetSpecificProcess(const Baryon &B) const
+      |                                            ~~~~~~~~~~~~~~^
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp: In member function 'void CompactStar::Microphysics::BNV::Channels::BNV_B_Chi_Photon::hidden_Plot_Thermal_Hole_E_Rate_vs_Density(const CompactStar::Microphysics::BNV::Internal::BNV_Chi::Baryon&, const double&, Zaki::Vector::DataSet*)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:688:16: warning: unused variable 'rate_max' [-Wunused-variable]
+  688 |         double rate_max = ds->operator[](1).Max();
+      |                ^~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:689:16: warning: unused variable 'rate_min' [-Wunused-variable]
+  689 |         double rate_min = ds->operator[](1).Min();
+      |                ^~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp: In member function 'void CompactStar::Microphysics::BNV::Channels::BNV_B_Chi_Photon::hidden_Plot_Thermal_Hole_E_Rate_vs_R(const CompactStar::Microphysics::BNV::Internal::BNV_Chi::Baryon&, const double&, Zaki::Vector::DataSet*) const':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:829:16: warning: unused variable 'rate_max' [-Wunused-variable]
+  829 |         double rate_max = ds->operator[](1).Max();
+      |                ^~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:830:16: warning: unused variable 'rate_min' [-Wunused-variable]
+  830 |         double rate_min = ds->operator[](1).Min();
+      |                ^~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp: In member function 'void CompactStar::Microphysics::BNV::Channels::BNV_B_Chi_Photon::hidden_Plot_Thermal_Photon_E_Rate_vs_R(const CompactStar::Microphysics::BNV::Internal::BNV_Chi::Baryon&, const double&, Zaki::Vector::DataSet*) const':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:857:16: warning: unused variable 'rate_max' [-Wunused-variable]
+  857 |         double rate_max = ds->operator[](1).Max();
+      |                ^~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:858:16: warning: unused variable 'rate_min' [-Wunused-variable]
+  858 |         double rate_min = ds->operator[](1).Min();
+      |                ^~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp: In member function 'void CompactStar::Microphysics::BNV::Channels::BNV_B_Chi_Photon::hidden_Plot_Thermal_Photon_E_Rate_vs_Density(const CompactStar::Microphysics::BNV::Internal::BNV_Chi::Baryon&, const double&, Zaki::Vector::DataSet*)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:885:16: warning: unused variable 'rate_max' [-Wunused-variable]
+  885 |         double rate_max = ds->operator[](1).Max();
+      |                ^~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:886:16: warning: unused variable 'rate_min' [-Wunused-variable]
+  886 |         double rate_min = ds->operator[](1).Min();
+      |                ^~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp: In member function 'void CompactStar::Microphysics::BNV::Channels::BNV_B_Chi_Photon::Limit_eps_From_Heating(const double&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:1747:73: warning: unused parameter 'T_core' [-Wunused-parameter]
+ 1747 | void MicroBNVCh::BNV_B_Chi_Photon::Limit_eps_From_Heating(const double &T_core)
+      |                                                           ~~~~~~~~~~~~~~^~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp: In member function 'void CompactStar::Microphysics::BNV::Channels::BNV_B_Chi_Photon::Limit_eps_From_Slowness(const double&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:1824:74: warning: unused parameter 'T_core' [-Wunused-parameter]
+ 1824 | void MicroBNVCh::BNV_B_Chi_Photon::Limit_eps_From_Slowness(const double &T_core)
+      |                                                            ~~~~~~~~~~~~~~^~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp: In member function 'void CompactStar::Microphysics::BNV::Channels::BNV_B_Chi_Photon::Eps_From_Beta_Imbalance(const double&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp:1913:74: warning: unused parameter 'x' [-Wunused-parameter]
+ 1913 | void MicroBNVCh::BNV_B_Chi_Photon::Eps_From_Beta_Imbalance(const double &x)
+      |                                                            ~~~~~~~~~~~~~~^
+[ 93%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Transition.cpp.o
+[ 93%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp.o
+In file included from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/BNV_B_Chi_Transition.hpp:51,
+                 from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Transition.cpp:16:
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp: In constructor 'CompactStar::Microphysics::BNV::Internal::BNV_Chi::Baryon::Baryon(const std::string&, const std::string&, const std::string&, const std::string&, const double&, const double&, const double&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:98:29: warning: 'CompactStar::Microphysics::BNV::Internal::BNV_Chi::Baryon::TeX_name' will be initialized after [-Wreorder]
+   98 |                 std::string TeX_name = "";
+      |                             ^~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:92:29: warning:   'std::string CompactStar::Microphysics::BNV::Internal::BNV_Chi::Baryon::short_name' [-Wreorder]
+   92 |                 std::string short_name = "";
+      |                             ^~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:110:17: warning:   when initialized here [-Wreorder]
+  110 |                 Baryon(const std::string &in_name,
+      |                 ^~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp: In member function 'virtual CompactStar::Microphysics::BNV::Internal::BNV_Chi::Process CompactStar::Microphysics::BNV::Internal::BNV_Chi::GetSpecificProcess(const Baryon&) const':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:155:58: warning: unused parameter 'B' [-Wunused-parameter]
+  155 |         virtual Process GetSpecificProcess(const Baryon &B) const
+      |                                            ~~~~~~~~~~~~~~^
+In file included from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/BNV_B_Psi_Pion.hpp:51,
+                 from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:15:
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp: In constructor 'CompactStar::Microphysics::BNV::Internal::BNV_Chi::Baryon::Baryon(const std::string&, const std::string&, const std::string&, const std::string&, const double&, const double&, const double&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:98:29: warning: 'CompactStar::Microphysics::BNV::Internal::BNV_Chi::Baryon::TeX_name' will be initialized after [-Wreorder]
+   98 |                 std::string TeX_name = "";
+      |                             ^~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:92:29: warning:   'std::string CompactStar::Microphysics::BNV::Internal::BNV_Chi::Baryon::short_name' [-Wreorder]
+   92 |                 std::string short_name = "";
+      |                             ^~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:110:17: warning:   when initialized here [-Wreorder]
+  110 |                 Baryon(const std::string &in_name,
+      |                 ^~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp: In member function 'virtual CompactStar::Microphysics::BNV::Internal::BNV_Chi::Process CompactStar::Microphysics::BNV::Internal::BNV_Chi::GetSpecificProcess(const Baryon&) const':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:155:58: warning: unused parameter 'B' [-Wunused-parameter]
+  155 |         virtual Process GetSpecificProcess(const Baryon &B) const
+      |                                            ~~~~~~~~~~~~~~^
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp: In member function 'double CompactStar::Microphysics::BNV::Channels::BNV_B_Psi_Pion::phase_W0_zero(const Params&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:224:16: warning: unused variable 'x' [-Wunused-variable]
+  224 |         double x = pars.x;
+      |                ^
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:225:16: warning: unused variable 'sig' [-Wunused-variable]
+  225 |         double sig = pars.sig;
+      |                ^~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:226:16: warning: unused variable 'mu_psi' [-Wunused-variable]
+  226 |         double mu_psi = pars.mu_psi;
+      |                ^~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:227:16: warning: unused variable 'mu_pi' [-Wunused-variable]
+  227 |         double mu_pi = pars.mu_pi;
+      |                ^~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp: In member function 'double CompactStar::Microphysics::BNV::Channels::BNV_B_Psi_Pion::phase_W0_first(const Params&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:268:16: warning: unused variable 'x' [-Wunused-variable]
+  268 |         double x = pars.x;
+      |                ^
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:269:16: warning: unused variable 'sig' [-Wunused-variable]
+  269 |         double sig = pars.sig;
+      |                ^~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:270:16: warning: unused variable 'mu_psi' [-Wunused-variable]
+  270 |         double mu_psi = pars.mu_psi;
+      |                ^~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:271:16: warning: unused variable 'mu_pi' [-Wunused-variable]
+  271 |         double mu_pi = pars.mu_pi;
+      |                ^~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp: In member function 'double CompactStar::Microphysics::BNV::Channels::BNV_B_Psi_Pion::phase_W1_zero(const Params&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:313:16: warning: unused variable 'x' [-Wunused-variable]
+  313 |         double x = pars.x;
+      |                ^
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:314:16: warning: unused variable 'sig' [-Wunused-variable]
+  314 |         double sig = pars.sig;
+      |                ^~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:315:16: warning: unused variable 'mu_psi' [-Wunused-variable]
+  315 |         double mu_psi = pars.mu_psi;
+      |                ^~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:316:16: warning: unused variable 'mu_pi' [-Wunused-variable]
+  316 |         double mu_pi = pars.mu_pi;
+      |                ^~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp: In member function 'double CompactStar::Microphysics::BNV::Channels::BNV_B_Psi_Pion::phase_W1_first(const Params&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:338:16: warning: unused variable 'x' [-Wunused-variable]
+  338 |         double x = pars.x;
+      |                ^
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:339:16: warning: unused variable 'sig' [-Wunused-variable]
+  339 |         double sig = pars.sig;
+      |                ^~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:340:16: warning: unused variable 'mu_psi' [-Wunused-variable]
+  340 |         double mu_psi = pars.mu_psi;
+      |                ^~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:341:16: warning: unused variable 'mu_pi' [-Wunused-variable]
+  341 |         double mu_pi = pars.mu_pi;
+      |                ^~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp: In member function 'double CompactStar::Microphysics::BNV::Channels::BNV_B_Psi_Pion::phase_W1_second(const Params&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:378:16: warning: unused variable 'x' [-Wunused-variable]
+  378 |         double x = pars.x;
+      |                ^
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:379:16: warning: unused variable 'sig' [-Wunused-variable]
+  379 |         double sig = pars.sig;
+      |                ^~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:380:16: warning: unused variable 'mu_psi' [-Wunused-variable]
+  380 |         double mu_psi = pars.mu_psi;
+      |                ^~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:381:16: warning: unused variable 'mu_pi' [-Wunused-variable]
+  381 |         double mu_pi = pars.mu_pi;
+      |                ^~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp: In member function 'double CompactStar::Microphysics::BNV::Channels::BNV_B_Psi_Pion::phase_W0W1_zero(const Params&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:416:16: warning: unused variable 'x' [-Wunused-variable]
+  416 |         double x = pars.x;
+      |                ^
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:417:16: warning: unused variable 'sig' [-Wunused-variable]
+  417 |         double sig = pars.sig;
+      |                ^~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:418:16: warning: unused variable 'mu_psi' [-Wunused-variable]
+  418 |         double mu_psi = pars.mu_psi;
+      |                ^~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:419:16: warning: unused variable 'mu_pi' [-Wunused-variable]
+  419 |         double mu_pi = pars.mu_pi;
+      |                ^~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp: In member function 'double CompactStar::Microphysics::BNV::Channels::BNV_B_Psi_Pion::phase_W0W1_first(const Params&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:449:16: warning: unused variable 'x' [-Wunused-variable]
+  449 |         double x = pars.x;
+      |                ^
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:450:16: warning: unused variable 'sig' [-Wunused-variable]
+  450 |         double sig = pars.sig;
+      |                ^~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:451:16: warning: unused variable 'mu_psi' [-Wunused-variable]
+  451 |         double mu_psi = pars.mu_psi;
+      |                ^~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp:452:16: warning: unused variable 'mu_pi' [-Wunused-variable]
+  452 |         double mu_pi = pars.mu_pi;
+      |                ^~~~~
+[ 96%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp.o
+[ 96%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Extensions/MixedStar/src/DarkCore_Analysis.cpp.o
+[ 96%] Building CXX object CMakeFiles/CompactStar.dir/CompactStar/Extensions/LightDM/src/LightDM_Scalar_Density.cpp.o
+In file included from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:17:
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp: In constructor 'CompactStar::Microphysics::BNV::Internal::BNV_Chi::Baryon::Baryon(const std::string&, const std::string&, const std::string&, const std::string&, const double&, const double&, const double&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:98:29: warning: 'CompactStar::Microphysics::BNV::Internal::BNV_Chi::Baryon::TeX_name' will be initialized after [-Wreorder]
+   98 |                 std::string TeX_name = "";
+      |                             ^~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:92:29: warning:   'std::string CompactStar::Microphysics::BNV::Internal::BNV_Chi::Baryon::short_name' [-Wreorder]
+   92 |                 std::string short_name = "";
+      |                             ^~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:110:17: warning:   when initialized here [-Wreorder]
+  110 |                 Baryon(const std::string &in_name,
+      |                 ^~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp: In member function 'virtual CompactStar::Microphysics::BNV::Internal::BNV_Chi::Process CompactStar::Microphysics::BNV::Internal::BNV_Chi::GetSpecificProcess(const Baryon&) const':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:155:58: warning: unused parameter 'B' [-Wunused-parameter]
+  155 |         virtual Process GetSpecificProcess(const Baryon &B) const
+      |                                            ~~~~~~~~~~~~~~^
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp: In constructor 'CompactStar::Microphysics::BNV::Internal::BNV_Chi::BNV_Chi(const Process&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:241:17: warning: 'CompactStar::Microphysics::BNV::Internal::BNV_Chi::process' will be initialized after [-Wreorder]
+  241 |         Process process;
+      |                 ^~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp:208:26: warning:   'Zaki::Math::Axis CompactStar::Microphysics::BNV::Internal::BNV_Chi::m_chi_vals' [-Wreorder]
+  208 |         Zaki::Math::Axis m_chi_vals;
+      |                          ^~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:37:1: warning:   when initialized here [-Wreorder]
+   37 | MicroBNVInt::BNV_Chi::BNV_Chi(const Process &in_process)
+      | ^~~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp: In member function 'virtual void CompactStar::Microphysics::BNV::Internal::BNV_Chi::ImportEOS(const Zaki::String::Directory&, const std::string&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:138:93: warning: unused parameter 'micro_model' [-Wunused-parameter]
+  138 |                                                                          const std::string &micro_model)
+      |                                                                          ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp: In member function 'virtual void CompactStar::Microphysics::BNV::Internal::BNV_Chi::FindPulsar(const bool&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:263:14: warning: unused variable 'has_hyperons' [-Wunused-variable]
+  263 |         bool has_hyperons = true;
+      |              ^~~~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp: In member function 'virtual double CompactStar::Microphysics::BNV::Internal::BNV_Chi::PhaseSpace_Integrand(const double&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:370:65: warning: unused parameter 'x' [-Wunused-parameter]
+  370 | double MicroBNVInt::BNV_Chi::PhaseSpace_Integrand(const double &x)
+      |                                                   ~~~~~~~~~~~~~~^
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp: In member function 'virtual double CompactStar::Microphysics::BNV::Internal::BNV_Chi::PhaseSpace_Integral(const Baryon&, const double&, const double&, const double&, const double&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:376:64: warning: unused parameter 'B' [-Wunused-parameter]
+  376 | double MicroBNVInt::BNV_Chi::PhaseSpace_Integral(const Baryon &B,
+      |                                                  ~~~~~~~~~~~~~~^
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:377:112: warning: unused parameter 'm' [-Wunused-parameter]
+  377 |                                                                                                  const double &m,
+      |                                                                                                  ~~~~~~~~~~~~~~^
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:378:112: warning: unused parameter 'm_chi' [-Wunused-parameter]
+  378 |                                                                                                  const double &m_chi,
+      |                                                                                                  ~~~~~~~~~~~~~~^~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:379:112: warning: unused parameter 'Sigma_0' [-Wunused-parameter]
+  379 |                                                                                                  const double &Sigma_0,
+      |                                                                                                  ~~~~~~~~~~~~~~^~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:380:112: warning: unused parameter 'x_F' [-Wunused-parameter]
+  380 |                                                                                                  const double &x_F)
+      |                                                                                                  ~~~~~~~~~~~~~~^~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp: In member function 'void CompactStar::Microphysics::BNV::Internal::BNV_Chi::Plot_EF_Radius()':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:739:16: warning: unused variable 'Y_max' [-Wunused-variable]
+  739 |         double Y_max = std::max({ds_EF_r[1].Max(), ds_EF_r[2].Max(),
+      |                ^~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp: In member function 'void CompactStar::Microphysics::BNV::Internal::BNV_Chi::Plot_RestE_EF_Radius(const Baryon&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:967:14: warning: variable 'non_zero_cond' set but not used [-Wunused-but-set-variable]
+  967 |         auto non_zero_cond = [](const double &v)
+      |              ^~~~~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp: In member function 'void CompactStar::Microphysics::BNV::Internal::BNV_Chi::Rate_vs_R(const std::vector<double>&, const Baryon&, const std::vector<CompactStar::Microphysics::BNV::Internal::Pulsar_Limit>&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:1427:65: warning: unused parameter 'm_chi' [-Wunused-parameter]
+ 1427 | void MicroBNVInt::BNV_Chi::Rate_vs_R(const std::vector<double> &m_chi,
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:1428:88: warning: unused parameter 'B' [-Wunused-parameter]
+ 1428 |                                                                          const Baryon &B,
+      |                                                                          ~~~~~~~~~~~~~~^
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp: In member function 'void CompactStar::Microphysics::BNV::Internal::BNV_Chi::hidden_Plot_Rate_vs_Density(const Baryon&, const double&, Zaki::Vector::DataSet*) const':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:1577:16: warning: unused variable 'rate_max' [-Wunused-variable]
+ 1577 |         double rate_max = ds->operator[](1).Max();
+      |                ^~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:1578:16: warning: unused variable 'rate_min' [-Wunused-variable]
+ 1578 |         double rate_min = ds->operator[](1).Min();
+      |                ^~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp: In member function 'void CompactStar::Microphysics::BNV::Internal::BNV_Chi::Export(const Zaki::String::Directory&) const':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp:2167:66: warning: unused parameter 'in_dir' [-Wunused-parameter]
+ 2167 | void MicroBNVInt::BNV_Chi::Export(const Zaki::String::Directory &in_dir) const
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Extensions/LightDM/src/LightDM_Scalar_Density.cpp:42:
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Extensions/LightDM/LightDM_Scalar_Density.hpp: In constructor 'CompactStar::LightDM_Scalar_Density::Baryon::Baryon(const std::string&, const std::string&, const std::string&, const std::string&, const double&, const double&, const double&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Extensions/LightDM/LightDM_Scalar_Density.hpp:75:29: warning: 'CompactStar::LightDM_Scalar_Density::Baryon::TeX_name' will be initialized after [-Wreorder]
+   75 |                 std::string TeX_name = "";
+      |                             ^~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Extensions/LightDM/LightDM_Scalar_Density.hpp:69:29: warning:   'std::string CompactStar::LightDM_Scalar_Density::Baryon::short_name' [-Wreorder]
+   69 |                 std::string short_name = "";
+      |                             ^~~~~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Extensions/LightDM/LightDM_Scalar_Density.hpp:87:17: warning:   when initialized here [-Wreorder]
+   87 |                 Baryon(const std::string &in_name,
+      |                 ^~~~~~
+In file included from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Extensions/MixedStar/src/DarkCore_Analysis.cpp:9:
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Extensions/MixedStar/DarkCore_Analysis.hpp: In member function 'virtual void CompactStar::DarkCore_Analysis::Analyze(CompactStar::Core::NStar*)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Extensions/MixedStar/DarkCore_Analysis.hpp:288:35: warning: unused parameter 'in_star' [-Wunused-parameter]
+  288 |         void Analyze(Core::NStar *in_star) override {}
+      |                      ~~~~~~~~~~~~~^~~~~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Extensions/MixedStar/src/DarkCore_Analysis.cpp: In member function 'void CompactStar::DarkCore_Analysis::FindLimits(const double&, const Zaki::String::Directory&)':
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Extensions/MixedStar/src/DarkCore_Analysis.cpp:330:31: warning: comparison of integer expressions of different signedness: 'size_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  330 |                         if (i == m_idx || (m_idx == 0 && i == 1))
+      |                             ~~^~~~~~~~
+[100%] Linking CXX static library libCompactStar.a
+[100%] Built target CompactStar
+[100%] Building CXX object tests/CMakeFiles/chemical_production_contract.dir/analysis/chemical_production_contract.cpp.o
+[100%] Linking CXX executable chemical_production_contract
+[100%] Built target chemical_production_contract
+[ 97%] Built target CompactStar
+[100%] Building CXX object tests/CMakeFiles/particle_number_analytic.dir/analysis/particle_number_analytic.cpp.o
+[100%] Linking CXX executable particle_number_analytic
+[100%] Built target particle_number_analytic
+[ 97%] Built target CompactStar
+[100%] Building CXX object tests/CMakeFiles/passive_checkpoint_output_contract.dir/bnv/passive_checkpoint_output_contract.cpp.o
+[100%] Linking CXX executable passive_checkpoint_output_contract
+[100%] Built target passive_checkpoint_output_contract
+[100%] Built target CompactStar
+[100%] Building CXX object tests/CMakeFiles/phase6a1_direct_energy.dir/bnv/direct_energy.cpp.o
+[100%] Linking CXX executable phase6a1_direct_energy
+[100%] Built target phase6a1_direct_energy
+[ 97%] Built target CompactStar
+[ 97%] Building CXX object tests/CMakeFiles/phase6a1_thermal_ledger.dir/bnv/thermal_ledger.cpp.o
+[100%] Linking CXX executable phase6a1_thermal_ledger
+[100%] Built target phase6a1_thermal_ledger
+[ 97%] Built target CompactStar
+[ 97%] Building CXX object tests/CMakeFiles/heat_capacity_v1.dir/thermal/heat_capacity_v1.cpp.o
+[100%] Linking CXX executable heat_capacity_v1
+[100%] Built target heat_capacity_v1
+[ 97%] Built target CompactStar
+[ 97%] Building CXX object tests/CMakeFiles/cache_contract.dir/evolution/cache_contract.cpp.o
+[100%] Linking CXX executable cache_contract
+[100%] Built target cache_contract
+[ 97%] Built target CompactStar
+[ 97%] Building CXX object tests/CMakeFiles/cache_thermal_contract.dir/thermal/cache_thermal_contract.cpp.o
+[100%] Linking CXX executable cache_thermal_contract
+[100%] Built target cache_thermal_contract
+[100%] Built target CompactStar
+[100%] Building CXX object tests/CMakeFiles/phase5d_component_tolerances.dir/rotochemical/component_tolerances.cpp.o
+[100%] Linking CXX executable phase5d_component_tolerances
+[100%] Built target phase5d_component_tolerances
+[ 97%] Built target CompactStar
+[ 97%] Building CXX object tests/CMakeFiles/phase6_breakpoint_contract.dir/bnv/breakpoint_contract.cpp.o
+[100%] Linking CXX executable phase6_breakpoint_contract
+[100%] Built target phase6_breakpoint_contract
+[ 97%] Built target CompactStar
+[100%] Building CXX object tests/CMakeFiles/phase6_currentness_bytes.dir/bnv/currentness_bytes.cpp.o
+[100%] Linking CXX executable phase6_currentness_bytes
+[100%] Built target phase6_currentness_bytes
+RESOURCE_USAGE_JSON {"command": ["cmake", "--build", "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build", "--target", "chemical_production_contract", "particle_number_analytic", "passive_checkpoint_output_contract", "phase6a1_direct_energy", "phase6a1_thermal_ledger", "heat_capacity_v1", "cache_contract", "cache_thermal_contract", "phase5d_component_tolerances", "phase6_breakpoint_contract", "phase6_currentness_bytes", "-j4"], "exit_code": 0, "elapsed_seconds": 81.6325628310442, "user_cpu_seconds": 203.279461, "system_cpu_seconds": 20.895233, "max_rss_kib": 318904, "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"}

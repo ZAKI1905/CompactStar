@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/endpoint_validate.py", line 112, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/endpoint_validate.py", line 90, in main
+    checks=validate(new,old,*inputs);mutations={}
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/endpoint_validate.py", line 58, in validate
+    ('full_utilization',util),('utilization_increase',delta)]:eq(s[key],value,key)
+                                                              ^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/endpoint_validate.py", line 24, in eq
+    check(abs(mp.mpf(str(a))-b)<=mp.mpf('1e-95')*max(abs(b),mp.mpf('1e-100')),label)
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/endpoint_validate.py", line 22, in check
+    if not ok:raise ValueError(label)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: utilization_increase

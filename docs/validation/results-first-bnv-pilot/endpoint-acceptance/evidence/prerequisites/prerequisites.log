@@ -1,0 +1,52 @@
+Internal ctest changing into directory: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build
+Test project /mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build
+      Start  1: chemical_production_contract
+ 1/13 Test  #1: chemical_production_contract .........   Passed    0.04 sec
+      Start  2: chemical_exact_oracles
+ 2/13 Test  #2: chemical_exact_oracles ...............   Passed    0.10 sec
+      Start  3: chemical_curved_gc9
+ 3/13 Test  #3: chemical_curved_gc9 ..................   Passed    0.51 sec
+      Start  6: particle_number_analytic
+ 4/13 Test  #6: particle_number_analytic .............   Passed    0.09 sec
+      Start 15: passive_checkpoint_output_contract
+ 5/13 Test #15: passive_checkpoint_output_contract ...   Passed    0.02 sec
+      Start 16: phase6a1_direct_energy
+ 6/13 Test #16: phase6a1_direct_energy ...............   Passed    0.01 sec
+      Start 17: phase6a1_thermal_ledger
+ 7/13 Test #17: phase6a1_thermal_ledger ..............   Passed    0.01 sec
+      Start 18: heat_capacity_v1
+ 8/13 Test #18: heat_capacity_v1 .....................   Passed    0.79 sec
+      Start 29: cache_contract
+ 9/13 Test #29: cache_contract .......................   Passed    0.01 sec
+      Start 30: cache_thermal_contract
+10/13 Test #30: cache_thermal_contract ...............   Passed    0.17 sec
+      Start 72: phase5d_component_tolerances
+11/13 Test #72: phase5d_component_tolerances .........   Passed    0.01 sec
+      Start 76: phase6_breakpoint_contract
+12/13 Test #76: phase6_breakpoint_contract ...........   Passed    0.02 sec
+      Start 77: phase6_currentness_bytes
+13/13 Test #77: phase6_currentness_bytes .............   Passed    0.04 sec
+
+100% tests passed, 0 tests failed out of 13
+
+Label Time Summary:
+adr0017            =   0.02 sec*proc (1 test)
+analysis           =   0.09 sec*proc (1 test)
+analytic           =   0.70 sec*proc (3 tests)
+bnv                =   0.06 sec*proc (4 tests)
+cache              =   0.18 sec*proc (2 tests)
+contract           =   0.21 sec*proc (4 tests)
+currentness        =   0.04 sec*proc (1 test)
+engineering        =   0.04 sec*proc (1 test)
+evolution          =   0.01 sec*proc (1 test)
+particle-number    =   0.09 sec*proc (1 test)
+phase5c            =   0.65 sec*proc (3 tests)
+phase5d            =   0.01 sec*proc (1 test)
+phase5d-coupled    =   0.01 sec*proc (1 test)
+phase6             =   0.10 sec*proc (5 tests)
+scientific         =   0.78 sec*proc (7 tests)
+self-contained     =   0.81 sec*proc (9 tests)
+thermal            =   0.17 sec*proc (1 test)
+
+Total Test time (real) =   1.85 sec
+RESOURCE_USAGE_JSON {"command": ["ctest", "--test-dir", "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build", "--output-on-failure", "-R", "^(chemical_production_contract|chemical_exact_oracles|chemical_curved_gc9|particle_number_analytic|passive_checkpoint_output_contract|phase6a1_direct_energy|phase6a1_thermal_ledger|heat_capacity_v1|cache_contract|cache_thermal_contract|phase5d_component_tolerances|phase6_breakpoint_contract|phase6_currentness_bytes)$"], "exit_code": 0, "elapsed_seconds": 1.8621792495250702, "user_cpu_seconds": 1.463244, "system_cpu_seconds": 0.121833, "max_rss_kib": 31488, "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"}

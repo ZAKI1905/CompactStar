@@ -1,0 +1,15 @@
+git-upload-pack './OMITTED_OBJECTS_NOT_SUPPLIED': line 1: git-upload-pack: command not found
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+fatal: could not fetch e8fe206a71b02d195e6634f6570dfba1df13905c from promisor remote
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/endpoint_run.py", line 68, in <module>
+    if __name__=='__main__':raise SystemExit(main())
+                                             ^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/endpoint_run.py", line 33, in main
+    subprocess.run(['git','-C',str(root),'archive','afd4b06074a5f597ef4cbe38ce3c9cb04386f556',
+  File "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/python-3.11.9-g4zuo4tjs6qdheidlgtli3ampfghjezh/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', '-C', '/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot', 'archive', 'afd4b06074a5f597ef4cbe38ce3c9cb04386f556', 'tools', 'tests/bnv', 'docs/validation', 'docs/adr']' returned non-zero exit status 128.

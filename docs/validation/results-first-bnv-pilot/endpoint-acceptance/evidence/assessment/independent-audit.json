@@ -1,0 +1,20 @@
+{
+  "status": "PASS_CONDITIONAL_ACCOUNTING_NOT_TRAJECTORY_QUALIFICATION",
+  "checks": 5804,
+  "mutations_refused": {
+    "baseline": "additional_baseline",
+    "endpoint": "additional_endpoint",
+    "cut-zero": "full_interval_point_bound",
+    "threshold": "historical typed record changed",
+    "historical-scenario": "historical typed record changed",
+    "condition": "condition or evidence class lost",
+    "rigorous": "condition or evidence class lost",
+    "metric": "scope-only or exact row changed",
+    "nonlinear-ready": "unearned readiness promotion",
+    "unknown-zero": "unearned readiness promotion"
+  },
+  "arithmetic": "mpmath 130 digits, expanded denominator correction, no assessor imports",
+  "historical_records_preserved": true,
+  "stellar_calculations": 0,
+  "trajectories": 0
+}

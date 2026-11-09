@@ -1,0 +1,16 @@
+{
+  "execution_commit": "3b3f0a4e7d194072d3e259440c0870efb621586b",
+  "job": "19158",
+  "host": "phyn004",
+  "cpu_seconds": 0.7050097,
+  "wall_seconds": 1.7316225618124008,
+  "max_child_rss_kib": 43508,
+  "affinity": [
+    0
+  ],
+  "steps": [],
+  "exit_code": 1,
+  "stellar_calculations": 0,
+  "trajectories": 0,
+  "historical_source_commit": "afd4b06074a5f597ef4cbe38ce3c9cb04386f556"
+}

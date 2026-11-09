@@ -1,0 +1,28 @@
+JobId=19159 JobName=rf-bnv-prerequisites
+   UserId=nobody(1038) GroupId=nobody(1041) MCS_label=N/A
+   Priority=4294893316 Nice=0 Account=(null) QOS=(null)
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:00 TimeLimit=00:15:00 TimeMin=N/A
+   SubmitTime=2026-11-08T22:49:50 EligibleTime=2026-11-08T22:49:50
+   AccrueTime=2026-11-08T22:49:50
+   StartTime=2026-11-08T22:49:51 EndTime=2026-11-08T23:04:51 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-11-08T22:49:51 Scheduler=Backfill
+   Partition=phyall AllocNode:Sid=ekucn1:940258
+   ReqNodeList=phyn004 ExcNodeList=(null)
+   NodeList=phyn004
+   BatchHost=phyn004
+   NumNodes=1 NumCPUs=4 NumTasks=1 CPUs/Task=4 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=4,node=1,billing=4
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=4 MinMemoryNode=8G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/endpoint_prerequisites.sbatch
+   WorkDir=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot
+   StdErr=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/slurm-19159.err
+   StdIn=/dev/null
+   StdOut=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/slurm-19159.out
+   Power=
+   
+

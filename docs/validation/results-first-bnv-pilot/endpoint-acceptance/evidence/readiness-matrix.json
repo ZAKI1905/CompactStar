@@ -1,0 +1,104 @@
+{
+  "status": "NOT_READY_FOR_PAIRED_EVOLUTION_AUTHORIZATION",
+  "static_qualification": "CONDITIONAL_STATIC_PASS",
+  "all_required_pre_execution_gates_pass": false,
+  "nonlinear_evolution_qualified": false,
+  "paired_trajectories_authorized": false,
+  "gates": [
+    {
+      "gate": "Owner preparation decision and endpoint scope",
+      "status": "ACCEPTED CONDITIONAL",
+      "evidence": "`acceptance-registry.json:1`; physical interval remains [-1e-6,0]; each remapping extension <=3.022e-26"
+    },
+    {
+      "gate": "Known endpoint transition check",
+      "status": "NO KNOWN CONTRADICTION in retained evidence",
+      "evidence": "`evidence/assessment/endpoint-transition-audit.json:1`; samples and local tube are not an unsampled family theorem"
+    },
+    {
+      "gate": "Full C-CUT ledger including finite nonlinear transfer, fixed-B remapping, fit, baseline and endcap",
+      "status": "CONDITIONAL STATIC PASS",
+      "evidence": "`evidence/assessment/ledger.json.gz:1`; all earlier terms and conditions retained"
+    },
+    {
+      "gate": "Restricted 462-row matrix",
+      "status": "CONDITIONAL STATIC PASS WITH METRIC SCOPE",
+      "evidence": "`evidence/assessment/matrix.tsv:1`; 420 conditional, 21 exact, 21 consumer-scope-only; no nodewise metric PASS"
+    },
+    {
+      "gate": "Historical runtime certificate and refusal behavior",
+      "status": "RETAINED, NOT PROMOTED",
+      "evidence": "Original row records are recursively unchanged; independent audit in `evidence/assessment/independent-audit.json:1`"
+    },
+    {
+      "gate": "Native ordinary-context binding and Bdot",
+      "status": "RETAINED PASS, narrower than a paired context",
+      "evidence": "`../PREPARATION_REPORT.md:77`; prior job 19147 tests ordinary context, native rate and 15 refusals; no new fixture solve performed here"
+    },
+    {
+      "gate": "Affected 13-test native-stack suite",
+      "status": "PASS, SYNTHETIC/ANALYTIC SCOPE",
+      "evidence": "`evidence/prerequisites/prerequisites.log:1`; actual native paired-context snapshots are separate"
+    },
+    {
+      "gate": "Native source/control assembly",
+      "status": "NOT READY",
+      "evidence": "`tests/bnv/breakpoint_fixture.hpp:9`: historical card, default historical input binding and Mac Bdot literal remain; no native paired builder is implemented"
+    },
+    {
+      "gate": "No-new-stellar-calculation assembly path",
+      "status": "NOT AVAILABLE in current paired builder",
+      "evidence": "`tests/rotochemical/fixture.hpp:44` solves a central star and sequence; `tests/bnv/campaign_fixture.hpp:19` computes another sequence for the tangent"
+    },
+    {
+      "gate": "Native matched non-evolving snapshots",
+      "status": "NOT EXECUTED",
+      "evidence": "`../OWNER_APPROVAL.md:57` requires Tinf=1e8 K, eta=(0,0), (1e-7,-2e-7), (-1e-7,2e-7) MeV at t=0 and t=462269531250 s, both roles; no eligible assembled pair exists"
+    },
+    {
+      "gate": "Snapshot zero-source reduction, nonzero-eta R18 and power closure",
+      "status": "UNQUALIFIED for intended native pair",
+      "evidence": "Synthetic direct-energy/ledger tests pass; they do not supply the required native snapshots"
+    },
+    {
+      "gate": "Restricted paired runner, conditional utilization reporting and native identity",
+      "status": "NOT IMPLEMENTED / NOT VERIFIED",
+      "evidence": "`../experiment.json:1` retains production_runner_implemented=false; historical builder is not a native restricted runner"
+    },
+    {
+      "gate": "Candidate ceiling as nonlinear stability qualification",
+      "status": "UNQUALIFIED",
+      "evidence": "`../EXPERIMENT.md:45`; `../../PHASE6_CAMPAIGN_ACCURACY_PREDECLARATION.md:104`; frozen-linear diagnostics cannot replace nonlinear runs"
+    },
+    {
+      "gate": "Actual-path accumulated state error and common-prefix independent references",
+      "status": "NOT EXECUTED, TRAJECTORY-TIME GATE",
+      "evidence": "rk8pd/RKF45, cap refinement, contraction and accumulated-roundoff evidence required by `../../PHASE6_CAMPAIGN_ACCURACY_PREDECLARATION.md:67`"
+    },
+    {
+      "gate": "All-tier passive schedules, exact endpoints, rejection <=10%, event/reconstruction uncertainty",
+      "status": "NOT EXECUTED, TRAJECTORY-TIME GATE",
+      "evidence": "`../EXPERIMENT.md:45`; synthetic contracts do not establish actual-path results"
+    },
+    {
+      "gate": "Actual R18, cumulative R20, nested scientific grids and uncertainty budgets",
+      "status": "NOT EXECUTED, TRAJECTORY-TIME GATE",
+      "evidence": "`../EXPERIMENT.md:55`; every unknown contribution remains unknown"
+    },
+    {
+      "gate": "Matched temperature/imbalance signal resolution",
+      "status": "NOT EXECUTED, TRAJECTORY-TIME GATE",
+      "evidence": "`../EXPERIMENT.md:59`; add source/control uncertainty without assumed cancellation"
+    },
+    {
+      "gate": "Historical BA12/BA12R and uncapped tail behavior",
+      "status": "FAILURES PRESERVED",
+      "evidence": "`../REPORT.md:48`; `../../PHASE6_BNV_CAMPAIGN_READINESS.md:200`; not retested or renamed PASS"
+    },
+    {
+      "gate": "Separate paired-evolution owner authorization",
+      "status": "NOT GIVEN",
+      "evidence": "`OWNER_APPROVAL.md:1`; no executable evolution invoked"
+    }
+  ]
+}

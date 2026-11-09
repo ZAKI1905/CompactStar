@@ -1,0 +1,57 @@
+{
+  "execution_commit": "dd35acae85898c84a73deb8c8111f8d19160a74b",
+  "job": "19160",
+  "host": "phyn004",
+  "cpu_seconds": 17.697453345999996,
+  "wall_seconds": 22.809266939759254,
+  "max_child_rss_kib": 270136,
+  "affinity": [
+    0
+  ],
+  "steps": [
+    {
+      "name": "test_results_first_cut.py",
+      "exit_code": 0,
+      "cpu_seconds": 0.3010008519999998
+    },
+    {
+      "name": "test_surface_transfer.py",
+      "exit_code": 0,
+      "cpu_seconds": 0.7609234109999998
+    },
+    {
+      "name": "test_results_first_static.py",
+      "exit_code": 0,
+      "cpu_seconds": 0.21974383000000008
+    },
+    {
+      "name": "endpoint-tests",
+      "exit_code": 0,
+      "cpu_seconds": 0.10313941199999999
+    },
+    {
+      "name": "historical-ledger-audit",
+      "exit_code": 0,
+      "cpu_seconds": 5.752103792
+    },
+    {
+      "name": "historical-transfer-audit",
+      "exit_code": 0,
+      "cpu_seconds": 5.638118704
+    },
+    {
+      "name": "endpoint-assessment",
+      "exit_code": 0,
+      "cpu_seconds": 2.895400120999996
+    },
+    {
+      "name": "endpoint-audit",
+      "exit_code": 1,
+      "cpu_seconds": 1.1100067309999986
+    }
+  ],
+  "exit_code": 1,
+  "stellar_calculations": 0,
+  "trajectories": 0,
+  "historical_source_commit": "afd4b06074a5f597ef4cbe38ce3c9cb04386f556"
+}

@@ -1,0 +1,605 @@
+Start testing: Nov 08 22:51 EST
+----------------------------------------------------------
+1/84 Testing: chemical_production_contract
+1/84 Test: chemical_production_contract
+Command: "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests/chemical_production_contract"
+Directory: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests
+"chemical_production_contract" start time: Nov 08 22:51 EST
+Output:
+----------------------------------------------------------
+GC3_6_C	0.27559055118110237	-0.055118110236220465	0.0078740157480314994	-0.055118110236220479	0.14435695538057741	-0.068241469816272979	0.0078740157480314994	-0.068241469816272965	0.10498687664041996
+GC3_6_E	2.9338335207070915e-15	2.1623217886154494e-15	1.2875135062297979e-15	2.1754528713049966e-15	3.5891960627647641e-15	2.7281010358895599e-15	1.2830150632002304e-15	2.7106354210500656e-15	2.3101224610924088e-15
+N8_C	9.9999999999999998e+23	-1	-0.50000000000000011	-1	1	0	-0.5	0	0.50000000000000011
+N8_E	7216449660.063674	2.1760371283153645e-14	1.0991207944289344e-14	2.1538326677728608e-14	7.3274719625261925e-15	1.4210854715202525e-38	1.0972021137484821e-14	1.4394525707518512e-38	3.7747582837256166e-15
+GC11_Z	0.47746482927568601	0.238732414637843	0.238732414637843	0.47746482927568601
+GC10_Q	2.8000000000000007	-0.20000000000000001	-0.20000000000000001	3.8000000000000007
+GC10_Z	0.35849056603773577	0.018867924528301869	0.018867924528301855	0.26415094339622636
+GC11_SOURCE_Z	9.9999999999999982	5	5	12
+CONTRACTS PASS
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"chemical_production_contract" end time: Nov 08 22:51 EST
+"chemical_production_contract" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/84 Testing: chemical_exact_oracles
+2/84 Test: chemical_exact_oracles
+Command: "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python" "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/analysis/chemical_exact_oracles.py" "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests/chemical_production_contract"
+Directory: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests
+"chemical_exact_oracles" start time: Nov 08 22:51 EST
+Output:
+----------------------------------------------------------
+{
+  "GC1-GC8": "PASS (precursors)",
+  "GC10": "PASS independent rational two-zone",
+  "GC11": "PASS source traceability/contract",
+  "GC12": "PASS signed unit fixture",
+  "GC12_mutants": [
+    "flip_Omega_dot",
+    "omit_c_minus2",
+    "double_c_minus2",
+    "omit_e",
+    "omit_mu",
+    "swap_channels"
+  ],
+  "arithmetic": "exact Fraction, zero tolerance",
+  "production_chemical_path_exercised": true,
+  "production_values": {
+    "GC3_6_C": [
+      0.2755905511811024,
+      -0.055118110236220465,
+      0.0078740157480315,
+      -0.05511811023622048,
+      0.1443569553805774,
+      -0.06824146981627298,
+      0.0078740157480315,
+      -0.06824146981627296,
+      0.10498687664041996
+    ],
+    "GC3_6_E": [
+      2.9338335207070915e-15,
+      2.1623217886154494e-15,
+      1.287513506229798e-15,
+      2.1754528713049966e-15,
+      3.589196062764764e-15,
+      2.72810103588956e-15,
+      1.2830150632002304e-15,
+      2.7106354210500656e-15,
+      2.3101224610924088e-15
+    ],
+    "N8_C": [
+      1e+24,
+      -1.0,
+      -0.5000000000000001,
+      -1.0,
+      1.0,
+      0.0,
+      -0.5,
+      0.0,
+      0.5000000000000001
+    ],
+    "N8_E": [
+      7216449660.063674,
+      2.1760371283153645e-14,
+      1.0991207944289344e-14,
+      2.1538326677728608e-14,
+      7.327471962526193e-15,
+      1.4210854715202525e-38,
+      1.0972021137484821e-14,
+      1.4394525707518512e-38,
+      3.774758283725617e-15
+    ],
+    "GC10_Q": [
+      2.8000000000000007,
+      -0.2,
+      -0.2,
+      3.8000000000000007
+    ],
+    "GC10_Z": [
+      0.35849056603773577,
+      0.01886792452830187,
+      0.018867924528301855,
+      0.26415094339622636
+    ],
+    "GC11_SOURCE_Z": [
+      9.999999999999998,
+      5.0,
+      5.0,
+      12.0
+    ]
+  }
+}
+<end of output>
+Test time =   0.10 sec
+----------------------------------------------------------
+Test Passed.
+"chemical_exact_oracles" end time: Nov 08 22:51 EST
+"chemical_exact_oracles" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/84 Testing: chemical_curved_gc9
+3/84 Test: chemical_curved_gc9
+Command: "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python" "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/analysis/chemical_curved_gc9.py" "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests/chemical_production_contract"
+Directory: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests
+"chemical_curved_gc9" start time: Nov 08 22:51 EST
+Output:
+----------------------------------------------------------
+{
+  "classification": "INDEPENDENT ANALYTIC ORACLE",
+  "reference_method": "closed primitive + 70/100-digit theta integration",
+  "production_path_exercised": true,
+  "reference": [
+    "9985.876580789789259184313734665960432566464552528972461328012774191087876212118669702918867645615487",
+    "16030.73268106873533800602688983221827884204569775465682837323909260216222330643523699978201587385957"
+  ],
+  "roundoff_relative_envelope": 4.547473508866709e-13,
+  "shapes": [
+    {
+      "variable": false,
+      "correct_relative_error": 0.0,
+      "order32_64_relative_difference": 0.0,
+      "mutant_signed_relative_separation": {
+        "M6_omit_lapse": -0.19682454003266808,
+        "M7a_extra_inverse_lapse": 0.24596008441220482,
+        "M7b_nu_as_2Phi": -0.10388019868413156,
+        "M8_omit_volume": -0.09637084033243705,
+        "M19_sign_flipped_lapse": -0.35444613689721194,
+        "M20_inverse_volume": -0.1816021673622824
+      }
+    },
+    {
+      "variable": true,
+      "correct_relative_error": 0.0,
+      "order32_64_relative_difference": 0.0,
+      "mutant_signed_relative_separation": {
+        "M6_omit_lapse": -0.1933247435449415,
+        "M7a_extra_inverse_lapse": 0.24048041509155293,
+        "M7b_nu_as_2Phi": -0.10192309640649762,
+        "M8_omit_volume": -0.10337043330789013,
+        "M19_sign_flipped_lapse": -0.34884823731224857,
+        "M20_inverse_volume": -0.194348246889851
+      }
+    }
+  ]
+}
+<end of output>
+Test time =   0.51 sec
+----------------------------------------------------------
+Test Passed.
+"chemical_curved_gc9" end time: Nov 08 22:51 EST
+"chemical_curved_gc9" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/84 Testing: particle_number_analytic
+6/84 Test: particle_number_analytic
+Command: "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests/particle_number_analytic"
+Directory: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests
+"particle_number_analytic" start time: Nov 08 22:51 EST
+Output:
+----------------------------------------------------------
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+MUTATION FIRED n_i -> Y_i
+MUTATION FIRED count lapse
+MUTATION FIRED wrong count-unit factor
+MUTATION FIRED wrong metric measure
+MUTATION FIRED wrong count domain
+PB1 PASS analytic_relative=1.2123635428906709e-13 raw_charge=-8.5070591730234616e+37
+MUTATION FIRED missing lapse cancellation
+MUTATION FIRED wrong angular 1/3
+MUTATION FIRED l=2 contamination
+PB2 PASS lapse_cancellation; angular_average=0.33333333333333331 P2_average=0 IBP_relative=5.5511151231257827e-16
+PB3 ramp_width=0.10000000000000001 relative_envelope=0.00037037037037028194
+MUTATION FIRED nodal dn_i/dp instead of measure
+PB3 ramp_width=0.01 relative_envelope=3.7037037037201497e-06
+MUTATION FIRED nodal dn_i/dp instead of measure
+PB3 ramp_width=0.001 relative_envelope=3.7037036964028534e-08
+MUTATION FIRED nodal dn_i/dp instead of measure
+PB3 ramp_width=0.0001 relative_envelope=3.7037034460742956e-10
+MUTATION FIRED nodal dn_i/dp instead of measure
+MUTATION FIRED invent continuous-onset atom
+MUTATION FIRED wrong measure sign
+PB3 PASS jump=5.0000000000000004e+53 terminal=2.0000000000000002e+54 same_representation=2.631228568361621e-13
+MUTATION FIRED omit density-measure term
+MUTATION FIRED omit metric term
+MUTATION FIRED omit velocity term
+MUTATION FIRED omit outer-boundary term
+PB4 PASS four independent analytic terms; finest_relative=3.0267983675003052e-09
+PB5 q=0.001 quotient=13.976881016226628 error=0.0030768930592284249
+PB5 q=0.00050000000000000001 quotient=13.975342379524136 error=0.0015382563567367669
+PB5 q=0.00025000000000000001 quotient=13.974573203682894 error=0.00076908051549473555
+PB5 q=0.000125 quotient=13.974188651161512 error=0.00038452799411281546
+MUTATION FIRED wrong q normalization / omitted division
+MUTATION FIRED seed squared contamination
+MUTATION FIRED wrong c squared conversion
+PB5 PASS independent nonlinear current and exact Omega convention
+ENDPOINT 1 PASS canonical continuous shared endpoint
+ENDPOINT 2 PASS independent 1-ULP radius/density perturbations REFUSED
+ENDPOINT 3 PASS undeclared finite jump REFUSED
+ENDPOINT 4 PASS declared true jump exactly one Stieltjes atom
+ENDPOINT 5 PASS continuous onset to zero NO atom
+ENDPOINT 6 PASS finite-density terminal exactly once
+ENDPOINT 7 PASS duplicate terminal mutation FAILS independent boundary oracle
+ENDPOINT 8 PASS omitted terminal mutation FAILS independent boundary oracle
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+PB14 domain=whole-star PASS
+MUTATION FIRED missing core boundary flux
+MUTATION FIRED missing core boundary flux
+MUTATION FIRED missing core boundary flux
+MUTATION FIRED missing core boundary flux
+PB14 domain=explicit-isobar-core PASS
+MUTATION FIRED missing core boundary flux
+MUTATION FIRED missing core boundary flux
+MUTATION FIRED missing core boundary flux
+MUTATION FIRED missing core boundary flux
+PB14 domain=explicit-isobar-shell PASS
+PB14 source=FR2005(18,24,26,30,31);R2006(7);Hartle(109-114)
+PB14 PASS structural symbol/sign/unit/domain mapping; no authenticated free-gas core cutoff or numerical source target claimed
+
+A total of 0 errors, and 0 warnings were generated.
+<end of output>
+Test time =   0.09 sec
+----------------------------------------------------------
+Test Passed.
+"particle_number_analytic" end time: Nov 08 22:51 EST
+"particle_number_analytic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+15/84 Testing: passive_checkpoint_output_contract
+15/84 Test: passive_checkpoint_output_contract
+Command: "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests/passive_checkpoint_output_contract"
+Directory: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests
+"passive_checkpoint_output_contract" start time: Nov 08 22:51 EST
+Output:
+----------------------------------------------------------
+P1 PASS
+P2 PASS
+P3 PASS
+P4 PASS
+P5 PASS
+P6 PASS
+P7 PASS
+P8 PASS
+P9 PASS
+P10 PASS
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"passive_checkpoint_output_contract" end time: Nov 08 22:51 EST
+"passive_checkpoint_output_contract" time elapsed: 00:00:00
+----------------------------------------------------------
+
+16/84 Testing: phase6a1_direct_energy
+16/84 Test: phase6a1_direct_energy
+Command: "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests/phase6a1_direct_energy"
+Directory: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests
+"phase6a1_direct_energy" start time: Nov 08 22:51 EST
+Output:
+----------------------------------------------------------
+DIRECT_ENERGY PASS inclusive event local/infinity and conversion
+MUTATION M13 DETECTED unit oracle
+MUTATION M14 DETECTED unit oracle
+MUTATION M15 DETECTED fate-energy closure
+MUTATION M16 DETECTED terminal duplicate
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"phase6a1_direct_energy" end time: Nov 08 22:51 EST
+"phase6a1_direct_energy" time elapsed: 00:00:00
+----------------------------------------------------------
+
+17/84 Testing: phase6a1_thermal_ledger
+17/84 Test: phase6a1_thermal_ledger
+Command: "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests/phase6a1_thermal_ledger"
+Directory: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests
+"phase6a1_thermal_ledger" start time: Nov 08 22:51 EST
+Output:
+----------------------------------------------------------
+BA8 PASS DeltaPbeta Pnet Echem reservoir
+BA9 PASS forbidden heat/unit/double-count mutants
+BA17 PASS worst_ratio 0.467659 xi -3.6125
+MUTATION M8 DETECTED R-a/b/c double-count fixture
+MUTATION M9 DETECTED Echem reservoir is not heat
+MUTATION M10 DETECTED no PdV/gravity production input
+MUTATION M11 DETECTED omitted DeltaLnu
+MUTATION M12 DETECTED doubled equilibrium neutrinos
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"phase6a1_thermal_ledger" end time: Nov 08 22:51 EST
+"phase6a1_thermal_ledger" time elapsed: 00:00:00
+----------------------------------------------------------
+
+18/84 Testing: heat_capacity_v1
+18/84 Test: heat_capacity_v1
+Command: "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests/heat_capacity_v1"
+Directory: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests
+"heat_capacity_v1" start time: Nov 08 22:51 EST
+Output:
+----------------------------------------------------------
+ADR-0002 V1 Tier-A verification (synthetic fixture; NOT a scientific baseline)
+
+U1  unit chain (erg/K) and the 1e15 km^3->cm^3 factor
+      direct integral    = 4.337437e+35 erg/K
+      production (node)  = 4.337437e+35 erg/K
+      analytic trapezoid = 4.337437e+35 erg/K
+      analytic continuum = 4.337437e+35 erg/K
+  [PASS] U1.a direct integral == closed-form trapezoid — rel err 0.000000
+  [PASS] U1.b production at a cache node == closed-form trapezoid — rel err 0.000000
+  [PASS] U1.c magnitude excludes a missing 1e15 — production is not 1e15x smaller than expected
+  [RECORD] U1.d — trapezoid vs continuum discretization gap = 0.000000 at N=2001
+
+U2  low-temperature scaling d ln C_star / d ln T_inf
+      C(1.000000e-05) = 4.337437e+35,  C(1.000000e-04) = 4.339231e+36
+  [PASS] U2 slope ~= 1 for the degenerate fixture — measured slope 1.000180
+  [RECORD] U2 caveat — the production low-T model fixes dQ2/dT to a constant below the blend window, so c_V is linear in T BY CONSTRUCTION; this checks plumbing, not physics
+
+U3  production cache vs independent direct integral
+      T_inf=1.000000e-05  cached=4.337437e+35  direct=4.337437e+35  rel=5.103496e-16
+      T_inf=3.000000e-05  cached=1.301726e+36  direct=1.301231e+36  rel=3.801347e-04
+      T_inf=1.000000e-04  cached=4.339231e+36  direct=4.337437e+36  rel=4.134574e-04
+      T_inf=3.000000e-04  cached=1.301321e+37  direct=1.301231e+37  rel=6.864395e-05
+      T_inf=1.000000e-03  cached=4.340153e+37  direct=4.337437e+37  rel=6.261955e-04
+      T_inf=1.000000e-02  cached=4.340180e+38  direct=4.337437e+38  rel=6.322705e-04
+      T_inf=1.000000e-01  cached=4.339283e+39  direct=4.337437e+39  rel=4.256079e-04
+  [PASS] U3 cache vs direct within 1% — max rel err 0.000632
+
+U4  radial convergence (order measured)
+      N=101  rel err=5.000000e-05
+      N=201  rel err=1.250000e-05
+      N=401  rel err=3.125000e-06
+      N=801  rel err=7.812500e-07
+      observed order (101->201) = 2.000000e+00
+      observed order (201->401) = 2.000000e+00
+      observed order (401->801) = 2.000000e+00
+  [PASS] U4 observed order >= 1.8 (nominal O(dr^2)) — min observed order 2.000000
+
+U5  T_inf-grid sensitivity (surrogate caches; production NT untouched)
+      NT=40  max interp rel err=1.089670e-02
+      NT=80  max interp rel err=2.542065e-03
+      NT=160  max interp rel err=6.554743e-04
+      NT=320  max interp rel err=1.626647e-04
+      production NT=160 max rel err=6.554743e-04
+  [PASS] U5 production NT=160 within the 1% criterion — max rel err 0.000655
+
+U6  endpoint clamping — CURRENT NUMERICAL BEHAVIOR, NOT GOVERNED AS CORRECT
+  [PASS] U6.a below-range returns the low endpoint — C(1e-9 MeV) == C(1e-5 MeV)
+  [PASS] U6.b above-range returns the high endpoint — C(50 MeV) == C(1 MeV)
+  [RECORD] U6.c — at T_inf=1e-9 MeV the clamp overstates C_star by factor 10000.000000 vs the direct integral — recorded for INV-10, not fixed here
+
+U7  cache behavior
+  [PASS] U7.a repeated query stable — bit-identical
+  [PASS] U7.b profile version advanced — version 1 -> 2
+  [PASS] U7.b cache rebuilt, C_star doubled with n_B — ratio 2.000000
+  [PASS] U7.c cache rebuilds on a different thermo object — ratio 2.000000
+  [PASS] U7.d.1 a matching GeometryCache is accepted and used — C_star = 4339230643496159867867892170448961536.000000
+  [PASS] U7.d.2 a GeometryCache from a different profile FAILS CLOSED (ADR-0003) — threw as required
+  [PASS] U7.d.3 the context is still usable after the rejection, and stable — C_star unchanged after the failed call
+
+Tier-A checks passed
+Tier B (real canonical star, literature magnitude) NOT part of this executable.
+<end of output>
+Test time =   0.79 sec
+----------------------------------------------------------
+Test Passed.
+"heat_capacity_v1" end time: Nov 08 22:51 EST
+"heat_capacity_v1" time elapsed: 00:00:00
+----------------------------------------------------------
+
+29/84 Testing: cache_contract
+29/84 Test: cache_contract
+Command: "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests/cache_contract"
+Directory: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests
+"cache_contract" start time: Nov 08 22:51 EST
+Output:
+----------------------------------------------------------
+SUPPORTED CACHE CONTRACTS (StarContext / GeometryCache / ProfileVersionedCache)
+Synthetic uniform fixture; asserts no neutron-star property.
+
+C1/C2 StarContext mass-density cache
+  [PASS] C1a mass-density cache builds and is positive — rho = 134685325751059.046875 g/cm^3
+  [PASS] C2a repeated queries at a fixed version are stable and rebuild nothing — 5 repeats, identical payload identity
+  [PASS] C1b sanctioned in-place mutation increments Version() — version 1 -> 2
+  [PASS] C1c mass density rebuilds and scales by exactly the same factor — rho 134685325751059.046875 -> 269370651502118.093750 (expected x2, rel dev 0.000000)
+  [PASS] C1d a second mutation rebuilds again — rho -> 67342662875529.523438 (expected 0.5x original)
+
+C3/C4 StarContext Direct-Urca mask and boundary
+  [PASS] C3a DU allowed throughout a composition far above threshold — mask sum 64/64, last allowed index 63, boundary r = 10.000000 km
+  [PASS] C4a repeated DU queries at a fixed version are stable — 5 repeats, identical mask sum / boundary index / boundary radius
+  [PASS] C3b DU mask rebuilds to forbidden after crossing the threshold — mask sum 0, last allowed -1
+  [PASS] C3c DU mask rebuilds back to allowed — mask sum 64
+  [PASS] C3d DU boundary tracks a partial allowed region — last allowed index 31 (expected 31), boundary r = 4.920635 km
+
+C5 GeometryCache construction-time fidelity
+  [PASS] C5a GeometryCache reproduces its source geometry at construction — size 32, r/exp(nu)/area all match
+
+C6 version vs identity
+  [PASS] C6a two distinct profiles with different physics can share a Version() — A.Version()=1, B.Version()=1; mean rho A=134685325751059.046875 vs B=673426628755295.875000
+        => profile version != profile identity. ADR-0003 therefore keys
+           reusable caches on (identity, version); see P2 below.
+
+C7 ProfileVersionedCache same-star rebuild contract
+  [PASS] C7a builder runs once on first access — builds = 1
+  [PASS] C7b builder does not re-run at a fixed profile version — builds after 5 more Get() calls = 1
+  [PASS] C7c cache records the version it was built against — built against version 1
+  [PASS] C7d builder re-runs after a sanctioned mutation — builds = 2
+  [PASS] C7e rebuilt payload reflects the new profile — mean rho 134685325751059.046875 -> 404055977253177.125000
+  [PASS] C7f explicit Invalidate() forces a rebuild — builds = 3
+
+C8 column-container identity under in-place mutation
+  [PASS] C8a in-place value edits keep DataColumn addresses stable, so the pointers StarContext bound in its constructor remain valid — eps and nB column addresses unchanged across two in-place mutations
+  [PASS] C8b derived caches still track those in-place edits — mean rho = 202027988626588.562500 g/cm^3
+
+ADR-0003 ENFORCED PROVENANCE CONTRACTS
+
+P1 GeometryCache carries its source provenance
+  [PASS] P1a a fresh GeometryCache matches the context it was built from — source profile identity and version recorded
+  [PASS] P1b after a sanctioned mutation the old snapshot reports itself STALE — Matches() == false (was undetectable before ADR-0003)
+  [PASS] P1c the stale snapshot still remembers what it was built from — provenance is preserved, not silently updated
+  [PASS] P1d a freshly constructed snapshot matches again — caller owns rebuilding; there is no Refresh()
+
+P2 ProfileVersionedCache distinguishes two equal-version profiles
+  [PASS] P2a the precondition still holds: equal numeric Version(), different physics — A.Version()=1 == B.Version()=1
+  [PASS] P2b the builder RE-RAN for the second profile — builds = 2 (was 1 before ADR-0003)
+  [PASS] P2c star B receives its OWN payload, not star A's — B mean rho 9.428e+14 vs A 1.347e+14
+  [PASS] P2d the cache records the identity it was built against — provenance is (identity, version)
+
+P3 StarContext re-binds column views on a revision change (S1)
+  [PASS] P3a baseline derived value is available — mean rho 1.347e+14
+  [PASS] P3b the structural change really did move the columns — eps column address changed, so a stale binding would be observable
+  [PASS] P3c the context re-bound and still yields the correct derived value — mean rho 1.347e+14 (unchanged: the values were preserved)
+  [PASS] P3d the re-bound views point into the CURRENT profile storage — bound pointer equals the live column address
+
+P4 an unusable schema fails closed
+  [PASS] P4a a profile that no longer satisfies the required schema throws rather than serving data through stale bindings — threw as required
+  [PASS] P4b the context is not left falsely marked current after a failed re-bind — a second access throws again rather than returning stale data
+  [PASS] P4c restoring the schema restores the context — mean rho 1.347e+14
+
+supported cache contracts and ADR-0003 provenance contracts hold
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"cache_contract" end time: Nov 08 22:51 EST
+"cache_contract" time elapsed: 00:00:00
+----------------------------------------------------------
+
+30/84 Testing: cache_thermal_contract
+30/84 Test: cache_thermal_contract
+Command: "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests/cache_thermal_contract"
+Directory: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests
+"cache_thermal_contract" start time: Nov 08 22:51 EST
+Output:
+----------------------------------------------------------
+THERMAL CACHE CONTRACTS (Y_q via C_star; NeutrinoCooling payload)
+Synthetic fixture; asserts no neutron-star property.
+C_star repeat/version/thermo-identity contracts live in heat_capacity_v1 (U7).
+
+  [PASS] T0 synthetic thermo fixture loads — Q2 = slope*T*(1+Yq)
+
+T1 StarContext charge-fraction (Y_q) cache
+  [PASS] T1a C_star builds with Y_q = Y_p = 0.10 — C_star = 190926721092204259427761569159708672.000000 erg/K
+  [PASS] T1b repeated queries at a fixed version are bit-identical — 4 repeats
+  [PASS] T1c the species mutation increments Version() — version 1 -> 3
+  [PASS] T1d C_star rebuilds and tracks (1 + Y_q) exactly — C_star 190926721092204259427761569159708672.000000 -> 225640670381696130781476059504181248.000000 (expected 225640670381695946314035322408665088.000000, rel dev 0.000000)
+  [PASS] T1e C_star rebuilds back — returned to 190926721092204259427761569159708672.000000
+
+T2 NeutrinoCooling cache — same-star rebuild (the contract it was designed for)
+  [PASS] T2a diagnostics compute cleanly — L_nu = 564170341902995349201896923396101373952.000000 erg/s, n_zones = 401
+  [PASS] T2b repeated queries at the same state/context are bit-identical — 4 repeats
+  [PASS] T2c the profile-versioned cache rebuilds and L_nu scales exactly with rho — L_nu 564170341902995349201896923396101373952.000000 -> 1692511025708986652068600577502891474944.000000 (expected x3.000000, rel dev 0.000000)
+  [PASS] T2d closing the DU channel rebuilds the cache and removes the DU luminosity — L_nu_DU 1692511008783876479587979532227938615296.000000 -> 0.000000, MU unchanged at 16925110087838767187373343113216.000000
+
+ADR-0003 ENFORCED PROVENANCE CONTRACTS
+
+T3 C_star honours the supplied GeometryCache
+  [PASS] T3a a matching geometry is accepted — C_star = 1.909e+35
+  [PASS] T3b a geometry from a different profile FAILS CLOSED — threw as required (previously returned a 50 %-wrong C_star)
+  [PASS] T3c an equivalent geometry with identical provenance is accepted and agrees — same value; a different C++ object does not force a spurious rebuild
+
+T4 NeutrinoCooling across two equal-version stars
+  [PASS] T4a precondition: the two stars share a numeric Version() — both 1
+  [PASS] T4b the reused driver returns star B's OWN luminosity, not star A's — reused B = 2.821e+39, fresh B = 2.821e+39, A = 5.642e+38
+  [PASS] T4c switching back rebuilds again — A revisited = 5.642e+38
+  [PASS] T4d a mismatched profile/geometry pair fails closed rather than computing — ok=false: GeometryCache provenance does not match ctx.star (different StarProfile or revision). Rebuild the GeometryCache from the current context (ADR-0003).
+
+supported thermal cache contracts and ADR-0003 provenance contracts hold
+<end of output>
+Test time =   0.17 sec
+----------------------------------------------------------
+Test Passed.
+"cache_thermal_contract" end time: Nov 08 22:51 EST
+"cache_thermal_contract" time elapsed: 00:00:00
+----------------------------------------------------------
+
+72/84 Testing: phase5d_component_tolerances
+72/84 Test: phase5d_component_tolerances
+Command: "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests/phase5d_component_tolerances"
+Directory: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests
+"phase5d_component_tolerances" start time: Nov 08 22:51 EST
+Output:
+----------------------------------------------------------
+PASS SHA256 known answers and actual GSL component error levels; baseline/refined; invalid tolerances refused
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"phase5d_component_tolerances" end time: Nov 08 22:51 EST
+"phase5d_component_tolerances" time elapsed: 00:00:00
+----------------------------------------------------------
+
+76/84 Testing: phase6_breakpoint_contract
+76/84 Test: phase6_breakpoint_contract
+Command: "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests/phase6_breakpoint_contract"
+Directory: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests
+"phase6_breakpoint_contract" start time: Nov 08 22:51 EST
+Output:
+----------------------------------------------------------
+PASS analytic heating/cooling, knot starts, coupled method comparison, GSL rollback and h carry
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"phase6_breakpoint_contract" end time: Nov 08 22:51 EST
+"phase6_breakpoint_contract" time elapsed: 00:00:00
+----------------------------------------------------------
+
+77/84 Testing: phase6_currentness_bytes
+77/84 Test: phase6_currentness_bytes
+Command: "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests/phase6_currentness_bytes"
+Directory: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/results-first-endpoint-prerequisites-20261109-r1/build/tests
+"phase6_currentness_bytes" start time: Nov 08 22:51 EST
+Output:
+----------------------------------------------------------
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+PASS full-byte currentness: empty, binary, exact/adjacent block sizes, mutation, missing file
+
+A total of 0 errors, and 0 warnings were generated.
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"phase6_currentness_bytes" end time: Nov 08 22:51 EST
+"phase6_currentness_bytes" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 08 22:51 EST
+
+adr0017 =   0.02 sec*proc
+
+analysis =   0.09 sec*proc
+
+analytic =   0.70 sec*proc
+
+bnv =   0.06 sec*proc
+
+cache =   0.18 sec*proc
+
+contract =   0.21 sec*proc
+
+currentness =   0.04 sec*proc
+
+engineering =   0.04 sec*proc
+
+evolution =   0.01 sec*proc
+
+particle-number =   0.09 sec*proc
+
+phase5c =   0.65 sec*proc
+
+phase5d =   0.01 sec*proc
+
+phase5d-coupled =   0.01 sec*proc
+
+phase6 =   0.10 sec*proc
+
+scientific =   0.78 sec*proc
+
+self-contained =   0.81 sec*proc
+
+thermal =   0.17 sec*proc
+
