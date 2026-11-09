@@ -393,7 +393,8 @@ def run(output):
         (output/name).write_bytes(gzip.compress(raw, mtime=0) if name.endswith('.gz') else raw)
     write('summary.json', summary)
     write('ledger.json.gz', dict(summary=summary, rows=rows, original_cref_summary=saved,
-                               accepted_registry=read(DOC/'acceptance-registry.json'), inputs=manifest))
+                               accepted_registry=read(DOC/'acceptance-registry.json'), inputs=manifest,
+                               derived_sources={'projection': 'precision-witness.json'}))
     write('precision-witness.json', dict(projection=projection, tangents=tangent, precision_repeat='identical binary64 reporting values'))
     write('amended-expectation-violations.json', violations)
     write('completion-expectation-violations.json', fullstage)

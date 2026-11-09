@@ -48,6 +48,10 @@ def main():
         code = call('static-assessment', [source/'tools/linux/results_first/static_completion.py', '--output', output/'assessment'])
         if code not in (0, 2):
             raise RuntimeError('assessment execution failed')
+        if call('independent-ledger-audit', [source/'tools/linux/results_first/static_validate.py',
+                                           '--assessment', output/'assessment']):
+            code = 1
+            raise RuntimeError('serialized-ledger audit failed')
         if cpu()-begin > 60:
             raise RuntimeError('aggregate CPU ceiling exceeded')
     finally:
