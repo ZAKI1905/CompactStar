@@ -1,0 +1,152 @@
+{
+  "matrix": {
+    "path": "docs/validation/ba13-final-decision/evidence/matrix.json.gz",
+    "sha256": "c956697442ad3b99da9fcf4347a8639f1ca2c480b4f41283c7a8187397ac2c1e",
+    "bytes": 928789
+  },
+  "comparison": {
+    "path": "docs/validation/ba13-evidence/evidence/comparison.json.gz",
+    "sha256": "e8fe2d6d9b8d6cedad81b681d2901d2b65a2bbc096b0ea57ed1c581fbab2d757",
+    "bytes": 618284
+  },
+  "m1": {
+    "path": "docs/validation/ba13-closure/evidence/m1.json",
+    "sha256": "66e120759c25fa62137a18552bdc452c0fcf4e979cd1733684c5ab7e8fea6133",
+    "bytes": 49990
+  },
+  "m3": {
+    "path": "docs/validation/ba13-closure/evidence/m3.json",
+    "sha256": "d1735d0af809753e9dbb030d2145fff7a9ad075f07bd01007329054e71e56322",
+    "bytes": 223450
+  },
+  "m4": {
+    "path": "docs/validation/ba13-closure/evidence/m4.json",
+    "sha256": "6d4b2c6bf4191ce84f00a466043cdc4791161472ceedf98c0407875aa0885a0a",
+    "bytes": 99554
+  },
+  "continuation": {
+    "path": "docs/validation/ba13-evidence/evidence/continuation.json",
+    "sha256": "07293d587496e9d35670820689fa26ca3f3f83bc83a0e2954f9d61b83a95d52e",
+    "bytes": 7794
+  },
+  "diagnostics": {
+    "path": "docs/validation/ba13-evidence/evidence/diagnostics.json",
+    "sha256": "bd5f41601d5e43af3468bfce48eb3845c9ad98560f05bc39a0da752230aaf619",
+    "bytes": 27478
+  },
+  "tangents": {
+    "path": "docs/validation/ba13-evidence/evidence/tangents.json",
+    "sha256": "459e7223e4a93618e67c008f316880a58987b30d7bbf707117d06b7e79c23184",
+    "bytes": 14885
+  },
+  "original_summary": {
+    "path": "docs/validation/results-first-bnv-pilot/preparation-evidence/cref-summary.json",
+    "sha256": "3c6dc7378f2259cb0180683e7fe44a51adaa90f318bccb31700d74b5a05b4e65",
+    "bytes": 52305
+  },
+  "component_data": {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/assessment-final/component-data.json.gz",
+    "sha256": "ec4f22c39bdb87f9ec53573d594912495fae1e86a785b0adc50c2d51a16052cf",
+    "bytes": 4958200
+  },
+  "certificate": {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/fit/certificate.json",
+    "sha256": "4212cad05bb4244ab75e80b8dfea023e6d0fcee69086c9993bd48d26a40e41fb",
+    "bytes": 28364586
+  },
+  "thermal": {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/thermal_surface.tsv",
+    "sha256": "8f021020da3b3dd63aab6f91ce5da68cd3ac8f528ec8f35508dac3b43d67d6fc",
+    "bytes": 45952
+  },
+  "t0_n512_-1": {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/t0-h0.000025--1.json",
+    "sha256": "3e418346da6d8df1d18c4965836ed859528ccb8b2aa47f98d6490338aad52820",
+    "bytes": 1006
+  },
+  "t0_n512_1": {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/t0-h0.000025-1.json",
+    "sha256": "1c0a42e7c2029a304ea0183310ebe0e4ec0431707d87605f6b4a3fc9cbbc4bd8",
+    "bytes": 1007
+  },
+  "t0_n1024_-1": {
+    "path": "docs/validation/ba13-evidence/evidence/t0-n1024-offset--1.json",
+    "sha256": "b270410e6e2fdd14b8f53ba0eb5f3f9e4dc642944cec45b857a1ec9c9e6afc61",
+    "bytes": 1007
+  },
+  "t0_n1024_1": {
+    "path": "docs/validation/ba13-evidence/evidence/t0-n1024-offset-1.json",
+    "sha256": "5df4fb37b359d0b694c86213155fdde8e7d2cbc10050e32f4dc3ab0be1024adc",
+    "bytes": 1007
+  },
+  "t0_n2048_-1": {
+    "path": "docs/validation/ba13-evidence/evidence/t0-n2048-offset--1.json",
+    "sha256": "3262107b2f8c95c23cec76af23f6435697056b567e74aafcf0228dfa7b3c767b",
+    "bytes": 1009
+  },
+  "t0_n2048_1": {
+    "path": "docs/validation/ba13-evidence/evidence/t0-n2048-offset-1.json",
+    "sha256": "85b029ebe452880411bbf773a6ffdec6284f53bc54d44aae2a4d0854161f816c",
+    "bytes": 1009
+  },
+  "t10_n512_-1": {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/t10-h0.000025--1.json",
+    "sha256": "d8e7735b24ae63442da97bdef8c811c1c11e013855e80e94bcaf51f7175507ca",
+    "bytes": 1006
+  },
+  "t10_n512_1": {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/t10-h0.000025-1.json",
+    "sha256": "b7e476ba0f046fed5ffc05fa317866b68ae3a6de4735b91d17b3ab2e511411c1",
+    "bytes": 1006
+  },
+  "t10_n1024_-1": {
+    "path": "docs/validation/ba13-evidence/evidence/t10-n1024-offset--1.json",
+    "sha256": "65b1dd9106eb0d5b01e0e77513e42ddc2579f20f17debcf5e00c739f87bf87ef",
+    "bytes": 1010
+  },
+  "t10_n1024_1": {
+    "path": "docs/validation/ba13-evidence/evidence/t10-n1024-offset-1.json",
+    "sha256": "fe4b383be4edb2c923583e15865ffc1998dc34b0714e552d14ce7446fae31302",
+    "bytes": 1006
+  },
+  "t10_n2048_-1": {
+    "path": "docs/validation/ba13-evidence/evidence/t10-n2048-offset--1.json",
+    "sha256": "2bf540e74f14099521e0dcb6d68dcf188dc6b594d912150369db1b26a9db2167",
+    "bytes": 1009
+  },
+  "t10_n2048_1": {
+    "path": "docs/validation/ba13-evidence/evidence/t10-n2048-offset-1.json",
+    "sha256": "b558638cac8820062ba861038ca3f7d93f28a361324b6c84d36f036c4139088e",
+    "bytes": 1010
+  },
+  "t20_n512_-1": {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/t20-h0.000025--1.json",
+    "sha256": "d98f96a84f90aa071cfeca0f70f2f543518a24e0f30623c651b42cc19565115d",
+    "bytes": 1011
+  },
+  "t20_n512_1": {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/t20-h0.000025-1.json",
+    "sha256": "86f9c61b2701c543ced869a284b91215bf7f32facd166b2dd8eb5fa056ffcf93",
+    "bytes": 1006
+  },
+  "t20_n1024_-1": {
+    "path": "docs/validation/ba13-evidence/evidence/t20-n1024-offset--1.json",
+    "sha256": "7147ac47e386be9e6974dd3b5896eb09f7d23f8a8f6a206ab56edd5ddebe9f10",
+    "bytes": 1006
+  },
+  "t20_n1024_1": {
+    "path": "docs/validation/ba13-evidence/evidence/t20-n1024-offset-1.json",
+    "sha256": "721d2ab7a174c9a61e3828d084a49dfcd0a0e633a5f0380ca8b1dd7847a887a7",
+    "bytes": 1010
+  },
+  "t20_n2048_-1": {
+    "path": "docs/validation/ba13-evidence/evidence/t20-n2048-offset--1.json",
+    "sha256": "4168825c326f3995426308c8e7e5095a7d5777afaff8bb35f8e239455f53fbc0",
+    "bytes": 1009
+  },
+  "t20_n2048_1": {
+    "path": "docs/validation/ba13-evidence/evidence/t20-n2048-offset-1.json",
+    "sha256": "57d89e9e98213f27a405f681aa8d0f59509882d470a351a9f23e233937d3eec6",
+    "bytes": 1009
+  }
+}
