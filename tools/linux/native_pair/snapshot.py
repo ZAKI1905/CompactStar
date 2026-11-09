@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Authenticated declarative native pair snapshots. The stage subcommand requires separate owner authorization."""
 import argparse,copy,hashlib,json,pathlib,subprocess
+from runtime import runtime_binding,verify_runtime
 ROOT=pathlib.Path(__file__).resolve().parents[3]
 def digest(p):
  h=hashlib.sha256()
@@ -30,6 +31,8 @@ def load_pair(directory):
   if a[key] not in bound:raise ValueError('unbound runtime input: '+key)
  if a['archive_sha256']!=bound[a['archive']]:raise ValueError('archive identity mismatch')
  if a['schema']!='RF-BNV-P2-native-owned-snapshot-v1' or a['initial_state']!=[0,0,0] or a['Tref_K']!=1e8:raise ValueError('initial-state/schema mismatch')
+ if set(a.get('runtime_bindings',{}))!={a['verify_binary'],a['stage_binary']}:raise ValueError('missing native runtime bindings')
+ verify_runtime(a['runtime_bindings'],bound)
  return pair
 
 def publish(run,out):
@@ -44,12 +47,9 @@ def publish(run,out):
  paths += [native/p.relative_to(ROOT.parents[1]/'ba13-recovery/run1') for p in list(paths)]
  paths += [archive,run/'build/tests/native_p2_verify',run/'build/tests/native_p2_stage']
  paths += [ROOT.parents[1]/'toolchain/dependency-lock-linux.json']
- for binary in ('native_p2_verify','native_p2_stage'):
-  linkage=subprocess.check_output(['ldd',str(run/'build/tests'/binary)],text=True)
-  if 'not found' in linkage:raise ValueError('unresolved native dynamic dependency')
-  for line in linkage.splitlines():
-   for token in line.split():
-    if token.startswith('/') and pathlib.Path(token).is_file():paths.append(pathlib.Path(token).resolve())
+ bindings={str(run/'build/tests'/binary):runtime_binding(run/'build/tests'/binary) for binary in ('native_p2_verify','native_p2_stage')}
+ for binding in bindings.values():
+  paths += [pathlib.Path(item['resolved']) for item in binding['dependencies']]
  paths += [ROOT/'docs/validation/results-first-bnv-pilot/preparation-registry.json']
  side=ROOT/'docs/validation/results-first-bnv-pilot/endpoint-acceptance'
  for line in (side/'SHA256SUMS').read_text().splitlines():
@@ -63,7 +63,7 @@ def publish(run,out):
  files=[{'path':str(p),'sha256':digest(p)} for p in sorted(set(paths))]
  s={'schema':'RF-BNV-P2-native-owned-snapshot-v1','experiment':'RF-BNV-P2-20261108','candidate':True,
  'assembly_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
- 'files':files,'archive':str(archive),'archive_sha256':digest(archive),'central_contributor':2,
+ 'files':files,'runtime_bindings':bindings,'archive':str(archive),'archive_sha256':digest(archive),'central_contributor':2,
  'initial_time_s':0,'initial_state':[0,0,0],'state_units':['ln(Tinf/Tref)','MeV','MeV'],'Tref_K':1e8,
  'spin_rad_s':0,'B0_count':7.616906518718875e56,'Julian_year_s':31557600,
  'photon_boundary':{'surface_model':'EnvelopeTbTs','composition':'Iron','rho_b_g_cm3':1e10,'xi':0,'radiating_fraction':1,'global_scale':1,
