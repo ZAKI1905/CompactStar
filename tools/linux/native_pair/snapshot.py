@@ -36,10 +36,12 @@ def publish(run,out):
  run=pathlib.Path(run).resolve();out=pathlib.Path(out);out.mkdir(parents=True,exist_ok=False)
  if 'PASS native pair static checks' not in (run/'verify.log').read_text():raise ValueError('native static receipt missing')
  if '100% tests passed' not in (run/'contracts.log').read_text():raise ValueError('retained contracts receipt missing')
- native=ROOT.parents[1]/'ba13-recovery/run1'
+ # EOS path spelling is part of the retained Phase-5B identity; do not canonicalize it.
+ native=ROOT.parents[1]/'toolchain/../ba13-recovery/run1'
  archive=run/'capture/sequence.archive'
  inventory=json.loads((ROOT/'docs/validation/results-first-bnv-pilot/native-assembly/evidence/input-inventory.json').read_text())
  paths=[pathlib.Path(x['path']) for x in inventory['checks']]
+ paths += [native/p.relative_to(ROOT.parents[1]/'ba13-recovery/run1') for p in list(paths)]
  paths += [archive,run/'build/tests/native_p2_verify',run/'build/tests/native_p2_stage']
  paths += [ROOT.parents[1]/'toolchain/dependency-lock-linux.json']
  for binary in ('native_p2_verify','native_p2_stage'):
@@ -50,8 +52,14 @@ def publish(run,out):
     if token.startswith('/') and pathlib.Path(token).is_file():paths.append(pathlib.Path(token).resolve())
  paths += [ROOT/'docs/validation/results-first-bnv-pilot/preparation-registry.json']
  side=ROOT/'docs/validation/results-first-bnv-pilot/endpoint-acceptance'
+ for line in (side/'SHA256SUMS').read_text().splitlines():
+  expected,name=line.split(maxsplit=1);p=ROOT/name
+  if digest(p)!=expected:raise ValueError('conditional sidecar dependency mismatch: '+name)
+  paths.append(p)
+ summary=json.loads((side/'evidence/assessment/summary.json').read_text())
+ if summary['status']!='CONDITIONAL_STATIC_PASS' or float(summary['maximum_utilization'])>1 or summary['historical_certificate_promoted']:raise ValueError('conditional sidecar applicability mismatch')
  paths += [side/'evidence/assessment/summary.json',side/'evidence/assessment/ledger.json.gz',side/'acceptance-registry.json',side/'OWNER_APPROVAL.md',side/'inputs.json']
- paths += [ROOT/p for p in subprocess.check_output(['git','ls-files','CompactStar','tests/native','tests/bnv','tests/rotochemical','tests/analysis'],cwd=ROOT,text=True).splitlines() if (ROOT/p).is_file()]
+ paths += [ROOT/p for p in subprocess.check_output(['git','ls-files','CompactStar','tests/native','tests/bnv','tests/rotochemical','tests/analysis','tools/linux/native_pair'],cwd=ROOT,text=True).splitlines() if (ROOT/p).is_file()]
  files=[{'path':str(p),'sha256':digest(p)} for p in sorted(set(paths))]
  s={'schema':'RF-BNV-P2-native-owned-snapshot-v1','experiment':'RF-BNV-P2-20261108','candidate':True,
  'assembly_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
