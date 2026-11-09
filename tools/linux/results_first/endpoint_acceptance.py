@@ -138,7 +138,10 @@ def main():
     bounds = read(WITNESS/'bounds.json')
     authenticate(read(DOC/'acceptance-registry.json'), bounds)
     with localcontext() as ctx:
-        ctx.prec = 110
+        # Delta utilization subtracts two O(1) budgets to resolve effects down
+        # to O(1e-26). Keep enough guard digits for the independent 95-digit
+        # relative arithmetic check; this does not change a scientific budget.
+        ctx.prec = 160
         transition = transition_check(bounds, read(BASE/'cut-assessment/retained-inputs.json.gz'),
                                       read(ROOT/'docs/validation/ba13-evidence/evidence/continuation.json'))
         result = complete(read(WITNESS/'ledger.json.gz'), bounds,
