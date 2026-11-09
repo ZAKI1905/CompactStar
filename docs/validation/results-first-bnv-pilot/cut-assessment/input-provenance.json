@@ -1,0 +1,258 @@
+{
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/t0-n512.json": {
+    "sha256": "7ef5dee5ec73001d5cff1fd309367c7d0776a41d680e2d2c5bbd9c092c35f758",
+    "bytes": 888
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/t0-n1024.json": {
+    "sha256": "d017867eca6279067ae39d5b42d681edc5030b9637242718e7fd4e40cd93b227",
+    "bytes": 1011
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/t0-n2048.json": {
+    "sha256": "dcac08ddf9715e3a9e99456321600eeddfabf267a4884b46dddf860f2208c872",
+    "bytes": 1005
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/t0-h0.0001--1.json": {
+    "sha256": "125f66d63a6f1494145e59434d2986a0a79d538162be0d3846a41e5ae845628f",
+    "bytes": 886
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/t0-h0.0001-1.json": {
+    "sha256": "e8a84bd04f4704005ab994e856dd3d693cdc037cb73e68b69ca554d6b6231ccc",
+    "bytes": 886
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/t0-h0.00005--1.json": {
+    "sha256": "68d4f8723eda75cb399282ed2de3a01ea7768654b15264cad9f79c09593e621a",
+    "bytes": 889
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/t0-h0.00005-1.json": {
+    "sha256": "46fd977f4ee589a3c744838f67063589ce7a2311d0c52f47d628530fdacb58cc",
+    "bytes": 889
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/t0-h0.000025--1.json": {
+    "sha256": "3e418346da6d8df1d18c4965836ed859528ccb8b2aa47f98d6490338aad52820",
+    "bytes": 1006
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/t0-h0.000025-1.json": {
+    "sha256": "1c0a42e7c2029a304ea0183310ebe0e4ec0431707d87605f6b4a3fc9cbbc4bd8",
+    "bytes": 1007
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/ba13-evidence/evidence/t0-n1024-offset--1.json": {
+    "sha256": "b270410e6e2fdd14b8f53ba0eb5f3f9e4dc642944cec45b857a1ec9c9e6afc61",
+    "bytes": 1007
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/ba13-evidence/evidence/t0-n1024-offset-1.json": {
+    "sha256": "5df4fb37b359d0b694c86213155fdde8e7d2cbc10050e32f4dc3ab0be1024adc",
+    "bytes": 1007
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/ba13-evidence/evidence/t0-n2048-offset--1.json": {
+    "sha256": "3262107b2f8c95c23cec76af23f6435697056b567e74aafcf0228dfa7b3c767b",
+    "bytes": 1009
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/ba13-evidence/evidence/t0-n2048-offset-1.json": {
+    "sha256": "85b029ebe452880411bbf773a6ffdec6284f53bc54d44aae2a4d0854161f816c",
+    "bytes": 1009
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/t10-n512.json": {
+    "sha256": "957a794c3d5906205378b6b165d2ed547ec3c74bf2f74e4c2b8e00522346268c",
+    "bytes": 887
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/t10-n1024.json": {
+    "sha256": "aba8e7eda7cc3990e935de9684c9f4987d973d32a896e66063e12bdf2ae27b3a",
+    "bytes": 1008
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/t10-n2048.json": {
+    "sha256": "66ce2fe5aa64d3f0b3442eb3e9a5abb446d9b9be0a41897b9e0b247f4acfa8b2",
+    "bytes": 1010
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/t10-h0.0001--1.json": {
+    "sha256": "bc61037ca2182c878287f5ffc1f9a12dee5f10e21921f390647fda265578b32e",
+    "bytes": 886
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/t10-h0.0001-1.json": {
+    "sha256": "ee64bf6bea66ae63040492f9719a4c829c39c592827108c7d67353bf58a8725d",
+    "bytes": 889
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/t10-h0.00005--1.json": {
+    "sha256": "6e93f467ab756c6e8398014a400c00bae56c521f3b9a978b94e2b6bb80fbf36b",
+    "bytes": 888
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/t10-h0.00005-1.json": {
+    "sha256": "6258ca3bd5643b325fb13bfe4bab8a0c97b9c627d88eab2a014b6676fb937d58",
+    "bytes": 887
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/t10-h0.000025--1.json": {
+    "sha256": "d8e7735b24ae63442da97bdef8c811c1c11e013855e80e94bcaf51f7175507ca",
+    "bytes": 1006
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/t10-h0.000025-1.json": {
+    "sha256": "b7e476ba0f046fed5ffc05fa317866b68ae3a6de4735b91d17b3ab2e511411c1",
+    "bytes": 1006
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/ba13-evidence/evidence/t10-n1024-offset--1.json": {
+    "sha256": "65b1dd9106eb0d5b01e0e77513e42ddc2579f20f17debcf5e00c739f87bf87ef",
+    "bytes": 1010
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/ba13-evidence/evidence/t10-n1024-offset-1.json": {
+    "sha256": "fe4b383be4edb2c923583e15865ffc1998dc34b0714e552d14ce7446fae31302",
+    "bytes": 1006
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/ba13-evidence/evidence/t10-n2048-offset--1.json": {
+    "sha256": "2bf540e74f14099521e0dcb6d68dcf188dc6b594d912150369db1b26a9db2167",
+    "bytes": 1009
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/ba13-evidence/evidence/t10-n2048-offset-1.json": {
+    "sha256": "b558638cac8820062ba861038ca3f7d93f28a361324b6c84d36f036c4139088e",
+    "bytes": 1010
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/t20-n512.json": {
+    "sha256": "55170cbf374a94e9feed99161ce7293b62e76084f45052e9ca8e006ac6fd4517",
+    "bytes": 888
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/t20-n1024.json": {
+    "sha256": "d49f472f9303367ab74a437c165db99111a9bb162f5f07ca5dd04d472e7f0d31",
+    "bytes": 1010
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/t20-n2048.json": {
+    "sha256": "5a135188220889fbe237fc3f62ec45bcf5dd90eb0a64cbf4fe1905988a3c8d52",
+    "bytes": 1006
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/t20-h0.0001--1.json": {
+    "sha256": "096329618e2bc942a0e0ab6facb9e3dedad497ad3d7e1b4263e51107c2a7e159",
+    "bytes": 888
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/t20-h0.0001-1.json": {
+    "sha256": "afc9a9f5340410feaaebf24260b7e561af258fe5cdcfc55093a3a6d11627e81a",
+    "bytes": 889
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/t20-h0.00005--1.json": {
+    "sha256": "b6609f6fac805374fe9f6d9841b5f583f345d79408ebc7b21f91986c3ff9f4e1",
+    "bytes": 888
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/t20-h0.00005-1.json": {
+    "sha256": "251d07d4d8c05458a46bf13876a4d51656a4f21515724f4142c7c1df44f1663d",
+    "bytes": 886
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/t20-h0.000025--1.json": {
+    "sha256": "d98f96a84f90aa071cfeca0f70f2f543518a24e0f30623c651b42cc19565115d",
+    "bytes": 1011
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-closure-20261019/t20-h0.000025-1.json": {
+    "sha256": "86f9c61b2701c543ced869a284b91215bf7f32facd166b2dd8eb5fa056ffcf93",
+    "bytes": 1006
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/ba13-evidence/evidence/t20-n1024-offset--1.json": {
+    "sha256": "7147ac47e386be9e6974dd3b5896eb09f7d23f8a8f6a206ab56edd5ddebe9f10",
+    "bytes": 1006
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/ba13-evidence/evidence/t20-n1024-offset-1.json": {
+    "sha256": "721d2ab7a174c9a61e3828d084a49dfcd0a0e633a5f0380ca8b1dd7847a887a7",
+    "bytes": 1010
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/ba13-evidence/evidence/t20-n2048-offset--1.json": {
+    "sha256": "4168825c326f3995426308c8e7e5095a7d5777afaff8bb35f8e239455f53fbc0",
+    "bytes": 1009
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/ba13-evidence/evidence/t20-n2048-offset-1.json": {
+    "sha256": "57d89e9e98213f27a405f681aa8d0f59509882d470a351a9f23e233937d3eec6",
+    "bytes": 1009
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/target_stars.tsv": {
+    "sha256": "6b230c55949991664cb78b436907c7758de8b38ebfc645badd8206857acbfa51",
+    "bytes": 7109
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/tail-witness.json": {
+    "sha256": "32019afc262956a0cbcd1fa6bb57d573a1a1ca412efa3b15bff995359abf66cd",
+    "bytes": 1528
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-1/tail-witness.json": {
+    "sha256": "bfd3ee0a9589b2bdef036e42bec5995d267545933f22a6cc6a6ae81e2b08b0a5",
+    "bytes": 1527
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-2/tail-witness.json": {
+    "sha256": "f1c39f37e3b0ea4e827d5673510b3dc37c4e0c7c089d3708218b741a084fd0fa",
+    "bytes": 1529
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-3/tail-witness.json": {
+    "sha256": "341a2d0cc1c23a081eeeb3ad9b3c4f1ee536681a997c597fd5cf5c1eb8b0f0ad",
+    "bytes": 1530
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-4/tail-witness.json": {
+    "sha256": "181ef95ad01cda71a55a6d0c1fb1a97f4adb9e77ef1a4526d8201e596cda2802",
+    "bytes": 1531
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-5/tail-witness.json": {
+    "sha256": "a33869412151631a174591aae93250c5a54473d1e17c79382599a07c01dc871e",
+    "bytes": 1531
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-6/tail-witness.json": {
+    "sha256": "b145c18c615c2e631b66bbac357f67d873f24b076c8dbc0c06f361a00c23c8e1",
+    "bytes": 1529
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-7/tail-witness.json": {
+    "sha256": "20050fc6933bfa04c4d22e00b784de197b734036f5cf77891c6aff92cffde798",
+    "bytes": 1530
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-8/tail-witness.json": {
+    "sha256": "603bb9766d44847e91ed29306aed78ac6b92ab18482476dbbc0c7f13f9ebe769",
+    "bytes": 1531
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-9/tail-witness.json": {
+    "sha256": "2baa737e91fddacb75fc3172a038d4ced3dd66d10f7db218509943f158815508",
+    "bytes": 1529
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-10/tail-witness.json": {
+    "sha256": "f7ca74e7dd6850fcf9a2471cc1a8fb02ffdcf970f1cff0fcf5d2443da2b3315b",
+    "bytes": 1530
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-11/tail-witness.json": {
+    "sha256": "a935410a49036d4aae9408b8227b5e2f8f0c4ab4bd10d0558991828a1f81a265",
+    "bytes": 1532
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-12/tail-witness.json": {
+    "sha256": "f0927b01f3c39442444ac054afab6d0cdf548c51d3344ab67040bc202a893011",
+    "bytes": 1525
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-13/tail-witness.json": {
+    "sha256": "0882c1aa176c01d8e6fe23cb8835ea874d8d52a12e6146350ff224935dfe3d9b",
+    "bytes": 1528
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-14/tail-witness.json": {
+    "sha256": "7cb1859a69b7d839bab61589814febdd0a90a3d4998ab834a852062e3bcbf856",
+    "bytes": 1523
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-15/tail-witness.json": {
+    "sha256": "e194775d40c0e838ed9b0fd624432ddb0d3463a89cf52647029857e6ff497ee7",
+    "bytes": 1530
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-16/tail-witness.json": {
+    "sha256": "25a7962f1451d5d1b2ed135cc9f8f801d6b3e9a1ae7922a06a67e730db1fe263",
+    "bytes": 1529
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-17/tail-witness.json": {
+    "sha256": "071d7d0245eea73b3e04b5f350f1e4c48216e53f914d6a33424a8b9d7eefe225",
+    "bytes": 1528
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-18/tail-witness.json": {
+    "sha256": "61b6d03aacebd8b7f6eb77f6f5a3bc07625ad1cfd398f42da1c2b58edb3dab67",
+    "bytes": 1530
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-19/tail-witness.json": {
+    "sha256": "7b67e02b9e6004c691999ddf64dc368976d98df18cf84e127eda8bac28a466cb",
+    "bytes": 1531
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-20/tail-witness.json": {
+    "sha256": "6da81c43ed777d09bb5111e0657bc14bfb511366f4a7e3814213509be2c21d64",
+    "bytes": 1531
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/profile-v2-0.json": {
+    "sha256": "0f3ba62799c6b91a8e48fe0d08be2dbb4403da3ecd9a7e84976e1ff6e90c7493",
+    "bytes": 8901
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/profile-v2-10.json": {
+    "sha256": "65f2b66df56f872c2780f558ab724fb10958ecb58a3e040991db277cf0d41724",
+    "bytes": 8925
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/profile-v2-20.json": {
+    "sha256": "1a3b7715b4fb811ca7e954a0d5742305319ff172a555cebed4937a6b44a9c268",
+    "bytes": 8965
+  }
+}
