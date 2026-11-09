@@ -1,7 +1,11 @@
-> Native P2 regeneration candidate: the owner has now authorized one unchanged
-> fifteen-star sequence. A lossless owned-result transport is being added separately
-> from the historical builder (ADR-0024; tests/native/stellar_archive.hpp). No thermal
-> trajectory or historical certificate promotion is authorized by this change.
+> Native P2 candidate assembly completed (2026-11-09): one authorized unchanged
+> fifteen-star sequence is retained in a lossless full-owner archive. Native source
+> and exact-zero control snapshots reconstruct identical backgrounds; two static
+> processes give byte-identical RHS output and retained runtime contracts pass.
+> ADR-0024 and validation/results-first-bnv-pilot/native-regeneration/REPORT.md
+> describe ownership, hashes and limits. The bounded stage collector compiles;
+> no thermal trajectory ran and actual-path accuracy remains unqualified.
+> Historical builders, BA12/BA12R failures and certificate status are preserved.
 
 # CompactStar — Current Architecture
 

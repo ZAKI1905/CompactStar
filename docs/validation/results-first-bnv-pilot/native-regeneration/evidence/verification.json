@@ -1,0 +1,210 @@
+{
+  "status": "NATIVE_PAIR_STATIC_PASS",
+  "candidate": true,
+  "thermal_trajectories_executed": 0,
+  "sequence_producer_invocations": 1,
+  "sequence_contributors": 15,
+  "capture_source_commit": "122d0718a072e333253229c47f8aa65aba641f95",
+  "final_cpp_build_commit": "b26fd56ee2d0c742b82c6a20d74c38ae871ec81d",
+  "snapshot_publication_commit": "9dea083b67cc77c76c55f1af0a4031f29dccc75c",
+  "archive_sha256": "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+  "snapshot_sha256": {
+    "control": "fe692927032cc1387e9bbc404d12615d4c170f07c4abd79fdf036ece6a8a94cc",
+    "source": "93f1dab5269eb36259598839426f33ce28132430ea92602c4892317d832e48d8"
+  },
+  "snapshot_files_per_role": 508,
+  "verified_command_matches_snapshot": true,
+  "deterministic_static_rhs_sha256": "ed01bc8da5e509a0807e2700c52689920ad3d6f11d06c9e37d4df504697972e4",
+  "static_states_per_process": 12,
+  "independent_static_processes": 2,
+  "retained_contract_tests": 6,
+  "conditional_sidecar_protected_entries": 113,
+  "resource_receipts": {
+    "sequence.log": {
+      "sha256": "b5048cb193fe772745f6a8eba21ad94ec289f5ba136be9cd4cef55f66ffc04dc",
+      "resources": [
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build/tests/native_p2_regenerate",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 24.946379885077477,
+          "user_cpu_seconds": 17.011077,
+          "system_cpu_seconds": 2.504233,
+          "max_rss_kib": 650480,
+          "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+        }
+      ]
+    },
+    "verify-19167-pass.log": {
+      "sha256": "1f95c555bd225b662e5898f6dcf510bdb0df69bd846985c6c04cf4d1c19b1fe2",
+      "resources": [
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build/tests/native_p2_verify",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+            "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/verify-work",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/static-rhs.tsv"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 108.92943532019854,
+          "user_cpu_seconds": 106.494978,
+          "system_cpu_seconds": 2.005224,
+          "max_rss_kib": 533840,
+          "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+        }
+      ]
+    },
+    "verify.log": {
+      "sha256": "2b4ca40d1d6ecc44efe1347854037984f1abbfae81dc9bec49af1eb9d6f518ef",
+      "resources": [
+        {
+          "command": [
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build/tests/native_p2_verify",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+            "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/verify-work-repeat",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/static-rhs-repeat.tsv"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 112.30061633139849,
+          "user_cpu_seconds": 108.172416,
+          "system_cpu_seconds": 3.6257859999999997,
+          "max_rss_kib": 537568,
+          "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+        }
+      ]
+    },
+    "build-19163-failed.log": {
+      "sha256": "ffe694ada7873624019657c00177d593eb916803e27cfa99b507d732d64b47cc",
+      "resources": [
+        {
+          "command": [
+            "cmake",
+            "--build",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build",
+            "--target",
+            "native_p2_regenerate",
+            "-j4"
+          ],
+          "exit_code": 2,
+          "elapsed_seconds": 53.581413082778454,
+          "user_cpu_seconds": 179.9293,
+          "system_cpu_seconds": 17.568914,
+          "max_rss_kib": 319448,
+          "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+        }
+      ]
+    },
+    "build-19165-pass.log": {
+      "sha256": "6124a8041d98fcf8ed1997475b884fded8385ea646b7e48b0768682f3e64f395",
+      "resources": [
+        {
+          "command": [
+            "cmake",
+            "--build",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build",
+            "--target",
+            "native_p2_regenerate",
+            "native_p2_verify",
+            "phase6a1_direct_energy",
+            "phase6a1_thermal_ledger",
+            "passive_checkpoint_output_contract",
+            "phase6_breakpoint_contract",
+            "phase5d_component_tolerances",
+            "phase6_currentness_bytes",
+            "-j4"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 40.05705987662077,
+          "user_cpu_seconds": 35.516696,
+          "system_cpu_seconds": 3.326517,
+          "max_rss_kib": 508984,
+          "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+        }
+      ]
+    },
+    "build-19168-failed.log": {
+      "sha256": "32df1189ebbe1189cf1a818692809926259464092be48893af36e8c49734d58b",
+      "resources": [
+        {
+          "command": [
+            "cmake",
+            "--build",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build",
+            "--target",
+            "native_p2_regenerate",
+            "native_p2_verify",
+            "native_p2_stage",
+            "phase6a1_direct_energy",
+            "phase6a1_thermal_ledger",
+            "passive_checkpoint_output_contract",
+            "phase6_breakpoint_contract",
+            "phase5d_component_tolerances",
+            "phase6_currentness_bytes",
+            "-j4"
+          ],
+          "exit_code": 2,
+          "elapsed_seconds": 65.75921493023634,
+          "user_cpu_seconds": 145.75483,
+          "system_cpu_seconds": 12.024316,
+          "max_rss_kib": 504920,
+          "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+        }
+      ]
+    },
+    "build.log": {
+      "sha256": "c098e4fdb28edf806fcac841bf897ee1b75a34442461eda7cb83bc51a7126178",
+      "resources": [
+        {
+          "command": [
+            "cmake",
+            "--build",
+            "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build",
+            "--target",
+            "native_p2_regenerate",
+            "native_p2_verify",
+            "native_p2_stage",
+            "phase6a1_direct_energy",
+            "phase6a1_thermal_ledger",
+            "passive_checkpoint_output_contract",
+            "phase6_breakpoint_contract",
+            "phase5d_component_tolerances",
+            "phase6_currentness_bytes",
+            "-j4"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 35.04733549058437,
+          "user_cpu_seconds": 30.969601,
+          "system_cpu_seconds": 2.8921159999999997,
+          "max_rss_kib": 499728,
+          "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "No thermal trajectory or nonlinear accuracy qualification",
+    "Restart state/RHS compatibility verified; adaptive solver process-state continuation is not serialized",
+    "Bounded collector compiled only; independent accumulated-roundoff and actual-path uncertainty assessment remains necessary",
+    "Original capture ELF was subsequently rebuilt; capture source revision, build recipe, dependency lock, authentication and data checksums are retained"
+  ],
+  "failed_builds": [
+    "19163: C++ Core::Analysis name collision, fixed before any sequence run",
+    "19164: source preflight stopped before compilation; later build passed",
+    "19168: historical helper main macro collision in stage collector, fixed; no trajectory run"
+  ]
+}

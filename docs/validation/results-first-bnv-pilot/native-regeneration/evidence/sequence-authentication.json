@@ -1,0 +1,101 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/fit/certificate.json",
+      "sha256": "4212cad05bb4244ab75e80b8dfea023e6d0fcee69086c9993bd48d26a40e41fb"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/fit/certificate.tsv",
+      "sha256": "38bc85c62621b390ff2d7c8affee1f5ba4e9f0f44233047bb9959f2d685fd5ba"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/profile.tsv",
+      "sha256": "62b8dc594fd9c30d413ccb1d906459e2599049966b0bec097284b43598a07a56"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/model.txt",
+      "sha256": "6dc75c841408d8e03fed5cbc8444310af35c77ab34d0339df309c00cbb3e7f4a"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/certificate.txt",
+      "sha256": "337ed8ae8d6168d8a612f1344f204dc927ac9e0867a47542d5b943dbf27b8537"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/freegas.tsv",
+      "sha256": "f6b9c4068a430cc356b54e39c21a0ca17e17b8c2b35d17b836638298d1112d7f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.nb",
+      "sha256": "eeea89bb2e73909c886393bcedcc56f54aa1afa867f7435db2f29990e6b417d0"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.t",
+      "sha256": "a34c76462115f14fb3d93516e1229e77240c46a9cc55bc3970f9e32251759468"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.thermo",
+      "sha256": "9929739023a10210eca5d9f693f31c43b63e2ed255cb23421050af5b6acdaca1"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.yq",
+      "sha256": "45125714a8b219f0e5677e69c295620d0de0f66ddee4e0e7cd3e67d964b69258"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/coefficients.tsv",
+      "sha256": "ec3942227c98532af4802db4bdd229603715556af9d44929082368b3afc7d831"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/tangent.tsv",
+      "sha256": "871fddddb4e6470552e9efc1a8b2f6f3dbe000d9b48572369aa29e8360f1aa5c"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/target_stars.tsv",
+      "sha256": "6b230c55949991664cb78b436907c7758de8b38ebfc645badd8206857acbfa51"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/thermal_surface.tsv",
+      "sha256": "8f021020da3b3dd63aab6f91ce5da68cd3ac8f528ec8f35508dac3b43d67d6fc"
+    },
+    {
+      "path": "CompactStar/Analysis/src/ParticleNumberResponse.cpp",
+      "sha256": "98ca82c19173f2087b7bd9fc9e71f18874ce507ec6de6ed7efca9ae62c394890"
+    },
+    {
+      "path": "CompactStar/Core/src/TOVSolver.cpp",
+      "sha256": "d5da96e512453ae9ce18d7e6b3334b82bf17dd1def3230dd24ad267bc1fc7ad8"
+    },
+    {
+      "path": "CompactStar/Core/src/NStar.cpp",
+      "sha256": "69a4b403370feeb6c1ba7d469082c2a6f5d824bf604abbae268f505204feb08e"
+    },
+    {
+      "path": "CompactStar/Core/src/RotationSolver.cpp",
+      "sha256": "b3e4b8db36952f5d1cb60412947a071b30a22de9a755f77571a580f3f8856982"
+    },
+    {
+      "path": "CompactStar/EOS/src/TrackRFreeGasThermodynamics.cpp",
+      "sha256": "4707a228d45d2eb9df7a411d5180ab5982d149d1d2519dd95e5ff30de513793b"
+    },
+    {
+      "path": "CompactStar/EOS/src/LocalThermodynamics.cpp",
+      "sha256": "1621e90dadd103defdc7b590c008b79b8110dcc9f9839d60b94bf6200adafeb8"
+    },
+    {
+      "path": "tests/analysis/phase5b_freegas_validation.cpp",
+      "sha256": "2bb980f1916f0498e626fd8601ba023e6f211f93d5b8655b40aa62283c613fa4"
+    },
+    {
+      "path": "tests/analysis/particle_number_homogeneous.hpp",
+      "sha256": "333258fcabd537a003fba7ccabfe7909139da850106c399431e0c3fc0fd2a243"
+    },
+    {
+      "path": "tests/rotochemical/fixture.hpp",
+      "sha256": "200ab99e93aad9918f627e1f1f4113571377d40b77549e43e0bdabb6d74745ea"
+    },
+    {
+      "path": "tests/bnv/campaign_fixture.hpp",
+      "sha256": "7d4f5fd27c854f5c015f0e40bafa52b4a0c9c6f8420b847784404590077b6544"
+    }
+  ]
+}

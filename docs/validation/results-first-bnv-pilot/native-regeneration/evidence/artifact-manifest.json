@@ -1,0 +1,202 @@
+[
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/allocation-19163.txt",
+    "size_bytes": 1506,
+    "sha256": "7a467300db3fa25ddc872f2945f205fd49d0f754957e56efce8da279838f89bb"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/allocation-19164.txt",
+    "size_bytes": 1510,
+    "sha256": "94863bcd7660a91e2362735673bf0ff5b9039dcf3258069e30052e499182a5b4"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/allocation-19165.txt",
+    "size_bytes": 1506,
+    "sha256": "af7118c848dd91ac521327459895c6525786aa420a8dd3eced79a569c7e216c2"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/allocation-19168.txt",
+    "size_bytes": 1506,
+    "sha256": "f8ac01cd2e0a95d5a0bb519824a5ce0e517b3f2f09adf16ee238739d5a0a18d5"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/allocation-19169.txt",
+    "size_bytes": 1506,
+    "sha256": "43b00ddb0105c8ef3eaaa89fe8c224df2ae0771edcca7a6563984e1c5822a962"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/authentication.json",
+    "size_bytes": 4640,
+    "sha256": "17bf013a36b324d2c0dce24e54684139838fe871958e6646f134ab95cb7a214d"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build/tests/native_p2_regenerate",
+    "size_bytes": 2390880,
+    "sha256": "2685fdc9348db96fa5736598f27cb2a9ce9b586410f026f4bbd1fff0aa5ba63e"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build/tests/native_p2_stage",
+    "size_bytes": 3254488,
+    "sha256": "1e90cf96d2a39b96a56b7b8f8b7432f6c8c3fec1a92fb7217e55bd907693bfcd"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build/tests/native_p2_verify",
+    "size_bytes": 2994752,
+    "sha256": "712e8c5b3ebd56ac93871324a1dd97a02b15cdb3192fd5497b5169cbebaa6923"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build-19163-failed.log",
+    "size_bytes": 116331,
+    "sha256": "ffe694ada7873624019657c00177d593eb916803e27cfa99b507d732d64b47cc"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build-19165-pass.log",
+    "size_bytes": 2497,
+    "sha256": "6124a8041d98fcf8ed1997475b884fded8385ea646b7e48b0768682f3e64f395"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build-19168-failed.log",
+    "size_bytes": 85535,
+    "sha256": "32df1189ebbe1189cf1a818692809926259464092be48893af36e8c49734d58b"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build-slurm-19163.log",
+    "size_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build-slurm-19164.log",
+    "size_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build-slurm-19165.log",
+    "size_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build-slurm-19168.log",
+    "size_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build-slurm-19169.log",
+    "size_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build.log",
+    "size_bytes": 2342,
+    "sha256": "c098e4fdb28edf806fcac841bf897ee1b75a34442461eda7cb83bc51a7126178"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/SHA256SUMS",
+    "size_bytes": 83,
+    "sha256": "b1fe310a137dc18c2377eec3fcdf5e57b03ea513cdeecd98e45cc61676ce5bcb"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/roundtrip.archive",
+    "size_bytes": 146887940,
+    "sha256": "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+    "size_bytes": 146887940,
+    "sha256": "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/configure.log",
+    "size_bytes": 974,
+    "sha256": "0b5dc6970685273dc8a238227ed62dff8c26c06c4ea8fccc377016041474dec9"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/contracts-19167-pass.log",
+    "size_bytes": 2085,
+    "sha256": "6cfd55059603b40f012f185d460e23cb9e132c1e1c224c0f27e19fdb8f96db75"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/contracts.log",
+    "size_bytes": 2072,
+    "sha256": "15ddf2c44e85f8e7f35e078749d444dec999cb6b1a65a23fe68d9155dec53091"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/sequence-allocation.txt",
+    "size_bytes": 1524,
+    "sha256": "8761e8db8b8cd74099492df4655e7cad62baad972f985973a279518198797398"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/sequence-authentication.json",
+    "size_bytes": 4640,
+    "sha256": "17bf013a36b324d2c0dce24e54684139838fe871958e6646f134ab95cb7a214d"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/sequence-slurm-19166.log",
+    "size_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/sequence.log",
+    "size_bytes": 59165,
+    "sha256": "b5048cb193fe772745f6a8eba21ad94ec289f5ba136be9cd4cef55f66ffc04dc"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/sidecar-authentication.json",
+    "size_bytes": 23182,
+    "sha256": "959bac2f02c80e2615f120cb3756f21ca8c61825f0404f3aaa5e162dfc25454c"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/snapshot-checks.log",
+    "size_bytes": 228,
+    "sha256": "8a56837023573373304d41838dc9b46152f0934bb1a74e79bce026808ec07d59"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/static-rhs-repeat.tsv",
+    "size_bytes": 2688,
+    "sha256": "ed01bc8da5e509a0807e2700c52689920ad3d6f11d06c9e37d4df504697972e4"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/static-rhs.tsv",
+    "size_bytes": 2688,
+    "sha256": "ed01bc8da5e509a0807e2700c52689920ad3d6f11d06c9e37d4df504697972e4"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/verify-19167-pass.log",
+    "size_bytes": 5470,
+    "sha256": "1f95c555bd225b662e5898f6dcf510bdb0df69bd846985c6c04cf4d1c19b1fe2"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/verify-allocation.txt",
+    "size_bytes": 1502,
+    "sha256": "56d4b13e5d6c6e79b789c4bc124e0a74109d7c39ed163bfffb50e845ee6beef0"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/verify-authentication.json",
+    "size_bytes": 4640,
+    "sha256": "17bf013a36b324d2c0dce24e54684139838fe871958e6646f134ab95cb7a214d"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/verify-slurm-19167.log",
+    "size_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/verify-slurm-19170.log",
+    "size_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/verify-work/owning-star/authenticated-provider-source.cpp",
+    "size_bytes": 26425,
+    "sha256": "4707a228d45d2eb9df7a411d5180ab5982d149d1d2519dd95e5ff30de513793b"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/verify-work-repeat/owning-star/authenticated-provider-source.cpp",
+    "size_bytes": 26425,
+    "sha256": "4707a228d45d2eb9df7a411d5180ab5982d149d1d2519dd95e5ff30de513793b"
+  },
+  {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/verify.log",
+    "size_bytes": 6003,
+    "sha256": "2b4ca40d1d6ecc44efe1347854037984f1abbfae81dc9bec49af1eb9d6f518ef"
+  }
+]

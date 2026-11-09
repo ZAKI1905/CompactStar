@@ -1,0 +1,31 @@
+Internal ctest changing into directory: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build
+Test project /mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build
+    Start 15: passive_checkpoint_output_contract
+1/6 Test #15: passive_checkpoint_output_contract ...   Passed    0.01 sec
+    Start 16: phase6a1_direct_energy
+2/6 Test #16: phase6a1_direct_energy ...............   Passed    0.00 sec
+    Start 17: phase6a1_thermal_ledger
+3/6 Test #17: phase6a1_thermal_ledger ..............   Passed    0.01 sec
+    Start 72: phase5d_component_tolerances
+4/6 Test #72: phase5d_component_tolerances .........   Passed    0.01 sec
+    Start 76: phase6_breakpoint_contract
+5/6 Test #76: phase6_breakpoint_contract ...........   Passed    0.01 sec
+    Start 77: phase6_currentness_bytes
+6/6 Test #77: phase6_currentness_bytes .............   Passed    0.03 sec
+
+100% tests passed, 0 tests failed out of 6
+
+Label Time Summary:
+adr0017            =   0.01 sec*proc (1 test)
+bnv                =   0.03 sec*proc (4 tests)
+contract           =   0.02 sec*proc (2 tests)
+currentness        =   0.03 sec*proc (1 test)
+engineering        =   0.03 sec*proc (1 test)
+phase5d            =   0.01 sec*proc (1 test)
+phase5d-coupled    =   0.01 sec*proc (1 test)
+phase6             =   0.07 sec*proc (5 tests)
+scientific         =   0.02 sec*proc (3 tests)
+self-contained     =   0.04 sec*proc (5 tests)
+
+Total Test time (real) =   0.09 sec
+RESOURCE_USAGE_JSON {"command": ["ctest", "--test-dir", "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build", "--output-on-failure", "-R", "^(phase6a1_direct_energy|phase6a1_thermal_ledger|passive_checkpoint_output_contract|phase6_breakpoint_contract|phase5d_component_tolerances|phase6_currentness_bytes)$"], "exit_code": 0, "elapsed_seconds": 0.1098056361079216, "user_cpu_seconds": 0.018359, "system_cpu_seconds": 0.032795, "max_rss_kib": 12288, "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"}
