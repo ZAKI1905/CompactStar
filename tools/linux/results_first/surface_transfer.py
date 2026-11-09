@@ -86,7 +86,7 @@ def eos_jet(H):
         pressure+=k**5/(3*norm*mass)*series(z,mp.mpf('-.5'),5)
         chi.append(mu*k/norm)
     kH=(h*h-h0*h0*(p-e)**2/(h*h))/(4*k)
-    pH=sum(k**4/(3*norm*mu) for mu in mus)*kH
+    pH=sum(k**4/(mu*(3*norm)) for mu in mus)*kH
     return dict(p=pressure,e=energy,n=k**3/(3*norm),
         cv=sum(chi)*(iv.pi**2/3),chi=chi[0]*chi[1]/sum(chi),alpha=pressure/pH)
 
@@ -382,6 +382,26 @@ def successor(ledger,bound,comparison,m4):
     return result
 
 
+def endpoint_diagnostics(inputs,B0):
+    """What the retained offsets actually say about count curvature; no new stars."""
+    out={}
+    for t in ('0','20'):
+        raw=inputs['centers'][t]
+        def curvature(center,ends,species):
+            d1,d2=cut.stencil(center,ends['-1'],ends['1'])
+            b=[mp.mpf(q['primary'][0]) for q in (center,ends['-1'],ends['1'])]
+            n=[mp.mpf(q['N'][species]) for q in (center,ends['-1'],ends['1'])]
+            bh=d1(*b);nh=d1(*n)
+            return B0*(d2(*n)-nh/bh*d2(*b))/bh**2
+        for name,species in (('t_n',0),('t_e',2),('t_mu',3)):
+            widths=[curvature(raw['512'],inputs['widths'][t][w],species) for w in cut.WIDTHS]
+            grids=[curvature(raw[g],inputs['grids'][t][g],species) for g in ('512','1024','2048')]
+            out[f'{t}:{name}']=dict(width_values=widths,grid_values=grids,
+                width=cut.diagnostic(widths,2),grid=cut.diagnostic(grids,4),
+                interpretation='sampled fixed-cut d(t)/dx; no uniform endpoint extension inferred')
+    return out
+
+
 def serial(v):
     if isinstance(v,mp.mpf):return mp.nstr(v,65)
     raise TypeError(type(v).__name__)
@@ -406,6 +426,7 @@ def main():
     b=bounds(inputs,models,response)
     witnesses=[numerical_witness(inputs,b,d) for d in (90,120)]
     variation=variational_witness(inputs,b,response)
+    endpoints=endpoint_diagnostics(inputs,mp.mpf(inputs['cuts'][0]['B']))
     precision=max(abs(witnesses[0][key]['delta'][name]-witnesses[1][key]['delta'][name])/
                   max(abs(witnesses[1][key]['delta'][name]),mp.mpf('1e-100'))
                   for key in witnesses[0] for name in witnesses[0][key]['delta'])
@@ -418,6 +439,8 @@ def main():
         data=(json.dumps(value,default=serial,indent=2)+'\n').encode()
         (args.output/name).write_bytes(gzip.compress(data,mtime=0) if name.endswith('.gz') else data)
     write('bounds.json',b);write('local-maps.json.gz',witnesses[1]);write('variational-map.json',variation);write('ledger.json.gz',new)
+    write('endpoint-diagnostics.json',endpoints)
+    write('input-bands.json',{n:dict(band=m['band'],K=m['K'],components=[dict(**{k:v for k,v in c.items() if k!='scale'},scale=hull(c['scale'])) for c in m['components']]) for n,m in models.items()})
     summary=dict(status='FINITE_INTERIOR_TRANSFER_SUPPORTED_ENDPOINT_EXTENSION_UNSUPPORTED',
         cut_closed=False,precision_relative_disagreement=precision,
         **new['surface_transfer_summary'],eta=b['eta'],tau=b['tau'],allowances=b['allowances'],
