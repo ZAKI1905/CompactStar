@@ -32,7 +32,8 @@ def main():
             shutil.copyfile(source/'docs/validation/results-first-bnv-pilot/static-completion/evidence'/n,audit/n)
         calls=[(name,[source/'tests/bnv'/name]) for name in ('test_results_first_cut.py','test_surface_transfer.py','test_results_first_static.py')]
         calls += [('surface-transfer',[source/'tools/linux/results_first/surface_transfer.py','--output',output/'assessment']),
-                  ('historical-ledger-audit',[source/'tools/linux/results_first/static_validate.py','--assessment',audit])]
+                  ('historical-ledger-audit',[source/'tools/linux/results_first/static_validate.py','--assessment',audit]),
+                  ('surface-transfer-audit',[source/'tools/linux/results_first/surface_transfer_validate.py','--assessment',output/'assessment'])]
         for label,args in calls:
             remaining=max(1,int(120-(cpu()-start)))
             def limit():resource.setrlimit(resource.RLIMIT_CPU,(remaining,remaining))

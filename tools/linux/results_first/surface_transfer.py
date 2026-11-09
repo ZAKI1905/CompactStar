@@ -29,7 +29,14 @@ def I(a,b=None):
 def low(x): return mp.mpf(x.a._mpi_[0])
 def high(x): return mp.mpf(x.b._mpi_[1])
 def mag(x): return max(abs(low(x)),abs(high(x)))
-def hull(x): return [mp.nstr(low(x),60),mp.nstr(high(x),60)]
+def hull(x): return [serial(low(x)),serial(high(x))]
+def num(x): return mp.mpf(str(x))
+def mul(*xs):
+    v=I(1)
+    for x in xs:v*=I(x)
+    return high(v)
+def add(*xs):return high(sum((I(x) for x in xs),I(0)))
+def expm1(x):return high(iv.exp(I(x))-1)
 
 
 class Jet:
@@ -66,9 +73,9 @@ def series(z,power,offset,n=32):
     if not 0 < zm < 1:
         raise ValueError('pe series domain')
     # Subsequent |binomial| ratios are <=1 for the +/-1/2 series.
-    c=abs(c)/(2*n+offset)
-    tail=c*zm**n/(1-zm)
-    dtail=c*zm**(n-1)*(n/(1-zm)+zm/(1-zm)**2)
+    c=I(abs(c))/(2*n+offset);zz=I(zm)
+    tail=high(c*zz**n/(1-zz))
+    dtail=high(c*zz**(n-1)*(n/(1-zz)+zz/(1-zz)**2))
     return Jet(total.v+I(-tail,tail),[d+I(-dtail,dtail)*dz for d,dz in zip(total.d,z.d)])
 
 
@@ -145,25 +152,25 @@ def point_models(inputs,comparison,m1,ledger,m4):
     for name,d in comparison.items():
         base='mu_B' if name=='mu_n_profile' else name
         rows=[r['static_completion'] for r in ledger['rows'] if r['quantity']==name]
-        extras=sum(mp.mpf(t['pointwise_allowance']) for t in rows[0]['terms'] if
-            'pointwise_allowance' in t and t['name'] not in ('unseen_reference_bias_increment',))
+        extras=add(*(num(t['pointwise_allowance']) for t in rows[0]['terms'] if
+            'pointwise_allowance' in t and t['name'] not in ('unseen_reference_bias_increment',)))
         e=10*max(abs(mp.mpf(v)) for row in d['signed_error'] for v in row)
         if name=='Ltilde_Me':e=mp.mpf('9.1e-11')
         if name.startswith('t_'):
             # Existing ratio-level point contributions, not count errors / a span.
-            tail=max(mp.mpf(t['pointwise_allowance']) for t in rows[0]['terms'] if t['name']=='reference_stage_remainder')*2/15
+            tail=high(I(max(num(t['pointwise_allowance']) for t in rows[0]['terms'] if t['name']=='reference_stage_remainder'))*2/15)
         else:
             tail=max(mp.mpf(m1['reference'][str(t)][base]['integration']) for t in (0,10,20))
         params=max(sum(mp.mpf(m1['reference'][str(t)][base][k]) for k in ('eos_equilibrium','center','stencil')) for t in (0,10,20))
         factor=mp.mpf(1)
         if name=='mu_n_profile':
             factor=max(abs(mp.mpf(v)) for row in d['reference_values'] for v in row)/max(abs(mp.mpf(v)) for row in comparison['mu_B']['reference_values'] for v in row)
-        band=e+extras+(tail+params)*factor+max(mp.mpf(v) for v in d['root_each'].values())
+        band=add(e,extras,mul(add(tail,params),factor),max(mp.mpf(v) for v in d['root_each'].values()))
         K=mp.mpf(d['K']);nc=len(d['reference_values'][0]);comps=[]
         for j in range(nc):
             vals=[mp.mpf(row[j]) for row in d['reference_values']]
-            deriv=(abs(vals[2]-vals[0])+2*band)/span+K*span/2+K*sliver
-            bound=band+K*L**2/8+deriv*sliver
+            deriv=high((abs(I(vals[2])-I(vals[0]))+2*I(band))/I(span)+I(K)*I(span)/2+I(K)*I(sliver))
+            bound=high(I(band)+I(K)*I(L)**2/8+I(deriv)*I(sliver))
             if name.startswith('t_'):scale=I(1)
             else:
                 key=name+'_'+str(j) if name.startswith('Z_row_') else 'mu_B' if name=='mu_n_profile' else name
@@ -221,70 +228,70 @@ def bounds(inputs,models,source_response):
     if not (low(f['D'].v)>0 and low(f['V'].v)>0 and low(f['eos']['p'].v)>0):raise ValueError('invalid terminal domain')
     hn=min(mp.mpf(r['Hn']) for r in rawstates)
     if not high(tube[0])<hn:raise ValueError('terminal topology')
-    A=mag(f['b'].v);tau=EPS/(1-abs(a)*A);eta=A*tau
+    A=mag(f['b'].v);pressure_den=low(1-I(abs(a))*I(A));tau=high(I(EPS)/I(pressure_den));eta=mul(A,tau)
     if not abs(a)*A<1:raise ValueError('unseparated pressure remap')
     ff=[f[n] for n in ('H','R','M')]
-    rates=[mag(v.v)/s for v,s in zip(ff,scales)]
+    rates=[high(abs(v.v)/I(s)) for v,s in zip(ff,scales)]
     if not all(tau*rate<2*EPS for rate in rates):raise ValueError('Picard containment failed')
-    J=[[mag(d)/scales[i] for d in v.d] for i,v in enumerate(ff)]
-    L=max(sum(row) for row in J)
+    J=[[high(abs(d)/I(scales[i])) for d in v.d] for i,v in enumerate(ff)]
+    L=max(add(*row) for row in J)
     if not tau*L<1:raise ValueError('Picard contraction failed')
-    euler=[tau**2/2*sum(J[i][j]*rates[j] for j in range(3))*scales[i] for i in range(3)]
+    euler=[high(I(tau)**2/2*sum((I(J[i][j])*I(rates[j]) for j in range(3)),I(0))*I(scales[i])) for i in range(3)]
     # Initial on-law family derivative bounds, established only on [-1e-6,0].
-    Rx=max(c['derivative']*high(c['scale']) for c in models['radius']['components'])
-    gx=max(c['derivative']*high(c['scale']) for c in models['surface_gravity']['components'])
+    Rx=max(mul(c['derivative'],high(c['scale'])) for c in models['radius']['components'])
+    gx=max(mul(c['derivative'],high(c['scale'])) for c in models['surface_gravity']['components'])
     rj=Jet(R,[I(1),I(0),I(0)]);gj=Jet(g,[I(0),I(1),I(0)])
     yy=gj*rj*mp.mpf('1e19')/mp.mpf('2.99792458e10')**2
     mass=rj*yy*((1+yy*yy)**mp.mpf('.5')-yy)
-    Mx=mag(mass.d[0])*Rx+mag(mass.d[1])*gx
-    v0=max(abs(a)*mag(f['H'].v)/scales[0],Rx/scales[1],Mx/scales[2])
-    wx=tau*sum(mag(d) for d in f['b'].d)*mp.exp(L*tau)*v0
-    remap_den=1-abs(a)*A-wx
+    Mx=add(mul(mag(mass.d[0]),Rx),mul(mag(mass.d[1]),gx))
+    v0=max(high(I(abs(a))*abs(f['H'].v)/I(scales[0])),high(I(Rx)/I(scales[1])),high(I(Mx)/I(scales[2])))
+    wx=high(I(tau)*sum((abs(d) for d in f['b'].d),I(0))*iv.exp(I(L)*I(tau))*I(v0))
+    remap_den=low(I(pressure_den)-I(wx))
     if not remap_den>0:raise ValueError('unseparated fixed-B map derivative')
     K=iv.log(f['D'].v)/2+tube[0];kr=mag(f['k'].v);gr=mag(f['gl'].v);alpha=mag(f['H'].v)
-    cvfactor=mp.mpf('1e15')*cut.wide('8.61733326214518e-11')**2*cut.wide('1.602176634e33')
     shell=abs(f['W'].v*f['H'].v)*iv.exp(tube[0]-K)
-    Cshell=mag(shell*f['eos']['cv'].v)*cvfactor
-    Gshell=mag(shell*f['eos']['chi'].v)*mp.mpf('1e54')
+    Cshell=mag(shell*f['eos']['cv'].v*I('1e15')*I(cut.wide('8.61733326214518e-11'))**2*I(cut.wide('1.602176634e33')))
+    Gshell=mag(shell*f['eos']['chi'].v*I('1e54'))
     z00=high(physical(models['Z_row_npe']))
     def zmax(n,j):
         c=models[n]['components'][j];return high(I(c['lo'],c['hi'])*c['scale'])
     Z=[[z00,zmax('Z_row_npe',1)],[zmax('Z_row_npmu',0),zmax('Z_row_npmu',1)]]
-    rank=tau*Gshell*mp.exp(kr*tau);chem_den=1-rank*z00
+    growth=high(iv.exp(I(kr)*I(tau)))
+    rank=mul(tau,Gshell,growth);chem_den=low(1-I(rank)*I(z00))
     if not chem_den>0:raise ValueError('unseparated chemical inverse')
     allowances={}
     for name,model in models.items():
         if name.startswith('t_'):
             species={'t_n':'N_n','t_e':'N_e','t_mu':'N_mu'}[name];c=1 if name=='t_e' else 0
             T=model['components'][0];Tmax=max(abs(c-T['lo']),abs(c-T['hi']))
-            Nx=models[species];Tx=max(high(v['scale']) for v in Nx['components'])*Nx['K']/B0
-            U=Tx*eta+Tmax*wx/remap_den
-            allowances[name]=dict(interior_point_bound=U,terminal_part=Tmax*wx/remap_den,remap_part=Tx*eta)
+            Nx=models[species];Tx=high(I(max(high(v['scale']) for v in Nx['components']))*I(Nx['K'])/I(B0))
+            term=high(I(Tmax)*I(wx)/I(remap_den));rem=mul(Tx,eta)
+            allowances[name]=dict(interior_point_bound=add(term,rem),terminal_part=term,remap_part=rem)
             continue
         terminal=[];remap=[]
         for j,c in enumerate(model['components']):
             qmax=max(abs(c['lo']),abs(c['hi']));scale=low(c['scale'])
             if name in ('N_n','N_mu'):u=mp.mpf(0) # exact shell support identity
-            elif name=='N_e':u=B0*eta/scale
-            elif name=='radius':u=tau*mag(f['R'].v)/scale
-            elif name.startswith('Ltilde_'):u=qmax*mp.expm1(6*kr*tau)
-            elif name in ('mu_B','P0_average','P1_average','mu_n_profile'):u=qmax*mp.expm1(kr*tau)
-            elif name=='Cstar':u=qmax*mp.expm1(kr*tau)+tau*Cshell*mp.exp(kr*tau)/scale
-            elif name=='surface_gravity':u=qmax*mp.expm1(gr*tau)
-            elif name=='envelope':u=qmax*mp.expm1((gr/4+mp.mpf('.605')*kr)*tau)
-            elif name=='Tsurface_inf':u=qmax*mp.expm1((gr/4+mp.mpf('.395')*kr+alpha)*tau)
+            elif name=='N_e':u=high(I(B0)*I(eta)/I(scale))
+            elif name=='radius':u=high(I(tau)*abs(f['R'].v)/I(scale))
+            elif name.startswith('Ltilde_'):u=mul(qmax,expm1(mul(6,kr,tau)))
+            elif name in ('mu_B','P0_average','P1_average','mu_n_profile'):u=mul(qmax,expm1(mul(kr,tau)))
+            elif name=='Cstar':u=add(mul(qmax,expm1(mul(kr,tau))),high(I(tau)*I(Cshell)*I(growth)/I(scale)))
+            elif name=='surface_gravity':u=mul(qmax,expm1(mul(gr,tau)))
+            elif name=='envelope':u=mul(qmax,expm1(high((I(gr)/4+I('.605')*I(kr))*I(tau))))
+            elif name=='Tsurface_inf':u=mul(qmax,expm1(high((I(gr)/4+I('.395')*I(kr)+I(alpha))*I(tau))))
             elif name.startswith('Z_row_'):
                 i=0 if name=='Z_row_npe' else 1
-                u=qmax*mp.expm1(kr*tau)+mp.exp(kr*tau)*rank/chem_den*Z[i][0]*Z[0][j]/scale
+                u=add(mul(qmax,expm1(mul(kr,tau))),high(I(growth)*I(rank)/I(chem_den)*I(Z[i][0])*I(Z[0][j])/I(scale)))
             else:raise ValueError(name)
-            terminal.append(u);remap.append(c['derivative']*eta)
-        allowances[name]=dict(interior_point_bound=max(u+v for u,v in zip(terminal,remap)),
+            terminal.append(u);remap.append(mul(c['derivative'],eta))
+        allowances[name]=dict(interior_point_bound=max(add(u,v) for u,v in zip(terminal,remap)),
                               terminal_part=max(terminal),remap_part=max(remap))
     return dict(allowances=allowances,initial_box=[hull(v) for v in initial],tube=[hull(v) for v in tube],
-        scales=scales,tau=tau,eta=eta,pressure_denominator=1-abs(a)*A,fixed_B_derivative_denominator=remap_den,
+        scales=scales,tau=tau,eta=eta,pressure_denominator=pressure_den,fixed_B_derivative_denominator=remap_den,
         chemical_denominator=chem_den,horizon_denominator=low(f['D'].v),pressure_lower=low(f['eos']['p'].v),
         topology_margin=hn-high(tube[0]),Jacobian_majorant=J,Jacobian_norm=L,
-        euler_remainder=euler,variation_excess=mp.expm1(L*tau),baryon_flow_bound=A,
+        euler_remainder=euler,variation_excess=expm1(mul(L,tau)),baryon_flow_bound=A,
         family_derivative_norm=v0,baryon_flow_x_bound=wx,
         supported_final_x_interval=[-mp.mpf('1e-6')+eta,-eta],endpoint_extension_supported=False,
         missing='interior-family continuation on both remapping endcaps; local terminal flow cannot establish it')
@@ -348,7 +355,7 @@ def variational_witness(inputs,bound,response):
 
 def successor(ledger,bound,comparison,m4):
     """A complete disposition matrix, with unsupported endcaps kept null."""
-    result=copy.deepcopy(ledger);scenario_max=mp.mpf(0);impact_max=mp.mpf(0)
+    result=copy.deepcopy(ledger);scenario_max=mp.mpf(0);impact_max=mp.mpf(0);impact_row=None
     for row in result['rows']:
         name,i=row['quantity'],row['index'];old=row['static_completion']
         if name not in bound['allowances']:
@@ -361,13 +368,14 @@ def successor(ledger,bound,comparison,m4):
             h=abs(mp.mpf(m4['achieved_x'][20])-mp.mpf(m4['achieved_x'][10]))
             sliver=max(mp.mpf(0),mp.mpf('1e-6')+mp.mpf(m4['achieved_x'][20]))
             endpoint=2*U/h*sliver
-        N=mp.mpf(old['known_numerator']);b=mp.mpf(old['known_baseline'])
+        N=num(old['known_numerator']);b=num(old['known_baseline'])
         absolute=name.startswith('t_');den=1-b-(0 if absolute else U)
         if den<=0:raise ValueError('baseline scenario not separated')
         scenario=(N+extra+endpoint)/den
-        threshold=mp.mpf(row['historical']['threshold']);util=scenario/threshold
+        threshold=num(row['historical']['threshold']);util=scenario/threshold
         delta=(scenario-N/(1-b))/threshold
-        scenario_max=max(scenario_max,util);impact_max=max(impact_max,delta)
+        scenario_max=max(scenario_max,util)
+        if delta>impact_max:impact_max=delta;impact_row=dict(quantity=name,index=i)
         row['surface_transfer']=dict(status='UNQUALIFIED_ENDPOINT_EXTENSION',full_budget=None,full_utilization=None,
             interior_point_bound=U,full_interval_point_bound=None,baseline_cut_bound=None if not absolute else 'NOT_APPLICABLE',
             missing=['fixed-B remapping family extension at x=0 and x=-1e-6'],
@@ -378,6 +386,7 @@ def successor(ledger,bound,comparison,m4):
     result['surface_transfer_summary']=dict(qualified=False,original_ledger_preserved=True,
         full_C_CUT_budget_effect=None,endpoint_extension_scenario_max_utilization=scenario_max,
         endpoint_extension_scenario_max_utilization_increase=impact_max,
+        endpoint_extension_scenario_max_increase_row=impact_row,
         historical_CREF_failures=42,expectation_violations=353)
     return result
 
@@ -403,7 +412,16 @@ def endpoint_diagnostics(inputs,B0):
 
 
 def serial(v):
-    if isinstance(v,mp.mpf):return mp.nstr(v,65)
+    if isinstance(v,mp.mpf):
+        # Exact finite decimal of the computed binary number. Do not round a
+        # serialized upper majorant downward (or a lower denominator upward).
+        sign,mant,exponent,_=v._mpf_
+        if not mant:return '0'
+        if exponent>=0:text=str(mant<<exponent)
+        else:
+            digits=str(mant*5**(-exponent)).zfill(1-exponent)
+            text=digits[:exponent]+'.'+digits[exponent:]
+        return ('-' if sign else '')+text
     raise TypeError(type(v).__name__)
 
 
@@ -421,7 +439,8 @@ def main():
     comp=cut.read(ROOT/'docs/validation/ba13-evidence/evidence/comparison.json.gz')
     m1=cut.read(ROOT/'docs/validation/ba13-closure/evidence/m1.json')
     m4=cut.read(ROOT/'docs/validation/ba13-closure/evidence/m4.json')
-    ledger=cut.read(ROOT/'docs/validation/results-first-bnv-pilot/static-completion/evidence/ledger.json.gz')
+    with gzip.open(ROOT/'docs/validation/results-first-bnv-pilot/static-completion/evidence/ledger.json.gz','rt') as f:
+        ledger=json.load(f) # preserve original numeric JSON types in the successor
     models=point_models(inputs,comp,m1,ledger,m4)
     b=bounds(inputs,models,response)
     witnesses=[numerical_witness(inputs,b,d) for d in (90,120)]
@@ -445,6 +464,9 @@ def main():
         cut_closed=False,precision_relative_disagreement=precision,
         **new['surface_transfer_summary'],eta=b['eta'],tau=b['tau'],allowances=b['allowances'],
         stellar_global_integrations=0,local_maps=len(witnesses[1]),trajectories=0)
+    from collections import Counter
+    summary['local_RK4_order_status_counts']=dict(Counter(d['status'] for w in witnesses[1].values() for d in w['orders'].values()))
+    summary['endpoint_grid_order_status_counts']=dict(Counter(d['grid']['status'] for d in endpoints.values()))
     write('summary.json',summary)
     with (args.output/'matrix.tsv').open('w') as f:
         f.write('index\tquantity\tstatus\tfull_utilization\tinterior_cut_bound\tendcap_scenario_utilization\n')
