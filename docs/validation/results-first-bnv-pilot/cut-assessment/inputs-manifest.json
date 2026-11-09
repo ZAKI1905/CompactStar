@@ -1,11 +1,11 @@
 {
   "docs/validation/results-first-bnv-pilot/cut-assessment/retained-inputs.json.gz": {
-    "sha256": "a21bb3f57194302ebe109018429028b79a8f9d43c76610e84936345cf5f10fc2",
-    "bytes": 13328
+    "sha256": "34ab61e6d6a859948c99db28c04ece4c60e775b013995a224cf3c09ef400ed9d",
+    "bytes": 13537
   },
   "docs/validation/results-first-bnv-pilot/cut-assessment/input-provenance.json": {
-    "sha256": "baab36c9771870ddabcfaa051a3cbef504903677a34cfe1f5e8d6f79d7b2dd55",
-    "bytes": 14193
+    "sha256": "8dc03cfbc1af8c57902f04ad8acb85352de58f3ca710b803de7a8692afb7cb23",
+    "bytes": 19013
   },
   "docs/validation/ba13-evidence/evidence/comparison.json.gz": {
     "sha256": "e8fe2d6d9b8d6cedad81b681d2901d2b65a2bbc096b0ea57ed1c581fbab2d757",

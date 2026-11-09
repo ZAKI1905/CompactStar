@@ -254,5 +254,89 @@
   "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-headroom/profile-v2-20.json": {
     "sha256": "1a3b7715b4fb811ca7e954a0d5742305319ff172a555cebed4937a6b44a9c268",
     "bytes": 8965
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/profile.tsv": {
+    "sha256": "62b8dc594fd9c30d413ccb1d906459e2599049966b0bec097284b43598a07a56",
+    "bytes": 9054335
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-1/profile.tsv": {
+    "sha256": "dbe066b1c7704252552442c85c1906b489fa8f5604c65b430c1c64a8e28d7b09",
+    "bytes": 9054560
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-2/profile.tsv": {
+    "sha256": "64168b9299d0d32e7b45cb479fd83e3568960dce6821eb1b0049c1505cc9b1e4",
+    "bytes": 9054342
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-3/profile.tsv": {
+    "sha256": "795de3b46a0c35f35db102dce6f1e3ac029a1c93116ce25c1fa5b70ad9271c4a",
+    "bytes": 9054544
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-4/profile.tsv": {
+    "sha256": "077a79b800ab4b738d7780f07a340a22f31cb7371c8956ca4f8787bf4252e3dd",
+    "bytes": 9055531
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-5/profile.tsv": {
+    "sha256": "79266b5271760a5b47a2e0889a02559678f4a5a8d65ed144f9735ab7f3546816",
+    "bytes": 9054167
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-6/profile.tsv": {
+    "sha256": "5abf5dc1608f7e525a64371459af3605a368b75df6a05c1775132f44a7f50d78",
+    "bytes": 9054325
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-7/profile.tsv": {
+    "sha256": "f4e82fe3cf516f8fc37ecfa6ee9e9093c806c2ca2167ee9e66c9491feeaba4f1",
+    "bytes": 9054043
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-8/profile.tsv": {
+    "sha256": "c07aa8fe674d0425f04c522a4ea90a1f1bddd183060118deba14ac05f30a1552",
+    "bytes": 9054575
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-9/profile.tsv": {
+    "sha256": "3e1729d43082f7cfbc5b4ad5adb3fd3432d3053d748720560c60775486aae8b5",
+    "bytes": 9054445
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-10/profile.tsv": {
+    "sha256": "5eac852cb6b082d81501240ba0c44223a8cefc2c362921f482cca3c14e3b822c",
+    "bytes": 9055251
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-11/profile.tsv": {
+    "sha256": "8fc261f1c6e10f2db4e565d1c659f59caf7a8f1844c6837192c21c41f2e1e8b6",
+    "bytes": 9054540
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-12/profile.tsv": {
+    "sha256": "5e86f7d86e08e18b8a8ef84c79ae07f3b4134007a1ebd0d04c26af60e5081330",
+    "bytes": 9055222
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-13/profile.tsv": {
+    "sha256": "338986a1b0bec5840c115cdab9b9acee796863c6fe298e94a175e322218791ca",
+    "bytes": 9054714
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-14/profile.tsv": {
+    "sha256": "d6a58555aac851f4a37bf87972412314f2b237870ba592800c825c5800581454",
+    "bytes": 9054957
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-15/profile.tsv": {
+    "sha256": "134b43fe22cb4225c314576307218612531037cf3e3830770d0640e44893e3d3",
+    "bytes": 9054289
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-16/profile.tsv": {
+    "sha256": "4f877c7906287c3d800f17e59f114d99103af28aa99450a304d3feae6ff4a363",
+    "bytes": 9054566
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-17/profile.tsv": {
+    "sha256": "2f4981e8f534371a5b252438c0209fd01cf4bf710729f6fee48ee6aa73626f7d",
+    "bytes": 9054804
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-18/profile.tsv": {
+    "sha256": "78b7b2e3b9f80223a8dd7f1d0439c8e67f3ab2341869476ee6a7b12774c9289f",
+    "bytes": 9054493
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-19/profile.tsv": {
+    "sha256": "0dc0518f97fbe1a1951c94c623765f3cca34b18fe391349d2331d308bb713ad1",
+    "bytes": 9054577
+  },
+  "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-20/profile.tsv": {
+    "sha256": "8982d1e4ca45816ad0f0caed46414e3fae2539a578519d22b50e7bfc1670b8b9",
+    "bytes": 9054070
   }
 }
