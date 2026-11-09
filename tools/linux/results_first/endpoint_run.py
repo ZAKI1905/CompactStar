@@ -19,6 +19,8 @@ def main():
     root=Path(os.environ['RF_SOURCE']).resolve();out=Path(os.environ['RF_OUTPUT']).resolve()
     commit=subprocess.check_output(['git','-C',str(root),'rev-parse','HEAD'],text=True).strip()
     dirty=subprocess.check_output(['git','-C',str(root),'status','--porcelain'],text=True)
+    (out/'source-preflight.json').write_text(json.dumps(dict(actual_commit=commit,
+        requested_commit=os.environ['RF_COMMIT'],status=dirty),indent=2)+'\n')
     if dirty or commit!=os.environ['RF_COMMIT']:raise RuntimeError('clean exact source required')
     if root==out or root in out.parents:raise RuntimeError('external output required')
     os.sched_setaffinity(0,{min(os.sched_getaffinity(0))})
