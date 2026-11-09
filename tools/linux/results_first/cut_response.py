@@ -11,6 +11,7 @@ import json
 import os
 from pathlib import Path
 import mpmath as mp
+import numpy as np
 
 ROOT = Path(__file__).resolve().parents[3]
 DOC = ROOT / 'docs/validation/results-first-bnv-pilot/cut-assessment'
@@ -131,6 +132,11 @@ def mixed_response(BH, Bs, BsH, Bss, NH, NHH, BHH, shell, B0, slope):
                 H_derivative=tH, mixed_count=NHH-t*BHH)
 
 
+def path_response_from_onlaw(T, Tx, Bs, Bsx, B0, slope, shell):
+    den=1-slope*Bs/B0
+    return -Tx*Bs/(B0*den)+(shell-T)*Bsx/(B0*den**2)
+
+
 def response(center, lo, hi, B0, slope):
     v, fh, surf = fields(center)
     vl, _, _ = fields(lo)
@@ -147,10 +153,20 @@ def response(center, lo, hi, B0, slope):
     dH, dR, dM = (mp.diff(f, (Hs, R, M), order) for order in ((1,0,0), (0,1,0), (0,0,1)))
     B_sH = dR*H['radius']+dM*H['mass']
     B_ssH = dH*surf['alpha']+dR*surf['R']+dM*surf['M']
+    Hc_x=(B0-slope*surf['B'])/H['B']
+    Bsx=dR*(H['radius']*Hc_x+slope*surf['R'])+dM*(H['mass']*Hc_x+slope*surf['M'])+dH*surf['alpha']*slope
     tangents = {}
     for n, species, shell in (('t_n','N_n',0), ('t_e','N_e',1), ('t_mu','N_mu',0)):
         tangents[n] = mixed_response(H['B'],surf['B'],B_sH,B_ssH,H[species],
                                     HH[species],HH['B'],shell,B0,slope)
+        t=tangents[n]['fixed_cut']
+        TH=tangents[n]['H_derivative']*(1-slope*surf['B']/B0)+slope/B0*(shell-t)*B_sH
+        TsH=(shell-t)*B_sH/H['B']*(1-slope*surf['B']/B0)+slope/B0*(shell-t)*B_ssH
+        Tx=TH*Hc_x+TsH*slope
+        alt=path_response_from_onlaw(tangents[n]['path'],Tx,surf['B'],Bsx,B0,slope,shell)
+        tangents[n]['onlaw_identity_residual']=alt-tangents[n]['path_s']
+        if abs(alt-tangents[n]['path_s'])>mp.mpf('1e-55'):
+            raise ValueError('on-law mixed response identity')
     return dict(values=v, fixed_H_s=fh, H_derivative=H, fixed_B_s=fixedB,
         Hc_s=-surf['B']/H['B'], terminal=surf, tangents=tangents,
         baryon_identity_residual=(fixedB['N_n']+fixedB['N_e']+fixedB['N_mu']))
@@ -175,13 +191,22 @@ def serialize(value):
 def calculate(inputs, digits):
     with mp.workdps(digits):
         B0 = mp.mpf(inputs['cuts'][0]['B'])
-        # The exact original all-21-row log-linear projection, fixed achieved x.
-        x = [mp.mpf(s['B'])/mp.mpf(inputs['cuts'][0]['B'])-1 for s in inputs['cuts']]
-        # Reproduce the original binary64 conversion, then widen its exact result.
-        y = [mp.log(wide(float(s['Pgeom'])*(2.99792458e10**4/(6.673e-8*1e10)))) for s in inputs['cuts']]
+        # Original reviewer E_surface: binary64 np.polyfit of log geometric P
+        # at the retained achieved coordinates. No new surface law is fitted.
+        retained_x=read(ROOT/'docs/validation/ba13-closure/evidence/m4.json')['achieved_x']
+        xf=np.array(retained_x,dtype=float)
+        pf=np.array([s['Pgeom'] for s in inputs['cuts']],dtype=float)
+        yf=np.log(pf)
+        coeff=np.polyfit(xf,yf,1)
+        slope=wide(coeff[0])
+        residual=wide(np.max(np.abs(yf-np.polyval(coeff,xf))))
+        expected=mp.mpf(read(ROOT/'docs/validation/ba13-evidence/evidence/continuation.json')['moving_surface']['lnPs_linear_fit_residual_max'])
+        if abs(residual-expected)>mp.mpf('1e-26'):
+            raise ValueError('original pressure-law replay differs')
+        x=[wide(v) for v in xf]
+        y=[mp.log(wide(v)) for v in pf]
         xm, ym = sum(x)/len(x), sum(y)/len(y)
-        slope = sum((a-xm)*(b-ym) for a,b in zip(x,y))/sum((a-xm)**2 for a in x)
-        residual = max(abs(b-ym-slope*(a-xm)) for a,b in zip(x,y))
+        hp_slope=sum((a-xm)*(b-ym) for a,b in zip(x,y))/sum((a-xm)**2 for a in x)
         if residual > mp.mpf('2.1e-12'):
             raise ValueError('retained pressure law exceeds C-CUT')
         records, convergence, normalized = {}, {}, {}
@@ -219,7 +244,9 @@ def calculate(inputs, digits):
                 convergence[f'{target}:{n}'] = conv
                 normalized[f'{target}:{n}'] = dict(sensitivity=max(norm),
                     linearized_product=max(norm)*mp.mpf('2.1e-12'), finite_allowance=None)
-        return dict(digits=digits, slope=slope, law_residual=residual, records=records,
+        return dict(digits=digits, slope=slope, law_intercept_geom=wide(coeff[1]),
+                    high_precision_slope_diagnostic_only=hp_slope,
+                    law_residual=residual, records=records,
                     convergence=convergence, normalized=normalized)
 
 

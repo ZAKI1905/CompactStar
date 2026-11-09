@@ -67,6 +67,15 @@ class CutResponse(unittest.TestCase):
                 t=mp.diff(lambda v:N(v,s),h)/mp.diff(lambda v:B(v,s),h)
                 return t+a/B0*(shell-t)*u(h)
             self.assertLess(abs(mp.diff(path,0)-out['path_s']),mp.mpf('1e-55'))
+            def onlaw(x):
+                s=a*x
+                h=mp.findroot(lambda h:B(h,s)-(b(H)+B0*x),H)
+                t=mp.diff(lambda v:N(v,s),h)/mp.diff(lambda v:B(v,s),h)
+                return t+a/B0*(shell-t)*u(h),u(h)
+            Tx=mp.diff(lambda x:onlaw(x)[0],0)
+            Bsx=mp.diff(lambda x:onlaw(x)[1],0)
+            alternate=cut.path_response_from_onlaw(out['path'],Tx,bs,Bsx,B0,a,shell)
+            self.assertLess(abs(alternate-mp.diff(path,0)),mp.mpf('1e-55'))
 
     def test_wrong_order_and_zero_are_not_estimates(self):
         for values in ((1,1,1),(1,2,1),(1,2,3)):

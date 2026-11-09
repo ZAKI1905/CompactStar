@@ -14,5 +14,13 @@
   "docs/validation/results-first-bnv-pilot/static-completion/evidence/ledger.json.gz": {
     "sha256": "7e6d8c9bc62d5d6e8f2a7ba10949a2dda150331d39be8a9c0a6eb1937c6578f6",
     "bytes": 1746320
+  },
+  "docs/validation/ba13-closure/evidence/m4.json": {
+    "sha256": "6d4b2c6bf4191ce84f00a466043cdc4791161472ceedf98c0407875aa0885a0a",
+    "bytes": 99554
+  },
+  "docs/validation/ba13-evidence/evidence/continuation.json": {
+    "sha256": "07293d587496e9d35670820689fa26ca3f3f83bc83a0e2954f9d61b83a95d52e",
+    "bytes": 7794
   }
 }
