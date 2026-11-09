@@ -1,8 +1,8 @@
 // Bounded actual-path evidence collection. Compile now; execution requires separate owner authorization.
+#include "pair.hpp"
 #define main historical_breakpoint_qualification_main
 #include "../bnv/breakpoint_qualification.cpp"
 #undef main
-#include "pair.hpp"
 
 BNV::MainTrajectoryResult native_main(Ctx p,double a,State y,double b,Tol tol,double cap,
  const std::vector<double>& times,const std::filesystem::path& out) {

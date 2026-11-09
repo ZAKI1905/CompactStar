@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Authenticated declarative native pair snapshots. This script never evolves stars."""
+"""Authenticated declarative native pair snapshots. The stage subcommand requires separate owner authorization."""
 import argparse,copy,hashlib,json,pathlib,subprocess
 ROOT=pathlib.Path(__file__).resolve().parents[3]
 def digest(p):
@@ -22,6 +22,13 @@ def load_pair(directory):
  if pair[1]['source']!={'mode':'exact-zero','fractional_Bdot_per_Julian_year':0}:raise ValueError('control role mismatch')
  a,b=copy.deepcopy(pair[0]),copy.deepcopy(pair[1]);del a['source'];del b['source']
  if a!=b:raise ValueError('source/control common snapshot mismatch')
+ if a['spin_rad_s']!=0 or a['B0_count']!=7.616906518718875e56 or a['Julian_year_s']!=31557600 or a['initial_time_s']!=0:raise ValueError('native physical configuration mismatch')
+ if a['thermal']!={'Tmin_for_derivative_MeV':0,'clamp_to_domain':False}:raise ValueError('thermal configuration mismatch')
+ if a['integration']!={'method':'uninterrupted breakpoint-aware RKF45','initial_step_s':1,'relative_tiers':[1e-7,1e-9,1e-11],'absolute_tiers':[[1e-12,1e-18,1e-18],[1e-14,1e-20,1e-20],[1e-16,1e-22,1e-22]],'checkpoint':'passive; existing isolated two-level self-qualified rk8pd'}:raise ValueError('integration configuration mismatch')
+ bound={x['path']:x['sha256'] for x in a['files']}
+ for key in ('archive','verify_binary','stage_binary','entry','frozen','coefficients'):
+  if a[key] not in bound:raise ValueError('unbound runtime input: '+key)
+ if a['archive_sha256']!=bound[a['archive']]:raise ValueError('archive identity mismatch')
  if a['schema']!='RF-BNV-P2-native-owned-snapshot-v1' or a['initial_state']!=[0,0,0] or a['Tref_K']!=1e8:raise ValueError('initial-state/schema mismatch')
  return pair
 
@@ -34,6 +41,13 @@ def publish(run,out):
  inventory=json.loads((ROOT/'docs/validation/results-first-bnv-pilot/native-assembly/evidence/input-inventory.json').read_text())
  paths=[pathlib.Path(x['path']) for x in inventory['checks']]
  paths += [archive,run/'build/tests/native_p2_verify',run/'build/tests/native_p2_stage']
+ paths += [ROOT.parents[1]/'toolchain/dependency-lock-linux.json']
+ for binary in ('native_p2_verify','native_p2_stage'):
+  linkage=subprocess.check_output(['ldd',str(run/'build/tests'/binary)],text=True)
+  if 'not found' in linkage:raise ValueError('unresolved native dynamic dependency')
+  for line in linkage.splitlines():
+   for token in line.split():
+    if token.startswith('/') and pathlib.Path(token).is_file():paths.append(pathlib.Path(token).resolve())
  paths += [ROOT/'docs/validation/results-first-bnv-pilot/preparation-registry.json']
  side=ROOT/'docs/validation/results-first-bnv-pilot/endpoint-acceptance'
  paths += [side/'evidence/assessment/summary.json',side/'evidence/assessment/ledger.json.gz',side/'acceptance-registry.json',side/'OWNER_APPROVAL.md',side/'inputs.json']

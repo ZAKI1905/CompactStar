@@ -21,7 +21,7 @@ read -r archive_sha archive_name < "$RF_OUTPUT/capture/SHA256SUMS"
  "$RF_SOURCE/docs/validation/results-first-bnv-pilot/preparation-registry.json" \
  "$native/fit/certificate.tsv" "$native/raw/coefficients.tsv" \
  "$RF_OUTPUT/capture/sequence.archive" "$archive_sha" \
- "$RF_OUTPUT/verify-work" "$RF_OUTPUT/static-rhs.tsv" > "$RF_OUTPUT/verify.log" 2>&1
+ "${RF_VERIFY_WORK:-$RF_OUTPUT/verify-work}" "${RF_VERIFY_TSV:-$RF_OUTPUT/static-rhs.tsv}" > "$RF_OUTPUT/verify.log" 2>&1
 "$TC/python/bin/python" -I -B tools/linux/measure.py ctest --test-dir "$RF_BUILD" --output-on-failure \
  -R '^(phase6a1_direct_energy|phase6a1_thermal_ledger|passive_checkpoint_output_contract|phase6_breakpoint_contract|phase5d_component_tolerances|phase6_currentness_bytes)$' \
  > "$RF_OUTPUT/contracts.log" 2>&1
