@@ -1,0 +1,5 @@
+PASS refusal: tampered snapshot identity
+PASS refusal: missing dependency
+PASS refusal: mismatched dependency
+PASS refusal: invalid serialized initial state
+PASS snapshot authentication and refusal tests; no numerical execution
