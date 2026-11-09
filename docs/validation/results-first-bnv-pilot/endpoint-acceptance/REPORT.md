@@ -132,7 +132,10 @@ The initial sandboxed Slurm submission could not resolve the controller and was
 interrupted without submitting a job; network-enabled submission then succeeded.
 No automatic-approval rejection remains unresolved. Slurm accounting storage is
 disabled; controller and process receipts are retained instead. All substantial
-artifacts remain on EKU; no Mac-side files were created.
+artifacts remain on EKU; no Mac-side files were created. Source and authored
+documentation pass Git whitespace checks. Verbatim scheduler/CMake/test captures
+retain their original trailing whitespace and EOF blank lines; the full artifact
+diff therefore reports those formatting diagnostics. Captures were not edited.
 
 ## Readiness outcome and remaining work
 
