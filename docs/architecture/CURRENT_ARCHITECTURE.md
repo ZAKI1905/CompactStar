@@ -1,3 +1,8 @@
+> Native P2 regeneration candidate: the owner has now authorized one unchanged
+> fifteen-star sequence. A lossless owned-result transport is being added separately
+> from the historical builder (ADR-0024; tests/native/stellar_archive.hpp). No thermal
+> trajectory or historical certificate promotion is authorized by this change.
+
 # CompactStar — Current Architecture
 
 > **Restricted native P2 assembly investigation (2026-11-08): BLOCKED ON RETAINED

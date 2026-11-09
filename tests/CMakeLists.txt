@@ -771,3 +771,7 @@ target_link_libraries(ba13_uncertainty_pilot PRIVATE CompactStar)
 # Validation-only audit; does not modify the EOS generator or accepted provider.
 add_executable(ba13_uncertainty_eos_audit bnv/uncertainty_eos_audit.cpp)
 target_link_libraries(ba13_uncertainty_eos_audit PRIVATE CompactStar)
+
+# Restricted native retained-owner capture/assembly, separate from historical builders.
+add_executable(native_p2_regenerate native/regenerate.cpp)
+target_link_libraries(native_p2_regenerate PRIVATE CompactStar)

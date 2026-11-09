@@ -79,6 +79,8 @@ class Sequence;
  */
 class NStar : public Prog
 {
+	// Lossless owned-artifact transport; no numerical producer access is changed.
+	friend class StellarArchive;
 	friend class RotationSolver;
 	friend class TOVSolver;
 	friend class Sequence;

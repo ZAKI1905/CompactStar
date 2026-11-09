@@ -6,6 +6,8 @@
 #include <string>
 #include <vector>
 
+namespace CompactStar::Core { class StellarArchive; }
+
 namespace CompactStar::Analysis
 {
 struct Species
@@ -84,6 +86,7 @@ struct NumberMetadata
 // Eager values. All supported numerical access validates EVERY source, including sequence stars.
 class NumberResult
 {
+    friend class Core::StellarArchive;
   public:
     bool valid = false;
     std::string refusal_reason;

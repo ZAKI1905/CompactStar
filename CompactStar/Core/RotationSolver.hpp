@@ -354,6 +354,8 @@ struct RotationSolverTestSeam;
 //==============================================================
 class RotationSolver : public Prog
 {
+	// Lossless owned-artifact transport; numerical producers remain unchanged.
+	friend class StellarArchive;
 	friend class NStar;
 	// Construction computes first order inside a profile edit transaction. Seal its
 	// version only after that transaction commits; this changes no numerical value.

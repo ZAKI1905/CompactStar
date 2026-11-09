@@ -87,6 +87,8 @@ namespace CompactStar::Core
  */
 struct StarProfile
 {
+	// Lossless owned-artifact transport; numerical producers remain unchanged.
+	friend class StellarArchive;
   public:
 	// ------------------------------------------------------------
 	// 0) Versioning / mutation tracking
