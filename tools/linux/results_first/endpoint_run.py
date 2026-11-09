@@ -8,7 +8,6 @@ import resource
 import shutil
 import subprocess
 import sys
-import tarfile
 import time
 
 def cpu():
@@ -28,11 +27,15 @@ def main():
         # Run old authority tests against their original committed ADR, without
         # rewriting either the historical manifest or the newly amended ADR.
         history=out/'historical-source';history.mkdir()
-        archive=out/'historical-source.tar'
-        with archive.open('wb') as f:
-            subprocess.run(['git','-C',str(root),'archive','afd4b06074a5f597ef4cbe38ce3c9cb04386f556',
-                            'tools','tests/bnv','docs/validation','docs/adr'],stdout=f,check=True)
-        with tarfile.open(archive) as f:f.extractall(history)
+        # This checkout is sparse/partial: broad git archive requests omitted
+        # unrelated blobs. Copy materialized inputs and restore only the pinned
+        # historical ADR. Each historical consumer still checks its own hashes.
+        for name in ('tools', 'tests/bnv', 'docs/validation'):
+            shutil.copytree(root/name,history/name)
+        adr='docs/adr/ADR-0022-restricted-bnv-common-reference-residual.md'
+        (history/adr).parent.mkdir(parents=True)
+        (history/adr).write_bytes(subprocess.check_output([
+            'git','-C',str(root),'show','afd4b06074a5f597ef4cbe38ce3c9cb04386f556:'+adr]))
         oldaudit=out/'historical-ledger';oldaudit.mkdir()
         for name in ('ledger.json.gz','amended-expectation-violations.json'):
             shutil.copyfile(root/'docs/validation/results-first-bnv-pilot/static-completion/evidence'/name,oldaudit/name)
