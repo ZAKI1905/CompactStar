@@ -85,3 +85,28 @@ the authorized static checks establish its stated, conditional scope. The origin
 approval remains valid; it has not been reclassified as pending. Only this newly
 identified interpretation is unresolved. Separate trajectory authorization is
 still required after all preparation gates pass.
+
+## Accepted amendment — restricted endpoint continuation (2026-11-08)
+
+The owner explicitly accepts the conditional continuation described in
+`../validation/results-first-bnv-pilot/endpoint-acceptance/OWNER_APPROVAL.md:1`,
+starting at `afd4b06074a5f597ef4cbe38ce3c9cb04386f556`. For
+RF-BNV-P2-20261108 only, the already accepted equilibrium-family point/slope
+bands, curvature bounds, positive baryon derivative and fixed topology may be
+used on the two fixed-B remapping endcaps, each no wider than 3.022e-26 in
+x=(B-B0)/B0. The actual width remains the retained witness's eta; this does
+not enlarge the physical depletion window [-1e-6,0].
+
+This is an explicit conditional scientific assumption, **not a newly established
+rigorous numerical bound**. It applies to the same stellar model, surface law
+and C-CUT assessment only. All earlier conditions, metric-consumer restriction,
+historical failures and thresholds remain. Known endpoint transitions must be
+checked for contradiction before consuming this assumption. The six inconclusive
+endpoint grid-curvature diagnostics remain inconclusive. No unsupported error
+term may become zero. The original endpoint-refusal evidence is immutable.
+
+The accepted assumption permits a new conditional static ledger using the
+validated local witness, not modification of the historical certificate.
+Nonlinear trajectory accuracy is a separate requirement. No stellar calculation,
+BNV trajectory, master merge or historical certificate promotion is authorized.
+The approval registry is committed before the new assessor consumes it.

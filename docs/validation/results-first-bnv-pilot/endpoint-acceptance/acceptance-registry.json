@@ -1,0 +1,23 @@
+{
+  "schema": "compactstar.restricted-endpoint-acceptance.v1",
+  "status": "ACCEPTED_CONDITIONAL_STATIC_ONLY",
+  "scope": "RF-BNV-P2-20261108",
+  "starting_commit": "afd4b06074a5f597ef4cbe38ce3c9cb04386f556",
+  "condition": "C-ENDPOINT",
+  "maximum_extension_x": "3.022e-26",
+  "physical_interval_x": [
+    "-1e-6",
+    "0"
+  ],
+  "rigorous_endpoint_bound": false,
+  "paired_trajectories_authorized": false,
+  "historical_certificate_promoted": false,
+  "new_stellar_calculations_authorized": false,
+  "files": {
+    "docs/adr/ADR-0022-restricted-bnv-common-reference-residual.md": "7ef1a4f028a75ae098eb92d4894c03b20acb21fa32a65f2f7b8ce1bfb10029cb",
+    "docs/validation/results-first-bnv-pilot/endpoint-acceptance/OWNER_APPROVAL.md": "d0dcfa95e433df4891ad058049376a19420260d854b2603fcfc4e6c2258871f5",
+    "docs/validation/results-first-bnv-pilot/endpoint-acceptance/PREDECLARATION.md": "d168fa70d5c033ca5ad3f2380c445ed1f3f6426ffde640339903145dfc5be2c7",
+    "docs/validation/results-first-bnv-pilot/preparation-registry.json": "ed4121c0e7d3121540ab1d9546e2b83996f295d20cb9e1039744c4b9edd6c501",
+    "docs/validation/results-first-bnv-pilot/static-completion/acceptance-registry.json": "fe818149e324a223a04a9080adca59de59820b3cae419cf10f7409d64269403b"
+  }
+}
