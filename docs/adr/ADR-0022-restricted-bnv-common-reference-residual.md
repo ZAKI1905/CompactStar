@@ -1,6 +1,7 @@
 # ADR-0022 — C-REF common-residual interpretation for the restricted P2 pilot
 
-Status: PROPOSED; decision unset. Date: 2026-11-08.
+Status: ACCEPTED FOR RESTRICTED STATIC PREPARATION; implementation qualification
+pending. Original proposal date: 2026-11-08. Acceptance recorded: 2026-11-09 UTC.
 Change class: scientific qualification semantics / validation numerical-method.
 Authority: GOVERNANCE §§1–5; AGENTS §8; ADR-0015/0017; accepted restricted
 RF-BNV-P2-20261108 preparation decision. ADR-0021 remains proposed outside that
@@ -35,7 +36,21 @@ and its retained summary for the exact algebra and limitations.
 
 ## Decision
 
-Unset. No alternative selected or ratified by the agent.
+The owner selected alternative 2, specifically as amended by the independent
+C-REF adjudication, starting at `30f2ab39572abdf33f51f0ef9609d4fef9b90642`.
+Authority and the exact instruction are recorded in
+`../validation/results-first-bnv-pilot/static-completion/OWNER_APPROVAL.md`.
+The operative equations and limits are in the adjoining `MODEL.md`.
+
+Retain the full ten-times pointwise allowance, the worst-case 2e increment,
+baseline normalization, historical thresholds and unchanged fit. For envelope
+and Tsurface_inf only, use the accepted C-CONT curvature and the unchanged
+all-row fit to bound the TOTAL reference fit response. No B-dependent shared
+error assumption is added. C-TAN and C-INPUT remain separate. The 42 original
+failures are preserved; amended partial passage is not full qualification.
+The earlier utilization-change expectation still fails on 353 rows at the
+amended partial stage and must be reported. No trajectory, historical certificate
+promotion, master merge or new stellar calculation is authorized by this ADR.
 
 ## Alternatives
 
@@ -65,7 +80,8 @@ resolution remain pilot-time requirements, not results of this static audit.
 
 ## Provenance
 
-AI-authored unverified candidate. The original owner's restricted preparation
+The implementation remains an AI-authored unverified scientific candidate until
+the authorized static checks establish its stated, conditional scope. The original owner's restricted preparation
 approval remains valid; it has not been reclassified as pending. Only this newly
 identified interpretation is unresolved. Separate trajectory authorization is
 still required after all preparation gates pass.

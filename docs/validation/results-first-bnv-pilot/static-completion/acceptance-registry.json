@@ -1,0 +1,24 @@
+{
+  "schema": "compactstar.restricted-static-approval.v1",
+  "status": "ACCEPTED_STATIC_PREPARATION_ONLY",
+  "starting_commit": "30f2ab39572abdf33f51f0ef9609d4fef9b90642",
+  "scope": "RF-BNV-P2-NATIVE-BOUNDED-v1",
+  "authority": "owner:ADR-0022:30f2ab39572abdf33f51f0ef9609d4fef9b90642",
+  "amended_groups": [
+    "envelope",
+    "Tsurface_inf"
+  ],
+  "pointwise_multiplier": 10,
+  "worst_case_increment_multiplier": 2,
+  "paired_trajectories_authorized": false,
+  "historical_certificate_promoted": false,
+  "new_stellar_calculations_authorized": false,
+  "missing_terms_must_refuse": true,
+  "files": {
+    "docs/validation/results-first-bnv-pilot/static-completion/OWNER_APPROVAL.md": "efd314bda3f1a364f191c09c4af6dd8a883c30fa444b2640bc6bab882db6a703",
+    "docs/validation/results-first-bnv-pilot/static-completion/MODEL.md": "1157549df220bed9bfd76331b46bb9583c786d12345788ec93ea08ca472def2b",
+    "docs/adr/ADR-0022-restricted-bnv-common-reference-residual.md": "c45ee49a480def9759464c689455f471b0147b556444feef53da4a8e16fc643e",
+    "docs/validation/results-first-bnv-pilot/preparation-registry.json": "ed4121c0e7d3121540ab1d9546e2b83996f295d20cb9e1039744c4b9edd6c501",
+    "docs/validation/results-first-bnv-pilot/preparation-evidence/cref-summary.json": "3c6dc7378f2259cb0180683e7fe44a51adaa90f318bccb31700d74b5a05b4e65"
+  }
+}
