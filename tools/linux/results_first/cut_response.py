@@ -38,15 +38,22 @@ def eos(H):
     k2 = dh*(h+h0)*(h-proton+electron)*(h+proton-electron)/(4*h*h)
     k = mp.sqrt(k2)
     n = k**3 / (3*mp.pi**2*hc**3)
-    pressure, energy, chis = mp.mpf(0), mp.mpf(0), []
+    pressure, energy, chis, mus = mp.mpf(0), mp.mpf(0), [], []
     for mass in (proton, electron):
         mu = mp.sqrt(mass**2+k2)
+        mus.append(mu)
         energy += (k*mu*(2*k2+mass**2)-mass**4*mp.asinh(k/mass))/(8*mp.pi**2*hc**3)
         pressure += (k*mu*(2*k2-3*mass**2)+3*mass**4*mp.asinh(k/mass))/(24*mp.pi**2*hc**3)
         chis.append(mu*k/(mp.pi**2*hc**3))
     chi = chis[0]*chis[1]/sum(chis)
+    # X2 widens the rounded binary64 sum h0 separately from the two masses.
+    # Differentiate that literal convention; do not erase its tiny EOS defect.
+    k_H = (h*h-h0*h0*(proton-electron)**2/(h*h))/(4*k)
+    p_H = sum(k**4/(3*mp.pi**2*hc**3*mu) for mu in mus)*k_H
+    n_H = k*k*k_H/(mp.pi**2*hc**3)
     return dict(p=pressure, e=energy, n=n, cv=mp.pi**2*sum(chis)/3,
-                chi=chi, h=h, hc=hc, k=k, masses=(proton, electron))
+                chi=chi, h=h, hc=hc, k=k, masses=(proton, electron),
+                p_H=p_H,n_H=n_H,chemical_enthalpy=sum(mus))
 
 
 def terminal(H, R, M, K):
@@ -55,18 +62,19 @@ def terminal(H, R, M, K):
     D = 1-2*M/R
     V = M/R**3 + 4*mp.pi*q['p']*geo
     A = D/V
-    alpha = q['p']/(q['e']+q['p'])
+    alpha = q['p']/q['p_H']
     W = 4*mp.pi*R*A/mp.sqrt(D)
     R_s = -A/R*alpha
     M_s = 4*mp.pi*R**2*q['e']*geo*R_s
     B_s = -W*alpha*q['n']*mp.mpf('1e54')
-    K_s = 4*mp.pi*q['p']*geo/V
+    K_s = 4*mp.pi*(q['e']+q['p'])*geo/V*alpha
     g_log_s = M_s/M-2*R_s/R-K_s+alpha
     cvfactor = mp.mpf('1e15')*wide('8.61733326214518e-11')**2*wide('1.602176634e33')
     return dict(R=R_s, M=M_s, B=B_s, K=K_s, alpha=alpha,
         g_log=g_log_s, C_shell=-W*alpha*mp.exp(H-K)*q['cv']*cvfactor,
         G_shell=-W*alpha*mp.exp(H-K)*q['chi']*mp.mpf('1e54'),
         thermodynamic_residual=(q['e']+q['p'])/(q['n']*q['h'])-1,
+        literal_EOS_derivative_factor=(q['e']+q['p'])/q['p_H'],
         K_identity_residual=K_s-((-M_s/R+M*R_s/R**2)/D+alpha),
         pressure_cgs=q['p']*wide('1.602176634e33'))
 
