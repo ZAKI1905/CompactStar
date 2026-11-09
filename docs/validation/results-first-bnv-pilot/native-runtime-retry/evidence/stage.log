@@ -1,0 +1,54 @@
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+PB13 envelope R_upper=12.768154903368297 m_upper=0.92093273643869789 s_prime_upper=0.007100883194399092 phat_upper=31.80548905802204 phat_lower=31.77447563495048 xihat_upper=4818.0911316987376 mhat_upper=473.08533779464295
+ASSEMBLY G begin
+ASSEMBLY G passed
+ASSEMBLY Z begin
+ASSEMBLY Z passed
+PB13 envelope R_upper=12.768154903368297 m_upper=0.92093273643869789 s_prime_upper=0.007100883194399092 phat_upper=31.80548905802204 phat_lower=31.77447563495048 xihat_upper=4818.0911316987376 mhat_upper=473.08533779464295
+REFUSAL historical Mac binding cannot substitute native owner : qualification source hash mismatch
+REFUSAL missing chemical certificate : missing source: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-qualification-1yr-r2/run/assembly/missing-certificate
+REFUSAL foreign chemical certificate : qualification source hash mismatch
+REFUSAL missing frozen certificate : missing frozen certificate TSV
+REFUSAL mismatched frozen owner : frozen certificate achieved-B identity failed
+STOP native checkpoint diagnostics unresolved
+
+A total of 0 errors, and 0 warnings were generated.
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_pair/snapshot.py", line 99, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_pair/snapshot.py", line 98, in main
+    subprocess.run(args,cwd=ROOT,check=True)
+  File "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/python-3.11.9-g4zuo4tjs6qdheidlgtli3ampfghjezh/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build/tests/native_p2_stage', '/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0', '/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal', '/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json', '/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv', '/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv', '/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive', '26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf', '/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-qualification-1yr-r2/run/assembly', '1', '/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-qualification-1yr-r2/run/trajectory']' returned non-zero exit status 1.
+RESOURCE_USAGE_JSON {"command": ["/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python", "-B", "tools/linux/native_pair/snapshot.py", "stage", "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/native-runtime-retry/snapshots", "1", "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-qualification-1yr-r2/run"], "exit_code": 1, "elapsed_seconds": 167.0871888026595, "user_cpu_seconds": 162.016794, "system_cpu_seconds": 4.122634, "max_rss_kib": 434912, "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"}

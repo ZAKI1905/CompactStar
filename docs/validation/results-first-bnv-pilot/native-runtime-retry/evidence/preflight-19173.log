@@ -1,0 +1,13 @@
+PASS authenticated native matched snapshots
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.003s
+
+OK
+PASS refusal: tampered snapshot identity
+PASS refusal: missing dependency
+PASS refusal: mismatched dependency
+PASS refusal: invalid serialized initial state
+PASS snapshot authentication and refusal tests; no numerical execution
+PASS authenticated native matched snapshots
+PASS replacement compute-node bindings, static ownership/RHS, baseline identity, and retained contracts; zero thermal trajectories

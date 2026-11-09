@@ -1,0 +1,84 @@
+{
+  "login": {
+    "host": "ekucn1.eku.edu",
+    "os_release": "NAME=\"Rocky Linux\"\nVERSION=\"9.7 (Blue Onyx)\"\nID=\"rocky\"\nID_LIKE=\"rhel centos fedora\"\nVERSION_ID=\"9.7\"\nPLATFORM_ID=\"platform:el9\"\nPRETTY_NAME=\"Rocky Linux 9.7 (Blue Onyx)\"\nANSI_COLOR=\"0;32\"\nLOGO=\"fedora-logo-icon\"\nCPE_NAME=\"cpe:/o:rocky:rocky:9::baseos\"\nHOME_URL=\"https://rockylinux.org/\"\nVENDOR_NAME=\"RESF\"\nVENDOR_URL=\"https://resf.org/\"\nBUG_REPORT_URL=\"https://bugs.rockylinux.org/\"\nSUPPORT_END=\"2032-05-31\"\nROCKY_SUPPORT_PRODUCT=\"Rocky-Linux-9\"\nROCKY_SUPPORT_PRODUCT_VERSION=\"9.7\"\nREDHAT_SUPPORT_PRODUCT=\"Rocky Linux\"\nREDHAT_SUPPORT_PRODUCT_VERSION=\"9.7\"\n",
+    "snapshot_sha256": {
+      "source": "c6a29044e8330f079a1593be166238e11eafb66745186c5322c04c272358ec18",
+      "control": "0588ddf4518b3dec0f1cf103dcb8a3b356cf4631f2394df41b6a2d6baadf4ceb"
+    },
+    "checked_files": 509,
+    "mismatches": [],
+    "commands": {
+      "readelf": {
+        "command": [
+          "readelf",
+          "-l",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build/tests/native_p2_stage"
+        ],
+        "returncode": 0,
+        "stdout": "\nElf file type is EXEC (Executable file)\nEntry point 0x429510\nThere are 14 program headers, starting at offset 64\n\nProgram Headers:\n  Type           Offset             VirtAddr           PhysAddr\n                 FileSiz            MemSiz              Flags  Align\n  PHDR           0x0000000000000040 0x0000000000400040 0x0000000000400040\n                 0x0000000000000310 0x0000000000000310  R      0x8\n  INTERP         0x0000000000000350 0x0000000000400350 0x0000000000400350\n                 0x0000000000000065 0x0000000000000065  R      0x1\n      [Requesting program interpreter: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/ld-linux-x86-64.so.2]\n  LOAD           0x0000000000000000 0x0000000000400000 0x0000000000400000\n                 0x0000000000006008 0x0000000000006008  R      0x1000\n  LOAD           0x0000000000007000 0x0000000000407000 0x0000000000407000\n                 0x00000000001dab01 0x00000000001dab01  R E    0x1000\n  LOAD           0x00000000001e2000 0x00000000005e2000 0x00000000005e2000\n                 0x0000000000059cf5 0x0000000000059cf5  R      0x1000\n  LOAD           0x000000000023c9c0 0x000000000063c9c0 0x000000000063c9c0\n                 0x0000000000007218 0x00000000000080c8  RW     0x1000\n  DYNAMIC        0x000000000023dd18 0x000000000063dd18 0x000000000063dd18\n                 0x0000000000000230 0x0000000000000230  RW     0x8\n  NOTE           0x00000000000003b8 0x00000000004003b8 0x00000000004003b8\n                 0x0000000000000020 0x0000000000000020  R      0x8\n  NOTE           0x00000000000003d8 0x00000000004003d8 0x00000000004003d8\n                 0x0000000000000020 0x0000000000000020  R      0x4\n  TLS            0x000000000023c9c0 0x000000000063c9c0 0x000000000063c9c0\n                 0x0000000000000000 0x0000000000000030  R      0x10\n  GNU_PROPERTY   0x00000000000003b8 0x00000000004003b8 0x00000000004003b8\n                 0x0000000000000020 0x0000000000000020  R      0x8\n  GNU_EH_FRAME   0x00000000001fe558 0x00000000005fe558 0x00000000005fe558\n                 0x0000000000006e54 0x0000000000006e54  R      0x4\n  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000\n                 0x0000000000000000 0x0000000000000000  RW     0x10\n  GNU_RELRO      0x000000000023c9c0 0x000000000063c9c0 0x000000000063c9c0\n                 0x0000000000001640 0x0000000000001640  R      0x1\n\n Section to Segment mapping:\n  Segment Sections...\n   00     \n   01     .interp \n   02     .interp .note.gnu.property .note.ABI-tag .hash .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt \n   03     .init .plt .text .fini \n   04     .rodata .eh_frame_hdr .eh_frame .gcc_except_table \n   05     .init_array .fini_array .data.rel.ro .dynamic .got .got.plt .data .bss \n   06     .dynamic \n   07     .note.gnu.property \n   08     .note.ABI-tag \n   09     .tbss \n   10     .note.gnu.property \n   11     .eh_frame_hdr \n   12     \n   13     .init_array .fini_array .data.rel.ro .dynamic .got \n",
+        "stderr": ""
+      },
+      "ldd": {
+        "command": [
+          "ldd",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build/tests/native_p2_stage"
+        ],
+        "returncode": 0,
+        "stdout": "\tlinux-vdso.so.1 (0x00007ffcc308e000)\n\tlibz.so.1 => /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libz.so.1 (0x00007f6470810000)\n\tlibstdc++.so.6 => /opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libstdc++.so.6 (0x00007f6470400000)\n\tlibm.so.6 => /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libm.so.6 (0x00007f6470735000)\n\tlibgcc_s.so.1 => /opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libgcc_s.so.1 (0x00007f6470704000)\n\tlibc.so.6 => /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libc.so.6 (0x00007f6470000000)\n\t/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/ld-linux-x86-64.so.2 => /lib64/ld-linux-x86-64.so.2 (0x00007f647082c000)\n",
+        "stderr": ""
+      },
+      "interpreter_list": {
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/ld-linux-x86-64.so.2",
+          "--list",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build/tests/native_p2_stage"
+        ],
+        "returncode": 0,
+        "stdout": "\tlinux-vdso.so.1 (0x00007ffd51af1000)\n\tlibz.so.1 => /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libz.so.1 (0x00007fe6768c2000)\n\tlibstdc++.so.6 => /opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libstdc++.so.6 (0x00007fe676600000)\n\tlibm.so.6 => /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libm.so.6 (0x00007fe676525000)\n\tlibgcc_s.so.1 => /opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libgcc_s.so.1 (0x00007fe676891000)\n\tlibc.so.6 => /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libc.so.6 (0x00007fe676200000)\n\t/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/ld-linux-x86-64.so.2 (0x00007fe6768de000)\n",
+        "stderr": ""
+      }
+    }
+  },
+  "compute": {
+    "host": "phyn004",
+    "os_release": "NAME=\"Rocky Linux\"\nVERSION=\"9.4 (Blue Onyx)\"\nID=\"rocky\"\nID_LIKE=\"rhel centos fedora\"\nVERSION_ID=\"9.4\"\nPLATFORM_ID=\"platform:el9\"\nPRETTY_NAME=\"Rocky Linux 9.4 (Blue Onyx)\"\nANSI_COLOR=\"0;32\"\nLOGO=\"fedora-logo-icon\"\nCPE_NAME=\"cpe:/o:rocky:rocky:9::baseos\"\nHOME_URL=\"https://rockylinux.org/\"\nBUG_REPORT_URL=\"https://bugs.rockylinux.org/\"\nSUPPORT_END=\"2032-05-31\"\nROCKY_SUPPORT_PRODUCT=\"Rocky-Linux-9\"\nROCKY_SUPPORT_PRODUCT_VERSION=\"9.4\"\nREDHAT_SUPPORT_PRODUCT=\"Rocky Linux\"\nREDHAT_SUPPORT_PRODUCT_VERSION=\"9.4\"\n",
+    "snapshot_sha256": {
+      "source": "c6a29044e8330f079a1593be166238e11eafb66745186c5322c04c272358ec18",
+      "control": "0588ddf4518b3dec0f1cf103dcb8a3b356cf4631f2394df41b6a2d6baadf4ceb"
+    },
+    "checked_files": 509,
+    "mismatches": [],
+    "commands": {
+      "readelf": {
+        "command": [
+          "readelf",
+          "-l",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build/tests/native_p2_stage"
+        ],
+        "returncode": 0,
+        "stdout": "\nElf file type is EXEC (Executable file)\nEntry point 0x429510\nThere are 14 program headers, starting at offset 64\n\nProgram Headers:\n  Type           Offset             VirtAddr           PhysAddr\n                 FileSiz            MemSiz              Flags  Align\n  PHDR           0x0000000000000040 0x0000000000400040 0x0000000000400040\n                 0x0000000000000310 0x0000000000000310  R      0x8\n  INTERP         0x0000000000000350 0x0000000000400350 0x0000000000400350\n                 0x0000000000000065 0x0000000000000065  R      0x1\n      [Requesting program interpreter: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/ld-linux-x86-64.so.2]\n  LOAD           0x0000000000000000 0x0000000000400000 0x0000000000400000\n                 0x0000000000006008 0x0000000000006008  R      0x1000\n  LOAD           0x0000000000007000 0x0000000000407000 0x0000000000407000\n                 0x00000000001dab01 0x00000000001dab01  R E    0x1000\n  LOAD           0x00000000001e2000 0x00000000005e2000 0x00000000005e2000\n                 0x0000000000059cf5 0x0000000000059cf5  R      0x1000\n  LOAD           0x000000000023c9c0 0x000000000063c9c0 0x000000000063c9c0\n                 0x0000000000007218 0x00000000000080c8  RW     0x1000\n  DYNAMIC        0x000000000023dd18 0x000000000063dd18 0x000000000063dd18\n                 0x0000000000000230 0x0000000000000230  RW     0x8\n  NOTE           0x00000000000003b8 0x00000000004003b8 0x00000000004003b8\n                 0x0000000000000020 0x0000000000000020  R      0x8\n  NOTE           0x00000000000003d8 0x00000000004003d8 0x00000000004003d8\n                 0x0000000000000020 0x0000000000000020  R      0x4\n  TLS            0x000000000023c9c0 0x000000000063c9c0 0x000000000063c9c0\n                 0x0000000000000000 0x0000000000000030  R      0x10\n  GNU_PROPERTY   0x00000000000003b8 0x00000000004003b8 0x00000000004003b8\n                 0x0000000000000020 0x0000000000000020  R      0x8\n  GNU_EH_FRAME   0x00000000001fe558 0x00000000005fe558 0x00000000005fe558\n                 0x0000000000006e54 0x0000000000006e54  R      0x4\n  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000\n                 0x0000000000000000 0x0000000000000000  RW     0x10\n  GNU_RELRO      0x000000000023c9c0 0x000000000063c9c0 0x000000000063c9c0\n                 0x0000000000001640 0x0000000000001640  R      0x1\n\n Section to Segment mapping:\n  Segment Sections...\n   00     \n   01     .interp \n   02     .interp .note.gnu.property .note.ABI-tag .hash .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt \n   03     .init .plt .text .fini \n   04     .rodata .eh_frame_hdr .eh_frame .gcc_except_table \n   05     .init_array .fini_array .data.rel.ro .dynamic .got .got.plt .data .bss \n   06     .dynamic \n   07     .note.gnu.property \n   08     .note.ABI-tag \n   09     .tbss \n   10     .note.gnu.property \n   11     .eh_frame_hdr \n   12     \n   13     .init_array .fini_array .data.rel.ro .dynamic .got \n",
+        "stderr": ""
+      },
+      "ldd": {
+        "command": [
+          "ldd",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build/tests/native_p2_stage"
+        ],
+        "returncode": 0,
+        "stdout": "\tlinux-vdso.so.1 (0x00007ffcb63cc000)\n\tlibz.so.1 => /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libz.so.1 (0x00007f67e469b000)\n\tlibstdc++.so.6 => /opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libstdc++.so.6 (0x00007f67e4423000)\n\tlibm.so.6 => /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libm.so.6 (0x00007f67e4348000)\n\tlibgcc_s.so.1 => /opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libgcc_s.so.1 (0x00007f67e4319000)\n\tlibc.so.6 => /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libc.so.6 (0x00007f67e4110000)\n\t/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/ld-linux-x86-64.so.2 => /lib64/ld-linux-x86-64.so.2 (0x00007f67e46b7000)\n",
+        "stderr": ""
+      },
+      "interpreter_list": {
+        "command": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/ld-linux-x86-64.so.2",
+          "--list",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build/tests/native_p2_stage"
+        ],
+        "returncode": 0,
+        "stdout": "\tlinux-vdso.so.1 (0x00007ffecb02e000)\n\tlibz.so.1 => /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libz.so.1 (0x00007ff45237b000)\n\tlibstdc++.so.6 => /opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libstdc++.so.6 (0x00007ff452103000)\n\tlibm.so.6 => /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libm.so.6 (0x00007ff452028000)\n\tlibgcc_s.so.1 => /opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libgcc_s.so.1 (0x00007ff451ff7000)\n\tlibc.so.6 => /mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libc.so.6 (0x00007ff451dee000)\n\t/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/ld-linux-x86-64.so.2 (0x00007ff452397000)\n",
+        "stderr": ""
+      }
+    }
+  }
+}
