@@ -775,3 +775,5 @@ target_link_libraries(ba13_uncertainty_eos_audit PRIVATE CompactStar)
 # Restricted native retained-owner capture/assembly, separate from historical builders.
 add_executable(native_p2_regenerate native/regenerate.cpp)
 target_link_libraries(native_p2_regenerate PRIVATE CompactStar)
+add_executable(native_p2_verify native/verify.cpp)
+target_link_libraries(native_p2_verify PRIVATE CompactStar)

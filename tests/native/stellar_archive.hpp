@@ -36,10 +36,10 @@ class StellarArchive {
         std::size_t n=d.ColCount();field(n);check(n<=64,"stellar column limit");
         if(in_)d.Reserve(n,0);for(std::size_t j=0;j<n;++j)field(d[j]);
     }
-    void field(Analysis::Species& x) {fields(x.label,x.baryon_number,x.charge);}
-    void field(Analysis::NumberDomain& x) {fields(x.type,x.outer_pressure_km_minus2,x.inner_pressure_km_minus2,x.boundary_definition);}
-    void field(Analysis::NumberTail& x) {fields(x.semantics,x.authority,x.count_correction,x.count_error,x.response_correction,x.response_error,x.policy_revision);}
-    void field(Analysis::NumberEosSource& x) {fields(x.identity,x.revision,x.physical_domain,x.table_path);}
+    void field(::CompactStar::Analysis::Species& x) {fields(x.label,x.baryon_number,x.charge);}
+    void field(::CompactStar::Analysis::NumberDomain& x) {fields(x.type,x.outer_pressure_km_minus2,x.inner_pressure_km_minus2,x.boundary_definition);}
+    void field(::CompactStar::Analysis::NumberTail& x) {fields(x.semantics,x.authority,x.count_correction,x.count_error,x.response_correction,x.response_error,x.policy_revision);}
+    void field(::CompactStar::Analysis::NumberEosSource& x) {fields(x.identity,x.revision,x.physical_domain,x.table_path);}
     void star(NStar& s) {
         auto& p=s.prof_;
         check(p.m_editDepth==0&&!p.m_editDirty,"cannot archive active profile edit");
@@ -68,7 +68,7 @@ class StellarArchive {
         auto R=static_cast<const StarProfile&>(p).GetRadius();
         for(std::size_t k=1;k<R->Size();++k)check((*R)[k]>(*R)[k-1],"nonmonotone archived radius");
     }
-    void sequence(Analysis::EquilibriumSequenceNumberDerivative& s) {
+    void sequence(::CompactStar::Analysis::EquilibriumSequenceNumberDerivative& s) {
         std::string schema="CompactStar-owned-sequence-v1-native-binary64";field(schema);
         check(schema=="CompactStar-owned-sequence-v1-native-binary64","stellar archive schema mismatch");
         fields(s.valid,s.refusal_reason,s.values_,s.errors_,s.three_point,s.five_point);
@@ -85,23 +85,23 @@ class StellarArchive {
         for(std::size_t i=0;i<n;++i) {
             if(in_)s.contributing_stars[i]=std::make_shared<NStar>();
             auto& owned=*s.contributing_stars[i];star(owned);auto& p=m.sources[i];
-            Analysis::NumberEosSource live;if(!in_){check(bool(p.eos),"missing EOS owner");live=*p.eos;}
+            ::CompactStar::Analysis::NumberEosSource live;if(!in_){check(bool(p.eos),"missing EOS owner");live=*p.eos;}
             fields(p.profile_version,live,p.eos_snapshot,p.table_contents);
-            if(in_){p.star=&owned;p.profile=&owned.Profile();p.first_order=&owned.RotationResponse();p.monopole=owned.MonopoleResponse();p.eos=std::make_shared<const Analysis::NumberEosSource>(live);}
+            if(in_){p.star=&owned;p.profile=&owned.Profile();p.first_order=&owned.RotationResponse();p.monopole=owned.MonopoleResponse();p.eos=std::make_shared<const ::CompactStar::Analysis::NumberEosSource>(live);}
             check(p.profile_version==owned.Profile().Version()&&m.profile_node_counts[i]==owned.Size(),"restored provenance/version mismatch");
         }
         s.RequireCurrent();
     }
   public:
-    static void Save(const std::string& path,Analysis::EquilibriumSequenceNumberDerivative& s) {
+    static void Save(const std::string& path,::CompactStar::Analysis::EquilibriumSequenceNumberDerivative& s) {
         s.RequireCurrent();check(!std::filesystem::exists(path),"archive output already exists");
         std::ofstream out(path);out.imbue(std::locale::classic());out<<std::setprecision(17);
         StellarArchive a;a.out_=&out;a.sequence(s);out.flush();check(bool(out),"stellar archive write failed");
     }
-    static std::shared_ptr<Analysis::EquilibriumSequenceNumberDerivative> Load(const std::string& path,const std::string& sha256) {
+    static std::shared_ptr<::CompactStar::Analysis::EquilibriumSequenceNumberDerivative> Load(const std::string& path,const std::string& sha256) {
         check(sha256.size()==64&&Physics::Rotochemical::FrozenSource(path).sha256==sha256,"stellar archive SHA-256 mismatch");
         std::ifstream in(path);in.imbue(std::locale::classic());StellarArchive a;a.in_=&in;
-        auto s=std::make_shared<Analysis::EquilibriumSequenceNumberDerivative>();a.sequence(*s);
+        auto s=std::make_shared<::CompactStar::Analysis::EquilibriumSequenceNumberDerivative>();a.sequence(*s);
         in>>std::ws;check(in.eof(),"trailing stellar archive data");return s;
     }
 };
