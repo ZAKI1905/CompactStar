@@ -1,0 +1,18 @@
+{
+  "time_utc": "2026-11-09T09:16:00.592654+00:00",
+  "repository": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot",
+  "starting_commit": "46e0b7cd1389048a5b6c06843358105868a39903",
+  "branch": "candidate/results-first-bnv-pilot-20261108",
+  "initial_worktree": "clean",
+  "all_local_branch_tips_ancestors": true,
+  "worktree_count": 9,
+  "repair_commit": "66419b813c15ebade0e2f1bc431666a3b4f07364",
+  "publication_commit": "ab01d7aab7d5f60f1d19d65d943be6d268895262",
+  "authorization": "One Stage A retry after all prerequisites pass; Stage B only after Stage A passes all applicable gates. No retuning, new stars, BA13 recalculation, or full campaigns.",
+  "scope": [
+    "dependency/build",
+    "engineering",
+    "documentation",
+    "generated artifact"
+  ]
+}
