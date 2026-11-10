@@ -1,0 +1,12 @@
+{
+  "source": "Owner supplied attachment in the active D1 conversation after job 19183 stopped",
+  "source_path": "/mnt/sdd/zaki/CompactStar/.codex-attachments/c9edb913-0876-4f73-8c14-cb023e2f5bf6/29301dbf-f493-4968-a140-57b4ba05e538/BNV-THERMO-01_FABLE_ADJUDICATION.md",
+  "preserved_path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/review/BNV-THERMO-01_FABLE_ADJUDICATION.md",
+  "sha256": "46201727575270055d237178b2ad0433ddc22837c0cc1fa646a8d34eddcb0066",
+  "bytes": 18283,
+  "authentication": "Exact bytes copied and checked against owner-supplied attachment; no separately signed reviewer digest was supplied or claimed.",
+  "reviewed_commit": "ad4e91aee3837b8b07e7ed723afdd40b765011fe",
+  "section_D_compared_to_implementation": true,
+  "numerical_settings_changed": false,
+  "earlier_stop_receipt_commit": "b84bfff134ed581d0349bdf22614943da440ef86"
+}
