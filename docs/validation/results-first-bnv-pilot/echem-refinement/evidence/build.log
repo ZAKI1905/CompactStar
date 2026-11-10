@@ -1,0 +1,7 @@
+In file included from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/diagnostics/checkpoint_refinement.cpp:7:
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/echem-refinement-20261109-r1/build/retained_trace_helpers.inc:1:8: warning: 'TraceContext' has a field '{anonymous}::ActualCheckpointContext TraceContext::context' whose type uses the anonymous namespace [-Wsubobject-linkage]
+    1 | struct TraceContext final:BNV::ICheckpointEvaluationContext {
+      |        ^~~~~~~~~~~~
+PASS 13 strict-interior brackets plus initial sentinel; retained local errors loaded; no solver calls
+PASS reconstruction study built; no production changes
+RESOURCE_USAGE_JSON {"command": ["/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python", "-B", "tools/linux/native_qualification/build_refinement.py", "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../native-p2-regeneration-20261108-r1", "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/echem-refinement-20261109-r1/build"], "exit_code": 0, "elapsed_seconds": 22.895397305488586, "user_cpu_seconds": 21.220536, "system_cpu_seconds": 1.115584, "max_rss_kib": 495072, "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"}

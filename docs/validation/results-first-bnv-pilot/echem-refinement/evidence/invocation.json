@@ -1,0 +1,20 @@
+{
+  "args": [
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/echem-refinement-20261109-r1/build/checkpoint_refinement",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+    "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/echem-refinement-20261109-r1/study/assembly",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../native-p2-qualification-1yr-r2/run/trajectory/source",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/echem-refinement-20261109-r1/study/output"
+  ],
+  "snapshots": {
+    "source": "c6a29044e8330f079a1593be166238e11eafb66745186c5322c04c272358ec18",
+    "control": "0588ddf4518b3dec0f1cf103dcb8a3b356cf4631f2394df41b6a2d6baadf4ceb"
+  },
+  "build_manifest_sha256": "865b1b5dab65ff69ae7c1b3a50760b2e7a12d6de45a3b5d56755b98342512503"
+}

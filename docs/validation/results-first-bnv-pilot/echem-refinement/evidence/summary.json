@@ -1,0 +1,114 @@
+{
+  "status": "UNQUALIFIED; handoff to Fable; no Stage A retry executed",
+  "study_build_commit": "76b1907598881dab5fe72039f037a8e206e3f9d8",
+  "external_root": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/echem-refinement-20261109-r1",
+  "candidate_reconstructions": 78,
+  "independent_local_witnesses": 78,
+  "distinct_O2_states_per_point": [
+    {
+      "index": 1,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 2,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 4,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 8,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 16,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 32,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 64,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 128,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 256,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 512,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 960,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 1440,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 1919,
+      "distinct_O2_states": 1
+    }
+  ],
+  "original_failure_reproduced": true,
+  "candidate_table": [
+    {
+      "atol_MeV": 1e-24,
+      "maximum_utilization": 61.64009742541691,
+      "configured_gate_and_margin_pass": false,
+      "measured_envelope_pass": true
+    },
+    {
+      "atol_MeV": 1e-26,
+      "maximum_utilization": 1.0388223570426696,
+      "configured_gate_and_margin_pass": false,
+      "measured_envelope_pass": true
+    },
+    {
+      "atol_MeV": 5e-27,
+      "maximum_utilization": 0.7330768176357471,
+      "configured_gate_and_margin_pass": true,
+      "measured_envelope_pass": true
+    },
+    {
+      "atol_MeV": 1e-27,
+      "maximum_utilization": 0.4878918182025361,
+      "configured_gate_and_margin_pass": true,
+      "measured_envelope_pass": true
+    },
+    {
+      "atol_MeV": 1e-28,
+      "maximum_utilization": 0.43290718472256773,
+      "configured_gate_and_margin_pass": true,
+      "measured_envelope_pass": true
+    },
+    {
+      "atol_MeV": 1e-29,
+      "maximum_utilization": 0.43000168663530697,
+      "configured_gate_and_margin_pass": true,
+      "measured_envelope_pass": true
+    }
+  ],
+  "largest_configured_passing_atol_MeV": 5e-27,
+  "production_tolerance_changed": false,
+  "maximum_local_witness_relative_Echem_disagreement": 2.0135258411715982e-15,
+  "maximum_measured_Echem_envelope_over_U": 0.007044797687861272,
+  "maximum_measured_state_envelope_over_radius": 0.014387835356780667,
+  "maximum_measured_Echem_envelope_budget_utilization": 0.0030202887617573975,
+  "maximum_Echem_algebra_relative_rounding": 2.900224229261538e-16,
+  "conditional_audit_contexts": 390,
+  "conditional_audit_supported_contexts": 390,
+  "conditional_audit_maximum_relative_Echem_enclosure": 2.262268871997437e-15,
+  "conditional_audit_O2_maximum_relative_Echem_enclosure": 5.882253107010768e-16,
+  "complete_coupled_accumulated_roundoff_bound": "UNESTABLISHED",
+  "stage_A_retry_executed": false,
+  "source_control_pair_qualified": false
+}

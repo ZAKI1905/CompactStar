@@ -1,0 +1,2926 @@
+{
+  "schema": "echem-refinement-assessment-v1",
+  "complete": true,
+  "candidates": [
+    {
+      "atol_MeV": 1e-24,
+      "points": [
+        {
+          "index": 1,
+          "time_s": 16436.25,
+          "U_MeV": 5.469658031325184e+16,
+          "F_MeV": 4436769456718772.5,
+          "utilization": 61.64009742541691,
+          "relative_estimated_uncertainty": 1.2328019485083382e-10,
+          "state_qualified": true,
+          "all_diagnostics_qualified": false,
+          "Echem_MeV": 4.4367694567187725e+26,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 5.468778422022963e+16,
+          "witness_or_roundoff_MeV": 8796093022208.0,
+          "decimal_energy_MeV": "443676945671877227554038760.8625043485238773422237840521996178264562228105987260610941491043181660728",
+          "energy_algebra_rounding_MeV": "26932911127.1374956514761226577762159478003821735437771894012739389058508956818339272",
+          "decimal_corner_envelope_MeV": "54687761011127771.7068580157095231943020999616722427842624081000754658280803447552221808112",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0006969883117179086,
+          "measured_Echem_envelope_over_U": 1.1307384978767244e-05,
+          "measured_state_envelope_over_U": [
+            2.3067057141783243e-05,
+            1.56848545001616e-05,
+            6.216392133832298e-05
+          ],
+          "maximum_witness_relative_Echem_difference": 7.74431457464343e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              68719476736.0,
+              137438953472.0
+            ],
+            "1": [
+              137438953472.0,
+              68719476736.0
+            ]
+          }
+        },
+        {
+          "index": 2,
+          "time_s": 32872.5,
+          "U_MeV": 1.1014962462641357e+17,
+          "F_MeV": 1.7747077545683594e+16,
+          "utilization": 31.033172741504114,
+          "relative_estimated_uncertainty": 6.206634548300822e-11,
+          "state_qualified": true,
+          "all_diagnostics_qualified": false,
+          "Echem_MeV": 1.7747077545683595e+27,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 1.1011444025432474e+17,
+          "witness_or_roundoff_MeV": 35184372088832.0,
+          "decimal_energy_MeV": "1774707754568359582224861424.771253535731422606617486175263651802819827230479108341078768005647236798",
+          "energy_algebra_rounding_MeV": "76799527152.771253535731422606617486175263651802819827230479108341078768005647236798",
+          "decimal_corner_envelope_MeV": "110114441989770893.062717830868608753423798734754715706561048798915558097218348782922533656",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0003872157348673658,
+          "measured_Echem_envelope_over_U": 1.2477478151935756e-05,
+          "measured_state_envelope_over_U": [
+            2.6255790926510567e-05,
+            3.1187521140312346e-05,
+            7.349262021012896e-05
+          ],
+          "maximum_witness_relative_Echem_difference": 3.0977258789389263e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              549755813888.0
+            ],
+            "1": [
+              549755813888.0,
+              274877906944.0
+            ]
+          }
+        },
+        {
+          "index": 4,
+          "time_s": 65745.0,
+          "U_MeV": 2.2333060281060557e+17,
+          "F_MeV": 7.098830793320148e+16,
+          "utilization": 15.730097625425515,
+          "relative_estimated_uncertainty": 3.146019525085103e-11,
+          "state_qualified": true,
+          "all_diagnostics_qualified": false,
+          "Echem_MeV": 7.098830793320148e+27,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 2.2318986532225024e+17,
+          "witness_or_roundoff_MeV": 140737488355328.0,
+          "decimal_energy_MeV": "7098830793320150521853360509.500107139758650787553688767986233559073877691520095546274757479165651047",
+          "energy_algebra_rounding_MeV": "2058820106621.500107139758650787553688767986233559073877691520095546274757479165651047",
+          "decimal_corner_envelope_MeV": "223186187444422736.618045040581795578562900977291357576862446425370158778520831139969518630",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0010067609425581765,
+          "measured_Echem_envelope_over_U": 6.400220561447041e-05,
+          "measured_state_envelope_over_U": [
+            9.115594629729629e-05,
+            9.865293113552416e-05,
+            0.0007613470038784104
+          ],
+          "maximum_witness_relative_Echem_difference": 4.646588965653122e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              4398046511104.0
+            ],
+            "1": [
+              0.0,
+              5497558138880.0
+            ]
+          }
+        },
+        {
+          "index": 8,
+          "time_s": 131490.0,
+          "U_MeV": 4.587338432941916e+17,
+          "F_MeV": 2.839532137365275e+17,
+          "utilization": 8.077630769832355,
+          "relative_estimated_uncertainty": 1.615526153966471e-11,
+          "state_qualified": true,
+          "all_diagnostics_qualified": false,
+          "Echem_MeV": 2.839532137365275e+28,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 4.581708933407703e+17,
+          "witness_or_roundoff_MeV": 562949953421312.0,
+          "decimal_energy_MeV": "28395321373652749379421129940.93610178365413807346806778603988404801529685179850855896432327748229182",
+          "energy_algebra_rounding_MeV": "1881227866923.06389821634586192653193221396011595198470314820149144103567672251770818",
+          "decimal_corner_envelope_MeV": "458167273775462795.55772183754795892868133089310575588450424365528831935931337107183494222",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.002245851475735718,
+          "measured_Echem_envelope_over_U": 0.0002780334407117656,
+          "measured_state_envelope_over_U": [
+            0.00017943864990785168,
+            0.00038576257614517855,
+            0.001620473551008876
+          ],
+          "maximum_witness_relative_Echem_difference": 1.703749395385717e-15,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              13194139533312.0,
+              35184372088832.0
+            ],
+            "1": [
+              8796093022208.0,
+              39582418599936.0
+            ]
+          }
+        },
+        {
+          "index": 16,
+          "time_s": 262980.0,
+          "U_MeV": 9.659517513267937e+17,
+          "F_MeV": 1.1358127109756301e+18,
+          "utilization": 4.252249257261214,
+          "relative_estimated_uncertainty": 8.504498514522426e-12,
+          "state_qualified": true,
+          "all_diagnostics_qualified": false,
+          "Echem_MeV": 1.1358127109756302e+29,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 9.636999515131085e+17,
+          "witness_or_roundoff_MeV": 2251799813685248.0,
+          "decimal_energy_MeV": "113581271097563008399982465177.5863631887957628795760904827977340492107934464916325270469508403537836",
+          "energy_algebra_rounding_MeV": "11123767635814.4136368112042371204239095172022659507892065535083674729530491596462164",
+          "decimal_corner_envelope_MeV": "963648941365384501.6999179125508605124061157139798607841242223748428316824253424972664488",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.001006761133976757,
+          "measured_Echem_envelope_over_U": 0.00023675967072193488,
+          "measured_state_envelope_over_U": [
+            0.00039755343045391343,
+            0.0003230384364673187,
+            0.0008116746254240491
+          ],
+          "maximum_witness_relative_Echem_difference": 7.744316415205823e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              35184372088832.0,
+              70368744177664.0
+            ],
+            "1": [
+              52776558133248.0,
+              52776558133248.0
+            ]
+          }
+        },
+        {
+          "index": 32,
+          "time_s": 525960.0,
+          "U_MeV": 2.125699024118874e+18,
+          "F_MeV": 4.5432496921346775e+18,
+          "utilization": 2.3394036957718907,
+          "relative_estimated_uncertainty": 4.678807391543782e-12,
+          "state_qualified": true,
+          "all_diagnostics_qualified": false,
+          "Echem_MeV": 4.543249692134678e+29,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 2.116691824864133e+18,
+          "witness_or_roundoff_MeV": 9007199254740992.0,
+          "decimal_energy_MeV": "454324969213467795264894442363.9686381314872501390721988513948688714050582682733696612218672705889764",
+          "energy_algebra_rounding_MeV": "524967961732.0313618685127498609278011486051311285949417317266303387781327294110236",
+          "decimal_corner_envelope_MeV": "2116535243479291579.2166569038390729479836542838432670965032227344204664644063812407206944",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.000774431837848216,
+          "measured_Echem_envelope_over_U": 0.0003310381355932203,
+          "measured_state_envelope_over_U": [
+            0.0008429849246193915,
+            0.0004248908724569904,
+            0.002717226189170485
+          ],
+          "maximum_witness_relative_Echem_difference": 3.0977273513928636e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              70368744177664.0,
+              281474976710656.0
+            ],
+            "1": [
+              140737488355328.0,
+              281474976710656.0
+            ]
+          }
+        },
+        {
+          "index": 64,
+          "time_s": 1051920.0,
+          "U_MeV": 5.028268983959159e+18,
+          "F_MeV": 1.8172989554331863e+19,
+          "utilization": 1.3834457365768362,
+          "relative_estimated_uncertainty": 2.7668914731536725e-12,
+          "state_qualified": true,
+          "all_diagnostics_qualified": false,
+          "Echem_MeV": 1.8172989554331863e+30,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 4.992240186940195e+18,
+          "witness_or_roundoff_MeV": 3.602879701896397e+16,
+          "decimal_energy_MeV": "1817298955433186570369327958960.181963935775901826516455341741221111701306902577698395328856849627193",
+          "energy_algebra_rounding_MeV": "238245567531952.181963935775901826516455341741221111701306902577698395328856849627193",
+          "decimal_corner_envelope_MeV": "4991444444632740373.489017230984794017612903831251921512173990448468853621285099361684992",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0013165347918610733,
+          "measured_Echem_envelope_over_U": 0.0009516345723242275,
+          "measured_state_envelope_over_U": [
+            0.0021841473494767544,
+            0.0013200416095171495,
+            0.004500296785165063
+          ],
+          "maximum_witness_relative_Echem_difference": 7.744322305065137e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              281474976710656.0,
+              1688849860263936.0
+            ],
+            "1": [
+              844424930131968.0,
+              1407374883553280.0
+            ]
+          }
+        },
+        {
+          "index": 128,
+          "time_s": 2103840.0,
+          "U_MeV": 1.3150510911921848e+19,
+          "F_MeV": 7.269188450264707e+19,
+          "utilization": 0.9045377624955488,
+          "relative_estimated_uncertainty": 1.8090755249910976e-12,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 7.269188450264707e+30,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 1.3006395723845992e+19,
+          "witness_or_roundoff_MeV": 1.4411518807585587e+17,
+          "decimal_energy_MeV": "7269188450264707647749119821676.876960607189528094913466570498025769463473929221419382737926523493425",
+          "energy_algebra_rounding_MeV": "475953793091436.876960607189528094913466570498025769463473929221419382737926523493425",
+          "decimal_corner_envelope_MeV": "13005463963158827659.075355241331121504611077573332774351998305157648148883137664506500432",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0030202887617573975,
+          "measured_Echem_envelope_over_U": 0.003339041095890411,
+          "measured_state_envelope_over_U": [
+            0.005010029990382092,
+            0.006221074946018297,
+            0.008226784878900623
+          ],
+          "maximum_witness_relative_Echem_difference": 2.0135258411715982e-15,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              1.4636698788954112e+16
+            ],
+            "1": [
+              0.0,
+              1.2384898975268864e+16
+            ]
+          }
+        },
+        {
+          "index": 256,
+          "time_s": 4207680.0,
+          "U_MeV": 3.870393519762204e+19,
+          "F_MeV": 2.9076694827673482e+20,
+          "utilization": 0.6655490836734634,
+          "relative_estimated_uncertainty": 1.3310981673469268e-12,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 2.9076694827673484e+31,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 3.812747444531862e+19,
+          "witness_or_roundoff_MeV": 5.764607523034235e+17,
+          "decimal_energy_MeV": "29076694827673488794230002191701.24737611229232009902250712488196831360071030985936361339459857263006",
+          "energy_algebra_rounding_MeV": "5007266185907541.24737611229232009902250712488196831360071030985936361339459857263006",
+          "decimal_corner_envelope_MeV": "38117984566796840507.92482568892448015335498909441400774970708347423368127977149494087484",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0010067649625034936,
+          "measured_Echem_envelope_over_U": 0.0015126832673958575,
+          "measured_state_envelope_over_U": [
+            0.0020728011856015376,
+            0.004190649830680026,
+            0.003963466980146409
+          ],
+          "maximum_witness_relative_Echem_difference": 7.74434586541149e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              2.251799813685248e+16,
+              1.8014398509481984e+16
+            ],
+            "1": [
+              2.7021597764222976e+16,
+              1.3510798882111488e+16
+            ]
+          }
+        },
+        {
+          "index": 512,
+          "time_s": 8415360.0,
+          "U_MeV": 1.2710959588290488e+20,
+          "F_MeV": 1.1630630749735419e+21,
+          "utilization": 0.5464432609804779,
+          "relative_estimated_uncertainty": 1.0928865219609558e-12,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.163063074973542e+32,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 1.2480375287369119e+20,
+          "witness_or_roundoff_MeV": 2.305843009213694e+18,
+          "decimal_energy_MeV": "116306307497354214025650808626297.5232681194038349846865290092282817704039006099187252768246596469984",
+          "energy_algebra_rounding_MeV": "14699023481773177.5232681194038349846865290092282817704039006099187252768246596469984",
+          "decimal_corner_envelope_MeV": "124771643990208907813.7993249494685186917466839594051871653941333623678567588425772992690",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0006195501825175487,
+          "measured_Echem_envelope_over_U": 0.0011337868480725624,
+          "measured_state_envelope_over_U": [
+            0.0021931198228450476,
+            0.00321909476808628,
+            0.0014694203447393602
+          ],
+          "maximum_witness_relative_Echem_difference": 6.195501825175487e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              1.8014398509481984e+16,
+              1.8014398509481984e+16
+            ],
+            "1": [
+              1.8014398509481984e+16,
+              5.404319552844595e+16
+            ]
+          }
+        },
+        {
+          "index": 960,
+          "time_s": 15778800.0,
+          "U_MeV": 4.032342962362447e+20,
+          "F_MeV": 4.088864592413636e+21,
+          "utilization": 0.4930883465600624,
+          "relative_estimated_uncertainty": 9.861766931201248e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 4.088864592413636e+32,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 3.9401092419938995e+20,
+          "witness_or_roundoff_MeV": 9.223372036854776e+18,
+          "decimal_energy_MeV": "408886459241363671271260181236659.5715871644398573945741702186869823732384136724155650078768206421068",
+          "energy_algebra_rounding_MeV": "40791731560778675.5715871644398573945741702186869823732384136724155650078768206421068",
+          "decimal_corner_envelope_MeV": "393896694577509021185.7568770543911432881773514386443179396547540062964596073553493301554",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0005286865760115037,
+          "measured_Echem_envelope_over_U": 0.001072194424588992,
+          "measured_state_envelope_over_U": [
+            0.002751283391535732,
+            0.0029079735921974043,
+            0.0008247871380090215
+          ],
+          "maximum_witness_relative_Echem_difference": 5.286865760115037e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              1.4411518807585587e+17,
+              2.161727821137838e+17
+            ],
+            "1": [
+              0.0,
+              7.205759403792794e+16
+            ]
+          }
+        },
+        {
+          "index": 1440,
+          "time_s": 23668200.0,
+          "U_MeV": 8.695910448497143e+20,
+          "F_MeV": 9.199875339180643e+21,
+          "utilization": 0.4726102326334139,
+          "relative_estimated_uncertainty": 9.452204652668278e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 9.199875339180643e+32,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 8.511443007760048e+20,
+          "witness_or_roundoff_MeV": 1.8446744073709552e+19,
+          "decimal_energy_MeV": "919987533918064253117543188730948.6185334739079503632924296483083652448317620460416739149001007107537",
+          "energy_algebra_rounding_MeV": "65518776511163323.3814665260920496367075703516916347551682379539583260850998992892463",
+          "decimal_corner_envelope_MeV": "850821203649818310687.1845967599474196089108527588683178434447365427071213082627147244216",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0013315170624408413,
+          "measured_Echem_envelope_over_U": 0.0028173682466025854,
+          "measured_state_envelope_over_U": [
+            0.004495073655914666,
+            0.00471350784796143,
+            0.004579388265954329
+          ],
+          "maximum_witness_relative_Echem_difference": 1.0965434631865753e-15,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              7.205759403792794e+17
+            ],
+            "1": [
+              0.0,
+              7.205759403792794e+17
+            ]
+          }
+        },
+        {
+          "index": 1919,
+          "time_s": 31541163.75,
+          "U_MeV": 1.506868406521149e+21,
+          "F_MeV": 1.6338177504784448e+22,
+          "utilization": 0.46114947829397734,
+          "relative_estimated_uncertainty": 9.222989565879548e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.6338177504784448e+33,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 1.46997491837373e+21,
+          "witness_or_roundoff_MeV": 3.6893488147419103e+19,
+          "decimal_energy_MeV": "1633817750478444532993680285501643.546096162203513309967488487124262174213009791242070456500817124864",
+          "energy_algebra_rounding_MeV": "298310930765051700.453903837796486690032511512875737825786990208757929543499182875136",
+          "decimal_corner_envelope_MeV": "1469065480344703616519.008595914225027925905339088225029849241663660408288723016106473300",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0007938686504678264,
+          "measured_Echem_envelope_over_U": 0.0017214996174445293,
+          "measured_state_envelope_over_U": [
+            0.006882429146999641,
+            0.0020990105674551863,
+            0.0025571479606814676
+          ],
+          "maximum_witness_relative_Echem_difference": 7.056610226380678e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              1.152921504606847e+18,
+              8.646911284551352e+17
+            ],
+            "1": [
+              5.764607523034235e+17,
+              2.8823037615171174e+17
+            ]
+          }
+        }
+      ],
+      "complete": true,
+      "maximum_utilization": 61.64009742541691,
+      "configured_gate_and_margin_pass": false,
+      "measured_envelope_pass": true
+    },
+    {
+      "atol_MeV": 1e-26,
+      "points": [
+        {
+          "index": 1,
+          "time_s": 16436.25,
+          "U_MeV": 921803060936704.0,
+          "F_MeV": 4436769456718772.5,
+          "utilization": 1.0388223570426696,
+          "relative_estimated_uncertainty": 2.0776447140853392e-12,
+          "state_qualified": true,
+          "all_diagnostics_qualified": false,
+          "Echem_MeV": 4.4367694567187725e+26,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 913006967914496.0,
+          "witness_or_roundoff_MeV": 8796093022208.0,
+          "decimal_energy_MeV": "443676945671877227554038760.8625043485238773422237840521996178264562228105987260610941491043181660728",
+          "energy_algebra_rounding_MeV": "26932911127.1374956514761226577762159478003821735437771894012739389058508956818339272",
+          "decimal_corner_envelope_MeV": "912929253609556.4879918646598484633853985887111858420940649445553767158088435502348360750",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0006969883117179086,
+          "measured_Echem_envelope_over_U": 0.0006709408081109288,
+          "measured_state_envelope_over_U": [
+            2.3067057141783243e-05,
+            0.0009929827703813818,
+            0.00250422525844865
+          ],
+          "maximum_witness_relative_Echem_difference": 7.74431457464343e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              68719476736.0,
+              137438953472.0
+            ],
+            "1": [
+              137438953472.0,
+              68719476736.0
+            ]
+          }
+        },
+        {
+          "index": 2,
+          "time_s": 32872.5,
+          "U_MeV": 2599795243876352.0,
+          "F_MeV": 1.7747077545683594e+16,
+          "utilization": 0.7324572840751091,
+          "relative_estimated_uncertainty": 1.4649145681502184e-12,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.7747077545683595e+27,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 2564610871787520.0,
+          "witness_or_roundoff_MeV": 35184372088832.0,
+          "decimal_energy_MeV": "1774707754568359582224861424.771253535731422606617486175263651802819827230479108341078768005647236798",
+          "energy_algebra_rounding_MeV": "76799527152.771253535731422606617486175263651802819827230479108341078768005647236798",
+          "decimal_corner_envelope_MeV": "2564779302882414.115369696017354203816102785905916567458588575613400373835377652400065504",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0003872157348673658,
+          "measured_Echem_envelope_over_U": 0.0005286529921759357,
+          "measured_state_envelope_over_U": [
+            2.6255790926510567e-05,
+            0.0014497918951248449,
+            0.0018720927881933419
+          ],
+          "maximum_witness_relative_Echem_difference": 3.0977258789389263e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              549755813888.0
+            ],
+            "1": [
+              549755813888.0,
+              274877906944.0
+            ]
+          }
+        },
+        {
+          "index": 4,
+          "time_s": 65745.0,
+          "U_MeV": 8230944045531136.0,
+          "F_MeV": 7.098830793320148e+16,
+          "utilization": 0.5797394166146546,
+          "relative_estimated_uncertainty": 1.159478833229309e-12,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 7.098830793320148e+27,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 8090206557175808.0,
+          "witness_or_roundoff_MeV": 140737488355328.0,
+          "decimal_energy_MeV": "7098830793320150521853360509.500107139758650787553688767986233559073877691520095546274757479165651047",
+          "energy_algebra_rounding_MeV": "2058820106621.500107139758650787553688767986233559073877691520095546274757479165651047",
+          "decimal_corner_envelope_MeV": "8086865380526713.433800587701651843720344096769719296136836403592295077380010404013912264",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0010067609425581765,
+          "measured_Echem_envelope_over_U": 0.0017365749398877905,
+          "measured_state_envelope_over_U": [
+            9.115594629729629e-05,
+            0.0030114935387724772,
+            0.011376449043845027
+          ],
+          "maximum_witness_relative_Echem_difference": 4.646588965653122e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              4398046511104.0
+            ],
+            "1": [
+              0.0,
+              5497558138880.0
+            ]
+          }
+        },
+        {
+          "index": 8,
+          "time_s": 131490.0,
+          "U_MeV": 2.853452576404275e+16,
+          "F_MeV": 2.839532137365275e+17,
+          "utilization": 0.502451185330115,
+          "relative_estimated_uncertainty": 1.00490237066023e-12,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 2.839532137365275e+28,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 2.797157581062144e+16,
+          "witness_or_roundoff_MeV": 562949953421312.0,
+          "decimal_energy_MeV": "28395321373652749379421129940.93610178365413807346806778603988404801529685179850855896432327748229182",
+          "energy_algebra_rounding_MeV": "1881227866923.06389821634586192653193221396011595198470314820149144103567672251770818",
+          "decimal_corner_envelope_MeV": "27966478001351798.39625691549577415931587329981666663574028552870494412026716606206462402",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.002245851475735718,
+          "measured_Echem_envelope_over_U": 0.004469790382244143,
+          "measured_state_envelope_over_U": [
+            0.00017943864990785168,
+            0.007084823855098939,
+            0.013810257801135303
+          ],
+          "maximum_witness_relative_Echem_difference": 1.703749395385717e-15,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              13194139533312.0,
+              35184372088832.0
+            ],
+            "1": [
+              8796093022208.0,
+              39582418599936.0
+            ]
+          }
+        },
+        {
+          "index": 16,
+          "time_s": 262980.0,
+          "U_MeV": 1.05553116266496e+17,
+          "F_MeV": 1.1358127109756301e+18,
+          "utilization": 0.4646589849123494,
+          "relative_estimated_uncertainty": 9.293179698246988e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.1358127109756302e+29,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 1.0330131645281075e+17,
+          "witness_or_roundoff_MeV": 2251799813685248.0,
+          "decimal_energy_MeV": "113581271097563008399982465177.5863631887957628795760904827977340492107934464916325270469508403537836",
+          "energy_algebra_rounding_MeV": "11123767635814.4136368112042371204239095172022659507892065535083674729530491596462164",
+          "decimal_corner_envelope_MeV": "103256062294080268.9682544886950512217705998033254343788562154632556145213655984101799454",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.001006761133976757,
+          "measured_Echem_envelope_over_U": 0.0021666666666666666,
+          "measured_state_envelope_over_U": [
+            0.00039755343045391343,
+            0.0033976000739704072,
+            0.00397500101862552
+          ],
+          "maximum_witness_relative_Echem_difference": 7.744316415205823e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              35184372088832.0,
+              70368744177664.0
+            ],
+            "1": [
+              52776558133248.0,
+              52776558133248.0
+            ]
+          }
+        },
+        {
+          "index": 32,
+          "time_s": 525960.0,
+          "U_MeV": 4.047610165099233e+17,
+          "F_MeV": 4.5432496921346775e+18,
+          "utilization": 0.44545319313029386,
+          "relative_estimated_uncertainty": 8.909063862605876e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 4.543249692134678e+29,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 3.9575381725518234e+17,
+          "witness_or_roundoff_MeV": 9007199254740992.0,
+          "decimal_energy_MeV": "454324969213467795264894442363.9686381314872501390721988513948688714050582682733696612218672705889764",
+          "energy_algebra_rounding_MeV": "524967961732.0313618685127498609278011486051311285949417317266303387781327294110236",
+          "decimal_corner_envelope_MeV": "395670601315793280.9746576878529081446781096597111687182111834997510773491323073321599694",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.000774431837848216,
+          "measured_Echem_envelope_over_U": 0.0017385257301808068,
+          "measured_state_envelope_over_U": [
+            0.0008429849246193915,
+            0.0025468072889078468,
+            0.00813601899803518
+          ],
+          "maximum_witness_relative_Echem_difference": 3.0977273513928636e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              70368744177664.0,
+              281474976710656.0
+            ],
+            "1": [
+              140737488355328.0,
+              281474976710656.0
+            ]
+          }
+        },
+        {
+          "index": 64,
+          "time_s": 1051920.0,
+          "U_MeV": 1.5869559186946785e+18,
+          "F_MeV": 1.8172989554331863e+19,
+          "utilization": 0.43662489155957246,
+          "relative_estimated_uncertainty": 8.732497831191449e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.8172989554331863e+30,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 1.5509271216757146e+18,
+          "witness_or_roundoff_MeV": 3.602879701896397e+16,
+          "decimal_energy_MeV": "1817298955433186570369327958960.181963935775901826516455341741221111701306902577698395328856849627193",
+          "energy_algebra_rounding_MeV": "238245567531952.181963935775901826516455341741221111701306902577698395328856849627193",
+          "decimal_corner_envelope_MeV": "1550170943006050454.845097731004802238263063231588924144319994721871724960353339379038046",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0013165347918610733,
+          "measured_Echem_envelope_over_U": 0.0030152536360411493,
+          "measured_state_envelope_over_U": [
+            0.0021841473494767544,
+            0.004697961910477222,
+            0.009025843948453165
+          ],
+          "maximum_witness_relative_Echem_difference": 7.744322305065137e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              281474976710656.0,
+              1688849860263936.0
+            ],
+            "1": [
+              844424930131968.0,
+              1407374883553280.0
+            ]
+          }
+        },
+        {
+          "index": 128,
+          "time_s": 2103840.0,
+          "U_MeV": 6.26901068129973e+18,
+          "F_MeV": 7.269188450264707e+19,
+          "utilization": 0.43120430321705616,
+          "relative_estimated_uncertainty": 8.624086064341123e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 7.269188450264707e+30,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 6.124895493223875e+18,
+          "witness_or_roundoff_MeV": 1.4411518807585587e+17,
+          "decimal_energy_MeV": "7269188450264707647749119821676.876960607189528094913466570498025769463473929221419382737926523493425",
+          "energy_algebra_rounding_MeV": "475953793091436.876960607189528094913466570498025769463473929221419382737926523493425",
+          "decimal_corner_envelope_MeV": "6123474557508820756.809812392923980946002845706079821071095636503228872857024622319014020",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0030202887617573975,
+          "measured_Echem_envelope_over_U": 0.007004310344827586,
+          "measured_state_envelope_over_U": [
+            0.005010029990382092,
+            0.014293544141709554,
+            0.012391243946996965
+          ],
+          "maximum_witness_relative_Echem_difference": 2.0135258411715982e-15,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              1.4636698788954112e+16
+            ],
+            "1": [
+              0.0,
+              1.2384898975268864e+16
+            ]
+          }
+        },
+        {
+          "index": 256,
+          "time_s": 4207680.0,
+          "U_MeV": 2.4940934736377807e+19,
+          "F_MeV": 2.9076694827673482e+20,
+          "utilization": 0.4288818740264883,
+          "relative_estimated_uncertainty": 8.577637480529766e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 2.9076694827673484e+31,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 2.4364473984074383e+19,
+          "witness_or_roundoff_MeV": 5.764607523034235e+17,
+          "decimal_energy_MeV": "29076694827673488794230002191701.24737611229232009902250712488196831360071030985936361339459857263006",
+          "energy_algebra_rounding_MeV": "5007266185907541.24737611229232009902250712488196831360071030985936361339459857263006",
+          "decimal_corner_envelope_MeV": "24354647759297305045.36654400391392573951368485164615187246608105666181683114616338317556",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0010067649625034936,
+          "measured_Echem_envelope_over_U": 0.002347417840375587,
+          "measured_state_envelope_over_U": [
+            0.0020728011856015376,
+            0.006927482676133313,
+            0.004969207475321367
+          ],
+          "maximum_witness_relative_Echem_difference": 7.74434586541149e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              2.251799813685248e+16,
+              1.8014398509481984e+16
+            ],
+            "1": [
+              2.7021597764222976e+16,
+              1.3510798882111488e+16
+            ]
+          }
+        },
+        {
+          "index": 512,
+          "time_s": 8415360.0,
+          "U_MeV": 9.954756616339744e+19,
+          "F_MeV": 1.1630630749735419e+21,
+          "utilization": 0.42795428857399676,
+          "relative_estimated_uncertainty": 8.559085771479935e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.163063074973542e+32,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 9.724172315418375e+19,
+          "witness_or_roundoff_MeV": 2.305843009213694e+18,
+          "decimal_energy_MeV": "116306307497354214025650808626297.5232681194038349846865290092282817704039006099187252768246596469984",
+          "energy_algebra_rounding_MeV": "14699023481773177.5232681194038349846865290092282817704039006099187252768246596469984",
+          "decimal_corner_envelope_MeV": "97233643455029659765.0515978227069974505569579517388141002867050447774207744540673188034",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0006195501825175487,
+          "measured_Echem_envelope_over_U": 0.0014477017734346724,
+          "measured_state_envelope_over_U": [
+            0.0021931198228450476,
+            0.004272613275874094,
+            0.0016557856111478187
+          ],
+          "maximum_witness_relative_Echem_difference": 6.195501825175487e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              1.8014398509481984e+16,
+              1.8014398509481984e+16
+            ],
+            "1": [
+              1.8014398509481984e+16,
+              5.404319552844595e+16
+            ]
+          }
+        },
+        {
+          "index": 960,
+          "time_s": 15778800.0,
+          "U_MeV": 3.514969437170125e+20,
+          "F_MeV": 4.088864592413636e+21,
+          "utilization": 0.42982218629735247,
+          "relative_estimated_uncertainty": 8.596443725947051e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 4.088864592413636e+32,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 3.422735716801577e+20,
+          "witness_or_roundoff_MeV": 9.223372036854776e+18,
+          "decimal_energy_MeV": "408886459241363671271260181236659.5715871644398573945741702186869823732384136724155650078768206421068",
+          "energy_algebra_rounding_MeV": "40791731560778675.5715871644398573945741702186869823732384136724155650078768206421068",
+          "decimal_corner_envelope_MeV": "342372305273900277560.7327422807759974949241199010634904648465888010906219460509239170798",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0005286865760115037,
+          "measured_Echem_envelope_over_U": 0.0012300123001230013,
+          "measured_state_envelope_over_U": [
+            0.002751283391535732,
+            0.0034151016726360344,
+            0.0008804084055600515
+          ],
+          "maximum_witness_relative_Echem_difference": 5.286865760115037e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              1.4411518807585587e+17,
+              2.161727821137838e+17
+            ],
+            "1": [
+              0.0,
+              7.205759403792794e+16
+            ]
+          }
+        },
+        {
+          "index": 1440,
+          "time_s": 23668200.0,
+          "U_MeV": 7.917688432887522e+20,
+          "F_MeV": 9.199875339180643e+21,
+          "utilization": 0.430314984767646,
+          "relative_estimated_uncertainty": 8.606299695352921e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 9.199875339180643e+32,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 7.733220992150426e+20,
+          "witness_or_roundoff_MeV": 1.8446744073709552e+19,
+          "decimal_energy_MeV": "919987533918064253117543188730948.6185334739079503632924296483083652448317620460416739149001007107537",
+          "energy_algebra_rounding_MeV": "65518776511163323.3814665260920496367075703516916347551682379539583260850998992892463",
+          "decimal_corner_envelope_MeV": "773435148635215561274.1956072616329942063416495468801581545370720167018266676869134121046",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0013315170624408413,
+          "measured_Echem_envelope_over_U": 0.0030942846741900255,
+          "measured_state_envelope_over_U": [
+            0.004495073655914666,
+            0.005255655946498552,
+            0.004789384752667075
+          ],
+          "maximum_witness_relative_Echem_difference": 1.0965434631865753e-15,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              7.205759403792794e+17
+            ],
+            "1": [
+              0.0,
+              7.205759403792794e+17
+            ]
+          }
+        },
+        {
+          "index": 1919,
+          "time_s": 31541163.75,
+          "U_MeV": 1.4025290103542293e+21,
+          "F_MeV": 1.6338177504784448e+22,
+          "utilization": 0.4292183170196048,
+          "relative_estimated_uncertainty": 8.584366340392096e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.6338177504784448e+33,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 1.3656355222068102e+21,
+          "witness_or_roundoff_MeV": 3.6893488147419103e+19,
+          "decimal_energy_MeV": "1633817750478444532993680285501643.546096162203513309967488487124262174213009791242070456500817124864",
+          "energy_algebra_rounding_MeV": "298310930765051700.453903837796486690032511512875737825786990208757929543499182875136",
+          "decimal_corner_envelope_MeV": "1365464002189422786487.522850568083800662816200089167841913771900857957149968299394772080",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0007938686504678264,
+          "measured_Echem_envelope_over_U": 0.0018495684340320592,
+          "measured_state_envelope_over_U": [
+            0.006882429146999641,
+            0.002282499623127363,
+            0.0026434437288553685
+          ],
+          "maximum_witness_relative_Echem_difference": 7.056610226380678e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              1.152921504606847e+18,
+              8.646911284551352e+17
+            ],
+            "1": [
+              5.764607523034235e+17,
+              2.8823037615171174e+17
+            ]
+          }
+        }
+      ],
+      "complete": true,
+      "maximum_utilization": 1.0388223570426696,
+      "configured_gate_and_margin_pass": false,
+      "measured_envelope_pass": true
+    },
+    {
+      "atol_MeV": 5e-27,
+      "points": [
+        {
+          "index": 1,
+          "time_s": 16436.25,
+          "U_MeV": 650498566782976.0,
+          "F_MeV": 4436769456718772.5,
+          "utilization": 0.7330768176357471,
+          "relative_estimated_uncertainty": 1.466153635271494e-12,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 4.4367694567187725e+26,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 641702473760768.0,
+          "witness_or_roundoff_MeV": 8796093022208.0,
+          "decimal_energy_MeV": "443676945671877227554038760.8625043485238773422237840521996178264562228105987260610941491043181660728",
+          "energy_algebra_rounding_MeV": "26932911127.1374956514761226577762159478003821735437771894012739389058508956818339272",
+          "decimal_corner_envelope_MeV": "641368493561015.9700448333235452830592496592991411552994796936744281747298317893413879948",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0006969883117179086,
+          "measured_Echem_envelope_over_U": 0.0009507711810690894,
+          "measured_state_envelope_over_U": [
+            2.3067057141783243e-05,
+            0.0014489516181157046,
+            0.003124053638379062
+          ],
+          "maximum_witness_relative_Echem_difference": 7.74431457464343e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              68719476736.0,
+              137438953472.0
+            ],
+            "1": [
+              137438953472.0,
+              68719476736.0
+            ]
+          }
+        },
+        {
+          "index": 2,
+          "time_s": 32872.5,
+          "U_MeV": 2056086743941120.0,
+          "F_MeV": 1.7747077545683594e+16,
+          "utilization": 0.5792747393615792,
+          "relative_estimated_uncertainty": 1.1585494787231586e-12,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.7747077545683595e+27,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 2020902371852288.0,
+          "witness_or_roundoff_MeV": 35184372088832.0,
+          "decimal_energy_MeV": "1774707754568359582224861424.771253535731422606617486175263651802819827230479108341078768005647236798",
+          "energy_algebra_rounding_MeV": "76799527152.771253535731422606617486175263651802819827230479108341078768005647236798",
+          "decimal_corner_envelope_MeV": "2021175156119378.846255093475624904114000366070449343015323106843165968915100313689585404",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0003872157348673658,
+          "measured_Echem_envelope_over_U": 0.0006684491978609625,
+          "measured_state_envelope_over_U": [
+            2.6255790926510567e-05,
+            0.001882183442560984,
+            0.002136121848479685
+          ],
+          "maximum_witness_relative_Echem_difference": 3.0977258789389263e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              549755813888.0
+            ],
+            "1": [
+              549755813888.0,
+              274877906944.0
+            ]
+          }
+        },
+        {
+          "index": 4,
+          "time_s": 65745.0,
+          "U_MeV": 7144626557288448.0,
+          "F_MeV": 7.098830793320148e+16,
+          "utilization": 0.5032255849802332,
+          "relative_estimated_uncertainty": 1.0064511699604662e-12,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 7.098830793320148e+27,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 7003889068933120.0,
+          "witness_or_roundoff_MeV": 140737488355328.0,
+          "decimal_energy_MeV": "7098830793320150521853360509.500107139758650787553688767986233559073877691520095546274757479165651047",
+          "energy_algebra_rounding_MeV": "2058820106621.500107139758650787553688767986233559073877691520095546274757479165651047",
+          "decimal_corner_envelope_MeV": "7000892975802478.019347677224355911485382021773470621592212609100699798314226895219022216",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0010067609425581765,
+          "measured_Echem_envelope_over_U": 0.0020006155740227762,
+          "measured_state_envelope_over_U": [
+            9.115594629729629e-05,
+            0.003539277448074541,
+            0.012238225854917264
+          ],
+          "maximum_witness_relative_Echem_difference": 4.646588965653122e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              4398046511104.0
+            ],
+            "1": [
+              0.0,
+              5497558138880.0
+            ]
+          }
+        },
+        {
+          "index": 8,
+          "time_s": 131490.0,
+          "U_MeV": 2.6370686880579584e+16,
+          "F_MeV": 2.839532137365275e+17,
+          "utilization": 0.46434915339694355,
+          "relative_estimated_uncertainty": 9.286983067938871e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 2.839532137365275e+28,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 2.580773692715827e+16,
+          "witness_or_roundoff_MeV": 562949953421312.0,
+          "decimal_energy_MeV": "28395321373652749379421129940.93610178365413807346806778603988404801529685179850855896432327748229182",
+          "energy_algebra_rounding_MeV": "1881227866923.06389821634586192653193221396011595198470314820149144103567672251770818",
+          "decimal_corner_envelope_MeV": "25796698141869874.10202633157004312119149407305377276930738692278860582839497927090452512",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.002245851475735718,
+          "measured_Echem_envelope_over_U": 0.004836557705136758,
+          "measured_state_envelope_over_U": [
+            0.00017943864990785168,
+            0.007765942618238076,
+            0.014355653683291267
+          ],
+          "maximum_witness_relative_Echem_difference": 1.703749395385717e-15,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              13194139533312.0,
+              35184372088832.0
+            ],
+            "1": [
+              8796093022208.0,
+              39582418599936.0
+            ]
+          }
+        },
+        {
+          "index": 16,
+          "time_s": 262980.0,
+          "U_MeV": 1.0119025412748083e+17,
+          "F_MeV": 1.1358127109756301e+18,
+          "utilization": 0.44545308020263896,
+          "relative_estimated_uncertainty": 8.909061604052779e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.1358127109756302e+29,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 9.893845431379558e+16,
+          "witness_or_roundoff_MeV": 2251799813685248.0,
+          "decimal_energy_MeV": "113581271097563008399982465177.5863631887957628795760904827977340492107934464916325270469508403537836",
+          "energy_algebra_rounding_MeV": "11123767635814.4136368112042371204239095172022659507892065535083674729530491596462164",
+          "decimal_corner_envelope_MeV": "98907843310171815.2754255813042562998419542355613372098812511102031656453571317981716692",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.001006761133976757,
+          "measured_Echem_envelope_over_U": 0.002260083449235049,
+          "measured_state_envelope_over_U": [
+            0.00039755343045391343,
+            0.0035691658019174517,
+            0.004054812921835203
+          ],
+          "maximum_witness_relative_Echem_difference": 7.744316415205823e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              35184372088832.0,
+              70368744177664.0
+            ],
+            "1": [
+              52776558133248.0,
+              52776558133248.0
+            ]
+          }
+        },
+        {
+          "index": 32,
+          "time_s": 525960.0,
+          "U_MeV": 3.96035292231893e+17,
+          "F_MeV": 4.5432496921346775e+18,
+          "utilization": 0.43585023834097597,
+          "relative_estimated_uncertainty": 8.717004766819519e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 4.543249692134678e+29,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 3.87028092977152e+17,
+          "witness_or_roundoff_MeV": 9007199254740992.0,
+          "decimal_energy_MeV": "454324969213467795264894442363.9686381314872501390721988513948688714050582682733696612218672705889764",
+          "energy_algebra_rounding_MeV": "524967961732.0313618685127498609278011486051311285949417317266303387781327294110236",
+          "decimal_corner_envelope_MeV": "387087898337234450.7803935729029626309576725154547285351863385554515289413807675582425946",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.000774431837848216,
+          "measured_Echem_envelope_over_U": 0.0017768301350390902,
+          "measured_state_envelope_over_U": [
+            0.0008429849246193915,
+            0.002612705891527005,
+            0.008218797939228481
+          ],
+          "maximum_witness_relative_Echem_difference": 3.0977273513928636e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              70368744177664.0,
+              281474976710656.0
+            ],
+            "1": [
+              140737488355328.0,
+              281474976710656.0
+            ]
+          }
+        },
+        {
+          "index": 64,
+          "time_s": 1051920.0,
+          "U_MeV": 1.5689415201851965e+18,
+          "F_MeV": 1.8172989554331863e+19,
+          "utilization": 0.43166852528433075,
+          "relative_estimated_uncertainty": 8.633370505686615e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.8172989554331863e+30,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 1.5329127231662326e+18,
+          "witness_or_roundoff_MeV": 3.602879701896397e+16,
+          "decimal_energy_MeV": "1817298955433186570369327958960.181963935775901826516455341741221111701306902577698395328856849627193",
+          "energy_algebra_rounding_MeV": "238245567531952.181963935775901826516455341741221111701306902577698395328856849627193",
+          "decimal_corner_envelope_MeV": "1532689158162685483.896574021594954521375384125555038760479401466613685285657635530665554",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0013165347918610733,
+          "measured_Echem_envelope_over_U": 0.0030498744169357734,
+          "measured_state_envelope_over_U": [
+            0.0021841473494767544,
+            0.0047594732920281865,
+            0.009071918795651456
+          ],
+          "maximum_witness_relative_Echem_difference": 7.744322305065137e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              281474976710656.0,
+              1688849860263936.0
+            ],
+            "1": [
+              844424930131968.0,
+              1407374883553280.0
+            ]
+          }
+        },
+        {
+          "index": 128,
+          "time_s": 2103840.0,
+          "U_MeV": 6.232981884280766e+18,
+          "F_MeV": 7.269188450264707e+19,
+          "utilization": 0.4287261175663834,
+          "relative_estimated_uncertainty": 8.574522351327668e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 7.269188450264707e+30,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 6.088866696204911e+18,
+          "witness_or_roundoff_MeV": 1.4411518807585587e+17,
+          "decimal_energy_MeV": "7269188450264707647749119821676.876960607189528094913466570498025769463473929221419382737926523493425",
+          "energy_algebra_rounding_MeV": "475953793091436.876960607189528094913466570498025769463473929221419382737926523493425",
+          "decimal_corner_envelope_MeV": "6088668117935751652.162708583821937218800901578088283531594230018145702683192616043838254",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0030202887617573975,
+          "measured_Echem_envelope_over_U": 0.007044797687861272,
+          "measured_state_envelope_over_U": [
+            0.005010029990382092,
+            0.014387835356780667,
+            0.01242300463588597
+          ],
+          "maximum_witness_relative_Echem_difference": 2.0135258411715982e-15,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              1.4636698788954112e+16
+            ],
+            "1": [
+              0.0,
+              1.2384898975268864e+16
+            ]
+          }
+        },
+        {
+          "index": 256,
+          "time_s": 4207680.0,
+          "U_MeV": 2.4859869943085138e+19,
+          "F_MeV": 2.9076694827673482e+20,
+          "utilization": 0.4274878917707142,
+          "relative_estimated_uncertainty": 8.549757835414285e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 2.9076694827673484e+31,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 2.4283409190781714e+19,
+          "witness_or_roundoff_MeV": 5.764607523034235e+17,
+          "decimal_energy_MeV": "29076694827673488794230002191701.24737611229232009902250712488196831360071030985936361339459857263006",
+          "energy_algebra_rounding_MeV": "5007266185907541.24737611229232009902250712488196831360071030985936361339459857263006",
+          "decimal_corner_envelope_MeV": "24279344374561144639.63701867439086733407766131618133964206986874503875841596766900448162",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0010067649625034936,
+          "measured_Echem_envelope_over_U": 0.002355072463768116,
+          "measured_state_envelope_over_U": [
+            0.0020728011856015376,
+            0.006950407816201927,
+            0.0049755840811518065
+          ],
+          "maximum_witness_relative_Echem_difference": 7.74434586541149e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              2.251799813685248e+16,
+              1.8014398509481984e+16
+            ],
+            "1": [
+              2.7021597764222976e+16,
+              1.3510798882111488e+16
+            ]
+          }
+        },
+        {
+          "index": 512,
+          "time_s": 8415360.0,
+          "U_MeV": 9.940345097532159e+19,
+          "F_MeV": 1.1630630749735419e+21,
+          "utilization": 0.42733473839147923,
+          "relative_estimated_uncertainty": 8.546694767829585e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.163063074973542e+32,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 9.70976079661079e+19,
+          "witness_or_roundoff_MeV": 2.305843009213694e+18,
+          "decimal_energy_MeV": "116306307497354214025650808626297.5232681194038349846865290092282817704039006099187252768246596469984",
+          "energy_algebra_rounding_MeV": "14699023481773177.5232681194038349846865290092282817704039006099187252768246596469984",
+          "decimal_corner_envelope_MeV": "97094418110978047276.6108319632925012800821832790449159969890111299986329691230876643712",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0006195501825175487,
+          "measured_Echem_envelope_over_U": 0.0014498006524102935,
+          "measured_state_envelope_over_U": [
+            0.0021931198228450476,
+            0.00427968711593684,
+            0.0016568469061445097
+          ],
+          "maximum_witness_relative_Echem_difference": 6.195501825175487e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              1.8014398509481984e+16,
+              1.8014398509481984e+16
+            ],
+            "1": [
+              1.8014398509481984e+16,
+              5.404319552844595e+16
+            ]
+          }
+        },
+        {
+          "index": 960,
+          "time_s": 15778800.0,
+          "U_MeV": 3.513528285289366e+20,
+          "F_MeV": 4.088864592413636e+21,
+          "utilization": 0.429645957438682,
+          "relative_estimated_uncertainty": 8.59291914877364e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 4.088864592413636e+32,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 3.4212945649208184e+20,
+          "witness_or_roundoff_MeV": 9.223372036854776e+18,
+          "decimal_energy_MeV": "408886459241363671271260181236659.5715871644398573945741702186869823732384136724155650078768206421068",
+          "energy_algebra_rounding_MeV": "40791731560778675.5715871644398573945741702186869823732384136724155650078768206421068",
+          "decimal_corner_envelope_MeV": "342002074918042090117.4761523067995708632235029717791985795862342016941164953699720805116",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0005286865760115037,
+          "measured_Echem_envelope_over_U": 0.0012305168170631665,
+          "measured_state_envelope_over_U": [
+            0.002751283391535732,
+            0.003418112239863352,
+            0.0008807083673483985
+          ],
+          "maximum_witness_relative_Echem_difference": 5.286865760115037e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              1.4411518807585587e+17,
+              2.161727821137838e+17
+            ],
+            "1": [
+              0.0,
+              7.205759403792794e+16
+            ]
+          }
+        },
+        {
+          "index": 1440,
+          "time_s": 23668200.0,
+          "U_MeV": 7.917688432887522e+20,
+          "F_MeV": 9.199875339180643e+21,
+          "utilization": 0.430314984767646,
+          "relative_estimated_uncertainty": 8.606299695352921e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 9.199875339180643e+32,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 7.733220992150426e+20,
+          "witness_or_roundoff_MeV": 1.8446744073709552e+19,
+          "decimal_energy_MeV": "919987533918064253117543188730948.6185334739079503632924296483083652448317620460416739149001007107537",
+          "energy_algebra_rounding_MeV": "65518776511163323.3814665260920496367075703516916347551682379539583260850998992892463",
+          "decimal_corner_envelope_MeV": "772979561660535169160.3504888737227646359256973218900534369291473410511886344634172253702",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0013315170624408413,
+          "measured_Echem_envelope_over_U": 0.0030942846741900255,
+          "measured_state_envelope_over_U": [
+            0.004495073655914666,
+            0.005258710781797775,
+            0.004790494233217761
+          ],
+          "maximum_witness_relative_Echem_difference": 1.0965434631865753e-15,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              7.205759403792794e+17
+            ],
+            "1": [
+              0.0,
+              7.205759403792794e+17
+            ]
+          }
+        },
+        {
+          "index": 1919,
+          "time_s": 31541163.75,
+          "U_MeV": 1.4025290103542293e+21,
+          "F_MeV": 1.6338177504784448e+22,
+          "utilization": 0.4292183170196048,
+          "relative_estimated_uncertainty": 8.584366340392096e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.6338177504784448e+33,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 1.3656355222068102e+21,
+          "witness_or_roundoff_MeV": 3.6893488147419103e+19,
+          "decimal_energy_MeV": "1633817750478444532993680285501643.546096162203513309967488487124262174213009791242070456500817124864",
+          "energy_algebra_rounding_MeV": "298310930765051700.453903837796486690032511512875737825786990208757929543499182875136",
+          "decimal_corner_envelope_MeV": "1365464002189422786487.522850568083800662816200089167841913771900857957149968299394772080",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0007938686504678264,
+          "measured_Echem_envelope_over_U": 0.0018495684340320592,
+          "measured_state_envelope_over_U": [
+            0.006882429146999641,
+            0.0022835077909868586,
+            0.0026438943510184703
+          ],
+          "maximum_witness_relative_Echem_difference": 7.056610226380678e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              1.152921504606847e+18,
+              8.646911284551352e+17
+            ],
+            "1": [
+              5.764607523034235e+17,
+              2.8823037615171174e+17
+            ]
+          }
+        }
+      ],
+      "complete": true,
+      "maximum_utilization": 0.7330768176357471,
+      "configured_gate_and_margin_pass": true,
+      "measured_envelope_pass": true
+    },
+    {
+      "atol_MeV": 1e-27,
+      "points": [
+        {
+          "index": 1,
+          "time_s": 16436.25,
+          "U_MeV": 432932703436800.0,
+          "F_MeV": 4436769456718772.5,
+          "utilization": 0.4878918182025361,
+          "relative_estimated_uncertainty": 9.757836364050722e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 4.4367694567187725e+26,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 424136610414592.0,
+          "witness_or_roundoff_MeV": 8796093022208.0,
+          "decimal_energy_MeV": "443676945671877227554038760.8625043485238773422237840521996178264562228105987260610941491043181660728",
+          "energy_algebra_rounding_MeV": "26932911127.1374956514761226577762159478003821735437771894012739389058508956818339272",
+          "decimal_corner_envelope_MeV": "424104542475983.8613367151048154023778896217732311363099679206255103959503552495824681924",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0006969883117179086,
+          "measured_Echem_envelope_over_U": 0.0014285714285714286,
+          "measured_state_envelope_over_U": [
+            2.3067057141783243e-05,
+            0.0022902998638561324,
+            0.0038953793539075986
+          ],
+          "maximum_witness_relative_Echem_difference": 7.74431457464343e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              68719476736.0,
+              137438953472.0
+            ],
+            "1": [
+              137438953472.0,
+              68719476736.0
+            ]
+          }
+        },
+        {
+          "index": 2,
+          "time_s": 32872.5,
+          "U_MeV": 1623428918411264.0,
+          "F_MeV": 1.7747077545683594e+16,
+          "utilization": 0.4573792260253325,
+          "relative_estimated_uncertainty": 9.147584520506649e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.7747077545683595e+27,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 1588244546322432.0,
+          "witness_or_roundoff_MeV": 35184372088832.0,
+          "decimal_energy_MeV": "1774707754568359582224861424.771253535731422606617486175263651802819827230479108341078768005647236798",
+          "energy_algebra_rounding_MeV": "76799527152.771253535731422606617486175263651802819827230479108341078768005647236798",
+          "decimal_corner_envelope_MeV": "1587265193339238.872626728357996327886140343909603198977973908193696431369305951149676958",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0003872157348673658,
+          "measured_Echem_envelope_over_U": 0.0008465966813410091,
+          "measured_state_envelope_over_U": [
+            2.6255790926510567e-05,
+            0.0024719875526393003,
+            0.0024077859284041573
+          ],
+          "maximum_witness_relative_Echem_difference": 3.0977258789389263e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              549755813888.0
+            ],
+            "1": [
+              549755813888.0,
+              274877906944.0
+            ]
+          }
+        },
+        {
+          "index": 4,
+          "time_s": 65745.0,
+          "U_MeV": 6273813348089856.0,
+          "F_MeV": 7.098830793320148e+16,
+          "utilization": 0.4418906106336119,
+          "relative_estimated_uncertainty": 8.837812212672238e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 7.098830793320148e+27,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 6133075859734528.0,
+          "witness_or_roundoff_MeV": 140737488355328.0,
+          "decimal_energy_MeV": "7098830793320150521853360509.500107139758650787553688767986233559073877691520095546274757479165651047",
+          "energy_algebra_rounding_MeV": "2058820106621.500107139758650787553688767986233559073877691520095546274757479165651047",
+          "decimal_corner_envelope_MeV": "6131837191514648.943398197775998109542329227214620320005378559224946620497346194760304188",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0010067609425581765,
+          "measured_Echem_envelope_over_U": 0.002278303540133193,
+          "measured_state_envelope_over_U": [
+            9.115594629729629e-05,
+            0.004116421207241236,
+            0.013027715292027304
+          ],
+          "maximum_witness_relative_Echem_difference": 4.646588965653122e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              4398046511104.0
+            ],
+            "1": [
+              0.0,
+              5497558138880.0
+            ]
+          }
+        },
+        {
+          "index": 8,
+          "time_s": 131490.0,
+          "U_MeV": 2.462026436916019e+16,
+          "F_MeV": 2.839532137365275e+17,
+          "utilization": 0.4335267779713292,
+          "relative_estimated_uncertainty": 8.670535559426584e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 2.839532137365275e+28,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 2.405731441573888e+16,
+          "witness_or_roundoff_MeV": 562949953421312.0,
+          "decimal_energy_MeV": "28395321373652749379421129940.93610178365413807346806778603988404801529685179850855896432327748229182",
+          "energy_algebra_rounding_MeV": "1881227866923.06389821634586192653193221396011595198470314820149144103567672251770818",
+          "decimal_corner_envelope_MeV": "24061365231785106.41665949822101642736636711870214744843239650542580153332185836993188126",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.002245851475735718,
+          "measured_Echem_envelope_over_U": 0.005180421579135406,
+          "measured_state_envelope_over_U": [
+            0.00017943864990785168,
+            0.008412986872870464,
+            0.014823998165963529
+          ],
+          "maximum_witness_relative_Echem_difference": 1.703749395385717e-15,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              13194139533312.0,
+              35184372088832.0
+            ],
+            "1": [
+              8796093022208.0,
+              39582418599936.0
+            ]
+          }
+        },
+        {
+          "index": 16,
+          "time_s": 262980.0,
+          "U_MeV": 9.77421856627753e+16,
+          "F_MeV": 1.1358127109756301e+18,
+          "utilization": 0.4302742200288356,
+          "relative_estimated_uncertainty": 8.60548440057671e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.1358127109756302e+29,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 9.549038584909005e+16,
+          "witness_or_roundoff_MeV": 2251799813685248.0,
+          "decimal_energy_MeV": "113581271097563008399982465177.5863631887957628795760904827977340492107934464916325270469508403537836",
+          "energy_algebra_rounding_MeV": "11123767635814.4136368112042371204239095172022659507892065535083674729530491596462164",
+          "decimal_corner_envelope_MeV": "95437177703627228.0384089034088011059112037145452680520833561048905461098403909106967342",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.001006761133976757,
+          "measured_Echem_envelope_over_U": 0.002339812814974802,
+          "measured_state_envelope_over_U": [
+            0.00039755343045391343,
+            0.0037194188729278085,
+            0.004121007716238247
+          ],
+          "maximum_witness_relative_Echem_difference": 7.744316415205823e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              35184372088832.0,
+              70368744177664.0
+            ],
+            "1": [
+              52776558133248.0,
+              52776558133248.0
+            ]
+          }
+        },
+        {
+          "index": 32,
+          "time_s": 525960.0,
+          "U_MeV": 3.8927989279083725e+17,
+          "F_MeV": 4.5432496921346775e+18,
+          "utilization": 0.4284156926976331,
+          "relative_estimated_uncertainty": 8.568313853952662e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 4.543249692134678e+29,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 3.8027269353609626e+17,
+          "witness_or_roundoff_MeV": 9007199254740992.0,
+          "decimal_energy_MeV": "454324969213467795264894442363.9686381314872501390721988513948688714050582682733696612218672705889764",
+          "energy_algebra_rounding_MeV": "524967961732.0313618685127498609278011486051311285949417317266303387781327294110236",
+          "decimal_corner_envelope_MeV": "380067472182318334.4005744087153288440094458623301231100654448880317430977149699039477168",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.000774431837848216,
+          "measured_Echem_envelope_over_U": 0.0018076644974692696,
+          "measured_state_envelope_over_U": [
+            0.0008429849246193915,
+            0.0026679320549095648,
+            0.008286243847834038
+          ],
+          "maximum_witness_relative_Echem_difference": 3.0977273513928636e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              70368744177664.0,
+              281474976710656.0
+            ],
+            "1": [
+              140737488355328.0,
+              281474976710656.0
+            ]
+          }
+        },
+        {
+          "index": 64,
+          "time_s": 1051920.0,
+          "U_MeV": 1.5548677713496637e+18,
+          "F_MeV": 1.8172989554331863e+19,
+          "utilization": 0.4277963641317982,
+          "relative_estimated_uncertainty": 8.555927282635964e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.8172989554331863e+30,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 1.5188389743306998e+18,
+          "witness_or_roundoff_MeV": 3.602879701896397e+16,
+          "decimal_energy_MeV": "1817298955433186570369327958960.181963935775901826516455341741221111701306902577698395328856849627193",
+          "energy_algebra_rounding_MeV": "238245567531952.181963935775901826516455341741221111701306902577698395328856849627193",
+          "decimal_corner_envelope_MeV": "1518648309308855882.225424882451320968330329146178551647027031581189092408509561783391978",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0013165347918610733,
+          "measured_Echem_envelope_over_U": 0.0030774800868935553,
+          "measured_state_envelope_over_U": [
+            0.0021841473494767544,
+            0.004809854422608895,
+            0.009109118752311088
+          ],
+          "maximum_witness_relative_Echem_difference": 7.744322305065137e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              281474976710656.0,
+              1688849860263936.0
+            ],
+            "1": [
+              844424930131968.0,
+              1407374883553280.0
+            ]
+          }
+        },
+        {
+          "index": 128,
+          "time_s": 2103840.0,
+          "U_MeV": 6.208212086330229e+18,
+          "F_MeV": 7.269188450264707e+19,
+          "utilization": 0.4270223649315459,
+          "relative_estimated_uncertainty": 8.540447298630918e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 7.269188450264707e+30,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 6.064096898254373e+18,
+          "witness_or_roundoff_MeV": 1.4411518807585587e+17,
+          "decimal_energy_MeV": "7269188450264707647749119821676.876960607189528094913466570498025769463473929221419382737926523493425",
+          "energy_algebra_rounding_MeV": "475953793091436.876960607189528094913466570498025769463473929221419382737926523493425",
+          "decimal_corner_envelope_MeV": "6061140643508764816.691901100086472378925509256545675623812623586030793612233585030034710",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0030202887617573975,
+          "measured_Echem_envelope_over_U": 0.007072905331882481,
+          "measured_state_envelope_over_U": [
+            0.005010029990382092,
+            0.014464168785987755,
+            0.012448530654803436
+          ],
+          "maximum_witness_relative_Echem_difference": 2.0135258411715982e-15,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              1.4636698788954112e+16
+            ],
+            "1": [
+              0.0,
+              1.2384898975268864e+16
+            ]
+          }
+        },
+        {
+          "index": 256,
+          "time_s": 4207680.0,
+          "U_MeV": 2.480582674755669e+19,
+          "F_MeV": 2.9076694827673482e+20,
+          "utilization": 0.42655857026686483,
+          "relative_estimated_uncertainty": 8.531171405337297e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 2.9076694827673484e+31,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 2.422936599525327e+19,
+          "witness_or_roundoff_MeV": 5.764607523034235e+17,
+          "decimal_energy_MeV": "29076694827673488794230002191701.24737611229232009902250712488196831360071030985936361339459857263006",
+          "energy_algebra_rounding_MeV": "5007266185907541.24737611229232009902250712488196831360071030985936361339459857263006",
+          "decimal_corner_envelope_MeV": "24224289479665898986.43303309165268642228203536720083230748247552948536572897040124339110",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0010067649625034936,
+          "measured_Echem_envelope_over_U": 0.0023602033405954975,
+          "measured_state_envelope_over_U": [
+            0.0020728011856015376,
+            0.006968857465632968,
+            0.004980697160887518
+          ],
+          "maximum_witness_relative_Echem_difference": 7.74434586541149e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              2.251799813685248e+16,
+              1.8014398509481984e+16
+            ],
+            "1": [
+              2.7021597764222976e+16,
+              1.3510798882111488e+16
+            ]
+          }
+        },
+        {
+          "index": 512,
+          "time_s": 8415360.0,
+          "U_MeV": 9.933139338128366e+19,
+          "F_MeV": 1.1630630749735419e+21,
+          "utilization": 0.42702496330022044,
+          "relative_estimated_uncertainty": 8.540499266004408e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.163063074973542e+32,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 9.702555037206997e+19,
+          "witness_or_roundoff_MeV": 2.305843009213694e+18,
+          "decimal_energy_MeV": "116306307497354214025650808626297.5232681194038349846865290092282817704039006099187252768246596469984",
+          "energy_algebra_rounding_MeV": "14699023481773177.5232681194038349846865290092282817704039006099187252768246596469984",
+          "decimal_corner_envelope_MeV": "96995689668843848101.0131358949016088559972104449995584058482286871129922758798220545470",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0006195501825175487,
+          "measured_Echem_envelope_over_U": 0.0014508523757707653,
+          "measured_state_envelope_over_U": [
+            0.0021931198228450476,
+            0.004285363075083456,
+            0.0016576969222034579
+          ],
+          "maximum_witness_relative_Echem_difference": 6.195501825175487e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              1.8014398509481984e+16,
+              1.8014398509481984e+16
+            ],
+            "1": [
+              1.8014398509481984e+16,
+              5.404319552844595e+16
+            ]
+          }
+        },
+        {
+          "index": 960,
+          "time_s": 15778800.0,
+          "U_MeV": 3.5120871334086076e+20,
+          "F_MeV": 4.088864592413636e+21,
+          "utilization": 0.4294697285800115,
+          "relative_estimated_uncertainty": 8.58939457160023e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 4.088864592413636e+32,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 3.41985341304006e+20,
+          "witness_or_roundoff_MeV": 9.223372036854776e+18,
+          "decimal_energy_MeV": "408886459241363671271260181236659.5715871644398573945741702186869823732384136724155650078768206421068",
+          "energy_algebra_rounding_MeV": "40791731560778675.5715871644398573945741702186869823732384136724155650078768206421068",
+          "decimal_corner_envelope_MeV": "341850212046234391388.3823411366840753110567810041687284145493372168864715892289973055008",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0005286865760115037,
+          "measured_Echem_envelope_over_U": 0.0012310217480508822,
+          "measured_state_envelope_over_U": [
+            0.002751283391535732,
+            0.00342052451803281,
+            0.0008809484839861128
+          ],
+          "maximum_witness_relative_Echem_difference": 5.286865760115037e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              1.4411518807585587e+17,
+              2.161727821137838e+17
+            ],
+            "1": [
+              0.0,
+              7.205759403792794e+16
+            ]
+          }
+        },
+        {
+          "index": 1440,
+          "time_s": 23668200.0,
+          "U_MeV": 7.917688432887522e+20,
+          "F_MeV": 9.199875339180643e+21,
+          "utilization": 0.430314984767646,
+          "relative_estimated_uncertainty": 8.606299695352921e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 9.199875339180643e+32,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 7.733220992150426e+20,
+          "witness_or_roundoff_MeV": 1.8446744073709552e+19,
+          "decimal_energy_MeV": "919987533918064253117543188730948.6185334739079503632924296483083652448317620460416739149001007107537",
+          "energy_algebra_rounding_MeV": "65518776511163323.3814665260920496367075703516916347551682379539583260850998992892463",
+          "decimal_corner_envelope_MeV": "772979561660535169160.3504888737227646359256973218900534369291473410511886344634172253702",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0013315170624408413,
+          "measured_Echem_envelope_over_U": 0.0030942846741900255,
+          "measured_state_envelope_over_U": [
+            0.004495073655914666,
+            0.005261157208111476,
+            0.004791382187829525
+          ],
+          "maximum_witness_relative_Echem_difference": 1.0965434631865753e-15,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              7.205759403792794e+17
+            ],
+            "1": [
+              0.0,
+              7.205759403792794e+17
+            ]
+          }
+        },
+        {
+          "index": 1919,
+          "time_s": 31541163.75,
+          "U_MeV": 1.4025290103542293e+21,
+          "F_MeV": 1.6338177504784448e+22,
+          "utilization": 0.4292183170196048,
+          "relative_estimated_uncertainty": 8.584366340392096e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.6338177504784448e+33,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 1.3656355222068102e+21,
+          "witness_or_roundoff_MeV": 3.6893488147419103e+19,
+          "decimal_energy_MeV": "1633817750478444532993680285501643.546096162203513309967488487124262174213009791242070456500817124864",
+          "energy_algebra_rounding_MeV": "298310930765051700.453903837796486690032511512875737825786990208757929543499182875136",
+          "decimal_corner_envelope_MeV": "1364856871451967011488.340686652368482075063340208434733567188346668679442003709881995110",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0007938686504678264,
+          "measured_Echem_envelope_over_U": 0.0018495684340320592,
+          "measured_state_envelope_over_U": [
+            0.006882429146999641,
+            0.002284314966736495,
+            0.0026442549593799288
+          ],
+          "maximum_witness_relative_Echem_difference": 7.056610226380678e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              1.152921504606847e+18,
+              8.646911284551352e+17
+            ],
+            "1": [
+              5.764607523034235e+17,
+              2.8823037615171174e+17
+            ]
+          }
+        }
+      ],
+      "complete": true,
+      "maximum_utilization": 0.4878918182025361,
+      "configured_gate_and_margin_pass": true,
+      "measured_envelope_pass": true
+    },
+    {
+      "atol_MeV": 1e-28,
+      "points": [
+        {
+          "index": 1,
+          "time_s": 16436.25,
+          "U_MeV": 384141874954240.0,
+          "F_MeV": 4436769456718772.5,
+          "utilization": 0.43290718472256773,
+          "relative_estimated_uncertainty": 8.658143694451354e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 4.4367694567187725e+26,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 375345781932032.0,
+          "witness_or_roundoff_MeV": 8796093022208.0,
+          "decimal_energy_MeV": "443676945671877227554038760.8625043485238773422237840521996178264562228105987260610941491043181660728",
+          "energy_algebra_rounding_MeV": "26932911127.1374956514761226577762159478003821735437771894012739389058508956818339272",
+          "decimal_corner_envelope_MeV": "375205611343392.5412431051847017693344682697014289550708015209915828596104059058197801180",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0006969883117179086,
+          "measured_Echem_envelope_over_U": 0.0016100178890876566,
+          "measured_state_envelope_over_U": [
+            2.3067057141783243e-05,
+            0.0026344923353956206,
+            0.004124504988138451
+          ],
+          "maximum_witness_relative_Echem_difference": 7.74431457464343e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              68719476736.0,
+              137438953472.0
+            ],
+            "1": [
+              137438953472.0,
+              68719476736.0
+            ]
+          }
+        },
+        {
+          "index": 2,
+          "time_s": 32872.5,
+          "U_MeV": 1524472871911424.0,
+          "F_MeV": 1.7747077545683594e+16,
+          "utilization": 0.4294996931148822,
+          "relative_estimated_uncertainty": 8.589993862297643e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.7747077545683595e+27,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 1489288499822592.0,
+          "witness_or_roundoff_MeV": 35184372088832.0,
+          "decimal_energy_MeV": "1774707754568359582224861424.771253535731422606617486175263651802819827230479108341078768005647236798",
+          "energy_algebra_rounding_MeV": "76799527152.771253535731422606617486175263651802819827230479108341078768005647236798",
+          "decimal_corner_envelope_MeV": "1489158363802538.137835621163578761011374393361884765321450235997995870832293757346635490",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0003872157348673658,
+          "measured_Echem_envelope_over_U": 0.0009015506671474937,
+          "measured_state_envelope_over_U": [
+            2.6255790926510567e-05,
+            0.0026594991901714117,
+            0.0024787134926210195
+          ],
+          "maximum_witness_relative_Echem_difference": 3.0977258789389263e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              549755813888.0
+            ],
+            "1": [
+              549755813888.0,
+              274877906944.0
+            ]
+          }
+        },
+        {
+          "index": 4,
+          "time_s": 65745.0,
+          "U_MeV": 6080299301601280.0,
+          "F_MeV": 7.098830793320148e+16,
+          "utilization": 0.4282606163343628,
+          "relative_estimated_uncertainty": 8.565212326687255e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 7.098830793320148e+27,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 5939561813245952.0,
+          "witness_or_roundoff_MeV": 140737488355328.0,
+          "decimal_energy_MeV": "7098830793320150521853360509.500107139758650787553688767986233559073877691520095546274757479165651047",
+          "energy_algebra_rounding_MeV": "2058820106621.500107139758650787553688767986233559073877691520095546274757479165651047",
+          "decimal_corner_envelope_MeV": "5936859407537361.884084212634264630390493763391554964467810142608496601720285414387405754",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0010067609425581765,
+          "measured_Echem_envelope_over_U": 0.0023508137432188066,
+          "measured_state_envelope_over_U": [
+            9.115594629729629e-05,
+            0.00427320667696496,
+            0.013219594766621169
+          ],
+          "maximum_witness_relative_Echem_difference": 4.646588965653122e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              4398046511104.0
+            ],
+            "1": [
+              0.0,
+              5497558138880.0
+            ]
+          }
+        },
+        {
+          "index": 8,
+          "time_s": 131490.0,
+          "U_MeV": 2.423323627618304e+16,
+          "F_MeV": 2.839532137365275e+17,
+          "utilization": 0.42671178038978635,
+          "relative_estimated_uncertainty": 8.534235607795727e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 2.839532137365275e+28,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 2.367028632276173e+16,
+          "witness_or_roundoff_MeV": 562949953421312.0,
+          "decimal_energy_MeV": "28395321373652749379421129940.93610178365413807346806778603988404801529685179850855896432327748229182",
+          "energy_algebra_rounding_MeV": "1881227866923.06389821634586192653193221396011595198470314820149144103567672251770818",
+          "decimal_corner_envelope_MeV": "23666466187671628.84171196266722078601766948320660059491180001922187656354979547722721840",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.002245851475735718,
+          "measured_Echem_envelope_over_U": 0.005263157894736842,
+          "measured_state_envelope_over_U": [
+            0.00017943864990785168,
+            0.008573714805742242,
+            0.014933618216486715
+          ],
+          "maximum_witness_relative_Echem_difference": 1.703749395385717e-15,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              13194139533312.0,
+              35184372088832.0
+            ],
+            "1": [
+              8796093022208.0,
+              39582418599936.0
+            ]
+          }
+        },
+        {
+          "index": 16,
+          "time_s": 262980.0,
+          "U_MeV": 9.693294510473216e+16,
+          "F_MeV": 1.1358127109756301e+18,
+          "utilization": 0.4267118344778409,
+          "relative_estimated_uncertainty": 8.534236689556817e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.1358127109756302e+29,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 9.468114529104691e+16,
+          "witness_or_roundoff_MeV": 2251799813685248.0,
+          "decimal_energy_MeV": "113581271097563008399982465177.5863631887957628795760904827977340492107934464916325270469508403537836",
+          "energy_algebra_rounding_MeV": "11123767635814.4136368112042371204239095172022659507892065535083674729530491596462164",
+          "decimal_corner_envelope_MeV": "94656039195914739.3926265122910074784133552245442413917909210998749165416668889555825466",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.001006761133976757,
+          "measured_Echem_envelope_over_U": 0.0023593466424682396,
+          "measured_state_envelope_over_U": [
+            0.00039755343045391343,
+            0.0037549858915114894,
+            0.004136200491576151
+          ],
+          "maximum_witness_relative_Echem_difference": 7.744316415205823e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              35184372088832.0,
+              70368744177664.0
+            ],
+            "1": [
+              52776558133248.0,
+              52776558133248.0
+            ]
+          }
+        },
+        {
+          "index": 32,
+          "time_s": 525960.0,
+          "U_MeV": 3.875910429305733e+17,
+          "F_MeV": 4.5432496921346775e+18,
+          "utilization": 0.42655705628679735,
+          "relative_estimated_uncertainty": 8.531141125735947e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 4.543249692134678e+29,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 3.785838436758323e+17,
+          "witness_or_roundoff_MeV": 9007199254740992.0,
+          "decimal_energy_MeV": "454324969213467795264894442363.9686381314872501390721988513948688714050582682733696612218672705889764",
+          "energy_algebra_rounding_MeV": "524967961732.0313618685127498609278011486051311285949417317266303387781327294110236",
+          "decimal_corner_envelope_MeV": "378505195358675664.7858198567409773355922771912145490639223858477777585993546508244206458",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.000774431837848216,
+          "measured_Echem_envelope_over_U": 0.0018155410312273058,
+          "measured_state_envelope_over_U": [
+            0.0008429849246193915,
+            0.0026806812286676945,
+            0.00830157201273888
+          ],
+          "maximum_witness_relative_Echem_difference": 3.0977273513928636e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              70368744177664.0,
+              281474976710656.0
+            ],
+            "1": [
+              140737488355328.0,
+              281474976710656.0
+            ]
+          }
+        },
+        {
+          "index": 64,
+          "time_s": 1051920.0,
+          "U_MeV": 1.5520530215825572e+18,
+          "F_MeV": 1.8172989554331863e+19,
+          "utilization": 0.4270219319012917,
+          "relative_estimated_uncertainty": 8.540438638025834e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.8172989554331863e+30,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 1.5160242245635932e+18,
+          "witness_or_roundoff_MeV": 3.602879701896397e+16,
+          "decimal_energy_MeV": "1817298955433186570369327958960.181963935775901826516455341741221111701306902577698395328856849627193",
+          "energy_algebra_rounding_MeV": "238245567531952.181963935775901826516455341741221111701306902577698395328856849627193",
+          "decimal_corner_envelope_MeV": "1515563034642401675.505495099552760434415512526696160332638083960020496357113319045142250",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0013165347918610733,
+          "measured_Echem_envelope_over_U": 0.0030830612985128765,
+          "measured_state_envelope_over_U": [
+            0.0021841473494767544,
+            0.004821337520541319,
+            0.009117530825414622
+          ],
+          "maximum_witness_relative_Echem_difference": 7.744322305065137e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              281474976710656.0,
+              1688849860263936.0
+            ],
+            "1": [
+              844424930131968.0,
+              1407374883553280.0
+            ]
+          }
+        },
+        {
+          "index": 128,
+          "time_s": 2103840.0,
+          "U_MeV": 6.196953087261802e+18,
+          "F_MeV": 7.269188450264707e+19,
+          "utilization": 0.4262479319157107,
+          "relative_estimated_uncertainty": 8.524958638314213e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 7.269188450264707e+30,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 6.052837899185947e+18,
+          "witness_or_roundoff_MeV": 1.4411518807585587e+17,
+          "decimal_energy_MeV": "7269188450264707647749119821676.876960607189528094913466570498025769463473929221419382737926523493425",
+          "energy_algebra_rounding_MeV": "475953793091436.876960607189528094913466570498025769463473929221419382737926523493425",
+          "decimal_corner_envelope_MeV": "6052439033615497556.238144223683282720948863163870523313442207458440419741275738750904326",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0030202887617573975,
+          "measured_Echem_envelope_over_U": 0.007085755813953488,
+          "measured_state_envelope_over_U": [
+            0.005010029990382092,
+            0.01448145556370846,
+            0.012454288472079002
+          ],
+          "maximum_witness_relative_Echem_difference": 2.0135258411715982e-15,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              1.4636698788954112e+16
+            ],
+            "1": [
+              0.0,
+              1.2384898975268864e+16
+            ]
+          }
+        },
+        {
+          "index": 256,
+          "time_s": 4207680.0,
+          "U_MeV": 2.478781234904721e+19,
+          "F_MeV": 2.9076694827673482e+20,
+          "utilization": 0.4262487964322484,
+          "relative_estimated_uncertainty": 8.524975928644968e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 2.9076694827673484e+31,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 2.4211351596743786e+19,
+          "witness_or_roundoff_MeV": 5.764607523034235e+17,
+          "decimal_energy_MeV": "29076694827673488794230002191701.24737611229232009902250712488196831360071030985936361339459857263006",
+          "energy_algebra_rounding_MeV": "5007266185907541.24737611229232009902250712488196831360071030985936361339459857263006",
+          "decimal_corner_envelope_MeV": "24209731564452482745.58218199610215761855482216843098403489811888990424470597827468300698",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0010067649625034936,
+          "measured_Echem_envelope_over_U": 0.0023619186046511626,
+          "measured_state_envelope_over_U": [
+            0.0020728011856015376,
+            0.006973022143292128,
+            0.004981849052400086
+          ],
+          "maximum_witness_relative_Echem_difference": 7.74434586541149e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              2.251799813685248e+16,
+              1.8014398509481984e+16
+            ],
+            "1": [
+              2.7021597764222976e+16,
+              1.3510798882111488e+16
+            ]
+          }
+        },
+        {
+          "index": 512,
+          "time_s": 8415360.0,
+          "U_MeV": 9.925933578724573e+19,
+          "F_MeV": 1.1630630749735419e+21,
+          "utilization": 0.42671518820896165,
+          "relative_estimated_uncertainty": 8.534303764179233e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.163063074973542e+32,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 9.695349277803204e+19,
+          "witness_or_roundoff_MeV": 2.305843009213694e+18,
+          "decimal_energy_MeV": "116306307497354214025650808626297.5232681194038349846865290092282817704039006099187252768246596469984",
+          "energy_algebra_rounding_MeV": "14699023481773177.5232681194038349846865290092282817704039006099187252768246596469984",
+          "decimal_corner_envelope_MeV": "96955192766926434831.9359687530683697209043988948876622172650615578301762858825688213846",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0006195501825175487,
+          "measured_Echem_envelope_over_U": 0.0014519056261343012,
+          "measured_state_envelope_over_U": [
+            0.0021931198228450476,
+            0.004286642241353154,
+            0.001657888296026728
+          ],
+          "maximum_witness_relative_Echem_difference": 6.195501825175487e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              1.8014398509481984e+16,
+              1.8014398509481984e+16
+            ],
+            "1": [
+              1.8014398509481984e+16,
+              5.404319552844595e+16
+            ]
+          }
+        },
+        {
+          "index": 960,
+          "time_s": 15778800.0,
+          "U_MeV": 3.5120871334086076e+20,
+          "F_MeV": 4.088864592413636e+21,
+          "utilization": 0.4294697285800115,
+          "relative_estimated_uncertainty": 8.58939457160023e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 4.088864592413636e+32,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 3.41985341304006e+20,
+          "witness_or_roundoff_MeV": 9.223372036854776e+18,
+          "decimal_energy_MeV": "408886459241363671271260181236659.5715871644398573945741702186869823732384136724155650078768206421068",
+          "energy_algebra_rounding_MeV": "40791731560778675.5715871644398573945741702186869823732384136724155650078768206421068",
+          "decimal_corner_envelope_MeV": "341850212046234391388.3823411366840753110567810041687284145493372168864715892289973055008",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0005286865760115037,
+          "measured_Echem_envelope_over_U": 0.0012310217480508822,
+          "measured_state_envelope_over_U": [
+            0.002751283391535732,
+            0.003421067749926853,
+            0.0008810025282746295
+          ],
+          "maximum_witness_relative_Echem_difference": 5.286865760115037e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              1.4411518807585587e+17,
+              2.161727821137838e+17
+            ],
+            "1": [
+              0.0,
+              7.205759403792794e+16
+            ]
+          }
+        },
+        {
+          "index": 1440,
+          "time_s": 23668200.0,
+          "U_MeV": 7.911923825364487e+20,
+          "F_MeV": 9.199875339180643e+21,
+          "utilization": 0.43000168663530697,
+          "relative_estimated_uncertainty": 8.60003373270614e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 9.199875339180643e+32,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 7.727456384627392e+20,
+          "witness_or_roundoff_MeV": 1.8446744073709552e+19,
+          "decimal_energy_MeV": "919987533918064253117543188730948.6185334739079503632924296483083652448317620460416739149001007107537",
+          "energy_algebra_rounding_MeV": "65518776511163323.3814665260920496367075703516916347551682379539583260850998992892463",
+          "decimal_corner_envelope_MeV": "772523974685854777119.5046399564365673216248174165665511532520151277319327378780166347048",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0013315170624408413,
+          "measured_Echem_envelope_over_U": 0.0030965391621129326,
+          "measured_state_envelope_over_U": [
+            0.004495073655914666,
+            0.00526170796775701,
+            0.00479158202298395
+          ],
+          "maximum_witness_relative_Echem_difference": 1.0965434631865753e-15,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              7.205759403792794e+17
+            ],
+            "1": [
+              0.0,
+              7.205759403792794e+17
+            ]
+          }
+        },
+        {
+          "index": 1919,
+          "time_s": 31541163.75,
+          "U_MeV": 1.4025290103542293e+21,
+          "F_MeV": 1.6338177504784448e+22,
+          "utilization": 0.4292183170196048,
+          "relative_estimated_uncertainty": 8.584366340392096e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.6338177504784448e+33,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 1.3656355222068102e+21,
+          "witness_or_roundoff_MeV": 3.6893488147419103e+19,
+          "decimal_energy_MeV": "1633817750478444532993680285501643.546096162203513309967488487124262174213009791242070456500817124864",
+          "energy_algebra_rounding_MeV": "298310930765051700.453903837796486690032511512875737825786990208757929543499182875136",
+          "decimal_corner_envelope_MeV": "1364856871451967011488.340686652368482075063340208434733567188346668679442003709881995110",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0007938686504678264,
+          "measured_Echem_envelope_over_U": 0.0018495684340320592,
+          "measured_state_envelope_over_U": [
+            0.006882429146999641,
+            0.0022844966599280146,
+            0.0026443361098181265
+          ],
+          "maximum_witness_relative_Echem_difference": 7.056610226380678e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              1.152921504606847e+18,
+              8.646911284551352e+17
+            ],
+            "1": [
+              5.764607523034235e+17,
+              2.8823037615171174e+17
+            ]
+          }
+        }
+      ],
+      "complete": true,
+      "maximum_utilization": 0.43290718472256773,
+      "configured_gate_and_margin_pass": true,
+      "measured_envelope_pass": true
+    },
+    {
+      "atol_MeV": 1e-29,
+      "points": [
+        {
+          "index": 1,
+          "time_s": 16436.25,
+          "U_MeV": 379056633675776.0,
+          "F_MeV": 4436769456718772.5,
+          "utilization": 0.4271763919373316,
+          "relative_estimated_uncertainty": 8.543527838746631e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 4.4367694567187725e+26,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 370260540653568.0,
+          "witness_or_roundoff_MeV": 8796093022208.0,
+          "decimal_energy_MeV": "443676945671877227554038760.8625043485238773422237840521996178264562228105987260610941491043181660728",
+          "energy_algebra_rounding_MeV": "26932911127.1374956514761226577762159478003821735437771894012739389058508956818339272",
+          "decimal_corner_envelope_MeV": "370252006744104.5669315889286348880602944229341712392000276279045522711961271412500708326",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0006969883117179086,
+          "measured_Echem_envelope_over_U": 0.0016316171138506164,
+          "measured_state_envelope_over_U": [
+            2.3067057141783243e-05,
+            0.0026746882757950393,
+            0.0041489088080399585
+          ],
+          "maximum_witness_relative_Echem_difference": 7.74431457464343e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              68719476736.0,
+              137438953472.0
+            ],
+            "1": [
+              137438953472.0,
+              68719476736.0
+            ]
+          }
+        },
+        {
+          "index": 2,
+          "time_s": 32872.5,
+          "U_MeV": 1515127023075328.0,
+          "F_MeV": 1.7747077545683594e+16,
+          "utilization": 0.4268666261177841,
+          "relative_estimated_uncertainty": 8.537332522355681e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.7747077545683595e+27,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 1479942650986496.0,
+          "witness_or_roundoff_MeV": 35184372088832.0,
+          "decimal_energy_MeV": "1774707754568359582224861424.771253535731422606617486175263651802819827230479108341078768005647236798",
+          "energy_algebra_rounding_MeV": "76799527152.771253535731422606617486175263651802819827230479108341078768005647236798",
+          "decimal_corner_envelope_MeV": "1479695427908095.734739688630296786876499206756847346717016470561594645776113814178308534",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0003872157348673658,
+          "measured_Echem_envelope_over_U": 0.00090711175616836,
+          "measured_state_envelope_over_U": [
+            2.6255790926510567e-05,
+            0.002679826911153522,
+            0.0024860367571045813
+          ],
+          "maximum_witness_relative_Echem_difference": 3.0977258789389263e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              549755813888.0
+            ],
+            "1": [
+              549755813888.0,
+              274877906944.0
+            ]
+          }
+        },
+        {
+          "index": 4,
+          "time_s": 65745.0,
+          "U_MeV": 6062707115556864.0,
+          "F_MeV": 7.098830793320148e+16,
+          "utilization": 0.42702152594352194,
+          "relative_estimated_uncertainty": 8.540430518870438e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 7.098830793320148e+27,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 5921969627201536.0,
+          "witness_or_roundoff_MeV": 140737488355328.0,
+          "decimal_energy_MeV": "7098830793320150521853360509.500107139758650787553688767986233559073877691520095546274757479165651047",
+          "energy_algebra_rounding_MeV": "2058820106621.500107139758650787553688767986233559073877691520095546274757479165651047",
+          "decimal_corner_envelope_MeV": "5918474756844682.797612340731036883977238572223115972453401416673508868688545785759215314",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0010067609425581765,
+          "measured_Echem_envelope_over_U": 0.0023576351106274936,
+          "measured_state_envelope_over_U": [
+            9.115594629729629e-05,
+            0.00428954461307994,
+            0.013239094044525382
+          ],
+          "maximum_witness_relative_Echem_difference": 4.646588965653122e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              4398046511104.0
+            ],
+            "1": [
+              0.0,
+              5497558138880.0
+            ]
+          }
+        },
+        {
+          "index": 8,
+          "time_s": 131490.0,
+          "U_MeV": 2.419805190409421e+16,
+          "F_MeV": 2.839532137365275e+17,
+          "utilization": 0.42609223515510064,
+          "relative_estimated_uncertainty": 8.521844703102013e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 2.839532137365275e+28,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 2.3635101950672896e+16,
+          "witness_or_roundoff_MeV": 562949953421312.0,
+          "decimal_energy_MeV": "28395321373652749379421129940.93610178365413807346806778603988404801529685179850855896432327748229182",
+          "energy_algebra_rounding_MeV": "1881227866923.06389821634586192653193221396011595198470314820149144103567672251770818",
+          "decimal_corner_envelope_MeV": "23632475492424373.23040395685189635390419661280314565363361383583296138471219149926615214",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.002245851475735718,
+          "measured_Echem_envelope_over_U": 0.0052708106143220645,
+          "measured_state_envelope_over_U": [
+            0.00017943864990785168,
+            0.008590126018774773,
+            0.014944669455176762
+          ],
+          "maximum_witness_relative_Echem_difference": 1.703749395385717e-15,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              13194139533312.0,
+              35184372088832.0
+            ],
+            "1": [
+              8796093022208.0,
+              39582418599936.0
+            ]
+          }
+        },
+        {
+          "index": 16,
+          "time_s": 262980.0,
+          "U_MeV": 9.68625763605545e+16,
+          "F_MeV": 1.1358127109756301e+18,
+          "utilization": 0.42640206182123264,
+          "relative_estimated_uncertainty": 8.528041236424653e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.1358127109756302e+29,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 9.461077654686925e+16,
+          "witness_or_roundoff_MeV": 2251799813685248.0,
+          "decimal_energy_MeV": "113581271097563008399982465177.5863631887957628795760904827977340492107934464916325270469508403537836",
+          "energy_algebra_rounding_MeV": "11123767635814.4136368112042371204239095172022659507892065535083674729530491596462164",
+          "decimal_corner_envelope_MeV": "94559624326263406.7937156626503685384448090125902522583420623918357258722823885685322828",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.001006761133976757,
+          "measured_Echem_envelope_over_U": 0.002361060661096985,
+          "measured_state_envelope_over_U": [
+            0.00039755343045391343,
+            0.003758580041316739,
+            0.004137725932556411
+          ],
+          "maximum_witness_relative_Echem_difference": 7.744316415205823e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              35184372088832.0,
+              70368744177664.0
+            ],
+            "1": [
+              52776558133248.0,
+              52776558133248.0
+            ]
+          }
+        },
+        {
+          "index": 32,
+          "time_s": 525960.0,
+          "U_MeV": 3.871688304655073e+17,
+          "F_MeV": 4.5432496921346775e+18,
+          "utilization": 0.4260923971840884,
+          "relative_estimated_uncertainty": 8.521847943681768e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 4.543249692134678e+29,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 3.7816163121076634e+17,
+          "witness_or_roundoff_MeV": 9007199254740992.0,
+          "decimal_energy_MeV": "454324969213467795264894442363.9686381314872501390721988513948688714050582682733696612218672705889764",
+          "energy_algebra_rounding_MeV": "524967961732.0313618685127498609278011486051311285949417317266303387781327294110236",
+          "decimal_corner_envelope_MeV": "378277727521162404.9081867712589169890760011312366609125199321690358541737078787365016626",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.000774431837848216,
+          "measured_Echem_envelope_over_U": 0.0018175209014903672,
+          "measured_state_envelope_over_U": [
+            0.0008429849246193915,
+            0.0026819628509015168,
+            0.008303107948805922
+          ],
+          "maximum_witness_relative_Echem_difference": 3.0977273513928636e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              70368744177664.0,
+              281474976710656.0
+            ],
+            "1": [
+              140737488355328.0,
+              281474976710656.0
+            ]
+          }
+        },
+        {
+          "index": 64,
+          "time_s": 1051920.0,
+          "U_MeV": 1.551490071629136e+18,
+          "F_MeV": 1.8172989554331863e+19,
+          "utilization": 0.4268670454551904,
+          "relative_estimated_uncertainty": 8.537340909103807e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.8172989554331863e+30,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 1.515461274610172e+18,
+          "witness_or_roundoff_MeV": 3.602879701896397e+16,
+          "decimal_energy_MeV": "1817298955433186570369327958960.181963935775901826516455341741221111701306902577698395328856849627193",
+          "energy_algebra_rounding_MeV": "238245567531952.181963935775901826516455341741221111701306902577698395328856849627193",
+          "decimal_corner_envelope_MeV": "1514930268423632268.976409015778460271188514166431283360019485436055962487424357687382666",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0013165347918610733,
+          "measured_Echem_envelope_over_U": 0.003084179970972424,
+          "measured_state_envelope_over_U": [
+            0.0021841473494767544,
+            0.00482248884669049,
+            0.009118372887324224
+          ],
+          "maximum_witness_relative_Echem_difference": 7.744322305065137e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              281474976710656.0,
+              1688849860263936.0
+            ],
+            "1": [
+              844424930131968.0,
+              1407374883553280.0
+            ]
+          }
+        },
+        {
+          "index": 128,
+          "time_s": 2103840.0,
+          "U_MeV": 6.196953087261802e+18,
+          "F_MeV": 7.269188450264707e+19,
+          "utilization": 0.4262479319157107,
+          "relative_estimated_uncertainty": 8.524958638314213e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 7.269188450264707e+30,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 6.052837899185947e+18,
+          "witness_or_roundoff_MeV": 1.4411518807585587e+17,
+          "decimal_energy_MeV": "7269188450264707647749119821676.876960607189528094913466570498025769463473929221419382737926523493425",
+          "energy_algebra_rounding_MeV": "475953793091436.876960607189528094913466570498025769463473929221419382737926523493425",
+          "decimal_corner_envelope_MeV": "6052439033615497556.238144223683282720948863163870523313442207458440419741275738750904326",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0030202887617573975,
+          "measured_Echem_envelope_over_U": 0.007085755813953488,
+          "measured_state_envelope_over_U": [
+            0.005010029990382092,
+            0.014483186514374663,
+            0.012454864546767981
+          ],
+          "maximum_witness_relative_Echem_difference": 2.0135258411715982e-15,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              1.4636698788954112e+16
+            ],
+            "1": [
+              0.0,
+              1.2384898975268864e+16
+            ]
+          }
+        },
+        {
+          "index": 256,
+          "time_s": 4207680.0,
+          "U_MeV": 2.478781234904721e+19,
+          "F_MeV": 2.9076694827673482e+20,
+          "utilization": 0.4262487964322484,
+          "relative_estimated_uncertainty": 8.524975928644968e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 2.9076694827673484e+31,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 2.4211351596743786e+19,
+          "witness_or_roundoff_MeV": 5.764607523034235e+17,
+          "decimal_energy_MeV": "29076694827673488794230002191701.24737611229232009902250712488196831360071030985936361339459857263006",
+          "energy_algebra_rounding_MeV": "5007266185907541.24737611229232009902250712488196831360071030985936361339459857263006",
+          "decimal_corner_envelope_MeV": "24209731564452482745.58218199610215761855482216843098403489811888990424470597827468300698",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0010067649625034936,
+          "measured_Echem_envelope_over_U": 0.0023619186046511626,
+          "measured_state_envelope_over_U": [
+            0.0020728011856015376,
+            0.006973438884849472,
+            0.004981964270855939
+          ],
+          "maximum_witness_relative_Echem_difference": 7.74434586541149e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              2.251799813685248e+16,
+              1.8014398509481984e+16
+            ],
+            "1": [
+              2.7021597764222976e+16,
+              1.3510798882111488e+16
+            ]
+          }
+        },
+        {
+          "index": 512,
+          "time_s": 8415360.0,
+          "U_MeV": 9.925933578724573e+19,
+          "F_MeV": 1.1630630749735419e+21,
+          "utilization": 0.42671518820896165,
+          "relative_estimated_uncertainty": 8.534303764179233e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.163063074973542e+32,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 9.695349277803204e+19,
+          "witness_or_roundoff_MeV": 2.305843009213694e+18,
+          "decimal_energy_MeV": "116306307497354214025650808626297.5232681194038349846865290092282817704039006099187252768246596469984",
+          "energy_algebra_rounding_MeV": "14699023481773177.5232681194038349846865290092282817704039006099187252768246596469984",
+          "decimal_corner_envelope_MeV": "96955192766926434831.9359687530683697209043988948876622172650615578301762858825688213846",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0006195501825175487,
+          "measured_Echem_envelope_over_U": 0.0014519056261343012,
+          "measured_state_envelope_over_U": [
+            0.0021931198228450476,
+            0.004286770199982323,
+            0.0016579074358393424
+          ],
+          "maximum_witness_relative_Echem_difference": 6.195501825175487e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              1.8014398509481984e+16,
+              1.8014398509481984e+16
+            ],
+            "1": [
+              1.8014398509481984e+16,
+              5.404319552844595e+16
+            ]
+          }
+        },
+        {
+          "index": 960,
+          "time_s": 15778800.0,
+          "U_MeV": 3.5120871334086076e+20,
+          "F_MeV": 4.088864592413636e+21,
+          "utilization": 0.4294697285800115,
+          "relative_estimated_uncertainty": 8.58939457160023e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 4.088864592413636e+32,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 3.41985341304006e+20,
+          "witness_or_roundoff_MeV": 9.223372036854776e+18,
+          "decimal_energy_MeV": "408886459241363671271260181236659.5715871644398573945741702186869823732384136724155650078768206421068",
+          "energy_algebra_rounding_MeV": "40791731560778675.5715871644398573945741702186869823732384136724155650078768206421068",
+          "decimal_corner_envelope_MeV": "341850212046234391388.3823411366840753110567810041687284145493372168864715892289973055008",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0005286865760115037,
+          "measured_Echem_envelope_over_U": 0.0012310217480508822,
+          "measured_state_envelope_over_U": [
+            0.002751283391535732,
+            0.0034211220826065015,
+            0.0008810079330681885
+          ],
+          "maximum_witness_relative_Echem_difference": 5.286865760115037e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              1.4411518807585587e+17,
+              2.161727821137838e+17
+            ],
+            "1": [
+              0.0,
+              7.205759403792794e+16
+            ]
+          }
+        },
+        {
+          "index": 1440,
+          "time_s": 23668200.0,
+          "U_MeV": 7.911923825364487e+20,
+          "F_MeV": 9.199875339180643e+21,
+          "utilization": 0.43000168663530697,
+          "relative_estimated_uncertainty": 8.60003373270614e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 9.199875339180643e+32,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 7.727456384627392e+20,
+          "witness_or_roundoff_MeV": 1.8446744073709552e+19,
+          "decimal_energy_MeV": "919987533918064253117543188730948.6185334739079503632924296483083652448317620460416739149001007107537",
+          "energy_algebra_rounding_MeV": "65518776511163323.3814665260920496367075703516916347551682379539583260850998992892463",
+          "decimal_corner_envelope_MeV": "772523974685854777119.5046399564365673216248174165665511532520151277319327378780166347048",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0013315170624408413,
+          "measured_Echem_envelope_over_U": 0.0030965391621129326,
+          "measured_state_envelope_over_U": [
+            0.004495073655914666,
+            0.005261763050063767,
+            0.004791602007416198
+          ],
+          "maximum_witness_relative_Echem_difference": 1.0965434631865753e-15,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              0.0,
+              7.205759403792794e+17
+            ],
+            "1": [
+              0.0,
+              7.205759403792794e+17
+            ]
+          }
+        },
+        {
+          "index": 1919,
+          "time_s": 31541163.75,
+          "U_MeV": 1.4025290103542293e+21,
+          "F_MeV": 1.6338177504784448e+22,
+          "utilization": 0.4292183170196048,
+          "relative_estimated_uncertainty": 8.584366340392096e-13,
+          "state_qualified": true,
+          "all_diagnostics_qualified": true,
+          "Echem_MeV": 1.6338177504784448e+33,
+          "O1_O2_disagreement_MeV": 0.0,
+          "propagated_state_MeV": 1.3656355222068102e+21,
+          "witness_or_roundoff_MeV": 3.6893488147419103e+19,
+          "decimal_energy_MeV": "1633817750478444532993680285501643.546096162203513309967488487124262174213009791242070456500817124864",
+          "energy_algebra_rounding_MeV": "298310930765051700.453903837796486690032511512875737825786990208757929543499182875136",
+          "decimal_corner_envelope_MeV": "1364590993962833048883.640061654955657308538759758383454886646933484304655143595323090828",
+          "witness_matrix_complete": true,
+          "measured_Echem_envelope_utilization": 0.0007938686504678264,
+          "measured_Echem_envelope_over_U": 0.0018495684340320592,
+          "measured_state_envelope_over_U": [
+            0.006882429146999641,
+            0.002284514830836875,
+            0.0026443442251358968
+          ],
+          "maximum_witness_relative_Echem_difference": 7.056610226380678e-16,
+          "witness_Echem_refinement_differences": {
+            "0": [
+              1.152921504606847e+18,
+              8.646911284551352e+17
+            ],
+            "1": [
+              5.764607523034235e+17,
+              2.8823037615171174e+17
+            ]
+          }
+        }
+      ],
+      "complete": true,
+      "maximum_utilization": 0.43000168663530697,
+      "configured_gate_and_margin_pass": true,
+      "measured_envelope_pass": true
+    }
+  ],
+  "criterion": "unchanged diagnostic U <= 0.20 F; feasibility margin utilization <=0.80",
+  "accumulated_roundoff_bound": "UNESTABLISHED",
+  "stage_A_authorized_by_assessment": false,
+  "original_failure_reproduced": true,
+  "state_dependence": [
+    {
+      "index": 1,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 2,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 4,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 8,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 16,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 32,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 64,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 128,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 256,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 512,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 960,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 1440,
+      "distinct_O2_states": 1
+    },
+    {
+      "index": 1919,
+      "distinct_O2_states": 1
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "schema": "echem-local-feasibility-build-v1",
+  "source_commit": "76b1907598881dab5fe72039f037a8e206e3f9d8",
+  "snapshots": {
+    "source": "c6a29044e8330f079a1593be166238e11eafb66745186c5322c04c272358ec18",
+    "control": "0588ddf4518b3dec0f1cf103dcb8a3b356cf4631f2394df41b6a2d6baadf4ceb"
+  },
+  "commands": [
+    [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/g++",
+      "-I/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build/generated/include",
+      "-I/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot",
+      "-isystem",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1/include",
+      "-isystem",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/include",
+      "-isystem",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/CONFIND/include",
+      "-I/mnt/sdd/zaki/CompactStar/linux-transition-20261010/echem-refinement-20261109-r1/build",
+      "-ffp-contract=off",
+      "-O3",
+      "-DNDEBUG",
+      "-std=c++17",
+      "-c",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/diagnostics/checkpoint_refinement.cpp",
+      "-o",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/echem-refinement-20261109-r1/build/checkpoint_refinement.o"
+    ],
+    [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/g++",
+      "-ffp-contract=off",
+      "-O3",
+      "-DNDEBUG",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/echem-refinement-20261109-r1/build/checkpoint_refinement.o",
+      "-o",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/echem-refinement-20261109-r1/build/checkpoint_refinement",
+      "../libCompactStar.a",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/CONFIND/lib/libCONFIND.a",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/lib/libZaki.a",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libz.so",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1/lib/libgsl.a",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1/lib/libgslcblas.a"
+    ],
+    [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/echem-refinement-20261109-r1/build/checkpoint_refinement",
+      "--check-history",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../native-p2-qualification-1yr-r2/run/trajectory/source/tier-0-cap-0/main.accepted_states.tsv"
+    ]
+  ],
+  "working_directory": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../native-p2-regeneration-20261108-r1/build/tests",
+  "runtime_binding": {
+    "interpreter": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/ld-linux-x86-64.so.2",
+    "dependencies": [
+      {
+        "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/ld-linux-x86-64.so.2",
+        "resolved": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/ld-linux-x86-64.so.2"
+      },
+      {
+        "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libc.so.6",
+        "resolved": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libc.so.6"
+      },
+      {
+        "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libm.so.6",
+        "resolved": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libm.so.6"
+      },
+      {
+        "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libz.so.1",
+        "resolved": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libz.so.1.2.11"
+      },
+      {
+        "path": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libgcc_s.so.1",
+        "resolved": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libgcc_s.so.1"
+      },
+      {
+        "path": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libstdc++.so.6",
+        "resolved": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libstdc++.so.6.0.33"
+      }
+    ]
+  },
+  "files": [
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/echem-refinement-20261109-r1/build/checkpoint_refinement",
+      "sha256": "695d36f1d42bfa02af7343842daf59e3038b431559b145f0d5e83f6afbc1ebf1"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/echem-refinement-20261109-r1/build/retained_trace_helpers.inc",
+      "sha256": "76df7272e87738a68d4a88c1955998d74c084551d7c2d897d22f38999f5a10de"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build/libCompactStar.a",
+      "sha256": "51b5d610e1ab615ba40b9b70f5a603a62b98f63c6170341123c071556cbe939d"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build/tests/CMakeFiles/native_p2_stage.dir/flags.make",
+      "sha256": "0ad1780024871da59c4054e7404f3a5d42eb93c92e39e3a349c847fbc2f109ca"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build/tests/CMakeFiles/native_p2_stage.dir/link.txt",
+      "sha256": "5c03561088e2d1746a15e61a3d8128dd89de51022acba42ed68dd7ac587ff661"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/g++",
+      "sha256": "4d0e76c2a1cd55efc9e6ea8f4c57f6f9079d817650bfe6dadbebf862c6a0aabc"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/CONFIND/lib/libCONFIND.a",
+      "sha256": "63eda1f8fae182c78e5fad3e22ddff8ce66b504cfc3be38f48b583fa38d40e97"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/lib/libZaki.a",
+      "sha256": "c41330d6e0c64d71509c2088ed159345f65ce1687c2f64bee5dda90c1f469ff7"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1/lib/libgsl.a",
+      "sha256": "55db172a76f999c817ccd26ab05684dd0e3fd003ef6fd079eb068739a5cd7b09"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1/lib/libgslcblas.a",
+      "sha256": "a7ede7c52179bf549d68645caed2529e357f5e4c1a924b371fd0e3c93b09b3e3"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/ld-linux-x86-64.so.2",
+      "sha256": "ad96200950148efb34358c6e980e06b15a807644ce0a003e1d8a71f9f0820fcd"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libc.so.6",
+      "sha256": "8d36f99f015e0835abaf22d071fc24c919906b88d767bd92b2300136c262aa42"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libm.so.6",
+      "sha256": "d4d4aca358a3704f3e7e7bf3cc782dde7e629af2a7e4adc197d74782af9e0844"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libz.so.1.2.11",
+      "sha256": "a3a41e5539e19c5617404a657cdff4cad75774c3c683c1c2e7557e2001088425"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/echem-refinement/PREDECLARATION.md",
+      "sha256": "7ebc6716e6b79b0d4030d21dcf6cae7f6b4b5f2d77ffa48bd4b6b45b0cf0e57f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/diagnostics/checkpoint_evidence.hpp",
+      "sha256": "2048061c0fdf0f6af97e7ecb135b5ef5044d1425c447c13aa904ca5b8773b894"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/diagnostics/checkpoint_evidence_test.cpp",
+      "sha256": "0cb727ab75f4bd6098a8e34cf34235952fb5c958184c742398262963be37a777"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/diagnostics/checkpoint_refinement.cpp",
+      "sha256": "ce76f6aece6ae96564c1f10cb07c7bef0fe3e6aabaabbe0fc3915a18c17c4e43"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/diagnostics/checkpoint_replay.cpp",
+      "sha256": "f9f561bfd4fbb82d12daad1bd0403a5ccb44b86aa5d3954052d95d1ba4354277"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/stage.cpp",
+      "sha256": "525eb19a9710f26e415cbb6d051725c4cd7f543355c0a802c15dce9413a4261a"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_qualification/build_refinement.py",
+      "sha256": "1bc8e1736dec4894d2ab0ac18ac0f2eb7510a3f9fd22126067f905120853ff14"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_qualification/refinement.sbatch",
+      "sha256": "00a1e1adb87a60dce2c2e570af1167b24e08757fdc7dcd07e587062f9d887157"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_qualification/run_refinement.py",
+      "sha256": "df6642348b1348370f287e22ea70d01802b140bd44198849db0cbafe82d6ef6d"
+    },
+    {
+      "path": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libgcc_s.so.1",
+      "sha256": "80e373702a3f75c5cf9cffdb6d52f6bee915066033ba52b012f7339d1e11b152"
+    },
+    {
+      "path": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libstdc++.so.6.0.33",
+      "sha256": "8e40922dbf2551d5bfb43ff34f48912bf03b95eecba6e0f55f50e30c1816749d"
+    }
+  ],
+  "numerical_libraries_reused": true
+}

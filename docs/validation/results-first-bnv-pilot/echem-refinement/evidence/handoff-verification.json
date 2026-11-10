@@ -1,0 +1,9 @@
+{
+  "build_manifest_files_verified": 25,
+  "external_files_indexed": 354,
+  "external_bytes_hashed": 13608659,
+  "candidate_matrix_rows": 78,
+  "witness_matrix_rows": 78,
+  "python_AST_checks": "PASS (two offline analysis scripts)",
+  "scope": "Read/hash/aggregate existing artifacts only; no new numerical experiment."
+}
