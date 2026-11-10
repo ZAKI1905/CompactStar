@@ -1,0 +1,11 @@
+{
+  "format": "same-build CheckpointOutput binary IPC v1",
+  "scope": "Private Linux fork workers and coordinator from one executable; not a portable restart format.",
+  "production_header_sha256": {
+    "CompactStar/Physics/BNV/PassiveCheckpointOutput.hpp": "c86b1d8e671a5e29ea8155b16b1d042d7d97d3f99f027b64ba1fb60bff5d4ff0",
+    "CompactStar/Physics/BNV/BnvDiagnostics.hpp": "3fdda08e04e51bf1edb4a1b8c976138a9039262bf95aec2e9d74ab929d0808b8",
+    "CompactStar/Physics/BNV/FrozenBnvValidity.hpp": "d74d1b6e2537077adeebc01a35f0fd7cf22ac92ad7069b7f65da270398bda0c4",
+    "CompactStar/Physics/BNV/BreakpointStepper.hpp": "c463f674f5645316b0ba0f9d7902c34e8249b0b59d05320a5239a2c9edac335b"
+  },
+  "update_rule": "Any production declaration change requires explicit transport field coverage review and regression before snapshot publication."
+}

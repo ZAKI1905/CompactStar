@@ -787,3 +787,12 @@ add_test(NAME native_o2_configuration COMMAND native_o2_configuration)
 # Pure accepted-history selection test: no physical model or integration.
 add_executable(native_restart_schedule native/restart_schedule_test.cpp)
 add_test(NAME native_restart_schedule COMMAND native_restart_schedule)
+
+# Harness process scheduling and exact checkpoint transport; no production owner.
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+  add_executable(native_process_pool native/process_pool_test.cpp)
+  add_executable(native_checkpoint_transport native/checkpoint_transport_test.cpp)
+  target_link_libraries(native_checkpoint_transport PRIVATE CompactStar)
+  add_executable(native_parallel_regression native/parallel_regression.cpp)
+  target_link_libraries(native_parallel_regression PRIVATE CompactStar)
+endif()

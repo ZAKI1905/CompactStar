@@ -6,6 +6,8 @@
 #include "../diagnostics/checkpoint_evidence.hpp"
 #include <cstdlib>
 #include "restart_schedule.hpp"
+#include "process_pool.hpp"
+#include "checkpoint_transport.hpp"
 
 BNV::MainTrajectoryResult native_main(Ctx p,double a,State y,double b,Tol tol,double cap,
  const std::vector<double>& times,const std::filesystem::path& out) {
@@ -26,6 +28,78 @@ BNV::MainTrajectoryResult native_main(Ctx p,double a,State y,double b,Tol tol,do
     require(st.rejected_steps<=.1*(st.accepted_steps+st.rejected_steps),"bounded rejection ceiling exceeded");
     return result;
 }
+std::size_t StageWorkers() {
+    const char* value=std::getenv("RF_STAGE_WORKERS");
+    if(!value||std::string(value)=="1")return 1;
+    require(std::string(value)=="24","only 1 or 24 stage workers supported");
+    require(NativeQualification::PhysicalCpus().size()>=24,"24 distinct allocated physical cores required");
+    return 24;
+}
+BNV::CheckpointR20Result CollectGrid(Ctx p,const BNV::MainTrajectoryResult& main,int n,
+ const std::filesystem::path& dir,const BNV::CheckpointContextFactory& factory,std::size_t workers) {
+    BNV::Rk8pdCheckpointReconstructor reconstruction;
+        std::vector<double> grid;for(int j=0;j<=n;++j)grid.push_back(main.final_time_s*j/n);
+        BNV::PassiveObservationSchedule schedule(grid,"native-R20-grid");schedule.Replay(main.initial_state,main.accepted_steps);
+        std::vector<BNV::CheckpointOutput> outputs;
+        BNV::ControlledBnvSecularDriver driver(p,BNV::ControlledBnvSecularDriver::Mode::Coupled);
+        Capture diagnostics(dir/("diagnostics-"+std::to_string(n)+".tsv"),driver);
+        std::ofstream errors(dir/("uncertainties-"+std::to_string(n)+".tsv"));
+        errors<<std::setprecision(17)<<"t\tx\te\tmu\tUx\tUe\tUmu\tEx\tEe\tEmu\n";
+        auto calculate=[&](std::size_t index,const BNV::CheckpointContextFactory& local_factory) {
+          const auto& bracket=schedule.Brackets().at(index);
+          auto q=reconstruction.Reconstruct(bracket,main.accepted_steps,local_factory);
+          if(q.status==BNV::CheckpointStatus::Qualified)reconstruction.EvaluateDiagnostics(q,local_factory);
+          // Serialize the actual packet, including rejected channels, before any
+          // refusal. This is evidence only; it never changes qualification.
+          const auto& step=main.accepted_steps.at(bracket.initial?0:bracket.right_accepted_ordinal-1);
+          auto evidence=dir/("checkpoints-"+std::to_string(n))/("point-"+std::to_string(bracket.observation_index));
+          CheckpointEvidence::Write(evidence,q,step,main.configuration);
+          if(q.status!=BNV::CheckpointStatus::Qualified||!q.diagnostics_evaluated) {
+            if(workers==1){diagnostics.Publish();errors.flush();}
+            std::cout<<"FAILED_CHECKPOINT "<<evidence<<'\n';
+            std::ifstream failure(evidence/"failure.txt");std::cout<<failure.rdbuf();
+          }
+          if(workers>1)NativeQualification::Transport::Write(evidence/"packet.bin",q);
+          require(q.status==BNV::CheckpointStatus::Qualified&&q.diagnostics_evaluated,"native checkpoint diagnostics unresolved");
+          return q;
+        };
+        auto consume=[&](BNV::CheckpointOutput q) {
+          diagnostics.SaveSnapshot(q.state[0],q.diagnostics);
+          errors<<q.t_observation_s<<'\t'<<values(q.state)<<'\t'<<values(q.reconstruction_error_contribution)<<'\t'<<values(q.qualification.U_event)<<'\n';
+          outputs.push_back(std::move(q));
+        };
+        if(workers==1) {
+          for(std::size_t i=0;i<schedule.Brackets().size();++i)consume(calculate(i,factory));
+        } else {
+          auto packet=[&](std::size_t i){return dir/("checkpoints-"+std::to_string(n))/("point-"+std::to_string(i))/"packet.bin";};
+          try {
+            NativeQualification::ProcessPool(schedule.Brackets().size(),workers,
+              dir/("workers-"+std::to_string(n)),[&](std::size_t i,std::size_t){
+                // Stable provenance independent of completion order; fresh private contexts.
+                std::size_t identity=(std::size_t(n)<<32)+(i<<16);
+                BNV::CheckpointContextFactory local=[&]{return std::make_unique<ActualCheckpointContext>(p,++identity);};
+                calculate(i,local);
+              });
+          } catch(...) {
+            // Preserve every completed packet. No ledger is formed from a partial grid.
+            for(std::size_t i=0;i<schedule.Brackets().size();++i)if(std::filesystem::exists(packet(i))) {
+              auto q=NativeQualification::Transport::Read(packet(i));
+              if(q.status==BNV::CheckpointStatus::Qualified&&q.diagnostics_evaluated)consume(std::move(q));
+            }
+            diagnostics.Publish();errors.flush();throw;
+          }
+          for(std::size_t i=0;i<schedule.Brackets().size();++i) {
+            auto q=NativeQualification::Transport::Read(packet(i));
+            require(q.observation_index==i&&q.t_observation_s==schedule.Brackets()[i].t_observation_s,
+                    "worker returned wrong checkpoint identity");
+            consume(std::move(q));
+          }
+        }
+        diagnostics.Publish();errors.flush();
+        require(bool(errors),"checkpoint uncertainty evidence write failed");
+        return BNV::ComputeCheckpointR20(outputs);
+}
+
 void stage_role(Ctx p,double end,const std::filesystem::path& out) {
     std::filesystem::create_directories(out);
     std::vector<double> times;for(int i=0;i<=1920;++i)times.push_back(end*i/1920);
@@ -76,32 +150,7 @@ void stage_role(Ctx p,double end,const std::filesystem::path& out) {
       }
       std::ofstream r20(dir/"R20-grids.tsv");r20<<std::setprecision(17)<<"intervals\tresidual\tN\treconstruction_uncertainty\tdelta_U\tdelta_Echem\toutgoing_integral\n";
       for(int n:{240,480,960,1920}) {
-        std::vector<double> grid;for(int j=0;j<=n;++j)grid.push_back(end*j/n);
-        BNV::PassiveObservationSchedule schedule(grid,"native-R20-grid");schedule.Replay(main.initial_state,main.accepted_steps);
-        std::vector<BNV::CheckpointOutput> outputs;
-        BNV::ControlledBnvSecularDriver driver(p,BNV::ControlledBnvSecularDriver::Mode::Coupled);
-        Capture diagnostics(dir/("diagnostics-"+std::to_string(n)+".tsv"),driver);
-        std::ofstream errors(dir/("uncertainties-"+std::to_string(n)+".tsv"));
-        errors<<std::setprecision(17)<<"t\tx\te\tmu\tUx\tUe\tUmu\tEx\tEe\tEmu\n";
-        for(const auto& bracket:schedule.Brackets()) {
-          auto q=reconstruction.Reconstruct(bracket,main.accepted_steps,factory);
-          if(q.status==BNV::CheckpointStatus::Qualified)reconstruction.EvaluateDiagnostics(q,factory);
-          // Serialize the actual packet, including rejected channels, before any
-          // refusal. This is evidence only; it never changes qualification.
-          const auto& step=main.accepted_steps.at(bracket.initial?0:bracket.right_accepted_ordinal-1);
-          auto evidence=dir/("checkpoints-"+std::to_string(n))/("point-"+std::to_string(bracket.observation_index));
-          CheckpointEvidence::Write(evidence,q,step,main.configuration);
-          if(q.status!=BNV::CheckpointStatus::Qualified||!q.diagnostics_evaluated) {
-            diagnostics.Publish();errors.flush();r20.flush();
-            std::cout<<"FAILED_CHECKPOINT "<<evidence<<'\n';
-            std::ifstream failure(evidence/"failure.txt");std::cout<<failure.rdbuf();
-          }
-          require(q.status==BNV::CheckpointStatus::Qualified&&q.diagnostics_evaluated,"native checkpoint diagnostics unresolved");
-          diagnostics.SaveSnapshot(q.state[0],q.diagnostics);
-          errors<<q.t_observation_s<<'\t'<<values(q.state)<<'\t'<<values(q.reconstruction_error_contribution)<<'\t'<<values(q.qualification.U_event)<<'\n';
-          outputs.push_back(std::move(q));
-        }
-        diagnostics.Publish();auto r=BNV::ComputeCheckpointR20(outputs);
+        auto r=CollectGrid(p,main,n,dir,factory,StageWorkers());
         r20<<n<<'\t'<<r.R20_residual_erg<<'\t'<<r.N_R20_erg<<'\t'<<r.reconstruction_uncertainty_erg<<'\t'<<r.delta_Uth_erg<<'\t'<<r.delta_Echem_erg<<'\t'<<r.outgoing_integral_erg<<'\n';
         r20.flush();std::cout<<"GRID_COMPLETE tier="<<tier<<" policy="<<policy<<" n="<<n<<'\n';
       }
@@ -131,6 +180,8 @@ int main(int argc,char** argv) {
     const std::string role=requested_role;
     require(role=="source"||role=="control","invalid thermal role");
     const int years=std::stoi(argv[9]);require(years==1||years==2048,"only separately authorized 1/2048-year bounds supported");
+    const auto workers=StageWorkers();
+    require(workers==1||(years==1&&role=="source"),"parallel execution is source Stage A only");
     Inputs inputs;inputs.profile=argv[1];inputs.certificate=inputs.profile/"certificate.txt";inputs.thermal=argv[2];inputs.entry=argv[3];inputs.frozen=argv[4];inputs.coefficients=argv[5];inputs.work=argv[8];
     require(!std::filesystem::exists(argv[10]),"fresh stage output required");
     auto sequence=Core::StellarArchive::Load(argv[6],argv[7]);auto pair=NativePair(inputs,sequence);
