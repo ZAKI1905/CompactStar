@@ -38,4 +38,5 @@ srun --ntasks=1 --cpus-per-task=1 --cpu-bind=threads bash -c '
   phase6_breakpoint_contract phase5d_component_tolerances phase6_currentness_bytes -j1 > "$RF_OUTPUT/build.log" 2>&1
  ctest --test-dir "$RF_OUTPUT/build" --output-on-failure \
   -R "^(native_o2_configuration|phase6a1_direct_energy|phase6a1_thermal_ledger|passive_checkpoint_output_contract|phase6_breakpoint_contract|phase5d_component_tolerances|phase6_currentness_bytes)$" > "$RF_OUTPUT/contracts.log" 2>&1
- exec "$TC/python/bin/python" -B tools/linux/native_qualification/recovery_snapshots.py verify-publish "$RF_OUTPUT"+' > "$RF_OUTPUT/build-stage.log" 2>&1
+ exec "$TC/python/bin/python" -B tools/linux/native_qualification/recovery_snapshots.py verify-publish "$RF_OUTPUT"
+' > "$RF_OUTPUT/build-stage.log" 2>&1
