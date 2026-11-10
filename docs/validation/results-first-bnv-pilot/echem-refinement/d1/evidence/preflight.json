@@ -1,0 +1,44 @@
+{
+  "repository": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot",
+  "branch": "candidate/results-first-bnv-pilot-20261108",
+  "reviewed_commit": "ad4e91aee3837b8b07e7ed723afdd40b765011fe",
+  "initial_status": "clean",
+  "worktrees": [
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar                8e6ac58 [candidate/linux-ba13-recovery-20261012]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-closure             093d121 [candidate/linux-ba13-closure-20261019]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence            84e1062 [candidate/linux-ba13-evidence-20261026]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision      bb0f9c5 [candidate/linux-ba13-final-decision-20261030]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot         dad05b1 [candidate/linux-ba13-onset-pilot-20261013]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-uncertainty         4f3cf97 [candidate/linux-ba13-uncertainty-20261012]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot  ad4e91a [candidate/results-first-bnv-pilot-20261108]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor         6cc7e20 [candidate/linux-x1-oracle-anchor-20261016]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step            286aafb [candidate/linux-x2-fixed-step-20261016]"
+  ],
+  "all_15_local_branch_tips_ancestors": true,
+  "change_classes": [
+    "numerical-method test candidate",
+    "engineering",
+    "documentation",
+    "generated evidence"
+  ],
+  "governing_authority": [
+    "owner BNV-THERMO-01-D1 task",
+    "GOVERNANCE sections 2,3,5",
+    "ADR-0017 sections 5-7",
+    "INV-11f",
+    "INV-15"
+  ],
+  "adjudication": {
+    "status": "MISSING",
+    "searched": [
+      "all tracked paths at reviewed commit",
+      "/mnt/sdd/zaki/CompactStar",
+      "/home/zaki",
+      "/tmp",
+      "Google Drive BNV-THERMO-01 filename query"
+    ],
+    "independent_digest_supplied": false
+  },
+  "github_remote_read_head": "ad4e91aee3837b8b07e7ed723afdd40b765011fe",
+  "slurm_accounting": "disabled; scontrol receipts retained"
+}

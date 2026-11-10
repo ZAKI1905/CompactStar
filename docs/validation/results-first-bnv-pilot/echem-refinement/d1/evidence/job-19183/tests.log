@@ -1,0 +1,16 @@
+test_binary64_lift_and_ulp (__main__.ReferenceTests.test_binary64_lift_and_ulp) ... ok
+test_constant_rhs_and_nonzero_time_origin (__main__.ReferenceTests.test_constant_rhs_and_nonzero_time_origin) ... ok
+test_convergence_floor (__main__.ReferenceTests.test_convergence_floor) ... ok
+test_cubic_forcing_exact_integral (__main__.ReferenceTests.test_cubic_forcing_exact_integral) ... ok
+test_energy_with_cross_term (__main__.ReferenceTests.test_energy_with_cross_term) ... ok
+test_exponential_solution_and_fourth_order (__main__.ReferenceTests.test_exponential_solution_and_fourth_order) ... ok
+test_fidelity_exact_two_ulp_boundary (__main__.ReferenceTests.test_fidelity_exact_two_ulp_boundary) ... ok
+test_four_corner_energy (__main__.ReferenceTests.test_four_corner_energy) ... ok
+test_hermite_reproduces_cubic (__main__.ReferenceTests.test_hermite_reproduces_cubic) ... ok
+test_reaction_zero_and_odd_symmetry (__main__.ReferenceTests.test_reaction_zero_and_odd_symmetry) ... ok
+test_zero_convergence_differences (__main__.ReferenceTests.test_zero_convergence_differences) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.016s
+
+OK

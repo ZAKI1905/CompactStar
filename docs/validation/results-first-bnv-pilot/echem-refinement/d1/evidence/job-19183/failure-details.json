@@ -1,0 +1,11 @@
+[
+  {
+    "gate": "authentication",
+    "detail": [
+      {
+        "input": "BNV-THERMO-01_FABLE_ADJUDICATION.md",
+        "reason": "Missing adjudication path and/or independently supplied SHA-256; no substitute review invented."
+      }
+    ]
+  }
+]

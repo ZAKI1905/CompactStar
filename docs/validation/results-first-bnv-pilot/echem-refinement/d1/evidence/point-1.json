@@ -1,0 +1,24 @@
+{
+  "point": 1,
+  "status": "NOT_RUN",
+  "C1": "NOT_RUN",
+  "C2": "NOT_RUN",
+  "C3": "NOT_RUN",
+  "C4": "NOT_RUN",
+  "reason": "An earlier mandatory gate failed; no numerical result is claimed.",
+  "eta_ref_MeV": null,
+  "contraction_ratios": null,
+  "u_ref_discretization_MeV": null,
+  "u_ref_thermal_MeV": null,
+  "rho": null,
+  "O2_error_MeV": null,
+  "O2_error_ulp": null,
+  "recorded_state_radii_MeV": null,
+  "recorded_U_Echem_MeV": null,
+  "input_hashes": {
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/echem-refinement-20261109-r1/study/output/point-1/atol-5e-27/checkpoint.json": "033a35f3cd4ca9ec8019d6f9c8251ec527514ac01bc14ca14c4b700d4d7f8296",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/echem-refinement-20261109-r1/study/output/point-1/atol-5e-27/diagnostics.tsv": "4806d0cf574cfff7a9984d35fe39219c389e332854e76e3b83f42d0b43afc71b",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/echem-refinement-20261109-r1/study/output/point-1/atol-5e-27/failure.txt": "e9f65f257ff78ec34314bbcd850fcda1ed83c73c0b75442c61683c9f1ea293a7",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/echem-refinement-20261109-r1/study/output/point-1/atol-5e-27/state.tsv": "62f1b2843d652bdf22f07baf40627fe24957600854a0bfb238f72a60acb433e6"
+  }
+}

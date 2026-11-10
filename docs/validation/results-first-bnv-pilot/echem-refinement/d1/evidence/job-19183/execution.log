@@ -1,0 +1,2 @@
+FAIL failure gates: ['authentication']
+srun: error: phyn004: task 0: Exited with exit code 1
