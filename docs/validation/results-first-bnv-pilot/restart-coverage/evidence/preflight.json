@@ -1,0 +1,98 @@
+{
+  "root": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot",
+  "branch": "candidate/results-first-bnv-pilot-20261108",
+  "head": "d0e3c12fe0a7fe8e1cea4aa4144dec23e14e4236",
+  "entry_status": "clean (checked before creating this directory)",
+  "worktrees": "worktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar\nHEAD 8e6ac589d8d34e78447ee893e43e5673490eb728\nbranch refs/heads/candidate/linux-ba13-recovery-20261012\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-closure\nHEAD 093d121135e35bc50ca2a807470906bcb28ef5c3\nbranch refs/heads/candidate/linux-ba13-closure-20261019\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence\nHEAD 84e1062db78b91e4fb0988074941b1aea6019917\nbranch refs/heads/candidate/linux-ba13-evidence-20261026\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision\nHEAD bb0f9c5af8ebaf86b5a59aece5551bb9dafbd264\nbranch refs/heads/candidate/linux-ba13-final-decision-20261030\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot\nHEAD dad05b17056f3ccb1e3871e6e4bb24ebe5db5df4\nbranch refs/heads/candidate/linux-ba13-onset-pilot-20261013\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-uncertainty\nHEAD 4f3cf97462ca030f715e26808938f781a2a40945\nbranch refs/heads/candidate/linux-ba13-uncertainty-20261012\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot\nHEAD d0e3c12fe0a7fe8e1cea4aa4144dec23e14e4236\nbranch refs/heads/candidate/results-first-bnv-pilot-20261108\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor\nHEAD 6cc7e20713e3c0210faa9036316650816f0290d5\nbranch refs/heads/candidate/linux-x1-oracle-anchor-20261016\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step\nHEAD 286aafb63002093b3052e23a3972903011f36035\nbranch refs/heads/candidate/linux-x2-fixed-step-20261016\n\n",
+  "branches": [
+    {
+      "ref": "refs/heads/candidate/linux-ba13-closure-20261019",
+      "commit": "093d121135e35bc50ca2a807470906bcb28ef5c3",
+      "ancestor_of_start": true
+    },
+    {
+      "ref": "refs/heads/candidate/linux-ba13-evidence-20261026",
+      "commit": "84e1062db78b91e4fb0988074941b1aea6019917",
+      "ancestor_of_start": true
+    },
+    {
+      "ref": "refs/heads/candidate/linux-ba13-final-decision-20261030",
+      "commit": "bb0f9c5af8ebaf86b5a59aece5551bb9dafbd264",
+      "ancestor_of_start": true
+    },
+    {
+      "ref": "refs/heads/candidate/linux-ba13-onset-pilot-20261013",
+      "commit": "dad05b17056f3ccb1e3871e6e4bb24ebe5db5df4",
+      "ancestor_of_start": true
+    },
+    {
+      "ref": "refs/heads/candidate/linux-ba13-recovery-20261012",
+      "commit": "8e6ac589d8d34e78447ee893e43e5673490eb728",
+      "ancestor_of_start": true
+    },
+    {
+      "ref": "refs/heads/candidate/linux-ba13-uncertainty-20261012",
+      "commit": "4f3cf97462ca030f715e26808938f781a2a40945",
+      "ancestor_of_start": true
+    },
+    {
+      "ref": "refs/heads/candidate/linux-qualification-corrections-20261011",
+      "commit": "5ec9994f5822647aebf79a556c0fe5e11ce77e18",
+      "ancestor_of_start": true
+    },
+    {
+      "ref": "refs/heads/candidate/linux-transition-20261010",
+      "commit": "f4e7c18f568045febc5bf65c6e95200752196dad",
+      "ancestor_of_start": true
+    },
+    {
+      "ref": "refs/heads/candidate/linux-x1-oracle-anchor-20261016",
+      "commit": "6cc7e20713e3c0210faa9036316650816f0290d5",
+      "ancestor_of_start": true
+    },
+    {
+      "ref": "refs/heads/candidate/linux-x2-fixed-step-20261016",
+      "commit": "286aafb63002093b3052e23a3972903011f36035",
+      "ancestor_of_start": true
+    },
+    {
+      "ref": "refs/heads/candidate/results-first-bnv-pilot-20261108",
+      "commit": "d0e3c12fe0a7fe8e1cea4aa4144dec23e14e4236",
+      "ancestor_of_start": true
+    },
+    {
+      "ref": "refs/heads/docs/phase6-cluster-preparation",
+      "commit": "d8e7208b71e01168394e41f8f8f32b027b5d0a63",
+      "ancestor_of_start": true
+    },
+    {
+      "ref": "refs/heads/master",
+      "commit": "9a5c1eca40758e4c39f9f80db7324e12ad23e505",
+      "ancestor_of_start": true
+    },
+    {
+      "ref": "refs/heads/physics/phase6-bnv-campaign-readiness",
+      "commit": "5433fc2da71ba380264f490b87926d850ff9f375",
+      "ancestor_of_start": true
+    },
+    {
+      "ref": "refs/heads/physics/phase6-breakpoint-aware-evolution",
+      "commit": "0c3f9269c884161c9d89163660a47b141a93ace6",
+      "ancestor_of_start": true
+    }
+  ],
+  "authenticated_manifests": [
+    {
+      "manifest": "docs/validation/results-first-bnv-pilot/stage-a-recovery/SHA256SUMS",
+      "sha256": "d487cd7d0c7643b8e02488fd50ec812dea83292b9a7cdabb0eba155e48c65e29",
+      "entries": 58,
+      "status": "PASS"
+    },
+    {
+      "manifest": "docs/validation/results-first-bnv-pilot/stage-a-recovery/evidence/external-SHA256SUMS",
+      "sha256": "1ea94f9f83da7af727c4d233d8c7ff349c3e209352002700651c60a817c5b64b",
+      "entries": 1894,
+      "status": "PASS"
+    }
+  ]
+}

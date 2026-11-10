@@ -1,0 +1,2 @@
+PASS retained ordinal=11 restart_s=10025181.919443566 tail_s=21532418.080556434 exact state roundtrip
+PASS 12 synthetic selection/refusal cases; no integration

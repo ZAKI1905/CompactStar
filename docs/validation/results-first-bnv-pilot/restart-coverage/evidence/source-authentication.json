@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "all_preexisting_tracked_files_unchanged": true,
+  "authorities_and_sources": [
+    {
+      "path": "GOVERNANCE.md",
+      "source_commit": "d0e3c12fe0a7fe8e1cea4aa4144dec23e14e4236",
+      "sha256": "65d3f3cde9e9faea1d69050b22a6db452c0b0c5df47ebcd19f523ebf65bc0222"
+    },
+    {
+      "path": "AGENTS.md",
+      "source_commit": "d0e3c12fe0a7fe8e1cea4aa4144dec23e14e4236",
+      "sha256": "f03fd3be0c3badcdfc8c494cba7c349e1b8b36bfd4f375cbf6b2e9a31ee22a7c"
+    },
+    {
+      "path": "docs/adr/ADR-0017-phase6-passive-checkpoint-reconstruction.md",
+      "source_commit": "d0e3c12fe0a7fe8e1cea4aa4144dec23e14e4236",
+      "sha256": "f8f11e66e428731528ff094332d64e7b8c4d2f2de7f8fe92528f4ac8a0491cd5"
+    },
+    {
+      "path": "docs/validation/PHASE6A1_PIECEWISE_RECONSTRUCTION_PROPOSAL.md",
+      "source_commit": "d0e3c12fe0a7fe8e1cea4aa4144dec23e14e4236",
+      "sha256": "8169d4dacdbe730d25e9562110af6c3f36e848ea22e3afad5a3226173b2ed1f7"
+    },
+    {
+      "path": "docs/validation/PHASE6_BREAKPOINT_RATIFICATION.md",
+      "source_commit": "d0e3c12fe0a7fe8e1cea4aa4144dec23e14e4236",
+      "sha256": "3ba3bdb09314c7626cbaf0444685076b974359e3c5a949a700db2d40f30bdf63"
+    },
+    {
+      "path": "docs/SCIENTIFIC_INVARIANTS.md",
+      "source_commit": "d0e3c12fe0a7fe8e1cea4aa4144dec23e14e4236",
+      "sha256": "7a8ce2b59b352c31784ffab703c9b7ea542598d5bd902cc460f23a7c81ab805b"
+    },
+    {
+      "path": "docs/architecture/CURRENT_ARCHITECTURE.md",
+      "source_commit": "d0e3c12fe0a7fe8e1cea4aa4144dec23e14e4236",
+      "sha256": "fa5afd1cbd07f838fbe9974f992f94a5fc3ffc3ee8600e6a0a83290817c4db08"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-assembly/NONLINEAR_PLAN.md",
+      "source_commit": "d0e3c12fe0a7fe8e1cea4aa4144dec23e14e4236",
+      "sha256": "6f87b7577728b9c0187aebea1885bdd11a624bc29ecddee1e6930a819524e722"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-regeneration/RUN_PLAN.md",
+      "source_commit": "d0e3c12fe0a7fe8e1cea4aa4144dec23e14e4236",
+      "sha256": "65e3d1b4285a8e36c863e98aab64d418c18df94d543da85ec233f210b04bc67b"
+    },
+    {
+      "path": "tests/native/stage.cpp",
+      "source_commit": "d0e3c12fe0a7fe8e1cea4aa4144dec23e14e4236",
+      "sha256": "84ae4e70217104b2f0c39c22c9d9ede1b4005ac882a5556f281d8d7f95652161"
+    },
+    {
+      "path": "tests/CMakeLists.txt",
+      "source_commit": "d0e3c12fe0a7fe8e1cea4aa4144dec23e14e4236",
+      "sha256": "17b6df6106584653e7af3c95c2071a0a89ea89cddf41efed47c537e673463bd6"
+    },
+    {
+      "path": "CompactStar/Physics/BNV/BreakpointStepper.hpp",
+      "source_commit": "d0e3c12fe0a7fe8e1cea4aa4144dec23e14e4236",
+      "sha256": "c463f674f5645316b0ba0f9d7902c34e8249b0b59d05320a5239a2c9edac335b"
+    },
+    {
+      "path": "CompactStar/Physics/BNV/src/PassiveCheckpointOutput.cpp",
+      "source_commit": "d0e3c12fe0a7fe8e1cea4aa4144dec23e14e4236",
+      "sha256": "5f594ce6ba088ad76b791a2b05e220493f27813999f4a59004667304a4951589"
+    }
+  ]
+}

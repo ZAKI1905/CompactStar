@@ -1,0 +1,124 @@
+--- /dev/null
++++ b/tests/native/restart_schedule.hpp
+@@ -0,0 +1,29 @@
++#pragma once
++#include <cmath>
++#include <stdexcept>
++
++namespace NativeQualification {
++// Test-harness policy only. The immutable accepted history is never altered.
++// Choose the latest positive-prefix endpoint leaving at least half the horizon.
++template<class History>
++typename History::const_iterator RestartAtOrBeforeMidpoint(
++    const History& history, double start, double end) {
++    if(!std::isfinite(start)||!std::isfinite(end)||!(end>start))
++        throw std::runtime_error("invalid restart horizon");
++    const double midpoint=start+(end-start)/2;
++    if(!std::isfinite(midpoint)||!(midpoint>start&&midpoint<end))
++        throw std::runtime_error("unrepresentable restart midpoint");
++    auto selected=history.cend();
++    double previous=start;
++    for(auto it=history.cbegin();it!=history.cend();++it) {
++        if(it->t_left_s!=previous||!std::isfinite(it->t_right_s)
++           ||!(it->t_right_s>previous)||it->t_right_s>end)
++            throw std::runtime_error("invalid accepted restart history");
++        if(it->t_right_s<=midpoint)selected=it;
++        previous=it->t_right_s;
++    }
++    if(previous!=end||selected==history.cend())
++        throw std::runtime_error("no accepted restart endpoint at or before midpoint");
++    return selected;
++}
++} // namespace NativeQualification
+--- /dev/null
++++ b/tests/native/restart_schedule_test.cpp
+@@ -0,0 +1,57 @@
++// Selection/serialization tests only: no RHS, GSL, stellar or thermal solve.
++#include "restart_schedule.hpp"
++#include <array>
++#include <fstream>
++#include <iomanip>
++#include <iostream>
++#include <sstream>
++#include <string>
++#include <vector>
++#include <limits>
++struct Step {double t_left_s,t_right_s;std::array<double,3> y_right{};};
++using History=std::vector<Step>;
++void require(bool ok,const char* message) {if(!ok)throw std::runtime_error(message);}
++std::size_t select(const History& h,double a,double b) {
++ return NativeQualification::RestartAtOrBeforeMidpoint(h,a,b)-h.cbegin();
++}
++void refuses(const History& h,double a,double b) {
++ bool failed=false;try {select(h,a,b);}catch(const std::runtime_error&) {failed=true;}
++ require(failed,"invalid coverage/history accepted");
++}
++int main(int argc,char** argv) {
++ try {
++  require(select({{0,1},{1,3},{3,10}},0,10)==1,"straddling terminal step");
++  require(select({{0,1},{1,5},{5,10}},0,10)==1,"exact midpoint excluded");
++  require(select({{0,1},{1,4},{4,6},{6,10}},0,10)==1,"chose endpoint after midpoint");
++  require(select({{100,101},{101,104},{104,110}},100,110)==1,"absolute time origin");
++  refuses({},0,10);refuses({{0,10}},0,10);refuses({{0,0},{0,10}},0,10);
++  refuses({{0,1},{2,10}},0,10);refuses({{0,1},{1,9}},0,10);
++  refuses({{0,1},{1,11}},0,10);refuses({{0,1},{1,10}},10,0);
++  refuses({{0,1}},0,std::numeric_limits<double>::infinity());
++  require(argc==1||argc==2,"optional accepted history TSV only");
++  if(argc==2) {
++   std::ifstream input(argv[1]);require(bool(input),"missing accepted history");
++   std::string line;std::getline(input,line);History h;std::size_t count=0;
++   while(std::getline(input,line)) {
++    std::istringstream row(line);std::size_t ordinal,rejected;double step,next;Step s;
++    row>>ordinal>>s.t_left_s>>s.t_right_s>>step>>next>>rejected;
++    for(double& v:s.y_right)row>>v;
++    require(bool(row)&&ordinal==++count&&rejected==0,"malformed retained history");
++    h.push_back(s);
++   }
++   require(h.size()==12,"unexpected retained step count");
++   const auto index=select(h,0,31557600.);
++   require(index==10&&h[index].t_right_s==10025181.919443566,"wrong retained endpoint");
++   require(31557600.-h[index].t_right_s>=31557600./2,"insufficient tail duration");
++   std::ostringstream serialized;serialized<<std::setprecision(17)<<h[index].t_right_s;
++   for(double v:h[index].y_right)serialized<<'\t'<<v;
++   std::istringstream restored(serialized.str());double t;std::array<double,3> y;
++   restored>>t;for(double& v:y)restored>>v;
++   require(bool(restored)&&t==h[index].t_right_s&&y==h[index].y_right,"state roundtrip changed doubles");
++   std::cout<<std::setprecision(17)<<"PASS retained ordinal="<<index+1<<" restart_s="<<t
++            <<" tail_s="<<31557600.-t<<" exact state roundtrip\n";
++  }
++  std::cout<<"PASS 12 synthetic selection/refusal cases; no integration\n";
++  return 0;
++ } catch(const std::exception& e) {std::cerr<<"FAIL "<<e.what()<<'\n';return 1;}
++}
+--- a/tests/native/stage.cpp
++++ b/tests/native/stage.cpp
+@@ -5,6 +5,7 @@
+ #undef main
+ #include "../diagnostics/checkpoint_evidence.hpp"
+ #include <cstdlib>
++#include "restart_schedule.hpp"
+ 
+ BNV::MainTrajectoryResult native_main(Ctx p,double a,State y,double b,Tol tol,double cap,
+  const std::vector<double>& times,const std::filesystem::path& out) {
+@@ -105,7 +106,10 @@
+         r20.flush();std::cout<<"GRID_COMPLETE tier="<<tier<<" policy="<<policy<<" n="<<n<<'\n';
+       }
+       if(policy==3) {
+-        auto it=std::find_if(main.accepted_steps.begin(),main.accepted_steps.end(),[&](const auto& s){return s.t_right_s>=end/2;});
++        // Stage A coverage policy; Stage B retains its original rule and authorization boundary.
++        auto it=end==Year
++          ? NativeQualification::RestartAtOrBeforeMidpoint(main.accepted_steps,0.,end)
++          : std::find_if(main.accepted_steps.cbegin(),main.accepted_steps.cend(),[&](const auto& s){return s.t_right_s>=end/2;});
+         require(it!=main.accepted_steps.end()&&it->t_right_s<end,"no interior restart endpoint");
+         const auto checkpoint=dir/"restart.txt";
+         {std::ofstream f(checkpoint);f<<std::setprecision(17)<<std::quoted(p->RunCardIdentity())<<'\n'<<it->t_right_s<<'\t'<<values(it->y_right)<<'\n'<<it->ordinal<<'\t'<<it->cumulative_rejected<<'\n';}
+--- a/tests/CMakeLists.txt
++++ b/tests/CMakeLists.txt
+@@ -783,3 +783,7 @@
+ add_executable(native_o2_configuration native/o2_configuration.cpp)
+ target_link_libraries(native_o2_configuration PRIVATE CompactStar)
+ add_test(NAME native_o2_configuration COMMAND native_o2_configuration)
++
++# Pure accepted-history selection test: no physical model or integration.
++add_executable(native_restart_schedule native/restart_schedule_test.cpp)
++add_test(NAME native_restart_schedule COMMAND native_restart_schedule)

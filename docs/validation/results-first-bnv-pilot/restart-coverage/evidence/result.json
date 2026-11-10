@@ -1,0 +1,67 @@
+{
+  "status": "PASS_PROPOSED_SELECTION_ONLY",
+  "trajectory_calls": 0,
+  "proposal_applied_to_active_runner": false,
+  "affinity": [
+    0
+  ],
+  "selection": {
+    "original_ordinal": 12,
+    "original_tail_s": "0",
+    "proposed_ordinal": 11,
+    "time_s": "10025181.9194435663521289825439453125",
+    "time_binary64_hex": "0x1.31f1bbd6c14eap+23",
+    "tail_s": "21532418.0805564336478710174560546875",
+    "tail_fraction": "0.68232115498505696402359550333531978033817527315131695692955104317185083783304180",
+    "state_exact_binary64": [
+      "0.0000235230582104403791623807584709737739103729836642742156982421875",
+      "-3.460889923549651246252155115793228655485247458045705570839345455169677734375E-11",
+      "-8.778964608434635715595625231498695152654310192019693204201757907867431640625E-11"
+    ]
+  },
+  "quarter_cap": {
+    "executed": false,
+    "coverage_inferred_from_authenticated_inactive_cap_proof": true,
+    "proof_sha256": "66fe2779208c91acc7ddc079f9ae014ad20b40fcf3c3f9678c0b7dbe5b1882b8",
+    "minimum_cap_s": 9680951939.25
+  },
+  "midpoint": {
+    "packet_index": 120,
+    "accepted_endpoint": false,
+    "method": "breakpoint-rk8pd-with-independent-witness",
+    "bracket": [
+      10025181.919443566,
+      31557600
+    ]
+  },
+  "test_command": [
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/g++",
+    "-std=c++17",
+    "-O2",
+    "-ffp-contract=off",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/restart-coverage-20261109-r1/check/candidate/tests/native/restart_schedule_test.cpp",
+    "-o",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/restart-coverage-20261109-r1/check/selector-test"
+  ],
+  "compiler_version": "g++ (Spack GCC) 14.1.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "test_result": "PASS retained ordinal=11 restart_s=10025181.919443566 tail_s=21532418.080556434 exact state roundtrip\nPASS 12 synthetic selection/refusal cases; no integration\n",
+  "scope": "Pure C++ selector/refusal/serialization tests; patched stage executable not built or run. No accuracy qualification.",
+  "input_hashes": {
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_qualification/check_restart_coverage_proposal.py": "37413a77d78fe69492fbe63c68e5c013ecd4d810330af688eeff923caf413277",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/restart-coverage/proposed-selector.patch": "67b56d686b64c9da0fc296faa6173976269a43b8db5b4c2d168902fbd3b15df3",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/stage-a-recovery/evidence/main.accepted_states.tsv": "4b854db1b18eb3e3332a071472b9ba7355a09cac77e20f6e984f1ea699f4a19f",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/stage-a-recovery/evidence/restart-gate.json": "66fe2779208c91acc7ddc079f9ae014ad20b40fcf3c3f9678c0b7dbe5b1882b8",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-a-recovery-20261109-r1/source-stage/run/trajectory/source/tier-0-cap-0/checkpoints-240/point-120/checkpoint.json": "c6e28ae4c975ea90b53fc8b4faecc7b9d3460d7207edca4f71b148dea96c7d42",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/stage.cpp": "84ae4e70217104b2f0c39c22c9d9ede1b4005ac882a5556f281d8d7f95652161",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/CMakeLists.txt": "17b6df6106584653e7af3c95c2071a0a89ea89cddf41efed47c537e673463bd6"
+  },
+  "candidate_hashes": {
+    "tests/CMakeLists.txt": "f674ab1e89ef4656902642fb04252128a7a2699b3d200bec123022a2ffd2fa38",
+    "tests/native/restart_schedule.hpp": "5aa398a6a86db39ad9600e3cfe73abb2b00dc8371355c8965a0ef45aa69c7344",
+    "tests/native/restart_schedule_test.cpp": "ec33a2091e7d4e7cd949e5dbe535b96e96ac1f051fe83d1c5c6fc2fd9abea18d",
+    "tests/native/stage.cpp": "1047688a48c9369f2bf7b2e03fa8c3ae920d8ab1b7877039116691c3077b0e8d"
+  }
+}
