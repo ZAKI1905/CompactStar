@@ -15,6 +15,7 @@ case "$RF_PHASE" in
  source|control)
   run tools/linux/stage_b/supplement.py "$RF_OUTPUT" "$RF_PHASE"
   run tools/linux/stage_b/observation_trace.py "$RF_OUTPUT" "$RF_PHASE"
+  run tools/linux/stage_b/native_points.py "$RF_OUTPUT" "$RF_PHASE"
   ;;
  assess)
   run tools/linux/stage_b/residuals.py "$RF_OUTPUT" 24
@@ -25,6 +26,7 @@ case "$RF_PHASE" in
   run tools/linux/stage_b/ledger.py "$RF_OUTPUT" 24
   run tools/linux/stage_b/local_reference.py "$RF_OUTPUT" 24
   run tools/linux/stage_b/accuracy.py "$RF_OUTPUT" 24
+  run tools/linux/stage_b/coverage.py "$RF_OUTPUT"
   ;;
  *) exit 2 ;;
 esac

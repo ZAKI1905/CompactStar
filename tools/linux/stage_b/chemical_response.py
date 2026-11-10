@@ -42,6 +42,8 @@ def assess(out):
    cmin=min(caps);cmax=max(caps)
    el=[max(D(0),abs(D(left[k]))-reach*SCALE[j+1]) for j,k in enumerate(('e','mu'))]
    eh=[abs(D(left[k]))+reach*SCALE[j+1] for j,k in enumerate(('e','mu'))]
+   assert all(eh[j]+D('1e-10')*SCALE[j+1]<box['Y'][j] for j in range(2)), 'comparison chemical domain exhausted'
+   assert box['lo']<xl-D('1e-10') and xh+D('1e-10')<box['hi'], 'comparison thermal domain exhausted'
    def heat(T,eta):return m.erg*sum(eta[j]*m.luminosity[j]/m.kberg*T**7*m.reaction(T,eta[j]) for j in range(2))
    hlo=heat(tl,el);hhi=heat(th,eh)
    net=[D(0),D(0)]

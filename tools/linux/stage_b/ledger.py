@@ -65,6 +65,7 @@ def assess_one(task):
    if i<n:
     reach=u+(box['M']+forcing)*dt
     assert box['lo']<y[0]-reach and y[0]+reach<box['hi']
+    assert all(abs(y[j+1])+reach*SCALE[j+1]<box['Y'][j] for j in range(2))
     lo,hi=outgoing_range(m,y,reach);normal=dph*(D.from_float(2.42)*(y[0]+reach)).exp()
     quad_low+=dt*(lo-normal);quad_high+=dt*(hi+normal)
   hp_trap=sum(dt*(a+b)/2 for a,b in zip(node_power,node_power[1:]))
