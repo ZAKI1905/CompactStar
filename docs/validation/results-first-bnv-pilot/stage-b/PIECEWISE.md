@@ -48,6 +48,17 @@ a smooth fourth/second derivative bound cannot be applied over an unsplit knot.
 A failure of a native checkpoint stops its affected task, even if an independent
 reference can produce an approximate temperature.
 
+The Stage B local check in `tools/linux/stage_b/local_reference.py:1` encloses
+the coupled three-component solution from each exact retained native left state
+and compares every scientific sample against its original stored radii. It does
+not use the older auxiliary chemistry-only witness driven by a prescribed Hermite
+temperature path (`tools/linux/preliminary_pair/high_precision.py:91`). Consequently
+it does not assume, or claim to verify for Stage B, that witness's uniform 1e−12
+thermal band. This is a different independent verification argument, not a change
+to production RK8PD reconstruction, its component radii, or the original F_i
+allocation. The original plan's state/power gates apply at scientific samples and
+accepted endpoints; these checks do not certify arbitrary unsampled output curves.
+
 ## Actual-stage arithmetic at crossings
 
 The one-cell Stage A trace parser cannot assume that a selected-cell block is a
