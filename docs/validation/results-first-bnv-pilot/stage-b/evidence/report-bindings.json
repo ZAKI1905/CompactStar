@@ -1,0 +1,162 @@
+{
+  "status": "DISPLAY_COPIES_BOUND_TO_FULL_EXTERNAL_EVIDENCE",
+  "files": {
+    "assessment.json": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/assessment.json",
+      "sha256": "eb56c81c9257e289cab8c9ff746fb33b32d8e8a63f9ca6236657ad47ff3a9eec",
+      "report_sha256": "61ab7f3f5801288633b6abc80c60cca0e2eff8613acbf68d2d3b89817ed0c04c",
+      "format": "17 significant digit display copy; original strings retained externally"
+    },
+    "qualification.json": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/qualification.json",
+      "sha256": "d883e30e69af80713653f62ef3bed0ce65c80cb519eab238578e53415abf6040",
+      "report_sha256": "4095d209b0aecdf0d716ee1fd460c9a63927d8c668a6709359019e1eef35cd57",
+      "format": "17 significant digit display copy; original strings retained externally"
+    },
+    "final-summary.json": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/final-summary.json",
+      "sha256": "97dc01237ec2124c4baf169b3dc2b437ad8c5026f0227eed23b0033d2c8a6e1a",
+      "report_sha256": "0c9d26e57c394eafbc2772e3316f97185efec7e57e2c928bd52d54161e1983dd",
+      "format": "17 significant digit display copy; original strings retained externally"
+    },
+    "chemical-response.json": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/chemical-response.json",
+      "sha256": "f0f72683f5375bc9d5883c28a1df8c67bb1b9d9980f9b877804de6061906891a",
+      "report_sha256": "de460794f4eadbeb0d246d8e8e7e25ad6c88d70bee166965e41eccfa562858e4",
+      "format": "17 significant digit display copy; original strings retained externally"
+    },
+    "events-assessment.json": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/events-assessment.json",
+      "sha256": "6d148cd6e8468b287dc6116dc446aad1147990ca23ed7d21e0fc26923130c22a",
+      "report_sha256": "747cad7e29f41e89c12062c8028a5c320a4a015f0d7eeca83add21074263f205",
+      "format": "17 significant digit display copy; original strings retained externally"
+    },
+    "ledger-assessment.json": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/ledger-assessment.json",
+      "sha256": "6bcd23475426435dd16f01aa84c4d209beaf6215f31eeaf6db18923e37e2792c",
+      "report_sha256": "972869b0fb6b583f38b6de7ce05b7dbf436a04c4661c676d5327127171f4bdaa",
+      "format": "17 significant digit display copy; original strings retained externally"
+    },
+    "accuracy.json": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/accuracy.json",
+      "sha256": "121974264cdaa41770c335e85e00d09e6833f0d841a9fc9c61c13330440ae3b9",
+      "report_sha256": "0f56625cffce386d4d9a5e64fa74cb740157a97ab62a1de031202320ea08657a",
+      "format": "17 significant digit display copy; original strings retained externally"
+    },
+    "matched.json": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/matched.json",
+      "sha256": "b44cb2b6735bf5c05158c93b35179303bb80facb8f2ca5c9dd4b21cab81a569e",
+      "report_sha256": "7740573ad996bc44ce34fae01c2f8212cc7941765e07463e1736aacfc02a4684",
+      "format": "17 significant digit display copy; original strings retained externally"
+    },
+    "coverage.json": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/coverage.json",
+      "sha256": "05c4d54c265dcc8f51fa800ed67e2115e4a4937e9ae75e002613734b08bec7df",
+      "report_sha256": "48eaa194ebcbab0d977683e80c51ccb0703e4276e0599fd6247efd7e6ff71b57",
+      "format": "17 significant digit display copy; original strings retained externally"
+    },
+    "roundoff.json": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/roundoff.json",
+      "sha256": "37ca5fe3e76ce64f749b851a09f7b14409a3bb91423557dcce2cf222439d653c",
+      "report_sha256": "13655b1b836ef5a60c13d28e84916002e4a4904cff7b177863a5f5f125a1136e",
+      "format": "17 significant digit display copy; original strings retained externally"
+    },
+    "interpolation-roundoff-completion.json": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/interpolation-roundoff-completion.json",
+      "sha256": "cc4433cb94359f0fc1e085ef9ddb7de25961c2bc0896f21daea00c9f0239c7a8",
+      "report_sha256": "cc4433cb94359f0fc1e085ef9ddb7de25961c2bc0896f21daea00c9f0239c7a8",
+      "format": "17 significant digit display copy; original strings retained externally"
+    },
+    "local-assessment.json": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/local-assessment.json",
+      "sha256": "b742e6169204612f1940b780798866227a072ad7188f9e8f36cb4bc84eb79e6e",
+      "report_sha256": "3a86931d4f8bd267aac1366c3647a7eed8f4b3a2f1eec164167bd148c35defbf",
+      "format": "17 significant digit display copy; original strings retained externally"
+    },
+    "resources.json": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/resources.json",
+      "sha256": "68391dba82740c8b72f963d14ea3085a34e6721ee35e0cb1a3df3ca8371c3507",
+      "report_sha256": "c40c42c8c5c1453d4ff57303c6f1c600733fc576e4172a8ee26bdc17c06e1f22",
+      "format": "17 significant digit display copy; original strings retained externally"
+    },
+    "finalization-provenance.json": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/finalization-provenance.json",
+      "sha256": "e33711545494b350525cadc0ceaec687a8e77c8cbe78dfe0773c3957d6df4dfe",
+      "report_sha256": "e33711545494b350525cadc0ceaec687a8e77c8cbe78dfe0773c3957d6df4dfe",
+      "format": "17 significant digit display copy; original strings retained externally"
+    },
+    "job-status-final.json": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/job-status-final.json",
+      "sha256": "042fdb9c7000ecd63ced888b56cd883e16e8e14352750e3ef23baac48d151731",
+      "report_sha256": "042fdb9c7000ecd63ced888b56cd883e16e8e14352750e3ef23baac48d151731",
+      "format": "17 significant digit display copy; original strings retained externally"
+    },
+    "temperature.csv": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/temperature.csv",
+      "sha256": "57686e60394f66c92fc3436f072bb87e04874cfac4bd28f5ef332f07895a4c8a",
+      "report_sha256": "dc7d587b65b19127e304559599c9b9a791f5dd333054599633d1fded5f3cb08a",
+      "format": "17 significant digit display copy; original strings retained externally"
+    },
+    "curve-source.csv": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/curve-source.csv",
+      "sha256": "dbf6b062449efec16d194d87efb020bb596b6fe5f63f9a15b157e73e37364462",
+      "report_sha256": "57669ff37e535420e840d1629dacab1726dff729833555162eefdd0300be21bb",
+      "format": "17 significant digit display copy; original strings retained externally"
+    },
+    "curve-control.csv": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/curve-control.csv",
+      "sha256": "db1695d2cfb3cf785e4b9b6d308fe38e34dbc86ae28dd9a1510f826d35ca66ab",
+      "report_sha256": "a2e52e82ae3b1a51e42c291d1e7acc09acc7fe0c27ff49aa348b0e5a09455c63",
+      "format": "17 significant digit display copy; original strings retained externally"
+    },
+    "temperature.png": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/temperature.png",
+      "sha256": "578db924bfab11fb0eb5cc43e87c57ba692431d554249d4976c779480b28e44f"
+    },
+    "physics.png": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/physics.png",
+      "sha256": "2584ff172e28e469e37522f12dde316f4f84ccba3bf0bc045e40037ebe3b2be9"
+    },
+    "numerics.png": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/numerics.png",
+      "sha256": "0aea4c550b5756e94b188c2a8b08e93970836a75c19abab2f879123ccc19cff8"
+    },
+    "temperature.pdf": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/temperature.pdf",
+      "sha256": "86387880d1d8c563aa1e223e116b5be696bce1a4334081e15564669aa1b6e803"
+    },
+    "physics.pdf": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/physics.pdf",
+      "sha256": "ca6cebad92b4d79a8c0c9e1dc49c01d324c272f960fad55b3a3476152977b7bb"
+    },
+    "numerics.pdf": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/numerics.pdf",
+      "sha256": "0bd810fd6d249ce784c05b8e76c68b3646d4d7cc2244878635786f0688ff11e6"
+    },
+    "test-piecewise.log": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/test-piecewise.log",
+      "sha256": "093fd5752e947b8e178c943d9d04997037c4057238f33b3c911833c01d1e27b7"
+    },
+    "test-piecewise-final.log": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/test-piecewise-final.log",
+      "sha256": "a8db20c893c4b1abfc25c1399bb7a687bda0c9538663e0a61dd3da9f7536ba53"
+    },
+    "test-apply-residuals.log": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/test-apply-residuals.log",
+      "sha256": "3872f5a85da677f909ec5c55a5821758c34e2394460567a29f8043b480cc1105"
+    },
+    "test-apply-residuals-final.log": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/test-apply-residuals-final.log",
+      "sha256": "3872f5a85da677f909ec5c55a5821758c34e2394460567a29f8043b480cc1105"
+    },
+    "test-audit-source.log": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/test-audit-source.log",
+      "sha256": "d10ffbd9f0faa72cd6837063279524e199b59fbc3d035051302a1e8dbc4b36ad"
+    },
+    "report-import-after-fix.log": {
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/report-import-after-fix.log",
+      "sha256": "0117ec34583540e4c6f7a28e63e467311d8b02037b540f0df78c8cb20df7bce6"
+    }
+  },
+  "receipt_sha256": "9588bdb5a34a0f9aeb42844c7a12b019aa40df89631e94a362626b036be9b3c6"
+}

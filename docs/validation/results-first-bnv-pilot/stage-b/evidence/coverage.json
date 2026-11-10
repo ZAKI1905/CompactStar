@@ -1,0 +1,294 @@
+{
+  "status": "PASS_MATRIX_AND_NATIVE_GUARDS",
+  "configurations": [
+    {
+      "role": "source",
+      "tier": 0,
+      "cap": 0,
+      "status": "PASS",
+      "accepted_steps": 21,
+      "events": 2,
+      "nested_samples": 3604,
+      "history_sha256": "95e16e34960b4aab717d7629a3e7a35bf3cb82e0f3901de0fa06e33941009a4f",
+      "restart": null
+    },
+    {
+      "role": "source",
+      "tier": 0,
+      "cap": 1,
+      "status": "PASS",
+      "accepted_steps": 21,
+      "events": 2,
+      "nested_samples": 3604,
+      "history_sha256": "95e16e34960b4aab717d7629a3e7a35bf3cb82e0f3901de0fa06e33941009a4f",
+      "restart": null
+    },
+    {
+      "role": "source",
+      "tier": 0,
+      "cap": 2,
+      "status": "PASS",
+      "accepted_steps": 21,
+      "events": 2,
+      "nested_samples": 3604,
+      "history_sha256": "95e16e34960b4aab717d7629a3e7a35bf3cb82e0f3901de0fa06e33941009a4f",
+      "restart": null
+    },
+    {
+      "role": "source",
+      "tier": 0,
+      "cap": 3,
+      "status": "PASS",
+      "accepted_steps": 22,
+      "events": 2,
+      "nested_samples": 3604,
+      "history_sha256": "d4a576a30a5c88d5e046532244215e1dd1ed94e8bb931ea235b194425b88d530",
+      "restart": {
+        "start_s": "40713134715.573547",
+        "accepted_steps": 18,
+        "tail_sha256": "858000732096649e17aaf515575519f55bddb680654a03723f40c6b8ab7e43d7"
+      }
+    },
+    {
+      "role": "source",
+      "tier": 1,
+      "cap": 0,
+      "status": "PASS",
+      "accepted_steps": 26,
+      "events": 2,
+      "nested_samples": 3604,
+      "history_sha256": "a253859d6b6aff1769f3a079edba53ad83808666577967fa122464dabfc166e2",
+      "restart": null
+    },
+    {
+      "role": "source",
+      "tier": 1,
+      "cap": 1,
+      "status": "PASS",
+      "accepted_steps": 26,
+      "events": 2,
+      "nested_samples": 3604,
+      "history_sha256": "a253859d6b6aff1769f3a079edba53ad83808666577967fa122464dabfc166e2",
+      "restart": null
+    },
+    {
+      "role": "source",
+      "tier": 1,
+      "cap": 2,
+      "status": "PASS",
+      "accepted_steps": 26,
+      "events": 2,
+      "nested_samples": 3604,
+      "history_sha256": "a253859d6b6aff1769f3a079edba53ad83808666577967fa122464dabfc166e2",
+      "restart": null
+    },
+    {
+      "role": "source",
+      "tier": 1,
+      "cap": 3,
+      "status": "PASS",
+      "accepted_steps": 26,
+      "events": 2,
+      "nested_samples": 3604,
+      "history_sha256": "a253859d6b6aff1769f3a079edba53ad83808666577967fa122464dabfc166e2",
+      "restart": {
+        "start_s": "34561549359.319008",
+        "accepted_steps": 19,
+        "tail_sha256": "34acb6f405665c78b04ac50768bcb9b0c3f4cc8e364d40f1f3f4a90976060fb9"
+      }
+    },
+    {
+      "role": "source",
+      "tier": 2,
+      "cap": 0,
+      "status": "PASS",
+      "accepted_steps": 40,
+      "events": 2,
+      "nested_samples": 3604,
+      "history_sha256": "2be70907abbc7cc6e5213eaba5a34da41a7a7b77a90191b19446292a949e755d",
+      "restart": null
+    },
+    {
+      "role": "source",
+      "tier": 2,
+      "cap": 1,
+      "status": "PASS",
+      "accepted_steps": 40,
+      "events": 2,
+      "nested_samples": 3604,
+      "history_sha256": "2be70907abbc7cc6e5213eaba5a34da41a7a7b77a90191b19446292a949e755d",
+      "restart": null
+    },
+    {
+      "role": "source",
+      "tier": 2,
+      "cap": 2,
+      "status": "PASS",
+      "accepted_steps": 40,
+      "events": 2,
+      "nested_samples": 3604,
+      "history_sha256": "2be70907abbc7cc6e5213eaba5a34da41a7a7b77a90191b19446292a949e755d",
+      "restart": null
+    },
+    {
+      "role": "source",
+      "tier": 2,
+      "cap": 3,
+      "status": "PASS",
+      "accepted_steps": 40,
+      "events": 2,
+      "nested_samples": 3604,
+      "history_sha256": "2be70907abbc7cc6e5213eaba5a34da41a7a7b77a90191b19446292a949e755d",
+      "restart": {
+        "start_s": "34755947455.386116",
+        "accepted_steps": 26,
+        "tail_sha256": "59c0dab51bd363a10f1f1cd0fa932530ac63946034308c0878b366fee977cfb4"
+      }
+    },
+    {
+      "role": "control",
+      "tier": 0,
+      "cap": 0,
+      "status": "PASS",
+      "accepted_steps": 17,
+      "events": 0,
+      "nested_samples": 3604,
+      "history_sha256": "b136a3079a7276d968eab92b40e4e032f9cbd24002171f04e7d916f148575045",
+      "restart": null
+    },
+    {
+      "role": "control",
+      "tier": 0,
+      "cap": 1,
+      "status": "PASS",
+      "accepted_steps": 17,
+      "events": 0,
+      "nested_samples": 3604,
+      "history_sha256": "39c8e03082c00a1a0c465de38b1619fc94769d7f0e50018fec0edac88c4eff7b",
+      "restart": null
+    },
+    {
+      "role": "control",
+      "tier": 0,
+      "cap": 2,
+      "status": "PASS",
+      "accepted_steps": 19,
+      "events": 0,
+      "nested_samples": 3604,
+      "history_sha256": "08632209d5be690a7057602b116030c6010c8e2176f7515da764bf56361508f9",
+      "restart": null
+    },
+    {
+      "role": "control",
+      "tier": 0,
+      "cap": 3,
+      "status": "PASS",
+      "accepted_steps": 22,
+      "events": 0,
+      "nested_samples": 3604,
+      "history_sha256": "c074b6f11d1b937e8d513aa67e3b974917a762303d0ca46b2059b85d64f049b5",
+      "restart": {
+        "start_s": "34822173840.748016",
+        "accepted_steps": 18,
+        "tail_sha256": "9d13ccb9ae4592118bc5438a9ff45f32f9e8588c9db896414bf28c70302bc243"
+      }
+    },
+    {
+      "role": "control",
+      "tier": 1,
+      "cap": 0,
+      "status": "PASS",
+      "accepted_steps": 17,
+      "events": 0,
+      "nested_samples": 3604,
+      "history_sha256": "f7ae117c43630c0c1f9bfb9794e53481dc9d4029ad6aabcb17972623545e6f49",
+      "restart": null
+    },
+    {
+      "role": "control",
+      "tier": 1,
+      "cap": 1,
+      "status": "PASS",
+      "accepted_steps": 17,
+      "events": 0,
+      "nested_samples": 3604,
+      "history_sha256": "461b254fd764918e677d646ccd4df8fc1e92a45f1b063618c18c69036c187ecf",
+      "restart": null
+    },
+    {
+      "role": "control",
+      "tier": 1,
+      "cap": 2,
+      "status": "PASS",
+      "accepted_steps": 19,
+      "events": 0,
+      "nested_samples": 3604,
+      "history_sha256": "7a0fd2e88f866278e0d26bf1948e5b32a16ee52862cf41de0c4cd2b894a5009d",
+      "restart": null
+    },
+    {
+      "role": "control",
+      "tier": 1,
+      "cap": 3,
+      "status": "PASS",
+      "accepted_steps": 22,
+      "events": 0,
+      "nested_samples": 3604,
+      "history_sha256": "f9e3ea26593eae49f326589dda9fd7fa2817b88a19b8a7fb9b5d5c4f1c1fabec",
+      "restart": {
+        "start_s": "34822173840.748016",
+        "accepted_steps": 18,
+        "tail_sha256": "9d13ccb9ae4592118bc5438a9ff45f32f9e8588c9db896414bf28c70302bc243"
+      }
+    },
+    {
+      "role": "control",
+      "tier": 2,
+      "cap": 0,
+      "status": "PASS",
+      "accepted_steps": 18,
+      "events": 0,
+      "nested_samples": 3604,
+      "history_sha256": "69b62445b7e9a929c0098b3e4fd9b5bfdf859100cbde5b71376049e266d8f6b6",
+      "restart": null
+    },
+    {
+      "role": "control",
+      "tier": 2,
+      "cap": 1,
+      "status": "PASS",
+      "accepted_steps": 18,
+      "events": 0,
+      "nested_samples": 3604,
+      "history_sha256": "69b62445b7e9a929c0098b3e4fd9b5bfdf859100cbde5b71376049e266d8f6b6",
+      "restart": null
+    },
+    {
+      "role": "control",
+      "tier": 2,
+      "cap": 2,
+      "status": "PASS",
+      "accepted_steps": 19,
+      "events": 0,
+      "nested_samples": 3604,
+      "history_sha256": "0f5aa1b9bd491fc75c990c578200ec7147a558e4beec54f14a7348cda7d56b8b",
+      "restart": null
+    },
+    {
+      "role": "control",
+      "tier": 2,
+      "cap": 3,
+      "status": "PASS",
+      "accepted_steps": 22,
+      "events": 0,
+      "nested_samples": 3604,
+      "history_sha256": "a0cb5d148030bd623876e6a0c4d59b8d44446165ae8f0ab0fce84204721da8b7",
+      "restart": {
+        "start_s": "34822173840.748016",
+        "accepted_steps": 18,
+        "tail_sha256": "d789f83b362f3687fe879dbacfd98abd6a975c11a0947d99fada066d65f7c28d"
+      }
+    }
+  ],
+  "scope": "All 24 configurations, 24 endpoint schedule repeats, 96 diagnostic grids, six restarts and actual event counts. Native completion additionally enforces event endpoint bypass and both nextafter neighbors. Numerical qualification still requires all independent error budgets."
+}

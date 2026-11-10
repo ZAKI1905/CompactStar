@@ -1,5 +1,10 @@
 # Stage B handoff — 2026-11-10
 
+**Historical checkpoint.** The owner subsequently reported job completion and
+requested finalization. See [REPORT.md](REPORT.md) and
+`evidence/qualification.json` for the completed analysis. The snapshot and
+pending-work list below are preserved as the earlier handoff record.
+
 The owner requested that monitoring stop and will notify the agent when the
 Slurm jobs finish. The read-only monitor was stopped; scientific jobs were left
 running. This is a checkpoint, not final Stage B qualification.

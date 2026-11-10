@@ -1,0 +1,63 @@
+{
+  "time_utc": "2026-11-10T23:30:34.350786+00:00",
+  "observations": [
+    {
+      "command": [
+        "squeue",
+        "-u",
+        "zaki"
+      ],
+      "exit_code": 0,
+      "stdout": "             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "sacct",
+        "-j",
+        "19351,19352,19353,19356,19357",
+        "-o",
+        "JobID,State,ExitCode,Elapsed,AllocCPUS,NodeList"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Slurm accounting storage is disabled\n"
+    },
+    {
+      "command": [
+        "scontrol",
+        "show",
+        "job",
+        "19352"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "slurm_load_jobs error: Invalid job id specified\n"
+    },
+    {
+      "command": [
+        "scontrol",
+        "show",
+        "job",
+        "19356"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "slurm_load_jobs error: Invalid job id specified\n"
+    },
+    {
+      "command": [
+        "sinfo",
+        "-N",
+        "-n",
+        "phyn004",
+        "-o",
+        "%N %c %m %t %P"
+      ],
+      "exit_code": 0,
+      "stdout": "NODELIST CPUS MEMORY STATE PARTITION\nphyn004 96 125000 idle phy02\nphyn004 96 125000 idle phyall*\n",
+      "stderr": ""
+    }
+  ],
+  "scope": "No active user jobs. Controller records expired and accounting disabled: use saved task completion and allocation receipts; do not infer scheduler exit codes from queue absence."
+}

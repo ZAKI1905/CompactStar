@@ -1,0 +1,521 @@
+{
+  "status": "CONDITIONAL_NUMERICAL_VERIFICATION_CANDIDATE",
+  "failed_checks": [],
+  "aggregate_checks": 58,
+  "roles": {
+    "source": {
+      "configurations": 12,
+      "accuracy_maxima": {
+        "direct_state": "0.30530399609218587",
+        "known_terms_state": "0.32490445588870939",
+        "known_terms_reference_allocation": "0.14391471702261798",
+        "power": "0.0027782969864955976",
+        "power_reference_allocation": "0.0090068864150587975",
+        "accepted_direct_state": "0.30530399609218587"
+      },
+      "accepted_restart_state_ratio": "0.70505422972514282",
+      "accepted_restart_reference_allocation": "0.14228539316059163",
+      "accepted_power_ratio": "0.44574770656931636",
+      "accepted_power_reference_allocation": "0.0090073283972395030",
+      "ledger_maxima": {
+        "total_over_N": "0.000047938541748870553",
+        "reconstruction_event_allocation_over_N": "9.1974231668165999e-10",
+        "max_R18_over_G": "1.9648202101642061e-16",
+        "maximum_depletion": "2.0479999809017392e-9",
+        "maximum_frozen_utilization": "0.0011078652869395984",
+        "finite_T_omitted_scale_K": "6.2555725269686848"
+      },
+      "local_state_radius_ratio": "0.021587051777979489",
+      "local_chemical_energy_radius_ratio": "0.0094310125937044444",
+      "local_points": 23052,
+      "endpoint": {
+        "t_s": "64629964800.000000",
+        "T": "113875356.00171844",
+        "C": "1.4854604429068113e+38",
+        "x": "0.12993429583714158",
+        "e": "-2.1199137019465853e-7",
+        "mu": "-5.3112668395495957e-7",
+        "U": "1.4432744033147535e-17",
+        "Pdir": "3.3583239602651553e+34",
+        "Pdir_eq": "33583239602973852246093366017654784",
+        "LH": "4.1450912064963908e+22",
+        "DeltaLnu": "6.2176368095672774e+22",
+        "Lnu": "5.4049654469082670e+32",
+        "Lgamma": "3.8002790062196054e+33",
+        "Echem": "9.8695948979465130e+33",
+        "Pnet": "2.9242464051782572e+34",
+        "eta_source_e_MeV_s": "-3.4522124738368237e-18",
+        "eta_source_mu_MeV_s": "-8.7569630010719834e-18",
+        "eta_reaction_e_MeV_s": "4.2313711020575228e-19",
+        "eta_reaction_mu_MeV_s": "1.3192058419084763e-18",
+        "Echem_source_erg_s": "3.2229947421266239e+23",
+        "Echem_reaction_erg_s": "-4.1450912064963908e+22",
+        "U_primary": "4.7668938844445975e-17",
+        "U_T": "5.4283173811354303e-9"
+      },
+      "descriptive_integrated_powers_erg": {
+        "Pdir": "2.1704835933995170e+45",
+        "LH": "7.7946469689361098e+32",
+        "DeltaLnu": "1.1691970453180405e+33",
+        "Lnu": "2.2288913191068960e+43",
+        "Lgamma": "2.1242984266083322e+44",
+        "Pnet": "1.9357648375483943e+45"
+      }
+    },
+    "control": {
+      "configurations": 12,
+      "accuracy_maxima": {
+        "direct_state": "0.0036570829918639560",
+        "known_terms_state": "0.028988137545291659",
+        "known_terms_reference_allocation": "0.10821674861258052",
+        "power": "0.00062806023480030648",
+        "power_reference_allocation": "0.0024674602063976330",
+        "accepted_direct_state": "0.0036570829918639560"
+      },
+      "accepted_restart_state_ratio": "0.0088625277034584882",
+      "accepted_restart_reference_allocation": "0.10900942840434049",
+      "accepted_power_ratio": "0.00013753862348631048",
+      "accepted_power_reference_allocation": "0.0024674602063976330",
+      "ledger_maxima": {
+        "total_over_N": "0.000040361632817471233",
+        "reconstruction_event_allocation_over_N": "8.5782386993378237e-10",
+        "max_R18_over_G": "0",
+        "maximum_depletion": "0",
+        "maximum_frozen_utilization": "0.0000030986280299398849",
+        "finite_T_omitted_scale_K": "0e+71"
+      },
+      "local_state_radius_ratio": "0.013133535756780109",
+      "local_chemical_energy_radius_ratio": "0e-14915",
+      "local_points": 23052,
+      "endpoint": {
+        "t_s": "64629964800",
+        "T": "98549552.797508983",
+        "C": "1.2855503599856228e+38",
+        "x": "-0.014610690223006836",
+        "e": "0e-1000108",
+        "mu": "0e-1000108",
+        "U": "8.8122474934336498e-22",
+        "Pdir": "0e-1000108",
+        "Pdir_eq": "0",
+        "LH": "0e-1000108",
+        "DeltaLnu": "0e-79",
+        "Lnu": "1.7005609541680747e+32",
+        "Lgamma": "2.6785500458881976e+33",
+        "Echem": "0e-999965",
+        "Pnet": "-2.8486061413050051e+33",
+        "eta_source_e_MeV_s": "0",
+        "eta_source_mu_MeV_s": "0",
+        "eta_reaction_e_MeV_s": "0e-1000108",
+        "eta_reaction_mu_MeV_s": "0e-1000108",
+        "Echem_source_erg_s": "-0e-1000108",
+        "Echem_reaction_erg_s": "0e-1000108",
+        "U_primary": "2.0690887130642609e-17",
+        "U_T": "2.0390776737085630e-9"
+      },
+      "descriptive_integrated_powers_erg": {
+        "Pdir": "0e-1000108",
+        "LH": "0e-1000108",
+        "DeltaLnu": "0e-79",
+        "Lnu": "1.1657582047492464e+43",
+        "Lgamma": "1.7620579668083632e+44",
+        "Pnet": "-1.8786337872832878e+44"
+      }
+    }
+  },
+  "paired_HP_endpoint": {
+    "t_s": "64629964800.000000",
+    "year": "2048.0000000000000",
+    "T_source": "113875356.00171844",
+    "T_control": "98549552.797508983",
+    "delta_T": "15325803.204209456",
+    "U_delta": "7.4673950548439933e-9"
+  },
+  "matched_configurations": [
+    {
+      "configuration": "tier-0-cap-0",
+      "temperature": {
+        "native_delta_K": "15325803.212229982",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.0080216185296607491",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "21967399818596594422296397220459577344",
+        "summed_uncertainty_erg": "1.0035822624332721e+41",
+        "summed_N_erg": "2123628217997505925670228683064568675313909760",
+        "ratio": "0.000047268251943741925",
+        "limit": "0.0002"
+      },
+      "unresolved_endpoint_power_channels": [
+        "LH",
+        "DeltaLnu",
+        "DeltaPbeta",
+        "Lout",
+        "Lother"
+      ],
+      "source_R20_over_N": "0.000047938541748870553",
+      "control_R20_over_N": "0.000040361632817471233"
+    },
+    {
+      "configuration": "tier-0-cap-1",
+      "temperature": {
+        "native_delta_K": "15325803.212229982",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.0080216185296607491",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "21967399818596594422296397220459577344",
+        "summed_uncertainty_erg": "1.0035822624332721e+41",
+        "summed_N_erg": "2123628217997505925670228683064568675313909760",
+        "ratio": "0.000047268251943741925",
+        "limit": "0.0002"
+      },
+      "unresolved_endpoint_power_channels": [
+        "LH",
+        "DeltaLnu",
+        "DeltaPbeta",
+        "Lout",
+        "Lother"
+      ],
+      "source_R20_over_N": "0.000047938541748870553",
+      "control_R20_over_N": "0.000040361632817471233"
+    },
+    {
+      "configuration": "tier-0-cap-2",
+      "temperature": {
+        "native_delta_K": "15325803.212229520",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.0080211565936637398",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "21967340001333896152721514094777073664",
+        "summed_uncertainty_erg": "1.0035822577032373e+41",
+        "summed_N_erg": "2123628217997506044512472454461075065629835264",
+        "ratio": "0.000047268251692840780",
+        "limit": "0.0002"
+      },
+      "unresolved_endpoint_power_channels": [
+        "LH",
+        "DeltaLnu",
+        "DeltaPbeta",
+        "Lout",
+        "Lother"
+      ],
+      "source_R20_over_N": "0.000047938541748870553",
+      "control_R20_over_N": "0.000040361630618073849"
+    },
+    {
+      "configuration": "tier-0-cap-3",
+      "temperature": {
+        "native_delta_K": "15325803.205140293",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.00093192915569071738",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "20899752078765911286241798021416222720",
+        "summed_uncertainty_erg": "1.0035700316652559e+41",
+        "summed_N_erg": "2123628216944427492258374873182215070069817344",
+        "ratio": "0.000047267173282822843",
+        "limit": "0.0002"
+      },
+      "unresolved_endpoint_power_channels": [
+        "LH",
+        "DeltaLnu",
+        "DeltaPbeta",
+        "Lout",
+        "Lother"
+      ],
+      "source_R20_over_N": "0.000047937358559904381",
+      "control_R20_over_N": "0.000040361631905219173"
+    },
+    {
+      "configuration": "tier-1-cap-0",
+      "temperature": {
+        "native_delta_K": "15325803.204379722",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.00017135898719553916",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "20784274417372008043476067126851141632",
+        "summed_uncertainty_erg": "1.0035687126628385e+41",
+        "summed_N_erg": "2123628216831379560538377831989634184601665536",
+        "ratio": "0.000047267056797009687",
+        "limit": "0.0002"
+      },
+      "unresolved_endpoint_power_channels": [
+        "LH",
+        "DeltaLnu",
+        "DeltaPbeta",
+        "Lout",
+        "Lother"
+      ],
+      "source_R20_over_N": "0.000047937230615156254",
+      "control_R20_over_N": "0.000040361632817471233"
+    },
+    {
+      "configuration": "tier-1-cap-1",
+      "temperature": {
+        "native_delta_K": "15325803.204379722",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.00017135898719553916",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "20784274417372008043476067126851141632",
+        "summed_uncertainty_erg": "1.0035687126628385e+41",
+        "summed_N_erg": "2123628216831379560538377831989634184601665536",
+        "ratio": "0.000047267056797009687",
+        "limit": "0.0002"
+      },
+      "unresolved_endpoint_power_channels": [
+        "LH",
+        "DeltaLnu",
+        "DeltaPbeta",
+        "Lout",
+        "Lother"
+      ],
+      "source_R20_over_N": "0.000047937230615156254",
+      "control_R20_over_N": "0.000040361632817471233"
+    },
+    {
+      "configuration": "tier-1-cap-2",
+      "temperature": {
+        "native_delta_K": "15325803.204379261",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.00017089705119852988",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "20784214600109309773901184001168637952",
+        "summed_uncertainty_erg": "1.0035687079328037e+41",
+        "summed_N_erg": "2123628216831379679380621603386140574917591040",
+        "ratio": "0.000047267056546108542",
+        "limit": "0.0002"
+      },
+      "unresolved_endpoint_power_channels": [
+        "LH",
+        "DeltaLnu",
+        "DeltaPbeta",
+        "Lout",
+        "Lother"
+      ],
+      "source_R20_over_N": "0.000047937230615156254",
+      "control_R20_over_N": "0.000040361630618073849"
+    },
+    {
+      "configuration": "tier-1-cap-3",
+      "temperature": {
+        "native_delta_K": "15325803.204379231",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.00017086724887614219",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "20784210876385671603477317104602972160",
+        "summed_uncertainty_erg": "1.0035687103136411e+41",
+        "summed_N_erg": "2123628216831379679380621603386140574917591040",
+        "ratio": "0.000047267056656466853",
+        "limit": "0.0002"
+      },
+      "unresolved_endpoint_power_channels": [
+        "LH",
+        "DeltaLnu",
+        "DeltaPbeta",
+        "Lout",
+        "Lother"
+      ],
+      "source_R20_over_N": "0.000047937230615156254",
+      "control_R20_over_N": "0.000040361631905219173"
+    },
+    {
+      "configuration": "tier-2-cap-0",
+      "temperature": {
+        "native_delta_K": "15325803.204211727",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.0000033632958961006847",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "20758857309783969415597019885687799808",
+        "summed_uncertainty_erg": "1.0035683979632387e+41",
+        "summed_N_erg": "2123628216806487735667808776668832139829051392",
+        "ratio": "0.000047267030009886332",
+        "limit": "0.0002"
+      },
+      "unresolved_endpoint_power_channels": [
+        "LH",
+        "DeltaLnu",
+        "DeltaPbeta",
+        "Lout",
+        "Lother"
+      ],
+      "source_R20_over_N": "0.000047937201473008966",
+      "control_R20_over_N": "0.000040361630910060921"
+    },
+    {
+      "configuration": "tier-2-cap-1",
+      "temperature": {
+        "native_delta_K": "15325803.204211727",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.0000033632958961006847",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "20758857309783969415597019885687799808",
+        "summed_uncertainty_erg": "1.0035683979632387e+41",
+        "summed_N_erg": "2123628216806487735667808776668832139829051392",
+        "ratio": "0.000047267030009886332",
+        "limit": "0.0002"
+      },
+      "unresolved_endpoint_power_channels": [
+        "LH",
+        "DeltaLnu",
+        "DeltaPbeta",
+        "Lout",
+        "Lother"
+      ],
+      "source_R20_over_N": "0.000047937201473008966",
+      "control_R20_over_N": "0.000040361630910060921"
+    },
+    {
+      "configuration": "tier-2-cap-2",
+      "temperature": {
+        "native_delta_K": "15325803.204211697",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.0000033334935737129894",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "20758853229533599930983633818174357504",
+        "summed_uncertainty_erg": "1.0035683999673643e+41",
+        "summed_N_erg": "2123628216806487775281890033801000936601026560",
+        "ratio": "0.000047267030102337690",
+        "limit": "0.0002"
+      },
+      "unresolved_endpoint_power_channels": [
+        "LH",
+        "DeltaLnu",
+        "DeltaPbeta",
+        "Lout",
+        "Lother"
+      ],
+      "source_R20_over_N": "0.000047937201473008966",
+      "control_R20_over_N": "0.000040361631998579686"
+    },
+    {
+      "configuration": "tier-2-cap-3",
+      "temperature": {
+        "native_delta_K": "15325803.204211682",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.0000033185924125191417",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "20758851367671780845771700369891524608",
+        "summed_uncertainty_erg": "1.0035683997733555e+41",
+        "summed_N_erg": "2123628216806487775281890033801000936601026560",
+        "ratio": "0.000047267030092325229",
+        "limit": "0.0002"
+      },
+      "unresolved_endpoint_power_channels": [
+        "LH",
+        "DeltaLnu",
+        "DeltaPbeta",
+        "Lout",
+        "Lother"
+      ],
+      "source_R20_over_N": "0.000047937201473008966",
+      "control_R20_over_N": "0.000040361631905219173"
+    }
+  ],
+  "chemical_temperature_comparison": {
+    "LH": {
+      "temperature_effect_K": [
+        "0.0000049363683875582213",
+        "0.0000056146090346876305"
+      ],
+      "resolved": true
+    },
+    "net_beta_loss": {
+      "temperature_effect_K": [
+        "-0.0000028113639951881167",
+        "-0.0000024641247156331334"
+      ],
+      "resolved": true
+    }
+  },
+  "source_crossings": [
+    {
+      "knot": 94,
+      "time_bracket_s": [
+        "21351230838.205135",
+        "21351230838.215135"
+      ],
+      "time_bracket_year": [
+        "676.57967773864727",
+        "676.57967773896415"
+      ],
+      "primary_state_bound": "1.3852073081619669e-17",
+      "thermal_velocity_lower_per_s": "1.3556222277271527e-12",
+      "knot_x": "0.047437751761803966",
+      "T_K": "104858092.67744021"
+    },
+    {
+      "knot": 95,
+      "time_bracket_s": [
+        "58866837228.764612",
+        "58866837228.774612"
+      ],
+      "time_bracket_year": [
+        "1865.3775074392416",
+        "1865.3775074395585"
+      ],
+      "primary_state_bound": "4.2491552347370716e-17",
+      "thermal_velocity_lower_per_s": "1.3556222277271527e-12",
+      "knot_x": "0.11984608801947832",
+      "T_K": "112732332.96598108"
+    }
+  ],
+  "maximum_native_event_time_error_bound_s": "40.696395182623963",
+  "coverage": "PASS_MATRIX_AND_NATIVE_GUARDS",
+  "inputs": {
+    "qualification.json": "d883e30e69af80713653f62ef3bed0ce65c80cb519eab238578e53415abf6040",
+    "accuracy.json": "121974264cdaa41770c335e85e00d09e6833f0d841a9fc9c61c13330440ae3b9",
+    "ledger-assessment.json": "6bcd23475426435dd16f01aa84c4d209beaf6215f31eeaf6db18923e37e2792c",
+    "local-assessment.json": "b742e6169204612f1940b780798866227a072ad7188f9e8f36cb4bc84eb79e6e",
+    "matched.json": "b44cb2b6735bf5c05158c93b35179303bb80facb8f2ca5c9dd4b21cab81a569e",
+    "events-assessment.json": "6d148cd6e8468b287dc6116dc446aad1147990ca23ed7d21e0fc26923130c22a",
+    "coverage.json": "05c4d54c265dcc8f51fa800ed67e2115e4a4937e9ae75e002613734b08bec7df",
+    "assessment.json": "eb56c81c9257e289cab8c9ff746fb33b32d8e8a63f9ca6236657ad47ff3a9eec",
+    "chemical-response.json": "f0f72683f5375bc9d5883c28a1df8c67bb1b9d9980f9b877804de6061906891a",
+    "source-tier-0-cap-0.json": "26fdb89b786236f31d211ef2d7ae6ad9553a1c02a2ee3e8d26f5c85e6382b480",
+    "source-tier-0-cap-1.json": "3a34de67a6acd9ebbe76705941a86682624a6162aca263e6f58c15d3d831ee80",
+    "source-tier-0-cap-2.json": "cfdc9c23efec2cea2a2e94e6a9f3b5ca5e8de3cc7e944919cfdde020f7ab930b",
+    "source-tier-0-cap-3.json": "cad464c203047f70a13f97b3a327435449c99ed8402562a92c66fb76c2dfc4a5",
+    "source-tier-1-cap-0.json": "e34d76fb4bb13279688e81826da27209ca97f91eb1a731412573de6ea31aede8",
+    "source-tier-1-cap-1.json": "36c94158298e31aa564c2f7768627745788397e0e664e8ab4f653fd1c0b31fef",
+    "source-tier-1-cap-2.json": "5f9c34545217f885da9c38d4fbf93a9184759ca4447311a56c73f2015a494266",
+    "source-tier-1-cap-3.json": "90f282ffa67b64ac10c33dae8284838657482ee30c22da9e5ac2f24f9453cc8b",
+    "source-tier-2-cap-0.json": "aee21f3a1becd32cd5bf9f0779c856da296dfc676650b66c28b8bbd522cc54b9",
+    "source-tier-2-cap-1.json": "58d703d9c9b31a2ff7a5c94f1d73807614c01b173dfc73d4056c09a462fbae43",
+    "source-tier-2-cap-2.json": "9f24e0daaca9a7d5ff5c236146fb8f29cd1c3970f4018c3a09bba62b4e630ba1",
+    "source-tier-2-cap-3.json": "3be0c250a68219dd55c7d30e6c68262c8e90b69300bf1caecb90e32dcdfe462e",
+    "control-tier-0-cap-0.json": "65d131e0ae65d9b672b8216a9861047ae1ebca6e5f705bc93f6b50791a7ca27f",
+    "control-tier-0-cap-1.json": "88c66dcd2cd7eaeea3ad8800ea3d4cfb5db8ebafb81f8733cd5a1b9e19cf60bd",
+    "control-tier-0-cap-2.json": "affd9e5deb6a0304e0fac1a45a50078580106d4cff469e5e76adc0e6b36d6f92",
+    "control-tier-0-cap-3.json": "66759d97a7594fd6bcf7ae576a5d6994bd967911ddfbe88ddcec7fe1f2f0445e",
+    "control-tier-1-cap-0.json": "9a14ccff645de6eca3b4a47903545af0db0cad5c828dbabb1a7cf1a890ee4f7e",
+    "control-tier-1-cap-1.json": "3024bf6c15673c761e19c6f285f346992d138b9c478035672a73152e75d5bcf2",
+    "control-tier-1-cap-2.json": "36183d77493f1d49b263aa891ca542f7a99094b7046dfb645a2a9eef002aef83",
+    "control-tier-1-cap-3.json": "c8349b5ce6d6966f75dff4498d477b0a4510bd41f1e4e88a90a64c9562e271ee",
+    "control-tier-2-cap-0.json": "af6df96b9e3e269fe4328b999029605d5bd162fe0d1137ec09890106d2691f0c",
+    "control-tier-2-cap-1.json": "b6a8353a1e2b74ace282b411b28a3f448b101e5ffe5bcd0f3c1eba3b57f9a700",
+    "control-tier-2-cap-2.json": "f2a1be3e877ba52b13ddc7f12703d031e47e2f4bf10803a2e7b88d287b9f592e",
+    "control-tier-2-cap-3.json": "8ddf15c8c8fe109533ecc0e0ee5fc11cc5f10d2323107e60c3b2d016378e69d7"
+  },
+  "scope": "Display summary of completed candidate verification. No new trajectory, modified threshold, owner acceptance, or absolute stellar accuracy. Individual integrated powers are descriptive trapezoids, not separately qualified integrals."
+}

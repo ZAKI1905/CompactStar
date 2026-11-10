@@ -1,0 +1,1794 @@
+{
+  "status": "CANDIDATE",
+  "configurations": [
+    {
+      "configuration": "tier-0-cap-0",
+      "status": "CONDITIONAL_MATCHED_BUDGET_CANDIDATE",
+      "endpoint": {
+        "states": [
+          {
+            "channel": "x",
+            "matched_native": "0.14454498613058166",
+            "matched_reference": "0.14454498606014870",
+            "summed_uncertainty": "9.9406734877315218e-15",
+            "summed_budget": "1.4456498613058166e-8",
+            "budget_ratio": "0.0048727494233888607",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "e",
+            "matched_native": "-2.1199137281523695e-7",
+            "matched_reference": "-2.1199137019465902e-7",
+            "summed_uncertainty": "1.5082349154365595e-20",
+            "summed_budget": "2.1201137281523695e-14",
+            "budget_ratio": "0.12360624696629757",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "mu",
+            "matched_native": "-5.3112669224787290e-7",
+            "matched_reference": "-5.3112668395495924e-7",
+            "summed_uncertainty": "3.7425442403412335e-20",
+            "summed_budget": "5.3114669224787290e-14",
+            "budget_ratio": "0.15613297048930038",
+            "signal": "RESOLVED"
+          }
+        ],
+        "powers": [
+          {
+            "channel": "P_dir_eq",
+            "matched_native": "33583239602973852246093366017654784",
+            "matched_reference": "33583239602973852246093366017654784",
+            "summed_uncertainty": "1.6971542292264350e+22",
+            "summed_budget": "4.0772621295860643e+27",
+            "budget_ratio": "0.0000041624849599717425",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "P_dir_actual",
+            "matched_native": "33583239602651555345323531159207936",
+            "matched_reference": "33583239602651555345323531159207936",
+            "summed_uncertainty": "1.6976689177919962e+22",
+            "summed_budget": "4.0772621295860643e+27",
+            "budget_ratio": "0.0000041637472986421617",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "LH",
+            "matched_native": "41450913175856499130368",
+            "matched_reference": "41450912064964122378240",
+            "summed_uncertainty": "1.6673685127085780e+22",
+            "summed_budget": "4.0772621295860643e+27",
+            "budget_ratio": "0.0000040894320031542635",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaLnu",
+            "matched_native": "62176369762011661205504",
+            "matched_reference": "62176368095673100271616",
+            "summed_uncertainty": "1.6673685127086156e+22",
+            "summed_budget": "4.0772621295860643e+27",
+            "budget_ratio": "0.0000040894321393845430",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaPbeta",
+            "matched_native": "-20725456586155162075136",
+            "matched_reference": "-20725456030708977893376",
+            "summed_uncertainty": "1.6673685127085207e+22",
+            "summed_budget": "4.0772621295860643e+27",
+            "budget_ratio": "0.0000040894318669239335",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lnu_eq",
+            "matched_native": "370440449516378873212203897454592",
+            "matched_reference": "370440449211844277459109332123648",
+            "summed_uncertainty": "1.6985192058118865e+22",
+            "summed_budget": "4.0772621295860643e+27",
+            "budget_ratio": "0.000078856786145328133",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lnu_full",
+            "matched_native": "370440449578555209379710775590912",
+            "matched_reference": "370440449274020613626616210259968",
+            "summed_uncertainty": "1.6985128201786771e+22",
+            "summed_budget": "4.0772621295860643e+27",
+            "budget_ratio": "0.000078856770483756700",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lout",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621295860643e+27",
+            "budget_ratio": "1.5510506967110283e-349",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lgamma",
+            "matched_native": "1121728960979147522580365088653312",
+            "matched_reference": "1121728960331409704097632500056064",
+            "summed_uncertainty": "1.7076220673361150e+22",
+            "summed_budget": "4.0772621295860643e+27",
+            "budget_ratio": "0.00016305403430698424",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lother",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621295860643e+27",
+            "budget_ratio": "1.5510506967110283e-349",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Pnet",
+            "matched_native": "32091070192135307887645430521004032",
+            "matched_reference": "32091070193087573780668997242454016",
+            "summed_uncertainty": "1.7344076266810113e+22",
+            "summed_budget": "4.0772621295860643e+27",
+            "budget_ratio": "0.00023780908327049713",
+            "signal": "RESOLVED"
+          }
+        ]
+      },
+      "temperature": {
+        "native_delta_K": "15325803.212229982",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.0080216185296607491",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "21967399818596594422296397220459577344",
+        "summed_uncertainty_erg": "1.0035822624332721e+41",
+        "summed_N_erg": "2123628217997505925670228683064568675313909760",
+        "ratio": "0.000047268251943741925",
+        "limit": "0.0002"
+      }
+    },
+    {
+      "configuration": "tier-0-cap-1",
+      "status": "CONDITIONAL_MATCHED_BUDGET_CANDIDATE",
+      "endpoint": {
+        "states": [
+          {
+            "channel": "x",
+            "matched_native": "0.14454498613058166",
+            "matched_reference": "0.14454498606014870",
+            "summed_uncertainty": "9.9406734877315218e-15",
+            "summed_budget": "1.4456498613058166e-8",
+            "budget_ratio": "0.0048727494233888607",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "e",
+            "matched_native": "-2.1199137281523695e-7",
+            "matched_reference": "-2.1199137019465902e-7",
+            "summed_uncertainty": "1.5082349154365595e-20",
+            "summed_budget": "2.1201137281523695e-14",
+            "budget_ratio": "0.12360624696629757",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "mu",
+            "matched_native": "-5.3112669224787290e-7",
+            "matched_reference": "-5.3112668395495924e-7",
+            "summed_uncertainty": "3.7425442403412335e-20",
+            "summed_budget": "5.3114669224787290e-14",
+            "budget_ratio": "0.15613297048930038",
+            "signal": "RESOLVED"
+          }
+        ],
+        "powers": [
+          {
+            "channel": "P_dir_eq",
+            "matched_native": "33583239602973852246093366017654784",
+            "matched_reference": "33583239602973852246093366017654784",
+            "summed_uncertainty": "1.6971542292264350e+22",
+            "summed_budget": "4.0772621295860643e+27",
+            "budget_ratio": "0.0000041624849599717425",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "P_dir_actual",
+            "matched_native": "33583239602651555345323531159207936",
+            "matched_reference": "33583239602651555345323531159207936",
+            "summed_uncertainty": "1.6976689177919962e+22",
+            "summed_budget": "4.0772621295860643e+27",
+            "budget_ratio": "0.0000041637472986421617",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "LH",
+            "matched_native": "41450913175856499130368",
+            "matched_reference": "41450912064964122378240",
+            "summed_uncertainty": "1.6673685127085780e+22",
+            "summed_budget": "4.0772621295860643e+27",
+            "budget_ratio": "0.0000040894320031542635",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaLnu",
+            "matched_native": "62176369762011661205504",
+            "matched_reference": "62176368095673100271616",
+            "summed_uncertainty": "1.6673685127086156e+22",
+            "summed_budget": "4.0772621295860643e+27",
+            "budget_ratio": "0.0000040894321393845430",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaPbeta",
+            "matched_native": "-20725456586155162075136",
+            "matched_reference": "-20725456030708977893376",
+            "summed_uncertainty": "1.6673685127085207e+22",
+            "summed_budget": "4.0772621295860643e+27",
+            "budget_ratio": "0.0000040894318669239335",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lnu_eq",
+            "matched_native": "370440449516378873212203897454592",
+            "matched_reference": "370440449211844277459109332123648",
+            "summed_uncertainty": "1.6985192058118865e+22",
+            "summed_budget": "4.0772621295860643e+27",
+            "budget_ratio": "0.000078856786145328133",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lnu_full",
+            "matched_native": "370440449578555209379710775590912",
+            "matched_reference": "370440449274020613626616210259968",
+            "summed_uncertainty": "1.6985128201786771e+22",
+            "summed_budget": "4.0772621295860643e+27",
+            "budget_ratio": "0.000078856770483756700",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lout",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621295860643e+27",
+            "budget_ratio": "1.5510506967110283e-349",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lgamma",
+            "matched_native": "1121728960979147522580365088653312",
+            "matched_reference": "1121728960331409704097632500056064",
+            "summed_uncertainty": "1.7076220673361150e+22",
+            "summed_budget": "4.0772621295860643e+27",
+            "budget_ratio": "0.00016305403430698424",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lother",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621295860643e+27",
+            "budget_ratio": "1.5510506967110283e-349",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Pnet",
+            "matched_native": "32091070192135307887645430521004032",
+            "matched_reference": "32091070193087573780668997242454016",
+            "summed_uncertainty": "1.7344076266810113e+22",
+            "summed_budget": "4.0772621295860643e+27",
+            "budget_ratio": "0.00023780908327049713",
+            "signal": "RESOLVED"
+          }
+        ]
+      },
+      "temperature": {
+        "native_delta_K": "15325803.212229982",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.0080216185296607491",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "21967399818596594422296397220459577344",
+        "summed_uncertainty_erg": "1.0035822624332721e+41",
+        "summed_N_erg": "2123628217997505925670228683064568675313909760",
+        "ratio": "0.000047268251943741925",
+        "limit": "0.0002"
+      }
+    },
+    {
+      "configuration": "tier-0-cap-2",
+      "status": "CONDITIONAL_MATCHED_BUDGET_CANDIDATE",
+      "endpoint": {
+        "states": [
+          {
+            "channel": "x",
+            "matched_native": "0.14454498613057690",
+            "matched_reference": "0.14454498606014870",
+            "summed_uncertainty": "9.9406734877315218e-15",
+            "summed_budget": "1.4456498613057690e-8",
+            "budget_ratio": "0.0048724205140746066",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "e",
+            "matched_native": "-2.1199137281523695e-7",
+            "matched_reference": "-2.1199137019465902e-7",
+            "summed_uncertainty": "1.5082349154365595e-20",
+            "summed_budget": "2.1201137281523695e-14",
+            "budget_ratio": "0.12360624696629757",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "mu",
+            "matched_native": "-5.3112669224787290e-7",
+            "matched_reference": "-5.3112668395495924e-7",
+            "summed_uncertainty": "3.7425442403412335e-20",
+            "summed_budget": "5.3114669224787290e-14",
+            "budget_ratio": "0.15613297048930038",
+            "signal": "RESOLVED"
+          }
+        ],
+        "powers": [
+          {
+            "channel": "P_dir_eq",
+            "matched_native": "33583239602973852246093366017654784",
+            "matched_reference": "33583239602973852246093366017654784",
+            "summed_uncertainty": "1.6971542292264350e+22",
+            "summed_budget": "4.0772621295860680e+27",
+            "budget_ratio": "0.0000041624849599717387",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "P_dir_actual",
+            "matched_native": "33583239602651555345323531159207936",
+            "matched_reference": "33583239602651555345323531159207936",
+            "summed_uncertainty": "1.6976689177919962e+22",
+            "summed_budget": "4.0772621295860680e+27",
+            "budget_ratio": "0.0000041637472986421578",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "LH",
+            "matched_native": "41450913175856499130368",
+            "matched_reference": "41450912064964122378240",
+            "summed_uncertainty": "1.6673685127085780e+22",
+            "summed_budget": "4.0772621295860680e+27",
+            "budget_ratio": "0.0000040894320031542597",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaLnu",
+            "matched_native": "62176369762011661205504",
+            "matched_reference": "62176368095673100271616",
+            "summed_uncertainty": "1.6673685127086156e+22",
+            "summed_budget": "4.0772621295860680e+27",
+            "budget_ratio": "0.0000040894321393845393",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaPbeta",
+            "matched_native": "-20725456586155162075136",
+            "matched_reference": "-20725456030708977893376",
+            "summed_uncertainty": "1.6673685127085207e+22",
+            "summed_budget": "4.0772621295860680e+27",
+            "budget_ratio": "0.0000040894318669239297",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lnu_eq",
+            "matched_native": "370440449516372460086334521868288",
+            "matched_reference": "370440449211844277459109332123648",
+            "summed_uncertainty": "1.6985192058118865e+22",
+            "summed_budget": "4.0772621295860680e+27",
+            "budget_ratio": "0.000078855213245262882",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lnu_full",
+            "matched_native": "370440449578548796253841400004608",
+            "matched_reference": "370440449274020613626616210259968",
+            "summed_uncertainty": "1.6985128201786771e+22",
+            "summed_budget": "4.0772621295860680e+27",
+            "budget_ratio": "0.000078855197583691449",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lout",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621295860680e+27",
+            "budget_ratio": "1.5510506967110268e-349",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lgamma",
+            "matched_native": "1121728960979116393699740703784960",
+            "matched_reference": "1121728960331409704097632500056064",
+            "summed_uncertainty": "1.7076220673361150e+22",
+            "summed_budget": "4.0772621295860680e+27",
+            "budget_ratio": "0.00016304639955610592",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lother",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621295860680e+27",
+            "budget_ratio": "1.5510506967110268e-349",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Pnet",
+            "matched_native": "32091070192135345357594330243530752",
+            "matched_reference": "32091070193087573780668997242454016",
+            "summed_uncertainty": "1.7344076266810113e+22",
+            "summed_budget": "4.0772621295860680e+27",
+            "budget_ratio": "0.00023779989329258801",
+            "signal": "RESOLVED"
+          }
+        ]
+      },
+      "temperature": {
+        "native_delta_K": "15325803.212229520",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.0080211565936637398",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "21967340001333896152721514094777073664",
+        "summed_uncertainty_erg": "1.0035822577032373e+41",
+        "summed_N_erg": "2123628217997506044512472454461075065629835264",
+        "ratio": "0.000047268251692840780",
+        "limit": "0.0002"
+      }
+    },
+    {
+      "configuration": "tier-0-cap-3",
+      "status": "CONDITIONAL_MATCHED_BUDGET_CANDIDATE",
+      "endpoint": {
+        "states": [
+          {
+            "channel": "x",
+            "matched_native": "0.14454498606832249",
+            "matched_reference": "0.14454498606014870",
+            "summed_uncertainty": "9.9406734877315218e-15",
+            "summed_budget": "1.4456498606832249e-8",
+            "budget_ratio": "0.00056609305802122107",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "e",
+            "matched_native": "-2.1199137044041616e-7",
+            "matched_reference": "-2.1199137019465902e-7",
+            "summed_uncertainty": "1.5082349154365595e-20",
+            "summed_budget": "2.1201137044041616e-14",
+            "budget_ratio": "0.011592407298879482",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "mu",
+            "matched_native": "-5.3112668472949220e-7",
+            "matched_reference": "-5.3112668395495924e-7",
+            "summed_uncertainty": "3.7425442403412335e-20",
+            "summed_budget": "5.3114668472949220e-14",
+            "budget_ratio": "0.014582984508619609",
+            "signal": "RESOLVED"
+          }
+        ],
+        "powers": [
+          {
+            "channel": "P_dir_eq",
+            "matched_native": "33583239602973852246093366017654784",
+            "matched_reference": "33583239602973852246093366017654784",
+            "summed_uncertainty": "1.6971542292264350e+22",
+            "summed_budget": "4.0772621295018963e+27",
+            "budget_ratio": "0.0000041624849600576697",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "P_dir_actual",
+            "matched_native": "33583239602651555345323531159207936",
+            "matched_reference": "33583239602651555345323531159207936",
+            "summed_uncertainty": "1.6976689177919962e+22",
+            "summed_budget": "4.0772621295018963e+27",
+            "budget_ratio": "0.0000041637472987281149",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "LH",
+            "matched_native": "41450912169407543246848",
+            "matched_reference": "41450912064964122378240",
+            "summed_uncertainty": "1.6673685127085780e+22",
+            "summed_budget": "4.0772621295018963e+27",
+            "budget_ratio": "0.0000040894317563943729",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaLnu",
+            "matched_native": "62176368252338223185920",
+            "matched_reference": "62176368095673100271616",
+            "summed_uncertainty": "1.6673685127086156e+22",
+            "summed_budget": "4.0772621295018963e+27",
+            "budget_ratio": "0.0000040894317692024966",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaPbeta",
+            "matched_native": "-20725456082930679939072",
+            "matched_reference": "-20725456030708977893376",
+            "summed_uncertainty": "1.6673685127085207e+22",
+            "summed_budget": "4.0772621295018963e+27",
+            "budget_ratio": "0.0000040894317435861967",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lnu_eq",
+            "matched_native": "370440449247187518528396453740544",
+            "matched_reference": "370440449211844277459109332123648",
+            "summed_uncertainty": "1.6985192058118865e+22",
+            "summed_budget": "4.0772621295018963e+27",
+            "budget_ratio": "0.000012834208708037801",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lnu_full",
+            "matched_native": "370440449309363854695903331876864",
+            "matched_reference": "370440449274020613626616210259968",
+            "summed_uncertainty": "1.6985128201786771e+22",
+            "summed_budget": "4.0772621295018963e+27",
+            "budget_ratio": "0.000012834193046466368",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lout",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621295018963e+27",
+            "budget_ratio": "1.5510506967430470e-349",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lgamma",
+            "matched_native": "1121728960406583644962512743432192",
+            "matched_reference": "1121728960331409704097632500056064",
+            "summed_uncertainty": "1.7076220673361150e+22",
+            "summed_budget": "4.0772621295018963e+27",
+            "budget_ratio": "0.000022625516488318411",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lother",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621295018963e+27",
+            "budget_ratio": "1.5510506967430470e-349",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Pnet",
+            "matched_native": "32091070192977061642766412532416512",
+            "matched_reference": "32091070193087573780668997242454016",
+            "summed_uncertainty": "1.7344076266810113e+22",
+            "summed_budget": "4.0772621295018963e+27",
+            "budget_ratio": "0.000031358350311662334",
+            "signal": "RESOLVED"
+          }
+        ]
+      },
+      "temperature": {
+        "native_delta_K": "15325803.205140293",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.00093192915569071738",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "20899752078765911286241798021416222720",
+        "summed_uncertainty_erg": "1.0035700316652559e+41",
+        "summed_N_erg": "2123628216944427492258374873182215070069817344",
+        "ratio": "0.000047267173282822843",
+        "limit": "0.0002"
+      }
+    },
+    {
+      "configuration": "tier-1-cap-0",
+      "status": "CONDITIONAL_MATCHED_BUDGET_CANDIDATE",
+      "endpoint": {
+        "states": [
+          {
+            "channel": "x",
+            "matched_native": "0.14454498606164433",
+            "matched_reference": "0.14454498606014870",
+            "summed_uncertainty": "9.9406734877315218e-15",
+            "summed_budget": "1.4456498606164433e-10",
+            "budget_ratio": "0.010414466557819626",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "e",
+            "matched_native": "-2.1199137023701006e-7",
+            "matched_reference": "-2.1199137019465902e-7",
+            "summed_uncertainty": "1.5082349154365595e-20",
+            "summed_budget": "2.1201137023701006e-16",
+            "budget_ratio": "0.19982947546434395",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "mu",
+            "matched_native": "-5.3112668408887123e-7",
+            "matched_reference": "-5.3112668395495924e-7",
+            "summed_uncertainty": "3.7425442403412335e-20",
+            "summed_budget": "5.3114668408887123e-16",
+            "budget_ratio": "0.25218912381182236",
+            "signal": "RESOLVED"
+          }
+        ],
+        "powers": [
+          {
+            "channel": "P_dir_eq",
+            "matched_native": "33583239602973852246093366017654784",
+            "matched_reference": "33583239602973852246093366017654784",
+            "summed_uncertainty": "1.6971542292264350e+22",
+            "summed_budget": "4.0772621294928563e+25",
+            "budget_ratio": "0.00041624849600668987",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "P_dir_actual",
+            "matched_native": "33583239602651555345323531159207936",
+            "matched_reference": "33583239602651555345323531159207936",
+            "summed_uncertainty": "1.6976689177919962e+22",
+            "summed_budget": "4.0772621294928563e+25",
+            "budget_ratio": "0.00041637472987373467",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "LH",
+            "matched_native": "41450912083000476827648",
+            "matched_reference": "41450912064964122378240",
+            "summed_uncertainty": "1.6673685127085780e+22",
+            "summed_budget": "4.0772621294928563e+25",
+            "budget_ratio": "0.00040894317352110163",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaLnu",
+            "matched_native": "62176368122727619362816",
+            "matched_reference": "62176368095673100271616",
+            "summed_uncertainty": "1.6673685127086156e+22",
+            "summed_budget": "4.0772621294928563e+25",
+            "budget_ratio": "0.00040894317374229271",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaPbeta",
+            "matched_native": "-20725456039727142535168",
+            "matched_reference": "-20725456030708977893376",
+            "summed_uncertainty": "1.6673685127085207e+22",
+            "summed_budget": "4.0772621294928563e+25",
+            "budget_ratio": "0.00040894317329990509",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lnu_eq",
+            "matched_native": "370440449218295918112498190909440",
+            "matched_reference": "370440449211844277459109332123648",
+            "summed_uncertainty": "1.6985192058118865e+22",
+            "summed_budget": "4.0772621294928563e+25",
+            "budget_ratio": "0.00057481790395514443",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lnu_full",
+            "matched_native": "370440449280472254280005069045760",
+            "matched_reference": "370440449274020613626616210259968",
+            "summed_uncertainty": "1.6985128201786771e+22",
+            "summed_budget": "4.0772621294928563e+25",
+            "budget_ratio": "0.00057481633779800110",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lout",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621294928563e+25",
+            "budget_ratio": "1.5510506967464859e-347",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lgamma",
+            "matched_native": "1121728960345150799050289205739520",
+            "matched_reference": "1121728960331409704097632500056064",
+            "summed_uncertainty": "1.7076220673361150e+22",
+            "summed_budget": "4.0772621294928563e+25",
+            "budget_ratio": "0.00075583356299564232",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lother",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621294928563e+25",
+            "budget_ratio": "1.5510506967464859e-347",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Pnet",
+            "matched_native": "32091070193067384972201826745057280",
+            "matched_reference": "32091070193087573780668997242454016",
+            "summed_uncertainty": "1.7344076266810113e+22",
+            "summed_budget": "4.0772621294928563e+25",
+            "budget_ratio": "0.00092054137168387253",
+            "signal": "RESOLVED"
+          }
+        ]
+      },
+      "temperature": {
+        "native_delta_K": "15325803.204379722",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.00017135898719553916",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "20784274417372008043476067126851141632",
+        "summed_uncertainty_erg": "1.0035687126628385e+41",
+        "summed_N_erg": "2123628216831379560538377831989634184601665536",
+        "ratio": "0.000047267056797009687",
+        "limit": "0.0002"
+      }
+    },
+    {
+      "configuration": "tier-1-cap-1",
+      "status": "CONDITIONAL_MATCHED_BUDGET_CANDIDATE",
+      "endpoint": {
+        "states": [
+          {
+            "channel": "x",
+            "matched_native": "0.14454498606164433",
+            "matched_reference": "0.14454498606014870",
+            "summed_uncertainty": "9.9406734877315218e-15",
+            "summed_budget": "1.4456498606164433e-10",
+            "budget_ratio": "0.010414466557819626",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "e",
+            "matched_native": "-2.1199137023701006e-7",
+            "matched_reference": "-2.1199137019465902e-7",
+            "summed_uncertainty": "1.5082349154365595e-20",
+            "summed_budget": "2.1201137023701006e-16",
+            "budget_ratio": "0.19982947546434395",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "mu",
+            "matched_native": "-5.3112668408887123e-7",
+            "matched_reference": "-5.3112668395495924e-7",
+            "summed_uncertainty": "3.7425442403412335e-20",
+            "summed_budget": "5.3114668408887123e-16",
+            "budget_ratio": "0.25218912381182236",
+            "signal": "RESOLVED"
+          }
+        ],
+        "powers": [
+          {
+            "channel": "P_dir_eq",
+            "matched_native": "33583239602973852246093366017654784",
+            "matched_reference": "33583239602973852246093366017654784",
+            "summed_uncertainty": "1.6971542292264350e+22",
+            "summed_budget": "4.0772621294928563e+25",
+            "budget_ratio": "0.00041624849600668987",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "P_dir_actual",
+            "matched_native": "33583239602651555345323531159207936",
+            "matched_reference": "33583239602651555345323531159207936",
+            "summed_uncertainty": "1.6976689177919962e+22",
+            "summed_budget": "4.0772621294928563e+25",
+            "budget_ratio": "0.00041637472987373467",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "LH",
+            "matched_native": "41450912083000476827648",
+            "matched_reference": "41450912064964122378240",
+            "summed_uncertainty": "1.6673685127085780e+22",
+            "summed_budget": "4.0772621294928563e+25",
+            "budget_ratio": "0.00040894317352110163",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaLnu",
+            "matched_native": "62176368122727619362816",
+            "matched_reference": "62176368095673100271616",
+            "summed_uncertainty": "1.6673685127086156e+22",
+            "summed_budget": "4.0772621294928563e+25",
+            "budget_ratio": "0.00040894317374229271",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaPbeta",
+            "matched_native": "-20725456039727142535168",
+            "matched_reference": "-20725456030708977893376",
+            "summed_uncertainty": "1.6673685127085207e+22",
+            "summed_budget": "4.0772621294928563e+25",
+            "budget_ratio": "0.00040894317329990509",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lnu_eq",
+            "matched_native": "370440449218295918112498190909440",
+            "matched_reference": "370440449211844277459109332123648",
+            "summed_uncertainty": "1.6985192058118865e+22",
+            "summed_budget": "4.0772621294928563e+25",
+            "budget_ratio": "0.00057481790395514443",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lnu_full",
+            "matched_native": "370440449280472254280005069045760",
+            "matched_reference": "370440449274020613626616210259968",
+            "summed_uncertainty": "1.6985128201786771e+22",
+            "summed_budget": "4.0772621294928563e+25",
+            "budget_ratio": "0.00057481633779800110",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lout",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621294928563e+25",
+            "budget_ratio": "1.5510506967464859e-347",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lgamma",
+            "matched_native": "1121728960345150799050289205739520",
+            "matched_reference": "1121728960331409704097632500056064",
+            "summed_uncertainty": "1.7076220673361150e+22",
+            "summed_budget": "4.0772621294928563e+25",
+            "budget_ratio": "0.00075583356299564232",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lother",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621294928563e+25",
+            "budget_ratio": "1.5510506967464859e-347",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Pnet",
+            "matched_native": "32091070193067384972201826745057280",
+            "matched_reference": "32091070193087573780668997242454016",
+            "summed_uncertainty": "1.7344076266810113e+22",
+            "summed_budget": "4.0772621294928563e+25",
+            "budget_ratio": "0.00092054137168387253",
+            "signal": "RESOLVED"
+          }
+        ]
+      },
+      "temperature": {
+        "native_delta_K": "15325803.204379722",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.00017135898719553916",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "20784274417372008043476067126851141632",
+        "summed_uncertainty_erg": "1.0035687126628385e+41",
+        "summed_N_erg": "2123628216831379560538377831989634184601665536",
+        "ratio": "0.000047267056797009687",
+        "limit": "0.0002"
+      }
+    },
+    {
+      "configuration": "tier-1-cap-2",
+      "status": "CONDITIONAL_MATCHED_BUDGET_CANDIDATE",
+      "endpoint": {
+        "states": [
+          {
+            "channel": "x",
+            "matched_native": "0.14454498606163957",
+            "matched_reference": "0.14454498606014870",
+            "summed_uncertainty": "9.9406734877315218e-15",
+            "summed_budget": "1.4456498606163957e-10",
+            "budget_ratio": "0.010381575626362852",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "e",
+            "matched_native": "-2.1199137023701006e-7",
+            "matched_reference": "-2.1199137019465902e-7",
+            "summed_uncertainty": "1.5082349154365595e-20",
+            "summed_budget": "2.1201137023701006e-16",
+            "budget_ratio": "0.19982947546434395",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "mu",
+            "matched_native": "-5.3112668408887123e-7",
+            "matched_reference": "-5.3112668395495924e-7",
+            "summed_uncertainty": "3.7425442403412335e-20",
+            "summed_budget": "5.3114668408887123e-16",
+            "budget_ratio": "0.25218912381182236",
+            "signal": "RESOLVED"
+          }
+        ],
+        "powers": [
+          {
+            "channel": "P_dir_eq",
+            "matched_native": "33583239602973852246093366017654784",
+            "matched_reference": "33583239602973852246093366017654784",
+            "summed_uncertainty": "1.6971542292264350e+22",
+            "summed_budget": "4.0772621294928600e+25",
+            "budget_ratio": "0.00041624849600668949",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "P_dir_actual",
+            "matched_native": "33583239602651555345323531159207936",
+            "matched_reference": "33583239602651555345323531159207936",
+            "summed_uncertainty": "1.6976689177919962e+22",
+            "summed_budget": "4.0772621294928600e+25",
+            "budget_ratio": "0.00041637472987373429",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "LH",
+            "matched_native": "41450912083000476827648",
+            "matched_reference": "41450912064964122378240",
+            "summed_uncertainty": "1.6673685127085780e+22",
+            "summed_budget": "4.0772621294928600e+25",
+            "budget_ratio": "0.00040894317352110125",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaLnu",
+            "matched_native": "62176368122727619362816",
+            "matched_reference": "62176368095673100271616",
+            "summed_uncertainty": "1.6673685127086156e+22",
+            "summed_budget": "4.0772621294928600e+25",
+            "budget_ratio": "0.00040894317374229233",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaPbeta",
+            "matched_native": "-20725456039727142535168",
+            "matched_reference": "-20725456030708977893376",
+            "summed_uncertainty": "1.6673685127085207e+22",
+            "summed_budget": "4.0772621294928600e+25",
+            "budget_ratio": "0.00040894317329990471",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lnu_eq",
+            "matched_native": "370440449218289504986628815323136",
+            "matched_reference": "370440449211844277459109332123648",
+            "summed_uncertainty": "1.6985192058118865e+22",
+            "summed_budget": "4.0772621294928600e+25",
+            "budget_ratio": "0.00057466061394862246",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lnu_full",
+            "matched_native": "370440449280465841154135693459456",
+            "matched_reference": "370440449274020613626616210259968",
+            "summed_uncertainty": "1.6985128201786771e+22",
+            "summed_budget": "4.0772621294928600e+25",
+            "budget_ratio": "0.00057465904779147913",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lout",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621294928600e+25",
+            "budget_ratio": "1.5510506967464845e-347",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lgamma",
+            "matched_native": "1121728960345119670169664820871168",
+            "matched_reference": "1121728960331409704097632500056064",
+            "summed_uncertainty": "1.7076220673361150e+22",
+            "summed_budget": "4.0772621294928600e+25",
+            "budget_ratio": "0.00075507008790780721",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lother",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621294928600e+25",
+            "budget_ratio": "1.5510506967464845e-347",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Pnet",
+            "matched_native": "32091070193067422442150726467584000",
+            "matched_reference": "32091070193087573780668997242454016",
+            "summed_uncertainty": "1.7344076266810113e+22",
+            "summed_budget": "4.0772621294928600e+25",
+            "budget_ratio": "0.00091962237389295989",
+            "signal": "RESOLVED"
+          }
+        ]
+      },
+      "temperature": {
+        "native_delta_K": "15325803.204379261",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.00017089705119852988",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "20784214600109309773901184001168637952",
+        "summed_uncertainty_erg": "1.0035687079328037e+41",
+        "summed_N_erg": "2123628216831379679380621603386140574917591040",
+        "ratio": "0.000047267056546108542",
+        "limit": "0.0002"
+      }
+    },
+    {
+      "configuration": "tier-1-cap-3",
+      "status": "CONDITIONAL_MATCHED_BUDGET_CANDIDATE",
+      "endpoint": {
+        "states": [
+          {
+            "channel": "x",
+            "matched_native": "0.14454498606163925",
+            "matched_reference": "0.14454498606014870",
+            "summed_uncertainty": "9.9406734877315218e-15",
+            "summed_budget": "1.4456498606163925e-10",
+            "budget_ratio": "0.010379319699652209",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "e",
+            "matched_native": "-2.1199137023701006e-7",
+            "matched_reference": "-2.1199137019465902e-7",
+            "summed_uncertainty": "1.5082349154365595e-20",
+            "summed_budget": "2.1201137023701006e-16",
+            "budget_ratio": "0.19982947546434395",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "mu",
+            "matched_native": "-5.3112668408887123e-7",
+            "matched_reference": "-5.3112668395495924e-7",
+            "summed_uncertainty": "3.7425442403412335e-20",
+            "summed_budget": "5.3114668408887123e-16",
+            "budget_ratio": "0.25218912381182236",
+            "signal": "RESOLVED"
+          }
+        ],
+        "powers": [
+          {
+            "channel": "P_dir_eq",
+            "matched_native": "33583239602973852246093366017654784",
+            "matched_reference": "33583239602973852246093366017654784",
+            "summed_uncertainty": "1.6971542292264350e+22",
+            "summed_budget": "4.0772621294928601e+25",
+            "budget_ratio": "0.00041624849600668948",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "P_dir_actual",
+            "matched_native": "33583239602651555345323531159207936",
+            "matched_reference": "33583239602651555345323531159207936",
+            "summed_uncertainty": "1.6976689177919962e+22",
+            "summed_budget": "4.0772621294928601e+25",
+            "budget_ratio": "0.00041637472987373429",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "LH",
+            "matched_native": "41450912083000476827648",
+            "matched_reference": "41450912064964122378240",
+            "summed_uncertainty": "1.6673685127085780e+22",
+            "summed_budget": "4.0772621294928601e+25",
+            "budget_ratio": "0.00040894317352110125",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaLnu",
+            "matched_native": "62176368122727619362816",
+            "matched_reference": "62176368095673100271616",
+            "summed_uncertainty": "1.6673685127086156e+22",
+            "summed_budget": "4.0772621294928601e+25",
+            "budget_ratio": "0.00040894317374229233",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaPbeta",
+            "matched_native": "-20725456039727142535168",
+            "matched_reference": "-20725456030708977893376",
+            "summed_uncertainty": "1.6673685127085207e+22",
+            "summed_budget": "4.0772621294928601e+25",
+            "budget_ratio": "0.00040894317329990471",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lnu_eq",
+            "matched_native": "370440449218289108669861606719488",
+            "matched_reference": "370440449211844277459109332123648",
+            "summed_uncertainty": "1.6985192058118865e+22",
+            "summed_budget": "4.0772621294928601e+25",
+            "budget_ratio": "0.00057465089377968012",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lnu_full",
+            "matched_native": "370440449280465444837368484855808",
+            "matched_reference": "370440449274020613626616210259968",
+            "summed_uncertainty": "1.6985128201786771e+22",
+            "summed_budget": "4.0772621294928601e+25",
+            "budget_ratio": "0.00057464932762253679",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lout",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621294928601e+25",
+            "budget_ratio": "1.5510506967464845e-347",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lgamma",
+            "matched_native": "1121728960345119670169664820871168",
+            "matched_reference": "1121728960331409704097632500056064",
+            "summed_uncertainty": "1.7076220673361150e+22",
+            "summed_budget": "4.0772621294928601e+25",
+            "budget_ratio": "0.00075507008790780720",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lother",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621294928601e+25",
+            "budget_ratio": "1.5510506967464845e-347",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Pnet",
+            "matched_native": "32091070193067423018611478771007488",
+            "matched_reference": "32091070193087573780668997242454016",
+            "summed_uncertainty": "1.7344076266810113e+22",
+            "summed_budget": "4.0772621294928601e+25",
+            "budget_ratio": "0.00091960823546540739",
+            "signal": "RESOLVED"
+          }
+        ]
+      },
+      "temperature": {
+        "native_delta_K": "15325803.204379231",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.00017086724887614219",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "20784210876385671603477317104602972160",
+        "summed_uncertainty_erg": "1.0035687103136411e+41",
+        "summed_N_erg": "2123628216831379679380621603386140574917591040",
+        "ratio": "0.000047267056656466853",
+        "limit": "0.0002"
+      }
+    },
+    {
+      "configuration": "tier-2-cap-0",
+      "status": "CONDITIONAL_MATCHED_BUDGET_CANDIDATE",
+      "endpoint": {
+        "states": [
+          {
+            "channel": "x",
+            "matched_native": "0.14454498606016839",
+            "matched_reference": "0.14454498606014870",
+            "summed_uncertainty": "9.9406734877315218e-15",
+            "summed_budget": "1.4456498606016839e-12",
+            "budget_ratio": "0.020494623922462816",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "e",
+            "matched_native": "-2.1199137019517032e-7",
+            "matched_reference": "-2.1199137019465902e-7",
+            "summed_uncertainty": "1.5082349154365595e-20",
+            "summed_budget": "2.1201137019517032e-18",
+            "budget_ratio": "0.24827565212949771",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "mu",
+            "matched_native": "-5.3112668395658067e-7",
+            "matched_reference": "-5.3112668395495924e-7",
+            "summed_uncertainty": "3.7425442403412335e-20",
+            "summed_budget": "5.3114668395658067e-18",
+            "budget_ratio": "0.31231641122710322",
+            "signal": "RESOLVED"
+          }
+        ],
+        "powers": [
+          {
+            "channel": "P_dir_eq",
+            "matched_native": "33583239602973852246093366017654784",
+            "matched_reference": "33583239602973852246093366017654784",
+            "summed_uncertainty": "1.6971542292264350e+22",
+            "summed_budget": "4.0772621294908706e+25",
+            "budget_ratio": "0.00041624849600689259",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "P_dir_actual",
+            "matched_native": "33583239602651555345323531159207936",
+            "matched_reference": "33583239602651555345323531159207936",
+            "summed_uncertainty": "1.6976689177919962e+22",
+            "summed_budget": "4.0772621294908706e+25",
+            "budget_ratio": "0.00041637472987393745",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "LH",
+            "matched_native": "41450912065182335238144",
+            "matched_reference": "41450912064964122378240",
+            "summed_uncertainty": "1.6673685127085780e+22",
+            "summed_budget": "4.0772621294908706e+25",
+            "budget_ratio": "0.00040894317308428838",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaLnu",
+            "matched_native": "62176368096000423755776",
+            "matched_reference": "62176368095673100271616",
+            "summed_uncertainty": "1.6673685127086156e+22",
+            "summed_budget": "4.0772621294908706e+25",
+            "budget_ratio": "0.00040894317308697366",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaPbeta",
+            "matched_native": "-20725456030818088517632",
+            "matched_reference": "-20725456030708977893376",
+            "summed_uncertainty": "1.6673685127085207e+22",
+            "summed_budget": "4.0772621294908706e+25",
+            "budget_ratio": "0.00040894317308159845",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lnu_eq",
+            "matched_native": "370440449211927684124208233709568",
+            "matched_reference": "370440449211844277459109332123648",
+            "summed_uncertainty": "1.6985192058118865e+22",
+            "summed_budget": "4.0772621294908706e+25",
+            "budget_ratio": "0.00041862892747955670",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lnu_full",
+            "matched_native": "370440449274104020291715111845888",
+            "matched_reference": "370440449274020613626616210259968",
+            "summed_uncertainty": "1.6985128201786771e+22",
+            "summed_budget": "4.0772621294908706e+25",
+            "budget_ratio": "0.00041862736132241337",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lout",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621294908706e+25",
+            "budget_ratio": "1.5510506967472413e-347",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lgamma",
+            "matched_native": "1121728960331591289234608078454784",
+            "matched_reference": "1121728960331409704097632500056064",
+            "summed_uncertainty": "1.7076220673361150e+22",
+            "summed_budget": "4.0772621294908706e+25",
+            "budget_ratio": "0.00042326947010619887",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lother",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621294908706e+25",
+            "budget_ratio": "1.5510506967472413e-347",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Pnet",
+            "matched_native": "32091070193087314949791213005307904",
+            "matched_reference": "32091070193087573780668997242454016",
+            "summed_uncertainty": "1.7344076266810113e+22",
+            "summed_budget": "4.0772621294908706e+25",
+            "budget_ratio": "0.00043173351591187570",
+            "signal": "RESOLVED"
+          }
+        ]
+      },
+      "temperature": {
+        "native_delta_K": "15325803.204211727",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.0000033632958961006847",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "20758857309783969415597019885687799808",
+        "summed_uncertainty_erg": "1.0035683979632387e+41",
+        "summed_N_erg": "2123628216806487735667808776668832139829051392",
+        "ratio": "0.000047267030009886332",
+        "limit": "0.0002"
+      }
+    },
+    {
+      "configuration": "tier-2-cap-1",
+      "status": "CONDITIONAL_MATCHED_BUDGET_CANDIDATE",
+      "endpoint": {
+        "states": [
+          {
+            "channel": "x",
+            "matched_native": "0.14454498606016839",
+            "matched_reference": "0.14454498606014870",
+            "summed_uncertainty": "9.9406734877315218e-15",
+            "summed_budget": "1.4456498606016839e-12",
+            "budget_ratio": "0.020494623922462816",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "e",
+            "matched_native": "-2.1199137019517032e-7",
+            "matched_reference": "-2.1199137019465902e-7",
+            "summed_uncertainty": "1.5082349154365595e-20",
+            "summed_budget": "2.1201137019517032e-18",
+            "budget_ratio": "0.24827565212949771",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "mu",
+            "matched_native": "-5.3112668395658067e-7",
+            "matched_reference": "-5.3112668395495924e-7",
+            "summed_uncertainty": "3.7425442403412335e-20",
+            "summed_budget": "5.3114668395658067e-18",
+            "budget_ratio": "0.31231641122710322",
+            "signal": "RESOLVED"
+          }
+        ],
+        "powers": [
+          {
+            "channel": "P_dir_eq",
+            "matched_native": "33583239602973852246093366017654784",
+            "matched_reference": "33583239602973852246093366017654784",
+            "summed_uncertainty": "1.6971542292264350e+22",
+            "summed_budget": "4.0772621294908706e+25",
+            "budget_ratio": "0.00041624849600689259",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "P_dir_actual",
+            "matched_native": "33583239602651555345323531159207936",
+            "matched_reference": "33583239602651555345323531159207936",
+            "summed_uncertainty": "1.6976689177919962e+22",
+            "summed_budget": "4.0772621294908706e+25",
+            "budget_ratio": "0.00041637472987393745",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "LH",
+            "matched_native": "41450912065182335238144",
+            "matched_reference": "41450912064964122378240",
+            "summed_uncertainty": "1.6673685127085780e+22",
+            "summed_budget": "4.0772621294908706e+25",
+            "budget_ratio": "0.00040894317308428838",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaLnu",
+            "matched_native": "62176368096000423755776",
+            "matched_reference": "62176368095673100271616",
+            "summed_uncertainty": "1.6673685127086156e+22",
+            "summed_budget": "4.0772621294908706e+25",
+            "budget_ratio": "0.00040894317308697366",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaPbeta",
+            "matched_native": "-20725456030818088517632",
+            "matched_reference": "-20725456030708977893376",
+            "summed_uncertainty": "1.6673685127085207e+22",
+            "summed_budget": "4.0772621294908706e+25",
+            "budget_ratio": "0.00040894317308159845",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lnu_eq",
+            "matched_native": "370440449211927684124208233709568",
+            "matched_reference": "370440449211844277459109332123648",
+            "summed_uncertainty": "1.6985192058118865e+22",
+            "summed_budget": "4.0772621294908706e+25",
+            "budget_ratio": "0.00041862892747955670",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lnu_full",
+            "matched_native": "370440449274104020291715111845888",
+            "matched_reference": "370440449274020613626616210259968",
+            "summed_uncertainty": "1.6985128201786771e+22",
+            "summed_budget": "4.0772621294908706e+25",
+            "budget_ratio": "0.00041862736132241337",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lout",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621294908706e+25",
+            "budget_ratio": "1.5510506967472413e-347",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lgamma",
+            "matched_native": "1121728960331591289234608078454784",
+            "matched_reference": "1121728960331409704097632500056064",
+            "summed_uncertainty": "1.7076220673361150e+22",
+            "summed_budget": "4.0772621294908706e+25",
+            "budget_ratio": "0.00042326947010619887",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lother",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621294908706e+25",
+            "budget_ratio": "1.5510506967472413e-347",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Pnet",
+            "matched_native": "32091070193087314949791213005307904",
+            "matched_reference": "32091070193087573780668997242454016",
+            "summed_uncertainty": "1.7344076266810113e+22",
+            "summed_budget": "4.0772621294908706e+25",
+            "budget_ratio": "0.00043173351591187570",
+            "signal": "RESOLVED"
+          }
+        ]
+      },
+      "temperature": {
+        "native_delta_K": "15325803.204211727",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.0000033632958961006847",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "20758857309783969415597019885687799808",
+        "summed_uncertainty_erg": "1.0035683979632387e+41",
+        "summed_N_erg": "2123628216806487735667808776668832139829051392",
+        "ratio": "0.000047267030009886332",
+        "limit": "0.0002"
+      }
+    },
+    {
+      "configuration": "tier-2-cap-2",
+      "status": "CONDITIONAL_MATCHED_BUDGET_CANDIDATE",
+      "endpoint": {
+        "states": [
+          {
+            "channel": "x",
+            "matched_native": "0.14454498606016813",
+            "matched_reference": "0.14454498606014870",
+            "summed_uncertainty": "9.9406734877315218e-15",
+            "summed_budget": "1.4456498606016813e-12",
+            "budget_ratio": "0.020314629770014194",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "e",
+            "matched_native": "-2.1199137019517032e-7",
+            "matched_reference": "-2.1199137019465902e-7",
+            "summed_uncertainty": "1.5082349154365595e-20",
+            "summed_budget": "2.1201137019517032e-18",
+            "budget_ratio": "0.24827565212949771",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "mu",
+            "matched_native": "-5.3112668395658067e-7",
+            "matched_reference": "-5.3112668395495924e-7",
+            "summed_uncertainty": "3.7425442403412335e-20",
+            "summed_budget": "5.3114668395658067e-18",
+            "budget_ratio": "0.31231641122710322",
+            "signal": "RESOLVED"
+          }
+        ],
+        "powers": [
+          {
+            "channel": "P_dir_eq",
+            "matched_native": "33583239602973852246093366017654784",
+            "matched_reference": "33583239602973852246093366017654784",
+            "summed_uncertainty": "1.6971542292264350e+22",
+            "summed_budget": "4.0772621294908708e+25",
+            "budget_ratio": "0.00041624849600689257",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "P_dir_actual",
+            "matched_native": "33583239602651555345323531159207936",
+            "matched_reference": "33583239602651555345323531159207936",
+            "summed_uncertainty": "1.6976689177919962e+22",
+            "summed_budget": "4.0772621294908708e+25",
+            "budget_ratio": "0.00041637472987393743",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "LH",
+            "matched_native": "41450912065182335238144",
+            "matched_reference": "41450912064964122378240",
+            "summed_uncertainty": "1.6673685127085780e+22",
+            "summed_budget": "4.0772621294908708e+25",
+            "budget_ratio": "0.00040894317308428835",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaLnu",
+            "matched_native": "62176368096000423755776",
+            "matched_reference": "62176368095673100271616",
+            "summed_uncertainty": "1.6673685127086156e+22",
+            "summed_budget": "4.0772621294908708e+25",
+            "budget_ratio": "0.00040894317308697364",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaPbeta",
+            "matched_native": "-20725456030818088517632",
+            "matched_reference": "-20725456030708977893376",
+            "summed_uncertainty": "1.6673685127085207e+22",
+            "summed_budget": "4.0772621294908708e+25",
+            "budget_ratio": "0.00040894317308159843",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lnu_eq",
+            "matched_native": "370440449211927287807441025105920",
+            "matched_reference": "370440449211844277459109332123648",
+            "summed_uncertainty": "1.6985192058118865e+22",
+            "summed_budget": "4.0772621294908708e+25",
+            "budget_ratio": "0.00041861920731061434",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lnu_full",
+            "matched_native": "370440449274103623974947903242240",
+            "matched_reference": "370440449274020613626616210259968",
+            "summed_uncertainty": "1.6985128201786771e+22",
+            "summed_budget": "4.0772621294908708e+25",
+            "budget_ratio": "0.00041861764115347101",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lout",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621294908708e+25",
+            "budget_ratio": "1.5510506967472412e-347",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lgamma",
+            "matched_native": "1121728960331589559852351168184320",
+            "matched_reference": "1121728960331409704097632500056064",
+            "summed_uncertainty": "1.7076220673361150e+22",
+            "summed_budget": "4.0772621294908708e+25",
+            "budget_ratio": "0.00042322705482354136",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lother",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621294908708e+25",
+            "budget_ratio": "1.5510506967472412e-347",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Pnet",
+            "matched_native": "32091070193087317255634222219001856",
+            "matched_reference": "32091070193087573780668997242454016",
+            "summed_uncertainty": "1.7344076266810113e+22",
+            "summed_budget": "4.0772621294908708e+25",
+            "budget_ratio": "0.00043167696220166570",
+            "signal": "RESOLVED"
+          }
+        ]
+      },
+      "temperature": {
+        "native_delta_K": "15325803.204211697",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.0000033334935737129894",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "20758853229533599930983633818174357504",
+        "summed_uncertainty_erg": "1.0035683999673643e+41",
+        "summed_N_erg": "2123628216806487775281890033801000936601026560",
+        "ratio": "0.000047267030102337690",
+        "limit": "0.0002"
+      }
+    },
+    {
+      "configuration": "tier-2-cap-3",
+      "status": "CONDITIONAL_MATCHED_BUDGET_CANDIDATE",
+      "endpoint": {
+        "states": [
+          {
+            "channel": "x",
+            "matched_native": "0.14454498606016790",
+            "matched_reference": "0.14454498606014870",
+            "summed_uncertainty": "9.9406734877315218e-15",
+            "summed_budget": "1.4456498606016790e-12",
+            "budget_ratio": "0.020153834993826758",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "e",
+            "matched_native": "-2.1199137019517032e-7",
+            "matched_reference": "-2.1199137019465902e-7",
+            "summed_uncertainty": "1.5082349154365595e-20",
+            "summed_budget": "2.1201137019517032e-18",
+            "budget_ratio": "0.24827565212949771",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "mu",
+            "matched_native": "-5.3112668395658067e-7",
+            "matched_reference": "-5.3112668395495924e-7",
+            "summed_uncertainty": "3.7425442403412335e-20",
+            "summed_budget": "5.3114668395658067e-18",
+            "budget_ratio": "0.31231641122710322",
+            "signal": "RESOLVED"
+          }
+        ],
+        "powers": [
+          {
+            "channel": "P_dir_eq",
+            "matched_native": "33583239602973852246093366017654784",
+            "matched_reference": "33583239602973852246093366017654784",
+            "summed_uncertainty": "1.6971542292264350e+22",
+            "summed_budget": "4.0772621294908709e+25",
+            "budget_ratio": "0.00041624849600689256",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "P_dir_actual",
+            "matched_native": "33583239602651555345323531159207936",
+            "matched_reference": "33583239602651555345323531159207936",
+            "summed_uncertainty": "1.6976689177919962e+22",
+            "summed_budget": "4.0772621294908709e+25",
+            "budget_ratio": "0.00041637472987393743",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "LH",
+            "matched_native": "41450912065182335238144",
+            "matched_reference": "41450912064964122378240",
+            "summed_uncertainty": "1.6673685127085780e+22",
+            "summed_budget": "4.0772621294908709e+25",
+            "budget_ratio": "0.00040894317308428835",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaLnu",
+            "matched_native": "62176368096000423755776",
+            "matched_reference": "62176368095673100271616",
+            "summed_uncertainty": "1.6673685127086156e+22",
+            "summed_budget": "4.0772621294908709e+25",
+            "budget_ratio": "0.00040894317308697364",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "DeltaPbeta",
+            "matched_native": "-20725456030818088517632",
+            "matched_reference": "-20725456030708977893376",
+            "summed_uncertainty": "1.6673685127085207e+22",
+            "summed_budget": "4.0772621294908709e+25",
+            "budget_ratio": "0.00040894317308159843",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lnu_eq",
+            "matched_native": "370440449211927071634658911322112",
+            "matched_reference": "370440449211844277459109332123648",
+            "summed_uncertainty": "1.6985192058118865e+22",
+            "summed_budget": "4.0772621294908709e+25",
+            "budget_ratio": "0.00041861390540028215",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lnu_full",
+            "matched_native": "370440449274103407802165789458432",
+            "matched_reference": "370440449274020613626616210259968",
+            "summed_uncertainty": "1.6985128201786771e+22",
+            "summed_budget": "4.0772621294908709e+25",
+            "budget_ratio": "0.00041861233924313882",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lout",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621294908709e+25",
+            "budget_ratio": "1.5510506967472412e-347",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Lgamma",
+            "matched_native": "1121728960331589559852351168184320",
+            "matched_reference": "1121728960331409704097632500056064",
+            "summed_uncertainty": "1.7076220673361150e+22",
+            "summed_budget": "4.0772621294908709e+25",
+            "budget_ratio": "0.00042322705482354136",
+            "signal": "RESOLVED"
+          },
+          {
+            "channel": "Lother",
+            "matched_native": "0",
+            "matched_reference": "0",
+            "summed_uncertainty": "6.3240402667679558e-322",
+            "summed_budget": "4.0772621294908709e+25",
+            "budget_ratio": "1.5510506967472412e-347",
+            "signal": "SIGN_UNRESOLVED"
+          },
+          {
+            "channel": "Pnet",
+            "matched_native": "32091070193087317832094974522425344",
+            "matched_reference": "32091070193087573780668997242454016",
+            "summed_uncertainty": "1.7344076266810113e+22",
+            "summed_budget": "4.0772621294908709e+25",
+            "budget_ratio": "0.00043166282377411320",
+            "signal": "RESOLVED"
+          }
+        ]
+      },
+      "temperature": {
+        "native_delta_K": "15325803.204211682",
+        "reference_delta_K": "15325803.204209492",
+        "total_error_bound_about_native_K": "0.0000033185924125191417",
+        "signal": "RESOLVED"
+      },
+      "R20": {
+        "residual_difference_erg": "20758851367671780845771700369891524608",
+        "summed_uncertainty_erg": "1.0035683997733555e+41",
+        "summed_N_erg": "2123628216806487775281890033801000936601026560",
+        "ratio": "0.000047267030092325229",
+        "limit": "0.0002"
+      }
+    }
+  ],
+  "all_times_budget_argument": "At every common scientific time, including the final endpoint, the matched discrepancy is bounded by the sum of the two individual discrepancies. Adding both positive uncertainties and both budgets proves the matched state/power inequality whenever both individual inequalities pass. The same triangle inequality applies to R18/R20 with summed gross normalizations. Each role separately verifies its own noncoincident adaptive endpoints. No uncertainty cancellation is used. Endpoint resolved-signal tests are explicit; no all-time chemical-power sign-resolution claim is made."
+}

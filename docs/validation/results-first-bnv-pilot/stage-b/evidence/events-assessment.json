@@ -1,0 +1,430 @@
+{
+  "source": {
+    "HP_crossings": [
+      {
+        "knot": 94,
+        "time_bracket_s": [
+          "21351230838.205135",
+          "21351230838.215135"
+        ],
+        "time_bracket_year": [
+          "676.57967773864727",
+          "676.57967773896415"
+        ],
+        "primary_state_bound": "1.3852073081619669e-17",
+        "thermal_velocity_lower_per_s": "1.3556222277271527e-12",
+        "knot_x": "0.047437751761803966",
+        "T_K": "104858092.67744021"
+      },
+      {
+        "knot": 95,
+        "time_bracket_s": [
+          "58866837228.764612",
+          "58866837228.774612"
+        ],
+        "time_bracket_year": [
+          "1865.3775074392416",
+          "1865.3775074395585"
+        ],
+        "primary_state_bound": "4.2491552347370716e-17",
+        "thermal_velocity_lower_per_s": "1.3556222277271527e-12",
+        "knot_x": "0.11984608801947832",
+        "T_K": "112732332.96598108"
+      }
+    ],
+    "native_events": [
+      {
+        "configuration": "tier-0-cap-0",
+        "event": {
+          "ordinal": "17",
+          "time": "21351230835.70211",
+          "knot": "94",
+          "direction": "1",
+          "residual": "-6.9388939039072284e-18",
+          "low": "21351230835.70211",
+          "high": "21351230835.702114",
+          "x_error": "2.8482973851631004e-13",
+          "e_error": "3.5383954515381887e-18",
+          "mu_error": "1.1395643470381662e-17"
+        },
+        "reference_time_error_bound_s": "2.5130247691365122"
+      },
+      {
+        "configuration": "tier-0-cap-0",
+        "event": {
+          "ordinal": "20",
+          "time": "58866837188.078217",
+          "knot": "95",
+          "direction": "1",
+          "residual": "-1.3877787807814457e-17",
+          "low": "58866837188.078217",
+          "high": "58866837188.078224",
+          "x_error": "1.0795452808754749e-12",
+          "e_error": "2.0847399246979165e-17",
+          "mu_error": "7.0253850159160396e-17"
+        },
+        "reference_time_error_bound_s": "40.696395182623963"
+      },
+      {
+        "configuration": "tier-0-cap-1",
+        "event": {
+          "ordinal": "17",
+          "time": "21351230835.70211",
+          "knot": "94",
+          "direction": "1",
+          "residual": "-6.9388939039072284e-18",
+          "low": "21351230835.70211",
+          "high": "21351230835.702114",
+          "x_error": "2.8482973851631004e-13",
+          "e_error": "3.5383954515381887e-18",
+          "mu_error": "1.1395643470381662e-17"
+        },
+        "reference_time_error_bound_s": "2.5130247691365122"
+      },
+      {
+        "configuration": "tier-0-cap-1",
+        "event": {
+          "ordinal": "20",
+          "time": "58866837188.078217",
+          "knot": "95",
+          "direction": "1",
+          "residual": "-1.3877787807814457e-17",
+          "low": "58866837188.078217",
+          "high": "58866837188.078224",
+          "x_error": "1.0795452808754749e-12",
+          "e_error": "2.0847399246979165e-17",
+          "mu_error": "7.0253850159160396e-17"
+        },
+        "reference_time_error_bound_s": "40.696395182623963"
+      },
+      {
+        "configuration": "tier-0-cap-2",
+        "event": {
+          "ordinal": "17",
+          "time": "21351230835.70211",
+          "knot": "94",
+          "direction": "1",
+          "residual": "-6.9388939039072284e-18",
+          "low": "21351230835.70211",
+          "high": "21351230835.702114",
+          "x_error": "2.8482973851631004e-13",
+          "e_error": "3.5383954515381887e-18",
+          "mu_error": "1.1395643470381662e-17"
+        },
+        "reference_time_error_bound_s": "2.5130247691365122"
+      },
+      {
+        "configuration": "tier-0-cap-2",
+        "event": {
+          "ordinal": "20",
+          "time": "58866837188.078217",
+          "knot": "95",
+          "direction": "1",
+          "residual": "-1.3877787807814457e-17",
+          "low": "58866837188.078217",
+          "high": "58866837188.078224",
+          "x_error": "1.0795452808754749e-12",
+          "e_error": "2.0847399246979165e-17",
+          "mu_error": "7.0253850159160396e-17"
+        },
+        "reference_time_error_bound_s": "40.696395182623963"
+      },
+      {
+        "configuration": "tier-0-cap-3",
+        "event": {
+          "ordinal": "17",
+          "time": "21351230837.073547",
+          "knot": "94",
+          "direction": "1",
+          "residual": "-6.9388939039072284e-18",
+          "low": "21351230837.073547",
+          "high": "21351230837.073551",
+          "x_error": "1.3821589155639424e-12",
+          "e_error": "1.7206436756129281e-17",
+          "mu_error": "5.5336995072503412e-17"
+        },
+        "reference_time_error_bound_s": "1.1415876963826060"
+      },
+      {
+        "configuration": "tier-0-cap-3",
+        "event": {
+          "ordinal": "21",
+          "time": "58866837224.090019",
+          "knot": "95",
+          "direction": "1",
+          "residual": "0",
+          "low": "58866837224.090019",
+          "high": "58866837224.090019",
+          "x_error": "8.7684539074403136e-12",
+          "e_error": "1.6723380998413516e-16",
+          "mu_error": "5.6086196888890672e-16"
+        },
+        "reference_time_error_bound_s": "4.6845925092841193"
+      },
+      {
+        "configuration": "tier-1-cap-0",
+        "event": {
+          "ordinal": "19",
+          "time": "21351230838.071095",
+          "knot": "94",
+          "direction": "1",
+          "residual": "0",
+          "low": "21351230838.071095",
+          "high": "21351230838.071095",
+          "x_error": "1.2313488851206162e-17",
+          "e_error": "1.5279248420491872e-22",
+          "mu_error": "4.9386509982401858e-22"
+        },
+        "reference_time_error_bound_s": "0.14404054672440286"
+      },
+      {
+        "configuration": "tier-1-cap-0",
+        "event": {
+          "ordinal": "25",
+          "time": "58866837227.956032",
+          "knot": "95",
+          "direction": "1",
+          "residual": "0",
+          "low": "58866837227.956032",
+          "high": "58866837227.956032",
+          "x_error": "6.6727586317322495e-14",
+          "e_error": "1.3035278240727145e-18",
+          "mu_error": "4.4110332660220864e-18"
+        },
+        "reference_time_error_bound_s": "0.81857993604193179"
+      },
+      {
+        "configuration": "tier-1-cap-1",
+        "event": {
+          "ordinal": "19",
+          "time": "21351230838.071095",
+          "knot": "94",
+          "direction": "1",
+          "residual": "0",
+          "low": "21351230838.071095",
+          "high": "21351230838.071095",
+          "x_error": "1.2313488851206162e-17",
+          "e_error": "1.5279248420491872e-22",
+          "mu_error": "4.9386509982401858e-22"
+        },
+        "reference_time_error_bound_s": "0.14404054672440286"
+      },
+      {
+        "configuration": "tier-1-cap-1",
+        "event": {
+          "ordinal": "25",
+          "time": "58866837227.956032",
+          "knot": "95",
+          "direction": "1",
+          "residual": "0",
+          "low": "58866837227.956032",
+          "high": "58866837227.956032",
+          "x_error": "6.6727586317322495e-14",
+          "e_error": "1.3035278240727145e-18",
+          "mu_error": "4.4110332660220864e-18"
+        },
+        "reference_time_error_bound_s": "0.81857993604193179"
+      },
+      {
+        "configuration": "tier-1-cap-2",
+        "event": {
+          "ordinal": "19",
+          "time": "21351230838.071095",
+          "knot": "94",
+          "direction": "1",
+          "residual": "0",
+          "low": "21351230838.071095",
+          "high": "21351230838.071095",
+          "x_error": "1.2313488851206162e-17",
+          "e_error": "1.5279248420491872e-22",
+          "mu_error": "4.9386509982401858e-22"
+        },
+        "reference_time_error_bound_s": "0.14404054672440286"
+      },
+      {
+        "configuration": "tier-1-cap-2",
+        "event": {
+          "ordinal": "25",
+          "time": "58866837227.956032",
+          "knot": "95",
+          "direction": "1",
+          "residual": "0",
+          "low": "58866837227.956032",
+          "high": "58866837227.956032",
+          "x_error": "6.6727586317322495e-14",
+          "e_error": "1.3035278240727145e-18",
+          "mu_error": "4.4110332660220864e-18"
+        },
+        "reference_time_error_bound_s": "0.81857993604193179"
+      },
+      {
+        "configuration": "tier-1-cap-3",
+        "event": {
+          "ordinal": "19",
+          "time": "21351230838.071095",
+          "knot": "94",
+          "direction": "1",
+          "residual": "0",
+          "low": "21351230838.071095",
+          "high": "21351230838.071095",
+          "x_error": "1.2313488851206162e-17",
+          "e_error": "1.5279248420491872e-22",
+          "mu_error": "4.9386509982401858e-22"
+        },
+        "reference_time_error_bound_s": "0.14404054672440286"
+      },
+      {
+        "configuration": "tier-1-cap-3",
+        "event": {
+          "ordinal": "25",
+          "time": "58866837227.956032",
+          "knot": "95",
+          "direction": "1",
+          "residual": "0",
+          "low": "58866837227.956032",
+          "high": "58866837227.956032",
+          "x_error": "6.6727586317322495e-14",
+          "e_error": "1.3035278240727145e-18",
+          "mu_error": "4.4110332660220864e-18"
+        },
+        "reference_time_error_bound_s": "0.81857993604193179"
+      },
+      {
+        "configuration": "tier-2-cap-0",
+        "event": {
+          "ordinal": "24",
+          "time": "21351230838.204445",
+          "knot": "94",
+          "direction": "1",
+          "residual": "0",
+          "low": "21351230838.204445",
+          "high": "21351230838.204445",
+          "x_error": "5.3321091525922557e-17",
+          "e_error": "6.6126837175761782e-22",
+          "mu_error": "2.1369383866736734e-21"
+        },
+        "reference_time_error_bound_s": "0.010690174409949732"
+      },
+      {
+        "configuration": "tier-2-cap-0",
+        "event": {
+          "ordinal": "38",
+          "time": "58866837228.763145",
+          "knot": "95",
+          "direction": "1",
+          "residual": "0",
+          "low": "58866837228.763145",
+          "high": "58866837228.763145",
+          "x_error": "1.6679082607201991e-15",
+          "e_error": "3.2868173162580983e-20",
+          "mu_error": "1.1155909575564838e-19"
+        },
+        "reference_time_error_bound_s": "0.011466288580994289"
+      },
+      {
+        "configuration": "tier-2-cap-1",
+        "event": {
+          "ordinal": "24",
+          "time": "21351230838.204445",
+          "knot": "94",
+          "direction": "1",
+          "residual": "0",
+          "low": "21351230838.204445",
+          "high": "21351230838.204445",
+          "x_error": "5.3321091525922557e-17",
+          "e_error": "6.6126837175761782e-22",
+          "mu_error": "2.1369383866736734e-21"
+        },
+        "reference_time_error_bound_s": "0.010690174409949732"
+      },
+      {
+        "configuration": "tier-2-cap-1",
+        "event": {
+          "ordinal": "38",
+          "time": "58866837228.763145",
+          "knot": "95",
+          "direction": "1",
+          "residual": "0",
+          "low": "58866837228.763145",
+          "high": "58866837228.763145",
+          "x_error": "1.6679082607201991e-15",
+          "e_error": "3.2868173162580983e-20",
+          "mu_error": "1.1155909575564838e-19"
+        },
+        "reference_time_error_bound_s": "0.011466288580994289"
+      },
+      {
+        "configuration": "tier-2-cap-2",
+        "event": {
+          "ordinal": "24",
+          "time": "21351230838.204445",
+          "knot": "94",
+          "direction": "1",
+          "residual": "0",
+          "low": "21351230838.204445",
+          "high": "21351230838.204445",
+          "x_error": "5.3321091525922557e-17",
+          "e_error": "6.6126837175761782e-22",
+          "mu_error": "2.1369383866736734e-21"
+        },
+        "reference_time_error_bound_s": "0.010690174409949732"
+      },
+      {
+        "configuration": "tier-2-cap-2",
+        "event": {
+          "ordinal": "38",
+          "time": "58866837228.763145",
+          "knot": "95",
+          "direction": "1",
+          "residual": "0",
+          "low": "58866837228.763145",
+          "high": "58866837228.763145",
+          "x_error": "1.6679082607201991e-15",
+          "e_error": "3.2868173162580983e-20",
+          "mu_error": "1.1155909575564838e-19"
+        },
+        "reference_time_error_bound_s": "0.011466288580994289"
+      },
+      {
+        "configuration": "tier-2-cap-3",
+        "event": {
+          "ordinal": "24",
+          "time": "21351230838.204445",
+          "knot": "94",
+          "direction": "1",
+          "residual": "0",
+          "low": "21351230838.204445",
+          "high": "21351230838.204445",
+          "x_error": "5.3321091525922557e-17",
+          "e_error": "6.6126837175761782e-22",
+          "mu_error": "2.1369383866736734e-21"
+        },
+        "reference_time_error_bound_s": "0.010690174409949732"
+      },
+      {
+        "configuration": "tier-2-cap-3",
+        "event": {
+          "ordinal": "38",
+          "time": "58866837228.763145",
+          "knot": "95",
+          "direction": "1",
+          "residual": "0",
+          "low": "58866837228.763145",
+          "high": "58866837228.763145",
+          "x_error": "1.6679082607201991e-15",
+          "e_error": "3.2868173162580983e-20",
+          "mu_error": "1.1155909575564838e-19"
+        },
+        "reference_time_error_bound_s": "0.011466288580994289"
+      }
+    ],
+    "status": "CANDIDATE_ACTUAL_EVENT_COMPARISON",
+    "scope": "Reference crossing sign and transversality bounds. Native event-time comparison includes integration error; it is not the isolated local event uncertainty. Full original event allocations remain separate."
+  },
+  "control": {
+    "HP_crossings": [],
+    "native_events": [],
+    "status": "CANDIDATE_ACTUAL_EVENT_COMPARISON",
+    "scope": "Reference crossing sign and transversality bounds. Native event-time comparison includes integration error; it is not the isolated local event uncertainty. Full original event allocations remain separate."
+  }
+}

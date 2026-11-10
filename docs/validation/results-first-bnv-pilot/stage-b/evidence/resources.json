@@ -1,0 +1,2831 @@
+{
+  "allocations": [
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19289.txt",
+      "sha256": "75c6beeb3fe9e10e74457335d5fa896ec63a36c17e3e43038cd937d186a66abc",
+      "fields": {
+        "JobId": "19289",
+        "ArrayJobId": "19289",
+        "ArrayTaskId": "1",
+        "JobName": "stage-b-hp",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:48",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn003",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:07:52",
+        "StartTime": "2026-11-10T14:07:53"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19290.txt",
+      "sha256": "ab55ee19ab8c184e10f8cd4c531d1c072a964d4d70c63a82130e74cc867157f3",
+      "fields": {
+        "JobId": "19290",
+        "ArrayJobId": "19289",
+        "ArrayTaskId": "0",
+        "JobName": "stage-b-hp",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:49",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn003",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:07:52",
+        "StartTime": "2026-11-10T14:07:53"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19294.txt",
+      "sha256": "c3ed10eb4dc78c2776a20fa9d0a9ae4a1ed6c5b4399203959512b10f929e648c",
+      "fields": {
+        "JobId": "19294",
+        "ArrayJobId": "19294",
+        "ArrayTaskId": "1",
+        "JobName": "stage-b-hp",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:12:34",
+        "StartTime": "2026-11-10T14:12:34"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19295.txt",
+      "sha256": "934204dc9df20c7032f8ecfa33e8269b79bbbac8ed9bf92d43268921ab698557",
+      "fields": {
+        "JobId": "19295",
+        "ArrayJobId": "19294",
+        "ArrayTaskId": "0",
+        "JobName": "stage-b-hp",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:12:34",
+        "StartTime": "2026-11-10T14:12:34"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19297.txt",
+      "sha256": "463538d294622b4d4b4ed4f0a1c90088a18efe551ca99d6b3699741a0d78d161",
+      "fields": {
+        "JobId": "19297",
+        "ArrayJobId": "19297",
+        "ArrayTaskId": "9",
+        "JobName": "stage-b-reference",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:13:52",
+        "StartTime": "2026-11-10T14:13:53"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19298.txt",
+      "sha256": "90f8ebfa63bfbdcbd2c52365e9a145e3c242d4d07b423898e57775bdc23d563d",
+      "fields": {
+        "JobId": "19298",
+        "ArrayJobId": "19298",
+        "ArrayTaskId": "5",
+        "JobName": "stage-b-tier",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "24",
+        "CPUs/Task": "24",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T14:13:52",
+        "StartTime": "2026-11-10T14:13:56"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19299.txt",
+      "sha256": "1f30c3053948575ebfb4394d564280b9be16f20d9109f31a382f7da590d7525e",
+      "fields": {
+        "JobId": "19299",
+        "ArrayJobId": "19297",
+        "ArrayTaskId": "0",
+        "JobName": "stage-b-reference",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:13:52",
+        "StartTime": "2026-11-10T14:13:53"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19300.txt",
+      "sha256": "d2f73f064cf53e65b6f94115b834e924d5ed41fb94dcd9b1fc0cb8f0fe464b38",
+      "fields": {
+        "JobId": "19300",
+        "ArrayJobId": "19297",
+        "ArrayTaskId": "1",
+        "JobName": "stage-b-reference",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:13:52",
+        "StartTime": "2026-11-10T14:13:53"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19301.txt",
+      "sha256": "b646686e1b1063745c5009e1d069ae69fa09f6012408b60e249e79d97d599857",
+      "fields": {
+        "JobId": "19301",
+        "ArrayJobId": "19297",
+        "ArrayTaskId": "2",
+        "JobName": "stage-b-reference",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:13:52",
+        "StartTime": "2026-11-10T14:13:53"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19302.txt",
+      "sha256": "ce9c2eba19a2e088b1c4e526e728fa71f56030b67673c0122eece44875fbc517",
+      "fields": {
+        "JobId": "19302",
+        "ArrayJobId": "19297",
+        "ArrayTaskId": "3",
+        "JobName": "stage-b-reference",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:13:52",
+        "StartTime": "2026-11-10T14:13:53"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19303.txt",
+      "sha256": "0f00ae5b5a00c56002113de020272a087730c520fa6127965c95e123e579fbe2",
+      "fields": {
+        "JobId": "19303",
+        "ArrayJobId": "19297",
+        "ArrayTaskId": "4",
+        "JobName": "stage-b-reference",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:13:52",
+        "StartTime": "2026-11-10T14:13:53"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19304.txt",
+      "sha256": "ccf08d5e46bfccf773f648c5bf7a4596af301969b75ce4e52220bedae5c1b7c8",
+      "fields": {
+        "JobId": "19304",
+        "ArrayJobId": "19297",
+        "ArrayTaskId": "5",
+        "JobName": "stage-b-reference",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:13:52",
+        "StartTime": "2026-11-10T14:13:53"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19305.txt",
+      "sha256": "c880491b36d5f98715fa0230c8a3ef5398d5776712f783ac8eecce19c9639df5",
+      "fields": {
+        "JobId": "19305",
+        "ArrayJobId": "19297",
+        "ArrayTaskId": "6",
+        "JobName": "stage-b-reference",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:13:52",
+        "StartTime": "2026-11-10T14:13:53"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19306.txt",
+      "sha256": "b844fa7ce342ea67900f1021248b6d98c2467352f452a9e3a242b73c7d60d168",
+      "fields": {
+        "JobId": "19306",
+        "ArrayJobId": "19297",
+        "ArrayTaskId": "7",
+        "JobName": "stage-b-reference",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:13:52",
+        "StartTime": "2026-11-10T14:13:53"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19307.txt",
+      "sha256": "f87d3b0785ddc7dc49dc2f72e98a088537a121a70109da53fa1a2d3216e5797a",
+      "fields": {
+        "JobId": "19307",
+        "ArrayJobId": "19297",
+        "ArrayTaskId": "8",
+        "JobName": "stage-b-reference",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:13:52",
+        "StartTime": "2026-11-10T14:13:53"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19308.txt",
+      "sha256": "628d373f507ee0b1df1e8c5cc80ca07600e3ebc7d4c20a6daa7acb959bdba186",
+      "fields": {
+        "JobId": "19308",
+        "ArrayJobId": "19298",
+        "ArrayTaskId": "0",
+        "JobName": "stage-b-tier",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "24",
+        "CPUs/Task": "24",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T14:13:52",
+        "StartTime": "2026-11-10T14:13:53"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19309.txt",
+      "sha256": "158b325615d7562c82225e8825fd445004f87da06873bc7d3f36849725eed875",
+      "fields": {
+        "JobId": "19309",
+        "ArrayJobId": "19298",
+        "ArrayTaskId": "1",
+        "JobName": "stage-b-tier",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "24",
+        "CPUs/Task": "24",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T14:13:52",
+        "StartTime": "2026-11-10T14:13:53"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19310.txt",
+      "sha256": "8bdc76e2f15cc3115e7a94195b0bdd913c900e3d10d8ff53d65dab8a605deb38",
+      "fields": {
+        "JobId": "19310",
+        "ArrayJobId": "19298",
+        "ArrayTaskId": "2",
+        "JobName": "stage-b-tier",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "24",
+        "CPUs/Task": "24",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T14:13:52",
+        "StartTime": "2026-11-10T14:13:53"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19311.txt",
+      "sha256": "fc2402e6efe710b46531ff6d8e82dd9df6dc5fcfe18a27afd5e91149d7d4d3e5",
+      "fields": {
+        "JobId": "19311",
+        "ArrayJobId": "19298",
+        "ArrayTaskId": "3",
+        "JobName": "stage-b-tier",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "24",
+        "CPUs/Task": "24",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T14:13:52",
+        "StartTime": "2026-11-10T14:13:56"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19312.txt",
+      "sha256": "1018b3bf4840b6965fab100d81943a35e37939106ea91d2dfbe1e5c102975666",
+      "fields": {
+        "JobId": "19312",
+        "ArrayJobId": "19298",
+        "ArrayTaskId": "4",
+        "JobName": "stage-b-tier",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "24",
+        "CPUs/Task": "24",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T14:13:52",
+        "StartTime": "2026-11-10T14:13:56"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19313.txt",
+      "sha256": "9083a514f9d6f83844c62aec01a59e7e1cf1af9e24607433379698ab330d8f6c",
+      "fields": {
+        "JobId": "19313",
+        "ArrayJobId": "19313",
+        "ArrayTaskId": "9",
+        "JobName": "stage-b-reference",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:14:57",
+        "StartTime": "2026-11-10T14:14:57"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19314.txt",
+      "sha256": "7d207261c0b011918423f999744f1150d9f0412e39659d2cff7f6448f6f38297",
+      "fields": {
+        "JobId": "19314",
+        "ArrayJobId": "19314",
+        "ArrayTaskId": "5",
+        "JobName": "stage-b-tier",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:01",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "24",
+        "CPUs/Task": "24",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T14:14:57",
+        "StartTime": "2026-11-10T14:17:01"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19315.txt",
+      "sha256": "0531a571906e1565d3b33303ecf6f1a7e9c5175ce955fceb20f869b64bc71678",
+      "fields": {
+        "JobId": "19315",
+        "ArrayJobId": "19313",
+        "ArrayTaskId": "0",
+        "JobName": "stage-b-reference",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:14:57",
+        "StartTime": "2026-11-10T14:14:57"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19316.txt",
+      "sha256": "3a3b830e1d95843e24461cfb8c9d91a6c6102d48754f482e78dd9e18a1a0bf08",
+      "fields": {
+        "JobId": "19316",
+        "ArrayJobId": "19313",
+        "ArrayTaskId": "1",
+        "JobName": "stage-b-reference",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:14:57",
+        "StartTime": "2026-11-10T14:14:57"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19317.txt",
+      "sha256": "582499a80973969631d884f19176b0bdb5830aa59480507a68e1497c2c885abd",
+      "fields": {
+        "JobId": "19317",
+        "ArrayJobId": "19313",
+        "ArrayTaskId": "2",
+        "JobName": "stage-b-reference",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:14:57",
+        "StartTime": "2026-11-10T14:14:57"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19318.txt",
+      "sha256": "ec23be90629596dda1efd3eb12abbad0448c28dbce1dc649f6a49fbb4c00dec9",
+      "fields": {
+        "JobId": "19318",
+        "ArrayJobId": "19313",
+        "ArrayTaskId": "3",
+        "JobName": "stage-b-reference",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:14:57",
+        "StartTime": "2026-11-10T14:14:57"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19319.txt",
+      "sha256": "8c01f768c2834664bbe16bf3fe2483ea3c4525139d3f5c530a1941ba83d8af26",
+      "fields": {
+        "JobId": "19319",
+        "ArrayJobId": "19313",
+        "ArrayTaskId": "4",
+        "JobName": "stage-b-reference",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:14:57",
+        "StartTime": "2026-11-10T14:14:57"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19320.txt",
+      "sha256": "93bc99f3e42944358ac1869f7b601fe2a47c714596a88c03eb7441e474d1ea12",
+      "fields": {
+        "JobId": "19320",
+        "ArrayJobId": "19313",
+        "ArrayTaskId": "5",
+        "JobName": "stage-b-reference",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:14:57",
+        "StartTime": "2026-11-10T14:14:57"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19321.txt",
+      "sha256": "742019fda7be30b284aa0f016315a6c98b9ea2cf9a31b6422e391acad03aa6b3",
+      "fields": {
+        "JobId": "19321",
+        "ArrayJobId": "19313",
+        "ArrayTaskId": "6",
+        "JobName": "stage-b-reference",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:14:57",
+        "StartTime": "2026-11-10T14:14:57"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19322.txt",
+      "sha256": "963c875473df3b396df71e99eb2c9aa02f6e288494303ea3b3542d2aeee43a74",
+      "fields": {
+        "JobId": "19322",
+        "ArrayJobId": "19313",
+        "ArrayTaskId": "7",
+        "JobName": "stage-b-reference",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:14:57",
+        "StartTime": "2026-11-10T14:14:57"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19323.txt",
+      "sha256": "b8270bd6ccb0109aa48fe1a0f842c7454c337c604e24ec61ea1218e4dfb49790",
+      "fields": {
+        "JobId": "19323",
+        "ArrayJobId": "19313",
+        "ArrayTaskId": "8",
+        "JobName": "stage-b-reference",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "2",
+        "CPUs/Task": "1",
+        "MinMemoryNode": "4G",
+        "SubmitTime": "2026-11-10T14:14:57",
+        "StartTime": "2026-11-10T14:14:57"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19324.txt",
+      "sha256": "fddcee5b4bf335eec56a825dad352a445e07d0669776ad99d9cb61b65b6ef574",
+      "fields": {
+        "JobId": "19324",
+        "ArrayJobId": "19314",
+        "ArrayTaskId": "0",
+        "JobName": "stage-b-tier",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "24",
+        "CPUs/Task": "24",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T14:14:57",
+        "StartTime": "2026-11-10T14:14:57"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19325.txt",
+      "sha256": "4683e33fb7ac95e54cd8a7b02300a0b6c6723bbf32b298800d4c74a1f48bb9f4",
+      "fields": {
+        "JobId": "19325",
+        "ArrayJobId": "19314",
+        "ArrayTaskId": "1",
+        "JobName": "stage-b-tier",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "24",
+        "CPUs/Task": "24",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T14:14:57",
+        "StartTime": "2026-11-10T14:14:57"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19326.txt",
+      "sha256": "8ac23e7071685eda6a3f432cf434f90e0ac89c46b3b0548f34c87032516bc31d",
+      "fields": {
+        "JobId": "19326",
+        "ArrayJobId": "19314",
+        "ArrayTaskId": "2",
+        "JobName": "stage-b-tier",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "24",
+        "CPUs/Task": "24",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T14:14:57",
+        "StartTime": "2026-11-10T14:14:57"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19327.txt",
+      "sha256": "6ab0a207ff57d34eec58bfd54ff133955a590f9b8de4b6da96863e5d55009158",
+      "fields": {
+        "JobId": "19327",
+        "ArrayJobId": "19314",
+        "ArrayTaskId": "3",
+        "JobName": "stage-b-tier",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "24",
+        "CPUs/Task": "24",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T14:14:57",
+        "StartTime": "2026-11-10T14:16:53"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19328.txt",
+      "sha256": "0e23c8636a158ac5e077329469299d4b1840f31e1cf82d67df715fdc18a06e24",
+      "fields": {
+        "JobId": "19328",
+        "ArrayJobId": "19314",
+        "ArrayTaskId": "4",
+        "JobName": "stage-b-tier",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "24",
+        "CPUs/Task": "24",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T14:14:57",
+        "StartTime": "2026-11-10T14:16:53"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/allocation-19329.txt",
+      "sha256": "704f10ab10db0426cfdfbf19c50fbb46200b3b612267f1507222a6c4fa9378e3",
+      "fields": {
+        "JobId": "19329",
+        "JobName": "stage-b-assess",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "24",
+        "CPUs/Task": "24",
+        "MinMemoryNode": "8G",
+        "SubmitTime": "2026-11-10T14:17:50",
+        "StartTime": "2026-11-10T14:17:50"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/allocation-19330.txt",
+      "sha256": "e2655838ac60a233c6e564b5b9f76fe46b48577c1b2781095f53e1f4f7d0c5cc",
+      "fields": {
+        "JobId": "19330",
+        "JobName": "stage-b-resume-build",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "4",
+        "CPUs/Task": "4",
+        "MinMemoryNode": "8G",
+        "SubmitTime": "2026-11-10T14:20:46",
+        "StartTime": "2026-11-10T14:20:46"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/allocation-19331.txt",
+      "sha256": "14de9f2e7a8677a1a6d7d67807ad6be930ec5aa4be315d66f24b3f7face2ea8f",
+      "fields": {
+        "JobId": "19331",
+        "ArrayJobId": "19331",
+        "ArrayTaskId": "5",
+        "JobName": "stage-b-continue",
+        "JobState": "RUNNING",
+        "RunTime": "00:01:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn003",
+        "NumCPUs": "48",
+        "CPUs/Task": "48",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T14:22:00",
+        "StartTime": "2026-11-10T14:35:57"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/allocation-19332.txt",
+      "sha256": "61f891399307f6e94803772f21791bd5b5258725d3c8398bf01ebafd2ebae7cc",
+      "fields": {
+        "JobId": "19332",
+        "ArrayJobId": "19331",
+        "ArrayTaskId": "0",
+        "JobName": "stage-b-continue",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "48",
+        "CPUs/Task": "48",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T14:22:00",
+        "StartTime": "2026-11-10T14:22:01"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/allocation-19333.txt",
+      "sha256": "0676f26c35bdebe54987654898ba59f460bf0150e068e0c0ceccd1adbcaadc35",
+      "fields": {
+        "JobId": "19333",
+        "ArrayJobId": "19331",
+        "ArrayTaskId": "1",
+        "JobName": "stage-b-continue",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "48",
+        "CPUs/Task": "48",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T14:22:00",
+        "StartTime": "2026-11-10T14:22:01"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/allocation-19336.txt",
+      "sha256": "6feb190a764dd73d067d5629baded26bf1924af2979bf30973fce7cba65f621a",
+      "fields": {
+        "JobId": "19336",
+        "ArrayJobId": "19331",
+        "ArrayTaskId": "2",
+        "JobName": "stage-b-continue",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:03",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn001",
+        "NumCPUs": "48",
+        "CPUs/Task": "48",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T14:22:00",
+        "StartTime": "2026-11-10T14:26:12"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/allocation-19337.txt",
+      "sha256": "c16e5c79499c4b1d1b7403ba23196265bd368601db9757b3f8b579c959bb22e7",
+      "fields": {
+        "JobId": "19337",
+        "ArrayJobId": "19331",
+        "ArrayTaskId": "3",
+        "JobName": "stage-b-continue",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:04",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn001",
+        "NumCPUs": "48",
+        "CPUs/Task": "48",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T14:22:00",
+        "StartTime": "2026-11-10T14:26:12"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/allocation-19338.txt",
+      "sha256": "01d0e0a03684dc8afe962d7062175ec573af903e69402faaa1ea065f01d89e91",
+      "fields": {
+        "JobId": "19338",
+        "ArrayJobId": "19331",
+        "ArrayTaskId": "4",
+        "JobName": "stage-b-continue",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:57",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn003",
+        "NumCPUs": "48",
+        "CPUs/Task": "48",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T14:22:00",
+        "StartTime": "2026-11-10T14:35:57"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/allocation-19339.txt",
+      "sha256": "b1ed65dc8e6ab75d2f31966412a1948e8a830a884856e99a864050cf22f987f3",
+      "fields": {
+        "JobId": "19339",
+        "ArrayJobId": "19339",
+        "ArrayTaskId": "3",
+        "JobName": "stage-b-native",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:20",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn001",
+        "NumCPUs": "48",
+        "CPUs/Task": "48",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T14:46:16",
+        "StartTime": "2026-11-10T14:51:55"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/allocation-19340.txt",
+      "sha256": "4554fd8696289ab3a3fa39760411500e1a72d6076d0053cd99464cf754d1b693",
+      "fields": {
+        "JobId": "19340",
+        "ArrayJobId": "19340",
+        "ArrayTaskId": "5",
+        "JobName": "stage-b-native",
+        "JobState": "RUNNING",
+        "RunTime": "00:01:20",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn003",
+        "NumCPUs": "48",
+        "CPUs/Task": "48",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T14:46:16",
+        "StartTime": "2026-11-10T14:51:56"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/allocation-19341.txt",
+      "sha256": "3121075d50eb65067170469709c2ff22f25826cfb7c0ec84dbe961afbdfd1d67",
+      "fields": {
+        "JobId": "19341",
+        "ArrayJobId": "19340",
+        "ArrayTaskId": "4",
+        "JobName": "stage-b-native",
+        "JobState": "RUNNING",
+        "RunTime": "00:01:01",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn003",
+        "NumCPUs": "48",
+        "CPUs/Task": "48",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T14:46:16",
+        "StartTime": "2026-11-10T14:46:20"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/allocation-19342.txt",
+      "sha256": "2397c40054ac8547e1b093ad59b28c7fd281ae539be89798c43a1e6774b647a0",
+      "fields": {
+        "JobId": "19342",
+        "ArrayJobId": "19339",
+        "ArrayTaskId": "2",
+        "JobName": "stage-b-native",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:16",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn001",
+        "NumCPUs": "48",
+        "CPUs/Task": "48",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T14:46:16",
+        "StartTime": "2026-11-10T14:51:55"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/allocation-19344.txt",
+      "sha256": "c75f4002378273bf47784cdc46c547c143247e05039ca38598651e4e8c8962f3",
+      "fields": {
+        "JobId": "19344",
+        "JobName": "stage-b-audit-build",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:35",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn002",
+        "NumCPUs": "2",
+        "CPUs/Task": "2",
+        "MinMemoryNode": "8G",
+        "SubmitTime": "2026-11-10T14:58:33",
+        "StartTime": "2026-11-10T14:58:33"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/allocation-19351.txt",
+      "sha256": "96f7e4a66d9557745a8483ae623fbc2a84030dfefd9fadd1146648031d4b24f2",
+      "fields": {
+        "JobId": "19351",
+        "JobName": "stage-b-source-audit",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "48",
+        "CPUs/Task": "48",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T15:13:00",
+        "StartTime": "2026-11-10T16:03:54"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/allocation-19352.txt",
+      "sha256": "8997b548d17f4d8d42709475ad728463fba17476dfe192ff7a0c889bcebc7600",
+      "fields": {
+        "JobId": "19352",
+        "JobName": "stage-b-control-audit",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:01",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "48",
+        "CPUs/Task": "48",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T15:13:00",
+        "StartTime": "2026-11-10T17:09:03"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/allocation-19353.txt",
+      "sha256": "84fc79f01aff18cde7faa1e09d1119decdce30f52342ace5320fccff3d37ee04",
+      "fields": {
+        "JobId": "19353",
+        "ArrayJobId": "19353",
+        "ArrayTaskId": "5",
+        "JobName": "stage-b-migrated",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "48",
+        "CPUs/Task": "48",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T15:13:32",
+        "StartTime": "2026-11-10T16:13:09"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/allocation-19354.txt",
+      "sha256": "ee13110022216dadd3f93bac64f6de863e5ce990ce154be6b1a7590a9032a0c0",
+      "fields": {
+        "JobId": "19354",
+        "ArrayJobId": "19353",
+        "ArrayTaskId": "2",
+        "JobName": "stage-b-migrated",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "48",
+        "CPUs/Task": "48",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T15:13:32",
+        "StartTime": "2026-11-10T15:13:34"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/allocation-19355.txt",
+      "sha256": "ca1bed2389e7432476e07a8d15415632795bba586b77dea807322bac96eac0bc",
+      "fields": {
+        "JobId": "19355",
+        "ArrayJobId": "19353",
+        "ArrayTaskId": "3",
+        "JobName": "stage-b-migrated",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:01",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "48",
+        "CPUs/Task": "48",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T15:13:32",
+        "StartTime": "2026-11-10T15:17:57"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/allocation-19356.txt",
+      "sha256": "7b4bfb8632776fc3a678a88c54d631d0c300d2b21fae567d74a81b763530724d",
+      "fields": {
+        "JobId": "19356",
+        "JobName": "stage-b-final-assess",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:01",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "48",
+        "CPUs/Task": "48",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T15:19:43",
+        "StartTime": "2026-11-10T17:14:46"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/allocation-19357.txt",
+      "sha256": "5a82b9a32c88b807f16502865635397ff6933d56f11a2b0b75edb2d3bf2ed077",
+      "fields": {
+        "JobId": "19357",
+        "ArrayJobId": "19353",
+        "ArrayTaskId": "4",
+        "JobName": "stage-b-migrated",
+        "JobState": "RUNNING",
+        "RunTime": "00:00:00",
+        "TimeLimit": "UNLIMITED",
+        "Partition": "phyall",
+        "NodeList": "phyn004",
+        "NumCPUs": "48",
+        "CPUs/Task": "48",
+        "MinMemoryNode": "48G",
+        "SubmitTime": "2026-11-10T15:13:32",
+        "StartTime": "2026-11-10T16:09:39"
+      }
+    }
+  ],
+  "builds": [
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/build/build.json",
+      "sha256": "6fdaf30182107539d3a3ab4c95f08203ef7d7dfcac2ae90cce8f0563bf5f4aa0"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/build/build.json",
+      "sha256": "35bec1f7874dfcb2d78aeb2ac0ec1d966f8a6cf49c818bc3dc4b8d7e54002142"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/observation-trace-build-v2/build.json",
+      "sha256": "b4d0c7813a25ade89444d65ba2cc2b8d0c86ae78159d00cdf3eeb912946245c8"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/supplement-build/build.json",
+      "sha256": "c9e41663867a606a6329e38deea0e8e6e3abf268e73828900fb7870d483ff5af"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/supplement-build-v2/build.json",
+      "sha256": "4613a43bfef9de8e49a4f95377842cdd0b5cf87d3076c8f9929e6e9bcf6de836"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/build/build.json",
+      "sha256": "35bec1f7874dfcb2d78aeb2ac0ec1d966f8a6cf49c818bc3dc4b8d7e54002142"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/native-points-build/build.json",
+      "sha256": "3abc49c503a68e384aebf36b120288ca9840f433d7ec5afcfebf49a9b025d540"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/observation-trace-build-v2/build.json",
+      "sha256": "b4d0c7813a25ade89444d65ba2cc2b8d0c86ae78159d00cdf3eeb912946245c8"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/supplement-build-v2/build.json",
+      "sha256": "4613a43bfef9de8e49a4f95377842cdd0b5cf87d3076c8f9929e6e9bcf6de836"
+    }
+  ],
+  "launches": [
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-reference-0/invocation.json",
+      "sha256": "93897fd75c2f6e7d58098d5b4a32bde0a717213b8601d89059494df00ac60b83",
+      "record": {
+        "preflight_sha256": "60e5da9aae035705f9a0046ff84ab545894e4d9d1cf53075962ed85429b478d9",
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-reference-0/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/native/control",
+          "control",
+          "0",
+          "-1"
+        ],
+        "snapshot": "880dee60847576fe829dc0c8fd854862c664768a101453d7430f3c1f4bf126e6",
+        "build": "6fdaf30182107539d3a3ab4c95f08203ef7d7dfcac2ae90cce8f0563bf5f4aa0",
+        "commit": "a7a0fa97d7e56b4d2ff489b2abd70aee3da9e4a3",
+        "job": "19320"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-reference-1/invocation.json",
+      "sha256": "7c65d12f2b36ee54ce67f191233b8cb8253b0032ae80962396bbb981744d5e9f",
+      "record": {
+        "preflight_sha256": "60e5da9aae035705f9a0046ff84ab545894e4d9d1cf53075962ed85429b478d9",
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-reference-1/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/native/control",
+          "control",
+          "1",
+          "-1"
+        ],
+        "snapshot": "880dee60847576fe829dc0c8fd854862c664768a101453d7430f3c1f4bf126e6",
+        "build": "6fdaf30182107539d3a3ab4c95f08203ef7d7dfcac2ae90cce8f0563bf5f4aa0",
+        "commit": "a7a0fa97d7e56b4d2ff489b2abd70aee3da9e4a3",
+        "job": "19321"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-reference-2/invocation.json",
+      "sha256": "cf3bd07b8ff443b19e4b8b2117791183a056e46b22d9399048b8bcd812599420",
+      "record": {
+        "preflight_sha256": "60e5da9aae035705f9a0046ff84ab545894e4d9d1cf53075962ed85429b478d9",
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-reference-2/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/native/control",
+          "control",
+          "2",
+          "-1"
+        ],
+        "snapshot": "880dee60847576fe829dc0c8fd854862c664768a101453d7430f3c1f4bf126e6",
+        "build": "6fdaf30182107539d3a3ab4c95f08203ef7d7dfcac2ae90cce8f0563bf5f4aa0",
+        "commit": "a7a0fa97d7e56b4d2ff489b2abd70aee3da9e4a3",
+        "job": "19322"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-reference-3/invocation.json",
+      "sha256": "f50cede8ee770bb69c26a892e57c0e4e563b316e759d0841e7fac794804bf92f",
+      "record": {
+        "preflight_sha256": "60e5da9aae035705f9a0046ff84ab545894e4d9d1cf53075962ed85429b478d9",
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-reference-3/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/native/control",
+          "control",
+          "3",
+          "-1"
+        ],
+        "snapshot": "880dee60847576fe829dc0c8fd854862c664768a101453d7430f3c1f4bf126e6",
+        "build": "6fdaf30182107539d3a3ab4c95f08203ef7d7dfcac2ae90cce8f0563bf5f4aa0",
+        "commit": "a7a0fa97d7e56b4d2ff489b2abd70aee3da9e4a3",
+        "job": "19323"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-reference-4/invocation.json",
+      "sha256": "eea7c0fc6af99e723cb829d2d95902ac7eb9ed113cfb4914f1bbea5d8847b867",
+      "record": {
+        "preflight_sha256": "60e5da9aae035705f9a0046ff84ab545894e4d9d1cf53075962ed85429b478d9",
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-reference-4/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/native/control",
+          "control",
+          "4",
+          "-1"
+        ],
+        "snapshot": "880dee60847576fe829dc0c8fd854862c664768a101453d7430f3c1f4bf126e6",
+        "build": "6fdaf30182107539d3a3ab4c95f08203ef7d7dfcac2ae90cce8f0563bf5f4aa0",
+        "commit": "a7a0fa97d7e56b4d2ff489b2abd70aee3da9e4a3",
+        "job": "19313"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-tier-0/invocation.json",
+      "sha256": "8db1eb52a55f84e8871587c462084800f6de5cf5186e0a830a0dcab65a698bd4",
+      "record": {
+        "preflight_sha256": "60e5da9aae035705f9a0046ff84ab545894e4d9d1cf53075962ed85429b478d9",
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-tier-0/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/native/control",
+          "control",
+          "-1",
+          "0"
+        ],
+        "snapshot": "880dee60847576fe829dc0c8fd854862c664768a101453d7430f3c1f4bf126e6",
+        "build": "6fdaf30182107539d3a3ab4c95f08203ef7d7dfcac2ae90cce8f0563bf5f4aa0",
+        "commit": "a7a0fa97d7e56b4d2ff489b2abd70aee3da9e4a3",
+        "job": "19327"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-tier-1/invocation.json",
+      "sha256": "79fae5bbc02251a2780190a1fcb7234458cfc83e00464878664f1cf835c76295",
+      "record": {
+        "preflight_sha256": "60e5da9aae035705f9a0046ff84ab545894e4d9d1cf53075962ed85429b478d9",
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-tier-1/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/native/control",
+          "control",
+          "-1",
+          "1"
+        ],
+        "snapshot": "880dee60847576fe829dc0c8fd854862c664768a101453d7430f3c1f4bf126e6",
+        "build": "6fdaf30182107539d3a3ab4c95f08203ef7d7dfcac2ae90cce8f0563bf5f4aa0",
+        "commit": "a7a0fa97d7e56b4d2ff489b2abd70aee3da9e4a3",
+        "job": "19328"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-tier-2/invocation.json",
+      "sha256": "a4276054b5fbdc8400da0de683c6c74b11b6ec07eedea6354ad8d1f0dee960f6",
+      "record": {
+        "preflight_sha256": "60e5da9aae035705f9a0046ff84ab545894e4d9d1cf53075962ed85429b478d9",
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-tier-2/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/native/control",
+          "control",
+          "-1",
+          "2"
+        ],
+        "snapshot": "880dee60847576fe829dc0c8fd854862c664768a101453d7430f3c1f4bf126e6",
+        "build": "6fdaf30182107539d3a3ab4c95f08203ef7d7dfcac2ae90cce8f0563bf5f4aa0",
+        "commit": "a7a0fa97d7e56b4d2ff489b2abd70aee3da9e4a3",
+        "job": "19314"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-reference-0/invocation.json",
+      "sha256": "5fe016976525159cc3a5eb91094c1621493cafa34fb7073cc7a55b35bafdfcce",
+      "record": {
+        "preflight_sha256": "60e5da9aae035705f9a0046ff84ab545894e4d9d1cf53075962ed85429b478d9",
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-reference-0/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/native/source",
+          "source",
+          "0",
+          "-1"
+        ],
+        "snapshot": "cbe2cd7f4042b7586149b28428d6ea86bfe245997a520c5ca82829734b5b8a9f",
+        "build": "6fdaf30182107539d3a3ab4c95f08203ef7d7dfcac2ae90cce8f0563bf5f4aa0",
+        "commit": "a7a0fa97d7e56b4d2ff489b2abd70aee3da9e4a3",
+        "job": "19315"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-reference-1/invocation.json",
+      "sha256": "a7e4c2cedd5c1523ba866d559cbe8e5da675e399afa436dd3dad2e6c07dcc2fa",
+      "record": {
+        "preflight_sha256": "60e5da9aae035705f9a0046ff84ab545894e4d9d1cf53075962ed85429b478d9",
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-reference-1/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/native/source",
+          "source",
+          "1",
+          "-1"
+        ],
+        "snapshot": "cbe2cd7f4042b7586149b28428d6ea86bfe245997a520c5ca82829734b5b8a9f",
+        "build": "6fdaf30182107539d3a3ab4c95f08203ef7d7dfcac2ae90cce8f0563bf5f4aa0",
+        "commit": "a7a0fa97d7e56b4d2ff489b2abd70aee3da9e4a3",
+        "job": "19316"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-reference-2/invocation.json",
+      "sha256": "410dfa83ccec1da6cc7b0234f1fb11110520de28a9d35c510cd25cfd905cb570",
+      "record": {
+        "preflight_sha256": "60e5da9aae035705f9a0046ff84ab545894e4d9d1cf53075962ed85429b478d9",
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-reference-2/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/native/source",
+          "source",
+          "2",
+          "-1"
+        ],
+        "snapshot": "cbe2cd7f4042b7586149b28428d6ea86bfe245997a520c5ca82829734b5b8a9f",
+        "build": "6fdaf30182107539d3a3ab4c95f08203ef7d7dfcac2ae90cce8f0563bf5f4aa0",
+        "commit": "a7a0fa97d7e56b4d2ff489b2abd70aee3da9e4a3",
+        "job": "19317"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-reference-3/invocation.json",
+      "sha256": "ee451c3b585657f0cf9d0f0f1942411d588540a5cd40a4af69ed33b4a14e967d",
+      "record": {
+        "preflight_sha256": "60e5da9aae035705f9a0046ff84ab545894e4d9d1cf53075962ed85429b478d9",
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-reference-3/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/native/source",
+          "source",
+          "3",
+          "-1"
+        ],
+        "snapshot": "cbe2cd7f4042b7586149b28428d6ea86bfe245997a520c5ca82829734b5b8a9f",
+        "build": "6fdaf30182107539d3a3ab4c95f08203ef7d7dfcac2ae90cce8f0563bf5f4aa0",
+        "commit": "a7a0fa97d7e56b4d2ff489b2abd70aee3da9e4a3",
+        "job": "19318"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-reference-4/invocation.json",
+      "sha256": "b2f35346d607998d8a972284ebb8a6575e21944f5c69013b710b848688f3f90f",
+      "record": {
+        "preflight_sha256": "60e5da9aae035705f9a0046ff84ab545894e4d9d1cf53075962ed85429b478d9",
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-reference-4/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/native/source",
+          "source",
+          "4",
+          "-1"
+        ],
+        "snapshot": "cbe2cd7f4042b7586149b28428d6ea86bfe245997a520c5ca82829734b5b8a9f",
+        "build": "6fdaf30182107539d3a3ab4c95f08203ef7d7dfcac2ae90cce8f0563bf5f4aa0",
+        "commit": "a7a0fa97d7e56b4d2ff489b2abd70aee3da9e4a3",
+        "job": "19319"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-tier-0/invocation.json",
+      "sha256": "6dc774ddc8eb8f9fce854eea2f58f5d455525b2d58f4e1f995535240b1319b4a",
+      "record": {
+        "preflight_sha256": "60e5da9aae035705f9a0046ff84ab545894e4d9d1cf53075962ed85429b478d9",
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-tier-0/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/native/source",
+          "source",
+          "-1",
+          "0"
+        ],
+        "snapshot": "cbe2cd7f4042b7586149b28428d6ea86bfe245997a520c5ca82829734b5b8a9f",
+        "build": "6fdaf30182107539d3a3ab4c95f08203ef7d7dfcac2ae90cce8f0563bf5f4aa0",
+        "commit": "a7a0fa97d7e56b4d2ff489b2abd70aee3da9e4a3",
+        "job": "19324"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-tier-1/invocation.json",
+      "sha256": "b8e040fc7f55c874776a09e4af3ef056f76bccc71619d578ced70c9af8780b8d",
+      "record": {
+        "preflight_sha256": "60e5da9aae035705f9a0046ff84ab545894e4d9d1cf53075962ed85429b478d9",
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-tier-1/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/native/source",
+          "source",
+          "-1",
+          "1"
+        ],
+        "snapshot": "cbe2cd7f4042b7586149b28428d6ea86bfe245997a520c5ca82829734b5b8a9f",
+        "build": "6fdaf30182107539d3a3ab4c95f08203ef7d7dfcac2ae90cce8f0563bf5f4aa0",
+        "commit": "a7a0fa97d7e56b4d2ff489b2abd70aee3da9e4a3",
+        "job": "19325"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-tier-2/invocation.json",
+      "sha256": "0494906eee89a1241ecf1a3f3331d1de0974ac681f19693ef41caa53ae7d296a",
+      "record": {
+        "preflight_sha256": "60e5da9aae035705f9a0046ff84ab545894e4d9d1cf53075962ed85429b478d9",
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-tier-2/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/native/source",
+          "source",
+          "-1",
+          "2"
+        ],
+        "snapshot": "cbe2cd7f4042b7586149b28428d6ea86bfe245997a520c5ca82829734b5b8a9f",
+        "build": "6fdaf30182107539d3a3ab4c95f08203ef7d7dfcac2ae90cce8f0563bf5f4aa0",
+        "commit": "a7a0fa97d7e56b4d2ff489b2abd70aee3da9e4a3",
+        "job": "19326"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/control-tier-0-direct/invocation.json",
+      "sha256": "bbb857fcb580cb953fe8180acc0aef67034903d2bb78281ed0853ab4c5031281",
+      "record": {
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/control-tier-0-direct/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/native/control",
+          "control",
+          "-1",
+          "0"
+        ],
+        "snapshot": "880dee60847576fe829dc0c8fd854862c664768a101453d7430f3c1f4bf126e6",
+        "build": "35bec1f7874dfcb2d78aeb2ac0ec1d966f8a6cf49c818bc3dc4b8d7e54002142",
+        "script": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/direct/task-3.sh",
+        "script_sha256": "e533814b8ef6a7382f5ca78e0c3dc3a58864d5b19a6d088c4e292311af95fbb5",
+        "producer_authentication": "load_pair and every compiled/input binding checked before dispatch; essential runtime bytes checked again on compute node; native archive and currentness guards unchanged."
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/control-tier-1-direct/invocation.json",
+      "sha256": "c605576553be439d6aaa3e931dcf690f7a52687e68265583a3f6016f9e64fccb",
+      "record": {
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/control-tier-1-direct/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/native/control",
+          "control",
+          "-1",
+          "1"
+        ],
+        "snapshot": "880dee60847576fe829dc0c8fd854862c664768a101453d7430f3c1f4bf126e6",
+        "build": "35bec1f7874dfcb2d78aeb2ac0ec1d966f8a6cf49c818bc3dc4b8d7e54002142",
+        "script": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/direct/task-4.sh",
+        "script_sha256": "f7753a41bdff64d7d858c683208f7da88420af20187a444da6a21f2012a404ff",
+        "producer_authentication": "load_pair and every compiled/input binding checked before dispatch; essential runtime bytes checked again on compute node; native archive and currentness guards unchanged."
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/control-tier-2-direct/invocation.json",
+      "sha256": "4c05f2e7f30423f82b9b50195510b5f2d9c60d598641f0fd8405c9743e3b9f39",
+      "record": {
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/control-tier-2-direct/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/native/control",
+          "control",
+          "-1",
+          "2"
+        ],
+        "snapshot": "880dee60847576fe829dc0c8fd854862c664768a101453d7430f3c1f4bf126e6",
+        "build": "35bec1f7874dfcb2d78aeb2ac0ec1d966f8a6cf49c818bc3dc4b8d7e54002142",
+        "script": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/direct/task-5.sh",
+        "script_sha256": "610b4e1ab79bc46040211c349b5c322b57851c5d4c14830ac1e101d2da1292ec",
+        "producer_authentication": "load_pair and every compiled/input binding checked before dispatch; essential runtime bytes checked again on compute node; native archive and currentness guards unchanged."
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/source-tier-0/invocation.json",
+      "sha256": "5803293fc9612f11dda53529356eb6d193ccbba77fad0d27ec8d53d8804ee169",
+      "record": {
+        "preflight_sha256": "60e5da9aae035705f9a0046ff84ab545894e4d9d1cf53075962ed85429b478d9",
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/source-tier-0/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/native/source",
+          "source",
+          "-1",
+          "0"
+        ],
+        "snapshot": "cbe2cd7f4042b7586149b28428d6ea86bfe245997a520c5ca82829734b5b8a9f",
+        "build": "35bec1f7874dfcb2d78aeb2ac0ec1d966f8a6cf49c818bc3dc4b8d7e54002142",
+        "commit": "e7aeba4299651895dd5184c11770719a67915a01",
+        "job": "19332"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/source-tier-1/invocation.json",
+      "sha256": "94948fd061f236f4671b4c744306557cdf25987d694eed5553085db210b4751d",
+      "record": {
+        "preflight_sha256": "60e5da9aae035705f9a0046ff84ab545894e4d9d1cf53075962ed85429b478d9",
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/source-tier-1/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/native/source",
+          "source",
+          "-1",
+          "1"
+        ],
+        "snapshot": "cbe2cd7f4042b7586149b28428d6ea86bfe245997a520c5ca82829734b5b8a9f",
+        "build": "35bec1f7874dfcb2d78aeb2ac0ec1d966f8a6cf49c818bc3dc4b8d7e54002142",
+        "commit": "e7aeba4299651895dd5184c11770719a67915a01",
+        "job": "19333"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/source-tier-2-direct/invocation.json",
+      "sha256": "efc8a5ffa042ec8e1fbf824891fd1b50a0f2025a6fd08c5df0f569ab88ee595b",
+      "record": {
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/source-tier-2-direct/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/native/source",
+          "source",
+          "-1",
+          "2"
+        ],
+        "snapshot": "cbe2cd7f4042b7586149b28428d6ea86bfe245997a520c5ca82829734b5b8a9f",
+        "build": "35bec1f7874dfcb2d78aeb2ac0ec1d966f8a6cf49c818bc3dc4b8d7e54002142",
+        "script": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/direct/task-2.sh",
+        "script_sha256": "c7d69a3eb209cd815bf42ef51e4545a71083aaadb988dce2b74dd62eaba2e18b",
+        "producer_authentication": "load_pair and every compiled/input binding checked before dispatch; essential runtime bytes checked again on compute node; native archive and currentness guards unchanged."
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/control-native-points-invocation.json",
+      "sha256": "bf3ada6af11c03ebd3abdbf9d33606980157973c84da9a4b72d20d3dc29fac57",
+      "record": {
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/native-points-build/native_points",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/control-native-points-assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/native/control",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/control-native-points",
+          "control"
+        ],
+        "build": "3abc49c503a68e384aebf36b120288ca9840f433d7ec5afcfebf49a9b025d540",
+        "job": "19352"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/control-observation-invocation.json",
+      "sha256": "bebca4797211dd7b5180176ea538244fe5fa3fff7e1657c73136b3b527f120bb",
+      "record": {
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/observation-trace-build-v2/observations",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/control-observation-assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/native/control",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/control-interpolation",
+          "control"
+        ],
+        "build": "b4d0c7813a25ade89444d65ba2cc2b8d0c86ae78159d00cdf3eeb912946245c8",
+        "job": "19352"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/control-supplement-invocation.json",
+      "sha256": "4e3f915af2b2d1e4aaad48c32aa11bf436d059ebe9112bd4279901544a7fa25a",
+      "record": {
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/supplement-build-v2/supplement",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/control-supplement-assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/native/control",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/control-supplement",
+          "control"
+        ],
+        "build": "4613a43bfef9de8e49a4f95377842cdd0b5cf87d3076c8f9929e6e9bcf6de836",
+        "job": "19352"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/control-tier-0/invocation.json",
+      "sha256": "5ba92afa6e73fa493403f768baa2bc634894c8f0b69708fdebf8e60f98679d58",
+      "record": {
+        "preflight_sha256": "60e5da9aae035705f9a0046ff84ab545894e4d9d1cf53075962ed85429b478d9",
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/control-tier-0/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/native/control",
+          "control",
+          "-1",
+          "0"
+        ],
+        "snapshot": "880dee60847576fe829dc0c8fd854862c664768a101453d7430f3c1f4bf126e6",
+        "build": "35bec1f7874dfcb2d78aeb2ac0ec1d966f8a6cf49c818bc3dc4b8d7e54002142",
+        "commit": "e200b112a019f5466a50fd711416693bc2f8195e",
+        "job": "19355"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/control-tier-1/invocation.json",
+      "sha256": "b7b80862583cec2ff760a0049244d662e016c8275e98e18070d137d6c0b19971",
+      "record": {
+        "preflight_sha256": "60e5da9aae035705f9a0046ff84ab545894e4d9d1cf53075962ed85429b478d9",
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/control-tier-1/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/native/control",
+          "control",
+          "-1",
+          "1"
+        ],
+        "snapshot": "880dee60847576fe829dc0c8fd854862c664768a101453d7430f3c1f4bf126e6",
+        "build": "35bec1f7874dfcb2d78aeb2ac0ec1d966f8a6cf49c818bc3dc4b8d7e54002142",
+        "commit": "56fc9f0c4ab17f40f404f48a568e8704094ef14b",
+        "job": "19357"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/control-tier-2/invocation.json",
+      "sha256": "a3f43f40dcdc9e0d6e3d3e530669242b162b2ceafc75c2f16b5eaaea5e692451",
+      "record": {
+        "preflight_sha256": "60e5da9aae035705f9a0046ff84ab545894e4d9d1cf53075962ed85429b478d9",
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/control-tier-2/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/native/control",
+          "control",
+          "-1",
+          "2"
+        ],
+        "snapshot": "880dee60847576fe829dc0c8fd854862c664768a101453d7430f3c1f4bf126e6",
+        "build": "35bec1f7874dfcb2d78aeb2ac0ec1d966f8a6cf49c818bc3dc4b8d7e54002142",
+        "commit": "56fc9f0c4ab17f40f404f48a568e8704094ef14b",
+        "job": "19353"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/source-native-points-invocation.json",
+      "sha256": "05cc972393404bc05ef65b3458f839064f80e11976f74b4d411ef67deb5e47e2",
+      "record": {
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/native-points-build/native_points",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/source-native-points-assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/native/source",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/source-native-points",
+          "source"
+        ],
+        "build": "3abc49c503a68e384aebf36b120288ca9840f433d7ec5afcfebf49a9b025d540",
+        "job": "19351"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/source-observation-invocation.json",
+      "sha256": "62a55df560fc2adb0b2215a0707f52e738f8ee4f9730a4fa08cb5e92bef7de39",
+      "record": {
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/observation-trace-build-v2/observations",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/source-observation-assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/native/source",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/source-interpolation",
+          "source"
+        ],
+        "build": "b4d0c7813a25ade89444d65ba2cc2b8d0c86ae78159d00cdf3eeb912946245c8",
+        "job": "19351"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/source-supplement-invocation.json",
+      "sha256": "eb05b281e049564f50189bc2e8fb8859cf8e6c333db2533374397c28c0b6303f",
+      "record": {
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/supplement-build-v2/supplement",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/source-supplement-assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/native/source",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/source-supplement",
+          "source"
+        ],
+        "build": "4613a43bfef9de8e49a4f95377842cdd0b5cf87d3076c8f9929e6e9bcf6de836",
+        "job": "19351"
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/source-tier-2/invocation.json",
+      "sha256": "0360349af0c73d74c5aaa7d25ecd55bf4cc5a8fead1f4a5b38527b0e287fc249",
+      "record": {
+        "preflight_sha256": "60e5da9aae035705f9a0046ff84ab545894e4d9d1cf53075962ed85429b478d9",
+        "args": [
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/build/driver",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+          "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/source-tier-2/assembly",
+          "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/native/source",
+          "source",
+          "-1",
+          "2"
+        ],
+        "snapshot": "cbe2cd7f4042b7586149b28428d6ea86bfe245997a520c5ca82829734b5b8a9f",
+        "build": "35bec1f7874dfcb2d78aeb2ac0ec1d966f8a6cf49c818bc3dc4b8d7e54002142",
+        "commit": "e200b112a019f5466a50fd711416693bc2f8195e",
+        "job": "19354"
+      }
+    }
+  ],
+  "completions": [
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-reference-0/completion.json",
+      "sha256": "e9f76a621bd8e60511b1a35f468d50a4b8e682f0765fa1654a6c8442ce933562",
+      "record": {
+        "exit_code": 0,
+        "wall_seconds": 130.0365345776081,
+        "job": "19320",
+        "affinity": [
+          5,
+          53
+        ]
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-reference-1/completion.json",
+      "sha256": "93bac8a8967555c4cf013379e22b99560809f1fb47fa9b27780ba9ed1bc5cd25",
+      "record": {
+        "exit_code": 0,
+        "wall_seconds": 129.74049947410822,
+        "job": "19321",
+        "affinity": [
+          6,
+          54
+        ]
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-reference-2/completion.json",
+      "sha256": "00c3fa51b90420d2376f71fc7fb3a22755b6cc8e70152a422fe53088ddf81510",
+      "record": {
+        "exit_code": 0,
+        "wall_seconds": 130.92379069328308,
+        "job": "19322",
+        "affinity": [
+          7,
+          55
+        ]
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-reference-3/completion.json",
+      "sha256": "572845772581d1337b946fd15c83e8eea1079e7d450926681c266fcad4ad42c8",
+      "record": {
+        "exit_code": 0,
+        "wall_seconds": 131.151123277843,
+        "job": "19323",
+        "affinity": [
+          8,
+          56
+        ]
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-reference-4/completion.json",
+      "sha256": "aef3063a5d4bbb8aa9ce707e7507479c2ea041db2722a66e05a2265ee8eb2649",
+      "record": {
+        "exit_code": 0,
+        "wall_seconds": 130.32584887742996,
+        "job": "19313",
+        "affinity": [
+          9,
+          57
+        ]
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-tier-0/completion.json",
+      "sha256": "abbbe6b165a9efdfdcc03f045cc7cea388cc249e70fc4f37f5f4f23bb6f3f842",
+      "record": {
+        "exit_code": 1,
+        "wall_seconds": 109.32403521984816,
+        "job": "19327",
+        "affinity": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83
+        ]
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-tier-1/completion.json",
+      "sha256": "6a60686733832df4ac0b0873bffc73d8436114ddbf061745c9926a504368cf06",
+      "record": {
+        "exit_code": 1,
+        "wall_seconds": 109.36212841421366,
+        "job": "19328",
+        "affinity": [
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95
+        ]
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/control-tier-2/completion.json",
+      "sha256": "68eee672a2812f79b42b7dec49f11be5764ef23e8109fc9c0d75b4d55792f895",
+      "record": {
+        "exit_code": 1,
+        "wall_seconds": 110.12291724979877,
+        "job": "19314",
+        "affinity": [
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69
+        ]
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-reference-0/completion.json",
+      "sha256": "9fe60f4792169d21c21fb4bf333ee0bbd824827f6310bc91f5a8a8d910e76baf",
+      "record": {
+        "exit_code": 0,
+        "wall_seconds": 132.04536420851946,
+        "job": "19315",
+        "affinity": [
+          0,
+          48
+        ]
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-reference-1/completion.json",
+      "sha256": "4b43e10c8b890e44e81018ed52f321ce983cb851fa2ff88ae129c7a8f42b3241",
+      "record": {
+        "exit_code": 0,
+        "wall_seconds": 131.85114468634129,
+        "job": "19316",
+        "affinity": [
+          1,
+          49
+        ]
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-reference-2/completion.json",
+      "sha256": "8f276f2b7f86f4547bd8233f3ce69086554673d5e9eef11a3abe06dd7bdf3df6",
+      "record": {
+        "exit_code": 0,
+        "wall_seconds": 131.85645791888237,
+        "job": "19317",
+        "affinity": [
+          2,
+          50
+        ]
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-reference-3/completion.json",
+      "sha256": "59fcff54c8b1469b814d62acb3ed11dd4b46ba8a708160991a1e7d092c388466",
+      "record": {
+        "exit_code": 0,
+        "wall_seconds": 131.95281946659088,
+        "job": "19318",
+        "affinity": [
+          3,
+          51
+        ]
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-reference-4/completion.json",
+      "sha256": "c12fd9c575d75e9ff77bbce220bd3f03213c828d24367f119b3ec07d3506e563",
+      "record": {
+        "exit_code": 0,
+        "wall_seconds": 133.11353400349617,
+        "job": "19319",
+        "affinity": [
+          4,
+          52
+        ]
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-tier-0/completion.json",
+      "sha256": "4bd749c5b31b2624013c311135d46a026ba26d5fa96e5bdafe9587f10eb6dba5",
+      "record": {
+        "exit_code": 1,
+        "wall_seconds": 122.35832817107439,
+        "job": "19324",
+        "affinity": [
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69
+        ]
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-tier-1/completion.json",
+      "sha256": "7832eb3beb6a30cfaea12acb9e793311771756003edbad7e606fd04d5e912bc6",
+      "record": {
+        "exit_code": 1,
+        "wall_seconds": 113.96214434504509,
+        "job": "19325",
+        "affinity": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83
+        ]
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1/source-tier-2/completion.json",
+      "sha256": "43650e943337d64ce4d85ac8eb97d1b78116b826248622526a54ac5fb7760bd7",
+      "record": {
+        "exit_code": 1,
+        "wall_seconds": 113.80927933007479,
+        "job": "19326",
+        "affinity": [
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95
+        ]
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/source-tier-0/completion.json",
+      "sha256": "a0f3f62d0f302141ecb0a91d2f2ca4dd80a0be415e3580171f47f3447ef4df26",
+      "record": {
+        "exit_code": 0,
+        "wall_seconds": 2985.1606325283647,
+        "job": "19332",
+        "affinity": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71
+        ]
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2/source-tier-1/completion.json",
+      "sha256": "b74f310ef2981328ee56e941abfe0637352ed74a3774d9ea0a0548303a49db6a",
+      "record": {
+        "exit_code": 0,
+        "wall_seconds": 3353.521719522774,
+        "job": "19333",
+        "affinity": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95
+        ]
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/control-native-points-completion.json",
+      "sha256": "1639d44f42db0bd3afba5c3a996d847f9e269419bdafb11259c2aeb935f2608a",
+      "record": {
+        "exit_code": 0,
+        "elapsed_s": 109.36191299557686
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/control-observation-completion.json",
+      "sha256": "c2a730d628afd91a0c89305acec8aa168866752994e34ea9e8157f32e515959c",
+      "record": {
+        "exit_code": 0,
+        "elapsed_s": 114.72373013198376
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/control-supplement-completion.json",
+      "sha256": "80df15971f31bcfb5dc508c3bfcad295c304f11a9d6033d88c4ad8ace857815a",
+      "record": {
+        "exit_code": 0,
+        "elapsed_s": 112.40963862091303
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/control-tier-0/completion.json",
+      "sha256": "c087da729d88d24f49e32059f52798d62660601401119347f71aa6370e61b957",
+      "record": {
+        "exit_code": 0,
+        "wall_seconds": 3309.3282038271427,
+        "job": "19355",
+        "affinity": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95
+        ]
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/control-tier-1/completion.json",
+      "sha256": "5bf5549c72e2b5c252e55d3950e98751af3170733be67fb6935440d2c0ce9996",
+      "record": {
+        "exit_code": 0,
+        "wall_seconds": 3084.9262181967497,
+        "job": "19357",
+        "affinity": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71
+        ]
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/control-tier-2/completion.json",
+      "sha256": "4affe2264cfebfa0cfb2256e11bdad66d5b9ed4b36015f1ad7c53f138eb6ab78",
+      "record": {
+        "exit_code": 0,
+        "wall_seconds": 3352.984616354108,
+        "job": "19353",
+        "affinity": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95
+        ]
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/interpolation-roundoff-completion.json",
+      "sha256": "cc4433cb94359f0fc1e085ef9ddb7de25961c2bc0896f21daea00c9f0239c7a8",
+      "record": {
+        "status": "CONDITIONAL_PASS",
+        "observations": 20040,
+        "workers": 24,
+        "elapsed_s": 38.78333082795143
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/source-arithmetic-preview/completion.json",
+      "sha256": "e1db777214ea9d412300a2fd7294cb102d10765460077419b8794b1ac9f28d0d",
+      "record": {
+        "status": "CONDITIONAL_ARITHMETIC_PREVIEW",
+        "role": "source",
+        "references": [
+          {
+            "reference": 0,
+            "status": "CONDITIONAL_PIECEWISE_ARITHMETIC_ENCLOSURE",
+            "final_enclosure": [
+              "1.5366607412546842e-15",
+              "2.3618271774812335e-21",
+              "6.4118166357283932e-21"
+            ]
+          },
+          {
+            "reference": 1,
+            "status": "CONDITIONAL_PIECEWISE_ARITHMETIC_ENCLOSURE",
+            "final_enclosure": [
+              "2.4695782139420002e-15",
+              "4.1227169874317182e-21",
+              "1.1027813132650577e-20"
+            ]
+          },
+          {
+            "reference": 2,
+            "status": "CONDITIONAL_PIECEWISE_ARITHMETIC_ENCLOSURE",
+            "final_enclosure": [
+              "4.8203043597109845e-15",
+              "7.8895959149814098e-21",
+              "2.1143539521466763e-20"
+            ]
+          },
+          {
+            "reference": 3,
+            "status": "CONDITIONAL_PIECEWISE_ARITHMETIC_ENCLOSURE",
+            "final_enclosure": [
+              "3.3450194542557683e-15",
+              "5.4445794484664299e-21",
+              "1.4222813774271041e-20"
+            ]
+          },
+          {
+            "reference": 4,
+            "status": "CONDITIONAL_PIECEWISE_ARITHMETIC_ENCLOSURE",
+            "final_enclosure": [
+              "6.6606346780806618e-15",
+              "1.1199460589163650e-20",
+              "2.8785710413841367e-20"
+            ]
+          }
+        ],
+        "observations": 10220,
+        "workers": 24,
+        "elapsed_s": 63.13967007398605,
+        "job": "19353",
+        "scope": "Read-only early check using the same actual-stage and observation recurrence as the final full-matrix assessment. It does not qualify state/power budgets or replace the final audit."
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/source-early-arithmetic/completion.json",
+      "sha256": "49808d114ff51854e62a990e4f5a36d8e54aab813c53ee8dac90cb2747c06c13",
+      "record": [
+        {
+          "history": "reference-0",
+          "status": "CONDITIONAL_PIECEWISE_ARITHMETIC_ENCLOSURE",
+          "final_enclosure": [
+            "1.5366607412546842e-15",
+            "2.3618271774812335e-21",
+            "6.4118166357283932e-21"
+          ],
+          "elapsed_s": 1.2101512476801872
+        },
+        {
+          "history": "reference-1",
+          "status": "CONDITIONAL_PIECEWISE_ARITHMETIC_ENCLOSURE",
+          "final_enclosure": [
+            "2.4695782139420002e-15",
+            "4.1227169874317182e-21",
+            "1.1027813132650577e-20"
+          ],
+          "elapsed_s": 2.303967632353306
+        },
+        {
+          "history": "reference-2",
+          "status": "CONDITIONAL_PIECEWISE_ARITHMETIC_ENCLOSURE",
+          "final_enclosure": [
+            "4.8203043597109845e-15",
+            "7.8895959149814098e-21",
+            "2.1143539521466763e-20"
+          ],
+          "elapsed_s": 4.284959472715855
+        },
+        {
+          "history": "reference-3",
+          "status": "CONDITIONAL_PIECEWISE_ARITHMETIC_ENCLOSURE",
+          "final_enclosure": [
+            "3.3450194542557683e-15",
+            "5.4445794484664299e-21",
+            "1.4222813774271041e-20"
+          ],
+          "elapsed_s": 1.8096118420362473
+        },
+        {
+          "history": "reference-4",
+          "status": "CONDITIONAL_PIECEWISE_ARITHMETIC_ENCLOSURE",
+          "final_enclosure": [
+            "6.6606346780806618e-15",
+            "1.1199460589163650e-20",
+            "2.8785710413841367e-20"
+          ],
+          "elapsed_s": 3.382679872214794
+        }
+      ]
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/source-native-points-completion.json",
+      "sha256": "ba51500292b8f1402864b19ab821a4497323508fc09cbb551f614acfda3185cf",
+      "record": {
+        "exit_code": 0,
+        "elapsed_s": 109.9757946357131
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/source-observation-completion.json",
+      "sha256": "7ad219a36e3944738c344b413dc9f13ddd7f213460b9161a7f5df7f4138e6dd9",
+      "record": {
+        "exit_code": 0,
+        "elapsed_s": 116.68683805316687
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/source-supplement-completion.json",
+      "sha256": "477433edfe9ece1689841026edc19b1f81d6da1991cc08afbb0ffa332120f204",
+      "record": {
+        "exit_code": 0,
+        "elapsed_s": 113.88843949884176
+      }
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/source-tier-2/completion.json",
+      "sha256": "95cbb3cebf6837477d316ebb53ab402c8ef1ad937350b04000491e1863f277e5",
+      "record": {
+        "exit_code": 0,
+        "wall_seconds": 3018.044002339244,
+        "job": "19354",
+        "affinity": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71
+        ]
+      }
+    }
+  ],
+  "scope": "Preserved Slurm allocation and executable/input receipts. Slurm accounting was unavailable; these are allocations and measured wall times, not invented CPU accounting. Physical workers: 24 per reconstruction task, requiring 48 allocated SMT threads on these 48-core/96-thread nodes. Reference trajectories used one worker each; independent HP and assessment work is recorded separately."
+}

@@ -5,6 +5,9 @@ All commands refer to the candidate worktree on EKU:
 The starting source is `c90b2205e553afcd102c7acd5f84b253e0a67f1b`.
 Do not rerun the scientific matrix merely to reproduce a report. The archived
 histories and diagnostics are inputs to the read-only verification scripts.
+After sealing, regenerate verification outputs in a fresh `/mnt/sdd` directory
+with authenticated copies of the inputs (or links only for read-only inputs).
+Never overwrite the sealed assessment files when rerunning a reporting command.
 
 ## Immutable model and production configuration
 
@@ -86,12 +89,20 @@ the compute-node shell. Job scripts use the explicit interpreter path.
    `qualification.py OUT` collects those completed gates, binding each input by
    SHA-256. It does not confer owner acceptance. The earlier `assessment.json`
    remains the physical-curve generation receipt with its then-pending obligations.
-7. `plot.py OUT` uses the retained plotting environment
+7. `final_summary.py OUT` reduces completed verification records into the final
+   report table without changing any gate. `plot.py OUT` uses the retained plotting environment
    `linux-transition-20261010/native-p2-plotting-env/bin/python`. The computation
-   interpreter itself does not include matplotlib.
+   interpreter itself does not include matplotlib. It exports three PNG/PDF pairs
+   for temperature, coupled physics, and numerical diagnostics. Run
+   `resource_report.py OUT R1 R2 R3` to collect retained resource receipts.
 8. `seal.py SEAL_DIRECTORY R1 R2 R3` performs two complete SHA-256 byte passes and
    an unchanged inventory check. Full compressed manifests stay with the cluster
    evidence; compact receipts and ordered directory roots are committed to Git.
+   `seal.sbatch` runs 24 hashing workers with its log/allocation receipts outside
+   all three sealed roots. Do not write to any root during or after sealing.
+9. `collect_evidence.py OUT SEAL_DIRECTORY` makes compact display copies bound
+   by SHA-256 to the full external records. `report-bindings.json` distinguishes
+   the original full-precision strings from 17-significant-digit display copies.
 
 Run `test_piecewise.py`, `test_apply_residuals.py` and `test_audit_source.py` with
 the same interpreter. New verification code and numerical bounds remain candidates

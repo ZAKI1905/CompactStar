@@ -1,0 +1,990 @@
+{
+  "status": "CANDIDATE_PARTIAL_UNTIL_ALL_MATRIX_GATES",
+  "workers": 24,
+  "configurations": [
+    {
+      "role": "source",
+      "configuration": "tier-0-cap-0",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "21978715937434425540502714306114093056",
+      "N": "1935764839269176824044252350490928340803780608",
+      "U_main": "1.3802034300340144e+36",
+      "U_reconstruction_including_stored_events": "1729638734380924893800177764239671296",
+      "U_event_extra": "5.0766103439408984e+34",
+      "U_quad": "9.2651397340220033e+40",
+      "U_count": "1.2120689887580831e+38",
+      "total_over_N": "0.000047938541748870553",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "9.1974231668165999e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "1.9648199591646281e-16",
+      "nested_differences": [
+        "33871950695812335919855807829353955328",
+        "7915770411705877717547863576552669184",
+        "1363838224368053391799014783404998656"
+      ],
+      "independent_arithmetic_bounds": [
+        "3.1959455240602641e+29",
+        "4.3285089351250455e+29",
+        "5.9049890063482496e+29",
+        "2.7908923389296132e+30"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "9.2583504331004289e+40",
+      "thermal_piecewise_primitive_quadrature_bound": "1.4910499917831166e+35",
+      "capacity_evaluation_bound": "3.4047748476943051e+28",
+      "maximum_depletion": "2.0479999809017392e-9",
+      "maximum_frozen_utilization": "0.0011078652869395984",
+      "finite_T_omitted_scale_K": "6.2555725269686848",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    },
+    {
+      "role": "source",
+      "configuration": "tier-0-cap-1",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "21978715937434425540502714306114093056",
+      "N": "1935764839269176824044252350490928340803780608",
+      "U_main": "1.3802034300340144e+36",
+      "U_reconstruction_including_stored_events": "1729638734380924893800177764239671296",
+      "U_event_extra": "5.0766103439408984e+34",
+      "U_quad": "9.2651397340220033e+40",
+      "U_count": "1.2120689887580831e+38",
+      "total_over_N": "0.000047938541748870553",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "9.1974231668165999e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "1.9648199591646281e-16",
+      "nested_differences": [
+        "33871950695812335919855807829353955328",
+        "7915770411705877717547863576552669184",
+        "1363838224368053391799014783404998656"
+      ],
+      "independent_arithmetic_bounds": [
+        "3.1959455240602641e+29",
+        "4.3285089351250455e+29",
+        "5.9049890063482496e+29",
+        "2.7908923389296132e+30"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "9.2583504331004289e+40",
+      "thermal_piecewise_primitive_quadrature_bound": "1.4910499917831166e+35",
+      "capacity_evaluation_bound": "3.4047748476943051e+28",
+      "maximum_depletion": "2.0479999809017392e-9",
+      "maximum_frozen_utilization": "0.0011078652869395984",
+      "finite_T_omitted_scale_K": "6.2555725269686848",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    },
+    {
+      "role": "source",
+      "configuration": "tier-0-cap-2",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "21978715937434425540502714306114093056",
+      "N": "1935764839269176824044252350490928340803780608",
+      "U_main": "1.3802034300340144e+36",
+      "U_reconstruction_including_stored_events": "1729638734380924893800177764239671296",
+      "U_event_extra": "5.0766103439408984e+34",
+      "U_quad": "9.2651397340220033e+40",
+      "U_count": "1.2120689887580831e+38",
+      "total_over_N": "0.000047938541748870553",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "9.1974231668165999e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "1.9648199591646281e-16",
+      "nested_differences": [
+        "33871950695812335919855807829353955328",
+        "7915770411705877717547863576552669184",
+        "1363838224368053391799014783404998656"
+      ],
+      "independent_arithmetic_bounds": [
+        "3.1959455240602641e+29",
+        "4.3285089351250455e+29",
+        "5.9049890063482496e+29",
+        "2.7908923389296132e+30"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "9.2583504331004289e+40",
+      "thermal_piecewise_primitive_quadrature_bound": "1.4910499917831166e+35",
+      "capacity_evaluation_bound": "3.4047748476943051e+28",
+      "maximum_depletion": "2.0479999809017392e-9",
+      "maximum_frozen_utilization": "0.0011078652869395984",
+      "finite_T_omitted_scale_K": "6.2555725269686848",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    },
+    {
+      "role": "source",
+      "configuration": "tier-0-cap-3",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "20911131738590078844446865129318907904",
+      "N": "1935764838216098271790154769212068345243762688",
+      "U_main": "1.6113092655481358e+35",
+      "U_reconstruction_including_stored_events": "1727172108365549560155764865877671936",
+      "U_event_extra": "4.9520138822417637e+34",
+      "U_quad": "9.2651397283432257e+40",
+      "U_count": "1.2120689887580831e+38",
+      "total_over_N": "0.000047937358559904381",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "9.1782442376899240e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "1.9648199591646281e-16",
+      "nested_differences": [
+        "33871922965955455927337650088971337728",
+        "7915760389343319663109157993242951680",
+        "1363862111659051442496799236906024960"
+      ],
+      "independent_arithmetic_bounds": [
+        "3.9225032566346614e+29",
+        "1.5133858656147958e+30",
+        "9.5045262592573570e+28",
+        "2.7299924067685925e+30"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "9.2583504331004289e+40",
+      "thermal_piecewise_primitive_quadrature_bound": "1.4910371940340008e+35",
+      "capacity_evaluation_bound": "4.6660742420041098e+28",
+      "maximum_depletion": "2.0479999809017392e-9",
+      "maximum_frozen_utilization": "0.0011078652869395984",
+      "finite_T_omitted_scale_K": "6.2555725261898176",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    },
+    {
+      "role": "source",
+      "configuration": "tier-1-cap-0",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "20795590536209839161682384212505657344",
+      "N": "1935764838103050458912401499415993850091536384",
+      "U_main": "2.9320182504077725e+34",
+      "U_reconstruction_including_stored_events": "1727016549323186015254858187229102080",
+      "U_event_extra": "4.9341391215813761e+34",
+      "U_quad": "9.2651397293321479e+40",
+      "U_count": "1.2120689887580831e+38",
+      "total_over_N": "0.000047937230615156254",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "9.1765172379086025e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "1.9648198922013446e-16",
+      "nested_differences": [
+        "33871927759259288040330074498380333056",
+        "7915765301489395547498088792967872512",
+        "1363854545369531330252559053458767872"
+      ],
+      "independent_arithmetic_bounds": [
+        "2.1038057661001557e+30",
+        "6.9335254136127332e+29",
+        "4.8133559572145701e+29",
+        "3.1738753768358798e+30"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "9.2583504331004289e+40",
+      "thermal_piecewise_primitive_quadrature_bound": "1.4910359968363163e+35",
+      "capacity_evaluation_bound": "2.5112121581372063e+28",
+      "maximum_depletion": "2.0479999809017392e-9",
+      "maximum_frozen_utilization": "0.0011078652869395984",
+      "finite_T_omitted_scale_K": "6.2555725261062000",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    },
+    {
+      "role": "source",
+      "configuration": "tier-1-cap-1",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "20795590536209839161682384212505657344",
+      "N": "1935764838103050458912401499415993850091536384",
+      "U_main": "2.9320182504077725e+34",
+      "U_reconstruction_including_stored_events": "1727016549323186015254858187229102080",
+      "U_event_extra": "4.9341391215813761e+34",
+      "U_quad": "9.2651397293321479e+40",
+      "U_count": "1.2120689887580831e+38",
+      "total_over_N": "0.000047937230615156254",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "9.1765172379086025e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "1.9648198922013446e-16",
+      "nested_differences": [
+        "33871927759259288040330074498380333056",
+        "7915765301489395547498088792967872512",
+        "1363854545369531330252559053458767872"
+      ],
+      "independent_arithmetic_bounds": [
+        "2.1038057661001557e+30",
+        "6.9335254136127332e+29",
+        "4.8133559572145701e+29",
+        "3.1738753768358798e+30"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "9.2583504331004289e+40",
+      "thermal_piecewise_primitive_quadrature_bound": "1.4910359968363163e+35",
+      "capacity_evaluation_bound": "2.5112121581372063e+28",
+      "maximum_depletion": "2.0479999809017392e-9",
+      "maximum_frozen_utilization": "0.0011078652869395984",
+      "finite_T_omitted_scale_K": "6.2555725261062000",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    },
+    {
+      "role": "source",
+      "configuration": "tier-1-cap-2",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "20795590536209839161682384212505657344",
+      "N": "1935764838103050458912401499415993850091536384",
+      "U_main": "2.9320182504077725e+34",
+      "U_reconstruction_including_stored_events": "1727016549323186015254858187229102080",
+      "U_event_extra": "4.9341391215813761e+34",
+      "U_quad": "9.2651397293321479e+40",
+      "U_count": "1.2120689887580831e+38",
+      "total_over_N": "0.000047937230615156254",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "9.1765172379086025e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "1.9648198922013446e-16",
+      "nested_differences": [
+        "33871927759259288040330074498380333056",
+        "7915765301489395547498088792967872512",
+        "1363854545369531330252559053458767872"
+      ],
+      "independent_arithmetic_bounds": [
+        "2.1038057661001557e+30",
+        "6.9335254136127332e+29",
+        "4.8133559572145701e+29",
+        "3.1738753768358798e+30"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "9.2583504331004289e+40",
+      "thermal_piecewise_primitive_quadrature_bound": "1.4910359968363163e+35",
+      "capacity_evaluation_bound": "2.5112121581372063e+28",
+      "maximum_depletion": "2.0479999809017392e-9",
+      "maximum_frozen_utilization": "0.0011078652869395984",
+      "finite_T_omitted_scale_K": "6.2555725261062000",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    },
+    {
+      "role": "source",
+      "configuration": "tier-1-cap-3",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "20795590536209839161682384212505657344",
+      "N": "1935764838103050458912401499415993850091536384",
+      "U_main": "2.9320182504077725e+34",
+      "U_reconstruction_including_stored_events": "1727016549323186015254858187229102080",
+      "U_event_extra": "4.9341391215813761e+34",
+      "U_quad": "9.2651397293321479e+40",
+      "U_count": "1.2120689887580831e+38",
+      "total_over_N": "0.000047937230615156254",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "9.1765172379086025e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "1.9648198922013446e-16",
+      "nested_differences": [
+        "33871927759259288040330074498380333056",
+        "7915765301489395547498088792967872512",
+        "1363854545369531330252559053458767872"
+      ],
+      "independent_arithmetic_bounds": [
+        "2.1038057661001557e+30",
+        "6.9335254136127332e+29",
+        "4.8133559572145701e+29",
+        "3.1738753768358798e+30"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "9.2583504331004289e+40",
+      "thermal_piecewise_primitive_quadrature_bound": "1.4910359968363163e+35",
+      "capacity_evaluation_bound": "2.5112121581372063e+28",
+      "maximum_depletion": "2.0479999809017392e-9",
+      "maximum_frozen_utilization": "0.0011078652869395984",
+      "finite_T_omitted_scale_K": "6.2555725261062000",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    },
+    {
+      "role": "source",
+      "configuration": "tier-2-cap-0",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "20770231027495948403976767477794209792",
+      "N": "1935764838078158554813669929830854211774971904",
+      "U_main": "3.8356265661959415e+32",
+      "U_reconstruction_including_stored_events": "1725570262340977625750459953193156608",
+      "U_event_extra": "4.8680963011450968e+34",
+      "U_quad": "9.2651397282627952e+40",
+      "U_count": "1.2120689887580831e+38",
+      "total_over_N": "0.000047937201473008966",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "9.1656341227580006e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "1.9648202101642061e-16",
+      "nested_differences": [
+        "33871923916693406098509701211498741760",
+        "7915766767210402061388334273530953728",
+        "1363858031408681957883413169392582656"
+      ],
+      "independent_arithmetic_bounds": [
+        "2.3565504776751468e+29",
+        "2.1579360071009712e+30",
+        "4.5105469079412714e+29",
+        "1.8509461090897429e+29"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "9.2583504331004289e+40",
+      "thermal_piecewise_primitive_quadrature_bound": "1.4910357409660993e+35",
+      "capacity_evaluation_bound": "3.1084235214937581e+28",
+      "maximum_depletion": "2.0479999809017392e-9",
+      "maximum_frozen_utilization": "0.0011078652869395984",
+      "finite_T_omitted_scale_K": "6.2555725260877928",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    },
+    {
+      "role": "source",
+      "configuration": "tier-2-cap-1",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "20770231027495948403976767477794209792",
+      "N": "1935764838078158554813669929830854211774971904",
+      "U_main": "3.8356265661959415e+32",
+      "U_reconstruction_including_stored_events": "1725570262340977625750459953193156608",
+      "U_event_extra": "4.8680963011450968e+34",
+      "U_quad": "9.2651397282627952e+40",
+      "U_count": "1.2120689887580831e+38",
+      "total_over_N": "0.000047937201473008966",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "9.1656341227580006e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "1.9648202101642061e-16",
+      "nested_differences": [
+        "33871923916693406098509701211498741760",
+        "7915766767210402061388334273530953728",
+        "1363858031408681957883413169392582656"
+      ],
+      "independent_arithmetic_bounds": [
+        "2.3565504776751468e+29",
+        "2.1579360071009712e+30",
+        "4.5105469079412714e+29",
+        "1.8509461090897429e+29"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "9.2583504331004289e+40",
+      "thermal_piecewise_primitive_quadrature_bound": "1.4910357409660993e+35",
+      "capacity_evaluation_bound": "3.1084235214937581e+28",
+      "maximum_depletion": "2.0479999809017392e-9",
+      "maximum_frozen_utilization": "0.0011078652869395984",
+      "finite_T_omitted_scale_K": "6.2555725260877928",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    },
+    {
+      "role": "source",
+      "configuration": "tier-2-cap-2",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "20770231027495948403976767477794209792",
+      "N": "1935764838078158554813669929830854211774971904",
+      "U_main": "3.8356265661959415e+32",
+      "U_reconstruction_including_stored_events": "1725570262340977625750459953193156608",
+      "U_event_extra": "4.8680963011450968e+34",
+      "U_quad": "9.2651397282627952e+40",
+      "U_count": "1.2120689887580831e+38",
+      "total_over_N": "0.000047937201473008966",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "9.1656341227580006e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "1.9648202101642061e-16",
+      "nested_differences": [
+        "33871923916693406098509701211498741760",
+        "7915766767210402061388334273530953728",
+        "1363858031408681957883413169392582656"
+      ],
+      "independent_arithmetic_bounds": [
+        "2.3565504776751468e+29",
+        "2.1579360071009712e+30",
+        "4.5105469079412714e+29",
+        "1.8509461090897429e+29"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "9.2583504331004289e+40",
+      "thermal_piecewise_primitive_quadrature_bound": "1.4910357409660993e+35",
+      "capacity_evaluation_bound": "3.1084235214937581e+28",
+      "maximum_depletion": "2.0479999809017392e-9",
+      "maximum_frozen_utilization": "0.0011078652869395984",
+      "finite_T_omitted_scale_K": "6.2555725260877928",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    },
+    {
+      "role": "source",
+      "configuration": "tier-2-cap-3",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "20770231027495948403976767477794209792",
+      "N": "1935764838078158554813669929830854211774971904",
+      "U_main": "3.8356265661959415e+32",
+      "U_reconstruction_including_stored_events": "1725570262340977625750459953193156608",
+      "U_event_extra": "4.8680963011450968e+34",
+      "U_quad": "9.2651397282627952e+40",
+      "U_count": "1.2120689887580831e+38",
+      "total_over_N": "0.000047937201473008966",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "9.1656341227580006e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "1.9648202101642061e-16",
+      "nested_differences": [
+        "33871923916693406098509701211498741760",
+        "7915766767210402061388334273530953728",
+        "1363858031408681957883413169392582656"
+      ],
+      "independent_arithmetic_bounds": [
+        "2.3565504776751468e+29",
+        "2.1579360071009712e+30",
+        "4.5105469079412714e+29",
+        "1.8509461090897429e+29"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "9.2583504331004289e+40",
+      "thermal_piecewise_primitive_quadrature_bound": "1.4910357409660993e+35",
+      "capacity_evaluation_bound": "3.1084235214937581e+28",
+      "maximum_depletion": "2.0479999809017392e-9",
+      "maximum_frozen_utilization": "0.0011078652869395984",
+      "finite_T_omitted_scale_K": "6.2555725260877928",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    },
+    {
+      "role": "control",
+      "configuration": "tier-0-cap-0",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "11316118837831118206317085654515712",
+      "N": "187863378728329101625976332573640334510129152",
+      "U_main": "8.6340848215940938e+31",
+      "U_reconstruction_including_stored_events": "156243513929442986950915474543607808",
+      "U_event_extra": "4.9101766301280939e+33",
+      "U_quad": "7.5823001559321094e+39",
+      "U_count": "0",
+      "total_over_N": "0.000040361632817471233",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "8.5782386993378237e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "0",
+      "nested_differences": [
+        "546264434449656382844913057691336704",
+        "136566098708893781428186065229840384",
+        "34141277089215588280991536482615296"
+      ],
+      "independent_arithmetic_bounds": [
+        "8.3238240886568487e+28",
+        "1.8529395515259435e+29",
+        "2.2182480385858892e+29",
+        "4.7510415312926864e+29"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "7.5812067032596056e+39",
+      "thermal_piecewise_primitive_quadrature_bound": "9.2331562225373680e+32",
+      "capacity_evaluation_bound": "1.2878094840449875e+28",
+      "maximum_depletion": "0",
+      "maximum_frozen_utilization": "0.0000030986280299398849",
+      "finite_T_omitted_scale_K": "0e+71",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    },
+    {
+      "role": "control",
+      "configuration": "tier-0-cap-1",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "11316118837831118206317085654515712",
+      "N": "187863378728329101625976332573640334510129152",
+      "U_main": "8.6340848215940938e+31",
+      "U_reconstruction_including_stored_events": "156243513929442986950915474543607808",
+      "U_event_extra": "4.9101766301280939e+33",
+      "U_quad": "7.5823001559321094e+39",
+      "U_count": "0",
+      "total_over_N": "0.000040361632817471233",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "8.5782386993378237e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "0",
+      "nested_differences": [
+        "546264434449656382844913057691336704",
+        "136566098708893781428186065229840384",
+        "34141277089215588280991536482615296"
+      ],
+      "independent_arithmetic_bounds": [
+        "8.3238240886568487e+28",
+        "1.8529395515259435e+29",
+        "2.2182480385858892e+29",
+        "4.7510415312926864e+29"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "7.5812067032596056e+39",
+      "thermal_piecewise_primitive_quadrature_bound": "9.2331562225373680e+32",
+      "capacity_evaluation_bound": "1.2878094840449875e+28",
+      "maximum_depletion": "0",
+      "maximum_frozen_utilization": "0.0000030986280299398849",
+      "finite_T_omitted_scale_K": "0e+71",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    },
+    {
+      "role": "control",
+      "configuration": "tier-0-cap-2",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "11375936100529387781200211337019392",
+      "N": "187863378728329220468220103970146724826054656",
+      "U_main": "7.8542799970883874e+30",
+      "U_reconstruction_including_stored_events": "155950531275270647198111458847096832",
+      "U_event_extra": "4.8082389838309552e+33",
+      "U_quad": "7.5823001563354964e+39",
+      "U_count": "0",
+      "total_over_N": "0.000040361630618073849",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "8.5572170237380956e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "0",
+      "nested_differences": [
+        "546264434449656382844913057691336704",
+        "136566177937056295692523658773790720",
+        "34140762106159245562797178446938112"
+      ],
+      "independent_arithmetic_bounds": [
+        "5.1317094413961839e+28",
+        "1.5152384510450451e+29",
+        "1.0886878802414385e+29",
+        "8.7844579466794561e+29"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "7.5812067032596056e+39",
+      "thermal_piecewise_primitive_quadrature_bound": "9.2331562225286382e+32",
+      "capacity_evaluation_bound": "1.2923476082912345e+28",
+      "maximum_depletion": "0",
+      "maximum_frozen_utilization": "0.0000030986280299398849",
+      "finite_T_omitted_scale_K": "0e+71",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    },
+    {
+      "role": "control",
+      "configuration": "tier-0-cap-3",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "11379659824167558205067107902685184",
+      "N": "187863378728329220468220103970146724826054656",
+      "U_main": "2.8321223524429058e+30",
+      "U_reconstruction_including_stored_events": "156250727477508870912665264739844096",
+      "U_event_extra": "4.7511509386960084e+33",
+      "U_quad": "7.5823001563332429e+39",
+      "U_count": "0",
+      "total_over_N": "0.000040361631905219173",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "8.5701577128042087e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "0",
+      "nested_differences": [
+        "546264513677818897109250651235287040",
+        "136566296779300067089030049089716224",
+        "34140880948403016959303568762863616"
+      ],
+      "independent_arithmetic_bounds": [
+        "1.9926010029042737e+29",
+        "2.2541136009331892e+29",
+        "6.3884191067380647e+28",
+        "7.1728442130819011e+29"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "7.5812067032596056e+39",
+      "thermal_piecewise_primitive_quadrature_bound": "9.2331562225280690e+32",
+      "capacity_evaluation_bound": "1.3375015999494130e+28",
+      "maximum_depletion": "0",
+      "maximum_frozen_utilization": "0.0000030986280299398849",
+      "finite_T_omitted_scale_K": "0e+71",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    },
+    {
+      "role": "control",
+      "configuration": "tier-1-cap-0",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "11316118837831118206317085654515712",
+      "N": "187863378728329101625976332573640334510129152",
+      "U_main": "8.6340848215940938e+31",
+      "U_reconstruction_including_stored_events": "156243513929442986950915474543607808",
+      "U_event_extra": "4.9101766301280939e+33",
+      "U_quad": "7.5823001559321094e+39",
+      "U_count": "0",
+      "total_over_N": "0.000040361632817471233",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "8.5782386993378237e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "0",
+      "nested_differences": [
+        "546264434449656382844913057691336704",
+        "136566098708893781428186065229840384",
+        "34141277089215588280991536482615296"
+      ],
+      "independent_arithmetic_bounds": [
+        "8.3238240886568487e+28",
+        "1.8529395515259435e+29",
+        "2.2182480385858892e+29",
+        "4.7510415312926864e+29"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "7.5812067032596056e+39",
+      "thermal_piecewise_primitive_quadrature_bound": "9.2331562225373680e+32",
+      "capacity_evaluation_bound": "1.2878094840449875e+28",
+      "maximum_depletion": "0",
+      "maximum_frozen_utilization": "0.0000030986280299398849",
+      "finite_T_omitted_scale_K": "0e+71",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    },
+    {
+      "role": "control",
+      "configuration": "tier-1-cap-1",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "11316118837831118206317085654515712",
+      "N": "187863378728329101625976332573640334510129152",
+      "U_main": "8.6340848215940938e+31",
+      "U_reconstruction_including_stored_events": "156243513929442986950915474543607808",
+      "U_event_extra": "4.9101766301280939e+33",
+      "U_quad": "7.5823001559321094e+39",
+      "U_count": "0",
+      "total_over_N": "0.000040361632817471233",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "8.5782386993378237e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "0",
+      "nested_differences": [
+        "546264434449656382844913057691336704",
+        "136566098708893781428186065229840384",
+        "34141277089215588280991536482615296"
+      ],
+      "independent_arithmetic_bounds": [
+        "8.3238240886568487e+28",
+        "1.8529395515259435e+29",
+        "2.2182480385858892e+29",
+        "4.7510415312926864e+29"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "7.5812067032596056e+39",
+      "thermal_piecewise_primitive_quadrature_bound": "9.2331562225373680e+32",
+      "capacity_evaluation_bound": "1.2878094840449875e+28",
+      "maximum_depletion": "0",
+      "maximum_frozen_utilization": "0.0000030986280299398849",
+      "finite_T_omitted_scale_K": "0e+71",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    },
+    {
+      "role": "control",
+      "configuration": "tier-1-cap-2",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "11375936100529387781200211337019392",
+      "N": "187863378728329220468220103970146724826054656",
+      "U_main": "7.8542799970883874e+30",
+      "U_reconstruction_including_stored_events": "155950531275270647198111458847096832",
+      "U_event_extra": "4.8082389838309552e+33",
+      "U_quad": "7.5823001563354964e+39",
+      "U_count": "0",
+      "total_over_N": "0.000040361630618073849",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "8.5572170237380956e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "0",
+      "nested_differences": [
+        "546264434449656382844913057691336704",
+        "136566177937056295692523658773790720",
+        "34140762106159245562797178446938112"
+      ],
+      "independent_arithmetic_bounds": [
+        "5.1317094413961839e+28",
+        "1.5152384510450451e+29",
+        "1.0886878802414385e+29",
+        "8.7844579466794561e+29"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "7.5812067032596056e+39",
+      "thermal_piecewise_primitive_quadrature_bound": "9.2331562225286382e+32",
+      "capacity_evaluation_bound": "1.2923476082912345e+28",
+      "maximum_depletion": "0",
+      "maximum_frozen_utilization": "0.0000030986280299398849",
+      "finite_T_omitted_scale_K": "0e+71",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    },
+    {
+      "role": "control",
+      "configuration": "tier-1-cap-3",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "11379659824167558205067107902685184",
+      "N": "187863378728329220468220103970146724826054656",
+      "U_main": "2.8321223524429058e+30",
+      "U_reconstruction_including_stored_events": "156250727477508870912665264739844096",
+      "U_event_extra": "4.7511509386960084e+33",
+      "U_quad": "7.5823001563332429e+39",
+      "U_count": "0",
+      "total_over_N": "0.000040361631905219173",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "8.5701577128042087e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "0",
+      "nested_differences": [
+        "546264513677818897109250651235287040",
+        "136566296779300067089030049089716224",
+        "34140880948403016959303568762863616"
+      ],
+      "independent_arithmetic_bounds": [
+        "1.9926010029042737e+29",
+        "2.2541136009331892e+29",
+        "6.3884191067380647e+28",
+        "7.1728442130819011e+29"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "7.5812067032596056e+39",
+      "thermal_piecewise_primitive_quadrature_bound": "9.2331562225280690e+32",
+      "capacity_evaluation_bound": "1.3375015999494130e+28",
+      "maximum_depletion": "0",
+      "maximum_frozen_utilization": "0.0000030986280299398849",
+      "finite_T_omitted_scale_K": "0e+71",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    },
+    {
+      "role": "control",
+      "configuration": "tier-2-cap-0",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "11373717711978988379747592106409984",
+      "N": "187863378728329180854138846837977928054079488",
+      "U_main": "1.0397731184942796e+31",
+      "U_reconstruction_including_stored_events": "155997534609133549358942426400555008",
+      "U_event_extra": "4.8159928435900295e+33",
+      "U_quad": "7.5823001561069165e+39",
+      "U_count": "0",
+      "total_over_N": "0.000040361630910060921",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "8.5601317585838472e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "0",
+      "nested_differences": [
+        "546264474063737639977081854463311872",
+        "136566177937056295692523658773790720",
+        "34141039404728045487978755850764288"
+      ],
+      "independent_arithmetic_bounds": [
+        "5.9506079536140241e+28",
+        "1.2266757958280293e+29",
+        "7.9785927617786848e+28",
+        "5.7127734677169105e+29"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "7.5812067032596056e+39",
+      "thermal_piecewise_primitive_quadrature_bound": "9.2331562225289194e+32",
+      "capacity_evaluation_bound": "1.2283886605000513e+28",
+      "maximum_depletion": "0",
+      "maximum_frozen_utilization": "0.0000030986280299398849",
+      "finite_T_omitted_scale_K": "0e+71",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    },
+    {
+      "role": "control",
+      "configuration": "tier-2-cap-1",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "11373717711978988379747592106409984",
+      "N": "187863378728329180854138846837977928054079488",
+      "U_main": "1.0397731184942796e+31",
+      "U_reconstruction_including_stored_events": "155997534609133549358942426400555008",
+      "U_event_extra": "4.8159928435900295e+33",
+      "U_quad": "7.5823001561069165e+39",
+      "U_count": "0",
+      "total_over_N": "0.000040361630910060921",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "8.5601317585838472e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "0",
+      "nested_differences": [
+        "546264474063737639977081854463311872",
+        "136566177937056295692523658773790720",
+        "34141039404728045487978755850764288"
+      ],
+      "independent_arithmetic_bounds": [
+        "5.9506079536140241e+28",
+        "1.2266757958280293e+29",
+        "7.9785927617786848e+28",
+        "5.7127734677169105e+29"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "7.5812067032596056e+39",
+      "thermal_piecewise_primitive_quadrature_bound": "9.2331562225289194e+32",
+      "capacity_evaluation_bound": "1.2283886605000513e+28",
+      "maximum_depletion": "0",
+      "maximum_frozen_utilization": "0.0000030986280299398849",
+      "finite_T_omitted_scale_K": "0e+71",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    },
+    {
+      "role": "control",
+      "configuration": "tier-2-cap-2",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "11377797962348472993133659619852288",
+      "N": "187863378728329220468220103970146724826054656",
+      "U_main": "5.3374684570342916e+30",
+      "U_reconstruction_including_stored_events": "156166252809355404813493694325850112",
+      "U_event_extra": "4.8525947469975778e+33",
+      "U_quad": "7.5823001562596399e+39",
+      "U_count": "0",
+      "total_over_N": "0.000040361631998579686",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "8.5710609830563978e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "0",
+      "nested_differences": [
+        "546264434449656382844913057691336704",
+        "136566296779300067089030049089716224",
+        "34140801720240502694965975218913280"
+      ],
+      "independent_arithmetic_bounds": [
+        "1.3239140745638637e+29",
+        "2.3689040076203983e+29",
+        "7.2555222145340719e+28",
+        "8.0300358141087535e+29"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "7.5812067032596056e+39",
+      "thermal_piecewise_primitive_quadrature_bound": "9.2331562225283543e+32",
+      "capacity_evaluation_bound": "1.2509120293188515e+28",
+      "maximum_depletion": "0",
+      "maximum_frozen_utilization": "0.0000030986280299398849",
+      "finite_T_omitted_scale_K": "0e+71",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    },
+    {
+      "role": "control",
+      "configuration": "tier-2-cap-3",
+      "status": "CONDITIONAL_LEDGER_ENCLOSURE_CANDIDATE",
+      "R20_original": "11379659824167558205067107902685184",
+      "N": "187863378728329220468220103970146724826054656",
+      "U_main": "2.8321223524429058e+30",
+      "U_reconstruction_including_stored_events": "156250727477508870912665264739844096",
+      "U_event_extra": "4.7511509386960084e+33",
+      "U_quad": "7.5823001563332429e+39",
+      "U_count": "0",
+      "total_over_N": "0.000040361631905219173",
+      "limit": "0.0002",
+      "reconstruction_event_allocation_over_N": "8.5701577128042087e-10",
+      "allocation_limit": "0.000005",
+      "max_R18_over_G": "0",
+      "nested_differences": [
+        "546264513677818897109250651235287040",
+        "136566296779300067089030049089716224",
+        "34140880948403016959303568762863616"
+      ],
+      "independent_arithmetic_bounds": [
+        "1.9926010029042737e+29",
+        "2.2541136009331892e+29",
+        "6.3884191067380647e+28",
+        "7.1728442130819011e+29"
+      ],
+      "contraction": true,
+      "outgoing_rectangle_quadrature_bound": "7.5812067032596056e+39",
+      "thermal_piecewise_primitive_quadrature_bound": "9.2331562225280690e+32",
+      "capacity_evaluation_bound": "1.3375015999494130e+28",
+      "maximum_depletion": "0",
+      "maximum_frozen_utilization": "0.0000030986280299398849",
+      "finite_T_omitted_scale_K": "0e+71",
+      "gates": {
+        "R20": true,
+        "allocation": true,
+        "R18": true,
+        "contraction": true
+      }
+    }
+  ]
+}

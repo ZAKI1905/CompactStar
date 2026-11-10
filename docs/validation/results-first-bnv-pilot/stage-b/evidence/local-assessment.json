@@ -1,0 +1,702 @@
+{
+  "status": "CANDIDATE",
+  "workers": 24,
+  "configurations": [
+    {
+      "role": "source",
+      "configuration": "tier-0-cap-0",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 1492,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0034027841311045388",
+          "0.018568639833801539",
+          "0.021587051777979489"
+        ],
+        "Echem_ratio": "0.0094050919943483249",
+        "scaled_reference_error": "7.0750298509598206e-18"
+      },
+      "worst_Echem": {
+        "index": 1012,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0032473378720898353",
+          "0.018975371022756313",
+          "0.020735323547621424"
+        ],
+        "Echem_ratio": "0.0094310125937044444",
+        "scaled_reference_error": "6.4514918972889482e-18"
+      },
+      "elapsed_s": 48.05154450982809
+    },
+    {
+      "role": "source",
+      "configuration": "tier-0-cap-1",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 1492,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0034027841311045388",
+          "0.018568639833801539",
+          "0.021587051777979489"
+        ],
+        "Echem_ratio": "0.0094050919943483249",
+        "scaled_reference_error": "7.0750298509598206e-18"
+      },
+      "worst_Echem": {
+        "index": 1012,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0032473378720898353",
+          "0.018975371022756313",
+          "0.020735323547621424"
+        ],
+        "Echem_ratio": "0.0094310125937044444",
+        "scaled_reference_error": "6.4514918972889482e-18"
+      },
+      "elapsed_s": 47.97408264130354
+    },
+    {
+      "role": "source",
+      "configuration": "tier-0-cap-2",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 1492,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0034027841311045388",
+          "0.018568639833801539",
+          "0.021587051777979489"
+        ],
+        "Echem_ratio": "0.0094050919943483249",
+        "scaled_reference_error": "7.0750298509598206e-18"
+      },
+      "worst_Echem": {
+        "index": 1012,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0032473378720898353",
+          "0.018975371022756313",
+          "0.020735323547621424"
+        ],
+        "Echem_ratio": "0.0094310125937044444",
+        "scaled_reference_error": "6.4514918972889482e-18"
+      },
+      "elapsed_s": 47.69333107024431
+    },
+    {
+      "role": "source",
+      "configuration": "tier-0-cap-3",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 455,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.00090585723754912280",
+          "0.0082838846486242464",
+          "0.0052954691520332516"
+        ],
+        "Echem_ratio": "0.0037749218712871177",
+        "scaled_reference_error": "5.8007915965816292e-18"
+      },
+      "worst_Echem": {
+        "index": 456,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.00095921988721269707",
+          "0.0082645124569081362",
+          "0.0057378859916695330"
+        ],
+        "Echem_ratio": "0.0038341838331619796",
+        "scaled_reference_error": "5.8223314697835677e-18"
+      },
+      "elapsed_s": 45.57148893177509
+    },
+    {
+      "role": "source",
+      "configuration": "tier-1-cap-0",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 28,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0068406078547987954",
+          "0.0063646791886114020",
+          "0.0026366140031783829"
+        ],
+        "Echem_ratio": "0.0026655247727415111",
+        "scaled_reference_error": "4.0694533672616392e-19"
+      },
+      "worst_Echem": {
+        "index": 33,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0029390583450636874",
+          "0.0065918023972512132",
+          "0.0028587590683137111"
+        ],
+        "Echem_ratio": "0.0028916987327247632",
+        "scaled_reference_error": "5.0499965101918911e-19"
+      },
+      "elapsed_s": 47.20722792297602
+    },
+    {
+      "role": "source",
+      "configuration": "tier-1-cap-1",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 28,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0068406078547987954",
+          "0.0063646791886114020",
+          "0.0026366140031783829"
+        ],
+        "Echem_ratio": "0.0026655247727415111",
+        "scaled_reference_error": "4.0694533672616392e-19"
+      },
+      "worst_Echem": {
+        "index": 33,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0029390583450636874",
+          "0.0065918023972512132",
+          "0.0028587590683137111"
+        ],
+        "Echem_ratio": "0.0028916987327247632",
+        "scaled_reference_error": "5.0499965101918911e-19"
+      },
+      "elapsed_s": 45.6694125905633
+    },
+    {
+      "role": "source",
+      "configuration": "tier-1-cap-2",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 28,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0068406078547987954",
+          "0.0063646791886114020",
+          "0.0026366140031783829"
+        ],
+        "Echem_ratio": "0.0026655247727415111",
+        "scaled_reference_error": "4.0694533672616392e-19"
+      },
+      "worst_Echem": {
+        "index": 33,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0029390583450636874",
+          "0.0065918023972512132",
+          "0.0028587590683137111"
+        ],
+        "Echem_ratio": "0.0028916987327247632",
+        "scaled_reference_error": "5.0499965101918911e-19"
+      },
+      "elapsed_s": 45.09740471839905
+    },
+    {
+      "role": "source",
+      "configuration": "tier-1-cap-3",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 28,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0068406078547987954",
+          "0.0063646791886114020",
+          "0.0026366140031783829"
+        ],
+        "Echem_ratio": "0.0026655247727415111",
+        "scaled_reference_error": "4.0694533672616392e-19"
+      },
+      "worst_Echem": {
+        "index": 33,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0029390583450636874",
+          "0.0065918023972512132",
+          "0.0028587590683137111"
+        ],
+        "Echem_ratio": "0.0028916987327247632",
+        "scaled_reference_error": "5.0499965101918911e-19"
+      },
+      "elapsed_s": 45.103790774941444
+    },
+    {
+      "role": "source",
+      "configuration": "tier-2-cap-0",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 28,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0068406078547987954",
+          "0.0063646791886114020",
+          "0.0026366140031783829"
+        ],
+        "Echem_ratio": "0.0026655247727415111",
+        "scaled_reference_error": "4.0694533672616392e-19"
+      },
+      "worst_Echem": {
+        "index": 6,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0013334210986442400",
+          "0.0067120486330416006",
+          "0.0031019695871691838"
+        ],
+        "Echem_ratio": "0.0028623880704097105",
+        "scaled_reference_error": "8.8390974502249006e-20"
+      },
+      "elapsed_s": 46.81970355659723
+    },
+    {
+      "role": "source",
+      "configuration": "tier-2-cap-1",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 28,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0068406078547987954",
+          "0.0063646791886114020",
+          "0.0026366140031783829"
+        ],
+        "Echem_ratio": "0.0026655247727415111",
+        "scaled_reference_error": "4.0694533672616392e-19"
+      },
+      "worst_Echem": {
+        "index": 6,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0013334210986442400",
+          "0.0067120486330416006",
+          "0.0031019695871691838"
+        ],
+        "Echem_ratio": "0.0028623880704097105",
+        "scaled_reference_error": "8.8390974502249006e-20"
+      },
+      "elapsed_s": 46.31679777801037
+    },
+    {
+      "role": "source",
+      "configuration": "tier-2-cap-2",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 28,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0068406078547987954",
+          "0.0063646791886114020",
+          "0.0026366140031783829"
+        ],
+        "Echem_ratio": "0.0026655247727415111",
+        "scaled_reference_error": "4.0694533672616392e-19"
+      },
+      "worst_Echem": {
+        "index": 6,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0013334210986442400",
+          "0.0067120486330416006",
+          "0.0031019695871691838"
+        ],
+        "Echem_ratio": "0.0028623880704097105",
+        "scaled_reference_error": "8.8390974502249006e-20"
+      },
+      "elapsed_s": 45.343369990587234
+    },
+    {
+      "role": "source",
+      "configuration": "tier-2-cap-3",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 28,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0068406078547987954",
+          "0.0063646791886114020",
+          "0.0026366140031783829"
+        ],
+        "Echem_ratio": "0.0026655247727415111",
+        "scaled_reference_error": "4.0694533672616392e-19"
+      },
+      "worst_Echem": {
+        "index": 6,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0013334210986442400",
+          "0.0067120486330416006",
+          "0.0031019695871691838"
+        ],
+        "Echem_ratio": "0.0028623880704097105",
+        "scaled_reference_error": "8.8390974502249006e-20"
+      },
+      "elapsed_s": 45.54160722345114
+    },
+    {
+      "role": "control",
+      "configuration": "tier-0-cap-0",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 836,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.013133535756780109",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-998826",
+        "scaled_reference_error": "5.5985979232205976e-18"
+      },
+      "worst_Echem": {
+        "index": 1,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0017942744782837103",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-14915",
+        "scaled_reference_error": "5.1967100573998624e-21"
+      },
+      "elapsed_s": 36.88845279067755
+    },
+    {
+      "role": "control",
+      "configuration": "tier-0-cap-1",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 836,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.013133535756780109",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-998826",
+        "scaled_reference_error": "5.5985979232205976e-18"
+      },
+      "worst_Echem": {
+        "index": 1,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0017942744782837103",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-14915",
+        "scaled_reference_error": "5.1967100573998624e-21"
+      },
+      "elapsed_s": 35.08931030333042
+    },
+    {
+      "role": "control",
+      "configuration": "tier-0-cap-2",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 601,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.010297977507145643",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-998826",
+        "scaled_reference_error": "3.4553969222505336e-18"
+      },
+      "worst_Echem": {
+        "index": 1,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0017942744782837103",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-14915",
+        "scaled_reference_error": "5.1967100573998624e-21"
+      },
+      "elapsed_s": 34.20899340510368
+    },
+    {
+      "role": "control",
+      "configuration": "tier-0-cap-3",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 155,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0099859847724690162",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-998826",
+        "scaled_reference_error": "9.0879144345369757e-19"
+      },
+      "worst_Echem": {
+        "index": 1,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0017942744782837103",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-14915",
+        "scaled_reference_error": "5.1967100573998624e-21"
+      },
+      "elapsed_s": 33.99984369426966
+    },
+    {
+      "role": "control",
+      "configuration": "tier-1-cap-0",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 836,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.013133535756780109",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-998826",
+        "scaled_reference_error": "5.5985979232205976e-18"
+      },
+      "worst_Echem": {
+        "index": 1,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0017942744782837103",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-14915",
+        "scaled_reference_error": "5.1967100573998624e-21"
+      },
+      "elapsed_s": 33.65345035493374
+    },
+    {
+      "role": "control",
+      "configuration": "tier-1-cap-1",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 836,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.013133535756780109",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-998826",
+        "scaled_reference_error": "5.5985979232205976e-18"
+      },
+      "worst_Echem": {
+        "index": 1,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0017942744782837103",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-14915",
+        "scaled_reference_error": "5.1967100573998624e-21"
+      },
+      "elapsed_s": 33.810320630669594
+    },
+    {
+      "role": "control",
+      "configuration": "tier-1-cap-2",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 601,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.010297977507145643",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-998826",
+        "scaled_reference_error": "3.4553969222505336e-18"
+      },
+      "worst_Echem": {
+        "index": 1,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0017942744782837103",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-14915",
+        "scaled_reference_error": "5.1967100573998624e-21"
+      },
+      "elapsed_s": 34.13113971799612
+    },
+    {
+      "role": "control",
+      "configuration": "tier-1-cap-3",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 155,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0099859847724690162",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-998826",
+        "scaled_reference_error": "9.0879144345369757e-19"
+      },
+      "worst_Echem": {
+        "index": 1,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0017942744782837103",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-14915",
+        "scaled_reference_error": "5.1967100573998624e-21"
+      },
+      "elapsed_s": 34.32226684689522
+    },
+    {
+      "role": "control",
+      "configuration": "tier-2-cap-0",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 601,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.010297977507145643",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-998826",
+        "scaled_reference_error": "3.4553969222505336e-18"
+      },
+      "worst_Echem": {
+        "index": 1,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0017942744782837103",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-14915",
+        "scaled_reference_error": "5.1967100573998624e-21"
+      },
+      "elapsed_s": 34.489973179996014
+    },
+    {
+      "role": "control",
+      "configuration": "tier-2-cap-1",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 601,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.010297977507145643",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-998826",
+        "scaled_reference_error": "3.4553969222505336e-18"
+      },
+      "worst_Echem": {
+        "index": 1,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0017942744782837103",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-14915",
+        "scaled_reference_error": "5.1967100573998624e-21"
+      },
+      "elapsed_s": 34.227267034351826
+    },
+    {
+      "role": "control",
+      "configuration": "tier-2-cap-2",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 601,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.010297977507145643",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-998826",
+        "scaled_reference_error": "3.4553969222505336e-18"
+      },
+      "worst_Echem": {
+        "index": 1,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0017942744782837103",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-14915",
+        "scaled_reference_error": "5.1967100573998624e-21"
+      },
+      "elapsed_s": 34.245301216840744
+    },
+    {
+      "role": "control",
+      "configuration": "tier-2-cap-3",
+      "status": "CONDITIONAL_PASS",
+      "points": 1921,
+      "worst_state": {
+        "index": 155,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0099859847724690162",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-998826",
+        "scaled_reference_error": "9.0879144345369757e-19"
+      },
+      "worst_Echem": {
+        "index": 1,
+        "status": "CONDITIONAL_PASS",
+        "state_ratios": [
+          "0.0017942744782837103",
+          "0",
+          "0"
+        ],
+        "Echem_ratio": "0e-14915",
+        "scaled_reference_error": "5.1967100573998624e-21"
+      },
+      "elapsed_s": 33.729362830519676
+    }
+  ]
+}

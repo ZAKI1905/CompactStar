@@ -1,0 +1,123 @@
+{
+  "status": "CONDITIONAL_NUMERICAL_VERIFICATION_CANDIDATE",
+  "checks": {
+    "preflight_input_and_GSL_tableau_bindings": true,
+    "accuracy_complete": true,
+    "source/tier-0-cap-0/accuracy": true,
+    "source/tier-0-cap-1/accuracy": true,
+    "source/tier-0-cap-2/accuracy": true,
+    "source/tier-0-cap-3/accuracy": true,
+    "source/tier-1-cap-0/accuracy": true,
+    "source/tier-1-cap-1/accuracy": true,
+    "source/tier-1-cap-2/accuracy": true,
+    "source/tier-1-cap-3/accuracy": true,
+    "source/tier-2-cap-0/accuracy": true,
+    "source/tier-2-cap-1/accuracy": true,
+    "source/tier-2-cap-2/accuracy": true,
+    "source/tier-2-cap-3/accuracy": true,
+    "control/tier-0-cap-0/accuracy": true,
+    "control/tier-0-cap-1/accuracy": true,
+    "control/tier-0-cap-2/accuracy": true,
+    "control/tier-0-cap-3/accuracy": true,
+    "control/tier-1-cap-0/accuracy": true,
+    "control/tier-1-cap-1/accuracy": true,
+    "control/tier-1-cap-2/accuracy": true,
+    "control/tier-1-cap-3/accuracy": true,
+    "control/tier-2-cap-0/accuracy": true,
+    "control/tier-2-cap-1/accuracy": true,
+    "control/tier-2-cap-2/accuracy": true,
+    "control/tier-2-cap-3/accuracy": true,
+    "ledger_complete": true,
+    "source/tier-0-cap-0/ledger": true,
+    "source/tier-0-cap-1/ledger": true,
+    "source/tier-0-cap-2/ledger": true,
+    "source/tier-0-cap-3/ledger": true,
+    "source/tier-1-cap-0/ledger": true,
+    "source/tier-1-cap-1/ledger": true,
+    "source/tier-1-cap-2/ledger": true,
+    "source/tier-1-cap-3/ledger": true,
+    "source/tier-2-cap-0/ledger": true,
+    "source/tier-2-cap-1/ledger": true,
+    "source/tier-2-cap-2/ledger": true,
+    "source/tier-2-cap-3/ledger": true,
+    "control/tier-0-cap-0/ledger": true,
+    "control/tier-0-cap-1/ledger": true,
+    "control/tier-0-cap-2/ledger": true,
+    "control/tier-0-cap-3/ledger": true,
+    "control/tier-1-cap-0/ledger": true,
+    "control/tier-1-cap-1/ledger": true,
+    "control/tier-1-cap-2/ledger": true,
+    "control/tier-1-cap-3/ledger": true,
+    "control/tier-2-cap-0/ledger": true,
+    "control/tier-2-cap-1/ledger": true,
+    "control/tier-2-cap-2/ledger": true,
+    "control/tier-2-cap-3/ledger": true,
+    "local_reconstruction_complete": true,
+    "all_local_reconstructions": true,
+    "matrix_schedule_grid_restart_event_guards": true,
+    "all_ten_reference_arithmetic_histories": true,
+    "observation_arithmetic": true,
+    "actual_piecewise_crossings": true,
+    "all_twelve_matched_budgets": true
+  },
+  "failed": [],
+  "inputs": {
+    "preflight.json": {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/preflight.json",
+      "sha256": "60e5da9aae035705f9a0046ff84ab545894e4d9d1cf53075962ed85429b478d9"
+    },
+    "accuracy.json": {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/accuracy.json",
+      "sha256": "121974264cdaa41770c335e85e00d09e6833f0d841a9fc9c61c13330440ae3b9"
+    },
+    "ledger-assessment.json": {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/ledger-assessment.json",
+      "sha256": "6bcd23475426435dd16f01aa84c4d209beaf6215f31eeaf6db18923e37e2792c"
+    },
+    "local-assessment.json": {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/local-assessment.json",
+      "sha256": "b742e6169204612f1940b780798866227a072ad7188f9e8f36cb4bc84eb79e6e"
+    },
+    "coverage.json": {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/coverage.json",
+      "sha256": "05c4d54c265dcc8f51fa800ed67e2115e4a4937e9ae75e002613734b08bec7df"
+    },
+    "roundoff.json": {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/roundoff.json",
+      "sha256": "37ca5fe3e76ce64f749b851a09f7b14409a3bb91423557dcce2cf222439d653c"
+    },
+    "interpolation-roundoff-completion.json": {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/interpolation-roundoff-completion.json",
+      "sha256": "cc4433cb94359f0fc1e085ef9ddb7de25961c2bc0896f21daea00c9f0239c7a8"
+    },
+    "events-assessment.json": {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/events-assessment.json",
+      "sha256": "6d148cd6e8468b287dc6116dc446aad1147990ca23ed7d21e0fc26923130c22a"
+    },
+    "matched.json": {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/matched.json",
+      "sha256": "b44cb2b6735bf5c05158c93b35179303bb80facb8f2ca5c9dd4b21cab81a569e"
+    },
+    "chemical-response.json": {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3/chemical-response.json",
+      "sha256": "f0f72683f5375bc9d5883c28a1df8c67bb1b9d9980f9b877804de6061906891a"
+    }
+  },
+  "chemical_comparison": {
+    "LH": {
+      "temperature_effect_K": [
+        "0.0000049363683875582213",
+        "0.0000056146090346876305"
+      ],
+      "resolved": true
+    },
+    "net_beta_loss": {
+      "temperature_effect_K": [
+        "-0.0000028113639951881167",
+        "-0.0000024641247156331334"
+      ],
+      "resolved": true
+    }
+  },
+  "scope": "Fixed accepted inputs, mathematical P2 and exact-zero control, 2048 Julian years. New verification remains an UNVERIFIED SCIENTIFIC CANDIDATE under GOVERNANCE section 5. This aggregation does not confer owner acceptance, absolute stellar accuracy, microscopic-rate validity, or qualification beyond this horizon. assessment.json is the earlier physical-curve generation receipt; this file records the subsequently completed numerical gates."
+}

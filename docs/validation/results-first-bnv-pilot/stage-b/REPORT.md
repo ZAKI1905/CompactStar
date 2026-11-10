@@ -1,11 +1,16 @@
 # Stage B — 2,048-year paired thermal evolution
 
-**Working report: preliminary native experiment; new conditional verification
-candidates, pending completion of the original matrix and numerical gates.**
-Do not interpret this document as an owner acceptance of Stage B.
+**Final analysis: CONDITIONAL NUMERICAL VERIFICATION CANDIDATE.**
+All 58 aggregate checks pass, covering the original source/control matrix and
+all 12 matched comparisons. New verification remains an **UNVERIFIED SCIENTIFIC
+CANDIDATE** under GOVERNANCE §5, pending domain-authority review. This is not
+owner acceptance of Stage B. The earlier handoff in [STATUS.md](STATUS.md) is a
+historical checkpoint, superseded by this completed analysis.
 
-Monitoring has stopped at the owner's request. See [STATUS.md](STATUS.md) for
-the saved job snapshot and remaining final-report, plot, and manifest work.
+The source becomes 15.326 million K warmer than the control. Chemical reactions
+oppose 12–15% of instantaneous chemical driving at the endpoint, but isolated
+chemical heating contributes only about 5 microkelvin: numerically resolved by
+the new comparison bound, thermally negligible in this fixed-input experiment.
 
 The scoped Stage A CONDITIONAL PASS is recorded in
 [OWNER_ACCEPTANCE.md](../preliminary-pair/OWNER_ACCEPTANCE.md). Its accepted matched
@@ -30,8 +35,19 @@ Matched temperature difference: **+15,325,803.20420946 K**. The finest native
 RKF45 reference difference is +15,325,803.20420949 K. These are different numerical
 representations, not interchangeable last-digit claims. The new fixed-input
 primary-formula high-precision endpoint enclosure for the matched difference is
-7.47e−9 K; this is a candidate verification bound, not a complete native Stage B
-qualification or an absolute stellar error bar.
+7.47e−9 K; this is a candidate reference bound, not the error bar for a native
+main trajectory or an absolute stellar error bar. Native matched endpoint bounds
+are reported separately below. Numerical source: `evidence/final-summary.json:1`,
+fields `paired_HP_endpoint` and `matched_configurations`.
+Printed values and Git CSV copies are rounded for display. Verification enclosures
+apply to the archived full-precision strings; add display-rounding error when
+using a rounded representation at nanokelvin precision.
+
+![Temperature histories and matched difference](evidence/temperature.png)
+
+The vertical markers are actual source Cstar crossings. The reference enclosure
+is much narrower than a plotted stroke; it is quantified above, not displayed
+as a visible band. [Vector PDF](evidence/temperature.pdf).
 
 The mathematical source's direct deposition dominates the thermal separation.
 At the endpoint, direct deposition is 3.3583239603e34 erg/s, photon cooling
@@ -91,6 +107,16 @@ The total R20 uncertainty is much larger than the chemical energy terms. The
 microkelvin conclusion comes from the separate coupled comparison enclosure;
 a passing total-energy balance alone cannot resolve this contribution.
 
+![Powers, chemical imbalances, and stored chemical energy](evidence/physics.png)
+
+The logarithmic panels omit exact zeros, including initial chemical power and
+energy. Control chemical imbalances, reaction powers, and stored chemical energy
+remain exactly zero. These curves are available as
+[source CSV](evidence/curve-source.csv), [control CSV](evidence/curve-control.csv),
+and [matched temperature CSV](evidence/temperature.csv).
+[Vector PDF](evidence/physics.pdf). Evidence: `evidence/assessment.json:1`,
+`evidence/chemical-response.json:1`, and `evidence/final-summary.json:1`.
+
 ## Actual interpolation and events
 
 The source encounters Cstar knots 94 and 95 at approximately **676.579678 years**
@@ -101,6 +127,10 @@ crossing times. Every source tier has two native events. The high-precision
 brackets are 0.01 s wide; native localization width and full trajectory timing
 error are reported separately. A zero rounded native residual/bracket is not a
 zero physical timing uncertainty.
+The largest native full-trajectory crossing-time error bound is 40.697 s,
+including the reference bracket and state-to-time propagation. This differs
+from the 0.01 s high-precision bracket and the native local root width.
+Evidence: `evidence/events-assessment.json:1`.
 
 The cache is continuous at its knots but has derivative jumps. The verification
 uses fresh cellwise majorants and a Lipschitz crossing bridge with propagated
@@ -115,19 +145,67 @@ of cap histories are not interpreted as cap convergence.
 
 ## Qualification and preserved evidence
 
-Status remains preliminary until every original state, power, reference,
-reconstruction, event, restart, and R20 condition is accounted for. New independent
-bounds are explicitly candidates under GOVERNANCE §5. Missing terms are not zero,
-and observed agreement alone does not waive a contraction or arithmetic test.
+The completed matrix contains **24 configurations, 24 endpoint-schedule repeats,
+96 diagnostic grids, six restarts, and ten independent native references**.
+All 46,104 local coupled reconstruction comparisons fit their stored radii;
+20,040 reference observations have completed arithmetic assessments. All state,
+power, reference-allocation, reconstruction, event, restart, contraction, and
+R18/R20 gates pass conditionally. Original thresholds and breakpoint requirements
+are unchanged. Noncontracting reference differences are accepted only where
+independent actual-path arithmetic bounds cover them; identical histories alone
+are not evidence of convergence.
 
-The first completed source BASELINE/uncapped configuration has a conditional
-piecewise R20 bound of 4.794e−5 N (limit 2e−4), including the original residual,
-main/reconstruction/event errors, independent piecewise quadrature bound, original
-nested-grid differences, and count quantization. Its maximum R18/G is 1.965e−16.
-All 1,921 local coupled reconstruction comparisons fit their stored state and
-chemical-energy radii. These initial checks do not by themselves qualify the
-other configurations. Final full-matrix evidence will supersede this progress
-paragraph without altering the underlying evidence.
+| Maximum diagnostic over each role's configurations | Source | Control | Limit |
+|---|---:|---:|---:|
+| Scientific-grid state error / budget | 0.324905 | 0.028989 | 1 |
+| Accepted/restart state error / budget | 0.705055 | 0.008863 | 1 |
+| Scientific-grid power error / budget | 0.002779 | 0.000629 | 1 |
+| Accepted/restart power error / budget | 0.445748 | 0.000138 | 1 |
+| Local state enclosure utilization | 0.021588 | 0.013134 | 1 |
+| Local chemical-energy enclosure utilization | 0.009432 | 0 | 1 |
+| Complete R20 bound / N | 4.793855e−5 | 4.036164e−5 | 2e−4 |
+| Reconstruction + event allocation / N | 9.197424e−10 | 8.578239e−10 | 5e−6 |
+| R18 / gross power | 1.964821e−16 | 0 | 1e−10 |
+
+Positive displayed maxima are rounded upward. R20 retains its original residual,
+all positive main/reconstruction/event/quadrature terms, and count quantization;
+no uncertainty cancellation is used in either role or their difference.
+Reference-state and power allocation maxima are below 0.144 and 0.00901 of their
+respective allowed allocations. Maximum source depletion is 2.048e−9 (limit
+1e−6), and maximum frozen-response utilization is 0.001108 (limit 1).
+
+| Uncapped matched pair | Native endpoint difference [K] | Total bound about native result [K] |
+|---|---:|---:|
+| BASELINE | 15,325,803.212229982 | 0.008022 |
+| REFINED | 15,325,803.204379722 | 0.00017136 |
+| ULTRA | 15,325,803.204211727 | 0.000003364 |
+
+The full 12-pair table is in `evidence/matched.json:1`. These bounds include both
+roles' positive uncertainties. The reference value with its nanokelvin enclosure
+is a separate result; do not attach that enclosure to the BASELINE endpoint.
+The native matched bounds resolve the large temperature separation. The general
+power bounds label LH, excess neutrino losses, and their difference **SIGN
+UNRESOLVED under the 10% signal criterion**, despite passing their gross-power
+accuracy budgets. The separate analytic comparison resolves the isolated
+temperature contributions; it does not silently tighten the native power bounds.
+Exact-zero Lout/Lother also have no nonzero signal to resolve.
+
+![Numerical budgets and isolated chemical temperature bounds](evidence/numerics.png)
+
+B/R/U denote BASELINE/REFINED/ULTRA. Main caps 0/1/2/3 denote uncapped,
+38,723,807,757 s, 19,361,903,878.5 s, and 9,680,951,939.25 s; these differ from
+the reference cap H=duration/256 (`../native-assembly/NONLINEAR_PLAN.md:75`).
+The intervals are deterministic candidate bounds, not statistical confidence
+intervals. [Vector PDF](evidence/numerics.pdf). Evidence:
+`evidence/qualification.json:1`, `evidence/final-summary.json:1`,
+`evidence/accuracy.json:1`, `evidence/ledger-assessment.json:1`,
+`evidence/local-assessment.json:1`, `evidence/coverage.json:1`, and
+`evidence/interpolation-roundoff-completion.json:1`.
+
+The retained `assessment.json` is the earlier physical-curve receipt and still
+records its then-pending obligations. `qualification.json` binds the subsequently
+completed evidence and supplies the final aggregate status; the old receipt was
+not rewritten to hide its preliminary provenance.
 
 Historical BA12 remains **FAIL**, with maximum scaled difference
 1.7255917120989046. Historical BA12R c1/c2/c3 remain separately **all FAIL**:
@@ -153,11 +231,32 @@ configuration directories link back to their immutable original r2 evidence. Reh
 accepted records and event metadata; it does not claim bitwise adaptive process
 restart or introduce an extra original-t0 evolution.
 
+The final manifest passed **two complete byte-verification passes and an
+unchanged-inventory check** over **663,232 file paths**, representing
+**3,231,046,577 bytes** across the manifest entries. Counts include preserved
+linked paths, not just unique underlying files. The full compressed manifest is
+`/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-finalization-20261110-r1/sealed/manifest.jsonl.gz`.
+Its SHA-256 is
+`4eae8a0132354450457f6db79460f30f768f1d9af2123def691a331688af25e0`.
+The [compact receipt](evidence/manifest-receipt.json) records directory roots,
+symlink targets, counts, and verifier hash. [Report bindings](evidence/report-bindings.json)
+bind compact display copies to the full-precision external originals.
+Manifest job **19358** completed with scheduler exit **0:0** on phyn004,
+using 24 hashing workers, 48 allocated logical CPUs, 48 GiB, and unlimited
+partition walltime; verifier elapsed time was 565.66 s, allocation runtime 9m30s.
+Evidence: `evidence/manifest-receipt.json:1` and `evidence/seal-job-19358.txt:1`.
+
 ## Execution, scope, and governance
 
 Requested source: `c90b2205e553afcd102c7acd5f84b253e0a67f1b`, branch
 `candidate/results-first-bnv-pilot-20261108`. Execution changes are scheduling,
 read-only numerical verification, generated evidence, and documentation.
+Completed assessment code is bound to
+`6016c0a2790c438bb1ac1cc0ea710109636b8164`; final reporting/figure/manifest tools
+are committed at `8d1588f0fd8095e0022573b4048bbcf3b8fb0e6c`. The final evidence
+commit is the commit containing this report. Script and figure hashes are retained
+in `evidence/finalization-provenance.json:1`; native executable/build and frozen
+input bindings remain in `evidence/resources.json:1` and the sealed full records.
 Production equations, stellar inputs, RK methods, tolerances, interpolation,
 breakpoint rules, and scientific guards are unchanged. Governing authority:
 GOVERNANCE §§1–5; ADR-0014, ADR-0015, ADR-0016, ADR-0017 and Amendment 1; INV-15.
@@ -177,6 +276,47 @@ remain intact and the corrected launch supplied RF_MODE=tier. All operational
 failures are preserved.
 The original one-CPU/30-minute proposal was superseded by the owner's explicit
 resource authorization, not treated as a scientific threshold.
+
+The six completed tier tasks used phyn004: source jobs 19332/19333/19354 took
+2,985.16/3,353.52/3,018.04 s; control jobs 19355/19357/19353 took
+3,309.33/3,084.93/3,352.98 s. Two concurrent tasks used 48 physical workers
+(96 logical CPUs) in total. The ten independent one-core native references took
+129.74–133.12 s each. Source/control audit jobs 19351/19352 completed their three
+stages with zero exit codes; combined assessment job 19356 produced all terminal
+assessment artifacts. Twenty-four workers were used for independent residual,
+reconstruction, and accuracy work. Evidence: `evidence/resources.json:1`.
+
+Before manifest verification, no user jobs remained. Slurm accounting is disabled and its
+controller no longer retains these completed job records. Saved task receipts
+establish the exit codes above; allocation snapshots and wall times are reported
+instead of invented scheduler exit codes or CPU-hour accounting. See
+`evidence/job-status-final.json:1`. Operational failures are still retained,
+including the original 24-logical-CPU physical-core refusal, cancelled NFS stalls,
+missing dispatch environment, expired preview step, and the corrected standalone
+report import failure. None is relabelled as a passed scientific trajectory.
+
+Validation retained in Git includes seven piecewise known-answer tests, five
+Apply-residual tests, the audit-source equivalence test, five report import
+checks, and the six retained preflight contract tests, all passing. Final report
+checks compare the 1,921-point curves and exact-zero control chemistry to the
+saved assessments, authenticate qualification inputs, and inspect the three PNG
+figures for readable labels and unclipped data. Matching vector PDFs are exported.
+The reporting scripts perform no new integration. Production `CompactStar/` and
+`tests/` have no changes relative to the requested source.
+Validation receipts: `evidence/test-piecewise-final.log:1`,
+`evidence/test-apply-residuals-final.log:1`, `evidence/test-audit-source.log:1`,
+`evidence/report-import-after-fix.log:1`, `evidence/contracts.log:1`, and
+`evidence/finalization-provenance.json:1`.
+The original three-test preflight receipt is preserved byte for byte as
+`evidence/test-piecewise-initial.log:1`; subsequent six- and seven-test receipts
+are retained separately. Final packaging verified all 30 report-file bindings,
+the compressed manifest hash, and every report link.
+
+Change classes: documentation, generated evidence, and reporting engineering;
+the previously committed piecewise verification retains its numerical-method
+candidate classification. No unresolved scientific-contract ambiguity was
+silently selected. Domain review of the new verification is the remaining
+qualification condition, not an unfinished numerical job.
 
 This mathematical P2 benchmark does not specify a realistic microscopic BNV rate,
 a realistic decay prediction, or an astrophysical constraint. No new stellar-solver
