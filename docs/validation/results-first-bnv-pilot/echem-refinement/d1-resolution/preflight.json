@@ -1,0 +1,282 @@
+{
+  "worktree": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot",
+  "branch": "candidate/results-first-bnv-pilot-20261108",
+  "starting_head": "871dbd77230f9e21b54ea0129473fe658236fd56",
+  "local_branch_ancestry": {
+    "refs/heads/candidate/linux-ba13-closure-20261019": true,
+    "refs/heads/candidate/linux-ba13-evidence-20261026": true,
+    "refs/heads/candidate/linux-ba13-final-decision-20261030": true,
+    "refs/heads/candidate/linux-ba13-onset-pilot-20261013": true,
+    "refs/heads/candidate/linux-ba13-recovery-20261012": true,
+    "refs/heads/candidate/linux-ba13-uncertainty-20261012": true,
+    "refs/heads/candidate/linux-qualification-corrections-20261011": true,
+    "refs/heads/candidate/linux-transition-20261010": true,
+    "refs/heads/candidate/linux-x1-oracle-anchor-20261016": true,
+    "refs/heads/candidate/linux-x2-fixed-step-20261016": true,
+    "refs/heads/candidate/results-first-bnv-pilot-20261108": true,
+    "refs/heads/docs/phase6-cluster-preparation": true,
+    "refs/heads/master": true,
+    "refs/heads/physics/phase6-bnv-campaign-readiness": true,
+    "refs/heads/physics/phase6-breakpoint-aware-evolution": true
+  },
+  "worktrees": [
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar                8e6ac58 [candidate/linux-ba13-recovery-20261012]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-closure             093d121 [candidate/linux-ba13-closure-20261019]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence            84e1062 [candidate/linux-ba13-evidence-20261026]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision      bb0f9c5 [candidate/linux-ba13-final-decision-20261030]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot         dad05b1 [candidate/linux-ba13-onset-pilot-20261013]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-uncertainty         4f3cf97 [candidate/linux-ba13-uncertainty-20261012]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot  871dbd7 [candidate/results-first-bnv-pilot-20261108]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor         6cc7e20 [candidate/linux-x1-oracle-anchor-20261016]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step            286aafb [candidate/linux-x2-fixed-step-20261016]"
+  ],
+  "original_status": "Clean at start except agent-created Python bytecode, removed before commit",
+  "bundle_sha256": "6cd9bc1a438df458f83d64335589889203babd781fc18b87ee44079955766553",
+  "bundle_verify_stdout": "The bundle contains this ref:\n871dbd77230f9e21b54ea0129473fe658236fd56 refs/heads/candidate/results-first-bnv-pilot-20261108\nThe bundle requires this ref:\nad4e91aee3837b8b07e7ed723afdd40b765011fe \nThe bundle uses this hash algorithm: sha1\n",
+  "bundle_verify_stderr": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/bnv-thermo-01-d1-handoff-20261109-final/d1-incremental.bundle is okay\n",
+  "preserved_manifest_checks": [
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/AUTHENTICATION_STOP.md",
+      "sha256": "9f52167a01dc16cbda6eddc7ec843dfc83db84b3299052e2cfb3e564bc0e2297"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/REPORT.md",
+      "sha256": "6fa2a8c2bdb82396c1abc51894466d08f4fabf4a694a86b69ecf9d220d293145"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/REPRODUCE.md",
+      "sha256": "f7bb74ea2ade737690902c13de8f2d840d4ddcd7dc48ed5345e0ba00b299999c"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/external-SHA256SUMS",
+      "sha256": "22527169bed3af530e61769e2d4d559be2e49d10e5b1e085ad442bb88ee13b91"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19182/affinity.txt",
+      "sha256": "c14196f132c1e9be0508ae80ab52fcb3e1d3fc05880415f3dc980971df207c9e"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19182/allocation.txt",
+      "sha256": "109186dd0a7f623363b8685dbb59424d8956b47f9c6c63dedf3adcfa59f752b9"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19182/completion.txt",
+      "sha256": "05a9adc5dbfcd8cc3c3532fd5dd600159fc2da5f8652fe278bf892b93ea1dc99"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19182/execution.log",
+      "sha256": "ff0770b4c8d30e5f5d3a65eca887599d153f9704d215716cadbfe7b32d64104c"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19182/failure-details.json",
+      "sha256": "7b9ac8a509da5bb6f24b4be5ef89a06ddc3dc511ae703dc07fee6d1e4378c271"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19182/results.json",
+      "sha256": "946db5bb58255db0baa350e66f2aecbc0e26b77902c72f93c3e053b7de2d7a37"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19182/slurm-19182.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19182/tests.log",
+      "sha256": "1aa6e13b93edb0e9d79a7ba85b4dcb2d43b7cf98f853221fc15bd4f8997c0a2e"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19183/affinity.txt",
+      "sha256": "c14196f132c1e9be0508ae80ab52fcb3e1d3fc05880415f3dc980971df207c9e"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19183/allocation.txt",
+      "sha256": "aac505c7e05901407f176cc5d523c5b104137ca4feaa241db7fcf77b74821542"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19183/completion.txt",
+      "sha256": "2fd214b16a541348e3dbd894163001e20067e8294fef11d6ffb816d2be8f1ebb"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19183/execution.log",
+      "sha256": "6ec54fa77e3b39f793a890871c3b26b0328e807b5418813eb1ac24e77438e477"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19183/failure-details.json",
+      "sha256": "d3ffadfca43561a69986662f715d9bd6a9afae1fed2f13d7fb42f057bee9bebc"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19183/results.json",
+      "sha256": "a6e44a5767405243ee8a2de6b216200fbbbfbbe26a7c8f402907f2f2f99f337b"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19183/slurm-19183.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19183/tests.log",
+      "sha256": "1aa6e13b93edb0e9d79a7ba85b4dcb2d43b7cf98f853221fc15bd4f8997c0a2e"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19184/affinity.txt",
+      "sha256": "c14196f132c1e9be0508ae80ab52fcb3e1d3fc05880415f3dc980971df207c9e"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19184/allocation.txt",
+      "sha256": "69b87b7f4098fe661c0c4ca066117ea70131210d8d8a64d2bc1ab6fb1d151845"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19184/completion.txt",
+      "sha256": "d0ad967877822f4a5acb7e7d508482060af97589dd3c0a515837a755f2993cdb"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19184/execution.log",
+      "sha256": "236656d56eeb2a1d3a91c044166962005c9859983b3012154afdc55beecfddcc"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19184/failure-details.json",
+      "sha256": "e58b5cbe7e9dbfef6570642e2d4aa2e9fd89c90812cbd5e2e6a76d7e6c34ff38"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19184/results.json",
+      "sha256": "7540955a595dae16faf0d211236103b08d700b4bba9d020b546873ae286f8c25"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19184/slurm-19184.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/job-19184/tests.log",
+      "sha256": "1aa6e13b93edb0e9d79a7ba85b4dcb2d43b7cf98f853221fc15bd4f8997c0a2e"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/point-1.json",
+      "sha256": "69b8cc99ef0ff7a90ab82b06c445a58e63a15da7748e91cb26cd982d137c840a"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/point-128.json",
+      "sha256": "35bfdb71e51d29774deed809844787a177ab3c97f11faa2caa418748b799f1e8"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/point-1440.json",
+      "sha256": "b7b3f292459ce33fe56dd289ffb1d39e152a61d660fec413ac7ad1114a9b19ce"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/point-16.json",
+      "sha256": "2cd6a2934edf35e232ad5ba4da8ac09757e9fcc7a86ba4d6f6cecb8a65378c09"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/point-1919.json",
+      "sha256": "97d0234668275edca0d8f42571aaeae0ab2d65bf958a0edb8017997aba5b4569"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/point-2.json",
+      "sha256": "5e6f60ab0eccd81932f3a60c93bed425022f62b804b38411bd487bb4566bfeab"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/point-256.json",
+      "sha256": "ea9b62bd7c9450d3a0e0680cb47a15b7ce1975ee674af3b16e0479c61ce87caa"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/point-32.json",
+      "sha256": "02375ca0a21f022dece80536fcb3b7ece2b8183c318c45d42cdd68f52991462d"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/point-4.json",
+      "sha256": "3d6a7b0ac982d3901607b4d3364f701b5f9da59dde40d64bd5248af7e5274142"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/point-512.json",
+      "sha256": "f341d2ed4e4a9ea47319c93f62bf471e6d9b6fa44b1d0242985ce85de6ef0cd6"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/point-64.json",
+      "sha256": "a44186599b4dca232e0580ec7ff1a05b3186fee1973df7ebf3ad66f274fdfb55"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/point-8.json",
+      "sha256": "6184ee5b99b23f1aa1856a3d34c0104603c521020f7f6de52b7760a6ce9a00e4"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/point-960.json",
+      "sha256": "ec425d1596b28b4fc722551d5285318aedd5da8005112e403906d2d166401f99"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/post-execution-input-check.json",
+      "sha256": "1914af774e1a11c005b90f9582c83434b8bdfa0d1c0a31caf7f0bc54c27a708b"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/preflight.json",
+      "sha256": "9a6c9a922212c53739c7a3a17e2c71330ef9c285ad5492e1f88e1440284e597e"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/result-verification.json",
+      "sha256": "71f8e509fbdeec678c5aa5f183834a624b55b30f2dba4ac9290db4e3f7084828"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/summary.json",
+      "sha256": "584f1a251b81a99d32da57fa9f9349b7fc6d9cd22c66e85edd3db1b30bb3a5c0"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/summary.tsv",
+      "sha256": "71f3b27d95bd3d89e4deb9bc89a5cba0b715cd440752cb56c9f3186c0cc197d6"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/review/BNV-THERMO-01_FABLE_ADJUDICATION.md",
+      "sha256": "46201727575270055d237178b2ad0433ddc22837c0cc1fa646a8d34eddcb0066"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1/review/provenance.json",
+      "sha256": "8bc2e2dbc8c39d797e5cd2cb87a5138030139cca4afbfe5104c2bf24aad21a92"
+    },
+    {
+      "path": "tools/linux/native_qualification/chemical_reference.sbatch",
+      "sha256": "27ce9bc44fd5a2a929d19830bc5e508b8f01f4eeba5c41b65cf1ac33a3d0cf75"
+    },
+    {
+      "path": "tools/linux/native_qualification/test_chemical_reference.py",
+      "sha256": "2031c060c366950cae7b0bf12dfaff0e5190f8e3475aa113b219a569857a5e5a"
+    },
+    {
+      "path": "tools/linux/native_qualification/verify_chemical_reference.py",
+      "sha256": "92e1fb0a5c7e50a66dbd3ee7dd54cf084d4dc1705c74225978a6a6022e76b058"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/bnv-thermo-01-d1-handoff-20261109-final/README.md",
+      "sha256": "bf01409d04fe84de6011156367e9d85248dbb10cf28337bfbe946a80620b0149"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/bnv-thermo-01-d1-handoff-20261109-final/bundle-verification.txt",
+      "sha256": "07fd9b8c4626f47d309d836fe2bf6e13d7b7ba867d638b51f44fb6bcd11af627"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/bnv-thermo-01-d1-handoff-20261109-final/changed-file-verification.json",
+      "sha256": "43aa062fbdad83aabcf827fa687d22d5bd31b84d2e1bfa0c4816f1406994343d"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/bnv-thermo-01-d1-handoff-20261109-final/d1-incremental.bundle",
+      "sha256": "6cd9bc1a438df458f83d64335589889203babd781fc18b87ee44079955766553"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/bnv-thermo-01-d1-handoff-20261109-final/pack-objects.txt",
+      "sha256": "4480f810430e6d76db4b147512a0c0de7a789a114d1357aaab29ebc67782093d"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/bnv-thermo-01-d1-handoff-20261109-final/pack-verification.txt",
+      "sha256": "d6af19e09f056a029603a58f9db5f995423405d0f00cbf426ad88ab57ec4d36d"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/bnv-thermo-01-d1-handoff-20261109-final/receipt.json",
+      "sha256": "23ec4dd1ea478f4a676742d0ccad8b15128848b4ac8b3b7fd2780c7618a2dc29"
+    }
+  ],
+  "publication": {
+    "status": "PASS",
+    "route": "existing cluster SSH identity; office Mac unavailable to owner",
+    "remote": "git@github.com:ZAKI1905/CompactStar.git",
+    "branch": "candidate/results-first-bnv-pilot-20261108",
+    "before": "ad4e91aee3837b8b07e7ed723afdd40b765011fe",
+    "after": "871dbd77230f9e21b54ea0129473fe658236fd56",
+    "nonforced_push": true,
+    "ls_remote_verified": true
+  },
+  "retained_interval_calculation_executed": false
+}
