@@ -14,7 +14,8 @@ def physics(task):
   # Evaluate excess neutrinos directly, not by subtracting nearly equal powers.
   from verify_chemical_reference import PI
   extra=sum(m.luminosity[j]*T**8*sum(D(v)*(y[j+1]/(m.kb*T*PI))**(2*k+2) for k,v in enumerate((22020,5670,420,9)))/11513 for j in range(2))
-  return dict(t_s=D(record['t_s']),T=T,C=C,x=y[0],e=y[1],mu=y[2],U=D(record['U']),Pdir=direct,LH=LH,DeltaLnu=extra,Lnu=nu,Lgamma=photon,Echem=m.energy(y[1:])*m.erg,Pnet=direct+LH-nu-photon)
+  beta=[-sum(m.z[i][j]*rates[j] for j in range(2)) for i in range(2)]
+  return dict(t_s=D(record['t_s']),T=T,C=C,x=y[0],e=y[1],mu=y[2],U=D(record['U']),Pdir=direct,Pdir_eq=m.pdir,LH=LH,DeltaLnu=extra,Lnu=nu,Lgamma=photon,Echem=m.energy(y[1:])*m.erg,Pnet=direct+LH-nu-photon,eta_source_e_MeV_s=m.source[0],eta_source_mu_MeV_s=m.source[1],eta_reaction_e_MeV_s=beta[0],eta_reaction_mu_MeV_s=beta[1],Echem_source_erg_s=-m.erg*sum(y[j+1]*m.sigma[j] for j in range(2)),Echem_reaction_erg_s=-LH)
 
 def assess(out,workers):
  pre=json.loads((out/'preflight.json').read_text());result=dict(status='PRELIMINARY_NOT_STAGE_B_QUALIFIED',roles={},missing_obligations=['Actual-stage accumulated arithmetic including event trials and reference observation interpolation.','Full per-configuration main/accepted endpoint/restart budgets and all eleven power allocations.','Every local reconstruction enclosure, crossing-neighbor and event uncertainty assessment.','Complete original R20 quadrature/main/reconstruction/event uncertainties.'],resources=dict(assessment_workers=workers))

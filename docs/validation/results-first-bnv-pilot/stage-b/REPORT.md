@@ -45,7 +45,15 @@ consistent with the source contribution to chemical-energy storage. The isolated
 LH and net-reaction temperature bounds below do not represent the total effect
 of every chemical coupling, including this actual-potential correction.
 The muon imbalance is only about 5.4e−5 of kB T∞ at the endpoint, consistent with
-the very small reaction response in this benchmark.
+the very small thermal contribution from reactions in this benchmark.
+Thermal insignificance does not imply absent chemical relaxation. At the endpoint,
+the reaction terms oppose about **12.3% of electron and 15.1% of muon source
+driving** in the imbalance derivatives. Reaction losses remove about 12.9% of the
+instantaneous source input to the chemical-energy reservoir. The imbalances
+continue growing in magnitude; they have not reached stationary balance. These
+are instantaneous term ratios, not integrated suppression fractions or a new
+counterfactual trajectory. Both chemical derivative components are included in
+the retained source/control curves.
 
 The retained 1,920-interval trapezoids give the following descriptive integrated
 channels. These channel integrals are not assigned the total-ledger error bar.
