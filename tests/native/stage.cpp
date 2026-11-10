@@ -3,6 +3,8 @@
 #define main historical_breakpoint_qualification_main
 #include "../bnv/breakpoint_qualification.cpp"
 #undef main
+#include "../diagnostics/checkpoint_evidence.hpp"
+#include <cstdlib>
 
 BNV::MainTrajectoryResult native_main(Ctx p,double a,State y,double b,Tol tol,double cap,
  const std::vector<double>& times,const std::filesystem::path& out) {
@@ -29,6 +31,7 @@ void stage_role(Ctx p,double end,const std::filesystem::path& out) {
     // Five independent, original-t0 references; retain their complete histories.
     const double H=end/256;std::vector<Solution> refs;
     for(int i=0;i<5;++i) {
+      std::cout<<"REFERENCE "<<p->RunCardIdentity()<<" index="<<i<<'\n';
       const double caps[]={H,H/2,H/4,H/4,H/8};
       refs.push_back(integrate(p,0,{{0,0,0}},end,1,i==0?tight:tighter,i<3?gsl_odeiv2_step_rk8pd:gsl_odeiv2_step_rkf45,caps[i]));
       const auto& ref=refs.back();std::ofstream f(out/("reference-"+std::to_string(i)+"-history.tsv"));
@@ -47,6 +50,7 @@ void stage_role(Ctx p,double end,const std::filesystem::path& out) {
     }
     const double caps[]={INFINITY,38723807757.0,19361903878.5,9680951939.25};
     for(int tier=0;tier<3;++tier)for(int policy=0;policy<4;++policy) {
+      std::cout<<"MAIN "<<p->RunCardIdentity()<<" tier="<<tier<<" policy="<<policy<<'\n';
       auto dir=out/("tier-"+std::to_string(tier)+"-cap-"+std::to_string(policy));
       auto main=native_main(p,0,{{0,0,0}},end,tiers[tier],caps[policy],times,dir);
       auto repeat=native_main(p,0,{{0,0,0}},end,tiers[tier],caps[policy],{0,end},dir/"endpoint-schedule-repeat");
@@ -80,8 +84,17 @@ void stage_role(Ctx p,double end,const std::filesystem::path& out) {
         errors<<std::setprecision(17)<<"t\tx\te\tmu\tUx\tUe\tUmu\tEx\tEe\tEmu\n";
         for(const auto& bracket:schedule.Brackets()) {
           auto q=reconstruction.Reconstruct(bracket,main.accepted_steps,factory);
-          require(q.status==BNV::CheckpointStatus::Qualified,"native checkpoint state unresolved");
-          reconstruction.EvaluateDiagnostics(q,factory);
+          if(q.status==BNV::CheckpointStatus::Qualified)reconstruction.EvaluateDiagnostics(q,factory);
+          // Serialize the actual packet, including rejected channels, before any
+          // refusal. This is evidence only; it never changes qualification.
+          const auto& step=main.accepted_steps.at(bracket.initial?0:bracket.right_accepted_ordinal-1);
+          auto evidence=dir/("checkpoints-"+std::to_string(n))/("point-"+std::to_string(bracket.observation_index));
+          CheckpointEvidence::Write(evidence,q,step,main.configuration);
+          if(q.status!=BNV::CheckpointStatus::Qualified||!q.diagnostics_evaluated) {
+            diagnostics.Publish();errors.flush();r20.flush();
+            std::cout<<"FAILED_CHECKPOINT "<<evidence<<'\n';
+            std::ifstream failure(evidence/"failure.txt");std::cout<<failure.rdbuf();
+          }
           require(q.status==BNV::CheckpointStatus::Qualified&&q.diagnostics_evaluated,"native checkpoint diagnostics unresolved");
           diagnostics.SaveSnapshot(q.state[0],q.diagnostics);
           errors<<q.t_observation_s<<'\t'<<values(q.state)<<'\t'<<values(q.reconstruction_error_contribution)<<'\t'<<values(q.qualification.U_event)<<'\n';
@@ -89,6 +102,7 @@ void stage_role(Ctx p,double end,const std::filesystem::path& out) {
         }
         diagnostics.Publish();auto r=BNV::ComputeCheckpointR20(outputs);
         r20<<n<<'\t'<<r.R20_residual_erg<<'\t'<<r.N_R20_erg<<'\t'<<r.reconstruction_uncertainty_erg<<'\t'<<r.delta_Uth_erg<<'\t'<<r.delta_Echem_erg<<'\t'<<r.outgoing_integral_erg<<'\n';
+        r20.flush();std::cout<<"GRID_COMPLETE tier="<<tier<<" policy="<<policy<<" n="<<n<<'\n';
       }
       if(policy==3) {
         auto it=std::find_if(main.accepted_steps.begin(),main.accepted_steps.end(),[&](const auto& s){return s.t_right_s>=end/2;});
@@ -108,13 +122,16 @@ int main(int argc,char** argv) {
  try {
     gsl_set_error_handler_off();std::cout<<std::setprecision(17)<<std::unitbuf;
     require(argc==11,"profile thermal entry frozen coefficients archive sha fresh-work years output");
+    const char* requested_role=std::getenv("RF_STAGE_ROLE");
+    require(requested_role!=nullptr,"explicit source/control role required; no automatic paired execution");
+    const std::string role=requested_role;
+    require(role=="source"||role=="control","invalid thermal role");
     const int years=std::stoi(argv[9]);require(years==1||years==2048,"only separately authorized 1/2048-year bounds supported");
     Inputs inputs;inputs.profile=argv[1];inputs.certificate=inputs.profile/"certificate.txt";inputs.thermal=argv[2];inputs.entry=argv[3];inputs.frozen=argv[4];inputs.coefficients=argv[5];inputs.work=argv[8];
     require(!std::filesystem::exists(argv[10]),"fresh stage output required");
     auto sequence=Core::StellarArchive::Load(argv[6],argv[7]);auto pair=NativePair(inputs,sequence);
-    stage_role(pair.source,years*Year,std::filesystem::path(argv[10])/"source");
-    stage_role(pair.control,years*Year,std::filesystem::path(argv[10])/"control");
-    std::cout<<"COLLECTION COMPLETE; nonlinear acceptance requires all predeclared error terms and paired assessment.\n";
+    stage_role(role=="source"?pair.source:pair.control,years*Year,std::filesystem::path(argv[10])/role);
+    std::cout<<"ROLE COLLECTION COMPLETE "<<role<<"; accuracy assessment is required before any matched control.\n";
     return 0;
  } catch(const std::exception& e){std::cerr<<"STOP "<<e.what()<<'\n';return 1;}
 }

@@ -780,3 +780,6 @@ target_link_libraries(native_p2_verify PRIVATE CompactStar)
 
 add_executable(native_p2_stage native/stage.cpp)
 target_link_libraries(native_p2_stage PRIVATE CompactStar)
+add_executable(native_o2_configuration native/o2_configuration.cpp)
+target_link_libraries(native_o2_configuration PRIVATE CompactStar)
+add_test(NAME native_o2_configuration COMMAND native_o2_configuration)

@@ -1,0 +1,329 @@
+{
+  "starting_commit": "4387e56c6b218411d755d27148f654aea5bc345a",
+  "branch": "candidate/results-first-bnv-pilot-20261108",
+  "worktree": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot",
+  "initial_status": "",
+  "ancestor_branches": [
+    "refs/heads/candidate/linux-ba13-closure-20261019",
+    "refs/heads/candidate/linux-ba13-evidence-20261026",
+    "refs/heads/candidate/linux-ba13-final-decision-20261030",
+    "refs/heads/candidate/linux-ba13-onset-pilot-20261013",
+    "refs/heads/candidate/linux-ba13-recovery-20261012",
+    "refs/heads/candidate/linux-ba13-uncertainty-20261012",
+    "refs/heads/candidate/linux-qualification-corrections-20261011",
+    "refs/heads/candidate/linux-transition-20261010",
+    "refs/heads/candidate/linux-x1-oracle-anchor-20261016",
+    "refs/heads/candidate/linux-x2-fixed-step-20261016",
+    "refs/heads/candidate/results-first-bnv-pilot-20261108",
+    "refs/heads/docs/phase6-cluster-preparation",
+    "refs/heads/master",
+    "refs/heads/physics/phase6-bnv-campaign-readiness",
+    "refs/heads/physics/phase6-breakpoint-aware-evolution"
+  ],
+  "authenticated_manifests": [
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/PREDECLARATION.md",
+      "sha256": "f97c3965364b08c5cf4e3ca86c5de09f7b6a4e55a08304f37d7406b558abd100"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/REPORT.md",
+      "sha256": "d33e7a8c78ad85927e15b218c1c826272276ca3b015af290c2079442a7378974"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/REPRODUCE.md",
+      "sha256": "50158fef4b34c58ae25bbe7b628b09dcb8fca4231f7847d0733c69eeb3a95298"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/R20-grids.tsv",
+      "sha256": "758755981a15dae2d5f5d035963db90d3555ad6b6b2a7f2e7f447a4d3cf11676"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/allocation.txt",
+      "sha256": "1a09dadde9f198f06a4cf30da2d90f9a45c271820061dbf568e9a87050abee87"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/assessment.json",
+      "sha256": "06b95fe33f30a2e6256097e111e827d0d927bb3015357fd12af271a7941fec56"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/contracts.log",
+      "sha256": "cb055ead42a6da3c55408af9137956142eff2dcd2afee4972391be61ff37e9b4"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/cpu-affinity.txt",
+      "sha256": "af2510b8bd36af5d25153aa0a06eb2e88f89203156e0b42f6fd6239a5890f155"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/events.tsv",
+      "sha256": "67cb54e65dda658829a34712411e4f6107c3f92a7c108907bd159749f64730dd"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/external-SHA256SUMS",
+      "sha256": "a1d9aeb59daff2b782c4e7bb99f2982e61a45f9dac3a1d8ddf14c2ad15fb15d2"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/main.accepted_states.tsv",
+      "sha256": "4b854db1b18eb3e3332a071472b9ba7355a09cac77e20f6e984f1ea699f4a19f"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/plotting-requirements.txt",
+      "sha256": "6bae0fdf7a6df95b22a4b33a9e2f653786d8be0f6399394c6d72014010658093"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/post-run-authentication.log",
+      "sha256": "977020879253b00cab61bdc57867c3294dbe3a8d762c6adb943221c2c6fa99bc"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/preflight-19173.log",
+      "sha256": "1072de1dbefcb0423cfc0870c647b3da49e730a789efe61006e680bfca0ee1dd"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/preflight-allocation.txt",
+      "sha256": "92d13c36ce8d175474333a1079593c88c9001e3e6242d9c422869bdf06278618"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/preflight-final.txt",
+      "sha256": "fbe1928c56415cfc1ca7bd1d7124e8d8ebd2ae93ad3f3346551da836dfb9a05e"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/preflight.json",
+      "sha256": "5069fae07a8bd5b4f71849be993a101938ea60da34a69d0adef1f2390512a5e9"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/runtime-audit-summary.json",
+      "sha256": "ea371c0cd3141b2050fe0b9f6bf570cbfcdb9b02a8f8429da65780ef5d81f61e"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/runtime-tests.log",
+      "sha256": "d094b1bd2c8318c96097f80c50da282add5b2972970a77046de8db6c8935f6ca"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/slurm-19174.log",
+      "sha256": "d6426faed4971723114a6988baa4bab78c8e9736f815295c9677ef7e6dcfb375"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/snapshot-diff.json",
+      "sha256": "be28b469427ae6e0dc6e117505536a0ad3ea81495a527098d71709b706573c10"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/snapshot-tests.log",
+      "sha256": "8a56837023573373304d41838dc9b46152f0934bb1a74e79bce026808ec07d59"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/source-endpoints.tsv",
+      "sha256": "c62a19a36fcabd3fcccdc21aea3ee7512658e6b0d80386537a9a0848333c7d11"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/stage-A-final.txt",
+      "sha256": "072828e394bde558b78d91c69af8f6c01e98305010b77d242ba5f5fb7329d49d"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/stage.log",
+      "sha256": "e887183bfa6d22ee81acffec55dc5c41e48b6bb18f9ea3e47d009144f9648daa"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/static-rhs.tsv",
+      "sha256": "ed01bc8da5e509a0807e2700c52689920ad3d6f11d06c9e37d4df504697972e4"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/static.log",
+      "sha256": "06f6c9ddc1b2447d403d930c18a5e5a565d9ccea52db2381c0cf8e8af91bec0a"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/evidence/uncertainties-240.tsv",
+      "sha256": "ac99e9cad5fbd6d0fcef9f9aa43931fb1afaefc4a97e07c6a27f04e1ab71a23c"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/snapshots/control.json",
+      "sha256": "0588ddf4518b3dec0f1cf103dcb8a3b356cf4631f2394df41b6a2d6baadf4ceb"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/snapshots/identities.json",
+      "sha256": "77658f90321e9038d539b1d3c829ae9090260b15ee3e5961e599a5ea0a2909ac"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/native-runtime-retry/snapshots/source.json",
+      "sha256": "c6a29044e8330f079a1593be166238e11eafb66745186c5322c04c272358ec18"
+    },
+    {
+      "path": "tools/linux/native_pair/runtime.py",
+      "sha256": "bcd911b8f4f82bcc34782374f8b08490dfbfae9643d6a3247f82560df3d58c3a"
+    },
+    {
+      "path": "tools/linux/native_pair/snapshot.py",
+      "sha256": "04dd511a4af3b862fc6654e43adbfda9893044d1ca2e84eb278c86cb6a4eaa85"
+    },
+    {
+      "path": "tools/linux/native_pair/test_runtime.py",
+      "sha256": "8b7046dcaec1a364f8cd6c313a1969e700a39bef4075cf8973ff43b6cd248717"
+    },
+    {
+      "path": "tools/linux/native_qualification/retry_preflight.sbatch",
+      "sha256": "aa403772e279bb3eb782a8c52ba4a5d54645fc6952a618629591aebd3354ef35"
+    },
+    {
+      "path": "tools/linux/native_qualification/retry_stage.sbatch",
+      "sha256": "0d4e4ffe3ba79c5f2252893f65b0dade93f04a4c0920f3fff3c8e5ca6766966e"
+    },
+    {
+      "path": "tools/linux/native_qualification/summarize_retry.py",
+      "sha256": "bdcadf0a8196ed89bebe27e66163d0697967d82c473c7cfd55b652f642410c06"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/PREDECLARATION.md",
+      "sha256": "f1d7fd24c7d418087da5a6a3752ee652c65e6676a1d6645aba36f3b8086d55a9"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/REPORT.md",
+      "sha256": "014a25033fc49ac7795d17c5e234e050c7b3dcb625134c12ce27819a0fb1d88f"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/REPRODUCE.md",
+      "sha256": "07cf89500b5a239e9a265172e251c6fdbbfde8f22c1be0672e4e363c52a252e0"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/TABLES.md",
+      "sha256": "2ffbe4731b6fab7c05042b0a2abb36dc870b5c2cc46f1abe179b0f206803b93d"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/capture.json",
+      "sha256": "24099352c86339e4b4b9c9ba1f450c504f6266346d5588f1a699e23d16b747fd"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/chemical-energy.tsv",
+      "sha256": "8476dbc4900f32966bdfce589f8b79060cc0fd28fb259a4db714374412272ca2"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/chemical-states.tsv",
+      "sha256": "606fead8d7e7061f3d32f03fb6ac100a03b0381362d29d581dedb0336b31bec3"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/external-SHA256SUMS",
+      "sha256": "e92548b51550863829dcb216b4799efb1ac59e0cf6fb067cb93bcdc4966431bd"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/job-19185/affinity.txt",
+      "sha256": "c14196f132c1e9be0508ae80ab52fcb3e1d3fc05880415f3dc980971df207c9e"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/job-19185/allocation.txt",
+      "sha256": "fff081d3c78679956ed78f6c4a9e6429e9e5c128848c6281123e42eee433c2da"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/job-19185/completion.txt",
+      "sha256": "bda107e0885c9402874b25bb8f0b7814e3195e95f197d83010c04229d812b8fd"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/job-19185/diagnostic/failure-details.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/job-19185/diagnostic/original-failure-analysis.json",
+      "sha256": "e9170dbbcb976eba2d42438d6fe32ffedfdc0768c2b3bed09ddd7c4e432fc356"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/job-19185/diagnostic/point-1.json",
+      "sha256": "870626ee70cd97162553d6f1c9ad507a5f2764e6b6a10718b0f5e03fa1454f2c"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/job-19185/diagnostic/point-128.json",
+      "sha256": "8b45318e2bacb1c072d15d3702c429da81d2ff4c425ded03445d0dcaa51a9303"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/job-19185/diagnostic/point-1440.json",
+      "sha256": "d595c2d0c531a04bd2a8fb43131bf2efcc38afd165aca8f6b8c6e2f08c4bb01b"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/job-19185/diagnostic/point-16.json",
+      "sha256": "09e3dc2b0ad18bd635968a09b89e5f4d547a76fea1199e57744f39b657c87e05"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/job-19185/diagnostic/point-1919.json",
+      "sha256": "ca9f8a92e7f136a7208f0448f3e3ea12412a8f4f5d05b92aeaf93cc1923c2329"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/job-19185/diagnostic/point-2.json",
+      "sha256": "46b814c87ea38f7e0d1abcef1322e5dcbe234fcf2cfcbeafc141796e71ff8ac3"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/job-19185/diagnostic/point-256.json",
+      "sha256": "bb9806e578c43590318ea24edebae98bec1ebfea59aa838ef7bd9be865df8f52"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/job-19185/diagnostic/point-32.json",
+      "sha256": "9f447d4fb6b7e70bde1a153ede921da9e23e834ea12219183859dbeee522a061"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/job-19185/diagnostic/point-4.json",
+      "sha256": "1421511deb204333e511fc54d0995c77b4f1a1880431b4ba97d4596dcfcef5ea"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/job-19185/diagnostic/point-512.json",
+      "sha256": "243fe62e2ff393ed877821921937c0e5666abe1db274454fcc29456bd9a0daab"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/job-19185/diagnostic/point-64.json",
+      "sha256": "177ed6b8ca20e685e87c3ab8ed66ca0d18a3f814b988c7c12ca150a11553beb8"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/job-19185/diagnostic/point-8.json",
+      "sha256": "88099f6b55af6bd73ee0f64b02a12b92f3be6f852dc3c0868cc26f890aea1420"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/job-19185/diagnostic/point-960.json",
+      "sha256": "f97196844af5ccad79f496d10c3c1504c3badf3109ee5c77895fa83da31f7622"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/job-19185/diagnostic/results.json",
+      "sha256": "294182aa17f3f2db3c9daaac143355f97831180213b2d83101f78110649cc12a"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/job-19185/execution.log",
+      "sha256": "ee4772c3c7d68cafb79edc5ae72d9f787cb28b8fcf2dd239c8ba710fedd79d14"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/job-19185/slurm-19185.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/job-19185/tests-aligned.log",
+      "sha256": "c03d16de8b690b4dc29ec6fd6890fe9fda867d1573e93bd596520fc6b1b952bf"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/job-19185/tests-original.log",
+      "sha256": "1aa6e13b93edb0e9d79a7ba85b4dcb2d43b7cf98f853221fc15bd4f8997c0a2e"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/original-differences.tsv",
+      "sha256": "a9530e965ada2349177429f87d533f694af8be16a78d64bff87b432b0193b8c9"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/result-verification.json",
+      "sha256": "7a8a0d40dbce6215c39d0e27aba9324b06f86ba6f6199ee8401427e5d94e4197"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/evidence/summary.json",
+      "sha256": "4afae529570be12af7e52c05f7e2b509d9e98a51e69e7ae74a2ef95dd8d25cc6"
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/echem-refinement/d1-resolution/preflight.json",
+      "sha256": "7e7f32f94d531534af06655f50f73157c6692f7fb03c3c2f17d4cc46a7c53fcd"
+    },
+    {
+      "path": "tools/linux/native_qualification/chemical_reference_resolution.sbatch",
+      "sha256": "c3ab784208d104adb8c6fd4d1ee4d47549dfb2fcaa40e747775b072048fabba9"
+    },
+    {
+      "path": "tools/linux/native_qualification/resolve_chemical_reference.py",
+      "sha256": "c1ef56d3ff2538aa2284ec92656de033828bc7a94fccf439d4036b948bebf42b"
+    },
+    {
+      "path": "tools/linux/native_qualification/summarize_chemical_reference_resolution.py",
+      "sha256": "fd159dc3379e04fd773d7bca56cda1fc0ea8e94dfea569c63ce3462d08557ab0"
+    },
+    {
+      "path": "tools/linux/native_qualification/test_chemical_reference_resolution.py",
+      "sha256": "9643cb8b7c4cd0e4f58166f632cc54ebff9d655a99baff61bf8984a7f6bd2d32"
+    }
+  ]
+}

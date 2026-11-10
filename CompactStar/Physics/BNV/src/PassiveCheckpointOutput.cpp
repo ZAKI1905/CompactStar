@@ -372,7 +372,7 @@ MainTrajectoryResult UninterruptedBnvTrajectory::Integrate(
 
 Rk8pdCheckpointReconstructor::Rk8pdCheckpointReconstructor(bool breakpoint_aware)
   :breakpoint_aware_(breakpoint_aware),O1_{"O1",1.0e-12,{{1.0e-17,1.0e-23,1.0e-23}}},
-   O2_{"O2",1.0e-13,{{1.0e-18,1.0e-24,1.0e-24}}}
+   O2_{"O2",1.0e-13,{{1.0e-18,5.0e-27,5.0e-27}}}
 {
     O1_.Validate();O2_.Validate();
 }
