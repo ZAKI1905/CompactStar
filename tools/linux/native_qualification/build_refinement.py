@@ -8,9 +8,9 @@ from runtime import runtime_binding
 retained=pathlib.Path(sys.argv[1]);out=pathlib.Path(sys.argv[2]);out.mkdir(parents=True,exist_ok=False)
 snapshots=root/'docs/validation/results-first-bnv-pilot/native-runtime-retry/snapshots'
 pair=load_pair(snapshots)
-stage=(root/'tests/native/stage.cpp').read_text()
-inc=out/'retained_native_main.inc'
-inc.write_text(stage[stage.index('BNV::MainTrajectoryResult native_main('):stage.index('void stage_role(')])
+replay=(root/'tests/diagnostics/checkpoint_replay.cpp').read_text()
+inc=out/'retained_trace_helpers.inc'
+inc.write_text(replay[replay.index('struct TraceContext'):replay.index('int main(int argc')])
 build=retained/'build/tests';cmake=build/'CMakeFiles/native_p2_stage.dir'
 flags={line.split(' = ',1)[0]:shlex.split(line.split(' = ',1)[1]) for line in (cmake/'flags.make').read_text().splitlines() if ' = ' in line}
 link=shlex.split((cmake/'link.txt').read_text());compiler=link[0]

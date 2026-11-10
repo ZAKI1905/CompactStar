@@ -1,7 +1,10 @@
 // Bounded local-IVP study only: no call to native_main or a t0 trajectory.
-#define main retained_diagnostic_replay_main
-#include "checkpoint_replay.cpp"
+#include "../native/pair.hpp"
+#define main historical_breakpoint_qualification_main
+#include "../bnv/breakpoint_qualification.cpp"
 #undef main
+#include "checkpoint_evidence.hpp"
+#include "retained_trace_helpers.inc"
 
 std::vector<BNV::AcceptedStepRecord> History(const std::filesystem::path& path) {
  std::ifstream f(path);require(bool(f),"missing retained main history");std::string line;std::getline(f,line);
