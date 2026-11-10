@@ -19,8 +19,13 @@ scontrol show job "$SLURM_JOB_ID" > "$RF_OUTPUT/build-allocation.txt"
 srun --ntasks=1 --cpus-per-task=24 --cpu-bind=cores bash -c '
  set -euo pipefail
  "$TC/python/bin/python" -I -B -c "import os; a=sorted(os.sched_getaffinity(0)); print(a); assert len(a)>=24" > "$RF_OUTPUT/build-affinity.txt"
- test "$(git rev-parse HEAD)" = "$RF_COMMIT"
- test -z "$(git status --porcelain --untracked-files=no)"
+ git rev-parse HEAD > "$RF_OUTPUT/source-head.txt"
+ test "$(cat "$RF_OUTPUT/source-head.txt")" = "$RF_COMMIT"
+ git --no-optional-locks -c core.preloadIndex=false status --porcelain --untracked-files=no > "$RF_OUTPUT/source-status.txt"
+ if test -s "$RF_OUTPUT/source-status.txt"; then
+   cat "$RF_OUTPUT/source-status.txt"
+   exit 1
+ fi
  cmake -S "$RF_SOURCE" -B "$RF_OUTPUT/build" -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_CXX_FLAGS=-ffp-contract=off \
   -DGSL_ROOT_DIR="$TC/install/gsl-2.7.1" \
