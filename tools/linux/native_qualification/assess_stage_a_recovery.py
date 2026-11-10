@@ -83,10 +83,12 @@ def assess(run):
             r18.append(dict(path=str(path),time_s=r['t_s'],ratio=abs(lift(r['R18_residual_erg_s']))/gross,
                 Tinf_K=r['Tinf_K'],valid_through_sample=r['valid_through_sample'],
                 frozen_utilization=r['max_frozen_utilization'],depletion=r['DeltaB_over_B0']))
-    status='FAIL_NATIVE_CHECKPOINT' if failures else ('SOURCE_COLLECTION_COMPLETE_UNQUALIFIED'
-        if 'ROLE COLLECTION COMPLETE source' in log else 'INCOMPLETE_SOURCE_COLLECTION')
+    stops=[line for line in log.splitlines() if line.startswith('STOP ')]
+    status='FAIL_NATIVE_CHECKPOINT' if failures else ('FAIL_NATIVE_GUARD' if stops else
+        ('SOURCE_COLLECTION_COMPLETE_UNQUALIFIED' if 'ROLE COLLECTION COMPLETE source' in log
+         else 'INCOMPLETE_SOURCE_COLLECTION'))
     result=dict(status=status,candidate=True,source_qualified=False,control_executed=(run/'run/trajectory/control').exists(),
-        actual_checkpoint_packets=count,passed_native_packets=passed,failures=failures,
+        actual_checkpoint_packets=count,passed_native_packets=passed,failures=failures,native_stop_reasons=stops,
         maximum_native_state_utilization=max_state,maximum_native_Echem_utilization=max_energy,
         source_references=references,raw_reference_spread_not_a_bound=spread,mains=mains,
         published_R18_samples=len(r18),maximum_R18_ratio=max(r18,key=lambda x:x['ratio']) if r18 else None,

@@ -1,0 +1,49 @@
+{
+  "added_checkpoint_configuration": {
+    "O1": {
+      "absolute": [
+        1e-17,
+        1e-23,
+        1e-23
+      ],
+      "relative": 1e-12
+    },
+    "O2": {
+      "absolute": [
+        1e-18,
+        5e-27,
+        5e-27
+      ],
+      "relative": 1e-13
+    }
+  },
+  "archive_sha256": "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+  "binary_replacements": {
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build/tests/native_p2_stage": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-a-recovery-20261109-r1/build/tests/native_p2_stage",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/build/tests/native_p2_verify": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-a-recovery-20261109-r1/build/tests/native_p2_verify"
+  },
+  "changed_bound_sources": [
+    {
+      "after": "5f594ce6ba088ad76b791a2b05e220493f27813999f4a59004667304a4951589",
+      "before": "1ec5307863102cc0eb720f89b11dcf91ea2ed118aed932f7d9fb79eeeef901d3",
+      "path": "CompactStar/Physics/BNV/src/PassiveCheckpointOutput.cpp"
+    },
+    {
+      "after": "84ae4e70217104b2f0c39c22c9d9ede1b4005ac882a5556f281d8d7f95652161",
+      "before": "525eb19a9710f26e415cbb6d051725c4cd7f543355c0a802c15dce9413a4261a",
+      "path": "tests/native/stage.cpp"
+    }
+  ],
+  "new_identities": {
+    "control": "9226ea1f2ed0542b53b25012fc4cc9d42221efa4093a20174db3b297fd5daf5a",
+    "source": "7ed42a3ef02d989caa06246940de2cfe75fe7bd554b2650f6314f778fb77c175"
+  },
+  "old_identities": {
+    "control": "0588ddf4518b3dec0f1cf103dcb8a3b356cf4631f2394df41b6a2d6baadf4ceb",
+    "source": "c6a29044e8330f079a1593be166238e11eafb66745186c5322c04c272358ec18"
+  },
+  "physical_inputs_unchanged": true,
+  "runtime_linkage_identical": true,
+  "static_RHS_identical": true,
+  "status": "PASS"
+}

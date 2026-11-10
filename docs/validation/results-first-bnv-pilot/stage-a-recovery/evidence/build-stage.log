@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_qualification/recovery_snapshots.py", line 89, in <module>
+srun: error: phyn004: task 0: Exited with exit code 1
+    a=p.parse_args();verify_publish(a.run)
+                     ^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_qualification/recovery_snapshots.py", line 42, in verify_publish
+    assert '100% tests passed' in (run/'contracts.log').read_text()
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/python-3.11.9-g4zuo4tjs6qdheidlgtli3ampfghjezh/lib/python3.11/pathlib.py", line 1058, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/python-3.11.9-g4zuo4tjs6qdheidlgtli3ampfghjezh/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-a-recovery-20261109-r1+/contracts.log'
