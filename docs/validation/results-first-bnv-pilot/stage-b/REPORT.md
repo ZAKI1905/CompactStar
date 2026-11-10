@@ -36,6 +36,20 @@ At the endpoint, direct deposition is 3.3583239603e34 erg/s, photon cooling
 chemical heating is only 4.1450912065e22 erg/s, while excess neutrino losses are
 6.2176368096e22 erg/s. Chemical energy stored is 9.8695948979e33 erg. Control
 endpoint photon and neutrino powers are 2.6785500459e33 and 1.7005609542e32 erg/s.
+The muon imbalance is only about 5.4e−5 of kB T∞ at the endpoint, consistent with
+the very small reaction response in this benchmark.
+
+The retained 1,920-interval trapezoids give the following descriptive integrated
+channels. These channel integrals are not assigned the total-ledger error bar.
+
+| Integrated channel [erg] | Source | Control |
+|---|---:|---:|
+| Direct BNV deposition | 2.17048359e45 | 0 |
+| Chemical heating | 7.79464697e32 | 0 |
+| Excess neutrino loss | 1.16919705e33 | 0 |
+| Full neutrino cooling | 2.22889132e43 | 1.16575820e43 |
+| Photon cooling | 2.12429843e44 | 1.76205797e44 |
+| Net thermal power | 1.93576484e45 | −1.87863379e44 |
 
 The new analytic coupled comparison in [CHEMICAL_RESPONSE.md](CHEMICAL_RESPONSE.md)
 bounds the temperature contribution of LH alone by **+4.9445 to +5.6065 microkelvin**.
@@ -49,6 +63,9 @@ verification, but physically negligible in this experiment. It is not resolved
 merely by comparing the baseline native trajectory or by subtracting two rounded
 temperatures. The omitted finite-temperature source scale alone is about 6.26 K;
 accepted stellar inputs are held fixed, with no new absolute-accuracy claim.
+The total R20 uncertainty is much larger than the chemical energy terms. The
+microkelvin conclusion comes from the separate coupled comparison enclosure;
+a passing total-energy balance alone cannot resolve this contribution.
 
 ## Actual interpolation and events
 

@@ -43,7 +43,10 @@ it does not reconstruct an adaptive process from only the terminal state.
 Original-t0 main/reference evolutions are not silently repeated. Operational
 pre-dispatch refusals, resource-affinity refusals, and interrupted I/O attempts
 remain in their original logs. A scientific refusal is not converted into an
-operational retry.
+operational retry. The retained `tests/native/pair.hpp` deliberately runs
+`MustRefuse` probes for missing certificates and mismatched frozen owners. Their
+expected REFUSAL messages remain in successful assembly logs; actual task
+completion/STOP records distinguish them from a failed scientific calculation.
 
 ## Read-only verification order
 
