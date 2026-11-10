@@ -1,0 +1,40 @@
+{
+  "status": "PASS_EVIDENCE_VERIFICATION",
+  "production_diff": "exactly two approved O2 literals",
+  "original_D1_and_runtime_records_preserved": true,
+  "actual_checkpoint_packets": 129,
+  "native_checkpoint_failures": 0,
+  "restart_proof_reproduced": true,
+  "read_only_scientific_context_reproduced": true,
+  "control_and_StageB_not_run": true,
+  "analysis_script_hashes": [
+    {
+      "path": "tools/linux/native_qualification/recovery_build.sbatch",
+      "sha256": "679461296dc1442ebb92e5bc2119b292a41866cad5e7264db017abaff4eeb377"
+    },
+    {
+      "path": "tools/linux/native_qualification/recovery_verify.sbatch",
+      "sha256": "15922617f8944907a7b1c26efc28e3bfad5bb26183005fa74d8e2abdcaae6146"
+    },
+    {
+      "path": "tools/linux/native_qualification/recovery_stage.sbatch",
+      "sha256": "7edf02aede846a8bfe0cc23cd2ae7dbc647326753f94be91b89ad9f23d838dba"
+    },
+    {
+      "path": "tools/linux/native_qualification/recovery_snapshots.py",
+      "sha256": "7e0cca203adae9c38a2d88353feb2f693303a552a6dfcc5097798b149cb8c1f3"
+    },
+    {
+      "path": "tools/linux/native_qualification/assess_recovery_restart.py",
+      "sha256": "fb5c7dce6051200dd2c99498fb181c2ffa65e0c6014804b27fbd797ea03d2459"
+    },
+    {
+      "path": "tools/linux/native_qualification/assess_stage_a_recovery.py",
+      "sha256": "fc78dfae7d52b491af10be370eb58e658307f32a6c8dcbfc2bd2246144c2e321"
+    },
+    {
+      "path": "tools/linux/native_qualification/summarize_stage_a_scientific_context.py",
+      "sha256": "2dee48bfb10aacf4e05e304365b166cc02e4bd156afea3f51367e086715ae411"
+    }
+  ]
+}

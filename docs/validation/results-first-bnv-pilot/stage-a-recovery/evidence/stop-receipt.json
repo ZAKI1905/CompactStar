@@ -1,0 +1,15 @@
+{
+  "status": "FAIL_REQUIRED_RESTART_COVERAGE",
+  "job": 19188,
+  "action": "scancel 19188 after writing restart-gate.json",
+  "observed_execution": "source BASELINE uncapped main and endpoint repeat",
+  "inferred_policy": "quarter-cap: identical numerical calls by inactive-cap induction; not executed",
+  "stop_was_deliberate": true,
+  "timeout": false,
+  "native_checkpoint_failure": false,
+  "controls_executed": 0,
+  "stage_B_executed": false,
+  "additional_thermal_retry": false,
+  "actual_output_high_precision_reference": "NOT_REACHED: mandatory restart coverage failed first",
+  "proof_sha256": "66fe2779208c91acc7ddc079f9ae014ad20b40fcf3c3f9678c0b7dbe5b1882b8"
+}

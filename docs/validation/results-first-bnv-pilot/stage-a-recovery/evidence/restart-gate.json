@@ -1,0 +1,324 @@
+{
+  "status": "FAIL_REQUIRED_RESTART_COVERAGE",
+  "role": "source",
+  "tier": "BASELINE",
+  "observed_policy": "uncapped",
+  "required_restart_policy": "quarter-cap",
+  "quarter_cap_executed": false,
+  "method": "Exact inactive-cap induction on actual uncapped steps; not a new trajectory.",
+  "end_time_s": 31557600.0,
+  "half_time_s": 15778800.0,
+  "selected_endpoint": {
+    "sequence": "12",
+    "t_before_s": "10025181.919443566",
+    "t_after_s": "31557600",
+    "step_s": "21532418.080556434",
+    "suggested_next_h_s": "39098210.485829912",
+    "cumulative_rejected": "0",
+    "x_state": "7.4042397655630233e-05",
+    "eta_e_MeV": "-1.0894196614137557e-10",
+    "eta_mu_MeV": "-2.7634376967724937e-10"
+  },
+  "last_endpoint_before_half_s": 10025181.919443566,
+  "restart_tail_duration_s": 0.0,
+  "maximum_proposed_step_s": 39098210.48582991,
+  "minimum_planned_cap_s": 9680951939.25,
+  "cap_checks": [
+    {
+      "sequence": 1,
+      "left_s": 0.0,
+      "right_s": 1.0,
+      "incoming_proposal_s": 1.0,
+      "caps": [
+        {
+          "cap_s": 38723807757.0,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 19361903878.5,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 9680951939.25,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        }
+      ]
+    },
+    {
+      "sequence": 2,
+      "left_s": 1.0,
+      "right_s": 5.9,
+      "incoming_proposal_s": 4.9,
+      "caps": [
+        {
+          "cap_s": 38723807757.0,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 19361903878.5,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 9680951939.25,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        }
+      ]
+    },
+    {
+      "sequence": 3,
+      "left_s": 5.9,
+      "right_s": 29.910000000000004,
+      "incoming_proposal_s": 24.010000000000005,
+      "caps": [
+        {
+          "cap_s": 38723807757.0,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 19361903878.5,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 9680951939.25,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        }
+      ]
+    },
+    {
+      "sequence": 4,
+      "left_s": 29.910000000000004,
+      "right_s": 147.55900000000003,
+      "incoming_proposal_s": 117.64900000000003,
+      "caps": [
+        {
+          "cap_s": 38723807757.0,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 19361903878.5,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 9680951939.25,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        }
+      ]
+    },
+    {
+      "sequence": 5,
+      "left_s": 147.55900000000003,
+      "right_s": 724.0391000000002,
+      "incoming_proposal_s": 576.4801000000002,
+      "caps": [
+        {
+          "cap_s": 38723807757.0,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 19361903878.5,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 9680951939.25,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        }
+      ]
+    },
+    {
+      "sequence": 6,
+      "left_s": 724.0391000000002,
+      "right_s": 3548.7915900000016,
+      "incoming_proposal_s": 2824.752490000001,
+      "caps": [
+        {
+          "cap_s": 38723807757.0,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 19361903878.5,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 9680951939.25,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        }
+      ]
+    },
+    {
+      "sequence": 7,
+      "left_s": 3548.7915900000016,
+      "right_s": 17390.078791000007,
+      "incoming_proposal_s": 13841.287201000006,
+      "caps": [
+        {
+          "cap_s": 38723807757.0,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 19361903878.5,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 9680951939.25,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        }
+      ]
+    },
+    {
+      "sequence": 8,
+      "left_s": 17390.078791000007,
+      "right_s": 85212.38607590004,
+      "incoming_proposal_s": 67822.30728490003,
+      "caps": [
+        {
+          "cap_s": 38723807757.0,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 19361903878.5,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 9680951939.25,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        }
+      ]
+    },
+    {
+      "sequence": 9,
+      "left_s": 85212.38607590004,
+      "right_s": 417541.69177191023,
+      "incoming_proposal_s": 332329.3056960102,
+      "caps": [
+        {
+          "cap_s": 38723807757.0,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 19361903878.5,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 9680951939.25,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        }
+      ]
+    },
+    {
+      "sequence": 10,
+      "left_s": 417541.69177191023,
+      "right_s": 2045955.2896823604,
+      "incoming_proposal_s": 1628413.59791045,
+      "caps": [
+        {
+          "cap_s": 38723807757.0,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 19361903878.5,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 9680951939.25,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        }
+      ]
+    },
+    {
+      "sequence": 11,
+      "left_s": 2045955.2896823604,
+      "right_s": 10025181.919443566,
+      "incoming_proposal_s": 7979226.629761206,
+      "caps": [
+        {
+          "cap_s": 38723807757.0,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 19361903878.5,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 9680951939.25,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        }
+      ]
+    },
+    {
+      "sequence": 12,
+      "left_s": 10025181.919443566,
+      "right_s": 31557600.0,
+      "incoming_proposal_s": 39098210.48582991,
+      "caps": [
+        {
+          "cap_s": 38723807757.0,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 19361903878.5,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        },
+        {
+          "cap_s": 9680951939.25,
+          "proposal_unchanged": true,
+          "gsl_target_unchanged": true
+        }
+      ]
+    }
+  ],
+  "proof": [
+    "The only numerical uses of max_step_ in Advance are min(h,max_step_) and the GSL target clamp.",
+    "For every actual step, every planned finite cap leaves both operands unchanged; there were no rejected trials or events.",
+    "Starting from the same exact state, stepper and deterministic RHS, induction gives the same GSL calls, accepted states and next-step proposals for quarter-cap.",
+    "Therefore the required first accepted endpoint >=half-time is the final endpoint for that policy as well; the existing strict-interior restart guard must fail.",
+    "No cap, restart time, numerical threshold or accepted-step history is altered to create coverage."
+  ],
+  "source_locations": {
+    "cap_semantics": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/BreakpointStepper.hpp",
+    "restart_rule": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/stage.cpp"
+  },
+  "hashes": {
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-a-recovery-20261109-r1/source-stage/run/trajectory/source/tier-0-cap-0/main.accepted_states.tsv": "4b854db1b18eb3e3332a071472b9ba7355a09cac77e20f6e984f1ea699f4a19f",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-a-recovery-20261109-r1/source-stage/run/trajectory/source/tier-0-cap-0/endpoint-schedule-repeat/main.accepted_states.tsv": "4b854db1b18eb3e3332a071472b9ba7355a09cac77e20f6e984f1ea699f4a19f",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-a-recovery-20261109-r1/source-stage/run/trajectory/source/tier-0-cap-0/events.tsv": "67cb54e65dda658829a34712411e4f6107c3f92a7c108907bd159749f64730dd",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/BreakpointStepper.hpp": "c463f674f5645316b0ba0f9d7902c34e8249b0b59d05320a5239a2c9edac335b",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/stage.cpp": "84ae4e70217104b2f0c39c22c9d9ede1b4005ac882a5556f281d8d7f95652161"
+  },
+  "scientific_interpretation": "Missing positive-length restart coverage, not a demonstrated temperature or chemical-state accuracy failure.",
+  "required_disposition": "Stop the current retry and do not launch control; preserve partial output."
+}

@@ -31,9 +31,13 @@ def sha(path):
 def assess(run):
     source=run/'run/trajectory/source'
     log=(run/'stage.log').read_text() if (run/'stage.log').exists() else ''
-    failures=[]; count=0; passed=0; max_state=None; max_energy=None
+    failures=[]; count=0; passed=0; max_state=None; max_energy=None; incomplete=[]
     for path in sorted(source.glob('tier-*/checkpoints-*/point-*/checkpoint.json')):
-        meta=json.loads(path.read_text());count+=1
+        try:
+            meta=json.loads(path.read_text())
+        except json.JSONDecodeError:
+            incomplete.append(str(path));continue
+        count+=1
         state=rows(path.parent/'state.tsv');diagnostics=rows(path.parent/'diagnostics.tsv')
         record=dict(path=str(path.parent),time_s=meta['time_s'],index=meta['checkpoint_index'],
                     main_step=meta['main_step_ordinal'],O2_atol=meta['O2_atol'])
@@ -87,12 +91,18 @@ def assess(run):
     status='FAIL_NATIVE_CHECKPOINT' if failures else ('FAIL_NATIVE_GUARD' if stops else
         ('SOURCE_COLLECTION_COMPLETE_UNQUALIFIED' if 'ROLE COLLECTION COMPLETE source' in log
          else 'INCOMPLETE_SOURCE_COLLECTION'))
+    restart_path=run/'assessment/restart-gate.json'
+    restart=json.loads(restart_path.read_text()) if restart_path.exists() else None
+    if restart:
+        assert all(sha(Path(p))==h for p,h in restart['hashes'].items()),'restart proof input changed'
+        if restart['status']=='FAIL_REQUIRED_RESTART_COVERAGE':status=restart['status']
     result=dict(status=status,candidate=True,source_qualified=False,control_executed=(run/'run/trajectory/control').exists(),
         actual_checkpoint_packets=count,passed_native_packets=passed,failures=failures,native_stop_reasons=stops,
+        incomplete_packets=incomplete,restart_gate=restart,
         maximum_native_state_utilization=max_state,maximum_native_Echem_utilization=max_energy,
         source_references=references,raw_reference_spread_not_a_bound=spread,mains=mains,
         published_R18_samples=len(r18),maximum_R18_ratio=max(r18,key=lambda x:x['ratio']) if r18 else None,
-        remaining_accuracy_obligations={'chemical_high_precision_actual_checkpoints':'NOT_RUN_AFTER_NATIVE_FAILURE' if failures else 'PENDING',
+        remaining_accuracy_obligations={'chemical_high_precision_actual_checkpoints':'NOT_REACHED_AFTER_MANDATORY_FAILURE' if failures or restart else 'PENDING',
           'main_prefix_and_accumulated_roundoff':'UNQUALIFIED', 'thermal_RHS_roundoff':'UNQUALIFIED',
           'global_reference_and_interpolation':'UNQUALIFIED; raw spreads do not bound accumulated error',
           'R20_total_uncertainty':'UNQUALIFIED; report original grid residuals separately',

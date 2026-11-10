@@ -1,0 +1,49 @@
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+PB13 envelope R_upper=12.768154903368297 m_upper=0.92093273643869789 s_prime_upper=0.007100883194399092 phat_upper=31.80548905802204 phat_lower=31.77447563495048 xihat_upper=4818.0911316987376 mhat_upper=473.08533779464295
+ASSEMBLY G begin
+ASSEMBLY G passed
+ASSEMBLY Z begin
+ASSEMBLY Z passed
+PB13 envelope R_upper=12.768154903368297 m_upper=0.92093273643869789 s_prime_upper=0.007100883194399092 phat_upper=31.80548905802204 phat_lower=31.77447563495048 xihat_upper=4818.0911316987376 mhat_upper=473.08533779464295
+REFUSAL historical Mac binding cannot substitute native owner : qualification source hash mismatch
+REFUSAL missing chemical certificate : missing source: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-a-recovery-20261109-r1/source-stage/run/assembly/missing-certificate
+REFUSAL foreign chemical certificate : qualification source hash mismatch
+REFUSAL missing frozen certificate : missing frozen certificate TSV
+REFUSAL mismatched frozen owner : frozen certificate achieved-B identity failed
+REFERENCE RF-BNV-P2-NATIVE-BOUNDED-v1-SOURCE index=0
+REFERENCE RF-BNV-P2-NATIVE-BOUNDED-v1-SOURCE index=1
+REFERENCE RF-BNV-P2-NATIVE-BOUNDED-v1-SOURCE index=2
+REFERENCE RF-BNV-P2-NATIVE-BOUNDED-v1-SOURCE index=3
+REFERENCE RF-BNV-P2-NATIVE-BOUNDED-v1-SOURCE index=4
+MAIN RF-BNV-P2-NATIVE-BOUNDED-v1-SOURCE tier=0 policy=0
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 19188.0 ON phyn004 CANCELLED AT 2026-11-09T21:43:58 ***

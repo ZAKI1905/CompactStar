@@ -1,0 +1,85 @@
+{
+  "reference4_end": {
+    "t": "31557600",
+    "x": "7.404239765563003e-05",
+    "e": "-1.0894196614137575e-10",
+    "mu": "-2.7634376967724932e-10",
+    "Cstar": "1.304920467320712e+38",
+    "DeltaLnu": "7581461777938871",
+    "DeltaPbeta": "-2527153925979624",
+    "Echem": "1.6355209485677405e+33",
+    "LH": "5054307851959247",
+    "Lgamma": "2.7754493815996762e+33",
+    "Lnu_eq": "1.9125473233321554e+32",
+    "Lnu_full": "1.9125473233321554e+32",
+    "Lother": "0",
+    "Lout": "0",
+    "P_dir_actual": "3.3583239602973686e+34",
+    "P_dir_eq": "3.3583239602973852e+34",
+    "Pnet": "3.0616535489040794e+34",
+    "Tinf": "100007404.51388617",
+    "mu_B": "868.43543494338303",
+    "mu_n_actual": "868.43543494337871",
+    "sigma_e": "7.4466405594325725e+35",
+    "sigma_mu": "8.1526982268462988e+34"
+  },
+  "source_temperature_increase_K": "7404.51388616859912872314453125",
+  "main_endpoint_difference_from_reference4": {
+    "x": "2.03287907341032081376397400163114070892333984375E-19",
+    "e": "1.8094575899597480387812065139030437421752139925956726074218750E-25",
+    "mu": "5.1698788284564229679463043254372678347863256931304931640625E-26"
+  },
+  "restart_last_before_half_years": "0.31767884501494303597640449666468021966182472684868304307044895682814916216695819707455573300884731411767688291",
+  "smallest_cap_years": "306.77085517434785915278728420412198646284888584683245874210966613430679139098030268461479960453266408091870104",
+  "chemical_heating_over_direct_deposition": "1.5050090198897025231733807940489392363272249803235907528838093806324224172176870741698391157438913874088551573E-19",
+  "raw_reference_spreads_are_not_error_bounds": true,
+  "reference4_1920_grid_direct_deposition_erg": "1059806442094804977889801173074587397652480.00",
+  "reference4_1920_grid_outgoing_erg": "93612428304538213636738932292572980183040.00",
+  "reference4_1920_grid_LH_erg": "53161786619322009833267.2772535681724548339843750",
+  "label": "DIAGNOSTIC ONLY; source not qualified, control not run",
+  "reference_and_main_regression": {
+    "main_identical": true,
+    "references": [
+      {
+        "file": "reference-0-history.tsv",
+        "identical": true
+      },
+      {
+        "file": "reference-0-observations.tsv",
+        "identical": true
+      },
+      {
+        "file": "reference-1-history.tsv",
+        "identical": true
+      },
+      {
+        "file": "reference-1-observations.tsv",
+        "identical": true
+      },
+      {
+        "file": "reference-2-history.tsv",
+        "identical": true
+      },
+      {
+        "file": "reference-2-observations.tsv",
+        "identical": true
+      },
+      {
+        "file": "reference-3-history.tsv",
+        "identical": true
+      },
+      {
+        "file": "reference-3-observations.tsv",
+        "identical": true
+      },
+      {
+        "file": "reference-4-history.tsv",
+        "identical": true
+      },
+      {
+        "file": "reference-4-observations.tsv",
+        "identical": true
+      }
+    ]
+  }
+}
