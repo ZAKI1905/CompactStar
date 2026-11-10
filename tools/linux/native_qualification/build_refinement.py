@@ -18,6 +18,8 @@ name='checkpoint_refinement';obj=out/(name+'.o');binary=out/name
 commands=[[compiler,*flags['CXX_DEFINES'],*flags['CXX_INCLUDES'],'-I'+str(out),*flags['CXX_FLAGS'],'-c',str(root/'tests/diagnostics'/f'{name}.cpp'),'-o',str(obj)]]
 commands.append([str(obj) if x=='CMakeFiles/native_p2_stage.dir/native/stage.cpp.o' else str(binary) if x=='native_p2_stage' else x for x in link])
 for command in commands:subprocess.run(command,cwd=build,check=True)
+commands.append([str(binary),'--check-history',str(retained.parent/'native-p2-qualification-1yr-r2/run/trajectory/source/tier-0-cap-0/main.accepted_states.tsv')])
+subprocess.run(commands[-1],check=True)
 files=[root/'tests/native/stage.cpp',inc,cmake/'flags.make',cmake/'link.txt',pathlib.Path(compiler),binary]
 files+=list((root/'tests/diagnostics').glob('*'))
 files+=[root/'tools/linux/native_qualification'/p for p in ['build_refinement.py','run_refinement.py','refinement.sbatch']]

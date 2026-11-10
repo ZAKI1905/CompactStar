@@ -14,12 +14,24 @@ std::vector<BNV::AcceptedStepRecord> History(const std::filesystem::path& path) 
   s.accepted_step_s=std::stod(v[3]);s.suggested_next_h_s=std::stod(v[4]);s.cumulative_rejected=std::stoul(v[5]);
   s.y_left=left;for(int k=0;k<3;++k)s.y_right[k]=std::stod(v[k+6]);left=s.y_right;
   require(s.ordinal==result.size()+1&&s.t_right_s>s.t_left_s,"invalid retained history");result.push_back(s);
- }require(result.size()==12&&result.back().t_right_s==Year,"unexpected source history");return result;
+ }require(result.size()==12&&result.back().t_right_s==Year,"unexpected source history");
+ std::ifstream events(path.parent_path()/"events.tsv");require(bool(events),"missing retained step errors");std::getline(events,line);std::size_t i=0;
+ while(std::getline(events,line)){auto v=Fields(line);require(v.size()==10&&i<result.size(),"step error width/count");auto& s=result[i++];require(std::stoul(v[0])==s.ordinal&&std::stoi(v[2])==-1,"unexpected event");for(int k=0;k<3;++k)s.local_rk_error[k]=std::stod(v[k+7]);}
+ require(i==result.size(),"missing step errors");return result;
+}
+
+BNV::PassiveObservationSchedule StudySchedule(const std::vector<BNV::AcceptedStepRecord>& history) {
+ std::vector<double> times{0};for(int i:{1,2,4,8,16,32,64,128,256,512,960,1440,1919})times.push_back(Year*i/1920);
+ BNV::PassiveObservationSchedule schedule(times,"predeclared-reconstruction-study");schedule.Replay({{0,0,0}},history);
+ require(schedule.Brackets().size()==14&&schedule.Brackets()[0].initial,"initial schedule entry missing");
+ for(std::size_t i=1;i<schedule.Brackets().size();++i){const auto& b=schedule.Brackets()[i];require(!b.initial&&b.right_accepted_ordinal>0,"noninitial bracket missing");const auto& s=history.at(b.right_accepted_ordinal-1);require(b.t_observation_s>s.t_left_s&&b.t_observation_s<s.t_right_s,"study point is not strict interior");}
+ return schedule;
 }
 
 int main(int argc,char** argv) {std::filesystem::path output;
  try {
   gsl_set_error_handler_off();std::cout<<std::setprecision(17)<<std::unitbuf;
+  if(argc==3&&std::string(argv[1])=="--check-history") {const auto h=History(argv[2]);const auto s=StudySchedule(h);require(s.Brackets()[1].t_observation_s==16436.25&&s.Brackets()[4].t_observation_s==131490,"study times changed");std::cout<<"PASS 13 strict-interior brackets plus initial sentinel; retained local errors loaded; no solver calls\n";return 0;}
   require(argc==11,"profile thermal entry frozen coefficients archive sha fresh-work retained-source output");
   output=argv[10];require(!std::filesystem::exists(output),"fresh refinement output required");std::filesystem::create_directories(output);
   Inputs in;in.profile=argv[1];in.certificate=in.profile/"certificate.txt";in.thermal=argv[2];in.entry=argv[3];in.frozen=argv[4];in.coefficients=argv[5];in.work=argv[8];
@@ -34,10 +46,10 @@ int main(int argc,char** argv) {std::filesystem::path output;
   diagnostics<<"context\tt_s\tx\te\tmu";for(const auto& kv:CheckpointEvidence::Values(BNV::BnvDiagnostics{}))diagnostics<<'\t'<<kv.first;diagnostics<<'\n';
   physics<<"index\tt_s\tx\te\tmu\tTinf\tsigma_e\tsigma_mu\tsource_e\tsource_mu\tbeta_e\tbeta_mu\tEchem\n";
   std::size_t count=0;BNV::CheckpointContextFactory factory=[&]{return std::make_unique<TraceContext>(pair.source,++count,rhs,diagnostics);};
-  std::vector<double> times;for(int i:{1,2,4,8,16,32,64,128,256,512,960,1440,1919})times.push_back(Year*i/1920);
-  BNV::PassiveObservationSchedule schedule(times,"predeclared-reconstruction-study");schedule.Replay({{0,0,0}},history);
+  const auto schedule=StudySchedule(history);
   ActualCheckpointContext evaluation(pair.source,0);
   for(auto bracket:schedule.Brackets()) {
+   if(bracket.initial)continue;
    bracket.observation_index=std::llround(bracket.t_observation_s/Year*1920);
    const auto& step=history.at(bracket.right_accepted_ordinal-1);const double t=bracket.t_observation_s,span=t-step.t_left_s;
    std::cout<<"STUDY index="<<bracket.observation_index<<" time="<<t<<" left="<<step.t_left_s<<'\n';
