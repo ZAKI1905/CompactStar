@@ -2,7 +2,8 @@
 """Collect compact, source-bound report evidence; retain full records externally."""
 import csv,json,pathlib,shutil,sys
 from decimal import Decimal as D,InvalidOperation
-from run import ROOT,save,digest
+from piecewise import ROOT  # Establish the retained Stage A helper import path.
+from run import save,digest
 out=pathlib.Path(sys.argv[1]);sealed=pathlib.Path(sys.argv[2]);target=ROOT/'docs/validation/results-first-bnv-pilot/stage-b/evidence'
 target.mkdir(exist_ok=True)
 def compact(v):

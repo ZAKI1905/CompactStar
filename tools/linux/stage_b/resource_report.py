@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Compact provenance from retained launch/build/allocation receipts."""
 import json,pathlib,re,sys
+from piecewise import ROOT  # Establish the retained Stage A helper import path.
 from run import save,digest
 out=pathlib.Path(sys.argv[1]);roots=[pathlib.Path(p) for p in sys.argv[2:]];result=dict(allocations=[],builds=[],launches=[],completions=[])
 for root in roots:

@@ -2,6 +2,7 @@
 """Collect completed gates without promoting verification to owner acceptance."""
 import json,pathlib,sys
 from decimal import Decimal as D
+from piecewise import ROOT  # Establish the retained Stage A helper import path.
 from run import save,digest
 
 out=pathlib.Path(sys.argv[1]);inputs={};checks={}
@@ -10,6 +11,8 @@ def read(name):
  inputs[name]=dict(path=str(p),sha256=digest(p))
  return json.loads(p.read_text())
 expected={(role,f'tier-{tier}-cap-{cap}') for role in ('source','control') for tier in range(3) for cap in range(4)}
+preflight=read('preflight.json')
+checks['preflight_input_and_GSL_tableau_bindings']=preflight['status']=='PASS' and all(digest(pathlib.Path(p))==h for p,h in preflight['files'].items())
 def matrix(name,records):
  keys=[(r['role'],r['configuration']) for r in records]
  checks[name+'_complete']=len(keys)==24 and set(keys)==expected

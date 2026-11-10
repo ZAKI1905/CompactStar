@@ -36,6 +36,9 @@ At the endpoint, direct deposition is 3.3583239603e34 erg/s, photon cooling
 chemical heating is only 4.1450912065e22 erg/s, while excess neutrino losses are
 6.2176368096e22 erg/s. Chemical energy stored is 9.8695948979e33 erg. Control
 endpoint photon and neutrino powers are 2.6785500459e33 and 1.7005609542e32 erg/s.
+The observed excess-neutrino/heating ratio is approximately 1.5, so the net
+reaction term cools despite the positive heating channel. Heating/direct deposition
+is only about 1.23e−12 at the endpoint.
 The muon imbalance is only about 5.4e−5 of kB T∞ at the endpoint, consistent with
 the very small reaction response in this benchmark.
 
@@ -104,6 +107,16 @@ All 1,921 local coupled reconstruction comparisons fit their stored state and
 chemical-energy radii. These initial checks do not by themselves qualify the
 other configurations. Final full-matrix evidence will supersede this progress
 paragraph without altering the underlying evidence.
+
+Historical BA12 remains **FAIL**, with maximum scaled difference
+1.7255917120989046. Historical BA12R c1/c2/c3 remain separately **all FAIL**:
+state 32.26041661869904 / 0.9329162771682704 / 43.54669142406804;
+ledger 7.611500166686796e−9 / 0.9329163323161163 / 94.83035685919317;
+matched stability/contraction/floor 21.923678867554578 / 4.101136780587133 /
+41.03343563659818. Their original definitions and limits are retained in
+`../preliminary-pair/REPORT.md:203` and
+[the historical BA12R report](../../PHASE6A1_CONTROLLED_BNV_BA12R.md).
+Neither Stage A acceptance nor a new Stage B result changes those findings.
 
 Large artifacts stay on EKU under:
 

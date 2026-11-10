@@ -5,6 +5,7 @@ Full manifests remain beside the heavy cluster artifacts. A compact receipt and
 per-top-level-directory roots are suitable for Git; no active output is sealed.
 """
 import concurrent.futures,gzip,hashlib,json,os,pathlib,sys,time
+from piecewise import ROOT  # Establish the retained Stage A helper import path.
 from run import save,digest
 roots=[pathlib.Path(p).resolve() for p in sys.argv[2:]];destination=pathlib.Path(sys.argv[1]);destination.mkdir(exist_ok=False)
 workers=int(os.environ.get('RF_SEAL_WORKERS','24'));start=time.monotonic()

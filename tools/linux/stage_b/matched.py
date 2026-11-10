@@ -2,6 +2,7 @@
 """Matched budgets use sums, with no source/control uncertainty cancellation."""
 import json,pathlib,sys
 from decimal import Decimal as D,localcontext
+from piecewise import ROOT  # Establish the retained Stage A helper import path.
 from run import save
 out=pathlib.Path(sys.argv[1]);accuracy=json.loads((out/'accuracy.json').read_text());ledger=json.loads((out/'ledger-assessment.json').read_text())
 a={(r['role'],r['configuration']):r for r in accuracy['configurations']};l={(r['role'],r['configuration']):r for r in ledger['configurations']};results=[]
