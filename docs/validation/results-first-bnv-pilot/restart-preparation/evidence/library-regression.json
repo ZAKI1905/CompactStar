@@ -1,0 +1,442 @@
+{
+  "status": "PASS",
+  "old_archive": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-a-recovery-20261109-r1/build/libCompactStar.a",
+  "old_sha256": "8333d6f92e061aea7e965c4f78b4c115da636851b99805504474206bf3651b70",
+  "new_archive": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/restart-preparation-20261109-r1/build/libCompactStar.a",
+  "new_sha256": "806034e0af9b4afecc384d521450c000fd642f740688c4ea6fc3fee87b78e803",
+  "members": 86,
+  "all_member_payloads_byte_identical": true,
+  "only_archive_member_timestamp_headers_differ": true,
+  "member_hashes": [
+    {
+      "name": "/",
+      "size": 179822,
+      "payload_sha256": "d2125aabdb6cd22448b8d50010c694afb5ee1e64e0aab71ff37e556da82b85a7"
+    },
+    {
+      "name": "//",
+      "size": 1526,
+      "payload_sha256": "d5f92d256c616ce24968493affabb205330b9a2d2ab9bf47eb998a06816b7af9"
+    },
+    {
+      "name": "Analysis.cpp.o/",
+      "size": 4760,
+      "payload_sha256": "55071e40485ce2619a542c73fc6c0c4e0b2b185b126b61befb5e5108c56813ca"
+    },
+    {
+      "name": "MixedStar.cpp.o/",
+      "size": 144536,
+      "payload_sha256": "383d347c76f5f0d89ed11b31104663d75b7da3f6a784230ab2e4cbd8bda29e17"
+    },
+    {
+      "name": "NStar.cpp.o/",
+      "size": 147064,
+      "payload_sha256": "6ff0d6713c26b49def65217a8e22e0fc01bebfdb22e7ff653836dcf0e46767bb"
+    },
+    {
+      "name": "Prog.cpp.o/",
+      "size": 26680,
+      "payload_sha256": "e553b629daf1484762dad662fe8aa8e1a84e5a8a382fe1a1776e31b7fa0954f3"
+    },
+    {
+      "name": "Banner.cpp.o/",
+      "size": 33896,
+      "payload_sha256": "7b07ed9f07f4a3d6e867a4a8c17b6052ca75f51ddff6d0b168486add91777ad4"
+    },
+    {
+      "name": "Pulsar.cpp.o/",
+      "size": 24680,
+      "payload_sha256": "4c2b83acc238a61b16bf8ec7de787e736ff7a6e171483c4fb936f9a48cdac006"
+    },
+    {
+      "name": "/0",
+      "size": 148040,
+      "payload_sha256": "6e7e3a042c62fadd062de1c93d6b81b68d6f5d7bc6eb092feaa3a95dc38b1f04"
+    },
+    {
+      "name": "/22",
+      "size": 124672,
+      "payload_sha256": "3a9dd681bb995be5724ac15767ac8be806400750438f94da7d17b645d9c9f5a4"
+    },
+    {
+      "name": "/41",
+      "size": 23168,
+      "payload_sha256": "9ee94f7899bef1db4951c814838ac1ef27ca458504ff2659b60e4eb22e98486c"
+    },
+    {
+      "name": "TOVSolver.cpp.o/",
+      "size": 266640,
+      "payload_sha256": "2b9d68d96090fb7b77ff21a18a801b3d05038e3684b7ac6811bdad0a7a9dd7bd"
+    },
+    {
+      "name": "/65",
+      "size": 27512,
+      "payload_sha256": "a5682b231fbe867b275e3a6228e6394738487c7ea69f6f43ee2e27c65f53c09a"
+    },
+    {
+      "name": "/84",
+      "size": 35256,
+      "payload_sha256": "b2803d5b826a718d0142f00be5f9ad6ac84a122026685f9bd150906493fa9fcc"
+    },
+    {
+      "name": "/103",
+      "size": 208040,
+      "payload_sha256": "7089a3299d15f611082acfd11bd372a63c0b5c0fd185da78d6f9a79c0e9ef391"
+    },
+    {
+      "name": "/133",
+      "size": 222048,
+      "payload_sha256": "5f0279aa0bcba106f4c520a943669f89ccbac0a8a17cbef737aea59fa11e67a0"
+    },
+    {
+      "name": "Baryon.cpp.o/",
+      "size": 39440,
+      "payload_sha256": "5bd08399575e71db8861004a835a80feef29d2f775a0b22b41062c96a66eef46"
+    },
+    {
+      "name": "Common.cpp.o/",
+      "size": 3632,
+      "payload_sha256": "d131397f1d4133cf9f396bf0ae095e43c974973221f2a39fb6521a4c689bb79d"
+    },
+    {
+      "name": "/157",
+      "size": 8896,
+      "payload_sha256": "5ee5569cca777e622e534dfdbc971e66136d697059c130f83a133f732443b0c9"
+    },
+    {
+      "name": "Fermi_Gas.cpp.o/",
+      "size": 8048,
+      "payload_sha256": "dfb448e760ff49d3887d56789fed43328f197a25503509d44cd7ebe8b6ffc628"
+    },
+    {
+      "name": "Lepton.cpp.o/",
+      "size": 11864,
+      "payload_sha256": "d8a9e23dff7d351bf2d027c5a3d4c73cf095ce08733c89e6209f2b4af39c08a2"
+    },
+    {
+      "name": "/179",
+      "size": 23320,
+      "payload_sha256": "6532e4442be2ec57ce7cef31b6af649f6196be5bdded8d346cb2243aa40bb635"
+    },
+    {
+      "name": "/206",
+      "size": 65584,
+      "payload_sha256": "745f62e309540ea24e3f4ef47ed8f1ade1f7cd5b0214563136f017b1c2c3e77c"
+    },
+    {
+      "name": "Model.cpp.o/",
+      "size": 32968,
+      "payload_sha256": "7990e784d7cb74d8a5049ae58cea3abc86b61ebabfe944646d62a9c612b3c671"
+    },
+    {
+      "name": "Particle.cpp.o/",
+      "size": 28232,
+      "payload_sha256": "65e45571757db0892013204ebe527812984f0b004a4aca7cdf101d30f2b76665"
+    },
+    {
+      "name": "Polytrope.cpp.o/",
+      "size": 7072,
+      "payload_sha256": "62cd9f9324d1970a387ffd469ee69f66185d364eccc6107c25afaa1b79029618"
+    },
+    {
+      "name": "/241",
+      "size": 12624,
+      "payload_sha256": "987be9e7f5b787cc9c90e4124ab2de31bd7d27759f27c12a4952713f84805db5"
+    },
+    {
+      "name": "/259",
+      "size": 7280,
+      "payload_sha256": "4bd61b57079cc81c6572e6a850a934f40db7954322ef60651383780f25109ec0"
+    },
+    {
+      "name": "/280",
+      "size": 67800,
+      "payload_sha256": "6d0f2d61c644a5d723805d1115f2ca7c6a75d840ae5dff37366816ada3835a41"
+    },
+    {
+      "name": "/301",
+      "size": 171040,
+      "payload_sha256": "063169fa9aad2fccfccaf2c93c1a3c27d6bba863aba928d0183d7c06d9942bbd"
+    },
+    {
+      "name": "/320",
+      "size": 69056,
+      "payload_sha256": "d101a83c2594bbe730ca013160aba1c3bdc76ed8f4b77c2aa35cbc53257a2835"
+    },
+    {
+      "name": "/342",
+      "size": 68920,
+      "payload_sha256": "8deb2488b9bfc2e3b8a2e121762cad6a51d7ff8b6221e3f0f7844af7eb4bbbb4"
+    },
+    {
+      "name": "/369",
+      "size": 28184,
+      "payload_sha256": "775ad32240a14ab9b6d680dc6a81dd65a080f28d2642ed071c91802c393c0069"
+    },
+    {
+      "name": "Spin.cpp.o/",
+      "size": 4728,
+      "payload_sha256": "746639e8f8692f9d5ee79eed0a6a0c8455dc0a1ff14e00e02d90e200cd1f5601"
+    },
+    {
+      "name": "/391",
+      "size": 25496,
+      "payload_sha256": "10a71be01a66c586aa74e37bd2b8a3132e2e56ddc98308b7e891eb2780d408f4"
+    },
+    {
+      "name": "/413",
+      "size": 51064,
+      "payload_sha256": "f76ca970ac305fc174ae1f3456fb9a06a0ab1f6c2396dc446e51d482ec59dc47"
+    },
+    {
+      "name": "/434",
+      "size": 32992,
+      "payload_sha256": "6e5fd4163eacaeb9d3534ac9f4599bff6373a2e087d97be9abaf72c12cb97f28"
+    },
+    {
+      "name": "/463",
+      "size": 46880,
+      "payload_sha256": "64c58f253e33c4eb3ac17567e96ad43f4f9ae1f1cf1ebcd378d002d558da45a0"
+    },
+    {
+      "name": "/486",
+      "size": 29960,
+      "payload_sha256": "2c57e22da2d9b00c39bf0a3f62e585936c4ed2d2dbe3dbbb72820233208e4b58"
+    },
+    {
+      "name": "/517",
+      "size": 6200,
+      "payload_sha256": "bae090345b74e8011abb1c159947b51bcdf9574f6ae9d216d03308a28ba8648f"
+    },
+    {
+      "name": "/539",
+      "size": 6504,
+      "payload_sha256": "bcfab91db129a189839aeabd191ed6d8f051e200971a3cd431a860bb58e08da4"
+    },
+    {
+      "name": "/559",
+      "size": 11152,
+      "payload_sha256": "7433b9a0ad8b2b53f4e292fc4f7d81a0e84340b5855707f051e90a60fff478f5"
+    },
+    {
+      "name": "/587",
+      "size": 10368,
+      "payload_sha256": "ef7bb6e295f7b88fdb766ac6d6e2191cfbf681c281324a7c1474ae429597f328"
+    },
+    {
+      "name": "BNVState.cpp.o/",
+      "size": 34576,
+      "payload_sha256": "69f64f2968f022b504e7c723fa6b74a6beb2a1e95ec541cc5cff068d20544383"
+    },
+    {
+      "name": "ChemState.cpp.o/",
+      "size": 34712,
+      "payload_sha256": "ecdafc6c634c25246d4dc0c21a33fd2f52553ce675e0b64041b65498ebc99484"
+    },
+    {
+      "name": "SpinState.cpp.o/",
+      "size": 34808,
+      "payload_sha256": "f79e045e1f862c87d28ed554899217634f1585d0a651b371402c366032fbbdc8"
+    },
+    {
+      "name": "/615",
+      "size": 48128,
+      "payload_sha256": "d9c4fd563f4bdd4b06370c754034536f307f3f13e9d9bef08f6f5c774e1e1144"
+    },
+    {
+      "name": "/635",
+      "size": 14448,
+      "payload_sha256": "111370f370405987952dd6156f86d832442adad2b037b91b8f5c3c08e5c2e8ba"
+    },
+    {
+      "name": "/654",
+      "size": 16152,
+      "payload_sha256": "8793db8c6fe68062a2828b6be942a728a26418d3a097df0c874749c89a708cf8"
+    },
+    {
+      "name": "/677",
+      "size": 11320,
+      "payload_sha256": "f8d2c95e2a7cf2ba91be47b842557402df7afb0848b3c0ce6ff00b46ef524cda"
+    },
+    {
+      "name": "/696",
+      "size": 16160,
+      "payload_sha256": "c87e6705a7b7085aaf9870bbccb56ee07f652708763d2a03ff48cc00925d4ef6"
+    },
+    {
+      "name": "/716",
+      "size": 47088,
+      "payload_sha256": "fdce7999b3b53cb389cece2aeebd7eb40dfe1c6978903e4f7ff53007593b4e89"
+    },
+    {
+      "name": "/735",
+      "size": 33568,
+      "payload_sha256": "f71ff5f60f90061214373eaf54cdbab2beb03287dd1bfe41dc6c111a466e187b"
+    },
+    {
+      "name": "/756",
+      "size": 1768,
+      "payload_sha256": "0b59ad33976cfc1b28aeb0e34e5dfe0762b2d2248105d810880e020c5f27980c"
+    },
+    {
+      "name": "/776",
+      "size": 10056,
+      "payload_sha256": "30cd74109df24734354b4c0c83daf40a8c05a1fd4b51db991fe9d30ace5bf07c"
+    },
+    {
+      "name": "/799",
+      "size": 28808,
+      "payload_sha256": "46195dc813de9033389bd58fcd11d46bf58db1121a2641f082b1a3d5ced28323"
+    },
+    {
+      "name": "/820",
+      "size": 20000,
+      "payload_sha256": "e3436e2113b7aafa3349ab8d4a439ed8549e6c9e22ba1a2430c0415186e3aefb"
+    },
+    {
+      "name": "/843",
+      "size": 26168,
+      "payload_sha256": "490bfd92c7338e8dfa9ab2b869bfe446b2db4ca755d3760b5fc870dd032819d9"
+    },
+    {
+      "name": "/867",
+      "size": 6040,
+      "payload_sha256": "4f03e0eca02737d56ea94d62c7b60861b01a3e5cb8666cac4429022ddda5e7d6"
+    },
+    {
+      "name": "/887",
+      "size": 13160,
+      "payload_sha256": "023a8f247f14621a201ef36ee8be554d84117725e2c3ccd63ec1f13e00f0765e"
+    },
+    {
+      "name": "/912",
+      "size": 86560,
+      "payload_sha256": "b4344db8ff3f493656368cbc3ce3c540b41eb020d1c1d7782ffc924697e7e96c"
+    },
+    {
+      "name": "IObserver.cpp.o/",
+      "size": 3840,
+      "payload_sha256": "e1e37d5fd839558943411677440c5c975b3d905ff6d9f4e764d84cb174364b62"
+    },
+    {
+      "name": "/942",
+      "size": 110248,
+      "payload_sha256": "aeac1e40e395ea61a679fca4504ab77fcbd7c9ee95cc8ee915c8fd98b0ed6068"
+    },
+    {
+      "name": "/969",
+      "size": 174440,
+      "payload_sha256": "52307555c12f72dac7871e3cecfab67e0dbb2fa1845d5c651630790f879fa6e8"
+    },
+    {
+      "name": "/995",
+      "size": 48936,
+      "payload_sha256": "b088ee5e2281a2dc80e8217335dc00fbc43e3233cd752aa99f347b5616ba467e"
+    },
+    {
+      "name": "RunPaths.cpp.o/",
+      "size": 10352,
+      "payload_sha256": "f08cd4762cc48a6f1065d2bcaad37550aac46abd72455323bc9aeba985f372ab"
+    },
+    {
+      "name": "/1015",
+      "size": 16152,
+      "payload_sha256": "6e08825f17561f75d68857cd14b55904ca704fcaad9c58f50f837e6f80c49d38"
+    },
+    {
+      "name": "/1033",
+      "size": 23000,
+      "payload_sha256": "f76948060e18cda2f0ce13fc5f4fe9d3e4858d74cfff93f1cf463e9e7249a409"
+    },
+    {
+      "name": "/1069",
+      "size": 24592,
+      "payload_sha256": "cdfe069dd62101dfdea36c1c6f19ef940092d9102eed22ecaccdff0adb82efca"
+    },
+    {
+      "name": "/1098",
+      "size": 33720,
+      "payload_sha256": "2eefe5e4120d1522f4ae9094425a148d8f90a923061ced58c674b6d5c24f1cd3"
+    },
+    {
+      "name": "/1124",
+      "size": 13120,
+      "payload_sha256": "4ab6f372ac5f2e46e8517f1aa327ca5a7e4e073c4a85e85e32c97500ed209910"
+    },
+    {
+      "name": "/1153",
+      "size": 38712,
+      "payload_sha256": "7b862d25bd42c591e241d732e113b5637ba35e19dfeb573cd427d96814ccc650"
+    },
+    {
+      "name": "/1178",
+      "size": 99256,
+      "payload_sha256": "76ad25cd7a86cb495d26053ff147ea354a1dda29119c780f4ddaa1fbb0a80cf1"
+    },
+    {
+      "name": "/1215",
+      "size": 31040,
+      "payload_sha256": "a5b6067898415604b608e5431eef9ee5fb474b16d723a9f6b7768a31b52cbfb1"
+    },
+    {
+      "name": "/1249",
+      "size": 47584,
+      "payload_sha256": "a97fd648a45f727f9163427d946a3d1ef4cfa517d81a9d4c43a772c29d0d9dff"
+    },
+    {
+      "name": "/1281",
+      "size": 180888,
+      "payload_sha256": "01df9f06be9a65b6d86c49c4772f638b217d525a65e8da5ca8de122f973030b2"
+    },
+    {
+      "name": "/1312",
+      "size": 88672,
+      "payload_sha256": "f330c573f6039a95ed9ef906ee1d6ed2414ea8465aaae6ac409931403d9685aa"
+    },
+    {
+      "name": "/1332",
+      "size": 65440,
+      "payload_sha256": "2ffe8627a52babd03abfce425fc5aa0253bd63f2b2a5e4953beb2d1caf7bccdb"
+    },
+    {
+      "name": "/1354",
+      "size": 176560,
+      "payload_sha256": "ac2385e9ca4e2aa27b8494bba2317245f238f5a09004fd1a1b52241747855432"
+    },
+    {
+      "name": "/1374",
+      "size": 35584,
+      "payload_sha256": "3be823fcc372487f001b9cc31ce3a29cb39861a601db6b998daae71b28e78696"
+    },
+    {
+      "name": "/1397",
+      "size": 205256,
+      "payload_sha256": "5fbd4f8f5a6abb7e3d426a8d25ad035aceeae90b8085666d0a37c1fa2827ff83"
+    },
+    {
+      "name": "/1421",
+      "size": 69344,
+      "payload_sha256": "e8f2feebb21348b4d48fdfecc3a133ecc11873b50702243c452cef864bd4a245"
+    },
+    {
+      "name": "/1449",
+      "size": 53448,
+      "payload_sha256": "fe6b0fee6d6dbcbea5685c5ebd0ae09d2e2c0041e90f7ade67efb5fc486f94b2"
+    },
+    {
+      "name": "BNV_Chi.cpp.o/",
+      "size": 244040,
+      "payload_sha256": "0bd404167de7b02e18686c85c6cd02bc767c9a569f3ba3b8fc536ba988a97633"
+    },
+    {
+      "name": "/1471",
+      "size": 99896,
+      "payload_sha256": "f35a58211fe170a651d8ecc3b31de25a1779b51874094d2b361801a9c72ad694"
+    },
+    {
+      "name": "/1496",
+      "size": 125120,
+      "payload_sha256": "cce5f8cad64c7d9fcb6c62351ec0562fa6665a382c5b0fb176ef59a6057d6431"
+    }
+  ]
+}

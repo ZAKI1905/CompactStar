@@ -1,0 +1,2253 @@
+{
+  "B0_count": 7.616906518718875e+56,
+  "Julian_year_s": 31557600,
+  "Tref_K": 100000000.0,
+  "archive": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+  "archive_sha256": "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+  "assembly_commit": "f8a1837bd582eb13d0a8d4783eb9501ea79a25c2",
+  "candidate": true,
+  "central_contributor": 2,
+  "certificate_status": "conditional static applicability only; historical runtime certificate unchanged; nonlinear actual path unqualified",
+  "checkpoint_configuration": {
+    "O1": {
+      "absolute": [
+        1e-17,
+        1e-23,
+        1e-23
+      ],
+      "relative": 1e-12
+    },
+    "O2": {
+      "absolute": [
+        1e-18,
+        5e-27,
+        5e-27
+      ],
+      "relative": 1e-13
+    }
+  },
+  "coefficients": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+  "entry": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+  "experiment": "RF-BNV-P2-20261108",
+  "files": [
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/fit/certificate.json",
+      "sha256": "4212cad05bb4244ab75e80b8dfea023e6d0fcee69086c9993bd48d26a40e41fb"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/fit/certificate.tsv",
+      "sha256": "38bc85c62621b390ff2d7c8affee1f5ba4e9f0f44233047bb9959f2d685fd5ba"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/certificate.txt",
+      "sha256": "337ed8ae8d6168d8a612f1344f204dc927ac9e0867a47542d5b943dbf27b8537"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/freegas.tsv",
+      "sha256": "f6b9c4068a430cc356b54e39c21a0ca17e17b8c2b35d17b836638298d1112d7f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/model.txt",
+      "sha256": "6dc75c841408d8e03fed5cbc8444310af35c77ab34d0339df309c00cbb3e7f4a"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/profile.tsv",
+      "sha256": "62b8dc594fd9c30d413ccb1d906459e2599049966b0bec097284b43598a07a56"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.nb",
+      "sha256": "eeea89bb2e73909c886393bcedcc56f54aa1afa867f7435db2f29990e6b417d0"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.t",
+      "sha256": "a34c76462115f14fb3d93516e1229e77240c46a9cc55bc3970f9e32251759468"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.thermo",
+      "sha256": "9929739023a10210eca5d9f693f31c43b63e2ed255cb23421050af5b6acdaca1"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.yq",
+      "sha256": "45125714a8b219f0e5677e69c295620d0de0f66ddee4e0e7cd3e67d964b69258"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/coefficients.tsv",
+      "sha256": "ec3942227c98532af4802db4bdd229603715556af9d44929082368b3afc7d831"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/tangent.tsv",
+      "sha256": "871fddddb4e6470552e9efc1a8b2f6f3dbe000d9b48572369aa29e8360f1aa5c"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/target_stars.tsv",
+      "sha256": "6b230c55949991664cb78b436907c7758de8b38ebfc645badd8206857acbfa51"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/thermal_surface.tsv",
+      "sha256": "8f021020da3b3dd63aab6f91ce5da68cd3ac8f528ec8f35508dac3b43d67d6fc"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+      "sha256": "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/restart-preparation-20261109-r1/build/tests/native_p2_stage",
+      "sha256": "218903899c39985f384e906b91c8e6b705d3f4c932e52ee6bf1d3a7b91bf6b58"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-a-recovery-20261109-r1/build/tests/native_p2_verify",
+      "sha256": "712e8c5b3ebd56ac93871324a1dd97a02b15cdb3192fd5497b5169cbebaa6923"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.json",
+      "sha256": "4212cad05bb4244ab75e80b8dfea023e6d0fcee69086c9993bd48d26a40e41fb"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+      "sha256": "38bc85c62621b390ff2d7c8affee1f5ba4e9f0f44233047bb9959f2d685fd5ba"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/certificate.txt",
+      "sha256": "337ed8ae8d6168d8a612f1344f204dc927ac9e0867a47542d5b943dbf27b8537"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/freegas.tsv",
+      "sha256": "f6b9c4068a430cc356b54e39c21a0ca17e17b8c2b35d17b836638298d1112d7f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/model.txt",
+      "sha256": "6dc75c841408d8e03fed5cbc8444310af35c77ab34d0339df309c00cbb3e7f4a"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/profile.tsv",
+      "sha256": "62b8dc594fd9c30d413ccb1d906459e2599049966b0bec097284b43598a07a56"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.nb",
+      "sha256": "eeea89bb2e73909c886393bcedcc56f54aa1afa867f7435db2f29990e6b417d0"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.t",
+      "sha256": "a34c76462115f14fb3d93516e1229e77240c46a9cc55bc3970f9e32251759468"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.thermo",
+      "sha256": "9929739023a10210eca5d9f693f31c43b63e2ed255cb23421050af5b6acdaca1"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal/eos.yq",
+      "sha256": "45125714a8b219f0e5677e69c295620d0de0f66ddee4e0e7cd3e67d964b69258"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/coefficients.tsv",
+      "sha256": "ec3942227c98532af4802db4bdd229603715556af9d44929082368b3afc7d831"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/tangent.tsv",
+      "sha256": "871fddddb4e6470552e9efc1a8b2f6f3dbe000d9b48572369aa29e8360f1aa5c"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/target_stars.tsv",
+      "sha256": "6b230c55949991664cb78b436907c7758de8b38ebfc645badd8206857acbfa51"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/thermal_surface.tsv",
+      "sha256": "8f021020da3b3dd63aab6f91ce5da68cd3ac8f528ec8f35508dac3b43d67d6fc"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/dependency-lock-linux.json",
+      "sha256": "7e59a8e4d0d59033d1f99e9e54ff4f351a14de29fbdc10c3e7358576f9010fd9"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/ld-linux-x86-64.so.2",
+      "sha256": "ad96200950148efb34358c6e980e06b15a807644ce0a003e1d8a71f9f0820fcd"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libc.so.6",
+      "sha256": "8d36f99f015e0835abaf22d071fc24c919906b88d767bd92b2300136c262aa42"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libm.so.6",
+      "sha256": "d4d4aca358a3704f3e7e7bf3cc782dde7e629af2a7e4adc197d74782af9e0844"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libz.so.1.2.11",
+      "sha256": "a3a41e5539e19c5617404a657cdff4cad75774c3c683c1c2e7557e2001088425"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Analysis/CMakeLists.txt",
+      "sha256": "75fcf88362f25ca0756b66165581040df8b7aa793a7de15d07bb4641fa24706b"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Analysis/ChemicalResponse.hpp",
+      "sha256": "56111729f309e3066371fb6b70eb1803ee1fe8c729bebf2aeae3298a9102ddbe"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Analysis/ParticleNumberResponse.hpp",
+      "sha256": "d5047c650f9eaa225bae4381a4c9ccdb31ce3bf85c9b5b067f876c51098198a6"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Analysis/src/ChemicalResponse.cpp",
+      "sha256": "463e5a975edab2fcebe2b845363e2286500ae9c2ce115f175c0205346f2805ff"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Analysis/src/ParticleNumberResponse.cpp",
+      "sha256": "98ca82c19173f2087b7bd9fc9e71f18874ce507ec6de6ed7efca9ae62c394890"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/AngularVelocity.hpp",
+      "sha256": "aa32cf06f172ca36ed5061c19db66f72dafbea9056807b3334c52d8ad178db79"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/CMakeLists.txt",
+      "sha256": "d85aedf8b70eef39c84a67c057a75bd9cb4e2e8851a87db069f111a3358fb0b2"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/Analysis.hpp",
+      "sha256": "b0d6a9befffd943b05fe46478fdab40fccb6b26430334614459d093e6f84fdd6"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/Banner.hpp",
+      "sha256": "747d8e2198d060ae4179ce860f49b5b95bd293e4a191d0da4f957bfe3aa73519"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/CMakeLists.txt",
+      "sha256": "8dbf9bd73ca7a676bef6fc3da1007370540bacbb8c8d5800fc6704821634a8d4"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/CompactStarConfig 2.h",
+      "sha256": "97dd56c1287e1badfdaab6e31ac8d510188e016729d71878dbdc376b24fee1a6"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/CompactStarConfig.h",
+      "sha256": "0b8c8a43adea0f3a8a8d2614df5afc2d4ce484a0f95f9e42e288c3a803cedbcb"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/MixedStar.hpp",
+      "sha256": "1716793a3e5503668fd5985f8c9cfb4a08e723b15176412b433ccc8eaa3c024f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/NStar.hpp",
+      "sha256": "638729ce7f6ad013cd86823e226755d99498306ee8e2cc56a5f857656ccba819"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/Prog.hpp",
+      "sha256": "47f421e849906259db12888092aba4c8434181d22d460fbbeeb077922793509e"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/Pulsar.hpp",
+      "sha256": "7cc384875628cd3a694c1298f57fd4aa0d29efd72d9073749e22fae9188d9c7b"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/RotationSolver.hpp",
+      "sha256": "15f3703d63785bf3b26afdaf96842da3a92d109d54b43ba709d5d17ec3a2b6c2"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/SeqPoint.hpp",
+      "sha256": "9c28a55ab28c46139ea6ba5213a6b9b6e3633619baa10fd130bcdf2b01e709c3"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/StarBuilder.hpp",
+      "sha256": "2af799a2b9ce5ec7e5cc71258f4c5bb6779ce5be7d54ea479316f9855adb0521"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/StarProfile.hpp",
+      "sha256": "7577a31fc45f13f18b0d68430ac87706c9dc980d310a97e9a4f2d8a72b23a638"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/TOVSolver.hpp",
+      "sha256": "b475468fe18b3acb96d8a061626c6c877e7654c1b9ba99114c3a46ce5e18b603"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/TOVSolver_Thread.hpp",
+      "sha256": "6ae0639d8e4d4b190d29b49ecacf5dae1d9a50e2f3c160221d2032fca3f53c3e"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/TaskManager.hpp",
+      "sha256": "48c52c9c37ad48189c9ac617dde153125241700f7dc2774240e661c93c4f8bc1"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/Analysis.cpp",
+      "sha256": "b546c859092f0132997c12e7c7bc1f2dae34d52b9b97cb3f7c6c8a408968b98f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/Banner.cpp",
+      "sha256": "84e19ccd89067290c897fc4bcb70eeebdabb687c6a087fa621f874dd9422d9c4"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/MixedStar.cpp",
+      "sha256": "b36069268e27687984981d283bf4e3239e720e7f531cf3158ede62a0b634b97f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/NStar.cpp",
+      "sha256": "69a4b403370feeb6c1ba7d469082c2a6f5d824bf604abbae268f505204feb08e"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/Prog.cpp",
+      "sha256": "e38421307ec4d5eaacef76e8ca6cf08e6d899d2a9bf4edfab13f37548ec208f3"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/Pulsar.cpp",
+      "sha256": "77d9c9946fd65ee683139474da11ece1d3440a3abc50bd27e85a6a387b271a96"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/RotationSolver.cpp",
+      "sha256": "b3e4b8db36952f5d1cb60412947a071b30a22de9a755f77571a580f3f8856982"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/StarBuilder.cpp",
+      "sha256": "8bc187c5900ed305f19a6083fdcadf37b48e4b7962ed5656587c4968b5fc0c67"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/StarProfile.cpp",
+      "sha256": "2b8901938b6a66fb35ce88e3b462b1fb825e6a64c1657abdf194b67f8d516173"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/TOVSolver.cpp",
+      "sha256": "d5da96e512453ae9ce18d7e6b3334b82bf17dd1def3230dd24ad267bc1fc7ad8"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/TOVSolver_Thread.cpp",
+      "sha256": "6734609023bdc037246a3e0bb0378dbfadf63e61726daa8c0571e53ec02cfad6"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Core/src/TaskManager.cpp",
+      "sha256": "403f809148c961e1a2dbac2d5afdd064c6bdfaffe8872027cb6c4eb64cbf63f4"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Baryon.hpp",
+      "sha256": "c4c690cb6a276e0a253a32037dfbd617ac9af6a077fff8ebd9750e734281b8d8"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/CMakeLists.txt",
+      "sha256": "7bbea90d783d16b4bcfd757938714e82f6cc651d8a83a960e005864e8e188eee"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Common.hpp",
+      "sha256": "6d8cb55af79ff5d62870886f1c4fe38b0aed3022ad5d091e347f13641fe24e47"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/CompOSE_EOS.hpp",
+      "sha256": "f005e7eb369dce432cfbbb1cb27f905894e0435c97cd29dc4da93d83bd3686e0"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/CompOSE_Thermo.hpp",
+      "sha256": "435f680df57fbf23342f441cdb1c1a68719013b993fc2286531aa5297d8282c8"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/CoulombLattice.hpp",
+      "sha256": "f2487a702cf6c5ef8d872dc4ae8bd9fa3a96c56fad3385e4081b70a2664df8b4"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Fermi_Gas.hpp",
+      "sha256": "dfa7a1557c36544526e92352cedefbdb08a9677805d6f5a7023975d0c69f19cb"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Fermi_Gas_Many.hpp",
+      "sha256": "d78e4d5d4729ae580445570674460d9bdec1b731560d981c26d65552fb759674"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Lepton.hpp",
+      "sha256": "b11e82ea9f4d4c8dbcbc210d76f1d2c1671f6d925cb82166b536bd7b8af7c893"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/LocalThermodynamics.hpp",
+      "sha256": "cd28ac9ad7ef6efd9f910d78991d242de71b0e1a03992718e7dca260a083c601"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Model.hpp",
+      "sha256": "9d1f3a8f8ad47cc7b822df7e16599f832079a5650e9ac641673b4c8c32a6e90a"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Particle.hpp",
+      "sha256": "b5b34dfa3fd5122bf60d411d06ce5cb5c3b80c664db8b1b0c60ba50a9eb383a1"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/Polytrope.hpp",
+      "sha256": "810dd2177a03011e0e6498249b2c3ddb3e83f49b9331368027e9329bb41569a3"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/SigmaOmega.hpp",
+      "sha256": "f695df5bf1aeee98ae86efd77ccf4dbf31542e833ff0dca4006147d2b1dcc03b"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/SigmaOmegaPar.hpp",
+      "sha256": "fe6b2179455eefb324fb0832c1d762ed98fc1ac0035384c782719a870e28eef5"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/SigmaOmegaRho.hpp",
+      "sha256": "90946f7fdfd99a17561c90c68c8a7a43532f90d4ae829f0c04bf285e329d50c2"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/SigmaOmegaRho_nstar.hpp",
+      "sha256": "745f61f38db9869f932aee643c80da5be97e53ecdca1517ad51e74e948a4e3ba"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/TrackRFreeGasThermodynamics.hpp",
+      "sha256": "57f62a1e636cf3cfa23db9289a42302a484581c8c8f413fba9057cca6217c710"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/Baryon.cpp",
+      "sha256": "2409283a9e7d584ab1f0e3d7d4bf1a049dcebf5f6d308c7009e3a929b99c32ef"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/Common.cpp",
+      "sha256": "80f3bdc72ff63281836cf1d655a99f2158dead9a3da6db3948d761e43eff8086"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/CompOSE_EOS.cpp",
+      "sha256": "86ca107bf17fa20992381c35020c16c3970453686123f9004a97258c37f99056"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/CompOSE_Thermo.cpp",
+      "sha256": "d506bc971c09863acff7f3aeb4eebe9ceb06a670a1ccae657178b80e8be81ccc"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/CoulombLattice.cpp",
+      "sha256": "38b1a59feab057555c20f305159481136cc10dad5bc2eab38aa12c52725bcad4"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/Fermi_Gas.cpp",
+      "sha256": "96347eea4f97cc3772f27f964d68d3df8e5ed6e660e5dcc7d3e2b4d16d8d53cb"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/Fermi_Gas_Many.cpp",
+      "sha256": "6152998d4a7ab7662198801765e6ff04d79f90c19ae7ff43cb7bbd2eb9565d68"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/Lepton.cpp",
+      "sha256": "3c79b019be892e74fccac985ec9360c511fb0b678ed5fc59d28e8381bcc7195e"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/LocalThermodynamics.cpp",
+      "sha256": "1621e90dadd103defdc7b590c008b79b8110dcc9f9839d60b94bf6200adafeb8"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/Model.cpp",
+      "sha256": "316d5209cf23dc574dd9590db83d93fbe187887eafd5389343fef527275b0fe3"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/Particle.cpp",
+      "sha256": "c727bfb64fa6890804be039723fbdcdc2600d92179f750d136181cdc48d1d4c8"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/Polytrope.cpp",
+      "sha256": "40d61c80927255ae74572ccf1ae65dacfc3f88255d8e51491c919b3120618548"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmega.cpp",
+      "sha256": "e37dd59219cee1ce9c22ffe7dfb72835b3aeab0f69819f2f291c811eb26e8de1"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaPar.cpp",
+      "sha256": "f0bdc24eb3701cdb263c3b083aeb5dc8e5e2d2750ba53c0ad85b663e4b321f2b"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho.cpp",
+      "sha256": "66155918549fd0b0a8ce919256fe44e50093583f0bd5dd4e5171ab78b9ac2908"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/SigmaOmegaRho_nstar.cpp",
+      "sha256": "7711067df84ca1fee63c41fa199d6e2775469dd887a78a3513bb66c9ca65f09d"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/EOS/src/TrackRFreeGasThermodynamics.cpp",
+      "sha256": "4707a228d45d2eb9df7a411d5180ab5982d149d1d2519dd95e5ff30de513793b"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Extensions/CMakeLists.txt",
+      "sha256": "ba84e1fa4e28153e0e4e8fea48318c0441bfd8284ba45b8e65a494050a9cb05a"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Extensions/LightDM/CMakeLists.txt",
+      "sha256": "340872a4f80d6318224e7cca24292e779ad0c03f11232b2a279313e3a94643d9"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Extensions/LightDM/LightDM_Scalar_Density.hpp",
+      "sha256": "6901c3164a1672e464c816daffa2ffa8b0d67ccfd1e122aea71f49c9b06eeed0"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Extensions/LightDM/src/LightDM_Scalar_Density.cpp",
+      "sha256": "69d65e68f1b82e9d38df836735d4c2e7292acaeb288ba74f157f09415656781e"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Extensions/MixedStar/CMakeLists.txt",
+      "sha256": "d2b76edfef9b3503af01ddca7c05c3f73694b16451a7f0f6b3fd680acc64ae40"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Extensions/MixedStar/DarkCore_Analysis.hpp",
+      "sha256": "a18dc0dd940838b21474ba96cd93dee5c4e32bb548c938dcca47cea0e3f09e79"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Extensions/MixedStar/src/DarkCore_Analysis.cpp",
+      "sha256": "d02bba074cbcc37f06294d5f24551c99b75dc438e3fc28fb2900dc1e118c9003"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Geometry.hpp",
+      "sha256": "cad68a4773f899006c037ee00116dbc2d01c4b239c06b8f6fac9d55f00e12167"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/BNV_Analysis.hpp",
+      "sha256": "fcf6730e00c4c1a4e6d0d6ddfc8f5a7555b31c08d2eb9c4ffe0da7698692feee"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/BNV_Sequence.hpp",
+      "sha256": "d6694ad9ccdcee41b0e4dd904482bd4d75e3d6d55dbbe97a9b506c74b8780200"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/CMakeLists.txt",
+      "sha256": "c0402b89b283dce4b9a9ee0341a5706a329a5cfbab214c42d638dbfe072b28f1"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/Decay_Analysis.hpp",
+      "sha256": "af04f79243f728e11985a700014985a9432838134415b5679abb5778b74cff92"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/src/BNV_Analysis.cpp",
+      "sha256": "819508e22707575199790f6ea742ee60b9ebf4d33c357681ef889081712d4873"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/src/BNV_Sequence.cpp",
+      "sha256": "6db49ae83484abe5004defdae919779714484831fef0cbbff08fa16dd0356150"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Analysis/src/Decay_Analysis.cpp",
+      "sha256": "b20461ee3a7478b57832bcb1a9f51f1e131c142d55aea5ee7f676c562a413ac7"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/CMakeLists.txt",
+      "sha256": "38c3daa420e3a4c7ab50b8151636638af10daab30ffc693d53bcf8d3870f15ed"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/BNV_B_Chi_Combo.hpp",
+      "sha256": "60aedcdcf6ced78577fbe764eb962296680343d6d1b16e7e80a4aea3160d1453"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/BNV_B_Chi_Photon.hpp",
+      "sha256": "2984b51a9eac81a6fd87a8430767abac97398839471ee1df5755d81a84823402"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/BNV_B_Chi_Transition.hpp",
+      "sha256": "64ea22ea882db3e09a8f899331cc041f01df800a97f92592e0929bb301173bc4"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/BNV_B_Psi_Pion.hpp",
+      "sha256": "03053871b815ce2f8c1d0def28a560ea81819b9b395575a0cd3f453472700e1c"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/CMakeLists.txt",
+      "sha256": "db1a33d65a3be972b867adee502b3c0977bcb009416933f3f347bec3667734ab"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Combo.cpp",
+      "sha256": "e9ce150fe0d55fe2f4932032ae6a3b610debd188f7b0e632bbacda906c9514d4"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Photon.cpp",
+      "sha256": "b059b27e6c116141ca88023f2dcefe70ec9efa1f9790dc00b8e7e15ce115d4e6"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Chi_Transition.cpp",
+      "sha256": "a4c0f5321d1bb2a4afc74a5d8898b69ec57d82bc17e46afa6f6c475ff6e045ae"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Channels/src/BNV_B_Psi_Pion.cpp",
+      "sha256": "e58dc3a54b7d5734a2c934c245d9931de078fc5a43caa9bd88c3c2760e955a2a"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/BNV_Chi.hpp",
+      "sha256": "5d165ccbacbb7096d9076f2b9df71ac4db82a7d4cdbeec974755b82e689a00a4"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/CMakeLists.txt",
+      "sha256": "64d44e7c64c95233dff8d6a611f493e833c701a816037ed366eac82becd0b5c6"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/BNV/Internal/src/BNV_Chi.cpp",
+      "sha256": "2db4faf57bda512baa70ee654fd3fa580fe02415cae7e10214b7603f53a4785a"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/CMakeLists.txt",
+      "sha256": "f9d088758a93d0001d464171e9f2ed6337d862a9d956901698664a6c55636efd"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Microphysics/Rates/Urca.hpp",
+      "sha256": "d5ab2b581c8267f157707efb3cc0bc4b22598cdf91465a5b5f30f3e5ce48882f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/BnvDiagnostics.hpp",
+      "sha256": "3fdda08e04e51bf1edb4a1b8c976138a9039262bf95aec2e9d74ab929d0808b8"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/BreakpointStepper.hpp",
+      "sha256": "c463f674f5645316b0ba0f9d7902c34e8249b0b59d05320a5239a2c9edac335b"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/CMakeLists.txt",
+      "sha256": "6f227d57e125f1fb0940cc8f8db6dc2b5f2a9abb708e3d2c557602113f925699"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/ControlledBnvSecularDriver.hpp",
+      "sha256": "b668b90029f80a47563ccabda01aa0dd891a449db7784923e0072aa99ca7d32c"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/CstarSegments.hpp",
+      "sha256": "e8a5d8f8127d4f576bcfdabb7f7abf4da31b51e1e61073ee216ecb37da65f923"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/DirectEnergyLedger.hpp",
+      "sha256": "0a20dd65c0a15d5c614e0efa903abce6782143dbb8c16f439fc6a2293590d0cc"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/EquilibriumBaryonTangent.hpp",
+      "sha256": "202ca840e48782398424eda76aea6c563a7dc5d119e465d00c3a88e86d00eced"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/FrozenBnvValidity.hpp",
+      "sha256": "d74d1b6e2537077adeebc01a35f0fd7cf22ac92ad7069b7f65da270398bda0c4"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/FrozenControlledBnvRunContext.hpp",
+      "sha256": "a7fafa2dba0cdca95b7ec10aebac1c3b630e7e1fadeb430100555b3e6aa2571c"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/MovingReferenceSource.hpp",
+      "sha256": "ae754809660cd82aec256d7d249c55e31ce29d42566045f499aa1aebcce52ef0"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/OrdinaryMatterSource.hpp",
+      "sha256": "ede37409de5955013f9adf1704254fa89db376f7a1973f0efe356d63379a6eb6"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/PassiveCheckpointOutput.hpp",
+      "sha256": "c86b1d8e671a5e29ea8155b16b1d042d7d97d3f99f027b64ba1fb60bff5d4ff0"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/ProductFate.hpp",
+      "sha256": "20fe2e12e225764c4ef03ac855925dca1b80ddcffcfa9594af8de8940331875a"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/StaticZeroSpinHistory.hpp",
+      "sha256": "4dddab4cd66df82476fbd3a64ac78d6f626448c6bf51f739f1d31d28f0b55f2d"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/src/ControlledBnvSecularDriver.cpp",
+      "sha256": "2abe4754badbcebf33201008dc2a364dfd3e1bd8f2ba5eac9890ace92c637abc"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/src/DirectEnergyLedger.cpp",
+      "sha256": "4edbc2c7d692e2f73b2bf55c7c95f8de061d2c98ba4643ab90330918171734af"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/src/EquilibriumBaryonTangent.cpp",
+      "sha256": "388b7576617312704ffb9cd312129c95cfed1b4d9512a2dbf90e72ab25de8f1b"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/src/FrozenBnvValidity.cpp",
+      "sha256": "cd31381eea59d9cc6bedf5e099d547850f30647a756b20d68d444acf559f6654"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/src/FrozenControlledBnvRunContext.cpp",
+      "sha256": "6c316687fb870bdf00601d5f4d769a2dcce249584823cb3a9a39e9c26a6c3c2f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/src/MovingReferenceSource.cpp",
+      "sha256": "1751e03f0171fbdafefe57caa17d1903aaebce8f4fd8d11bd401f7ba6cc84f25"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/src/PassiveCheckpointOutput.cpp",
+      "sha256": "5f594ce6ba088ad76b791a2b05e220493f27813999f4a59004667304a4951589"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV/src/StaticZeroSpinHistory.cpp",
+      "sha256": "9b96e95cf17e88b595975e23d1c4b10c9ecffec98992b6e3e105eb3d0249dba6"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/BNV.hpp",
+      "sha256": "bba6e833e1a4b5bac5040c0297a6c2c4a5232b360e1a1dc854398e61f3ab1f99"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/CMakeLists.txt",
+      "sha256": "478aa83614864aa7595bf17acfa90af4de74de22830fe513cc37a93c9d5ecd28"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/CMakeLists.txt",
+      "sha256": "e95f3bf019c02868a7770102f98a737a93a477184e04552860b14061c22f591d"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Chem/BNVSource.hpp",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Chem/CMakeLists.txt",
+      "sha256": "cab208db3ccd74f9b75d1352372fa148602f3df80149a63344e7875247dcda0d"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Chem/Rotochemical.hpp",
+      "sha256": "f17653fc8448a5691982c7db857d9201e3b62f2da45362aeab72820069a2446a"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Chem/WeakRestoration.hpp",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Chem/src/Rotochemical.cpp",
+      "sha256": "48339bb1ad4968be416f1cb1451c89b30832331f9909aa7e28eb8f7c26c83c2e"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Coupling.hpp",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Diagnostics/DriverDiagnostics.hpp",
+      "sha256": "01ee82d234218952391350a8a308241507093c8d432a11475cb60d8b91822cae"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/IDriver.hpp",
+      "sha256": "e964c84f4271da436da7cf13d04b84d608b31ebe225cb15cc9844def3bed515e"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Spin/AccretionTorque.hpp",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Spin/BNVSpinTorque.hpp",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Spin/CMakeLists.txt",
+      "sha256": "db6f3067c55115f05b3f16f13166ac39079acc9a7d0490afcd8525d53bc7a575"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Spin/MagneticDipole.hpp",
+      "sha256": "d43bb7afbfc4b0641f0c113e6fe98f6bc77748d97d899a0c0cdc62403f26393c"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Spin/src/MagneticDipole.cpp",
+      "sha256": "54b5cf6c5f7411d256fb51d9265969e2718c81d3f16f686c96ea58818dac43cb"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Thermal/Boundary/CMakeLists.txt",
+      "sha256": "1bdcd780131b5e683ec788f11693fec64d1108d70f17912505c4471e9721d81c"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Thermal/Boundary/EnvelopePotekhin1997.hpp",
+      "sha256": "e89582e510d51df213fad9c03fe8cc5a007b47a0f17eea4969c6122361af32a1"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Thermal/Boundary/EnvelopePotekhin2003.hpp",
+      "sha256": "c2a6622035ea74e8f51b12cce205c74232d65d9b222112c16936ac1f16261940"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Thermal/Boundary/IEnvelope.hpp",
+      "sha256": "5623dd25c9f1b246db53214ac8eefd79739d2fa2984e5db7d4dffa12799a03f2"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Thermal/Boundary/SurfaceGravity.hpp",
+      "sha256": "17b8013d81ebb54abac52eb2c267529083b612155de1ec32530688c041b66265"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Thermal/Boundary/TbDefinition.hpp",
+      "sha256": "888a2b11a0713c44971bc90fd951e2ac8d81a01d8830dcc0f979c02597b9267a"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Thermal/Boundary/src/EnvelopePotekhin1997.cpp",
+      "sha256": "f9a1507841947c4376861a6661ae6840603d4870d97f4fe36ac5fb3ead0dbcd4"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Thermal/Boundary/src/EnvelopePotekhin2003.cpp",
+      "sha256": "d8fb57ce2b36d43bcae113f5a392faa05bf9902b80c2e0d4addf540ce28805ec"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Thermal/Boundary/src/SurfaceGravity.cpp",
+      "sha256": "b723bfa18bf31ca8d474130a644f1fb8e3feda34f21def5a337c3e4f0a9a709d"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Thermal/Boundary/src/TbDefinition.cpp",
+      "sha256": "7cbbafb9f85b151f3569ea07df91f0dba88f70c07e7351eac0aa0774c975de5b"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Thermal/CMakeLists.txt",
+      "sha256": "d13bf3a0450430e50ea8c10b58d54fce608fe720fe06da6f14075413d1eb2b5c"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Thermal/HeatingFromChem.hpp",
+      "sha256": "173273e902b483348e9d6992da74d67bdf5f58ba580d5848594d09264c973629"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Thermal/NeutrinoCooling.hpp",
+      "sha256": "318d6be2151072803388cdf64a53c6e7112858cf74c78a2d3027a6ea3f338058"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Thermal/NeutrinoCooling_Cache.hpp",
+      "sha256": "be504d0c897bd6d87194eff9773b17dbb5b30fe7a8bf55547d520d1992f7a214"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Thermal/NeutrinoCooling_Details.hpp",
+      "sha256": "27d36378b7505dcee61f36004cc3ed2418196b9596b0371adc7697a7510f9d31"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Thermal/PhotonCooling.hpp",
+      "sha256": "624884abef656697842ce0f1b6855d5ca4c82041098ab3e4285d0128d94de0f8"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Thermal/PhotonCooling_Details.hpp",
+      "sha256": "85c879ba9bbe4073268d1965bcdcf8779ceb095fc091f8aaf9350e998bdf648f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Thermal/src/NeutrinoCooling.cpp",
+      "sha256": "12f06331bcf9960436f525d26cea643a51b4690c714b7728d9714a21013ce3a5"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Thermal/src/NeutrinoCooling_Details.cpp",
+      "sha256": "3e1f26aa1c0f8c10bd425abef8cb7faaeee7cb2c4a68648cf110390cb87ccacc"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Thermal/src/PhotonCooling.cpp",
+      "sha256": "72b88c85c819c5b4d858ebb41ee4112f1727a09656aa76c869dd79aa94ea64c4"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Driver/Thermal/src/PhotonCooling_Details.cpp",
+      "sha256": "1e9808ee96b70afcc13a63c907dba41022db6b81f71f4784cc5c59611808465e"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/CMakeLists.txt",
+      "sha256": "ef2d88bd979ff986a1286470d247a4ec10fec0057874bcd85e4e017b8617fe4f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Diagnostics/CMakeLists.txt",
+      "sha256": "7f6b7afa80255a13948b939c4e2a669afaf56c4ec80c4743de6df732acabff44"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Diagnostics/DiagnosticCatalog.hpp",
+      "sha256": "5f020dee51f3a79e15a2408708fa127cd6c7893475dd4dd90fb66470df7da3c1"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Diagnostics/DiagnosticPacket.hpp",
+      "sha256": "0817c13a04fcaa4d47d20f53191678af0531f7a9ba21fadddbf55c1d20c83375"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Diagnostics/DiagnosticsCatalogJson.hpp",
+      "sha256": "2cd722f8ffb0a376b78ae6b7e2009d78be98d162dce62c7400a59dda23395743"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Diagnostics/DiagnosticsJson.hpp",
+      "sha256": "58ae827885e697a89da5289b70ce5a888962839c21c3c0ea191e7889b15e3cb2"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Diagnostics/Schema.hpp",
+      "sha256": "5c38d8602410f8b6b567b322455464b593c59daafdc8543fb6bb8b586deba791"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Diagnostics/UnitContract.hpp",
+      "sha256": "af77534542aa5435ab8e7c4f7388c054d40e6e8b862c946d7bbb94d993d875a5"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Diagnostics/src/DiagnosticCatalog.cpp",
+      "sha256": "f0f56ee96dcb82a9fdb33339b3221308600e8dab9310e52112b696ff9f1fda7c"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Diagnostics/src/DiagnosticPacket.cpp",
+      "sha256": "211884cbb57d64dfc383217d560857c8afbcb081ab14edb36f34bf781b74acfe"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Diagnostics/src/DiagnosticsCatalogJson.cpp",
+      "sha256": "3406b1a5c909b104ff748fa5aaa26379d15aa5bfd2370428ca034d52c2c0e939"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Diagnostics/src/DiagnosticsJson.cpp",
+      "sha256": "1a357fe0ddb1047dbad87af8490d87b1a89d9ecaf17be625b961d722021829cb"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Diagnostics/src/UnitContract.cpp",
+      "sha256": "d519a4727f5239d0502889fa2dbb2a462a5dabe0a6b8dd2284d7fdc1464ad51c"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/DriverContext.hpp",
+      "sha256": "4359e966ee14c509fde26a96fe9d9f13aecb43aa676cea86b7429b27b44b7667"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/EvolutionConfig.hpp",
+      "sha256": "b2a6d011aa2c70bc267b8899692b870f48431160823cd94ff5aa97bc0ddf9c38"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/EvolutionSystem.hpp",
+      "sha256": "0ca89994efc35f633c7b3947ca78d101a263a0d6544958dc270a89b3a0795120"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/GeometryCache.hpp",
+      "sha256": "d8da1c489e1dfa61ad0719cd296b021f13cea54bfa71b8cc444fc0df3ee83e3c"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Integrator/CMakeLists.txt",
+      "sha256": "6faf68024085a007d179d1fe6cf597c550454534af107a2ff2f9a11c3b618175"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Integrator/GSLIntegrator.hpp",
+      "sha256": "8b155ea221bab61f5b3653c4dfc1be086b30cf3f1f824c6ec6b23b46e4f54c54"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Integrator/src/GSLIntegrator.cpp",
+      "sha256": "1546636ce431064ba4468423bb817448d88cf3f8a36236b9ba8cb94126a63dbb"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Observers/CMakeLists.txt",
+      "sha256": "98fcecaf4ffe623e039c001a8cbb70ee377742b397f1e2f8630fb9acfb41b59e"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Observers/CheckpointObserver.hpp",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Observers/DiagnosticsObserver.hpp",
+      "sha256": "1b268c754e085594a3031c451b48d78ee36d40b35e177fc7d265581599892f44"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Observers/IObserver.hpp",
+      "sha256": "7693c0ca386abc39919239fcf6ec804c66bc7ec6451d7b5faf53e8beb7005e48"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Observers/TimeSeriesObserver.hpp",
+      "sha256": "fe8763ee36a2a4cad6ac9bfe591eb97a994680780d888e76767ee03a03527711"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Observers/src/DiagnosticsObserver.cpp",
+      "sha256": "74f3974f4f45e593081f166dea9e89883cafb441c57c5b8a66d3808f61902d95"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Observers/src/IObserver.cpp",
+      "sha256": "b2a38e82c0694d46d08e46ba76ef36348ed9f06abd894266ced4fd5791fb951e"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Observers/src/TimeSeriesObserver.cpp",
+      "sha256": "91e6f7d1a5e3fb6a3415b629e1ce3beaabe1a5f4801aef0f65f56b083de70fac"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/ProfileCache.hpp",
+      "sha256": "ab23676f1319d1062811e080d1c83d65cb8f1e2bab71ff4c942493da0b516caa"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/ProfileProvenance.hpp",
+      "sha256": "e3dd8437915607d4095e011e76215da8f4b6261d74c59dd76c065a9b5cb3457e"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/RHSAccumulator.hpp",
+      "sha256": "0d121a94caf9d6feefb7ad4c357ed843471c37669b00f7c18be1270d403f1f52"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/RotochemicalCache.hpp",
+      "sha256": "8f0519f26394572bd889249b74c86e7853a0935ee75293259d95c78922ad8d32"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Run/CMakeLists.txt",
+      "sha256": "a4661befb4884efac8897caeaa85505c75efd9d9d640677bc0d8f5ac4acdaba6"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Run/RunBuilder.hpp",
+      "sha256": "37f509fefbcd4cdb0a45f9a25ded54ddcf46f3a4424b49eca4c1811eb82f40b4"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Run/RunObservers.hpp",
+      "sha256": "3e3fb2179c95e8b5f711015aaa0450976f3328b9057dacb22e4f22fb12f1e24a"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Run/RunPaths.hpp",
+      "sha256": "3c795716b6377f955a3b5c238705e20064d70108740c830d5f81c709141e5dd5"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Run/src/RunBuilder.cpp",
+      "sha256": "bf4601b2a6b015e232d7db3bf11580815d5151b300ee87565ddef232fdc27b0f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Run/src/RunObservers.cpp",
+      "sha256": "2d8fe94fcffe77eba76853453ddbd1c83acaae6ded205b47d833cb967f9cd025"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/Run/src/RunPaths.cpp",
+      "sha256": "d485550b3305352ebe37d3f06ef13eae1be1b4bbcd12de64c747174b613f9a34"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/StarContext.hpp",
+      "sha256": "555e43a82ec8ddc45589082cc3aa19e4234b5d5791b5a3df65e4c6e779d6864b"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/StateLayout.hpp",
+      "sha256": "9260a5bfa52fd8ac55223773d312953e1424bc828fdcf7d9f662ee2a59f92871"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/StatePacking.hpp",
+      "sha256": "50f7664afb37587cdf2c7bb27fbe1f9c8cbea0abbb11bc6cbdca05c74e3289ae"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/StateVector.hpp",
+      "sha256": "6eb30c9b69fe74efd3df241848eebcbb9e6af8913d1af1245db03f361281738f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/src/EvolutionConfig.cpp",
+      "sha256": "6379d220c7d05ab3223c73b0942159cfdc446ef41a383d7742fa2c7a88292973"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/src/EvolutionSystem.cpp",
+      "sha256": "5a926f6d72e8fd268b3e020b38913667de5e0768a57e94dfec7c5fb82f8b9c54"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/src/GeometryCache.cpp",
+      "sha256": "dd3809e0db15ba2c4bb3394fcf77c4c6405dce8412203f97ffa315a857abb14e"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/src/ProfileCache.cpp",
+      "sha256": "e4f90a8c66e624942a42777b32aab6a37b7ee335683218963294739de370f628"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/src/RotochemicalCache.cpp",
+      "sha256": "6171f95bdb6d94c0a1337f8dd5147ad23a3c739b42aef1f27e9520e64ddc1933"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/src/StarContext.cpp",
+      "sha256": "f5d0d1d184abaf37d8454a1cc28802266edaf805875c2b054263a0cca4dbce78"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/src/StateLayout.cpp",
+      "sha256": "b455328d2fb81f43ee5766739f7ae273c8bc49777da79b6f35e870112f107568"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/src/StatePacking.cpp",
+      "sha256": "980d7bb77363f425e249ddf8fd09b9fd12ad23b21232525f842777a0a4060a1c"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Evolution/src/StateVector.cpp",
+      "sha256": "dfc492b982fc799fc02fe5cca0ed8975801a951c2ad589585c2b8e0c108171b0"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Physics.hpp",
+      "sha256": "7fb54801780c27122bedc4f857f058cd721a5035d9cd571581253a80a5b25ab9"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Rotochemical/CMakeLists.txt",
+      "sha256": "2a00d37d93b1c7bdbf62f2cea372fda6ef7df4c83c17082bc2cc44859c198332"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Rotochemical/ChemicalImbalanceState.hpp",
+      "sha256": "ffd2f32e82c042e9cba963af2e60473067441295dc36c62210ee8e1ef4a1bc7d"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Rotochemical/FrozenRotochemicalRunContext.hpp",
+      "sha256": "8d368879b2abc2e160fe19440bcd117b9f8f7ab97e2b57032cbdfb4a1b6a7bde"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Rotochemical/FrozenSource.hpp",
+      "sha256": "a4f72e28b7a67d69880d77ac8470c3c54d5c06b63c374aca6266f2c3f094b30f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Rotochemical/FrozenThermalSource.hpp",
+      "sha256": "e9e829195573724392764f701607097f438f5959216f380265f3796582b9ed07"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Rotochemical/GlobalUrcaChannelCoefficient.hpp",
+      "sha256": "5e1ab87cbcaed42cb2150875b5fe735833b23a07f7d899c0ad80a91e9febf30e"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Rotochemical/PrescribedSpinHistory.hpp",
+      "sha256": "cf6a9a080198645f4e2c93886a6a18919d1163d2914f74c5743b18d735dc5daf"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Rotochemical/QualifiedBackgroundInputs.hpp",
+      "sha256": "4e9c0856646e814594c1d75f679f37d74841577220cec3fd0123736e89f41817"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Rotochemical/RotochemicalReactionResponse.hpp",
+      "sha256": "17d8f9781d89e710a0b7a485d45250ec1304568be44f6932e7dab2f4a2dc741e"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Rotochemical/ScaledRKF45.hpp",
+      "sha256": "27bd510b99cfe67370be4c2f354840b81eb94b5cf773627d1ed4f4cc328ef3d0"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Rotochemical/SecularEvolutionDriver.hpp",
+      "sha256": "88bbdce4772f925b2542004b917a25131ff7e6f6ae9f7255a72f3e86e1c28d5b"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Rotochemical/UrcaChannelNormalization.hpp",
+      "sha256": "e6ff7b1e88e71e53c577a27668f1487854b5154a949c70fa41b0d30eef5f5c13"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Rotochemical/UrcaImbalanceFunctions.hpp",
+      "sha256": "ce7a95b9628742de07c27c773d475b2c9921c9939ba9570efd42aa76c5f65efb"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Rotochemical/src/GlobalUrcaChannelCoefficient.cpp",
+      "sha256": "698f3718229c2ba7fd5966bd5eb8e5b16b1a0e711ac222032f699617cd3a8861"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/SigmaOmegaRho_npemu.cpp",
+      "sha256": "f59ba985f914004257c4dfbaeed55d5215f031e5a00eace6a95975ec709f36fc"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/SigmaOmegaRho_npemu.hpp",
+      "sha256": "074e86f42fa9764ff546892319160ac1860047c2673d922416d67be99fa3bf65"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Spin.cpp",
+      "sha256": "e2cf5f1758743c0908e308c78bbb51978fdc9e6bb48980248976f522b0188def"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Spin.hpp",
+      "sha256": "a7c361cbdd9e9be97f7d0f44ae89ab68de2b3634df86a7ffc4cae5050a900ee9"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/State/BNVState.hpp",
+      "sha256": "016233784f66fa38fe932572997102ec053b453004b41970427ee7286f8f8653"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/State/CMakeLists.txt",
+      "sha256": "76827f3b2ab68edeef4ac940c27089aa38c55df02cade8eb8f50632b5309ee89"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/State/ChemState.hpp",
+      "sha256": "a8e4206be79dcde3a3fa8ccbcbec1ad62a072315f655a5455434a4479a6905ad"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/State/SpinState.hpp",
+      "sha256": "1613545f515a2b58ecb82ef1776dcf58b9087a9f7fd12ae66517329da4e44d3b"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/State/State.hpp",
+      "sha256": "ea0a8c2218da5eb3bcf93c65e4f89e42052e1b4eb8eb10c104ebe09a3829f694"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/State/Tags.hpp",
+      "sha256": "ba8e4bce5c085b89dd625c310720152f8c579c99721d33a31c6a0317eb4876d5"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/State/ThermalState.hpp",
+      "sha256": "edf97c5e631246317c3a373137c657251a6856a7dc0b29eb065be00f9fe53204"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/State/src/BNVState.cpp",
+      "sha256": "f1d68084e2785547e00f638615495dd52dd9e09a5d57c57ba073db2a5fe4d43e"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/State/src/ChemState.cpp",
+      "sha256": "bf404d225dbf1ad008d05cfbc13ab422a535d34e7a24878fe324e312de3ba6db"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/State/src/SpinState.cpp",
+      "sha256": "386a70c5f1f6a972545f513e5d16ded596e0dea14ac50e52618c3a83d77a9fd2"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/State/src/ThermalState.cpp",
+      "sha256": "b8e65845ac182b61fa8555b735450da69d4628733b64f3041d08b980f0956eb6"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Physics/Thermal.hpp",
+      "sha256": "5240bb77cbfd8e256879190a7ca91300212f0c2d3dd1d599dc9d1d15e6ac2979"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/RelativityUnits.hpp",
+      "sha256": "4277eb3caff0623f2615e8435a6632f954cf505a4be9aa9a7a1509b8488549fd"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/CompactStar/Units.hpp",
+      "sha256": "fbeb722e03d40ce7bf23680987e11a38da11566df292f8123d3aa16b0145c5b6"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/adr/ADR-0022-restricted-bnv-common-reference-residual.md",
+      "sha256": "7ef1a4f028a75ae098eb92d4894c03b20acb21fa32a65f2f7b8ce1bfb10029cb"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/ba13-closure/evidence/m1.json",
+      "sha256": "66e120759c25fa62137a18552bdc452c0fcf4e979cd1733684c5ab7e8fea6133"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/ba13-closure/evidence/m4.json",
+      "sha256": "6d4b2c6bf4191ce84f00a466043cdc4791161472ceedf98c0407875aa0885a0a"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/ba13-evidence/evidence/comparison.json.gz",
+      "sha256": "e8fe2d6d9b8d6cedad81b681d2901d2b65a2bbc096b0ea57ed1c581fbab2d757"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/ba13-evidence/evidence/continuation.json",
+      "sha256": "07293d587496e9d35670820689fa26ca3f3f83bc83a0e2954f9d61b83a95d52e"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/cut-assessment/NEXT_CALCULATION.md",
+      "sha256": "7279cc3b21dc704e45ac5fd2da05915908d8aac8da7e4c2dac1461ac0d4d33de"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/cut-assessment/evidence/response.json.gz",
+      "sha256": "21dd8ac4f11f54b08337c5625bedcd911e7b6d766abc309ed6b596a4bb264df4"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/cut-assessment/retained-inputs.json.gz",
+      "sha256": "34ab61e6d6a859948c99db28c04ece4c60e775b013995a224cf3c09ef400ed9d"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/OWNER_APPROVAL.md",
+      "sha256": "d0dcfa95e433df4891ad058049376a19420260d854b2603fcfc4e6c2258871f5"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/PREDECLARATION.md",
+      "sha256": "d168fa70d5c033ca5ad3f2380c445ed1f3f6426ffde640339903145dfc5be2c7"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/READINESS.md",
+      "sha256": "791483883debfa7feffbf7c776000a335a3861475241c4d635cd4ae235f01abd"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/REPORT.md",
+      "sha256": "8d5110f0c68cf69f1569b078a54401ec27a32880c3354025b52f9cf6d0847e7d"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/REPRODUCE.md",
+      "sha256": "445cc0f828d2892a9d065c35b0cb185297f49745ea5e2d22aae1787e049f991c"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/acceptance-registry.json",
+      "sha256": "0f56fb0896d3c8f4538cbb9b9066780f89152ff7eeb4ff799fa05696ca17d6a2"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19158/ADR-at-start.md",
+      "sha256": "c45ee49a480def9759464c689455f471b0147b556444feef53da4a8e16fc643e"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19158/allocation-19158.txt",
+      "sha256": "fe9a106bafc4214ce5de8ce25b16f54d1a893bbcf18e4c4fefec9b7505dd0f16"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19158/controller-final.txt",
+      "sha256": "41fb3b350d20b677664ff8a26b8eed6c5e0ebdf2f9b383702cd25c03d66e5667"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19158/manifest.json",
+      "sha256": "82dc5cbd2a6442667e180ef7ba4517256f8c579696e28723b1ff2fb2ca870685"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19158/receipt.json",
+      "sha256": "7876472cf35b2b64e8ce1b2713c08cadd93669b98e28a8c1c18cd785fe914841"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19158/slurm-19158.err",
+      "sha256": "c53f70a45324f07b0ff9ff0432a2743f6b0296c99d69e642cb8982dbbc9994cb"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19158/slurm-19158.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/allocation-19160.txt",
+      "sha256": "05c5d1c00e02bbd6d79fa0dd7efa14fdc8de8f6a9d68df3ed900e6f557200364"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/assessment/endpoint-transition-audit.json",
+      "sha256": "196f46cd3c90cae9566e5540f5fe5ef132fd8dc75ed2217fd2a03d768a36b531"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/assessment/ledger.json.gz",
+      "sha256": "ffe5f39c6b07d11694b8ccb78a7baa0167b4548699d536960ce0e2e94aa2de81"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/assessment/matrix.tsv",
+      "sha256": "c1b04b83dc9b13ac8a4481114a70ca91c5374ec6cf9e91fadefdd85a5bc4c78f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/assessment/summary.json",
+      "sha256": "63c1fd22ced3100f4391b5441a74c33e961c920a104afd64d8cead5993eab282"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/controller-final.txt",
+      "sha256": "5d1b7436a0fba66738b7a46f4a0815b45e93160c8a7eaa1b293f02db8284ca02"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/endpoint-assessment.err",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/endpoint-assessment.out",
+      "sha256": "c90269130d2c4fffe893b1300011dae814d0bd124e59e1bf13b3faf09e1c91be"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/endpoint-audit.err",
+      "sha256": "cd7449a18da14ff9a102d6cfe68f3163f064eaf6653c30c865f9e8f7235f264f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/endpoint-audit.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/endpoint-tests.err",
+      "sha256": "1683faffcdfbe110d76dbff5223ec6c50e28683becee8feb448717707418bee4"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/endpoint-tests.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/historical-ledger-audit.err",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/historical-ledger-audit.out",
+      "sha256": "74ef8e756fabd4bf251c8feddf4b1b4286bdfb980e1bf82bb362f3eb81eebcea"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/historical-transfer-audit.err",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/historical-transfer-audit.out",
+      "sha256": "3fac02919fa2347de82daafad0a2e9293cb74942cd58f4f8d2da5df8d0f7a030"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/manifest.json",
+      "sha256": "67f296e719ee5072ddfab1d93c2ca3752e777abc2b183e582bc5646d86c5e4de"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/receipt.json",
+      "sha256": "c6e79915bb6238aa6f82da67e5596ecdada9c119f0e4ed72e404f084ca7f5eac"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/slurm-19160.err",
+      "sha256": "fd19f36b2d32b5e4814ba6b7210ff9c7e51b4312d2f5f304c1a833d139384332"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/slurm-19160.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/test_results_first_cut.py.err",
+      "sha256": "2d60e6fa3d0346b683733ac3ff5c83049b835a5ecb19c5cb6a80e95b67b6d643"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/test_results_first_cut.py.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/test_results_first_static.py.err",
+      "sha256": "f1d3cbb20f163ae5e2fff4defbe5e5555b64befbe115d13f5522afb4216ccf1a"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/test_results_first_static.py.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/test_surface_transfer.py.err",
+      "sha256": "77f6d77caac6c94463aabaf5e81622722061e9f7df081f213c2ce2c74ccb6591"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19160/test_surface_transfer.py.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19161/allocation-19161.txt",
+      "sha256": "e205d2c487d3380f9931342b8005b7973fb40829f8ba97d4c2ffdf77ee583be5"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19161/controller-final.txt",
+      "sha256": "daf32a06b450f5f3f8b24fec01563a9a2ae6887bd740801806f6e0e7e46397ee"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19161/slurm-19161.err",
+      "sha256": "96d4ad7f13898e64c40964f2367a97fa09b1d62301428b89d99ac5a25de91569"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/attempts/19161/slurm-19161.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/ADR-0022-at-start.md",
+      "sha256": "c45ee49a480def9759464c689455f471b0147b556444feef53da4a8e16fc643e"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/allocation-19162.txt",
+      "sha256": "98899ccb45d0f1019734def7690268847e424942fffeb44e0f1d2df357a13a0c"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/assessment/endpoint-transition-audit.json",
+      "sha256": "6d54b0996996bb94c45b67faa9607380a6f6a66aca286c5de22e29b64a0122fa"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/assessment/independent-audit.json",
+      "sha256": "9e078cbc4ee4cbef68a4db9659a3ffa8d01e9ebdd38a48cf7a7d8e349dd3d97a"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/assessment/ledger.json.gz",
+      "sha256": "26c21a6387a1123fb8e2528f1981989408f0e4f66b96fc05ed9abcd94ac42f74"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/assessment/matrix.tsv",
+      "sha256": "23c22fae362e566bdd6a3c96f5a8a814540b194acfa2b602846ac2219cec49eb"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/assessment/summary.json",
+      "sha256": "ccc328ebe21cb723856072183e480bad9bc74101d852f0a924fb460fce43b3f2"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/controller-final.txt",
+      "sha256": "4c4924a8fd51c389c44440b522beb1094898125119ffdaa5f2dea78b23ad5c52"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/endpoint-assessment.err",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/endpoint-assessment.out",
+      "sha256": "ca593ad3d13bff336ab5433beafd25131b5efcfd1a4020a9aa5cffa57f043676"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/endpoint-audit.err",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/endpoint-audit.out",
+      "sha256": "c0d086bc4b517c093616f79784c1a0620478d8a4a7d130332dddde9fdaca5111"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/endpoint-tests.err",
+      "sha256": "cb4b0893c1ad095466f5a4fff264cb5c39aa41cb3196ed219c998fc981e85d18"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/endpoint-tests.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/historical-ledger/independent-ledger-audit.json",
+      "sha256": "d61e5f874f3be26a5f493444bbd975abcfc54d160d25b2fd5b7648db472156a1"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/historical-ledger-audit.err",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/historical-ledger-audit.out",
+      "sha256": "74ef8e756fabd4bf251c8feddf4b1b4286bdfb980e1bf82bb362f3eb81eebcea"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/historical-preservation.json",
+      "sha256": "2a1a7ee7cb83fd50e9bc7717b9da2613781b9d3a368b79c23abcdc186076ae98"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/historical-transfer/independent-transfer-audit.json",
+      "sha256": "bd0e3e1eb3b597de8262da18f29a51ae782c499855afd3b6a58b3273471eb396"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/historical-transfer-audit.err",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/historical-transfer-audit.out",
+      "sha256": "3fac02919fa2347de82daafad0a2e9293cb74942cd58f4f8d2da5df8d0f7a030"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/manifest.json",
+      "sha256": "bfb0310349deb5ddc47de48b705bc8429b9d8bb4a4661f3513546b5b625a6194"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/prerequisites/CMakeCache.txt",
+      "sha256": "38e50d040d602ed6f94f2f81f505bfa01d313b79d53c1a5c078ed79c066c0bd0"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/prerequisites/LastTest.log",
+      "sha256": "ce67599e752fe237654b059411a8eaca28bf0b4138cb0a4671bc41f3d02ee745"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/prerequisites/allocation-19159.txt",
+      "sha256": "8ee573cf21078a29d866c1cb825af569aa2b14221123e528f7cbdcbdd3b6f8af"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/prerequisites/artifact-hashes.json",
+      "sha256": "bbebbec370acc919308d8825a91200b839ac209ebbef10084e03ab65bcdd074c"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/prerequisites/build.log",
+      "sha256": "0416e31c6a791e9f4f52a286789d4a337f95164401d7e3914506e78d72e0983b"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/prerequisites/configure.log",
+      "sha256": "db9dc06e9b528417a6603b02a6496ac63462d36a2bc7cad57785a08be4bf9c50"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/prerequisites/controller-final.txt",
+      "sha256": "9eb5b2df6fa808f63f715ea13cc4d5d6b7c371a0ce931d07979adee5236c7879"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/prerequisites/prerequisites.log",
+      "sha256": "5fe5c461e64af96d99715ccfd39cc826f80fd8d209e55fd42e2edced08864c66"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/prerequisites/slurm-19159.err",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/prerequisites/slurm-19159.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/readiness-matrix.json",
+      "sha256": "e07ebfd44e47d821de3961d903ba0a80d5de173c8804176d3ef75c64f4986181"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/receipt.json",
+      "sha256": "191ab6a03eb5d806180bfaa684fc2f30a9cbbdfd110df941d01817e5166b0f33"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/slurm-19162.err",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/slurm-19162.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/source-preflight.json",
+      "sha256": "77dbe6552e14d627201674033c3e7ea6a07e336a2b7322ff891043fe92526603"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/test_results_first_cut.py.err",
+      "sha256": "f2721cc9cb3d134f60a1bf73126fed3e817b8fe6b8bc7ffce675fa27dcd16183"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/test_results_first_cut.py.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/test_results_first_static.py.err",
+      "sha256": "88050142d098c1bb48c7c4bb4a4bee25438c30ee6aa52dc08919f658ca7e522a"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/test_results_first_static.py.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/test_surface_transfer.py.err",
+      "sha256": "e5b0a58605c884951b195a3ce7faf2410655027864ddf0d38d6aaf8328778271"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/evidence/test_surface_transfer.py.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/endpoint-acceptance/inputs.json",
+      "sha256": "9a90e7cf93c140970d4b1b8b7ddef4cf1ddb2a9aa98549296b7313c13405f4b9"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/preparation-registry.json",
+      "sha256": "ed4121c0e7d3121540ab1d9546e2b83996f295d20cb9e1039744c4b9edd6c501"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/restart-coverage/proposed-selector.patch",
+      "sha256": "67b56d686b64c9da0fc296faa6173976269a43b8db5b4c2d168902fbd3b15df3"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/restart-preparation/OWNER_APPROVAL.md",
+      "sha256": "16580b06f450501b5abaac8dc9ca851fa65a9489d03b80687652858b936b3c2a"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/stage-a-recovery/PREDECLARATION.md",
+      "sha256": "974585cc93104f725a85cd45d71840cdf79784d930de82bd412007fd5bd44c95"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/static-completion/acceptance-registry.json",
+      "sha256": "fe818149e324a223a04a9080adca59de59820b3cae419cf10f7409d64269403b"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/static-completion/evidence/ledger.json.gz",
+      "sha256": "7e6d8c9bc62d5d6e8f2a7ba10949a2dda150331d39be8a9c0a6eb1937c6578f6"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/surface-transfer/evidence/assessment/bounds.json",
+      "sha256": "805a18a50a373705478ab296fe05b1bc2f63f64f9ce412a79506b4bfac332737"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/surface-transfer/evidence/assessment/endpoint-diagnostics.json",
+      "sha256": "609ee04cf6fbed5f58f21f0648e4fe9197b37d6b9bfc7cc1e3b227e99f83760f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/surface-transfer/evidence/assessment/independent-transfer-audit.json",
+      "sha256": "bd0e3e1eb3b597de8262da18f29a51ae782c499855afd3b6a58b3273471eb396"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/surface-transfer/evidence/assessment/input-bands.json",
+      "sha256": "46ce705b8f8cfb9fc7deae5a4415d891ad10deff0fcd7301feaba73aa6c98d68"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/surface-transfer/evidence/assessment/ledger.json.gz",
+      "sha256": "e2d06354f18367458d1ac67f0387144875ef987d59c266e3efac8fbc6888f482"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/surface-transfer/evidence/assessment/local-maps.json.gz",
+      "sha256": "e9103dded49e271e850674391a476e230c1e70326f84af4de48e460cd65430ec"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/surface-transfer/evidence/assessment/matrix.tsv",
+      "sha256": "847e2445f5617229d59ca956895dd13263e07e8293b400700955ef94140e72cd"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/surface-transfer/evidence/assessment/summary.json",
+      "sha256": "d78beee4226ed37d5f8f4d9164d6a290579292926245ee2159eb80acc32122d2"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/surface-transfer/evidence/assessment/variational-map.json",
+      "sha256": "5b721754e0c0351df704de03db3ec15b7dd98927e81347adbce26d90d3a34653"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/CMakeLists.txt",
+      "sha256": "f674ab1e89ef4656902642fb04252128a7a2699b3d200bec123022a2ffd2fa38"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/analysis/chemical_coefficient_regression.py",
+      "sha256": "f9c5d0a86d4d5a27662fe851679ae886e56e59ba1173be67e65162ff60003148"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/analysis/chemical_curved_gc9.py",
+      "sha256": "877d1e71800179f578dce3a36e113af49785c1e10204555fe67deb2b108595a4"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/analysis/chemical_curved_reference.py",
+      "sha256": "bed6c9052a0dda9946921e1955d1c619c74bc2341471165d352960cc97da58c2"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/analysis/chemical_enthalpy_reference.hpp",
+      "sha256": "b46994bbd6ef2f885262e7ff11159e26498f3047cba1d1316e8aeb9fee9e5450"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/analysis/chemical_exact_oracles.py",
+      "sha256": "c2d6fb699e1a322b9e4e93ce1fcbb76c60f0d5efb8fc04348988d8d43e50902e"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/analysis/chemical_production_contract.cpp",
+      "sha256": "0a7771e4f192c908299c89cc682695f216a51a6b7e1c9c8d08387b864fb24a6b"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/analysis/chemical_production_evidence.py",
+      "sha256": "9124324d82fd4bc877fb99c35e7fe62a0d72f4fea9f03b8bf4fed61dde46e0ee"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/analysis/chemical_production_fixture.cpp",
+      "sha256": "c16e204cb48edc30e06332e6ae729156ed459fe66ce2bccd60cb460c676fb0e0"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/analysis/chemical_production_validation.py",
+      "sha256": "6e4a7726744d1e601faf42ff9b3270710ff327972b901b1381f3cf03bbb90185"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/analysis/chemical_structural_envelope.cpp",
+      "sha256": "f4d9b48322fe7eb9d6f02c36d891e6dcc3a9cd5fddb9f14a985468ec0e71e9de"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/analysis/chemical_trackr_budget.py",
+      "sha256": "397923d762d6ff6687b9b2d0bb4d7bbee5abd97265426fc38d225db6aeb8e56f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/analysis/chemical_trackr_fixture.cpp",
+      "sha256": "6d725cce39fc05e0275673dbb36cffd27eeb0776b8745c7d62d5675778ec6978"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/analysis/particle_number_analytic.cpp",
+      "sha256": "86acda40a85841be16559560284972a4ffa34b2c89f5723726823302d463c29d"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/analysis/particle_number_homogeneous.hpp",
+      "sha256": "333258fcabd537a003fba7ccabfe7909139da850106c399431e0c3fc0fd2a243"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/analysis/particle_number_response_regression.py",
+      "sha256": "1e53414642ed699cc5067f64ea5c42daa5c9d1916b25b556035eb7e556bd387f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/analysis/phase5b_freegas_validation.cpp",
+      "sha256": "2bb980f1916f0498e626fd8601ba023e6f211f93d5b8655b40aa62283c613fa4"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/analysis/produce_chemical_coefficient_reference.py",
+      "sha256": "23536672a2f1acf58ae629c23f549cb28911deb33c094c399fa5be7f34b4aacb"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/analysis/produce_particle_number_reference.py",
+      "sha256": "dc6911cf1005cfea871a5cacc20e147516b953c4887832f46824c3afde025407"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/analysis/run_phase5b_validation.py",
+      "sha256": "969155b4790cf2c6222ae712eac39ba089356acad377e601f39939fbce063e63"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/adr0017_production_qualification.cpp",
+      "sha256": "efaa68af4acdb9ecb10483480034d4f1cd604afe307b441cf7c62b88a64f61d3"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/adr0017_production_verify.py",
+      "sha256": "23cc7c1e6a386f30db64a23d39df2c50b5fd1c6e94a0a2fc2c4eb641d74224e3"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/analyze_obs32_forensics.py",
+      "sha256": "5c47257c07804038081f8db68ad220bc6ae8fa058e9351df9b21bf53fb31726f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/assess_breakpoint_qualification.py",
+      "sha256": "a200afcd3efd42f3f88e79b952c56935065d098db45a8ae015fa4defb3359e60"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/assess_breakpoint_supplement.py",
+      "sha256": "f47da3f56685d6873d41dc50a0a16234f113c985b716efccc40469163a1dd9f5"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/ba13_native_certificate_binding.cpp",
+      "sha256": "7d71338e7788fa1d3d95758809c5a585b4337631bc67916d53c1072e6df5ba2b"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/ba13_profile_binding.cpp",
+      "sha256": "00a4f2d2f1fa720dc05679fa01310c9dbac2b142e73b08ceea0de1f6da3d81c0"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/breakpoint_contract.cpp",
+      "sha256": "207b0d0a0ba7c1549d78c9c156722a455f76067c9a6d1de3e23532d3998360e4"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/breakpoint_fixture.hpp",
+      "sha256": "01e758e9fa807e0e1227864d23900a4f103bc6b136ec6fdf1944c1807b665bc2"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/breakpoint_qualification.cpp",
+      "sha256": "58a4729aa1f5284c9eccb2681609f6f28d5bf832a49f692ddc4f2a82953ee1b2"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/campaign_fixture.hpp",
+      "sha256": "7d4f5fd27c854f5c015f0e40bafa52b4a0c9c6f8420b847784404590077b6544"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/check_obs32_reduction.py",
+      "sha256": "be9e29615a9e98adbcb1cf70372b145b8ae1458534cc517160beab81078241e0"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/checked_evidence.hpp",
+      "sha256": "9abcdcdb7433ddfea31425da8a634382f5e96673e9c662c9dd2cc9919b0429b4"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/compare_candidate.py",
+      "sha256": "9b3ef1ce17df7e1f8d2d7c40e111ee0844abfddc2cc54b8f93cb3f2ce1322370"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/controlled_campaign.cpp",
+      "sha256": "a4801295d82d856dadf56b94e3e635931949617763d02a033adc74d76eddbc0c"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/controlled_campaign_failure_audit.py",
+      "sha256": "50fc0792789e5d0fa8d81a97525143764aaa862a777913d9d2c752638a33042f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/controlled_campaign_verify.py",
+      "sha256": "a9e4f1beaa5117109264d71a9fc2284e56a042ae99839e0d2d6b346515ae71e7"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/controlled_neutron_sink_fixture.hpp",
+      "sha256": "ebf302a634d71323dc7b8b3d9647e0e1a19097065948d709efb462b2a146a642"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/coupled_trajectory.cpp",
+      "sha256": "46973414df2be8f4d582483137be7c5903d7d629839133780e6ce6d7a104041b"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/currentness_bytes.cpp",
+      "sha256": "ee3ce604c9b0107b044d0e7f2cf847c136777e096b4b4abe2c14fb538f490974"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/direct_energy.cpp",
+      "sha256": "6c4b54482952d6021e396a2cef6e07d4fca290ba5f3ded1959fdf3f13ff9a481"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/energy_partition_fixtures.hpp",
+      "sha256": "9579c53a33f2ad60be9579e613a9e402c6e3a3f42e37999d20832962e8822afe"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/frozen_certificate_fixture.hpp",
+      "sha256": "0229ed708dd81fafa493dfe9202178d294f8f83a3dd9b5eb24c66a9d3eb353fe"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/frozen_monitor.cpp",
+      "sha256": "cef2b184969cfc69a21c608f80f89372d68eb2200833ae57435e946ae92e84fe"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/frozen_sensitivity.cpp",
+      "sha256": "30d59d0026902246a2e96778914b6a79f0aaf4a10ac76d519390d13bba314e80"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/matched_control.cpp",
+      "sha256": "d5ebdd7cfdb2642d379b89c20bc59bed02d6aee4e9703b614d7ee677c54d2974"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/native_input_binding.cpp",
+      "sha256": "1e8691d22a61ac672541cb4353d5f4593d7390aafb1953e6fd0c07e443a2d8ab"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/obs32_boundary_audit.cpp",
+      "sha256": "4cfe7ccb859c23bc748df57185592e0d0d289ed5378fec812b46dde6e78f41d8"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/obs32_forensics.cpp",
+      "sha256": "3d9ff07190160b680c9a43ea8377dd240ab1642fe7832968c09be1201ee710c4"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/onset_capped_table.hpp",
+      "sha256": "1629eebe0f56d19ead0372041a8ce506c7f8f30836c1f67eb2147aaa52093ba0"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/onset_pilot.cpp",
+      "sha256": "6adad0b8eba14ac7929a3e000f5b8fa61e5877a9ab4a0e335b39a0da6fcb8251"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/onset_structure_oracle.cpp",
+      "sha256": "eb5c4fb628ba9c7f962794128df7405077815bf68e11487cdd94455eabdfcd43"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/onset_table_audit.cpp",
+      "sha256": "7e7f489f8005b746dd877d6333a5882fb5ebaf98bd245186bd96c07587669fed"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/passive_checkpoint_output_contract.cpp",
+      "sha256": "894d062a9388c4ac3364ec40e9d5257a471ed6ce5dee2110d0eb4eb16d870a1b"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/produce_frozen_certificates.py",
+      "sha256": "fb609dbd549763800cc47e962e4f12333835916ea299058388dcb6c1c592ad79"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/produce_native_ba13_inputs.py",
+      "sha256": "749db173888da3caeae99f4d4abc9a95ddfa752dfebf64a94ad1a9a588d50a4e"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/readiness_edge_probe.cpp",
+      "sha256": "9462e029e7fe25039586677bdc13d9105ac572079f24750d8e09fac387b7ae4c"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/readiness_environment.py",
+      "sha256": "f26e1a1298a4825e68915b10c9361c1ae7d86434f3ec62cc62108268ce15e543"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/readiness_linear_probe.cpp",
+      "sha256": "ec06b8794a72ead50e2aa26b35da5f4c359d887962da1acc344fee7fb58910ad"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/readiness_stability.py",
+      "sha256": "8d90e7d40ead719619d1bda520dfeed7c21d711aa34f2f09e3957afdbd9a7299"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/readiness_summary.py",
+      "sha256": "52f0d34d615709c59ae6a3ca155bf1e4f4d5acac6e86b896cab56e49084850fe"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/run_breakpoint_qualification.py",
+      "sha256": "b4cc0c38f9b74aceb6c43e711618ccca9df7ef5526970fc7284f6b7cd5c28b0e"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/run_controlled_campaign.py",
+      "sha256": "f0dd106566309ec1989007569e7d6e290a385af61b7e90ab7b0d1e331d0f33da"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/source_projection.cpp",
+      "sha256": "be932fdcce5d74bfaf7b5dc42e4eae4a14e800e4a178650851235d82f16ff3c7"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_ba13_closure.py",
+      "sha256": "d523cf9df72e255d8b9c8e4d0bacd53b4d763a473abcbf256069c7a5a373bb80"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_ba13_evidence.py",
+      "sha256": "cd733044b4e4ef1a044b61c5860e901bd01c0643d2363981a8d024d1e11f14fe"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_ba13_final_decision.py",
+      "sha256": "c6c9d00c3586f7b81f76ae4f80d333d11fd9f9937a20e2ae6a2a1338b0491d3d"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_ba13_headroom.py",
+      "sha256": "e54b158916eabdf3c7d07ad106a5e6ff02a4d9e6f3f5bcf595dafaa5b328d05a"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_ba13_recovery.py",
+      "sha256": "b4d781de8b50e847b19da35f7569ba3f73044f66477cdea8cf04a81f833423e8"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_endpoint_acceptance.py",
+      "sha256": "19c51b6e243c704302d63cda40954b7c35e4693a5047e1b4f52543b212d36575"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_results_first_cref.py",
+      "sha256": "673a277b0f37d14069f3ba1fdb8d49dc2da070a56b80a1276ea7d2bc4f94b923"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_results_first_cut.py",
+      "sha256": "e20880cb38746ad882896e8d50e6f5e38d7e79e5cbd0370a0b2afdedc8fa6f42"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_results_first_static.py",
+      "sha256": "9a4b107167271f587e6ea3aa597d6e80e141402a57c43491c83812d041753fbe"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/test_surface_transfer.py",
+      "sha256": "d4783c590127242c06b76b41e9ce49d96f2490334d4653866157212d5a53471d"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/thermal_ledger.cpp",
+      "sha256": "e3ecc6363bc8ada634cf1336dcc8ab02678d7e2a74303d06cc6480bf2e5f9e62"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/uncertainty_eos_audit.cpp",
+      "sha256": "8c383316d8af4a80c687bb12a9ddd8d9723f218b9fc748a71fc9c4e377433be9"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/uncertainty_pilot.cpp",
+      "sha256": "495dd1b635a8f1cfd588e7de56d55b5a3456974e2b703c092f9673d6fca71503"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/verify_readiness_evidence.py",
+      "sha256": "5d5512885ec6bb884cdf2c4c8254d4a5f7291027ef0f8584fd8a24683df8603d"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/x1_regularized_oracle.cpp",
+      "sha256": "4c0ddac21a90056c74be7e0f7a054b2ab350dd178645db571759c0d7b6fc637f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/x2_fixed_step.cpp",
+      "sha256": "ef3283bb5953e347f52ee94764be2e14dae6d69efb4167bc068a62f308fe7cec"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/bnv/x2_uncertainty.cpp",
+      "sha256": "3ecb9d086b7a250656882deb28d2c01f57dcda8d468c2d6dea931fe69f55ced5"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/diagnostics/checkpoint_evidence.hpp",
+      "sha256": "2048061c0fdf0f6af97e7ecb135b5ef5044d1425c447c13aa904ca5b8773b894"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/fixture.hpp",
+      "sha256": "36734d54f15beb58c5f3d13ddd6c7fe751672063e39f071f7ab1fe66ccb01a5f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/o2_configuration.cpp",
+      "sha256": "4da62722c8f455d11202fc616c1f865fa615ff6941afdd0acda06527162e5037"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/pair.hpp",
+      "sha256": "414925066a0fe216ba94046f720972b38e075022c83b61185a97f0e1ecf77a04"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/regenerate.cpp",
+      "sha256": "7cdadfa2b31a447dd082fb100d3872da2b9ee75a400b2ee6ae13dbe0a539ab45"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/restart_schedule.hpp",
+      "sha256": "5aa398a6a86db39ad9600e3cfe73abb2b00dc8371355c8965a0ef45aa69c7344"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/restart_schedule_test.cpp",
+      "sha256": "ec33a2091e7d4e7cd949e5dbe535b96e96ac1f051fe83d1c5c6fc2fd9abea18d"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/stage.cpp",
+      "sha256": "1047688a48c9369f2bf7b2e03fa8c3ae920d8ab1b7877039116691c3077b0e8d"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/stellar_archive.hpp",
+      "sha256": "466e8818043fe19ac43f18bbf6e3260e2a7eb9fe3409ef4d55a126156cfda633"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/verify.cpp",
+      "sha256": "c7e08208750be1fb01991ee823bfd01e4fc9e78dc3dc5a9e0d6533a9f3af0636"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/rotochemical/artifact_schema.py",
+      "sha256": "b89a0b2d32f4a8be20999178b661f8fdfdb6f21d77e291a1f1cb78325cf18b0a"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/rotochemical/compare_artifacts.py",
+      "sha256": "b59af63bc5c49ceef1cbea9a1f047d2aa23ae0fe334de9be7fab8dc009c7b3fe"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/rotochemical/component_tolerances.cpp",
+      "sha256": "88aac78ef24cabe57d7e78b08d44e2378d63f9c98df737e5d096a54833c2953a"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/rotochemical/coupled.hpp",
+      "sha256": "2696b58ec5cfc38144cf57f26c108e2fa6255f27b3aacf82099493942c0f2db5"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/rotochemical/coupled_oracles.hpp",
+      "sha256": "8a48f059bce1b88a924afb2ccd6f8fdfa6ff5dc5753b83ebbd80efc277400f77"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/rotochemical/evolution.cpp",
+      "sha256": "417d0443f5ff6c5498f12d6cccd8867a61f5a0706b6f49c33e5325f746c600a3"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/rotochemical/fixture.hpp",
+      "sha256": "200ab99e93aad9918f627e1f1f4113571377d40b77549e43e0bdabb6d74745ea"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/rotochemical/fresh_context.py",
+      "sha256": "0db6b6b33a6a7a40bf34f1b802fc8317ac016803412edfa804827fb3b7d0a6f2"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/rotochemical/fresh_coupled_oracles.py",
+      "sha256": "6c9588a7d90963e8a55240344136cdd2c904ad7726b39c55b4ba6d0f4e489894"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/rotochemical/harness_controls.py",
+      "sha256": "f795e5fd2080ac953181124818b45f735a3272f7521b3d41ff4ee3e7ddb34877"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/rotochemical/manifest.py",
+      "sha256": "16c59248f637bc8efab90be7d8760ea995e498b6e44a70126c7cc1dcd9e0077a"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/rotochemical/oracles.py",
+      "sha256": "e4ec211628ce4c324f33b76910afd409fa74313ca1bb150525e6794f31dbe9b2"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/rotochemical/phase5d1_controlled_evolution_regression.py",
+      "sha256": "6f6d99e908c4435000364adbc3604b96c5f310a708fb9510e46662a6cccb58df"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/rotochemical/produce_qualification.py",
+      "sha256": "e002fc9e1a04b83734107feec17e367e57d0f2751c6f2354a391c8ace5648b18"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/rotochemical/protected_manifest.py",
+      "sha256": "feb378b7575e6472289b86f12342caf46f2ec21277561e01021dcc8480b67577"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/rotochemical/qualified_suite.py",
+      "sha256": "40cf2c6a2aa180dcc9382f50dbf21463b22d32aac4ccac2ae106d3a2de2d2e3b"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/rotochemical/radial_diagnostic.hpp",
+      "sha256": "802e88286668a92db0ec593ebaee15da90c456acf0e7162d17f8ffaaa79aa7b3"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/rotochemical/response.cpp",
+      "sha256": "7f686e3e0e785e41539bfe9a81b746cf1908b04655a50bcd06bb415c572ea730"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/rotochemical/trajectory.hpp",
+      "sha256": "ca2ec47a9b0ad6790e280758b6a835b8da3aa60df84238e90f02f59e1e0e6991"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/rotochemical/validate_trajectory.py",
+      "sha256": "9e1a02fb59d52bc448d4047b28710951d436c304606f02b28d411ca5a4ca3138"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_pair/authenticate.py",
+      "sha256": "910e6499634090a73adc939a63a50e8998323d2c94a4c74eb8a38b805dfe3d70"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_pair/build.sbatch",
+      "sha256": "6736f4290b2b227cb74314985e4bc9cff3f8d1b9b129f721fab89880f31caca4"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_pair/regenerate.sbatch",
+      "sha256": "9aa0d3a7c6bedcc59a78c565c99f72f19c41a6952ddc2fe5b9c1ca57ba4bd6bf"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_pair/runtime.py",
+      "sha256": "bcd911b8f4f82bcc34782374f8b08490dfbfae9643d6a3247f82560df3d58c3a"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_pair/snapshot.py",
+      "sha256": "04dd511a4af3b862fc6654e43adbfda9893044d1ca2e84eb278c86cb6a4eaa85"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_pair/stage.sbatch",
+      "sha256": "2cadcc8b366d497d7835193ea822bc103e9c3e164ac449b1ff7e57452cc1eff8"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_pair/test_runtime.py",
+      "sha256": "8b7046dcaec1a364f8cd6c313a1969e700a39bef4075cf8973ff43b6cd248717"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_pair/test_snapshot.py",
+      "sha256": "101446e7e6b94316aa93f874d90383a826b8abb2ed8ae9caf15df1c0f5199e1f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_pair/verify.sbatch",
+      "sha256": "86ae2aea024cfb9cbe8270c2433ba92e1223ad587eb27ff2bfdd42dac40a50c2"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_qualification/recovery_build.sbatch",
+      "sha256": "679461296dc1442ebb92e5bc2119b292a41866cad5e7264db017abaff4eeb377"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_qualification/recovery_snapshots.py",
+      "sha256": "7e0cca203adae9c38a2d88353feb2f693303a552a6dfcc5097798b149cb8c1f3"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_qualification/recovery_stage.sbatch",
+      "sha256": "7edf02aede846a8bfe0cc23cd2ae7dbc647326753f94be91b89ad9f23d838dba"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_qualification/restart_preparation.sbatch",
+      "sha256": "ad9093f89d7ac57acf75aae118c288c87379b0819ee7abec298da880863ac386"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_qualification/restart_preparation_snapshots.py",
+      "sha256": "8a16043aa229a7a5a6c321920f88917277c9e1ec7ddf276029d1980b6e709f6f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/endpoint_acceptance.py",
+      "sha256": "2df5f67c551c32afd53900bb5166a6b08af58e65d5b489b06f7d63c0b0983e11"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/endpoint_acceptance.sbatch",
+      "sha256": "7ea99ea00ddac594adc401212490e2d667195db99cc2015e008161f94578cbba"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/endpoint_prerequisites.sbatch",
+      "sha256": "d6499ab1c5eebac86ba69c5eab749889b40f081f7cbe7d3dd9b86823b9f4547f"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/endpoint_run.py",
+      "sha256": "36986054d68c05617947c1763db6634dcc30374bb150b3078027a62902a29828"
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/results_first/endpoint_validate.py",
+      "sha256": "a78f400377930d965fa2b863b633284762bbceca8a72903a0c321529d0601f6b"
+    },
+    {
+      "path": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libgcc_s.so.1",
+      "sha256": "80e373702a3f75c5cf9cffdb6d52f6bee915066033ba52b012f7339d1e11b152"
+    },
+    {
+      "path": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libstdc++.so.6.0.33",
+      "sha256": "8e40922dbf2551d5bfb43ff34f48912bf03b95eecba6e0f55f50e30c1816749d"
+    }
+  ],
+  "frozen": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/fit/certificate.tsv",
+  "initial_state": [
+    0,
+    0,
+    0
+  ],
+  "initial_time_s": 0,
+  "integration": {
+    "absolute_tiers": [
+      [
+        1e-12,
+        1e-18,
+        1e-18
+      ],
+      [
+        1e-14,
+        1e-20,
+        1e-20
+      ],
+      [
+        1e-16,
+        1e-22,
+        1e-22
+      ]
+    ],
+    "checkpoint": "passive; existing isolated two-level self-qualified rk8pd",
+    "initial_step_s": 1,
+    "method": "uninterrupted breakpoint-aware RKF45",
+    "relative_tiers": [
+      1e-07,
+      1e-09,
+      1e-11
+    ]
+  },
+  "photon_boundary": {
+    "composition": "Iron",
+    "global_scale": 1,
+    "law": "Potekhin2003 Iron dispatch to 1997 fit; Ts^4=1e24*g14*(1.81*Tb/1e8)^2.42; Lgamma_inf=4*pi*(R_km*1e5)^2*sigma*Ts^4*exp(2*nu_surface)",
+    "radiating_fraction": 1,
+    "rho_b_g_cm3": 10000000000.0,
+    "surface_model": "EnvelopeTbTs",
+    "xi": 0
+  },
+  "profile": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0",
+  "restart_test_configuration": {
+    "approval": "docs/validation/results-first-bnv-pilot/restart-preparation/OWNER_APPROVAL.md",
+    "horizon_s": 31557600,
+    "minimum_tail_s": 15778800,
+    "missing_endpoint": "fail explicitly; no passive or initial-state substitution",
+    "selection": "latest accepted noninitial endpoint at or before half-time",
+    "stage": "A",
+    "stage_B_rule_unchanged": true
+  },
+  "runtime_bindings": {
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/restart-preparation-20261109-r1/build/tests/native_p2_stage": {
+      "dependencies": [
+        {
+          "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/ld-linux-x86-64.so.2",
+          "resolved": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/ld-linux-x86-64.so.2"
+        },
+        {
+          "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libc.so.6",
+          "resolved": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libc.so.6"
+        },
+        {
+          "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libm.so.6",
+          "resolved": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libm.so.6"
+        },
+        {
+          "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libz.so.1",
+          "resolved": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libz.so.1.2.11"
+        },
+        {
+          "path": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libgcc_s.so.1",
+          "resolved": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libgcc_s.so.1"
+        },
+        {
+          "path": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libstdc++.so.6",
+          "resolved": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libstdc++.so.6.0.33"
+        }
+      ],
+      "interpreter": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/ld-linux-x86-64.so.2"
+    },
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-a-recovery-20261109-r1/build/tests/native_p2_verify": {
+      "dependencies": [
+        {
+          "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/ld-linux-x86-64.so.2",
+          "resolved": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/ld-linux-x86-64.so.2"
+        },
+        {
+          "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libc.so.6",
+          "resolved": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libc.so.6"
+        },
+        {
+          "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libm.so.6",
+          "resolved": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libm.so.6"
+        },
+        {
+          "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libz.so.1",
+          "resolved": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libz.so.1.2.11"
+        },
+        {
+          "path": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libgcc_s.so.1",
+          "resolved": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libgcc_s.so.1"
+        },
+        {
+          "path": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libstdc++.so.6",
+          "resolved": "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/gcc-14.1.0-yd5t5aj4bggpy5swlajrqvsiohzyyfbh/lib64/libstdc++.so.6.0.33"
+        }
+      ],
+      "interpreter": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/ld-linux-x86-64.so.2"
+    }
+  },
+  "schema": "RF-BNV-P2-native-owned-snapshot-v1",
+  "source": {
+    "fractional_Bdot_per_Julian_year": -1e-12,
+    "mode": "P2-controlled-uniform-proper-neutron-sink"
+  },
+  "spin_rad_s": 0,
+  "stage_binary": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/restart-preparation-20261109-r1/build/tests/native_p2_stage",
+  "state_units": [
+    "ln(Tinf/Tref)",
+    "MeV",
+    "MeV"
+  ],
+  "thermal": {
+    "Tmin_for_derivative_MeV": 0,
+    "clamp_to_domain": false
+  },
+  "thermal_path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/../ba13-recovery/run1/raw/chemical-profiles/target-0/thermal",
+  "verify_binary": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-a-recovery-20261109-r1/build/tests/native_p2_verify"
+}
