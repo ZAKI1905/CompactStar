@@ -49,7 +49,7 @@ def assess_one(task):
    if not complete_arithmetic:return D(0)
    if role=='control' and j>0:return D(0)
    return arithmetic[k][t][j]
-  maxima=dict(direct_state=D(0),known_terms_state=D(0),known_terms_reference_allocation=D(0),power=D(0),power_reference_allocation=D(0),accepted_direct_state=D(0));worst={};reference_temperature=[];reference_contraction_exceptions=0;unresolved_contractions=[]
+  maxima=dict(direct_state=D(0),known_terms_state=D(0),known_terms_reference_allocation=D(0),power=D(0),power_reference_allocation=D(0),accepted_direct_state=D(0));worst={};reference_temperature=[];reference_contraction_exceptions=0;unresolved_contractions=[];unresolved_power_contractions=[]
   for index,(d,urow) in enumerate(zip(data,unc)):
    t=lift(d['t_s']);y,u=reference(t);pv=powers(m,y);reference_errors=[]
    for j,key in enumerate(('x','e','mu')):
@@ -68,6 +68,7 @@ def assess_one(task):
    T=D('1e8')*y[0].exp();reference_temperature.append(abs(lift(refs[-1][index]['Tinf'])-T)+T*(u.exp()-1))
    G=max(D(1),sum(abs(lift(d[NATIVE[k]])) for k in ('P_dir_actual','LH','DeltaLnu','Lnu_eq','Lgamma','Lother','Lout')))
    output_scaled=max(lift(urow[k])/SCALE[j] for j,k in enumerate(('Ux','Ue','Umu')))
+   reference_power_values=[powers(m,tuple(lift(r[index][q]) for q in ('x','e','mu'))) for r in refs]
    for k in POWERS:
     normalization=D(0)
     if k in ('P_dir_eq','P_dir_actual','Pnet'):normalization+=D(norm['direct_normalization_error'])
@@ -75,9 +76,12 @@ def assess_one(task):
     pu=power_gradient*u+normalization;ou=power_gradient*output_scaled
     if k in ('Lout','Lother') or (role=='control' and k in ('P_dir_eq','P_dir_actual','LH','DeltaLnu','DeltaPbeta')):pu=ou=D(0)
     rv=[lift(r[index][k]) for r in refs];native=lift(d[NATIVE[k]])
-    arithmetic_power=power_gradient*max(au(i,t,j)/SCALE[j] for i in range(5) for j in range(3))
+    individual_arithmetic=[power_gradient*max(au(i,t,j)/SCALE[j] for j in range(3))+abs(lift(refs[i][index][k])-reference_power_values[i][k])+normalization+D('1e-60')*max(D(1),abs(reference_power_values[i][k])) for i in range(5)]
+    arithmetic_power=max(individual_arithmetic)
     if k in ('Lout','Lother') or (role=='control' and k in ('P_dir_eq','P_dir_actual','LH','DeltaLnu','DeltaPbeta')):arithmetic_power=D(0)
     ru=arithmetic_power+max(abs(v-pv[k])+pu for v in rv)+2*max(abs(rv[a]-rv[b]) for a,b in ((0,1),(1,2),(3,4),(2,4)))+64*lift(math.ulp(float(max(map(abs,rv)))))
+    d0=abs(rv[0]-rv[1]);d1=abs(rv[1]-rv[2])
+    if d1>d0/2 and (not complete_arithmetic or not (d0<=individual_arithmetic[0]+individual_arithmetic[1] and d1<=individual_arithmetic[1]+individual_arithmetic[2])):unresolved_power_contractions.append(dict(time_s=t,channel=k))
     checks=dict(power=(abs(native-rv[-1])+ru+ou)/(D('1e-7' if tier==0 else '1e-9')*G),power_reference_allocation=ru/(D('5e-11')*G))
     for key,z in checks.items():
      if z>maxima[key]:maxima[key]=z;worst[key]=dict(time_s=t,channel=k,ratio=z)
@@ -117,26 +121,31 @@ def assess_one(task):
     t=lift(q['t']);assert t==r['time_s']
     if t not in accepted_refs:continue
     y,u=reference(t);pv=powers(m,y);ref=accepted_refs[t]
+    reference_power_values=[powers(m,tuple(lift(q[k]) for k in ('x','e','mu'))) for q in ref]
     G=max(D(1),sum(abs(lift(q[k])) for k in ('P_dir_actual','LH','DeltaLnu','Lnu_eq','Lgamma','Lother','Lout')))
     inherited=power_gradient*max(r['prefix_extra'][j]/SCALE[j] for j in range(3));largest=D(0);allocation=D(0)
     for k in POWERS:
      normalization=D(0)
      if k in ('P_dir_eq','P_dir_actual','Pnet'):normalization+=D(norm['direct_normalization_error'])
      if k in ('Lgamma','Pnet'):normalization+=D(norm['photon_normalization_error'])*(D.from_float(2.42)*box['hi']).exp()
-     pu=power_gradient*u+normalization;ar=power_gradient*max(au(i,t,j)/SCALE[j] for i in range(5) for j in range(3));extra=inherited
+     individual_arithmetic=[power_gradient*max(au(i,t,j)/SCALE[j] for j in range(3))+abs(lift(ref[i][k])-reference_power_values[i][k])+normalization+D('1e-60')*max(D(1),abs(reference_power_values[i][k])) for i in range(5)]
+     pu=power_gradient*u+normalization;ar=max(individual_arithmetic);extra=inherited
      if k in ('Lout','Lother') or (role=='control' and k in ('P_dir_eq','P_dir_actual','LH','DeltaLnu','DeltaPbeta')):pu=ar=extra=D(0)
      rv=[lift(v[k]) for v in ref];native=lift(q[k])
      ru=max(abs(v-pv[k])+pu for v in rv)+ar+2*max(abs(rv[a]-rv[b]) for a,b in ((0,1),(1,2),(3,4),(2,4)))+64*lift(math.ulp(float(max(map(abs,rv)))))
+     d0=abs(rv[0]-rv[1]);d1=abs(rv[1]-rv[2])
+     if d1>d0/2 and (not complete_arithmetic or not (d0<=individual_arithmetic[0]+individual_arithmetic[1] and d1<=individual_arithmetic[1]+individual_arithmetic[2])):unresolved_power_contractions.append(dict(time_s=t,channel=k,kind=label))
      largest=max(largest,(abs(native-rv[-1])+ru+extra)/(D('1e-7' if tier==0 else '1e-9')*G));allocation=max(allocation,ru/(D('5e-11')*G))
     accepted_power.append(dict(time_s=t,kind=label,budget_ratio=largest,reference_allocation_ratio=allocation))
   missing=[]
+  if unresolved_power_contractions:missing.append('Power reference contraction exceptions not bounded by actual arithmetic.')
   if missing_native_power:missing.append('Native power evaluations absent at accepted main/restart endpoints.')
   if not complete_arithmetic:missing.append('Actual observation accumulated arithmetic is missing; known_terms_* excludes that unknown positive term.')
   if any(len(r['prescribed_state_ratios'])!=3 for r in accepted+(restart['records'] if restart else [])):missing.append('Native reference observations missing at accepted main/restart endpoints.')
   if unresolved_contractions or any(r['unresolved_contractions'] for r in accepted+(restart['records'] if restart else [])):missing.append('State reference contraction exceptions not bounded by actual arithmetic.')
   state_records=accepted+(restart['records'] if restart else [])
-  gates=dict(accepted_powers=not missing_native_power and all(r['budget_ratio']<=1 for r in accepted_power),accepted_reference_power_allocation=not missing_native_power and all(r['reference_allocation_ratio']<=1 for r in accepted_power),scientific_states=maxima['known_terms_state']<=1,reference_state_allocation=maxima['known_terms_reference_allocation']<=1,powers=maxima['power']<=1,reference_power_allocation=maxima['power_reference_allocation']<=1,accepted_restart_states=all(max(r['prescribed_state_ratios'],default=D('Infinity'))<=1 for r in state_records),accepted_reference_allocation=all(max(r['reference_allocations'],default=D('Infinity'))<=1 for r in state_records),state_refinement_contraction=not unresolved_contractions and all(not r['unresolved_contractions'] for r in state_records))
-  result=dict(role=role,configuration=path.name,status='CONDITIONAL_STATE_POWER_BUDGET_CANDIDATE' if not missing and all(gates.values()) else 'PRELIMINARY_INCOMPLETE_OR_FAILED_BUDGET',gates=gates,complete_arithmetic=complete_arithmetic,accepted=accepted,accepted_power=accepted_power,unresolved_contractions=unresolved_contractions,maxima=maxima,worst=worst,restart=restart,accepted_steps=len(history),maximum_reference_temperature_bound_K=max(reference_temperature),endpoint_reference_temperature_bound_K=reference_temperature[-1],reference_temperature_bounds_K=reference_temperature,noncontracting_state_comparisons=reference_contraction_exceptions,missing=missing,history_sha256=digest(path/'main.accepted_states.tsv'))
+  gates=dict(power_refinement_contraction=not unresolved_power_contractions,accepted_powers=not missing_native_power and all(r['budget_ratio']<=1 for r in accepted_power),accepted_reference_power_allocation=not missing_native_power and all(r['reference_allocation_ratio']<=1 for r in accepted_power),scientific_states=maxima['known_terms_state']<=1,reference_state_allocation=maxima['known_terms_reference_allocation']<=1,powers=maxima['power']<=1,reference_power_allocation=maxima['power_reference_allocation']<=1,accepted_restart_states=all(max(r['prescribed_state_ratios'],default=D('Infinity'))<=1 for r in state_records),accepted_reference_allocation=all(max(r['reference_allocations'],default=D('Infinity'))<=1 for r in state_records),state_refinement_contraction=not unresolved_contractions and all(not r['unresolved_contractions'] for r in state_records))
+  result=dict(role=role,configuration=path.name,status='CONDITIONAL_STATE_POWER_BUDGET_CANDIDATE' if not missing and all(gates.values()) else 'PRELIMINARY_INCOMPLETE_OR_FAILED_BUDGET',gates=gates,complete_arithmetic=complete_arithmetic,accepted=accepted,accepted_power=accepted_power,unresolved_contractions=unresolved_contractions,unresolved_power_contractions=unresolved_power_contractions,maxima=maxima,worst=worst,restart=restart,accepted_steps=len(history),maximum_reference_temperature_bound_K=max(reference_temperature),endpoint_reference_temperature_bound_K=reference_temperature[-1],reference_temperature_bounds_K=reference_temperature,noncontracting_state_comparisons=reference_contraction_exceptions,missing=missing,history_sha256=digest(path/'main.accepted_states.tsv'))
   target=out/'accuracy';target.mkdir(exist_ok=True);save(target/f'{role}-{path.name}.json',result)
   return {k:v for k,v in result.items() if k not in ('reference_temperature_bounds_K','accepted','accepted_power')}
 

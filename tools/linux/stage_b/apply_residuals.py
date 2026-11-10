@@ -54,7 +54,9 @@ def audit(role,name,directory,initial_bound=None,method='rk8pd'):
      for i in range(3):rhsmax[i]=max(rhsmax[i],defects[j][i])
     residual=[abs(y1[i]-y0[i]-h*sum(W[j]*fs[j][i] for j in range(n)))+D('1e-90') for i in range(3)]
     result=[incoming[i]+residual[i]+h*sum(abs(W[j])*(defects[j][i]+sum(J[i][v]*errors[j][v] for v in range(3))) for j in range(n)) for i in range(3)]
-    inside(y1,result);known[key(b,y1)]=result;used.append(key(b,y1))
+    inside(y1,result)
+    previous=known.get(key(b,y1),(D(0),)*3)
+    known[key(b,y1)]=[max(v,w) for v,w in zip(previous,result)];used.append(key(b,y1))
    replay=tuple(lift(mapping['replay_'+k]) for k in ('x','e','mu'));target=key(lift(mapping['right']),replay)
    assert target in known,'retained replay does not match an Apply endpoint'
    mismatch=[abs(lift(mapping[k])-replay[i]) for i,k in enumerate(('x','e','mu'))]
