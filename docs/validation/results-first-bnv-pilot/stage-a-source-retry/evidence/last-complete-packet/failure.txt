@@ -1,0 +1,1 @@
+checkpoint=356 time_s=11702610 status=QUALIFIED

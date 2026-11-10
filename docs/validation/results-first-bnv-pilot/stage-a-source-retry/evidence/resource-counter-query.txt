@@ -1,0 +1,3 @@
+JobID|AveCPU|MaxRSS|AveRSS
+19191.0|213503982334-14:25:51||
+Slurm accounting storage is disabled

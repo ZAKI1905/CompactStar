@@ -1,0 +1,11 @@
+{"observed_utc": "2026-11-10T03:48:52.040900+00:00", "grids": [{"grid": "tier-0-cap-0/checkpoints-240", "packets": 98, "latest_index": 97}], "stop_lines": [], "collection_complete": false}
+{"utc": "2026-11-10T03:51:05.371373+00:00", "grids": [{"grid": "tier-0-cap-0/checkpoints-240", "packets": 184}]}
+{"utc": "2026-11-10T03:53:00.296347+00:00", "grids": [{"grid": "tier-0-cap-0/checkpoints-240", "packets": 241}, {"grid": "tier-0-cap-0/checkpoints-480", "packets": 20}]}
+{"utc": "2026-11-10T03:55:56.429116+00:00", "grids": [{"grid": "tier-0-cap-0/checkpoints-240", "packets": 241}, {"grid": "tier-0-cap-0/checkpoints-480", "packets": 137}]}
+{"utc": "2026-11-10T03:58:12.810548+00:00", "grids": [{"grid": "tier-0-cap-0/checkpoints-240", "packets": 241}, {"grid": "tier-0-cap-0/checkpoints-480", "packets": 227}]}
+{"utc": "2026-11-10T04:00:03.641086+00:00", "grids": [{"grid": "tier-0-cap-0/checkpoints-240", "packets": 241}, {"grid": "tier-0-cap-0/checkpoints-480", "packets": 300}]}
+{"utc": "2026-11-10T04:01:32.514509+00:00", "grids": [{"grid": "tier-0-cap-0/checkpoints-240", "packets": 241}, {"grid": "tier-0-cap-0/checkpoints-480", "packets": 358}]}
+{"utc": "2026-11-10T04:05:21.232776+00:00", "grids": [{"grid": "tier-0-cap-0/checkpoints-240", "packets": 241}, {"grid": "tier-0-cap-0/checkpoints-480", "packets": 481}, {"grid": "tier-0-cap-0/checkpoints-960", "packets": 30}]}
+{"utc": "2026-11-10T04:08:30.018315+00:00", "grids": [{"grid": "tier-0-cap-0/checkpoints-240", "packets": 241}, {"grid": "tier-0-cap-0/checkpoints-480", "packets": 481}, {"grid": "tier-0-cap-0/checkpoints-960", "packets": 153}]}
+{"utc": "2026-11-10T04:10:08.464678+00:00", "grids": [{"grid": "tier-0-cap-0/checkpoints-240", "packets": 241}, {"grid": "tier-0-cap-0/checkpoints-480", "packets": 481}, {"grid": "tier-0-cap-0/checkpoints-960", "packets": 218}]}
+{"utc": "2026-11-10T04:12:32.912161+00:00", "grids": [{"grid": "tier-0-cap-0/checkpoints-240", "packets": 241}, {"grid": "tier-0-cap-0/checkpoints-480", "packets": 481}, {"grid": "tier-0-cap-0/checkpoints-960", "packets": 312}]}

@@ -1,0 +1,30 @@
+{
+  "manifests": [
+    {
+      "manifest": "docs/validation/results-first-bnv-pilot/restart-preparation/SHA256SUMS",
+      "entries": 31,
+      "status": "PASS"
+    },
+    {
+      "manifest": "docs/validation/results-first-bnv-pilot/restart-preparation/evidence/external-SHA256SUMS",
+      "entries": 1349,
+      "status": "PASS"
+    },
+    {
+      "manifest": "docs/validation/results-first-bnv-pilot/stage-a-source-retry/evidence/external-SHA256SUMS",
+      "entries": 4360,
+      "status": "PASS"
+    }
+  ],
+  "assessor_syntax": "PASS",
+  "actual_data_assessment": "INCOMPLETE_WALL_LIMIT (expected from Slurm TIMEOUT)",
+  "original_tracked_files_unchanged_from_37a9a21": true,
+  "prior_authenticated_trajectory_files_identical": 12,
+  "source_snapshot_check": "PASS authenticated native matched snapshots",
+  "native_checkpoint_passes": 1079,
+  "no_control": true,
+  "no_automatic_retry": true,
+  "source_qualified": false,
+  "authored_code_and_prose_whitespace_check": "PASS",
+  "raw_whitespace_preserved": "Slurm allocation/completion output has original trailing whitespace; retained byte-for-byte."
+}
