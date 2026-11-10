@@ -1,0 +1,1 @@
+PASS expected branch/commit, clean worktree, authenticated snapshots, exclusive output path; authorized 24 physical cores, 96GiB, 05:00:00 source only

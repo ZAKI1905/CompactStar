@@ -1,0 +1,8 @@
+{
+  "push": "blocked_pending_owner_publication_approval",
+  "reason": "Automatic approval review rejected public release of internal preparation logs, manifests and cluster paths. Read-only GitHub connector confirms repository owner equals authenticated user ZAKI1905, admin permission, visibility public.",
+  "repository": "ZAKI1905/CompactStar",
+  "owner": "ZAKI1905",
+  "visibility": "public",
+  "run_unaffected": true
+}
