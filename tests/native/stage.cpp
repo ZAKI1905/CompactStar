@@ -171,6 +171,7 @@ void stage_role(Ctx p,double end,const std::filesystem::path& out) {
       }
     }
 }
+#ifndef NATIVE_STAGE_NO_MAIN
 int main(int argc,char** argv) {
  try {
     gsl_set_error_handler_off();std::cout<<std::setprecision(17)<<std::unitbuf;
@@ -190,3 +191,4 @@ int main(int argc,char** argv) {
     return 0;
  } catch(const std::exception& e){std::cerr<<"STOP "<<e.what()<<'\n';return 1;}
 }
+#endif

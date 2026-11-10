@@ -1,8 +1,8 @@
 // Retained-history reconstruction only: no main integration, reference trajectory,
 // restart tail or stellar solve. Exercise the exact shared grid collector.
-#define main stage_entry_not_invoked
+#define NATIVE_STAGE_NO_MAIN
 #include "stage.cpp"
-#undef main
+#undef NATIVE_STAGE_NO_MAIN
 
 BNV::MainTrajectoryResult ReadRetainedMain(const std::filesystem::path& dir) {
  BNV::MainTrajectoryResult main;main.final_time_s=Year;main.configuration.relative=tiers[0].r;
