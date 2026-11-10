@@ -36,7 +36,8 @@ def audit(role,name,directory,initial_bound=None,method='rk8pd'):
     # GSL reuses the initial derivative on rejected retries. The last n records
     # are the accepted attempt's n-1 remaining stages and final derivative.
     tail=segment[-n:];stages=tail[:-1]
-    cached=next((r for r in reversed(trace[:end-n]) if lift(r['t_s'])==a and tuple(lift(r[k]) for k in ('x','e','mu'))==y0),None)
+    # Cell-selection probes (cell=-1) do not update GSL's cached derivative.
+    cached=next((r for r in reversed(trace[:end-n]) if int(r['cell'])>=0 and lift(r['t_s'])==a and tuple(lift(r[k]) for k in ('x','e','mu'))==y0),None)
     assert cached is not None,'cached first derivative not in trace';stages=[cached]+stages
     assert len(stages)==n
     assert tuple(lift(segment[-1][k]) for k in ('x','e','mu'))==y1

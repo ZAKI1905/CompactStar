@@ -68,6 +68,9 @@ single-cell Stage A analytic enclosure across knots. The uncapped source native
 histories contain 21, 26, and 40 accepted steps for BASELINE, REFINED, and ULTRA;
 all have zero rejected steps. The control uncapped counts are 17, 17, and 18.
 Therefore Stage A's identical-tier observation does not extend to Stage B.
+The BASELINE source quarter cap also changes its history; the observed direct
+state comparison improves relative to its three looser caps. Identical subsets
+of cap histories are not interpreted as cap convergence.
 
 ## Qualification and preserved evidence
 
@@ -89,10 +92,13 @@ Large artifacts stay on EKU under:
 
 * `/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r1`
 * `/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r2`
+* `/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-20261110-r3`
 
 The first directory retains the original ten references, six uncapped histories,
 and all initial launch failures. The second authenticates/copies those retained
-histories and completes the existing reconstruction matrix. Rehydration restores
+histories and completes the first source tiers. The third migrates diagnostic
+work interrupted by NFS stalls and provides the unified matrix. Completed source
+configuration directories link back to their immutable original r2 evidence. Rehydration restores
 accepted records and event metadata; it does not claim bitwise adaptive process
 restart or introduce an extra original-t0 evolution.
 
@@ -111,7 +117,13 @@ partition walltime, and single-thread numerical libraries. The initial allocatio
 of 24 hardware threads provided only 12 physical cores and was correctly refused
 by the existing guard after retaining the uncapped histories. Reference jobs
 use one core each. Node-local startup delays required explicit placement and a
-producer-authenticated native dispatcher; all operational failures are preserved.
+producer-authenticated native dispatcher. Native workers on phyn001 subsequently
+spent most of their time blocked in NFS openat calls (about 6% average CPU, versus
+98% on phyn004); phyn003 also stalled during assembly. Their incomplete diagnostic
+outputs were preserved before migrating the remaining work to phyn004. The
+migration array initially refused a missing RF_MODE before dispatch; its logs
+remain intact and the corrected launch supplied RF_MODE=tier. All operational
+failures are preserved.
 The original one-CPU/30-minute proposal was superseded by the owner's explicit
 resource authorization, not treated as a scientific threshold.
 

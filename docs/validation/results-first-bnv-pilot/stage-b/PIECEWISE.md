@@ -47,3 +47,29 @@ Continuous Hermite or quadrature bounds must likewise split at encountered knots
 a smooth fourth/second derivative bound cannot be applied over an unsplit knot.
 A failure of a native checkpoint stops its affected task, even if an independent
 reference can produce an approximate temperature.
+
+## Actual-stage arithmetic at crossings
+
+The one-cell Stage A trace parser cannot assume that a selected-cell block is a
+single RK map at an event. The isolated audit class is generated from the exact
+production header, changing only its class name and adding passive begin/end
+callbacks around each GSL Apply. A source-equivalence test reverses those edits
+and checks exact equality. Production binaries and their method are unchanged.
+
+Each Apply record identifies its exact initial state, endpoint, RHS row interval
+and rejected-attempt count. The residual audit selects the accepted final GSL
+attempt and carries the bound from the recorded initial state's dependency.
+Discarded event trials are not treated as successive physical evolution. Cached
+first derivatives come from actual nonnegative-cell RHS records; a cell-selection
+probe does not replace GSL's cached derivative. Every actual stage is checked
+against the continuous piecewise real RHS and the global positive Jacobian.
+Smooth-extension versus real-field defects in residual strips are included.
+Unsupported trace shapes, missing dependencies or domain exhaustion stop the
+audit, with the evidence retained. Known-answer tests cover ordinary maps,
+discarded trials, rejected attempts, their combination and cached derivatives.
+
+The reference budget retains twice the original refinement/method discrepancies,
+the 64-ulp minimum, accumulated actual-stage/observation arithmetic, and the
+independently enclosed total reference error. The last two deliberately overlap;
+no positive term is dropped to obtain a favorable result. Restart comparisons
+carry the full original-prefix error through the remaining horizon.
