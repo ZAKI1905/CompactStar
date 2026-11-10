@@ -1,0 +1,14 @@
+point=1 status=PASS C1=PASS C2=PASS C3=PASS C4=PASS supported=PASS
+point=2 status=PASS C1=PASS C2=PASS C3=PASS C4=PASS supported=PASS
+point=4 status=PASS C1=PASS C2=PASS C3=PASS C4=PASS supported=PASS
+point=8 status=PASS C1=PASS C2=PASS C3=PASS C4=PASS supported=PASS
+point=16 status=PASS C1=PASS C2=PASS C3=PASS C4=PASS supported=PASS
+point=32 status=PASS C1=PASS C2=PASS C3=PASS C4=PASS supported=PASS
+point=64 status=PASS C1=PASS C2=PASS C3=PASS C4=PASS supported=PASS
+point=128 status=PASS C1=PASS C2=PASS C3=PASS C4=PASS supported=PASS
+point=256 status=PASS C1=PASS C2=PASS C3=PASS C4=PASS supported=PASS
+point=512 status=PASS C1=PASS C2=PASS C3=PASS C4=PASS supported=PASS
+point=960 status=PASS C1=PASS C2=PASS C3=PASS C4=PASS supported=PASS
+point=1440 status=PASS C1=PASS C2=PASS C3=PASS C4=PASS supported=PASS
+point=1919 status=PASS C1=PASS C2=PASS C3=PASS C4=PASS supported=PASS
+PASS_CONDITIONAL failure gates: []

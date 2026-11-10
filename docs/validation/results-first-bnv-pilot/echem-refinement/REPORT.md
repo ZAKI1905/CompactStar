@@ -322,3 +322,37 @@ No additional numerical experiment was run to finalize this report.
 
 **Unresolved outcome:** a promising smaller floor with substantial observed
 agreement, but incomplete justification for full numerical qualification.
+
+## 2026-11-09 addendum — bounded D1 convergence resolution
+
+The preceding report and its findings are historical. The original offline
+D1 global-grid calculation remains [FAIL at C1](d1/REPORT.md#L1); its receipt,
+implementation and evidence were preserved byte-for-byte. The owner then
+authorized one bounded diagnostic to resolve that reference failure, starting
+at commit `871dbd77230f9e21b54ea0129473fe658236fd56`.
+
+The [resolution receipt](d1-resolution/REPORT.md#L1) records
+**PASS_CONDITIONAL for the 13 existing local reconstructions**. The method and
+unchanged acceptance criteria were [predeclared](d1-resolution/PREDECLARATION.md#L1)
+and published at `7842938` before job 19185. Aligning RK4 steps to every retained
+Hermite segment restored fourth-order convergence: maximum C1 ratio
+0.06250000005471215. No thermal interpolant, input, production solver or tolerance
+was changed. All original inputs and exact initial-state conversions passed
+authentication/fidelity checks; all 17 analytic tests passed before the fixed
+156 local reference integrations.
+
+Original C2/C3 pass. A stronger comparison, including a conservative bound for
+time-dependent thermal perturbations within the assumed band, also passes:
+maximum state ratio 0.004303188584056 and energy ratio 0.001660771997586. Actual
+errors, both reference contributions and original budgets are reported
+separately in [the tables](d1-resolution/evidence/TABLES.md#L1). This qualification
+is conditional on a uniform thermal band and continuation of the observed
+refinement contraction; finite sampled agreement is not an unconditional IVP
+bound. C4 remains report-only. Main-prefix error and thermal-channel roundoff
+obligations remain open, as do the excluded full-run qualifications.
+
+The only proposed future production change is O2 chemical absolute tolerances
+`(1e-24,1e-24) -> (5e-27,5e-27) MeV`, pending the owner's go-ahead. No such change,
+Stage A retry, Stage B, stellar solve, master merge or certificate promotion
+occurred. Any later authorized Stage A attempt must apply the diagnostic to its
+actual output checkpoints. See the receipt for complete scope and provenance.

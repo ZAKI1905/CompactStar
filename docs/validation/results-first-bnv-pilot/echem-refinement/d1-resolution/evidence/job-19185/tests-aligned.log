@@ -1,0 +1,11 @@
+test_fourth_order_across_unequal_segments (__main__.AlignedTests.test_fourth_order_across_unequal_segments) ... ok
+test_normalized_coordinate_and_offset (__main__.AlignedTests.test_normalized_coordinate_and_offset) ... ok
+test_positive_polynomial_matches_reaction (__main__.AlignedTests.test_positive_polynomial_matches_reaction) ... ok
+test_sensitivity_dominates_known_scalar_linear_case (__main__.AlignedTests.test_sensitivity_dominates_known_scalar_linear_case) ... ok
+test_sensitivity_zero_reaction_and_domain (__main__.AlignedTests.test_sensitivity_zero_reaction_and_domain) ... ok
+test_tiny_segment_exact_cubic_forcing_integral (__main__.AlignedTests.test_tiny_segment_exact_cubic_forcing_integral) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.013s
+
+OK
