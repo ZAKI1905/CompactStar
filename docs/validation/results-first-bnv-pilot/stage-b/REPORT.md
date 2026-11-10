@@ -39,6 +39,11 @@ endpoint photon and neutrino powers are 2.6785500459e33 and 1.7005609542e32 erg/
 The observed excess-neutrino/heating ratio is approximately 1.5, so the net
 reaction term cools despite the positive heating channel. Heating/direct deposition
 is only about 1.23e−12 at the endpoint.
+The equilibrium-potential deposition is 3.3583239602973852e34 erg/s; the actual
+deposition is lower by approximately 3.223e23 erg/s (9.60e−12 of deposition),
+consistent with the source contribution to chemical-energy storage. The isolated
+LH and net-reaction temperature bounds below do not represent the total effect
+of every chemical coupling, including this actual-potential correction.
 The muon imbalance is only about 5.4e−5 of kB T∞ at the endpoint, consistent with
 the very small reaction response in this benchmark.
 
