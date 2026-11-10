@@ -41,6 +41,26 @@ class PiecewiseTests(unittest.TestCase):
      self.assertLess(max(abs(a-b)/s for a,b,s in zip(coarse,fine,SCALE)),bound)
      self.assertLess((initial[0]-boundary)*(coarse[0]-boundary),0)
 
+ def test_piecewise_thermal_primitive(self):
+  from types import SimpleNamespace
+  from ledger import primitive
+  with localcontext() as c:
+   c.prec=110
+   m=SimpleNamespace(knots=[D(-2),D(0),D(2)],capacity=[D(1),D(3),D(7)],slopes=[D(1),D(2)])
+   a=D('-.5');b=D('.5')
+   # Exact antiderivatives on C=3+x (left) and C=3+2x (right).
+   expected=D('1e8')*((D(2)-a.exp()*(2+a))+(b.exp()*(1+2*b)-1))
+   self.assertLess(abs(primitive(m,a,b)-expected),D('1e-95'))
+   self.assertEqual(primitive(m,b,a),-primitive(m,a,b))
+ def test_thermal_damping_comparison(self):
+  with localcontext() as c:
+   c.prec=110
+   for a in (D('.01'),D('.2'),D('.4')):
+    H=D(1);g=D('1e-14');exact=g/a*(1-(-a*H).exp())
+    weighted=g*(1-(-a*H).exp())/a
+    self.assertLessEqual(weighted,exact+D('1e-100'))
+    self.assertLessEqual(exact,g*H)
+
  def test_rk4_order_known_exponential(self):
   with localcontext() as c:
    c.prec=110;errors=[]

@@ -2,8 +2,8 @@
 """Actual event coverage against a piecewise reference; no extrapolated times."""
 import csv,json,pathlib,sys
 from decimal import Decimal as D,localcontext
-from piecewise import MODEL,Coupled,domain,END,YEAR
-from run import save,rows,lift
+from piecewise import MODEL,Coupled,domain,END,YEAR,rows,lift
+from run import save
 out=pathlib.Path(sys.argv[1]);result={}
 with localcontext() as ctx:
  ctx.prec=110

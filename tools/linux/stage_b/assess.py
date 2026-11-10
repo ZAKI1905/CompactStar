@@ -37,7 +37,7 @@ def assess(out,workers):
      maximum=[D(0)]*3
      for r,v in zip(data,values):
       assert lift(r['t'])==v['t_s']
-      for j,k in enumerate(KEYS):maximum[j]=max(maximum[j],abs(lift(r[k])-v[k])+v['U_primary']*SCALE[j])
+      for j,k in enumerate(KEYS):maximum[j]=max(maximum[j],abs(lift(r[k])-v[k])+(D(0) if role=='control' and j>0 else v['U_primary']*SCALE[j]))
      reference_errors.append(dict(index=i,maximum_total_error=maximum))
     native=out/'native'/role
     configurations=[]
