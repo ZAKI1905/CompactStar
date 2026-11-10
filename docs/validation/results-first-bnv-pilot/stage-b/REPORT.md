@@ -4,6 +4,9 @@
 candidates, pending completion of the original matrix and numerical gates.**
 Do not interpret this document as an owner acceptance of Stage B.
 
+Monitoring has stopped at the owner's request. See [STATUS.md](STATUS.md) for
+the saved job snapshot and remaining final-report, plot, and manifest work.
+
 The scoped Stage A CONDITIONAL PASS is recorded in
 [OWNER_ACCEPTANCE.md](../preliminary-pair/OWNER_ACCEPTANCE.md). Its accepted matched
 one-year endpoint is +8,121.86954011 K. Historical failures, original thresholds,
