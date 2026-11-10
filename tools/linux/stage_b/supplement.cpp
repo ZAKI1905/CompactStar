@@ -3,6 +3,8 @@
 #include "../../../tests/native/stage.cpp"
 #undef NATIVE_STAGE_NO_MAIN
 #include "trace_context.inc"
+#include "AuditStepper.hpp"
+using AuditStepper=BNV::AuditStepper;
 struct MapRow{double a,b;State before,after;};
 std::vector<MapRow> ReadMaps(const std::filesystem::path& path,bool native){
  std::ifstream f(path);require(bool(f),"missing retained history");std::string line;std::getline(f,line);
@@ -32,10 +34,10 @@ int main(int argc,char** argv){try{
   const auto dir=out/("reference-"+std::to_string(task));std::filesystem::create_directories(dir);
   std::ofstream rhs(dir/"local-rhs.tsv"),diagnostics(dir/"diagnostics.tsv"),mapping(dir/"maps.tsv");
   rhs<<std::setprecision(17)<<"context\tt_s\tcell\tx\te\tmu\tdx\tde\tdmu\n";mapping<<std::setprecision(17)<<"context\tleft\tright\th\tx\te\tmu\treplay_x\treplay_e\treplay_mu\tsteps\trejected\n";
-  TraceContext context(p,0,rhs,diagnostics);
+  std::ofstream applies(dir/"applies.tsv");TraceContext context(p,0,rhs,diagnostics);BindAudit(context,applies);
   for(const auto& r:refs[task].steps){
    ++context.id;auto y=r.before;double t=r.left,h=r.right-r.left;std::size_t count=0;
-   Stepper solver([&](double tt,const State& yy,State& d,int cell){context.SmoothDerivative(tt,yy,d,cell);},context.Breakpoints(),task<3?gsl_odeiv2_step_rk8pd:gsl_odeiv2_step_rkf45,task==0?tight.r:tighter.r,task==0?tight.a:tighter.a,r.right-r.left);
+   AuditStepper solver([&](double tt,const State& yy,State& d,int cell){context.SmoothDerivative(tt,yy,d,cell);},context.Breakpoints(),task<3?gsl_odeiv2_step_rk8pd:gsl_odeiv2_step_rkf45,task==0?tight.r:tighter.r,task==0?tight.a:tighter.a,r.right-r.left);
    while(t<r.right){require(++count<=16,"unexpected one-step reconstruction refinement");solver.Advance(t,y,h,r.right);}
    mapping<<context.id<<'\t'<<r.left<<'\t'<<r.right<<'\t'<<r.right-r.left<<'\t'<<values(r.after)<<'\t'<<values(y)<<'\t'<<count<<'\t'<<solver.Stats().rejected<<'\n';
   }

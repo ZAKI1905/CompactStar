@@ -4,7 +4,7 @@ import json,os,pathlib,shlex,subprocess,sys,time
 ROOT=pathlib.Path(__file__).resolve().parents[3]
 sys.path.insert(0,str(ROOT/'tools/linux/preliminary_pair'))
 from run import BASE,RETAINED,SNAP,load_pair,digest,save,runtime_binding
-out=pathlib.Path(sys.argv[1]);mode=sys.argv[2];build=out/'observation-trace-build';pair=load_pair(SNAP)
+out=pathlib.Path(sys.argv[1]);mode=sys.argv[2];build=out/'observation-trace-build-v2';pair=load_pair(SNAP)
 if mode=='build':
  build.mkdir(exist_ok=False)
  old=ROOT/'tools/linux/preliminary_pair/interpolation.cpp'
@@ -28,8 +28,11 @@ if mode=='build':
  src=src.replace(needle,extra+'  NativeQualification::ProcessPool(5*count,StageWorkers(),out/"workers",')
  src=src.replace('const auto k=task/1921,index=task%1921;','const auto k=task/count,index=task%count;')
  src=src.replace('PASS all 9605 reference observations reproduced exactly','PASS all scientific and accepted reference observations reproduced exactly')
+ src=src.replace('#include "trace_context.inc"','#include "trace_context.inc"\n#include "AuditStepper.hpp"\nusing AuditStepper=BNV::AuditStepper;')
+ src=src.replace('TraceContext context(p,1,rhs,diag);','std::ofstream applies(dir/"applies.tsv");TraceContext context(p,1,rhs,diag);BindAudit(context,applies);').replace('Stepper solver(','AuditStepper solver(')
  (build/'observations.cpp').write_text(src)
- trace=(ROOT/'tests/diagnostics/checkpoint_replay.cpp').read_text();(build/'trace_context.inc').write_text(trace[trace.index('struct TraceContext'):trace.index('std::string Bytes')])
+ from audit_trace import generate
+ generate(ROOT,build)
  flags_path=RETAINED/'CMakeFiles/native_p2_stage.dir/flags.make';link_path=RETAINED/'CMakeFiles/native_p2_stage.dir/link.txt'
  flags={l.split(' = ',1)[0]:shlex.split(l.split(' = ',1)[1]) for l in flags_path.read_text().splitlines() if ' = ' in l}
  link=shlex.split(link_path.read_text());obj=build/'observations.o';binary=build/'observations'
@@ -37,7 +40,7 @@ if mode=='build':
  [str(obj) if x=='CMakeFiles/native_p2_stage.dir/native/stage.cpp.o' else str(binary) if x=='native_p2_stage' else x for x in link]]
  for cmd in commands:subprocess.run(cmd,cwd=RETAINED,check=True)
  assert runtime_binding(binary)==pair[0]['runtime_bindings'][pair[0]['stage_binary']]
- files=[old,ROOT/'tests/native/stage.cpp',ROOT/'tests/diagnostics/checkpoint_replay.cpp',pathlib.Path(__file__),build/'observations.cpp',build/'trace_context.inc',binary,flags_path,link_path]
+ files=[old,ROOT/'tests/native/stage.cpp',ROOT/'tests/diagnostics/checkpoint_replay.cpp',pathlib.Path(__file__),build/'observations.cpp',build/'trace_context.inc',build/'AuditStepper.hpp',ROOT/'tools/linux/stage_b/audit_trace.py',ROOT/'CompactStar/Physics/BNV/BreakpointStepper.hpp',binary,flags_path,link_path]
  files += [(RETAINED/x).resolve() for x in link if x.endswith(('.a','.so'))]
  save(build/'build.json',dict(commands=commands,files={str(p):digest(p) for p in files}))
 else:

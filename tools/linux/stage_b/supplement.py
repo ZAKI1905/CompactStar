@@ -4,11 +4,11 @@ import json,os,pathlib,shlex,subprocess,sys,time
 ROOT=pathlib.Path(__file__).resolve().parents[3]
 sys.path.insert(0,str(ROOT/'tools/linux/preliminary_pair'))
 from run import BASE,RETAINED,SNAP,load_pair,digest,save,runtime_binding
-out=pathlib.Path(sys.argv[1]);mode=sys.argv[2];build=out/'supplement-build';pair=load_pair(SNAP)
+out=pathlib.Path(sys.argv[1]);mode=sys.argv[2];build=out/'supplement-build-v2';pair=load_pair(SNAP)
 if mode=='build':
  build.mkdir(exist_ok=False)
- src=(ROOT/'tests/diagnostics/checkpoint_replay.cpp').read_text()
- (build/'trace_context.inc').write_text(src[src.index('struct TraceContext'):src.index('std::string Bytes')])
+ from audit_trace import generate
+ generate(ROOT,build)
  flags_path=RETAINED/'CMakeFiles/native_p2_stage.dir/flags.make';link_path=RETAINED/'CMakeFiles/native_p2_stage.dir/link.txt'
  flags={l.split(' = ',1)[0]:shlex.split(l.split(' = ',1)[1]) for l in flags_path.read_text().splitlines() if ' = ' in l}
  link=shlex.split(link_path.read_text());obj=build/'supplement.o';binary=build/'supplement'
@@ -16,7 +16,7 @@ if mode=='build':
  [str(obj) if x=='CMakeFiles/native_p2_stage.dir/native/stage.cpp.o' else str(binary) if x=='native_p2_stage' else x for x in link]]
  for cmd in commands:subprocess.run(cmd,cwd=RETAINED,check=True)
  assert runtime_binding(binary)==pair[0]['runtime_bindings'][pair[0]['stage_binary']]
- files=[ROOT/'tests/native/stage.cpp',ROOT/'tests/diagnostics/checkpoint_replay.cpp',ROOT/'tools/linux/stage_b/supplement.cpp',pathlib.Path(__file__),build/'trace_context.inc',binary,flags_path,link_path]
+ files=[ROOT/'tests/native/stage.cpp',ROOT/'tests/diagnostics/checkpoint_replay.cpp',ROOT/'tools/linux/stage_b/supplement.cpp',pathlib.Path(__file__),build/'trace_context.inc',build/'AuditStepper.hpp',ROOT/'tools/linux/stage_b/audit_trace.py',ROOT/'CompactStar/Physics/BNV/BreakpointStepper.hpp',binary,flags_path,link_path]
  files += [(RETAINED/x).resolve() for x in link if x.endswith(('.a','.so'))]
  save(build/'build.json',dict(commands=commands,files={str(p):digest(p) for p in files}))
 else:

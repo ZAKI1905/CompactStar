@@ -37,20 +37,34 @@ def assess_one(task):
   if len(data)!=1921 or len(unc)!=1921:return dict(role=role,configuration=path.name,status='INCOMPLETE')
   refs=[rows(out/'native'/role/f'reference-{k}-observations.tsv') for k in range(5)]
   assert all(len(r)==1921 for r in refs)
-  maxima=dict(direct_state=D(0),known_terms_state=D(0),known_terms_reference_allocation=D(0),power=D(0),power_reference_allocation=D(0),accepted_direct_state=D(0));worst={};reference_temperature=[];reference_contraction_exceptions=0
+  arithmetic=[]
+  for k in range(5):
+   f=out/'interpolation-roundoff'/f'{role}-reference-{k}.json'
+   if f.exists():arithmetic.append({D(r['time_s']):[D(v) for v in r['accumulated_arithmetic_enclosure']] for r in json.loads(f.read_text())['records']})
+  complete_arithmetic=len(arithmetic)==5
+  accepted_refs={}
+  for f in (out/f'{role}-supplement').glob('accepted-*.tsv'):
+   rr=rows(f);assert len(rr)==5;accepted_refs[lift(rr[0]['t'])]=rr
+  def au(k,t,j):
+   if not complete_arithmetic:return D(0)
+   if role=='control' and j>0:return D(0)
+   return arithmetic[k][t][j]
+  maxima=dict(direct_state=D(0),known_terms_state=D(0),known_terms_reference_allocation=D(0),power=D(0),power_reference_allocation=D(0),accepted_direct_state=D(0));worst={};reference_temperature=[];reference_contraction_exceptions=0;unresolved_contractions=[]
   for index,(d,urow) in enumerate(zip(data,unc)):
    t=lift(d['t_s']);y,u=reference(t);pv=powers(m,y);reference_errors=[]
    for j,key in enumerate(('x','e','mu')):
     v=lift(d[('x_state','eta_e_MeV','eta_mu_MeV')[j]]);rv=[lift(r[index][key]) for r in refs]
     differences=[abs(rv[a]-rv[b]) for a,b in ((0,1),(1,2),(3,4),(2,4))]
     total=max(abs(z-y[j])+component_u(u,j) for z in rv)
-    known=2*max(differences)+64*lift(math.ulp(float(max(map(abs,rv)))))+total
+    known=2*max(differences)+64*lift(math.ulp(float(max(map(abs,rv)))))+max(au(k,t,j) for k in range(5))+total
     if role=='control' and j>0:assert v==y[j]==0 and all(z==0 for z in rv);known=D(0)
     budget=at[j]+rt*max(abs(v),abs(rv[-1]));ultra=D('1e-16' if j==0 else '1e-22')+D('1e-11')*max(map(abs,rv))
     checks=dict(direct_state=(abs(v-y[j])+component_u(u,j))/(at[j]+rt*max(abs(v),abs(y[j]))),known_terms_state=(abs(v-rv[-1])+known+lift(urow[('Ux','Ue','Umu')[j]]))/budget,known_terms_reference_allocation=known/(D('.05')*ultra))
     for k,z in checks.items():
      if z>maxima[k]:maxima[k]=z;worst[k]=dict(time_s=t,component=key,ratio=z)
-    if differences[1]>differences[0]/2:reference_contraction_exceptions+=1
+    if differences[1]>differences[0]/2:
+     reference_contraction_exceptions+=1
+     if not complete_arithmetic or not (differences[0]<=au(0,t,j)+au(1,t,j) and differences[1]<=au(1,t,j)+au(2,t,j)):unresolved_contractions.append(dict(time_s=t,component=key,differences=differences[:2]))
    T=D('1e8')*y[0].exp();reference_temperature.append(abs(lift(refs[-1][index]['Tinf'])-T)+T*(u.exp()-1))
    G=max(D(1),sum(abs(lift(d[NATIVE[k]])) for k in ('P_dir_actual','LH','DeltaLnu','Lnu_eq','Lgamma','Lother','Lout')))
    output_scaled=max(lift(urow[k])/SCALE[j] for j,k in enumerate(('Ux','Ue','Umu')))
@@ -61,29 +75,47 @@ def assess_one(task):
     pu=power_gradient*u+normalization;ou=power_gradient*output_scaled
     if k in ('Lout','Lother') or (role=='control' and k in ('P_dir_eq','P_dir_actual','LH','DeltaLnu','DeltaPbeta')):pu=ou=D(0)
     rv=[lift(r[index][k]) for r in refs];native=lift(d[NATIVE[k]])
-    ru=max(abs(v-pv[k])+pu for v in rv)+2*max(abs(rv[a]-rv[b]) for a,b in ((0,1),(1,2),(3,4),(2,4)))+64*lift(math.ulp(float(max(map(abs,rv)))))
+    arithmetic_power=power_gradient*max(au(i,t,j)/SCALE[j] for i in range(5) for j in range(3))
+    if k in ('Lout','Lother') or (role=='control' and k in ('P_dir_eq','P_dir_actual','LH','DeltaLnu','DeltaPbeta')):arithmetic_power=D(0)
+    ru=arithmetic_power+max(abs(v-pv[k])+pu for v in rv)+2*max(abs(rv[a]-rv[b]) for a,b in ((0,1),(1,2),(3,4),(2,4)))+64*lift(math.ulp(float(max(map(abs,rv)))))
     checks=dict(power=(abs(native-rv[-1])+ru+ou)/(D('1e-7' if tier==0 else '1e-9')*G),power_reference_allocation=ru/(D('5e-11')*G))
     for key,z in checks.items():
      if z>maxima[key]:maxima[key]=z;worst[key]=dict(time_s=t,channel=k,ratio=z)
-  history=rows(path/'main.accepted_states.tsv')
-  for r in history:
-   t=lift(r['t_after_s']);y,u=reference(t)
+  history=rows(path/'main.accepted_states.tsv');accepted=[];restart=None
+  def accepted_check(r,prefix_extra=None,label='main'):
+   t=lift(r['t_after_s']);y,u=reference(t);ratios=[];allocations=[];direct=[];unresolved=[]
    for j,k in enumerate(('x_state','eta_e_MeV','eta_mu_MeV')):
-    v=lift(r[k]);z=(abs(v-y[j])+component_u(u,j))/(at[j]+rt*max(abs(v),abs(y[j])))
-    if z>maxima['accepted_direct_state']:maxima['accepted_direct_state']=z;worst['accepted_direct_state']=dict(time_s=t,component=k,ratio=z)
-  restart=None
+    v=lift(r[k]);extra=(prefix_extra or (D(0),)*3)[j]
+    direct.append((abs(v-y[j])+component_u(u,j)+extra)/(at[j]+rt*max(abs(v),abs(y[j]))))
+    if t in accepted_refs:
+     rv=[lift(q[('x','e','mu')[j]]) for q in accepted_refs[t]]
+     differences=[abs(rv[a]-rv[b]) for a,b in ((0,1),(1,2),(3,4),(2,4))]
+     ru=max(abs(q-y[j])+component_u(u,j) for q in rv)+2*max(differences)+max(au(i,t,j) for i in range(5))+64*lift(math.ulp(float(max(map(abs,rv)))))
+     if role=='control' and j>0:assert all(q==0 for q in rv) and v==0;ru=D(0)
+     ratios.append((abs(v-rv[-1])+ru+extra)/(at[j]+rt*max(abs(v),abs(rv[-1]))))
+     allocations.append(ru/(D('.05')*(D('1e-16' if j==0 else '1e-22')+D('1e-11')*max(map(abs,rv)))))
+     if differences[1]>differences[0]/2 and (not complete_arithmetic or not (differences[0]<=au(0,t,j)+au(1,t,j) and differences[1]<=au(1,t,j)+au(2,t,j))):unresolved.append(j)
+   return dict(time_s=t,kind=label,direct_ratios=direct,prescribed_state_ratios=ratios,reference_allocations=allocations,unresolved_contractions=unresolved)
+  for r in history:accepted.append(accepted_check(r))
+  maxima['accepted_direct_state']=max(max(r['direct_ratios']) for r in accepted)
   if (path/'restart-comparison.tsv').exists():
    tail=rows(path/'restart-tail/main.accepted_states.tsv');a=lift(tail[0]['t_before_s']);prefix=next(r for r in history if lift(r['t_after_s'])==a)
-   ya,ua=reference(a);ye,ue=reference(END)
-   inherited=max((abs(lift(prefix[k])-ya[j])+component_u(ua,j))/SCALE[j] for j,k in enumerate(('x_state','eta_e_MeV','eta_mu_MeV')))*(box['L']*(END-a)).exp()
-   final=rows(path/'restart-comparison.tsv')[0];ratios=[]
-   for j,k in enumerate(('x','e','mu')):
-    v=lift(final[k]);extra=D(0) if role=='control' and j>0 else inherited*SCALE[j]
-    ratios.append((abs(v-ye[j])+component_u(ue,j)+extra)/(at[j]+rt*max(abs(v),abs(ye[j]))))
-   restart=dict(time_s=a,prefix_inherited_scaled_bound=inherited,ratios=ratios)
-  result=dict(role=role,configuration=path.name,status='PARTIAL_ORIGINAL_GATES_WITH_DIRECT_FULL_ERROR_ENCLOSURES',maxima=maxima,worst=worst,restart=restart,accepted_steps=len(history),maximum_reference_temperature_bound_K=max(reference_temperature),endpoint_reference_temperature_bound_K=reference_temperature[-1],reference_temperature_bounds_K=reference_temperature,noncontracting_state_comparisons=reference_contraction_exceptions,missing=['An actual-stage accumulated-arithmetic allowance is still required in the prescribed reference U_ref; known_terms_* excludes that unknown positive term.','Contraction exceptions need that independent arithmetic assessment.','Five native reference observations at every accepted main/restart endpoint are not supplied by this direct HP comparison.'],history_sha256=digest(path/'main.accepted_states.tsv'))
+   ya,ua=reference(a)
+   initial=max((abs(lift(prefix[k])-ya[j])+component_u(ua,j))/SCALE[j] for j,k in enumerate(('x_state','eta_e_MeV','eta_mu_MeV')))
+   records=[]
+   for r in tail:
+    inherited=initial*(box['L']*(lift(r['t_after_s'])-a)).exp()
+    records.append(accepted_check(r,[D(0) if role=='control' and j>0 else inherited*SCALE[j] for j in range(3)],'restart'))
+   restart=dict(time_s=a,prefix_initial_scaled_bound=initial,records=records)
+  missing=[]
+  if not complete_arithmetic:missing.append('Actual observation accumulated arithmetic is missing; known_terms_* excludes that unknown positive term.')
+  if any(len(r['prescribed_state_ratios'])!=3 for r in accepted+(restart['records'] if restart else [])):missing.append('Native reference observations missing at accepted main/restart endpoints.')
+  if unresolved_contractions or any(r['unresolved_contractions'] for r in accepted+(restart['records'] if restart else [])):missing.append('State reference contraction exceptions not bounded by actual arithmetic.')
+  state_records=accepted+(restart['records'] if restart else [])
+  gates=dict(scientific_states=maxima['known_terms_state']<=1,reference_state_allocation=maxima['known_terms_reference_allocation']<=1,powers=maxima['power']<=1,reference_power_allocation=maxima['power_reference_allocation']<=1,accepted_restart_states=all(max(r['prescribed_state_ratios'],default=D('Infinity'))<=1 for r in state_records),accepted_reference_allocation=all(max(r['reference_allocations'],default=D('Infinity'))<=1 for r in state_records),state_refinement_contraction=not unresolved_contractions and all(not r['unresolved_contractions'] for r in state_records))
+  result=dict(role=role,configuration=path.name,status='CONDITIONAL_STATE_POWER_BUDGET_CANDIDATE' if not missing and all(gates.values()) else 'PRELIMINARY_INCOMPLETE_OR_FAILED_BUDGET',gates=gates,complete_arithmetic=complete_arithmetic,accepted=accepted,unresolved_contractions=unresolved_contractions,maxima=maxima,worst=worst,restart=restart,accepted_steps=len(history),maximum_reference_temperature_bound_K=max(reference_temperature),endpoint_reference_temperature_bound_K=reference_temperature[-1],reference_temperature_bounds_K=reference_temperature,noncontracting_state_comparisons=reference_contraction_exceptions,missing=missing,history_sha256=digest(path/'main.accepted_states.tsv'))
   target=out/'accuracy';target.mkdir(exist_ok=True);save(target/f'{role}-{path.name}.json',result)
-  return {k:v for k,v in result.items() if k!='reference_temperature_bounds_K'}
+  return {k:v for k,v in result.items() if k not in ('reference_temperature_bounds_K','accepted')}
 
 if __name__=='__main__':
  out=pathlib.Path(sys.argv[1]);workers=int(sys.argv[2]);tasks=[]
@@ -91,4 +123,4 @@ if __name__=='__main__':
   for p in sorted((out/'native'/role).glob('tier-*')):
    if (p/'diagnostics-1920.tsv').exists() and len(rows(p/'diagnostics-1920.tsv'))==1921:tasks.append((out,role,p))
  with concurrent.futures.ProcessPoolExecutor(max_workers=workers) as pool:results=list(pool.map(assess_one,tasks))
- save(out/'accuracy.json',dict(status='PRELIMINARY_ORIGINAL_REFERENCE_GATES_INCOMPLETE',workers=workers,configurations=results))
+ save(out/'accuracy.json',dict(status='CONDITIONAL_BUDGET_CANDIDATE_REQUIRING_ALL_OTHER_GATES',workers=workers,configurations=results))

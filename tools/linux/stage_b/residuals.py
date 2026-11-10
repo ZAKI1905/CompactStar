@@ -19,9 +19,8 @@ def jacobian(model):
 
 def one(task):
  out,role,k=task;old.jacobian_bound=jacobian
- r=old.audit(MODEL,role,f'reference-{k}',directory_override=out/f'{role}-supplement'/f'reference-{k}',write=False)
- r['assumptions'][0]='Frozen binary64 Cstar table with piecewise interpolation and evaluated photon/direct anchors defines the real RHS; normalization uncertainty remains separate.'
- r['assumptions'].append('The measured RHS residual includes smooth native cell-extension versus real piecewise-field differences at event strips; no single-cell derivative assumption is made.')
+ from apply_residuals import audit
+ r=audit(role,f'reference-{k}',out/f'{role}-supplement'/f'reference-{k}',method='rk8pd' if k<3 else 'rkf45')
  target=out/'roundoff';target.mkdir(exist_ok=True);save(target/f'{role}-reference-{k}.json',r)
  return dict(role=role,reference=k,status=r['status'],final_enclosure=r['final_enclosure'],maximum_rhs_defect=r['maximum_rhs_defect'],maximum_replay_difference=r['maximum_replay_difference'])
 if __name__=='__main__':

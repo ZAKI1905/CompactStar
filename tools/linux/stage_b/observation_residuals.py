@@ -2,7 +2,7 @@
 """Piecewise reference arithmetic through every observation, carrying its prefix."""
 import concurrent.futures,functools,json,pathlib,sys,time
 from decimal import Decimal as D,localcontext
-from residuals import old,jacobian,MODEL
+from apply_residuals import audit
 from high_precision import rows,lift
 from run import save
 @functools.lru_cache(maxsize=10)
@@ -10,14 +10,14 @@ def prefix(out,role,k):
  r=json.loads((out/f'roundoff/{role}-reference-{k}.json').read_text())
  return {D(0):(D(0),)*3,**{lift(v['time_s']):tuple(D(x) for x in v['accumulated_arithmetic_enclosure']) for v in r['records']}}
 def point(task):
- out,role,k,p=task;old.jacobian_bound=jacobian
+ out,role,k,p=task
  with localcontext() as ctx:
   ctx.prec=110;before=prefix(out,role,k)
   if (p/'endpoint.txt').exists():
    t=lift((p/'endpoint.txt').read_text().split()[0]);u=before[t];rhs=(D(0),)*3
   else:
    row=rows(p/'maps.tsv')[0];t=lift(row['right']);initial=before[lift(row['left'])]
-   r=old.audit(MODEL,role,f'reference-{k}-'+p.name,p,initial,'rk8pd',False);u=r['final_enclosure'];rhs=r['maximum_rhs_defect']
+   r=audit(role,f'reference-{k}-'+p.name,p,initial,'rk8pd');u=r['final_enclosure'];rhs=r['maximum_rhs_defect']
   return dict(role=role,reference=k,point=p.name,time_s=str(t),accumulated_arithmetic_enclosure=u,maximum_rhs_defect=rhs)
 if __name__=='__main__':
  out=pathlib.Path(sys.argv[1]);workers=int(sys.argv[2]);start=time.monotonic();tasks=[]

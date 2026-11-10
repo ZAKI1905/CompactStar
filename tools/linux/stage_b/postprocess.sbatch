@@ -8,7 +8,10 @@ cd "$RF_SOURCE"
 scontrol show job "$SLURM_JOB_ID" > "$RF_OUTPUT/allocation-$SLURM_JOB_ID.txt"
 run() { srun --ntasks=1 --cpus-per-task="$SLURM_CPUS_PER_TASK" --cpu-bind=cores "$TC/python/bin/python" -B "$@"; }
 case "$RF_PHASE" in
- build) run tools/linux/stage_b/observation_trace.py "$RF_OUTPUT" build ;;
+ build)
+  run tools/linux/stage_b/supplement.py "$RF_OUTPUT" build
+  run tools/linux/stage_b/observation_trace.py "$RF_OUTPUT" build
+  ;;
  source|control)
   run tools/linux/stage_b/supplement.py "$RF_OUTPUT" "$RF_PHASE"
   run tools/linux/stage_b/observation_trace.py "$RF_OUTPUT" "$RF_PHASE"
