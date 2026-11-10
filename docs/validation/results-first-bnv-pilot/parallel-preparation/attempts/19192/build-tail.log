@@ -1,0 +1,25 @@
+[ 96%] Building CXX object tests/CMakeFiles/native_parallel_regression.dir/native/parallel_regression.cpp.o
+In file included from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/../bnv/../rotochemical/coupled.hpp:1,
+                 from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/../bnv/campaign_fixture.hpp:3,
+                 from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/../bnv/coupled_trajectory.cpp:1,
+                 from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/../bnv/adr0017_production_qualification.cpp:2,
+                 from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/../bnv/breakpoint_fixture.hpp:4,
+                 from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/pair.hpp:2,
+                 from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/stage.cpp:2,
+                 from /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/parallel_regression.cpp:4:
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/../bnv/../rotochemical/fixture.hpp:2:9: warning: "main" redefined
+    2 | #define main phase5b_original_validation_main
+      |         ^~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/parallel_regression.cpp:3:9: note: this is the location of the previous definition
+    3 | #define main stage_entry_not_invoked
+      |         ^~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/parallel_regression.cpp:34:5: error: redefinition of 'int main(int, char**)'
+   34 | int main(int argc,char** argv) {
+      |     ^~~~
+/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tests/native/stage.cpp:174:5: note: 'int main(int, char**)' previously defined here
+  174 | int main(int argc,char** argv) {
+      |     ^~~~
+gmake[3]: *** [tests/CMakeFiles/native_parallel_regression.dir/build.make:76: tests/CMakeFiles/native_parallel_regression.dir/native/parallel_regression.cpp.o] Error 1
+gmake[2]: *** [CMakeFiles/Makefile2:3830: tests/CMakeFiles/native_parallel_regression.dir/all] Error 2
+gmake[1]: *** [CMakeFiles/Makefile2:3837: tests/CMakeFiles/native_parallel_regression.dir/rule] Error 2
+gmake: *** [Makefile:1707: native_parallel_regression] Error 2

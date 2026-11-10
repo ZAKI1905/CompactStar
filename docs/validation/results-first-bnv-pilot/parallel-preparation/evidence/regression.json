@@ -1,0 +1,27 @@
+{
+  "comparisons": [
+    {
+      "R20_byte_identical": true,
+      "grid_intervals": 240,
+      "grid_wall_seconds": 396.438780075,
+      "identical_files": 967,
+      "packets": 241,
+      "workers": 1
+    },
+    {
+      "R20_byte_identical": true,
+      "grid_intervals": 240,
+      "grid_wall_seconds": 65.428782841,
+      "identical_files": 967,
+      "packets": 241,
+      "workers": 24
+    }
+  ],
+  "main_integrations": 0,
+  "new_reference_trajectories": 0,
+  "retained_original": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-a-restart-retry-20261109-r1/source-stage/run/trajectory/source/tier-0-cap-0",
+  "scope": "Scheduling regression only. Does not qualify source accuracy or discharge actual-output HP/prefix/roundoff gates.",
+  "speedup": 6.059088414320576,
+  "status": "PASS",
+  "stellar_solves": 0
+}

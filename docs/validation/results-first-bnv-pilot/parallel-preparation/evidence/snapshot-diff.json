@@ -1,0 +1,31 @@
+{
+  "archive_sha256": "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf",
+  "changed_bound_sources": [
+    {
+      "after": "20e71dde73482150df8bf4335e85d48ebaf5d1312d28060ae5cd446f5afafc4e",
+      "before": "f674ab1e89ef4656902642fb04252128a7a2699b3d200bec123022a2ffd2fa38",
+      "path": "tests/CMakeLists.txt"
+    },
+    {
+      "after": "69f7e21d0501d71f7291fdb959f5beacb6508b6bcf6451f3f436d0b891f109ee",
+      "before": "1047688a48c9369f2bf7b2e03fa8c3ae920d8ab1b7877039116691c3077b0e8d",
+      "path": "tests/native/stage.cpp"
+    }
+  ],
+  "control_executed": false,
+  "new_identities": {
+    "control": "880dee60847576fe829dc0c8fd854862c664768a101453d7430f3c1f4bf126e6",
+    "source": "cbe2cd7f4042b7586149b28428d6ea86bfe245997a520c5ca82829734b5b8a9f"
+  },
+  "new_stage": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/parallel-preparation-20261110-r3/build/tests/native_p2_stage",
+  "old_identities": {
+    "control": "584251e18fb131cb8f141e7972de6fcfaecf52a53f818d5f5f6a3f3c8d19fb27",
+    "source": "4fa012bda09d5022df7dce6ad7278978b7f638c3d15786d84750a96da256c4d5"
+  },
+  "old_stage": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/restart-preparation-20261109-r1/build/tests/native_p2_stage",
+  "runtime_linkage_identical": true,
+  "source_qualified": false,
+  "static_rhs_identical": true,
+  "status": "PASS",
+  "unchanged_physics_and_numerics": true
+}

@@ -1,0 +1,46 @@
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+[0[36m[40mInfo in [RotationSolver.cpp:60]  [1[36m[40mAttaching NStar to RotationSolver class...[0m
+PB13 envelope R_upper=12.7682 m_upper=0.920933 s_prime_upper=0.00710088 phat_upper=31.8055 phat_lower=31.7745 xihat_upper=4818.09 mhat_upper=473.085
+ASSEMBLY G begin
+ASSEMBLY G passed
+ASSEMBLY Z begin
+ASSEMBLY Z passed
+PB13 envelope R_upper=12.7682 m_upper=0.920933 s_prime_upper=0.00710088 phat_upper=31.8055 phat_lower=31.7745 xihat_upper=4818.09 mhat_upper=473.085
+REFUSAL historical Mac binding cannot substitute native owner : qualification source hash mismatch
+REFUSAL missing chemical certificate : missing source: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/parallel-preparation-20261110-r3/regression-assembly/missing-certificate
+REFUSAL foreign chemical certificate : qualification source hash mismatch
+REFUSAL missing frozen certificate : missing frozen certificate TSV
+REFUSAL mismatched frozen owner : frozen certificate achieved-B identity failed
+COLLECTED retained 240-grid with workers=1
+COLLECTED retained 240-grid with workers=24
+PASS retained-history reconstruction collected; external exact-byte comparison required; zero main/stellar solves
+
+A total of 0 errors, and 0 warnings were generated.

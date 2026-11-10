@@ -1,0 +1,1 @@
+PASS all IPC fields, exact binary64 including signed zero/subnormal, truncation/trailing/schema refusals

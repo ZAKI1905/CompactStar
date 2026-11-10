@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "old_identities": {
+    "control": "584251e18fb131cb8f141e7972de6fcfaecf52a53f818d5f5f6a3f3c8d19fb27",
+    "source": "4fa012bda09d5022df7dce6ad7278978b7f638c3d15786d84750a96da256c4d5"
+  },
+  "changed_bound_sources": [
+    {
+      "path": "tests/CMakeLists.txt",
+      "before": "f674ab1e89ef4656902642fb04252128a7a2699b3d200bec123022a2ffd2fa38",
+      "after": "20e71dde73482150df8bf4335e85d48ebaf5d1312d28060ae5cd446f5afafc4e"
+    },
+    {
+      "path": "tests/native/stage.cpp",
+      "before": "1047688a48c9369f2bf7b2e03fa8c3ae920d8ab1b7877039116691c3077b0e8d",
+      "after": "69f7e21d0501d71f7291fdb959f5beacb6508b6bcf6451f3f436d0b891f109ee"
+    }
+  ]
+}
