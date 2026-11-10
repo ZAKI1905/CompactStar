@@ -70,4 +70,16 @@ class PiecewiseTests(unittest.TestCase):
     errors.append(abs(y[0]-D('.1').exp()))
    self.assertTrue(all(D(15)<a/b<D(17) for a,b in zip(errors,errors[1:])))
 
+ def test_two_flow_normalization_without_cancellation(self):
+  from chemical_response import normalization_pair_padding
+  with localcontext() as c:
+   c.prec=110;a=D('.1');g=D('.01');b=D('.0001')
+   # Closed-form constant log-temperature flows. Opposite allowed perturbations
+   # make a one-flow allowance inadequate for their temperature difference.
+   anchored=a.exp()-(a-g).exp()
+   perturbed=(a+b).exp()-(a-g-b).exp()
+   pad=normalization_pair_padding((a+2*b).exp(),b,D(1),D(0))
+   self.assertGreater(abs(perturbed-anchored),pad/2)
+   self.assertLess(abs(perturbed-anchored),pad)
+
 if __name__=='__main__':unittest.main()

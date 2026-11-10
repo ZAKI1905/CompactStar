@@ -9,6 +9,9 @@ from decimal import Decimal as D,localcontext
 from piecewise import MODEL,Coupled,domain,SCALE,END,PI
 from run import save
 
+def normalization_pair_padding(Tmax,forcing,horizon,L):
+ return 2*Tmax*((forcing*horizon*(L*horizon).exp()).exp()-1)
+
 def assess(out):
  with localcontext() as ctx:
   ctx.prec=110;m=Coupled(MODEL,'source');box=domain(m)
@@ -66,8 +69,7 @@ def assess(out):
   # Using the domain's Tmax and adding both errors avoids any common-mode
   # cancellation assumption; normalization already in the path is conservative
   # overlap, not a reason to drop the second flow's positive allowance.
-  normalization_u=forcing*END*growth
-  normalization_temperature_padding=2*D('1e8')*box['hi'].exp()*(normalization_u.exp()-1)
+  normalization_temperature_padding=normalization_pair_padding(D('1e8')*box['hi'].exp(),forcing,END,box['L'])
   response={}
   for key,(lo,hi) in integrals.items():
    uniform_comparison_tube=growth*hi

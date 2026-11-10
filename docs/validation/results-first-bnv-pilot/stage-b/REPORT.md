@@ -60,12 +60,17 @@ channels. These channel integrals are not assigned the total-ledger error bar.
 | Net thermal power | 1.93576484e45 | −1.87863379e44 |
 
 The new analytic coupled comparison in [CHEMICAL_RESPONSE.md](CHEMICAL_RESPONSE.md)
-bounds the temperature contribution of LH alone by **+4.9445 to +5.6065 microkelvin**.
-The net reaction term LH−DeltaLnu contributes **−2.8033 to −2.4722 microkelvin**.
+bounds the temperature contribution of LH alone by **+4.936 to +5.615 microkelvin**
+(display bounds rounded outward). The net reaction term LH−DeltaLnu contributes
+**−2.812 to −2.464 microkelvin**.
 These bounds include the response of both chemical variables, thermal damping,
 cell changes, and the high-precision/normalization uncertainty. They compare
 vector fields analytically; no extra counterfactual trajectory was run. The
-relative half-width is about 6.27%, below the existing 10% resolved-signal criterion.
+relative half-width is about 6.43% for LH and 6.58% for the net term, below the
+existing 10% resolved-signal criterion. Both intervals explicitly add an 8.12e−9 K
+allowance on each side for normalizing both comparison flows, without cancellation.
+The earlier narrower preview remains preserved; this additional allowance changes
+no trajectory or threshold.
 Thus this contribution is conditionally numerically resolved by the new comparison
 verification, but physically negligible in this experiment. It is not resolved
 merely by comparing the baseline native trajectory or by subtracting two rounded
