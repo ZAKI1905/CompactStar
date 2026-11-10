@@ -41,3 +41,15 @@ effect astrophysically significant, and does not discharge the full native Stage
 matrix's accuracy, event, reconstruction, or R20 obligations. The new comparison
 argument and implementation remain candidates for independent review under
 GOVERNANCE §5.
+
+A sharper bound uses the thermal damping sign. For both f0 definitions, the
+net direct-minus-cooling power stays positive throughout the box, Cstar slopes
+are positive, and cooling grows with x. Thus -Jxx <= partial f0_x/partial x <= 0.
+Variation of constants gives a lower bound integral exp(-Jxx*(H-s))*g(s) ds
+minus chemical feedback, and an upper bound I(H) plus chemical feedback.
+The feedback magnitude is at most H*exp(LH)*I_upper*sum_j J_0j*s_j (j chemical),
+using the already established full-state comparison bound. Weighted rectangle
+integration is exact for the exponential weight. The report checks the original
+10% signal-resolution criterion on the resulting interval's half-width and
+midpoint. This tightening is an analytic sign/majorant argument, not an assumed
+smallness or a measured response fit.

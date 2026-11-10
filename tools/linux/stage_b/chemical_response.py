@@ -18,7 +18,14 @@ def assess(out):
   beta_coeff=[D(a)-conversion*D(b) for a,b in zip((22020,5670,420,9),(14680,7560,840,24))]
   umax=max(box['Y'])/(m.kb*D('1e8')*box['lo'].exp()*PI)
   assert beta_coeff[0]>sum(abs(beta_coeff[k])*umax**(2*k) for k in range(1,4)), 'net-beta sign not established'
-  integrals={k:[D(0),D(0)] for k in ('LH','net_beta_loss')};segments=[]
+  integrals={k:[D(0),D(0)] for k in ('LH','net_beta_loss')};weighted={k:D(0) for k in integrals}
+  Jxx=max(c['J'][0][0] for c in box['cells'].values())
+  cross=sum(max(c['J'][0][j] for c in box['cells'].values())*SCALE[j] for j in (1,2))
+  # f0_x <= 0: C' > 0, positive net direct-minus-cooling power, cooling grows with x.
+  assert all(m.slopes[c]>0 for c in box['cells'])
+  _,_,_,_,nu_max,photon_max,_=m.powers((box['hi'],*box['Y']))
+  pdir_min=m.pdir-m.erg*sum(box['Y'][j]*abs(m.sigma[j]) for j in range(2))
+  assert pdir_min-nu_max-photon_max>0, 'thermal damping sign unproved'
   for left,right in zip(hp,hp[1:]):
    t=D(left['t_s']);h=D(right['t_s'])-t
    u=D(left['U'])+forcing*t*(box['L']*t).exp()
@@ -48,16 +55,18 @@ def assess(out):
     # Outward padding, far above 110-digit arithmetic/PI error.
     a=lo/(th*cmax)*(1-D('1e-75'));b=hi/(tl*cmin)*(1+D('1e-75'))+D('1e-90')
     integrals[key][0]+=h*a;integrals[key][1]+=h*b
+    weighted[key]+=a*((-Jxx*(END-t-h)).exp()-(-Jxx*(END-t)).exp())/Jxx
   growth=(box['L']*END).exp();assert growth<2
   last=hp[-1];u=D(last['U'])+forcing*END*growth
   T=D('1e8')*D(last['x']).exp();Tlo=T*(-u).exp();Thi=T*u.exp()
   response={}
   for key,(lo,hi) in integrals.items():
-   dmin=(2-growth)*lo;dmax=growth*hi
+   coupling=cross*END*growth*hi
+   dmin=max((2-growth)*lo,weighted[key]-coupling);dmax=min(growth*hi,hi+coupling)
    assert dmax<D('1e-10'),'comparison tube not negligible; recheck domain'
    if key=='LH':bounds=[Tlo*(1-(-dmin).exp()),Thi*(1-(-dmax).exp())]
    else:bounds=[-Thi*(dmax.exp()-1),-Tlo*(dmin.exp()-1)]
-   response[key]=dict(integral_forcing_bounds=integrals[key],delta_x_magnitude_bounds=[dmin,dmax],temperature_effect_K=bounds)
-  result=dict(status='CONDITIONAL_COMPARISON_BOUND_CANDIDATE',responses=response,L=box['L'],growth=growth,domain=box,source_reference_temperature_uncertainty_K=Thi-T,net_beta_sign='negative throughout the checked real domain',scope='Isolated mathematical response defined by omitting LH, or omitting LH-DeltaLnu, from the thermal RHS only, retaining coupled chemical kinetics and all other terms. No counterfactual trajectory was run. Not a new physical BNV model or a native Stage B qualification.',assumptions=['Fixed accepted stellar inputs and retained Decimal arithmetic pads.','Accepted interpolation is continuous; piecewise Jacobian majorants bound both original and term-suppressed vector fields.','The comparison tube stays in the declared domain; maximum extra displacement is explicitly checked below 1e-10 scaled units.'])
+   response[key]=dict(integral_forcing_bounds=integrals[key],delta_x_magnitude_bounds=[dmin,dmax],temperature_effect_K=bounds,relative_half_width=abs(bounds[1]-bounds[0])/abs(bounds[1]+bounds[0]),signal_gate_10_percent=abs(bounds[1]-bounds[0])<=D('.1')*abs(bounds[1]+bounds[0]),cross_chemical_feedback_bound=coupling)
+  result=dict(status='CONDITIONAL_COMPARISON_BOUND_CANDIDATE',responses=response,Jxx=Jxx,thermal_chemical_cross_majorant=cross,L=box['L'],growth=growth,domain=box,source_reference_temperature_uncertainty_K=Thi-T,net_beta_sign='negative throughout the checked real domain',scope='Isolated mathematical response defined by omitting LH, or omitting LH-DeltaLnu, from the thermal RHS only, retaining coupled chemical kinetics and all other terms. No counterfactual trajectory was run. Not a new physical BNV model or a native Stage B qualification.',assumptions=['Fixed accepted stellar inputs and retained Decimal arithmetic pads.','Accepted interpolation is continuous; piecewise Jacobian majorants bound both original and term-suppressed vector fields.','The comparison tube stays in the declared domain; maximum extra displacement is explicitly checked below 1e-10 scaled units.'])
   save(out/'chemical-response.json',result)
 if __name__=='__main__':assess(pathlib.Path(sys.argv[1]))
