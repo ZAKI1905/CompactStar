@@ -783,3 +783,7 @@ target_link_libraries(native_p2_stage PRIVATE CompactStar)
 add_executable(native_o2_configuration native/o2_configuration.cpp)
 target_link_libraries(native_o2_configuration PRIVATE CompactStar)
 add_test(NAME native_o2_configuration COMMAND native_o2_configuration)
+
+# Pure accepted-history selection test: no physical model or integration.
+add_executable(native_restart_schedule native/restart_schedule_test.cpp)
+add_test(NAME native_restart_schedule COMMAND native_restart_schedule)

@@ -5,6 +5,7 @@
 #undef main
 #include "../diagnostics/checkpoint_evidence.hpp"
 #include <cstdlib>
+#include "restart_schedule.hpp"
 
 BNV::MainTrajectoryResult native_main(Ctx p,double a,State y,double b,Tol tol,double cap,
  const std::vector<double>& times,const std::filesystem::path& out) {
@@ -105,7 +106,10 @@ void stage_role(Ctx p,double end,const std::filesystem::path& out) {
         r20.flush();std::cout<<"GRID_COMPLETE tier="<<tier<<" policy="<<policy<<" n="<<n<<'\n';
       }
       if(policy==3) {
-        auto it=std::find_if(main.accepted_steps.begin(),main.accepted_steps.end(),[&](const auto& s){return s.t_right_s>=end/2;});
+        // Stage A coverage policy; Stage B retains its original rule and authorization boundary.
+        auto it=end==Year
+          ? NativeQualification::RestartAtOrBeforeMidpoint(main.accepted_steps,0.,end)
+          : std::find_if(main.accepted_steps.cbegin(),main.accepted_steps.cend(),[&](const auto& s){return s.t_right_s>=end/2;});
         require(it!=main.accepted_steps.end()&&it->t_right_s<end,"no interior restart endpoint");
         const auto checkpoint=dir/"restart.txt";
         {std::ofstream f(checkpoint);f<<std::setprecision(17)<<std::quoted(p->RunCardIdentity())<<'\n'<<it->t_right_s<<'\t'<<values(it->y_right)<<'\n'<<it->ordinal<<'\t'<<it->cumulative_rejected<<'\n';}

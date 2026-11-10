@@ -1,5 +1,16 @@
 # Bounded actual-path qualification proposal
 
+> Stage A restart-selection amendment accepted by the owner after proposal
+> `3557da9`: for each role/tier's quarter-cap main, use the latest accepted
+> **noninitial** endpoint at or before half-time, with a valid nonzero tail.
+> Fail explicitly if none exists; no passive checkpoint or initial-state fallback.
+> This supersedes only the Stage A selection sentence below; its original wording
+> is retained as historical provenance. Stage B and all numerical criteria are
+> unchanged. Preparation is authorized; another Stage A trajectory is not.
+> See `../restart-preparation/OWNER_APPROVAL.md` and the exact applied patch at
+> `../restart-coverage/proposed-selector.patch`.
+
+
 **NOT AUTHORIZED, NOT RUN, NOT LAUNCH-READY.** This is a future run plan, not a
 submission script. Native pair assembly is blocked as recorded in `REPORT.md:1`.
 Commit the eventual runner, snapshot hashes, input manifest and completed
