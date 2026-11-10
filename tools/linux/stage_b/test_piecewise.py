@@ -2,7 +2,7 @@
 """Known-answer crossing/propagation tests, independent of stellar trajectories."""
 import unittest
 from decimal import Decimal as D,localcontext
-from piecewise import step
+from piecewise import step,Coupled,MODEL,domain,SCALE
 
 class PiecewiseTests(unittest.TestCase):
  def test_transverse_crossing_enclosure(self):
@@ -26,6 +26,21 @@ class PiecewiseTests(unittest.TestCase):
     y=step(rhs,y,h);u=(L*h).exp()*u+L*M*h*h*(2*L*h).exp()
    exact=((5*(50*h-crossing)).exp()-1)/5
    self.assertLess(abs(y[0]-exact),u)
+ def test_actual_cell_crossing_local_remainders(self):
+  with localcontext() as c:
+   c.prec=110
+   for role in ('source','control'):
+    m=Coupled(MODEL,role);box=domain(m);h=D('.01')
+    for knot in (93,94,95,96):
+     boundary=m.knots[knot];eta=(D('-2e-7'),D('-5e-7')) if role=='source' else (D(0),D(0))
+     v=m.coupled_rhs((boundary,*eta))[0]
+     initial=(boundary-v*h/3,*eta)
+     coarse=step(m.coupled_rhs,initial,h);fine=initial
+     for _ in range(32):fine=step(m.coupled_rhs,fine,h/32)
+     bound=box['L']*box['M']*h*h*(2*box['L']*h).exp()
+     self.assertLess(max(abs(a-b)/s for a,b,s in zip(coarse,fine,SCALE)),bound)
+     self.assertLess((initial[0]-boundary)*(coarse[0]-boundary),0)
+
  def test_rk4_order_known_exponential(self):
   with localcontext() as c:
    c.prec=110;errors=[]
