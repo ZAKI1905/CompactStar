@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "checks": [
+    "156 endpoint count",
+    "discretization and band from stored endpoints",
+    "C1 stored differences and ratios",
+    "C2 and C3 ratios",
+    "all 361 authenticated inputs unchanged"
+  ],
+  "new_integrations": 0,
+  "source_result_sha256": "7540955a595dae16faf0d211236103b08d700b4bba9d020b546873ae286f8c25"
+}

@@ -1,139 +1,150 @@
-# BNV-THERMO-01-D1 — refinement-report addendum
+# BNV-THERMO-01-D1 — completed verification receipt
 
-2026-11-09. **AUTHENTICATION FAIL; chemical reconstruction unassessed.**
-This is a failure receipt, not D1 qualification or permission for a production
-tolerance change. The original refinement report and all original numerical
-inputs remain unchanged.
+2026-11-09. **D1 FAIL — C1 reference convergence fails at points 1, 64 and 1440.**
+Authentication, RHS fidelity, thermal residuals and the computed C2/C3 inequalities
+pass. These do not override C1. The local chemical reconstruction box is therefore
+**not qualified by D1**, and this receipt does not support a Stage A go-ahead.
 
-The maintained 110-digit Decimal diagnostic was implemented and invoked on an
-EKU compute allocation. It stopped because
-`BNV-THERMO-01_FABLE_ADJUDICATION.md` and its independent identity were not
-available. No replacement adjudication was fabricated from the task prompt.
-The exact failure is retained in
-[job-19183/failure-details.json](evidence/job-19183/failure-details.json#L1).
-Every one of the 13 point records explicitly says `NOT_RUN`; missing reference
-values are JSON nulls, not zeros or fabricated 40-digit answers.
+The fixed calculation was completed once in compute job **19184**, using Python
+Decimal at **110 digits**, classical rational-coefficient RK4, exactly
+`N=64,128,256,512` and offsets `b=-1e-12,0,+1e-12`. All **156 integrations** across
+the 13 retained intervals are preserved. No numerical setting was changed after
+seeing results, and no further numerical execution was attempted.
 
-## Authentication and preserved evidence
+## Exact failures
 
-The clean starting worktree was
-`/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot`,
-branch `candidate/results-first-bnv-pilot-20261108`, exactly at reviewed commit
-`ad4e91aee3837b8b07e7ed723afdd40b765011fe`. All 15 local branch tips were ancestors;
-nine worktrees existed. The committed records identify the actual retained study
-as `/mnt/sdd/zaki/CompactStar/linux-transition-20261010/echem-refinement-20261109-r1/study/output`.
-See [preflight.json](evidence/preflight.json#L1) and the original
-[REPORT.md](../REPORT.md#L30).
+Both chemical components fail C1 at each of these three points for all three
+thermal offsets. There are 30 failed contraction comparisons. The table gives
+the central `b=0` results, with `d1=|eta128-eta64|`,
+`d2=|eta256-eta128|`, `d3=|eta512-eta256|`. Ratios must be at most 0.5 unless the
+new difference is below `1e-60*|eta|`. None of these differences is below that
+floor. Full 110-digit values and all offsets are in
+[evidence/summary.json](evidence/summary.json#L1) and
+[evidence/job-19184/failure-details.json](evidence/job-19184/failure-details.json#L1).
 
-Job 19183 freshly hashed **all 354 external files** against the original,
-reviewed-commit `evidence/external-SHA256SUMS`. They all match. This includes the
-four summary/trace tables and all 13 sets of `checkpoint.json`, `state.tsv`, and
-`diagnostics.tsv` at `atol-5e-27`. This is a new cluster check, not reliance on the
-reviewer's inaccessible traces. The source audit, conditional-roundoff output,
-external inventory and physical-input authentication record were also bound to
-their exact reviewed-commit blobs. The coefficient and tangent tables are
-**outside** the 354-file inventory; their hashes were instead obtained from the
-reviewed commit's `native-regeneration/evidence/authentication.json` and verified
-against the actual cluster bytes. The complete chain is in
-[results.json](evidence/job-19183/results.json#L1), under `authentication`.
+| Point | Time (s) | Component | d2/d1 | d3/d2 | d3 (MeV) | Floor (MeV) |
+| --- | ---: | --- | ---: | ---: | ---: | ---: |
+| 1 | 16,436.25 | eta_e | 0.5000017962425375 | 0.5000002245295105 | 2.509125069314903e-48 | 5.674142684618745e-74 |
+| 1 | 16,436.25 | eta_mu | 0.5000025736801995 | 0.5000003217083688 | 7.915114588944062e-48 | 1.439316317796586e-73 |
+| 64 | 1,051,920 | eta_e | 0.5067672101636893 | 0.5008346053624186 | 5.057726929099665e-43 | 3.631449596826166e-72 |
+| 64 | 1,051,920 | eta_mu | 0.5079193205286363 | 0.5009744806070687 | 1.595412351470938e-42 | 9.211619003908873e-72 |
+| 1440 | 23,668,200 | eta_e | 0.007465670868019653 | 3.623325227348866 | 3.368247284566130e-39 | 8.170676983626176e-71 |
+| 1440 | 23,668,200 | eta_mu | 0.01627237687504062 | 1.357931987344474 | 1.033291333377201e-38 | 2.072587585674555e-70 |
 
-The missing review was absent from tracked paths at the reviewed commit and
-searches under `/mnt/sdd/zaki/CompactStar`, `/home/zaki`, and `/tmp`. A narrow
-connected Google Drive search returned no match. No access to the office Mac or
-Scriptorium is claimed. The owner was asked for the actual file/path and trusted
-digest; none was available during execution. Consequently the review itself
-could not be authenticated or preserved as durable evidence.
+The largest contraction ratio over all offsets is **3.6233252274994592**.
+The small absolute differences do not authorize a replacement convergence
+threshold. The other ten points pass C1. All retained witness nodes were kept,
+including the very short final rk8pd/8 segments at these three points
+(3.637978807091713e-12, 2.328306436538696e-10 and 3.725290298461914e-9 seconds).
+Their presence is recorded, not asserted as a proven cause or removed to force
+convergence. No altered interpolation or step partition was tested.
 
-A post-job rehash confirmed all **360 checked file identities** remained intact:
-[post-execution-input-check.json](evidence/post-execution-input-check.json#L1).
-Original trace contents, modes, physical inputs, audit code, and audit results
-were not modified. Original checksum rows remain intact; this addendum's
-manifests add the new artifacts.
+## Remaining measured gates
 
-## Implementation and validation actually performed
-
-[verify_chemical_reference.py](../../../../../tools/linux/native_qualification/verify_chemical_reference.py#L1)
-contains an independent classical RK4 implementation with rational coefficients,
-the fixed `N=64,128,256,512` matrix and offsets `-1e-12,0,+1e-12`. It reconstructs
-the mathematical reaction/RHS definition from the authenticated audit, without
-importing its recursion or any GSL stepping code. Retained numbers are decoded
-to their original binary64 values and lifted with `Decimal.from_float`.
-Calculation precision is 110 digits. Time is in seconds, chemical state and
-energy are in MeV, and `x=ln(Tinf/1e8 K)`. Each local integration uses
-`tau=t-t_left`, with the exact retained left state, rather than starting at t=0.
-
-The implementation checks all local RHS rows with the fixed two-ulp limit;
-constructs the accepted rk8pd/8 Hermite path using exact node/derivative matches;
-checks rk8pd/16, RKF45/16 and O2 residuals against `rho<=1e-13`; retains both
-uncertainty contributions; and implements C1–C3 and report-only C4. It writes
-failure details before nonzero exit. **Those retained-data numerical paths were
-not executed**, because authentication must precede them. Their implementation
-is not evidence that the 13 intervals pass.
-
-[test_chemical_reference.py](../../../../../tools/linux/native_qualification/test_chemical_reference.py#L1)
-passed **11/11 analytic tests** on the compute node: exact binary64 lifting and
-ulp spacing; constant and cubic-forcing integrals; exponential-solution RK4
-order; quadratic energy with a cross term; four-corner propagation; cubic
-Hermite reproduction; zero-difference convergence and the small-difference
-floor; reaction symmetry; and the exact two-ulp fidelity boundary. See the
-[test log](evidence/job-19183/tests.log#L1). AST parsing, shell syntax and authored
-whitespace were also checked. These tests use synthetic data and do not qualify
-the retained scientific outputs.
-
-| Job | Outcome | Resource evidence |
-| --- | --- | --- |
-| 19182 | 11 tests passed; launch failed before authentication because compute-node PATH lacked Git | [receipt](evidence/job-19182/results.json#L1), [completion](evidence/job-19182/completion.txt#L1) |
-| 19183 | Retained toolchain added to PATH; 11 tests passed; authentication failed only on missing adjudication | [receipt](evidence/job-19183/results.json#L1), [completion](evidence/job-19183/completion.txt#L1) |
-
-Both jobs used `phyn004`, one logical execution CPU (affinity `[0]`), 4 GiB and
-a 30-minute ceiling. Slurm reserved two hardware threads; the execution process
-was pinned to one. Each allocation completed in one second. Job 19183's Python
-process reported 22,272 KiB maximum RSS and 0.557 seconds elapsed; this is not an
-aggregate measurement of all child-process memory. Slurm accounting is disabled;
-the preserved `scontrol` allocation/completion records are the resource evidence.
-The only retry repaired a launch-environment defect before authentication. No
-numerical setting changed and no retained-interval integration ran in either job.
-
-## Disposition and outstanding obligations
-
-| Gate | Disposition |
+| Check | Actual result |
 | --- | --- |
-| Reviewed commit and supplied external/physical inputs | PASS |
-| Governing adjudication authentication | **FAIL — unavailable file and trusted identity** |
-| RHS fidelity, thermal residual, C1, C2, C3 | NOT_RUN for all 13 points |
-| C4 audit validation | NOT_RUN; report-only when executed |
-| D1 local reconstruction qualification | **NOT ESTABLISHED** |
+| Authentication | PASS: 354 external files, source-bound audit/inventories, coefficients, tangent and supplied review |
+| RHS fidelity | PASS: all 14,796 rows / 29,592 chemical components; maximum errors 0.7404581109 ulp (e), 0.8022895880 ulp (mu), below the fixed 2-ulp limit |
+| Thermal band sample check | PASS: maximum rho = 3.1101367210353021e-20, below 1e-13; delta_x remains exactly 1e-12 |
+| C2 computed state inequalities | PASS at all points; maximum ratio 0.001370086143057981 (point 16, eta_mu) |
+| C3 computed energy inequalities | PASS at all points; maximum ratio 0.0004982358353235805 (point 4) |
+| C4 report-only comparisons | No ratio above 1; maximum 0.9865931756010835 (point 128, RKF45/4, eta_e) |
 
-No point/component magnitude is reported for the failed authentication gate:
-it concerns a missing governing input, not a measured chemical error. The
-machine-readable records retain that distinction. No radius, allowance,
-criterion or contribution was changed; `U <= 0.20 F` remains in force.
+The largest O2 error against the proposed reference is 1.9680116805582353 ulp
+(point 1, eta_e). Maximum reference-uncertainty contributions, over all points
+and components, are 6.4428377934800896e-38 MeV from discretization and
+2.6757870102213857e-26 MeV from the thermal offsets. These are reported
+separately; no contribution was removed and `U <= 0.20 F` is unchanged.
+C2/C3 are arithmetic comparisons against the calculated reference and specified
+uncertainty estimate; because C1 fails they do **not** certify the true state.
+C4 is report-only: a ratio above one would void that audit enclosure as a bound,
+not independently fail D1. Here no enclosure is falsified against this reference;
+that is not a proof of the audit bound or a cure for C1.
 
-For a later properly authenticated execution, interpretation remains conditional
-on a continuous thermal band and an adequate chemical-sensitivity estimate.
-Agreement at sampled witness nodes alone does not prove a uniform enclosure.
-The two constant-offset runs are sensitivity probes, not demonstrated extrema
-over all time-dependent thermal perturbations. The implementation retains these
-limitations explicitly. A C4 ratio above one invalidates that audit enclosure
-as a bound; C4 is not an independent D1 acceptance gate.
+[evidence/job-19184/results.json](evidence/job-19184/results.json#L1) is the complete
+machine-readable result: input hashes, 110-digit eta_ref, every integration,
+contraction ratios and zero-difference handling, both u_ref contributions,
+thermal nodes/residuals, recorded radii/energy allowances, O2 errors in MeV and
+ulp, C2/C3/C4 ratios and explicit dispositions. Matching per-point JSON files
+and [summary.tsv](evidence/summary.tsv#L1) support direct inspection.
 
-Even a future D1 PASS would apply only to these 13 local intervals under the
-stated assumptions. The main-prefix error from t=0 and thermal-channel roundoff
-obligations remain open. It would not establish every Stage A checkpoint,
-complete paired-run R18/R20 or restart qualification, chemical heating in the
-one-year temperature observable, or Stage B readiness. A subsequent authorized
-Stage A run must apply the diagnostic to its actual output checkpoints.
+## Authentication, execution and changes
 
-The conditional next-step proposal remains O2 chemical absolute tolerances
-`(1e-24,1e-24) -> (5e-27,5e-27) MeV`, with all other numerical settings unchanged.
-**This failure receipt does not justify that change or request its go-ahead.**
-No production change, Stage A retry, thermal retry, Stage B, master merge or
-certificate promotion occurred.
+The initial worktree was clean at reviewed commit
+`ad4e91aee3837b8b07e7ed723afdd40b765011fe`, on
+`candidate/results-first-bnv-pilot-20261108`, at
+`/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot`.
+All 15 local branch tips were ancestors and nine worktrees existed. The actual
+study directory was recovered from committed records. The complete history and
+initial stopped jobs are retained in [AUTHENTICATION_STOP.md](AUTHENTICATION_STOP.md#L1).
 
-Change classes: numerical-method **test candidate**, engineering, documentation,
-and generated evidence. Authority: the owner's bounded D1 task; GOVERNANCE
-§§2–3 and §5; ADR-0017 §§5–7; INV-11f and INV-15. No production algorithm is
-refactored and no pre-baseline exception is invoked. AI-authored code remains an
-unverified scientific candidate pending domain-owner review. Files added are the
-three maintained diagnostic/test/Slurm files, this addendum, reproduction notes,
-compact receipts and manifests; the parent refinement manifest gains new rows.
+The owner subsequently supplied the original
+[adjudication](review/BNV-THERMO-01_FABLE_ADJUDICATION.md#L1). Its exact bytes were
+preserved and compared with the supplied attachment: SHA-256
+`46201727575270055d237178b2ad0433ddc22837c0cc1fa646a8d34eddcb0066`.
+This authenticates the copy against the owner-provided artifact; a separately
+signed reviewer digest was not supplied and is not claimed. Its provenance and
+Section D comparison are recorded in [review/provenance.json](review/provenance.json#L1).
+The review was committed before execution, at `06066be`. It agrees with the
+implemented fixed matrix and gates. Its arrival resolved the earlier missing
+input without changing numerical settings.
+
+Job 19184 rehashed all 354 original external files on the cluster rather than
+assuming the reviewer had checked them. The coefficient and tangent tables are
+outside that inventory and were authenticated through the exact reviewed
+commit's `native-regeneration/evidence/authentication.json`. Source audit and
+conditional-roundoff output were also checked against reviewed-commit blobs.
+All 361 checked identities passed before and after the diagnostic; all original
+inputs remained unchanged. The original refinement report is unchanged.
+
+The maintained files are
+[verify_chemical_reference.py](../../../../../tools/linux/native_qualification/verify_chemical_reference.py#L1),
+[test_chemical_reference.py](../../../../../tools/linux/native_qualification/test_chemical_reference.py#L1)
+and [chemical_reference.sbatch](../../../../../tools/linux/native_qualification/chemical_reference.sbatch#L1).
+The implementation reuses the mathematical RHS definition, without importing
+the audit recursion or GSL. Printed retained records are first decoded as
+binary64, then lifted exactly into Decimal. Units are explicit: eta and Echem
+in MeV, time in seconds, x=ln(Tinf/1e8 K). Each local origin is its exact retained
+t_left; this is not a new trajectory from t=0.
+
+All **11 analytic tests passed before the retained calculations**: binary64/ulp
+handling, constant and cubic-forcing integrals, exponential RK4 order, quadratic
+energy and four corners, cubic Hermite reproduction, convergence zero/floor
+cases, reaction symmetry and the two-ulp fidelity boundary. The source script
+SHA-256 is unchanged across all three jobs:
+`92e1fb0a5c7e50a66dbd3ee7dd54cf084d4dc1705c74225978a6a6022e76b058`.
+Job 19182 needed a PATH correction before authentication; job 19183 stopped on
+the then-missing review; **19184 is the sole retained-interval numerical run**.
+
+Job 19184 ran on `phyn004` with process affinity `[0]`, one logical execution
+CPU, 4 GiB and a 30-minute ceiling. Its Python process used 9.452 seconds and
+42,344 KiB maximum RSS (not aggregate child memory). Slurm reserved two hardware
+threads while execution was pinned to one. Accounting storage is disabled;
+[allocation](evidence/job-19184/allocation.txt#L1) and
+[completion](evidence/job-19184/completion.txt#L1) receipts are preserved.
+
+Change classes: numerical-method **test candidate**, engineering, documentation
+and generated evidence. Governing authority: owner's D1 task and the supplied
+review Section D; GOVERNANCE §§2–3 and §5; ADR-0017 §§5–7; INV-11f and INV-15.
+No production refactor or pre-baseline exception is involved. AI-authored code
+remains an unverified scientific candidate pending domain-owner review.
+
+## Qualification scope and owner disposition
+
+The thermal interpretation remains conditional: sampled-node agreement is not
+a proof of a uniform continuous thermal enclosure. The constant-offset runs
+are sensitivity probes, not proven extrema over arbitrary time-dependent
+thermal perturbations. Neither that assumption nor the C1 threshold is silently
+weakened by this receipt.
+
+Main-prefix error from t=0 and thermal RHS roundoff remain open obligations.
+This study does not qualify every Stage A checkpoint, complete paired-run
+R18/R20 or restart behavior, chemical heating in the one-year temperature
+observable, or Stage B. Even a later authorized Stage A run must apply the
+specified diagnostic to its actual output checkpoints.
+
+**No production change or Stage A retry is proposed for go-ahead on this FAIL.**
+The sole conditional future change named by the review remains O2 chemical
+absolute tolerances `(1e-24,1e-24) -> (5e-27,5e-27) MeV`, with every other setting
+unchanged, but its D1 prerequisite is unmet. No production change, Stage A,
+additional thermal retry, Stage B, master merge or certificate promotion occurred.

@@ -1,0 +1,28 @@
+JobId=19184 JobName=bnv-thermo-d1
+   UserId=zaki(1038) GroupId=zaki(1041) MCS_label=N/A
+   Priority=4294893291 Nice=0 Account=(null) QOS=(null)
+   JobState=FAILED Reason=NonZeroExitCode Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=1:0
+   RunTime=00:00:11 TimeLimit=00:30:00 TimeMin=N/A
+   SubmitTime=2026-11-09T20:33:48 EligibleTime=2026-11-09T20:33:48
+   AccrueTime=2026-11-09T20:33:48
+   StartTime=2026-11-09T20:33:48 EndTime=2026-11-09T20:33:59 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-11-09T20:33:48 Scheduler=Main
+   Partition=phyall AllocNode:Sid=ekucn1:1109175
+   ReqNodeList=phyn004 ExcNodeList=(null)
+   NodeList=phyn004
+   BatchHost=phyn004
+   NumNodes=1 NumCPUs=2 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:1
+   TRES=cpu=2,node=1,billing=2
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=4G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/native_qualification/chemical_reference.sbatch
+   WorkDir=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot
+   StdErr=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/bnv-thermo-01-d1-20261109-r3/slurm-19184.log
+   StdIn=/dev/null
+   StdOut=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/bnv-thermo-01-d1-20261109-r3/slurm-19184.log
+   Power=
+   
+

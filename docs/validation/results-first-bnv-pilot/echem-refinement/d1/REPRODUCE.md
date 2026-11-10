@@ -1,12 +1,11 @@
 # D1 evidence reproduction
 
-The retained result is an authentication failure, not a numerical reference
-result. The original review must be supplied and authenticated before any
-retained-interval calculations. Do not invent a replacement or hash a newly
-written reconstruction of the review and treat it as independent provenance.
+The final result is **C1 FAIL at points 1, 64 and 1440**, from the sole complete
+retained-interval run, job 19184. No modified-parameter retry is authorized.
+The earlier missing-review stop is historical and remains preserved.
 
-From the repository root, verify the package and external inputs without a
-production solver:
+From the repository root, verify the committed package and all original and
+new external artifacts without executing a production solver:
 
 ```bash
 sha256sum -c docs/validation/results-first-bnv-pilot/echem-refinement/d1/SHA256SUMS
@@ -14,35 +13,42 @@ sha256sum -c docs/validation/results-first-bnv-pilot/echem-refinement/evidence/e
 sha256sum -c docs/validation/results-first-bnv-pilot/echem-refinement/d1/evidence/external-SHA256SUMS
 ```
 
-The complete stopped result is `evidence/job-19183/results.json`; individual
-`evidence/point-*.json` records explicitly identify calculations not run. The
-first launch failure and its exact executed scripts remain under
-`/mnt/sdd/zaki/CompactStar/linux-transition-20261010/bnv-thermo-01-d1-20261109-r1`.
-The authenticated-input check is in the corresponding `-r2` directory. These
-directories are preserved and must not be reused as new output roots.
+The complete result is `evidence/job-19184/results.json`. It includes the
+110-digit references, all 156 RK4 endpoints, uncertainty components, comparisons
+and input authentication chain. `evidence/summary.json` contains every failed
+C1 comparison; `evidence/summary.tsv` provides the point readout; the current
+`evidence/point-*.json` files are exact copies of job 19184's per-point outputs.
+Job 19183's full receipt retains all 13 earlier NOT_RUN dispositions.
+
+The original owner-supplied review is preserved byte-for-byte in
+`review/BNV-THERMO-01_FABLE_ADJUDICATION.md`, with attachment provenance in
+`review/provenance.json`. Its SHA-256 is
+`46201727575270055d237178b2ad0433ddc22837c0cc1fa646a8d34eddcb0066`.
+It was committed at `06066be` before numerical execution. No separately signed
+reviewer digest is claimed.
 
 The maintained wrapper is `tools/linux/native_qualification/chemical_reference.sbatch`.
-Its fixed Slurm limits are one logical execution CPU, 4 GiB and 30 minutes. It
-runs the analytic tests before invoking the diagnostic. Inputs are configured
-through the following environment variables:
+Its fixed limits are one logical execution CPU, 4 GiB and 30 minutes. It runs the
+analytic tests before invoking the diagnostic. Job 19184 used these values:
 
-| Variable | Meaning |
+| Variable | Executed value |
 | --- | --- |
-| `D1_SOURCE` | Actual repository worktree descended from the reviewed commit |
-| `D1_OUTPUT` | Fresh cluster receipt directory under `/mnt/sdd`; its `diagnostic` subdirectory must not exist |
+| `D1_SOURCE` | `/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot` |
+| `D1_OUTPUT` | `/mnt/sdd/zaki/CompactStar/linux-transition-20261010/bnv-thermo-01-d1-20261109-r3` |
 | `D1_PYTHON` | `/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python` |
-| `D1_ADJUDICATION` | Actual supplied adjudication file, not a paraphrase |
-| `D1_ADJUDICATION_SHA256` | Independently supplied/authenticated review SHA-256 |
+| `D1_ADJUDICATION` | `D1_SOURCE` plus `/docs/validation/results-first-bnv-pilot/echem-refinement/d1/review/BNV-THERMO-01_FABLE_ADJUDICATION.md` |
+| `D1_ADJUDICATION_SHA256` | `46201727575270055d237178b2ad0433ddc22837c0cc1fa646a8d34eddcb0066` |
 
-Jobs 19182 and 19183 did not set the last two variables because those inputs
-were unavailable. Authentication therefore could not pass. The wrapper's PATH
-now includes the retained toolchain Git launcher, which repairs job 19182's
-environment defect. Numerical definitions, tolerance, point set and RK4 matrix
-were identical across the attempts.
+The wrapper was submitted with `sbatch --parsable`, with its stdout path set to
+`D1_OUTPUT/slurm-%j.log`. It invokes the maintained Python script with
+`--output D1_OUTPUT/diagnostic --adjudication D1_ADJUDICATION
+--adjudication-sha256 D1_ADJUDICATION_SHA256`. Retained runs must not be
+reused as output roots. The same script rejects an existing output directory.
 
-The diagnostic has no option to skip authentication, relax the fidelity limit,
-change the thermal band, choose another point list or alter the RK4 matrix.
-When a proper review artifact becomes available, inspect Section D against the
-implementation before executing; this package does not claim that comparison
-has happened. Preserve the supplied review and its provenance in Git before
-any further numerical work.
+The `-r1` directory preserves the first launch failure and exact executed
+scripts; `-r2` preserves the missing-review authentication stop; `-r3` preserves
+the final calculation and exact executed scripts. All are under `/mnt/sdd` and
+included in the new external manifest. The original 354-file study inventory
+remains separate and unchanged. The script has no option to skip authentication,
+relax fidelity, change the thermal band, choose another point list or alter the
+RK4 matrix. No production solver is invoked.
