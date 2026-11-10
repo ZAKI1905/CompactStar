@@ -1,17 +1,19 @@
 # First matched one-year thermal comparison
 
-**PRELIMINARY — NOT NUMERICALLY QUALIFIED**
+**OWNER-ACCEPTED CONDITIONAL PASS — restricted one-year Stage A (2026-11-10)**
 
 The missing source evidence has been recovered. The complete exploratory control
 also finished successfully. At one Julian year, the measured finest-reference
 source-minus-control redshifted temperature difference is
-**+8,121.869540125 K**. The source's **+7,404.513886169 K** rise from its own initial
+**+8,121.86954011 K**. The source's **+7,404.513886169 K** rise from its own initial
 temperature is a different quantity: the control cooled by **717.355653957 K**.
 
 All computed numerical gates for this one-year, no-crossing trajectory now pass
-**conditionally**. Formal Stage A qualification remains false because the new
-analytic enclosure and finite-precision implementation are unratified scientific
-candidates under GOVERNANCE §5. No Stage B or historical campaign was launched.
+**conditionally**. The owner accepted the independent review’s CONDITIONAL PASS on 2026-11-10
+under GOVERNANCE §5, solely for the scope in [OWNER_ACCEPTANCE.md](OWNER_ACCEPTANCE.md:1).
+The sealed evidence retains its original pre-acceptance status fields. This acceptance
+does not extend the enclosure or qualify event handling beyond this one-year history.
+No Stage B or historical campaign was launched in the work reported here.
 The controlled P2 neutron sink is a mathematical full-retention benchmark, not a
 realistic decay-rate prediction or an astrophysical constraint.
 
@@ -107,6 +109,13 @@ outward-rounded interval or machine-checked proof. The fixed geometry caches,
 Cstar cells and chemical coefficients remain accepted inputs. BA13 was not
 reopened and no stellar background was regenerated.
 
+The thermal RHS defect is systematic, rather than zero-mean roundoff: the native
+derivative averages 1.0 ulp (source) and 6.1 ulp (control) below the declared real
+RHS. The principal origin is the evaluated photon anchor; binary64 Cstar
+interpolation contributes a smaller offset. Actual-stage arithmetic recursion
+and the separate primary-formula normalization bound already include both
+(independent review F3).
+
 Photon and direct-power normalization were independently reevaluated from the
 frozen geometry and source operands. Their propagated one-year temperature
 contributions are below 1e-12 K. The declared omitted finite-temperature source
@@ -115,9 +124,11 @@ temperature uncertainty but negligible relative to the 8,121.87 K benchmark
 signal. This is the scale of that declared physical-model omission, not a bound
 on every stellar, envelope or physical-source uncertainty.
 
-All four main cap policies give identical histories because the caps are inactive
-on this short horizon. This is schedule/cap consistency, not cap-convergence
-evidence. The independent reference methods, actual-path arithmetic assessments
+All twelve main histories per role are bit-identical across all three tolerance
+tiers and all four caps. The tolerances never controlled a step; the caps are
+inactive. The three restart tails per role are likewise one distinct calculation.
+This establishes accuracy of one history per role, not tier/cap convergence or
+adaptive-controller behavior (independent review F1). The independent reference methods, actual-path arithmetic assessments
 and analytically enclosed high-precision reference provide the accuracy evidence.
 
 ## Thermal and chemical energy
@@ -152,6 +163,12 @@ U_reconstruction=2.1311e33 erg and U_quad=1.8898e29 erg. The full conditional
 total is **9.03414e-5 N**, below **2e-4 N**. The control total is
 **6.99436e-9 N**, also below that same threshold. U_event=0 applies only because
 there is no crossing; stored reconstruction/event budgets are checked separately.
+
+The source R20 residual is explained to seven significant digits by binary64
+baryon-count quantization: B(t)=fl(B0+fl(Bdot*t)). The quantization energy error
+is -2.668167526e37 erg; using the exact linear count leaves +9.88e29 erg,
+or 1.02e-12 N, on all four grids (independent review F4). These diagnostic
+reevaluations do not replace the recorded residual or its conservative bound.
 
 The large source count-subtraction error is exposed and bounded in the ledger;
 it is not subtracted from the reported residual. That cancellation-prone count
@@ -207,13 +224,11 @@ The final artifact job completed with exit 0 in 5m48s; its two-pass hashing and
 verification phase took 311.69 s. Figure review also corrected a rounded display
 limit upward to 2.9e-8 K; the calculated bound and numerical evidence were unchanged.
 
-The smallest remaining action is **independent domain review of `ENCLOSURE.md`
-and its executable majorants/precision pads**, followed by explicit ratification
-or a narrowly specified verification correction. No additional native source or
-control trajectory is currently indicated by the computed budgets. Formal Stage A
-must not be marked PASS before that review. Only after formal Stage A and separate
-owner authorization may the predeclared Stage B be considered; its actual-event
-coverage and longer-horizon requirements remain open. Stage B was not launched.
+The independent review at the external path recorded in `OWNER_ACCEPTANCE.md:1`
+completed with CONDITIONAL PASS. The owner accepted that restricted result and
+conditionally authorized the predeclared Stage B calculation after its runtime
+and piecewise numerical preflight. Stage B's new evidence is recorded separately
+in `../stage-b/`; no one-year bound is automatically carried into that horizon.
 
 Changed files are confined to `tools/linux/preliminary_pair/` and this report's
 directory. Classes: engineering/evidence collection, independent numerical-method

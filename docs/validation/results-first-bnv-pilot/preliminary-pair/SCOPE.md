@@ -1,3 +1,8 @@
+> Status update, 2026-11-10: the owner accepted the restricted Stage A
+> CONDITIONAL PASS after independent review; see `OWNER_ACCEPTANCE.md:1`.
+> Stage B is now authorized subject to runtime and piecewise numerical preflight.
+> The original execution scope below is retained as historical provenance.
+
 # Exploratory matched control and source evidence recovery
 
 Owner authorization: the 2026-11-10 request explicitly permits a one-year zero-BNV
