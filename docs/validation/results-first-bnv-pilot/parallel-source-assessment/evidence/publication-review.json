@@ -1,0 +1,22 @@
+{
+  "status": "APPROVED_AFTER_REVIEW",
+  "authorization": "Owner authorizes publication provided no sensitive information is included.",
+  "repository": "ZAKI1905/CompactStar",
+  "visibility": "public",
+  "ownership": "Connected GitHub user and repository owner both ZAKI1905, admin permission confirmed in previous turn.",
+  "pending_remote_tip": "88da80156ae2be37bd8ad57a50034f133eaff8ab",
+  "automated_scan": "All 59 changed historical blobs in 88da801..d21a9d4; no private key, credential token, password assignment, credential URL or private IPv4 pattern matches.",
+  "manual_review": "Inspected maintained harness/helper sources, snapshots, build/test logs, manifests and analysis outputs. Contents are numerical data, code and provenance; no credentials, private keys, personal contact records or authentication configuration contents identified.",
+  "retained_metadata": [
+    "Filesystem paths with public author username zaki",
+    "Compute-node labels and Slurm job metadata",
+    "SHA-256 hashes of scientific inputs and binaries"
+  ],
+  "metadata_assessment": "These identify reproducibility locations and executions but do not grant access. They were explicitly raised with the owner, are already present in earlier public evidence, and are retained within the conditional publication authorization.",
+  "limitation": "Review is not a guarantee that every possible secret format can be detected.",
+  "additional_scan": {
+    "files": 23,
+    "includes_decompressed_manifests": true,
+    "findings_without_values": []
+  }
+}

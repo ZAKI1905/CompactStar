@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/python/bin/python",
+    "-B",
+    "tools/linux/native_pair/snapshot.py",
+    "stage",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/docs/validation/results-first-bnv-pilot/parallel-preparation/snapshots",
+    "1",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-a-parallel-20261110-r1/source-stage/run"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 7953.050998695195,
+  "user_cpu_seconds": 134510.877333,
+  "system_cpu_seconds": 45452.539897,
+  "max_rss_kib": 436492,
+  "note": "Linux RUSAGE_CHILDREN; maximum child RSS, not simultaneous aggregate RSS"
+}

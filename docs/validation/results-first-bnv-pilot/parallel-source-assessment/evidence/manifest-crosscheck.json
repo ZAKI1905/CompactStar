@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "source_files": 217761,
+  "matched_assessment_input_hashes": {
+    "assessment.json": 173189,
+    "corrected/completed-tests.json": 26
+  },
+  "corrected_assessor_hash_matches": true,
+  "scope": "Matches hashes captured during assessment against subsequent full completed-source inventory. No source inputs modified."
+}

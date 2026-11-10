@@ -1,0 +1,23 @@
+{
+  "root": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot",
+  "head": "d21a9d4ac106ae7052da5b45af276b2a2d72b539",
+  "branch": "candidate/results-first-bnv-pilot-20261108",
+  "entry_clean": true,
+  "all_local_branch_tips_ancestors": true,
+  "worktrees": [
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar                8e6ac58 [candidate/linux-ba13-recovery-20261012]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-closure             093d121 [candidate/linux-ba13-closure-20261019]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence            84e1062 [candidate/linux-ba13-evidence-20261026]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision      bb0f9c5 [candidate/linux-ba13-final-decision-20261030]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot         dad05b1 [candidate/linux-ba13-onset-pilot-20261013]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-uncertainty         4f3cf97 [candidate/linux-ba13-uncertainty-20261012]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot  d21a9d4 [candidate/results-first-bnv-pilot-20261108]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor         6cc7e20 [candidate/linux-x1-oracle-anchor-20261016]",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step            286aafb [candidate/linux-x2-fixed-step-20261016]"
+  ],
+  "source_snapshot_reauthenticated": true,
+  "source_trajectory_exit_code": 0,
+  "source_job_absent_from_squeue": true,
+  "slurm_accounting": "disabled; completed allocation record expired; exact Slurm end time unavailable",
+  "assessment_authority": "Owner: check if the task is finished or not and continue your analysis; no new integration authorized or performed"
+}

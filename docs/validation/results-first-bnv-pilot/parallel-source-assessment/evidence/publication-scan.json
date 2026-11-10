@@ -1,0 +1,318 @@
+{
+  "scope": "all changed blob versions in 88da801..d21a9d4, not only HEAD",
+  "commits": [
+    "d21a9d4ac106ae7052da5b45af276b2a2d72b539",
+    "fac808035a409f9dbe3ccfa8f69c4cd2dcad94a3",
+    "7ebbae07e4c649166f7093379500c6daef3e297f",
+    "f55879d660408f611cd1b1d86dc7704fbea2d07d",
+    "bdf707cb35170906d1894f6f3b8ca2ffbe989dcf"
+  ],
+  "blobs": [
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-source-run/REPORT.md",
+      "sha256": "944b7e3c3c91b61a72c91a0b88df675403487e847468714b113677f2b7dfc1e7",
+      "bytes": 2986
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-source-run/SHA256SUMS",
+      "sha256": "844fcba35ff5e2609d29ca5b86d7f85eed170234824bd179064529e2f9098916",
+      "bytes": 1061
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-source-run/evidence/allocation.txt",
+      "sha256": "f25b6944d21a153b4babfe60075edfe10c575f89e57602b897c52863eb3b1538",
+      "bytes": 1535
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-source-run/evidence/coordinator-affinity.txt",
+      "sha256": "957ab9ad8e64fbe1f3bc881640d5d3f78c3a033cf52525f1c3a8c9bd3b59b971",
+      "bytes": 183
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-source-run/evidence/preflight.txt",
+      "sha256": "09e721f4699e16383352d54e0ece92c2046d66e505ef6ddf1d26c7b424638c1e",
+      "bytes": 151
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-source-run/evidence/publication-status.json",
+      "sha256": "6ee77324c2c711aec53e87f58f5e6b7712109547bdd020a64f111042e86bcf27",
+      "bytes": 424
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-source-run/evidence/submission-commit.txt",
+      "sha256": "0a2cd8476c37c8dc8b107ca164b1e63530b89eceed38076e070e3cccda240b93",
+      "bytes": 41
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-source-run/evidence/submission.txt",
+      "sha256": "3b574500b35196300dbc8928b5304a2b970dd70ea45f39d4138a5fd089fe525c",
+      "bytes": 26
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/REPORT.md",
+      "sha256": "4dd37a2bc9c0bf9776464bd8c0d894c247f51a9c2f2b4f1432b20e09ba5dd7ea",
+      "bytes": 6166
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/REPRODUCE.md",
+      "sha256": "2d9b5768e66393f79b79b73cb42f554a6c61c201dcfe85246f527b86ee821c39",
+      "bytes": 4856
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/SHA256SUMS",
+      "sha256": "86709b69c8f5d2c91d55e3e4ae7e159cde8d5e23a2bf241155c48a683bf4fc77",
+      "bytes": 5977
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/SOURCE_RUN_AUTHORIZATION.md",
+      "sha256": "5509913efa25155de2bad2841c88068f3d8692d9c28d9b99c37387cd6fdb9644",
+      "bytes": 965
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/attempts/19192/build-allocation.txt",
+      "sha256": "1e1659d6c868c549e09d47d1fef227c7e1586b0af6ce396122974fd0f0865e19",
+      "bytes": 1530
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/attempts/19192/build-stage.log",
+      "sha256": "7373c3e00cb5015deebde4d302a0b6ad736b0f65a961c4730832cc0169d6fd1c",
+      "bytes": 54
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/attempts/19192/build-tail.log",
+      "sha256": "942291f325ca6f61a39c9c9d91a338a20110567b89aed2a35e486fd523ebc710",
+      "bytes": 2698
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/attempts/19192/completion.txt",
+      "sha256": "7234e3ffef091dd639df297fedaf51833ff451c32ea0bc44caa1949a89fc4efd",
+      "bytes": 1536
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/attempts/19193/build-allocation.txt",
+      "sha256": "433b1042106240c6d8562873b8273b7d856902031a18fd4e97d9011db3e999f2",
+      "bytes": 1526
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/attempts/19193/build-stage.log",
+      "sha256": "d6426faed4971723114a6988baa4bab78c8e9736f815295c9677ef7e6dcfb375",
+      "bytes": 54
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/attempts/19193/completion.txt",
+      "sha256": "794631dcc65c8d7867ebec765ac17e4b478e3a6c3f43c7bd0246b43395ea6b56",
+      "bytes": 1532
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/evidence/authentication.json",
+      "sha256": "7ee7bb67d3d9cc2caaa3cc57ce4b7fa124bbbc706bde427815dc1ac051719cd0",
+      "bytes": 683
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/evidence/build-allocation.txt",
+      "sha256": "3f43e6d188db11d768642d4eed6792e89028715d7c735c4e1b854d0888c7e26a",
+      "bytes": 1526
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/evidence/build-stage.log",
+      "sha256": "0f41c1b50bae4b16fab2c76bb75138a79e75f180ade35aedee285f094fedea2d",
+      "bytes": 112
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/evidence/completion.txt",
+      "sha256": "20992a1200467b92334c91af3ccf1a6b5dc292a9863369176a3487601fa13945",
+      "bytes": 1524
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/evidence/configure.log",
+      "sha256": "b121845e5224ad2931a9515c466c0f1e425d83b0d5c6cf9a6e3eb149cf65ac85",
+      "bytes": 2118
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/evidence/contracts.log",
+      "sha256": "d8607a3cbb654469a8df0c6875d7455cc98adaf665732f402384f1af495f3c70",
+      "bytes": 1717
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/evidence/external-SHA256SUMS",
+      "sha256": "360823974fed40b2ad312ad0533151e64956875d80fc40a71c1dabd9ab99f825",
+      "bytes": 1088400
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/evidence/library-regression.json",
+      "sha256": "bc02e9eaa8e1f5614dc1ae0fff094682b24412e6f42b035241f021873bc1ce5f",
+      "bytes": 20817
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/evidence/pool-tests.log",
+      "sha256": "6ae1044b94e4418717fb663e756a66fc4ee7d141641845ca7ff942f0ac585f0c",
+      "bytes": 93
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/evidence/progress.jsonl",
+      "sha256": "802b1587a88682425a5f54e4efb4d268f8d890239437c54044caca043f6d0022",
+      "bytes": 150
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/evidence/regression.json",
+      "sha256": "3174fa4b39a7bc78886ea03dcc352d48c6aa8181279359e23dea3ceacce29e61",
+      "bytes": 828
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/evidence/regression.log",
+      "sha256": "40f5373bab9041444ec63fba81f23ee4908ff535902b4406d15c46152626c952",
+      "bytes": 4303
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/evidence/selector-roundtrip.log",
+      "sha256": "911def61a69f41826f976e5715dadda2422655907b24baba8a828adc62f44beb",
+      "bytes": 160
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/evidence/slurm-19194.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/evidence/snapshot-diff.json",
+      "sha256": "a9f9aba300169545518ea5020be679620d43a418c048fb9e03edcecab2bc6b3c",
+      "bytes": 1392
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/evidence/source-head.txt",
+      "sha256": "85744f6401aee78938470f952dd25ba7368de4e805f0bd5317934b67ace15a4d",
+      "bytes": 41
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/evidence/stage-smoke.log",
+      "sha256": "61f2d69eced3f967a09c5db26d5e47d6e1163ff1be765bea0106d065230e2b1d",
+      "bytes": 83
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/evidence/static-rhs.tsv",
+      "sha256": "ed01bc8da5e509a0807e2700c52689920ad3d6f11d06c9e37d4df504697972e4",
+      "bytes": 2688
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/evidence/transport-tests.log",
+      "sha256": "f19023dbb868a5585518d3a45f2c1453b77d73711cba66fc9355696c5ff726c7",
+      "bytes": 105
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/evidence/verify.log",
+      "sha256": "92ba0c45e863bae2f876ec2581de18ee3c425892eb07ad0549d3f5959b2cddb4",
+      "bytes": 4578
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/snapshots/control.json",
+      "sha256": "880dee60847576fe829dc0c8fd854862c664768a101453d7430f3c1f4bf126e6",
+      "bytes": 141647
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/snapshots/identities.json",
+      "sha256": "adfb4ed146ff11994ec818fa33e43f577956f9a11345b3d0f7f909de7cdf0c94",
+      "bytes": 164
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/snapshots/source.json",
+      "sha256": "cbe2cd7f4042b7586149b28428d6ea86bfe245997a520c5ca82829734b5b8a9f",
+      "bytes": 141683
+    },
+    {
+      "path": "tools/linux/native_qualification/parallel_preparation.sbatch",
+      "sha256": "58bc95a9332916d28cf1d76d7aaf42aae41f6538387fcc6cfde1fbc2911b82c7",
+      "bytes": 3428
+    },
+    {
+      "path": "tests/native/parallel_regression.cpp",
+      "sha256": "e562b7ec1386223769de4a81f3a1ec59a7b7a348b17bc787911e34ece5faf130",
+      "bytes": 4240
+    },
+    {
+      "path": "tests/native/stage.cpp",
+      "sha256": "69f7e21d0501d71f7291fdb959f5beacb6508b6bcf6451f3f436d0b891f109ee",
+      "bytes": 14048
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/OWNER_APPROVAL.md",
+      "sha256": "3545a19904929a753caa4e94d11c55f00778f0ae46bfdf2327b6a1e956c89542",
+      "bytes": 2327
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/TRANSPORT_SCHEMA.json",
+      "sha256": "2239db6f43cb2e3f7f3cc5c8e18100958d336a0803b026bcc2cdeeb274ca8fed",
+      "bytes": 840
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/evidence/prebuild-authentication.json",
+      "sha256": "891f83849a68f7a8fa9a8a9df3046e45f6078291dd94262fad6e41616b3b74de",
+      "bytes": 683
+    },
+    {
+      "path": "docs/validation/results-first-bnv-pilot/parallel-preparation/evidence/preflight.json",
+      "sha256": "a7d2bfcbc402ef5cf3344f0537e5450a68445de5bd19d9f0a0883f940a04c6fc",
+      "bytes": 5085
+    },
+    {
+      "path": "tests/CMakeLists.txt",
+      "sha256": "20e71dde73482150df8bf4335e85d48ebaf5d1312d28060ae5cd446f5afafc4e",
+      "bytes": 48976
+    },
+    {
+      "path": "tests/native/checkpoint_transport.hpp",
+      "sha256": "d975313fff415b7adba1a9b1e9e3f03891c61eeda59f752d7daa59eac5813d09",
+      "bytes": 6642
+    },
+    {
+      "path": "tests/native/checkpoint_transport_test.cpp",
+      "sha256": "3720ae6bb7c5bbf45eb10c423f018b274a2d5104e5f057c9410ff8eef7dfb756",
+      "bytes": 2360
+    },
+    {
+      "path": "tests/native/parallel_regression.cpp",
+      "sha256": "1f331510c16f471dc2ffff3574957e589b2e837b34cf2dc94f57a09cfe1ceebd",
+      "bytes": 4232
+    },
+    {
+      "path": "tests/native/process_pool.hpp",
+      "sha256": "b295a843a7df794aecaa30174cf2ecf03052447791362ab82a1c912be085df23",
+      "bytes": 7514
+    },
+    {
+      "path": "tests/native/process_pool_test.cpp",
+      "sha256": "4bc59235c284ad7f7871dd4d77820ac4a2374caa5fd09788de829119d2d023f8",
+      "bytes": 2403
+    },
+    {
+      "path": "tests/native/stage.cpp",
+      "sha256": "268a4204744aba9baeb367f24eef9e837d6a4a7aac8bf5741634b3151bdcf5c4",
+      "bytes": 14012
+    },
+    {
+      "path": "tools/linux/native_qualification/parallel_preparation.py",
+      "sha256": "8031091668f43308331219c29781f1bb7fd5243f5690c165a227d213b1eaeec6",
+      "bytes": 8343
+    },
+    {
+      "path": "tools/linux/native_qualification/parallel_preparation.sbatch",
+      "sha256": "610dceb99c839fe90d65165d2791778ebdc4770267625f83b2fca180d89bb499",
+      "bytes": 3195
+    },
+    {
+      "path": "tools/linux/native_qualification/parallel_stage.sbatch",
+      "sha256": "6001be2ee9f8468a1f0ed38ccb2b1047aafdc1762c795cf6dba3e11e861c35e6",
+      "bytes": 1069
+    }
+  ],
+  "patterns": [
+    "private_key",
+    "github_token",
+    "aws_access",
+    "credential_assignment",
+    "url_credentials",
+    "private_ipv4"
+  ],
+  "findings_without_secret_values": [],
+  "status": "NO_PATTERN_MATCHES",
+  "limitations": "Pattern search is not a guarantee. Manual review of source, provenance and logs is also required."
+}
