@@ -61,14 +61,24 @@ def assess(out):
   growth=(box['L']*END).exp();assert growth<2
   last=hp[-1];u=D(last['U'])+forcing*END*growth
   T=D('1e8')*D(last['x']).exp();Tlo=T*(-u).exp();Thi=T*u.exp()
+  # Close BOTH full and term-suppressed anchored vector fields to the primary
+  # normalization. Each flow differs by at most b H exp(L H) in scaled state.
+  # Using the domain's Tmax and adding both errors avoids any common-mode
+  # cancellation assumption; normalization already in the path is conservative
+  # overlap, not a reason to drop the second flow's positive allowance.
+  normalization_u=forcing*END*growth
+  normalization_temperature_padding=2*D('1e8')*box['hi'].exp()*(normalization_u.exp()-1)
   response={}
   for key,(lo,hi) in integrals.items():
+   uniform_comparison_tube=growth*hi
+   assert uniform_comparison_tube<D('1e-10'),'uniform comparison tube exceeds declared domain margin'
    coupling=cross*END*growth*hi
    dmin=max((2-growth)*lo,weighted[key]-coupling);dmax=min(growth*hi,hi+coupling)
    assert dmax<D('1e-10'),'comparison tube not negligible; recheck domain'
    if key=='LH':bounds=[Tlo*(1-(-dmin).exp()),Thi*(1-(-dmax).exp())]
    else:bounds=[-Thi*(dmax.exp()-1),-Tlo*(dmin.exp()-1)]
-   response[key]=dict(integral_forcing_bounds=integrals[key],delta_x_magnitude_bounds=[dmin,dmax],temperature_effect_K=bounds,relative_half_width=abs(bounds[1]-bounds[0])/abs(bounds[1]+bounds[0]),signal_gate_10_percent=abs(bounds[1]-bounds[0])<=D('.1')*abs(bounds[1]+bounds[0]),cross_chemical_feedback_bound=coupling)
+   bounds=[bounds[0]-normalization_temperature_padding,bounds[1]+normalization_temperature_padding]
+   response[key]=dict(integral_forcing_bounds=integrals[key],delta_x_magnitude_bounds=[dmin,dmax],uniform_comparison_tube=uniform_comparison_tube,normalization_temperature_padding_K=normalization_temperature_padding,temperature_effect_K=bounds,relative_half_width=abs(bounds[1]-bounds[0])/abs(bounds[1]+bounds[0]),signal_gate_10_percent=abs(bounds[1]-bounds[0])<=D('.1')*abs(bounds[1]+bounds[0]),cross_chemical_feedback_bound=coupling)
   result=dict(status='CONDITIONAL_COMPARISON_BOUND_CANDIDATE',responses=response,Jxx=Jxx,thermal_chemical_cross_majorant=cross,L=box['L'],growth=growth,domain=box,source_reference_temperature_uncertainty_K=Thi-T,net_beta_sign='negative throughout the checked real domain',scope='Isolated mathematical response defined by omitting LH, or omitting LH-DeltaLnu, from the thermal RHS only, retaining coupled chemical kinetics and all other terms. No counterfactual trajectory was run. Not a new physical BNV model or a native Stage B qualification.',assumptions=['Fixed accepted stellar inputs and retained Decimal arithmetic pads.','Accepted interpolation is continuous; piecewise Jacobian majorants bound both original and term-suppressed vector fields.','The comparison tube stays in the declared domain; maximum extra displacement is explicitly checked below 1e-10 scaled units.'])
   save(out/'chemical-response.json',result)
 if __name__=='__main__':assess(pathlib.Path(sys.argv[1]))

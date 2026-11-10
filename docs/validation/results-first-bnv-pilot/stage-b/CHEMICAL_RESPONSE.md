@@ -33,8 +33,20 @@ powers; signed net-beta polynomial terms are bounded separately. Temperature and
 Cstar extrema include every intersected cell boundary. Thus no smooth quadrature
 assumption is made across a knot. The counterfactual's additional displacement
 is checked below 1e-10 scaled units, far inside the stated domain margins.
+The check uses exp(LH)*I_upper, which bounds the entire time-dependent tube,
+not only the sharper endpoint displacement.
 This is a conservative bound, not a leading-order energy/C estimate or a new
 integration. The implementation retains the stated 110-digit arithmetic pads.
+
+The primary-formula normalization is closed for both comparison flows. Let b
+be the existing uniform anchored-versus-primary RHS perturbation bound. For
+each full or term-suppressed flow, variation of constants gives
+u_norm=b H exp(LH); the same triangle-majorant L bounds each anchored field.
+The temperature response interval is expanded on each side by
+2 Tmax (exp(u_norm)-1), using the declared domain's Tmax. This explicitly adds
+both flow uncertainties without assuming their photon/direct offsets cancel.
+It conservatively overlaps the normalization allowance already included in the
+full trajectory's rectangle and temperature bounds.
 
 Conditional sign resolution of this diagnostic does not make a microkelvin-scale
 effect astrophysically significant, and does not discharge the full native Stage B
