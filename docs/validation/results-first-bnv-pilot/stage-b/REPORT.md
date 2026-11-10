@@ -311,6 +311,10 @@ The original three-test preflight receipt is preserved byte for byte as
 `evidence/test-piecewise-initial.log:1`; subsequent six- and seven-test receipts
 are retained separately. Final packaging verified all 30 report-file bindings,
 the compressed manifest hash, and every report link.
+The initial Git whitespace check flagged standard CRLF CSV record endings and
+the scheduler's blank receipt footer. File-scoped whitespace attributes retain
+the bound CSV bytes and verbatim scheduler receipt; the final check passes
+without altering scientific data.
 
 Change classes: documentation, generated evidence, and reporting engineering;
 the previously committed piecewise verification retains its numerical-method

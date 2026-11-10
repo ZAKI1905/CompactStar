@@ -1,0 +1,4 @@
+# csv.DictWriter emits standard CRLF records; preserve the bound display bytes.
+*.csv whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Keep the scheduler's verbatim completion receipt, including its blank footer.
+seal-job-*.txt -whitespace
