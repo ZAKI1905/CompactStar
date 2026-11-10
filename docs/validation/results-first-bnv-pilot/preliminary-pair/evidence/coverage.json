@@ -1,0 +1,87 @@
+{
+  "status": "PASS",
+  "original_packets": 43248,
+  "unique_reconstructed_packets": 1921,
+  "records": [
+    {
+      "tier": "tier-0-cap-0",
+      "packets": 3604,
+      "failures": [],
+      "main_sha256": "4b854db1b18eb3e3332a071472b9ba7355a09cac77e20f6e984f1ea699f4a19f"
+    },
+    {
+      "tier": "tier-0-cap-1",
+      "packets": 3604,
+      "failures": [],
+      "main_sha256": "4b854db1b18eb3e3332a071472b9ba7355a09cac77e20f6e984f1ea699f4a19f"
+    },
+    {
+      "tier": "tier-0-cap-2",
+      "packets": 3604,
+      "failures": [],
+      "main_sha256": "4b854db1b18eb3e3332a071472b9ba7355a09cac77e20f6e984f1ea699f4a19f"
+    },
+    {
+      "tier": "tier-0-cap-3",
+      "packets": 3604,
+      "failures": [],
+      "main_sha256": "4b854db1b18eb3e3332a071472b9ba7355a09cac77e20f6e984f1ea699f4a19f"
+    },
+    {
+      "tier": "tier-1-cap-0",
+      "packets": 3604,
+      "failures": [],
+      "main_sha256": "4b854db1b18eb3e3332a071472b9ba7355a09cac77e20f6e984f1ea699f4a19f"
+    },
+    {
+      "tier": "tier-1-cap-1",
+      "packets": 3604,
+      "failures": [],
+      "main_sha256": "4b854db1b18eb3e3332a071472b9ba7355a09cac77e20f6e984f1ea699f4a19f"
+    },
+    {
+      "tier": "tier-1-cap-2",
+      "packets": 3604,
+      "failures": [],
+      "main_sha256": "4b854db1b18eb3e3332a071472b9ba7355a09cac77e20f6e984f1ea699f4a19f"
+    },
+    {
+      "tier": "tier-1-cap-3",
+      "packets": 3604,
+      "failures": [],
+      "main_sha256": "4b854db1b18eb3e3332a071472b9ba7355a09cac77e20f6e984f1ea699f4a19f"
+    },
+    {
+      "tier": "tier-2-cap-0",
+      "packets": 3604,
+      "failures": [],
+      "main_sha256": "4b854db1b18eb3e3332a071472b9ba7355a09cac77e20f6e984f1ea699f4a19f"
+    },
+    {
+      "tier": "tier-2-cap-1",
+      "packets": 3604,
+      "failures": [],
+      "main_sha256": "4b854db1b18eb3e3332a071472b9ba7355a09cac77e20f6e984f1ea699f4a19f"
+    },
+    {
+      "tier": "tier-2-cap-2",
+      "packets": 3604,
+      "failures": [],
+      "main_sha256": "4b854db1b18eb3e3332a071472b9ba7355a09cac77e20f6e984f1ea699f4a19f"
+    },
+    {
+      "tier": "tier-2-cap-3",
+      "packets": 3604,
+      "failures": [],
+      "main_sha256": "4b854db1b18eb3e3332a071472b9ba7355a09cac77e20f6e984f1ea699f4a19f"
+    }
+  ],
+  "ignored_metadata_fields": [
+    "checkpoint_index",
+    "main_atol",
+    "main_maximum_step_s",
+    "main_rtol"
+  ],
+  "elapsed_s": 31.65042320638895,
+  "meaning": "Every retained state/diagnostic packet byte-matches the unique reconstruction at its exact time; remaining metadata matches after excluding only tier/cap/index fields."
+}

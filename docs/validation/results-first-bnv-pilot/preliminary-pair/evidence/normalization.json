@@ -1,0 +1,87 @@
+{
+  "geometry": {
+    "R_km": "12.76617476067661272054465371184051036834716796875",
+    "M_km": "0.92093273643866624400544651507516391575336456298828125",
+    "expnu_surface": "0.9250529681990247166112339982646517455577850341796875",
+    "exp2nu_surface": "0.8557229939738257851189473512931726872920989990234375",
+    "expnu_boundary": "0.9242268589995787930746473648468963801860809326171875",
+    "boundary_index": "20105"
+  },
+  "exact_frozen_operand_photon_normalization": "2774952113909044768771022075534471.2162922599451640248616223565698416362909293248384166657561372687514575965016",
+  "roles": {
+    "source": {
+      "exact_direct_normalization": "33583239602973850891463365800555521.194894017796514162910170853137969970703125000000000000000000000000000000000",
+      "direct_normalization_error": "1354630000217099262.805105982203485837089829146862030029296875000000000000000001000000000000000",
+      "photon_normalization_error": "1664088138877574279.2162922599451640248616223565698416362909293248384166657561382687514575965016",
+      "uniform_scaled_rhs_perturbation": "2.3145909376690131236798224886752378432936001229387275016619554935185777671280883278356481089007731790339996929E-28",
+      "one_year_scaled_state_bound": "7.3057381868161210005838775115652028941222692116672513373206567882440781057866096053510422155906879397830466472E-21",
+      "L": "6.2668506641301597610257451668944469630716547364506158787696252850620419419851964830071861384570653245718085219E-12",
+      "scale": [
+        "1",
+        "0.000001",
+        "0.000001"
+      ]
+    },
+    "control": {
+      "exact_direct_normalization": "0",
+      "direct_normalization_error": "1E-60",
+      "photon_normalization_error": "1664088138877574279.2162922599451640248616223565698416362909293248384166657561382687514575965016",
+      "uniform_scaled_rhs_perturbation": "1.2762105243349841489412681910299913758685082618407858414076064334990409153399234228279596437936835092398167568E-28",
+      "one_year_scaled_state_bound": "4.0275675466398704172217423082665582223354814267447533762222276721283974586092707125479755096956249222397619700E-21",
+      "L": "1.2071191613212112383541414005031649840650566328150604822314235156788123113374500495193883225046259401630466614E-12",
+      "scale": [
+        "1",
+        "0.000001",
+        "0.000001"
+      ]
+    }
+  },
+  "status": "CONDITIONAL_NORMALIZATION_CLOSURE",
+  "scope": "Exact frozen binary64 geometry-cache operands, original envelope constants and source coefficients; no static stellar/background uncertainty requalification.",
+  "assumptions": [
+    "110-digit elementary functions and PI approximation are enclosed by conservative 1e-60 erg/s padding.",
+    "Cached geometry and heat-capacity cell values remain the accepted fixed numerical inputs."
+  ],
+  "files": {
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/preliminary_pair/normalization.cpp": "79d14bd7e3238f2dfff607fbf4239fe7cf36c6b5751a749342634487d0b69002",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/preliminary_pair/normalization.py": "e8ef782308389a5164cfc8ca5cc3d235f7eb5a0c9a6a2724f3b05e32bc9de193",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/preliminary-pair-20261110-r1/normalization-build/normalization": "126e9d932608cfad3118a765c7cf1d3964a95434c38cb861bd4872e7bf0693a6",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/preliminary-pair-20261110-r1/normalization-operands.tsv": "fa9c3292ccff342baaa58a16b43eeff32506cf72fc303d396bfac614615bcec4"
+  },
+  "commands": [
+    [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/g++",
+      "-I/mnt/sdd/zaki/CompactStar/linux-transition-20261010/parallel-preparation-20261110-r3/build/generated/include",
+      "-I/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot",
+      "-isystem",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1/include",
+      "-isystem",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/include",
+      "-isystem",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/CONFIND/include",
+      "-ffp-contract=off",
+      "-O3",
+      "-DNDEBUG",
+      "-std=c++17",
+      "-c",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/preliminary_pair/normalization.cpp",
+      "-o",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/preliminary-pair-20261110-r1/normalization-build/normalization.o"
+    ],
+    [
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/bin/g++",
+      "-ffp-contract=off",
+      "-O3",
+      "-DNDEBUG",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/preliminary-pair-20261110-r1/normalization-build/normalization.o",
+      "-o",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/preliminary-pair-20261110-r1/normalization-build/normalization",
+      "../libCompactStar.a",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/CONFIND/lib/libCONFIND.a",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/Release/Zaki/lib/libZaki.a",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/sysroot/usr/lib64/libz.so",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1/lib/libgsl.a",
+      "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/toolchain/install/gsl-2.7.1/lib/libgslcblas.a"
+    ]
+  ]
+}

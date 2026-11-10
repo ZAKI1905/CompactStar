@@ -1,0 +1,138 @@
+{
+  "status": "PRELIMINARY \u2014 NOT NUMERICALLY QUALIFIED",
+  "source_Tinf_K": "100007404.51388616859912872314453125",
+  "control_Tinf_K": "99999282.64434604346752166748046875",
+  "source_minus_control_K": "8121.86954012513160705566406250",
+  "source_rise_K": "7404.51388616859912872314453125",
+  "control_change_K": "-717.35565395653247833251953125",
+  "energies_erg": {
+    "source": {
+      "P_dir_actual": "1059806442094804977889801173074587397652480.00",
+      "LH": "53161786619322009833267.2772535681724548339843750",
+      "Lnu_full": "6033753200742326368684471528779656724480.00",
+      "Lgamma": "87578675103795887268054460763793323458560.00",
+      "Pnet": "966194013790266764412950385832809977610240.00",
+      "Lout": "0.00",
+      "DeltaLnu": "79742679928983002375010.315079092979431152343750",
+      "Echem_final_erg": "2620393448212749618687737630.976379394531250000000000000000000000000000000000000000000000000000000000"
+    },
+    "control": {
+      "P_dir_actual": "0.00",
+      "LH": "0.00",
+      "Lnu_full": "6031793232603233458388684749195821711360.00",
+      "Lgamma": "87570068715776602291125428519154682429440.00",
+      "Pnet": "-93601861948379835618346616495197850173440.00",
+      "Lout": "0.00",
+      "DeltaLnu": "0.00",
+      "Echem_final_erg": "0E-72"
+    }
+  },
+  "reference_convergence": {
+    "source": {
+      "x": {
+        "maximum_pairwise_differences": [
+          "6.09863722023096244129192200489342212677001953125E-20",
+          "1.08420217248550443400745280086994171142578125000E-19",
+          "3.25260651745651330202235840260982513427734375000E-19",
+          "2.9815559743351371935204952023923397064208984375E-19"
+        ],
+        "twice_maximum_measured_difference": "6.50521303491302660404471680521965026855468750000E-19",
+        "is_complete_uncertainty": false
+      },
+      "e": {
+        "maximum_pairwise_differences": [
+          "1.55096364853692689038389129763118035043589770793914794921875E-25",
+          "2.3264454728053903355758369464467705256538465619087219238281250E-25",
+          "2.1971985020939797613771793383108388297841884195804595947265625E-25",
+          "2.7141863849396220581718097708545656132628209888935089111328125E-25"
+        ],
+        "twice_maximum_measured_difference": "5.4283727698792441163436195417091312265256419777870178222656250E-25",
+        "is_complete_uncertainty": false
+      },
+      "mu": {
+        "maximum_pairwise_differences": [
+          "3.10192729707385378076778259526236070087179541587829589843750E-25",
+          "4.13590306276513837435704346034981426782906055450439453125000E-25",
+          "5.945360652724886413138249974252858010004274547100067138671875E-25",
+          "2.843433355651032632370467378990497309132479131221771240234375E-25"
+        ],
+        "twice_maximum_measured_difference": "1.1890721305449772826276499948505716020008549094200134277343750E-24",
+        "is_complete_uncertainty": false
+      },
+      "Tinf": {
+        "maximum_pairwise_differences": [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "twice_maximum_measured_difference": "0",
+        "is_complete_uncertainty": false
+      }
+    },
+    "control": {
+      "x": {
+        "maximum_pairwise_differences": [
+          "4.2351647362715016953416125033982098102569580078125E-21",
+          "1.016439536705160406881987000815570354461669921875E-20",
+          "6.7762635780344027125465800054371356964111328125000E-21",
+          "6.7762635780344027125465800054371356964111328125E-21"
+        ],
+        "twice_maximum_measured_difference": "2.032879073410320813763974001631140708923339843750E-20",
+        "is_complete_uncertainty": false
+      },
+      "e": {
+        "maximum_pairwise_differences": [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "twice_maximum_measured_difference": "0",
+        "is_complete_uncertainty": false
+      },
+      "mu": {
+        "maximum_pairwise_differences": [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "twice_maximum_measured_difference": "0",
+        "is_complete_uncertainty": false
+      },
+      "Tinf": {
+        "maximum_pairwise_differences": [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "twice_maximum_measured_difference": "0",
+        "is_complete_uncertainty": false
+      }
+    }
+  },
+  "final_chemical_imbalance_MeV": {
+    "source": [
+      "-1.0894196614137575e-10",
+      "-2.7634376967724932e-10"
+    ],
+    "control": [
+      "0",
+      "0"
+    ]
+  },
+  "exact_zero_control_chemistry": true,
+  "input_sha256": {
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-a-parallel-20261110-r1/source-stage/run/trajectory/source/reference-4-observations.tsv": "79f548c918fa8d3a9eb10adf6b485b1d281c95b27990eb219be1767e2b466715",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/preliminary-pair-20261110-r1/control/reference-4-observations.tsv": "5d9520fa9d849ad1887528de81677db31f80c1d419e49bfb4c8a83038399e62f",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/preliminary-pair-20261110-r1/supplement.json": "fa933cc876115472e884946b125c15bf8d3bd5379beb5388a7c1bb0816f1d1b4"
+  },
+  "physical_scope": "Controlled P2 mathematical neutron sink on a frozen certified-input candidate background; not a realistic decay-rate prediction.",
+  "uncertainty_status": "Conditional analytic enclosure with fixed accepted inputs; independent review of the derivation and finite-precision assumptions remains required.",
+  "conditional_numerical_temperature_uncertainty_K": {
+    "plotted_reference_endpoint_temperature_uncertainty_K": "1.2893507716475340562252852259267350341295675688140484928697145242346476766750269923602869122177826457807684973E-8",
+    "plotted_reference_maximum_temperature_uncertainty_K": "2.8235223689543484518262780043329085375844645266707630750749548390527656498018421610258701178541932597946959099E-8"
+  }
+}

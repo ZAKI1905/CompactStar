@@ -1,0 +1,26 @@
+JobId=19287 JobName=pair-evidence-seal
+   UserId=zaki(1038) GroupId=zaki(1041) MCS_label=N/A
+   Priority=4294893226 Nice=0 Account=(null) QOS=(null)
+   JobState=COMPLETED Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:05:48 TimeLimit=03:00:00 TimeMin=N/A
+   SubmitTime=2026-11-10T10:18:36 EligibleTime=2026-11-10T10:18:36
+   AccrueTime=2026-11-10T10:18:36
+   StartTime=2026-11-10T10:18:37 EndTime=2026-11-10T10:24:25 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-11-10T10:18:37 Scheduler=Main
+   Partition=phyall AllocNode:Sid=ekucn1:1246154
+   ReqNodeList=phyn004 ExcNodeList=(null)
+   NodeList=phyn004
+   BatchHost=phyn004
+   NumNodes=1 NumCPUs=48 NumTasks=1 CPUs/Task=24 ReqB:S:C:T=0:0:*:1
+   TRES=cpu=48,node=1,billing=48
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=24 MinMemoryNode=24G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/preliminary_pair/finish.sbatch
+   WorkDir=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot
+   StdErr=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/preliminary-pair-seal-19287.log
+   StdIn=/dev/null
+   StdOut=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/preliminary-pair-seal-19287.log
+   Power=

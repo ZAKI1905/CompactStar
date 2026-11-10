@@ -1,0 +1,17 @@
+{
+  "status": "ARTIFACT_CHECKS_PASS; SCIENTIFIC_QUALIFICATION_REMAINS_CONDITIONAL",
+  "python_syntax": "PASS",
+  "slurm_script_syntax": "PASS",
+  "executed_code_hashes_match_commit_candidates": true,
+  "temperature_and_physics_figures_visually_inspected": true,
+  "figure_upper_bound_rounded_outward": true,
+  "git_whitespace": "PASS with cr-at-eol for the standard CSV line terminators",
+  "production_tracked_files_modified": false,
+  "external_files_verified": 296997,
+  "retained_source_files_reauthenticated": 217761,
+  "large_outputs_stored_on_EKU_mnt_sdd": true,
+  "Stage_B_launched": false,
+  "compressed_manifest_CRC_and_all_record_syntax": "PASS",
+  "manifest_unique_records_in_path_component_order": 296997,
+  "manifest_order_note": "Canonical pathlib component ordering; a preliminary raw-string sorting check was inapplicable."
+}

@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "external_root": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/preliminary-pair-20261110-r1",
+  "manifest": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/preliminary-pair-evidence-20261110-r1/external-SHA256SUMS.gz",
+  "manifest_sha256": "4ff01cd3172a3bf92b7c5c2df5b69d5b138c6cd80910eeb53e7d22c6177c3992",
+  "files": 296997,
+  "total_bytes": 1524570959,
+  "verification": "Every file reread and SHA-256 compared in a second complete pass; file set and sizes checked.",
+  "workers": 24,
+  "elapsed_s": 311.68742245435715,
+  "source_post_authentication": {
+    "status": "PASS",
+    "files": 217761,
+    "failures": [],
+    "manifest_sha256": "47cbb3e1796c2734c3823084f41de25d9c516afbfb83f4e9513a6a11918323ba",
+    "snapshots": {
+      "control": "880dee60847576fe829dc0c8fd854862c664768a101453d7430f3c1f4bf126e6",
+      "source": "cbe2cd7f4042b7586149b28428d6ea86bfe245997a520c5ca82829734b5b8a9f"
+    },
+    "wall_seconds": 26.877898082137108
+  },
+  "failures": [],
+  "script_sha256": "ada77e2fe51cd4bb61be6e9dbb91f67d5a4cad90e4ff2b6f8866d20740544e97"
+}

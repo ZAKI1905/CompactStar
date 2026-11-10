@@ -1,0 +1,50 @@
+{
+  "repository": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot",
+  "branch": "candidate/results-first-bnv-pilot-20261108",
+  "starting_HEAD": "191fac300ec3770bc79f505e3afd606075fc65c3",
+  "local_branch_tips": [
+    "093d121135e35bc50ca2a807470906bcb28ef5c3 refs/heads/candidate/linux-ba13-closure-20261019",
+    "84e1062db78b91e4fb0988074941b1aea6019917 refs/heads/candidate/linux-ba13-evidence-20261026",
+    "bb0f9c5af8ebaf86b5a59aece5551bb9dafbd264 refs/heads/candidate/linux-ba13-final-decision-20261030",
+    "dad05b17056f3ccb1e3871e6e4bb24ebe5db5df4 refs/heads/candidate/linux-ba13-onset-pilot-20261013",
+    "8e6ac589d8d34e78447ee893e43e5673490eb728 refs/heads/candidate/linux-ba13-recovery-20261012",
+    "4f3cf97462ca030f715e26808938f781a2a40945 refs/heads/candidate/linux-ba13-uncertainty-20261012",
+    "5ec9994f5822647aebf79a556c0fe5e11ce77e18 refs/heads/candidate/linux-qualification-corrections-20261011",
+    "f4e7c18f568045febc5bf65c6e95200752196dad refs/heads/candidate/linux-transition-20261010",
+    "6cc7e20713e3c0210faa9036316650816f0290d5 refs/heads/candidate/linux-x1-oracle-anchor-20261016",
+    "286aafb63002093b3052e23a3972903011f36035 refs/heads/candidate/linux-x2-fixed-step-20261016",
+    "191fac300ec3770bc79f505e3afd606075fc65c3 refs/heads/candidate/results-first-bnv-pilot-20261108",
+    "d8e7208b71e01168394e41f8f8f32b027b5d0a63 refs/heads/docs/phase6-cluster-preparation",
+    "9a5c1eca40758e4c39f9f80db7324e12ad23e505 refs/heads/master",
+    "5433fc2da71ba380264f490b87926d850ff9f375 refs/heads/physics/phase6-bnv-campaign-readiness",
+    "0c3f9269c884161c9d89163660a47b141a93ace6 refs/heads/physics/phase6-breakpoint-aware-evolution"
+  ],
+  "all_local_tips_are_ancestors": true,
+  "worktrees": "worktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar\nHEAD 8e6ac589d8d34e78447ee893e43e5673490eb728\nbranch refs/heads/candidate/linux-ba13-recovery-20261012\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-closure\nHEAD 093d121135e35bc50ca2a807470906bcb28ef5c3\nbranch refs/heads/candidate/linux-ba13-closure-20261019\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence\nHEAD 84e1062db78b91e4fb0988074941b1aea6019917\nbranch refs/heads/candidate/linux-ba13-evidence-20261026\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision\nHEAD bb0f9c5af8ebaf86b5a59aece5551bb9dafbd264\nbranch refs/heads/candidate/linux-ba13-final-decision-20261030\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot\nHEAD dad05b17056f3ccb1e3871e6e4bb24ebe5db5df4\nbranch refs/heads/candidate/linux-ba13-onset-pilot-20261013\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-uncertainty\nHEAD 4f3cf97462ca030f715e26808938f781a2a40945\nbranch refs/heads/candidate/linux-ba13-uncertainty-20261012\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot\nHEAD 191fac300ec3770bc79f505e3afd606075fc65c3\nbranch refs/heads/candidate/results-first-bnv-pilot-20261108\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor\nHEAD 6cc7e20713e3c0210faa9036316650816f0290d5\nbranch refs/heads/candidate/linux-x1-oracle-anchor-20261016\n\nworktree /mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step\nHEAD 286aafb63002093b3052e23a3972903011f36035\nbranch refs/heads/candidate/linux-x2-fixed-step-20261016\n\n",
+  "production_diff": "",
+  "new_file_scope": [
+    "tools/linux/preliminary_pair",
+    "docs/validation/results-first-bnv-pilot/preliminary-pair"
+  ],
+  "python_AST_check": "PASS",
+  "python_AST_files": [
+    "tools/linux/preliminary_pair/accepted.py",
+    "tools/linux/preliminary_pair/assess.py",
+    "tools/linux/preliminary_pair/compare.py",
+    "tools/linux/preliminary_pair/coverage.py",
+    "tools/linux/preliminary_pair/export.py",
+    "tools/linux/preliminary_pair/high_precision.py",
+    "tools/linux/preliminary_pair/history_trace.py",
+    "tools/linux/preliminary_pair/interpolation.py",
+    "tools/linux/preliminary_pair/interpolation_roundoff.py",
+    "tools/linux/preliminary_pair/inventory.py",
+    "tools/linux/preliminary_pair/normalization.py",
+    "tools/linux/preliminary_pair/recovery.py",
+    "tools/linux/preliminary_pair/roundoff.py",
+    "tools/linux/preliminary_pair/run.py",
+    "tools/linux/preliminary_pair/seal.py",
+    "tools/linux/preliminary_pair/summarize.py",
+    "tools/linux/preliminary_pair/supplement.py",
+    "tools/linux/preliminary_pair/thermal_enclosure.py"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "status": "CONDITIONAL_PASS",
+  "observations": 19210,
+  "workers": 48,
+  "elapsed_s": 9.595605932176113,
+  "code": {
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/preliminary_pair/interpolation_roundoff.py": "2ce9c46c98a03041a419d2ed6884083f56f43fe5cbf14811028a55bb09eda489",
+    "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/linux/preliminary_pair/roundoff.py": "0d3e4e37a15ae0db74e2a96f51f9fee50a2da6c0e2880b8460920196b00a5bd3"
+  }
+}

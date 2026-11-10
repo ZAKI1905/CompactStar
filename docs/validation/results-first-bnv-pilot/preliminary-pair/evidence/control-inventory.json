@@ -1,0 +1,171 @@
+{
+  "status": "PASS_NATIVE_CHECKS_AND_COVERAGE; NOT_FORMAL_QUALIFICATION",
+  "packets": 43248,
+  "grids": 48,
+  "main_histories": 12,
+  "endpoint_repeats": 12,
+  "restart_tails": 3,
+  "unique_grid_points": 1921,
+  "records": [
+    {
+      "tier": "tier-0-cap-0",
+      "packets": 3604,
+      "grids": 4,
+      "accepted_steps": 12,
+      "rejected": 0,
+      "events": 0,
+      "schedule_repeat_identical": true,
+      "main_sha256": "ed8c973b26128bd10dc91d63991ed1ae0bee2a6ce9f7133a210d4854a86970a2",
+      "maximum_depletion": 0,
+      "maximum_frozen_utilization": 3.098628029939885e-06
+    },
+    {
+      "tier": "tier-0-cap-1",
+      "packets": 3604,
+      "grids": 4,
+      "accepted_steps": 12,
+      "rejected": 0,
+      "events": 0,
+      "schedule_repeat_identical": true,
+      "main_sha256": "ed8c973b26128bd10dc91d63991ed1ae0bee2a6ce9f7133a210d4854a86970a2",
+      "maximum_depletion": 0,
+      "maximum_frozen_utilization": 3.098628029939885e-06
+    },
+    {
+      "tier": "tier-0-cap-2",
+      "packets": 3604,
+      "grids": 4,
+      "accepted_steps": 12,
+      "rejected": 0,
+      "events": 0,
+      "schedule_repeat_identical": true,
+      "main_sha256": "ed8c973b26128bd10dc91d63991ed1ae0bee2a6ce9f7133a210d4854a86970a2",
+      "maximum_depletion": 0,
+      "maximum_frozen_utilization": 3.098628029939885e-06
+    },
+    {
+      "tier": "tier-0-cap-3",
+      "packets": 3604,
+      "grids": 4,
+      "accepted_steps": 12,
+      "rejected": 0,
+      "events": 0,
+      "schedule_repeat_identical": true,
+      "main_sha256": "ed8c973b26128bd10dc91d63991ed1ae0bee2a6ce9f7133a210d4854a86970a2",
+      "maximum_depletion": 0,
+      "maximum_frozen_utilization": 3.098628029939885e-06
+    },
+    {
+      "tier": "tier-1-cap-0",
+      "packets": 3604,
+      "grids": 4,
+      "accepted_steps": 12,
+      "rejected": 0,
+      "events": 0,
+      "schedule_repeat_identical": true,
+      "main_sha256": "ed8c973b26128bd10dc91d63991ed1ae0bee2a6ce9f7133a210d4854a86970a2",
+      "maximum_depletion": 0,
+      "maximum_frozen_utilization": 3.098628029939885e-06
+    },
+    {
+      "tier": "tier-1-cap-1",
+      "packets": 3604,
+      "grids": 4,
+      "accepted_steps": 12,
+      "rejected": 0,
+      "events": 0,
+      "schedule_repeat_identical": true,
+      "main_sha256": "ed8c973b26128bd10dc91d63991ed1ae0bee2a6ce9f7133a210d4854a86970a2",
+      "maximum_depletion": 0,
+      "maximum_frozen_utilization": 3.098628029939885e-06
+    },
+    {
+      "tier": "tier-1-cap-2",
+      "packets": 3604,
+      "grids": 4,
+      "accepted_steps": 12,
+      "rejected": 0,
+      "events": 0,
+      "schedule_repeat_identical": true,
+      "main_sha256": "ed8c973b26128bd10dc91d63991ed1ae0bee2a6ce9f7133a210d4854a86970a2",
+      "maximum_depletion": 0,
+      "maximum_frozen_utilization": 3.098628029939885e-06
+    },
+    {
+      "tier": "tier-1-cap-3",
+      "packets": 3604,
+      "grids": 4,
+      "accepted_steps": 12,
+      "rejected": 0,
+      "events": 0,
+      "schedule_repeat_identical": true,
+      "main_sha256": "ed8c973b26128bd10dc91d63991ed1ae0bee2a6ce9f7133a210d4854a86970a2",
+      "maximum_depletion": 0,
+      "maximum_frozen_utilization": 3.098628029939885e-06
+    },
+    {
+      "tier": "tier-2-cap-0",
+      "packets": 3604,
+      "grids": 4,
+      "accepted_steps": 12,
+      "rejected": 0,
+      "events": 0,
+      "schedule_repeat_identical": true,
+      "main_sha256": "ed8c973b26128bd10dc91d63991ed1ae0bee2a6ce9f7133a210d4854a86970a2",
+      "maximum_depletion": 0,
+      "maximum_frozen_utilization": 3.098628029939885e-06
+    },
+    {
+      "tier": "tier-2-cap-1",
+      "packets": 3604,
+      "grids": 4,
+      "accepted_steps": 12,
+      "rejected": 0,
+      "events": 0,
+      "schedule_repeat_identical": true,
+      "main_sha256": "ed8c973b26128bd10dc91d63991ed1ae0bee2a6ce9f7133a210d4854a86970a2",
+      "maximum_depletion": 0,
+      "maximum_frozen_utilization": 3.098628029939885e-06
+    },
+    {
+      "tier": "tier-2-cap-2",
+      "packets": 3604,
+      "grids": 4,
+      "accepted_steps": 12,
+      "rejected": 0,
+      "events": 0,
+      "schedule_repeat_identical": true,
+      "main_sha256": "ed8c973b26128bd10dc91d63991ed1ae0bee2a6ce9f7133a210d4854a86970a2",
+      "maximum_depletion": 0,
+      "maximum_frozen_utilization": 3.098628029939885e-06
+    },
+    {
+      "tier": "tier-2-cap-3",
+      "packets": 3604,
+      "grids": 4,
+      "accepted_steps": 12,
+      "rejected": 0,
+      "events": 0,
+      "schedule_repeat_identical": true,
+      "main_sha256": "ed8c973b26128bd10dc91d63991ed1ae0bee2a6ce9f7133a210d4854a86970a2",
+      "maximum_depletion": 0,
+      "maximum_frozen_utilization": 3.098628029939885e-06
+    }
+  ],
+  "maximum_state_utilization": [
+    0.10191341765951333,
+    {
+      "point": 1915,
+      "channel": "x"
+    }
+  ],
+  "maximum_diagnostic_utilization": [
+    0.01341041604201453,
+    {
+      "point": 1833,
+      "channel": "Pnet"
+    }
+  ],
+  "elapsed_s": 28.92998743802309,
+  "workers": 24
+}
