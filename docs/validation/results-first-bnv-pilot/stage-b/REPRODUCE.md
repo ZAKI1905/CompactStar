@@ -77,6 +77,9 @@ the compute-node shell. Job scripts use the explicit interpreter path.
    and restart-prefix inheritance. Missing terms remain explicitly incomplete.
    `coverage.py OUT` verifies all 24 policies, 24 endpoint schedule repeats,
    96 grids and six restarts, including equality at common nested-grid times.
+   `matched.py OUT` adds source/control uncertainties and budgets, reports endpoint
+   resolved signals, and records the triangle-inequality proof on the shared
+   scientific grid. Each role checks its own adaptive endpoints separately.
 7. `plot.py OUT` uses the retained plotting environment
    `linux-transition-20261010/native-p2-plotting-env/bin/python`. The computation
    interpreter itself does not include matplotlib.

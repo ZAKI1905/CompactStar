@@ -14,7 +14,7 @@ def compact(v):
   except InvalidOperation:pass
  return v
 bindings={}
-for name in ('assessment.json','chemical-response.json','events-assessment.json','ledger-assessment.json','accuracy.json','coverage.json','roundoff.json','interpolation-roundoff-completion.json','local-assessment.json','resources.json'):
+for name in ('assessment.json','chemical-response.json','events-assessment.json','ledger-assessment.json','accuracy.json','matched.json','coverage.json','roundoff.json','interpolation-roundoff-completion.json','local-assessment.json','resources.json'):
  p=out/name
  if not p.exists():raise FileNotFoundError(p)
  r=json.loads(p.read_text())
