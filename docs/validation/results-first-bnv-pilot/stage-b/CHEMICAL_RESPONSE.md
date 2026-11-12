@@ -5,7 +5,9 @@ source/control separation. Define the contribution of LH by comparing the full
 coupled model y with the same initial-value problem z whose thermal RHS omits
 only LH/(T Cstar). Chemical kinetics and all other terms remain coupled. This is
 a diagnostic mathematical definition, not a proposed alternative physical model.
-No such counterfactual trajectory is run and no production equation is changed.
+The original candidate bound runs no such counterfactual trajectory and changes
+no production equation. The later independent reviewer did integrate the
+term-suppressed diagnostic equations; see the distinction below.
 The net-beta contribution uses LH-DeltaLnu instead. The full source/control pair
 continues to include both terms under ADR-0014/0015.
 
@@ -51,8 +53,8 @@ full trajectory's rectangle and temperature bounds.
 Conditional sign resolution of this diagnostic does not make a microkelvin-scale
 effect astrophysically significant, and does not discharge the full native Stage B
 matrix's accuracy, event, reconstruction, or R20 obligations. The new comparison
-argument and implementation remain candidates for independent review under
-GOVERNANCE §5.
+argument and implementation have now received independent conditional review;
+owner ratification under GOVERNANCE §5 remains pending.
 
 A sharper bound uses the thermal damping sign. For both f0 definitions, the
 net direct-minus-cooling power stays positive throughout the box, Cstar slopes
@@ -65,3 +67,14 @@ integration is exact for the exponential weight. The report checks the original
 10% signal-resolution criterion on the resulting interval's half-width and
 midpoint. This tightening is an analytic sign/majorant argument, not an assumed
 smallness or a measured response fit.
+
+## Independent diagnostic values (documentation correction, 2026-11-12)
+
+The complete channel table is in [REPORT.md](REPORT.md). The reviewer integrated
+term-suppressed coupled three-ODE equations: full minus suppressed temperature
+is +5.19 µK for LH, −2.59 µK for LH−DeltaLnu, −70.5 µK for the actual-potential
+storage channel, and −73.1 µK combined. Only the first two have the analytic
+intervals derived here; storage and total are independent convergence-supported
+estimates. No new computation accompanies this citation. Source:
+`review-evidence/REVIEW.md:281`, `review-evidence/outputs/trajectory-check.json:1`.
+The diagnostic equations are not alternative energy-conserving physical models.

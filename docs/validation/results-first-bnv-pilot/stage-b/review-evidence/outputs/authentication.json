@@ -1,0 +1,369 @@
+{
+ "commit": "49253200a801ad9b336789dffb4e93d535a8e903",
+ "parent": "a4894de37feecee77abd1b5724ef530ec7999a53",
+ "commits_since_stage_a": 24,
+ "checks": [
+  {
+   "check": "commit resolves exactly",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "single parent is a4894de",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Stage A commit c90b220 is an ancestor",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "verification commit 6016c0a is an ancestor",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "reporting commit 8d1588f is an ancestor",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "linear history c90b220..4925320 (no merges)",
+   "status": "PASS",
+   "detail": "24 commits"
+  },
+  {
+   "check": "candidate worktree HEAD is the target commit",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "candidate worktree has no tracked modification",
+   "status": "PASS",
+   "detail": []
+  },
+  {
+   "check": "untracked files are only Python bytecode",
+   "status": "PASS",
+   "detail": "19 untracked"
+  },
+  {
+   "check": "every change since c90b220 is a Stage B addition or the two Stage A doc edits",
+   "status": "PASS",
+   "detail": []
+  },
+  {
+   "check": "no change under CompactStar/, tests/ or other tools since c90b220",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Stage A evidence directory unchanged since c90b220",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "historical BA12R documents byte-unchanged since c90b220",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "every local branch tip is an ancestor of the target or the target itself",
+   "status": "PASS",
+   "detail": "15 tips"
+  },
+  {
+   "check": "clean export bound to the target commit",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "no omitted blob under tools/, tests/, CompactStar/ or the pilot tree",
+   "status": "PASS",
+   "detail": []
+  },
+  {
+   "check": "every bound external original has its recorded SHA-256",
+   "status": "PASS",
+   "detail": []
+  },
+  {
+   "check": "every committed copy has its recorded SHA-256",
+   "status": "PASS",
+   "detail": []
+  },
+  {
+   "check": "every committed display copy equals the 17-digit transform of its external original",
+   "status": "PASS",
+   "detail": []
+  },
+  {
+   "check": "committed manifest-receipt.json is byte-identical to the sealed receipt",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "seal.py hash in the receipt equals the committed seal.py",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "independent full re-hash of all sealed external files (verify_manifest.py)",
+   "status": "PASS",
+   "detail": {
+    "records": 663232,
+    "mismatches": 0,
+    "manifest_sha256": "4eae8a0132354450457f6db79460f30f768f1d9af2123def691a331688af25e0"
+   }
+  },
+  {
+   "check": "deliverable zip matches its .sha256 file",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "qualification.json: every bound input has its recorded SHA-256",
+   "status": "PASS",
+   "detail": 10
+  },
+  {
+   "check": "external qualification.json: 58 checks, all true, none failed",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "preflight-bound model and GSL tableau files have their recorded SHA-256",
+   "status": "PASS",
+   "detail": [
+    "anchors.tsv",
+    "capacity.tsv",
+    "manifest.json",
+    "normalization.json",
+    "rk8pd.c",
+    "rkf45.c"
+   ]
+  },
+  {
+   "check": "thermal-model export manifest (cells, anchors, tool, coefficients)",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "coefficients.tsv equals the committed native-regeneration hash",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "tangent.tsv equals the committed native-regeneration hash",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "GSL rk8pd.c/rkf45.c unchanged since the Stage A review",
+   "status": "PASS",
+   "detail": {
+    "rk8pd.c": "91fb659d853f30c76934d1eaf5174e9382fa62ef6591a60efa779320000bb251",
+    "rkf45.c": "0064196e68256f15a5d6de0e460ff0055fed8c79e2663fde4c2e9d2d35483164"
+   }
+  },
+  {
+   "check": "finalization-provenance script hashes equal the committed files",
+   "status": "PASS",
+   "detail": []
+  },
+  {
+   "check": "HP reference inputs (piecewise.py, reference.py, capacity, anchors) equal committed files",
+   "status": "PASS",
+   "detail": {
+    "source:capacity.tsv": true,
+    "source:anchors.tsv": true,
+    "source:piecewise.py": true,
+    "source:reference.py": true,
+    "control:capacity.tsv": true,
+    "control:anchors.tsv": true,
+    "control:piecewise.py": true,
+    "control:reference.py": true
+   }
+  },
+  {
+   "check": "piecewise.py/reference.py/driver.cpp/run.py unchanged since launch commit ceb2049",
+   "status": "PASS",
+   "detail": [
+    "tools/linux/stage_b/accuracy.py",
+    "tools/linux/stage_b/apply_residuals.py",
+    "tools/linux/stage_b/assess.py",
+    "tools/linux/stage_b/assessment.sbatch",
+    "tools/linux/stage_b/audit_trace.py",
+    "tools/linux/stage_b/chemical_response.py",
+    "tools/linux/stage_b/collect_evidence.py",
+    "tools/linux/stage_b/continuation.cpp",
+    "tools/linux/stage_b/continuation.py",
+    "tools/linux/stage_b/continuation.sbatch",
+    "tools/linux/stage_b/coverage.py",
+    "tools/linux/stage_b/direct.sbatch",
+    "tools/linux/stage_b/direct_prepare.py",
+    "tools/linux/stage_b/events.py",
+    "tools/linux/stage_b/final_summary.py",
+    "tools/linux/stage_b/job.sbatch",
+    "tools/linux/stage_b/ledger.py",
+    "tools/linux/stage_b/local_reference.py",
+    "tools/linux/stage_b/matched.py",
+    "tools/linux/stage_b/migrate.py",
+    "tools/linux/stage_b/native_points.cpp",
+    "tools/linux/stage_b/native_points.py",
+    "tools/linux/stage_b/observation_residuals.py",
+    "tools/linux/stage_b/observation_trace.py",
+    "tools/linux/stage_b/plot.py",
+    "tools/linux/stage_b/postprocess.sbatch",
+    "tools/linux/stage_b/preview_arithmetic.py",
+    "tools/linux/stage_b/qualification.py",
+    "tools/linux/stage_b/residuals.py",
+    "tools/linux/stage_b/resource_report.py",
+    "tools/linux/stage_b/retained.hpp",
+    "tools/linux/stage_b/seal.py",
+    "tools/linux/stage_b/seal.sbatch",
+    "tools/linux/stage_b/supplement.cpp",
+    "tools/linux/stage_b/supplement.py",
+    "tools/linux/stage_b/supplement.sbatch",
+    "tools/linux/stage_b/test_apply_residuals.py",
+    "tools/linux/stage_b/test_audit_source.py",
+    "tools/linux/stage_b/test_piecewise.py"
+   ]
+  },
+  {
+   "check": "every BA12/BA12R value in the Stage B report also appears in the Stage A report or historical BA12R record",
+   "status": "PASS",
+   "detail": {
+    "1.7255917120989046": [
+     true,
+     true
+    ],
+    "32.26041661869904": [
+     true,
+     true
+    ],
+    "0.9329162771682704": [
+     true,
+     true
+    ],
+    "43.54669142406804": [
+     true,
+     true
+    ],
+    "7.611500166686796e": [
+     true,
+     true
+    ],
+    "0.9329163323161163": [
+     true,
+     true
+    ],
+    "94.83035685919317": [
+     true,
+     true
+    ],
+    "21.923678867554578": [
+     true,
+     true
+    ],
+    "4.101136780587133": [
+     true,
+     true
+    ],
+    "41.03343563659818": [
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "check": "the same BA12/BA12R values were already in the Stage A report at c90b220",
+   "status": "PASS",
+   "detail": ""
+  }
+ ],
+ "passed": 35,
+ "total": 35,
+ "changed_paths": 93,
+ "untracked_bytecode_files": 19,
+ "hp_inputs": {
+  "source:/mnt/sdd/zaki/CompactStar/linux-transition-20261010/preliminary-pair-20261110-r1/thermal-model/capacity.tsv": {
+   "recorded": "4c23535180137756691bda078f358818eb04987437f3c5d26bd52ff9f1da6979",
+   "equal": true
+  },
+  "source:/mnt/sdd/zaki/CompactStar/linux-transition-20261010/preliminary-pair-20261110-r1/thermal-model/anchors.tsv": {
+   "recorded": "9e304aabd11fe5f3c6ea6482bce42750a2aeebb964da765a3c7a54f83229bf6d",
+   "equal": true
+  },
+  "source:tools/linux/stage_b/piecewise.py": {
+   "recorded": "e25a0a035f79b3c2231698596907e582fb4acb4ee645af9ff411996fc7eb99f9",
+   "committed": "e25a0a035f79b3c2231698596907e582fb4acb4ee645af9ff411996fc7eb99f9",
+   "equal": true
+  },
+  "source:tools/linux/stage_b/reference.py": {
+   "recorded": "71536737d394e3452da57c1d31b812f05715916f1a5c9f817c1e2dc5ecf349c2",
+   "committed": "71536737d394e3452da57c1d31b812f05715916f1a5c9f817c1e2dc5ecf349c2",
+   "equal": true
+  },
+  "control:/mnt/sdd/zaki/CompactStar/linux-transition-20261010/preliminary-pair-20261110-r1/thermal-model/capacity.tsv": {
+   "recorded": "4c23535180137756691bda078f358818eb04987437f3c5d26bd52ff9f1da6979",
+   "equal": true
+  },
+  "control:/mnt/sdd/zaki/CompactStar/linux-transition-20261010/preliminary-pair-20261110-r1/thermal-model/anchors.tsv": {
+   "recorded": "9e304aabd11fe5f3c6ea6482bce42750a2aeebb964da765a3c7a54f83229bf6d",
+   "equal": true
+  },
+  "control:tools/linux/stage_b/piecewise.py": {
+   "recorded": "e25a0a035f79b3c2231698596907e582fb4acb4ee645af9ff411996fc7eb99f9",
+   "committed": "e25a0a035f79b3c2231698596907e582fb4acb4ee645af9ff411996fc7eb99f9",
+   "equal": true
+  },
+  "control:tools/linux/stage_b/reference.py": {
+   "recorded": "71536737d394e3452da57c1d31b812f05715916f1a5c9f817c1e2dc5ecf349c2",
+   "committed": "71536737d394e3452da57c1d31b812f05715916f1a5c9f817c1e2dc5ecf349c2",
+   "equal": true
+  }
+ },
+ "stage_b_scripts_changed_after_launch_commit": [
+  "tools/linux/stage_b/accuracy.py",
+  "tools/linux/stage_b/apply_residuals.py",
+  "tools/linux/stage_b/assess.py",
+  "tools/linux/stage_b/assessment.sbatch",
+  "tools/linux/stage_b/audit_trace.py",
+  "tools/linux/stage_b/chemical_response.py",
+  "tools/linux/stage_b/collect_evidence.py",
+  "tools/linux/stage_b/continuation.cpp",
+  "tools/linux/stage_b/continuation.py",
+  "tools/linux/stage_b/continuation.sbatch",
+  "tools/linux/stage_b/coverage.py",
+  "tools/linux/stage_b/direct.sbatch",
+  "tools/linux/stage_b/direct_prepare.py",
+  "tools/linux/stage_b/events.py",
+  "tools/linux/stage_b/final_summary.py",
+  "tools/linux/stage_b/job.sbatch",
+  "tools/linux/stage_b/ledger.py",
+  "tools/linux/stage_b/local_reference.py",
+  "tools/linux/stage_b/matched.py",
+  "tools/linux/stage_b/migrate.py",
+  "tools/linux/stage_b/native_points.cpp",
+  "tools/linux/stage_b/native_points.py",
+  "tools/linux/stage_b/observation_residuals.py",
+  "tools/linux/stage_b/observation_trace.py",
+  "tools/linux/stage_b/plot.py",
+  "tools/linux/stage_b/postprocess.sbatch",
+  "tools/linux/stage_b/preview_arithmetic.py",
+  "tools/linux/stage_b/qualification.py",
+  "tools/linux/stage_b/residuals.py",
+  "tools/linux/stage_b/resource_report.py",
+  "tools/linux/stage_b/retained.hpp",
+  "tools/linux/stage_b/seal.py",
+  "tools/linux/stage_b/seal.sbatch",
+  "tools/linux/stage_b/supplement.cpp",
+  "tools/linux/stage_b/supplement.py",
+  "tools/linux/stage_b/supplement.sbatch",
+  "tools/linux/stage_b/test_apply_residuals.py",
+  "tools/linux/stage_b/test_audit_source.py",
+  "tools/linux/stage_b/test_piecewise.py"
+ ]
+}

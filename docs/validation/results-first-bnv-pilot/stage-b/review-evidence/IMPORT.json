@@ -1,0 +1,155 @@
+{
+  "date": "2026-11-12",
+  "reviewed_commit": "49253200a801ad9b336789dffb4e93d535a8e903",
+  "repository": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot",
+  "branch": "candidate/results-first-bnv-pilot-20261108",
+  "entry_status": "No tracked changes; three pre-existing __pycache__ directories untracked.",
+  "review_root": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-independent-review-20261111",
+  "review_manifest_sha256": "d5243f3a2878a4cab84119585bbc20eab6dc1449f31197b895644e10817e2b0c",
+  "verification_scope": "Only listed original review files rehashed against the original SHA256SUMS; no full external manifest rehash or numerical rerun. Copies are byte-identical.",
+  "files": [
+    {
+      "path": "REVIEW.md",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-independent-review-20261111/REVIEW.md",
+      "sha256": "c3178746fc302bf7fea489630c433a1b6a4178fd657a04e2f278c3a8f2b7308b",
+      "matches_review_SHA256SUMS": true
+    },
+    {
+      "path": "outputs/trajectory-check.json",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-independent-review-20261111/outputs/trajectory-check.json",
+      "sha256": "6cfe87e7b0993c6071a9109051a9517f4261f11fd7971d8c3a50996e872e273c",
+      "matches_review_SHA256SUMS": true
+    },
+    {
+      "path": "outputs/ledger-check.json",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-independent-review-20261111/outputs/ledger-check.json",
+      "sha256": "52cdf74aa691047d874995e9fdae624be3fe872b7d6e244c982e8aaf27c5f45e",
+      "matches_review_SHA256SUMS": true
+    },
+    {
+      "path": "outputs/crossings-check.json",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-independent-review-20261111/outputs/crossings-check.json",
+      "sha256": "779e946238ad15cdf1f9f1db4dec6b4320230a1d09d83dfada26936544e8b0db",
+      "matches_review_SHA256SUMS": true
+    },
+    {
+      "path": "outputs/longterm.json",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-independent-review-20261111/outputs/longterm.json",
+      "sha256": "878392dbb39bb7385380e6917ae46e47523ab54aa9abca95d85b6220a73cf87e",
+      "matches_review_SHA256SUMS": true
+    },
+    {
+      "path": "outputs/authentication.json",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-independent-review-20261111/outputs/authentication.json",
+      "sha256": "509702835dfd130d1600928b43281e9f3a26821002d6a7795c7119159621864f",
+      "matches_review_SHA256SUMS": true
+    },
+    {
+      "path": "outputs/rerun-comparison.json",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-independent-review-20261111/outputs/rerun-comparison.json",
+      "sha256": "7ef175e8194cdfc710cf8a886c7eb168d31b9a1f053722801ce1c3b45aed5524",
+      "matches_review_SHA256SUMS": true
+    },
+    {
+      "path": "outputs/closeout-check.json",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-independent-review-20261111/outputs/closeout-check.json",
+      "sha256": "a5efb049652ce527fb89dde339e4f16bb5aea054ccf1b20a3c762c2e40b910c4",
+      "matches_review_SHA256SUMS": true
+    },
+    {
+      "path": "outputs/temperature-check.json",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-independent-review-20261111/outputs/temperature-check.json",
+      "sha256": "81d9457ac24d767a55233e9234400937b0566f8a108aafb671fb968a2208a315",
+      "matches_review_SHA256SUMS": true
+    },
+    {
+      "path": "outputs/accuracy-check.json",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-independent-review-20261111/outputs/accuracy-check.json",
+      "sha256": "657e1e91d53dd0a214875d214d0da5f41f1c5a897f4518fa0c23641f7c5af392",
+      "matches_review_SHA256SUMS": true
+    },
+    {
+      "path": "outputs/constants-check.json",
+      "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-independent-review-20261111/outputs/constants-check.json",
+      "sha256": "c9f3a292bdcf9f07fb65ff25f2a869cb26c720a2a2cb09a03e3f3f439183561c",
+      "matches_review_SHA256SUMS": true
+    }
+  ],
+  "branch_ancestry": [
+    {
+      "ref": "candidate/linux-ba13-closure-20261019",
+      "commit": "093d121135e35bc50ca2a807470906bcb28ef5c3",
+      "ancestor_of_reviewed_commit": true
+    },
+    {
+      "ref": "candidate/linux-ba13-evidence-20261026",
+      "commit": "84e1062db78b91e4fb0988074941b1aea6019917",
+      "ancestor_of_reviewed_commit": true
+    },
+    {
+      "ref": "candidate/linux-ba13-final-decision-20261030",
+      "commit": "bb0f9c5af8ebaf86b5a59aece5551bb9dafbd264",
+      "ancestor_of_reviewed_commit": true
+    },
+    {
+      "ref": "candidate/linux-ba13-onset-pilot-20261013",
+      "commit": "dad05b17056f3ccb1e3871e6e4bb24ebe5db5df4",
+      "ancestor_of_reviewed_commit": true
+    },
+    {
+      "ref": "candidate/linux-ba13-recovery-20261012",
+      "commit": "8e6ac589d8d34e78447ee893e43e5673490eb728",
+      "ancestor_of_reviewed_commit": true
+    },
+    {
+      "ref": "candidate/linux-ba13-uncertainty-20261012",
+      "commit": "4f3cf97462ca030f715e26808938f781a2a40945",
+      "ancestor_of_reviewed_commit": true
+    },
+    {
+      "ref": "candidate/linux-qualification-corrections-20261011",
+      "commit": "5ec9994f5822647aebf79a556c0fe5e11ce77e18",
+      "ancestor_of_reviewed_commit": true
+    },
+    {
+      "ref": "candidate/linux-transition-20261010",
+      "commit": "f4e7c18f568045febc5bf65c6e95200752196dad",
+      "ancestor_of_reviewed_commit": true
+    },
+    {
+      "ref": "candidate/linux-x1-oracle-anchor-20261016",
+      "commit": "6cc7e20713e3c0210faa9036316650816f0290d5",
+      "ancestor_of_reviewed_commit": true
+    },
+    {
+      "ref": "candidate/linux-x2-fixed-step-20261016",
+      "commit": "286aafb63002093b3052e23a3972903011f36035",
+      "ancestor_of_reviewed_commit": true
+    },
+    {
+      "ref": "candidate/results-first-bnv-pilot-20261108",
+      "commit": "49253200a801ad9b336789dffb4e93d535a8e903",
+      "ancestor_of_reviewed_commit": true
+    },
+    {
+      "ref": "docs/phase6-cluster-preparation",
+      "commit": "d8e7208b71e01168394e41f8f8f32b027b5d0a63",
+      "ancestor_of_reviewed_commit": true
+    },
+    {
+      "ref": "master",
+      "commit": "9a5c1eca40758e4c39f9f80db7324e12ad23e505",
+      "ancestor_of_reviewed_commit": true
+    },
+    {
+      "ref": "physics/phase6-bnv-campaign-readiness",
+      "commit": "5433fc2da71ba380264f490b87926d850ff9f375",
+      "ancestor_of_reviewed_commit": true
+    },
+    {
+      "ref": "physics/phase6-breakpoint-aware-evolution",
+      "commit": "0c3f9269c884161c9d89163660a47b141a93ace6",
+      "ancestor_of_reviewed_commit": true
+    }
+  ]
+}

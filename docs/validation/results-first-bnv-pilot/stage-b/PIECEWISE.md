@@ -7,16 +7,33 @@ code, not a production integrator change or an already accepted Stage B enclosur
 The actual frozen Cstar table is lifted exactly from its binary64 values. At each
 interior knot, both neighboring affine expressions equal the same stored capacity.
 Thus Cstar and the vector field are continuous; their derivatives may jump.
-The exact real knot uses ln(Tcell/(Tref*kB)); the native knot is rounded binary64.
-That rounding and native smooth-extension residual strips must enter actual-path
-comparison/event error, rather than assuming native and real knots are identical.
+The exact real knot uses ln(Tcell/(Tref*kB)); the native knot is the result of
+the native binary64 calculation, not necessarily the correctly rounded real knot.
+The reviewer inferred consistent native knots from retained events (the native
+knot formula was not independently reproduced): offsets are +1.06e−16 in x at
+knot 94 (about 15 ulp) and +1.8e−17 at knot 95, with timing shifts ≤5e−5 s.
+These differences enter actual-path comparison/event error.
+
+RKF45 event and event-trial c=1 stages in the two retained references overshoot
+the knot by up to 1.3e−13 in x on the old cell's affine extension. Their RHS defect
+is ≤82 ulp (~2.0e−26 s⁻¹), included in the actual-stage arithmetic audit. Main
+histories have no retained stage traces: their wider strips are covered by the
+measured state error against the independent reference (maximum about 0.3052 of
+budget), not by that reference-stage strip measurement. Evidence:
+`review-evidence/REVIEW.md:251`, `review-evidence/outputs/crossings-check.json:1`.
+
+This event evidence covers only two transversal upward source crossings (94, 95).
+No downward, near-tangential or control crossing is qualified. Endpoint bypass
+and nextafter guards rest on authenticated guard code and successful task
+receipts; individual neighbour values were not retained and the reviewer did not
+rerun the guards (`review-evidence/REVIEW.md:495`).
 
 Use the explicit real domain x in [-0.03,0.2], |eta_e|<4e-7 MeV,
 |eta_mu|<8e-7 MeV, scaled by s=(1,1e-5,1e-5). Every reference step must check
 its entire enclosure/reach against this domain; exhaustion stops the calculation.
 For each intersected cell compute fresh positive polynomial Jacobian majorants,
 real speed bound M_real, complex speed bound M and r=R/(2M), R=0.1.
-The cell's affine extension is used only for its complex derivative estimate.
+In this HP enclosure, the cell's affine extension supplies the complex derivative estimate.
 Cstar positivity is checked in that complex polydisc. No extrapolated crossing
 rate is used to establish actual coverage. Runtime traces establish crossings.
 

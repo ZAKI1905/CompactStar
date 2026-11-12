@@ -1,0 +1,56 @@
+{
+ "at_2048_yr": {
+  "T_K": "113875356.002",
+  "relaxation_rates_per_s": [
+   "1.95963e-12",
+   "2.40131e-12"
+  ],
+  "relaxation_times_yr": [
+   "16170.4",
+   "13196.2"
+  ],
+  "eta_end": [
+   "-2.1199137e-7",
+   "-5.3112668e-7"
+  ],
+  "eta_star_linear": [
+   "-1.7346988e-6",
+   "-3.4952892e-6"
+  ],
+  "eta_end_over_eta_star": [
+   "0.122206",
+   "0.151955"
+  ],
+  "xi_star": [
+   "-0.000176775",
+   "-0.000356189"
+  ],
+  "stationary_LH_over_Pdir": "7.5222e-11",
+  "stationary_minus_eta_dot_sigma_over_Pdir": "7.5222e-11",
+  "stationary_DeltaLnu_over_Pdir": "1.12833e-10",
+  "stationary_net_chemical_thermal_channel_over_Pdir": "-1.12833e-10",
+  "stationary_LH_minus_DeltaLnu_over_Pdir": "-3.7611e-11"
+ },
+ "relaxation_rate_growth_T0_to_Tend": "2.18061",
+ "net_heating_threshold": {
+  "xi": "4.90971",
+  "eta_MeV_at_Tend": "0.0481791",
+  "over_eta_star_mu": "13784.0",
+  "over_eta_end_mu": "90711.1"
+ },
+ "structural_ratio": {
+  "t_e": "0.030852171",
+  "t_mu": "0.0033777438",
+  "mu_B_MeV": "868.4354349",
+  "identity": "(P_dir,eq - P_dir,act)/P_dir,eq = -(t_e eta_e + t_mu eta_mu)/mu_B; at stationarity LH equals this deficit",
+  "value_at_2048_yr": "9.59703e-12",
+  "check_vs_model": "9.59703e-12",
+  "imbalance_needed_for_ratio_1_MeV": "25370.7"
+ },
+ "eta_mu_history_MeV": {
+  "512": "-1.39992e-7",
+  "1024": "-2.76133e-7",
+  "1536": "-4.07023e-7",
+  "2048": "-5.31127e-7"
+ }
+}

@@ -1,16 +1,21 @@
 # Stage B — 2,048-year paired thermal evolution
 
-**Final analysis: CONDITIONAL NUMERICAL VERIFICATION CANDIDATE.**
+**Independent review: B — CONDITIONAL PASS; OWNER RATIFICATION PENDING.**
 All 58 aggregate checks pass, covering the original source/control matrix and
-all 12 matched comparisons. New verification remains an **UNVERIFIED SCIENTIFIC
-CANDIDATE** under GOVERNANCE §5, pending domain-authority review. This is not
+all 12 matched comparisons (`evidence/qualification.json:1`). New verification
+remains an **UNVERIFIED SCIENTIFIC CANDIDATE** under GOVERNANCE §5 pending owner ratification. Independent review
+of `49253200a801ad9b336789dffb4e93d535a8e903` found no load-bearing error and
+requires no numerical correction (`review-evidence/REVIEW.md:17`). This is not
 owner acceptance of Stage B. The earlier handoff in [STATUS.md](STATUS.md) is a
 historical checkpoint, superseded by this completed analysis.
 
 The source becomes 15.326 million K warmer than the control. Chemical reactions
 oppose 12–15% of instantaneous chemical driving at the endpoint, but isolated
-chemical heating contributes only about 5 microkelvin: numerically resolved by
-the new comparison bound, thermally negligible in this fixed-input experiment.
+gross reaction heating contributes only **+5.19 µK**. The **combined chemical
+response is −73.1 µK (cooling)**, dominated by actual-potential chemical storage.
+These are fixed-input mathematical diagnostics, thermally negligible here
+(`review-evidence/REVIEW.md:281`). The [draft acceptance record](CONDITIONAL_ACCEPTANCE.md)
+retains all seven review conditions; no owner decision is recorded.
 
 The scoped Stage A CONDITIONAL PASS is recorded in
 [OWNER_ACCEPTANCE.md](../preliminary-pair/OWNER_ACCEPTANCE.md). Its accepted matched
@@ -22,7 +27,11 @@ offset, and R20 count quantization. Those one-year conditions are not assumed fo
 ## Physical result within the fixed-input mathematical experiment
 
 Both original-t0 roles reached exactly 64,629,964,800 s (2,048 Julian years).
-All five independent native references per role completed. The independent
+All five separately run native references per role completed. They share the
+production RHS and anchors, so their mutual comparison tests discretisation,
+not independent implementation. The candidate Decimal and reviewer mpmath
+models are independent implementations of the declared model
+(`review-evidence/REVIEW.md:406`). The independent
 piecewise high-precision reference gives:
 
 | Endpoint quantity | Source | Zero-source control |
@@ -42,6 +51,15 @@ fields `paired_HP_endpoint` and `matched_configurations`.
 Printed values and Git CSV copies are rounded for display. Verification enclosures
 apply to the archived full-precision strings; add display-rounding error when
 using a rounded representation at nanokelvin precision.
+
+The uncertainty classes must remain separate next to this headline result
+(review correction D4; `review-evidence/REVIEW.md:205`):
+
+| Class | Meaning and scale |
+|---|---|
+| Numerical, fixed inputs | HP endpoint enclosure 7.47e−9 K; coarsest native endpoint bound 0.008022 K (maximum grid deviation 0.00824 K). These are conditional deterministic bounds. |
+| Omitted model term | Finite-temperature source weighting has a ~6.26 K scale, not included in the numerical enclosure and not a total model-error estimate. |
+| Fixed accepted inputs | Cstar table, Urca coefficients, tangent, anchors and frozen background are held as given. BA13/static uncertainties are not requalified or combined into a stellar error bar; depletion is 2.048e−9. |
 
 ![Temperature histories and matched difference](evidence/temperature.png)
 
@@ -92,7 +110,8 @@ bounds the temperature contribution of LH alone by **+4.936 to +5.615 microkelvi
 **−2.812 to −2.464 microkelvin**.
 These bounds include the response of both chemical variables, thermal damping,
 cell changes, and the high-precision/normalization uncertainty. They compare
-vector fields analytically; no extra counterfactual trajectory was run. The
+vector fields analytically; the candidate analysis ran no extra counterfactual
+trajectory. The reviewer separately integrated the diagnostic equations below. The
 relative half-width is about 6.43% for LH and 6.58% for the net term, below the
 existing 10% resolved-signal criterion. Both intervals explicitly add an 8.12e−9 K
 allowance on each side for normalizing both comparison flows, without cancellation.
@@ -107,6 +126,47 @@ The total R20 uncertainty is much larger than the chemical energy terms. The
 microkelvin conclusion comes from the separate coupled comparison enclosure;
 a passing total-energy balance alone cannot resolve this contribution.
 
+### Complete chemical-channel interpretation (review correction D1)
+
+Define each response as **T_full − T_term-suppressed** at 2,048 yr, starting
+from the same initial state and retaining both coupled composition equations.
+The reviewer obtained the values by integrating term-suppressed **diagnostic
+three-ODE evolution equations** with independent mpmath RK4 code. They are not
+additional native solver trajectories, stellar evolutions, or physical alternative
+models. This documentation closeout imports existing results and runs no evolution.
+
+| Channel suppressed in the diagnostic thermal equation | Endpoint response | Evidence class |
+|---|---:|---|
+| Gross weak-reaction heating, LH | **+5.19 µK** (+5.1886501) | Independent estimate inside the existing analytic interval |
+| Net weak-reaction effect, LH−DeltaLnu | **−2.59 µK** (−2.594325) | Independent estimate inside the existing analytic interval |
+| Actual-potential chemical-storage channel, P_actual−P_eq (replace P_actual by P_eq) | **−70.5 µK** (−70.528456) | Independent diagnostic estimate; not enclosed by the isolated reaction bounds |
+| Combined chemical response, P_actual−P_eq+LH−DeltaLnu | **−73.1 µK** (−73.122782) | Independent diagnostic estimate; not enclosed by the isolated reaction bounds |
+
+The gross row is already included in the net-reaction row: add **net reaction +
+storage**, not all rows. The observed relative nonadditivity is 1.368e−13; exact
+linear superposition is not assumed. The review estimates ~1e−17 K discretisation
+error, which is an empirical convergence estimate, not a newly proved enclosure.
+Source: `review-evidence/REVIEW.md:281`,
+`review-evidence/outputs/trajectory-check.json:1` (`chemical_channels`), and the
+original `scripts/model.py` / `integrate.py` under the review root in
+`review-evidence/IMPORT.json:1`.
+
+With Echem expressed in erg and c the MeV-to-erg conversion, the frozen,
+spin-off actual-potential ledger is
+
+```text
+Cstar Tdot = P_actual + LH − Lnu_full − Lgamma
+Edot_chem = −c eta·sigma − LH = (P_eq − P_actual) − LH
+(U + Echem)dot = P_eq − Lnu_full − Lgamma.
+```
+
+Thus the full chemical correction relative to equilibrium-potential deposition
+is **−Edot_chem−DeltaLnu**. The storage-channel row measures the source transfer
+`P_actual−P_eq`, not an additional `−Edot_chem` heat term to add to LH. Chemical
+work is counted once. R20 does not resolve this ledger: the supporting evidence
+is the pointwise identities, the analytic reaction comparison and independent
+model agreement (`review-evidence/REVIEW.md:319`; ADR-0015 §§8–10).
+
 ![Powers, chemical imbalances, and stored chemical energy](evidence/physics.png)
 
 The logarithmic panels omit exact zeros, including initial chemical power and
@@ -119,7 +179,10 @@ and [matched temperature CSV](evidence/temperature.csv).
 
 ## Actual interpolation and events
 
-The source encounters Cstar knots 94 and 95 at approximately **676.579678 years**
+Event qualification covers only two transversal upward source crossings; no
+downward, near-tangential or control crossing is certified
+(`review-evidence/REVIEW.md:425`). The source encounters Cstar knots 94 and 95
+at approximately **676.579678 years**
 and **1,865.377507 years**, respectively. The control stays in cell 93. The source
 ends in cell 95. The lower knot 93 and upper knot 96 are not crossed. These are
 actual retained trajectories and high-precision sign brackets, not extrapolated
@@ -173,6 +236,26 @@ no uncertainty cancellation is used in either role or their difference.
 Reference-state and power allocation maxima are below 0.144 and 0.00901 of their
 respective allowed allocations. Maximum source depletion is 2.048e−9 (limit
 1e−6), and maximum frozen-response utilization is 0.001108 (limit 1).
+
+Review correction D3: Stage B's total R20 bounds are **4.793855e−5 N (source)**
+and **4.036164e−5 N (control)**. The often-quoted **9.034e−5 N / 6.99e−9 N**
+are the **Stage A one-year totals**, not Stage B results. The source quadrature
+allowance is 99.8% of its total, almost entirely a first-order outgoing-power
+rectangle bound; that bound is about 2.4e5 (source) / 7.2e5 (control) times the
+actual outgoing trapezoid error. It explains the much larger Stage B control
+allowance. Count allowance is only 0.13% of the source total. These conservative
+allowances and the original 2e−4 N gate are retained unchanged.
+
+The source's recorded 1,920-grid residual is 1.135e−8 N, of which count
+quantisation contributes 1.046e−8 N (92%). Replacing only the rounded count by
+the exact prescribed line leaves 9.0e−10 N (BASELINE) / 2.7e−10 N (ULTRA);
+removing the leading trapezoid term leaves 6.6e−10 / 3.9e−11 N. The BASELINE
+trajectory contribution is about 6.1e−10 N, below 1e−9 N. The control residual
+is 6.0e−11 N, principally trapezoid error. This is a diagnostic decomposition,
+not a subtraction from the acceptance budget. Stored chemical energy (5.1e−12 N)
+and integrated LH (4.0e−13 N) are below even the residual scale: **R20 tests total
+closure, not chemical-channel accuracy**. Evidence: `review-evidence/REVIEW.md:339`
+and `review-evidence/outputs/ledger-check.json:1`.
 
 | Uncapped matched pair | Native endpoint difference [K] | Total bound about native result [K] |
 |---|---:|---:|
@@ -253,8 +336,10 @@ Requested source: `c90b2205e553afcd102c7acd5f84b253e0a67f1b`, branch
 read-only numerical verification, generated evidence, and documentation.
 Completed assessment code is bound to
 `6016c0a2790c438bb1ac1cc0ea710109636b8164`; final reporting/figure/manifest tools
-are committed at `8d1588f0fd8095e0022573b4048bbcf3b8fb0e6c`. The final evidence
-commit is the commit containing this report. Script and figure hashes are retained
+are committed at `8d1588f0fd8095e0022573b4048bbcf3b8fb0e6c`. The final reviewed evidence
+commit is `49253200a801ad9b336789dffb4e93d535a8e903`; subsequent documentation
+commits do not change or reseal those scientific artifacts. Script and figure
+hashes are retained
 in `evidence/finalization-provenance.json:1`; native executable/build and frozen
 input bindings remain in `evidence/resources.json:1` and the sealed full records.
 Production equations, stellar inputs, RK methods, tolerances, interpolation,
@@ -319,10 +404,31 @@ without altering scientific data.
 Change classes: documentation, generated evidence, and reporting engineering;
 the previously committed piecewise verification retains its numerical-method
 candidate classification. No unresolved scientific-contract ambiguity was
-silently selected. Domain review of the new verification is the remaining
-qualification condition, not an unfinished numerical job.
+silently selected. Independent review is now complete; owner ratification under
+the exact C1–C7 scope remains pending (`review-evidence/REVIEW.md:417`).
 
 This mathematical P2 benchmark does not specify a realistic microscopic BNV rate,
 a realistic decay prediction, or an astrophysical constraint. No new stellar-solver
 campaign, master merge, historical 500 kyr calculation, or automatic horizon
 extension was performed. Stage A acceptance does not accept Stage B in advance.
+
+## Documentation closeout — 2026-11-12
+
+This update is **documentation plus byte-identical imported review evidence**.
+D1–D4 are addressed without changing a bound, threshold, solver or scientific
+output. [PIECEWISE.md](PIECEWISE.md) records D2, including the distinct evidence
+for reference-stage strips and main-history accuracy. [CONDITIONAL_ACCEPTANCE.md](CONDITIONAL_ACCEPTANCE.md)
+records C1–C7 and the limits of the review; [CLOSEOUT.md](CLOSEOUT.md) records
+provenance and checks. The next study is a separate
+[proposal](NEXT_PHYSICS_STUDY.md) and [PROPOSED ADR-0025](../../../adr/ADR-0025-bnv-retained-energy-study.md).
+Neither document authorizes implementation or extends Stage B acceptance.
+
+The enclosure remains conditional on 110-digit arithmetic errors below the
+1e−80 pad (independently corroborated, not machine-proved), the fixed inputs,
+the declared x∈[−0.03,0.2], |eta_e|<4e−7 MeV, |eta_mu|<8e−7 MeV box and the
+2,048-year horizon with exp(LH)<2. Constants must be regenerated for extensions;
+the muon state already uses about 66% of its box. The review did not independently
+rederive local reconstruction radii or the full arithmetic recursion, and did
+not rerun native generation, contracts, unit tests or neighbour guards. Their
+evidence classes are retained in the draft acceptance record
+(`review-evidence/REVIEW.md:417`, `:495`).

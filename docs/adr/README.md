@@ -89,3 +89,11 @@ Identified during Phase-0 reconnaissance or deferred by an accepted ADR; not yet
 | Generated artifacts in version control | Phase 1 |
 | Dependency ownership — Zaki / Confind | Phase 1 |
 | Direct-Urca muon channel omission (INV-16) | Phase 5 |
+
+## Proposed BNV retained-energy study (2026-11-12)
+
+[ADR-0025](ADR-0025-bnv-retained-energy-study.md) is **PROPOSED**, with owner
+selection pending. It compares conservative retained-energy conventions using
+the existing actual-potential partition interface. No implementation or new
+campaign is authorized; Stage B owner ratification remains a separate decision
+(`ADR-0025-bnv-retained-energy-study.md:1`).

@@ -1,0 +1,293 @@
+{
+ "source": {
+  "cells": {
+   "92": {
+    "x_range": [
+     "-0.03",
+     "-0.0249705844959"
+    ],
+    "mine": {
+     "L": "6.444962582e-12",
+     "Mreal": "2.95952139e-12",
+     "M": "3.712237065e-12",
+     "r": "1.34689674e+10"
+    },
+    "relative_difference_to_preflight": {
+     "L": "1.3e-41",
+     "Mreal": "0.0",
+     "M": "0.0",
+     "r": "0.0"
+    },
+    "max_relative_J_difference": "6.73e-41",
+    "sampled_max_abs_jacobian_over_majorant": "0.999999999999999",
+    "sampled_max_speed_over_Mreal": "0.84871",
+    "sampled_complex_speed_over_M": "0.84356",
+    "damping_flows_min_dfx_dx_over_Jxx": "-0.86159",
+    "damping_flows_max_dfx_dx": "-5.4907e-12",
+    "source_net_direct_minus_cooling_positive": true,
+    "DeltaLnu_minus_LH_nonnegative": true,
+    "sampled_cross": "1.1728e-21"
+   },
+   "93": {
+    "x_range": [
+     "-0.0249705844959",
+     "0.0474377517618"
+    ],
+    "mine": {
+     "L": "6.859149266e-12",
+     "Mreal": "2.98061845e-12",
+     "M": "3.793987923e-12",
+     "r": "1.317874517e+10"
+    },
+    "relative_difference_to_preflight": {
+     "L": "0.0",
+     "Mreal": "2.8e-41",
+     "M": "0.0",
+     "r": "1.5e-41"
+    },
+    "max_relative_J_difference": "4.44e-41",
+    "sampled_max_abs_jacobian_over_majorant": "0.999999999999999",
+    "sampled_max_speed_over_Mreal": "0.83338",
+    "sampled_complex_speed_over_M": "0.8057",
+    "damping_flows_min_dfx_dx_over_Jxx": "-0.82673",
+    "damping_flows_max_dfx_dx": "-4.8181e-12",
+    "source_net_direct_minus_cooling_positive": true,
+    "DeltaLnu_minus_LH_nonnegative": true,
+    "sampled_cross": "1.1641e-21"
+   },
+   "94": {
+    "x_range": [
+     "0.0474377517618",
+     "0.119846088019"
+    ],
+    "mine": {
+     "L": "6.273168135e-12",
+     "Mreal": "2.635638014e-12",
+     "M": "3.389742252e-12",
+     "r": "1.475038403e+10"
+    },
+    "relative_difference_to_preflight": {
+     "L": "6.66e-41",
+     "Mreal": "1.58e-41",
+     "M": "2.46e-41",
+     "r": "1.34e-41"
+    },
+    "max_relative_J_difference": "1.13e-40",
+    "sampled_max_abs_jacobian_over_majorant": "0.999999999999999",
+    "sampled_max_speed_over_Mreal": "0.79891",
+    "sampled_complex_speed_over_M": "0.75214",
+    "damping_flows_min_dfx_dx_over_Jxx": "-0.79236",
+    "damping_flows_max_dfx_dx": "-4.2647e-12",
+    "source_net_direct_minus_cooling_positive": true,
+    "DeltaLnu_minus_LH_nonnegative": true,
+    "sampled_cross": "1.0529e-21"
+   },
+   "95": {
+    "x_range": [
+     "0.119846088019",
+     "0.192254424277"
+    ],
+    "mine": {
+     "L": "5.855411286e-12",
+     "Mreal": "2.346770533e-12",
+     "M": "3.064842643e-12",
+     "r": "1.631405127e+10"
+    },
+    "relative_difference_to_preflight": {
+     "L": "2.85e-41",
+     "Mreal": "0.0",
+     "M": "0.0",
+     "r": "1.21e-41"
+    },
+    "max_relative_J_difference": "5.58e-41",
+    "sampled_max_abs_jacobian_over_majorant": "1.0",
+    "sampled_max_speed_over_Mreal": "0.75532",
+    "sampled_complex_speed_over_M": "0.71831",
+    "damping_flows_min_dfx_dx_over_Jxx": "-0.75027",
+    "damping_flows_max_dfx_dx": "-3.8299e-12",
+    "source_net_direct_minus_cooling_positive": true,
+    "DeltaLnu_minus_LH_nonnegative": true,
+    "sampled_cross": "9.7197e-22"
+   },
+   "96": {
+    "x_range": [
+     "0.192254424277",
+     "0.2"
+    ],
+    "mine": {
+     "L": "5.816450626e-12",
+     "Mreal": "2.037715566e-12",
+     "M": "2.666648308e-12",
+     "r": "1.875012908e+10"
+    },
+    "relative_difference_to_preflight": {
+     "L": "2.87e-41",
+     "Mreal": "2.05e-41",
+     "M": "0.0",
+     "r": "0.0"
+    },
+    "max_relative_J_difference": "4.63e-41",
+    "sampled_max_abs_jacobian_over_majorant": "1.0",
+    "sampled_max_speed_over_Mreal": "0.72438",
+    "sampled_complex_speed_over_M": "0.70499",
+    "damping_flows_min_dfx_dx_over_Jxx": "-0.76963",
+    "damping_flows_max_dfx_dx": "-3.8825e-12",
+    "source_net_direct_minus_cooling_positive": true,
+    "DeltaLnu_minus_LH_nonnegative": true,
+    "sampled_cross": "9.2248e-22"
+   }
+  },
+  "box_L": "6.8591492657e-12",
+  "exp_L_H": "1.55784986",
+  "horizon_at_which_exp_LH_reaches_2_years": "3202.22"
+ },
+ "control": {
+  "cells": {
+   "92": {
+    "x_range": [
+     "-0.03",
+     "-0.0249705844959"
+    ],
+    "mine": {
+     "L": "1.508124327e-12",
+     "Mreal": "2.254128559e-13",
+     "M": "3.662325182e-13",
+     "r": "1.36525288e+11"
+    },
+    "relative_difference_to_preflight": {
+     "L": "5.54e-41",
+     "Mreal": "1.16e-41",
+     "M": "4.28e-41",
+     "r": "4.62e-41"
+    },
+    "max_relative_J_difference": "7.21e-41",
+    "sampled_max_abs_jacobian_over_majorant": "0.999999999999999",
+    "sampled_max_speed_over_Mreal": "0.99016",
+    "sampled_complex_speed_over_M": "0.70117",
+    "damping_flows_min_dfx_dx_over_Jxx": "-0.16222",
+    "damping_flows_max_dfx_dx": "-1.685e-13",
+    "source_net_direct_minus_cooling_positive": true,
+    "DeltaLnu_minus_LH_nonnegative": true,
+    "sampled_cross": "9.7064e-23"
+   },
+   "93": {
+    "x_range": [
+     "-0.0249705844959",
+     "0.0474377517618"
+    ],
+    "mine": {
+     "L": "2.328715268e-12",
+     "Mreal": "2.734247419e-13",
+     "M": "5.133980774e-13",
+     "r": "9.739031407e+10"
+    },
+    "relative_difference_to_preflight": {
+     "L": "3.59e-41",
+     "Mreal": "0.0",
+     "M": "2.03e-41",
+     "r": "3.24e-41"
+    },
+    "max_relative_J_difference": "4.44e-41",
+    "sampled_max_abs_jacobian_over_majorant": "0.999999999999999",
+    "sampled_max_speed_over_Mreal": "0.86518",
+    "sampled_complex_speed_over_M": "0.75359",
+    "damping_flows_min_dfx_dx_over_Jxx": "-0.161",
+    "damping_flows_max_dfx_dx": "-1.5587e-13",
+    "source_net_direct_minus_cooling_positive": true,
+    "DeltaLnu_minus_LH_nonnegative": true,
+    "sampled_cross": "1.2967e-22"
+   },
+   "94": {
+    "x_range": [
+     "0.0474377517618",
+     "0.119846088019"
+    ],
+    "mine": {
+     "L": "3.595800893e-12",
+     "Mreal": "2.934257523e-13",
+     "M": "7.927449482e-13",
+     "r": "6.307198818e+10"
+    },
+    "relative_difference_to_preflight": {
+     "L": "6.97e-41",
+     "Mreal": "0.0",
+     "M": "1.32e-41",
+     "r": "1.25e-41"
+    },
+    "max_relative_J_difference": "1.13e-40",
+    "sampled_max_abs_jacobian_over_majorant": "0.999999999999999",
+    "sampled_max_speed_over_Mreal": "0.86518",
+    "sampled_complex_speed_over_M": "0.843",
+    "damping_flows_min_dfx_dx_over_Jxx": "-0.18875",
+    "damping_flows_max_dfx_dx": "-1.993e-13",
+    "source_net_direct_minus_cooling_positive": true,
+    "DeltaLnu_minus_LH_nonnegative": true,
+    "sampled_cross": "1.7323e-22"
+   },
+   "95": {
+    "x_range": [
+     "0.119846088019",
+     "0.192254424277"
+    ],
+    "mine": {
+     "L": "5.552325025e-12",
+     "Mreal": "3.20333244e-13",
+     "M": "1.224088248e-12",
+     "r": "4.084672824e+10"
+    },
+    "relative_difference_to_preflight": {
+     "L": "3.01e-41",
+     "Mreal": "0.0",
+     "M": "3.41e-41",
+     "r": "3.86e-41"
+    },
+    "max_relative_J_difference": "5.58e-41",
+    "sampled_max_abs_jacobian_over_majorant": "1.0",
+    "sampled_max_speed_over_Mreal": "0.90969",
+    "sampled_complex_speed_over_M": "0.78193",
+    "damping_flows_min_dfx_dx_over_Jxx": "-0.22312",
+    "damping_flows_max_dfx_dx": "-2.6508e-13",
+    "source_net_direct_minus_cooling_positive": true,
+    "DeltaLnu_minus_LH_nonnegative": true,
+    "sampled_cross": "2.3143e-22"
+   },
+   "96": {
+    "x_range": [
+     "0.192254424277",
+     "0.2"
+    ],
+    "mine": {
+     "L": "5.816450626e-12",
+     "Mreal": "3.052655674e-13",
+     "M": "1.282318456e-12",
+     "r": "3.899187425e+10"
+    },
+    "relative_difference_to_preflight": {
+     "L": "2.87e-41",
+     "Mreal": "3.42e-41",
+     "M": "3.26e-41",
+     "r": "2.02e-41"
+    },
+    "max_relative_J_difference": "4.63e-41",
+    "sampled_max_abs_jacobian_over_majorant": "1.0",
+    "sampled_max_speed_over_Mreal": "1.0",
+    "sampled_complex_speed_over_M": "0.74977",
+    "damping_flows_min_dfx_dx_over_Jxx": "-0.24682",
+    "damping_flows_max_dfx_dx": "-3.6534e-13",
+    "source_net_direct_minus_cooling_positive": true,
+    "DeltaLnu_minus_LH_nonnegative": true,
+    "sampled_cross": "2.3865e-22"
+   }
+  },
+  "box_L": "5.81645062645e-12",
+  "exp_L_H": "1.456326253",
+  "horizon_at_which_exp_LH_reaches_2_years": "3776.27"
+ },
+ "chemical_response_constants": {
+  "growth": "1.5578498598952579551385994160661470845890298675883995839672267620489533275145747961580848079386399721565075678",
+  "Jxx": "6.8591492638869264537626651506747741146284104377461766385681768708582683919284090436731778381651036443984959334E-12",
+  "cross": "2.1361949377039903787683772371486824050108278312983172962893739456546918970794841029768012495860628014740911336E-21"
+ },
+ "net_heating_threshold_xi": "4.90971",
+ "DeltaLnu_over_LH_small_xi": "1.5"
+}

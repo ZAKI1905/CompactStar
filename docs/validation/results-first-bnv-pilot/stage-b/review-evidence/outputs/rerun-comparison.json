@@ -1,0 +1,521 @@
+{
+ "summary": {
+  "files": 83,
+  "identical": 45,
+  "metadata_only": 38,
+  "different": [],
+  "no_original": [],
+  "rerun_checks": 58,
+  "rerun_checks_true": 58,
+  "rerun_failed": [],
+  "rerun_status": "CONDITIONAL_NUMERICAL_VERIFICATION_CANDIDATE",
+  "bytecode_written_in_clean_tree": false
+ },
+ "files": {
+  "accuracy/control-tier-0-cap-0.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy/control-tier-0-cap-1.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy/control-tier-0-cap-2.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy/control-tier-0-cap-3.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy/control-tier-1-cap-0.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy/control-tier-1-cap-1.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy/control-tier-1-cap-2.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy/control-tier-1-cap-3.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy/control-tier-2-cap-0.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy/control-tier-2-cap-1.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy/control-tier-2-cap-2.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy/control-tier-2-cap-3.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy/source-tier-0-cap-0.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy/source-tier-0-cap-1.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy/source-tier-0-cap-2.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy/source-tier-0-cap-3.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy/source-tier-1-cap-0.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy/source-tier-1-cap-1.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy/source-tier-1-cap-2.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy/source-tier-1-cap-3.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy/source-tier-2-cap-0.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy/source-tier-2-cap-1.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy/source-tier-2-cap-2.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy/source-tier-2-cap-3.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "accuracy.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "assessment.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "chemical-response.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "coverage.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "curve-control.csv": {
+   "status": "IDENTICAL"
+  },
+  "curve-source.csv": {
+   "status": "IDENTICAL"
+  },
+  "events-assessment.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "final-summary.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/inputs/qualification.json",
+    "/inputs/local-assessment.json"
+   ],
+   "scientific_paths": [],
+   "note": "differs only in input-binding hashes of files that themselves differ only by run metadata"
+  },
+  "interpolation-roundoff/control-reference-0.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "interpolation-roundoff/control-reference-1.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "interpolation-roundoff/control-reference-2.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "interpolation-roundoff/control-reference-3.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "interpolation-roundoff/control-reference-4.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "interpolation-roundoff/source-reference-0.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "interpolation-roundoff/source-reference-1.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "interpolation-roundoff/source-reference-2.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "interpolation-roundoff/source-reference-3.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "interpolation-roundoff/source-reference-4.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "interpolation-roundoff-completion.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "ledger-assessment.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "local-assessment/control-tier-0-cap-0.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment/control-tier-0-cap-1.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment/control-tier-0-cap-2.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment/control-tier-0-cap-3.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment/control-tier-1-cap-0.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment/control-tier-1-cap-1.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment/control-tier-1-cap-2.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment/control-tier-1-cap-3.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment/control-tier-2-cap-0.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment/control-tier-2-cap-1.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment/control-tier-2-cap-2.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment/control-tier-2-cap-3.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment/source-tier-0-cap-0.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment/source-tier-0-cap-1.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment/source-tier-0-cap-2.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment/source-tier-0-cap-3.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment/source-tier-1-cap-0.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment/source-tier-1-cap-1.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment/source-tier-1-cap-2.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment/source-tier-1-cap-3.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment/source-tier-2-cap-0.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment/source-tier-2-cap-1.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment/source-tier-2-cap-2.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment/source-tier-2-cap-3.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "local-assessment.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/configurations[0]/elapsed_s",
+    "/configurations[1]/elapsed_s",
+    "/configurations[2]/elapsed_s",
+    "/configurations[3]/elapsed_s",
+    "/configurations[4]/elapsed_s",
+    "/configurations[5]/elapsed_s",
+    "/configurations[6]/elapsed_s",
+    "/configurations[7]/elapsed_s",
+    "/configurations[8]/elapsed_s",
+    "/configurations[9]/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "matched.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "qualification.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/inputs/preflight.json/path",
+    "/inputs/ledger-assessment.json/path",
+    "/inputs/events-assessment.json/path",
+    "/inputs/interpolation-roundoff-completion.json/sha256",
+    "/inputs/interpolation-roundoff-completion.json/path",
+    "/inputs/chemical-response.json/path",
+    "/inputs/roundoff.json/path",
+    "/inputs/local-assessment.json/sha256",
+    "/inputs/local-assessment.json/path",
+    "/inputs/coverage.json/path"
+   ],
+   "scientific_paths": []
+  },
+  "roundoff/control-reference-0.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "roundoff/control-reference-1.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "roundoff/control-reference-2.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "roundoff/control-reference-3.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "roundoff/control-reference-4.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "roundoff/source-reference-0.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "roundoff/source-reference-1.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "roundoff/source-reference-2.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "roundoff/source-reference-3.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "roundoff/source-reference-4.json": {
+   "status": "METADATA_ONLY",
+   "metadata_paths": [
+    "/elapsed_s"
+   ],
+   "scientific_paths": []
+  },
+  "roundoff.json": {
+   "status": "IDENTICAL",
+   "metadata_paths": [],
+   "scientific_paths": []
+  },
+  "temperature.csv": {
+   "status": "IDENTICAL"
+  }
+ }
+}
