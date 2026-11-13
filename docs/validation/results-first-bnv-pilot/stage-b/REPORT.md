@@ -1,21 +1,21 @@
 # Stage B — 2,048-year paired thermal evolution
 
-**Independent review: B — CONDITIONAL PASS; OWNER RATIFICATION PENDING.**
-All 58 aggregate checks pass, covering the original source/control matrix and
-all 12 matched comparisons (`evidence/qualification.json:1`). New verification
-remains an **UNVERIFIED SCIENTIFIC CANDIDATE** under GOVERNANCE §5 pending owner ratification. Independent review
-of `49253200a801ad9b336789dffb4e93d535a8e903` found no load-bearing error and
-requires no numerical correction (`review-evidence/REVIEW.md:17`). This is not
-owner acceptance of Stage B. The earlier handoff in [STATUS.md](STATUS.md) is a
-historical checkpoint, superseded by this completed analysis.
+**Owner conditionally ratified 2026-11-12: restricted B — CONDITIONAL PASS.**
+The exact reviewed commit is `49253200a801ad9b336789dffb4e93d535a8e903`.
+Acceptance and all seven restrictions are recorded in
+[CONDITIONAL_ACCEPTANCE.md](CONDITIONAL_ACCEPTANCE.md). All 58 retained aggregate
+checks pass (`evidence/qualification.json:1`); none was rerun for ratification.
+This acceptance concerns only the fixed-input, full-retention mathematical P2
+benchmark and its reviewed domain. Historical failures and conditional premises
+remain unchanged. The handoff in [STATUS.md](STATUS.md) remains historical.
 
 The source becomes 15.326 million K warmer than the control. Chemical reactions
 oppose 12–15% of instantaneous chemical driving at the endpoint, but isolated
 gross reaction heating contributes only **+5.19 µK**. The **combined chemical
 response is −73.1 µK (cooling)**, dominated by actual-potential chemical storage.
 These are fixed-input mathematical diagnostics, thermally negligible here
-(`review-evidence/REVIEW.md:281`). The [draft acceptance record](CONDITIONAL_ACCEPTANCE.md)
-retains all seven review conditions; no owner decision is recorded.
+(`review-evidence/REVIEW.md:281`). The [acceptance record](CONDITIONAL_ACCEPTANCE.md)
+retains all seven review conditions and records the explicit owner decision.
 
 The scoped Stage A CONDITIONAL PASS is recorded in
 [OWNER_ACCEPTANCE.md](../preliminary-pair/OWNER_ACCEPTANCE.md). Its accepted matched

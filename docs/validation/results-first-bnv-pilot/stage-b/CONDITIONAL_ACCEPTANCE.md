@@ -1,10 +1,12 @@
-# Stage B conditional acceptance — DRAFT FOR OWNER REVIEW
+# Stage B conditional acceptance — OWNER RATIFIED (restricted)
 
-**Prepared 2026-11-12. No owner ratification is recorded.** Proposed disposition:
-accept the controlled 2,048-year P2 mathematical benchmark conditionally, with
-C1–C7 below. Independent reviewer disposition is **B — CONDITIONAL PASS**, with
-no numerical correction required (`review-evidence/REVIEW.md:17`). This record
-closes the documentation response, not the owner's decision.
+**Owner conditionally ratified on 2026-11-12.** The owner explicitly accepted the
+independent **B — CONDITIONAL PASS** disposition for the fixed-input,
+full-retention mathematical P2 benchmark at the exact reviewed commit below.
+C1–C7 are retained verbatim as the review restrictions; the original draft
+language in C7 records why only the explicit owner decision below ratifies it.
+This is not a microscopic BNV rate, astrophysical constraint, generalized
+stellar-background certificate, or longer-horizon accuracy claim.
 
 **Object of review:** `49253200a801ad9b336789dffb4e93d535a8e903`, branch
 `candidate/results-first-bnv-pilot-20261108`, descended from accepted Stage A
@@ -51,6 +53,13 @@ remain part of acceptance (`review-evidence/REVIEW.md:406`, `:495`). Historical
 BA12 and all BA12R failures remain failures (`review-evidence/REVIEW.md:141`).
 No master merge, certificate promotion, new physics or next-study approval follows.
 
-**Owner decision:** pending. **Ratifying person/date/commit:** not supplied.
-Any later acceptance must explicitly identify the reviewed commit and retain
-these conditions, or record the owner's precise amendments.
+**Owner decision:** CONDITIONAL RATIFICATION of Stage B, retaining C1–C7.
+**Ratifying authority/date:** project owner, explicit instruction of 2026-11-12.
+**Exact reviewed commit:** `49253200a801ad9b336789dffb4e93d535a8e903`.
+**Accepted endpoint:** ΔT∞(2048 yr) = **+15,325,803.204209456 K**.
+The recording commit is discoverable with `git log --follow -- this-file`;
+it is distinct from the reviewed commit. No numerical rerun was performed.
+Consistency verification: [entry-authentication.json](../../../research/bnv-rotochemical-competition/evidence/entry-authentication.json).
+The corrected report, its evidence, and the imported review were checked before
+recording this decision; the reviewed production source, tests, tools and Stage B
+numerical evidence are unchanged at the task entry `81b808f`.

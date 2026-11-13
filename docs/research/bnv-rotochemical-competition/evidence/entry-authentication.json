@@ -1,0 +1,444 @@
+{
+  "entry_commit": "81b808f5e85251c63622ed1a8bade2c206fdbf82",
+  "reviewed_commit": "49253200a801ad9b336789dffb4e93d535a8e903",
+  "worktrees": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar                8e6ac58 [candidate/linux-ba13-recovery-20261012]\n/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-closure             093d121 [candidate/linux-ba13-closure-20261019]\n/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence            84e1062 [candidate/linux-ba13-evidence-20261026]\n/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision      bb0f9c5 [candidate/linux-ba13-final-decision-20261030]\n/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot         dad05b1 [candidate/linux-ba13-onset-pilot-20261013]\n/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-uncertainty         4f3cf97 [candidate/linux-ba13-uncertainty-20261012]\n/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot  81b808f [candidate/results-first-bnv-pilot-20261108]\n/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor         6cc7e20 [candidate/linux-x1-oracle-anchor-20261016]\n/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step            286aafb [candidate/linux-x2-fixed-step-20261016]",
+  "ancestry": [
+    {
+      "ref": "refs/heads/candidate/linux-ba13-closure-20261019",
+      "commit": "093d121135e35bc50ca2a807470906bcb28ef5c3",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/heads/candidate/linux-ba13-evidence-20261026",
+      "commit": "84e1062db78b91e4fb0988074941b1aea6019917",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/heads/candidate/linux-ba13-final-decision-20261030",
+      "commit": "bb0f9c5af8ebaf86b5a59aece5551bb9dafbd264",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/heads/candidate/linux-ba13-onset-pilot-20261013",
+      "commit": "dad05b17056f3ccb1e3871e6e4bb24ebe5db5df4",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/heads/candidate/linux-ba13-recovery-20261012",
+      "commit": "8e6ac589d8d34e78447ee893e43e5673490eb728",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/heads/candidate/linux-ba13-uncertainty-20261012",
+      "commit": "4f3cf97462ca030f715e26808938f781a2a40945",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/heads/candidate/linux-qualification-corrections-20261011",
+      "commit": "5ec9994f5822647aebf79a556c0fe5e11ce77e18",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/heads/candidate/linux-transition-20261010",
+      "commit": "f4e7c18f568045febc5bf65c6e95200752196dad",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/heads/candidate/linux-x1-oracle-anchor-20261016",
+      "commit": "6cc7e20713e3c0210faa9036316650816f0290d5",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/heads/candidate/linux-x2-fixed-step-20261016",
+      "commit": "286aafb63002093b3052e23a3972903011f36035",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/heads/candidate/results-first-bnv-pilot-20261108",
+      "commit": "81b808f5e85251c63622ed1a8bade2c206fdbf82",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/heads/docs/phase6-cluster-preparation",
+      "commit": "d8e7208b71e01168394e41f8f8f32b027b5d0a63",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/heads/master",
+      "commit": "9a5c1eca40758e4c39f9f80db7324e12ad23e505",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/heads/physics/phase6-bnv-campaign-readiness",
+      "commit": "5433fc2da71ba380264f490b87926d850ff9f375",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/heads/physics/phase6-breakpoint-aware-evolution",
+      "commit": "0c3f9269c884161c9d89163660a47b141a93ace6",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/analysis/phase5a-eos-thermodynamic-audit",
+      "commit": "1e6dcd8c5cdb28c9d6d959e42e9e9745d54aeac8",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/analysis/phase5b-inv09-global-response-preflight",
+      "commit": "66ace37bd12f85d63fb6381ce5344b9c4dac224e",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/analysis/phase5c-corrected-chemical-coefficients-preflight",
+      "commit": "4780121f21010374da2eb50898e90a067795b6e5",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/analysis/phase5c-numerical-budget-planning",
+      "commit": "09d1b3c935919ec85f3c629607797ae87c42d8e5",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/analysis/phase5d-secular-rotochemical-evolution-preflight",
+      "commit": "3fca17ebec1d70c57dc85fbf01f920c5387217b4",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/analysis/phase6a0-bnv-thermal-first-law-preflight",
+      "commit": "15a224c804605877103cf8464d48a89781097f74",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/analysis/phase6a1-ba12r-numerical-forensics",
+      "commit": "0aab1c2b5b748585326de35499d1830d0c788fae",
+      "ancestor": false,
+      "status": "historical remote, not selected authority; accepted ADR-0017 clean-ancestry separation / ADR-0018 source equivalence"
+    },
+    {
+      "ref": "refs/remotes/origin/analysis/phase6a1-ba12r-segmentation-diagnostic",
+      "commit": "6057eb92339e5a0596baab6a652c6290d0930658",
+      "ancestor": false,
+      "status": "historical remote, not selected authority; accepted ADR-0017 clean-ancestry separation / ADR-0018 source equivalence"
+    },
+    {
+      "ref": "refs/remotes/origin/analysis/phase6a1-bnv-recovery-preflight",
+      "commit": "987d78f17906851dbd91342a2008ba65cf02bba1",
+      "ancestor": false,
+      "status": "historical remote, not selected authority; accepted ADR-0017 clean-ancestry separation / ADR-0018 source equivalence"
+    },
+    {
+      "ref": "refs/remotes/origin/analysis/phase6a1-checkpoint-reconstruction-candidate-recovery",
+      "commit": "ae0d5607fe8889cec70604747dfe3bfea7e5fd97",
+      "ancestor": false,
+      "status": "historical remote, not selected authority; accepted ADR-0017 clean-ancestry separation / ADR-0018 source equivalence"
+    },
+    {
+      "ref": "refs/remotes/origin/analysis/phase6a1-checkpoint-reconstruction-preflight",
+      "commit": "93e93c7f91a3cd8fced2f7a0961eda9c469c43fe",
+      "ancestor": false,
+      "status": "historical remote, not selected authority; accepted ADR-0017 clean-ancestry separation / ADR-0018 source equivalence"
+    },
+    {
+      "ref": "refs/remotes/origin/analysis/phase6a1-checkpoint-reconstruction-validation",
+      "commit": "8b783dbe73cc504b8aa00a5e9aeb48677bcf1ead",
+      "ancestor": false,
+      "status": "historical remote, not selected authority; accepted ADR-0017 clean-ancestry separation / ADR-0018 source equivalence"
+    },
+    {
+      "ref": "refs/remotes/origin/analysis/phase6a1-controlled-bnv-implementation-preflight",
+      "commit": "961dfa0de6f76df71df4cb98edc8e1b35a5c21b1",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/analysis/phase6a1-obs32-reconstruction-forensics",
+      "commit": "669898c6741883ecacdc7e2fa2599cfa3df92918",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/analysis/phase6a1-passive-observation-proof",
+      "commit": "9af8912107ea77a2e2ea51517c1776f26a4b7b49",
+      "ancestor": false,
+      "status": "historical remote, not selected authority; accepted ADR-0017 clean-ancestry separation / ADR-0018 source equivalence"
+    },
+    {
+      "ref": "refs/remotes/origin/analysis/tov-radial-res-2500-audit",
+      "commit": "b93be5f1df73eec0df1db1fc0ec39c524551e0b0",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/analysis/trackr-freegas-wholestar-interface",
+      "commit": "f4ae22d971e25bdd74530aec184f3fe0c3440b95",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/analysis/unit-boundary-relativity-reconciliation",
+      "commit": "1d22dd1f5a0d1afa18c4cedebb36b28fdae49df4",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/candidate/linux-transition-20261010",
+      "commit": "f4e7c18f568045febc5bf65c6e95200752196dad",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/candidate/results-first-bnv-pilot-20261108",
+      "commit": "81b808f5e85251c63622ed1a8bade2c206fdbf82",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/claude/hartle-rotochemical-heating-FwAHP",
+      "commit": "d91c31bfcc9919915ebb0e745946f57c7f31f141",
+      "ancestor": false,
+      "status": "historical remote, not selected authority; accepted ADR-0017 clean-ancestry separation / ADR-0018 source equivalence"
+    },
+    {
+      "ref": "refs/remotes/origin/docs/phase5c-uncertainty-semantics-ratification",
+      "commit": "d3b102d2225c44bea581832b27cdc33eb5874e83",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/docs/phase6-checkpoint-reconstruction-governance",
+      "commit": "ffd597e00162fa4efc477fe0d23878d7ad05ff6c",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/docs/phase6-linux-cluster-bootstrap-preflight",
+      "commit": "812463ac9ed374f64ac9cadd500066ab723d3a6c",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/docs/phase6a1-bnv-recovery-governance",
+      "commit": "bd697ffdc474863d7a39f42e17ad8e8dbf105e5d",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/fix/relativistic-unit-boundary-a1",
+      "commit": "432e64c4ed06108915184022584bfaf9dfec7219",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/fix/relativistic-unit-boundary-a1-baselines",
+      "commit": "a43d02227bf53c3242d3212f81dd71963804f3aa",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/governance/tov-surface-contract",
+      "commit": "218c9aa302e5641084109746e4ff13fc36c56df5",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/integration/phase5b-global-particle-response",
+      "commit": "49ab2b8c2881b6ef7b9309307d18cea51d557f72",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/integration/phase5c-corrected-chemical-coefficients",
+      "commit": "f0106c2bbaff4e7c10750c3bd6f618f447c1720e",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/integration/phase5d-secular-rotochemical-contract",
+      "commit": "d019ae390be4f5e3daba05039903485cb497e397",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/master",
+      "commit": "9a5c1eca40758e4c39f9f80db7324e12ad23e505",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/modernization/behavior-preserving-consolidation",
+      "commit": "df859b5a73c4cac0c115f240744d89ce9f830b8d",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/modernization/build-baseline",
+      "commit": "e2cc9270f5bdae677e659233398c360cfbb318a8",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/modernization/governance-foundation",
+      "commit": "1677caa7c35f3aa88c1ca539fbeebaac4617ce93",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/modernization/thermal-prebaseline",
+      "commit": "d2040d899d10a3d0da54a5a2facd7d9cbec34850",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/physics/adr0018-mac-source-equivalence",
+      "commit": "abf2b628a35e56542c4f8fc42612a4fe7fd70c88",
+      "ancestor": false,
+      "status": "historical remote, not selected authority; accepted ADR-0017 clean-ancestry separation / ADR-0018 source equivalence"
+    },
+    {
+      "ref": "refs/remotes/origin/physics/external-deps-taskmanager-migration",
+      "commit": "9a5c1eca40758e4c39f9f80db7324e12ad23e505",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/physics/phase5a-local-thermodynamics",
+      "commit": "8658fee45a77c483c2fbab6b250b9be6d5b4acdf",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/physics/phase5a-trackr-freegas-local",
+      "commit": "d3cbc005c53d03194407ed1080e8181568bbf1bf",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/physics/phase5a-trackr-npe-threshold",
+      "commit": "41ab66bd6e6f351691173a1e2a033c646ffd3772",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/physics/phase5a-trackr-pe-branch",
+      "commit": "a1a1ea5233c156d69410a0d3d61750f3da57e458",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/physics/phase5b-global-particle-response",
+      "commit": "d67ac9be27677aa038a9ac7cdf5f262a32a008ef",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/physics/phase5c-corrected-chemical-coefficients",
+      "commit": "27727016856a6a25a46e447c70e380722ea8ddbf",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/physics/phase5d-controlled-rotochemical-evolution",
+      "commit": "0a7418aecb7314cfa472a78f1faf477be8456a94",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/physics/phase6-adr0017-production-implementation",
+      "commit": "232565a32303a4953f3f516d1d5286b6663f8f99",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/physics/phase6-bnv-campaign-readiness",
+      "commit": "5433fc2da71ba380264f490b87926d850ff9f375",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/physics/phase6-breakpoint-aware-evolution",
+      "commit": "0c3f9269c884161c9d89163660a47b141a93ace6",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/physics/phase6a1-bnv-recovery-ba12r",
+      "commit": "971b2bac47c320bd262d8686841e679f703e5ccb",
+      "ancestor": false,
+      "status": "historical remote, not selected authority; accepted ADR-0017 clean-ancestry separation / ADR-0018 source equivalence"
+    },
+    {
+      "ref": "refs/remotes/origin/physics/phase6a1-bnv-recovery-r0-r3",
+      "commit": "d2822656aae8e264f4985f0d2f7228b90320a577",
+      "ancestor": false,
+      "status": "historical remote, not selected authority; accepted ADR-0017 clean-ancestry separation / ADR-0018 source equivalence"
+    },
+    {
+      "ref": "refs/remotes/origin/physics/phase6a1-controlled-bnv-implementation",
+      "commit": "e56e6e50040dbcd9dcbee1acecf58843f3dddf1c",
+      "ancestor": false,
+      "status": "historical remote, not selected authority; accepted ADR-0017 clean-ancestry separation / ADR-0018 source equivalence"
+    },
+    {
+      "ref": "refs/remotes/origin/physics/phase6a1-controlled-bnv-resume",
+      "commit": "7d2777561a17b56b466fb024ef13104da6c0e86a",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/physics/rotation-correctness",
+      "commit": "e2fe0adf53d7975d3a5c57e84a8d3481ffd2ce41",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/physics/trackr-freegas-wholestar-structure1",
+      "commit": "c1be10a374ef893290583855e8fc4df3a815e66e",
+      "ancestor": true,
+      "status": "ancestor"
+    },
+    {
+      "ref": "refs/remotes/origin/validation/hartle-monopole-revalidation",
+      "commit": "d5e5ad766fe8266950465ed77458afaecdb0dce9",
+      "ancestor": true,
+      "status": "ancestor"
+    }
+  ],
+  "checks": {
+    "REVIEW.md": true,
+    "outputs/trajectory-check.json": true,
+    "outputs/ledger-check.json": true,
+    "outputs/crossings-check.json": true,
+    "outputs/longterm.json": true,
+    "outputs/authentication.json": true,
+    "outputs/rerun-comparison.json": true,
+    "outputs/closeout-check.json": true,
+    "outputs/temperature-check.json": true,
+    "outputs/accuracy-check.json": true,
+    "outputs/constants-check.json": true,
+    "reviewed_physics_tools_evidence_unchanged": true,
+    "closeout_checks_pass": true,
+    "reviewed_commit_ancestor": true
+  },
+  "scope": "Read-only verification of existing review and committed evidence; no Stage B rerun. All local branch tips ancestral. Historical noncanonical remote tips retained; no conflicting active worktree."
+}

@@ -2,12 +2,12 @@
 
 | Field | Value |
 |---|---|
-| Status | **PROPOSED — owner selection and approval pending** |
+| Status | **ACCEPTED — owner-approved restricted S1 and S2, 2026-11-12** |
 | Date | 2026-11-12 (revised the same day from the draft at `0e88ec7e5ee981fcc2d93c85cf8a17d53d6d15fd`) |
-| Change class | Scientific-semantic if implemented; this submission is documentation only |
-| Governing authority | GOVERNANCE §§1–5; ADR-0014 §§3.1–3.12, 3.16; ADR-0015 §§3–14; ADR-0016 tangent ownership; INV-15 |
+| Change class | Scientific-semantic + numerical-method + structural/architecture + documentation + generated artifacts |
+| Governing authority | GOVERNANCE §§1–5; ADR-0014 §§3.1–3.12, 3.16; ADR-0015 §§3–14; ADR-0016 tangent ownership; ADR-0017 passive observation; INV-15 |
 | Affected invariants | INV-11 controlled state/reaction/ledger semantics, extended to simultaneous spin and BNV driving; INV-15 common Cstar; no broader invariant closure |
-| Blocks | Implementation and execution of any combined spin + BNV evolution, and of a variable-retention BNV study |
+| Authorized | S1 static map and minimal S2 short coupled tests only; S3 and retention campaigns remain unauthorized |
 
 The file name is retained for link stability. The earlier draft proposed a
 retained-energy parameter with spin off. This revision makes the competition
@@ -17,11 +17,13 @@ the decision.
 ## Context
 
 Stage B at `49253200a801ad9b336789dffb4e93d535a8e903` has independent disposition
-B — CONDITIONAL PASS, with owner ratification pending. It verifies fixed full-
+B — CONDITIONAL PASS, conditionally ratified by the owner on 2026-11-12. It verifies fixed full-
 retention P2 inputs with spin off. Its record is unchanged by this ADR
 (`docs/validation/results-first-bnv-pilot/stage-b/CONDITIONAL_ACCEPTANCE.md:1`).
 
-Three accepted facts frame the decision.
+Three accepted facts at task entry 81b808f frame the decision. Source line
+references in the Context and historical Alternatives refer to that entry;
+the implemented S2 extension and its results are described in the research report.
 
 1. **The combined chemical equation is already contract.** ADR-0015 A3 reads
    `eta_dot = −Z(R + sigma) + 2 W Omega Omegadot`, and A5 gives the reservoir
@@ -62,11 +64,77 @@ experiment. Its findings that bear on this decision:
 
 ## Decision
 
+The project owner explicitly approved **A, P-A, S-obs, H-new,
+V-proportional and G-short** on 2026-11-12, starting from
+`81b808f5e85251c63622ed1a8bade2c206fdbf82`. This accepts the equations and
+restricted investigation described below; it does not ratify future AI-authored
+results or broaden any existing numerical certificate (GOVERNANCE §5).
+
+- **S1 authorized:** standalone reproducible stationary chemical/thermal map
+  using Structure-1 inputs and complete modified-Urca polynomials, initially
+  `q_dep=0`, with all four matched corners. Extrapolated roots are identified as
+  such; no production validity gate is relaxed to obtain a root.
+- **S2 authorized:** the minimal combined-purpose admission, parameterized
+  sub-Kepler prescribed spin history, actual-potential partition and ledger
+  diagnostics, followed by four short matched tests. Existing passive
+  observation/reconstruction semantics of ADR-0017 remain unchanged.
+- **P-A:** `E_esc,fluid=E_esc,star=(1-f) mu_n,actual`, `E_X=E_in=0`.
+  S1/S2 start at `f=0`; this is a mathematical limit, not a microscopic
+  zero-deposition process. Endpoint partition tests may verify `f=1` and small
+  `f` without launching a retention campaign. Declare finite-temperature
+  weighting and distinguish omitted physical terms from mathematical residuals.
+- **S-obs/H-new:** identical immutable parameterized `Omega(t), Omegadot(t)`
+  in the two spin-on cases. No additional BNV torque. Sub-Kepler admission and
+  `|I_Omega,l| Omega²/N_l` diagnostics are mandatory. The minimal adapter uses
+  P(t)²=P0²+2P0 Pdot0 t with Pdot0>=0; its conservative admission limit is
+  Omega0 < 0.3 sqrt(GM/R³), a dynamical-frequency estimate rather than a certified
+  relativistic mass-shedding limit. This stricter bound does not establish small
+  spin-induced composition changes; those are reported separately. The governed historical
+  dipole driver and its original restrictions remain available unchanged.
+- **G-short:** existing depletion `<=1e-6` and `1e6<=T_inf<=1e9 K` gates
+  and all certificate checks remain in force. No G-extend, G-declared or
+  evolving-background route is selected. S1 reachability determines what future
+  choice is scientifically justified; S3 is not authorized.
+- **V-proportional:** independent stationary residuals, dimensions, stability,
+  representative solver/convergence checks, cancellation/symmetry/asymptotic
+  limits; production corner regressions, signs, energy identities, escape
+  accounting, tolerance comparison and unchanged guards. Do not repeat Stage B.
+  Independent scientific review remains required before new-result ratification;
+  independent computational checks are not a substitute for that review.
+
+The accepted controlled equations are ADR-0015 A3/A5/A6 with frozen `Z`.
+With `c=MeVToErg`, the scoped thermal-plus-chemical identity is
+
+```text
+c Echem_dot = A_B + A_Omega - L_H
+A_B = -c eta·sigma
+A_Omega = 2c Omega Omegadot eta·I_Omega
+d(U+c Echem)/dt = P_actual+A_B+A_Omega-DeltaLnu-Lnu,eq-Lgamma.
+```
+
+The thermal equation itself receives neither `A_B` nor `A_Omega` as an extra
+heat source. This subsystem identity is accepted for the restricted controlled
+study, without global rotating-star energy closure. The sign-conditional
+spin-off statements in ADR-0015 §§5 and 10 retain their original hypotheses;
+when spin is present the correction relative to `P_0` is
+`-c Echem_dot+A_Omega-DeltaLnu`. No ADR-0015 statement is generalized by
+silently dropping its spin-off or neutron-sink-built-state condition.
+
+Unchanged assumptions: 0.62-solar-mass nonphysical free-gas benchmark, near-
+threshold muons, prescribed MU normalization, non-superfluid matter, no direct
+Urca, cold chemical response, frozen structure, no independent microscopic BNV
+kinematics/rate. No realistic pulsar temperatures or BNV limits follow.
+The implementation and results belong in
+[the dedicated research directory](../research/bnv-rotochemical-competition/README.md).
+
+The alternatives below are retained as decision history. Only the choices and
+restricted stages above are selected; descriptions of S3 are not authorization.
+
 ## Alternatives
 
 The owner's choice has one primary part (study design) and four dependent parts
-(partition, spin matching and history, gates, validation tier). The AI
-assistant's recommendations are marked and are not selections.
+(partition, spin matching and history, gates, validation tier). The original AI
+recommendations are retained; the Decision above records the owner selections.
 
 ### Study design
 
@@ -84,8 +152,8 @@ assistant's recommendations are marked and are not selections.
   ADR-0015 A6 unchanged; spin adds no thermal term. The new conserved statement
   is the thermal + chemical subsystem ledger
   `d/dt[U + c Echem] = P_actual + A_B + A_Omega − DeltaLnu − Lnu,eq − Lgamma`,
-  with `A_Omega = 2c Omega Omegadot eta·I_Omega`. It is a **derived, unratified
-  candidate**; accepting this option accepts it for the controlled scope only.
+  with `A_Omega = 2c Omega Omegadot eta·I_Omega`. It is now **accepted for the restricted controlled subsystem only** by the
+  Decision above; no global closure follows.
 - **Required code changes after approval:**
   S1 none in production source — a standalone tool reading governed coefficient
   artifacts.
@@ -252,7 +320,7 @@ card provenance. P-A and P-B must not share a parameter name.
 
 ## Validation required for an approved implementation
 
-Before implementation the owner selects the design and its dependent parts.
+The owner selected the design and dependent parts in the Decision above.
 After implementation, and before interpreting new results:
 
 1. **Corners.** Spin off, zero source: Stage B control. Spin on, zero source:
@@ -284,24 +352,14 @@ scheduler availability. This ADR proposes no CPU or walltime ceiling.
 
 ## Provenance
 
-Drafted by the AI assistant on the owner's 2026-11-12 request to refocus the
-next physics study on BNV–rotochemical competition, starting from
-`0e88ec7e5ee981fcc2d93c85cf8a17d53d6d15fd` on
-`candidate/results-first-bnv-pilot-20261108`. The owner has **not selected an
-option, ratified Stage B, accepted this ADR, or approved new BNV or rotochemical
-implementation** in this record.
+The original proposed alternatives and scientific rationale were drafted from
+`0e88ec7e5ee981fcc2d93c85cf8a17d53d6d15fd` and revised at `5863899`.
+The explicit owner approval of 2026-11-12 selected the restricted Decision above
+from entry `81b808f5e85251c63622ed1a8bade2c206fdbf82`. The implementation,
+calculations, validation results and limitations are recorded separately in the
+research directory. Stage B acceptance is a separate restricted owner act.
 
-This submission changes documentation only. No source, test, tool, run card,
-certificate, baseline or evidence file changed. No predictor, map, trajectory or
-numerical campaign ran. The fixture ratios quoted in the proposal are closed-form
-arithmetic on existing governed values and are not retained evidence.
-
-Published sources are tracked under `docs/references/` (owner-supplied
-2026-11-12; hashes in `docs/references/SHA256SUMS`). Every equation, limit and
-quoted statement cited in the proposal was checked against the PDF text at the
-pages listed in its §11. `R2006` is not in the tracked set and is used only
-through ADR-0014. The owner, a co-author of Berryman, Gardner & Zakeri 2023,
-stated that its remarks on Urca cooling and net heating record an open question
-and are not results; the proposal does not rely on them.
-Stage B entry commit and evidence hashes remain in
-`docs/validation/results-first-bnv-pilot/stage-b/review-evidence/IMPORT.json:1`.
+Published sources are tracked under `docs/references/`, with version and hash
+provenance. R2006 remains used only through ADR-0014; RFJ2006 is not a substitute.
+The owner clarified that BGZ2023's heating-versus-Urca statements describe an open
+question and are not established results. This study retains that restriction.
