@@ -1,0 +1,453 @@
+{
+  "references": {
+    "pdfs_verified": 7,
+    "catalog_manifest_and_HEAD_match": true
+  },
+  "external_manifests": [
+    {
+      "stage": "stage-a",
+      "manifest": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/preliminary-pair-evidence-20261110-r1/external-SHA256SUMS.gz",
+      "sha256": "4ff01cd3172a3bf92b7c5c2df5b69d5b138c6cd80910eeb53e7d22c6177c3992",
+      "matches": true,
+      "sealed_files_recorded": 296997
+    },
+    {
+      "stage": "stage-b",
+      "manifest": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/stage-b-finalization-20261110-r1/sealed/manifest.jsonl.gz",
+      "sha256": "4eae8a0132354450457f6db79460f30f768f1d9af2123def691a331688af25e0",
+      "matches": true,
+      "sealed_files_recorded": 663232
+    }
+  ],
+  "independent_review": {
+    "imported_files_verified_against_original": 11,
+    "original_manifest_verified": true
+  },
+  "stage_a_compact_manifest": {
+    "entries": 19,
+    "failures": []
+  },
+  "links": {
+    "checked": 205,
+    "failures": [],
+    "scope": "root/agent/research/reference/ADR/new navigation and audit documents; targets checked against Git tree plus intended new files"
+  },
+  "stage_a_original_review": {
+    "entries": 26,
+    "failures": []
+  },
+  "stage_b_report_bindings": {
+    "entries": 30,
+    "source_and_display_hashes_verified": true,
+    "receipt_digest_verified": true,
+    "failures": []
+  },
+  "audit_date": "2026-11-12",
+  "class": "documentation and local Git housekeeping",
+  "entry_head": "129c72dc01e21c6a046c185d24987d696e183e13",
+  "github_candidate_before": "191fac300ec3770bc79f505e3afd606075fc65c3",
+  "research_preservation_commit": "58638994845774fc91e9f5cb6feda520186ebefb",
+  "worktrees_at_entry": [
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/sources/CompactStar",
+      "branch": "refs/heads/candidate/linux-ba13-recovery-20261012",
+      "head": "8e6ac589d8d34e78447ee893e43e5673490eb728",
+      "owner": "zaki",
+      "group": "zaki",
+      "tracked_changes": 0,
+      "untracked_python_caches": 0
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-closure",
+      "branch": "refs/heads/candidate/linux-ba13-closure-20261019",
+      "head": "093d121135e35bc50ca2a807470906bcb28ef5c3",
+      "owner": "zaki",
+      "group": "zaki",
+      "tracked_changes": 0,
+      "untracked_python_caches": 0
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-evidence",
+      "branch": "refs/heads/candidate/linux-ba13-evidence-20261026",
+      "head": "84e1062db78b91e4fb0988074941b1aea6019917",
+      "owner": "zaki",
+      "group": "zaki",
+      "tracked_changes": 0,
+      "untracked_python_caches": 0
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-final-decision",
+      "branch": "refs/heads/candidate/linux-ba13-final-decision-20261030",
+      "head": "bb0f9c5af8ebaf86b5a59aece5551bb9dafbd264",
+      "owner": "zaki",
+      "group": "zaki",
+      "tracked_changes": 0,
+      "untracked_python_caches": 0
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-onset-pilot",
+      "branch": "refs/heads/candidate/linux-ba13-onset-pilot-20261013",
+      "head": "dad05b17056f3ccb1e3871e6e4bb24ebe5db5df4",
+      "owner": "zaki",
+      "group": "zaki",
+      "tracked_changes": 0,
+      "untracked_python_caches": 0
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/ba13-uncertainty",
+      "branch": "refs/heads/candidate/linux-ba13-uncertainty-20261012",
+      "head": "4f3cf97462ca030f715e26808938f781a2a40945",
+      "owner": "zaki",
+      "group": "zaki",
+      "tracked_changes": 0,
+      "untracked_python_caches": 0
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot",
+      "branch": "refs/heads/candidate/results-first-bnv-pilot-20261108",
+      "head": "129c72dc01e21c6a046c185d24987d696e183e13",
+      "owner": "zaki",
+      "group": "zaki",
+      "tracked_changes": 3,
+      "untracked_python_caches": 19
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x1-oracle-anchor",
+      "branch": "refs/heads/candidate/linux-x1-oracle-anchor-20261016",
+      "head": "6cc7e20713e3c0210faa9036316650816f0290d5",
+      "owner": "zaki",
+      "group": "zaki",
+      "tracked_changes": 0,
+      "untracked_python_caches": 0
+    },
+    {
+      "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/x2-fixed-step",
+      "branch": "refs/heads/candidate/linux-x2-fixed-step-20261016",
+      "head": "286aafb63002093b3052e23a3972903011f36035",
+      "owner": "zaki",
+      "group": "zaki",
+      "tracked_changes": 0,
+      "untracked_python_caches": 0
+    }
+  ],
+  "local_branches_before_housekeeping_commit": [
+    {
+      "branch": "candidate/linux-ba13-closure-20261019",
+      "sha": "093d121135e35bc50ca2a807470906bcb28ef5c3",
+      "upstream": "",
+      "candidate_left_branch_right": [
+        "113",
+        "0"
+      ]
+    },
+    {
+      "branch": "candidate/linux-ba13-evidence-20261026",
+      "sha": "84e1062db78b91e4fb0988074941b1aea6019917",
+      "upstream": "",
+      "candidate_left_branch_right": [
+        "104",
+        "0"
+      ]
+    },
+    {
+      "branch": "candidate/linux-ba13-final-decision-20261030",
+      "sha": "bb0f9c5af8ebaf86b5a59aece5551bb9dafbd264",
+      "upstream": "",
+      "candidate_left_branch_right": [
+        "100",
+        "0"
+      ]
+    },
+    {
+      "branch": "candidate/linux-ba13-onset-pilot-20261013",
+      "sha": "dad05b17056f3ccb1e3871e6e4bb24ebe5db5df4",
+      "upstream": "",
+      "candidate_left_branch_right": [
+        "143",
+        "0"
+      ]
+    },
+    {
+      "branch": "candidate/linux-ba13-recovery-20261012",
+      "sha": "8e6ac589d8d34e78447ee893e43e5673490eb728",
+      "upstream": "",
+      "candidate_left_branch_right": [
+        "158",
+        "0"
+      ]
+    },
+    {
+      "branch": "candidate/linux-ba13-uncertainty-20261012",
+      "sha": "4f3cf97462ca030f715e26808938f781a2a40945",
+      "upstream": "",
+      "candidate_left_branch_right": [
+        "152",
+        "0"
+      ]
+    },
+    {
+      "branch": "candidate/linux-qualification-corrections-20261011",
+      "sha": "5ec9994f5822647aebf79a556c0fe5e11ce77e18",
+      "upstream": "",
+      "candidate_left_branch_right": [
+        "160",
+        "0"
+      ]
+    },
+    {
+      "branch": "candidate/linux-transition-20261010",
+      "sha": "f4e7c18f568045febc5bf65c6e95200752196dad",
+      "upstream": "origin/candidate/linux-transition-20261010",
+      "candidate_left_branch_right": [
+        "182",
+        "0"
+      ]
+    },
+    {
+      "branch": "candidate/linux-x1-oracle-anchor-20261016",
+      "sha": "6cc7e20713e3c0210faa9036316650816f0290d5",
+      "upstream": "",
+      "candidate_left_branch_right": [
+        "138",
+        "0"
+      ]
+    },
+    {
+      "branch": "candidate/linux-x2-fixed-step-20261016",
+      "sha": "286aafb63002093b3052e23a3972903011f36035",
+      "upstream": "",
+      "candidate_left_branch_right": [
+        "122",
+        "0"
+      ]
+    },
+    {
+      "branch": "candidate/results-first-bnv-pilot-20261108",
+      "sha": "58638994845774fc91e9f5cb6feda520186ebefb",
+      "upstream": "origin/candidate/results-first-bnv-pilot-20261108",
+      "candidate_left_branch_right": [
+        "0",
+        "0"
+      ]
+    },
+    {
+      "branch": "docs/phase6-cluster-preparation",
+      "sha": "d8e7208b71e01168394e41f8f8f32b027b5d0a63",
+      "upstream": "",
+      "candidate_left_branch_right": [
+        "200",
+        "0"
+      ]
+    },
+    {
+      "branch": "master",
+      "sha": "9a5c1eca40758e4c39f9f80db7324e12ad23e505",
+      "upstream": "",
+      "candidate_left_branch_right": [
+        "229",
+        "0"
+      ]
+    },
+    {
+      "branch": "physics/phase6-bnv-campaign-readiness",
+      "sha": "5433fc2da71ba380264f490b87926d850ff9f375",
+      "upstream": "origin/physics/phase6-bnv-campaign-readiness",
+      "candidate_left_branch_right": [
+        "201",
+        "0"
+      ]
+    },
+    {
+      "branch": "physics/phase6-breakpoint-aware-evolution",
+      "sha": "0c3f9269c884161c9d89163660a47b141a93ace6",
+      "upstream": "origin/physics/phase6-breakpoint-aware-evolution",
+      "candidate_left_branch_right": [
+        "205",
+        "0"
+      ]
+    }
+  ],
+  "remote_branches_with_separate_history": [
+    {
+      "branch": "origin/analysis/phase6a1-ba12r-numerical-forensics",
+      "sha": "0aab1c2b5b748585326de35499d1830d0c788fae",
+      "candidate_left_branch_right_at_entry": [
+        "265",
+        "6"
+      ]
+    },
+    {
+      "branch": "origin/analysis/phase6a1-ba12r-segmentation-diagnostic",
+      "sha": "6057eb92339e5a0596baab6a652c6290d0930658",
+      "candidate_left_branch_right_at_entry": [
+        "265",
+        "7"
+      ]
+    },
+    {
+      "branch": "origin/analysis/phase6a1-bnv-recovery-preflight",
+      "sha": "987d78f17906851dbd91342a2008ba65cf02bba1",
+      "candidate_left_branch_right_at_entry": [
+        "267",
+        "12"
+      ]
+    },
+    {
+      "branch": "origin/analysis/phase6a1-checkpoint-reconstruction-candidate-recovery",
+      "sha": "ae0d5607fe8889cec70604747dfe3bfea7e5fd97",
+      "candidate_left_branch_right_at_entry": [
+        "265",
+        "17"
+      ]
+    },
+    {
+      "branch": "origin/analysis/phase6a1-checkpoint-reconstruction-preflight",
+      "sha": "93e93c7f91a3cd8fced2f7a0961eda9c469c43fe",
+      "candidate_left_branch_right_at_entry": [
+        "265",
+        "11"
+      ]
+    },
+    {
+      "branch": "origin/analysis/phase6a1-checkpoint-reconstruction-validation",
+      "sha": "8b783dbe73cc504b8aa00a5e9aeb48677bcf1ead",
+      "candidate_left_branch_right_at_entry": [
+        "265",
+        "14"
+      ]
+    },
+    {
+      "branch": "origin/analysis/phase6a1-passive-observation-proof",
+      "sha": "9af8912107ea77a2e2ea51517c1776f26a4b7b49",
+      "candidate_left_branch_right_at_entry": [
+        "265",
+        "10"
+      ]
+    },
+    {
+      "branch": "origin/claude/hartle-rotochemical-heating-FwAHP",
+      "sha": "d91c31bfcc9919915ebb0e745946f57c7f31f141",
+      "candidate_left_branch_right_at_entry": [
+        "405",
+        "1"
+      ]
+    },
+    {
+      "branch": "origin/physics/adr0018-mac-source-equivalence",
+      "sha": "abf2b628a35e56542c4f8fc42612a4fe7fd70c88",
+      "candidate_left_branch_right_at_entry": [
+        "252",
+        "3"
+      ]
+    },
+    {
+      "branch": "origin/physics/phase6a1-bnv-recovery-ba12r",
+      "sha": "971b2bac47c320bd262d8686841e679f703e5ccb",
+      "candidate_left_branch_right_at_entry": [
+        "265",
+        "5"
+      ]
+    },
+    {
+      "branch": "origin/physics/phase6a1-bnv-recovery-r0-r3",
+      "sha": "d2822656aae8e264f4985f0d2f7228b90320a577",
+      "candidate_left_branch_right_at_entry": [
+        "265",
+        "3"
+      ]
+    },
+    {
+      "branch": "origin/physics/phase6a1-controlled-bnv-implementation",
+      "sha": "e56e6e50040dbcd9dcbee1acecf58843f3dddf1c",
+      "candidate_left_branch_right_at_entry": [
+        "267",
+        "11"
+      ]
+    }
+  ],
+  "publication_scan_at_entry": {
+    "outgoing_commits": 27,
+    "new_blobs_scanned": 233,
+    "bytes_scanned": 22500900,
+    "largest_blobs": [
+      {
+        "path": "docs/references/bnv/zakeri/2022-Berryman-Gardner-Zakeri-Neutron-Stars-with-Baryon-Number-Violation-Probing-Dark-Sectors.pdf",
+        "bytes": 7368656
+      },
+      {
+        "path": "docs/references/bnv/zakeri/2023-Berryman-Gardner-Zakeri-Macroscopic-Limits-on-Neutron-Star-Baryon-Loss.pdf",
+        "bytes": 4247649
+      },
+      {
+        "path": "docs/references/bnv/2020-McKeen-Pospelov-Raj-Cosmological-and-Astrophysical-Probes-of-Dark-Baryons.pdf",
+        "bytes": 2991920
+      },
+      {
+        "path": "docs/references/bnv/2021-McKeen-Pospelov-Raj-Smoke-and-Mirrors-Neutron-Star-Internal-Heating.pdf",
+        "bytes": 1397782
+      },
+      {
+        "path": "docs/validation/results-first-bnv-pilot/stage-b/evidence/curve-source.csv",
+        "bytes": 1022979
+      },
+      {
+        "path": "docs/references/rotochemical/2005-Fernandez-Reisenegger-Formalism-NonSuperfluid.pdf",
+        "bytes": 703997
+      },
+      {
+        "path": "docs/validation/results-first-bnv-pilot/stage-b/evidence/curve-control.csv",
+        "bytes": 627854
+      },
+      {
+        "path": "docs/references/rotochemical/2006-Reisenegger-Fernandez-Jofre-Internal-Heating-and-Thermal-Emission-from-Old-Neutron-Stars.pdf",
+        "bytes": 495135
+      }
+    ],
+    "sensitive_filename_flags": [],
+    "credential_pattern_findings": []
+  },
+  "git_connectivity_check": "git fsck --connectivity-only --no-dangling: exit 0",
+  "worktree_metadata": "All eight linked-worktree forward/back pointers valid; prune dry-run empty; main and shared metadata owned by zaki:zaki",
+  "identity": {
+    "global_name_email": "unset",
+    "repository_name_email": "unset",
+    "repository_user_useConfigOnly": true,
+    "commits_in_this_task": "Codex <codex@localhost>, per-command author and committer configuration"
+  },
+  "sparse": {
+    "mode": "non-cone, worktree-specific",
+    "candidate_added_patterns": [
+      "/docs/adr/",
+      "/docs/references/",
+      "/docs/validation/results-first-bnv-pilot/",
+      "/docs/README.md",
+      "/docs/maintenance/",
+      "/tests/native/",
+      "/tests/diagnostics/",
+      "/CompactStar/Physics/Rotochemical/QualifiedBackgroundInputs.hpp"
+    ],
+    "all_previously_materialized_tracked_files_preserved": true
+  },
+  "limitations": [
+    "No numerical calculations, native test/build runs, cluster submissions or full external payload rehash.",
+    "External manifest digests and selected original review/report files were rehashed; historical full-payload checks were not repeated.",
+    "R2006 original bytes absent from searched accessible local locations; macOS library unavailable.",
+    "Credential-pattern scan is bounded inspection, not a guarantee about arbitrary binary contents."
+  ],
+  "existing_materialized_files_preservation": {
+    "files_checked": 3004,
+    "changed_files": [
+      ".gitignore",
+      "AGENTS.md",
+      "README.md",
+      "docs/references/README.md"
+    ],
+    "all_other_files_byte_identical_to_entry": true,
+    "incoming_research_documents_byte_identical_to_entry": true
+  },
+  "final_worktree_preservation": {
+    "other_worktrees_clean_unchanged": 8,
+    "master_unchanged": true,
+    "original_python_caches_retained_ignored": 19
+  }
+}

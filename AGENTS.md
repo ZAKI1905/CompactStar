@@ -134,10 +134,23 @@ promote it.
 
 ## Scientific source library
 
-- Shared source root is `/Users/keeper/Documents/CompactStar/literature`; it is outside Git and
-  shared by all worktrees.
-- Before re-deriving established scientific material, consult `/Users/keeper/Documents/CompactStar/literature/catalog.tsv` and
-  `/Users/keeper/Documents/CompactStar/literature/README.md`.
+- The tracked, cross-platform collection is [docs/references/](docs/references/README.md).
+  Consult its `catalog.tsv` and verify PDFs with `(cd docs/references && sha256sum -c SHA256SUMS)`.
+  It currently contains the seven owner-supplied PDFs imported at `129c72d`;
+  catalog entries record exact versions, bytes and provenance (`docs/references/catalog.tsv:1`).
+- The larger macOS source library is `/Users/keeper/Documents/CompactStar/literature`;
+  it is outside Git and shared by the Mac worktrees, not a path available on EKU.
+  When available, also consult that library's `catalog.tsv` and `README.md` before
+  re-deriving established scientific material. The tracked subset does not replace it.
+- References not yet imported are listed in [the reference README](docs/references/README.md#not-yet-here).
+  In particular, ADR-0014's **R2006 electrostatic-potential formalism** has expected
+  SHA-256 `a286f15e083e52becd95b3000cbb5ec3ed97148681cf10a43f1a1cc5c4d23ae8`.
+  The tracked Reisenegger–Fernández–Jofré 2006 paper (**RFJ2006**) is a different
+  source and must not substitute for it (`docs/adr/ADR-0014-secular-rotochemical-evolution-contract.md:40`).
+- In an existing non-cone sparse checkout, add `/docs/references/` with
+  `printf '%s\n' '/docs/references/' | git sparse-checkout add --stdin`.
+  Inspect `git ls-tree -r HEAD -- docs/references` before declaring a reference absent.
+  See [checkout and identity guidance](docs/README.md#git-and-sparse-checkouts).
 - PDFs in the shared source root are read-only scientific references; do not rename, move, or edit
   them during normal research tasks.
 - `literature/_incoming` is staging/provenance only and is not scientific authority.

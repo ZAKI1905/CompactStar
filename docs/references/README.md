@@ -28,9 +28,11 @@ arXiv PDFs. The bytes are unchanged; only the file names were changed, and the
 original names are in `catalog.tsv`. The archive's `__MACOSX` metadata entries
 were not imported.
 
-The owner stated that these are openly available on arXiv and may be kept in this
-private repository. If the repository's visibility changes, that decision should
-be revisited.
+The owner supplied these openly available arXiv PDFs for the existing **public**
+`ZAKI1905/CompactStar` repository and explicitly requested that the tracked
+collection be preserved and synchronized on 2026-11-12. The earlier description
+of this repository as private was incorrect. Availability in this collection
+does not assign scientific authority or alter the papers' licenses.
 
 ## Relation to the shared source library
 
@@ -79,3 +81,20 @@ any change alters the hash.
 Sources that repository documents rely on and that are still only on the macOS
 host: `R2006`, `R1995`, `Y2020`, `JRF2006`, `R1997` (all listed with hashes in
 `docs/validation/PHASE5D0_SECULAR_ROTOCHEMICAL_EVOLUTION_PREFLIGHT.md:55`).
+
+For **R2006**, the historical library filename is recorded as
+`2006-Reisenegger-...-Electrostatic-Potential-Perturbations.pdf` and the expected
+SHA-256 is `a286f15e083e52becd95b3000cbb5ec3ed97148681cf10a43f1a1cc5c4d23ae8`
+([preflight source table](../validation/PHASE5D0_SECULAR_ROTOCHEMICAL_EVOLUTION_PREFLIGHT.md#2-literature-authority)).
+The ellipsis is part of that historical description, not an imported filename.
+The 2026-11-12 housekeeping audit found no matching PDF among 43 accessible PDFs
+under the EKU CompactStar root, `/home/zaki`, and `/tmp`, or inside the supplied
+reference ZIP. The macOS library was not mounted; inaccessible system temporary
+directories were outside the search. See the [audit](../maintenance/REPOSITORY_AUDIT_2026-11-12.md).
+
+Import the original library bytes when available, verify the full digest, and
+read their bibliographic metadata before adding a catalog row. No placeholder
+PDF, invented metadata, or replacement by RFJ2006 has been added. `catalog.tsv`
+and `SHA256SUMS` enumerate available files only.
+
+For navigation and sparse-checkout instructions, see the [repository guide](../README.md).

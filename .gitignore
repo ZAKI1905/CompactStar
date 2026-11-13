@@ -24,3 +24,6 @@ main/SpinDown_2023/
 main/Utility/
 main/Quartic_Solver.py
 .venv/
+# Python import caches are local byproducts, not retained scientific evidence.
+__pycache__/
+*.pyc

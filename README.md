@@ -1,8 +1,15 @@
 # CompactStar
 
-Local Mac dependency migration candidate: see the
-[authenticated package build instructions](docs/build/EXTERNAL_PACKAGES_MAC.md).
-Canonical integration awaits the combined independent review described in ADR-0019.
+Start with the [repository and research guide](docs/README.md) for source, tests,
+scientific evidence, references, proposed studies, and external artifact locations.
+The [Stage B conditional-acceptance draft](docs/validation/results-first-bnv-pilot/stage-b/CONDITIONAL_ACCEPTANCE.md)
+and [proposed BNV–rotochemical study](docs/validation/results-first-bnv-pilot/stage-b/NEXT_PHYSICS_STUDY.md)
+record the current research handoff; neither is approval of new physics work.
+See also the [authenticated Mac package build instructions](docs/build/EXTERNAL_PACKAGES_MAC.md).
+
+The overview below describes project intent. For implemented behavior and
+scientific authority, consult [current architecture](docs/architecture/CURRENT_ARCHITECTURE.md)
+and [governance](GOVERNANCE.md), respectively.
 
 **CompactStar** is a high-performance, modular C++ framework for modeling the microphysics, structure, and evolution of compact stars—neutron stars, hybrid stars, and dark–visible admixed configurations.
 
