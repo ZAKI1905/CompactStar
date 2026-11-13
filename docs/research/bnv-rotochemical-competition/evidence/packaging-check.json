@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "checks": {
+    "C1_C7_byte_identical_to_entry": true,
+    "correct_reviewed_commit": true,
+    "exact_accepted_endpoint": true,
+    "historical_validation_evidence_untouched": true,
+    "native_run_production_source_matches_delivered": true,
+    "final_source_manifest": true,
+    "static_solver_bytes_match_map": true,
+    "copied_input_hashes": true,
+    "static_independent_pass": true,
+    "short_independent_pass": true,
+    "row_counts": true,
+    "research_links_exist": true,
+    "six_pdf_png_pairs": true,
+    "python_syntax": true,
+    "nine_worktrees_preserved": true,
+    "external_manifest_matches": true,
+    "external_files_match": true
+  },
+  "broken_links": [],
+  "scope": "Packaging/source/provenance audit, not a new scientific certificate."
+}

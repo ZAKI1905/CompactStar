@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/research/bnv_competition/verify.py", line 125, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/research/bnv_competition/verify.py", line 120, in main
+    (a.out/'verification.json').write_text(json.dumps(result,indent=2)+'\n')
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/python-3.11.9-g4zuo4tjs6qdheidlgtli3ampfghjezh/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/python-3.11.9-g4zuo4tjs6qdheidlgtli3ampfghjezh/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/python-3.11.9-g4zuo4tjs6qdheidlgtli3ampfghjezh/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/python-3.11.9-g4zuo4tjs6qdheidlgtli3ampfghjezh/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/python-3.11.9-g4zuo4tjs6qdheidlgtli3ampfghjezh/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/python-3.11.9-g4zuo4tjs6qdheidlgtli3ampfghjezh/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/opt/spack/linux-rocky9-zen2/gcc-11.4.1/python-3.11.9-g4zuo4tjs6qdheidlgtli3ampfghjezh/lib/python3.11/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type bool_ is not JSON serializable
+srun: error: phyn004: task 0: Exited with exit code 1

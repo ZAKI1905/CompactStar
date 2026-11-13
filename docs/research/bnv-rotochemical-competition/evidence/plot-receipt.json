@@ -1,0 +1,19 @@
+{
+  "job": "19432",
+  "figures": [
+    "A_competition.pdf",
+    "A_competition.png",
+    "B_temperature.pdf",
+    "B_temperature.png",
+    "C_channels.pdf",
+    "C_channels.png",
+    "D_applicability.pdf",
+    "D_applicability.png",
+    "E_reachability.pdf",
+    "E_reachability.png",
+    "F_scaling_deposition.pdf",
+    "F_scaling_deposition.png"
+  ],
+  "data": "stationary-full.csv; fiducial.csv",
+  "status": "rendered; visual inspection required"
+}

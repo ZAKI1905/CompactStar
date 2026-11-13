@@ -1,0 +1,12 @@
+{
+  "manifest": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/bnv-rotochemical-competition-20261112-external-SHA256SUMS",
+  "sha256": "1c0033cb27048bc5fd9d85fed6abd3ab00515769b83fb8ec9c6d1738b3af0465",
+  "files": 77,
+  "scope": "All r1/r2/r3 scientific outputs and logs plus new native executables; excludes reproducible build intermediates and dependency/cache directories.",
+  "accepted_static_directory": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/bnv-rotochemical-competition-20261112-r3",
+  "retained_archive": {
+    "path": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/native-p2-regeneration-20261108-r1/capture/sequence.archive",
+    "sha256": "26dd2b060ad8ed10d26ec46b67a9b957e3517fe6718708ba91d09c5f204158cf"
+  },
+  "scientific_status": "candidate; no broader certificate or human scientific review"
+}

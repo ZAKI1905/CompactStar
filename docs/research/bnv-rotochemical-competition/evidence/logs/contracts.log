@@ -1,0 +1,37 @@
+Internal ctest changing into directory: /mnt/sdd/zaki/CompactStar/linux-transition-20261010/bnv-rotochemical-competition-20261112-r3/build
+Test project /mnt/sdd/zaki/CompactStar/linux-transition-20261010/bnv-rotochemical-competition-20261112-r3/build
+    Start 15: passive_checkpoint_output_contract
+    Start 16: phase6a1_direct_energy
+    Start 17: phase6a1_thermal_ledger
+    Start 70: phase5d_response
+    Start 71: phase5d_independent_oracles
+    Start 72: phase5d_component_tolerances
+    Start 76: phase6_breakpoint_contract
+    Start 77: phase6_currentness_bytes
+    Start 80: bnv_competition_contract
+1/9 Test #15: passive_checkpoint_output_contract ...   Passed    0.02 sec
+2/9 Test #16: phase6a1_direct_energy ...............   Passed    0.02 sec
+3/9 Test #17: phase6a1_thermal_ledger ..............   Passed    0.02 sec
+4/9 Test #70: phase5d_response .....................   Passed    0.02 sec
+5/9 Test #80: bnv_competition_contract .............   Passed    0.01 sec
+6/9 Test #72: phase5d_component_tolerances .........   Passed    0.01 sec
+7/9 Test #76: phase6_breakpoint_contract ...........   Passed    0.01 sec
+8/9 Test #77: phase6_currentness_bytes .............   Passed    0.03 sec
+9/9 Test #71: phase5d_independent_oracles ..........   Passed    6.35 sec
+
+100% tests passed, 0 tests failed out of 9
+
+Label Time Summary:
+adr0017             =   0.02 sec*proc (1 test)
+bnv                 =   0.06 sec*proc (4 tests)
+contract            =   0.03 sec*proc (2 tests)
+currentness         =   0.03 sec*proc (1 test)
+engineering         =   0.03 sec*proc (1 test)
+phase5d             =   6.38 sec*proc (3 tests)
+phase5d-analytic    =   6.37 sec*proc (2 tests)
+phase5d-coupled     =   0.01 sec*proc (1 test)
+phase6              =   0.10 sec*proc (5 tests)
+scientific          =   6.42 sec*proc (5 tests)
+self-contained      =   6.45 sec*proc (7 tests)
+
+Total Test time (real) =   6.37 sec

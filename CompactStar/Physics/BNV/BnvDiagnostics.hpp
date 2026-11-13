@@ -22,9 +22,13 @@ struct BnvDiagnostics
     std::array<double,3> S_count_s{},t{},t_error{};
     std::array<double,2> sigma_count_s{},eta_MeV{},xi{},R_count_s{};
     std::array<double,2> eta_dot_from_sigma_MeV_s{},eta_dot_from_beta_MeV_s{};
+    std::array<double,2> eta_dot_from_spin_MeV_s{},spin_reference_count_s{};
     double bSigma_residual_count_s=0,lift_residual_count_s=0;
     double mu_B_inf_MeV=0,mu_n_actual_inf_MeV=0,g_actual_residual_MeV=0;
     double Echem_MeV=0,Echem_dot_reaction_MeV_s=0,Echem_dot_source_MeV_s=0,Echem_dot_total_MeV_s=0;
+    double Echem_dot_spin_MeV_s=0,A_B_erg_s=0,A_spin_erg_s=0;
+    double Echem_chain_residual_erg_s=0,subsystem_residual_erg_s=0;
+    double omega_rad_s=0,omega_dot_rad_s2=0;
     double P_dir_eq_erg_s=0,P_dir_actual_erg_s=0,R18_residual_erg_s=0;
     double Ra_Rb_residual_erg_s=0,Rb_Rc_residual_erg_s=0;
     double Eesc_fluid_inf_MeV_s=0,Eesc_star_inf_MeV_s=0,EX_inf_MeV_s=0;

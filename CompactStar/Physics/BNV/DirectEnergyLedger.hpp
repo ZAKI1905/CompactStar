@@ -6,6 +6,7 @@
 #include <CompactStar/Physics/BNV/EquilibriumBaryonTangent.hpp>
 #include <array>
 #include <memory>
+#include <optional>
 #include <string>
 #include <vector>
 
@@ -19,6 +20,8 @@ struct ActualOrdinaryPotential
     double mu_B_inf_MeV=0, mu_n_actual_inf_MeV=0;
     double reconstruction_residual_MeV=0;
     std::string provenance;
+    // Optional exact cold-quadratic departure, before adding the ~GeV baseline.
+    std::optional<std::array<double,3>> departure_inf_MeV;
 };
 
 struct DirectEventEnergy
@@ -28,6 +31,9 @@ struct DirectEventEnergy
     double Ein_explicit_inf_MeV=0;
     bool local_frame_check=false;
     double exp_phi=1, Qlocal_MeV=0;
+    // ADR-0025 P-A: factor the actual chemical budget to preserve tiny deposits.
+    // If present, the ledger validates the equivalent explicit escape partition.
+    std::optional<double> actual_budget_retained_fraction;
 };
 
 class IDirectBnvEnergyPartition

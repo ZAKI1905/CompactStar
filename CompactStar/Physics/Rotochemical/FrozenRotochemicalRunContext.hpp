@@ -2,6 +2,7 @@
 #include <CompactStar/Physics/Rotochemical/FrozenThermalSource.hpp>
 #include <CompactStar/Physics/Rotochemical/QualifiedBackgroundInputs.hpp>
 #include <CompactStar/Physics/Rotochemical/PrescribedSpinHistory.hpp>
+#include <CompactStar/Physics/Rotochemical/ParameterizedSpinHistory.hpp>
 #include <CompactStar/Physics/Rotochemical/RotochemicalReactionResponse.hpp>
 #include <CompactStar/Physics/Evolution/EvolutionConfig.hpp>
 #include <CompactStar/Physics/Evolution/StarContext.hpp>
@@ -40,7 +41,7 @@ class FrozenReactionEvaluator final
     const std::shared_ptr<const GlobalUrcaChannelCoefficient> owner_;
     std::array<UrcaCoefficientEntry,4> entries_;
 };
-enum class RunPurpose {ControlledTrajectory,AnalyticControl};
+enum class RunPurpose {ControlledTrajectory,AnalyticControl,PrescribedCombinedDriving};
 struct RunQualification
 {
     RunPurpose purpose=RunPurpose::ControlledTrajectory;
@@ -88,7 +89,8 @@ class FrozenRotochemicalRunContext final
         Need(qualification_.radial_resolution==80000&&qualification_.eos_resolution==8192&&qualification_.rho_c_g_cm3==1.10e15,"unqualified background resolution/density");
         Need(fixed_->metadata.sequence_radial_resolution==80000,"structural radial provenance mismatch");
         Need(qualification_.background_inputs!=QualifiedBackgroundInputs::NativeStructure1 ||
-             qualification_.purpose==RunPurpose::AnalyticControl,"native background restricted to analytic controls");
+             qualification_.purpose==RunPurpose::AnalyticControl ||
+             qualification_.purpose==RunPurpose::PrescribedCombinedDriving,"native background requires an authorized controlled purpose");
         const auto hashes=BackgroundInputHashes(qualification_.background_inputs);
         const std::array<std::pair<std::string,std::string>,5> sources{{
           {qualification_.profile_path,hashes[0]},
@@ -99,11 +101,23 @@ class FrozenRotochemicalRunContext final
         for(size_t i=0;i<sources.size();++i){const auto& s=sources[i];Need(!s.first.empty()&&s.second.size()==64,"missing qualification identity");qualification_sources_.emplace_back(s.first);Need(qualification_sources_.back().sha256==s.second,"qualification source hash mismatch");if(i<4)Need(std::any_of(source_paths_.begin(),source_paths_.end(),[&](const auto& p){return std::filesystem::absolute(p)==std::filesystem::absolute(s.first);}),"qualification not in semantic source owner");}
         domain_=channels_->DomainIdentity();metric_=channels_->MetricIdentity();partition_=channels_->PartitionKm();Need(domain_==revision_->domain&&partition_==global_->Partition()&&!metric_.empty(),"foreign domain/partition/metric");
         star_=std::make_unique<Evolution::StarContext>(stars_.front()->Profile());geo_=std::make_unique<Evolution::GeometryCache>(*star_);cfg_.n_eta=2;
+        if(qualification_.purpose==RunPurpose::PrescribedCombinedDriving)
+        {
+            Need(dynamic_cast<const ParameterizedDipoleHistory*>(spin_.get())!=nullptr,
+                 "combined driving requires parameterized prescribed spin");
+            const auto& profile=stars_.front()->Profile();
+            const double R=(*profile.GetRadius())[-1],M=(*profile.GetMass())[-1];
+            Need(R>2*M&&M>0,"invalid star for prescribed rotation admission");
+            // Conservative slow-rotation admission: below 0.3 times the
+            // Newtonian dynamical frequency. Not a mass-shedding certificate.
+            const double limit=.3*Zaki::Physics::LIGHT_C_KM_S*std::sqrt(M/(R*R*R));
+            Need(spin_->Sample(0).omega_rad_s<limit,"prescribed spin outside sub-Kepler slow-rotation admission");
+        }
         Driver::Thermal::PhotonCooling::Options po;po.surface_model=Driver::Thermal::PhotonCooling::Options::SurfaceModel::EnvelopeTbTs;photon_=std::make_unique<const Driver::Thermal::PhotonCooling>(po);
         Driver::Thermal::NeutrinoCooling::Options no;no.include_direct_urca=false;no.include_modified_urca=false;no.include_pair_breaking=false;other_=std::make_unique<const Driver::Thermal::NeutrinoCooling>(no);
         Need(!spin_->Identity().empty(),"empty spin identity");
-        if(qualification_.purpose==RunPurpose::ControlledTrajectory){
-          Need(dynamic_cast<const PrescribedDipoleHistory*>(spin_.get())!=nullptr,"unqualified production spin implementation");
+        if(qualification_.purpose==RunPurpose::ControlledTrajectory||qualification_.purpose==RunPurpose::PrescribedCombinedDriving){
+          if(qualification_.purpose==RunPurpose::ControlledTrajectory)Need(dynamic_cast<const PrescribedDipoleHistory*>(spin_.get())!=nullptr,"unqualified production spin implementation");
           Need(selection_.Enabled(UrcaProcess::Me)&&selection_.Enabled(UrcaProcess::Mmu),"production MU selection mismatch");
           Need(metric_=="qualified Structure-1 radial80000 canonical nu/lambda","production metric identity mismatch");
           Need(reaction_.Entry(UrcaProcess::Me).normalization_identity=="predeclared mathematical benchmark SMe=1e-51 erg cm^-3 s^-1 K^-8"&&reaction_.Entry(UrcaProcess::Mmu).normalization_identity=="predeclared mathematical benchmark SMmu=2e-51 erg cm^-3 s^-1 K^-8","production normalization identity mismatch");

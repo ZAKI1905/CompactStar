@@ -780,6 +780,13 @@ target_link_libraries(native_p2_verify PRIVATE CompactStar)
 
 add_executable(native_p2_stage native/stage.cpp)
 target_link_libraries(native_p2_stage PRIVATE CompactStar)
+
+# ADR-0025 restricted S2: new functionality only; historical evidence unchanged.
+add_executable(bnv_competition_contract bnv/competition_contract.cpp)
+target_link_libraries(bnv_competition_contract PRIVATE CompactStar)
+add_test(NAME bnv_competition_contract COMMAND bnv_competition_contract)
+add_executable(bnv_competition_short native/competition.cpp)
+target_link_libraries(bnv_competition_short PRIVATE CompactStar)
 add_executable(native_o2_configuration native/o2_configuration.cpp)
 target_link_libraries(native_o2_configuration PRIVATE CompactStar)
 add_test(NAME native_o2_configuration COMMAND native_o2_configuration)

@@ -1,0 +1,7 @@
+{
+  "definition": "abs(surface_ratio - 1) >= 0.1",
+  "states": 3927,
+  "minimum_constant_drive_build_depletion": 1.499843071802428e-05,
+  "temperature_and_heuristic_depletion_passes": 0,
+  "scope": "Existing S1 grid; constant drives, eta_initial=0, frozen model; not a time integration or physical certificate."
+}

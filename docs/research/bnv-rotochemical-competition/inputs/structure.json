@@ -1,0 +1,23 @@
+{
+  "I_count_s2": [
+    -1.1637998545112904e+47,
+    -1.484481985023382e+46
+  ],
+  "N_leptons": [
+    4.8119204549793175e+54,
+    4.7577222961866916e+52
+  ],
+  "R_km": 12.766174760676613,
+  "M_km": 0.9209327364386662,
+  "nu_surface": -0.07790428019130562,
+  "kb_MeV_K": 8.61733326214518e-11,
+  "MeV_erg": 1.602176634e-06,
+  "sigmaSB_cgs": 5.670374419e-05,
+  "year_s": 31557600,
+  "authority": "Native Stage A/B Z/Ltilde/t/thermal anchors; governed Phase-5D I and Phase-5B N. No new structural solve.",
+  "surface_source_sha256": "62b8dc594fd9c30d413ccb1d906459e2599049966b0bec097284b43598a07a56",
+  "baseline_sha256": {
+    "tests/baselines/phase5d1_controlled_evolution.json": "2606916915b2da5c051b1a06637c0a371a74751c6e77b2775bc629a63bc9f6dd",
+    "tests/baselines/phase5b_structural_response.json": "7588f0e9cd62f5b6be48bb725e4d0ba6e47b64f50d843117e70c17a78beeb5fa"
+  }
+}

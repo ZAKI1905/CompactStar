@@ -33,6 +33,7 @@ ActualOrdinaryPotential BnvDirectEnergyLedger::ActualPotential(
     // components of baryon-neutral departures.
     out.actual_inf_MeV={mu_B+scalar,mu_B-ee+scalar,mu_B-em+scalar};
     out.mu_n_actual_inf_MeV=out.actual_inf_MeV[0];
+    out.departure_inf_MeV=std::array<double,3>{scalar,-ee+scalar,-em+scalar};
     out.reconstruction_residual_MeV=out.mu_n_actual_inf_MeV-(mu_B+t[1]*ee+t[2]*em);
     out.provenance=std::move(provenance);
     for(double v:out.actual_inf_MeV)if(!std::isfinite(v))throw std::runtime_error("nonfinite actual potential");
@@ -72,6 +73,30 @@ DirectEnergyResult BnvDirectEnergyLedger::Evaluate(
         double qeq=e.Ein_explicit_inf_MeV-e.Eesc_fluid_inf_MeV;
         double qactual=qeq;
         for(std::size_t i=0;i<3;++i){qeq-=event.delta_y[i]*potential.equilibrium_inf_MeV[i];qactual-=event.delta_y[i]*potential.actual_inf_MeV[i];}
+        if(e.actual_budget_retained_fraction)
+        {
+            const double f=*e.actual_budget_retained_fraction;
+            if(!std::isfinite(f)||f<0||f>1||e.Ein_explicit_inf_MeV!=0||e.EX_inf_MeV!=0)
+                throw std::runtime_error("invalid actual-budget retention partition");
+            double budget=0,correction=0;
+            for(std::size_t i=0;i<3;++i)
+            {
+                budget-=event.delta_y[i]*potential.actual_inf_MeV[i];
+                const double departure=potential.departure_inf_MeV?(*potential.departure_inf_MeV)[i]:
+                    potential.actual_inf_MeV[i]-potential.equilibrium_inf_MeV[i];
+                if(!std::isfinite(departure)||std::abs(potential.equilibrium_inf_MeV[i]+departure-potential.actual_inf_MeV[i])>
+                   32*std::numeric_limits<double>::epsilon()*std::max(1.,std::abs(potential.actual_inf_MeV[i])))
+                    throw std::runtime_error("inconsistent actual-potential departure");
+                correction+=event.delta_y[i]*departure;
+            }
+            const double expected=(1-f)*budget;
+            if(!(budget>=0)||std::abs(e.Eesc_fluid_inf_MeV-expected)>
+                32*std::numeric_limits<double>::epsilon()*std::max(1.,budget)||
+                e.Eesc_star_inf_MeV!=e.Eesc_fluid_inf_MeV)
+                throw std::runtime_error("actual-budget fraction disagrees with escaping energy");
+            qactual=f*budget;
+            qeq=qactual+correction;
+        }
         if(e.local_frame_check)
         {
             if(!(e.exp_phi>0&&e.exp_phi<=1))throw std::runtime_error("invalid local/infinity redshift");

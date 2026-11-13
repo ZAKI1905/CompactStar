@@ -40,15 +40,17 @@ rules are in the [invariant register](SCIENTIFIC_INVARIANTS.md) and
 | [Stage A report](validation/results-first-bnv-pilot/preliminary-pair/REPORT.md) and [owner acceptance](validation/results-first-bnv-pilot/preliminary-pair/OWNER_ACCEPTANCE.md) | Accepted bounded preliminary pair; retain its exact scope (`OWNER_ACCEPTANCE.md:1`) |
 | [Stage B report](validation/results-first-bnv-pilot/stage-b/REPORT.md) | Numerical results and qualification limits (`REPORT.md:1`) |
 | [Independent review](validation/results-first-bnv-pilot/stage-b/review-evidence/REVIEW.md) and [import receipt](validation/results-first-bnv-pilot/stage-b/review-evidence/IMPORT.json) | Original review copied byte for byte, with source paths and digests (`IMPORT.json:1`) |
-| [Conditional acceptance](validation/results-first-bnv-pilot/stage-b/CONDITIONAL_ACCEPTANCE.md) | Draft; owner ratification pending (`CONDITIONAL_ACCEPTANCE.md:1`) |
+| [Conditional acceptance](validation/results-first-bnv-pilot/stage-b/CONDITIONAL_ACCEPTANCE.md) | Owner-ratified restricted conditional acceptance, 2026-11-12; C1–C7 retained |
 | [Closeout](validation/results-first-bnv-pilot/stage-b/CLOSEOUT.md) | Historical review-correction record at `0e88ec7`; its next-study description refers to the earlier proposal (`CLOSEOUT.md:1`) |
-| [BNV–rotochemical competition study](validation/results-first-bnv-pilot/stage-b/NEXT_PHYSICS_STUDY.md) | Revised proposal; retention is a secondary axis (`NEXT_PHYSICS_STUDY.md:1`) |
-| [ADR-0025](adr/ADR-0025-bnv-retained-energy-study.md) | PROPOSED; study design, partition, spin history, gates and validation need owner decisions (`ADR-0025-bnv-retained-energy-study.md:1`) |
+| [BNV–rotochemical competition study](validation/results-first-bnv-pilot/stage-b/NEXT_PHYSICS_STUDY.md) | Historical proposal; approved S1/S2 results are linked below |
+| [ADR-0025](adr/ADR-0025-bnv-retained-energy-study.md) | ACCEPTED for restricted S1/S2: A, P-A, S-obs, H-new, V-proportional, G-short |
+| [Competition results](research/bnv-rotochemical-competition/README.md) | Completed S1 map and S2 short tests; independently cross-checked scientific candidates, awaiting scientific review |
 | [Tracked references](references/README.md) | Exact PDFs and provenance; distinguish missing R2006 from RFJ2006 (`references/README.md:1`) |
 
-The filenames of the revised study and ADR are intentionally stable. Committing
-them neither ratifies Stage B nor authorizes the proposed calculations. No
-certificate, numerical acceptance criterion, or historical failure is promoted.
+The owner explicitly ratified restricted Stage B and authorized S1/S2 on
+2026-11-12. The new results remain candidates for scientific review; no S3,
+certificate extension, microscopic mechanism or retention campaign is authorized.
+Historical failures and the original proposal remain available.
 
 ## External numerical evidence
 

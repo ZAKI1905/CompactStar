@@ -1,0 +1,26 @@
+{
+  "coefficients.tsv": {
+    "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/coefficients.tsv",
+    "sha256": "ec3942227c98532af4802db4bdd229603715556af9d44929082368b3afc7d831"
+  },
+  "tangent.tsv": {
+    "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/raw/tangent.tsv",
+    "sha256": "871fddddb4e6470552e9efc1a8b2f6f3dbe000d9b48572369aa29e8360f1aa5c"
+  },
+  "anchors.tsv": {
+    "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/preliminary-pair-20261110-r1/thermal-model/anchors.tsv",
+    "sha256": "9e304aabd11fe5f3c6ea6482bce42750a2aeebb964da765a3c7a54f83229bf6d"
+  },
+  "capacity.tsv": {
+    "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/preliminary-pair-20261110-r1/thermal-model/capacity.tsv",
+    "sha256": "4c23535180137756691bda078f358818eb04987437f3c5d26bd52ff9f1da6979"
+  },
+  "certificate.tsv": {
+    "source": "/mnt/sdd/zaki/CompactStar/linux-transition-20261010/ba13-recovery/run1/fit/certificate.tsv",
+    "sha256": "38bc85c62621b390ff2d7c8affee1f5ba4e9f0f44233047bb9959f2d685fd5ba"
+  },
+  "structure.json": {
+    "sha256": "221deac1a4e757e7a5fd1cae1753528ec062b3fb08d25b57622d02916175194b",
+    "source": "Selected existing baseline I/N and native profile surface; constants from named production owners."
+  }
+}

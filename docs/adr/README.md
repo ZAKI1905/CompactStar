@@ -90,13 +90,12 @@ Identified during Phase-0 reconnaissance or deferred by an accepted ADR; not yet
 | Dependency ownership — Zaki / Confind | Phase 1 |
 | Direct-Urca muon channel omission (INV-16) | Phase 5 |
 
-## Proposed BNV–rotochemical competition study (2026-11-12)
+## Restricted BNV–rotochemical competition study (2026-11-12)
 
-[ADR-0025](ADR-0025-bnv-retained-energy-study.md) is **PROPOSED**, with owner
-selection pending. As revised, it proposes a staged study of how BNV-induced
-chemical disequilibrium changes a rotochemically heated star, with the
-retained-energy partition as a secondary axis. It presents alternatives for the
-study design, partition convention, spin matching, validity gates and validation
-tier. No implementation or new campaign is authorized; Stage B owner
-ratification remains a separate decision
-(`ADR-0025-bnv-retained-energy-study.md:1`).
+[ADR-0025](ADR-0025-bnv-retained-energy-study.md) is **ACCEPTED for S1/S2**:
+A, P-A, S-obs, H-new, V-proportional and G-short. The owner separately ratified
+Stage B's conditional disposition with C1–C7 retained. The
+[completed competition study](../research/bnv-rotochemical-competition/README.md)
+contains the stationary map and short simultaneous-driving tests. Those new
+scientific results remain candidates for independent review. No longer-horizon
+gate, S3, microscopic process or retention campaign was selected.

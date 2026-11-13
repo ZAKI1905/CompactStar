@@ -1,7 +1,7 @@
 install(FILES
     EquilibriumBaryonTangent.hpp
     OrdinaryMatterSource.hpp MovingReferenceSource.hpp ProductFate.hpp
-    DirectEnergyLedger.hpp StaticZeroSpinHistory.hpp FrozenBnvValidity.hpp
+    DirectEnergyLedger.hpp ActualPotentialPartition.hpp StaticZeroSpinHistory.hpp FrozenBnvValidity.hpp
     FrozenControlledBnvRunContext.hpp ControlledBnvSecularDriver.hpp BnvDiagnostics.hpp
     PassiveCheckpointOutput.hpp
     DESTINATION include/CompactStar/Physics/BNV)

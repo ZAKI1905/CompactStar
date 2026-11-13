@@ -1,0 +1,1 @@
+PASS short four-case production runs; corner/partition reductions, guards, signs, chain identity, tolerance and passive schedule checks. Independent cross-check pending.

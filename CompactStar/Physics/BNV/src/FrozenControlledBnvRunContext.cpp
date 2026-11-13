@@ -32,6 +32,11 @@ FrozenControlledBnvRunContext::FrozenControlledBnvRunContext(
         Need(dynamic_cast<const StaticZeroSpinHistory*>(spin_.get())!=nullptr,"controlled BNV requires StaticZeroSpinHistory");
         Need(spin_->Identity()=="static zero spin Omega=0 rad s^-1 OmegaDot=0 rad s^-2; Phase-6A-1 controlled abstract BNV","wrong zero-spin identity");
     }
+    else if(purpose==RC::RunPurpose::PrescribedCombinedDriving)
+    {
+        Need(dynamic_cast<const RC::ParameterizedDipoleHistory*>(spin_.get())!=nullptr,
+             "combined controlled driving requires parameterized prescribed history");
+    }
     else
     {
         Need(purpose==RC::RunPurpose::ControlledTrajectory,"unsupported controlled BNV run purpose");
@@ -101,6 +106,8 @@ ControlledBnvEvaluation FrozenControlledBnvRunContext::EvaluateImpl(
     double epoch,const Evolution::StateVector& state,const Evolution::DriverContext& ctx,bool reaction_free) const
 {
     RequireCheapCurrent();
+    Need(!reaction_free||ordinary_->Qualification().purpose!=RC::RunPurpose::PrescribedCombinedDriving,
+         "reaction-free control is not admitted for prescribed combined driving");
     // The accepted Structure-1 certificate samples Cstar and the envelope only
     // on 1e6--1e9 K. The wider ordinary thermal cache is not BNV certification.
     // Enforce this before evaluating any trial RHS or checkpoint diagnostic.
@@ -151,11 +158,14 @@ ControlledBnvEvaluation FrozenControlledBnvRunContext::EvaluateImpl(
     d.bSigma_residual_count_s=out.moving.baryon_residual_count_s;d.lift_residual_count_s=out.moving.lift_residual_count_s;
     d.eta_MeV={ee,em};d.xi={eta.Xi(RC::BetaChannel::Npe,T),eta.Xi(RC::BetaChannel::NpMu,T)};
     d.R_count_s=out.ordinary.reaction.rate_count_s;
+    d.omega_rad_s=out.ordinary.spin.omega_rad_s;d.omega_dot_rad_s2=out.ordinary.spin.omega_dot_rad_s2;
     for(std::size_t i=0;i<2;++i)
     {
         const auto row=i==0?RC::BetaChannel::Npe:RC::BetaChannel::NpMu;
         d.eta_dot_from_sigma_MeV_s[i]=-ordinary_->Z(row,RC::BetaChannel::Npe)*out.moving.sigma_count_s[0]-ordinary_->Z(row,RC::BetaChannel::NpMu)*out.moving.sigma_count_s[1];
         d.eta_dot_from_beta_MeV_s[i]=-ordinary_->Z(row,RC::BetaChannel::Npe)*d.R_count_s[0]-ordinary_->Z(row,RC::BetaChannel::NpMu)*d.R_count_s[1];
+        d.eta_dot_from_spin_MeV_s[i]=2*ordinary_->W(row)*d.omega_rad_s*d.omega_dot_rad_s2;
+        d.spin_reference_count_s[i]=-2*ordinary_->I(row)*d.omega_rad_s*d.omega_dot_rad_s2;
     }
     const double z00=ordinary_->Z(RC::BetaChannel::Npe,RC::BetaChannel::Npe),z01=ordinary_->Z(RC::BetaChannel::Npe,RC::BetaChannel::NpMu);
     const double z10=ordinary_->Z(RC::BetaChannel::NpMu,RC::BetaChannel::Npe),z11=ordinary_->Z(RC::BetaChannel::NpMu,RC::BetaChannel::NpMu);
@@ -163,7 +173,12 @@ ControlledBnvEvaluation FrozenControlledBnvRunContext::EvaluateImpl(
     d.Echem_MeV=.5*(z11*ee*ee-(z01+z10)*ee*em+z00*em*em)/det;
     d.Echem_dot_reaction_MeV_s=-ee*d.R_count_s[0]-em*d.R_count_s[1];
     d.Echem_dot_source_MeV_s=-ee*d.sigma_count_s[0]-em*d.sigma_count_s[1];
-    d.Echem_dot_total_MeV_s=d.Echem_dot_reaction_MeV_s+d.Echem_dot_source_MeV_s;
+    d.Echem_dot_spin_MeV_s=-ee*d.spin_reference_count_s[0]-em*d.spin_reference_count_s[1];
+    d.Echem_dot_total_MeV_s=d.Echem_dot_reaction_MeV_s+d.Echem_dot_source_MeV_s+d.Echem_dot_spin_MeV_s;
+    d.A_B_erg_s=RC::MeVToErg*d.Echem_dot_source_MeV_s;
+    d.A_spin_erg_s=RC::MeVToErg*d.Echem_dot_spin_MeV_s;
+    const double chain=((z11*ee-z01*em)*out.eta_dot_MeV_s[0]+(z00*em-z10*ee)*out.eta_dot_MeV_s[1])/det;
+    d.Echem_chain_residual_erg_s=RC::MeVToErg*(chain-d.Echem_dot_total_MeV_s);
     d.mu_B_inf_MeV=mu_B_inf_MeV_;d.mu_n_actual_inf_MeV=out.direct.potential.mu_n_actual_inf_MeV;
     d.g_actual_residual_MeV=out.direct.potential.reconstruction_residual_MeV;
     d.P_dir_eq_erg_s=out.direct.power_eq_erg_s;d.P_dir_actual_erg_s=out.direct.power_actual_erg_s;
@@ -182,6 +197,10 @@ ControlledBnvEvaluation FrozenControlledBnvRunContext::EvaluateImpl(
     d.DeltaPbeta_erg_s=out.ordinary.beta.incremental_beta_erg_s;d.Lnu_eq_erg_s=out.ordinary.reaction.EquilibriumErgPerSecond();
     d.Lnu_full_erg_s=d.Lnu_eq_erg_s+d.DeltaLnu_erg_s;d.Lgamma_erg_s=out.ordinary.Lgamma_erg_s;d.Lother_erg_s=out.ordinary.Lother_neutrino_erg_s;
     d.Pnet_erg_s=d.P_dir_actual_erg_s+d.DeltaPbeta_erg_s-d.Lnu_eq_erg_s-d.Lgamma_erg_s-d.Lother_erg_s;
+    // Thermal-plus-chemical subsystem only; no global rotating-star closure.
+    const double subsystem_input=d.P_dir_actual_erg_s+d.A_B_erg_s+d.A_spin_erg_s-
+      d.Lnu_full_erg_s-d.Lgamma_erg_s-d.Lother_erg_s;
+    d.subsystem_residual_erg_s=d.Pnet_erg_s+RC::MeVToErg*chain-subsystem_input;
     d.Cstar_erg_K=out.ordinary.Cstar_erg_K;d.Tinf_K=T;d.Tsurface_inf_K=out.ordinary.Tsurface_infinity_K;d.valid_through_sample=true;
     for(double v:{out.eta_dot_MeV_s[0],out.eta_dot_MeV_s[1],out.x_dot_s,d.Echem_MeV,d.Pnet_erg_s,d.R18_residual_erg_s})
         Need(std::isfinite(v),"nonfinite controlled BNV evaluation");

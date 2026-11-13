@@ -1,0 +1,87 @@
+{
+  "job": "19430",
+  "minimum_beta_e": 1.000000066837741,
+  "minimum_surface_ratio": 0.34094605962211294,
+  "zoom_points": 183,
+  "representative_points": 32,
+  "thermal_root_bracket_scan": [
+    {
+      "drive": 1e-16,
+      "beta_e": 0.1,
+      "positive_T_sign_changes": 1
+    },
+    {
+      "drive": 1e-16,
+      "beta_e": 1.0,
+      "positive_T_sign_changes": 1
+    },
+    {
+      "drive": 1e-16,
+      "beta_e": 1.1650797590380966,
+      "positive_T_sign_changes": 1
+    },
+    {
+      "drive": 1e-16,
+      "beta_e": 3.0,
+      "positive_T_sign_changes": 1
+    },
+    {
+      "drive": 1e-16,
+      "beta_e": 100.0,
+      "positive_T_sign_changes": 1
+    },
+    {
+      "drive": 3.158273408348594e-12,
+      "beta_e": 0.1,
+      "positive_T_sign_changes": 1
+    },
+    {
+      "drive": 3.158273408348594e-12,
+      "beta_e": 1.0,
+      "positive_T_sign_changes": 1
+    },
+    {
+      "drive": 3.158273408348594e-12,
+      "beta_e": 1.1650797590380966,
+      "positive_T_sign_changes": 1
+    },
+    {
+      "drive": 3.158273408348594e-12,
+      "beta_e": 3.0,
+      "positive_T_sign_changes": 1
+    },
+    {
+      "drive": 3.158273408348594e-12,
+      "beta_e": 100.0,
+      "positive_T_sign_changes": 1
+    },
+    {
+      "drive": 1e-09,
+      "beta_e": 0.1,
+      "positive_T_sign_changes": 1
+    },
+    {
+      "drive": 1e-09,
+      "beta_e": 1.0,
+      "positive_T_sign_changes": 1
+    },
+    {
+      "drive": 1e-09,
+      "beta_e": 1.1650797590380966,
+      "positive_T_sign_changes": 1
+    },
+    {
+      "drive": 1e-09,
+      "beta_e": 3.0,
+      "positive_T_sign_changes": 1
+    },
+    {
+      "drive": 1e-09,
+      "beta_e": 100.0,
+      "positive_T_sign_changes": 1
+    }
+  ],
+  "reachability": "energy-norm build lower bound and local small-amplitude eigenmodes; no S3 or actual attainment claim",
+  "warning": "Exact-null slow modes are much narrower than main map cells. Three local e-folds are a diagnostic, not a rigorous settling time or depletion bound.",
+  "stable": true
+}

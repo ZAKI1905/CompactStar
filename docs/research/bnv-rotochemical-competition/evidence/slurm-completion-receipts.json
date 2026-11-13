@@ -1,0 +1,77 @@
+{
+  "19419": {
+    "returncode": 1,
+    "receipt": "",
+    "stderr": "slurm_load_jobs error: Invalid job id specified\n"
+  },
+  "19420": {
+    "returncode": 1,
+    "receipt": "",
+    "stderr": "slurm_load_jobs error: Invalid job id specified\n"
+  },
+  "19421": {
+    "returncode": 1,
+    "receipt": "",
+    "stderr": "slurm_load_jobs error: Invalid job id specified\n"
+  },
+  "19422": {
+    "returncode": 1,
+    "receipt": "",
+    "stderr": "slurm_load_jobs error: Invalid job id specified\n"
+  },
+  "19423": {
+    "returncode": 1,
+    "receipt": "",
+    "stderr": "slurm_load_jobs error: Invalid job id specified\n"
+  },
+  "19424": {
+    "returncode": 1,
+    "receipt": "",
+    "stderr": "slurm_load_jobs error: Invalid job id specified\n"
+  },
+  "19425": {
+    "returncode": 1,
+    "receipt": "",
+    "stderr": "slurm_load_jobs error: Invalid job id specified\n"
+  },
+  "19426": {
+    "returncode": 1,
+    "receipt": "",
+    "stderr": "slurm_load_jobs error: Invalid job id specified\n"
+  },
+  "19427": {
+    "returncode": 1,
+    "receipt": "",
+    "stderr": "slurm_load_jobs error: Invalid job id specified\n"
+  },
+  "19428": {
+    "returncode": 1,
+    "receipt": "",
+    "stderr": "slurm_load_jobs error: Invalid job id specified\n"
+  },
+  "19429": {
+    "returncode": 1,
+    "receipt": "",
+    "stderr": "slurm_load_jobs error: Invalid job id specified\n"
+  },
+  "19430": {
+    "returncode": 1,
+    "receipt": "",
+    "stderr": "slurm_load_jobs error: Invalid job id specified\n"
+  },
+  "19431": {
+    "returncode": 1,
+    "receipt": "",
+    "stderr": "slurm_load_jobs error: Invalid job id specified\n"
+  },
+  "19432": {
+    "returncode": 1,
+    "receipt": "",
+    "stderr": "slurm_load_jobs error: Invalid job id specified\n"
+  },
+  "19433": {
+    "returncode": 0,
+    "receipt": "JobId=19433 JobName=bnv-rc-power-check\n   UserId=zaki(1038) GroupId=zaki(1041) MCS_label=N/A\n   Priority=4294893174 Nice=0 Account=(null) QOS=(null)\n   JobState=COMPLETED Reason=None Dependency=(null)\n   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0\n   RunTime=00:00:01 TimeLimit=UNLIMITED TimeMin=N/A\n   SubmitTime=2026-11-12T19:59:32 EligibleTime=2026-11-12T19:59:32\n   AccrueTime=2026-11-12T19:59:32\n   StartTime=2026-11-12T19:59:35 EndTime=2026-11-12T19:59:36 Deadline=N/A\n   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-11-12T19:59:35 Scheduler=Main\n   Partition=phyall AllocNode:Sid=ekucn1:1771680\n   ReqNodeList=phyn004 ExcNodeList=(null)\n   NodeList=phyn004\n   BatchHost=phyn004\n   NumNodes=1 NumCPUs=2 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:*\n   TRES=cpu=2,node=1,billing=2\n   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*\n   MinCPUsNode=1 MinMemoryNode=4G MinTmpDiskNode=0\n   Features=(null) DelayBoot=00:00:00\n   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)\n   Command=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot/tools/research/bnv_competition/short_check.sbatch\n   WorkDir=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/worktrees/results-first-bnv-pilot\n   StdErr=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/bnv-rotochemical-competition-20261112-r3/short-check-19433.log\n   StdIn=/dev/null\n   StdOut=/mnt/sdd/zaki/CompactStar/linux-transition-20261010/bnv-rotochemical-competition-20261112-r3/short-check-19433.log\n   Power=\n   \n\n",
+    "stderr": ""
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-12",
+  "reviewer": "authoring agent visual inspection; not independent scientific review",
+  "status": "PASS",
+  "checks": [
+    "All six PNG exports inspected at readable resolution",
+    "Axes, labels, legends and footer separation checked",
+    "Final A/B/E layouts inspected after edits",
+    "Null-mode clipping and unresolved widths explicitly annotated",
+    "PDFs generated from the same figure objects"
+  ],
+  "png_sha256": {
+    "A_competition.png": "aa3f7a02a291ac7ac6f4cb6888398b7ad7eb5b3f51cbc6dfd4ec59381e07558c",
+    "B_temperature.png": "2b821799223d8e00c9c234d9343e1f3b52b3535838ac0d9b03d1a5c51fa299c2",
+    "C_channels.png": "b80816ba267ff11b08f343891186126fb0220a37a8fbba8ca946dcae44a5c14c",
+    "D_applicability.png": "964a1f61feaaae6777c98f55b82535e2c07cdae283c958cadb6d611f981eaa9d",
+    "E_reachability.png": "3ddb2c7c888a9013cc73614a9fc2229162ef3e58f74a4e0f581cb0c80ae27305",
+    "F_scaling_deposition.png": "7fa90b24b74452af77932e70080b569f3442ad22d2e63d1eeb3d91e858b24a0e"
+  }
+}

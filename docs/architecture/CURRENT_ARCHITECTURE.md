@@ -1,3 +1,14 @@
+> **BNV–rotochemical competition candidate (2026-11-12):** restricted Stage B
+> owner ratification is recorded; ADR-0025 authorizes S1/S2 only. The stationary
+> map is computed. A new prescribed combined-driving purpose admits the existing
+> chemical equation with a typed parameterized spin owner, P-A energy partition,
+> explicit escape ledger and spin chemical work. Four one-year matched runs and
+> independent checks pass within unchanged temperature/depletion guards.
+> No global rotating-star closure, S3 or broader certificate is claimed.
+> See [results and reproducibility](../research/bnv-rotochemical-competition/README.md).
+> The dated records below are historical; their former blockers/statuses are
+> retained without promotion of unrelated certificates.
+
 > Native P2 candidate assembly completed (2026-11-09): one authorized unchanged
 > fifteen-star sequence is retained in a lossless full-owner archive. Native source
 > and exact-zero control snapshots reconstruct identical backgrounds; two static

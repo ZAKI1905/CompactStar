@@ -1,0 +1,131 @@
+{
+  "status": "PASS",
+  "checks": {
+    "case_0": true,
+    "case_1": true,
+    "case_2": true,
+    "case_3": true,
+    "all_short_validity_guards": true,
+    "zero_direct_everywhere": true
+  },
+  "results": [
+    {
+      "case": 0,
+      "native_minus_independent_state": [
+        2.456395547037471e-20,
+        -0.0,
+        -0.0
+      ],
+      "independent_tolerance_difference": [
+        4.235164736271502e-21,
+        0.0,
+        0.0,
+        2.886579864025407e-15,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "chemical_integrated_residual_relative": 0.0,
+      "thermal_integrated_residual_relative": 2.893098256346848e-15,
+      "max_independent_chemical_rhs_relative": 0.0,
+      "max_chain_relative": 0.0,
+      "max_R18_relative": 0.0,
+      "max_escape_relative": 0.0,
+      "max_independent_power_relative": 1.6618993840500621e-15,
+      "near_equilibrium_net_weak_negative": true,
+      "chemical_energy_erg": 0.0,
+      "integrated_AB_erg": 0.0,
+      "integrated_Aspin_erg": 0.0,
+      "integrated_LH_erg": 0.0
+    },
+    {
+      "case": 1,
+      "native_minus_independent_state": [
+        -4.404571325722362e-20,
+        -7.754818242684634e-26,
+        -5.169878828456423e-26
+      ],
+      "independent_tolerance_difference": [
+        -7.792703114739563e-20,
+        8.326672684688674e-17,
+        5.551115123125783e-17,
+        -6.661338147750939e-16,
+        0.0,
+        6.071532165918825e-18,
+        -6.617444900424221e-23
+      ],
+      "chemical_integrated_residual_relative": 2.1467761666942078e-16,
+      "thermal_integrated_residual_relative": 5.166246886333706e-15,
+      "max_independent_chemical_rhs_relative": 3.191326526445461e-16,
+      "max_chain_relative": 2.162762052793513e-16,
+      "max_R18_relative": 0.0,
+      "max_escape_relative": 0.0,
+      "max_independent_power_relative": 1.6618993840500621e-15,
+      "near_equilibrium_net_weak_negative": true,
+      "chemical_energy_erg": 2.560791063283093e+27,
+      "integrated_AB_erg": 0.0,
+      "integrated_Aspin_erg": 2.5608436613797595e+27,
+      "integrated_LH_erg": 5.2598096666577565e+22
+    },
+    {
+      "case": 2,
+      "native_minus_independent_state": [
+        -1.6940658945086007e-20,
+        -9.04728794979874e-26,
+        5.169878828456423e-26
+      ],
+      "independent_tolerance_difference": [
+        1.1858461261560205e-20,
+        -1.1102230246251565e-16,
+        0.0,
+        -3.3306690738754696e-16,
+        -8.673617379884035e-19,
+        0.0,
+        -6.617444900424222e-24
+      ],
+      "chemical_integrated_residual_relative": 2.9371258113274123e-15,
+      "thermal_integrated_residual_relative": 2.273148629986822e-15,
+      "max_independent_chemical_rhs_relative": 1.7595133288256272e-16,
+      "max_chain_relative": 3.11751511900012e-16,
+      "max_R18_relative": 3.2193820868821004e-16,
+      "max_escape_relative": 0.0,
+      "max_independent_power_relative": 1.6618993840500621e-15,
+      "near_equilibrium_net_weak_negative": true,
+      "chemical_energy_erg": 2.620393474113724e+27,
+      "integrated_AB_erg": 2.620446616467405e+27,
+      "integrated_Aspin_erg": 0.0,
+      "integrated_LH_erg": 5.314235367285035e+22
+    },
+    {
+      "case": 3,
+      "native_minus_independent_state": [
+        -3.3881317890172014e-21,
+        -2.1810426307550534e-25,
+        -5.105255343100718e-25
+      ],
+      "independent_tolerance_difference": [
+        -8.470329472543003e-22,
+        -4.0592529337857286e-16,
+        -1.0061396160665481e-15,
+        4.440892098500626e-16,
+        8.870129023647033e-18,
+        -8.59569034873664e-18,
+        1.6285118309637732e-24
+      ],
+      "chemical_integrated_residual_relative": 1.1579054535958467e-15,
+      "thermal_integrated_residual_relative": 2.066498754533471e-16,
+      "max_independent_chemical_rhs_relative": 3.641213316245893e-15,
+      "max_chain_relative": 6.436288216308616e-16,
+      "max_R18_relative": 3.603030594506702e-16,
+      "max_escape_relative": 0.0,
+      "max_independent_power_relative": 1.6618993840500621e-15,
+      "near_equilibrium_net_weak_negative": true,
+      "chemical_energy_erg": 1.0872677415372179e+25,
+      "integrated_AB_erg": 3.5237928265464e+25,
+      "integrated_Aspin_erg": -2.4365023464030004e+25,
+      "integrated_LH_erg": 2.273860617780914e+20
+    }
+  ],
+  "job": "19433",
+  "scope": "Four one-year cases, independent DOP853 and dimensional polynomials. Chemical and thermal identities tested separately; no global rotating-star closure."
+}
